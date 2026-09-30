@@ -5,31 +5,31 @@ import { CENAS_POR_ID } from '../../data/cenas/cenaHelpers.js'
 import { getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
 import { GANGUES_SUCATA_ID } from '../../data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA } from '../../data/ganguesItens.js'
-import { brigaAutoLigada } from '../../hooks/useGanguesBrigaAutomatica.js'
 import { simularFarmRinha, lutaAoVivo, rinhaDoAlvo } from '../../engine/ganguesFarmAusente.js'
 import enemiesData from '../../data/gangues-enemies.json'
 
 // App em segundo plano (Isaias, 28/09/2026). Envolve a CENA, a LUTA e a tela
-// de VITÓRIA (por onde o avanço automático passa entre luta e rua). Dois
-// jeitos, decididos na hora em que o app vai pro fundo:
+// de VITÓRIA (por onde o avanço automático passa entre luta e rua).
 //
 // • NA RINHA (sessão de Rinha infinita — luta ou vitória com
 //   `storyTarget.rinha`): farm CALCULADO. Fica vivo 3 minutos (troca rápida
 //   de app não muda nada); bateu 3 minutos, a tela é desmontada e, na volta,
-//   sai a conta de 1 luta a cada 5 minutos fora (engine/ganguesFarmAusente.js).
-// • EM QUALQUER OUTRO LUGAR: nada é calculado nem desmontado — o jogo segue
-//   ao vivo no fundo (briga automática, automático da luta), do jeito de
-//   sempre, até o celular deixar. Se o celular matar a aba, "perdeu, te deu
-//   o que tinha que dar". Na volta, um relatório do que rodou.
+//   sai a conta de 1 luta a cada 5 minutos fora (engine/ganguesFarmAusente.js)
+//   e o cartão "Enquanto você tava fora".
+// • EM QUALQUER OUTRO LUGAR: NADA — nem marca no save, nem cartão na volta
+//   (Isaias, 30/09/2026: "não é pra exibir esse cartão se você não tiver na
+//   rinha... tá matando a minha aba"). O jogo segue ao vivo no fundo até o
+//   celular deixar, e na volta continua de onde está.
 //
 // O ponto de saída mora no SAVE — marca `storyProgress.__farmAusente`
-// (store.marcarFarmAusente, gravada sem debounce): { tipo, desde, foto,
-// lutas, vitorias, caiu } + na Rinha { territorioId, alvo, luta, ids }.
+// (store.marcarFarmAusente, gravada sem debounce): { tipo: 'rinha', desde,
+// foto, lutas, vitorias, caiu, remendos, territorioId, alvo, luta, ids }.
+// `alvo` null = a Rinha acabou no fundo (perdeu sem grana pra se remendar).
 // `foto` = grana/rep/sucata/poções/XP na saída: o relatório é a diferença
 // entre ela e o que o save tem na volta — vale com a página viva ou
 // recarregada (aba descartada). `lutas`/`vitorias`/`caiu` contam as lutas
 // que terminaram AO VIVO no fundo (a tela de vitória que monta com o app
-// escondido anota); na Rinha elas descontam do ritmo de 5 minutos.
+// escondido anota) e descontam do ritmo de 5 minutos.
 const GANGUES_FARM_ESPERA_MS = 3 * 60 * 1000
 const PAUSA_CALCULO_MS = 700
 const POCOES = new Set(GANGUES_ITENS_LISTA.filter(i => i.tipo === 'cura_pv' || i.tipo === 'cura_pm').map(i => i.id))
@@ -57,9 +57,10 @@ function sessaoRinha({ luta, vitoria }) {
     const emCurso = viva && !viva.terminou && viva.combatants?.length
     return { territorioId: alvo.territorioId, alvo, luta: emCurso ? { combatants: viva.combatants, round: viva.round || 1 } : null, ids: (st.match.playerTeam || []).map(m => m.id) }
   }
-  // Só vitória segue a sessão da Rinha; derrota encerra (a tela de derrota
-  // leva pra birosca).
-  return vitoria && useGanguesStore.getState().match.battleReport?.outcome === 'victory' ? { territorioId: alvo.territorioId, alvo, luta: null, ids: null } : null
+  // Vitória segue a sessão da Rinha; derrota também, se a casa remendou a
+  // tropa (tinha grana — `rinhaRemendada`); derrota sem grana encerra.
+  const segue = st.match.battleReport?.outcome === 'victory' || Boolean(st.storyTarget?.rinhaRemendada)
+  return vitoria && segue ? { territorioId: alvo.territorioId, alvo, luta: null, ids: null } : null
 }
 
 // O relatório: diferença entre a foto da saída e o save agora + as lutas.
@@ -70,7 +71,7 @@ function montarResumo(m, calc) {
     .filter(r => m.foto.xp[r.id] != null && nivelDe(r.xp_total) > nivelDe(m.foto.xp[r.id]))
     .map(r => ({ nome: r.sheet_name, de: nivelDe(m.foto.xp[r.id]), para: nivelDe(r.xp_total) }))
   return {
-    tipo: m.tipo,
+    remendos: (m.remendos || 0) + (calc?.remendos || 0),
     lutas: (m.lutas || 0) + (calc?.lutas || 0),
     vitorias: (m.vitorias || 0) + (calc?.vitorias || 0),
     grana: agora.grana - m.foto.grana, rep: agora.rep - m.foto.rep, sucata: agora.sucata - m.foto.sucata,
@@ -93,16 +94,14 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
     const store = useGanguesStore.getState
     const gravar = mudanca => store().marcarFarmAusente({ ...marcaAtual(), ...mudanca })
 
-    // App foi pro fundo: grava a saída (se ainda não tem — outra tela pode
-    // ter gravado antes, nos minutos em que o jogo seguiu vivo).
+    // App foi pro fundo NA RINHA: grava a saída (se ainda não tem — outra
+    // tela pode ter gravado antes, nos minutos em que o jogo seguiu vivo).
+    // Fora da Rinha não grava nada.
     const sair = () => {
       if (marcaAtual()) return
       const rinha = sessaoRinha({ luta, vitoria })
-      // `ativo`: tinha algo rodando sozinho na saída (briga automática da rua
-      // ou luta no automático) — aí o relatório sai mesmo se nada fechou
-      // (o celular pausou o jogo antes), pra ninguém voltar sem resposta.
-      const ativo = brigaAutoLigada() || Boolean(luta && lutaAoVivo.ler?.()?.auto)
-      store().marcarFarmAusente({ tipo: rinha ? 'rinha' : 'rua', desde: Date.now(), foto: fotoDoSave(), lutas: 0, vitorias: 0, caiu: false, ativo, ...(rinha || {}) })
+      if (!rinha) return
+      store().marcarFarmAusente({ tipo: 'rinha', desde: Date.now(), foto: fotoDoSave(), lutas: 0, vitorias: 0, caiu: false, remendos: 0, ...rinha })
     }
     // Esta tela montou com o app no fundo: a vitória conta a luta que acabou
     // ao vivo; na Rinha, a marca segue a sessão (alvo novo, luta sem foto).
@@ -110,10 +109,11 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
       const m = marcaAtual()
       if (!m || !vitoria) return
       const venceu = store().match.battleReport?.outcome === 'victory'
-      const rinha = m.tipo === 'rinha' ? sessaoRinha({ luta, vitoria }) : null
-      // Derrota (na rua ou na Rinha) para o jogo ali: a Rinha deixa de ser
-      // Rinha na marca, senão o cálculo seguiria lutando com a tropa no chão.
-      gravar({ lutas: (m.lutas || 0) + 1, vitorias: (m.vitorias || 0) + (venceu ? 1 : 0), caiu: m.caiu || !venceu, ...(rinha ? { alvo: rinha.alvo, luta: null } : {}), ...(!venceu && m.tipo === 'rinha' ? { tipo: 'rua', alvo: null, luta: null } : {}) })
+      const rinha = sessaoRinha({ luta, vitoria })
+      // Perdeu e a casa remendou: conta o remendo e a roda segue. Perdeu sem
+      // grana: a Rinha acabou ali (`alvo` null) — o cálculo não segue lutando
+      // com a tropa no chão.
+      gravar({ lutas: (m.lutas || 0) + 1, vitorias: (m.vitorias || 0) + (venceu ? 1 : 0), remendos: (m.remendos || 0) + (!venceu && rinha ? 1 : 0), caiu: m.caiu || (!venceu && !rinha), alvo: rinha ? rinha.alvo : null, luta: null })
     }
     // Só na Rinha: 3 minutos no fundo, a tela desmonta (a foto da luta vai
     // pra marca). Luta que acabou agora espera a vitória montar (é ela que
@@ -121,7 +121,7 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
     const armar = () => {
       clearTimeout(espera)
       const m = marcaAtual()
-      if (m?.tipo !== 'rinha') return
+      if (m?.tipo !== 'rinha' || !m.alvo) return
       const desmontar = () => {
         if (luta && lutaAoVivo.ler?.()?.terminou) { espera = setTimeout(desmontar, 3000); return }
         const rinha = sessaoRinha({ luta, vitoria })
@@ -137,7 +137,8 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
       clearTimeout(espera)
       const m = marcaAtual()
       const ms = m ? Date.now() - m.desde : 0
-      if (!m || ms < GANGUES_FARM_ESPERA_MS || !m.foto) {
+      // Marca que não é da Rinha (save de antes da v3.81.5) só é limpa.
+      if (!m || ms < GANGUES_FARM_ESPERA_MS || !m.foto || m.tipo !== 'rinha') {
         if (m) store().limparFarmAusente()
         setFase(f => (f === 'fora' ? 'cena' : f))
         return
@@ -145,14 +146,13 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
       const fechar = calc => {
         const r = { ...montarResumo(m, calc), segundos: ms / 1000, alvo: m.alvo || null }
         const cena = CENAS_POR_ID[m.territorioId]
-        const poi = m.tipo === 'rinha' ? cena?.pois.find(p => p.id === m.alvo?.cenaPoiId) : null
+        const poi = cena?.pois.find(p => p.id === (m.alvo?.cenaPoiId || 'rinha'))
         r.lugar = poi?.i18n ? tRef.current(`${poi.i18n}.nome`) : ''
         store().limparFarmAusente()
-        if (m.tipo === 'rua' && !mudouAlgo(r) && !m.ativo) { setFase(f => (f === 'fora' ? 'cena' : f)); return }
         setResumo(r)
         setFase('resultado')
       }
-      if (m.tipo !== 'rinha') { fechar(null); return }
+      if (!m.alvo) { fechar(null); return }
       setFase('calculando')
       // Deixa a tela de carga pintar antes da conta (que roda de uma vez).
       timer = setTimeout(() => {
@@ -186,15 +186,15 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
     )
   }
   if (fase === 'resultado' && resumo) {
-    const rinha = resumo.tipo === 'rinha'
-    const aviso = resumo.derrota ? 'derrota' : resumo.teto ? 'teto' : rinha && !resumo.lutas ? 'pouco_tempo' : null
+    const aviso = resumo.derrota ? 'derrota' : resumo.teto ? 'teto' : !resumo.lutas ? 'pouco_tempo' : null
+    const podeContinuar = !resumo.derrota && resumo.alvo && aoContinuarRinha
     const min = Math.max(1, Math.round(resumo.segundos / 60))
     return (
       <div className="gang-farm-ausente" role="dialog" aria-modal="true" aria-labelledby="gang-farm-ausente-titulo">
         <div className="gang-farm-ausente__card">
           <span className="gang-farm-ausente__eyebrow">{t('games.gangues.farm_ausente.eyebrow')}</span>
           <h2 id="gang-farm-ausente-titulo">{t('games.gangues.farm_ausente.titulo')}</h2>
-          <p className="gang-farm-ausente__tempo">{rinha ? t('games.gangues.farm_ausente.tempo', { min, lugar: resumo.lugar || '—' }) : t('games.gangues.farm_ausente.tempo_rua', { min })}</p>
+          <p className="gang-farm-ausente__tempo">{t('games.gangues.farm_ausente.tempo', { min, lugar: resumo.lugar || '—' })}</p>
           {mudouAlgo(resumo) && (
             <dl className="gang-farm-ausente__numeros">
               <div><dt>{t('games.gangues.farm_ausente.lutas')}</dt><dd>{resumo.vitorias}/{resumo.lutas}</dd></div>
@@ -210,15 +210,15 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
             </ul>
           )}
           {aviso && <p className={`gang-farm-ausente__aviso is-${aviso}`}>{t(`games.gangues.farm_ausente.${aviso}`)}</p>}
-          {rinha && resumo.meioNaoConta && resumo.lutas > 0 && <p className="gang-farm-ausente__aviso">{t('games.gangues.farm_ausente.meio_nao_conta')}</p>}
-          {!rinha && <p className="gang-farm-ausente__aviso">{t(mudouAlgo(resumo) ? 'games.gangues.farm_ausente.ao_vivo' : 'games.gangues.farm_ausente.nada_rodou')}</p>}
-          {rinha && !resumo.derrota && resumo.alvo && aoContinuarRinha && (
+          {resumo.remendos > 0 && <p className="gang-farm-ausente__aviso">{t('games.gangues.farm_ausente.remendos', { n: resumo.remendos })}</p>}
+          {resumo.meioNaoConta && resumo.lutas > 0 && <p className="gang-farm-ausente__aviso">{t('games.gangues.farm_ausente.meio_nao_conta')}</p>}
+          {podeContinuar && (
             <button type="button" className="gang-farm-ausente__voltar" onClick={() => { const alvo = resumo.alvo; setResumo(null); setFase('cena'); aoContinuarRinha(alvo) }}>
               {t('games.gangues.farm_ausente.continuar_rinha')}
             </button>
           )}
-          <button type="button" className={`gang-farm-ausente__voltar${rinha && !resumo.derrota && resumo.alvo && aoContinuarRinha ? ' is-secundario' : ''}`} onClick={() => { setResumo(null); setFase('cena'); if (rinha) aoVoltar?.() }}>
-            {t(rinha ? 'games.gangues.farm_ausente.voltar' : 'games.gangues.farm_ausente.seguir')}
+          <button type="button" className={`gang-farm-ausente__voltar${podeContinuar ? ' is-secundario' : ''}`} onClick={() => { setResumo(null); setFase('cena'); aoVoltar?.() }}>
+            {t('games.gangues.farm_ausente.voltar')}
           </button>
         </div>
       </div>

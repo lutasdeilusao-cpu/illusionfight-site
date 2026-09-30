@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useGanguesAutoLembrado, chaveDoSave } from './useGanguesVelocidadeAuto.js'
-import { cicloDoPinoMs, farolDe } from '../components/cena/GanguesCenaAtores.jsx'
+import { farolDe, alcanceDoPino } from '../components/cena/GanguesCenaAtores.jsx'
+import { validPosition, validPos, hitsSolid } from '../engine/ganguesCenaMotor.js'
 
 /* ══════════════════════════════════════════════════════════════
    BRIGA AUTOMÁTICA na cena (pedido do Isaias, 27/09/2026)
@@ -25,32 +26,22 @@ import { cicloDoPinoMs, farolDe } from '../components/cena/GanguesCenaAtores.jsx
    perder uma luta DESLIGA todo automático (desligarAutomaticos, chamado
    pela derrota da cena e pelo farm ausente).
 
-   ANTI-LOOP ("ignora esse personagem só nessa primeira colisão, até
-   descolidir"): voltar de uma luta te devolve colado no mesmo adversário —
-   sem trava, entraria em luta de novo na hora, pra sempre, e o jogador nem
-   conseguiria alcançar o switch. Então todo oponente que já disparou (ou
-   foi barrado por uma trava — rep, dívida, informante, tropa no chão), o
-   adversário da última luta, e quem já estava encostado na hora de ligar o
-   switch ficam IGNORADOS até a colisão com eles acabar. Separou → vale de
-   novo: dá pra ficar parado esperando o bicho voltar a encostar.
-   Ou até quem anda COMPLETAR UMA VOLTA do caminho dele (v3.69.1 — Isaias,
-   parado no meio da patrulha: "ele completou o caminho mais de duas vezes...
-   o usuário está em cima dele esperando batalhar"): quem fica em cima do
-   caminho quer briga, então passou uma volta inteira desde que entrou na
-   lista, vale de novo mesmo sem nunca ter descolado.
-   Enquanto ignorado, o personagem que ANDA não para ao encostar (a pausa
-   normal existe pra deixar o jogador interagir) — atravessa, termina o
-   caminho dele e, na próxima passada, encosta de novo e aí sim é briga.
-   Por isso o hook publica `ignorados` pra cena (PinoAlvo, prop `ignorado`).
-   Separar = ficar SEM encostar por SEPARACAO_MS seguidos, não um piscar:
-   a colisão é medida na tela a cada 150ms e pisca na borda (a animação
-   parada do personagem mexe o círculo dele) — uma leitura "soltou" só já
-   liberava o adversário e a luta voltava no quadro seguinte (o loop, pego
-   no teste do ciclo completo: luta → vitória → volta → luta de novo em
-   ~1s). Cada item: `visto` = já vimos ele encostado depois de entrar na
-   lista (o adversário da última luta pode levar um passo pra encostar de
-   novo, porque o passeio dele reinicia quando a tela volta); `soltoDesde`
-   = desde quando está sem encostar; `desde` = quando entrou na lista.
+   ENCOSTOU, ENTROU (Isaias, 30/09/2026: "o cara passa uma, duas, três
+   vezes em você e aí finalmente triga a briga... a ideia é encostou, entrou
+   na briga"). Antes o adversário da última luta, quem já estava encostado ao
+   ligar o switch e quem foi barrado ficavam numa lista de IGNORADOS até
+   descolar ou até dar uma volta inteira no caminho — por isso a briga
+   demorava várias passadas. Hoje a lista existe só pra briga BARRADA por
+   trava (rep, dívida, informante, tropa no chão), senão o aviso da trava
+   repetiria a cada 150ms: fica ignorado até ficar SEPARACAO_MS sem encostar.
+   O loop da volta ("você tá na mesma colisão que o cara quando sai da
+   briga") é resolvido na POSIÇÃO, não numa lista (voltaDaBriga, abaixo, e
+   faseLongeDe em GanguesCenaAtores.jsx):
+   • quem ANDA volta na ponta do caminho mais longe do jogador;
+   • e o JOGADOR volta afastado do ponto dele, além de onde ele alcança
+     andando (alcanceDoPino + VOLTA_FOLGA). Só a 1ª parte não bastava: o
+     caminho é curto e, testado, o adversário voltava a encostar em 1–3 s,
+     luta atrás de luta com o jogador parado. Andou até ele, briga na hora.
    ══════════════════════════════════════════════════════════════ */
 
 const GANGUES_BRIGA_AUTO_CHAVE = 'ldi-gangues-briga-auto'
@@ -89,6 +80,25 @@ const entraSozinho = alvo => Boolean(brigaDoAlvo(alvo))
 // qualquer coisa aberta por cima da cena (diálogo, modal, ficha, bolsa...).
 const SEPARACAO_MS = 700
 const VIGIA_MS = 150
+// Além do alcance do adversário, quanto o jogador volta afastado: a colisão
+// (≈40px entre os dois desenhos) + folga — ainda perto pra achar ele.
+const VOLTA_FOLGA = 60
+const GIROS = [0, 0.79, -0.79, 1.57, -1.57, 2.36, -2.36, 3.14]
+
+/** Onde o jogador volta depois de brigar com `poi`: afastado do ponto dele,
+ *  além de onde ele chega andando, na direção em que o jogador já estava (ou
+ *  a mais próxima dela que não caia em parede nem fora do mapa). */
+export function voltaDaBriga(player, poi, { colliders, world, gate, local }) {
+  if (!poi?.world) return player
+  const longe = alcanceDoPino(poi) + VOLTA_FOLGA
+  if (Math.hypot(player.x - poi.world.x, player.y - poi.world.y) >= longe) return player
+  const base = Math.atan2((player.y - poi.world.y) || 1, player.x - poi.world.x)
+  for (const giro of GIROS) {
+    const q = { x: Math.round(poi.world.x + Math.cos(base + giro) * longe), y: Math.round(poi.world.y + Math.sin(base + giro) * longe) }
+    if ((local ? validPos(q, world) : validPosition(q, world)) && !hitsSolid(q.x, q.y, gate, colliders)) return q
+  }
+  return player
+}
 // Aviso antes da luta (v3.70.0 — Isaias: "tá tão automático... falta o cara
 // ter uma noção de que tá entrando numa briga"): encostou, sobe um pop-up
 // com uma frase de rua por ANUNCIO_MS e só depois a luta abre. A cena só
@@ -97,9 +107,11 @@ const VIGIA_MS = 150
 const ANUNCIO_MS = 1200
 const ANUNCIO_FRASES = 8
 
-export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, bloqueado, ultimoPoiId, onBriga }) {
+export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, bloqueado, onBriga }) {
   const [ligado, setLigado] = useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
-  const ignorados = useRef(new Map(ultimoPoiId ? [[ultimoPoiId, { visto: false, soltoDesde: null, desde: Date.now() }]] : []))
+  // Só quem foi BARRADO por trava (ver o cabeçalho): se a luta abriu, a cena
+  // desmonta e a lista vai junto.
+  const ignorados = useRef(new Map())
   // Cópia em estado (só os ids) pra cena saber quem não deve pausar.
   const [ignoradosIds, setIgnoradosIds] = useState(() => new Set(ignorados.current.keys()))
   const publicar = useCallback(() => {
@@ -121,11 +133,8 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, b
       const agora = Date.now()
       for (const [poiId, info] of ignorados.current) {
         const alvo = lista.find(a => a.id === poiId)
-        const ciclo = alvo && cicloDoPinoMs(alvo)
-        if (ciclo && agora - info.desde >= ciclo) { ignorados.current.delete(poiId); continue }
-        if (alvo && colide(alvo)) { info.visto = true; info.soltoDesde = null; continue }
         if (!alvo) { if (lista.length) ignorados.current.delete(poiId); continue }
-        if (!info.visto) continue
+        if (colide(alvo)) { info.soltoDesde = null; continue }
         info.soltoDesde ??= agora
         if (agora - info.soltoDesde >= SEPARACAO_MS) ignorados.current.delete(poiId)
       }
@@ -133,20 +142,14 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, b
       if (!on || !ativo || anunciando.current) return
       const alvo = lista.find(a => entraSozinho(a) && !ignorados.current.has(a.id) && colide(a))
       if (!alvo) return
-      ignorados.current.set(alvo.id, { visto: true, soltoDesde: null, desde: agora })
+      ignorados.current.set(alvo.id, { soltoDesde: null })
       publicar()
       brigar(alvo, brigaDoAlvo(alvo))
     }, VIGIA_MS)
     return () => clearInterval(id)
   }, [publicar])
 
-  const alternar = useCallback(() => {
-    // Ligando: quem já está encostado agora não dispara de surpresa — só
-    // depois de separar e encostar de novo.
-    if (!ligado) for (const a of alvos) if (entraSozinho(a) && colidindo(a)) ignorados.current.set(a.id, { visto: true, soltoDesde: null, desde: Date.now() })
-    publicar()
-    setLigado(!ligado)
-  }, [ligado, alvos, colidindo, setLigado, publicar])
+  const alternar = useCallback(() => setLigado(!ligado), [ligado, setLigado])
 
   const anunciar = useCallback((continuar) => {
     anunciando.current = true

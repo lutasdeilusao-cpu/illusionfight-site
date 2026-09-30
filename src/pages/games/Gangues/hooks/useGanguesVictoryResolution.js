@@ -9,7 +9,7 @@ import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } 
 import { premio } from '../data/ganguesApostas.js'
 import { nivelTetoDaHistoria } from '../data/ganguesTerritorios.js'
 import { GANGUES_LEVEL_CAP } from '../data/ganguesCharacters.js'
-import { CENAS_POR_ID, destinoSocorroDerrota } from '../data/cenas/cenaHelpers.js'
+import { CENAS_POR_ID, destinoSocorroDerrota, custoRecuperacaoRinha } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_SUCATA_ID } from '../data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
 import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
@@ -152,6 +152,20 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       sfx.win()
     } else {
       sfx.lose()
+      // Rinha com grana (Isaias, 30/09/2026: "se você perdeu e tá com grana,
+      // faz a recuperação e volta pra rinha... até ficar sem grana"): a casa
+      // cobra a recuperação do bairro (3× o descanso — 30 na Pista), remenda
+      // a tropa e a roda segue; nada desliga. Sem grana pra isso a Rinha
+      // acaba e cai no caminho de qualquer derrota (birosca), logo abaixo.
+      const cenaRinha = emCena && storyAlvo?.rinha ? CENAS_POR_ID[storyAlvo.cenaId] : null
+      const custoRinha = cenaRinha ? custoRecuperacaoRinha(cenaRinha, store.cenaProgresso[cenaRinha.id]) : 0
+      if (cenaRinha && store.grana >= custoRinha && store.gastarGrana(custoRinha)) {
+        store.restaurarPvPmTodos()
+        store.setStoryTarget({ ...storyAlvo, rinhaRemendada: true })
+        setSocorro({ tipo: 'rinha', custo: custoRinha, grana: store.grana - custoRinha })
+        const timerRinha = setTimeout(() => store.saveParticipantProgress(escaladosIds), 400)
+        return () => clearTimeout(timerRinha)
+      }
       // Perdeu na cena = desliga TODO automático (Isaias, 28/09/2026: "faz ele
       // começar de novo", pra ter interação) — a próxima luta/cena já nasce manual.
       // Vale pra Rinha também (Isaias, 30/09/2026, 2º relato: "os personagens

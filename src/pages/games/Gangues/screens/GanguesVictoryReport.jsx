@@ -74,10 +74,11 @@ export default function GanguesVictoryReport({
   const seguir = () => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }
   // Rinha infinita: ganhou, a próxima luta vem sozinha (adversário novo, força
   // sorteada, a casa remenda a tropa — ver GanguesRoute); a aposta da Feira
-  // vale só na 1ª da sessão. PERDEU, acabou a Rinha: cai no caminho normal da
-  // derrota (birosca), sem "próxima luta".
-  const naRinha = Boolean(storyAlvo?.rinha) && noModoHistoria && victory
-  const proximaRinha = () => { store.setStoryTarget({ ...storyAlvo, aposta: 0, rinhaLuta: (storyAlvo.rinhaLuta || 1) + 1 }); onNavigate('story-combat') }
+  // vale só na 1ª da sessão. PERDEU com grana, a casa cobrou a recuperação e
+  // a roda segue igual (socorro.tipo 'rinha', useGanguesVictoryResolution);
+  // perdeu SEM grana, acabou: caminho normal da derrota (birosca).
+  const naRinha = Boolean(storyAlvo?.rinha) && noModoHistoria && (victory || socorro?.tipo === 'rinha')
+  const proximaRinha = () => { const { rinhaRemendada, ...alvo } = storyAlvo; store.setStoryTarget({ ...alvo, aposta: 0, rinhaLuta: (alvo.rinhaLuta || 1) + 1 }); onNavigate('story-combat') }
   // Briga automática da cena ligada: "Segue na quebrada" se clica sozinho em
   // 3s (ver useGanguesAvancoAutomatico). A vitória sobre o chefe fica de fora
   // — é o fecho do bairro, com a vaga de recruta pra decidir — e a derrota
@@ -157,7 +158,7 @@ export default function GanguesVictoryReport({
           a recuperação já foi cobrada (ver socorroDerrota). Mostra o preço. */}
       {!victory && socorro && (
         <section className="gang-reward-panel gang-socorro-panel">
-          <span className="gang-reward-panel__kicker">{t('games.gangues.report.socorro_titulo')}</span>
+          <span className="gang-reward-panel__kicker">{t(socorro.tipo === 'rinha' ? 'games.gangues.report.socorro_rinha_titulo' : 'games.gangues.report.socorro_titulo')}</span>
           {socorro.perda?.itemId && <p className="gang-socorro-panel__texto">{t('games.gangues.report.perda_item', { item: t(getGanguesItem(socorro.perda.itemId)?.nome || '') })}</p>}
           {socorro.perda?.grana > 0 && <p className="gang-socorro-panel__texto">{t('games.gangues.report.perda_grana', { n: socorro.perda.grana })}</p>}
           <p className="gang-socorro-panel__texto">{t(`games.gangues.report.socorro_${socorro.tipo}`, socorro)}</p>

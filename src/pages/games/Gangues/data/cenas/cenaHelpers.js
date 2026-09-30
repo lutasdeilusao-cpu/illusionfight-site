@@ -100,6 +100,15 @@ export function destinoSocorroDerrota(cena, prog = {}) {
   return candidatos[0] || null
 }
 
+/** Quanto a Rinha cobra pra remendar a tropa depois de uma derrota e seguir
+ *  na roda (Isaias, 30/09/2026): a recuperação completa do bairro, o mesmo
+ *  preço do socorroDerrota (3× o descanso mais perto — 30 na Pista, 45 na
+ *  Feira, 60 na Baixada). */
+export function custoRecuperacaoRinha(cena, prog) {
+  const destino = destinoSocorroDerrota(cena, prog)
+  return 3 * (cena.pois.find(p => p.id === destino?.poiId)?.custoGrana || 10)
+}
+
 /** Rinha (Isaias, 30/09/2026: "tá vindo personagem muito difícil... tem que
  *  ter uns mais fáceis, que dão menos experiência, e personagens no nível do
  *  player, no máximo 1 ou 2 níveis a mais"): o adversário sai em volta da

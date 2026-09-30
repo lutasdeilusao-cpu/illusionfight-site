@@ -57,7 +57,9 @@
         "reward_item": "Item",
         "reward_aposta": "Aposta (em dobro)",
         "perda_item": "O Rapa levou teu {item} embora.",
-        "perda_grana": "A Cobrança do Turco levou {n} da tua grana na mão."
+        "perda_grana": "A Cobrança do Turco levou {n} da tua grana na mão.",
+        "socorro_rinha_titulo": "A casa te remendou",
+        "socorro_rinha": "A tropa caiu, mas tinha grana: a rinha cobrou {custo} da recuperação e já tá chamando o próximo. Sobrou {grana} na mão."
       },
       "progression": {
         "loadout": "Equipados: {n}/2",
@@ -2314,16 +2316,13 @@
         "sucata": "Sucata",
         "niveis": "Subiu de nível",
         "teto": "Bateu o teto de +5 níveis por ausência — daqui pra frente, só jogando.",
-        "derrota": "A tropa caiu numa das brigas: foi arrastada pra birosca e todo automático desligou. Liga de novo quando quiser voltar pro farm.",
+        "derrota": "A tropa caiu sem grana pra se remendar: a rinha acabou, arrastaram vocês pra birosca e todo automático desligou.",
         "pouco_tempo": "Menos de 5 minutos na rinha — lá sai 1 briga a cada 5 minutos, e essa não fechou.",
         "voltar": "Voltar pra rua",
         "pocoes": "Poções",
         "meio_nao_conta": "A briga que tava rolando quando você voltou não terminou a tempo — essa não conta.",
-        "tempo_rua": "{min} min fora · a tropa seguiu no jogo",
-        "ao_vivo": "Fora da rinha o jogo segue de verdade no fundo, enquanto o celular deixar — isso é o que rodou. Pra farmar calculado, deixa a tropa na rinha.",
-        "seguir": "Seguir",
         "continuar_rinha": "Continuar na rinha",
-        "nada_rodou": "O celular pausou o jogo antes de qualquer briga fechar — fora da rinha só conta o que roda de verdade. Pra farmar mesmo com o jogo parado, deixa a tropa na rinha."
+        "remendos": "Perdeu {n}× e tinha grana: a casa cobrou a recuperação e a roda seguiu."
       },
       "ferreiro": {
         "sub": "aprimora até +{n}",

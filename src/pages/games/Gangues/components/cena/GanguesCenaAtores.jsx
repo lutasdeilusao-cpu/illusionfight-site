@@ -130,17 +130,40 @@ export function ehPersonagem(p) {
 // Sempre o mesmo pra cada personagem (hash do id), nunca sorteado a cada visita.
 // Metade fica no lugar (parado/inquieto), metade anda — "nem todos precisam andar".
 const MOVIMENTOS_TRETA = ['inquieto', 'patrulha-h', 'parado', 'ronda', 'inquieto', 'patrulha-v', 'parado', 'patrulha-h']
-// Quanto dura UMA volta do caminho de quem anda (ms), ou null pra quem fica
-// parado. É a mesma duração da animação de movimento (--gp-dur, abaixo) —
-// a briga automática usa pra soltar um adversário ignorado depois que ele
-// completou o caminho (hooks/useGanguesBrigaAutomatica.js).
 function duracaoMovimentoS(movimento, h) {
   return movimento === 'ronda' ? 22 + (h % 7) : movimento === 'inquieto' ? 9 + (h % 5) : 14 + (h % 7)
 }
-export function cicloDoPinoMs(p) {
-  if (!ehPersonagem(p)) return null
-  const movimento = movimentoDoPino(p)
-  return movimento === 'parado' ? null : duracaoMovimentoS(movimento, hashEstavel(p.id)) * 1000
+
+/** Volta da briga (Isaias, 30/09/2026: "o personagem que se mexe, coloca
+ *  ele numa posição de movimento que ele esteja longe do player"): a fase
+ *  (0–1) da animação em que quem anda está na ponta do caminho mais longe de
+ *  `pos`. As pontas saem dos keyframes gang-mov-* (styles/cena/mundo.css):
+ *  patrulha em −w no início e +w no meio; ronda nos 4 cantos do quadrado.
+ *  null = não anda (quem é parado, é o jogador que volta afastado). */
+export function faseLongeDe(p, pos) {
+  const m = movimentoDoPino(p)
+  const dx = pos.x - p.world.x, dy = pos.y - p.world.y
+  if (m === 'patrulha-h') return dx > 0 ? 0.03 : 0.5
+  if (m === 'patrulha-v') return dy > 0 ? 0.03 : 0.5
+  if (m === 'ronda') return dx > 0 ? (dy > 0 ? 0.025 : 0.725) : (dy > 0 ? 0.225 : 0.475)
+  return null
+}
+
+/** Largura do caminho de quem anda (--gp-w, px): a patrulha vai de −w a +w;
+ *  a ronda, um quadrado de lado w. Sempre a mesma pra cada personagem. */
+function larguraDoCaminho(movimento, h) {
+  return movimento === 'ronda' ? 50 + (h % 21) : 45 + (h % 41)
+}
+/** Até onde, a partir do ponto dele, o personagem chega andando (px) — a volta
+ *  da briga põe o jogador além disso (voltaDaBriga), senão ele volta a
+ *  encostar sozinho em 1–3 s (testado) e vira loop. */
+export function alcanceDoPino(p) {
+  if (!ehPersonagem(p)) return 0
+  const m = movimentoDoPino(p)
+  if (m === 'parado') return 0
+  if (m === 'inquieto') return 3
+  const w = larguraDoCaminho(m, hashEstavel(p.id))
+  return m === 'ronda' ? Math.ceil(w * 0.71) : w
 }
 
 export function movimentoDoPino(p) {
@@ -161,25 +184,27 @@ export function movimentoDoPino(p) {
 // REAL (círculo contra círculo na tela), usada só pra pausar a andadinha
 // (`is-colidindo`) no momento exato que o personagem "esbarra" no
 // jogador, não assim que entra na zona generosa de interação.
-// `ignorado`: a briga automática está ignorando esse oponente até ele
-// descolar (hooks/useGanguesBrigaAutomatica.js) — então ele NÃO pausa ao
-// encostar: atravessa o jogador e termina o caminho dele.
+// `ignorado`: a briga automática barrou a luta com ele (trava de rep,
+// dívida...) e ignora até descolar (hooks/useGanguesBrigaAutomatica.js) —
+// então ele NÃO pausa ao encostar: atravessa o jogador e segue o caminho.
+// `longeDe`: a posição do jogador na volta da briga contra ESTE personagem —
+// se ele anda, a animação começa na ponta mais longe dela (faseLongeDe).
 // Colisor = 90% do desenho (regra do Isaias, 27/09/2026: "o colisor ocupa
 // 90% da região do sprite... o correto pra qualquer jogo"), igual na rua e
 // nos cômodos. Cada círculo colide com 90% do raio que o jogador vê —
 // encostar é os desenhos se tocando de verdade, sem borda invisível em
 // volta. Histórico: soma inteira + 4px (maior que o desenho) → 50% (v3.69.1,
-// pequeno demais pra interagir) → 90%. Quem patrulha curto ainda pode não
-// "descolar" de quem está parado no meio do caminho — pra isso a briga
-// automática solta o ignorado depois de uma volta do caminho.
+// pequeno demais pra interagir) → 90%.
 const COLISOR_FRACAO = 0.9
 
-export function PinoAlvo({ p, t, active, onColidir, ignorado }) {
+export function PinoAlvo({ p, t, active, onColidir, ignorado, longeDe }) {
   // useState/useRef/useEffect sempre no topo, antes de qualquer return
   // condicional (regra dos hooks) — falha de carregamento (rede ruim) cai
   // pro ícone genérico, igual quando não tem retrato nenhum.
   const [retratoFalhou, setRetratoFalhou] = useState(false)
   const [colidindo, setColidindo] = useState(false)
+  // Só na montagem: a fase de volta vale pro 1º quadro, depois ele segue o caminho.
+  const [faseVolta] = useState(() => (longeDe && p.world ? faseLongeDe(p, longeDe) : null))
   const spanRef = useRef(null)
   // "Eles estão parando ANTES de chegar no player, eles têm que parar
   // quando colidirem com o player" (Isaias, 20/09/2026) — `active` (zona
@@ -252,9 +277,9 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado }) {
   const anda = movimento && movimento !== 'parado'
   const dur = duracaoMovimentoS(movimento, h)
   const movStyle = personagem ? {
-    '--gp-w': `${movimento === 'ronda' ? 50 + (h % 21) : 45 + (h % 41)}px`,
+    '--gp-w': `${larguraDoCaminho(movimento, h)}px`,
     '--gp-dur': `${dur}s`,
-    '--gp-delay': `${-((h % 100) / 100) * dur}s`,
+    '--gp-delay': `${-(faseVolta ?? (h % 100) / 100) * dur}s`,
     '--gp-resp': `${3.2 + (h % 5) * 0.3}s`,
   } : undefined
   const movClasse = movimento ? `mov-${movimento}${anda ? ' mov-anda' : ''}` : ''

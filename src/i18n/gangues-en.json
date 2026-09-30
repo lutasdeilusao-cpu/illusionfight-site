@@ -57,7 +57,9 @@
         "reward_item": "Item",
         "reward_aposta": "Bet (doubled)",
         "perda_item": "The Raid took your {item}.",
-        "perda_grana": "The Turk's Collection took {n} of your cash."
+        "perda_grana": "The Turk's Collection took {n} of your cash.",
+        "socorro_rinha_titulo": "The house patched you up",
+        "socorro_rinha": "The crew went down, but you had cash: the pit charged {custo} for the patch-up and is already calling the next one. You kept {grana}."
       },
       "progression": {
         "loadout": "Equipped: {n}/2",
@@ -5417,16 +5419,13 @@
         "sucata": "Scrap",
         "niveis": "Leveled up",
         "teto": "Hit the +5 levels cap for one absence — from here on, you gotta play.",
-        "derrota": "The crew went down in one of the brawls: dragged to the bar, and every auto mode switched off. Turn it back on when you want to farm again.",
+        "derrota": "The crew went down with no cash to patch up: the pit is over, you got dragged to the bar and every auto switched off.",
         "pouco_tempo": "Under 5 minutes at the pit — it closes 1 brawl every 5 minutes, and this one didn't make it.",
         "voltar": "Back to the street",
         "pocoes": "Potions",
         "meio_nao_conta": "The brawl that was going on when you came back didn't finish in time — that one doesn't count.",
-        "tempo_rua": "{min} min away · the crew kept playing",
-        "ao_vivo": "Outside the pit the game really keeps running in the background, as long as your phone lets it — this is what ran. To farm on the clock, leave the crew at the pit.",
-        "seguir": "Continue",
         "continuar_rinha": "Back to the pit",
-        "nada_rodou": "Your phone paused the game before any brawl could finish — outside the pit only what really runs counts. To farm even with the game stopped, leave the crew at the pit."
+        "remendos": "Lost {n}× with cash on hand: the house charged the patch-up and the pit kept going."
       },
       "ferreiro": {
         "sub": "upgrades up to +{n}",

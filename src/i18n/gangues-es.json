@@ -57,7 +57,9 @@
         "reward_item": "Objeto",
         "reward_aposta": "Apuesta (al doble)",
         "perda_item": "La Redada se llevó tu {item}.",
-        "perda_grana": "El Cobro del Turco se llevó {n} de tu plata."
+        "perda_grana": "El Cobro del Turco se llevó {n} de tu plata.",
+        "socorro_rinha_titulo": "La casa te remendó",
+        "socorro_rinha": "La banda cayó, pero tenías plata: la riña cobró {custo} por la recuperación y ya está llamando al siguiente. Te quedaron {grana}."
       },
       "progression": {
         "loadout": "Equipados: {n}/2",
@@ -5417,16 +5419,13 @@
         "sucata": "Chatarra",
         "niveis": "Subió de nivel",
         "teto": "Llegaste al tope de +5 niveles por ausencia — de acá en adelante, a jugar.",
-        "derrota": "La banda cayó en una de las peleas: la arrastraron al bar y se apagó todo lo automático. Préndelo de nuevo cuando quieras volver a farmear.",
+        "derrota": "La banda cayó sin plata para recuperarse: se acabó la riña, los arrastraron al bar y todo el automático se apagó.",
         "pouco_tempo": "Menos de 5 minutos en la riña — ahí sale 1 pelea cada 5 minutos, y esta no llegó.",
         "voltar": "Volver a la calle",
         "pocoes": "Pociones",
         "meio_nao_conta": "La pelea que estaba en curso cuando volviste no terminó a tiempo — esa no cuenta.",
-        "tempo_rua": "{min} min afuera · la banda siguió en el juego",
-        "ao_vivo": "Fuera de la riña el juego sigue de verdad en segundo plano, mientras el celular te deje — esto es lo que corrió. Para farmear con el reloj, deja a la banda en la riña.",
-        "seguir": "Seguir",
         "continuar_rinha": "Seguir en la riña",
-        "nada_rodou": "El celular pausó el juego antes de que cerrara alguna pelea — fuera de la riña solo cuenta lo que corre de verdad. Para farmear aunque el juego esté parado, deja a la banda en la riña."
+        "remendos": "Perdiste {n}× con plata en el bolsillo: la casa cobró la recuperación y la riña siguió."
       },
       "ferreiro": {
         "sub": "mejora hasta +{n}",

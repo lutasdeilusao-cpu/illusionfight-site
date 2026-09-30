@@ -9,8 +9,8 @@
    Na Rinha, com o app no fundo, a tela é desmontada e na volta o que teria
    acontecido é CALCULADO: 1 luta a cada 5 minutos fora (GANGUES_RINHA_S_POR_LUTA),
    seja ela qual for — 20 minutos, 4 lutas. Cada luta sorteia um adversário
-   novo pelo mesmo gerador da Rinha ao vivo (nível sorteado entre os das
-   lutas do bairro, do mais fraco ao chefão) e é SIMULADA de verdade, rodada
+   novo pelo mesmo gerador da Rinha ao vivo (nível em volta da tropa, de 5
+   abaixo a 2 acima do mais forte — niveisDaRinha) e é SIMULADA de verdade, rodada
    a rodada, no motor da Briga em Multidão (engine/ganguesBrigaMultidao.js):
    dá pra perder, o dano fica. Fora da tela é sempre ATAQUE NORMAL (sem
    talento, sem PM); só a poção de PV, se ligada, entra.
@@ -23,13 +23,15 @@
    • os minutos que não fecham 5 são a luta que estava NO MEIO quando o
      jogador voltou — NÃO CONTA (sem dano, poção nem prêmio);
    • no máximo +5 níveis por ausência (GANGUES_FARM_TETO_NIVEIS);
-   • perdeu uma luta = para ali, sem XP dessa luta, a tropa acorda na
+   • perdeu uma luta COM grana pra recuperação do bairro (30 na Pista) = a
+     casa desconta, remenda a tropa e a roda segue (30/09/2026);
+   • perdeu SEM grana = para ali, sem XP dessa luta, a tropa acorda na
      birosca DAQUELE bairro e TODO automático desliga.
    ══════════════════════════════════════════════════════════════ */
 import { iniciarBrigaMultidao, iniciarBrigaMultidaoDeCombatentes, avancarRodadaMultidao } from './ganguesBrigaMultidao.js'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from './ganguesVictoryResolver.js'
 import { gerarBandoRevezamento } from '../data/ganguesEncontros.js'
-import { revezamentoNoTerritorio, destinoSocorroDerrota } from '../data/cenas/cenaHelpers.js'
+import { revezamentoNoTerritorio, destinoSocorroDerrota, custoRecuperacaoRinha } from '../data/cenas/cenaHelpers.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
 import { GANGUES_SUCATA_ID } from '../data/ganguesEquip.js'
@@ -173,9 +175,17 @@ export function simularFarmRinha({ store, cena, segundos, enemiesData, alvo, lut
     gastarPocoes(store, usos, resumo)
     // A aposta (Feira) só vale na luta que já estava na tela — a 1ª da sessão.
     aplicarLuta({ store, cena, alvo: n === 0 && lutaEmAndamento ? alvo : { ...alvo, aposta: 0 }, party, outcome, combatants, resumo })
-    // Tropa no chão encerra a Rinha (igual à Rinha ao vivo): não tem próxima.
-    // Mesmo socorro da derrota ao vivo: birosca mais perto, recuperação cobrada.
+    // Perdeu com grana: a casa cobra a recuperação e a roda segue (igual à
+    // Rinha ao vivo). Sem grana, acabou: mesmo socorro da derrota ao vivo —
+    // birosca mais perto, recuperação cobrada.
     if (outcome !== 'victory') {
+      const custo = custoRecuperacaoRinha(cena, store().cenaProgresso?.[cena.id])
+      if (store().grana >= custo && store().gastarGrana(custo)) {
+        store().restaurarPvPmTodos()
+        resumo.remendos = (resumo.remendos || 0) + 1
+        resumo.gastoRemendo = (resumo.gastoRemendo || 0) + custo
+        continue
+      }
       resumo.derrota = true
       desligarAutomaticos()
       const destino = destinoSocorroDerrota(cena, store().cenaProgresso?.[cena.id])
