@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.314.0' // feat: Home redesenhada (hero novo, vitrine Gangues + Super Trunfo, Histórias com a capa oficial dos Contos, sem placeholder)
+export const SITE_VERSION = '10.314.1' // historias: ajustes do Isaias no conto 07 (caps 3, 4 e 6)
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
