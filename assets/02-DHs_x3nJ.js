@@ -1,0 +1,43 @@
+var e=`# CAPÍTULO 2 — La Invitación
+
+Yo soy muy popular en la escuela. Eso es un hecho. Pero siento que a la gente le da pena invitarnos a mí y a mi compa a sus reuniones sociales. Debe ser intimidación.
+
+Entonces yo se los facilito. Sigo a todo el mundo en redes, veo los videos y las fotos que anuncian los eventos, y le doy a la gente el privilegio de mi presencia sin que tengan que pedirlo.
+
+El proceso con Kim es siempre el mismo. Yo lo invito, él dice que no quiere ir, yo le digo "bueno, entonces vamos a otro lado". Al final vamos a donde yo quería. Quien leyó mi otra historia ya conoce esta dinámica.
+
+---
+
+El jueves estaba viendo unas fotos que un tal Freddy andaba subiendo. La fiesta más grande del año, según él: bebida de primera, comida riquísima y chicas hermosas en el lugar. Y yo, que siempre tengo el oído atento a los chismes del pasillo, me di cuenta de que todo el mundo estaba hablando de eso.
+
+Lo decidí en el acto. Mi compa y yo íbamos a honrar ese evento con nuestra presencia.
+
+---
+
+— Aparta la agenda mañana en la noche. Hay fiesta.
+
+Kim me miró con esa cara suya. Es difícil de definir: desinterés y extrañeza al mismo tiempo. Nunca sé bien lo que está sintiendo.
+
+— El viernes es cuando más trabajo, Jack. ¿No puedes dejar de armar planes ese día?
+
+— Confía en papá. Esto es seguro. Y va a haber comida. Comida buena.
+
+Lo dije a propósito, porque el personaje secundario es un muerto de hambre. No tienen idea de cuánto. Hasta da lástima. Pero muy pronto lo van a ver con sus propios ojos.
+
+---
+
+Se ablandó un poco.
+
+— Espero que no sea de colados, Jack. La última vez se armó un desmadre masivo y ni me acuerdo cómo salimos de ese lugar.
+
+— ¿Cómo crees? ¿Piensas que nos haría eso por centésima vez? Ya aprendí. Esta vez es otra cosa.
+
+Mentira.
+
+El secundario es ingenuo. No sé por qué, pero me cree lo que le digo.
+
+— Si no voy, te vas a meter en un lío tú solo en algún lado — dijo. — Así que te voy a creer. Que por lo menos esta vez vayamos y volvamos sin pleito.
+
+Obvio que él también estaba mintiendo. Lo que quería era comer.
+`;export{e as default};
+//# sourceMappingURL=02-DHs_x3nJ.js.map

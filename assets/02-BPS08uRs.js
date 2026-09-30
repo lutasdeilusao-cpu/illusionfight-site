@@ -1,0 +1,59 @@
+var e=`# CAPÍTULO 2 — Tres Años
+
+La primera muerte que vi fue a los tres años.
+
+La recuerdo en pedazos. Así funciona la memoria de un niño — no tiene principio ni fin, solo recortes que se quedaron prendidos mientras el resto se apagó.
+
+Recuerdo la luz de la cocina. Un foco solo, sin pantalla, colgando de un cable. Recuerdo el piso frío bajo mis pies. Recuerdo el refri zumbando, porque el refri siguió zumbando todo el tiempo, de principio a fin, como si no estuviera pasando nada.
+
+Mi papá y mi mamá vivían siempre igual. Juntos, peleados, juntos otra vez. Él guardaba su material en una lata arriba del mueble, y ella sabía dónde estaba, y a veces, cuando le faltaba, metía mano. Todos en esa casa fingían que eso nunca iba a terminar en nada.
+
+Esa noche terminó.
+
+---
+
+Mi papá estaba en crisis. Había consumido lo que no debía, o no había consumido lo que necesitaba — para el que mira desde afuera, da lo mismo. Su voz salía fuerte y sin sentido, palabras que no armaban frase. Iba de un lado al otro de la cocina golpeándose la cabeza con la mano.
+
+Mi mamá trató de explicarle. Después trató de gritarle de vuelta. Después trató de pasar por al lado de él hacia la puerta.
+
+Él le cerró las dos manos en el cuello.
+
+La vi retorcerse. Vi sus pies rayar el piso buscando un apoyo que no había. La oí gritar hasta que el grito se volvió otra cosa, más bajita, y después se volvió nada.
+
+Y vi cómo se le iba la vida. No del cuerpo — de los ojos. Hay un momento en que los ojos todavía están ahí, abiertos, mirando hacia ti, y aun así ya no queda nadie detrás de ellos. Yo era demasiado chico para tener una palabra para eso, pero lo bastante grande para verlo.
+
+---
+
+Mi papá la soltó en el piso. Se quedó quieto, mirándose las manos, como si hubieran hecho eso solas.
+
+Yo tenía tres años y sabía contar hasta dos.
+
+Mi mamá. Mi papá. Uno de los dos acababa de volverse cero. No hacía falta mucha cabeza para imaginar quién seguía en la fila.
+
+Así que me fui. Crucé la puerta que ella había tratado de alcanzar. Bajé la escalera. Caminé calle abajo, descalzo, en plena madrugada, y nadie corrió detrás de mí. Ni mi papá, ni los vecinos que seguro habían oído todo a través de la pared finita de esa casucha.
+
+---
+
+Amaneció y yo seguía caminando.
+
+Esa primera mañana descubrí que no era el único. La ciudad de abajo duerme; la periferia no. Había otros niños en la calle a esa hora — durmiendo en las puertas de los negocios, juntando latas, esperando que algo empezara. Me miraron como se mira a un animal nuevo que apareció en el patio: sin susto, solo calculando si iba a dar problemas o comida.
+
+Nadie me preguntó nada. En ese lugar, un niño solo en la calle no es noticia. Es paisaje.
+
+---
+
+Los primeros días no los recuerdo bien. Sé que comí lo que encontré. Sé que dormí donde se pudo — detrás de un mercado una noche, debajo de un camión otra. Aprendí rápido que la puerta de la iglesia es calentita pero el cura se levanta temprano, y que un mercado callejero ya levantado tiene fruta machucada en el piso que todavía sirve.
+
+Aprendí también que los otros chamacos ya tenían dueño. Cada esquina, cada buen punto de basura, cada techito seco le pertenecía a algún grupo, y todo grupo respondía, al final de la cadena, a alguien allá arriba que yo todavía no sabía nombrar. No había rincón libre. O te metías en algún bando o te volvías blanco de los dos.
+
+Tenía tres años y ya me estaba evaluando gente que decidía cosas.
+
+---
+
+Nunca volví a esa casucha. Nunca supe si metieron preso a mi papá, si huyó, si se mató, si todavía anda por ahí. Saberlo no cambiaba nada en mi vida, así que nunca gasté energía buscando.
+
+Lo que me quedó de esa noche fue la primera regla. La que vino antes que todas las demás.
+
+Si tú no caminas, nadie camina por ti.
+`;export{e as default};
+//# sourceMappingURL=02-BPS08uRs.js.map

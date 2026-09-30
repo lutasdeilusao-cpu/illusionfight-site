@@ -1,0 +1,83 @@
+var e=`# CAPÍTULO 2 — La Primera Vez
+
+La primera vez que oyeron hablar de una cadena, sin ese nombre, debe haber sido en mi última pelea con Alan. El Campeón ([el cuento del Campeón, cap. 17](/historias/contos/02/17)).
+
+No sé qué pasó ese día.
+
+---
+
+Hasta ahí yo ya había peleado mucho. Muchas peleas difíciles. También había perdido algunas.
+
+Yo digo que nunca perdí. Es verdad, pero solo a partir de cierto punto. Mientras aprendía a pelear, perdí varias. Me dieron muchas palizas.
+
+Después de que entendí, se acabó.
+
+Entendí la física detrás de una pelea. El peso, el paso, el giro, el tiempo. Una pelea es un baile con reglas de física. Cuando ves eso, ya no hay sorpresas.
+
+Desde entonces no volví a perder.
+
+La última vez que perdí fue antes del Campeón.
+
+---
+
+Hay otra cosa que entendí recién después.
+
+Hasta ese día nunca había tenido a alguien por quién pelear. Nadie de mi lado. Peleaba por mí y solo por mí.
+
+Ese día Alan noqueó a Jack con el primer golpe ([el cuento del Campeón, cap. 16](/historias/contos/02/16)). Y yo vi a Jack yéndose al piso.
+
+**JACK**
+
+Y yo no vi nada. Estaba noqueado. Me perdí lo mejor de la fiesta.
+
+---
+
+**KIM**
+
+No voy a decir que no era yo. Era yo. Eso soy yo, y me hago cargo de lo que hice.
+
+Pero tampoco era yo como soy yo.
+
+A medida que Jack tocaba el piso, algo dentro de mí se rompió. Hondo.
+
+Ya no tenía freno. Ya no tenía consideración. Ya no pensaba en ninguna consecuencia.
+
+El mundo se fue poniendo gris. Después blanco y negro.
+
+Y ahí, a la mierda.
+
+---
+
+Una cosa se rompió y otra se soltó.
+
+Algo antiguo. Salvaje. Humano de una forma muy honda. Algo que nunca había sentido y ni sabía que estaba ahí.
+
+Pero estaba.
+
+---
+
+Me acuerdo y no me acuerdo.
+
+Me acuerdo de destellos. Pedazos chiquitos.
+
+Me acuerdo de furia. Me acuerdo de salvajismo. Me acuerdo de sangre.
+
+Y me acuerdo de algo con una oreja.
+
+Nada más. Eso es todo.
+
+---
+
+Esa fue la primera vez.
+
+Después pasó unas cuantas veces más. Pocas, puntuales. Jack vio algunas.
+
+Voy a contar una. La más clara.
+
+Creo que di demasiadas vueltas para empezar, ¿no? Pues sí. Es parte.
+
+**JACK**
+
+Es parte, Kim. Es parte.
+`;export{e as default};
+//# sourceMappingURL=02-Z9xJ0gmk.js.map

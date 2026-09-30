@@ -1,0 +1,79 @@
+var e=`# CAPÍTULO 16 — No Hay Reglas
+
+Ese lunes en la mañana subí a la azotea y los dos ya estaban ahí esperándome.
+
+Antes que nada, hablé.
+
+— Pongan atención. Esta es la última. Después de hoy no me van a volver a encontrar. No pregunten por qué.
+
+Jack abrió la boca para echar una broma y, por primera vez en dos años, la volvió a cerrar sin decir nada. El indiecito solo apretó la mandíbula.
+
+Entendieron que era en serio.
+
+---
+
+— Antes de empezar, hay algo que nunca les pregunté — dije. — Llevamos dos años viéndonos y nunca supe cómo se llaman. Para mí ustedes son el Indiecito y el Pelo Verde. ¿Y de verdad?
+
+El indiecito respondió como quien escupe su propio nombre.
+
+— Kim.
+
+El pelo verde dio un paso al frente, con la sonrisa de siempre.
+
+— Me llamo Jack. — Hizo una pausa. — Bueno, no me llamo Jack. Pero este chavito de aquí me dice Jack, así que cuenta.
+
+— El mío ya lo saben. Soy Alan. — Asentí. — Listo. Ahora es oficial.
+
+Kim. Jack. Alan.
+
+Después de dos años, por fin teníamos nombre el uno para el otro.
+
+---
+
+— Como esta es la última vez, voy a dejar algo claro.
+
+Caminé hasta el centro de la azotea. Me quité la cadena del cuello y me la guardé en el bolsillo.
+
+— Todas las otras veces me peleé con ustedes jugando. Hoy no. Hoy los voy a enfrentar como si mi vida estuviera sobre la mesa. Como si todo lo que construí dependiera de esta pelea. Me voy a jugar todo — cada gota de sangre que sangré, cada paliza que me llevé para llegar a donde llegué, cada cosa que dolió en el camino. Hoy me van a ver de verdad. Como nunca me vieron.
+
+Los dos cruzaron una mirada.
+
+— Tómenselo en serio desde el primer segundo. Vengan con todo desde el primer segundo. Si no, hoy van a salir lastimados en serio.
+
+---
+
+— Y les voy a enseñar la única regla de la pelea callejera — dije. — Hay una sola. ¿Saben cuál es?
+
+Se miraron otra vez, medio confundidos, buscando la respuesta correcta.
+
+Error.
+
+— NO HAY REGLAS.
+
+Ya estaba encima de Jack cuando terminé de gritar.
+
+Todo el peso atrás, la cadera girada hasta el hueso, el puño subiendo de abajo hacia arriba. Un gancho a la barbilla con todo lo que tenía. Jack despegó del piso. Subió en el aire, giró y cayó de espaldas noqueado antes de terminar de caer.
+
+Dos años y nunca había visto a Jack en el piso. Kim tampoco.
+
+Y Kim cometió el mismo error que los dos acababan de cometer: miró a su amigo.
+
+Le pisé el pie para trabarlo y le enterré un rodillazo en el plexo. Todo el aire se le salió de golpe. Salió volando para atrás, doblado, y yo ya iba encima por el siguiente golpe.
+
+---
+
+Kim estaba en el piso, sin aire, tratando de conectarme una patada en la barbilla como pudiera.
+
+La esquivé. Y me detuve.
+
+Porque el mocoso que me miraba desde abajo ya no era el mismo.
+
+Algo cambió dentro de él en ese segundo. Cuando vio a Jack noqueado en el piso, se le movió un switch. La mirada de niño arrogante desapareció. En su lugar había una mirada fría, quieta, de alguien que ya no iba a medir nada.
+
+Y por primera vez en mucho tiempo, sentí miedo.
+
+---
+
+Kim se guardó esa frase. Años después la iba a repetir, palabra por palabra, a un tipo que había alquilado media docena de matones ([historia principal, cap. 3](/historias/lutas-de-ilusao/capitulo-03)). Dudo que se acuerde de dónde la sacó.
+`;export{e as default};
+//# sourceMappingURL=16-DZ1hCwnO.js.map

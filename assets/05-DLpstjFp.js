@@ -1,0 +1,53 @@
+var e=`# CHAPTER 5 — Azuma
+
+We spent four years in Azuma. It was the longest stop ([I tell the guys about it years later, main story, ch. 9](/historias/lutas-de-ilusao/capitulo-09)).
+
+Azuma is far. Another language, another food, another way of looking at foreigners. And my dad traveling even more than before, weeks away, his consulting eating up the whole calendar.
+
+I was twelve when we arrived and sixteen when we left. I basically grew up there.
+
+---
+
+It was in Azuma that fighting became routine.
+
+Not the gym — the street. A foreign girl, alone, no older brother, no crew. That's a target anywhere in the world. About twice a month there was someone testing whether I'd let it slide.
+
+I stopped letting it slide around the third month.
+
+There was this one time three girls cornered me outside a market over nothing — one of them thought I'd given her a look. I broke the first one's nose before the other two understood this wasn't going to be easy. They left. Nobody from that group ever messed with me again.
+
+I didn't feel proud. I felt relief. It's different.
+
+---
+
+There were others. Never a fight I started.
+
+An older boy who'd wait for me on the corner by the building to ask for money I didn't have, every single day, until the day I got tired of it and stood up to him. He was the only one who really fought back. I walked away with a split lip and he walked away limping, and neither of us ever brought it up again.
+
+A group of girls at school who decided the foreigner was going to be the joke of the semester. I didn't hit anyone that time. I just waited for the leader to be alone in the bathroom and told her, very quietly, exactly what was going to happen to her if she kept it up. She believed me. It ended there.
+
+I learned early that almost every fight is won beforehand, in the face you make and the calm in your voice. The punch is just what's left over when the rest didn't work.
+
+The problem is that, after winning so many fights beforehand, I started winning every conversation the same way. And then there was nobody left on the other side of the table.
+
+---
+
+It was in Azuma, too, that I tried a friendship.
+
+A girl from the building, around my age, who didn't fit in anywhere either. We hung out for about five months. It was good. I almost forgot my rule.
+
+Then my dad came home one day and said we were leaving in two weeks.
+
+I didn't tell her. I just stopped going downstairs. On moving day I saw her from the car window, standing at the building's door, watching, not understanding. Just like the girl I'd been in Azuma five months earlier, and just like the girl I was going to be again in the next city.
+
+That was the last time I let anyone in. For a long time.
+
+---
+
+My dad, even with all that work, was never really absent.
+
+He called every night he was away. He always came back with a story and never with a gift — that was over. He taught me to cook rice, to change the heating element in the shower, to haggle at the street market. He taught me the way someone passes down a trade.
+
+In those four hard years, he was the only solid thing I had. And I still didn't know he owed me one huge explanation.
+`;export{e as default};
+//# sourceMappingURL=05-DLpstjFp.js.map

@@ -1,0 +1,55 @@
+var e=`# CHAPTER 19 — Under My Protection
+
+The two of them went to our doctors, recovered, and went back home.
+
+I sent some cash to both of them. It wasn't payment or an apology. It was just what I could do in the time I had before disappearing from Marélia.
+
+And before I left, I gave one last order. The order reached every corner: the neighborhood, the Banca, the top brass, the council up top.
+
+Kim and Jack were under my protection.
+
+Outside everybody's jurisdiction. Any problem with those two, the person came to settle it with me, no matter what it was. Nobody laid a finger on those kids. Not the cops I paid, not the crime I ran. Nobody.
+
+I didn't explain why. A king doesn't explain.
+
+---
+
+What I didn't tell anybody was how much that order was going to cost me.
+
+Because those two went looking for trouble all the time. All the time. You can't imagine the amount of problems I had to put out, over the years, just to keep that word standing. Fights with people from the Baixada. Fights with sons of important people. Fights with my own men, who didn't understand why two little punks could hit anybody and walk away.
+
+Every time, the answer was the same. They're mine. Leave it to me.
+
+There was one year when a boss from the new Baixada — the one that formed from the pieces of the old one — put a price on those two's heads. It wasn't personal. Kim and Jack had broken a few of his guys at a party, and he needed to answer so he wouldn't look weak in front of his own men. I understood the logic. I invented half that logic.
+
+I went to him in person. Didn't bring a gun, didn't bring men. Just sat down across from him and told him those two kids were my business, and that if a single hair on their heads fell, I'd treat it like they'd come at me directly.
+
+He pulled the price that same day. It cost me a lot to keep that up — in favors, in money, in patience. It cost me every month, for years.
+
+---
+
+Today the two of them are seventeen.
+
+It's been eight years since that Monday on the rooftop. And there hasn't been a single month, in those eight years, when I didn't have to sit down and clean up some mess because of Kim and Jack.
+
+Lately it's gotten worse.
+
+The two of them started messing, without knowing it, with a piece of the Banca's business. We rent out security. Goons. And one of our best clients was a little elite crew from an expensive school, who hired our men to settle hallway beefs.
+
+Kim and Jack walked right over our men like they were nothing. More than once. A client who pays top dollar for security and watches his security get beat up by two teenagers doesn't renew the contract.
+
+---
+
+Now the two of them are on the Banca's agenda. And that's a big problem.
+
+Because even being the King of Marélia — even being the top brass, being the council, being the Banca — I still answer to somebody. And up top nobody's happy to find out that for eight years the Champ has been covering for two kids who get in the way of business.
+
+That's my story. The story of how I met Kim and Jack.
+
+It's not the story of how I became the King of Marélia. That one's for another day.
+
+But it'll help you understand one thing. One of the biggest responsibilities of whoever sits in this chair is solving the little problems. The ones from crime. The ones from the cops. And the ones from Kim and Jack.
+
+And the ones from Kim and Jack are starting to get hard to solve.
+`;export{e as default};
+//# sourceMappingURL=19-EVvnWqLZ.js.map

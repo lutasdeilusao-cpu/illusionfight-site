@@ -1,0 +1,147 @@
+var e=`# CAPÍTULO 8 — El Sótano
+
+**JACK**
+
+Esperé.
+
+Prendí un cigarro. Dejé que las balas volaran.
+
+Subí unos escalones, para escaparle al rebote, y me quedé en un rincón protegido, detrás de una columna. Fumando. Contando.
+
+Hasta que oí las armas vaciarse. Clic. Clic. Clic.
+
+---
+
+Ahí gemí fuerte.
+
+— Ay, Dios mío… qué mierda… esto es sangre…
+
+Actuación de telenovela de horario estelar. Fingí que me habían dado.
+
+El primero cayó en el cuento. Vino a revisar, despacio, con el arma vacía en la mano.
+
+Se comió una patada en la rodilla que le dobló la pierna para el lado equivocado.
+
+---
+
+Lo agarré del cuello antes de que cayera y lo puse delante de mi cuerpo. Escudo humano.
+
+Los otros quedaron perdidos. ¿Recargar? ¿No recargar? ¿Dispararle al propio compañero?
+
+Mientras pensaban, le aventé el escudo encima a uno de ellos.
+
+Y le tiré el tubo al que ya estaba girando el arma hacia mí. Le dio en medio del estómago. El tipo se dobló.
+
+---
+
+El tercero también estaba armado.
+
+Me agaché lo justo. Dos tiros pasaron por arriba.
+
+Giré, le di la espalda al tipo y le agarré el brazo armado.
+
+Le torcí la mano para el lado en que se dobla una mano. Solo que seguí. Seguí hasta que la mano tocó el antebrazo. Y se quebró.
+
+---
+
+No lo solté.
+
+Todavía de espaldas, jalé al tipo hacia mí, le pasé el brazo por detrás de la cabeza y giré el cuerpo.
+
+El tipo dio una vuelta de ciento ochenta grados en el aire y cayó de espaldas al piso, delante de mí.
+
+Ni miré para abajo. Mirando para un lado, le pisé el pecho.
+
+Le pisé otra vez.
+
+Hasta oír el crujido de la costilla.
+
+---
+
+Ahí aparecieron dos más desde el fondo.
+
+Los dos tenían más cara de miedo que de pelea.
+
+El problema es que Kim había dejado la regla bien clara allá arriba. Quisieran pelear o no, ahora iban a pelear.
+
+— Calma, hermano, calma. Espera, espera…
+
+---
+
+Agarré a uno del cuello.
+
+Al otro le di un puño giratorio, con el dorso de la mano.
+
+*Paf.*
+
+Le dio directo en la garganta. El tipo empezó a quedarse sin aire.
+
+---
+
+El del cuello se comió jabs en el plexo solar. Uno tras otro, con la misma mano.
+
+Pa, pa, pa, pa, pa.
+
+El tipo se fue arrodillando. Yo seguí.
+
+Pa, pa, pa, pa, pa.
+
+Cuando me di cuenta, el tipo ya estaba noqueado. No fueron los golpes los que lo tumbaron. Fue el aire que se le acabó.
+
+Lo solté.
+
+---
+
+El otro todavía se estaba ahogando, con la mano en la garganta.
+
+Le jalé la cara contra mi rodilla.
+
+La sangre bajó.
+
+---
+
+Estaban todos en el piso. Ninguno con cara de que se fuera a levantar.
+
+Pero lo prometido es deuda. Así que seguí. Asegurándome, uno por uno, de que ninguno se iba a levantar. De que ninguno iba a ser un problema para Kim allá arriba.
+
+El sótano estaba dominado.
+
+---
+
+Antes de subir, obvio, me arreglé el pelo. Hay cosas que no se negocian.
+
+**KIM**
+
+Se arregló el pelo en medio de un sótano lleno de gente desmayada.
+
+**JACK**
+
+Prioridades, Kim.
+
+Después me fui de compras.
+
+Encontré una tonfa, esa macana de doble agarre, con el mango al costado, que se puede llevar pegada al antebrazo como Kim usa el bastón. La agarré.
+
+Encontré una cadena. Me la enrollé en la mano.
+
+Me metí unas bolsitas de polvo en el bolsillo.
+
+**KIM**
+
+Hasta hoy no sé por qué.
+
+**JACK**
+
+Y encontré una caja de Coca-Colas chiquitas. Esas botellitas de vidrio, de unos 250 ml.
+
+Le até un cordón al cuello de cada una y me hice un cinturón con ellas alrededor de la cintura. Botellas de vidrio chocando una con otra a cada paso.
+
+---
+
+Me miré en el reflejo de una ventana sucia. Me acomodé el pelo una vez más.
+
+— Hoy la noche va a ser larga.
+
+Y subí.
+`;export{e as default};
+//# sourceMappingURL=08-CSP1iMwx.js.map

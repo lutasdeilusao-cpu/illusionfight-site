@@ -1,0 +1,53 @@
+var e=`# CHAPTER 8 — The Kid
+
+It was an ordinary day.
+
+Tuesday, early afternoon. Slow business. I was doing something I almost never did in person, but that day there was nobody I could hand it off to: carrying two kilos of coke from one spot to another, in my backpack, walking down my own street like any kid coming home from school.
+
+Two kilos in your backpack is more than enough reason not to want even a fly looking your way.
+
+And that's exactly when the street started making noise.
+
+---
+
+First I heard it. Kids yelling, a body slamming into a gate, that nervous laughter of people watching a fight who don't want to be close enough to end up in it.
+
+When I turned the corner, it was already over. Two street kids on the ground, one holding his nose, the other just sitting, deciding whether getting up was worth it. And standing between them, a third.
+
+Smaller than the two he'd dropped. Smaller than almost everybody there.
+
+A little Indigenous kid. Brown skin, straight black hair falling over his forehead, a split lip that didn't seem to bother him. T-shirt torn at the shoulder. And a posture — shoulders back, chin up — of somebody who thinks the whole world owes him something and is late on the payment.
+
+He saw me coming. The other two took the chance to disappear. Not him. He came walking toward me like he knew me.
+
+---
+
+He stopped one step away from me. Right in front.
+
+I've got a way of ending this kind of thing without wasting energy. I talk low, I look over his shoulder like he's already not there.
+
+— Beat it, kid.
+
+He didn't beat it.
+
+He stood there, staring up at me, and there was nothing like fear on that face. I read eyes all day long, it's half my job. That look right there was the kind that makes grown men drop their heads on autopilot. Except the owner of it was six, maybe seven, half my age at most, and he was using that look the wrong way — against me, on my street, with nothing behind him to back it up.
+
+Pure stubbornness. Pure defiance. Like the only way he knew how to exist in the world was pushing back.
+
+---
+
+Let me draw you the problem.
+
+I had two kilos of cocaine in my backpack. A kid had just left two bodies on the ground of my street, on my watch, yelling loud enough to draw the neighbors' eyes and, given time, a patrol car's. And now that kid was planted in front of me, in front of my people, not moving.
+
+If I let it slide, the street was going to see. And a street that sees a kid stare me down with no consequence starts doing math. That's how you lose a neighborhood — not in a war, in one little detail that went unanswered.
+
+I couldn't let it go. Not even from a child.
+
+On the Hill, whoever challenges learns the hard way the same lesson my father gave me for free: the world belongs to the strong.
+
+And if that little Indigenous kid really wanted to keep standing there, staring me down —
+
+he'd better be strong.
+`;export{e as default};
+//# sourceMappingURL=08-O6do8PJS.js.map

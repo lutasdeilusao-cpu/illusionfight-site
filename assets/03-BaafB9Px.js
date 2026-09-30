@@ -1,0 +1,97 @@
+var e=`# CHAPTER 3 — The Club
+
+I was about fifteen.
+
+I got home tired. I'd been selling candy on the bus all day and had just said bye to Jack.
+
+Helena was drunk. Nothing new. It's weirder when she isn't.
+
+But the air was different. You could feel it.
+
+---
+
+There were people in my house. About ten guys from a motorcycle club.
+
+Big. Bearded. The bikes outside were beautiful. The guys, not so much. Mean-looking animal faces, faces of people pissed off about something. Chains hanging off them, leather jackets.
+
+There were two or three women with them.
+
+A group that size inside our house. Now that was new.
+
+---
+
+A few of them tried to strike up a conversation when I walked by. I kept walking.
+
+Helena pretended she didn't see me.
+
+But when I passed next to her, I felt something bad. It wasn't trust. It was the opposite.
+
+I went upstairs. Changed clothes.
+
+When I came down, the house was empty. The group had left and taken Helena with them.
+
+---
+
+That got to me.
+
+I texted Jack: *come over. now. no questions.*
+
+He didn't answer. Just left me on read.
+
+Fifteen minutes later he was at my door.
+
+**JACK**
+
+Twelve. I came on the bike.
+
+---
+
+**KIM**
+
+By then I'd already gotten ready.
+
+The night was too weird. I grabbed two things I don't usually use, but always keep close: brass knuckles and a tactical baton.
+
+Jack saw me coming down with that and got it.
+
+On the street, he picked a piece of pipe up off the ground and walked alongside me.
+
+He didn't ask anything.
+
+---
+
+Jack talks a lot. Talks too much. Talks until I lose my patience.
+
+That night he didn't say a word. He just followed me.
+
+**JACK**
+
+When Kim texts with no emoji, no punctuation and without cussing anybody out, it's serious. So I shut up.
+
+**KIM**
+
+I don't remember any other night when I was the one out in front. The one who decides things between the two of us is him. Always has been.
+
+That night, it was me.
+
+I didn't know what was going to happen. I just knew it was going to be bad.
+
+---
+
+I knew more or less where these guys' club was. I'd seen them around the area. It wasn't far.
+
+Helena didn't usually go to that place.
+
+We got there slow, along the edge, watching the movement.
+
+There were more than fifty guys inside.
+
+That's when Jack opened his mouth for the first time.
+
+— So, Kim? What's going on?
+
+I looked at him, serious.
+
+— I don't know. I really don't know, man. But something's off.
+`;export{e as default};
+//# sourceMappingURL=03-BaafB9Px.js.map

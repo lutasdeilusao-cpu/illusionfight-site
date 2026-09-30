@@ -1,0 +1,61 @@
+var e=`# CHAPTER 7 — Master of a District
+
+Over the next three years I did a few more jobs.
+
+I won't tell you all of them. The first times are the ones that teach you something; the rest is repetition, and repetition doesn't make a story. But let me give you a sample of those three years, so you understand the step.
+
+---
+
+There was the collector.
+
+A man who'd worked for the Banca fifteen years and started skimming a little before passing it up. Not much. Crumbs. He figured nobody was counting. I was counting. The numbers came to me, and I didn't have to lay a finger on him — I just showed him the numbers, at a table, on paper, and let him imagine for himself what came next. He paid it all back, with interest, and never got a count wrong again.
+
+Fear put in the right place works for you for free the rest of your life.
+
+There was the neighbor feud. Two men, a wall, a foot of land. It had already turned into gunfire twice and it was going to turn into a body the third time. I bought that foot of land from both of them, for double what it was worth, and turned the strip into a cut-through alley that made more for the Banca than both backyards put together. Everybody came out ahead, especially me.
+
+And there was the cop. There's always a cop. This one didn't want money, he wanted a transfer closer to his family. I got him the transfer through a city councilman who owed the council a favor. The cop ended up owing me, and a cop who owes you is worth more than ten you pay.
+
+---
+
+At the end of those three years, the front man of my neighborhood retired.
+
+Didn't die, didn't disappear — actually retired, with a house on the beach, a rare thing in that world. He put my name up to the council, and the council didn't argue.
+
+I was thirteen years old with an entire neighborhood of Marélia under me.
+
+The spots, the managers, the dealers, the lookouts. The money coming in and going out. The collectors. The neighbor feuds that turn into shootouts if nobody settles them at the right time. The mothers who climbed the stairs to ask that their son be left alone. Everything went through me.
+
+---
+
+I was running grown men.
+
+Men of thirty, forty. Men who could snap me in half with one hand. And they waited for me to finish talking before they did anything.
+
+Some out of fear, because they'd seen me work and knew what I was capable of when the plan called for it. Others out of respect, which on the Hill is the same thing as fear, just with a prettier name to put in the sentence.
+
+Because on the Hill there's one rule above all the others, and it's got nothing to do with strength or blood: whoever delivers, runs things. As long as the money goes up right and the neighborhood stays quiet, you can be five or fifty. The day you stop delivering, your age starts counting again, and it counts against you.
+
+I delivered. Every month, never missed.
+
+---
+
+There was one time, early on, when one of the managers decided to test me.
+
+A man called Boiadeiro. Big guy, loud voice, ten years in the Banca. He stopped passing me his spot's cut and sent word, through the others, that he "wasn't gonna answer to a kid."
+
+I didn't send anybody to beat him. I went in person, alone, to his spot, right in the middle of business. Sat down in a chair and stayed there. Didn't say a word. Just sat, watching, jotting down in a little notebook who was buying, how much, what time.
+
+In two hours his spot stopped selling. Nobody buys dope with a kid sitting there writing everything down.
+
+At the end of the afternoon Boiadeiro came to me with the cut in his hand and his head down. I took it, thanked him by name, and never had to sit in that chair again.
+
+Real power almost never needs noise. Noise is what you use when the power hasn't shown up yet.
+
+---
+
+It was around that time that my biggest problem started.
+
+And it started small. About the size of a kid.
+`;export{e as default};
+//# sourceMappingURL=07-F3sy4pE9.js.map

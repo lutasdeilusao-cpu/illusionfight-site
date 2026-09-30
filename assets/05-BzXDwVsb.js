@@ -1,0 +1,61 @@
+var e=`# CHAPTER 5 — Doctor Freddy
+
+You know him as Freddy. I use the name so you can keep up, but at the time I had no idea who he was. All I knew was that some guy named Freddy was throwing a party.
+
+Down came Doctor Freddy with his entourage.
+
+One of those small entourages, you know? Skinny little dudes, scrawny, not into the gym, not into posting shirtless pics online. Just thirteen, fourteen grown men coming down the stairs behind him.
+
+And me, I don't know why, I could feel it in the air that it was Kim's fault.
+
+So I kept to myself. I grabbed a bottle and tucked it under my arm, because I had a feeling the party was about to end.
+
+---
+
+Freddy searching and searching, until the tiniest one of the entourage, a six-foot-seven refrigerator, pointed at me.
+
+I had the bottle in my mouth. I looked left, looked right. People started stepping back, and I was left standing alone in the middle.
+
+— That's him.
+
+*Oh, hell no. What does this ugly son of a gun want?*
+
+I didn't get that it was about me. I was just drinking, minding my business. I hadn't hit anybody that night yet.
+
+---
+
+— Jasmine! — Freddy yelled.
+
+And the brown-skinned girl with wickedness in her eyes stepped up next to him.
+
+— Was it him?
+
+— It was.
+
+— Why'd you do it?
+
+— To teach you a lesson, you son of a bitch. You like cheating on me? Well, I cheated on you. At your party. In your house. In the same room where we have sex.
+
+*What the hell did I get myself into, man.*
+
+At that point there was no denying it was about me. Jasmine. After that, I'll never forget that name.
+
+---
+
+A little giggle started in the crowd, and Freddy got even more livid. He came at me.
+
+— Did you screw my girlfriend?
+
+I looked at him with a slight smile. I wanted to be polite and preserve a little of his dignity. First a "Dude…" came to mind, but I switched right away to something worthy of the occasion:
+
+— Sir, I'd like to state, in all sincerity, that at no point was I informed that the young lady here present, now identified as Jasmine, had any commitment prior to my introduction (up to that moment I didn't even know her name, mind you). However, seeing as we're in a public setting, I'd rather not share intimate acts that concern only myself and Jasmine.
+
+---
+
+As you can see, I was as polite as humanly possible. The guy had already been officially declared a cuckold, announced in the middle of his own party. In my logic, nobody benefited from dragging it out.
+
+But Freddy didn't think that deeply about actions and consequences.
+
+What tells me he didn't take it well is what he did next: he shook his head with a whole lot of rage and started throwing a string of punches my way.
+`;export{e as default};
+//# sourceMappingURL=05-BzXDwVsb.js.map

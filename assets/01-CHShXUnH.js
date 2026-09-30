@@ -1,0 +1,55 @@
+var e=`# CAPÍTULO 1 — El Rey
+
+Esta no es la historia de cómo me convertí en el rey de Marélia.
+
+Me encantaría que lo fuera. Me encantaría contarte cualquier otra cosa — la ciudad allá abajo de noche, el ruido que hace, la forma en que las luces se van prendiendo una por una cuando el sol se esconde detrás de los edificios de gente que nunca va a necesitar subir hasta acá. Esa sería una historia bonita.
+
+Ahora mismo hay un tipo de treinta y pico sentado en una silla de plástico frente a mi escritorio, esperando que yo decida qué hacer con él. Debe dos meses. Tiene mujer, tiene un hijo, tiene una excusa buena y una mala, y de las dos eligió contar la mala, lo que ya dice mucho de él.
+
+Escucho, hago una pregunta, escucho otra vez. Después digo una frase. Me agradece como quien fue perdonado de una pena de muerte, porque lo fue. Se levanta, se va, y no va a volver a atrasarse con un pago en su vida.
+
+Un hombre hecho y derecho. Diciéndome señor.
+
+No siempre fue así.
+
+---
+
+Aprendí las reglas temprano. Muy temprano.
+
+No las reglas de la escuela — yo no fui a la escuela. Las reglas de la vida. Y son simples: hay un motivo para que estés vivo, y el motivo es seguir vivo mañana. Nada más. Todo lo demás es adorno que los otros cuelgan encima para no tener que mirar esa parte de frente.
+
+El que crece donde yo crecí aprende eso antes de aprender a leer.
+
+Mi viejo decía que el mundo es de los más fuertes. Casi tenía razón. Me llevó años y un precio alto descubrir dónde exactamente se equivocaba, y cuando lo descubrí, subí. Guardaespaldas. Cobrador. Jefe. Jefe del jefe. Un escalón a la vez, cada uno ganado de la única forma que este mundo reconoce.
+
+Al final me dieron un nombre. O mejor dicho: por lo que dicen, el que me puso ese nombre fue Jack. El Campeón.
+
+Acá arriba la jerarquía no se resuelve solo con plata. Una parte todavía se resuelve a la antigua: dos hombres, un espacio vacío y el resto del Cerro alrededor mirando. El que sube, sube recibiendo golpes o dándolos. El que se queda mucho tiempo de pie, sin caer, contra todos los que aparecen, se gana el nombre de Rey de Marélia — y a partir de ahí nadie te discute dónde te sientas en la mesa.
+
+---
+
+Y aun con el nombre de Rey de Marélia, aun con el tipo de treinta años diciéndome señor, todavía tengo dos piedras en el zapato.
+
+Dos piezas que cargo desde hace tanto que ya perdí la cuenta. Desde que éramos todos unos mocosos. Desde el día en que uno de ellos plantó los pies frente a mí y decidió no moverse.
+
+Les pegué. Volvieron. Les pegué otra vez. Volvieron otra vez. Año tras año, los dos viniendo al mismo lugar a comerse la misma paliza, y nunca — ni una sola vez — vi a ninguno de los dos ganar. Tampoco los vi parar nunca.
+
+Me lo guardé. Uno se guarda lo que no puede explicar.
+
+En todo ese tiempo, esas dos piezas solo me dieron una cosa. Trabajo. Muchísimo trabajo.
+
+Y no el trabajo de pegarles. Pegarles era fácil. El trabajo vino después, siempre después — la fama de los dos creciendo en otro lado, lejos del Cerro, y esa fama salpicando mis negocios; un cliente mío que empezó a mirar para arriba porque oyó hablar de dos mocosos que no le bajan la cabeza a nadie; un proveedor que quiso renegociar el precio porque creyó que yo me había ablandado.
+
+En un mundo como el mío, la debilidad que se nota tiene precio. Y esos dos, sin haberme ganado nunca una pelea, tenían una forma de hacerme parecer débil solo con seguir de pie.
+
+Por eso terminamos como terminamos. Pero no nos adelantemos.
+
+---
+
+Me llamo Alan. Tal vez me conozcas como el Campeón.
+
+Te lo voy a contar desde el principio. No porque sea bonito — no lo es. Te lo voy a contar por partes, como lo guarda la memoria: en pedazos, cada pedazo con años de distancia del otro.
+
+Porque sin el principio no vas a entender por qué yo no pierdo.
+`;export{e as default};
+//# sourceMappingURL=01-CHShXUnH.js.map

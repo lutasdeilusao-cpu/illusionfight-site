@@ -1,0 +1,53 @@
+var e=`# CHAPTER 9 — One Year Before
+
+That conversation happened when I was sixteen. One year before I met Kim and Jack.
+
+Doing the math: it was only four years of being a rich girl, right there in the middle. All the rest — the first years I don't even remember, and the seven that came after — was a simple life. And most of those seven my dad imposed on me on purpose.
+
+And I'm going to tell you something that might sound wrong.
+
+Those seven hard years were so much better than the four rich-girl years in the middle. The stuffy years, with everything served up, never needing anything. Those four years gave me nothing. The seven hard ones gave me everything I use today.
+
+Learning to cook. Learning to take a beating and give it back. Learning that a tantrum with no audience is just noise. Learning that most fights are won in the talking, and that when that doesn't work, you hit first and you hit right. Learning to leave a city without putting down roots and still stay whole.
+
+None of that came from a pool.
+
+---
+
+I don't hold a grudge against my dad for it.
+
+People have asked how I don't. The truth is simple: he didn't do it to punish me. He did it because he'd gotten it wrong before, and he had the guts to undo his own mistake the hardest way there is — paying the price right alongside me, seven years, without telling me he had a choice.
+
+What an incredible man. I love that man so much.
+
+There were days in those seven years when I hated him with all the strength a kid has. I screamed that he'd ruined my life. I said Elizabeth would never have done that to me — not knowing it was exactly the opposite, that it was all of Elizabeth inside him that gave him the courage to do it. He listened to everything in silence and the next day he was there, coffee made, like nothing had been said.
+
+He never asked for an apology for any of it. I'm giving it now, out loud, for anyone who wants to hear. I'm sorry, Dad. And thank you.
+
+---
+
+About the biological parents — I haven't changed my mind. I never will.
+
+If they show up one day, great. The door isn't locked. But the hand that opens it is theirs. I owe nothing to people who left me at three, and I'm not going to build a relationship on top of a debt that isn't mine.
+
+A father is the man who cut his own life in half to straighten me out. A mother is the woman I don't remember but my body does.
+
+The rest is biology.
+
+---
+
+My dad kept his promise.
+
+On the next move the house was nice again — not stuffy, not over the top, just nice. He stabilized my life, gave me space, and enrolled me at Elite Academy for senior year, telling me not to worry about grades at all.
+
+I walked into that school with no plan. Rich again, after seven years of learning not to be. No friends, just the way I'd decided to stay.
+
+A year later I'd already knocked Kim down in a fight, cussed Jack out about a hundred times, and done exactly the thing I swore I'd never do again: let people in.
+
+But you already know that part — it's where I come into the story ([main story, ch. 2](/historias/lutas-de-ilusao/capitulo-02)).
+
+This was the part nobody knew.
+
+Now you know.
+`;export{e as default};
+//# sourceMappingURL=09-C-EBwo1q.js.map

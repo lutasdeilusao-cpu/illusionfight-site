@@ -1,0 +1,75 @@
+var e=`# CAPÍTULO 6 — El Mendigo
+
+El primer nombre de la lista era Sombra.
+
+Jefe de la Baixada — la facción del otro lado de las vías del tren, la única en Marélia lo bastante grande para darle problemas a la Banca. Las dos se odiaban desde hacía tanto que nadie se acordaba del motivo. El motivo es adorno. Lo que importa es que cada punto que tenían ellos era un punto que no teníamos nosotros.
+
+La Banca quería a Sombra muerto desde hacía años y nunca se le acercaba. El tipo no tenía casa, no tenía rutina, no tenía foto reciente. Dormía en un lugar distinto cada noche. No era el más fuerte de la Baixada ni el más rico. Era el más difícil de encontrar, y en ese mundo eso es lo mismo que ser el más poderoso.
+
+Pero todo fantasma tiene una grieta. La suya era el café.
+
+---
+
+Nadie tiene problema en platicar con un niño.
+
+Pasé semanas recorriendo la Baixada con chanclas agujereadas, pidiendo monedas, llevando papelitos de una tiendita a otra. Y fui atando cabos. El dueño de un puesto de periódicos se quejó de que "Sombra" nunca compraba nada, solo pasaba. Una señora dijo que su hijo ya había visto al "hombre" tomando café cerca del mercado. Un vendedor de la Baixada, sin saber con quién hablaba, comentó que su jefe era mañoso con el café — solo tomaba de un lugar, una panadería específica en la calle de abajo, y nadie sabía nunca el día.
+
+Nadie sabía el día. Pero el lugar era uno solo.
+
+Así que me quedé en el lugar.
+
+---
+
+Me senté en la banqueta frente a la panadería vestido de mendigo.
+
+La pierna derecha vendada y chueca, sujeta con una férula, para parecer cojo y que a nadie se le ocurriera pedirme que corriera. Una venda sucia sobre un ojo y el otro medio cerrado — podía ver la calle entera y parecer que no veía nada. Ropa mugrosa a propósito. Un vaso de plástico enfrente con unas monedas que yo mismo había puesto.
+
+Me quedé tres días.
+
+El primer día pasó mucha gente y nadie me dio nada, lo que estuvo bien, porque significaba que yo era convincente. El segundo día un policía me dijo que me moviera y lloré hasta que se rindió. En la madrugada del tercer día casi me duermo de verdad.
+
+Ahí apareció.
+
+A media mañana, sin prisa, con las manos en los bolsillos. Un hombre común. Siempre es un hombre común.
+
+---
+
+Me levanté con toda la dificultad del mundo.
+
+Una mano extendida, temblando, pidiendo. La otra agarrando la muleta y escondiendo el resto detrás de la espalda. Voz finita, arrastrada, de quien no come hace días.
+
+— Una ayudita, joven. Lo que sea.
+
+Se paró. Me miró con asco, como uno mira la mugre en la suela del zapato.
+
+— Quítate de mi camino.
+
+— Por el amor de Dios, joven—
+
+Me dio un puñetazo.
+
+Fue lo mejor que podía haber hecho. El golpe me giró el cuerpo lo suficiente para que mi mano saliera de detrás de la espalda por abajo, y el cuchillo le entrara debajo de las costillas antes de que entendiera que yo tenía un cuchillo.
+
+Ahí abajo no hay nada que lo resuelva rápido. Los órganos que importan están más arriba. Así que tuve que sacar la hoja y subir, y subir otra vez, contando: quince, dieciséis, diecisiete. Hasta estar seguro de que el trabajo estaba cerrado.
+
+Dicen que la primera vez nunca se olvida. Es cierto. Pero no por el motivo que la gente se imagina. No la olvidé porque fue horrible. No la olvidé porque fue la primera vez que un plan mío, de principio a fin, salió del papel exactamente como yo lo había dibujado.
+
+---
+
+Después salí corriendo. Curado de la pierna. Milagro.
+
+Me metí al callejón que ya había elegido. En un bote de basura de la cuadra siguiente estaba la bolsa que había dejado dos días antes: ropa limpia, tenis, lentes, gorra, cara de niño bien. Dejé al mendigo dentro del bote y salí por el otro lado del callejón siendo otra persona.
+
+Había cámaras. Siempre hay cámaras. Una agarró a un mendigo cojo entrando al callejón. Cinco cuadras después, otra agarró a un chamaco de gorra y tenis caminando tranquilo. Conectar las dos cosas cuesta trabajo — y el trabajo es justamente lo que la policía de Marélia no hace por un muerto de la Baixada.
+
+La información que les quedó fue esta: el mendigo entró al callejón y desapareció.
+
+---
+
+Los de arriba quedaron muy satisfechos. Pero muy.
+
+Sin Sombra, la Baixada se partió en tres en menos de un mes, peleándose entre ellos por un lugar que ya no existía. La Banca se tragó los bordes exactamente como en mi cuaderno.
+
+Y yo, con once años, dejé de ser carne de cañón.
+`;export{e as default};
+//# sourceMappingURL=06-CW_ZURHr.js.map

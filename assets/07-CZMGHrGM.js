@@ -1,0 +1,95 @@
+var e=`# CHAPTER 7 — Through a Straw
+
+Jack talked to me while I still had my back turned. Slow. Cold.
+
+— Any problem if I give this dude one more? I don't think just the arm's gonna be enough.
+
+— Do whatever you want. Let's leave as many of them as we can eating through a straw.
+
+— Straw shoved straight up their ass — he finished.
+
+---
+
+Jack looked at the guy.
+
+Calm. The guy was screaming, cussing and looking at his own limp arm, not believing it.
+
+— You heard my boy. Don't take it personal.
+
+And he put the pipe in his mouth.
+
+*Whack.*
+
+On the first one the guy went down. Jack kept hitting, steady, same rhythm, looking at the others while he hit.
+
+Blood running. Teeth flying.
+
+The others were frozen. Watching the two of us. Not getting it.
+
+---
+
+That's when it really started.
+
+— There's guns in here — I said. — Watch out.
+
+— I saw — Jack answered.
+
+A guy in the back of the bar, hand on his waistband.
+
+Jack ran straight at him. Went past three on the way without stopping.
+
+He grabbed the gun by the barrel and turned it toward its owner's face. When you force the barrel against whoever's holding it, the wrist twists, and a twisted hand can't hold anything. The guy let go of the gun.
+
+Then came Jack's pipe.
+
+---
+
+It went diagonal, top to bottom, one hit chained into the next.
+
+The first, on the gun guy's head.
+
+The second, in the stomach of the one coming from the side.
+
+The third, on the leg of one who'd just lifted his foot off the floor.
+
+All three fell almost together.
+
+---
+
+— I'm going down! — Jack yelled from across the room.
+
+— I'll stay here.
+
+We split up there.
+
+---
+
+I don't really know what happened with Jack down there. So this part is his.
+
+**JACK**
+
+Finally. Thank you, Kim.
+
+The stairs to the basement were weird. Narrow, crooked, no railing. Stairs for people who don't want visitors.
+
+I went down calm. Chill. Tapping the pipe on the wall every step, to let them know I was coming. Manners are everything.
+
+Down there was a crew working. Long table, scale, plastic bags. Powder packed up, package on top of package. A factory, basically.
+
+— What's going on? — somebody yelled. — What's that noise upstairs?
+
+The guys grabbed their guns. You could hear everybody racking them at the same time. It's a beautiful sound, if it's not meant for you.
+
+And I was still on the stairs.
+
+---
+
+It was going to turn into a shootout. No way it wouldn't.
+
+There was a crushed can on the step. I picked it up and threw it against the wall on the other side, so it'd bounce and land far away from me.
+
+Worked like a charm.
+
+The shootout started.
+`;export{e as default};
+//# sourceMappingURL=07-CZMGHrGM.js.map

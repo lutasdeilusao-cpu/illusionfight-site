@@ -1,0 +1,17 @@
+var e=`# CAPÍTULO 6 — Consideración
+
+Me metí las manos en los bolsillos, como de costumbre, por educación y respeto. Decidí en mi corazón que ese muchacho ya había sufrido demasiado esa noche. No necesitaba más sufrimiento, mucho menos físico.
+
+Vino por la izquierda. Yo me hice a la derecha.
+
+Entonces vino el grandote que me había señalado. Y al grandote yo no le debía ninguna consideración. Ni lo conocía.
+
+---
+
+Su golpe me pasó por encima del hombro. Era más alto y tuvo que agacharse para alcanzarme, así que mi cabezazo le cayó justo encima de la nariz. Sentí cómo se le rompía la nariz contra mi frente, y la sangre bajando lo confirmó.
+
+Se llevó la mano a la nariz. No debió hacer eso. Me abrió el espacio perfecto para mi gancho a la barbilla.
+
+El problema fue lo que vino después. El resto de la comitiva se me vino encima toda de una vez.
+`;export{e as default};
+//# sourceMappingURL=06-Dd_sbL0i.js.map

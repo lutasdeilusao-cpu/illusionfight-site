@@ -1,0 +1,117 @@
+var e=`# CAPÍTULO 12 — La Pantera
+
+**KIM**
+
+Cuando entré, solo miré alrededor.
+
+Buscando. No quería saber de nada más. Solo estar atento a las armas.
+
+Y ahí la encontré.
+
+En un rincón. Parecía inconsciente. Drogada.
+
+La mujer del pelo morado.
+
+Helena.
+
+---
+
+Y, una vez más, algo dentro de mí se rompió.
+
+No sé por qué. Pero sentí una felicidad enorme. Una alegría que no me cabía, de haber encontrado a Helena en medio de tantos tipos.
+
+Era mucha gente para quebrar. Mucha gente para tumbar.
+
+Pero, al principio, había un solo objetivo.
+
+---
+
+**JACK**
+
+En cuanto entramos, supe que se iba a armar una desgracia. Porque yo también vi a Helena.
+
+Tenía cara de haberse tomado algo. La ropa la tenía revuelta. Si todavía no le habían hecho nada, le iban a hacer. Se veía clarito lo que iba a pasar ahí.
+
+No hubo tiempo.
+
+En cuatro patas, Kim embiste el doble de rápido. Pasó por todos y fue directo al que parecía el jefazo.
+
+El tipo abrió la boca. No se entendió si iba a preguntar "¿quién eres?" o "¿qué carajo es esto?".
+
+Kim le saltó encima. El tipo era más grande, así que lo abrazó en el salto, atrapándole los dos brazos.
+
+Y empezó a darle cabezazos.
+
+Uno. Otro. Otro. Y se reía.
+
+La sonrisa se abría, la sangre bajaba, y el tipo se fue arrodillando, comiéndose cabezazos.
+
+---
+
+Parecía que Kim quería hacerle algo más.
+
+Pero los otros empezaron a armarse. Se oían los seguros de las armas.
+
+Obvio que empezó la balacera.
+
+---
+
+Hice lo que pude.
+
+Agarré las Coquitas de mi cinturón y empecé a lanzarlas. A la cara de uno. A la cara de otro. A todo el mundo.
+
+Después rompí las bolsitas de polvo y se lo eché encima a todos, tapándome la nariz. Había unos ventiladores prendidos en el techo. El polvo se esparció por todo el salón. Ahí rompí también los paquetes que estaban encima de la mesa.
+
+**KIM**
+
+Entonces para eso era el polvo.
+
+**JACK**
+
+Te dije que era prioridad.
+
+---
+
+En medio del caos, agarré un fajo de billetes, le eché lo que quedaba de mi botella y le prendí fuego.
+
+Una lástima. El aguardiente, digo.
+
+El fuego se extendió.
+
+— ¡¿Están quemando dinero?! — gritó alguien. — ¿Quiénes son ustedes, hijos de puta? ¿Qué está pasando?
+
+Polvo en el aire, dinero ardiendo, balas para todos lados. La cosa estaba demente.
+
+---
+
+El problema era Kim.
+
+Saltaba de un lado para el otro. Cada salto era un tipo en el piso.
+
+Era siniestro. El salón era como una bodega, lleno de rincones y divisiones. Los tipos simplemente desaparecían. Estaban ahí y, al segundo siguiente, ya no.
+
+Kim andaba bajito. Arrastrado. Y saltaba. Y desgarraba. Y ahorcaba. Y pegaba. Y quebraba. Se oía el hueso.
+
+Y nunca quedaba satisfecho.
+
+---
+
+Hubo uno al que Kim le pasó el brazo por debajo de la pierna. La pierna subió.
+
+Y siguió subiendo, hasta que el pie del tipo tocó su hombro.
+
+Eso dolió. Ese no se levantaba más, seguro.
+
+---
+
+Déjenme explicarles algo.
+
+Cuando peleamos en modo serio, queremos asegurarnos de que nadie vuelva a la pelea. Desmayado no es garantía, porque el tipo puede fingir. La forma más segura de sacar a alguien de la pelea es quebrarle un hueso.
+
+No es como en las películas. Con un hueso roto, la persona solo piensa en el hueso roto. Ya no piensa en pelear.
+
+Y, esa noche, sí, disfrutábamos quebrando unos huesos. No todos los de ahí se lo merecían. Pero era la situación.
+
+El que no aguanta, que no se meta.
+`;export{e as default};
+//# sourceMappingURL=12-DbrlOjG0.js.map

@@ -1,0 +1,53 @@
+var e=`# CAPÍTULO 9 — Un Año Antes
+
+Esa conversación pasó cuando yo tenía dieciséis. Un año antes de conocer a Kim y a Jack.
+
+Haciendo la cuenta: fueron solo cuatro años de niña rica, ahí en medio del camino. Todo lo demás — los primeros, que ni recuerdo, y los siete que vinieron después — fue vida sencilla. Y la mayor parte de esos siete me la impuso mi papá a propósito.
+
+Y te voy a decir algo que tal vez suene mal.
+
+Esos siete años duros fueron mucho mejores que los cuatro años de niña rica del medio. Los años sofocantes, con todo servido, sin necesitar nada. Esos cuatro años no me dieron nada. Los siete difíciles me dieron todo lo que uso hoy.
+
+Aprender a cocinar. Aprender a recibir golpes y a devolverlos. Aprender que un berrinche sin público es solo ruido. Aprender que la mayoría de las peleas se ganan hablando, y que cuando no se puede, pegas primero y pegas bien. Aprender a irte de una ciudad sin echar raíces y seguir entera de todos modos.
+
+Nada de eso vino de una piscina.
+
+---
+
+No le guardo rencor a mi papá por eso.
+
+Ya me preguntaron cómo es que no. La verdad es simple: no lo hizo para castigarme. Lo hizo porque se había equivocado antes, y tuvo el valor de deshacer su propio error de la forma más difícil que existe — pagando el precio junto conmigo, siete años, sin decirme que tenía opción.
+
+Qué hombre increíble. Amo muchísimo a ese hombre.
+
+Hubo días en esos siete años en que lo odié con toda la fuerza que tiene una niña. Le grité que me había arruinado la vida. Le dije que Elizabeth nunca me habría hecho eso — sin saber que era exactamente al revés, que era toda Elizabeth dentro de él la que le había dado el valor para hacerlo. Él escuchó todo callado y al día siguiente estaba ahí, con el café hecho, como si nada se hubiera dicho.
+
+Nunca me pidió disculpas por esas cosas. Se las pido yo ahora, en voz alta, para quien quiera escuchar. Perdón, papá. Y gracias.
+
+---
+
+Sobre los padres biológicos — no cambié de idea. Nunca voy a cambiar.
+
+Si algún día aparecen, qué bien. La puerta no está cerrada con llave. Pero la mano que abre es la de ellos. No le debo nada a quien me dejó a los tres años, y no voy a construir una relación encima de una deuda que no es mía.
+
+Padre es el hombre que partió su propia vida a la mitad para enderezarme. Madre es la mujer que no recuerdo pero que mi cuerpo sí recuerda.
+
+Lo demás es biología.
+
+---
+
+Mi papá cumplió su promesa.
+
+En la mudanza siguiente la casa volvió a ser buena — no sofocante, no exagerada, solo buena. Estabilizó mi vida, me dio espacio, y me inscribió en la Elite Academy para el último año, diciéndome que no me preocupara por ninguna calificación.
+
+Entré a esa escuela sin plan. Rica otra vez, después de siete años aprendiendo a no serlo. Sin amigos, tal como había decidido quedarme.
+
+Un año después ya había tumbado a Kim en una pelea, insultado a Jack unas cien veces, y hecho exactamente lo que juré que nunca más iba a hacer: dejar entrar a la gente.
+
+Pero esa parte ustedes ya la conocen — es donde yo entro en la historia ([historia principal, cap. 2](/historias/lutas-de-ilusao/capitulo-02)).
+
+Esta era la parte que nadie sabía.
+
+Ahora ya la saben.
+`;export{e as default};
+//# sourceMappingURL=09-ihOh9WhL.js.map

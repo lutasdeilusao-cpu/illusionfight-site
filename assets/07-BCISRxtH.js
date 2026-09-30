@@ -1,0 +1,55 @@
+var e=`# CAPÍTULO 7 — El Miedo
+
+— Intenté comprar tu amor.
+
+Lo dijo así, sin adornos.
+
+— Sin Elizabeth a mi lado para frenarme, me volví un padre tonto. Tenía pánico de que no me quisieras. Pánico. Entonces me convencí de que, si te daba todo, me ibas a amar. Cada regalo era una disculpa por no saber hacer lo demás.
+
+— Y funcionó por un tiempo. Me amabas a mí y amabas las cosas junto conmigo, y yo ya no podía separar una cosa de la otra.
+
+---
+
+— Cuando tenías nueve años me di cuenta del tamaño de la cagada que había hecho.
+
+Usó la palabra fuerte una sola vez, y fue esa.
+
+— Te habías vuelto una niña imposible. No por maldad — eras una niña. Pero estabas abusando de un poder que no era tuyo. De un estatus que no era tuyo. Todo lo que tenías, Nina, lo conseguí yo. Tú todavía ibas a tener que conseguir tus propias cosas, y ni siquiera estabas mirando eso. Te sentías superior. Y eso me ponía triste de una forma que no sabía cargar.
+
+— Sabía que de ahí solo iba a empeorar. Entonces, en la mudanza siguiente, elegí la peor casa que encontré y corté todo. De una vez.
+
+---
+
+Me quedé un rato procesándolo.
+
+— Espera — dije. — Tú SÍ TIENES dinero.
+
+— Tengo, Nina.
+
+— Pero nos quedamos pobres cuando yo tenía nueve. Dijiste que era la vida ahora.
+
+— Y lo era. No te mentí en una sola palabra. Esa pasó a ser la vida. — Sonrió de lado. — Pero tú creíste que era porque nos habíamos quebrado. No nos quebramos. Viviendo así, gastando casi nada, guardando todo... hoy soy más rico de lo que era antes de quitarte la piscina.
+
+— No puedo creer que me hayas hecho eso.
+
+— Lo hice por tu bien. Necesitabas esa lección.
+
+— Qué lección tan loca, papá.
+
+— Pues sí. — Se encogió de hombros. — Pero mírate ahora.
+
+---
+
+Y me miró. De verdad, largo rato.
+
+— Te volviste una copia de Elizabeth. Fuerte. Decidida. De las que nunca van a bajar la cabeza ante nadie. A veces creo que se me pasó la mano — pero después te veo y pienso que tal vez fue la mano justa. Eres tu mamá entera, Nina. Es bizarro lo parecidas que son.
+
+Hizo una pausa y la voz le cambió.
+
+— Lo único que me preocupa es que te volviste demasiado independiente. No tienes gente a tu lado. Amigos de verdad, gente que se queda. Yo tengo los míos — fueron ellos los que me levantaron cuando Elizabeth murió. Tú todavía no encontraste los tuyos.
+
+— ¿Y los necesito? — pregunté.
+
+— Los necesitas — dijo. — Todo el mundo los necesita. Hasta tú.
+`;export{e as default};
+//# sourceMappingURL=07-BCISRxtH.js.map

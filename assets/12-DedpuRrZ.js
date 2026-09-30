@@ -1,0 +1,55 @@
+var e=`# CAPÍTULO 12 — Espalda con Espalda
+
+Yo ya había oído la expresión "una sola persona dividida en dos cuerpos". Nunca lo había visto.
+
+Lo vi ahí.
+
+Los dos peleaban sin ponerse de acuerdo en nada. El indiecito cubría todo lo que el pelo verde dejaba abierto. El pelo verde cubría todo lo que el indiecito dejaba abierto. Uno pateaba bajo mientras el otro giraba; el otro empujaba a un mocoso directo a un golpe que el primero ya había empezado. Sus instintos encajaban como si fuera la misma cabeza mandando en cuatro brazos.
+
+Yo he visto parejas entrenadas trabajar así. Guardaespaldas que andan juntos desde hace años, que ensayan, que tienen señas de mano para todo. Esos dos no tenían nada de eso. No se conocían de nada. Se habían estado peleando entre ellos cinco minutos antes.
+
+Y aun así se movían mejor que mi mejor pareja.
+
+Al principio el grupito era chico. Pero los mocosos de la calle son así: cuando los primeros volvieron llorando, vino detrás un grupo más grande, de muchachos más grandes, más altos, a "arreglar" el asunto.
+
+Los dos no retrocedieron ni un paso.
+
+---
+
+Siguieron peleando. Igual. Sin prisa, sin miedo, cada uno siempre atento al ángulo ciego del otro.
+
+Al final había un montón de niños golpeados en el parque. Unos llorando. Unos yéndose cojeando. Unos sentados en el piso, que ya se habían rendido antes de que terminara.
+
+Los dos en medio de todo, casi sin un rasguño más que los que ya se habían hecho el uno al otro antes de que todo empezara.
+
+---
+
+Y ahí vino la parte que me cerró el asunto.
+
+Cuando se dieron cuenta de que la pelea con el grupo había terminado — que no quedaba nadie de pie a quien pegarle —, los dos se voltearon el uno hacia el otro.
+
+Y retomaron la pelea donde la habían dejado.
+
+Como si todo el atraco hubiera sido solo una pausa. Un intermedio aburrido en medio de lo único que importaba, que era decidir cuál de los dos era el mejor.
+
+---
+
+Me quedé en el muro un rato más, mirando.
+
+Un mocoso que no se caía. Otro que perdía solo para volver. Y los dos juntos peleando como una sola cosa, cada uno tapando el hueco del otro, contra un grupo que debió haber acabado con ellos.
+
+Yo recluto gente por mucho menos que eso.
+
+Dos de la calle, sin nadie, sin nada, con la mitad de mi edad y el doble del instinto de cualquier adulto que trabajaba para mí. Uno que no se cae. Otro que no deja de volver. Y juntos, una sola cosa. En mi negocio, eso no es talento — es herramienta. Una herramienta que a la Banca le iba a tomar diez años fabricar y que estaba ahí, gratis, llevándose golpes en un baldío.
+
+El problema con mocosos así es que no se compran con sopa ni con respeto. Eso ya lo sabía con solo mirarlos. De la clase de gente que no sigue a nadie — solo quiere pegarle al que está más alto para ver si lo tumba.
+
+Pero yo tampoco tenía prisa. A esa edad, lo único que necesitaba era mantenerlos cerca el tiempo suficiente para que entendieran solitos que el lado correcto del Cerro era el mío.
+
+Si metía a esos dos en la Banca y les daba cinco años, subían el Cerro entero.
+
+Necesitaba tenerlos conmigo.
+
+Así que, antes de que volvieran a agarrarse en serio, decidí meterme en la conversación.
+`;export{e as default};
+//# sourceMappingURL=12-DedpuRrZ.js.map

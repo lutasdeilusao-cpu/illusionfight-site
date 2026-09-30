@@ -1,0 +1,57 @@
+var e=`# CAPÍTULO 1 — Elizabeth
+
+Ustedes me conocen como Nina.
+
+Les voy a contar algo que ni Kim ni Jack saben. Un poco de mi pasado. Tal vez algún día se enteren. Hoy no.
+
+---
+
+No sé casi nada de mi vida antes de los tres años.
+
+A los tres me adoptaron. Una pareja — un hombre y una mujer que me quisieron.
+
+No conocí a mis padres biológicos y no tengo interés en conocerlos. Para mí, padre y madre son las personas que me eligieron. Que se preocuparon. Que me desearon dentro de su vida. Mi papá y mi mamá.
+
+Solo que con la segunda parte no tuve mucha suerte.
+
+---
+
+Mi mamá se llamaba Elizabeth.
+
+Dos años después de adoptarme, cuando yo tenía cinco, se enfermó. Y murió.
+
+No logro acordarme bien de ella. Tengo destellos — una mano, un olor, el sonido de una voz sin palabras. Todo lo que de verdad sé de Elizabeth es lo que mi papá me contó, años después, cuando ya tenía edad para escucharlo.
+
+Pero hay una cosa que no se va.
+
+Cada vez que pienso en mi mamá, siento algo mucho más grande de lo que el recuerdo debería poder sostener. No es extrañar a alguien que conocí. Es otra cosa. Más honda.
+
+Me amaron durante dos años con tanta fuerza, con tanta verdad, con tantas ganas, que eso quedó grabado en un lugar al que la memoria de una niña no llega. Quedó guardado en el cuerpo. Como memoria muscular.
+
+No me acuerdo de mi mamá. Pero mi cuerpo se acuerda de haber sido amado por ella.
+
+Y eso me sostuvo de pie en mucho de lo que vino después.
+
+---
+
+El destello más fuerte que tengo es estar sentada en el piso de una cocina, recostada contra una pierna. La pierna era de ella. No veo la cara, no escucho lo que dice, pero sé que era un buen día, porque ese recuerdo no tiene nada de miedo adentro.
+
+Lo demás viene de mi papá.
+
+Me contó que Elizabeth se reía fuerte, de esa risa que hace reír a los demás sin saber de qué. Que lloraba fácil con las películas y nunca en la vida real. Que tenía la manía de acomodarle el cuello de la ropa a la gente, hasta a desconocidos, y nadie se molestaba porque era ella. Que decía "no" con una calma que no dejaba espacio para discutir.
+
+Escuché todo eso ya grande, y reconocí demasiadas cosas. No porque me acordara. Porque yo era así.
+
+---
+
+Una vez, todavía chiquita, le dije a mi papá que quería ver a mi mamá.
+
+Me mandó todo lo que tenía. El perfil de ella en las redes, que nadie desactivó nunca. Y una carpeta en la nube llena de videos y fotos que él nunca publicó en ningún lado — guardados solo para él.
+
+Pero me mostró poco, y siempre de a uno, como quien raciona. Creo que tenía miedo de gastar lo que quedaba de ella si me lo mostraba todo de una vez.
+
+En uno de los videos ella me tiene en brazos. Yo debía tener dos años. Su mano se cierra sobre mi hombro cada vez que me muevo. Vi eso en loop durante mucho tiempo, intentando que la imagen se convirtiera en recuerdo. No se convirtió. Pero cuando cerraba los ojos, el hombro se me calentaba.
+
+Memoria muscular. Se los dije.
+`;export{e as default};
+//# sourceMappingURL=01-D3D3TGJJ.js.map

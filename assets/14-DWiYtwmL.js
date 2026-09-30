@@ -1,0 +1,95 @@
+var e=`# CAPÍTULO 14 — Una Más
+
+**KIM**
+
+Después de que Jack se apagó, solo tengo destellos.
+
+Me acuerdo de gritos. Muchos gritos.
+
+Y me acuerdo de que, por algún motivo, no tenía prisa.
+
+Así que, sea lo que sea que hice, lo hice despacio. Tranquilo. Sin apuro.
+
+---
+
+A partir de los bomberos, me acuerdo con más claridad.
+
+Cuando llegaron, yo ya había sacado a Jack y a Helena de ahí. Los dos en mis brazos, uno a la vez.
+
+Y dejé que esa bodega se quemara.
+
+Me quedé sentado en la acera, esperando.
+
+---
+
+Les pedí a los bomberos que atendieran a Jack y a Helena.
+
+También querían atenderme a mí. Estaba cubierto de sangre, y buena parte no era mía. Pero yo no me importaba.
+
+Solo quería que los dos estuvieran bien.
+
+---
+
+Después llegó la policía.
+
+Hicieron un montón de preguntas. Dije que no sabía. Que no sabía qué había pasado.
+
+No era del todo mentira.
+
+---
+
+Uno, dos días después, Jack y Helena estaban en el hospital.
+
+Jack ya se había despertado. También lo interrogaron. También dijo que no se acordaba de nada. Que no sabía qué había pasado, ni por qué había tantos tipos en el piso, ni quién lo había hecho.
+
+**JACK**
+
+Dije que debió ser un accidente de moto. Colectivo.
+
+**KIM**
+
+Nadie se lo creyó.
+
+Explicamos que solo habíamos ido a buscar a Helena. Y ahí quedó.
+
+Muchos de esos tipos terminaron presos. Los que no, desaparecieron. Huyeron.
+
+Y ahí termina la historia.
+
+**JACK**
+
+No termina justo ahí, ¿verdad, Kim?
+
+---
+
+Hasta ese día, yo solo había visto cuatro cadenas sueltas.
+
+Creo que fue lo máximo que he visto de Kim. Nunca más vi nada parecido.
+
+Y pienso en eso de vez en cuando.
+
+Porque son cinco.
+
+Todavía queda una más por romper.
+
+**KIM**
+
+Les dije que era pésimo contando historias.
+
+**JACK**
+
+Esta la contaste bien.
+
+---
+
+**P.D. DE JACK:** no se olviden de una cosa. Ese día, Kim dejó claro que su vida me pertenece. Y lo aceptó.
+
+Así que quede bien claro: Kim es un perro rabioso. Es cosa de dar miedo.
+
+Pero yo soy el que sostiene la cadena.
+
+Y mi hermano sabe esto: cuando la vida de este tipo termine, va a ser decisión mía. De nadie más.
+
+Él lo sabe. Y es bueno que todos ustedes lo sepan también.
+`;export{e as default};
+//# sourceMappingURL=14-DWiYtwmL.js.map

@@ -1,0 +1,55 @@
+var e=`# CHAPTER 12 — Back to Back
+
+I'd heard the expression "one person split into two bodies." Never seen it.
+
+I saw it there.
+
+The two of them fought without planning a thing. The Kid covered everything the green hair left open. The green hair covered everything the Kid left open. One kicked low while the other spun; the other shoved a kid right into a strike the first one had already started. Their instincts fit together like it was the same head running four arms.
+
+I've seen trained pairs work like that. Security guys who've been together for years, who rehearse, who have hand signals for everything. Those two had none of that. They didn't know each other at all. They'd been fighting each other five minutes earlier.
+
+And still they moved better than my best pair.
+
+The crew was small at first. But street kids are like that: when the first ones came back crying, a bigger crew came after them, older boys, taller, to "handle it."
+
+The two of them didn't back up an inch.
+
+---
+
+They kept fighting. Same way. No rush, no fear, each one always watching the other one's blind spot.
+
+In the end the park was full of beat-up kids. Some crying. Some limping away. Some sitting on the ground, who'd already given up before it was over.
+
+The two of them in the middle of it all, with hardly a scratch more than the ones they'd already given each other before any of it started.
+
+---
+
+And then came the part that settled it for me.
+
+When they realized the fight with the crew was over — that there was nobody left standing to hit — the two of them turned to face each other.
+
+And picked the fight back up right where they'd left off.
+
+Like the whole rush had just been a break. A boring intermission in the middle of the only thing that mattered, which was deciding which of the two was better.
+
+---
+
+I stayed on the wall a while longer, watching.
+
+One kid who wouldn't fall. Another who lost only to come back. And the two of them together fighting like one thing, each plugging the other's hole, against a crew that should've finished them.
+
+I recruit people for a lot less than that.
+
+Two street kids, no one, nothing, half my age and twice the instinct of any grown man who worked for me. One who doesn't go down. Another who won't stop coming back. And together, one single thing. In my business, that's not talent — it's a tool. A tool the Banca would take ten years to build, and there it was, for free, taking a beating on a vacant lot.
+
+The problem with kids like that is you don't buy them with soup or respect. I already knew that just from looking. The kind of people who don't follow anybody — they just want to hit whoever's highest to see if they can knock him down.
+
+But I wasn't in a hurry either. At that age, all I needed was to keep the two of them close long enough for them to figure out on their own that the right side of the Hill was mine.
+
+If I put those two in the Banca and gave it five years, they'd climb the whole Hill.
+
+I needed those two with me.
+
+So, before they went back to going at each other for real, I decided to step into the conversation.
+`;export{e as default};
+//# sourceMappingURL=12-CG1x6B-M.js.map
