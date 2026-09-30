@@ -2,6 +2,7 @@
 // Mesmo formato dos da Pista e da Feira (a caixa de um cômodo é a mesma, já
 // validada lá — ver data/cenas/pista/interiores.js pras notas de colisão e da
 // porta larga). `pois[].ref` reaproveita um POI de pois.js.
+import { portaFundos, salaDosFundos } from '../salaDosFundos.js'
 
 // Sala de um cômodo, porta larga embaixo.
 function sala({ id, w, h, balcao, cenario, pois }) {
@@ -24,7 +25,7 @@ export const INTERIORES_BAIXADA = {
   birosca: {
     nome: 'games.gangues.cena.baixada.int.birosca',
     porta: { predio: 'c1' },
-    comodos: [sala({
+    comodos: [{ ...sala({
       id: 'sala', w: 460, h: 320,
       balcao: { x: 108, y: 66, w: 244, h: 40 },
       cenario: [
@@ -33,10 +34,8 @@ export const INTERIORES_BAIXADA = {
       ],
       pois: [
         { ref: 'birosca', pos: { x: 74, y: 210 } },
-        { ref: 'taxa_fixa', pos: { x: 390, y: 200 } },
-        { ref: 'informante_vila', pos: { x: 230, y: 200 } },
       ],
-    })],
+    }), passagem: portaFundos(460) }, salaDosFundos(['taxa_fixa', 'informante_vila'])],
   },
   // ── A padaria da Dona Cida — onde sai o café do velho ──
   padaria: {

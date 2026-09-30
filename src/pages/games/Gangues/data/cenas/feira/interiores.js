@@ -3,6 +3,7 @@
 // as notas de colisão/porta larga — a geometria dos cômodos aqui é a mesma,
 // já validada lá). `pois[].ref` reaproveita um POI de pois.js; `pois[].poi` é
 // um POI completo que só existe dentro do cômodo (tretas de dungeon).
+import { portaFundos, salaDosFundos } from '../salaDosFundos.js'
 import { FEIRA_POOL_GATO, FEIRA_POOL_MERCADAO } from './pools.js'
 import { FEIRA_REP_GATE_DEPOSITO } from './pois.js'
 
@@ -88,7 +89,7 @@ export const INTERIORES_FEIRA = {
   pensao: {
     nome: 'games.gangues.cena.feira.int.pensao',
     porta: { predio: 'pensao' },
-    comodos: [sala({
+    comodos: [{ ...sala({
       id: 'sala', w: 460, h: 320,
       balcao: { x: 108, y: 66, w: 244, h: 40 },
       cenario: [
@@ -97,9 +98,8 @@ export const INTERIORES_FEIRA = {
       ],
       pois: [
         { ref: 'pensao', pos: { x: 74, y: 210 } },
-        { ref: 'juro_alto', pos: { x: 390, y: 200 } },
       ],
-    })],
+    }), passagem: portaFundos(460) }, salaDosFundos(['juro_alto'])],
   },
   // ── Oficina de rádio do Toninho ──
   radio: {

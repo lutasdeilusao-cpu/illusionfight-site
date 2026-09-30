@@ -427,7 +427,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const camX = W.w <= vw ? (W.w - vw) / 2 : Math.max(0, Math.min(W.w - vw, player.x - vw / 2 + lookX))
   const camY = W.h <= vh ? (W.h - vh) / 2 : Math.max(0, Math.min(W.h - vh, player.y - vh / 2 + lookY))
   const breadcrumb = local
-    ? `${t(amb.nomeLugar)}${amb.andares ? ` · ${amb.comodoIdx ? t('games.gangues.cena.andar', { n: amb.comodoIdx }) : t('games.gangues.cena.andar_terreo')}` : amb.comodoTotal > 1 ? ` · ${t('games.gangues.cena.comodo', { n: amb.comodoIdx + 1, de: amb.comodoTotal })}` : ''}`
+    ? `${t(amb.nomeLugar)}${amb.nomeComodo ? ` · ${t(amb.nomeComodo)}` : amb.andares ? ` · ${amb.comodoIdx ? t('games.gangues.cena.andar', { n: amb.comodoIdx }) : t('games.gangues.cena.andar_terreo')}` : amb.comodoTotal > 1 ? ` · ${t('games.gangues.cena.comodo', { n: amb.comodoIdx + 1, de: amb.comodoTotal })}` : ''}`
     : `${t(`games.gangues.story.territorios.${terr.id}.nome`)} `
   // Metas obrigatórias da cena (portao.precisa + o chefe) — o que abre o
   // caminho por baixo do muro. Vira a lista do checklist do topo.

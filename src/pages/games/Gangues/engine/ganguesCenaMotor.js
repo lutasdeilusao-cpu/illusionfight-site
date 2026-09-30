@@ -149,7 +149,7 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
   const colliders = (com.colliders || []).filter(c => com.voltaPara == null || c.y < com.world.h - 34)
   return {
     interior: true, world: com.world, colliders, gateAtivo: false,
-    alvos, nomeLugar: inter.nome, comodoIdx: local.comodo, comodoTotal: inter.comodos.length, andares: Boolean(inter.andares), cenario: com.cenario || [],
+    alvos, nomeLugar: inter.nome, comodoIdx: local.comodo, comodoTotal: inter.comodos.length, andares: Boolean(inter.andares), nomeComodo: com.nome || null, cenario: com.cenario || [],
   }
 }
 

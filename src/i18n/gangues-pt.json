@@ -1069,6 +1069,7 @@
         "fechar": "entendido, patrão"
       },
       "cena": {
+        "fundos_nome": "SALA DOS FUNDOS",
         "andar": "{n}º ANDAR",
         "andar_terreo": "TÉRREO",
         "vila": {
@@ -1729,6 +1730,7 @@
         "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando, na oficina. Ele te retorna.",
         "hint_sucata_falta": "🔩 Falta um pedaço de sucata — tá no fundo do ferro-velho. Pega os dois e leva pro Nando.",
         "acao": {
+          "fundos": "FUNDOS",
           "subir": "SUBIR",
           "entrar": "ENTRA",
           "sair": "VAZA",

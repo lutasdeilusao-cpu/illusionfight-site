@@ -8,6 +8,7 @@
 // (trancada até bater quem segura o patamar, `precisa`) e o `voltaPara` da
 // borda de baixo — o mesmo encaixe do túnel e do galpão da Pista, sem motor
 // novo. Andar `escuro` (a escada sem luz) fica no breu até o Ferrugem cair.
+import { portaFundos, salaDosFundos } from '../salaDosFundos.js'
 
 // Sala de um cômodo, porta larga embaixo.
 function sala({ id, w, h, balcao, cenario, pois }) {
@@ -49,7 +50,7 @@ export const INTERIORES_VILA = {
   birosca: {
     nome: 'games.gangues.cena.vila.int.birosca',
     porta: { predio: 'c1' },
-    comodos: [sala({
+    comodos: [{ ...sala({
       id: 'sala', w: 460, h: 320,
       balcao: { x: 108, y: 66, w: 244, h: 40 },
       cenario: [
@@ -58,9 +59,8 @@ export const INTERIORES_VILA = {
       ],
       pois: [
         { ref: 'birosca_vila', pos: { x: 74, y: 210 } },
-        { ref: 'aluguel_vencido', pos: { x: 390, y: 200 } },
       ],
-    })],
+    }), passagem: portaFundos(460) }, salaDosFundos(['aluguel_vencido'])],
   },
   // ── A oficina do zelador (ferreiro) ──
   oficina: {

@@ -7,6 +7,7 @@
 // Extraído de data/cenas/pista.js (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §4).
 import { PISTA_POOL_RUA, PISTA_POOL_TUNEL, PISTA_POOL_GALPAO } from './pools.js'
 import { GANGUES_REP_GATE_GALPAO } from '../../ganguesLoadout.js'
+import { portaFundos, salaDosFundos } from '../salaDosFundos.js'
 
 export const INTERIORES_PISTA = {
   birosca: {
@@ -50,16 +51,10 @@ export const INTERIORES_PISTA = {
       pois: [
         { ref: 'informante', pos: { x: 400, y: 200 } },
         { ref: 'descanso', pos: { x: 74, y: 210 } },
-        // O agiota (Marimbondo) — pedido do Isaias, 21/09/2026: corrigido no
-        // mesmo dia pra morar AQUI DENTRO da birosca, não na rua ("você
-        // colocou o agiota fora do prédio... ele tem que estar aqui
-        // dentro"). Meio da sala, livre do balcão (colisor y66-106) e longe
-        // dos outros dois pinos.
-        { ref: 'agiota', pos: { x: 230, y: 130 } },
-        // A Banca do Tio Dado (apostas) — na mesa da direita, longe dos outros pinos.
-        { ref: 'banca', pos: { x: 340, y: 262 } },
       ],
-    }],
+      // Agiota e Banca do Tio Dado moram na sala dos fundos (ver salaDosFundos.js).
+      passagem: portaFundos(460),
+    }, salaDosFundos(['agiota', 'banca'])],
   },
   // ── A BIROSCA DO PRIMO (pós-muro) — dentro do barraco pm1 ──
   // Mesma cara da birosca do Nato, do outro lado do muro. Um cômodo só:
