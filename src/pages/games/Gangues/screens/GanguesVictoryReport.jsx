@@ -72,10 +72,11 @@ export default function GanguesVictoryReport({
     : []
   // Volta pra rua (vitória, socorro da derrota ou tentar de novo).
   const seguir = () => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }
-  // Rinha infinita: ganhou ou perdeu, a próxima luta vem sozinha (adversário
-  // novo, força sorteada, a casa remenda a tropa — ver GanguesRoute); a
-  // aposta da Feira vale só na 1ª da sessão.
-  const naRinha = Boolean(storyAlvo?.rinha) && noModoHistoria
+  // Rinha infinita: ganhou, a próxima luta vem sozinha (adversário novo, força
+  // sorteada, a casa remenda a tropa — ver GanguesRoute); a aposta da Feira
+  // vale só na 1ª da sessão. PERDEU, acabou a Rinha: cai no caminho normal da
+  // derrota (birosca), sem "próxima luta".
+  const naRinha = Boolean(storyAlvo?.rinha) && noModoHistoria && victory
   const proximaRinha = () => { store.setStoryTarget({ ...storyAlvo, aposta: 0, rinhaLuta: (storyAlvo.rinhaLuta || 1) + 1 }); onNavigate('story-combat') }
   // Briga automática da cena ligada: "Segue na quebrada" se clica sozinho em
   // 3s (ver useGanguesAvancoAutomatico). A vitória sobre o chefe fica de fora

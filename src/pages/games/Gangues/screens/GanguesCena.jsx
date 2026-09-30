@@ -101,8 +101,9 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const worldRef = useRef(null); worldRef.current = amb?.world || WORLD
   const gateRef = useRef(null)
 
+  const congeladoRef = useRef(false)
   const { player, setPlayer, facing, andou, inputRef } = useGanguesCenaMovimento({
-    intro, encontro, fade, gateRef, collidersRef, worldRef, initialPlayer: posInicial,
+    intro, encontro, fade, gateRef, collidersRef, worldRef, initialPlayer: posInicial, congeladoRef,
   })
 
   // Linha do trem (Baixada): enquanto passa, os trilhos viram muro; quem tava neles leva dano.
@@ -181,6 +182,8 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     rodando: Boolean(cena) && !intro && !encontro && !fade && !local && fichaIndex === null && !bagAberta && !repModalMarco,
     onAlcancou: tipo => iniciarAleatorioRef.current?.(tipo),
   })
+  // Encostou (briga automática ou encontro aleatório): trava o boneco até a luta abrir.
+  congeladoRef.current = Boolean(brigaAuto.anuncio || aleatorio.onomatopeia || aleatorio.aviso)
   useEffect(() => {
     if (intro || encontro) return
     if (!andou) { setHint(t('games.gangues.cena.hint_andar')); return }

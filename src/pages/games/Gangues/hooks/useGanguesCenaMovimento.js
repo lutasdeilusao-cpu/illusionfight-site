@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { STEP_MS, stepPlayer } from '../engine/ganguesCenaMotor.js'
 
-export default function useGanguesCenaMovimento({ intro, encontro, fade, gateRef, collidersRef, worldRef, initialPlayer, initialFacing = 'up' }) {
+export default function useGanguesCenaMovimento({ intro, encontro, fade, gateRef, collidersRef, worldRef, initialPlayer, initialFacing = 'up', congeladoRef }) {
   const [player, setPlayer] = useState(initialPlayer)
   const [facing, setFacing] = useState(initialFacing)
   const [andou, setAndou] = useState(false)
@@ -26,7 +26,10 @@ export default function useGanguesCenaMovimento({ intro, encontro, fade, gateRef
       const k = keysRef.current
       const ix = inputRef.current.x + (k.has('arrowright') || k.has('d') ? 1 : 0) - (k.has('arrowleft') || k.has('a') ? 1 : 0)
       const iy = inputRef.current.y + (k.has('arrowdown') || k.has('s') ? 1 : 0) - (k.has('arrowup') || k.has('w') ? 1 : 0)
-      if (Math.hypot(ix, iy) > .35) {
+      // Congelado (Isaias, 30/09/2026): encostou na briga automática ou no
+      // encontro aleatório, o boneco para na hora até a luta abrir — antes dava
+      // pra seguir andando e parecia que tinha passado pelo cara.
+      if (!congeladoRef?.current && Math.hypot(ix, iy) > .35) {
         const dx = Math.abs(ix) >= Math.abs(iy) ? (ix > 0 ? 1 : -1) : 0
         const dy = dx === 0 ? (iy > 0 ? 1 : -1) : 0
         setFacing(dx > 0 ? 'right' : dx < 0 ? 'left' : dy > 0 ? 'down' : 'up')

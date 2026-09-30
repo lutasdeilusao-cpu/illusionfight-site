@@ -94,7 +94,7 @@ const VIGIA_MS = 150
 // com uma frase de rua por ANUNCIO_MS e só depois a luta abre. A cena só
 // chama `anunciar(continuar)` depois das travas (rep, dívida, tropa no chão)
 // — o aviso nunca promete uma briga que vai ser barrada.
-const ANUNCIO_MS = 2500
+const ANUNCIO_MS = 1200
 const ANUNCIO_FRASES = 8
 
 export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, bloqueado, ultimoPoiId, onBriga }) {

@@ -29,11 +29,12 @@
 import { iniciarBrigaMultidao, iniciarBrigaMultidaoDeCombatentes, avancarRodadaMultidao } from './ganguesBrigaMultidao.js'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from './ganguesVictoryResolver.js'
 import { gerarBandoRevezamento } from '../data/ganguesEncontros.js'
-import { revezamentoNoTerritorio } from '../data/cenas/cenaHelpers.js'
+import { revezamentoNoTerritorio, destinoSocorroDerrota } from '../data/cenas/cenaHelpers.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
 import { GANGUES_SUCATA_ID } from '../data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
+import { desligarAutomaticos } from '../hooks/useGanguesBrigaAutomatica.js'
 import { lerAutoConfig, melhorPocao, POCAO_LIMIAR_PV } from '../hooks/useGanguesModoAuto.js'
 
 /** 1 luta a cada 5 minutos fora, na Rinha (Isaias, 28/09/2026: "a cada
@@ -110,7 +111,7 @@ export const lutaAoVivo = { ler: null }
 // Aplica o resultado de UMA luta calculada da Rinha no store, com as mesmas
 // regras da tela de vitória de verdade (useGanguesVictoryResolution): dano,
 // AP, álbum, grana/rep/itens do ponto, aposta (só a da 1ª luta da sessão) e
-// sucata. Perdeu, perdeu — nada dessa luta, e a sessão segue.
+// sucata. Perdeu, nada dessa luta — e a sessão acaba ali (simularFarmRinha para).
 function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo }) {
   const s = store()
   resumo.lutas++
@@ -172,6 +173,18 @@ export function simularFarmRinha({ store, cena, segundos, enemiesData, alvo, lut
     gastarPocoes(store, usos, resumo)
     // A aposta (Feira) só vale na luta que já estava na tela — a 1ª da sessão.
     aplicarLuta({ store, cena, alvo: n === 0 && lutaEmAndamento ? alvo : { ...alvo, aposta: 0 }, party, outcome, combatants, resumo })
+    // Tropa no chão encerra a Rinha (igual à Rinha ao vivo): não tem próxima.
+    // Mesmo socorro da derrota ao vivo: birosca mais perto, recuperação cobrada.
+    if (outcome !== 'victory') {
+      resumo.derrota = true
+      desligarAutomaticos()
+      const destino = destinoSocorroDerrota(cena, store().cenaProgresso?.[cena.id])
+      if (destino) {
+        store().socorroDerrota(cena.pois.find(p => p.id === destino.poiId)?.custoGrana || 10)
+        store().salvarPosicaoCena(cena.id, destino.posicao)
+      }
+      break
+    }
   }
 
   const fim = store()

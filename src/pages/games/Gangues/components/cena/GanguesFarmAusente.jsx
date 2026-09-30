@@ -57,8 +57,9 @@ function sessaoRinha({ luta, vitoria }) {
     const emCurso = viva && !viva.terminou && viva.combatants?.length
     return { territorioId: alvo.territorioId, alvo, luta: emCurso ? { combatants: viva.combatants, round: viva.round || 1 } : null, ids: (st.match.playerTeam || []).map(m => m.id) }
   }
-  // Vitória OU derrota: na Rinha a sessão segue (perdeu, perdeu).
-  return vitoria ? { territorioId: alvo.territorioId, alvo, luta: null, ids: null } : null
+  // Só vitória segue a sessão da Rinha; derrota encerra (a tela de derrota
+  // leva pra birosca).
+  return vitoria && useGanguesStore.getState().match.battleReport?.outcome === 'victory' ? { territorioId: alvo.territorioId, alvo, luta: null, ids: null } : null
 }
 
 // O relatório: diferença entre a foto da saída e o save agora + as lutas.
@@ -110,8 +111,9 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
       if (!m || !vitoria) return
       const venceu = store().match.battleReport?.outcome === 'victory'
       const rinha = m.tipo === 'rinha' ? sessaoRinha({ luta, vitoria }) : null
-      // Fora da Rinha, derrota desliga os automáticos: o jogo parou ali.
-      gravar({ lutas: (m.lutas || 0) + 1, vitorias: (m.vitorias || 0) + (venceu ? 1 : 0), caiu: m.caiu || (!venceu && m.tipo === 'rua'), ...(rinha ? { alvo: rinha.alvo, luta: null } : {}) })
+      // Derrota (na rua ou na Rinha) para o jogo ali: a Rinha deixa de ser
+      // Rinha na marca, senão o cálculo seguiria lutando com a tropa no chão.
+      gravar({ lutas: (m.lutas || 0) + 1, vitorias: (m.vitorias || 0) + (venceu ? 1 : 0), caiu: m.caiu || !venceu, ...(rinha ? { alvo: rinha.alvo, luta: null } : {}), ...(!venceu && m.tipo === 'rinha' ? { tipo: 'rua', alvo: null, luta: null } : {}) })
     }
     // Só na Rinha: 3 minutos no fundo, a tela desmonta (a foto da luta vai
     // pra marca). Luta que acabou agora espera a vitória montar (é ela que
@@ -185,7 +187,7 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
   }
   if (fase === 'resultado' && resumo) {
     const rinha = resumo.tipo === 'rinha'
-    const aviso = resumo.derrota && !rinha ? 'derrota' : resumo.teto ? 'teto' : rinha && !resumo.lutas ? 'pouco_tempo' : null
+    const aviso = resumo.derrota ? 'derrota' : resumo.teto ? 'teto' : rinha && !resumo.lutas ? 'pouco_tempo' : null
     const min = Math.max(1, Math.round(resumo.segundos / 60))
     return (
       <div className="gang-farm-ausente" role="dialog" aria-modal="true" aria-labelledby="gang-farm-ausente-titulo">
@@ -210,12 +212,12 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
           {aviso && <p className={`gang-farm-ausente__aviso is-${aviso}`}>{t(`games.gangues.farm_ausente.${aviso}`)}</p>}
           {rinha && resumo.meioNaoConta && resumo.lutas > 0 && <p className="gang-farm-ausente__aviso">{t('games.gangues.farm_ausente.meio_nao_conta')}</p>}
           {!rinha && <p className="gang-farm-ausente__aviso">{t(mudouAlgo(resumo) ? 'games.gangues.farm_ausente.ao_vivo' : 'games.gangues.farm_ausente.nada_rodou')}</p>}
-          {rinha && resumo.alvo && aoContinuarRinha && (
+          {rinha && !resumo.derrota && resumo.alvo && aoContinuarRinha && (
             <button type="button" className="gang-farm-ausente__voltar" onClick={() => { const alvo = resumo.alvo; setResumo(null); setFase('cena'); aoContinuarRinha(alvo) }}>
               {t('games.gangues.farm_ausente.continuar_rinha')}
             </button>
           )}
-          <button type="button" className={`gang-farm-ausente__voltar${rinha && resumo.alvo && aoContinuarRinha ? ' is-secundario' : ''}`} onClick={() => { setResumo(null); setFase('cena'); if (rinha) aoVoltar?.() }}>
+          <button type="button" className={`gang-farm-ausente__voltar${rinha && !resumo.derrota && resumo.alvo && aoContinuarRinha ? ' is-secundario' : ''}`} onClick={() => { setResumo(null); setFase('cena'); if (rinha) aoVoltar?.() }}>
             {t(rinha ? 'games.gangues.farm_ausente.voltar' : 'games.gangues.farm_ausente.seguir')}
           </button>
         </div>

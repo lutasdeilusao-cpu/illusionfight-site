@@ -335,8 +335,8 @@
     "semantic_hash": "d6bb1dd52ef6512e98fb5b769da4cb8b"
   },
   "src/components/TrialBanner.jsx": {
-    "mtime": 1787870689.9212968,
-    "ast_hash": "a931fe97c4ff0543f482a3c722cfdd78",
+    "mtime": 1790742000.0300586,
+    "ast_hash": "d97d2d332e635b3be79d399abd5d20a0",
     "semantic_hash": ""
   },
   "src/components/TypewriterPhrase.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790741734.9222038,
-    "ast_hash": "aef95359d82fbb3ac5eba8481c889bb1",
+    "mtime": 1790742053.3788993,
+    "ast_hash": "c3bd476fed388215ee92d0354f4089bd",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -405,8 +405,8 @@
     "semantic_hash": "fad7a3342f794732f4e6c6db18aee699"
   },
   "src/context/LanguageProvider.jsx": {
-    "mtime": 1790117957.1368408,
-    "ast_hash": "8f4b37886074443b1c84e3ec5e3d76f1",
+    "mtime": 1790741975.694669,
+    "ast_hash": "c0792bf1b963d26314a2b178a53c6943",
     "semantic_hash": ""
   },
   "src/context/ReaderContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790741734.961805,
-    "ast_hash": "9fb44b8cd2272c4dc1b910c6bebdce2a",
+    "mtime": 1790742053.41117,
+    "ast_hash": "a1ecb6598616962144453a9f7ce1eee9",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4565,18 +4565,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790740241.0755808,
-    "ast_hash": "cdd70dfde55e78d0d1440cfb90cbb68b",
+    "mtime": 1790741977.1887481,
+    "ast_hash": "29432c343301febc6c1d62470e3ceb72",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790740241.0907934,
-    "ast_hash": "4e2377d56ed2034a3a74453e11f120bf",
+    "mtime": 1790741977.1897488,
+    "ast_hash": "0ca330c72adce9b2b4420321767c6c3c",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790740241.0995517,
-    "ast_hash": "a04b33e2b691bae77d127dac9051544e",
+    "mtime": 1790741977.1865108,
+    "ast_hash": "f3618f3cbf92e3e659cc08b0f153fbdb",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {

@@ -13,7 +13,7 @@ import {
   proximoPassoPerseguidor, posicaoDeSpawnPerseguidor,
 } from '../engine/ganguesEncontroAleatorio.js'
 
-const ONOMATOPEIA_MS = 950
+const ONOMATOPEIA_MS = 700
 
 export default function useGanguesEncontroAleatorio({ store, rodando, player, collidersRef, worldRef, gateRef, tiposRef, onAlcancou }) {
   const [aviso, setAviso] = useState(null) // tipo a ser anunciado pelo Nego Véio
