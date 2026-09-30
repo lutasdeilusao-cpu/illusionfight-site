@@ -1486,5 +1486,159 @@
     "ctaTitulo": "Recibe las novedades",
     "ctaDescricao": "Newsletter mensual — bastidores, lanzamientos y universo expandido.",
     "ctaBotao": "Suscribirse gratis"
+  },
+  "painel": {
+    "titulo": "Central",
+    "eyebrow": "Panel de administrador",
+    "atualizar": "Actualizar",
+    "ip_excluido": "Tu IP ({ip}) no cuenta visitas.",
+    "falta_migration": "La migration 043 aún no se ejecutó en Supabase. Pega supabase/migrations/043_painel_analytics.sql en el SQL Editor.",
+    "carregando": "Cargando…",
+    "vazio": "Nada en este período todavía.",
+    "vazio_lugar": "Sin región todavía (solo para quien aceptó las cookies).",
+    "voltar": "Volver",
+    "salvar": "Guardar",
+    "cancelar": "Cancelar",
+    "limpar": "Limpiar filtros",
+    "de": "Desde",
+    "ate": "Hasta",
+    "logado": "conectado",
+    "novo": "nuevo",
+    "media": "media",
+    "em_sessoes": "en {n} sesiones",
+    "aba": {
+      "visao": "Visión",
+      "agora": "Ahora",
+      "sessoes": "Sesiones",
+      "financeiro": "Finanzas"
+    },
+    "periodo": {
+      "hoje": "Hoy",
+      "ontem": "Ayer",
+      "7d": "7 días",
+      "30d": "30 días",
+      "90d": "90 días",
+      "tudo": "Todo",
+      "custom": "Elegir"
+    },
+    "filtro": {
+      "origem": "Origen",
+      "rota": "Página",
+      "dispositivo": "Dispositivo",
+      "idioma": "Idioma",
+      "pais": "País",
+      "logado": "Cuenta",
+      "logado_sim": "Conectado",
+      "logado_nao": "Visitante"
+    },
+    "kpi": {
+      "visitantes": "Visitantes",
+      "novos_voltaram": "{novos} nuevos · {voltaram} volvieron",
+      "sessoes": "Sesiones",
+      "logados": "{n} conectadas",
+      "paginas": "Páginas vistas",
+      "por_sessao": "{n} por sesión",
+      "tempo": "Tiempo medio",
+      "por_sessao_curto": "por sesión",
+      "rejeicao": "Rebote",
+      "cadastros": "Registros"
+    },
+    "cartao": {
+      "por_dia": "Visitantes por día",
+      "por_hora": "Sesiones por hora (Brasilia)",
+      "funil": "Embudo",
+      "paginas": "Páginas",
+      "origens": "De dónde vinieron",
+      "conteudo": "Lectura y juegos (tiempo total)",
+      "lugares": "Ciudades y regiones",
+      "dispositivos": "Tipo de dispositivo",
+      "modelos": "Modelo de dispositivo",
+      "sistemas": "Sistema",
+      "navegadores": "Navegador",
+      "telas": "Pantalla",
+      "idiomas": "Idioma",
+      "eventos": "Eventos"
+    },
+    "funil": {
+      "entraram": "Entraron",
+      "engajaram": "Se quedaron 30s+ o vieron 2+ páginas",
+      "consumiram": "Leyeron o jugaron",
+      "cadastraram": "Crearon cuenta"
+    },
+    "agora": {
+      "online": "En línea ahora",
+      "janela": "activos en los últimos 2 min",
+      "quem": "Dónde está cada uno",
+      "ninguem": "Nadie en el sitio ahora.",
+      "ha": "visto hace {t}",
+      "nota": "Se actualiza cada 10s · {hora}"
+    },
+    "sessoes": {
+      "titulo": "Sesiones ({n})",
+      "trilha": "Recorrido de la sesión",
+      "aovivo": "en vivo",
+      "pags": "págs"
+    },
+    "fin": {
+      "receita": "Ingreso neto ({m})",
+      "receita_sub": "suscripciones {ass} · tienda {loja}",
+      "custo": "Costo en el período",
+      "custo_sub": "proporcional a los días",
+      "resultado": "Resultado",
+      "reembolsos": "Reembolsos",
+      "pagamentos": "{n} pagos",
+      "assinantes": "Suscriptores activos",
+      "mrr": "Ingreso mensual recurrente",
+      "mrr_sub": "último pago de cada suscriptor",
+      "custo_mensal": "Costo mensual fijo",
+      "movimento": "Nuevos / cancelados",
+      "movimento_sub": "{falhas} cobros fallidos · {inad} morosos",
+      "contas": "Cuentas creadas",
+      "conversao": "{p}% se suscriben",
+      "por_dia": "Ingreso por día",
+      "sem_receita": "Ningún pago en este período.",
+      "lista_assinantes": "Suscriptores",
+      "sem_assinantes": "Ningún suscriptor todavía — las suscripciones abren en el lanzamiento.",
+      "renova": "renueva {d}",
+      "ultimos": "Últimos movimientos",
+      "sem_movimento": "Nada registrado en este período.",
+      "status": {
+        "active": "activa",
+        "trialing": "prueba",
+        "past_due": "atrasada"
+      },
+      "tipo": {
+        "pagamento": "Pago",
+        "falha": "Cobro fallido",
+        "reembolso": "Reembolso",
+        "cancelamento": "Canceló",
+        "assinou": "Se suscribió"
+      }
+    },
+    "custos": {
+      "titulo": "Costos",
+      "novo": "Nuevo costo",
+      "nome": "Nombre",
+      "valor": "Valor",
+      "moeda": "Moneda",
+      "recorrencia": "Recurrencia",
+      "categoria": "Categoría",
+      "desde": "Desde",
+      "nota": "Nota",
+      "apagar": "Borrar este costo",
+      "vazio": "Ningún costo registrado.",
+      "rec": {
+        "mensal": "mensual",
+        "anual": "anual",
+        "unico": "único"
+      },
+      "cat": {
+        "infra": "infra",
+        "pagamentos": "pagos",
+        "marketing": "marketing",
+        "ferramentas": "herramientas",
+        "outros": "otros"
+      }
+    }
   }
 }

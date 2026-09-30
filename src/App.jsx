@@ -1,6 +1,7 @@
 import { Suspense, useState, useEffect, useRef } from 'react'
 import { Navigate, Routes, Route, useLocation, useParams } from 'react-router-dom'
 import lazyWithReload from './lib/lazyWithReload'
+import { ROTA_PAINEL } from './lib/painelColeta'
 import { useReader } from './context/ReaderContext'
 import { useAchievements } from './context/AchievementsContext'
 import TrialBanner from './components/TrialBanner'
@@ -45,6 +46,7 @@ const Login = lazyWithReload(() => import('./pages/platform/Login'))
 const Cadastro = lazyWithReload(() => import('./pages/platform/Cadastro'))
 const Perfil = lazyWithReload(() => import('./pages/platform/Perfil/Perfil'))
 const Admin = lazyWithReload(() => import('./pages/platform/Admin'))
+const Painel = lazyWithReload(() => import('./pages/painel/Painel'))
 const Prototype = lazyWithReload(() => import('./pages/lab/Prototype/Prototype'))
 const SRGRM = lazyWithReload(() => import('./pages/lab/Prototype/SRGRM/SRGRM'))
 const ArenaTestbed = lazyWithReload(() => import('./pages/lab/Prototype/ArenaTestbed/ArenaTestbed'))
@@ -214,6 +216,8 @@ export default function App() {
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/admin" element={<Admin />} />
+        {/* painel de administrador: rota escondida, sem link no site (ver pages/painel) */}
+        <Route path={ROTA_PAINEL} element={<Painel />} />
         <Route path="/prototype" element={<Prototype />} />
         <Route path="/prototype/srgrm" element={<SRGRM />} />
         <Route path="/prototype/arenatestbed" element={<ArenaTestbed />} />

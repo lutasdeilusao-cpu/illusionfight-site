@@ -14,7 +14,28 @@ const PRICE_TO_TIER = {
 }
 
 function getUserId(obj) {
-  return obj?.metadata?.supabase_user_id || null
+  return obj?.metadata?.supabase_user_id
+    || obj?.subscription_details?.metadata?.supabase_user_id
+    || obj?.parent?.subscription_details?.metadata?.supabase_user_id
+    || null
+}
+
+// Sem metadata (fatura, reembolso): acha a conta pelo customer do Stripe.
+async function userDoCustomer(customer) {
+  if (!customer) return null
+  const { data } = await supabase.from('profiles').select('id').eq('stripe_customer_id', customer).maybeSingle()
+  return data?.id || null
+}
+
+// Histórico financeiro do painel (migration 043). Idempotente pelo id do
+// evento: o Stripe reenvia webhook e não pode contar duas vezes. Falha aqui
+// nunca derruba o webhook — o tier do perfil é o que importa pro usuário.
+async function registrar(eventId, linha) {
+  try {
+    await supabase.from('painel_pagamentos').upsert({ stripe_id: eventId, ...linha }, { onConflict: 'stripe_id', ignoreDuplicates: true })
+  } catch (err) {
+    console.error('[painel_pagamentos]', err?.message)
+  }
 }
 
 Deno.serve(async (req) => {
@@ -39,6 +60,12 @@ Deno.serve(async (req) => {
         await supabase.from('profiles')
           .update({ tier, subscription_status: 'active' })
           .eq('id', userId)
+      }
+      if (obj.mode === 'payment') {
+        // compra avulsa da loja: o valor entra aqui (assinatura entra pela fatura)
+        await registrar(event.id, { user_id: userId, tipo: 'pagamento', origem: 'loja', valor_centavos: obj.amount_total || 0, moeda: obj.currency, descricao: obj.metadata?.produto_id || null })
+      } else {
+        await registrar(event.id, { user_id: userId, tipo: 'assinou', origem: 'assinatura', tier: tier || null, moeda: obj.currency })
       }
       break
     }
@@ -68,11 +95,13 @@ Deno.serve(async (req) => {
         stripe_price_id: null,
         current_period_end: null,
       }).eq('id', userId)
+      await registrar(event.id, { user_id: userId, tipo: 'cancelamento', origem: 'assinatura', tier: PRICE_TO_TIER[obj.items?.data?.[0]?.price?.id] || null })
       break
     }
 
     case 'invoice.payment_failed': {
-      const userId = getUserId(obj)
+      const userId = getUserId(obj) || await userDoCustomer(obj.customer)
+      await registrar(event.id, { user_id: userId, tipo: 'falha', origem: 'assinatura', valor_centavos: obj.amount_due || 0, moeda: obj.currency })
       if (!userId) break
       await supabase.from('profiles')
         .update({ subscription_status: 'past_due' })
@@ -81,7 +110,11 @@ Deno.serve(async (req) => {
     }
 
     case 'invoice.payment_succeeded': {
-      const userId = getUserId(obj)
+      const userId = getUserId(obj) || await userDoCustomer(obj.customer)
+      const precoId = obj.lines?.data?.[0]?.price?.id || obj.lines?.data?.[0]?.pricing?.price_details?.price
+      if (obj.amount_paid > 0) {
+        await registrar(event.id, { user_id: userId, tipo: 'pagamento', origem: 'assinatura', tier: PRICE_TO_TIER[precoId] || null, valor_centavos: obj.amount_paid, moeda: obj.currency })
+      }
       if (!userId) break
       await supabase.from('profiles').update({
         subscription_status: 'active',
@@ -89,6 +122,12 @@ Deno.serve(async (req) => {
           obj.lines.data[0]?.period.end * 1000
         ).toISOString(),
       }).eq('id', userId)
+      break
+    }
+
+    case 'charge.refunded': {
+      const userId = getUserId(obj) || await userDoCustomer(obj.customer)
+      await registrar(event.id, { user_id: userId, tipo: 'reembolso', valor_centavos: obj.amount_refunded || 0, moeda: obj.currency })
       break
     }
   }

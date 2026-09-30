@@ -1,3 +1,5 @@
+import { painelEvento, painelPagina } from './painelColeta'
+
 const MAX_PARAM_LENGTH = 100
 
 function cleanValue(value) {
@@ -53,7 +55,9 @@ export function setAnalyticsUser(user, perfil) {
 }
 
 export function trackEvent(name, params = {}) {
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return
+  if (typeof window === 'undefined') return
+  painelEvento(name, cleanParams(params)) // painel próprio (independe do GA carregar)
+  if (typeof window.gtag !== 'function') return
   window.gtag('event', name, cleanParams(params))
 }
 
@@ -64,7 +68,9 @@ function tituloLimpo() {
 }
 
 export function trackPageView(path) {
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return
+  if (typeof window === 'undefined') return
+  painelPagina()
+  if (typeof window.gtag !== 'function') return
   window.gtag('event', 'page_view', {
     page_location: `${window.location.origin}${path}`,
     page_path: path,

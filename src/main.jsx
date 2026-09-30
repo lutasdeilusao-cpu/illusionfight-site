@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import './config/version'
 import './lib/runtimePlatform'
 import './lib/colunaApp'
+import { iniciarPainelColeta } from './lib/painelColeta'
 import { LanguageProvider } from './context/LanguageProvider'
 import { ReaderProvider } from './context/ReaderContext'
 import { AuthProvider } from './context/AuthContext'
@@ -15,6 +16,8 @@ import { TutorialProgressProvider } from './context/TutorialProgressContext'
 import { EventosProvider } from './context/EventosContext'
 import App from './App'
 import './index.css'
+
+iniciarPainelColeta()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

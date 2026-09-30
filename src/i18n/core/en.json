@@ -1486,5 +1486,159 @@
     "ctaTitulo": "Get the updates",
     "ctaDescricao": "Monthly newsletter — behind the scenes, releases and expanded universe.",
     "ctaBotao": "Subscribe free"
+  },
+  "painel": {
+    "titulo": "Control Room",
+    "eyebrow": "Admin panel",
+    "atualizar": "Refresh",
+    "ip_excluido": "Your IP ({ip}) doesn't count as a visit.",
+    "falta_migration": "Migration 043 hasn't run on Supabase yet. Paste supabase/migrations/043_painel_analytics.sql into the SQL Editor.",
+    "carregando": "Loading…",
+    "vazio": "Nothing in this period yet.",
+    "vazio_lugar": "No region yet (only for visitors who accepted cookies).",
+    "voltar": "Back",
+    "salvar": "Save",
+    "cancelar": "Cancel",
+    "limpar": "Clear filters",
+    "de": "From",
+    "ate": "To",
+    "logado": "logged in",
+    "novo": "new",
+    "media": "avg",
+    "em_sessoes": "in {n} sessions",
+    "aba": {
+      "visao": "Overview",
+      "agora": "Live",
+      "sessoes": "Sessions",
+      "financeiro": "Finance"
+    },
+    "periodo": {
+      "hoje": "Today",
+      "ontem": "Yesterday",
+      "7d": "7 days",
+      "30d": "30 days",
+      "90d": "90 days",
+      "tudo": "All",
+      "custom": "Custom"
+    },
+    "filtro": {
+      "origem": "Source",
+      "rota": "Page",
+      "dispositivo": "Device",
+      "idioma": "Language",
+      "pais": "Country",
+      "logado": "Account",
+      "logado_sim": "Logged in",
+      "logado_nao": "Visitor"
+    },
+    "kpi": {
+      "visitantes": "Visitors",
+      "novos_voltaram": "{novos} new · {voltaram} returning",
+      "sessoes": "Sessions",
+      "logados": "{n} logged in",
+      "paginas": "Page views",
+      "por_sessao": "{n} per session",
+      "tempo": "Avg time",
+      "por_sessao_curto": "per session",
+      "rejeicao": "Bounce",
+      "cadastros": "Sign-ups"
+    },
+    "cartao": {
+      "por_dia": "Visitors per day",
+      "por_hora": "Sessions per hour (Brasília)",
+      "funil": "Funnel",
+      "paginas": "Pages",
+      "origens": "Traffic sources",
+      "conteudo": "Reading and games (total time)",
+      "lugares": "Cities and regions",
+      "dispositivos": "Device type",
+      "modelos": "Device model",
+      "sistemas": "Operating system",
+      "navegadores": "Browser",
+      "telas": "Screen",
+      "idiomas": "Language",
+      "eventos": "Events"
+    },
+    "funil": {
+      "entraram": "Arrived",
+      "engajaram": "Stayed 30s+ or saw 2+ pages",
+      "consumiram": "Read or played",
+      "cadastraram": "Signed up"
+    },
+    "agora": {
+      "online": "Online now",
+      "janela": "active in the last 2 min",
+      "quem": "Where everyone is",
+      "ninguem": "Nobody on the site right now.",
+      "ha": "seen {t} ago",
+      "nota": "Refreshes every 10s · {hora}"
+    },
+    "sessoes": {
+      "titulo": "Sessions ({n})",
+      "trilha": "Session trail",
+      "aovivo": "live",
+      "pags": "pages"
+    },
+    "fin": {
+      "receita": "Net revenue ({m})",
+      "receita_sub": "subscriptions {ass} · store {loja}",
+      "custo": "Cost in period",
+      "custo_sub": "prorated by day",
+      "resultado": "Result",
+      "reembolsos": "Refunds",
+      "pagamentos": "{n} payments",
+      "assinantes": "Active subscribers",
+      "mrr": "Monthly recurring revenue",
+      "mrr_sub": "last amount paid per subscriber",
+      "custo_mensal": "Fixed monthly cost",
+      "movimento": "New / canceled",
+      "movimento_sub": "{falhas} failed charges · {inad} past due",
+      "contas": "Accounts",
+      "conversao": "{p}% subscribe",
+      "por_dia": "Revenue per day",
+      "sem_receita": "No payments in this period.",
+      "lista_assinantes": "Subscribers",
+      "sem_assinantes": "No subscribers yet — subscriptions open at launch.",
+      "renova": "renews {d}",
+      "ultimos": "Latest activity",
+      "sem_movimento": "Nothing recorded in this period.",
+      "status": {
+        "active": "active",
+        "trialing": "trial",
+        "past_due": "past due"
+      },
+      "tipo": {
+        "pagamento": "Payment",
+        "falha": "Charge failed",
+        "reembolso": "Refund",
+        "cancelamento": "Canceled",
+        "assinou": "Subscribed"
+      }
+    },
+    "custos": {
+      "titulo": "Costs",
+      "novo": "New cost",
+      "nome": "Name",
+      "valor": "Amount",
+      "moeda": "Currency",
+      "recorrencia": "Recurrence",
+      "categoria": "Category",
+      "desde": "Since",
+      "nota": "Note",
+      "apagar": "Delete this cost",
+      "vazio": "No costs yet.",
+      "rec": {
+        "mensal": "monthly",
+        "anual": "yearly",
+        "unico": "one-off"
+      },
+      "cat": {
+        "infra": "infra",
+        "pagamentos": "payments",
+        "marketing": "marketing",
+        "ferramentas": "tools",
+        "outros": "other"
+      }
+    }
   }
 }
