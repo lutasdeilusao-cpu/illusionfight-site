@@ -1322,6 +1322,38 @@
           "conta": "2026-09-29",
           "publico": "2026-09-29"
         }
+      },
+      {
+        "id": "13",
+        "numero": 13,
+        "titulo": "A Quarta Corrente",
+        "titulo_en": "The Fourth Chain",
+        "titulo_es": "La Cuarta Cadena",
+        "resumo_pt": "Quatro correntes soltas. O Jack tenta segurar o Kim — e o Kim não é mais o Kim que ele conhece.",
+        "resumo_en": "Four chains loose. Jack tries to hold Kim back — and Kim is no longer the Kim he knows.",
+        "resumo_es": "Cuatro cadenas sueltas. Jack intenta frenar a Kim — y Kim ya no es el Kim que conoce.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "14",
+        "numero": 14,
+        "titulo": "Mais Uma",
+        "titulo_en": "One More",
+        "titulo_es": "Una Más",
+        "resumo_pt": "Os bombeiros, a polícia, o hospital. E a corrente que ainda falta.",
+        "resumo_en": "The firefighters, the police, the hospital. And the chain still left.",
+        "resumo_es": "Los bomberos, la policía, el hospital. Y la cadena que todavía falta.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
       }
     ]
   }
