@@ -1639,6 +1639,11 @@
         "ferramentas": "ferramentas",
         "outros": "outros"
       }
+    },
+    "conta": {
+      "visitante": "Visitante",
+      "free": "Conta grátis",
+      "assinante": "Assinante"
     }
   }
 }

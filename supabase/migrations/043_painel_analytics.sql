@@ -281,6 +281,18 @@ begin
   return resultado;
 end $$;
 
+-- Tipo de conta de quem está na sessão: visitante | free | assinante (com tier).
+create or replace function public.painel_conta(p_user uuid)
+returns jsonb language sql stable security definer set search_path = public as $$
+  select case
+    when p_user is null then jsonb_build_object('tipo', 'visitante')
+    else coalesce((select jsonb_build_object(
+        'tipo', case when p.subscription_status in ('active', 'trialing', 'past_due') and upper(coalesce(p.tier, '')) not in ('', 'FREE', 'RANQUEADO') then 'assinante' else 'free' end,
+        'tier', upper(p.tier), 'status', p.subscription_status, 'nome', p.nome)
+      from public.profiles p where p.id = p_user), jsonb_build_object('tipo', 'free'))
+  end
+$$;
+
 -- Quem está no site agora (evento nos últimos 2 minutos), sem filtro.
 create or replace function public.painel_agora()
 returns jsonb language plpgsql stable security definer set search_path = public as $$
@@ -289,10 +301,12 @@ begin
   return (
     select jsonb_build_object(
       'online', count(*),
-      'sessoes', coalesce(jsonb_agg(jsonb_build_object('rota', rota, 'titulo', titulo, 'lugar', lugar, 'dispositivo', dispositivo, 'logado', logado, 'ha', ha) order by ha), '[]'::jsonb))
+      'sessoes', coalesce(jsonb_agg(jsonb_build_object('rota', rota, 'titulo', titulo, 'lugar', lugar, 'pais', pais, 'dispositivo', dispositivo, 'logado', logado, 'ha', ha,
+          'conta', public.painel_conta(user_id)) order by ha), '[]'::jsonb))
     from (
-      select distinct on (sessao) sessao, rota, titulo, coalesce(modelo, sistema, dispositivo) dispositivo,
-        coalesce(cidade, '?') || ' · ' || coalesce(pais, '?') lugar,
+      select distinct on (sessao) sessao, rota, titulo, pais, user_id,
+        concat_ws(' · ', dispositivo, modelo, sistema, navegador) dispositivo,
+        concat_ws(', ', cidade, regiao) lugar,
         user_id is not null logado,
         extract(epoch from now() - coalesce(visto_ate, criado_em))::int ha
       from public.painel_eventos
@@ -451,10 +465,12 @@ begin
       'entrada', (array_agg(rota order by criado_em))[1],
       'saida', (array_agg(rota order by criado_em desc))[1],
       'origem', (array_agg(coalesce(origem, '(direto)') || ' / ' || coalesce(midia, '') order by criado_em))[1],
-      'aparelho', (array_agg(coalesce(modelo, sistema, dispositivo) order by criado_em))[1],
+      'aparelho', (array_agg(concat_ws(' · ', dispositivo, modelo, sistema) order by criado_em))[1],
+      'pais', (array_agg(pais order by criado_em))[1],
       'navegador', (array_agg(navegador order by criado_em))[1],
-      'lugar', (array_agg(coalesce(cidade, '?') || ' · ' || coalesce(pais, '?') order by criado_em))[1],
+      'lugar', (array_agg(concat_ws(', ', cidade, regiao) order by criado_em))[1],
       'novo', bool_or(novo), 'logado', bool_or(user_id is not null),
+      'conta', public.painel_conta((array_agg(user_id order by (user_id is null), criado_em))[1]),
       'aovivo', max(coalesce(visto_ate, criado_em)) > now() - interval '2 minutes') s
     from public.painel_eventos
     where criado_em >= p_inicio and criado_em < p_fim

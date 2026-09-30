@@ -1639,6 +1639,11 @@
         "ferramentas": "herramientas",
         "outros": "otros"
       }
+    },
+    "conta": {
+      "visitante": "Visitante",
+      "free": "Cuenta gratis",
+      "assinante": "Suscriptor"
     }
   }
 }

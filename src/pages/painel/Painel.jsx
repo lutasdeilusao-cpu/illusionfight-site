@@ -80,7 +80,7 @@ export default function Painel() {
 
       <nav className="painel-abas" role="tablist">
         {ABAS.map(a => (
-          <button key={a} type="button" role="tab" aria-selected={aba === a} className={aba === a ? 'is-ativa' : ''} onClick={() => setAba(a)}>
+          <button key={a} type="button" role="tab" aria-selected={aba === a} className={aba === a ? 'is-ativa' : ''} onClick={() => { setAba(a); setErro(null) }}>
             {t(`painel.aba.${a}`)}
           </button>
         ))}
@@ -115,7 +115,7 @@ export default function Painel() {
         </section>
       )}
 
-      {erro && <p className="painel-erro">{erro}</p>}
+      {erro && aba === 'visao' && <p className="painel-erro">{erro}</p>}
       {aba === 'visao' && !erro && (dados ? <PainelVisao dados={dados} t={t} locale={lc} onFiltro={filtrar} /> : <p className="painel-vazio">{t('painel.carregando')}</p>)}
       {aba === 'agora' && <PainelAgora t={t} locale={lc} />}
       {aba === 'sessoes' && <PainelSessoes t={t} locale={lc} inicio={inicio} fim={fim} />}

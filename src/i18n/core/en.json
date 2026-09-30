@@ -1639,6 +1639,11 @@
         "ferramentas": "tools",
         "outros": "other"
       }
+    },
+    "conta": {
+      "visitante": "Visitor",
+      "free": "Free account",
+      "assinante": "Subscriber"
     }
   }
 }

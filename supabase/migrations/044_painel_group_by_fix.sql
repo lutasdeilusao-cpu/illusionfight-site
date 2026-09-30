@@ -1,6 +1,8 @@
 -- 044 — conserta painel_dados e painel_financeiro ("aggregate functions are not
 -- allowed in GROUP BY": o GROUP BY 1 apontava pro jsonb que já tinha count()
--- dentro). Rodar inteiro no SQL Editor.
+-- dentro), e no "Agora"/sessões mostra país, aparelho completo e o tipo de
+-- conta (visitante / free / assinante + nível). Rodar inteiro no SQL Editor.
+-- Pode rodar de novo sem erro.
 
 create or replace function public.painel_dados(p_inicio timestamptz, p_fim timestamptz, p_filtros jsonb default '{}'::jsonb)
 returns jsonb language plpgsql stable security definer set search_path = public as $$
@@ -134,6 +136,44 @@ begin
   return resultado;
 end $$;
 
+-- Tipo de conta de quem está na sessão: visitante | free | assinante (com tier).
+create or replace function public.painel_conta(p_user uuid)
+returns jsonb language sql stable security definer set search_path = public as $$
+  select case
+    when p_user is null then jsonb_build_object('tipo', 'visitante')
+    else coalesce((select jsonb_build_object(
+        'tipo', case when p.subscription_status in ('active', 'trialing', 'past_due') and upper(coalesce(p.tier, '')) not in ('', 'FREE', 'RANQUEADO') then 'assinante' else 'free' end,
+        'tier', upper(p.tier), 'status', p.subscription_status, 'nome', p.nome)
+      from public.profiles p where p.id = p_user), jsonb_build_object('tipo', 'free'))
+  end
+$$;
+
+-- Quem está no site agora (evento nos últimos 2 minutos), sem filtro.
+create or replace function public.painel_agora()
+returns jsonb language plpgsql stable security definer set search_path = public as $$
+begin
+  if not public.eh_admin() then raise exception 'sem acesso'; end if;
+  return (
+    select jsonb_build_object(
+      'online', count(*),
+      'sessoes', coalesce(jsonb_agg(jsonb_build_object('rota', rota, 'titulo', titulo, 'lugar', lugar, 'pais', pais, 'dispositivo', dispositivo, 'logado', logado, 'ha', ha,
+          'conta', public.painel_conta(user_id)) order by ha), '[]'::jsonb))
+    from (
+      select distinct on (sessao) sessao, rota, titulo, pais, user_id,
+        concat_ws(' · ', dispositivo, modelo, sistema, navegador) dispositivo,
+        concat_ws(', ', cidade, regiao) lugar,
+        user_id is not null logado,
+        extract(epoch from now() - coalesce(visto_ate, criado_em))::int ha
+      from public.painel_eventos
+      where coalesce(visto_ate, criado_em) > now() - interval '2 minutes'
+      order by sessao, criado_em desc
+    ) s
+  );
+end $$;
+
+grant execute on function public.painel_dados(timestamptz, timestamptz, jsonb) to authenticated;
+grant execute on function public.painel_agora() to authenticated;
+
 create or replace function public.painel_financeiro(p_inicio timestamptz, p_fim timestamptz)
 returns jsonb language plpgsql stable security definer set search_path = public, auth as $$
 begin
@@ -181,3 +221,32 @@ begin
   );
 end $$;
 
+
+create or replace function public.painel_sessoes(p_inicio timestamptz, p_fim timestamptz, p_limite int default 100)
+returns jsonb language plpgsql stable security definer set search_path = public as $$
+begin
+  if not public.eh_admin() then raise exception 'sem acesso'; end if;
+  return coalesce((select jsonb_agg(s order by s->>'ini' desc) from (
+    select jsonb_build_object(
+      'sessao', sessao, 'ini', min(criado_em), 'fim', max(coalesce(visto_ate, criado_em)),
+      'duracao', extract(epoch from max(coalesce(visto_ate, criado_em)) - min(criado_em))::int,
+      'paginas', count(*) filter (where tipo = 'page'),
+      'eventos', count(*) filter (where tipo = 'evento'),
+      'entrada', (array_agg(rota order by criado_em))[1],
+      'saida', (array_agg(rota order by criado_em desc))[1],
+      'origem', (array_agg(coalesce(origem, '(direto)') || ' / ' || coalesce(midia, '') order by criado_em))[1],
+      'aparelho', (array_agg(concat_ws(' · ', dispositivo, modelo, sistema) order by criado_em))[1],
+      'pais', (array_agg(pais order by criado_em))[1],
+      'navegador', (array_agg(navegador order by criado_em))[1],
+      'lugar', (array_agg(concat_ws(', ', cidade, regiao) order by criado_em))[1],
+      'novo', bool_or(novo), 'logado', bool_or(user_id is not null),
+      'conta', public.painel_conta((array_agg(user_id order by (user_id is null), criado_em))[1]),
+      'aovivo', max(coalesce(visto_ate, criado_em)) > now() - interval '2 minutes') s
+    from public.painel_eventos
+    where criado_em >= p_inicio and criado_em < p_fim
+    group by sessao
+    order by min(criado_em) desc
+    limit least(greatest(p_limite, 1), 500)) x), '[]'::jsonb);
+end $$;
+
+-- O caminho de uma sessão: páginas (com o tempo em cada) e eventos, sem os pings.

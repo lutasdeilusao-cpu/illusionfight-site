@@ -104,17 +104,40 @@ async function aparelho() {
   return { dispositivo, sistema, navegador, modelo, tela }
 }
 
+// País pelo fuso do aparelho: não sai nada do navegador (nem IP), então vale
+// até pra quem não aceitou os cookies. Cidade/estado só com aceite (ipwho.is).
+const FUSO_PAIS = {
+  Sao_Paulo: 'Brazil', Bahia: 'Brazil', Fortaleza: 'Brazil', Recife: 'Brazil', Belem: 'Brazil', Manaus: 'Brazil', Cuiaba: 'Brazil',
+  Campo_Grande: 'Brazil', Porto_Velho: 'Brazil', Boa_Vista: 'Brazil', Rio_Branco: 'Brazil', Maceio: 'Brazil', Araguaina: 'Brazil', Santarem: 'Brazil', Noronha: 'Brazil',
+  Buenos_Aires: 'Argentina', Cordoba: 'Argentina', Mendoza: 'Argentina', Salta: 'Argentina', Montevideo: 'Uruguay', Asuncion: 'Paraguay', Santiago: 'Chile',
+  Lima: 'Peru', Bogota: 'Colombia', Caracas: 'Venezuela', La_Paz: 'Bolivia', Guayaquil: 'Ecuador', Mexico_City: 'Mexico', Monterrey: 'Mexico', Havana: 'Cuba',
+  New_York: 'United States', Chicago: 'United States', Denver: 'United States', Los_Angeles: 'United States', Phoenix: 'United States', Anchorage: 'United States', Detroit: 'United States',
+  Toronto: 'Canada', Vancouver: 'Canada', Montreal: 'Canada', Edmonton: 'Canada', Winnipeg: 'Canada', Halifax: 'Canada',
+  Lisbon: 'Portugal', Madrid: 'Spain', London: 'United Kingdom', Paris: 'France', Berlin: 'Germany', Rome: 'Italy', Amsterdam: 'Netherlands', Brussels: 'Belgium',
+  Zurich: 'Switzerland', Vienna: 'Austria', Warsaw: 'Poland', Istanbul: 'Turkey', Moscow: 'Russia', Kiev: 'Ukraine', Kyiv: 'Ukraine', Athens: 'Greece', Dublin: 'Ireland',
+  Luanda: 'Angola', Maputo: 'Mozambique', Johannesburg: 'South Africa', Lagos: 'Nigeria', Cairo: 'Egypt', Kampala: 'Uganda', Nairobi: 'Kenya', Casablanca: 'Morocco',
+  Kolkata: 'India', Calcutta: 'India', Karachi: 'Pakistan', Dhaka: 'Bangladesh', Jakarta: 'Indonesia', Manila: 'Philippines', Bangkok: 'Thailand', Phnom_Penh: 'Cambodia',
+  Tokyo: 'Japan', Seoul: 'South Korea', Shanghai: 'China', Hong_Kong: 'Hong Kong', Singapore: 'Singapore', Dubai: 'United Arab Emirates', Riyadh: 'Saudi Arabia',
+  Muscat: 'Oman', Damascus: 'Syria', Tehran: 'Iran', Sydney: 'Australia', Melbourne: 'Australia', Auckland: 'New Zealand',
+}
+function paisDoFuso() {
+  try {
+    const fuso = Intl.DateTimeFormat().resolvedOptions().timeZone || ''
+    return FUSO_PAIS[fuso.split('/').pop()] || (fuso ? `~${fuso}` : null)
+  } catch { return null }
+}
+
 async function lugar() {
-  if (!consentiu()) return {}
+  if (!consentiu()) return { pais: paisDoFuso() }
   const salvo = ler(sessionStorage, 'ldi-lugar')
   if (salvo) { try { return JSON.parse(salvo) } catch { /* refaz */ } }
   try {
     const r = await fetch('https://ipwho.is/?fields=success,country,region,city', { cache: 'no-store' })
     const j = await r.json()
-    const l = j?.success ? { pais: j.country, regiao: j.region, cidade: j.city } : {}
+    const l = j?.success ? { pais: j.country, regiao: j.region, cidade: j.city } : { pais: paisDoFuso() }
     gravar(sessionStorage, 'ldi-lugar', JSON.stringify(l))
     return l
-  } catch { return {} }
+  } catch { return { pais: paisDoFuso() } }
 }
 
 async function montarContexto() {

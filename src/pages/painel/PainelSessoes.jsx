@@ -4,6 +4,16 @@ import { useEffect, useState } from 'react'
 import { Cartao, Kpi } from './PainelBlocos'
 import { rpc, duracao, hora, horaCurta } from './painelUtil'
 
+// Selo do tipo de conta: visitante, free ou assinante + nível.
+function Conta({ conta, t }) {
+  const tipo = conta?.tipo || 'visitante'
+  return (
+    <b className={`painel-conta is-${tipo}`}>
+      {tipo === 'assinante' ? `${t('painel.conta.assinante')} ${conta.tier || ''}${conta.status === 'past_due' ? ` · ${t('painel.fin.status.past_due')}` : ''}` : t(`painel.conta.${tipo}`)}
+    </b>
+  )
+}
+
 export function PainelAgora({ t, locale }) {
   const [agora, setAgora] = useState(null)
   useEffect(() => {
@@ -29,7 +39,8 @@ export function PainelAgora({ t, locale }) {
                   <strong>{s.titulo || s.rota}</strong>
                   <small>{s.rota}</small>
                 </div>
-                <span>{s.dispositivo} · {s.lugar}{s.logado ? ` · ${t('painel.logado')}` : ''}</span>
+                <span className="painel-agora__pais">{s.pais || '?'}{s.lugar ? ` · ${s.lugar}` : ''}</span>
+                <span><Conta conta={s.conta} t={t} /> {s.dispositivo}</span>
                 <em>{t('painel.agora.ha', { t: duracao(s.ha) })}</em>
               </li>
             ))}
@@ -67,7 +78,8 @@ export function PainelSessoes({ t, locale, inicio, fim }) {
       <Cartao titulo={t('painel.sessoes.trilha')} acao={<button type="button" className="painel-btn" onClick={() => setAberta(null)}>{t('painel.voltar')}</button>}>
         <p className="painel-trilha__resumo">
           {aberta.aovivo && <b className="painel-aovivo">{t('painel.sessoes.aovivo')}</b>}
-          {hora(aberta.ini, locale)} · {duracao(aberta.duracao)} · {aberta.aparelho} · {aberta.navegador} · {aberta.lugar} · {aberta.origem}
+          <Conta conta={aberta.conta} t={t} /> 
+          {hora(aberta.ini, locale)} · {duracao(aberta.duracao)} · {aberta.pais || '?'}{aberta.lugar ? `, ${aberta.lugar}` : ''} · {aberta.aparelho} · {aberta.navegador} · {aberta.origem}
         </p>
         {!trilha ? <p className="painel-vazio">{t('painel.carregando')}</p> : (
           <ol className="painel-trilha">
@@ -102,8 +114,9 @@ export function PainelSessoes({ t, locale, inicio, fim }) {
                   {hora(s.ini, locale)}
                 </span>
                 <strong>{s.entrada}{s.saida !== s.entrada ? ` → ${s.saida}` : ''}</strong>
-                <small>{s.paginas} {t('painel.sessoes.pags')} · {duracao(s.duracao)} · {s.aparelho} · {s.lugar}</small>
-                <small>{s.origem}{s.novo ? ` · ${t('painel.novo')}` : ''}{s.logado ? ` · ${t('painel.logado')}` : ''}</small>
+                <small><b>{s.pais || '?'}</b>{s.lugar ? ` · ${s.lugar}` : ''} · {s.aparelho}</small>
+                <small>{s.paginas} {t('painel.sessoes.pags')} · {duracao(s.duracao)}</small>
+                <small><Conta conta={s.conta} t={t} /> {s.origem}{s.novo ? ` · ${t('painel.novo')}` : ''}</small>
               </button>
             </li>
           ))}

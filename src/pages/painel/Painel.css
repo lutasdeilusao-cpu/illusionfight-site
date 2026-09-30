@@ -200,3 +200,8 @@
 .painel-form__acoes { display: flex; gap: 8px; }
 
 @media (prefers-reduced-motion: reduce) { .painel-pulso { animation: none; } }
+
+.painel-agora li .painel-agora__pais { color: var(--text-primary); font-weight: 700; }
+.painel-conta { display: inline-block; margin-right: 4px; padding: 1px 6px; font: 700 .55rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); border: 1px solid var(--if-hair-strong); }
+.painel-conta.is-free { color: var(--if-cyan); border-color: var(--if-cyan-45); }
+.painel-conta.is-assinante { color: var(--if-amber); border-color: color-mix(in srgb, var(--if-amber) 55%, transparent); }
