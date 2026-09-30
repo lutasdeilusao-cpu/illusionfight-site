@@ -1244,7 +1244,30 @@
     "next": "Next",
     "meta_title": "Illusion Fight — Free WEB SHARD Comics, Games & Stories",
     "meta_description": "Explore Illusion Fight, a Brazilian action universe with free WEB SHARD comics, free online games, and serialized fantasy stories — webcomic, characters, music and more.",
-    "og_description": "Read free action WEB SHARD comics and fantasy stories online, meet the characters, and play free online games in the Illusion Fight universe."
+    "og_description": "Read free action WEB SHARD comics and fantasy stories online, meet the characters, and play free online games in the Illusion Fight universe.",
+    "nova": {
+      "hero_frase": "The pain is 100% real.",
+      "hero_sub": "A universe of fights, streets and music — in comics, stories and games. Free to start.",
+      "hero_ler": "Read free",
+      "hero_jogar": "Play",
+      "hero_faltam": "days to the official launch",
+      "games_eyebrow": "Play now",
+      "games_titulo": "The universe's games",
+      "gangues_texto": "Found your gang, recruit Marélia's fighters and take the city block by block. Turn-based brawls, crowd fights, loan sharks and a Fight Club.",
+      "gangues_tag1": "Street RPG",
+      "gangues_tag2": "30 fighters",
+      "gangues_tag3": "Free",
+      "trunfo_texto": "The cast's official cards. Pick the stat, win the round, take the rival's deck. Solo or online.",
+      "jogar_agora": "Play now",
+      "games_todos": "See all games",
+      "historias_eyebrow": "Read",
+      "historias_titulo": "Stories",
+      "contos_selo": "{n} tales",
+      "contos_texto": "Everyone's past, told in their own words. Before the main story begins.",
+      "caps": "{n} ch.",
+      "livro_titulo": "Illusion Fight — main story",
+      "historias_todas": "All stories"
+    }
   },
   "hero": {
     "title": "ILLUSION FIGHT",

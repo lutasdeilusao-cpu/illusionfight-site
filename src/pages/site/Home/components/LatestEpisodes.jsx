@@ -33,13 +33,16 @@ export default function LatestEpisodes() {
   const descKey = locale === 'en' ? 'descricao_en' : locale === 'es' ? 'descricao_es' : 'descricao_pt'
 
   const featured = useMemo(() => {
+    // Só capítulo que existe de verdade (tem páginas) — os marcadores "em
+    // breve" sem arte apareciam como capa vazia na Home.
     const disponiveis = episodios
+      .filter(ep => ep.paginas > 0)
       .filter(ep => ep.sempre_livre || emBeta(ep) || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE)
       .sort((a, b) => ((b.data_publicacao || '').localeCompare(a.data_publicacao || '')))
     return disponiveis[0]
   }, [isAdmin, user, perfil])
 
-  const lista = episodios.filter(ep => ep.id !== featured?.id && !ep.especial)
+  const lista = episodios.filter(ep => ep.id !== featured?.id && !ep.especial && ep.paginas > 0)
   const liberadoFeatured = !!featured
 
   return (

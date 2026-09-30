@@ -1244,7 +1244,30 @@
     "next": "Próximo",
     "meta_title": "Illusion Fight — WEB SHARD, livro e games grátis",
     "meta_description": "Explore Illusion Fight, um universo brasileiro de ação com WEB SHARD (quadrinho vertical), webnovel, livro, personagens, música e jogos indie grátis.",
-    "og_description": "Leia o WEB SHARD e o livro online, conheça os personagens e jogue games indie grátis no universo brasileiro Illusion Fight."
+    "og_description": "Leia o WEB SHARD e o livro online, conheça os personagens e jogue games indie grátis no universo brasileiro Illusion Fight.",
+    "nova": {
+      "hero_frase": "A dor é 100% real.",
+      "hero_sub": "Um universo de luta, rua e música em quadrinho, conto e jogo. Grátis pra começar.",
+      "hero_ler": "Ler grátis",
+      "hero_jogar": "Jogar",
+      "hero_faltam": "dias pro lançamento oficial",
+      "games_eyebrow": "Jogue agora",
+      "games_titulo": "Os jogos do universo",
+      "gangues_texto": "Funda tua gangue, recruta os lutadores de Marélia e toma a cidade bairro por bairro. Briga em turno, briga em multidão, dívida com agiota e Clube da Luta.",
+      "gangues_tag1": "RPG de rua",
+      "gangues_tag2": "30 lutadores",
+      "gangues_tag3": "Grátis",
+      "trunfo_texto": "As cartas oficiais do elenco. Escolhe o atributo, vence a rodada, leva o deck do rival. Sozinho ou online.",
+      "jogar_agora": "Jogar agora",
+      "games_todos": "Ver todos os jogos",
+      "historias_eyebrow": "Leia",
+      "historias_titulo": "Histórias",
+      "contos_selo": "{n} contos",
+      "contos_texto": "O passado de cada um, contado por eles mesmos. Antes da linha principal começar.",
+      "caps": "{n} caps.",
+      "livro_titulo": "Lutas de Ilusão — linha principal",
+      "historias_todas": "Todas as histórias"
+    }
   },
   "hero": {
     "title": "LUTAS DE ILUSÃO",

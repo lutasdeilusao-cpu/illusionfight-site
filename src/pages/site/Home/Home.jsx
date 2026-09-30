@@ -3,16 +3,16 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useScrollReveal } from '../../../hooks/useScrollReveal'
-import HeroSlideshow from './components/HeroSlideshow'
+import HomeHero from './components/HomeHero'
 import LatestEpisodes from './components/LatestEpisodes'
 import CharactersRow from './components/CharactersRow'
 import DeferredSection from '../../../components/DeferredSection'
 import './Home.css'
 
-const BookChaptersRow = lazy(() => import('./components/BookChaptersRow'))
+const HomeGames = lazy(() => import('./components/HomeGames'))
+const HomeHistorias = lazy(() => import('./components/HomeHistorias'))
 const MusicSection = lazy(() => import('./components/MusicSection'))
 const NowLive = lazy(() => import('./components/NowLive'))
-const StoryProgress = lazy(() => import('./components/StoryProgress'))
 
 export default function Home() {
   const newsletterRef = useScrollReveal()
@@ -31,10 +31,16 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={ogLocale} />
       </Helmet>
-      {/* Ordem definida pelo Isaias: Webtoon → Histórias → Apoiar → Personagens → Músicas → Games → Redes → Novidades */}
-      <HeroSlideshow />
+      {/* Home redesenhada (v10.314.0, Isaias 30/09/2026: "a porta de entrada tem
+          que ser épica"): abertura → os 2 jogos com arte (Gangues, Super
+          Trunfo) → Histórias (capa oficial dos Contos + capítulos liberados) →
+          WEB SHARD (só capítulo que existe) → elenco → músicas → apoio → redes. */}
+      <HomeHero />
+      <DeferredSection size="large"><Suspense fallback={null}><HomeGames /></Suspense></DeferredSection>
+      <DeferredSection size="large"><Suspense fallback={null}><HomeHistorias /></Suspense></DeferredSection>
       <LatestEpisodes />
-      <DeferredSection size="large"><Suspense fallback={null}><BookChaptersRow /></Suspense></DeferredSection>
+      <CharactersRow />
+      <DeferredSection><Suspense fallback={null}><MusicSection /></Suspense></DeferredSection>
       <section className="home-support">
         <div className="container">
           <div className="home-support__inner">
@@ -46,9 +52,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <CharactersRow />
-      <DeferredSection><Suspense fallback={null}><MusicSection /></Suspense></DeferredSection>
-      <DeferredSection><Suspense fallback={null}><StoryProgress /></Suspense></DeferredSection>
       <DeferredSection size="small"><Suspense fallback={null}><NowLive /></Suspense></DeferredSection>
       <section ref={newsletterRef} className="newsletter-cta reveal">
         <div className="container">
