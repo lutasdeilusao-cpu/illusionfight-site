@@ -12,7 +12,10 @@ import { Link } from 'react-router-dom'
 
 /** Tira o primeiro título "# ..." do começo do markdown. */
 export function semTituloDoArquivo(md = '') {
-  return md.replace(/^\s*#\s+[^\n]*\n+/, '')
+  return md
+    .replace(/^\s*#\s+[^\n]*\n+/, '')
+    // "([linha principal, cap. 15](/rota))": o parêntese sai, o link vira selo
+    .replace(/\s?\((\[[^\]]+\]\(\/[^)]+\))\)/g, ' $1')
 }
 
 function textoDe(no) {
@@ -39,7 +42,14 @@ export const leitorMarkdown = {
     return <p>{children}</p>
   },
   a({ href = '', children }) {
-    if (href.startsWith('/')) return <Link to={href}>{children}</Link>
+    if (href.startsWith('/')) {
+      return (
+        <Link to={href} className="leitor-ref">
+          <span className="leitor-ref__icone" aria-hidden="true">↗</span>
+          <span className="leitor-ref__texto">{children}</span>
+        </Link>
+      )
+    }
     return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>
   },
 }

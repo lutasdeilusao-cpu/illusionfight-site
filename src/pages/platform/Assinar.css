@@ -72,9 +72,8 @@
 
 .assinar-plans__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem;
-  max-width: 960px;
   margin: 0 auto;
   align-items: start;
 }
@@ -404,13 +403,6 @@
   border-radius: 6px;
   padding: 0.75rem 1.5rem;
   word-break: break-all;
-}
-
-@media (max-width: 768px) {
-  .assinar-plans__grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-  }
 }
 
 /* ── Plan color variants via data-plan ──────────── */

@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790739946.2600098,
-    "ast_hash": "55bfc132202f4f5235a2f8c68c212d37",
+    "mtime": 1790740257.722189,
+    "ast_hash": "57ade429a6eb88d9883566f768c64961",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
-    "mtime": 1790739699.2371848,
-    "ast_hash": "917a6cf3cb2ecd827f67945cd7d4b50c",
+    "mtime": 1790740241.1762097,
+    "ast_hash": "0dfb5eaa68f5c78428cea3cc94e32a4a",
     "semantic_hash": ""
   },
   "src/pages/content/Mundo.jsx": {
@@ -2690,8 +2690,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1790739944.6418028,
-    "ast_hash": "560d9639b8a8da4210138069a9a55ebd",
+    "mtime": 1790740250.7802181,
+    "ast_hash": "0ae6b2449ab964562252e5543e18271a",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2730,13 +2730,13 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790739946.3162353,
-    "ast_hash": "93096838dd576a5d5c1cc7ff34fa5e33",
+    "mtime": 1790740257.7609332,
+    "ast_hash": "9a8f7838a8183326ab0f6694c5d265ea",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
-    "mtime": 1790457308.8424466,
-    "ast_hash": "c3af3a2e145cc41c3f419f8face95a68",
+    "mtime": 1790740250.8172743,
+    "ast_hash": "ae6f4f9427f4689c2e7949d422cc3d48",
     "semantic_hash": ""
   },
   "docs/Business/FINANCEIRO.md": {
@@ -3500,18 +3500,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1790706581.3285582,
-    "ast_hash": "dfa1c0712a73af3e9e4bbb87de059f3a",
+    "mtime": 1790740241.1095557,
+    "ast_hash": "f1243a0b34bdeef64d736098bdc45d1c",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1790706535.773313,
-    "ast_hash": "bf167b2e7407efedb22a36e13992ac82",
+    "mtime": 1790740241.1190653,
+    "ast_hash": "977ecb11ca3e0e6640e3e350d13ef4ca",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1790706268.7895408,
-    "ast_hash": "b5bac0f472583634afaad2995994e34e",
+    "mtime": 1790740241.1282103,
+    "ast_hash": "859decd7f87e41f71110c8b35452c759",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -3640,8 +3640,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/ContoCapitulo.jsx": {
-    "mtime": 1790739697.1454582,
-    "ast_hash": "d38fdd780dba6e3aa08f5517166d6a63",
+    "mtime": 1790740241.1593664,
+    "ast_hash": "0c215732ba88af5789ca85dc30a96090",
     "semantic_hash": ""
   },
   "workers/songs-r2/worker.js": {
@@ -4295,8 +4295,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/ObraCapitulo.jsx": {
-    "mtime": 1790739698.195673,
-    "ast_hash": "625ba3d8e7077b46c78fd9394ebd3db7",
+    "mtime": 1790740241.1880298,
+    "ast_hash": "1c316189a006ce6db2ab09958ed17bbd",
     "semantic_hash": ""
   },
   "src/pages/content/Universo.jsx": {
@@ -4565,18 +4565,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790739717.2924137,
-    "ast_hash": "a24bb029fd2a648beffbef120d703f4f",
+    "mtime": 1790740241.0755808,
+    "ast_hash": "cdd70dfde55e78d0d1440cfb90cbb68b",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790739717.294413,
-    "ast_hash": "61b29f573c538f09cf0f452910adc79b",
+    "mtime": 1790740241.0907934,
+    "ast_hash": "4e2377d56ed2034a3a74453e11f120bf",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790739717.2894142,
-    "ast_hash": "4c1406ddae5c3599ec43492aba430a1b",
+    "mtime": 1790740241.0995517,
+    "ast_hash": "a04b33e2b691bae77d127dac9051544e",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -6065,8 +6065,8 @@
     "semantic_hash": ""
   },
   "src/components/Leitor/LeitorAjustes.jsx": {
-    "mtime": 1790739562.441568,
-    "ast_hash": "a20c892d93e29f622697c33b22392e4a",
+    "mtime": 1790740241.027511,
+    "ast_hash": "11e5688d4a9a709532b67d56a56b5257",
     "semantic_hash": ""
   },
   "src/components/Leitor/LeitorBarra.jsx": {
@@ -6075,8 +6075,8 @@
     "semantic_hash": ""
   },
   "src/components/Leitor/LeitorCapitulo.jsx": {
-    "mtime": 1790739641.959973,
-    "ast_hash": "8ce37642b0c65c094a1ae46c81451b00",
+    "mtime": 1790740241.0484803,
+    "ast_hash": "086741ed54d30c1c9aea51326564e0b9",
     "semantic_hash": ""
   },
   "src/components/Leitor/LeitorFim.jsx": {

@@ -194,7 +194,7 @@
 /* ── Aviso da briga automática (v3.70.0) ── carimbo de 2,5s antes da luta:
    eyebrow mono + frase de rua, canto chanfrado, na cor do território.
    Não bloqueia toque (é só aviso — a luta vem de qualquer jeito). */
-.gang-briga-auto-aviso{position:fixed;left:var(--app-gutter);right:var(--app-gutter);top:19%;z-index:950;margin:0 auto;width:max-content;max-width:86%;display:grid;gap:6px;padding:12px 18px;text-align:center;pointer-events:none;border:1px solid var(--if-danger);background:linear-gradient(160deg,var(--gang-noite-850),var(--gang-noite-950));box-shadow:0 0 40px -6px color-mix(in srgb,var(--if-danger) 60%,transparent),6px 6px 0 var(--gang-preto);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)}
+.gang-briga-auto-aviso{position:fixed;left:var(--app-gutter);right:var(--app-gutter);top:19%;z-index:950;margin:0 auto;width:max-content;max-width:calc(var(--app-vw) * .86);display:grid;gap:6px;padding:12px 18px;text-align:center;pointer-events:none;border:1px solid var(--if-danger);background:linear-gradient(160deg,var(--gang-noite-850),var(--gang-noite-950));box-shadow:0 0 40px -6px color-mix(in srgb,var(--if-danger) 60%,transparent),6px 6px 0 var(--gang-preto);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)}
 .gang-briga-auto-aviso span{font:700 .56rem var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--if-danger)}
 .gang-briga-auto-aviso b{font:900 1.05rem/1.25 var(--font-title);color:var(--gang-branco);text-shadow:2px 2px 0 var(--gang-preto)}
 

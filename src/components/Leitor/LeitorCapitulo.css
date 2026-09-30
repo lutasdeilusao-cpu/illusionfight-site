@@ -105,11 +105,40 @@
   margin: 1.2em 0;
 }
 
-/* citações cruzadas (conto → linha principal) */
+/* citações cruzadas (conto → linha principal): selo compacto no meio da frase */
 .leitor-texto a {
   color: var(--if-cyan);
   text-decoration: none;
   border-bottom: 1px solid var(--if-cyan-45);
+}
+
+.leitor-texto a.leitor-ref {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 1px;
+  padding: 1px 8px 1px 6px;
+  vertical-align: .08em;
+  font: 700 .62em/1.6 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--if-cyan);
+  background: var(--if-cyan-08);
+  border: 1px solid var(--if-cyan-45);
+  box-shadow: inset 2px 0 var(--if-cyan);
+  clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%);
+  transition: background .15s;
+}
+
+.leitor-texto a.leitor-ref:hover,
+.leitor-texto a.leitor-ref:focus-visible {
+  background: var(--if-cyan-20);
+}
+
+.leitor-ref__icone {
+  font-size: .95em;
+  opacity: .8;
 }
 
 /* quebra de cena ("---" no .md) */
