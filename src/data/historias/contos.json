@@ -1354,6 +1354,22 @@
           "conta": "2026-09-29",
           "publico": "2026-09-29"
         }
+      },
+      {
+        "id": "15",
+        "numero": 15,
+        "titulo": "O Imposto do Rei",
+        "titulo_en": "The King's Tax",
+        "titulo_es": "El Impuesto del Rey",
+        "resumo_pt": "Em outra parte de Marelia, o Alan conta o que aconteceu com quem sobrou daquela noite — e lembra a única regra da cidade.",
+        "resumo_en": "Somewhere else in Marélia, Alan tells what happened to whoever was left from that night — and repeats the city's one rule.",
+        "resumo_es": "En otra parte de Marélia, Alan cuenta qué pasó con los que quedaron de aquella noche — y repite la única regla de la ciudad.",
+        "liberacao": {
+          "primordial": "2026-09-30",
+          "elite": "2026-09-30",
+          "conta": "2026-09-30",
+          "publico": "2026-09-30"
+        }
       }
     ]
   }
