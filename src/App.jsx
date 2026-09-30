@@ -45,7 +45,6 @@ const Leaderboard = lazyWithReload(() => import('./pages/platform/Leaderboard'))
 const Login = lazyWithReload(() => import('./pages/platform/Login'))
 const Cadastro = lazyWithReload(() => import('./pages/platform/Cadastro'))
 const Perfil = lazyWithReload(() => import('./pages/platform/Perfil/Perfil'))
-const Admin = lazyWithReload(() => import('./pages/platform/Admin'))
 const Painel = lazyWithReload(() => import('./pages/painel/Painel'))
 const Prototype = lazyWithReload(() => import('./pages/lab/Prototype/Prototype'))
 const SRGRM = lazyWithReload(() => import('./pages/lab/Prototype/SRGRM/SRGRM'))
@@ -215,7 +214,6 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/perfil" element={<Perfil />} />
-        <Route path="/admin" element={<Admin />} />
         {/* painel de administrador: rota escondida, sem link no site (ver pages/painel) */}
         <Route path={ROTA_PAINEL} element={<Painel />} />
         <Route path="/prototype" element={<Prototype />} />

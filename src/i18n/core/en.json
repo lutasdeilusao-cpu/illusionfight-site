@@ -555,22 +555,6 @@
       "recomp_acoes_fichas": "+{n} 🎰"
     }
   },
-  "admin": {
-    "titulo": "ADMIN",
-    "painel": "ADMIN PANEL",
-    "submissao_aprovada": "Approved",
-    "submissao_rejeitada": "Rejected",
-    "submissao_pendente": "Pending",
-    "acoes": "Actions",
-    "aprovar": "APPROVE",
-    "rejeitar": "REJECT",
-    "sem_submissoes": "No pending submissions.",
-    "carregando": "CARREGANDO...",
-    "btn_voltar": "BACK",
-    "auditoria_titulo": "AUDIT — PENDING SHARES",
-    "pendentes_count": "{n} pending",
-    "acesso_negado": "Access denied."
-  },
   "pages": {
     "musicas": {
       "titulo": "MUSIC",

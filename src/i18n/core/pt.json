@@ -555,22 +555,6 @@
       "recomp_acoes_fichas": "+{n} 🎰"
     }
   },
-  "admin": {
-    "titulo": "ADMIN",
-    "painel": "PAINEL ADMIN",
-    "submissao_aprovada": "Aprovada",
-    "submissao_rejeitada": "Rejeitada",
-    "submissao_pendente": "Pendente",
-    "acoes": "Ações",
-    "aprovar": "APROVAR",
-    "rejeitar": "REJEITAR",
-    "sem_submissoes": "Nenhuma submissão pendente.",
-    "carregando": "CARREGANDO...",
-    "btn_voltar": "VOLTAR",
-    "auditoria_titulo": "AUDITORIA — COMPARTILHAMENTOS PENDENTES",
-    "pendentes_count": "{n} pendentes",
-    "acesso_negado": "Acesso negado."
-  },
   "pages": {
     "musicas": {
       "titulo": "MÚSICAS",

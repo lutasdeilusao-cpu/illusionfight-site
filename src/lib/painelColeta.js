@@ -30,7 +30,7 @@ function desligado() {
   return typeof location !== 'undefined' && location.pathname.startsWith(ROTA_PAINEL)
 }
 
-export const ROTA_PAINEL = '/central-if-7k2q'
+export const ROTA_PAINEL = '/admin'
 
 function visitante() {
   const chave = 'ldi-visitante'
