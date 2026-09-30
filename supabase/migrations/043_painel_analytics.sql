@@ -213,7 +213,7 @@ begin
         from sessoes group by date_trunc('day', ini at time zone 'America/Sao_Paulo')) x), '[]'::jsonb),
     'horas', coalesce((select jsonb_agg(h order by (h->>'hora')::int) from (
         select jsonb_build_object('hora', extract(hour from ini at time zone 'America/Sao_Paulo')::int, 'sessoes', count(*)) h
-        from sessoes group by 1) x), '[]'::jsonb),
+        from sessoes group by extract(hour from ini at time zone 'America/Sao_Paulo')) x), '[]'::jsonb),
     'paginas', coalesce((select jsonb_agg(p) from (
         select jsonb_build_object('rota', rota, 'titulo', max(titulo),
           'views', count(*), 'visitantes', count(distinct visitante),
@@ -223,31 +223,31 @@ begin
     'origens', coalesce((select jsonb_agg(o) from (
         select jsonb_build_object('chave', coalesce(origem, '(direto)') || ' / ' || coalesce(midia, ''), 'sessoes', count(*)) o
         from (select distinct on (sessao) sessao, origem, midia from base order by sessao, criado_em) s
-        group by 1 order by count(*) desc limit 20) x), '[]'::jsonb),
+        group by coalesce(origem, '(direto)') || ' / ' || coalesce(midia, '') order by count(*) desc limit 20) x), '[]'::jsonb),
     'dispositivos', coalesce((select jsonb_agg(o) from (
         select jsonb_build_object('chave', coalesce(dispositivo, '?'), 'sessoes', count(*)) o
         from (select distinct on (sessao) sessao, dispositivo from base order by sessao, criado_em) s
-        group by 1 order by count(*) desc) x), '[]'::jsonb),
+        group by coalesce(dispositivo, '?') order by count(*) desc) x), '[]'::jsonb),
     'sistemas', coalesce((select jsonb_agg(o) from (
         select jsonb_build_object('chave', coalesce(sistema, '?'), 'sessoes', count(*)) o
         from (select distinct on (sessao) sessao, sistema from base order by sessao, criado_em) s
-        group by 1 order by count(*) desc limit 20) x), '[]'::jsonb),
+        group by coalesce(sistema, '?') order by count(*) desc limit 20) x), '[]'::jsonb),
     'navegadores', coalesce((select jsonb_agg(o) from (
         select jsonb_build_object('chave', coalesce(navegador, '?'), 'sessoes', count(*)) o
         from (select distinct on (sessao) sessao, navegador from base order by sessao, criado_em) s
-        group by 1 order by count(*) desc limit 20) x), '[]'::jsonb),
+        group by coalesce(navegador, '?') order by count(*) desc limit 20) x), '[]'::jsonb),
     'modelos', coalesce((select jsonb_agg(o) from (
         select jsonb_build_object('chave', coalesce(modelo, '(não informado)'), 'sessoes', count(*)) o
         from (select distinct on (sessao) sessao, modelo from base order by sessao, criado_em) s
-        group by 1 order by count(*) desc limit 30) x), '[]'::jsonb),
+        group by coalesce(modelo, '(não informado)') order by count(*) desc limit 30) x), '[]'::jsonb),
     'telas', coalesce((select jsonb_agg(o) from (
         select jsonb_build_object('chave', coalesce(tela, '?'), 'sessoes', count(*)) o
         from (select distinct on (sessao) sessao, tela from base order by sessao, criado_em) s
-        group by 1 order by count(*) desc limit 20) x), '[]'::jsonb),
+        group by coalesce(tela, '?') order by count(*) desc limit 20) x), '[]'::jsonb),
     'idiomas', coalesce((select jsonb_agg(o) from (
         select jsonb_build_object('chave', coalesce(idioma, '?'), 'sessoes', count(*)) o
         from (select distinct on (sessao) sessao, idioma from base order by sessao, criado_em) s
-        group by 1 order by count(*) desc) x), '[]'::jsonb),
+        group by coalesce(idioma, '?') order by count(*) desc) x), '[]'::jsonb),
     'lugares', coalesce((select jsonb_agg(o) from (
         select jsonb_build_object('chave', coalesce(cidade, '?') || ' · ' || coalesce(regiao, '?') || ' · ' || coalesce(pais, '?'), 'pais', pais, 'sessoes', count(*)) o
         from (select distinct on (sessao) sessao, cidade, regiao, pais from base order by sessao, criado_em) s
@@ -265,7 +265,9 @@ begin
           'tempo_total', round(sum((dados->>'duration_seconds')::numeric))) o
         from base where tipo = 'evento' and nome in ('game_time', 'chapter_time', 'webtoon_time')
           and dados ? 'duration_seconds'
-        group by 1, 2, 3 order by sum((dados->>'duration_seconds')::numeric) desc limit 40) x), '[]'::jsonb),
+        group by case when nome = 'game_time' then 'jogo' else 'leitura' end,
+          coalesce(dados->>'game_id', dados->>'chapter_titulo', dados->>'chapter_id', dados->>'story_id', '?'), dados->>'story_id'
+        order by sum((dados->>'duration_seconds')::numeric) desc limit 40) x), '[]'::jsonb),
     'funil', (select jsonb_build_object(
         'entraram', count(*),
         'engajaram', count(*) filter (where duracao >= 30 or paginas > 1),
@@ -345,7 +347,7 @@ begin
         select jsonb_build_object('dia', to_char(date_trunc('day', criado_em at time zone 'America/Sao_Paulo'), 'YYYY-MM-DD'),
           'moeda', upper(coalesce(moeda, '?')), 'valor', sum(valor_centavos)) d
         from public.painel_pagamentos where tipo = 'pagamento' and criado_em >= p_inicio and criado_em < p_fim
-        group by 1, 2) x), '[]'::jsonb),
+        group by date_trunc('day', criado_em at time zone 'America/Sao_Paulo'), upper(coalesce(moeda, '?'))) x), '[]'::jsonb),
     -- estado de agora (não depende do período)
     'assinantes', coalesce((select jsonb_agg(a order by a->>'desde' desc) from (
         select jsonb_build_object('email', u.email, 'nome', p.nome, 'tier', p.tier,

@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1790741122.555374,
-    "ast_hash": "a0a6402fbbbf2672f0e578468838fb21",
+    "mtime": 1790744535.5187669,
+    "ast_hash": "b060cb48e37559fa9db24f5f72249c2a",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790743863.3203084,
-    "ast_hash": "bc184bc680e2d1783225363a3417c0d7",
+    "mtime": 1790745280.793916,
+    "ast_hash": "b98152cd43f922abc7edf7c475d1d1f8",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -645,8 +645,8 @@
     "semantic_hash": ""
   },
   "src/main.jsx": {
-    "mtime": 1790740478.5858188,
-    "ast_hash": "316d1ee6963df1c4555d1edbc0cb1ae4",
+    "mtime": 1790744303.7234027,
+    "ast_hash": "2e2c90bf2ea6c7d1a9a69ea241b19cf3",
     "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
@@ -2275,9 +2275,9 @@
     "semantic_hash": "68689304069c68eabddedd35e96c471a"
   },
   "supabase/functions/stripe-webhook/index.ts": {
-    "mtime": 1780854898.983443,
-    "ast_hash": "2dc67b1c890b4a2da191fdd4fda97602",
-    "semantic_hash": "2dc67b1c890b4a2da191fdd4fda97602"
+    "mtime": 1790744214.9054143,
+    "ast_hash": "448e2711b5aa3c566161c40622f35e5a",
+    "semantic_hash": ""
   },
   "supabase/migrations/004_jack_v3.sql": {
     "mtime": 1780557003.838922,
@@ -2690,8 +2690,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1790743135.3308342,
-    "ast_hash": "2b31d3ad89c2cfeed591b58f0f204014",
+    "mtime": 1790745280.7646234,
+    "ast_hash": "b7af1713d03536e8a6bf8d4f2f134759",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790743863.3555186,
-    "ast_hash": "d4b298f4686593086a305aa6a12b9485",
+    "mtime": 1790745280.839185,
+    "ast_hash": "59fefebffe9e9982aa9526b8d6822599",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3525,8 +3525,8 @@
     "semantic_hash": ""
   },
   "src/lib/analytics.js": {
-    "mtime": 1790741122.5538914,
-    "ast_hash": "5e5bd7d5a5709fcaa8327964fb159652",
+    "mtime": 1790744292.2807262,
+    "ast_hash": "4712eda415a8901ca825a3515bc74564",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesSpecialEffects.js": {
@@ -4565,18 +4565,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790741977.1887481,
-    "ast_hash": "29432c343301febc6c1d62470e3ceb72",
+    "mtime": 1790744686.6823947,
+    "ast_hash": "a6d3e433901b0ea961274eb85b412bd9",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790741977.1897488,
-    "ast_hash": "0ca330c72adce9b2b4420321767c6c3c",
+    "mtime": 1790744686.6843936,
+    "ast_hash": "cd4e4e9e0e65b9b8691bcba437cbcee2",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790741977.1865108,
-    "ast_hash": "f3618f3cbf92e3e659cc08b0f153fbdb",
+    "mtime": 1790744686.6796842,
+    "ast_hash": "eedd09cfdbf40ef857acf8d44a20ad9b",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -6112,6 +6112,46 @@
   "src/lib/colunaApp.js": {
     "mtime": 1790740478.5623615,
     "ast_hash": "5f8c37c61198df1bd9ccc7ed194d94ed",
+    "semantic_hash": ""
+  },
+  "src/lib/painelColeta.js": {
+    "mtime": 1790744261.1251237,
+    "ast_hash": "8fe01e25ea089996745deea7a03207e3",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/Painel.jsx": {
+    "mtime": 1790744528.9040432,
+    "ast_hash": "a06af589ffdbfce1f674a3ac70dadfbb",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/PainelBlocos.jsx": {
+    "mtime": 1790744337.8427386,
+    "ast_hash": "06abcb6410b84bcef6336e78a3c6077e",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/PainelFinanceiro.jsx": {
+    "mtime": 1790744482.5509949,
+    "ast_hash": "316d6439836948e4cfd4fb7da72a7ff0",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/PainelSessoes.jsx": {
+    "mtime": 1790745280.5996926,
+    "ast_hash": "d30e29aa05292e4d3e4bc0ec8b8efba1",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/PainelVisao.jsx": {
+    "mtime": 1790744440.78804,
+    "ast_hash": "51782ed572a98561e3ac312a6fc20d92",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/painelUtil.js": {
+    "mtime": 1790745280.5786932,
+    "ast_hash": "5288a9547b6160868a08c5e6eba0958e",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/043_painel_analytics.sql": {
+    "mtime": 1790744393.9957616,
+    "ast_hash": "a37a743a26dd809b13ca93164cff5c17",
     "semantic_hash": ""
   }
 }
