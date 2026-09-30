@@ -98,7 +98,8 @@ class SFX {
   /** Short oscillator + gain envelope helper */
   _tone(freq, duration, type = 'sine', volume = 0.15, delay = 0) {
     const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
+    // aba escondida não faz barulho (jogo rodando no fundo — Gangues/Rinha)
+    if (!ctx || !this.enabled || (typeof document !== 'undefined' && document.hidden)) return
     const now = ctx.currentTime + delay
     const osc = ctx.createOscillator()
     const gain = ctx.createGain()
@@ -115,7 +116,8 @@ class SFX {
   /** White noise burst */
   _noise(duration, volume = 0.1, delay = 0) {
     const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
+    // aba escondida não faz barulho (jogo rodando no fundo — Gangues/Rinha)
+    if (!ctx || !this.enabled || (typeof document !== 'undefined' && document.hidden)) return
     const now = ctx.currentTime + delay
     const bufferSize = ctx.sampleRate * duration
     const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate)
@@ -181,7 +183,8 @@ class SFX {
   /** Coração pulsando — 2 batidas */
   heartbeat() {
     const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
+    // aba escondida não faz barulho (jogo rodando no fundo — Gangues/Rinha)
+    if (!ctx || !this.enabled || (typeof document !== 'undefined' && document.hidden)) return
     const now = ctx.currentTime
     // First thump
     const osc1 = ctx.createOscillator()
@@ -354,7 +357,8 @@ class SFX {
   /** Power / Habilidade — som dramático de "hadouken" carregando */
   powerUsage() {
     const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
+    // aba escondida não faz barulho (jogo rodando no fundo — Gangues/Rinha)
+    if (!ctx || !this.enabled || (typeof document !== 'undefined' && document.hidden)) return
     const now = ctx.currentTime
 
     // Rumble ascendente grave
@@ -417,7 +421,8 @@ class SFX {
   /** Tick de dado rolando — som percussivo seco como um dado batendo */
   diceTick() {
     const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
+    // aba escondida não faz barulho (jogo rodando no fundo — Gangues/Rinha)
+    if (!ctx || !this.enabled || (typeof document !== 'undefined' && document.hidden)) return
     const now = ctx.currentTime
     // Pequeno ruido de impacto + tom seco
     this._noise(0.03, 0.04)

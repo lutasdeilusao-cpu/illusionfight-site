@@ -30,7 +30,11 @@ import enemiesData from '../../data/gangues-enemies.json'
 // recarregada (aba descartada). `lutas`/`vitorias`/`caiu` contam as lutas
 // que terminaram AO VIVO no fundo (a tela de vitória que monta com o app
 // escondido anota) e descontam do ritmo de 5 minutos.
-const GANGUES_FARM_ESPERA_MS = 3 * 60 * 1000
+// Na Rinha, o app no fundo entra no modo calculado quase na hora (Isaias,
+// 30/09/2026: "a rinha é feita pra grindar... já entra no modo batalha, a
+// cada cinco minutos uma batalha"). 20s de folga só pra quem troca de app
+// rapidinho (responder uma mensagem) não ver a tela de relatório à toa.
+const GANGUES_FARM_ESPERA_MS = 20 * 1000
 const PAUSA_CALCULO_MS = 700
 const POCOES = new Set(GANGUES_ITENS_LISTA.filter(i => i.tipo === 'cura_pv' || i.tipo === 'cura_pm').map(i => i.id))
 

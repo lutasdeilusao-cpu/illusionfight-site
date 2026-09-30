@@ -299,6 +299,7 @@ export function precarregarAnimacaoCombate(characterTemplateId) {
 /** Toca um som já pré-carregado (reinicia do começo — o mesmo <audio> é
  *  reaproveitado em ataques seguintes do mesmo personagem na luta). */
 export function tocarSomCombate(url, volume = 0.7) {
+  if (typeof document !== 'undefined' && document.hidden) return // luta no fundo roda muda
   const audio = pegarAudio(url)
   audio.currentTime = 0
   audio.volume = volume
