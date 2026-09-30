@@ -160,7 +160,7 @@ De 320px (iPhone SE) a 430px (Pro Max) a coluna é 100% da tela; acima disso tra
 **Os cinco gestos de assinatura.** É o que faz uma tela nova "parecer do portal":
 
 1. **Canto chanfrado** — `clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)`. O portal corta o canto superior direito; **não usa `border-radius`**. Cantos arredondados são a marca do visual antigo.
-2. **Eyebrow mono** — `IF // GAMES`, `IF // ACCESS`: `font: 700 .55rem var(--font-mono); letter-spacing: .18em`, em `--if-cyan-58`. Toda página tem o seu.
+2. **Eyebrow mono** — `GAMES`, `ACCESS` (sem prefixo "IF //" — proibido desde 30/09/2026): `font: 700 .55rem var(--font-mono); letter-spacing: .18em`, em `--if-cyan-58`. Toda página tem o seu.
 3. **Índice numerado** — `01`, `02` em mono minúsculo e apagado, acendendo em ciano no item ativo.
 4. **Varredura de luz** — no hover, um `::after` com gradiente ciano entra de `translateX(-102%)` para `0` em `.28s`.
 5. **Barra ativa** — `box-shadow: inset 2px 0 var(--if-cyan)` no item selecionado.

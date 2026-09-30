@@ -131,7 +131,7 @@
     "cta": "Report bug"
   },
   "gate_leitura": {
-    "eyebrow": "IF // FREE ACCOUNT",
+    "eyebrow": "FREE ACCOUNT",
     "titulo": "The other half is for account holders only.",
     "texto": "Liking it so far? Create your free account in seconds and read to the end, no payment needed.",
     "criar": "Create free account",

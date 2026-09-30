@@ -88,7 +88,7 @@ export default function LivroCapitulo() {
       md={md}
       carregando={carregando}
       naoEncontrado={notFound}
-      eyebrow={`IF // ${t('pages.contos.linha_principal')}`}
+      eyebrow={t('pages.contos.linha_principal')}
       obra={t('site.nome_curto')}
       numero={chapter ? String(chapter.numero).padStart(2, '0') : null}
       titulo={chapter?.[tituloKey]}

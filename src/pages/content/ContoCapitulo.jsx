@@ -57,7 +57,7 @@ export default function ContoCapitulo() {
       md={md}
       carregando={carregando}
       naoEncontrado={notFound}
-      eyebrow={`IF // ${t('pages.contos.linha_contos')}`}
+      eyebrow={t('pages.contos.linha_contos')}
       obra={h?.[tituloKey]}
       numero={capitulo ? String(capitulo.numero).padStart(2, '0') : null}
       titulo={capitulo?.[tituloKey]}

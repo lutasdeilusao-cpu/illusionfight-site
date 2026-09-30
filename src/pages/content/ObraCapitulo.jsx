@@ -58,7 +58,7 @@ export default function ObraCapitulo() {
       md={md}
       carregando={carregando}
       naoEncontrado={notFound}
-      eyebrow={`IF // ${t('pages.historias.titulo')}`}
+      eyebrow={t('pages.historias.titulo')}
       obra={obra?.[tituloKey]}
       numero={capitulo?.numero != null ? String(capitulo.numero).padStart(2, '0') : null}
       titulo={capitulo?.[tituloKey]}

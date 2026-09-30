@@ -16,7 +16,7 @@ export default function LeitorAjustes({ aberto, onFechar, prefs }) {
           <motion.div className="leitor-ajustes__gaveta" role="dialog" aria-label={t('pages.leitor.ajustes')}
             initial={{ y: '100%' }} animate={{ y: 0 }} exit={{ y: '100%' }} transition={{ type: 'spring', stiffness: 420, damping: 38 }}>
             <div className="leitor-ajustes__topo">
-              <span className="leitor-ajustes__eyebrow">IF // {t('pages.leitor.ajustes')}</span>
+              <span className="leitor-ajustes__eyebrow">{t('pages.leitor.ajustes')}</span>
               <button type="button" className="leitor-ajustes__x" onClick={onFechar} aria-label={t('pages.leitor.fechar')}>×</button>
             </div>
 

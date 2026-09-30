@@ -2304,7 +2304,7 @@
         ]
       },
       "farm_ausente": {
-        "eyebrow": "IF // ENQUANTO VOCÊ TAVA FORA",
+        "eyebrow": "ENQUANTO VOCÊ TAVA FORA",
         "titulo": "A tropa não parou",
         "calculando": "Contando o que rolou na rua…",
         "tempo": "{min} min fora · farmando em {lugar}",

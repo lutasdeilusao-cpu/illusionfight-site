@@ -24,7 +24,7 @@ import './LeitorCapitulo.css'
      md            texto do capítulo (markdown)
      carregando    ainda buscando o .md
      naoEncontrado capítulo inexistente ou não liberado
-     eyebrow       "IF // CONTOS DE ILUSÃO"
+     eyebrow       "CONTOS DE ILUSÃO"
      obra          nome da história (vai na barra e no cabeçalho)
      numero        "03" | null
      titulo        título do capítulo

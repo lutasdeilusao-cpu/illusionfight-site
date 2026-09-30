@@ -5407,7 +5407,7 @@
         ]
       },
       "farm_ausente": {
-        "eyebrow": "IF // WHILE YOU WERE GONE",
+        "eyebrow": "WHILE YOU WERE GONE",
         "titulo": "The crew kept grinding",
         "calculando": "Counting what went down on the street…",
         "tempo": "{min} min away · farming at {lugar}",

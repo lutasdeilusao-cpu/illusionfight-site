@@ -5407,7 +5407,7 @@
         ]
       },
       "farm_ausente": {
-        "eyebrow": "IF // MIENTRAS NO ESTABAS",
+        "eyebrow": "MIENTRAS NO ESTABAS",
         "titulo": "La banda no aflojó",
         "calculando": "Contando lo que pasó en la calle…",
         "tempo": "{min} min afuera · farmeando en {lugar}",
