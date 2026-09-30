@@ -60,7 +60,7 @@ El silencio que siguió tenía textura.
 
 Helena se levantó más rápido de lo que su estado sugería, los ojos despertando de golpe.
 
-— ¿Tienes el descaro de vivir en mi casa, comer mi comida, usar mi luz y encima cuestionar lo que hago con lo que es mío por derecho? Me debes, pibe. No lo olvides nunca. Hasta los dieciocho, me debes.
+— ¿Tienes el descaro de vivir en mi casa, comer mi comida, usar mi luz y encima cuestionar lo que hago con lo que es mío por derecho? Me debes, chico. No lo olvides nunca. Hasta los dieciocho, me debes.
 
 — Pago las cuentas. Pago el mercado. Pago todo lo que gastas en esta casa cada mes. Eso es lo que debo.
 
@@ -118,7 +118,7 @@ Jack la abrió sin pensar, tomó un sorbo, e hizo una mueca inmediata.
 
 — Eso dices, y sin embargo ya estás en mi banda.
 
-— No tenés una banda, y aunque la tuvieras, que no la tenés, yo no estoy en ella.
+— No tienes una banda, y aunque la tuvieras, que no la tienes, yo no estoy en ella.
 
 — Okey, okey. Ensayo esta noche.
 
@@ -178,7 +178,7 @@ Freddy estaba apoyado en la pared con un tipo al lado. Sin uniforme, campera de 
 
 El tipo al lado de Freddy estaba mirando el celular cuando Freddy se enderezó al ver a Kim y Jack acercarse.
 
-— Esperá al tercer módulo. — El tipo habló bajo, sin apartar los ojos del celular.
+— Espera al tercer módulo. — El tipo habló bajo, sin apartar los ojos del celular.
 
 — Pero están justo acá—
 

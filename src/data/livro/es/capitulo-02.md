@@ -46,7 +46,7 @@ Jack escribió algo en el borde de su tablet y la deslizó discretamente hacia K
 
 Kim leyó. Levantó lentamente una mirada de desprecio hacia Jack y, sin dejar de mirarlo, escribió.
 
-*Por favor Jack, todas las semanas lo mismo, enfocate en el maldito ejercicio.*
+*Por favor Jack, todas las semanas lo mismo, enfócate en el maldito ejercicio.*
 
 Jack respondió de inmediato.
 
@@ -64,7 +64,7 @@ Sonó el timbre entre clases.
 
 La Máquina recogió sus materiales con la misma precisión con la que había enseñado y salió sin ceremonia. El salón respiró. Kim cerró la tablet. Jack giró en su silla con la sonrisa de quien ya decidió lo que va a hacer.
 
-— Hola. Soy Jack. Va a ser un placer para vos conocerme.
+— Hola. Soy Jack. Va a ser un placer para ti conocerme.
 
 Nina no apartó los ojos de la tablet.
 
@@ -102,7 +102,7 @@ Nina no levantó los ojos.
 
 Jack cerró la boca.
 
-*Felicitaciones che, mico épico y encima delante de Kim, nunca me va a dejar olvidarlo.*
+*Felicitaciones, hermano, ridículo épico y encima delante de Kim, nunca me va a dejar olvidarlo.*
 
 ---
 

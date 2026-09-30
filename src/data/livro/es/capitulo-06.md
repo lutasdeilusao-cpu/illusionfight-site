@@ -182,7 +182,7 @@ Los dos se quedaron en el suelo juntos por un segundo que no necesitó palabras.
 
 Kim intentó levantar el brazo derecho con intención clara.
 
-— No tienes fuerzas para golpearme ahora, tío.
+— No tienes fuerzas para golpearme ahora, hermano.
 
 — Lo sé. Pero en cuanto las tenga—
 
