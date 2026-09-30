@@ -163,7 +163,7 @@ export function simularFarmRinha({ store, cena, segundos, enemiesData, alvo, lut
       inicio = iniciarBrigaMultidaoDeCombatentes(emAndamento.combatants, emAndamento.round || 1)
       emAndamento = null
     } else {
-      const bando = gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId), enemiesData, modo, playerTeam: party })
+      const bando = gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId, party), enemiesData, modo, playerTeam: party })
       if (!bando?.length) break
       // Luta nova da sessão: a casa remenda a tropa (igual à Rinha ao vivo).
       inicio = iniciarBrigaMultidao({ playerTeam: party.map(remendar), enemyTeam: bando })

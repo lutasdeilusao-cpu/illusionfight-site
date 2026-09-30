@@ -11,7 +11,6 @@
 import { CENA_PISTA } from './pista/index.js'
 import { CENA_FEIRA } from './feira/index.js'
 import { CENA_BAIXADA } from './baixada/index.js'
-import { pontosPreviewPoi } from '../ganguesEncontros.js'
 import { tetoDoTerritorio } from '../ganguesChefes.js'
 
 export const CENAS_POR_ID = {
@@ -101,31 +100,32 @@ export function destinoSocorroDerrota(cena, prog = {}) {
   return candidatos[0] || null
 }
 
-/** Níveis (pontos de ficha) das lutas do bairro, do mais fraco ao chefão — a
- *  Rinha infinita sorteia entre eles, então a força dela segue a média do
- *  território (Isaias, 28/09/2026). Conta toda treta da rua e dos cômodos,
- *  a briga de papo (`viraTreta`) e o líder do chefe; nunca passa dele. */
-export function niveisDoTerritorio(territorioId) {
-  const cena = CENAS_POR_ID[territorioId]
-  const teto = tetoDoTerritorio(territorioId)
-  if (!cena || !teto) return []
-  const internos = Object.values(cena.interiores || {}).flatMap(inter => (inter.comodos || []).flatMap(com => (com.pois || []).map(pd => pd.poi).filter(Boolean)))
-  const niveis = [...cena.pois, ...internos].flatMap(p => {
-    if (p.rinhaInfinita) return []
-    if (p.tipo === 'treta') return [pontosPreviewPoi(p, territorioId)]
-    return (p.escolhas || []).filter(e => e.viraTreta).map(e => e.viraTreta.pontosFixo || e.viraTreta.revezamento?.budgetPorCorpo)
-  })
-  return [...niveis, teto].filter(n => n > 0 && n <= teto)
+/** Rinha (Isaias, 30/09/2026: "tá vindo personagem muito difícil... tem que
+ *  ter uns mais fáceis, que dão menos experiência, e personagens no nível do
+ *  player, no máximo 1 ou 2 níveis a mais"): o adversário sai em volta da
+ *  ficha do lutador MAIS FORTE da tropa — a mesma régua do XP
+ *  (apPorInimigo): até 2 abaixo rende XP cheio, mais fraco que isso rende
+ *  menos, acima rende o triplo. O 0 aparece 2× (o mais comum é vir no teu
+ *  nível). Piso 2; o teto do chefão quem aplica é o gerador do bando
+ *  (`tetoTerritorio`, com a ficha REAL do líder dele).
+ *  Substitui o sorteio entre todas as lutas do bairro (28/09), que chegava
+ *  no nível do chefão. */
+export const GANGUES_RINHA_FAIXA = [-5, -4, -3, -2, -1, 0, 0, 1, 2]
+const pontosFicha = m => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(m?.attributes?.[k]) || 0), 0)
+export function niveisDaRinha(playerTeam) {
+  const maisForte = Math.max(0, ...(playerTeam || []).map(pontosFicha))
+  if (!maisForte) return []
+  return GANGUES_RINHA_FAIXA.map(d => Math.max(2, maisForte + d))
 }
 
 /** O revezamento de uma luta como ele vai pro gerador de bando, com as regras
  *  do território: teto no chefão (`tetoTerritorio`) e, na Rinha, o nível
- *  sorteado entre os do bairro (`niveisSorteio`). */
-export function revezamentoNoTerritorio(revezamento, territorioId) {
+ *  sorteado em volta da tropa (`niveisSorteio`, ver niveisDaRinha). */
+export function revezamentoNoTerritorio(revezamento, territorioId, playerTeam) {
   if (!revezamento) return revezamento
   return {
     ...revezamento,
     tetoTerritorio: tetoDoTerritorio(territorioId) ? territorioId : undefined,
-    niveisSorteio: revezamento.niveisTerritorio ? niveisDoTerritorio(territorioId) : undefined,
+    niveisSorteio: revezamento.nivelDaTropa ? niveisDaRinha(playerTeam) : undefined,
   }
 }

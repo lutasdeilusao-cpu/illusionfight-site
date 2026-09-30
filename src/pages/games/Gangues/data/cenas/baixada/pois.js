@@ -114,7 +114,7 @@ export const POIS_BAIXADA = [
     i18n: 'games.gangues.cena.baixada.rinha_trilho',
     rinhaInfinita: true,
     semGrana: true,
-    revezamento: { pool: BAIXADA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, niveisTerritorio: true },
+    revezamento: { pool: BAIXADA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, nivelDaTropa: true },
   },
   {
     // Uma caixa esquecida na beira da linha.

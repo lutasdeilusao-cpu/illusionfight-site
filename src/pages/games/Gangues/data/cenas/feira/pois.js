@@ -286,7 +286,7 @@ export const POIS_FEIRA = [
     // RINHA INFINITA (igual a Rinha da Pista): luta atrás de luta com
     // adversário sorteado; a aposta vale só na 1ª luta da sessão.
     rinhaInfinita: true,
-    revezamento: { pool: FEIRA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, niveisTerritorio: true },
+    revezamento: { pool: FEIRA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, nivelDaTropa: true },
     aposta: [0, 50, 100, 200],
   },
   {

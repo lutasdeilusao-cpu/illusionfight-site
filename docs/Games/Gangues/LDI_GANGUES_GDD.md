@@ -2152,7 +2152,7 @@ bairro). Os dois formatos usam o MESMO sistema de pontos fixos.
   | Ponto | Ficha | Forma | Obrigatório |
   |---|---|---|---|
   | `sinal` (apertar o pivete) | 3 | rev, dupla 15% | sim |
-  | `rinha` (farm) | ~ficha do seu mais forte (mín. 3) | rev, `baseMaisForte` | não |
+  | `rinha` (farm infinito) | sorteada de 5 abaixo a 2 acima do seu mais forte, o seu nível 2× mais comum; dupla só da metade de baixo (`niveisDaRinha`, 30/09/2026) | rev, dupla 35% | não |
   | `ferro` (falhar a gazua) | 8 | rev, dupla 10% | sim (a gazua) |
   | `beco` | 8 | rev, dupla 40% | sim |
   | `beco_2` | 11 | rev, dupla 40% | sim |

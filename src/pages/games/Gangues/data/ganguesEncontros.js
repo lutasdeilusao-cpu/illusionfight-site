@@ -124,7 +124,7 @@ export function pontosDoChefe(territorioId, modo, enemiesData) {
 }
 
 export function pontosPreviewPoi(poi, territorioId) {
-  if (poi.rinhaInfinita) return null // nível sorteado a cada luta (niveisDoTerritorio)
+  if (poi.rinhaInfinita) return null // nível sorteado a cada luta (niveisDaRinha)
   if (poi.pontosFixo > 0) return poi.pontosFixo
   if (poi.revezamento?.budgetPorCorpo > 0) return poi.revezamento.budgetPorCorpo
   if (poi.ehChefe) {
@@ -331,12 +331,19 @@ const GANGUES_MULTIDAO_DEGRAU_ABAIXO = GANGUES_LADDER_PASSO
 
 export function gerarBandoRevezamento({ pool, budgetPorCorpo: budgetBase = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0, baseMaisForte = false, niveisSorteio, tetoTerritorio, apelidos }) {
   if (!pool?.length || !enemiesData?.length) return null
-  // Rinha infinita (`niveisSorteio`, Isaias 28/09/2026: "segue a média de
-  // level do território"): cada luta sorteia o nível entre os das lutas do
-  // bairro, do mais fraco ao chefão (niveisDoTerritorio, cenaHelpers.js).
-  const budgetPorCorpo = niveisSorteio?.length ? niveisSorteio[Math.floor(Math.random() * niveisSorteio.length)] : budgetBase
+  // Rinha infinita (`niveisSorteio`): cada luta sorteia o nível em volta da
+  // ficha do mais forte da tropa, de 5 abaixo a 2 acima (niveisDaRinha,
+  // cenaHelpers.js — Isaias 30/09/2026, a faixa do bairro inteiro chegava no
+  // chefão e ficou difícil demais).
+  // Dupla na Rinha só vem da metade de baixo da faixa (até 1 abaixo do teu
+  // mais forte): 2 corpos no teu nível ou acima era derrota quase certa
+  // (simulado: +2 em dupla = 0% de vitória); o +1/+2 fica pro solo.
   const multidaoGarantida = qtdMin != null && qtdMax != null
   const dupla = !multidaoGarantida && Math.random() < chanceDupla
+  const niveis = niveisSorteio?.length && dupla
+    ? [...niveisSorteio].sort((x, y) => x - y).slice(0, Math.ceil(niveisSorteio.length / 2))
+    : niveisSorteio
+  const budgetPorCorpo = niveis?.length ? niveis[Math.floor(Math.random() * niveis.length)] : budgetBase
   const qtd = multidaoGarantida ? (qtdMin + Math.floor(Math.random() * (qtdMax - qtdMin + 1))) : (dupla ? 2 : 1)
   const pontosMaisForte = baseMaisForte
     ? Math.max(0, ...(playerTeam || []).map(m => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(m.attributes?.[k]) || 0), 0)))

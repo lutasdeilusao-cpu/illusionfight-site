@@ -283,7 +283,7 @@ export default function GanguesRoute() {
       // quase sempre 1 sozinho, orçamento leve e fixo por corpo — A MENOS que
       // o POI peça "multidão garantida" (qtdMin/qtdMax) e/ou escalonamento
       // pelo time (ratioComTime), caso do galpão do Carvão (ver interiores.js).
-      enemyTeam = gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId), enemiesData, modo, playerTeam: party })
+      enemyTeam = gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId, party), enemiesData, modo, playerTeam: party })
       if (!enemyTeam?.length) { setFase('story'); return }
       // Encontro aleatório (perseguidor) nunca é suavizado: o Isaias quer
       // SEMPRE no mínimo 2 inimigos (26/09/2026) — as duas suavizações cortam pra 1.

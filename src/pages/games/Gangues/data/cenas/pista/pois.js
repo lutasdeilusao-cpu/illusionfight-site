@@ -226,12 +226,13 @@ export const POIS_PISTA = [
     i18n: 'games.gangues.cena.pista.rinha',
     enemy: 1201,
     // RINHA INFINITA (Isaias, 28/09/2026): entrou, é luta atrás de luta até
-    // sair — cada adversário com o nível sorteado entre os das lutas do
-    // bairro, do mais fraco ao chefão (`niveisTerritorio`). É o ÚNICO lugar com
+    // sair — cada adversário sorteado em volta do nível da tropa, de 5 abaixo
+    // a 2 acima do teu mais forte (`nivelDaTropa`, niveisDaRinha em
+    // cenaHelpers.js). É o ÚNICO lugar com
     // farm calculado com o app no fundo: 1 luta a cada 5 minutos (ver
     // engine/ganguesFarmAusente.js).
     rinhaInfinita: true,
-    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, niveisTerritorio: true },
+    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, nivelDaTropa: true },
     // Farm dá só XP, nunca grana (Isaias, 28/09/2026) — grana de grind é o
     // Clube e a Banca do Tio Dado.
     semGrana: true,
