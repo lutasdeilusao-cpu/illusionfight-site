@@ -406,6 +406,7 @@
           "epico": "Épico"
         },
         "itens": {
+          "134": "Vara de la Fiera",
           "141": "Bate del Óxido",
           "401": "Llave de Tubo",
           "402": "Casco de Obra Pintado",
@@ -4172,10 +4173,235 @@
         "fechar": "entendido, patrón"
       },
       "cena": {
+        "morro": {
+          "chegada": [
+            "Este es el Cerro, hermano. Nadie lo tomó nunca. Ni el Retazo.",
+            "Zefa no vende el Cerro, lo negocia. Y los Coheteros cierran la escalinata con tres portones.",
+            "Cada portón tiene un precio, y ese precio no se paga aquí arriba: se paga allá abajo, en los barrios que ya tienes en el bolsillo.",
+            "Vuelve a la Pista, a la Feria y a la Bajada y negocia tu subida. Aquí lo que vale es la palabra."
+          ],
+          "aviso_informante": "Nadie en el Cerro te lleva con Zefa todavía. En el bar del Conjunto hay un recado para ti — escúchalo primero.",
+          "checklist_dica": "Sube la escalinata. ¿Portón cerrado? El permiso está en un barrio de abajo — la Pista, la Feria y la Bajada, en la trastienda del bar.",
+          "checklist_passagem": "La escalinata está abierta. Entra a la guarida de Zefa.",
+          "pich": "FRENTE DE LA ESCALERA",
+          "grafite": "EL CERRO\nNO SE TOMA",
+          "predio": {
+            "birosca": "Bar del Pie del Cerro",
+            "oficina": "Herrería de la Losa",
+            "venda": "Tienda del Cerro",
+            "creche": "Guardería de Zefa",
+            "boca": "La Guarida de Zefa"
+          },
+          "int": {
+            "birosca": "Bar del Pie del Cerro",
+            "oficina": "Herrería de la Losa",
+            "venda": "Tienda del Cerro",
+            "creche": "Guardería de Zefa",
+            "boca": "La Guarida de Zefa"
+          },
+          "barreira": {
+            "pista": "PORTÓN CERRADO · el permiso es del Avispón, allá en la Pista",
+            "feira": "PORTÓN CERRADO · los Coheteros quieren radios — negocia en la Feria",
+            "baixada": "PORTÓN CERRADO · la guardería necesita medicina — negocia en la Bajada"
+          },
+          "escadaria": {
+            "nome": "La escalinata",
+            "sub": "la única subida",
+            "fala": [
+              "De aquí para arriba, solo con permiso. Y tú no tienes ninguno.",
+              "Cada escalón aquí tiene dueño, amigo."
+            ]
+          },
+          "cupim": {
+            "nome": "Termita",
+            "sub": "el vigía de la escalinata",
+            "fala": [
+              "Me como la escalera por dentro. Te vas a caer antes de darte cuenta.",
+              "El que sube sin pedir, baja rodando."
+            ]
+          },
+          "laje_nova": {
+            "nome": "Losa Nueva",
+            "sub": "el Cerro crece cada semana",
+            "fala": [
+              "Ayer esto era un callejón. Hoy es losa. Mañana es tu tumba.",
+              "Aquí las escaleras cambian de lugar, y tú no conoces ninguna."
+            ]
+          },
+          "posto_rojao": {
+            "nome": "El puesto de cohetes",
+            "sub": "la alarma de todo el Cerro",
+            "fala": [
+              "Un estallido y todo el Cerro sabe que subiste.",
+              "Mecha corta, paciencia todavía más corta."
+            ]
+          },
+          "segunda_mae": {
+            "nome": "Segunda Madre",
+            "sub": "cuida a los niños cuando Zefa no puede",
+            "fala": [
+              "Le cambié los pañales a la mitad de esta banda. ¿Crees que te tengo miedo?",
+              "Pega fuerte, que yo te devuelvo con cariño."
+            ]
+          },
+          "escadaria_inteira": {
+            "nome": "Escalinata Entera",
+            "sub": "nadie pasa sin su permiso",
+            "fala": [
+              "Negociaste los portones allá abajo. Conmigo no hay trato.",
+              "La escalinata soy yo. Súbeme por encima, si puedes."
+            ]
+          },
+          "ultima_escada": {
+            "nome": "Última Escalera",
+            "sub": "el último escalón antes de la guarida",
+            "fala": [
+              "Desde aquí ves todo el Cerro. Y el Cerro te ve caer.",
+              "Un escalón más y estás frente a Zefa. No vas a llegar."
+            ]
+          },
+          "conta_do_morro": {
+            "nome": "Cuenta del Cerro",
+            "sub": "lleva la cuenta de quién le debe favores a Zefa",
+            "fala": [
+              "Tu nombre está en el cuaderno. El de todos los que suben.",
+              "Zefa solo recibe a quien tiene la cuenta al día."
+            ]
+          },
+          "morador": {
+            "nome": "Vecino del pie del Cerro",
+            "sub": "vio crecer el Cerro losa por losa",
+            "fala": [
+              "Los Coheteros cierran la escalera en tres lugares. Portones de hierro, candados gruesos.",
+              "El Avispón de la Pista le cobra peaje a quien quiera subir. Él y Zefa se conocen de hace mucho.",
+              "Los Coheteros siempre tienen los radios descompuestos. El que consiga válvulas en la Feria se gana su amistad.",
+              "A la guardería de Zefa siempre le falta medicina. Quien mande desde la Bajada, ella no lo olvida.",
+              "El Retazo casi tomó todo. El Cerro nunca lo tomó. Zefa solo se sentó a conversar.",
+              "Aquí nadie sube a golpes. Aquí se sube haciendo tratos."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Escucha y sigue adelante"
+              }
+            }
+          },
+          "rinha_morro": {
+            "nome": "Pelea de la Losa Alta",
+            "sub": "pelea sin fin con vista al Cerro",
+            "fala": [
+              "La ronda del Cerro es en la losa más alta, con todo el barrio mirando.",
+              "Termina una, entra otro, al azar. Puedes dejar a la tropa aquí — 1 pelea cada 5 minutos."
+            ]
+          },
+          "birosca_morro": {
+            "nome": "Bar del Pie del Cerro",
+            "sub": "aguardiente, pan y chismes",
+            "intro": "La dueña del bar acomoda a la tropa en un rincón y hace comer a todos. Cuesta un poco de dinero y nadie sale con hambre."
+          },
+          "fiado_da_zefa": {
+            "nome": "Cuenta del Cerro",
+            "sub": "el fiado de Zefa",
+            "fala": [
+              "¿Necesitas algo, hermano? En el Cerro el dinero viene con un favor incluido.",
+              "1000 en la mano ya. El favor... el favor lo escoge Zefa después."
+            ],
+            "botao_ver_contrato": "Quiero los 1000",
+            "contrato_tag": "Contrato · fiado de Zefa",
+            "contrato_corpo": "\"1000 en la mano, ya. ¿Aceptas o no?\"",
+            "contrato_letra_miuda": "Letra chica del contrato: quedas debiendo {divida}.",
+            "contrato_aceitar": "Acepto",
+            "contrato_recusar": "No acepto"
+          },
+          "venda": {
+            "nome": "Tienda del Cerro",
+            "sub": "lo que sube por la escalera, ella lo vende"
+          },
+          "serralheria_morro": {
+            "nome": "Herrería de la Losa",
+            "fala": "Aquí soldamos los portones de los Coheteros. Trae la pieza y chatarra y la dejo a punto — hasta +7."
+          },
+          "creche": {
+            "nome": "Guardería de Zefa",
+            "sub": "intocable, incluso para los rivales",
+            "fala": [
+              "Aquí adentro nadie pelea. Ni tú ni ellos. Es la única regla que Zefa nunca negoció.",
+              "Zefa crio a la mitad del Cerro en este cuarto. Los mismos muchachos que golpeaste en la escalera.",
+              "No perdona a quien se mete con los niños. Y no olvida a quien ayuda."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Escucha y sal en paz"
+              }
+            }
+          },
+          "creche_achado": {
+            "nome": "La caja de donaciones",
+            "sub": "para quien lo necesite",
+            "linha": "En la caja de donaciones alguien dejó algo de dinero y un frasco de jarabe. La señora de la guardería dice que es para ti: \"quien ayuda a la guardería, la guardería lo ayuda.\""
+          }
+        },
+        "aval": {
+          "aval_morro_pista": {
+            "nome": "El peaje del Cerro",
+            "sub": "el Avispón conoce a Zefa",
+            "fala": [
+              "¿Quieres subir el Cerro? Je. Zefa me debe un favor viejo, y yo le debo otro.",
+              "Seiscientos en mi mano y mando abrir el primer portón. No es préstamo, hermano. Es peaje."
+            ],
+            "escolhas": {
+              "pagar": {
+                "label": "Paga el peaje (600)",
+                "resultado": "Guarda el dinero, toma el teléfono y dice dos palabras. \"Puedes subir. El primer portón está abierto.\""
+              }
+            }
+          },
+          "aval_morro_feira": {
+            "nome": "Los radios de los Coheteros",
+            "sub": "Interés Alto hace el contacto",
+            "fala": [
+              "Los Coheteros del Cerro tienen todos los radios descompuestos. Sin radio, los cohetes no sirven de nada.",
+              "Consígueme tres válvulas, yo las mando para allá y ellos abren el segundo portón. El vendedor ambulante las tiene."
+            ],
+            "escolhas": {
+              "entregar": {
+                "label": "Entrega las 3 válvulas",
+                "resultado": "\"Trato hecho. Los radios van a volver a sonar y el segundo portón se va a abrir para ti.\""
+              }
+            }
+          },
+          "aval_morro_baixada": {
+            "nome": "La medicina de la guardería",
+            "sub": "Doña Lurdes conoce a la señora de la guardería",
+            "fala": [
+              "La guardería de Zefa lleva semanas sin medicina. La señora me llamó llorando.",
+              "Consígueme dos Pociones de Hueso, de esas del Conjunto, y las llevo yo misma. Zefa le abre el último portón a quien ayudó a sus niños."
+            ],
+            "escolhas": {
+              "entregar": {
+                "label": "Entrega las 2 Pociones de Hueso",
+                "resultado": "Envuelve las pociones en un trapo de cocina. \"Zefa va a saber que fuiste tú. El tercer portón está abierto.\""
+              }
+            }
+          }
+        },
         "fundos_nome": "TRASTIENDA",
         "andar": "PISO {n}",
         "andar_terreo": "PLANTA BAJA",
         "vila": {
+          "informante_morro": {
+            "nome": "El recado del Cerro",
+            "sub": "un muchacho de la Frente de la Escalera",
+            "fala": [
+              "Zefa manda decir: quien tumbó al Óxido puede subir el Cerro. Pero en el Cerro no se sube a golpes.",
+              "Los portones de la escalinata solo se abren con permiso. Y los permisos están allá abajo, en los barrios que ya son tuyos."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Recibe el recado",
+                "resultado": "El muchacho desaparece por la escalera. Ahora el Cerro sabe que vienes — y los barrios de abajo también."
+              }
+            }
+          },
           "chegada": [
             "Este es el Conjunto, hermano. Tres bloques de diez pisos y una escalera sin luz.",
             "Aquí la guerra va de abajo hacia arriba: la Banda de los Bloques controla la planta baja y la escalera, y Los de Arriba viven en lo más alto.",

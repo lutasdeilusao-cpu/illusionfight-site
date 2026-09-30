@@ -418,4 +418,14 @@ export const POIS_PISTA = [
     // treta repetível, o chip continua saindo em toda vitória.
     recompensa: { rep: 4, item: 21, qtd: 1, equipPrimeiraVez: 207 },
   },
+  {
+    // O pedágio do Morro: o Marimbondo abre o 1º portão da escadaria por 600.
+    // Só aparece depois do recado do Morro (`__flags.morro`, Vila) e abre um
+    // dos portões da escadaria (BARREIRAS_MORRO, data/cenas/morro/mundo.js).
+    id: 'aval_morro_pista',
+    tipo: 'papo',
+    opcional: true,
+    i18n: 'games.gangues.cena.aval.aval_morro_pista',
+    escolhas: [{ id: 'pagar', custoGrana: 600, informante: 'morro_pista' }],
+  },
 ]

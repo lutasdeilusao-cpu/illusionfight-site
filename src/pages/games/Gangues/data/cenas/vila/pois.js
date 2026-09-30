@@ -190,4 +190,15 @@ export const POIS_VILA = [
     recompensa: { rep: 2 },
     falha: { choque: 2, viraTreta: { enemy: 1212, revezamento: { pool: VILA_POOL_ALTO, budgetPorCorpo: 57, chanceDupla: 0 }, semTravar: true } },
   },
+  {
+    // O recado do Morro (sala dos fundos da birosca): a ponte pro 5º
+    // território — destranca a Zefa (`__flags.morro`, ver `precisaInformante`)
+    // e faz aparecer os avais nos bairros de baixo.
+    id: 'informante_morro',
+    tipo: 'papo',
+    opcional: true,
+    repetivel: true,
+    i18n: 'games.gangues.cena.vila.informante_morro',
+    escolhas: [{ id: 'ouvir', informante: 'morro' }],
+  },
 ]

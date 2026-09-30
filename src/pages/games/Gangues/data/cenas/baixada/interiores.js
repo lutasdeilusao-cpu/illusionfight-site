@@ -35,7 +35,7 @@ export const INTERIORES_BAIXADA = {
       pois: [
         { ref: 'birosca', pos: { x: 74, y: 210 } },
       ],
-    }), passagem: portaFundos(460) }, salaDosFundos(['taxa_fixa', 'informante_vila'])],
+    }), passagem: portaFundos(460) }, salaDosFundos(['taxa_fixa', 'informante_vila', { ref: 'aval_morro_baixada', precisaFlag: 'morro' }])],
   },
   // ── A padaria da Dona Cida — onde sai o café do velho ──
   padaria: {

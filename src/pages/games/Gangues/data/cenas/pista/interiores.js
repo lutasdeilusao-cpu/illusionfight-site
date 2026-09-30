@@ -54,7 +54,7 @@ export const INTERIORES_PISTA = {
       ],
       // Agiota e Banca do Tio Dado moram na sala dos fundos (ver salaDosFundos.js).
       passagem: portaFundos(460),
-    }, salaDosFundos(['agiota', 'banca'])],
+    }, salaDosFundos(['agiota', 'banca', { ref: 'aval_morro_pista', precisaFlag: 'morro' }])],
   },
   // ── A BIROSCA DO PRIMO (pós-muro) — dentro do barraco pm1 ──
   // Mesma cara da birosca do Nato, do outro lado do muro. Um cômodo só:

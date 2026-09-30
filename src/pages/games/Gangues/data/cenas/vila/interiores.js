@@ -60,7 +60,7 @@ export const INTERIORES_VILA = {
       pois: [
         { ref: 'birosca_vila', pos: { x: 74, y: 210 } },
       ],
-    }), passagem: portaFundos(460) }, salaDosFundos(['aluguel_vencido'])],
+    }), passagem: portaFundos(460) }, salaDosFundos(['aluguel_vencido', 'informante_morro'])],
   },
   // ── A oficina do zelador (ferreiro) ──
   oficina: {

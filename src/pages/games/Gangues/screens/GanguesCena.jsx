@@ -35,7 +35,7 @@ import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
 import useGanguesEncontroAleatorio from '../hooks/useGanguesEncontroAleatorio.js'
 import useGanguesTrem from '../hooks/useGanguesTrem.js'
-import { TremFaixa, BarraRespeito, BarraAlerta } from '../components/cena/GanguesBaixadaHud'
+import { TremFaixa, BarraRespeito, BarraAlerta, BarreiraFaixa } from '../components/cena/GanguesBaixadaHud'
 import './GanguesCena.css'
 
 // Cada cena vira um tutorial_id próprio (`cena_intro:<cenaId>`) dentro do
@@ -96,7 +96,8 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // facilitar o vai-e-vem). O muro NUNCA abre só por fechar os ponto.
   const baseFeita = cena ? portaoAberto(cena, prog.resolvidos) : false
   const muroAberto = Boolean(prog.boss)
-  const amb = useMemo(() => montarAmbiente(cena, local, prog, baseFeita, muroAberto), [cena, local, prog, baseFeita, muroAberto])
+  const flagsHistoria = store.storyProgress.__flags
+  const amb = useMemo(() => montarAmbiente(cena, local, prog, baseFeita, muroAberto, flagsHistoria || {}), [cena, local, prog, baseFeita, muroAberto, flagsHistoria])
   const collidersRef = useRef(null); collidersRef.current = amb?.colliders || []
   const worldRef = useRef(null); worldRef.current = amb?.world || WORLD
   const gateRef = useRef(null)
@@ -485,6 +486,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     <div key={local ? `${local.id}-${local.comodo}` : 'rua'} className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
       {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
       {!local && cena.trem && <TremFaixa trem={cena.trem} fase={trem.fase} t={t} />}
+      {!local && (amb?.barreiras || []).map(b => <BarreiraFaixa key={b.id} b={b} t={t} />)}
       {(amb?.alvos || []).map(p => <ZonaChao key={`z-${p.id}`} p={p} active={perto?.id === p.id} />)}
       {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} active={perto?.id === p.id} onColidir={reportarColisao} ignorado={brigaAuto.ignorados.has(p.id)} longeDe={p.id === volta.current?.adversario ? volta.current : null} />)}
       {/* key=local: rua e cada cômodo de interior são espaços de coordenada

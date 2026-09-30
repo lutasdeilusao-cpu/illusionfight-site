@@ -45,6 +45,17 @@
 .gang-respeito.is-cheia { border-color: var(--if-amber); }
 .gang-respeito.is-cheia .gang-respeito__barra i { background: var(--if-amber); }
 
+/* Portão da escadaria (Morro): a rua fechada de lado a lado, com o recado de onde negociar. */
+.gang-barreira {
+  position: absolute; left: 0; right: 0; z-index: 60; display: grid; place-items: center;
+  background: repeating-linear-gradient(135deg, rgba(255, 143, 60, .85) 0 14px, rgba(20, 16, 12, .9) 14px 28px);
+  border-block: 2px solid var(--if-amber); pointer-events: none;
+}
+.gang-barreira b {
+  font: 800 .55rem var(--font-mono); letter-spacing: .08em; color: var(--gang-branco);
+  background: rgba(0, 0, 0, .8); padding: 3px 8px; max-width: 90%; text-align: center;
+}
+
 /* Barra de Alerta (Vila): mesma peça, cor de perigo — encher é ruim. */
 .gang-alerta { border-color: var(--if-danger); }
 /* Dentro do prédio a escada de subir fica no topo: a barra vira uma linha só, sem o texto. */

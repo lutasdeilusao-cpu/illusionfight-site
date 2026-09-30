@@ -509,6 +509,23 @@ POIs: **A escadaria de cimento** (única subida, guardada pela Frente da Escada)
 (sistema de alerta dos Fogueteiro) · **A creche da Zefa** (onde ela criou a
 molecada, intocável até pra rivais).
 
+**Cena navegável (v3.85.0, 30/09/2026 — código em `data/cenas/morro/`).** Mecânica
+do Morro: **a escadaria negociada**. Três portões dos Fogueteiro (`cena.barreiras`)
+fecham a rua de lado a lado; cada um só abre com o AVAL de um bairro já dominado,
+negociado na sala dos fundos da birosca de lá: **Pista** — pedágio de 600 pro
+Marimbondo; **Feira** — 3 válvulas pros rádios dos Fogueteiro (Juro Alto);
+**Baixada** — 2 Poções de Osso pro remédio da creche (Dona Lurdes). Os avais só
+aparecem depois do recado do Morro (sala dos fundos da birosca da Vila,
+`informante_morro`, que também destranca a Zefa). Ladder: escadaria 60 → Cupim 61 →
+[portão 1] → laje nova 63 → [portão 2] → posto de rojão 65 → Segunda Mãe 66 (G) →
+[portão 3] → Escadaria Inteira 68 (G) → última escada 69 → a boca da Zefa: Conta do
+Morro 70 → **A Fera 72** (orçamento 180 × 0,40, 3 corpos, escolta ~54). Birosca do Pé
+do Morro (descanso 40, agiota Conta do Morro com empréstimo 1000 nos fundos),
+Serralheria da Laje (+7), Venda do Morro (reaproveita o pesado da Vila — linha de
+item própria do Morro fica pra depois), Creche da Zefa (papo + achado), Rinha da
+Laje de Cima, Clube 61/120/186, AP ×1,5. Drop da Zefa: Vara da Fera (134). Ficou pra
+depois: a creche como zona sem briga de verdade e a escadaria que muda de forma.
+
 ### Território 6 — Alto do Morro · No sangue · `#ff6b6b`
 Facção: Os Cinco (112) / A Roda (113). Atrás da porta de aço. **A ameaça que
 quase virou cúpula paralela** — o ponto mais "político" do jogo.

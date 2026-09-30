@@ -316,4 +316,14 @@ export const POIS_FEIRA = [
     custoGrana: 15,
     fiadoFavor: true,
   },
+  {
+    // Os rádios dos Fogueteiro: 3 válvulas (Camelô) abrem o 2º portão.
+    // Só aparece depois do recado do Morro (`__flags.morro`, Vila) e abre um
+    // dos portões da escadaria (BARREIRAS_MORRO, data/cenas/morro/mundo.js).
+    id: 'aval_morro_feira',
+    tipo: 'papo',
+    opcional: true,
+    i18n: 'games.gangues.cena.aval.aval_morro_feira',
+    escolhas: [{ id: 'entregar', precisaItens: { 15: 3 }, informante: 'morro_feira' }],
+  },
 ]

@@ -133,6 +133,8 @@ export const GANGUES_TERRITORIOS = [
     cor: '#ff8f3c',
     poly: '0,84 20,72 40,82 56,76 43,58 50,54 40,58 28,50 10,60 4,72',
     pos: { top: 44, left: 29 },
+    // Ponte da Vila: o recado do Morro (POI `informante_morro`) grava __flags.morro.
+    precisaInformante: true,
     pontos: [
       { id: 'morro-1', gangue: 'frente_escada', enemy: 1313, pontosFixo: proximoDegrauLadder() },
       { id: 'morro-2', gangue: 'frente_escada', enemy: 1314, pontosFixo: proximoDegrauLadder() },

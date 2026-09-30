@@ -175,4 +175,14 @@ export const POIS_BAIXADA = [
     i18n: 'games.gangues.cena.baixada.deposito',
     itens: [1, 2, 4, 10, 34, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318],
   },
+  {
+    // O remédio da creche da Zefa: 2 Poções de Osso (Vila) abrem o 3º portão.
+    // Só aparece depois do recado do Morro (`__flags.morro`, Vila) e abre um
+    // dos portões da escadaria (BARREIRAS_MORRO, data/cenas/morro/mundo.js).
+    id: 'aval_morro_baixada',
+    tipo: 'papo',
+    opcional: true,
+    i18n: 'games.gangues.cena.aval.aval_morro_baixada',
+    escolhas: [{ id: 'entregar', precisaItens: { 41: 2 }, informante: 'morro_baixada' }],
+  },
 ]

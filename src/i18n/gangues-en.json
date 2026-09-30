@@ -406,6 +406,7 @@
           "epico": "Epic"
         },
         "itens": {
+          "134": "The Beast's Staff",
           "141": "Rust's Bat",
           "401": "Pipe Wrench",
           "402": "Painted Hard Hat",
@@ -4172,10 +4173,235 @@
         "fechar": "got it, boss"
       },
       "cena": {
+        "morro": {
+          "chegada": [
+            "This is the Hill, kid. Nobody ever took this place. Not even the Patchwork.",
+            "Zefa doesn't sell the Hill, she negotiates it. And the Firework Boys lock the stairway with three gates.",
+            "Every gate has a price, and you don't pay it up here: you pay it down below, in the hoods you already got in your pocket.",
+            "Go back to the Track, the Market and the Lowside and negotiate your way up. Up here, your word is what counts."
+          ],
+          "aviso_informante": "Nobody on the Hill will take you to Zefa yet. There's a message for you at the bar in the Projects — hear it first.",
+          "checklist_dica": "Climb the stairway. Gate locked? The pass is in a hood down below — the Track, the Market and the Lowside, in the bar's back room.",
+          "checklist_passagem": "The stairway is open. Walk into Zefa's den.",
+          "pich": "STAIRWAY FRONT",
+          "grafite": "THE HILL\nDON'T GET TAKEN",
+          "predio": {
+            "birosca": "Foot of the Hill Bar",
+            "oficina": "Rooftop Metal Shop",
+            "venda": "Hill Store",
+            "creche": "Zefa's Daycare",
+            "boca": "Zefa's Den"
+          },
+          "int": {
+            "birosca": "Foot of the Hill Bar",
+            "oficina": "Rooftop Metal Shop",
+            "venda": "Hill Store",
+            "creche": "Zefa's Daycare",
+            "boca": "Zefa's Den"
+          },
+          "barreira": {
+            "pista": "GATE LOCKED · the pass belongs to Hornet, back on the Track",
+            "feira": "GATE LOCKED · the Firework Boys want radios — negotiate at the Market",
+            "baixada": "GATE LOCKED · the daycare needs medicine — negotiate in the Lowside"
+          },
+          "escadaria": {
+            "nome": "The stairway",
+            "sub": "the only way up",
+            "fala": [
+              "From here up you need a pass. And you got none.",
+              "Every step here has an owner, pal."
+            ]
+          },
+          "cupim": {
+            "nome": "Termite",
+            "sub": "the stairway lookout",
+            "fala": [
+              "I eat the stairs from the inside. You'll fall before you notice.",
+              "Whoever climbs without asking comes down rolling."
+            ]
+          },
+          "laje_nova": {
+            "nome": "New Slab",
+            "sub": "the Hill grows every week",
+            "fala": [
+              "Yesterday this was an alley. Today it's a slab. Tomorrow it's your grave.",
+              "Stairs move around here, and you don't know a single one."
+            ]
+          },
+          "posto_rojao": {
+            "nome": "The firework post",
+            "sub": "the alarm for the whole Hill",
+            "fala": [
+              "One bang and the whole Hill knows you came up.",
+              "Short fuse, even shorter patience."
+            ]
+          },
+          "segunda_mae": {
+            "nome": "Second Mother",
+            "sub": "watches the kids when Zefa can't",
+            "fala": [
+              "I changed diapers for half this crew. You think I'm scared of you?",
+              "Hit hard, and I'll hit back with love."
+            ]
+          },
+          "escadaria_inteira": {
+            "nome": "Whole Stairway",
+            "sub": "nobody passes without his nod",
+            "fala": [
+              "You negotiated the gates down below. With me there's no deal.",
+              "I am the stairway. Climb over me, if you can."
+            ]
+          },
+          "ultima_escada": {
+            "nome": "Last Stair",
+            "sub": "the last step before the den",
+            "fala": [
+              "From here you see the whole Hill. And it sees you falling.",
+              "One more step and you're in front of Zefa. You won't make it."
+            ]
+          },
+          "conta_do_morro": {
+            "nome": "Hill's Tab",
+            "sub": "keeps track of who owes Zefa a favor",
+            "fala": [
+              "Your name's in the book. Everybody who climbs is.",
+              "Zefa only sees people whose tab is paid up."
+            ]
+          },
+          "morador": {
+            "nome": "Resident at the foot of the Hill",
+            "sub": "watched the Hill grow slab by slab",
+            "fala": [
+              "The Firework Boys lock the stairs in three spots. Iron gates, thick padlocks.",
+              "Hornet on the Track charges a toll to anyone who wants to go up. He and Zefa go way back.",
+              "The Firework Boys always have broken radios. Whoever finds valves at the Market wins them over.",
+              "Zefa's daycare never has enough medicine. Whoever sends some from the Lowside, she won't forget.",
+              "The Patchwork almost took everything. The Hill he never took. Zefa just sat down and talked.",
+              "Nobody climbs here by taking beatings. Here you climb by making deals."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Listen and move on"
+              }
+            }
+          },
+          "rinha_morro": {
+            "nome": "Top Slab Ring",
+            "sub": "endless fights with a view of the Hill",
+            "fala": [
+              "The Hill's ring is on the highest slab, with the whole hood watching.",
+              "One ends, another steps in, random. You can leave the crew here — 1 fight every 5 minutes."
+            ]
+          },
+          "birosca_morro": {
+            "nome": "Foot of the Hill Bar",
+            "sub": "booze, bread and gossip",
+            "intro": "The owner sets the crew up in a corner and makes everybody eat. Costs a little and nobody leaves hungry."
+          },
+          "fiado_da_zefa": {
+            "nome": "Hill's Tab",
+            "sub": "Zefa's credit line",
+            "fala": [
+              "Need something, kid? On the Hill, money comes with a favor attached.",
+              "1000 in your hand now. The favor... Zefa picks the favor later."
+            ],
+            "botao_ver_contrato": "I want the 1000",
+            "contrato_tag": "Contract · Zefa's credit",
+            "contrato_corpo": "\"1000 in hand, right now. Take it or leave it?\"",
+            "contrato_letra_miuda": "Fine print: you end up owing {divida}.",
+            "contrato_aceitar": "I'm in",
+            "contrato_recusar": "No deal"
+          },
+          "venda": {
+            "nome": "Hill Store",
+            "sub": "whatever comes up the stairs, she sells"
+          },
+          "serralheria_morro": {
+            "nome": "Rooftop Metal Shop",
+            "fala": "We weld the Firework Boys' gates here. Bring the piece and some scrap and I'll get it right — up to +7."
+          },
+          "creche": {
+            "nome": "Zefa's Daycare",
+            "sub": "untouchable, even for rivals",
+            "fala": [
+              "Nobody fights in here. Not you, not them. It's the one rule Zefa never negotiated.",
+              "Zefa raised half the Hill in this room. The same kids you beat on the stairs.",
+              "She never forgives anyone who messes with kids. And she never forgets who helps."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Listen and leave in peace"
+              }
+            }
+          },
+          "creche_achado": {
+            "nome": "The donation box",
+            "sub": "for whoever needs it",
+            "linha": "In the donation box, somebody left a little cash and a bottle of syrup. The daycare lady says it's for you: \"whoever helps the daycare, the daycare helps.\""
+          }
+        },
+        "aval": {
+          "aval_morro_pista": {
+            "nome": "The Hill toll",
+            "sub": "Hornet knows Zefa",
+            "fala": [
+              "You wanna climb the Hill? Heh. Zefa owes me an old favor, and I owe her another.",
+              "Six hundred in my hand and I'll have the first gate opened. It's not a loan, kid. It's a toll."
+            ],
+            "escolhas": {
+              "pagar": {
+                "label": "Pay the toll (600)",
+                "resultado": "He pockets the cash, picks up the phone and says two words. \"Go on up. The first gate is open.\""
+              }
+            }
+          },
+          "aval_morro_feira": {
+            "nome": "The Firework Boys' radios",
+            "sub": "High Interest makes the connection",
+            "fala": [
+              "The Firework Boys up on the Hill have busted radios. No radio, and fireworks are useless.",
+              "Get me three valves and I'll send them up, and they'll open the second gate. The street vendor has them."
+            ],
+            "escolhas": {
+              "entregar": {
+                "label": "Hand over the 3 valves",
+                "resultado": "\"Deal. The radios will crackle again and the second gate will open for you.\""
+              }
+            }
+          },
+          "aval_morro_baixada": {
+            "nome": "The daycare medicine",
+            "sub": "Dona Lurdes knows the daycare lady",
+            "fala": [
+              "Zefa's daycare has been out of medicine for weeks. The lady called me crying.",
+              "Get me two Bone Potions, the ones from the Projects, and I'll take them myself. Zefa opens the last gate for whoever helped her kids."
+            ],
+            "escolhas": {
+              "entregar": {
+                "label": "Hand over the 2 Bone Potions",
+                "resultado": "She wraps the potions in a dish towel. \"Zefa's gonna know it was you. The third gate is open.\""
+              }
+            }
+          }
+        },
         "fundos_nome": "BACK ROOM",
         "andar": "FLOOR {n}",
         "andar_terreo": "LOBBY",
         "vila": {
+          "informante_morro": {
+            "nome": "The message from the Hill",
+            "sub": "a kid from the Stairway Front",
+            "fala": [
+              "Zefa says: whoever took down Rust can climb the Hill. But on the Hill you don't climb by taking beatings.",
+              "The stairway gates only open with a pass. And the passes are down below, in the hoods you already own."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Take the message",
+                "resultado": "The kid disappears down the stairs. Now the Hill knows you're coming — and so do the hoods below."
+              }
+            }
+          },
           "chegada": [
             "This is the Projects, kid. Three blocks, ten floors each, and a stairwell with no lights.",
             "The war here runs bottom to top: the Tower Crew holds the ground floor and the stairs, and the Upstairs folks live way up high.",

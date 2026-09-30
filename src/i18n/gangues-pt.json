@@ -406,6 +406,7 @@
           "epico": "Épico"
         },
         "itens": {
+          "134": "Vara da Fera",
           "141": "Taco da Ferrugem",
           "401": "Chave de Cano",
           "402": "Capacete de Obra Pintado",
@@ -1069,10 +1070,235 @@
         "fechar": "entendido, patrão"
       },
       "cena": {
+        "morro": {
+          "chegada": [
+            "Esse é o Morro, cria. Ninguém nunca tomou isso aqui. Nem o Retalho.",
+            "A Zefa não vende o Morro, ela negocia. E os Fogueteiro fecham a escadaria em três portão.",
+            "Cada portão tem um preço, e o preço não se paga aqui em cima: se paga lá embaixo, nos bairro que tu já botou no bolso.",
+            "Volta na Pista, na Feira e na Baixada e negocia a tua subida. Aqui quem manda é a palavra."
+          ],
+          "aviso_informante": "Ninguém no Morro te leva até a Zefa ainda. Na birosca da Vila tem um recado pra ti — escuta ele antes.",
+          "checklist_dica": "Sobe a escadaria. Portão fechado? O aval tá num bairro de baixo — Pista, Feira e Baixada, na sala dos fundos da birosca.",
+          "checklist_passagem": "A escadaria tá aberta. Entra na boca da Zefa.",
+          "pich": "FRENTE DA ESCADA",
+          "grafite": "O MORRO NÃO\nSE TOMA",
+          "predio": {
+            "birosca": "Birosca do Pé do Morro",
+            "oficina": "Serralheria da Laje",
+            "venda": "Venda do Morro",
+            "creche": "Creche da Zefa",
+            "boca": "A Boca da Zefa"
+          },
+          "int": {
+            "birosca": "Birosca do Pé do Morro",
+            "oficina": "Serralheria da Laje",
+            "venda": "Venda do Morro",
+            "creche": "Creche da Zefa",
+            "boca": "A Boca da Zefa"
+          },
+          "barreira": {
+            "pista": "PORTÃO FECHADO · o aval é do Marimbondo, lá na Pista",
+            "feira": "PORTÃO FECHADO · os Fogueteiro querem rádio — negocia na Feira",
+            "baixada": "PORTÃO FECHADO · a creche precisa de remédio — negocia na Baixada"
+          },
+          "escadaria": {
+            "nome": "A escadaria",
+            "sub": "a única subida",
+            "fala": [
+              "Daqui pra cima só com aval. E tu não tem aval nenhum.",
+              "Cada degrau aqui tem dono, parceiro."
+            ]
+          },
+          "cupim": {
+            "nome": "Cupim",
+            "sub": "vigia da escadaria",
+            "fala": [
+              "Eu como a escada por dentro. Tu vai cair antes de perceber.",
+              "Quem sobe sem pedir, desce rolando."
+            ]
+          },
+          "laje_nova": {
+            "nome": "Laje Nova",
+            "sub": "o Morro cresce toda semana",
+            "fala": [
+              "Ontem isso aqui era beco. Hoje é laje. Amanhã é o teu túmulo.",
+              "Aqui a escada muda de lugar, e tu não conhece nenhum."
+            ]
+          },
+          "posto_rojao": {
+            "nome": "O posto de rojão",
+            "sub": "o alerta do Morro inteiro",
+            "fala": [
+              "Um estouro e o Morro todo sabe que tu subiu.",
+              "Pavio curto, paciência mais curta ainda."
+            ]
+          },
+          "segunda_mae": {
+            "nome": "Segunda Mãe",
+            "sub": "cuida da criançada quando a Zefa não pode",
+            "fala": [
+              "Eu troquei fralda de metade desse bonde. Tu acha que eu tenho medo de ti?",
+              "Bate forte, que eu bato de volta com carinho."
+            ]
+          },
+          "escadaria_inteira": {
+            "nome": "Escadaria Inteira",
+            "sub": "ninguém passa sem o aval dele",
+            "fala": [
+              "Tu negociou os portão lá embaixo. Comigo não tem negócio.",
+              "A escadaria sou eu. Sobe por cima de mim, se der."
+            ]
+          },
+          "ultima_escada": {
+            "nome": "Última Escada",
+            "sub": "o último degrau antes da boca",
+            "fala": [
+              "Daqui tu vê o Morro inteiro. E ele te vê caindo.",
+              "Mais um degrau e tu tá na frente da Zefa. Não vai chegar."
+            ]
+          },
+          "conta_do_morro": {
+            "nome": "Conta do Morro",
+            "sub": "guarda quem deve favor à Zefa",
+            "fala": [
+              "Teu nome tá no caderno. Todo mundo que sobe tá.",
+              "A Zefa só recebe quem tá com a conta em dia."
+            ]
+          },
+          "morador": {
+            "nome": "Morador do pé do Morro",
+            "sub": "viu o Morro crescer laje por laje",
+            "fala": [
+              "Os Fogueteiro fecham a escada em três lugar. Portão de ferro, cadeado grosso.",
+              "O Marimbondo da Pista cobra pedágio de quem quer subir. Ele e a Zefa se conhecem de outros carnaval.",
+              "Os Fogueteiro vivem com rádio quebrado. Quem arruma válvula lá na Feira ganha a amizade deles.",
+              "A creche da Zefa vive sem remédio. Quem mandar remédio da Baixada, ela não esquece.",
+              "O Retalho quase tomou tudo. O Morro ele nunca tomou. A Zefa só sentou e conversou.",
+              "Aqui ninguém sobe apanhando. Aqui se sobe combinando."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Ouve e segue em frente"
+              }
+            }
+          },
+          "rinha_morro": {
+            "nome": "Rinha da Laje de Cima",
+            "sub": "briga sem fim com vista pro Morro",
+            "fala": [
+              "A roda do Morro é na laje mais alta, com o bairro inteiro assistindo.",
+              "Acabou uma, já entra outro, sorteado. Pode largar a tropa aqui — 1 briga a cada 5 minutos."
+            ]
+          },
+          "birosca_morro": {
+            "nome": "Birosca do Pé do Morro",
+            "sub": "pinga, pão e fofoca",
+            "intro": "A dona da birosca arruma a tropa num canto e manda todo mundo comer. Custa uns trocado e ninguém sai com fome."
+          },
+          "fiado_da_zefa": {
+            "nome": "Conta do Morro",
+            "sub": "o fiado da Zefa",
+            "fala": [
+              "Tá precisando, cria? No Morro a grana vem com favor junto.",
+              "1000 na mão agora. O favor... o favor a Zefa escolhe depois."
+            ],
+            "botao_ver_contrato": "Quero os 1000",
+            "contrato_tag": "Contrato · fiado da Zefa",
+            "contrato_corpo": "\"1000 na mão, na hora. Aceita ou não aceita?\"",
+            "contrato_letra_miuda": "Letra miúda do contrato: você fica devendo {divida}.",
+            "contrato_aceitar": "Aceito",
+            "contrato_recusar": "Não aceito"
+          },
+          "venda": {
+            "nome": "Venda do Morro",
+            "sub": "o que sobe a escadaria, ela vende"
+          },
+          "serralheria_morro": {
+            "nome": "Serralheria da Laje",
+            "fala": "Aqui a gente solda portão dos Fogueteiro. Traz a peça e sucata que eu deixo ela no ponto — até +7."
+          },
+          "creche": {
+            "nome": "Creche da Zefa",
+            "sub": "intocável até pra rival",
+            "fala": [
+              "Aqui dentro ninguém briga. Nem tu, nem eles. É a única regra que a Zefa nunca negociou.",
+              "A Zefa criou metade do Morro nessa sala. Os mesmo moleque que tu bateu na escada.",
+              "Ela não perdoa quem mexe com criança. E não esquece quem ajuda."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Ouve e sai na paz"
+              }
+            }
+          },
+          "creche_achado": {
+            "nome": "A caixa de doação",
+            "sub": "pra quem precisa",
+            "linha": "Na caixa de doação, alguém deixou uns trocado e um vidro de xarope. A tia da creche diz que é pra tu: \"quem ajuda a creche, a creche ajuda.\""
+          }
+        },
+        "aval": {
+          "aval_morro_pista": {
+            "nome": "O pedágio do Morro",
+            "sub": "o Marimbondo conhece a Zefa",
+            "fala": [
+              "Tu quer subir o Morro? Hehe. A Zefa me deve um favor antigo, e eu devo outro pra ela.",
+              "Seiscentos na minha mão e eu mando abrir o primeiro portão. Não é empréstimo, cria. É pedágio."
+            ],
+            "escolhas": {
+              "pagar": {
+                "label": "Paga o pedágio (600)",
+                "resultado": "Ele guarda a grana, pega o telefone e fala duas palavras. \"Pode subir. O primeiro portão tá aberto.\""
+              }
+            }
+          },
+          "aval_morro_feira": {
+            "nome": "Os rádios dos Fogueteiro",
+            "sub": "o Juro Alto faz a ponte",
+            "fala": [
+              "Os Fogueteiro do Morro tão com os rádio tudo quebrado. Sem rádio, rojão não serve pra nada.",
+              "Arruma três válvula pra mim, que eu mando pra lá e eles abrem o segundo portão. Tem no Camelô."
+            ],
+            "escolhas": {
+              "entregar": {
+                "label": "Entrega as 3 válvulas",
+                "resultado": "\"Negócio fechado. Os rádio vão chiar de novo e o segundo portão vai abrir pra ti.\""
+              }
+            }
+          },
+          "aval_morro_baixada": {
+            "nome": "O remédio da creche",
+            "sub": "a Dona Lurdes conhece a tia da creche",
+            "fala": [
+              "A creche da Zefa tá sem remédio faz semana. A tia me ligou chorando.",
+              "Me arruma duas Poção de Osso, daquelas da Vila, que eu levo pessoalmente. A Zefa abre o último portão pra quem ajudou as criança dela."
+            ],
+            "escolhas": {
+              "entregar": {
+                "label": "Entrega as 2 Poções de Osso",
+                "resultado": "Ela embrulha as poções num pano de prato. \"A Zefa vai saber que foi tu. O terceiro portão tá aberto.\""
+              }
+            }
+          }
+        },
         "fundos_nome": "SALA DOS FUNDOS",
         "andar": "{n}º ANDAR",
         "andar_terreo": "TÉRREO",
         "vila": {
+          "informante_morro": {
+            "nome": "O recado do Morro",
+            "sub": "um moleque da Frente da Escada",
+            "fala": [
+              "A Zefa mandou avisar: quem derrubou o Ferrugem pode subir o Morro. Mas no Morro não se sobe apanhando.",
+              "Os portão da escadaria só abrem com aval. E os aval tão lá embaixo, nos bairro que tu já é dono."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Recebe o recado",
+                "resultado": "O moleque some na escada. Agora o Morro sabe que tu tá chegando — e os bairro de baixo também."
+              }
+            }
+          },
           "chegada": [
             "Essa é a Vila, cria. O conjunto. Três bloco de dez andar e uma escada sem luz.",
             "Aqui a guerra é de baixo pra cima: o Bonde dos Prédio segura o térreo e a escada, e Os Andar de Cima moram lá no alto.",

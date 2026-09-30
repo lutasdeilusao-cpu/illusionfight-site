@@ -38,3 +38,13 @@ export function BarraAlerta({ cena, n, t }) {
     </div>
   )
 }
+
+/** Portão da escadaria (Morro, `cena.barreiras`): fecha a rua de lado a lado
+ *  até a gangue negociar o aval no bairro de baixo. */
+export function BarreiraFaixa({ b, t }) {
+  return (
+    <div className="gang-barreira" style={{ top: b.y1, height: b.y2 - b.y1 }}>
+      <b>🔒 {t(`games.gangues.cena.morro.barreira.${b.id}`)}</b>
+    </div>
+  )
+}

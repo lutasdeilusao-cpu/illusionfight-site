@@ -99,7 +99,7 @@ export const INTERIORES_FEIRA = {
       pois: [
         { ref: 'pensao', pos: { x: 74, y: 210 } },
       ],
-    }), passagem: portaFundos(460) }, salaDosFundos(['juro_alto'])],
+    }), passagem: portaFundos(460) }, salaDosFundos(['juro_alto', { ref: 'aval_morro_feira', precisaFlag: 'morro' }])],
   },
   // ── Oficina de rádio do Toninho ──
   radio: {

@@ -61,7 +61,8 @@ export function posNoMapa(cena, id) {
   const porta = moraEm && (cena.predios || []).find(pr => pr.porta?.para === moraEm)?.porta
   return porta ? { x: porta.zx, y: porta.zy } : null
 }
-export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
+// `flags` = storyProgress.__flags (portões do Morro, pinos que dependem de outro bairro).
+export function montarAmbiente(cena, local, prog, baseFeita, muroAberto, flags = {}) {
   if (!cena) return null
   const POS = cena.pos || {}
   const ENTRY_ZONES = cena.entryZones || {}
@@ -111,8 +112,12 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
         estado: prog.boss ? 'resolvido' : laDeCima ? 'disponivel' : 'trancado',
       })
     }
+    // Portões da escadaria (Morro, `cena.barreiras`): fechados até o aval
+    // (`flag`) existir — barram a rua inteira de lado a lado.
+    const barreiras = (cena.barreiras || []).filter(b => !flags[b.flag])
+    const W = cena.mundo || WORLD
     return {
-      interior: false, world: cena.mundo || WORLD, colliders: collidersDaCena(cena, laDeCima),
+      interior: false, world: W, colliders: [...collidersDaCena(cena, laDeCima), ...barreiras.map(b => ({ x: 0, y: b.y1, w: W.w, h: b.y2 - b.y1 }))], barreiras,
       gateAtivo: muroAberto ? null : (cena.muro || null), // o muro só abre depois do chefe
       alvos: alvos.filter(a => a.world), nomeLugar: null,
     }
@@ -123,6 +128,7 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
   if (!com) return null
   const pois = (com.pois || []).map(pd => {
     if (pd.precisa && !prog.resolvidos[pd.precisa]) return null
+    if (pd.precisaFlag && !flags[pd.precisaFlag]) return null
     const def = pd.ref ? resolverRefPoi(cena, pd.ref) : pd.poi
     if (!def) return null
     return {
