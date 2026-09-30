@@ -128,7 +128,14 @@
   },
   "beta": {
     "message": "🔧 We're in beta! Official launch on {{date}}.",
-    "cta": "Report bug"
+    "cta": "Report bug",
+    "eyebrow": "Open beta",
+    "lancamento": "Official launch",
+    "dias": "days",
+    "horas": "h",
+    "min": "min",
+    "seg": "s",
+    "no_ar": "We're live!"
   },
   "gate_leitura": {
     "eyebrow": "FREE ACCOUNT",

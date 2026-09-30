@@ -1,38 +1,106 @@
+/* Faixa do beta — contagem regressiva até o lançamento oficial. */
 .trial-banner {
-  background: rgba(244, 162, 39, 0.08);
-  border-top: 1px solid rgba(244, 162, 39, 0.25);
-  padding: 0.5rem 1rem;
-  text-align: center;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--if-amber) 14%, transparent), transparent 70%),
+    var(--bg-secondary);
+  border-top: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent);
+  box-shadow: inset 2px 0 var(--if-amber);
+  overflow: hidden;
 }
 
-.trial-banner__text {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--accent-amber);
-  letter-spacing: 0.02em;
-  margin: 0;
+/* varredura de luz, o gesto da navbar */
+.trial-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 40%, color-mix(in srgb, var(--if-amber) 10%, transparent) 50%, transparent 60%);
+  transform: translateX(-100%);
+  animation: trial-varre 6s ease-in-out infinite;
+  pointer-events: none;
 }
 
-.trial-banner__cta {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent-teal);
-  text-decoration: none;
-  border: 1px solid var(--accent-teal);
-  border-radius: 4px;
-  padding: 0.2rem 0.6rem;
-  transition: background 0.2s, color 0.2s;
+@keyframes trial-varre {
+  0%, 70% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.trial-banner__info {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.trial-banner__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 700 .58rem var(--font-mono);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--if-amber);
+}
+
+.trial-banner__pulso {
+  width: 6px;
+  height: 6px;
+  background: var(--if-amber);
+  transform: rotate(45deg);
+  animation: trial-pulso 1.6s ease-in-out infinite;
+}
+
+@keyframes trial-pulso {
+  50% { opacity: .25; }
+}
+
+.trial-banner__data {
+  font: 600 .72rem var(--font-body);
+  color: var(--text-secondary);
   white-space: nowrap;
 }
 
-.trial-banner__cta:hover {
-  background: var(--accent-teal);
-  color: #000;
+.trial-banner__relogio {
+  display: flex;
+  gap: 4px;
+}
+
+.trial-banner__bloco {
+  display: grid;
+  justify-items: center;
+  min-width: 38px;
+  padding: 4px 6px 3px;
+  background: color-mix(in srgb, var(--if-amber) 8%, var(--bg-primary));
+  border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+}
+
+.trial-banner__bloco b {
+  font: 700 1.05rem/1 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.trial-banner__bloco small {
+  margin-top: 2px;
+  font: 700 .5rem var(--font-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--if-amber);
+}
+
+.trial-banner__no-ar {
+  font: 700 .8rem var(--font-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--if-amber);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trial-banner::after,
+  .trial-banner__pulso { animation: none; }
 }

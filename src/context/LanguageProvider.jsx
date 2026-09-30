@@ -123,7 +123,7 @@ export function LanguageProvider({ children }) {
     if (result == null) result = path
     if (vars && typeof result === 'string') {
       Object.entries(vars).forEach(([k, v]) => {
-        result = result.replace(new RegExp(`\\{${k}\\}`, 'g'), v)
+        result = result.replace(new RegExp(`\\{\\{?${k}\\}?\\}`, 'g'), v) // aceita {k} e {{k}}
       })
     }
     return result
