@@ -5,7 +5,6 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useScrollReveal } from '../../../hooks/useScrollReveal'
 import HomeHero from './components/HomeHero'
 import LatestEpisodes from './components/LatestEpisodes'
-import CharactersRow from './components/CharactersRow'
 import DeferredSection from '../../../components/DeferredSection'
 import './Home.css'
 
@@ -34,12 +33,11 @@ export default function Home() {
       {/* Home redesenhada (v10.314.0, Isaias 30/09/2026: "a porta de entrada tem
           que ser épica"): abertura → os 2 jogos com arte (Gangues, Super
           Trunfo) → Histórias (capa oficial dos Contos + capítulos liberados) →
-          WEB SHARD (só capítulo que existe) → elenco → músicas → apoio → redes. */}
+          WEB SHARD (só capítulo que existe) → músicas → apoio → redes. */}
       <HomeHero />
       <DeferredSection size="large"><Suspense fallback={null}><HomeGames /></Suspense></DeferredSection>
       <DeferredSection size="large"><Suspense fallback={null}><HomeHistorias /></Suspense></DeferredSection>
       <LatestEpisodes />
-      <CharactersRow />
       <DeferredSection><Suspense fallback={null}><MusicSection /></Suspense></DeferredSection>
       <section className="home-support">
         <div className="container">

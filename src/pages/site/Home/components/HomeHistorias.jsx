@@ -27,7 +27,7 @@ export default function HomeHistorias() {
   const contos = contosIndex.filter(c => (c.capitulos || []).some(cap => contoLiberado(cap, isAdmin, auth)))
   const capitulos = livroIndex
     .filter(c => (c.id === 'capitulo-01' || estaDisponivel(c, isAdmin, auth)) && capaDe(c.id))
-    .sort((a, b) => b.numero - a.numero)
+    .sort((a, b) => a.numero - b.numero) // do 1 pro último: ainda não lançamos, quem chega começa do começo
     .slice(0, 8)
 
   return (
