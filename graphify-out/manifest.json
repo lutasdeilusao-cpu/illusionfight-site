@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1790357355.3082855,
-    "ast_hash": "860de568eb7050f8bf19eb32ea917c0c",
+    "mtime": 1790741122.555374,
+    "ast_hash": "a0a6402fbbbf2672f0e578468838fb21",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790740585.7382283,
-    "ast_hash": "b2c8bc1fed1513c2b66a7a3e29a4be64",
+    "mtime": 1790741136.1319962,
+    "ast_hash": "64e13cabfb7360ecabdb039bdf86714d",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790740585.7725937,
-    "ast_hash": "486c59af4c5197a11a0fba507944e8f7",
+    "mtime": 1790741136.1719105,
+    "ast_hash": "3e4dc4fb765dbb9e03a8df398457ada9",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3070,8 +3070,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1790372508.3049166,
-    "ast_hash": "b7db585b850b2b484bcf958341693536",
+    "mtime": 1790741128.1410744,
+    "ast_hash": "8ddbb9958642c00fa68e0e35c326c908",
     "semantic_hash": ""
   },
   "public/404.html": {
@@ -3525,8 +3525,8 @@
     "semantic_hash": ""
   },
   "src/lib/analytics.js": {
-    "mtime": 1787852555.6538303,
-    "ast_hash": "1b45d9ad45d43e136b35fc0391e2892f",
+    "mtime": 1790741122.5538914,
+    "ast_hash": "5e5bd7d5a5709fcaa8327964fb159652",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesSpecialEffects.js": {
@@ -5525,8 +5525,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardLeitor.jsx": {
-    "mtime": 1790739488.4993198,
-    "ast_hash": "e7d355038fbf8a1ada46136166cbf4d8",
+    "mtime": 1790741122.5563796,
+    "ast_hash": "22211c674b09200af098ede77ddf7085",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardRota.jsx": {
