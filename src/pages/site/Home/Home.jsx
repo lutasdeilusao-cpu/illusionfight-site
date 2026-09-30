@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useScrollReveal } from '../../../hooks/useScrollReveal'
-import HomeHero from './components/HomeHero'
+import HeroSlideshow from './components/HeroSlideshow'
 import LatestEpisodes from './components/LatestEpisodes'
 import DeferredSection from '../../../components/DeferredSection'
 import './Home.css'
@@ -31,10 +31,11 @@ export default function Home() {
         <meta property="og:locale" content={ogLocale} />
       </Helmet>
       {/* Home redesenhada (v10.314.0, Isaias 30/09/2026: "a porta de entrada tem
-          que ser épica"): abertura → os 2 jogos com arte (Gangues, Super
+          que ser épica"). A abertura continua sendo o banner rotativo de 5 artes
+          (Isaias: "tem que manter o banner") → os 2 jogos com arte (Gangues, Super
           Trunfo) → Histórias (capa oficial dos Contos + capítulos liberados) →
           WEB SHARD (só capítulo que existe) → músicas → apoio → redes. */}
-      <HomeHero />
+      <HeroSlideshow />
       <DeferredSection size="large"><Suspense fallback={null}><HomeGames /></Suspense></DeferredSection>
       <DeferredSection size="large"><Suspense fallback={null}><HomeHistorias /></Suspense></DeferredSection>
       <LatestEpisodes />
