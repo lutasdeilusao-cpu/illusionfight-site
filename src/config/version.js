@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.310.12' // conto 07 cap. 7: o Kim avisa da arma, o Jack age; o Kim fica
+export const SITE_VERSION = '10.310.13' // conto 07: mais revezamento Kim/Jack no começo, chute de sola, parede falsa, OBS do Jack
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
