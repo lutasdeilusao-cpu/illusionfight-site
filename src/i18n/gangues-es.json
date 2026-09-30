@@ -5446,6 +5446,8 @@
       "log_item_em": "{nome} le pasó {item} a {alvo} ({efeito}) — renunció al ataque.",
       "log_item_inimigos": "{nome} le tiró {item} a la banda ({efeito}) — renunció al ataque.",
       "itens_efeito": {
+        "todos_status": "cualquier estado",
+        "cura": "quita {s}",
         "inimigos": "banda enemiga",
         "acoes": "{n} acción(es)",
         "material": "material de reparación — no se usa en la pelea",

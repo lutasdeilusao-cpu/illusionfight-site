@@ -2343,6 +2343,8 @@
       "log_item_em": "{nome} passou {item} pro {alvo} ({efeito}) — abriu mão do ataque.",
       "log_item_inimigos": "{nome} jogou {item} no bando ({efeito}) — abriu mão do ataque.",
       "itens_efeito": {
+        "todos_status": "qualquer status",
+        "cura": "tira {s}",
         "inimigos": "bando inimigo",
         "acoes": "{n} ação(ões)",
         "material": "material de conserto — não se usa na luta",

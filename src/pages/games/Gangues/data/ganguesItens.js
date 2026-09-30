@@ -91,7 +91,15 @@ export function textoEfeitoItem(t, item) {
   const partes = []
   if (item.tipo === 'cura_pv') partes.push(`+${item.valor} PV`)
   if (item.tipo === 'cura_pm') partes.push(`+${item.valor} PM`)
-  for (const st of item.status || []) {
+  // cura_status guarda o id do status (número) ou uma lista de ids — não os
+  // efeitos { attr, valor, acoes } dos outros tipos. Antes o loop iterava o
+  // número e derrubava a loja inteira ("number 1 is not iterable").
+  if (item.tipo === 'cura_status') {
+    const ids = [].concat(item.status ?? []).filter(id => typeof id === 'number')
+    const nomes = ids.includes(0) ? t('games.gangues.itens_efeito.todos_status') : ids.map(id => t(`games.gangues.status.${id}.nome`)).join(', ')
+    if (nomes) partes.push(t('games.gangues.itens_efeito.cura', { s: nomes }))
+  }
+  for (const st of Array.isArray(item.status) ? item.status.filter(x => x && typeof x === 'object') : []) {
     const sinal = st.valor > 0 ? '+' : '−'
     const quem = item.tipo === 'debuff_inimigos' ? `${t('games.gangues.itens_efeito.inimigos')}: ` : ''
     partes.push(`${quem}${sinal}${Math.abs(st.valor)} ${t(`games.gangues.attr_labels.${st.attr}`)} (${t('games.gangues.itens_efeito.acoes', { n: st.acoes })})`)

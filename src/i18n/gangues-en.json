@@ -5446,6 +5446,8 @@
       "log_item_em": "{nome} handed {item} to {alvo} ({efeito}) — gave up the attack.",
       "log_item_inimigos": "{nome} threw {item} at the crew ({efeito}) — gave up the attack.",
       "itens_efeito": {
+        "todos_status": "any status",
+        "cura": "clears {s}",
         "inimigos": "enemy crew",
         "acoes": "{n} action(s)",
         "material": "repair material — not used in fights",
