@@ -25,7 +25,14 @@ const aleatorio = () => (crypto.randomUUID?.() || `${Date.now().toString(36)}${M
 const consentiu = () => ler(localStorage, 'ldi-cookies-accepted') === 'true'
 
 // Admin marcado neste navegador (analytics.js) e o próprio painel não contam.
+// Robô não é visita: o Googlebot (Android 6.0.1, "Nexus 5X", EUA) lendo
+// capítulo por capítulo era 29 das 35 sessões do 1º dia e puxava a rejeição
+// pra 97%. Crawler, ferramenta de teste e navegador automatizado ficam de fora.
+const ROBO = /bot|crawl|spider|slurp|mediapartners|lighthouse|headless|pagespeed|prerender|facebookexternalhit|whatsapp|preview/i
+const ehRobo = () => typeof navigator !== 'undefined' && (navigator.webdriver || ROBO.test(navigator.userAgent || ''))
+
 function desligado() {
+  if (ehRobo()) return true
   if (ler(localStorage, 'ldi-analytics-off') === '1') return true
   return typeof location !== 'undefined' && location.pathname.startsWith(ROTA_PAINEL)
 }
