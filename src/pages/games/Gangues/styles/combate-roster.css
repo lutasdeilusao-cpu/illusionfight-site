@@ -112,40 +112,38 @@
    antes da medição chegar (cobre topbar + 1 linha de roster). */
 .gang-auto-barra {
   position: fixed; z-index: 10000; top: calc(100% - 96px); left: 50%; transform: translate(-50%, -100%);
-  display: flex; align-items: stretch; gap: 6px;
+  display: flex; align-items: center; gap: 14px;
 }
-.gang-auto-vel {
-  min-width: 44px; padding: 0 12px; cursor: pointer;
-  border: 1px solid var(--if-amber); background: #1c1406;
-  color: var(--if-amber); font: 800 0.78rem var(--font-mono); letter-spacing: 0.06em;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+/* Bolinhas (Isaias, 30/09/2026 — pediu redondo de propósito): toque aciona,
+   segurar mostra a dica (GanguesAutoBolinhas.jsx). */
+.gang-auto-bola-wrap { position: relative; display: grid; place-items: center; }
+.gang-auto-bola {
+  width: 54px; height: 54px; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer;
+  border: 2px solid currentColor; background: radial-gradient(circle at 35% 30%, #2a2f36, #0d1014 70%);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.6), inset 0 0 0 3px rgba(0,0,0,0.35);
+  touch-action: manipulation; -webkit-touch-callout: none; user-select: none;
+  transition: transform .12s ease;
 }
-.gang-auto-sair {
-  display: flex; align-items: center; gap: 8px;
-  padding: 9px 16px; cursor: pointer;
-  border: 1px solid var(--gang-vermelho-450); background: linear-gradient(160deg, #3a0e0e, #1c0606 85%);
-  color: #ff9a9a; font: 800 0.68rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase;
-  box-shadow: 0 0 26px -4px rgba(255, 70, 70, 0.7), 0 8px 22px rgba(0,0,0,0.55);
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-  animation: gang-auto-sair-pulse 1.4s ease-in-out infinite;
-}
-.gang-auto-sair b { font-size: 0.8rem; color: var(--gang-vermelho-450); }
+.gang-auto-bola:active { transform: scale(0.92); }
+.gang-auto-bola svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.gang-auto-bola b { font: 800 0.92rem var(--font-mono); color: currentColor; }
+.gang-auto-bola.is-sair { color: var(--gang-vermelho-450); animation: gang-auto-sair-pulse 1.4s ease-in-out infinite; }
+.gang-auto-bola.is-sair svg { fill: currentColor; stroke: none; }
+.gang-auto-bola.is-rua { color: var(--if-amber); }
+.gang-auto-bola.is-vel { color: var(--if-cyan); }
 @keyframes gang-auto-sair-pulse {
-  50% { box-shadow: 0 0 34px 0 rgba(255, 70, 70, 0.85), 0 8px 22px rgba(0,0,0,0.55); }
+  50% { box-shadow: 0 0 26px 2px rgba(255, 70, 70, 0.7), 0 8px 22px rgba(0,0,0,0.6); }
 }
-@media (prefers-reduced-motion: reduce) { .gang-auto-sair { animation: none; } }
-/* "Parar briga de rua": desliga o switch da cena de dentro da luta (fim do
-   farm contínuo em cima do adversário). Âmbar, sem pulso — é secundário ao
-   "sair do automático". */
-.gang-auto-rua {
-  display: flex; align-items: center; gap: 8px;
-  padding: 9px 14px; cursor: pointer;
-  border: 1px solid var(--if-amber); background: #1c1406;
-  color: var(--if-amber); font: 800 0.62rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.55);
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+@media (prefers-reduced-motion: reduce) { .gang-auto-bola.is-sair { animation: none; } }
+.gang-auto-bola-dica {
+  position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%);
+  width: max-content; max-width: 200px; padding: 8px 10px;
+  font: 600 0.68rem/1.35 var(--font-body); color: var(--if-ink, #e8eef2); text-align: center;
+  background: #0d1014; border: 1px solid var(--if-cyan-45);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.6);
+  pointer-events: none;
 }
-.gang-auto-rua b { font-size: 0.78rem; }
 .gang-enemy-thinking strong { color: var(--if-amber); font-size: 10px; letter-spacing: 2px; }
 .gang-enemy-thinking small { grid-column: 2; color: #667078; font-size: 8px; letter-spacing: 1px; text-transform: none; }
 .gang-thinking-pulse { grid-row: span 2; width: 10px; height: 10px; margin-right: 12px; border-radius: 50%; background: var(--if-amber); box-shadow: 0 0 12px var(--if-amber); animation: gang-thinking 0.8s ease-in-out infinite alternate; }

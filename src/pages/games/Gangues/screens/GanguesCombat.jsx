@@ -24,6 +24,7 @@ import GanguesCombatRoster from '../components/GanguesCombatRoster'
 import GanguesCombatTopBar from '../components/GanguesCombatTopBar'
 import GanguesPistaTempo from '../components/GanguesPistaTempo'
 import GanguesCombatLogList from '../components/GanguesCombatLogList'
+import GanguesAutoBolinhas from '../components/GanguesAutoBolinhas'
 import GanguesCombatOverlays from '../components/GanguesCombatOverlays'
 import GanguesMultidaoActionBar from '../components/GanguesMultidaoActionBar'
 import GanguesActionOrb from '../components/GanguesActionOrb'
@@ -369,27 +370,12 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
           adversário e brigar de novo é o farm contínuo da briga automática —
           é aqui, dentro da luta, que o jogador desliga pra parar o ciclo. */}
       {!result && (autoLigado || brigaRuaAqui) && (
-        <div className="gang-auto-barra" style={autoSairTop != null ? { top: `${autoSairTop}px` } : undefined}>
-          {autoLigado && (
-            <button
-              type="button"
-              className="gang-auto-sair"
-              onClick={() => (modoMultidaoAtivo ? modoAutoMultidao.setModoAutoMultidaoOn(false) : modoAuto.setModoAutoOn(false))}
-            >
-              <b>■</b>{t('games.gangues.auto.sair')}
-            </button>
-          )}
-          {brigaRuaAqui && (
-            <button type="button" className="gang-auto-rua" onClick={() => setBrigaRua(false)}>
-              <b>✕</b>{t('games.gangues.auto.parar_briga_rua')}
-            </button>
-          )}
-          {autoLigado && (
-            <button type="button" className="gang-auto-vel" title={t('games.gangues.velocidade_auto')} onClick={ciclarVelocidade}>
-              {velocidade}x
-            </button>
-          )}
-        </div>
+        <GanguesAutoBolinhas
+          t={t} autoLigado={autoLigado} brigaRuaAqui={brigaRuaAqui} velocidade={velocidade} top={autoSairTop}
+          onSairAuto={() => (modoMultidaoAtivo ? modoAutoMultidao.setModoAutoMultidaoOn(false) : modoAuto.setModoAutoOn(false))}
+          onPararBrigaRua={() => setBrigaRua(false)}
+          onVelocidade={ciclarVelocidade}
+        />
       )}
 
       <GanguesCombatOverlays

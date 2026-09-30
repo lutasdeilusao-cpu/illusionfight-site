@@ -613,7 +613,10 @@
         "switch_titulo": "Turn on auto mode — each fighter acts on their own the way you tuned it (normal attack or talent, with or without potions).",
         "premium_titulo": "Auto mode is a subscriber perk — tap to subscribe",
         "sair": "Exit auto mode",
-        "parar_briga_rua": "Stop street brawls"
+        "parar_briga_rua": "Stop street brawls",
+        "sair_dica": "Turns off auto: your crew waits for your commands again. The current action finishes on its own.",
+        "parar_briga_rua_dica": "Turns off auto street fights: after this fight, bumping into someone won't start a brawl on its own.",
+        "velocidade_dica": "Auto speed: tap to cycle 1x, 2x and 3x."
       },
       "multidao": {
         "switch_label": "Mob Brawl",

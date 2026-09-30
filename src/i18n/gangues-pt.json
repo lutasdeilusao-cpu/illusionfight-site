@@ -613,7 +613,10 @@
         "switch_titulo": "Liga o modo automático — cada um da tropa age sozinho do jeito que tu ajustou (ataque normal ou talento, com ou sem poção).",
         "premium_titulo": "Modo automático é vantagem de assinante — toque pra assinar",
         "sair": "Sair do automático",
-        "parar_briga_rua": "Parar briga de rua"
+        "parar_briga_rua": "Parar briga de rua",
+        "sair_dica": "Tira o automático: a tropa volta a esperar teus comandos. A ação em andamento termina sozinha.",
+        "parar_briga_rua_dica": "Desliga a briga de rua automática: depois dessa luta, encostar em alguém na rua não começa briga sozinho.",
+        "velocidade_dica": "Velocidade do automático: toca pra alternar 1x, 2x e 3x."
       },
       "multidao": {
         "switch_label": "Briga em Multidão",
