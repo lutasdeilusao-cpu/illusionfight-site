@@ -28,7 +28,7 @@ import GanguesCombatOverlays from '../components/GanguesCombatOverlays'
 import GanguesMultidaoActionBar from '../components/GanguesMultidaoActionBar'
 import GanguesActionOrb from '../components/GanguesActionOrb'
 import GanguesCombatSairConfirm from '../components/GanguesCombatSairConfirm'
-import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS } from '../hooks/useGanguesBrigaAutomatica.js'
+import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS, useBrigaDeRua } from '../hooks/useGanguesBrigaAutomatica.js'
 import { lutaAoVivo } from '../engine/ganguesFarmAusente.js'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesCombat.css'
@@ -297,7 +297,10 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // Briga automática da cena ligada: o "NÓIS É CRIA" avança sozinho em 2s
   // (ver useGanguesAvancoAutomatico). Derrota nunca — o jogador tem que clicar.
   const lutaDaCena = Boolean(store.storyTarget?.cenaId) && !store.storyTarget?.torre && !store.storyTarget?.clube
+  const [brigaRua, setBrigaRua] = useBrigaDeRua()
   const naRinha = Boolean(store.storyTarget?.rinha)
+  const autoLigado = modoMultidaoAtivo ? modoAutoMultidao.modoAutoMultidaoOn : modoAuto.modoAutoOn
+  const brigaRuaAqui = lutaDaCena && !naRinha && brigaRua
   useGanguesAvancoAutomatico({ ativo: lutaDaCena && (result === 'victory' || (naRinha && result)) && !falaFinal, ms: GANGUES_AVANCO_AUTO_MS.resultado, acao: abrirRelatorio, forcar: naRinha })
 
   // A vez automática (useGanguesModoAuto): talento escolhido / poção / ataque
@@ -362,18 +365,30 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
           (dado/KO/resultado usam 9999). Aparece sempre que o auto está
           ligado; um toque volta pro manual (a ação em andamento resolve
           sozinha, o efeito de auto-ataque para de enfileirar). */}
-      {!result && (modoMultidaoAtivo ? modoAutoMultidao.modoAutoMultidaoOn : modoAuto.modoAutoOn) && (
+      {/* "Parar briga de rua" (Isaias, 30/09/2026): voltar em cima do
+          adversário e brigar de novo é o farm contínuo da briga automática —
+          é aqui, dentro da luta, que o jogador desliga pra parar o ciclo. */}
+      {!result && (autoLigado || brigaRuaAqui) && (
         <div className="gang-auto-barra" style={autoSairTop != null ? { top: `${autoSairTop}px` } : undefined}>
-          <button
-            type="button"
-            className="gang-auto-sair"
-            onClick={() => (modoMultidaoAtivo ? modoAutoMultidao.setModoAutoMultidaoOn(false) : modoAuto.setModoAutoOn(false))}
-          >
-            <b>■</b>{t('games.gangues.auto.sair')}
-          </button>
-          <button type="button" className="gang-auto-vel" title={t('games.gangues.velocidade_auto')} onClick={ciclarVelocidade}>
-            {velocidade}x
-          </button>
+          {autoLigado && (
+            <button
+              type="button"
+              className="gang-auto-sair"
+              onClick={() => (modoMultidaoAtivo ? modoAutoMultidao.setModoAutoMultidaoOn(false) : modoAuto.setModoAutoOn(false))}
+            >
+              <b>■</b>{t('games.gangues.auto.sair')}
+            </button>
+          )}
+          {brigaRuaAqui && (
+            <button type="button" className="gang-auto-rua" onClick={() => setBrigaRua(false)}>
+              <b>✕</b>{t('games.gangues.auto.parar_briga_rua')}
+            </button>
+          )}
+          {autoLigado && (
+            <button type="button" className="gang-auto-vel" title={t('games.gangues.velocidade_auto')} onClick={ciclarVelocidade}>
+              {velocidade}x
+            </button>
+          )}
         </div>
       )}
 

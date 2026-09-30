@@ -607,7 +607,8 @@
         "switch_label": "Automático",
         "switch_titulo": "Prende el modo automático — cada uno de la banda actúa solo como lo ajustaste (ataque normal o talento, con o sin poción).",
         "premium_titulo": "El modo automático es ventaja de suscriptor — toca para suscribirte",
-        "sair": "Salir del automático"
+        "sair": "Salir del automático",
+        "parar_briga_rua": "Parar peleas callejeras"
       },
       "multidao": {
         "switch_label": "Pelea Multitudinaria",

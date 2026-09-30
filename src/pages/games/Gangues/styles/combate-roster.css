@@ -134,6 +134,18 @@
   50% { box-shadow: 0 0 34px 0 rgba(255, 70, 70, 0.85), 0 8px 22px rgba(0,0,0,0.55); }
 }
 @media (prefers-reduced-motion: reduce) { .gang-auto-sair { animation: none; } }
+/* "Parar briga de rua": desliga o switch da cena de dentro da luta (fim do
+   farm contínuo em cima do adversário). Âmbar, sem pulso — é secundário ao
+   "sair do automático". */
+.gang-auto-rua {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 14px; cursor: pointer;
+  border: 1px solid var(--if-amber); background: #1c1406;
+  color: var(--if-amber); font: 800 0.62rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.55);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.gang-auto-rua b { font-size: 0.78rem; }
 .gang-enemy-thinking strong { color: var(--if-amber); font-size: 10px; letter-spacing: 2px; }
 .gang-enemy-thinking small { grid-column: 2; color: #667078; font-size: 8px; letter-spacing: 1px; text-transform: none; }
 .gang-thinking-pulse { grid-row: span 2; width: 10px; height: 10px; margin-right: 12px; border-radius: 50%; background: var(--if-amber); box-shadow: 0 0 12px var(--if-amber); animation: gang-thinking 0.8s ease-in-out infinite alternate; }

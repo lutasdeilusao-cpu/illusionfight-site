@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useGanguesAutoLembrado, chaveDoSave } from './useGanguesVelocidadeAuto.js'
-import { farolDe, alcanceDoPino } from '../components/cena/GanguesCenaAtores.jsx'
-import { validPosition, validPos, hitsSolid } from '../engine/ganguesCenaMotor.js'
+import { farolDe } from '../components/cena/GanguesCenaAtores.jsx'
 
 /* ══════════════════════════════════════════════════════════════
    BRIGA AUTOMÁTICA na cena (pedido do Isaias, 27/09/2026)
@@ -34,20 +33,25 @@ import { validPosition, validPos, hitsSolid } from '../engine/ganguesCenaMotor.j
    demorava várias passadas. Hoje a lista existe só pra briga BARRADA por
    trava (rep, dívida, informante, tropa no chão), senão o aviso da trava
    repetiria a cada 150ms: fica ignorado até ficar SEPARACAO_MS sem encostar.
-   O loop da volta ("você tá na mesma colisão que o cara quando sai da
-   briga") é resolvido na POSIÇÃO, não numa lista (voltaDaBriga, abaixo, e
-   faseLongeDe em GanguesCenaAtores.jsx):
-   • quem ANDA volta na ponta do caminho mais longe do jogador;
-   • e o JOGADOR volta afastado do ponto dele, além de onde ele alcança
-     andando (alcanceDoPino + VOLTA_FOLGA). Só a 1ª parte não bastava: o
-     caminho é curto e, testado, o adversário voltava a encostar em 1–3 s,
-     luta atrás de luta com o jogador parado. Andou até ele, briga na hora.
+   LUTA CONTINUADA (Isaias, 30/09/2026, 2º relato): voltar da luta em cima
+   do adversário e brigar DE NOVO é o farm — é de propósito, não um bug. Quem
+   ANDA volta na ponta do caminho mais longe do jogador (faseLongeDe, em
+   GanguesCenaAtores.jsx) e vem buscar ele sozinho em poucos segundos; em
+   cima de quem é PARADO, emenda direto. Pra parar, o switch "briga de rua"
+   também existe DENTRO da luta (GanguesCombat.jsx, useBrigaDeRua): desligou
+   lá, a volta pra rua não dispara nada. (Afastar o jogador do adversário na
+   volta foi tentado e desfeito no mesmo dia — matava o farm em cima de quem
+   é parado.)
    ══════════════════════════════════════════════════════════════ */
 
 const GANGUES_BRIGA_AUTO_CHAVE = 'ldi-gangues-briga-auto'
 // Os automáticos lembrados (useGanguesAutoLembrado): briga automática da
 // cena + automático do combate normal e da Multidão (GanguesCombat.jsx).
 const GANGUES_AUTOMATICOS = [GANGUES_BRIGA_AUTO_CHAVE, 'ldi-gangues-auto', 'ldi-gangues-auto-multidao']
+
+/** O switch da briga de rua, lido/gravado de qualquer tela (a luta usa pra
+ *  deixar o jogador desligar sem voltar pra rua — ver o cabeçalho). */
+export const useBrigaDeRua = () => useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
 
 export function brigaAutoLigada() {
   try { return localStorage.getItem(chaveDoSave(GANGUES_BRIGA_AUTO_CHAVE)) === '1' } catch { return false }
@@ -80,25 +84,6 @@ const entraSozinho = alvo => Boolean(brigaDoAlvo(alvo))
 // qualquer coisa aberta por cima da cena (diálogo, modal, ficha, bolsa...).
 const SEPARACAO_MS = 700
 const VIGIA_MS = 150
-// Além do alcance do adversário, quanto o jogador volta afastado: a colisão
-// (≈40px entre os dois desenhos) + folga — ainda perto pra achar ele.
-const VOLTA_FOLGA = 60
-const GIROS = [0, 0.79, -0.79, 1.57, -1.57, 2.36, -2.36, 3.14]
-
-/** Onde o jogador volta depois de brigar com `poi`: afastado do ponto dele,
- *  além de onde ele chega andando, na direção em que o jogador já estava (ou
- *  a mais próxima dela que não caia em parede nem fora do mapa). */
-export function voltaDaBriga(player, poi, { colliders, world, gate, local }) {
-  if (!poi?.world) return player
-  const longe = alcanceDoPino(poi) + VOLTA_FOLGA
-  if (Math.hypot(player.x - poi.world.x, player.y - poi.world.y) >= longe) return player
-  const base = Math.atan2((player.y - poi.world.y) || 1, player.x - poi.world.x)
-  for (const giro of GIROS) {
-    const q = { x: Math.round(poi.world.x + Math.cos(base + giro) * longe), y: Math.round(poi.world.y + Math.sin(base + giro) * longe) }
-    if ((local ? validPos(q, world) : validPosition(q, world)) && !hitsSolid(q.x, q.y, gate, colliders)) return q
-  }
-  return player
-}
 // Aviso antes da luta (v3.70.0 — Isaias: "tá tão automático... falta o cara
 // ter uma noção de que tá entrando numa briga"): encostou, sobe um pop-up
 // com uma frase de rua por ANUNCIO_MS e só depois a luta abre. A cena só

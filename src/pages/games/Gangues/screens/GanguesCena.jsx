@@ -29,7 +29,7 @@ import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
 import { getGanguesRosterLimitComHistoria } from '../data/ganguesLoadout.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { getGanguesAttributesWithEquip, getGanguesEquip } from '../data/ganguesEquip.js'
-import useGanguesBrigaAutomatica, { voltaDaBriga } from '../hooks/useGanguesBrigaAutomatica.js'
+import useGanguesBrigaAutomatica from '../hooks/useGanguesBrigaAutomatica.js'
 import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos, posNoMapa } from '../engine/ganguesCenaMotor.js'
 import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
@@ -158,11 +158,10 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // relógio de jogo + perseguidor. Só corre com o jogador na RUA e sem nada
   // aberto por cima; senão congela e continua de onde parou.
   const iniciarAleatorioRef = useRef(null)
-  // Briga automática (switch dos controles) — regra no hook. O anti-loop da
-  // volta é por POSIÇÃO: o jogador volta afastado de quem é parado
-  // (voltaDaBriga, ao começar a treta) e quem anda nasce na ponta mais longe
-  // (`longeDe` no PinoAlvo do adversário da última luta, `volta` abaixo).
-  const brigaAutoRef = useRef(null), volta = useRef(prog.posicao), voltaBriga = useRef(null)
+  // Briga automática (switch dos controles) — regra no hook. Voltar em cima
+  // do adversário e brigar de novo é o farm; quem anda nasce na ponta mais
+  // longe (`longeDe` no PinoAlvo do adversário da última luta, `volta`).
+  const brigaAutoRef = useRef(null), volta = useRef(prog.posicao)
   const onBrigaAuto = useCallback((poi, opcoes) => brigaAutoRef.current?.(poi, opcoes), [])
   const brigaAuto = useGanguesBrigaAutomatica({
     alvos: amb?.alvos || EMPTY_ALVOS, colidindo,
@@ -201,8 +200,8 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   if (local && !amb) return <main className="gang-cena-worldpage" style={{ '--terr-cor': cena.cor }}><div className="gang-cena-viewport" /></main>
   const fecharIntro = () => { marcarTutorialVisto(cenaIntroTutorialId(cena.id)); setIntro(false) }
   const guardarPosicao = (over) => store.salvarPosicaoCena(cena.id, { ...(over || player), local: over?.local !== undefined ? over.local : local })
-  // Saindo da cena (luta, app em 2º plano — farm ausente —, voltar) grava onde o jogador está, sem perder o adversário marcado; saindo pra uma briga, o ponto de volta dela (voltaDaBriga).
-  const saidaRef = useRef(null); saidaRef.current = () => cena && store.salvarPosicaoCena(cena.id, { ...(voltaBriga.current || player), local, adversario: useGanguesStore.getState().cenaProgresso[cena.id]?.posicao?.adversario })
+  // Saindo da cena (luta, app em 2º plano — farm ausente —, voltar) grava onde o jogador está, sem perder o adversário marcado.
+  const saidaRef = useRef(null); saidaRef.current = () => cena && store.salvarPosicaoCena(cena.id, { ...player, local, adversario: useGanguesStore.getState().cenaProgresso[cena.id]?.posicao?.adversario })
   useEffect(() => () => saidaRef.current?.(), [])
   // troca de ambiente com fade curto (rua↔interior, cômodo↔cômodo)
   const trocarPara = (novoLocal, spawn) => {
@@ -350,8 +349,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     }
     // Briga automática: passou das travas → aviso de 2,5s e aí sim a luta.
     if (anunciar) { anunciar(() => iniciarTreta(poi, { viraTreta, revela, aposta })); return }
-    voltaBriga.current = voltaDaBriga(player, poi, { colliders: collidersRef.current, world: worldRef.current, gate: gateRef.current, local })
-    guardarPosicao({ ...voltaBriga.current, adversario: poi.id }); sfx.vs?.()
+    guardarPosicao({ ...player, adversario: poi.id }); sfx.vs?.()
     // `poi.fixo`: POI de NÍVEL FIXO, single-enemy (Generais da Pista) — a
     // luta é sempre contra a MESMA ficha (`poi.enemy`) escalada pro ponto
     // autorado `poi.pontosFixo`. `poi.pontosFixo` também existe em POIs

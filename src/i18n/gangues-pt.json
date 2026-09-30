@@ -607,7 +607,8 @@
         "switch_label": "Automático",
         "switch_titulo": "Liga o modo automático — cada um da tropa age sozinho do jeito que tu ajustou (ataque normal ou talento, com ou sem poção).",
         "premium_titulo": "Modo automático é vantagem de assinante — toque pra assinar",
-        "sair": "Sair do automático"
+        "sair": "Sair do automático",
+        "parar_briga_rua": "Parar briga de rua"
       },
       "multidao": {
         "switch_label": "Briga em Multidão",

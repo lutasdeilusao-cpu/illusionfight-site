@@ -607,7 +607,8 @@
         "switch_label": "Auto",
         "switch_titulo": "Turn on auto mode — each fighter acts on their own the way you tuned it (normal attack or talent, with or without potions).",
         "premium_titulo": "Auto mode is a subscriber perk — tap to subscribe",
-        "sair": "Exit auto mode"
+        "sair": "Exit auto mode",
+        "parar_briga_rua": "Stop street brawls"
       },
       "multidao": {
         "switch_label": "Mob Brawl",

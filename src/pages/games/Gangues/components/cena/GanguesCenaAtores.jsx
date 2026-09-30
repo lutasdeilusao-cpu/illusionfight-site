@@ -154,18 +154,6 @@ export function faseLongeDe(p, pos) {
 function larguraDoCaminho(movimento, h) {
   return movimento === 'ronda' ? 50 + (h % 21) : 45 + (h % 41)
 }
-/** Até onde, a partir do ponto dele, o personagem chega andando (px) — a volta
- *  da briga põe o jogador além disso (voltaDaBriga), senão ele volta a
- *  encostar sozinho em 1–3 s (testado) e vira loop. */
-export function alcanceDoPino(p) {
-  if (!ehPersonagem(p)) return 0
-  const m = movimentoDoPino(p)
-  if (m === 'parado') return 0
-  if (m === 'inquieto') return 3
-  const w = larguraDoCaminho(m, hashEstavel(p.id))
-  return m === 'ronda' ? Math.ceil(w * 0.71) : w
-}
-
 export function movimentoDoPino(p) {
   if (p.movimento) return p.movimento
   const h = hashEstavel(p.id)
