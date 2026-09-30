@@ -1,12 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
-import { Helmet } from 'react-helmet-async'
-import { useParams, useNavigate, Link } from 'react-router-dom'
-import ReactMarkdown from 'react-markdown'
-import { readerMdComponents } from '../../lib/mdComponents'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
-import { useReader } from '../../context/ReaderContext'
 import { useAuth } from '../../context/AuthContext'
-import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import { useAchievements } from '../../context/AchievementsContext'
 import { useEventos } from '../../context/EventosContext'
@@ -14,78 +9,50 @@ import { useReadingCompletionGate } from '../../hooks/useReadingCompletionGate'
 import { notificationManager } from '../../lib/notificationManager'
 import { useTrackedSession } from '../../lib/sessionAnalytics'
 import index from '../../data/livro-index.json'
-import './LivroCapitulo.css'
-import GateLeitura, { cortarTexto } from '../../components/GateLeitura/GateLeitura'
+import LeitorCapitulo from '../../components/Leitor/LeitorCapitulo'
 
 const chapterLoaders = import.meta.glob('../../data/livro/**/*.md', { query: '?raw', import: 'default' })
+const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 
+/** Capítulo da linha principal (o livro Lutas de Ilusão) — só resolve o dado
+ *  e o que é do livro (conquista do capítulo 1, evento de leitura, posição
+ *  de rolagem); a tela é o LeitorCapitulo (components/Leitor). */
 export default function LivroCapitulo() {
-  const { setReaderMode } = useReader()
   const { id } = useParams()
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
   const { user, perfil } = useAuth()
   const { desbloquearOuConvidar } = useAchievements()
   const { registrarEvento } = useEventos()
-  const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
   const desbloquearOuConvidarRef = useRef(desbloquearOuConvidar)
   useEffect(() => { desbloquearOuConvidarRef.current = desbloquearOuConvidar }, [desbloquearOuConvidar])
+  const sentinelRef = useRef(null)
+  const [md, setMd] = useState('')
+  const [carregando, setCarregando] = useState(true)
+  const [notFound, setNotFound] = useState(false)
 
-  useEffect(() => {
-    setReaderMode(true)
-    return () => setReaderMode(false)
-  }, [])
+  const chapter = index.find(ch => ch.id === id)
+  const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
+  const resumoKey = locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt'
+  const liberado = c => c.id === 'capitulo-01' || estaDisponivel(c, isAdmin, { user, perfil })
 
   useEffect(() => { localStorage.setItem('ldi-livro-ultimo', id) }, [id])
+  useEffect(() => { if (id) registrarEvento('capitulo_lido', `Leu o capítulo ${id}`, Number(id)) }, [id])
 
-  useEffect(() => {
-    if (id) registrarEvento('capitulo_lido', `Leu o capítulo ${id}`, Number(id))
-  }, [id])
-
+  // Volta onde o leitor parou neste capítulo (grava ao sair).
   useEffect(() => {
     const saveScroll = () => localStorage.setItem(`ldi-livro-scroll-${id}`, window.scrollY)
     window.addEventListener('beforeunload', saveScroll)
     return () => { saveScroll(); window.removeEventListener('beforeunload', saveScroll) }
   }, [id])
-
   useEffect(() => {
+    if (carregando) return
     const saved = localStorage.getItem(`ldi-livro-scroll-${id}`)
-    if (saved) window.scrollTo(0, parseInt(saved))
-  }, [id])
+    window.scrollTo(0, saved ? parseInt(saved) : 0)
+  }, [id, carregando])
 
-  const FONT_SIZES = [14, 16, 18, 20, 24]
-  const FONT_FAMILIES = [
-    { label: t('pages.livro.padrao'), value: 'var(--font-body)' },
-    { label: t('pages.livro.serif'),  value: 'Georgia, serif' },
-    { label: t('pages.livro.sans'),   value: 'Inter, sans-serif' },
-    { label: t('pages.livro.mono'),   value: 'var(--font-mono)' },
-  ]
-  const WIDTHS = [
-    { label: t('pages.livro.estreito'), value: '520px' },
-    { label: t('pages.livro.medio'),    value: '680px' },
-    { label: t('pages.livro.largo'),    value: '860px' },
-  ]
-
-  const [md, setMd] = useState('')
-  const [notFound, setNotFound] = useState(false)
-  const [showSettings, setShowSettings]     = useState(false)
-  const [fontSize, setFontSize]             = useState(() => Number(localStorage.getItem('ldi-reader-fontsize')   || 18))
-  const [fontFamily, setFontFamily]         = useState(() => localStorage.getItem('ldi-reader-fontfamily')        || 'var(--font-body)')
-  const [contentWidth, setContentWidth]     = useState(() => localStorage.getItem('ldi-reader-width')             || '680px')
-  const sentinelRef = useRef(null)
-
-  useEffect(() => { localStorage.setItem('ldi-reader-fontsize',   fontSize)     }, [fontSize])
-  useEffect(() => { localStorage.setItem('ldi-reader-fontfamily', fontFamily)   }, [fontFamily])
-  useEffect(() => { localStorage.setItem('ldi-reader-width',      contentWidth) }, [contentWidth])
-
-  const chapter = index.find(ch => ch.id === id)
-  const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
-
-  // chapter_open/chapter_time: distingue linha principal do livro dos contos
-  // e outras obras (content_type) e mede tempo de leitura de verdade — pedido
-  // do Isaias (2026-09-14): "preciso saber qual capítulo do universo
-  // principal tá tendo mais leitura, até quando as pessoas ficam lendo".
+  // chapter_open/chapter_time: linha principal x contos x obras.
   useTrackedSession('chapter_open', 'chapter_time', {
     content_type: 'livro_principal', story_id: 'lutas-de-ilusao',
     chapter_id: id, chapter_numero: chapter?.numero, chapter_titulo: chapter?.[tituloKey],
@@ -93,31 +60,12 @@ export default function LivroCapitulo() {
 
   useEffect(() => {
     setNotFound(false)
-
-    if (!chapter || (id !== 'capitulo-01' && !estaDisponivel(chapter, isAdmin, { user, perfil }))) {
-      setNotFound(true)
-      return
-    }
-
-    const loadChapter = async () => {
-      const lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt'
-      const path = `../../data/livro/${lang}/${id}.md`
-      let loader = chapterLoaders[path]
-      if (!loader) {
-        const fallbackPath = `../../data/livro/pt/${id}.md`
-        loader = chapterLoaders[fallbackPath]
-      }
-      if (loader) {
-        try {
-          const content = await loader()
-          setMd(content)
-          return
-        } catch {}
-      }
-      setNotFound(true)
-    }
-
-    loadChapter()
+    setCarregando(true)
+    if (!chapter || !liberado(chapter)) { setNotFound(true); return }
+    const lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt'
+    const loader = chapterLoaders[`../../data/livro/${lang}/${id}.md`] || chapterLoaders[`../../data/livro/pt/${id}.md`]
+    if (!loader) { setNotFound(true); return }
+    loader().then(texto => { setMd(texto); setCarregando(false) }).catch(() => setNotFound(true))
   }, [id, chapter, isAdmin, locale])
 
   useLayoutEffect(() => {
@@ -131,162 +79,29 @@ export default function LivroCapitulo() {
     onComplete: () => desbloquearOuConvidarRef.current('leitor_marelia'),
   })
 
-  if (notFound) {
-    return (
-      <section className="livro-capitulo">
-        <Helmet>
-          <title>{t('pages.helmet.capitulo_nao_encontrado')}</title>
-        </Helmet>
-        <div className="container">
-          <p className="livro-capitulo__erro">{t('pages.livro.nao_encontrado')}</p>
-        </div>
-      </section>
-    )
-  }
-
-  const idx = index.findIndex(ch => ch.id === id)
-  const prev = idx > 0 ? index[idx - 1] : null
-  const next = idx < index.length - 1 ? index[idx + 1] : null
-  const prevPublished = prev && estaDisponivel(prev, isAdmin, { user, perfil }) ? prev : null
-  const nextPublished = next && estaDisponivel(next, isAdmin, { user, perfil }) ? next : null
-  const capitulos = index.filter(c => c.id === 'capitulo-01' || estaDisponivel(c, isAdmin, { user, perfil }))
-  const currentIndex = capitulos.findIndex(c => c.id === id)
-  const anterior = capitulos[currentIndex - 1]
-  const proximo = capitulos[currentIndex + 1]
+  const capitulos = index.filter(liberado)
+  const cur = capitulos.findIndex(c => c.id === id)
+  const passo = c => c && { rota: `/historias/lutas-de-ilusao/${c.id}`, titulo: c[tituloKey], numero: String(c.numero).padStart(2, '0'), resumo: c[resumoKey] }
 
   return (
-    <section className="livro-capitulo">
-      <Helmet>
-        <title>{chapter ? `${chapter[tituloKey]} — ${t('site.nome_curto')}` : t('pages.helmet.capitulo_nao_encontrado')}</title>
-      </Helmet>
-      <div className="container">
-        <button className="livro-capitulo__back" onClick={() => navigate('/historias/lutas-de-ilusao')}>
-          {t('pages.livro.voltar_indice')}
-        </button>
-
-        <div className="reader-settings-wrap">
-          <button
-            className="reader-settings-toggle"
-            onClick={() => setShowSettings(s => !s)}
-            aria-label={t('pages.livro.config_leitura')}
-          >
-            Aa
-          </button>
-
-          {showSettings && (
-            <div className="reader-settings-panel">
-              {/* Tamanho da fonte */}
-              <div className="reader-settings-row">
-                <span className="reader-settings-label">{t('pages.livro.fonte')}</span>
-                <div className="reader-settings-group">
-                  <button
-                    className="reader-settings-btn"
-                    onClick={() => setFontSize(s => Math.max(14, s - 2))}
-                  >
-                    A−
-                  </button>
-                  <span className="reader-settings-value">{fontSize}px</span>
-                  <button
-                    className="reader-settings-btn"
-                    onClick={() => setFontSize(s => Math.min(24, s + 2))}
-                  >
-                    A+
-                  </button>
-                </div>
-              </div>
-
-              {/* Família da fonte */}
-              <div className="reader-settings-row">
-                <span className="reader-settings-label">{t('pages.livro.tipo')}</span>
-                <div className="reader-settings-group">
-                  {FONT_FAMILIES.map(f => (
-                    <button
-                      key={f.value}
-                      className={`reader-settings-btn${fontFamily === f.value ? ' reader-settings-btn--active' : ''}`}
-                      onClick={() => setFontFamily(f.value)}
-                    >
-                      {f.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Largura do conteúdo */}
-              <div className="reader-settings-row">
-                <span className="reader-settings-label">{t('pages.livro.largura')}</span>
-                <div className="reader-settings-group">
-                  {WIDTHS.map(w => (
-                    <button
-                      key={w.value}
-                      className={`reader-settings-btn${contentWidth === w.value ? ' reader-settings-btn--active' : ''}`}
-                      onClick={() => setContentWidth(w.value)}
-                    >
-                      {w.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        <div className="livro-capitulo__header">
-          <div className="livro-capitulo__header-numero">
-            {chapter ? `${t('pages.livro.capitulo')} ${String(chapter.numero).padStart(2, '0')}` : ''}
-          </div>
-          {chapter && <h1 className="livro-capitulo__header-titulo">{chapter[tituloKey]}</h1>}
-        </div>
-
-        <div
-          className="livro-capitulo__content"
-          style={{
-            '--reader-font-size': `${fontSize}px`,
-            '--reader-font-family': fontFamily,
-            '--reader-max-width': contentWidth,
-          }}
-        >
-          <ReactMarkdown components={readerMdComponents}>{cortarTexto(md, !user)}</ReactMarkdown>
-          {!user && cortarTexto(md, true) !== md && <GateLeitura />}
-          {(user || cortarTexto(md, true) === md) && <div ref={sentinelRef} className="livro-capitulo__sentinel" />}
-        </div>
-
-        <div className="livro-nav-flutuante">
-          {anterior && (
-            <Link to={`/historias/lutas-de-ilusao/${anterior.id}`} className="livro-nav-btn">
-              ← {anterior[tituloKey]}
-            </Link>
-          )}
-          {proximo && (
-            <Link to={`/historias/lutas-de-ilusao/${proximo.id}`} className="livro-nav-btn livro-nav-btn--proximo">
-              {proximo[tituloKey]} →
-            </Link>
-          )}
-        </div>
-
-        <div className="livro-capitulo__nav">
-          {prevPublished ? (
-            <button
-              className="livro-capitulo__nav-btn"
-              onClick={() => navigate(`/historias/lutas-de-ilusao/${prevPublished.id}`)}
-            >
-              ← {prevPublished[tituloKey]}
-            </button>
-          ) : (
-            <span className="livro-capitulo__nav-btn livro-capitulo__nav-btn--hidden">←</span>
-          )}
-
-          {nextPublished ? (
-            <button
-              className="livro-capitulo__nav-btn"
-              onClick={() => navigate(`/historias/lutas-de-ilusao/${nextPublished.id}`)}
-            >
-              {nextPublished[tituloKey]} →
-            </button>
-          ) : (
-            <span className="livro-capitulo__nav-btn livro-capitulo__nav-btn--hidden">→</span>
-          )}
-        </div>
-      </div>
-    </section>
+    <LeitorCapitulo
+      md={md}
+      carregando={carregando}
+      naoEncontrado={notFound}
+      eyebrow={`IF // ${t('pages.contos.linha_principal')}`}
+      obra={t('site.nome_curto')}
+      numero={chapter ? String(chapter.numero).padStart(2, '0') : null}
+      titulo={chapter?.[tituloKey]}
+      tituloAba={chapter ? `${chapter[tituloKey]} — ${t('site.nome_curto')}` : ''}
+      onVoltar={() => navigate('/historias/lutas-de-ilusao')}
+      indice={{ rota: '/historias/lutas-de-ilusao', rotulo: t('pages.leitor.indice') }}
+      anterior={passo(capitulos[cur - 1])}
+      proximo={passo(capitulos[cur + 1])}
+      reacoes={chapter ? { titulo: 'livro-lutas-de-ilusao', capitulo: chapter.id } : null}
+      isAdmin={isAdmin}
+      semConta={!user}
+      sentinelRef={sentinelRef}
+      idioma={locale}
+    />
   )
 }

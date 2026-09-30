@@ -1,0 +1,111 @@
+/* Fim do capítulo — marca de fim, reações e o próximo capítulo em destaque. */
+
+.leitor-fim {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.leitor-fim__marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 700 .55rem var(--font-mono);
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+}
+
+.leitor-fim__marca::before,
+.leitor-fim__marca::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--if-hair-strong);
+}
+
+.leitor-fim__reacoes {
+  padding: 16px;
+  background: var(--if-panel);
+  border: 1px solid var(--if-hair);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+.leitor-fim__proximo {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  padding: 18px 48px 18px 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-primary);
+  background: var(--if-panel);
+  border: 1px solid var(--if-cyan-45);
+  box-shadow: inset 2px 0 var(--if-cyan);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+/* varredura de luz no hover (gesto de assinatura do portal) */
+.leitor-fim__proximo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--if-cyan-08), transparent);
+  transform: translateX(-102%);
+  transition: transform .28s ease;
+  pointer-events: none;
+}
+
+.leitor-fim__proximo:hover::after {
+  transform: translateX(0);
+}
+
+.leitor-fim__eyebrow {
+  font: 700 .55rem var(--font-mono);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--if-cyan);
+}
+
+.leitor-fim__proximo strong {
+  font: 700 1.35rem/1.15 var(--font-display);
+  text-wrap: balance;
+}
+
+.leitor-fim__proximo p {
+  margin: 0;
+  font: .85rem/1.5 var(--font-body);
+  color: var(--text-secondary);
+}
+
+.leitor-fim__seta {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font: 700 1.5rem var(--font-display);
+  color: var(--if-cyan);
+}
+
+.leitor-fim__caminho {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.leitor-fim__link {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font: 700 .62rem var(--font-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.leitor-fim__link--indice {
+  flex-shrink: 0;
+  color: var(--if-cyan);
+}

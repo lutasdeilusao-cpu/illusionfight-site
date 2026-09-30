@@ -1,0 +1,109 @@
+/* Gaveta de ajustes de leitura — overlay fixo confinado à coluna. */
+
+.leitor-ajustes {
+  position: fixed;
+  inset: 0 var(--app-gutter);
+  z-index: 1100;
+  overscroll-behavior: none;
+}
+
+.leitor-ajustes__fundo {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(0, 0, 0, .55);
+  cursor: pointer;
+}
+
+.leitor-ajustes__gaveta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  gap: 14px;
+  padding: 16px 16px calc(20px + env(safe-area-inset-bottom, 0px));
+  background: var(--if-panel);
+  border-top: 1px solid var(--if-cyan-45);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+.leitor-ajustes__topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leitor-ajustes__eyebrow {
+  font: 700 .55rem var(--font-mono);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+}
+
+.leitor-ajustes__x {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--if-hair-strong);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.leitor-ajustes__linha {
+  display: grid;
+  gap: 8px;
+}
+
+.leitor-ajustes__rotulo {
+  font: 700 .62rem var(--font-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.leitor-ajustes__passo {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.leitor-ajustes__passo button,
+.leitor-ajustes__opcao {
+  min-height: 44px;
+  border: 1px solid var(--if-hair-strong);
+  background: transparent;
+  color: var(--text-primary);
+  font: 700 .9rem var(--font-display);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  cursor: pointer;
+}
+
+.leitor-ajustes__passo button:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.leitor-ajustes__passo b {
+  min-width: 3ch;
+  text-align: center;
+  font: 700 1rem var(--font-mono);
+  color: var(--if-cyan);
+}
+
+.leitor-ajustes__opcoes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.leitor-ajustes__opcao.is-ativa {
+  border-color: var(--if-cyan);
+  color: var(--if-cyan);
+  box-shadow: inset 2px 0 var(--if-cyan);
+}
+
+.leitor-ajustes__opcao--serifa { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
+.leitor-ajustes__opcao--mono { font-family: var(--font-mono); font-size: .8rem; }

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useLanguage } from '../../../../context/LanguageContext'
-import { trackEvent } from '../../../../lib/analytics'
+import { useLanguage } from '../../context/LanguageContext'
+import { trackEvent } from '../../lib/analytics'
 import {
   REACOES, contarReacoes, reacaoLocal, reagir, sincronizarPendente,
-} from '../../../../lib/webshard/reacoes'
+} from '../../lib/webshard/reacoes'
 import './Reacoes.css'
 
 /** Um toque, anônimo, no fim do capítulo. Trocar de ideia é só tocar em

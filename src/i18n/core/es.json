@@ -607,7 +607,11 @@
       "proximos": "Próximos capítulos",
       "proximos_hint": "Los suscriptores leen primero, las cuentas gratis justo después y el público al final.",
       "meta_title": "{nome} — Historias | Illusion Fight",
-      "tipo": {"livro": "Línea principal", "conto": "Cuento de Ilusión", "obra": "Otro universo"},
+      "tipo": {
+        "livro": "Línea principal",
+        "conto": "Cuento de Ilusión",
+        "obra": "Otro universo"
+      },
       "titulo": "HISTORIAS",
       "intro": "Todo el universo de lectura de Illusion Fight en un solo lugar: la línea principal, los Cuentos de Ilusión y otros mundos.",
       "og_title": "Historias | Illusion Fight",
@@ -773,6 +777,25 @@
       "mensagem": "Esta página no existe.",
       "redirect": "Serás redirigido a la página principal en",
       "cta": "Ir ahora"
+    },
+    "leitor": {
+      "voltar": "Volver al índice",
+      "ajustes": "Ajustes de lectura",
+      "fechar": "Cerrar",
+      "tamanho": "Tamaño",
+      "fonte": "Fuente",
+      "fonte_padrao": "Normal",
+      "fonte_serifa": "Serif",
+      "fonte_mono": "Mono",
+      "espaco": "Espaciado",
+      "espaco_compacto": "Compacto",
+      "espaco_normal": "Normal",
+      "espaco_amplo": "Amplio",
+      "fim_capitulo": "Fin del capítulo",
+      "proximo": "Próximo capítulo",
+      "indice": "Índice",
+      "cap": "Cap.",
+      "minutos": "{n} min de lectura"
     }
   },
   "pp": {

@@ -14,7 +14,7 @@ import {
   capituloPorId, formatarData, idiomaInicial, localizado, paginasDe, rotaCapitulo, rotaTitulo, rotuloCapitulo, vizinhos,
 } from '../../../lib/webshard/catalogo'
 import { lerProgresso, salvarProgresso } from '../../../lib/webshard/progresso'
-import { useBarraAutoOculta } from './hooks/useBarraAutoOculta'
+import { useBarraAutoOculta } from '../../../hooks/useBarraAutoOculta'
 import LeitorBarra from './components/LeitorBarra'
 import LeitorPaginas from './components/LeitorPaginas'
 import LeitorFim from './components/LeitorFim'

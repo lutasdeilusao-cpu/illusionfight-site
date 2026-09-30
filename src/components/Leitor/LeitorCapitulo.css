@@ -1,0 +1,174 @@
+/* O leitor de capítulo — casca, cabeçalho e o texto em si.
+   Mobile only: herda a coluna do #root, sem max-width nem media query de tela. */
+
+.leitor {
+  --leitor-tamanho: 18px;
+  --leitor-linha: 1.8;
+  --leitor-fonte: var(--font-body);
+  min-height: 100vh;
+  padding: calc(72px + env(safe-area-inset-top, 0px)) 20px calc(104px + var(--radio-nina-h, 0px));
+  background:
+    radial-gradient(120% 40% at 50% 0%, var(--if-cyan-08), transparent 60%),
+    var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.leitor--fonte-serifa { --leitor-fonte: Georgia, 'Times New Roman', serif; }
+.leitor--fonte-mono { --leitor-fonte: var(--font-mono); }
+.leitor--espaco-compacto { --leitor-linha: 1.55; }
+.leitor--espaco-amplo { --leitor-linha: 2.05; }
+
+/* ── cabeçalho ── */
+.leitor-cabeca {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  padding: 8px 0 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--if-hair-strong);
+}
+
+.leitor-cabeca__eyebrow {
+  font: 700 .55rem var(--font-mono);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+}
+
+.leitor-cabeca__obra {
+  font: 700 .85rem var(--font-display);
+  letter-spacing: .04em;
+  color: var(--text-secondary);
+}
+
+/* o número do capítulo, grande e fantasma atrás do título */
+.leitor-cabeca__numero {
+  position: absolute;
+  right: -4px;
+  top: -18px;
+  font: 700 6.5rem/1 var(--font-display);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--if-cyan-20);
+  pointer-events: none;
+  user-select: none;
+}
+
+.leitor-cabeca__titulo {
+  position: relative;
+  margin: 4px 0 0;
+  font: 700 2.1rem/1.05 var(--font-display);
+  text-wrap: balance;
+  color: var(--text-primary);
+}
+
+.leitor-cabeca__meta {
+  margin-top: 6px;
+  font: 700 .6rem var(--font-mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* ── o texto ── */
+.leitor-texto {
+  font-family: var(--leitor-fonte);
+  font-size: var(--leitor-tamanho);
+  line-height: var(--leitor-linha);
+  color: var(--text-primary);
+  overflow-wrap: break-word;
+}
+
+.leitor-texto p {
+  margin: 0 0 1.15em;
+}
+
+.leitor-texto em { font-style: italic; }
+.leitor-texto strong { font-weight: 600; color: var(--text-primary); }
+
+.leitor-texto h2,
+.leitor-texto h3 {
+  margin: 1.6em 0 .6em;
+  font: 700 1.3em/1.2 var(--font-display);
+}
+
+.leitor-texto blockquote {
+  margin: 1.2em 0;
+  padding: 2px 0 2px 14px;
+  border-left: 2px solid var(--if-amber);
+  color: var(--text-secondary);
+}
+
+.leitor-texto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1.2em 0;
+}
+
+/* citações cruzadas (conto → linha principal) */
+.leitor-texto a {
+  color: var(--if-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid var(--if-cyan-45);
+}
+
+/* quebra de cena ("---" no .md) */
+.leitor-cena {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 1.8em 0;
+}
+
+.leitor-cena i {
+  width: 6px;
+  height: 6px;
+  background: var(--if-cyan-45);
+  transform: rotate(45deg);
+}
+
+/* quem está falando (contos narrados a dois: **KIM**, **JACK**) */
+.leitor-fala {
+  margin: 1.6em 0 .6em;
+}
+
+.leitor-fala span {
+  display: inline-block;
+  padding: 3px 10px;
+  font: 700 .6rem var(--font-mono);
+  letter-spacing: .2em;
+  color: var(--if-cyan);
+  border: 1px solid var(--if-cyan-45);
+  box-shadow: inset 2px 0 var(--if-cyan);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+}
+
+.leitor-fala--jack span {
+  color: var(--if-ok);
+  border-color: color-mix(in srgb, var(--if-ok) 45%, transparent);
+  box-shadow: inset 2px 0 var(--if-ok);
+}
+
+.leitor-texto__sentinela {
+  height: 1px;
+}
+
+/* ── capítulo que não existe ── */
+.leitor--vazio {
+  display: grid;
+  place-content: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.leitor-vazio__texto {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.leitor-vazio__link {
+  font: 700 .7rem var(--font-mono);
+  letter-spacing: .12em;
+  color: var(--if-cyan);
+  text-decoration: none;
+}

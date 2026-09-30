@@ -1,0 +1,76 @@
+/* Barra do leitor — mesma família da barra do WEB SHARD: fina, chanfrada,
+   presa na coluna (mobile only: left/right pelo gutter, nunca a tela toda). */
+
+.leitor-barra {
+  position: fixed;
+  top: 0;
+  left: var(--app-gutter);
+  right: var(--app-gutter);
+  z-index: 900;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  padding-top: calc(6px + env(safe-area-inset-top, 0px));
+  background: var(--if-glass);
+  backdrop-filter: var(--if-blur);
+  border-bottom: 1px solid var(--if-hair);
+  transition: transform .28s ease;
+}
+
+.leitor-barra.is-oculta {
+  transform: translateY(-100%);
+}
+
+.leitor-barra__btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--if-cyan-45);
+  background: transparent;
+  color: var(--if-cyan);
+  font: 700 1.4rem var(--font-display);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  cursor: pointer;
+}
+
+.leitor-barra__btn--aa {
+  font-size: .95rem;
+  letter-spacing: .02em;
+}
+
+.leitor-barra__onde {
+  display: grid;
+  min-width: 0;
+  text-align: center;
+}
+
+.leitor-barra__rotulo {
+  font: 700 .55rem var(--font-mono);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+}
+
+.leitor-barra__nome {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font: 700 .95rem var(--font-display);
+  color: var(--text-primary);
+}
+
+/* Fio de progresso da leitura, sempre visível. */
+.leitor-barra__fio {
+  position: fixed;
+  top: 0;
+  left: var(--app-gutter);
+  right: var(--app-gutter);
+  z-index: 901;
+  height: 2px;
+  background: linear-gradient(90deg, var(--if-cyan) var(--pct, 0%), transparent var(--pct, 0%));
+  box-shadow: 0 0 8px var(--if-cyan-45);
+  pointer-events: none;
+}

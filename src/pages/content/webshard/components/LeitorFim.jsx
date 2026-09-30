@@ -3,7 +3,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import {
   capituloTemConteudo, formatarData, localizado, miniaturaCapitulo, rotaCapitulo, rotaTitulo, rotuloCapitulo,
 } from '../../../../lib/webshard/catalogo'
-import Reacoes from './Reacoes'
+import Reacoes from '../../../../components/Reacoes/Reacoes'
 import CascataLiberacao from './CascataLiberacao'
 import LerAntesCta from './LerAntesCta'
 import './LeitorFim.css'
