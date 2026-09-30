@@ -53,6 +53,10 @@ const GANGUES_AUTOMATICOS = [GANGUES_BRIGA_AUTO_CHAVE, 'ldi-gangues-auto', 'ldi-
  *  deixar o jogador desligar sem voltar pra rua — ver o cabeçalho). */
 export const useBrigaDeRua = () => useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
 
+/** Algum automático (briga de rua, luta, multidão) ligado neste save? */
+export function algumAutomaticoLigado() {
+  try { return GANGUES_AUTOMATICOS.some(k => localStorage.getItem(chaveDoSave(k)) === '1') } catch { return false }
+}
 export function brigaAutoLigada() {
   try { return localStorage.getItem(chaveDoSave(GANGUES_BRIGA_AUTO_CHAVE)) === '1' } catch { return false }
 }

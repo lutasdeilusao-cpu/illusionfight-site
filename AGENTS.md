@@ -253,6 +253,8 @@ Registro vivo de problemas já resolvidos no projeto para o agente não repetir 
 
 - **Tudo que é história mora em `src/data/historias/`** (reorganizado em 30/09/2026 — Isaias: "essa hierarquia de pastas tá bem confusa"). `lutas-de-ilusao/{pt,en,es}/capitulo-NN.md` + `lutas-de-ilusao.json` (linha principal), `contos/<id>/{pt,en,es}/NN.md` + `contos.json` (cada conto numa pasta com os 3 idiomas dentro — antes era o contrário, idioma por fora), `obras/<slug>/{pt,en,es}/` + `obras.json`. A antiga `src/data/livro/` e os `*-index.json` soltos em `src/data/` não existem mais. Os 3 leitores (`LivroCapitulo`/`ContoCapitulo`/`ObraCapitulo`), a Home, a busca e o prerender apontam pra cá — ao mover de novo, conferir cada `import.meta.glob` (falha em silêncio).
 
+- **Gangues: com automático ligado, o jogo NÃO pausa no fundo** (Isaias, 30/09/2026, 2º pedido: "deixa rolando até o navegador fechar a aba"). O jogo nunca pausou — quem pausava era o navegador (timers de aba escondida seguram pra 1x/s e depois 1x/min; o Android congela a página). `hooks/useGanguesManterVivo.js` (montado no `GanguesRoute`): aba escondida + qualquer automático ligado (`algumAutomaticoLigado`) → `setTimeout`/`setInterval` da página passam a ser disparados por um Web Worker (ids ≥ 1e9, `clear*` cancela os dois tipos) e um ruído inaudível (WebAudio, nasce no 1º toque do jogador por causa do autoplay) mantém a aba "tocando áudio" pra não ser congelada. Voltou pra frente → tudo volta ao nativo. Não trocar por "calcular o que aconteceu" (já descartado fora da Rinha) nem por pausar de propósito.
+
 ## Regra Anti-Over-Engineering
 
 Antes de criar **mais de 2 arquivos novos** para resolver qualquer problema, o agente deve apresentar a proposta e aguardar aprovação explícita.

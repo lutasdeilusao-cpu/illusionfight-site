@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1790712928.5179398,
-    "ast_hash": "a4b91517e75db62fc53c5dc614918f04",
+    "mtime": 1790777117.5295682,
+    "ast_hash": "253a2706bf7b8425102356a1c8c02b2a",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -365,13 +365,13 @@
     "semantic_hash": ""
   },
   "src/config/trial.js": {
-    "mtime": 1788457123.5142977,
-    "ast_hash": "dcb35b7376a7843bca2ce3d0f002907b",
+    "mtime": 1790777117.5295682,
+    "ast_hash": "c8e8d790514249bc069dc86c00abef24",
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790776958.714202,
-    "ast_hash": "1da19debb1ef60901c02c4d4bbfe42a9",
+    "mtime": 1790777422.5349357,
+    "ast_hash": "d05b4925b39010e52581bddc2730ea8a",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -449,11 +449,6 @@
     "ast_hash": "789bc99b8f8d3e059a93d23001e1146c",
     "semantic_hash": ""
   },
-  "src/data/livro-index.json": {
-    "mtime": 1788400516.3706968,
-    "ast_hash": "a3a0b3b11ef066b081cc16e89811c5af",
-    "semantic_hash": ""
-  },
   "src/data/loja-digital.json": {
     "mtime": 1780899871.3476045,
     "ast_hash": "198693076b2dd22729e2d49536565e1f",
@@ -525,8 +520,8 @@
     "semantic_hash": "faec688b85ba1372c9c8fa3dfcb8684d"
   },
   "src/data/search-index.js": {
-    "mtime": 1788444529.4677222,
-    "ast_hash": "36584f26bd4d6cf4e11872bcf257cda1",
+    "mtime": 1790777117.5265586,
+    "ast_hash": "bb8c45b77d5d8ebea83c580f1961ad73",
     "semantic_hash": ""
   },
   "src/data/supertrunfo-en.json": {
@@ -650,8 +645,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
-    "mtime": 1790740241.1762097,
-    "ast_hash": "0dfb5eaa68f5c78428cea3cc94e32a4a",
+    "mtime": 1790777117.5285673,
+    "ast_hash": "b9a07b3474a361dd525de339d529ce92",
     "semantic_hash": ""
   },
   "src/pages/content/Mundo.jsx": {
@@ -2685,8 +2680,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1790776391.2008588,
-    "ast_hash": "f78a288d988486a8ffda9db128a6d884",
+    "mtime": 1790777146.4403098,
+    "ast_hash": "454192fb911325816fcc84398e614072",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2725,8 +2720,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790776958.7516513,
-    "ast_hash": "0ff2d5d26f34f5d06d193541aed16081",
+    "mtime": 1790777422.575113,
+    "ast_hash": "e34bdb989ca123bbac6ea772819b4bf1",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3119,146 +3114,6 @@
     "ast_hash": "cc27fd114cfd116b1f8fedaccf76702c",
     "semantic_hash": ""
   },
-  "src/data/livro/en/capitulo-01.md": {
-    "mtime": 1781550130.7496738,
-    "ast_hash": "eed2758251d908b5b4814633fc392f01",
-    "semantic_hash": ""
-  },
-  "src/data/livro/en/capitulo-02.md": {
-    "mtime": 1781556077.1978457,
-    "ast_hash": "6bd8e4ec5d153c26a53e4f3da5071d30",
-    "semantic_hash": ""
-  },
-  "src/data/livro/en/capitulo-03.md": {
-    "mtime": 1781557265.1893184,
-    "ast_hash": "4918f472c3bcf75028eb412bc94d2437",
-    "semantic_hash": ""
-  },
-  "src/data/livro/en/capitulo-04.md": {
-    "mtime": 1781475570.082683,
-    "ast_hash": "9c59734e971b26fd6cc977f45f231eb6",
-    "semantic_hash": ""
-  },
-  "src/data/livro/en/capitulo-05.md": {
-    "mtime": 1781473134.8863895,
-    "ast_hash": "bbc5c31c1dab5d95ef92740b514eb54a",
-    "semantic_hash": ""
-  },
-  "src/data/livro/en/capitulo-06.md": {
-    "mtime": 1781475816.6691704,
-    "ast_hash": "108acd8e7918b54a3935109238567c48",
-    "semantic_hash": ""
-  },
-  "src/data/livro/es/capitulo-01.md": {
-    "mtime": 1790776816.2422192,
-    "ast_hash": "5d4eaba7786c18c3b99f48e34b84d0c2",
-    "semantic_hash": ""
-  },
-  "src/data/livro/es/capitulo-02.md": {
-    "mtime": 1790776816.244224,
-    "ast_hash": "dc4378ea575cd8529b8bdd7482eb6fc6",
-    "semantic_hash": ""
-  },
-  "src/data/livro/es/capitulo-03.md": {
-    "mtime": 1781557265.1903179,
-    "ast_hash": "89b79d83d0c32c6ab8f197636378307e",
-    "semantic_hash": ""
-  },
-  "src/data/livro/es/capitulo-04.md": {
-    "mtime": 1781475591.9139893,
-    "ast_hash": "19222264e8a67f119dac98b39b4c2a97",
-    "semantic_hash": ""
-  },
-  "src/data/livro/es/capitulo-05.md": {
-    "mtime": 1781473399.5838206,
-    "ast_hash": "c1d2362cdc676ee509031025c76bd294",
-    "semantic_hash": ""
-  },
-  "src/data/livro/es/capitulo-06.md": {
-    "mtime": 1790776816.2502215,
-    "ast_hash": "9bf66a741934ddb6c44d27e9e23619d2",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-01.md": {
-    "mtime": 1781550130.7516751,
-    "ast_hash": "7f9658296cba139251026d21ea738b2b",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-02.md": {
-    "mtime": 1781556077.19384,
-    "ast_hash": "4853633056fc6079ebed830f79a0314a",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-03.md": {
-    "mtime": 1789854984.4964871,
-    "ast_hash": "469bf06b13c37004b709b792cf384391",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-04.md": {
-    "mtime": 1781473465.5439782,
-    "ast_hash": "2f0924a3a0ae0e440f6a360402354f19",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-05.md": {
-    "mtime": 1781472479.2001493,
-    "ast_hash": "220bb1395a964e938eb90d52f4ace213",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-06.md": {
-    "mtime": 1781475474.594931,
-    "ast_hash": "bd5e048e12a1c1b2724c40fc63463a55",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-07.md": {
-    "mtime": 1780349835.7780793,
-    "ast_hash": "26722eb2da0f710d9e78f7314ce9ff6e",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-08.md": {
-    "mtime": 1780349835.7798781,
-    "ast_hash": "0715cde1377c249c09d205277dc4deba",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-09.md": {
-    "mtime": 1780349835.7828944,
-    "ast_hash": "c2a97128080ade95b51725966098c9e4",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-10.md": {
-    "mtime": 1780349835.786845,
-    "ast_hash": "c0eff2b21b986728b29d5d2750ae24c3",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-11.md": {
-    "mtime": 1780349835.7879167,
-    "ast_hash": "c1781bf500fa97145bcd007df450cf4d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-12.md": {
-    "mtime": 1780349835.789818,
-    "ast_hash": "7d452787fb366bd5ee11767b19d69a79",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-13.md": {
-    "mtime": 1780349835.794837,
-    "ast_hash": "3c193b0123dfdf21c3dddeebd8ce069d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-14.md": {
-    "mtime": 1780349835.7978485,
-    "ast_hash": "f0f7e22c710d74215e3937a88b6d1ee5",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-15.md": {
-    "mtime": 1780349835.799853,
-    "ast_hash": "ec60ba2a508082bfdc787e5ff883cc5d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/pt/capitulo-16.md": {
-    "mtime": 1780349835.804064,
-    "ast_hash": "bb87a4ce15924c73eb3eee8a58b91148",
-    "semantic_hash": ""
-  },
   "src/pages/lab/Prototype/ArenaTestbed/ARENATESTBED_MAPA.md": {
     "mtime": 1785614524.0867054,
     "ast_hash": "4ebbfc68b650c6da80bc7d381d2bdbdc",
@@ -3629,14 +3484,9 @@
     "ast_hash": "703bf3260df7ba60c592f143accbc084",
     "semantic_hash": ""
   },
-  "src/data/contos-index.json": {
-    "mtime": 1790728561.2188385,
-    "ast_hash": "bffd07e8bc2f4197d9e56837c0868d66",
-    "semantic_hash": ""
-  },
   "src/pages/content/ContoCapitulo.jsx": {
-    "mtime": 1790740241.1593664,
-    "ast_hash": "0c215732ba88af5789ca85dc30a96090",
+    "mtime": 1790777117.5275621,
+    "ast_hash": "a2c5075c25c9f5ce6c47f935cedaa11c",
     "semantic_hash": ""
   },
   "workers/songs-r2/worker.js": {
@@ -3684,281 +3534,6 @@
     "ast_hash": "e24d6fb322202bb428880587d9760dfe",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/01/01.md": {
-    "mtime": 1788389338.475516,
-    "ast_hash": "4e5f30d3cd7d7c5d77ab8936c43ebcde",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/01/02.md": {
-    "mtime": 1788389385.3208218,
-    "ast_hash": "b98f078e935a8f870bc3cd0864f16f74",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/01/03.md": {
-    "mtime": 1788389408.7527094,
-    "ast_hash": "52c1fc6eb61b0feaaf28676bf79ecd57",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/01/04.md": {
-    "mtime": 1790775735.6706762,
-    "ast_hash": "0e354880e053e96baae0e55c7bb47761",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/01/05.md": {
-    "mtime": 1790775735.6716766,
-    "ast_hash": "3fed4ed4fb5b18b5a9cb3a0f13257eeb",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/01/06.md": {
-    "mtime": 1790775735.6726768,
-    "ast_hash": "796a4dce945fea141bdeb04f09638bf9",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/01/07.md": {
-    "mtime": 1788389480.6069717,
-    "ast_hash": "3b21fda63069da893dec5d930b71dabb",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/01/01.md": {
-    "mtime": 1788389503.540614,
-    "ast_hash": "f5a64a418d41e48955d38eac833613ae",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/01/02.md": {
-    "mtime": 1790776635.8992476,
-    "ast_hash": "e531cbdd56bce74bcafc97b61a2f3a33",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/01/03.md": {
-    "mtime": 1790776635.8992476,
-    "ast_hash": "b9eb90d01c445ae380c2c2ef29eaf1af",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/01/04.md": {
-    "mtime": 1790776635.900248,
-    "ast_hash": "616bfcbae391ab272d3bc239f0d06261",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/01/05.md": {
-    "mtime": 1790776635.900248,
-    "ast_hash": "9ad9913fb761440dd9feea4b2e662582",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/01/06.md": {
-    "mtime": 1790776635.900248,
-    "ast_hash": "505a3fcc72028b43c50dbc80be7d2dbf",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/01/07.md": {
-    "mtime": 1790776635.9012487,
-    "ast_hash": "632abe92a33a6179ac4fc908fed8172a",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/01/01.md": {
-    "mtime": 1790741697.1026635,
-    "ast_hash": "f25eb098cb4391866091837f84876759",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/01/02.md": {
-    "mtime": 1790741697.1036763,
-    "ast_hash": "9aa60f4ceabdf328da6d9f2262376e47",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/01/03.md": {
-    "mtime": 1790741697.1036763,
-    "ast_hash": "2d0263ee80c940b528324e6bbd6d0ef6",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/01/04.md": {
-    "mtime": 1790741697.1046834,
-    "ast_hash": "a9a32d22be3c9cf787faaf5950db0d31",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/01/05.md": {
-    "mtime": 1790741697.1056798,
-    "ast_hash": "42bc16b77c21f58812cdc04137f65627",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/01/06.md": {
-    "mtime": 1790741697.1056798,
-    "ast_hash": "27002d7a95257970f91ab7e89613eadf",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/01/07.md": {
-    "mtime": 1790741697.1066773,
-    "ast_hash": "44f1fc9c39e060e720c93b33112f6053",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/01.md": {
-    "mtime": 1790741445.5276456,
-    "ast_hash": "577a6d465978e33c7a2f0ada69c359d3",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/02.md": {
-    "mtime": 1788032420.6653452,
-    "ast_hash": "e9c582f2390b5767b26a711210ed1b8d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/03.md": {
-    "mtime": 1788032437.39675,
-    "ast_hash": "c8662c69866e9d2d65909c14910668cc",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/04.md": {
-    "mtime": 1787971752.8700309,
-    "ast_hash": "1f69a4583e940fd76c06b303b445ba0a",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/05.md": {
-    "mtime": 1790741445.529679,
-    "ast_hash": "02bbd902ad9805e5b565346e356cb949",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/06.md": {
-    "mtime": 1790741445.529679,
-    "ast_hash": "6150a82439e45840e0b0f469c4cdefc7",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/07.md": {
-    "mtime": 1787971919.056108,
-    "ast_hash": "8c987c01d0ab88da3622f88781bd514b",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/08.md": {
-    "mtime": 1790741445.53119,
-    "ast_hash": "9c4dc3dcd6e24a1ea876bde47c5049c3",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/09.md": {
-    "mtime": 1790741445.53119,
-    "ast_hash": "fc2c993496699403ac8e06772e2cfb02",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/10.md": {
-    "mtime": 1790741445.5321991,
-    "ast_hash": "f5782866ad3fd01d045d8316c86ed8bd",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/11.md": {
-    "mtime": 1788032070.753984,
-    "ast_hash": "29f2d1c90d7590c6edbd948ae4aeec66",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/12.md": {
-    "mtime": 1788036149.1895127,
-    "ast_hash": "e55316d7b1f535807a50964c09878cfd",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/13.md": {
-    "mtime": 1788036224.906159,
-    "ast_hash": "2f1a54f9cfaf6ab17a9736ca434cca0c",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/14.md": {
-    "mtime": 1788036246.1798933,
-    "ast_hash": "380e92070a90551ef7702c26eaf1cdaa",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/15.md": {
-    "mtime": 1790741445.5321991,
-    "ast_hash": "9cfa5e6c6e804b7ce5ef19aff8ea37c5",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/16.md": {
-    "mtime": 1790741445.5321991,
-    "ast_hash": "756f931ba7c2634f5370ca024722bf91",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/17.md": {
-    "mtime": 1790741445.5331984,
-    "ast_hash": "6e7c11bf64ff80ad6b309f358e1ac113",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/18.md": {
-    "mtime": 1790741445.5331984,
-    "ast_hash": "7e5abeb9549f6740f84c2a6acfc4dd88",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/02/19.md": {
-    "mtime": 1790741445.5331984,
-    "ast_hash": "ec9a8029f4740991f60d32c2c00a856c",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/03/01.md": {
-    "mtime": 1790741679.826869,
-    "ast_hash": "3bc2b7c1acea7db28295265c06b990a9",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/03/02.md": {
-    "mtime": 1788390339.7713704,
-    "ast_hash": "b66ef247998e9f59b000648f81e35b15",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/03/03.md": {
-    "mtime": 1790741679.826869,
-    "ast_hash": "3817b400a0e28189e4d6c8912d784415",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/03/04.md": {
-    "mtime": 1790741679.8278697,
-    "ast_hash": "237b3c7a09e0a43ff2962f3a1943055e",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/03/05.md": {
-    "mtime": 1790741679.8288696,
-    "ast_hash": "838727a550aac27cb2b8cf9ac53d3689",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/03/06.md": {
-    "mtime": 1790741679.8288696,
-    "ast_hash": "a5646fe9ff517afd96dab9a80839cbb9",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/04/01.md": {
-    "mtime": 1790741698.4844546,
-    "ast_hash": "c50112d2f864990411c7c9188429b00a",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/04/02.md": {
-    "mtime": 1788381913.3903954,
-    "ast_hash": "07a0f2e0bcc93a496696323ca08bfb6b",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/04/03.md": {
-    "mtime": 1788136259.9694035,
-    "ast_hash": "20b174617a3cb366b0e3eaa2f3407bbb",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/04/04.md": {
-    "mtime": 1788136274.056247,
-    "ast_hash": "bfd1275cac370e9b6d09c6daca56e623",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/04/05.md": {
-    "mtime": 1788381913.4342675,
-    "ast_hash": "2e8f8425f5d94cfc35afded96e73dec9",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/04/06.md": {
-    "mtime": 1790741698.4283886,
-    "ast_hash": "664a7952c0f277fa53d20b04c71d9cfb",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/04/07.md": {
-    "mtime": 1790741698.4423928,
-    "ast_hash": "a87df7b6c09d755f2be537297c259ac1",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/04/08.md": {
-    "mtime": 1790741698.454927,
-    "ast_hash": "02e4c27f3b916e387ac64d43c7cb21d4",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/04/09.md": {
-    "mtime": 1788381913.4760585,
-    "ast_hash": "82c4fd4ff4ec415534b653d6b133aaff",
-    "semantic_hash": ""
-  },
   "docs/LDI/IDEIAS_CONTOS_LEGENDS.md": {
     "mtime": 1788275895.55339,
     "ast_hash": "c904a435a3f8cad35a7714b95817ebf4",
@@ -3969,154 +3544,14 @@
     "ast_hash": "2c2ef6f2a9efe10a866be5673673bd50",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/pt/05/01.md": {
-    "mtime": 1788280455.6910107,
-    "ast_hash": "d089593337b3c1822a5d744885625f61",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/05/02.md": {
-    "mtime": 1790741690.2210245,
-    "ast_hash": "7c5e952ac992735d98b0e1676be76983",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/05/03.md": {
-    "mtime": 1788381913.5256636,
-    "ast_hash": "4a127df9b0eb726b23fdd645645201f5",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/05/04.md": {
-    "mtime": 1788217866.888888,
-    "ast_hash": "edf01c35d9f014bf4c32241efd3ea5b8",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/05/05.md": {
-    "mtime": 1788273147.8197103,
-    "ast_hash": "fdd33e183c0cfc5d239c2c22ca68dcc9",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/05/06.md": {
-    "mtime": 1788381913.5675457,
-    "ast_hash": "12129a58533de8f785b234c484e8a5b3",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/05/07.md": {
-    "mtime": 1788280519.051301,
-    "ast_hash": "f18777698a82df2e5ba33ccac8eee424",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/05/08.md": {
-    "mtime": 1790741690.2546337,
-    "ast_hash": "4c20d4038dcde4d7bd41634fe7821e3c",
-    "semantic_hash": ""
-  },
   "src/lib/lazyWithReload.js": {
     "mtime": 1788274061.6473932,
     "ast_hash": "8955293325b7393b775031fa3907fc20",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/pt/05/09.md": {
-    "mtime": 1788280028.4583857,
-    "ast_hash": "fa6cdcd2dc6d9cc5b92b97513fef6d33",
-    "semantic_hash": ""
-  },
   "src/lib/mdComponents.jsx": {
     "mtime": 1788277083.134333,
     "ast_hash": "506e6fd49896592a1f62440cd724a9a2",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/05/01.md": {
-    "mtime": 1790775756.5917027,
-    "ast_hash": "a159fdcb156a417188f22a0883836eb0",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/05/02.md": {
-    "mtime": 1790775756.5996914,
-    "ast_hash": "7a7d535f9b31e4c36e594e079076813a",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/05/03.md": {
-    "mtime": 1790775756.6161423,
-    "ast_hash": "e5805ae45cec271402e18f4dab33cf34",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/05/04.md": {
-    "mtime": 1790775756.6281123,
-    "ast_hash": "7aef97647dd13893e156fba29fcb1731",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/05/05.md": {
-    "mtime": 1790775756.6411152,
-    "ast_hash": "e0e079fe8cb913d72f48297778c60e59",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/05/06.md": {
-    "mtime": 1790775756.652629,
-    "ast_hash": "d30dc749541a6803d965d9e756fb06b7",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/05/07.md": {
-    "mtime": 1790775756.6646287,
-    "ast_hash": "6d8a2f3defa24b52dee05371585b4097",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/05/08.md": {
-    "mtime": 1790775756.6781974,
-    "ast_hash": "bd4e580b584647100fea856b6bb2e8fa",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/05/09.md": {
-    "mtime": 1790775756.6858866,
-    "ast_hash": "fe7e635ac42ecfe8c30d2bfee15db622",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/05/01.md": {
-    "mtime": 1790775756.6958866,
-    "ast_hash": "52f23ccc8af8ae514f746f3fbd2ae37d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/05/02.md": {
-    "mtime": 1790776684.5752382,
-    "ast_hash": "d969aaf8fff7875de72e3bc614363f4e",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/05/03.md": {
-    "mtime": 1790776684.5762374,
-    "ast_hash": "24143f4a0b02431d70719c23f92ad4e6",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/05/04.md": {
-    "mtime": 1790775756.7319078,
-    "ast_hash": "b66762790524c80bb59b9c8a0f0eff16",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/05/05.md": {
-    "mtime": 1790776684.5762374,
-    "ast_hash": "f5a5f487465080afe65cb1aab51e3729",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/05/06.md": {
-    "mtime": 1790776684.5777419,
-    "ast_hash": "368cc214e769993b40b0d19de349698e",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/05/07.md": {
-    "mtime": 1790776684.5777419,
-    "ast_hash": "52d4d22f9d68024b929c530d4c74eaec",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/05/08.md": {
-    "mtime": 1790776684.578747,
-    "ast_hash": "e0eb40d7d6c1070fc2f6d82a53d3ba30",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/05/09.md": {
-    "mtime": 1790776684.578747,
-    "ast_hash": "f01b2ce24ee2188dedd21cf7dc1d21ee",
-    "semantic_hash": ""
-  },
-  "src/data/obras-index.json": {
-    "mtime": 1790365489.7166111,
-    "ast_hash": "f5a0ebb7a70586644b618f44d0a518b5",
     "semantic_hash": ""
   },
   "src/data/season-one-schedule.js": {
@@ -4290,8 +3725,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/ObraCapitulo.jsx": {
-    "mtime": 1790740241.1880298,
-    "ast_hash": "1c316189a006ce6db2ab09958ed17bbd",
+    "mtime": 1790777117.5285673,
+    "ast_hash": "a494540ad5c7e5f5edecbae6b99fad69",
     "semantic_hash": ""
   },
   "src/pages/content/Universo.jsx": {
@@ -4302,176 +3737,6 @@
   "src/pages/site/Calendario/Calendario.jsx": {
     "mtime": 1790306446.5367293,
     "ast_hash": "d152c751b8dd57df17a0a2a720008294",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/03/01.md": {
-    "mtime": 1790775740.8248146,
-    "ast_hash": "a1f4a8ed73ef37d75d757cd4c9bfdd88",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/03/02.md": {
-    "mtime": 1788391854.723757,
-    "ast_hash": "7cdf1092c6b04b037fb1ed4fcb187428",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/03/03.md": {
-    "mtime": 1788391873.8081262,
-    "ast_hash": "f09e1bb3c8a16303d2e1162ee3e7d50f",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/03/04.md": {
-    "mtime": 1790775740.887502,
-    "ast_hash": "0c371ac875a99eac3ad6793b543f4165",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/03/05.md": {
-    "mtime": 1788391908.2127645,
-    "ast_hash": "0036bc351dc6d38d5cce3553d66f70c4",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/03/06.md": {
-    "mtime": 1790775741.022643,
-    "ast_hash": "9b4db3ed7cf43f486221d608a4b5de09",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/03/01.md": {
-    "mtime": 1790776684.5722373,
-    "ast_hash": "41388ecc50f73cbf2b652facb257e68e",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/03/02.md": {
-    "mtime": 1790776684.5722373,
-    "ast_hash": "b0673624adfb9fb7d2c745748e290e81",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/03/03.md": {
-    "mtime": 1790776684.5732381,
-    "ast_hash": "2dc6de86af144904955c1db1863d1673",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/03/04.md": {
-    "mtime": 1790776684.5732381,
-    "ast_hash": "b92d33f4ef109132d96dec3bf1a877a4",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/03/05.md": {
-    "mtime": 1790776684.5732381,
-    "ast_hash": "32df0ec22b148f9f1a33c08bb7ccc009",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/03/06.md": {
-    "mtime": 1790776684.5742369,
-    "ast_hash": "1c77a72e0991c100d5d6ea286b521ab1",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mar-de-cinzas/pt/00.md": {
-    "mtime": 1788393601.6766486,
-    "ast_hash": "a102461d37b8ce0f4dce392ea03298d6",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mar-de-cinzas/pt/01.md": {
-    "mtime": 1788393601.6776366,
-    "ast_hash": "3d76842343e6efa83584d5c84369d4f5",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mar-de-cinzas/pt/02.md": {
-    "mtime": 1788381285.761325,
-    "ast_hash": "c57b5cd1c5309139a3a3d2466563b35d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mar-de-cinzas/pt/03.md": {
-    "mtime": 1788393601.6643727,
-    "ast_hash": "bdd47975eb8ca8a2955e7afb32452c45",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/en/01.md": {
-    "mtime": 1788380554.0093663,
-    "ast_hash": "8de46f8b7375e8d511cba465a586c2c5",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/en/02.md": {
-    "mtime": 1788380554.0417056,
-    "ast_hash": "55b1ef824968dd8335dd3266b3603d41",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/en/03.md": {
-    "mtime": 1788380554.0766125,
-    "ast_hash": "a2a3836009287bf1d21c9350faf118b8",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/en/04.md": {
-    "mtime": 1788380554.1063204,
-    "ast_hash": "e86bfcbccb197f230bcdac6f89414bbb",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/en/05.md": {
-    "mtime": 1788380554.1376455,
-    "ast_hash": "c46e2896eb12ae1bb3b5b2728af92335",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/en/06.md": {
-    "mtime": 1788380554.1761622,
-    "ast_hash": "ba8e09f63dea9769bd3430ae9219305d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/es/01.md": {
-    "mtime": 1788380554.2221894,
-    "ast_hash": "f081f8b4a9205e1f38a75d85faed1aec",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/es/02.md": {
-    "mtime": 1788380554.2544765,
-    "ast_hash": "5bb2c8e6a3bbe80b1af8c95e74a2dd6d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/es/03.md": {
-    "mtime": 1788380554.2934737,
-    "ast_hash": "3233c99ec070166840bf4fc63a91251a",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/es/04.md": {
-    "mtime": 1788380554.3213723,
-    "ast_hash": "bb3f96b956824c27876bf799eaf463d1",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/es/05.md": {
-    "mtime": 1788380554.35538,
-    "ast_hash": "2d5798ea3620910942e39fbcc36bee51",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/es/06.md": {
-    "mtime": 1788380554.395758,
-    "ast_hash": "418fd7cf7028be0bfd1a1073b9704b55",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/pt/01.md": {
-    "mtime": 1788380553.9619758,
-    "ast_hash": "2cffaee89fb59a49f8414f116ccee4d0",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/pt/02.md": {
-    "mtime": 1788380553.9641252,
-    "ast_hash": "d2658c82bfd2f147301db9b1c9e0602f",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/pt/03.md": {
-    "mtime": 1788380553.9663193,
-    "ast_hash": "f5514cd59ea79024b73126d20ebe4c65",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/pt/04.md": {
-    "mtime": 1788380553.9683073,
-    "ast_hash": "60a9d5b380d97fc854bca2948a4efb45",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/pt/05.md": {
-    "mtime": 1788380553.9703069,
-    "ast_hash": "0f8955331f9aa8b76038e6d0759d639d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/obras/mundo-das-sombras/pt/06.md": {
-    "mtime": 1788380553.9723065,
-    "ast_hash": "fe87209291fd5e174d839692fbd85376",
     "semantic_hash": ""
   },
   "src/assets/obras/mundo-das-sombras/cap-01.webp": {
@@ -4595,8 +3860,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesTerritorios.js": {
-    "mtime": 1790691694.7993248,
-    "ast_hash": "84dd4aa81da26ed0b4dc2b5aa680c143",
+    "mtime": 1790777117.5305672,
+    "ast_hash": "7ab28908c5aa74b51161caf391790ea5",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GangDialog.jsx": {
@@ -4725,8 +3990,8 @@
     "semantic_hash": ""
   },
   "docs/Games/Gangues/LDI_GANGUES_GDD.md": {
-    "mtime": 1790706635.3635776,
-    "ast_hash": "f3e4357c41030154792fc958a7c06f39",
+    "mtime": 1790777146.4208024,
+    "ast_hash": "8714e46d22548924e7596f83887a430a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesInimigos.js": {
@@ -5620,8 +4885,8 @@
     "semantic_hash": ""
   },
   "src/lib/historias/catalogo.js": {
-    "mtime": 1790443026.7499754,
-    "ast_hash": "95304298a54a22f25968ab29c3c2f4dc",
+    "mtime": 1790777117.5275621,
+    "ast_hash": "02887bd78cde8b8f18b0096f7b7bc039",
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriaCapLinha.jsx": {
@@ -5914,131 +5179,6 @@
     "ast_hash": "12a23e48071a90367ac562a8e9a1362d",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/pt/06/01.md": {
-    "mtime": 1790707609.7808585,
-    "ast_hash": "e4879549b0d7b17a83aac57209c0abfe",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/06/02.md": {
-    "mtime": 1790707609.781867,
-    "ast_hash": "65d0e4c973356e25e3abbe42db9fbe6b",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/06/03.md": {
-    "mtime": 1790707609.781867,
-    "ast_hash": "491055a1b8adc4fdcd4af3858f65808b",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/06/04.md": {
-    "mtime": 1790711841.0153909,
-    "ast_hash": "1a04d2b5d3d29fd0634321bba1c23839",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/06/05.md": {
-    "mtime": 1790712333.8362448,
-    "ast_hash": "539732a5d6e601a8d83c16e4c3832ea6",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/06/06.md": {
-    "mtime": 1790741679.9673967,
-    "ast_hash": "9f36e561fa8b9359ded52ef59bbd6879",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/06/07.md": {
-    "mtime": 1790707609.7848582,
-    "ast_hash": "bae053d116172b02463d6a2689af2ae5",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/06/08.md": {
-    "mtime": 1790707609.7848582,
-    "ast_hash": "6d9251c17e79579ab079a390c670941f",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/06/09.md": {
-    "mtime": 1790712436.3691459,
-    "ast_hash": "c5f46f4a9c349ca5cc9213c019665b95",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/06/10.md": {
-    "mtime": 1790707609.7858582,
-    "ast_hash": "eb7e481ee713982f6498885c7a72f2f3",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/06/11.md": {
-    "mtime": 1790741679.9954746,
-    "ast_hash": "7e02de8bc4b9ac0d81fe3dc1c12908ac",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/01.md": {
-    "mtime": 1790733401.32987,
-    "ast_hash": "416b5906924081fae10f38495e147286",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/02.md": {
-    "mtime": 1790733401.3308697,
-    "ast_hash": "f8ed5d0d2900ad1263ce05bdeb0ed10d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/03.md": {
-    "mtime": 1790772788.0778222,
-    "ast_hash": "0b12a90190125b35cb454485ca695a04",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/04.md": {
-    "mtime": 1790772786.1157002,
-    "ast_hash": "fc105a2a435dc10355f3570d7bd68570",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/05.md": {
-    "mtime": 1790772835.2356024,
-    "ast_hash": "bbd15c96affac5f822c3222c3894346d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/06.md": {
-    "mtime": 1790773116.72084,
-    "ast_hash": "112597a6703619f79db4cc80dfe0dd45",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/07.md": {
-    "mtime": 1790729460.7135785,
-    "ast_hash": "ddfc258af2c116c140cd55afcba06906",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/08.md": {
-    "mtime": 1790724347.8440166,
-    "ast_hash": "b415d7d77bb98a2e831149f71a08074f",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/09.md": {
-    "mtime": 1790741694.7294588,
-    "ast_hash": "f98e124567926b0809df9225b5fde2b2",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/10.md": {
-    "mtime": 1790741694.7690892,
-    "ast_hash": "92986cd51a922a3bff93d5473afa63d8",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/11.md": {
-    "mtime": 1790733387.3505752,
-    "ast_hash": "0dd7b23e2803f7a0be01909796913e7c",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/12.md": {
-    "mtime": 1790727106.8221495,
-    "ast_hash": "aac64932506e880bcc83c91adfb6f173",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/13.md": {
-    "mtime": 1790728558.5463,
-    "ast_hash": "b0afc32e7153de8ace8e78bde00539f8",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/07/14.md": {
-    "mtime": 1790733387.4251666,
-    "ast_hash": "72ec34d17b5c76aa6b69a35f9ea2df39",
-    "semantic_hash": ""
-  },
   "src/components/Leitor/LeitorAjustes.jsx": {
     "mtime": 1790740241.027511,
     "ast_hash": "11e5688d4a9a709532b67d56a56b5257",
@@ -6145,538 +5285,1398 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/HomeHistorias.jsx": {
-    "mtime": 1790775448.3820608,
-    "ast_hash": "4fd5f147721639ccbdbe63347ac46b12",
+    "mtime": 1790777117.5295682,
+    "ast_hash": "87ce47f0e1e0283b55383666f98ab32e",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/01.md": {
+  "src/data/historias/contos.json": {
+    "mtime": 1790728561.2188385,
+    "ast_hash": "bffd07e8bc2f4197d9e56837c0868d66",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao.json": {
+    "mtime": 1788400516.3706968,
+    "ast_hash": "a3a0b3b11ef066b081cc16e89811c5af",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras.json": {
+    "mtime": 1790365489.7166111,
+    "ast_hash": "f5a0ebb7a70586644b618f44d0a518b5",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/en/01.md": {
+    "mtime": 1788389338.475516,
+    "ast_hash": "4e5f30d3cd7d7c5d77ab8936c43ebcde",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/en/02.md": {
+    "mtime": 1788389385.3208218,
+    "ast_hash": "b98f078e935a8f870bc3cd0864f16f74",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/en/03.md": {
+    "mtime": 1788389408.7527094,
+    "ast_hash": "52c1fc6eb61b0feaaf28676bf79ecd57",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/en/04.md": {
+    "mtime": 1790775735.6706762,
+    "ast_hash": "0e354880e053e96baae0e55c7bb47761",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/en/05.md": {
+    "mtime": 1790775735.6716766,
+    "ast_hash": "3fed4ed4fb5b18b5a9cb3a0f13257eeb",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/en/06.md": {
+    "mtime": 1790775735.6726768,
+    "ast_hash": "796a4dce945fea141bdeb04f09638bf9",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/en/07.md": {
+    "mtime": 1788389480.6069717,
+    "ast_hash": "3b21fda63069da893dec5d930b71dabb",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/es/01.md": {
+    "mtime": 1788389503.540614,
+    "ast_hash": "f5a64a418d41e48955d38eac833613ae",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/es/02.md": {
+    "mtime": 1790776635.8992476,
+    "ast_hash": "e531cbdd56bce74bcafc97b61a2f3a33",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/es/03.md": {
+    "mtime": 1790776635.8992476,
+    "ast_hash": "b9eb90d01c445ae380c2c2ef29eaf1af",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/es/04.md": {
+    "mtime": 1790776635.900248,
+    "ast_hash": "616bfcbae391ab272d3bc239f0d06261",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/es/05.md": {
+    "mtime": 1790776635.900248,
+    "ast_hash": "9ad9913fb761440dd9feea4b2e662582",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/es/06.md": {
+    "mtime": 1790776635.900248,
+    "ast_hash": "505a3fcc72028b43c50dbc80be7d2dbf",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/es/07.md": {
+    "mtime": 1790776635.9012487,
+    "ast_hash": "632abe92a33a6179ac4fc908fed8172a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/pt/01.md": {
+    "mtime": 1790741697.1026635,
+    "ast_hash": "f25eb098cb4391866091837f84876759",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/pt/02.md": {
+    "mtime": 1790741697.1036763,
+    "ast_hash": "9aa60f4ceabdf328da6d9f2262376e47",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/pt/03.md": {
+    "mtime": 1790741697.1036763,
+    "ast_hash": "2d0263ee80c940b528324e6bbd6d0ef6",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/pt/04.md": {
+    "mtime": 1790741697.1046834,
+    "ast_hash": "a9a32d22be3c9cf787faaf5950db0d31",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/pt/05.md": {
+    "mtime": 1790741697.1056798,
+    "ast_hash": "42bc16b77c21f58812cdc04137f65627",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/pt/06.md": {
+    "mtime": 1790741697.1056798,
+    "ast_hash": "27002d7a95257970f91ab7e89613eadf",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/01/pt/07.md": {
+    "mtime": 1790741697.1066773,
+    "ast_hash": "44f1fc9c39e060e720c93b33112f6053",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/en/01.md": {
     "mtime": 1790775821.4279447,
     "ast_hash": "a1451a52b64920a144d1e57bcc6d8e58",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/02.md": {
+  "src/data/historias/contos/02/en/02.md": {
     "mtime": 1790776006.365929,
     "ast_hash": "ed2cc6824eb352e25313456a27859c5a",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/03.md": {
+  "src/data/historias/contos/02/en/03.md": {
     "mtime": 1790776007.4020813,
     "ast_hash": "8e91b3128c3eb9eff1e91f948a267a05",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/04.md": {
+  "src/data/historias/contos/02/en/04.md": {
     "mtime": 1790776008.4308858,
     "ast_hash": "277a86c79c1ed33edaaf5ab0a56174c0",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/05.md": {
+  "src/data/historias/contos/02/en/05.md": {
     "mtime": 1790776009.4747777,
     "ast_hash": "ae16f4daace0dde8ea7217932e02d36e",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/06.md": {
+  "src/data/historias/contos/02/en/06.md": {
     "mtime": 1790776010.523148,
     "ast_hash": "4cc3076082544412291bac04b9cc3564",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/07.md": {
+  "src/data/historias/contos/02/en/07.md": {
     "mtime": 1790776011.5646322,
     "ast_hash": "b917694a94db755489066babc6b4cd45",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/08.md": {
+  "src/data/historias/contos/02/en/08.md": {
     "mtime": 1790776012.61055,
     "ast_hash": "0e46642085cb58802b3d2a43fc52fe63",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/09.md": {
+  "src/data/historias/contos/02/en/09.md": {
     "mtime": 1790776013.649122,
     "ast_hash": "c695b6a4d773deb30ed580a82f67b9b9",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/10.md": {
+  "src/data/historias/contos/02/en/10.md": {
     "mtime": 1790776014.7003121,
     "ast_hash": "804cf6f89cdcd6087b13711cfb43ea02",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/11.md": {
+  "src/data/historias/contos/02/en/11.md": {
     "mtime": 1790776015.7352364,
     "ast_hash": "37698ebfc82b39dcd2db8a9de90ed976",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/12.md": {
+  "src/data/historias/contos/02/en/12.md": {
     "mtime": 1790776016.7776134,
     "ast_hash": "a11cb8e1ffa730e1a066e7595ec8586e",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/13.md": {
+  "src/data/historias/contos/02/en/13.md": {
     "mtime": 1790776017.8212464,
     "ast_hash": "76a0de475b86dc4960447ff98a76e2d1",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/14.md": {
+  "src/data/historias/contos/02/en/14.md": {
     "mtime": 1790776018.8724582,
     "ast_hash": "5f20a79771a1efcd765be53292c99133",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/15.md": {
+  "src/data/historias/contos/02/en/15.md": {
     "mtime": 1790776019.9217799,
     "ast_hash": "24d90b20b49a1088bf46aa2c483f5c50",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/16.md": {
+  "src/data/historias/contos/02/en/16.md": {
     "mtime": 1790776020.959625,
     "ast_hash": "c39c5441fa95d46f9083b76cc381d15b",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/17.md": {
+  "src/data/historias/contos/02/en/17.md": {
     "mtime": 1790776021.9914756,
     "ast_hash": "204663ee6530b97dc051d433bb2e4b61",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/18.md": {
+  "src/data/historias/contos/02/en/18.md": {
     "mtime": 1790776023.0373375,
     "ast_hash": "505bdd26076a627a1abc545ab12e0b7b",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/02/19.md": {
+  "src/data/historias/contos/02/en/19.md": {
     "mtime": 1790776024.0812554,
     "ast_hash": "ef0a8138c35b4353f193f6b9683081a0",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/en/04/01.md": {
-    "mtime": 1790775993.2743788,
-    "ast_hash": "093b0df6d77fde0b49f2816748fd21da",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/04/02.md": {
-    "mtime": 1790775994.3172102,
-    "ast_hash": "c1cc997e4e9b36bbc36099da6b55e367",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/04/03.md": {
-    "mtime": 1790775995.3566275,
-    "ast_hash": "133f3fb23dffa8e5b128991c6a3f9104",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/04/04.md": {
-    "mtime": 1790775996.391732,
-    "ast_hash": "f010af0f5831f01f448875c246bfc07f",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/04/05.md": {
-    "mtime": 1790775997.4229963,
-    "ast_hash": "3307d8649ab67ef4ff9320d5a7454087",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/04/06.md": {
-    "mtime": 1790775998.463478,
-    "ast_hash": "3f62c1aa00c9a394da0ed73f75d3da48",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/04/07.md": {
-    "mtime": 1790775999.5079358,
-    "ast_hash": "b40bab54bb3781ea33c885d076eeb337",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/04/08.md": {
-    "mtime": 1790776000.5438986,
-    "ast_hash": "930c758c043df3db5dc6ca8c33f47e1c",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/04/09.md": {
-    "mtime": 1790776001.5720513,
-    "ast_hash": "a356860b65d4f6989e78eb7502e9462f",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/06/01.md": {
-    "mtime": 1790775878.5662763,
-    "ast_hash": "6ed17d10a5d43dbb4c2d1dc042dc86c8",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/06/02.md": {
-    "mtime": 1790775879.60185,
-    "ast_hash": "0c6263d90f79adebc7f9375a1551ce58",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/06/03.md": {
-    "mtime": 1790775880.650196,
-    "ast_hash": "32e8afa91eab3a843ce9916fae5c8c34",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/06/04.md": {
-    "mtime": 1790775881.695032,
-    "ast_hash": "ee8538da699db4164f0569c847e7bf94",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/06/05.md": {
-    "mtime": 1790775882.7354517,
-    "ast_hash": "574807ef20686f1f7c4c3113bdb8473c",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/06/06.md": {
-    "mtime": 1790775883.7803113,
-    "ast_hash": "a776506a6e093249cf2a3cfe9c1e5178",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/06/07.md": {
-    "mtime": 1790775884.8111353,
-    "ast_hash": "0f3a62b3b9a7c5ad9d9d3343be476cc4",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/06/08.md": {
-    "mtime": 1790775885.844828,
-    "ast_hash": "6d7038e9d548da999b45b3edd67667a6",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/06/09.md": {
-    "mtime": 1790775886.8747077,
-    "ast_hash": "a3edc88f89a51be739d6f7cc2050435b",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/06/10.md": {
-    "mtime": 1790775887.9275928,
-    "ast_hash": "c1feee494e2c8120248218721396567c",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/06/11.md": {
-    "mtime": 1790775888.9629896,
-    "ast_hash": "f08fb0042c76a6d69d70e5abe1cfb999",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/01.md": {
-    "mtime": 1790775994.543756,
-    "ast_hash": "100bc25228e8fa848082f80755da47ca",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/02.md": {
-    "mtime": 1790775995.572218,
-    "ast_hash": "a313c6163578c0f3653e01c9f3be0ef4",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/03.md": {
-    "mtime": 1790775996.608543,
-    "ast_hash": "624ef7abc46f808fd2eed419d1b0abac",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/04.md": {
-    "mtime": 1790775997.643498,
-    "ast_hash": "15ba12785517d6b1718bc4b5d1a799de",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/05.md": {
-    "mtime": 1790775998.687791,
-    "ast_hash": "78704b51d59d97797e78f69cf0d5957c",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/06.md": {
-    "mtime": 1790775999.7261734,
-    "ast_hash": "537e5d0acee1368c13ffc4908d7c653d",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/07.md": {
-    "mtime": 1790776000.7702558,
-    "ast_hash": "9fc22af903e0e9cf92a80ce2e8787cb4",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/08.md": {
-    "mtime": 1790776001.8112342,
-    "ast_hash": "0c8b3f7d9b9f7d2b21ebb2e9e32ec040",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/09.md": {
-    "mtime": 1790776002.857382,
-    "ast_hash": "5e808a1c463f3d068edee86ed47aee6c",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/10.md": {
-    "mtime": 1790776003.892227,
-    "ast_hash": "14285171162c27c0c23869e041efa3fb",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/11.md": {
-    "mtime": 1790776004.9328725,
-    "ast_hash": "7038261ed01e321dda5b55ea11fac433",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/12.md": {
-    "mtime": 1790776005.9622722,
-    "ast_hash": "2065f5aa592d6ad65e18532c94913a90",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/13.md": {
-    "mtime": 1790776006.9929566,
-    "ast_hash": "b2c46a9b65ca6a638a6ded306ee36baa",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/en/07/14.md": {
-    "mtime": 1790776008.0319579,
-    "ast_hash": "39dd2cd94b7c6157913465a7d7b2e555",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/es/02/01.md": {
+  "src/data/historias/contos/02/es/01.md": {
     "mtime": 1790776645.0978668,
     "ast_hash": "abf2cb04577cfdab95da86ced5bc5a1b",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/02.md": {
+  "src/data/historias/contos/02/es/02.md": {
     "mtime": 1790776645.11588,
     "ast_hash": "c42f5a70a5882e277373f1fd7c51ff51",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/03.md": {
+  "src/data/historias/contos/02/es/03.md": {
     "mtime": 1790776656.038102,
     "ast_hash": "ab65cf9a3a803216b31f65e02afbec3b",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/04.md": {
+  "src/data/historias/contos/02/es/04.md": {
     "mtime": 1790776645.1374242,
     "ast_hash": "7ad04a22e3282852799a2ed1351109c5",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/05.md": {
+  "src/data/historias/contos/02/es/05.md": {
     "mtime": 1790776645.1494606,
     "ast_hash": "4c55196b6300800a7173664ace93b83a",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/06.md": {
+  "src/data/historias/contos/02/es/06.md": {
     "mtime": 1790776645.1554978,
     "ast_hash": "6242ac7df2e50738d29d017c0214cfc8",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/07.md": {
+  "src/data/historias/contos/02/es/07.md": {
     "mtime": 1790776645.1674967,
     "ast_hash": "01a02c31c9e3867ab3747ff547c14bc3",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/08.md": {
+  "src/data/historias/contos/02/es/08.md": {
     "mtime": 1790776645.174637,
     "ast_hash": "b15861c345dd6c7a49a1c917e965f372",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/09.md": {
+  "src/data/historias/contos/02/es/09.md": {
     "mtime": 1790776645.183631,
     "ast_hash": "52f3025f0e710f0e3ce7c0fa797658fc",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/10.md": {
+  "src/data/historias/contos/02/es/10.md": {
     "mtime": 1790776656.0049608,
     "ast_hash": "a9dbc73e446f6b5d10c982610abca3a1",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/11.md": {
+  "src/data/historias/contos/02/es/11.md": {
     "mtime": 1790776645.1866438,
     "ast_hash": "d4ab8fe6369a1634395cf367cd4901c9",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/12.md": {
+  "src/data/historias/contos/02/es/12.md": {
     "mtime": 1790776645.2001872,
     "ast_hash": "9c4d7810bf09d08718f74b600d51b77c",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/13.md": {
+  "src/data/historias/contos/02/es/13.md": {
     "mtime": 1790776645.2031784,
     "ast_hash": "731a1f687321092d70f476cdd11c5c22",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/14.md": {
+  "src/data/historias/contos/02/es/14.md": {
     "mtime": 1790776645.2171814,
     "ast_hash": "34efdce5ba0c8c7841249d995808b998",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/15.md": {
+  "src/data/historias/contos/02/es/15.md": {
     "mtime": 1790776645.2301798,
     "ast_hash": "fbb63cb9d776bda839aae301bdd72084",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/16.md": {
+  "src/data/historias/contos/02/es/16.md": {
     "mtime": 1790776645.241193,
     "ast_hash": "13ad0390529cc4e109afc1317cbdc01a",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/17.md": {
+  "src/data/historias/contos/02/es/17.md": {
     "mtime": 1790776645.2433965,
     "ast_hash": "256886cdd9270e00f5bb8a53e536156c",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/18.md": {
+  "src/data/historias/contos/02/es/18.md": {
     "mtime": 1790776645.2543294,
     "ast_hash": "0d1cf02f8f2e32a0fa350054430488ad",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/02/19.md": {
+  "src/data/historias/contos/02/es/19.md": {
     "mtime": 1790776645.2643363,
     "ast_hash": "3160320060b482a3acd8d14c69b2f078",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/04/01.md": {
+  "src/data/historias/contos/02/pt/01.md": {
+    "mtime": 1790741445.5276456,
+    "ast_hash": "577a6d465978e33c7a2f0ada69c359d3",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/02.md": {
+    "mtime": 1788032420.6653452,
+    "ast_hash": "e9c582f2390b5767b26a711210ed1b8d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/03.md": {
+    "mtime": 1788032437.39675,
+    "ast_hash": "c8662c69866e9d2d65909c14910668cc",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/04.md": {
+    "mtime": 1787971752.8700309,
+    "ast_hash": "1f69a4583e940fd76c06b303b445ba0a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/05.md": {
+    "mtime": 1790741445.529679,
+    "ast_hash": "02bbd902ad9805e5b565346e356cb949",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/06.md": {
+    "mtime": 1790741445.529679,
+    "ast_hash": "6150a82439e45840e0b0f469c4cdefc7",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/07.md": {
+    "mtime": 1787971919.056108,
+    "ast_hash": "8c987c01d0ab88da3622f88781bd514b",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/08.md": {
+    "mtime": 1790741445.53119,
+    "ast_hash": "9c4dc3dcd6e24a1ea876bde47c5049c3",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/09.md": {
+    "mtime": 1790741445.53119,
+    "ast_hash": "fc2c993496699403ac8e06772e2cfb02",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/10.md": {
+    "mtime": 1790741445.5321991,
+    "ast_hash": "f5782866ad3fd01d045d8316c86ed8bd",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/11.md": {
+    "mtime": 1788032070.753984,
+    "ast_hash": "29f2d1c90d7590c6edbd948ae4aeec66",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/12.md": {
+    "mtime": 1788036149.1895127,
+    "ast_hash": "e55316d7b1f535807a50964c09878cfd",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/13.md": {
+    "mtime": 1788036224.906159,
+    "ast_hash": "2f1a54f9cfaf6ab17a9736ca434cca0c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/14.md": {
+    "mtime": 1788036246.1798933,
+    "ast_hash": "380e92070a90551ef7702c26eaf1cdaa",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/15.md": {
+    "mtime": 1790741445.5321991,
+    "ast_hash": "9cfa5e6c6e804b7ce5ef19aff8ea37c5",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/16.md": {
+    "mtime": 1790741445.5321991,
+    "ast_hash": "756f931ba7c2634f5370ca024722bf91",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/17.md": {
+    "mtime": 1790741445.5331984,
+    "ast_hash": "6e7c11bf64ff80ad6b309f358e1ac113",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/18.md": {
+    "mtime": 1790741445.5331984,
+    "ast_hash": "7e5abeb9549f6740f84c2a6acfc4dd88",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/02/pt/19.md": {
+    "mtime": 1790741445.5331984,
+    "ast_hash": "ec9a8029f4740991f60d32c2c00a856c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/en/01.md": {
+    "mtime": 1790775740.8248146,
+    "ast_hash": "a1f4a8ed73ef37d75d757cd4c9bfdd88",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/en/02.md": {
+    "mtime": 1788391854.723757,
+    "ast_hash": "7cdf1092c6b04b037fb1ed4fcb187428",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/en/03.md": {
+    "mtime": 1788391873.8081262,
+    "ast_hash": "f09e1bb3c8a16303d2e1162ee3e7d50f",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/en/04.md": {
+    "mtime": 1790775740.887502,
+    "ast_hash": "0c371ac875a99eac3ad6793b543f4165",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/en/05.md": {
+    "mtime": 1788391908.2127645,
+    "ast_hash": "0036bc351dc6d38d5cce3553d66f70c4",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/en/06.md": {
+    "mtime": 1790775741.022643,
+    "ast_hash": "9b4db3ed7cf43f486221d608a4b5de09",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/es/01.md": {
+    "mtime": 1790776684.5722373,
+    "ast_hash": "41388ecc50f73cbf2b652facb257e68e",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/es/02.md": {
+    "mtime": 1790776684.5722373,
+    "ast_hash": "b0673624adfb9fb7d2c745748e290e81",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/es/03.md": {
+    "mtime": 1790776684.5732381,
+    "ast_hash": "2dc6de86af144904955c1db1863d1673",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/es/04.md": {
+    "mtime": 1790776684.5732381,
+    "ast_hash": "b92d33f4ef109132d96dec3bf1a877a4",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/es/05.md": {
+    "mtime": 1790776684.5732381,
+    "ast_hash": "32df0ec22b148f9f1a33c08bb7ccc009",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/es/06.md": {
+    "mtime": 1790776684.5742369,
+    "ast_hash": "1c77a72e0991c100d5d6ea286b521ab1",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/pt/01.md": {
+    "mtime": 1790741679.826869,
+    "ast_hash": "3bc2b7c1acea7db28295265c06b990a9",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/pt/02.md": {
+    "mtime": 1788390339.7713704,
+    "ast_hash": "b66ef247998e9f59b000648f81e35b15",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/pt/03.md": {
+    "mtime": 1790741679.826869,
+    "ast_hash": "3817b400a0e28189e4d6c8912d784415",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/pt/04.md": {
+    "mtime": 1790741679.8278697,
+    "ast_hash": "237b3c7a09e0a43ff2962f3a1943055e",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/pt/05.md": {
+    "mtime": 1790741679.8288696,
+    "ast_hash": "838727a550aac27cb2b8cf9ac53d3689",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/03/pt/06.md": {
+    "mtime": 1790741679.8288696,
+    "ast_hash": "a5646fe9ff517afd96dab9a80839cbb9",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/en/01.md": {
+    "mtime": 1790775993.2743788,
+    "ast_hash": "093b0df6d77fde0b49f2816748fd21da",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/en/02.md": {
+    "mtime": 1790775994.3172102,
+    "ast_hash": "c1cc997e4e9b36bbc36099da6b55e367",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/en/03.md": {
+    "mtime": 1790775995.3566275,
+    "ast_hash": "133f3fb23dffa8e5b128991c6a3f9104",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/en/04.md": {
+    "mtime": 1790775996.391732,
+    "ast_hash": "f010af0f5831f01f448875c246bfc07f",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/en/05.md": {
+    "mtime": 1790775997.4229963,
+    "ast_hash": "3307d8649ab67ef4ff9320d5a7454087",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/en/06.md": {
+    "mtime": 1790775998.463478,
+    "ast_hash": "3f62c1aa00c9a394da0ed73f75d3da48",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/en/07.md": {
+    "mtime": 1790775999.5079358,
+    "ast_hash": "b40bab54bb3781ea33c885d076eeb337",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/en/08.md": {
+    "mtime": 1790776000.5438986,
+    "ast_hash": "930c758c043df3db5dc6ca8c33f47e1c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/en/09.md": {
+    "mtime": 1790776001.5720513,
+    "ast_hash": "a356860b65d4f6989e78eb7502e9462f",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/es/01.md": {
     "mtime": 1790776002.604385,
     "ast_hash": "aa42629d2cfbf4f0e521a3fe771c925e",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/04/02.md": {
+  "src/data/historias/contos/04/es/02.md": {
     "mtime": 1790776003.6397665,
     "ast_hash": "2919f8474054e8bace10fb8ba438e246",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/04/03.md": {
+  "src/data/historias/contos/04/es/03.md": {
     "mtime": 1790776684.5742369,
     "ast_hash": "e9760f4f91b31bdc96d7bae910c7f98f",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/04/04.md": {
+  "src/data/historias/contos/04/es/04.md": {
     "mtime": 1790776684.5742369,
     "ast_hash": "a742808529dcf6516b551d69a5556f5b",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/04/05.md": {
+  "src/data/historias/contos/04/es/05.md": {
     "mtime": 1790776684.5752382,
     "ast_hash": "4314014bbb20274e46413018e967bf9d",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/04/06.md": {
+  "src/data/historias/contos/04/es/06.md": {
     "mtime": 1790776007.8012261,
     "ast_hash": "c25dfb7427c361d96180f892060514fe",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/04/07.md": {
+  "src/data/historias/contos/04/es/07.md": {
     "mtime": 1790776008.8391497,
     "ast_hash": "c1fba6fb5872b2871c69d89b21a9d8a2",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/04/08.md": {
+  "src/data/historias/contos/04/es/08.md": {
     "mtime": 1790776684.5752382,
     "ast_hash": "09733313f1afb922db4d60e55dfecebc",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/04/09.md": {
+  "src/data/historias/contos/04/es/09.md": {
     "mtime": 1790776010.923571,
     "ast_hash": "098fe322fed59777b94e3e5353b496b1",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/06/01.md": {
+  "src/data/historias/contos/04/pt/01.md": {
+    "mtime": 1790741698.4844546,
+    "ast_hash": "c50112d2f864990411c7c9188429b00a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/pt/02.md": {
+    "mtime": 1788381913.3903954,
+    "ast_hash": "07a0f2e0bcc93a496696323ca08bfb6b",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/pt/03.md": {
+    "mtime": 1788136259.9694035,
+    "ast_hash": "20b174617a3cb366b0e3eaa2f3407bbb",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/pt/04.md": {
+    "mtime": 1788136274.056247,
+    "ast_hash": "bfd1275cac370e9b6d09c6daca56e623",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/pt/05.md": {
+    "mtime": 1788381913.4342675,
+    "ast_hash": "2e8f8425f5d94cfc35afded96e73dec9",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/pt/06.md": {
+    "mtime": 1790741698.4283886,
+    "ast_hash": "664a7952c0f277fa53d20b04c71d9cfb",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/pt/07.md": {
+    "mtime": 1790741698.4423928,
+    "ast_hash": "a87df7b6c09d755f2be537297c259ac1",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/pt/08.md": {
+    "mtime": 1790741698.454927,
+    "ast_hash": "02e4c27f3b916e387ac64d43c7cb21d4",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/04/pt/09.md": {
+    "mtime": 1788381913.4760585,
+    "ast_hash": "82c4fd4ff4ec415534b653d6b133aaff",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/en/01.md": {
+    "mtime": 1790775756.5917027,
+    "ast_hash": "a159fdcb156a417188f22a0883836eb0",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/en/02.md": {
+    "mtime": 1790775756.5996914,
+    "ast_hash": "7a7d535f9b31e4c36e594e079076813a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/en/03.md": {
+    "mtime": 1790775756.6161423,
+    "ast_hash": "e5805ae45cec271402e18f4dab33cf34",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/en/04.md": {
+    "mtime": 1790775756.6281123,
+    "ast_hash": "7aef97647dd13893e156fba29fcb1731",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/en/05.md": {
+    "mtime": 1790775756.6411152,
+    "ast_hash": "e0e079fe8cb913d72f48297778c60e59",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/en/06.md": {
+    "mtime": 1790775756.652629,
+    "ast_hash": "d30dc749541a6803d965d9e756fb06b7",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/en/07.md": {
+    "mtime": 1790775756.6646287,
+    "ast_hash": "6d8a2f3defa24b52dee05371585b4097",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/en/08.md": {
+    "mtime": 1790775756.6781974,
+    "ast_hash": "bd4e580b584647100fea856b6bb2e8fa",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/en/09.md": {
+    "mtime": 1790775756.6858866,
+    "ast_hash": "fe7e635ac42ecfe8c30d2bfee15db622",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/es/01.md": {
+    "mtime": 1790775756.6958866,
+    "ast_hash": "52f23ccc8af8ae514f746f3fbd2ae37d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/es/02.md": {
+    "mtime": 1790776684.5752382,
+    "ast_hash": "d969aaf8fff7875de72e3bc614363f4e",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/es/03.md": {
+    "mtime": 1790776684.5762374,
+    "ast_hash": "24143f4a0b02431d70719c23f92ad4e6",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/es/04.md": {
+    "mtime": 1790775756.7319078,
+    "ast_hash": "b66762790524c80bb59b9c8a0f0eff16",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/es/05.md": {
+    "mtime": 1790776684.5762374,
+    "ast_hash": "f5a5f487465080afe65cb1aab51e3729",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/es/06.md": {
+    "mtime": 1790776684.5777419,
+    "ast_hash": "368cc214e769993b40b0d19de349698e",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/es/07.md": {
+    "mtime": 1790776684.5777419,
+    "ast_hash": "52d4d22f9d68024b929c530d4c74eaec",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/es/08.md": {
+    "mtime": 1790776684.578747,
+    "ast_hash": "e0eb40d7d6c1070fc2f6d82a53d3ba30",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/es/09.md": {
+    "mtime": 1790776684.578747,
+    "ast_hash": "f01b2ce24ee2188dedd21cf7dc1d21ee",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/pt/01.md": {
+    "mtime": 1788280455.6910107,
+    "ast_hash": "d089593337b3c1822a5d744885625f61",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/pt/02.md": {
+    "mtime": 1790741690.2210245,
+    "ast_hash": "7c5e952ac992735d98b0e1676be76983",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/pt/03.md": {
+    "mtime": 1788381913.5256636,
+    "ast_hash": "4a127df9b0eb726b23fdd645645201f5",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/pt/04.md": {
+    "mtime": 1788217866.888888,
+    "ast_hash": "edf01c35d9f014bf4c32241efd3ea5b8",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/pt/05.md": {
+    "mtime": 1788273147.8197103,
+    "ast_hash": "fdd33e183c0cfc5d239c2c22ca68dcc9",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/pt/06.md": {
+    "mtime": 1788381913.5675457,
+    "ast_hash": "12129a58533de8f785b234c484e8a5b3",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/pt/07.md": {
+    "mtime": 1788280519.051301,
+    "ast_hash": "f18777698a82df2e5ba33ccac8eee424",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/pt/08.md": {
+    "mtime": 1790741690.2546337,
+    "ast_hash": "4c20d4038dcde4d7bd41634fe7821e3c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/05/pt/09.md": {
+    "mtime": 1788280028.4583857,
+    "ast_hash": "fa6cdcd2dc6d9cc5b92b97513fef6d33",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/en/01.md": {
+    "mtime": 1790775878.5662763,
+    "ast_hash": "6ed17d10a5d43dbb4c2d1dc042dc86c8",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/en/02.md": {
+    "mtime": 1790775879.60185,
+    "ast_hash": "0c6263d90f79adebc7f9375a1551ce58",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/en/03.md": {
+    "mtime": 1790775880.650196,
+    "ast_hash": "32e8afa91eab3a843ce9916fae5c8c34",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/en/04.md": {
+    "mtime": 1790775881.695032,
+    "ast_hash": "ee8538da699db4164f0569c847e7bf94",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/en/05.md": {
+    "mtime": 1790775882.7354517,
+    "ast_hash": "574807ef20686f1f7c4c3113bdb8473c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/en/06.md": {
+    "mtime": 1790775883.7803113,
+    "ast_hash": "a776506a6e093249cf2a3cfe9c1e5178",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/en/07.md": {
+    "mtime": 1790775884.8111353,
+    "ast_hash": "0f3a62b3b9a7c5ad9d9d3343be476cc4",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/en/08.md": {
+    "mtime": 1790775885.844828,
+    "ast_hash": "6d7038e9d548da999b45b3edd67667a6",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/en/09.md": {
+    "mtime": 1790775886.8747077,
+    "ast_hash": "a3edc88f89a51be739d6f7cc2050435b",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/en/10.md": {
+    "mtime": 1790775887.9275928,
+    "ast_hash": "c1feee494e2c8120248218721396567c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/en/11.md": {
+    "mtime": 1790775888.9629896,
+    "ast_hash": "f08fb0042c76a6d69d70e5abe1cfb999",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/es/01.md": {
     "mtime": 1790775994.0003679,
     "ast_hash": "eab77b758f65aa4d1ce52e2d06d7614e",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/06/02.md": {
+  "src/data/historias/contos/06/es/02.md": {
     "mtime": 1790775995.0604737,
     "ast_hash": "6849dd74b70219f7c473cef68f49850a",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/06/03.md": {
+  "src/data/historias/contos/06/es/03.md": {
     "mtime": 1790776618.8735216,
     "ast_hash": "a030e03f4b88eada7b7fb3932699fc9c",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/06/04.md": {
+  "src/data/historias/contos/06/es/04.md": {
     "mtime": 1790776618.9086237,
     "ast_hash": "13397aae3d7d589108f230402dea8068",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/06/05.md": {
+  "src/data/historias/contos/06/es/05.md": {
     "mtime": 1790775998.1923726,
     "ast_hash": "3355a8e13e4f25bf7e662edb14a89ad6",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/06/06.md": {
+  "src/data/historias/contos/06/es/06.md": {
     "mtime": 1790775999.2547162,
     "ast_hash": "018674c87897862261803035b2021a1a",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/06/07.md": {
+  "src/data/historias/contos/06/es/07.md": {
     "mtime": 1790776618.941704,
     "ast_hash": "3c0d4a86368ea00fbe88257edc08e185",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/06/08.md": {
+  "src/data/historias/contos/06/es/08.md": {
     "mtime": 1790776625.599228,
     "ast_hash": "2c577db76ad2f7091d2e4b61783092bd",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/06/09.md": {
+  "src/data/historias/contos/06/es/09.md": {
     "mtime": 1790776618.9527142,
     "ast_hash": "a8bd1919cebd12bdff14c954ffc7c5be",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/06/10.md": {
+  "src/data/historias/contos/06/es/10.md": {
     "mtime": 1790776003.4094596,
     "ast_hash": "0bf94f0e59b2cbf87451950503b3b524",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/06/11.md": {
+  "src/data/historias/contos/06/es/11.md": {
     "mtime": 1790776619.0118065,
     "ast_hash": "3a5564c548f721d1aee284a6d5717f9a",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/01.md": {
+  "src/data/historias/contos/06/pt/01.md": {
+    "mtime": 1790707609.7808585,
+    "ast_hash": "e4879549b0d7b17a83aac57209c0abfe",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/pt/02.md": {
+    "mtime": 1790707609.781867,
+    "ast_hash": "65d0e4c973356e25e3abbe42db9fbe6b",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/pt/03.md": {
+    "mtime": 1790707609.781867,
+    "ast_hash": "491055a1b8adc4fdcd4af3858f65808b",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/pt/04.md": {
+    "mtime": 1790711841.0153909,
+    "ast_hash": "1a04d2b5d3d29fd0634321bba1c23839",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/pt/05.md": {
+    "mtime": 1790712333.8362448,
+    "ast_hash": "539732a5d6e601a8d83c16e4c3832ea6",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/pt/06.md": {
+    "mtime": 1790741679.9673967,
+    "ast_hash": "9f36e561fa8b9359ded52ef59bbd6879",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/pt/07.md": {
+    "mtime": 1790707609.7848582,
+    "ast_hash": "bae053d116172b02463d6a2689af2ae5",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/pt/08.md": {
+    "mtime": 1790707609.7848582,
+    "ast_hash": "6d9251c17e79579ab079a390c670941f",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/pt/09.md": {
+    "mtime": 1790712436.3691459,
+    "ast_hash": "c5f46f4a9c349ca5cc9213c019665b95",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/pt/10.md": {
+    "mtime": 1790707609.7858582,
+    "ast_hash": "eb7e481ee713982f6498885c7a72f2f3",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/06/pt/11.md": {
+    "mtime": 1790741679.9954746,
+    "ast_hash": "7e02de8bc4b9ac0d81fe3dc1c12908ac",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/01.md": {
+    "mtime": 1790775994.543756,
+    "ast_hash": "100bc25228e8fa848082f80755da47ca",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/02.md": {
+    "mtime": 1790775995.572218,
+    "ast_hash": "a313c6163578c0f3653e01c9f3be0ef4",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/03.md": {
+    "mtime": 1790775996.608543,
+    "ast_hash": "624ef7abc46f808fd2eed419d1b0abac",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/04.md": {
+    "mtime": 1790775997.643498,
+    "ast_hash": "15ba12785517d6b1718bc4b5d1a799de",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/05.md": {
+    "mtime": 1790775998.687791,
+    "ast_hash": "78704b51d59d97797e78f69cf0d5957c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/06.md": {
+    "mtime": 1790775999.7261734,
+    "ast_hash": "537e5d0acee1368c13ffc4908d7c653d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/07.md": {
+    "mtime": 1790776000.7702558,
+    "ast_hash": "9fc22af903e0e9cf92a80ce2e8787cb4",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/08.md": {
+    "mtime": 1790776001.8112342,
+    "ast_hash": "0c8b3f7d9b9f7d2b21ebb2e9e32ec040",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/09.md": {
+    "mtime": 1790776002.857382,
+    "ast_hash": "5e808a1c463f3d068edee86ed47aee6c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/10.md": {
+    "mtime": 1790776003.892227,
+    "ast_hash": "14285171162c27c0c23869e041efa3fb",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/11.md": {
+    "mtime": 1790776004.9328725,
+    "ast_hash": "7038261ed01e321dda5b55ea11fac433",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/12.md": {
+    "mtime": 1790776005.9622722,
+    "ast_hash": "2065f5aa592d6ad65e18532c94913a90",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/13.md": {
+    "mtime": 1790776006.9929566,
+    "ast_hash": "b2c46a9b65ca6a638a6ded306ee36baa",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/en/14.md": {
+    "mtime": 1790776008.0319579,
+    "ast_hash": "39dd2cd94b7c6157913465a7d7b2e555",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/es/01.md": {
     "mtime": 1790776238.0446534,
     "ast_hash": "b03b6fd78823fba28b89e8414b4ef2fd",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/02.md": {
+  "src/data/historias/contos/07/es/02.md": {
     "mtime": 1790776238.0456536,
     "ast_hash": "f43e55b2716dc8509a43827db34eb69a",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/03.md": {
+  "src/data/historias/contos/07/es/03.md": {
     "mtime": 1790776238.04718,
     "ast_hash": "b516f503c9b43d76e06215f79a255b82",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/04.md": {
+  "src/data/historias/contos/07/es/04.md": {
     "mtime": 1790776246.0648177,
     "ast_hash": "8ba5d836c5add42a1b4ce08d4719e719",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/05.md": {
+  "src/data/historias/contos/07/es/05.md": {
     "mtime": 1790776238.068142,
     "ast_hash": "ded5120a6d968b76bf080f47a0e6bdd3",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/06.md": {
+  "src/data/historias/contos/07/es/06.md": {
     "mtime": 1790776238.070142,
     "ast_hash": "497cd84310871c16c634eb3f8c07b32a",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/07.md": {
+  "src/data/historias/contos/07/es/07.md": {
     "mtime": 1790776246.099193,
     "ast_hash": "36925305751096315b251c26e45b3850",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/08.md": {
+  "src/data/historias/contos/07/es/08.md": {
     "mtime": 1790776238.0866873,
     "ast_hash": "9e79f57c02ac9fca22f70fdb2d19f41f",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/09.md": {
+  "src/data/historias/contos/07/es/09.md": {
     "mtime": 1790776619.0440195,
     "ast_hash": "2132608b20f7cf6c6339868f0e255610",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/10.md": {
+  "src/data/historias/contos/07/es/10.md": {
     "mtime": 1790776619.104263,
     "ast_hash": "d8eefd354026b027f01c1062afde1eea",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/11.md": {
+  "src/data/historias/contos/07/es/11.md": {
     "mtime": 1790776619.139733,
     "ast_hash": "1dc85b00cf4075e88a2495a14443150a",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/12.md": {
+  "src/data/historias/contos/07/es/12.md": {
     "mtime": 1790776238.0937674,
     "ast_hash": "636c0e8e104923a0fa3d297b7aad0e84",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/13.md": {
+  "src/data/historias/contos/07/es/13.md": {
     "mtime": 1790776619.074264,
     "ast_hash": "b4f4a365174b00c9d82200946ac3718c",
     "semantic_hash": ""
   },
-  "src/data/livro/contos/es/07/14.md": {
+  "src/data/historias/contos/07/es/14.md": {
     "mtime": 1790776238.096767,
     "ast_hash": "24c28a5ab88699c3a4c4721513c67e07",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/01.md": {
+    "mtime": 1790733401.32987,
+    "ast_hash": "416b5906924081fae10f38495e147286",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/02.md": {
+    "mtime": 1790733401.3308697,
+    "ast_hash": "f8ed5d0d2900ad1263ce05bdeb0ed10d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/03.md": {
+    "mtime": 1790772788.0778222,
+    "ast_hash": "0b12a90190125b35cb454485ca695a04",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/04.md": {
+    "mtime": 1790772786.1157002,
+    "ast_hash": "fc105a2a435dc10355f3570d7bd68570",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/05.md": {
+    "mtime": 1790772835.2356024,
+    "ast_hash": "bbd15c96affac5f822c3222c3894346d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/06.md": {
+    "mtime": 1790773116.72084,
+    "ast_hash": "112597a6703619f79db4cc80dfe0dd45",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/07.md": {
+    "mtime": 1790729460.7135785,
+    "ast_hash": "ddfc258af2c116c140cd55afcba06906",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/08.md": {
+    "mtime": 1790724347.8440166,
+    "ast_hash": "b415d7d77bb98a2e831149f71a08074f",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/09.md": {
+    "mtime": 1790741694.7294588,
+    "ast_hash": "f98e124567926b0809df9225b5fde2b2",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/10.md": {
+    "mtime": 1790741694.7690892,
+    "ast_hash": "92986cd51a922a3bff93d5473afa63d8",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/11.md": {
+    "mtime": 1790733387.3505752,
+    "ast_hash": "0dd7b23e2803f7a0be01909796913e7c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/12.md": {
+    "mtime": 1790727106.8221495,
+    "ast_hash": "aac64932506e880bcc83c91adfb6f173",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/13.md": {
+    "mtime": 1790728558.5463,
+    "ast_hash": "b0afc32e7153de8ace8e78bde00539f8",
+    "semantic_hash": ""
+  },
+  "src/data/historias/contos/07/pt/14.md": {
+    "mtime": 1790733387.4251666,
+    "ast_hash": "72ec34d17b5c76aa6b69a35f9ea2df39",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-01.md": {
+    "mtime": 1781550130.7496738,
+    "ast_hash": "eed2758251d908b5b4814633fc392f01",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-02.md": {
+    "mtime": 1781556077.1978457,
+    "ast_hash": "6bd8e4ec5d153c26a53e4f3da5071d30",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-03.md": {
+    "mtime": 1781557265.1893184,
+    "ast_hash": "4918f472c3bcf75028eb412bc94d2437",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-04.md": {
+    "mtime": 1781475570.082683,
+    "ast_hash": "9c59734e971b26fd6cc977f45f231eb6",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-05.md": {
+    "mtime": 1781473134.8863895,
+    "ast_hash": "bbc5c31c1dab5d95ef92740b514eb54a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-06.md": {
+    "mtime": 1781475816.6691704,
+    "ast_hash": "108acd8e7918b54a3935109238567c48",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-01.md": {
+    "mtime": 1790776816.2422192,
+    "ast_hash": "5d4eaba7786c18c3b99f48e34b84d0c2",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-02.md": {
+    "mtime": 1790776816.244224,
+    "ast_hash": "dc4378ea575cd8529b8bdd7482eb6fc6",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-03.md": {
+    "mtime": 1781557265.1903179,
+    "ast_hash": "89b79d83d0c32c6ab8f197636378307e",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-04.md": {
+    "mtime": 1781475591.9139893,
+    "ast_hash": "19222264e8a67f119dac98b39b4c2a97",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-05.md": {
+    "mtime": 1781473399.5838206,
+    "ast_hash": "c1d2362cdc676ee509031025c76bd294",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-06.md": {
+    "mtime": 1790776816.2502215,
+    "ast_hash": "9bf66a741934ddb6c44d27e9e23619d2",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-01.md": {
+    "mtime": 1781550130.7516751,
+    "ast_hash": "7f9658296cba139251026d21ea738b2b",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-02.md": {
+    "mtime": 1781556077.19384,
+    "ast_hash": "4853633056fc6079ebed830f79a0314a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-03.md": {
+    "mtime": 1789854984.4964871,
+    "ast_hash": "469bf06b13c37004b709b792cf384391",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-04.md": {
+    "mtime": 1781473465.5439782,
+    "ast_hash": "2f0924a3a0ae0e440f6a360402354f19",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-05.md": {
+    "mtime": 1781472479.2001493,
+    "ast_hash": "220bb1395a964e938eb90d52f4ace213",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-06.md": {
+    "mtime": 1781475474.594931,
+    "ast_hash": "bd5e048e12a1c1b2724c40fc63463a55",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-07.md": {
+    "mtime": 1780349835.7780793,
+    "ast_hash": "26722eb2da0f710d9e78f7314ce9ff6e",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-08.md": {
+    "mtime": 1780349835.7798781,
+    "ast_hash": "0715cde1377c249c09d205277dc4deba",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-09.md": {
+    "mtime": 1780349835.7828944,
+    "ast_hash": "c2a97128080ade95b51725966098c9e4",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-10.md": {
+    "mtime": 1780349835.786845,
+    "ast_hash": "c0eff2b21b986728b29d5d2750ae24c3",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-11.md": {
+    "mtime": 1780349835.7879167,
+    "ast_hash": "c1781bf500fa97145bcd007df450cf4d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-12.md": {
+    "mtime": 1780349835.789818,
+    "ast_hash": "7d452787fb366bd5ee11767b19d69a79",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-13.md": {
+    "mtime": 1780349835.794837,
+    "ast_hash": "3c193b0123dfdf21c3dddeebd8ce069d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-14.md": {
+    "mtime": 1780349835.7978485,
+    "ast_hash": "f0f7e22c710d74215e3937a88b6d1ee5",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-15.md": {
+    "mtime": 1780349835.799853,
+    "ast_hash": "ec60ba2a508082bfdc787e5ff883cc5d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-16.md": {
+    "mtime": 1780349835.804064,
+    "ast_hash": "bb87a4ce15924c73eb3eee8a58b91148",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mar-de-cinzas/pt/00.md": {
+    "mtime": 1788393601.6766486,
+    "ast_hash": "a102461d37b8ce0f4dce392ea03298d6",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mar-de-cinzas/pt/01.md": {
+    "mtime": 1788393601.6776366,
+    "ast_hash": "3d76842343e6efa83584d5c84369d4f5",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mar-de-cinzas/pt/02.md": {
+    "mtime": 1788381285.761325,
+    "ast_hash": "c57b5cd1c5309139a3a3d2466563b35d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mar-de-cinzas/pt/03.md": {
+    "mtime": 1788393601.6643727,
+    "ast_hash": "bdd47975eb8ca8a2955e7afb32452c45",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/en/01.md": {
+    "mtime": 1788380554.0093663,
+    "ast_hash": "8de46f8b7375e8d511cba465a586c2c5",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/en/02.md": {
+    "mtime": 1788380554.0417056,
+    "ast_hash": "55b1ef824968dd8335dd3266b3603d41",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/en/03.md": {
+    "mtime": 1788380554.0766125,
+    "ast_hash": "a2a3836009287bf1d21c9350faf118b8",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/en/04.md": {
+    "mtime": 1788380554.1063204,
+    "ast_hash": "e86bfcbccb197f230bcdac6f89414bbb",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/en/05.md": {
+    "mtime": 1788380554.1376455,
+    "ast_hash": "c46e2896eb12ae1bb3b5b2728af92335",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/en/06.md": {
+    "mtime": 1788380554.1761622,
+    "ast_hash": "ba8e09f63dea9769bd3430ae9219305d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/es/01.md": {
+    "mtime": 1788380554.2221894,
+    "ast_hash": "f081f8b4a9205e1f38a75d85faed1aec",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/es/02.md": {
+    "mtime": 1788380554.2544765,
+    "ast_hash": "5bb2c8e6a3bbe80b1af8c95e74a2dd6d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/es/03.md": {
+    "mtime": 1788380554.2934737,
+    "ast_hash": "3233c99ec070166840bf4fc63a91251a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/es/04.md": {
+    "mtime": 1788380554.3213723,
+    "ast_hash": "bb3f96b956824c27876bf799eaf463d1",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/es/05.md": {
+    "mtime": 1788380554.35538,
+    "ast_hash": "2d5798ea3620910942e39fbcc36bee51",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/es/06.md": {
+    "mtime": 1788380554.395758,
+    "ast_hash": "418fd7cf7028be0bfd1a1073b9704b55",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/pt/01.md": {
+    "mtime": 1788380553.9619758,
+    "ast_hash": "2cffaee89fb59a49f8414f116ccee4d0",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/pt/02.md": {
+    "mtime": 1788380553.9641252,
+    "ast_hash": "d2658c82bfd2f147301db9b1c9e0602f",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/pt/03.md": {
+    "mtime": 1788380553.9663193,
+    "ast_hash": "f5514cd59ea79024b73126d20ebe4c65",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/pt/04.md": {
+    "mtime": 1788380553.9683073,
+    "ast_hash": "60a9d5b380d97fc854bca2948a4efb45",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/pt/05.md": {
+    "mtime": 1788380553.9703069,
+    "ast_hash": "0f8955331f9aa8b76038e6d0759d639d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/obras/mundo-das-sombras/pt/06.md": {
+    "mtime": 1788380553.9723065,
+    "ast_hash": "fe87209291fd5e174d839692fbd85376",
     "semantic_hash": ""
   }
 }

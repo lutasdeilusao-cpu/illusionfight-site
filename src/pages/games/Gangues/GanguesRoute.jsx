@@ -15,6 +15,7 @@ import GanguesStoryMap from './screens/GanguesStoryMap'
 import GanguesTerritorio from './screens/GanguesTerritorio'
 import GanguesCena from './screens/GanguesCena'
 import GanguesFarmAusente from './components/cena/GanguesFarmAusente'
+import useGanguesManterVivo from './hooks/useGanguesManterVivo'
 import GanguesAlbum from './screens/GanguesAlbum'
 import GanguesBatalha from './screens/GanguesBatalha'
 import GanguesClube from './clube/GanguesClube'
@@ -49,6 +50,8 @@ export default function GanguesRoute() {
   // comentário grande em TutorialProgressContext.jsx).
   const { definirSaveAtivo } = useTutorialProgress()
   useEffect(() => { definirSaveAtivo(store._saveId) }, [store._saveId, definirSaveAtivo])
+  // App no fundo com automático ligado: o jogo segue rodando (ver o hook).
+  useGanguesManterVivo()
   const [fase, setFase] = useState('lobby')
   // De onde a Coleção foi aberta (lobby OU território) — pra o "← Voltar" dela
   // devolver o jogador exatamente onde estava, e não sempre pro lobby.
