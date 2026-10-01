@@ -81,6 +81,7 @@ const LDINotification = lazyWithReload(() => import('./components/LDINotificatio
 const RadioNina = lazyWithReload(() => import('./components/RadioNina/RadioNina'))
 const UnifiedNotification = lazyWithReload(() => import('./components/UnifiedNotification/UnifiedNotification'))
 import { trackPageView } from './lib/analytics'
+import { AfinidadeTracker } from './components/Recomendacoes/Recomendacoes'
 import './pages/games/Duelo/version' // side-effect: console.log version
 
 function LegacyLivroRedirect({ to }) {
@@ -137,6 +138,7 @@ export default function App() {
   return (
     <>
       <AnalyticsPageView />
+      <AfinidadeTracker />
       <DebugLogTracker />
       <AnalyticsTracker />
       <ScrollToTopOnNav />

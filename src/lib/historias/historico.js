@@ -39,6 +39,22 @@ export function registrarLeitura(historia, capId, ultimoDaHistoria) {
   gravar(h)
 }
 
+/** Junta o histórico que veio da conta (outro aparelho) com o daqui:
+ *  capítulos lidos somam, vale o "último" mais recente. */
+export function mesclarHistorico(remoto = {}) {
+  const h = lerHistorico()
+  let mudou = false
+  for (const [slug, r] of Object.entries(remoto)) {
+    const e = h[slug]
+    if (!e) { h[slug] = r; mudou = true; continue }
+    const lidos = [...new Set([...(e.lidos || []), ...(r.lidos || [])])]
+    const recente = (r.ts || 0) > (e.ts || 0) ? r : e
+    const novo = { ...recente, lidos, terminou: e.terminou || r.terminou }
+    if (JSON.stringify(novo) !== JSON.stringify(e)) { h[slug] = novo; mudou = true }
+  }
+  if (mudou) gravar(h)
+}
+
 /** Avisa quando o histórico muda (outra aba, outra tela). */
 export function aoMudarHistorico(fn) {
   const cb = () => fn(lerHistorico())

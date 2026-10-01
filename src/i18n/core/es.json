@@ -565,7 +565,7 @@
       "motivo_personagem": "Más {nome} para ti",
       "motivo_tema": "También habla de {tema}",
       "pra_voce_eyebrow": "Para ti",
-      "pra_voce": "Elegido para ti",
+      "pra_voce": "Recomendados para ti",
       "continuar": "Sigue donde lo dejaste",
       "porque_leu": "Porque leíste {nome}",
       "novidades": "Recién salido",
@@ -615,7 +615,14 @@
           "titulo": "Escucha Radio Nina",
           "sub": "La banda sonora del universo, sin parar."
         }
-      }
+      },
+      "comece": "Empieza por aquí",
+      "motivo_favorito": "Siempre vuelves aquí",
+      "motivo_cat_jogos": "Porque te gusta jugar",
+      "motivo_cat_historias": "Porque te gusta leer",
+      "motivo_cat_webshard": "Porque lees WEB SHARD",
+      "motivo_cat_musica": "Porque escuchas Radio Nina",
+      "motivo_popular": "Lo más visto del portal"
     },
     "musicas": {
       "meta_title": "Música — Illusion Fight",

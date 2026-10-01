@@ -13,6 +13,7 @@
    mesmo universo 1 · mesmo peso 0,5. História já terminada não volta;
    começada vai pra "continuar", não pra recomendação. */
 import { listarHistorias } from './catalogo'
+import { forca, CATEGORIA } from '../recomendacao/afinidade'
 
 const PERSONAGENS = {
   'lutas-de-ilusao': ['kim', 'jack', 'nina', 'helena', 'alan'],
@@ -142,4 +143,66 @@ export function praVoce({ historico = {}, disponivel = () => true, capLiberado =
   novidades.sort((a, b) => b.data.localeCompare(a.data))
 
   return { continuar, porque, novidades: novidades.slice(0, 8) }
+}
+
+/* ── "RECOMENDADOS PRA VOCÊ" (Isaias, 01/10/2026: "estilo Netflix... tem que
+   ter algoritmo... as primeiras são recomendações quase certas, depois outras
+   mais genéricas"). Pontua TUDO do portal (jogos, histórias, WEB SHARD,
+   Rádio Nina) a partir do placar de uso (lib/recomendacao/afinidade.js):
+   • favorito     — 3 × a força do próprio item (o que a pessoa mais usa volta
+                    primeiro; história terminada não volta). O rótulo "você
+                    sempre volta aqui" só com força ≥ 1,5 (uso de verdade);
+   • categoria    — 1,2 × a força somada da categoria (quem joga muito vê jogo);
+   • porque leu   — força da história lida × a pontuação da ligação (personagem,
+                    tema, curadoria) — e os jogos/rádio que conversam com ela;
+   • novidade     — +2 em capítulo que saiu nos últimos 14 dias;
+   • popular      — um piso pequeno igual pra todo mundo, que ordena a vitrine
+                    de quem ainda não usou nada ("Comece por aqui").
+   O motivo que aparece no cartão é a parcela que mais pesou. */
+
+const POPULAR = { gangues: 1, 'historia:lutas-de-ilusao': 0.95, webshard: 0.85, 'historia:07': 0.7, trunfo: 0.6, radio: 0.5 }
+
+export function recomendadosPraVoce({ afinidade = { itens: {} }, historico = {}, disponivel = () => true, capLiberado = () => true, excluir = [], n = 10, agora = Date.now() }) {
+  const itens = afinidade.itens || {}
+  const f = k => forca(itens[k], agora)
+  const cat = {}
+  for (const k of Object.keys(itens)) cat[CATEGORIA(k)] = (cat[CATEGORIA(k)] || 0) + f(k)
+  const usou = Object.values(cat).some(v => v > 0.05)
+  const todas = listarHistorias()
+  const lidas = todas.filter(h => f(`historia:${h.slug}`) > 0 || historico[h.slug])
+  const hoje = new Date(agora).toISOString().slice(0, 10)
+  const corte = new Date(agora - 14 * 864e5).toISOString().slice(0, 10)
+
+  const candidatos = []
+  const somar = (c, pts, motivo) => { c.pontos += pts; if (pts > c.melhor) { c.melhor = pts; c.motivo = motivo } }
+
+  for (const extra of Object.values(EXTRAS_PORTAL)) {
+    const k = extra.chave
+    const c = { tipo: 'extra', chave: k, extra, pontos: 0, melhor: 0, motivo: { tipo: 'popular' } }
+    somar(c, 3 * f(k), f(k) >= 1.5 ? { tipo: 'favorito' } : { tipo: 'categoria', valor: CATEGORIA(k) })
+    somar(c, 1.2 * (cat[CATEGORIA(k)] || 0), { tipo: 'categoria', valor: CATEGORIA(k) })
+    for (const h of lidas) if ((EXTRAS[h.slug] || []).includes(k)) somar(c, 1.5 * Math.max(f(`historia:${h.slug}`), 0.5), { tipo: 'porque_leu', historia: h })
+    somar(c, 0.3 * (POPULAR[k] || 0), { tipo: 'popular' })
+    candidatos.push(c)
+  }
+
+  for (const h of todas) {
+    if (!disponivel(h) || historico[h.slug]?.terminou || excluir.includes(h.slug)) continue
+    const k = `historia:${h.slug}`
+    const c = { tipo: 'historia', historia: h, pontos: 0, melhor: 0, motivo: { tipo: 'popular' } }
+    somar(c, 3 * f(k), f(k) >= 1.5 ? { tipo: 'favorito' } : { tipo: 'categoria', valor: 'historias' })
+    somar(c, 1.2 * (cat.historias || 0) * 0.5, { tipo: 'categoria', valor: 'historias' })
+    for (const base of lidas) {
+      if (base.slug === h.slug) continue
+      const lig = pontuar(base, h) / 10
+      if (lig > 0) somar(c, lig * Math.max(f(`historia:${base.slug}`), 0.5) * 2, { tipo: 'porque_leu', historia: base })
+    }
+    const nova = h.capitulos.some(cp => cp.liberacao?.publico >= corte && cp.liberacao.publico <= hoje && capLiberado(h, cp) && !historico[h.slug]?.lidos?.includes(cp.id))
+    if (nova) somar(c, 2, { tipo: 'novo' })
+    somar(c, 0.3 * (POPULAR[k] || 0.2), { tipo: 'popular' })
+    candidatos.push(c)
+  }
+
+  const lista = candidatos.sort((a, b) => b.pontos - a.pontos).slice(0, n)
+  return { usou, lista }
 }

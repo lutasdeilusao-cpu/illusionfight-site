@@ -565,7 +565,7 @@
       "motivo_personagem": "More {nome} for you",
       "motivo_tema": "Also about {tema}",
       "pra_voce_eyebrow": "For you",
-      "pra_voce": "Picked for you",
+      "pra_voce": "Recommended for you",
       "continuar": "Pick up where you left off",
       "porque_leu": "Because you read {nome}",
       "novidades": "Just out",
@@ -615,7 +615,14 @@
           "titulo": "Listen to Nina Radio",
           "sub": "The soundtrack of the universe, nonstop."
         }
-      }
+      },
+      "comece": "Start here",
+      "motivo_favorito": "You keep coming back",
+      "motivo_cat_jogos": "Because you like to play",
+      "motivo_cat_historias": "Because you like to read",
+      "motivo_cat_webshard": "Because you read WEB SHARD",
+      "motivo_cat_musica": "Because you listen to Nina Radio",
+      "motivo_popular": "Most viewed on the portal"
     },
     "musicas": {
       "meta_title": "Music — Illusion Fight",
