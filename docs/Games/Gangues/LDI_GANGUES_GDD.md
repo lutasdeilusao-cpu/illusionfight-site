@@ -561,6 +561,24 @@ POIs: **A entrada costurada** (onde as três linhas do bonde do Retalho vigiam) 
 **A sala de costura** (onde Damião "organiza" os seis bairros como planilha) · **O
 topo da Laje** (o confronto final, vista de Marélia inteira embaixo).
 
+**Cena navegável (v3.87.0, 30/09/2026 — código em `data/cenas/laje/`).** O território
+mais longo e mais difícil (Isaias: "tem que ser épico, memorável"). Ponte: o recado da
+Laje nos fundos da birosca do Alto. **Revanches**: os 6 chefes antigos voltam UMA vez
+cada, sozinhos, já na ficha da Laje (Carvão 87, Cobrador 89, Fura-Bucho 91, Ferrugem 93,
+Zefa 94, Contador 98). Rua (a entrada costurada): Última Guarda 86 → Carvão → Fiapo 88 →
+Cobrador → Agulha 90 → Fura-Bucho → Linha Reta 92 (G). Sala de costura (6 salas em fila):
+Ferrugem → Zefa → Costura Fina 95 → Tesoura 96 (G) → Corte Certo 97 (G) → Contador. **O
+topo, sem descanso** (o dano passa de uma fase pra outra): fase 1 "A Costura" (o Retalho
++ Tesoura, Corte Certo e Costura Fina, bando de 4, ~85 cada) → fase 2 "A Colcha" (ele
+levanta diferente, + as três linhas do bonde e Conta Fechada, bando de 5) → fase 3 **O
+Retalho 100** (orçamento 250 × 0,40, escolta Tesoura/Corte Certo ~76). **Mecânica — as
+linhas do Retalho**: um contato dele em cada um dos 6 bairros de baixo (sala dos fundos
+da birosca, só depois do recado), cortado na porrada no nível 88; cada linha que sobrar
+dá +1 Porrada e +1 Couro no Retalho final (até +6/+6). Birosca (descanso 60, agiota
+Ponto da Laje com 1500 nos fundos), Alfaiataria (+9), loja (ainda o pesado da Vila),
+Rinha, Clube 86/170/265, AP ×1,5. Drop: Coroa da Laje (133). Próximo passo pedido pelo
+Isaias: reequilibrar os itens com exclusividade por bairro.
+
 Ponte entre regiões (mantida): a Feira só libera o chefe depois de o jogador
 voltar na Pista e falar com o informante **Duda, o Orelha** (3002).
 

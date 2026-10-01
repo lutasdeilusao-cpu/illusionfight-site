@@ -7,6 +7,7 @@
 // `birosca`, papo à parte que virou duplicata do próprio Descanso.)
 import { PISTA_POOL_RUA, PISTA_POOL_GALPAO } from './pools.js'
 import { GANGUES_REP_GATE_GALPAO } from '../../ganguesLoadout.js'
+import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
 
 export const POIS_PISTA = [
   {
@@ -428,4 +429,6 @@ export const POIS_PISTA = [
     i18n: 'games.gangues.cena.aval.aval_morro_pista',
     escolhas: [{ id: 'pagar', custoGrana: 600, informante: 'morro_pista' }],
   },
+  // A linha do Retalho neste bairro (Laje — ver data/cenas/laje/pois.js): corta na porrada.
+  poiLinha(LAJE_LINHAS.find(l => l.cena === 'pista')),
 ]

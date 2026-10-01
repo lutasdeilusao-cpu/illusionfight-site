@@ -34,7 +34,7 @@ export const INTERIORES_MORRO = {
         pois: [{ ref: 'birosca_morro', pos: { x: 74, y: 210 } }],
       }),
       passagem: portaFundos(460),
-    }, salaDosFundos(['fiado_da_zefa', 'informante_alto'])],
+    }, salaDosFundos(['fiado_da_zefa', 'informante_alto', { ref: 'linha_morro', precisaFlag: 'laje' }])],
   },
   oficina: {
     nome: 'games.gangues.cena.morro.int.oficina',

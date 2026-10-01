@@ -34,7 +34,7 @@ export const INTERIORES_ALTO = {
         pois: [{ ref: 'birosca_alto', pos: { x: 74, y: 210 } }],
       }),
       passagem: portaFundos(460),
-    }, salaDosFundos(['divida_do_alto'])],
+    }, salaDosFundos(['divida_do_alto', 'informante_laje', { ref: 'linha_alto', precisaFlag: 'laje' }])],
   },
   oficina: {
     nome: 'games.gangues.cena.alto.int.oficina',

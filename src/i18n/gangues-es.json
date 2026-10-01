@@ -424,6 +424,7 @@
           "epico": "Épico"
         },
         "itens": {
+          "133": "Corona de la Azotea",
           "135": "Bastón del Contador",
           "134": "Vara de la Fiera",
           "141": "Bate del Óxido",
@@ -4192,7 +4193,316 @@
         "fechar": "entendido, patrón"
       },
       "cena": {
+        "laje": {
+          "chegada": [
+            "Esta es la Azotea, hermano. La cima. De un lado, toda Marélia. Del otro, el Retazo.",
+            "Es el único que alguna vez controló seis barrios al mismo tiempo. Trata el crimen como una hoja de cálculo, y cada barrio es un hilo cosido en su mano.",
+            "Aquí arriba vas a encontrar gente que ya tumbaste. Subieron buscando revancha — y ahora pegan al nivel de la Azotea.",
+            "Y pon atención: mientras sus hilos sigan cosidos allá abajo, no va a caer fácil. Allá arriba nadie te ayuda. Sube con lo que trajiste."
+          ],
+          "aviso_informante": "Nadie en la Azotea te lleva con el Retazo todavía. En el Bar del Alto hay un recado para ti — escúchalo primero.",
+          "checklist_dica": "Cruza la entrada cosida, la sala de costura y sube a la cima. Y corta los hilos del Retazo en los barrios de abajo — cada uno que quede lo hace más fuerte.",
+          "checklist_passagem": "El camino está abierto. Sube a la cima de la Azotea y termina con esto.",
+          "pich": "BANDA DEL RETAZO",
+          "grafite": "ESTA MIERDA\nNO SE COSE",
+          "predio": {
+            "birosca": "Bar de la Azotea",
+            "oficina": "Sastrería de la Banda",
+            "loja": "Tienda de la Azotea",
+            "sala_costura": "La Sala de Costura",
+            "topo": "La Cima de la Azotea"
+          },
+          "int": {
+            "birosca": "Bar de la Azotea",
+            "oficina": "Sastrería de la Banda",
+            "loja": "Tienda de la Azotea",
+            "sala_costura": "La Sala de Costura",
+            "topo": "La Cima de la Azotea"
+          },
+          "fase_1_nome": "FASE 1 · LA COSTURA",
+          "fase_2_nome": "FASE 2 · LA COLCHA",
+          "fase_3_nome": "FASE 3 · EL RETAZO",
+          "linhas_titulo": "LOS HILOS DEL RETAZO",
+          "linhas_sobram": "{n} hilo(s) todavía cosido(s): +{n} de Trompada y Cuero para él",
+          "linhas_todas": "todos los hilos cortados",
+          "ultima_guarda": {
+            "nome": "Última Guardia",
+            "sub": "nada pasa sin ser visto",
+            "fala": [
+              "De aquí para arriba es la Azotea. Llegaste lejos para morir en la puerta.",
+              "El Retazo ya sabe que subiste. Él lo sabe todo."
+            ]
+          },
+          "revanche_carvao": {
+            "nome": "Carbón — la revancha",
+            "sub": "subió de la Pista detrás de ti",
+            "fala": [
+              "¿Te acuerdas de mí? Toda la Pista se rio de mí después de ese día.",
+              "Ahora estoy en la Azotea, mocoso. Y aquí no estoy solo."
+            ]
+          },
+          "fiapo": {
+            "nome": "Hilacha",
+            "sub": "el primer hilo de la banda",
+            "fala": [
+              "Primer hilo. Vas a tener que cortar tres.",
+              "La hilacha suelta es la que más lastima."
+            ]
+          },
+          "revanche_cobrador": {
+            "nome": "El Cobrador — la revancha",
+            "sub": "vino a cobrar la cuenta vieja",
+            "fala": [
+              "Me debes una, hermano. Toda la Feria vio cómo me tumbaste.",
+              "Hoy vine a cobrar con intereses."
+            ]
+          },
+          "agulha": {
+            "nome": "Aguja",
+            "sub": "el segundo hilo, de confianza en media Azotea",
+            "fala": [
+              "Fina, pero atraviesa cualquier cuero.",
+              "El Retazo me dio media Azotea para cuidar. No te llevas ni un palmo."
+            ]
+          },
+          "revanche_fura_bucho": {
+            "nome": "Perfora-Tripas — la revancha",
+            "sub": "esta vez bien despierto",
+            "fala": [
+              "Me agarraste con resaca en la Bajada. Hoy estoy sobrio.",
+              "El café ya me lo tomé. Ahora sigues tú."
+            ]
+          },
+          "linha_reta": {
+            "nome": "Línea Recta",
+            "sub": "el general más antiguo del Retazo",
+            "fala": [
+              "Ningún movimiento desperdiciado. Ninguno.",
+              "Pasa por mí y entras a la sala de costura. No vas a pasar."
+            ]
+          },
+          "revanche_ferrugem": {
+            "nome": "Óxido — la revancha",
+            "sub": "bajó de la azotea del Conjunto para esperarte",
+            "fala": [
+              "Subiste diez pisos para tumbarme. Aquí es un solo escalón.",
+              "Respeto el esfuerzo. No cambia nada."
+            ]
+          },
+          "revanche_zefa": {
+            "nome": "La Fiera — la revancha",
+            "sub": "Zefa vino a dar el castigo",
+            "fala": [
+              "Golpeaste a mis niños para llegar a mí. Ahora vas a conocer la Azotea.",
+              "Siéntate. Tu castigo empezó allá abajo y termina aquí."
+            ]
+          },
+          "costura_fina": {
+            "nome": "Costura Fina",
+            "sub": "pocos golpes, todos certeros",
+            "fala": [
+              "Una puntada a la vez. Así sostiene el Retazo la ciudad.",
+              "Tú eres solo otra puntada suelta."
+            ]
+          },
+          "tesoura": {
+            "nome": "Tijera",
+            "sub": "manda en la Azotea en nombre del Retazo",
+            "fala": [
+              "Aquí el que corta soy yo. Tú eres tela.",
+              "Seis barrios pasaron por esta sala. Ninguno salió entero."
+            ]
+          },
+          "corte_certo": {
+            "nome": "Corte Certero",
+            "sub": "mano derecha de la Tijera, nunca falla el corte final",
+            "fala": [
+              "La Tijera abre. Yo cierro.",
+              "El último corte siempre es mío."
+            ]
+          },
+          "revanche_contador": {
+            "nome": "El Contador — la revancha",
+            "sub": "esta vez sin juegos",
+            "fala": [
+              "En el Alto jugué contigo. Aquí la cuenta es seria.",
+              "Haz la cuenta, hermano: estás solo en el último escalón."
+            ]
+          },
+          "fase_costura": {
+            "nome": "El Retazo · La Costura",
+            "sub": "él y sus tijeras",
+            "fala": [
+              "Seis barrios en la mano, ¿y creíste que ibas a subir sin que te viera?",
+              "Tijera, Corte Certero. Cosan a este al suelo."
+            ]
+          },
+          "fase_colcha": {
+            "nome": "El Retazo · La Colcha",
+            "sub": "se levantó distinto",
+            "fala": [
+              "Rompiste la costura. Ahora vas a ver la colcha entera.",
+              "Cada hilo de esta banda soy yo. Ven."
+            ]
+          },
+          "mirante": {
+            "nome": "El mirador",
+            "sub": "toda Marélia allá abajo",
+            "fala": [
+              "Desde aquí se ve la Pista. Parece pequeña. Ahí empezaste.",
+              "La Feria se enciende primero. Después la Bajada, del otro lado del tren.",
+              "El Cerro nunca se apaga. Ni cuando se va la luz.",
+              "Seis barrios. Cada uno con su dueño, su regla, su precio.",
+              "Dicen que algún día va a haber un muchacho que sostenga todo esto. Todavía no es su momento."
+            ],
+            "escolhas": {
+              "olhar": {
+                "label": "Mira y sigue"
+              }
+            }
+          },
+          "rinha_laje_topo": {
+            "nome": "Pelea de la Cima",
+            "sub": "pelea sin fin en el techo de Marélia",
+            "fala": [
+              "La ronda más alta de la ciudad. El que cae de aquí cae lejos.",
+              "Termina una, entra otro, al azar. Puedes dejar a la tropa aquí — 1 pelea cada 5 minutos."
+            ]
+          },
+          "birosca_laje": {
+            "nome": "Bar de la Azotea",
+            "sub": "el último trago antes de la cima",
+            "intro": "El último bar antes del Retazo. Allá arriba nadie te remienda — aprovecha aquí. Cuesta un poco de dinero."
+          },
+          "ponto_da_laje": {
+            "nome": "Punto de la Azotea",
+            "sub": "el último punto de venta de la cima",
+            "fala": [
+              "¿Dinero? Aquí arriba todo es del Retazo. Hasta el fiado.",
+              "1500 en la mano ya. La cuenta... la cuenta se cose a tu nombre."
+            ],
+            "botao_ver_contrato": "Quiero los 1500",
+            "contrato_tag": "Contrato · cosido",
+            "contrato_corpo": "\"1500 en la mano, ya. ¿Aceptas o no?\"",
+            "contrato_letra_miuda": "Letra chica del contrato: quedas debiendo {divida}.",
+            "contrato_aceitar": "Acepto",
+            "contrato_recusar": "No acepto"
+          },
+          "loja_laje": {
+            "nome": "Tienda de la Azotea",
+            "sub": "lo que sobró de la costura"
+          },
+          "alfaiataria": {
+            "nome": "Sastrería de la Banda",
+            "fala": "Aquí cosemos hasta el hierro. Trae la pieza y chatarra y la dejo a punto — hasta +9."
+          },
+          "planilha": {
+            "nome": "La hoja de cálculo del Retazo",
+            "sub": "seis barrios como columnas",
+            "linha": "Una hoja impresa: seis columnas, un barrio en cada una, nombre y número de todos. Al pie, con la letra del Retazo: \"no cuadra\". Detrás, algo de dinero y un frasco de jarabe."
+          },
+          "linhas": {
+            "linha_pista": {
+              "nome": "El hilo del Retazo en la Pista",
+              "sub": "Retazo Suelto, escondido en la trastienda",
+              "fala": [
+                "El Retazo sostiene la Pista a través de mí. Soy su hilo aquí abajo.",
+                "Córtalo, si puedes. Si no, allá arriba él se hace más fuerte."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta el hilo (a golpes)",
+                  "resultado": "\"¿Así que eres tú el que sube a la Azotea? Ven a cortarlo, si tienes tijera para eso.\""
+                }
+              }
+            },
+            "linha_feira": {
+              "nome": "El hilo del Retazo en la Feria",
+              "sub": "Hilo Cortado, entre las cuentas de Interés Alto",
+              "fala": [
+                "Cada puesto de la Feria le paga un hilo al Retazo. Yo soy el carrete.",
+                "Tú cortas un hilo, él cose dos."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta el hilo (a golpes)",
+                  "resultado": "\"¿Así que eres tú el que sube a la Azotea? Ven a cortarlo, si tienes tijera para eso.\""
+                }
+              }
+            },
+            "linha_baixada": {
+              "nome": "El hilo del Retazo en la Bajada",
+              "sub": "Costura Fina, del otro lado del tren",
+              "fala": [
+                "Los tres pedazos de la Sombra le responden a él. Por mi mano.",
+                "Ven a cortarlo. El tren no espera y yo tampoco."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta el hilo (a golpes)",
+                  "resultado": "\"¿Así que eres tú el que sube a la Azotea? Ven a cortarlo, si tienes tijera para eso.\""
+                }
+              }
+            },
+            "linha_vila": {
+              "nome": "El hilo del Retazo en el Conjunto",
+              "sub": "Cuenta Cerrada, en la planta baja",
+              "fala": [
+                "La Banda de los Bloques está resentida, pero paga. Yo cobro.",
+                "Corta este hilo y el Óxido deja de mandar su parte para arriba."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta el hilo (a golpes)",
+                  "resultado": "\"¿Así que eres tú el que sube a la Azotea? Ven a cortarlo, si tienes tijera para eso.\""
+                }
+              }
+            },
+            "linha_morro": {
+              "nome": "El hilo del Retazo en el Cerro",
+              "sub": "Hilacha, la que Zefa nunca aceptó",
+              "fala": [
+                "Zefa nunca se arrodilló. Pero el Cerro paga igual — por mí.",
+                "Negociaste la escalinata. Conmigo no hay trato."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta el hilo (a golpes)",
+                  "resultado": "\"¿Así que eres tú el que sube a la Azotea? Ven a cortarlo, si tienes tijera para eso.\""
+                }
+              }
+            },
+            "linha_alto": {
+              "nome": "El hilo del Retazo en el Alto",
+              "sub": "Aguja, en el cuaderno del Contador",
+              "fala": [
+                "El Retazo absorbió a los Cinco. Yo soy el hilo que quedó.",
+                "Córtalo. O te espera allá arriba con todo el Alto a la espalda."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta el hilo (a golpes)",
+                  "resultado": "\"¿Así que eres tú el que sube a la Azotea? Ven a cortarlo, si tienes tijera para eso.\""
+                }
+              }
+            }
+          }
+        },
         "alto": {
+          "informante_laje": {
+            "nome": "El recado de la Azotea",
+            "sub": "una hilacha de la banda del Retazo",
+            "fala": [
+              "El Retazo manda decir: quien tumbó al Contador puede subir a la Azotea.",
+              "Pero sostiene cada barrio de abajo con un hilo. Mientras siga cosido, no va a caer."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Recibe el recado",
+                "resultado": "La hilacha desaparece por la escalera. Ahora los hilos del Retazo aparecen en las trastiendas de los bares de abajo — y la Azotea está abierta."
+              }
+            }
+          },
           "chegada": [
             "Esto es Lo Alto del Cerro, hermano. Detrás de la puerta de acero.",
             "Aquí arriba cinco tipos casi se volvieron cúpula. Juntaron medio Cerro en una sola mano antes de que llegara el Retazo.",

@@ -167,6 +167,8 @@ export const GANGUES_TERRITORIOS = [
     cor: '#a855f7',
     poly: '10,60 28,50 40,58 50,54 62,58 74,50 90,60 84,44 74,26 60,10 50,6 40,10 24,26 14,44',
     pos: { top: 27, left: 51 },
+    // Ponte do Alto: o recado da Laje (POI `informante_laje`) grava __flags.laje.
+    precisaInformante: true,
     pontos: [
       { id: 'laje-1', gangue: 'bonde_costura', enemy: 1319, pontosFixo: proximoDegrauLadder() },
       { id: 'laje-2', gangue: 'bonde_costura', enemy: 1320, pontosFixo: proximoDegrauLadder() },

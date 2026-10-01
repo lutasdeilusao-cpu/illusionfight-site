@@ -11,7 +11,7 @@ export const portaFundos = w => ({ x: w - 84, y: 30, w: 64, h: 24, para: 1, labe
 export function salaDosFundos(pois) {
   const w = 400, h = 300
   // até 3 pinos, espalhados na altura do meio (a mesa do carteado fica no centro de cima)
-  const xs = pois.length === 1 ? [w / 2] : pois.length === 2 ? [80, 320] : [70, 200, 330]
+  const xs = pois.length === 1 ? [w / 2] : pois.length === 2 ? [80, 320] : pois.length === 3 ? [70, 200, 330] : [60, 150, 250, 340]
   return {
     id: 'fundos',
     nome: 'games.gangues.cena.fundos_nome',
@@ -25,6 +25,6 @@ export function salaDosFundos(pois) {
       { tipo: 'mesa', x: w / 2, y: 85 }, { tipo: 'cofre', x: 350, y: 70 }, { tipo: 'caixote', x: 50, y: 80 },
     ],
     // cada item: 'ref' ou { ref, precisaFlag } (pino que só aparece com a flag)
-    pois: pois.map((p, i) => ({ ...(typeof p === 'string' ? { ref: p } : p), pos: { x: xs[i], y: pois.length === 3 && i === 1 ? 190 : 170 } })),
+    pois: pois.map((p, i) => ({ ...(typeof p === 'string' ? { ref: p } : p), pos: { x: xs[i], y: pois.length >= 3 && i % 2 === 1 ? 210 : 165 } })),
   }
 }

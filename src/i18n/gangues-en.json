@@ -424,6 +424,7 @@
           "epico": "Epic"
         },
         "itens": {
+          "133": "Crown of the Rooftop",
           "135": "The Accountant's Cane",
           "134": "The Beast's Staff",
           "141": "Rust's Bat",
@@ -4192,7 +4193,316 @@
         "fechar": "got it, boss"
       },
       "cena": {
+        "laje": {
+          "chegada": [
+            "This is the Rooftop, kid. The top. On one side, all of Marélia. On the other, the Patchwork.",
+            "He's the only one who ever held six hoods at once. He treats crime like a spreadsheet, and every hood is a thread stitched in his hand.",
+            "You're gonna meet people you already took down up here. They climbed up for revenge — and now they hit at Rooftop level.",
+            "And pay attention: as long as his threads stay stitched down below, he won't go down easy. Up there nobody helps you. Climb with what you brought."
+          ],
+          "aviso_informante": "Nobody on the Rooftop will take you to the Patchwork yet. There's a message for you at the Hilltop Bar — hear it first.",
+          "checklist_dica": "Get through the stitched entrance, the sewing room, and climb to the top. And cut the Patchwork's threads in the hoods below — every one left makes him stronger.",
+          "checklist_passagem": "The way is open. Climb to the top of the Rooftop and end this.",
+          "pich": "PATCHWORK CREW",
+          "grafite": "THIS SHIT\nDON'T STITCH",
+          "predio": {
+            "birosca": "Rooftop Bar",
+            "oficina": "Crew Tailor Shop",
+            "loja": "Rooftop Shop",
+            "sala_costura": "The Sewing Room",
+            "topo": "The Top of the Rooftop"
+          },
+          "int": {
+            "birosca": "Rooftop Bar",
+            "oficina": "Crew Tailor Shop",
+            "loja": "Rooftop Shop",
+            "sala_costura": "The Sewing Room",
+            "topo": "The Top of the Rooftop"
+          },
+          "fase_1_nome": "PHASE 1 · THE STITCH",
+          "fase_2_nome": "PHASE 2 · THE QUILT",
+          "fase_3_nome": "PHASE 3 · THE PATCHWORK",
+          "linhas_titulo": "THE PATCHWORK'S THREADS",
+          "linhas_sobram": "{n} thread(s) still stitched: +{n} Wallop and Hide on him",
+          "linhas_todas": "every thread cut",
+          "ultima_guarda": {
+            "nome": "Last Watch",
+            "sub": "nothing gets past unseen",
+            "fala": [
+              "From here up it's the Rooftop. You came a long way to die at the door.",
+              "The Patchwork already knows you came up. He knows everything."
+            ]
+          },
+          "revanche_carvao": {
+            "nome": "Coal — the rematch",
+            "sub": "came up from the Track after you",
+            "fala": [
+              "Remember me? The whole Track laughed at me after that day.",
+              "Now I'm on the Rooftop, punk. And up here I'm not alone."
+            ]
+          },
+          "fiapo": {
+            "nome": "Thread",
+            "sub": "the crew's first line",
+            "fala": [
+              "First line. You're gonna have to cut three.",
+              "A loose thread is the one that hurts the most."
+            ]
+          },
+          "revanche_cobrador": {
+            "nome": "The Collector — the rematch",
+            "sub": "came to collect an old debt",
+            "fala": [
+              "You owe me one, kid. The whole Market watched you drop me.",
+              "Today I came to collect with interest."
+            ]
+          },
+          "agulha": {
+            "nome": "Needle",
+            "sub": "the second line, trusted with half the Rooftop",
+            "fala": [
+              "Thin, but it goes through any hide.",
+              "The Patchwork gave me half the Rooftop to watch. You won't get an inch."
+            ]
+          },
+          "revanche_fura_bucho": {
+            "nome": "Gut-Stabber — the rematch",
+            "sub": "fully awake this time",
+            "fala": [
+              "You caught me hungover in the Lowside. Today I'm sober.",
+              "I already had my coffee. Now it's you."
+            ]
+          },
+          "linha_reta": {
+            "nome": "Straight Line",
+            "sub": "the Patchwork's oldest general",
+            "fala": [
+              "No wasted movement. None.",
+              "Get past me and you're in the sewing room. You won't."
+            ]
+          },
+          "revanche_ferrugem": {
+            "nome": "Rust — the rematch",
+            "sub": "came down from the roof to wait for you",
+            "fala": [
+              "You climbed ten floors to drop me. Here it's just one step.",
+              "I respect the effort. Changes nothing."
+            ]
+          },
+          "revanche_zefa": {
+            "nome": "The Beast — the rematch",
+            "sub": "Zefa came to deliver the punishment",
+            "fala": [
+              "You beat my kids to get to me. Now you'll see the Rooftop.",
+              "Sit down. Your punishment started down there and ends here."
+            ]
+          },
+          "costura_fina": {
+            "nome": "Fine Stitch",
+            "sub": "few hits, every one on target",
+            "fala": [
+              "One stitch at a time. That's how the Patchwork holds the city.",
+              "You're just another loose stitch."
+            ]
+          },
+          "tesoura": {
+            "nome": "Scissors",
+            "sub": "runs the Rooftop in the Patchwork's name",
+            "fala": [
+              "I'm the one who cuts here. You're fabric.",
+              "Six hoods went through this room. None came out whole."
+            ]
+          },
+          "corte_certo": {
+            "nome": "Clean Cut",
+            "sub": "Scissors' right hand, never misses the final cut",
+            "fala": [
+              "Scissors opens. I close.",
+              "The last cut is always mine."
+            ]
+          },
+          "revanche_contador": {
+            "nome": "The Accountant — the rematch",
+            "sub": "no games this time",
+            "fala": [
+              "On the Hilltop I played with you. Here the math is serious.",
+              "Do the math, kid: you're alone on the last step."
+            ]
+          },
+          "fase_costura": {
+            "nome": "The Patchwork · The Stitch",
+            "sub": "him and his scissors",
+            "fala": [
+              "Six hoods in my hand, and you thought you'd climb without me seeing?",
+              "Scissors, Clean Cut. Stitch this one to the floor."
+            ]
+          },
+          "fase_colcha": {
+            "nome": "The Patchwork · The Quilt",
+            "sub": "he got up different",
+            "fala": [
+              "You tore the stitch. Now you'll see the whole quilt.",
+              "Every thread of this crew is me. Come on."
+            ]
+          },
+          "mirante": {
+            "nome": "The lookout",
+            "sub": "all of Marélia down below",
+            "fala": [
+              "From here you can see the Track. It looks small. You started there.",
+              "The Market lights up first. Then the Lowside, across the train tracks.",
+              "The Hill never goes dark. Not even when the power drops.",
+              "Six hoods. Each with its owner, its rules, its price.",
+              "They say one day there'll be a kid who holds all of it. It's not his turn yet."
+            ],
+            "escolhas": {
+              "olhar": {
+                "label": "Look and move on"
+              }
+            }
+          },
+          "rinha_laje_topo": {
+            "nome": "Top Ring",
+            "sub": "endless fights on the roof of Marélia",
+            "fala": [
+              "The highest ring in the city. Whoever falls from here falls far.",
+              "One ends, another steps in, random. You can leave the crew here — 1 fight every 5 minutes."
+            ]
+          },
+          "birosca_laje": {
+            "nome": "Rooftop Bar",
+            "sub": "the last drink before the top",
+            "intro": "The last bar before the Patchwork. Up there nobody patches you up — make the most of it here. Costs a little."
+          },
+          "ponto_da_laje": {
+            "nome": "Roof Spot",
+            "sub": "the last selling spot on the top",
+            "fala": [
+              "Cash? Up here everything belongs to the Patchwork. Even credit.",
+              "1500 in your hand now. The bill... the bill gets stitched to your name."
+            ],
+            "botao_ver_contrato": "I want the 1500",
+            "contrato_tag": "Contract · stitched",
+            "contrato_corpo": "\"1500 in hand, right now. Take it or leave it?\"",
+            "contrato_letra_miuda": "Fine print: you end up owing {divida}.",
+            "contrato_aceitar": "I'm in",
+            "contrato_recusar": "No deal"
+          },
+          "loja_laje": {
+            "nome": "Rooftop Shop",
+            "sub": "what's left of the stitching"
+          },
+          "alfaiataria": {
+            "nome": "Crew Tailor Shop",
+            "fala": "We stitch even iron here. Bring the piece and some scrap and I'll get it right — up to +9."
+          },
+          "planilha": {
+            "nome": "The Patchwork's spreadsheet",
+            "sub": "six hoods as columns",
+            "linha": "A printed spreadsheet: six columns, one hood each, everybody's name and number. At the bottom, in the Patchwork's handwriting: \"doesn't add up\". Behind it, a little cash and a bottle of syrup."
+          },
+          "linhas": {
+            "linha_pista": {
+              "nome": "The Patchwork's thread on the Track",
+              "sub": "Loose Scrap, hiding in the back",
+              "fala": [
+                "The Patchwork holds the Track through me. I'm his thread down here.",
+                "Cut it, if you can. Otherwise he gets stronger up there."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Cut the thread (with your fists)",
+                  "resultado": "\"So you're the one climbing the Rooftop? Come cut it, if you got the scissors for it.\""
+                }
+              }
+            },
+            "linha_feira": {
+              "nome": "The Patchwork's thread at the Market",
+              "sub": "Cut Thread, among High Interest's books",
+              "fala": [
+                "Every stall at the Market pays a thread to the Patchwork. I'm the spool.",
+                "You cut one thread, he stitches two."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Cut the thread (with your fists)",
+                  "resultado": "\"So you're the one climbing the Rooftop? Come cut it, if you got the scissors for it.\""
+                }
+              }
+            },
+            "linha_baixada": {
+              "nome": "The Patchwork's thread in the Lowside",
+              "sub": "Fine Stitch, across the train tracks",
+              "fala": [
+                "The Shadow's three shards answer to him. Through my hand.",
+                "Come cut it. The train doesn't wait and neither do I."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Cut the thread (with your fists)",
+                  "resultado": "\"So you're the one climbing the Rooftop? Come cut it, if you got the scissors for it.\""
+                }
+              }
+            },
+            "linha_vila": {
+              "nome": "The Patchwork's thread in the Projects",
+              "sub": "Closed Account, on the ground floor",
+              "fala": [
+                "The Tower Crew holds a grudge, but they pay. I collect.",
+                "Cut this thread and Rust stops sending his share upstairs."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Cut the thread (with your fists)",
+                  "resultado": "\"So you're the one climbing the Rooftop? Come cut it, if you got the scissors for it.\""
+                }
+              }
+            },
+            "linha_morro": {
+              "nome": "The Patchwork's thread on the Hill",
+              "sub": "Thread, the one Zefa never accepted",
+              "fala": [
+                "Zefa never knelt. But the Hill pays anyway — through me.",
+                "You negotiated the stairway. With me there's no deal."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Cut the thread (with your fists)",
+                  "resultado": "\"So you're the one climbing the Rooftop? Come cut it, if you got the scissors for it.\""
+                }
+              }
+            },
+            "linha_alto": {
+              "nome": "The Patchwork's thread on the Hilltop",
+              "sub": "Needle, in the Accountant's book",
+              "fala": [
+                "The Patchwork absorbed the Five. I'm the thread that stayed.",
+                "Cut it. Or he waits for you up there with the whole Hilltop at his back."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Cut the thread (with your fists)",
+                  "resultado": "\"So you're the one climbing the Rooftop? Come cut it, if you got the scissors for it.\""
+                }
+              }
+            }
+          }
+        },
         "alto": {
+          "informante_laje": {
+            "nome": "The message from the Rooftop",
+            "sub": "a thread from the Patchwork's crew",
+            "fala": [
+              "The Patchwork says: whoever took down the Accountant can come up to the Rooftop.",
+              "But he holds every hood below by a thread. As long as it stays stitched, he won't fall."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Take the message",
+                "resultado": "The thread disappears down the stairs. Now the Patchwork's threads show up in the bars' back rooms down below — and the Rooftop is open."
+              }
+            }
+          },
           "chegada": [
             "This is the Hilltop, kid. Behind the steel door.",
             "Up here five guys almost became a council. They pulled half the Hill into one fist before the Patchwork showed up.",

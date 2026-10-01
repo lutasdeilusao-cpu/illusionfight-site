@@ -14,6 +14,7 @@
 //   → 34 o próprio folgado (o mais fraco, de propósito)
 //   → Fura-Bucho 46 (+ os dois Generais de escolta, ~35 cada).
 import { BAIXADA_POOL_RUA, BAIXADA_POOL_SANGRIA, BAIXADA_POOL_GELO, BAIXADA_POOL_SOBRA } from './pools.js'
+import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
 
 // A cadeia do folgado — a Barra de Respeito conta estes cinco.
 export const BAIXADA_RESPEITO = ['folgado_1', 'folgado_2', 'folgado_3', 'folgado_4', 'folgado_5']
@@ -185,4 +186,6 @@ export const POIS_BAIXADA = [
     i18n: 'games.gangues.cena.aval.aval_morro_baixada',
     escolhas: [{ id: 'entregar', precisaItens: { 41: 2 }, informante: 'morro_baixada' }],
   },
+  // A linha do Retalho neste bairro (Laje — ver data/cenas/laje/pois.js): corta na porrada.
+  poiLinha(LAJE_LINHAS.find(l => l.cena === 'baixada')),
 ]

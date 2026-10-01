@@ -424,6 +424,7 @@
           "epico": "Épico"
         },
         "itens": {
+          "133": "Coroa da Laje",
           "135": "Bengala do Contador",
           "134": "Vara da Fera",
           "141": "Taco da Ferrugem",
@@ -1089,7 +1090,316 @@
         "fechar": "entendido, patrão"
       },
       "cena": {
+        "laje": {
+          "chegada": [
+            "Essa é a Laje, cria. O topo. De um lado, Marélia inteira. Do outro, o Retalho.",
+            "Ele é o único que já segurou seis bairro de uma vez. Trata o crime como planilha, e cada bairro é uma linha costurada na mão dele.",
+            "Tu vai encontrar gente que tu já derrubou aqui em cima. Eles subiram atrás de revanche — e agora tão na ficha da Laje.",
+            "E presta atenção: enquanto as linhas dele tiverem costuradas lá embaixo, ele não cai fácil. Lá em cima ninguém te ajuda. Sobe com o que tu trouxe."
+          ],
+          "aviso_informante": "Ninguém na Laje te leva até o Retalho ainda. Na birosca do Alto tem um recado pra ti — escuta ele antes.",
+          "checklist_dica": "Atravessa a entrada costurada, a sala de costura e sobe pro topo. E corta as linhas do Retalho nos bairros de baixo — cada uma que sobrar deixa ele mais forte.",
+          "checklist_passagem": "O caminho tá aberto. Sobe pro topo da Laje e acaba com isso.",
+          "pich": "BONDE DO RETALHO",
+          "grafite": "ESSA PORRA\nNÃO COSTURA",
+          "predio": {
+            "birosca": "Birosca da Laje",
+            "oficina": "Alfaiataria do Bonde",
+            "loja": "Loja da Laje",
+            "sala_costura": "A Sala de Costura",
+            "topo": "O Topo da Laje"
+          },
+          "int": {
+            "birosca": "Birosca da Laje",
+            "oficina": "Alfaiataria do Bonde",
+            "loja": "Loja da Laje",
+            "sala_costura": "A Sala de Costura",
+            "topo": "O Topo da Laje"
+          },
+          "fase_1_nome": "FASE 1 · A COSTURA",
+          "fase_2_nome": "FASE 2 · A COLCHA",
+          "fase_3_nome": "FASE 3 · O RETALHO",
+          "linhas_titulo": "AS LINHAS DO RETALHO",
+          "linhas_sobram": "{n} linha(s) costurada(s): +{n} de Porrada e Couro nele",
+          "linhas_todas": "todas as linhas cortadas",
+          "ultima_guarda": {
+            "nome": "Última Guarda",
+            "sub": "nada passa sem ser visto",
+            "fala": [
+              "Daqui pra cima é a Laje. Tu chegou longe pra morrer na porta.",
+              "O Retalho já sabe que tu subiu. Ele sabe de tudo."
+            ]
+          },
+          "revanche_carvao": {
+            "nome": "Carvão — a revanche",
+            "sub": "subiu da Pista atrás de ti",
+            "fala": [
+              "Lembra de mim? A Pista inteira riu da minha cara depois daquele dia.",
+              "Agora eu tô na Laje, pivete. E aqui eu não tô sozinho."
+            ]
+          },
+          "fiapo": {
+            "nome": "Fiapo",
+            "sub": "a primeira linha do bonde",
+            "fala": [
+              "Primeira linha. Tu vai ter que cortar três.",
+              "Fiapo solto é o que mais machuca."
+            ]
+          },
+          "revanche_cobrador": {
+            "nome": "O Cobrador — a revanche",
+            "sub": "veio cobrar a conta antiga",
+            "fala": [
+              "Tu me deve uma, cria. A Feira inteira viu tu me derrubar.",
+              "Hoje eu vim cobrar com juro."
+            ]
+          },
+          "agulha": {
+            "nome": "Agulha",
+            "sub": "a segunda linha, confiança de metade da Laje",
+            "fala": [
+              "Fina, mas atravessa qualquer couro.",
+              "O Retalho me deu metade da Laje pra cuidar. Tu não leva nem um palmo."
+            ]
+          },
+          "revanche_fura_bucho": {
+            "nome": "Fura-Bucho — a revanche",
+            "sub": "acordou de vez dessa vez",
+            "fala": [
+              "Tu me pegou de ressaca na Baixada. Hoje eu tô sóbrio.",
+              "Café eu já tomei. Agora é tu."
+            ]
+          },
+          "linha_reta": {
+            "nome": "Linha Reta",
+            "sub": "o general mais antigo do Retalho",
+            "fala": [
+              "Nenhum movimento desperdiçado. Nenhum.",
+              "Passa por mim e tu entra na sala de costura. Não passa."
+            ]
+          },
+          "revanche_ferrugem": {
+            "nome": "Ferrugem — a revanche",
+            "sub": "desceu da cobertura pra te esperar",
+            "fala": [
+              "Dez andar tu subiu pra me derrubar. Aqui é um degrau só.",
+              "Respeito a tua disposição. Não muda nada."
+            ]
+          },
+          "revanche_zefa": {
+            "nome": "A Fera — a revanche",
+            "sub": "a Zefa veio cobrar o castigo",
+            "fala": [
+              "Tu bateu nas minhas criança pra chegar em mim. Agora tu vai ver a Laje.",
+              "Senta. O teu castigo começou lá embaixo e termina aqui."
+            ]
+          },
+          "costura_fina": {
+            "nome": "Costura Fina",
+            "sub": "poucos golpes, todos certeiros",
+            "fala": [
+              "Um ponto de cada vez. É assim que o Retalho segura a cidade.",
+              "Tu é só mais um ponto solto."
+            ]
+          },
+          "tesoura": {
+            "nome": "Tesoura",
+            "sub": "comanda a Laje em nome do Retalho",
+            "fala": [
+              "Quem corta aqui sou eu. Tu é tecido.",
+              "Seis bairro passaram por essa sala. Nenhum saiu inteiro."
+            ]
+          },
+          "corte_certo": {
+            "nome": "Corte Certo",
+            "sub": "braço direito da Tesoura, nunca erra o corte final",
+            "fala": [
+              "A Tesoura abre. Eu fecho.",
+              "O último corte é sempre o meu."
+            ]
+          },
+          "revanche_contador": {
+            "nome": "O Contador — a revanche",
+            "sub": "dessa vez sem jogo",
+            "fala": [
+              "Lá no Alto eu brinquei contigo. Aqui a conta é séria.",
+              "Faz a conta, cria: tu tá sozinho no último degrau."
+            ]
+          },
+          "fase_costura": {
+            "nome": "O Retalho · A Costura",
+            "sub": "ele e as tesouras dele",
+            "fala": [
+              "Seis bairro na mão, e tu achou que ia subir sem eu ver?",
+              "Tesoura, Corte Certo. Costura esse aí no chão."
+            ]
+          },
+          "fase_colcha": {
+            "nome": "O Retalho · A Colcha",
+            "sub": "ele levantou diferente",
+            "fala": [
+              "Tu derrubou a costura. Agora tu vai ver a colcha inteira.",
+              "Cada linha desse bonde sou eu. Vem."
+            ]
+          },
+          "mirante": {
+            "nome": "O mirante",
+            "sub": "Marélia inteira lá embaixo",
+            "fala": [
+              "Daqui dá pra ver a Pista. Parece pequena. Tu começou ali.",
+              "A Feira acende primeiro. Depois a Baixada, do outro lado do trem.",
+              "O Morro nunca apaga. Nem quando a luz cai.",
+              "Seis bairro. Cada um com seu dono, sua regra, seu preço.",
+              "Dizem que um dia vai ter um moleque que segura isso tudo. Ainda não é a vez dele."
+            ],
+            "escolhas": {
+              "olhar": {
+                "label": "Olha e segue"
+              }
+            }
+          },
+          "rinha_laje_topo": {
+            "nome": "Rinha do Topo",
+            "sub": "briga sem fim no teto de Marélia",
+            "fala": [
+              "A roda mais alta da cidade. Quem cai daqui cai longe.",
+              "Acabou uma, já entra outro, sorteado. Pode largar a tropa aqui — 1 briga a cada 5 minutos."
+            ]
+          },
+          "birosca_laje": {
+            "nome": "Birosca da Laje",
+            "sub": "o último copo antes do topo",
+            "intro": "A última birosca antes do Retalho. Lá em cima ninguém te remenda — aproveita aqui. Custa uns trocado."
+          },
+          "ponto_da_laje": {
+            "nome": "Ponto da Laje",
+            "sub": "o último ponto de venda do topo",
+            "fala": [
+              "Grana? Aqui em cima tudo é do Retalho. Até o fiado.",
+              "1500 na mão agora. A conta... a conta é costurada no teu nome."
+            ],
+            "botao_ver_contrato": "Quero os 1500",
+            "contrato_tag": "Contrato · costurado",
+            "contrato_corpo": "\"1500 na mão, na hora. Aceita ou não aceita?\"",
+            "contrato_letra_miuda": "Letra miúda do contrato: você fica devendo {divida}.",
+            "contrato_aceitar": "Aceito",
+            "contrato_recusar": "Não aceito"
+          },
+          "loja_laje": {
+            "nome": "Loja da Laje",
+            "sub": "o que sobrou da costura"
+          },
+          "alfaiataria": {
+            "nome": "Alfaiataria do Bonde",
+            "fala": "Aqui a gente costura até ferro. Traz a peça e sucata que eu deixo ela no ponto — até +9."
+          },
+          "planilha": {
+            "nome": "A planilha do Retalho",
+            "sub": "seis bairros como colunas",
+            "linha": "Uma planilha impressa: seis colunas, um bairro em cada, nome e número de todo mundo. No rodapé, a letra do Retalho: \"não fecha\". Atrás dela, uns trocado e um vidro de xarope."
+          },
+          "linhas": {
+            "linha_pista": {
+              "nome": "A linha do Retalho na Pista",
+              "sub": "Retalho Solto, escondido nos fundos",
+              "fala": [
+                "O Retalho segura a Pista por mim. Eu sou a linha dele aqui embaixo.",
+                "Corta, se tu conseguir. Senão ele lá em cima fica mais forte."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta a linha (na porrada)",
+                  "resultado": "\"Então é tu que tá subindo a Laje? Vem cortar, se tu tiver tesoura pra isso.\""
+                }
+              }
+            },
+            "linha_feira": {
+              "nome": "A linha do Retalho na Feira",
+              "sub": "Fio Cortado, no meio das contas do Juro Alto",
+              "fala": [
+                "Cada banca da Feira paga um fio pro Retalho. Eu sou o novelo.",
+                "Tu corta um fio, ele costura dois."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta a linha (na porrada)",
+                  "resultado": "\"Então é tu que tá subindo a Laje? Vem cortar, se tu tiver tesoura pra isso.\""
+                }
+              }
+            },
+            "linha_baixada": {
+              "nome": "A linha do Retalho na Baixada",
+              "sub": "Costura Fina, do outro lado do trem",
+              "fala": [
+                "Os três caco do Sombra respondem pra ele. Por minha mão.",
+                "Vem cortar. O trem não espera e eu também não."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta a linha (na porrada)",
+                  "resultado": "\"Então é tu que tá subindo a Laje? Vem cortar, se tu tiver tesoura pra isso.\""
+                }
+              }
+            },
+            "linha_vila": {
+              "nome": "A linha do Retalho na Vila",
+              "sub": "Conta Fechada, no térreo do conjunto",
+              "fala": [
+                "O Bonde dos Prédio é ressentido, mas paga. Eu cobro.",
+                "Corta essa linha e o Ferrugem para de mandar o dele pra cima."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta a linha (na porrada)",
+                  "resultado": "\"Então é tu que tá subindo a Laje? Vem cortar, se tu tiver tesoura pra isso.\""
+                }
+              }
+            },
+            "linha_morro": {
+              "nome": "A linha do Retalho no Morro",
+              "sub": "Fiapo, o que a Zefa nunca aceitou",
+              "fala": [
+                "A Zefa nunca se ajoelhou. Mas o Morro paga mesmo assim — por mim.",
+                "Tu negociou a escadaria. Comigo não tem negócio."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta a linha (na porrada)",
+                  "resultado": "\"Então é tu que tá subindo a Laje? Vem cortar, se tu tiver tesoura pra isso.\""
+                }
+              }
+            },
+            "linha_alto": {
+              "nome": "A linha do Retalho no Alto",
+              "sub": "Agulha, no caderno do Contador",
+              "fala": [
+                "O Retalho absorveu os Cinco. Eu sou a linha que ficou.",
+                "Corta. Ou ele te espera lá em cima com o Alto inteiro nas costas."
+              ],
+              "escolhas": {
+                "cortar": {
+                  "label": "Corta a linha (na porrada)",
+                  "resultado": "\"Então é tu que tá subindo a Laje? Vem cortar, se tu tiver tesoura pra isso.\""
+                }
+              }
+            }
+          }
+        },
         "alto": {
+          "informante_laje": {
+            "nome": "O recado da Laje",
+            "sub": "um fiapo do bonde do Retalho",
+            "fala": [
+              "O Retalho mandou avisar: quem derrubou o Contador pode subir pra Laje.",
+              "Mas ele segura cada bairro de baixo por uma linha. Enquanto ela tiver costurada, ele não cai."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Recebe o recado",
+                "resultado": "O fiapo some na escada. Agora as linhas do Retalho aparecem nos fundos das biroscas lá embaixo — e a Laje tá aberta."
+              }
+            }
+          },
           "chegada": [
             "Esse é o Alto do Morro, cria. Atrás da porta de aço.",
             "Aqui em cima cinco cara quase viraram cúpula. Juntaram meio Morro numa mão só antes do Retalho chegar.",

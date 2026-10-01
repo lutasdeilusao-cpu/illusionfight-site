@@ -63,3 +63,17 @@ export function BarraCaderno({ cena, prog, flags, t }) {
     </div>
   )
 }
+
+/** As linhas do Retalho (Laje, `cena.linhas`): cada bairro de baixo —
+ *  cortada (verde) ou ainda costurada (vermelho, deixa o Retalho mais forte). */
+export function BarraLinhas({ cena, cenaProgresso, t }) {
+  const cortadas = cena.linhas.lista.map(l => cena.linhas.cortada(l, cenaProgresso))
+  const sobram = cortadas.filter(c => !c).length
+  return (
+    <div className="gang-respeito gang-caderno">
+      <small>{t('games.gangues.cena.laje.linhas_titulo')}</small>
+      <span className="gang-respeito__barra">{cortadas.map((c, i) => <i key={i} className={c ? 'is-comprado' : 'is-batido'} />)}</span>
+      <em>{t(sobram ? 'games.gangues.cena.laje.linhas_sobram' : 'games.gangues.cena.laje.linhas_todas', { n: sobram })}</em>
+    </div>
+  )
+}

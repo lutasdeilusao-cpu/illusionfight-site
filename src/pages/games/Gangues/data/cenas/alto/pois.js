@@ -11,6 +11,7 @@
 //   → 80 a Roda → 82 Formação Completa (G, sala dos Cinco)
 //   → escritório: 83 Favor Devido → porrinha → bilhar → O CONTADOR 85 (+ escolta ~64).
 import { ALTO_POOL_ENTRADA, ALTO_POOL_RODA, ALTO_POOL_RUA } from './pools.js'
+import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
 
 // Os Cinco, na ordem do caderno: id do POI, molde, ficha e o preço da dívida.
 export const ALTO_CINCO = [
@@ -118,5 +119,17 @@ export const POIS_ALTO = [
     opcional: true,
     i18n: 'games.gangues.cena.alto.mesa_dos_cinco',
     recompensa: { grana: 200, rep: 3, item: 34 },
+  },
+  // A linha do Retalho neste bairro (Laje — ver data/cenas/laje/pois.js): corta na porrada.
+  poiLinha(LAJE_LINHAS.find(l => l.cena === 'alto')),
+  {
+    // O recado da Laje (sala dos fundos da birosca): a ponte pro território final —
+    // destranca o Retalho (`__flags.laje`) e faz as linhas dele aparecerem nos bairros de baixo.
+    id: 'informante_laje',
+    tipo: 'papo',
+    opcional: true,
+    repetivel: true,
+    i18n: 'games.gangues.cena.alto.informante_laje',
+    escolhas: [{ id: 'ouvir', informante: 'laje' }],
   },
 ]

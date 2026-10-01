@@ -12,6 +12,7 @@
 //   → [portão da Baixada] → 68 Escadaria Inteira (G) → 69 última escada
 //   → a boca da Zefa: 70 Conta do Morro → A FERA 72 (+ escolta ~54).
 import { MORRO_POOL_ESCADA, MORRO_POOL_MEIO, MORRO_POOL_ALTO, MORRO_POOL_RUA } from './pools.js'
+import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
 
 function treta(id, pontos, pool, chanceDupla, extra) {
   return {
@@ -126,4 +127,6 @@ export const POIS_MORRO = [
     i18n: 'games.gangues.cena.morro.informante_alto',
     escolhas: [{ id: 'ouvir', informante: 'alto' }],
   },
+  // A linha do Retalho neste bairro (Laje — ver data/cenas/laje/pois.js): corta na porrada.
+  poiLinha(LAJE_LINHAS.find(l => l.cena === 'morro')),
 ]

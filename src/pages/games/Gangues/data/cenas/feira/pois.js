@@ -12,6 +12,7 @@
 // A Galeria (dungeon de passagem, 23/26/29) fica ABAIXO da rua, igual o túnel
 // da Pista: é caminho, não teste.
 import { FEIRA_POOL_RUA, FEIRA_POOL_COBRANCA, FEIRA_POOL_MERCADAO } from './pools.js'
+import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
 
 // Rep pra encarar o 2º guarda do depósito (gate do Mercadão).
 export const FEIRA_REP_GATE_DEPOSITO = 60
@@ -326,4 +327,6 @@ export const POIS_FEIRA = [
     i18n: 'games.gangues.cena.aval.aval_morro_feira',
     escolhas: [{ id: 'entregar', precisaItens: { 15: 3 }, informante: 'morro_feira' }],
   },
+  // A linha do Retalho neste bairro (Laje — ver data/cenas/laje/pois.js): corta na porrada.
+  poiLinha(LAJE_LINHAS.find(l => l.cena === 'feira')),
 ]

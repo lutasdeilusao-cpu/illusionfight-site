@@ -15,6 +15,7 @@
 // ponto soma +1 de ficha em todo corpo das tretas daqui (nunca passa do
 // Ferrugem). Bater o Portaria desce; bater a última aparição dele zera.
 import { VILA_POOL_TERREO, VILA_POOL_ESCADA, VILA_POOL_MEIO, VILA_POOL_ALTO } from './pools.js'
+import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
 
 // A chave do elevador (a Dona Neide entrega no 5º andar).
 export const VILA_CHAVE_ELEVADOR_ID = 18
@@ -201,4 +202,6 @@ export const POIS_VILA = [
     i18n: 'games.gangues.cena.vila.informante_morro',
     escolhas: [{ id: 'ouvir', informante: 'morro' }],
   },
+  // A linha do Retalho neste bairro (Laje — ver data/cenas/laje/pois.js): corta na porrada.
+  poiLinha(LAJE_LINHAS.find(l => l.cena === 'vila')),
 ]
