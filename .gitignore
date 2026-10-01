@@ -46,3 +46,6 @@ _*.mjs
 
 # Worktree local do branch gh-pages, usado por scripts/deploy-gh-pages.cjs
 /.gh-pages-worktree/
+
+# Contatos de imprensa/PR — NUNCA no git (o repositório é público)
+docs/Marketing/
