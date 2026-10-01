@@ -13,7 +13,7 @@
 // contorno ciano — ver styles/teclado.css).
 import { useEffect, useRef } from 'react'
 
-const digitando = el => el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT' || el.isContentEditable)
+const digitando = el => el && ((el.tagName === 'INPUT' && !['range', 'checkbox', 'radio', 'button'].includes(el.type)) || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT' || el.isContentEditable)
 
 /** Normaliza a tecla: 'enter', 'escape', ' ' → 'espaco', 'e', '1'… */
 export const teclaDe = e => (e.key === ' ' ? 'espaco' : e.key.length === 1 ? e.key.toLowerCase() : e.key.toLowerCase())

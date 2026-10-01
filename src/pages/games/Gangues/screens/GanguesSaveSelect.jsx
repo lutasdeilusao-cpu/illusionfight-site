@@ -8,6 +8,8 @@ import { temCena } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIOS } from '../data/ganguesTerritorios.js'
 import { contarTerritoriosDominados, getGanguesSaveSlotLimit, GANGUES_SAVE_SLOTS_BETA_LIBERADO } from '../data/ganguesLoadout.js'
 import { sfx } from '../../../../lib/sfx'
+import GanguesOpcoes from '../components/GanguesOpcoes'
+import useGanguesTeclado from '../hooks/useGanguesTeclado'
 import logoPt from '../assets/logos/logo-pt.png'
 import logoEn from '../assets/logos/logo-en.png'
 import logoEs from '../assets/logos/logo-es.png'
@@ -87,6 +89,9 @@ export default function GanguesSaveSelect({ onNavigate }) {
   const navigate = useNavigate()
   const { user, perfil } = useAuth()
   const store = useGanguesStore()
+  // Opções (som, Rádio Nina, controles) — tecla O abre.
+  const [opcoes, setOpcoes] = useState(false)
+  useGanguesTeclado({ o: () => setOpcoes(true) }, !opcoes)
   const [loading, setLoading] = useState(true)
   const [abrindo, setAbrindo] = useState(null)
   const [excluindo, setExcluindo] = useState(null)
@@ -114,7 +119,7 @@ export default function GanguesSaveSelect({ onNavigate }) {
     if (!sfx.enabled) return
     const timer = setTimeout(() => {
       const audio = new Audio(somImpacto)
-      audio.volume = 0.55
+      audio.volume = 0.55 * sfx.volume
       audio.play().catch(() => {})
     }, IMPACT_MS)
     return () => clearTimeout(timer)
@@ -127,7 +132,7 @@ export default function GanguesSaveSelect({ onNavigate }) {
     if (!sfx.enabled) return
     const timers = TIJOLO_KNOCK_MS.map((ms, i) => setTimeout(() => {
       const audio = new Audio(somTijolo)
-      audio.volume = 0.32
+      audio.volume = 0.32 * sfx.volume
       audio.playbackRate = 0.92 + (i % 3) * 0.09
       audio.play().catch(() => {})
     }, ms))
@@ -186,6 +191,8 @@ export default function GanguesSaveSelect({ onNavigate }) {
   // impacto. Só o CORPO (cards/CTA) espera o carregamento de verdade.
   return (
     <main className="gang-lobby gang-saves">
+      <button type="button" className="gang-opcoes-abrir" onClick={() => { sfx.select?.(); setOpcoes(true) }}>⚙ {t('games.gangues.opcoes.titulo')}</button>
+      {opcoes && <GanguesOpcoes t={t} onFechar={() => setOpcoes(false)} />}
       <span className="gang-saves__flash" aria-hidden="true" />
       {/* Parede se montando — ~18 tijolos caindo, espalhados, ANTES da
           logo cair (pedido do Isaias: "mais tijolo caindo, e pra durar

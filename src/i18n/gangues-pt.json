@@ -1,6 +1,37 @@
 {
   "games": {
     "gangues": {
+      "opcoes": {
+        "titulo": "Opções",
+        "fechar": "Fechar",
+        "som": "Som",
+        "efeitos": "Efeitos sonoros",
+        "ligado": "Ligado",
+        "desligado": "Desligado",
+        "volume": "Volume dos efeitos",
+        "sem_trilha": "O LDI Gangues não tem trilha própria: a música do jogo é a Rádio Nina, a trilha sonora de todo o universo Lutas de Ilusão. Liga aqui e joga ouvindo.",
+        "radio": "Rádio Nina",
+        "ligar_radio": "Ligar",
+        "pausar_radio": "Pausar",
+        "volume_radio": "Volume da rádio",
+        "controles": "Controles",
+        "aviso_pc": "Você está jogando no computador: dá pra jogar o LDI Gangues inteiro só no teclado, sem mouse.",
+        "aviso_toque": "No celular é tudo no toque. Se você ligar um teclado (ou jogar no computador), estes atalhos valem:",
+        "ou": "ou",
+        "e": "e",
+        "espaco": "Espaço",
+        "teclas": {
+          "setas": "Andar",
+          "interagir": "Interagir · confirmar · avançar a fala",
+          "voltar": "Fechar · voltar · pular a fala",
+          "opcao": "Escolher a opção (conversa, menu da luta, talento)",
+          "atacar": "Atacar (na luta)",
+          "briga_auto": "Briga automática (na rua)",
+          "mochila": "Mochila",
+          "ficha": "Ficha da tropa",
+          "navegar": "Andar pelos botões"
+        }
+      },
       "jogo": {
         "tag": "O JOGO DO CONTADOR",
         "comecar": "Jogar",

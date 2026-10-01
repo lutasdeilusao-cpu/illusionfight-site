@@ -1,0 +1,66 @@
+/* Opções do LDI Gangues — painel por cima de tudo (portal pro <body>),
+   preso à coluna do portal (inset com --app-gutter), linguagem da navbar. */
+.gang-opcoes { position: fixed; inset: 0 var(--app-gutter); z-index: 1100; display: flex; align-items: flex-end; overscroll-behavior: none; }
+.gang-opcoes__fundo { position: absolute; inset: 0; border: 0; background: rgba(0, 0, 0, 0.72); cursor: pointer; }
+.gang-opcoes__card {
+  position: relative; display: flex; flex-direction: column; gap: 14px; width: 100%; max-height: 88vh; overflow-y: auto;
+  overscroll-behavior: contain; padding: 18px 18px calc(18px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--if-edge); background: var(--if-glow-corner), var(--if-panel); color: var(--if-ink);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  animation: gang-opcoes-sobe 0.22s ease-out;
+}
+@keyframes gang-opcoes-sobe { from { transform: translateY(24px); opacity: 0; } }
+
+.gang-opcoes__cabeca { position: relative; display: grid; gap: 2px; padding-right: 44px; }
+.gang-opcoes__eyebrow { color: var(--if-cyan-58); font: 700 0.55rem var(--font-mono); letter-spacing: 0.18em; }
+.gang-opcoes__cabeca h2 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.gang-opcoes__x { position: absolute; top: 0; right: 0; width: 44px; height: 44px; border: 1px solid var(--if-hair-strong); background: none; color: var(--if-ink); font-size: 1rem; cursor: pointer; }
+
+.gang-opcoes__secao { display: grid; gap: 8px; }
+.gang-opcoes__secao h3 { margin: 0; padding-bottom: 6px; border-bottom: 1px solid var(--if-hair); color: var(--if-cyan); font: 700 0.62rem var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase; }
+.gang-opcoes__linha { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; font-size: 0.9rem; }
+.gang-opcoes__linha > span { min-width: 0; overflow-wrap: anywhere; }
+.gang-opcoes__linha.is-off { opacity: 0.45; }
+.gang-opcoes__linha input[type='range'] { width: 46%; accent-color: var(--if-amber); }
+
+.gang-opcoes__switch, .gang-opcoes__btn {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; flex: none;
+  border: 1px solid var(--if-hair-strong); background: rgba(0, 0, 0, 0.3); color: var(--text-secondary);
+  font: 700 0.7rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-opcoes__switch i { width: 10px; height: 10px; border-radius: 50%; background: var(--text-muted); }
+.gang-opcoes__switch.is-on { border-color: var(--if-amber-72); color: var(--if-amber-soft); }
+.gang-opcoes__switch.is-on i { background: var(--if-amber); box-shadow: 0 0 8px var(--if-amber); }
+.gang-opcoes__btn { border-color: var(--if-amber-72); color: var(--if-amber-soft); }
+
+.gang-opcoes__radio { display: grid; gap: 4px; padding: 10px 12px; border-left: 2px solid var(--if-amber); background: rgba(255, 174, 50, 0.05); }
+.gang-opcoes__radio p { margin: 0; font-size: 0.78rem; line-height: 1.45; color: var(--text-secondary); }
+
+.gang-opcoes__aviso { margin: 0; padding: 8px 10px; border: 1px solid var(--if-hair-strong); font-size: 0.78rem; line-height: 1.45; color: var(--text-secondary); }
+.gang-opcoes__aviso.is-pc { border-color: var(--if-cyan-45); background: var(--if-cyan-08); color: var(--if-ink); }
+.gang-opcoes__teclas { display: grid; margin: 0; padding: 0; list-style: none; }
+.gang-opcoes__teclas li { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 40px; border-bottom: 1px solid var(--if-hair); }
+.gang-opcoes__acao { font-size: 0.86rem; }
+.gang-opcoes__keys { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 4px; }
+.gang-opcoes__keys kbd {
+  min-width: 26px; padding: 3px 6px; border: 1px solid var(--if-cyan-45); border-bottom-width: 2px; background: rgba(24, 218, 251, 0.06);
+  color: var(--if-ink); font: 700 0.62rem var(--font-mono); text-align: center;
+}
+.gang-opcoes__keys em { font-style: normal; font-size: 0.66rem; color: var(--text-muted); }
+
+.gang-opcoes__fechar {
+  min-height: 46px; border: 1px solid var(--if-cyan-45); background: linear-gradient(90deg, rgba(24, 218, 251, 0.07), transparent);
+  color: var(--if-cyan); font: 700 0.85rem var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+/* botão de abrir as opções (tela de fundar gangue e lobby) */
+.gang-opcoes-abrir {
+  position: absolute; top: 12px; right: 12px; z-index: 5; display: inline-flex; align-items: center; gap: 6px;
+  min-height: 40px; padding: 0 12px; border: 1px solid var(--if-hair-strong); background: rgba(0, 0, 0, 0.55);
+  color: var(--if-ink); font: 700 0.62rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+@media (prefers-reduced-motion: reduce) { .gang-opcoes__card { animation: none; } }

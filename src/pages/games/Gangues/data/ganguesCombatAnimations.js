@@ -1,3 +1,4 @@
+import { sfx } from '../../../../lib/sfx'
 // Máquina de animação de combate — registro de dados + cache/preload.
 // Substitui o protótipo hardcoded do Trinca (só ele, só DramaticDice.jsx,
 // `GANGUES_TRINCA_SPRITE_TESTE_ID` fixo) por um sistema genérico, pedido do
@@ -300,8 +301,10 @@ export function precarregarAnimacaoCombate(characterTemplateId) {
  *  reaproveitado em ataques seguintes do mesmo personagem na luta). */
 export function tocarSomCombate(url, volume = 0.7) {
   if (typeof document !== 'undefined' && document.hidden) return // luta no fundo roda muda
+  // obedece ao som do jogo (Opções): desligado não toca; volume geral multiplica
+  if (!sfx.enabled || sfx.volume <= 0) return
   const audio = pegarAudio(url)
   audio.currentTime = 0
-  audio.volume = volume
+  audio.volume = volume * sfx.volume
   audio.play().catch(() => {})
 }

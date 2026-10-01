@@ -5,6 +5,8 @@ import { useGanguesStore } from '../store/useGanguesStore'
 import { sfx } from '../../../../lib/sfx'
 import GangDialog from '../components/GangDialog'
 import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
+import GanguesOpcoes from '../components/GanguesOpcoes'
+import useGanguesTeclado from '../hooks/useGanguesTeclado'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
 import logoPt from '../assets/logos/logo-pt.png'
 import logoEn from '../assets/logos/logo-en.png'
@@ -35,6 +37,8 @@ export default function GanguesNaming({ onDone, modoEdicao = false, onSair }) {
   const store = useGanguesStore()
   const [nome, setNome] = useState(store.gangName || '')
   const [intro, setIntro] = useState(!modoEdicao)
+  const [opcoes, setOpcoes] = useState(false)
+  useGanguesTeclado({ o: () => setOpcoes(true) }, !intro && !opcoes && !modoEdicao)
   const fecharIntro = () => setIntro(false)
 
   const limpo = nome.replace(/\s+/g, ' ').trim()
@@ -72,6 +76,8 @@ export default function GanguesNaming({ onDone, modoEdicao = false, onSair }) {
           tem porquê o formulário existir no DOM enquanto o diálogo não
           fechou. */}
       {!intro && (<>
+        {!modoEdicao && <button type="button" className="gang-opcoes-abrir" onClick={() => { sfx.select?.(); setOpcoes(true) }}>⚙ {t('games.gangues.opcoes.titulo')}</button>}
+        {opcoes && <GanguesOpcoes t={t} onFechar={() => setOpcoes(false)} />}
         {modoEdicao && (
           <header className="gang-story-head">
             <GanguesVoltarBtn onClick={onDone} />

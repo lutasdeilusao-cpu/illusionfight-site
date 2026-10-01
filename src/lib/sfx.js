@@ -13,11 +13,16 @@
  */
 
 const SFX_STORAGE_KEY = 'ldi-sfx-enabled'
+// Volume geral dos efeitos (0–1) — opção do jogo (LDI Gangues → Opções).
+const SFX_VOLUME_KEY = 'ldi-sfx-volume'
+const volumeSalvo = () => { try { const v = parseFloat(localStorage.getItem(SFX_VOLUME_KEY)); return Number.isFinite(v) ? Math.max(0, Math.min(1, v)) : 1 } catch { return 1 } }
 
 class SFX {
   constructor() {
     this.ctx = null
     this.enabled = localStorage.getItem(SFX_STORAGE_KEY) !== 'false'
+    this.volume = volumeSalvo()
+    this.master = null
     this._heartbeatInterval = null
     this._ttsVoice = null // voz fixa para a batalha atual
     this._unlocked = false
@@ -89,10 +94,26 @@ class SFX {
       const Ctor = window.AudioContext || window.webkitAudioContext
       if (!Ctor) return null
       this.ctx = new Ctor()
+      // todo efeito passa por aqui: é o volume geral
+      this.master = this.ctx.createGain()
+      this.master.gain.value = this.volume
+      this.master.connect(this.ctx.destination)
     }
     // Resume if suspended (autoplay policy)
     if (this.ctx.state === 'suspended') this.ctx.resume()
     return this.ctx
+  }
+
+  /** Saída dos efeitos (o volume geral). */
+  _saida() {
+    return this.master || this._getCtx()?.destination
+  }
+
+  /** Volume geral dos efeitos, de 0 a 1 (persiste no navegador). */
+  setVolume(v) {
+    this.volume = Math.max(0, Math.min(1, Number(v) || 0))
+    try { localStorage.setItem(SFX_VOLUME_KEY, String(this.volume)) } catch { /* sem storage */ }
+    if (this.master) this.master.gain.value = this.volume
   }
 
   /** Short oscillator + gain envelope helper */
@@ -108,7 +129,7 @@ class SFX {
     gain.gain.setValueAtTime(volume, now)
     gain.gain.exponentialRampToValueAtTime(0.001, now + duration)
     osc.connect(gain)
-    gain.connect(ctx.destination)
+    gain.connect(this._saida())
     osc.start(now)
     osc.stop(now + duration)
   }
@@ -135,7 +156,7 @@ class SFX {
     gain.gain.exponentialRampToValueAtTime(0.001, now + duration)
     source.connect(filter)
     filter.connect(gain)
-    gain.connect(ctx.destination)
+    gain.connect(this._saida())
     source.start(now)
   }
 
@@ -194,7 +215,7 @@ class SFX {
     osc1.frequency.exponentialRampToValueAtTime(30, now + 0.15)
     g1.gain.setValueAtTime(0.25, now)
     g1.gain.exponentialRampToValueAtTime(0.001, now + 0.2)
-    osc1.connect(g1).connect(ctx.destination)
+    osc1.connect(g1).connect(this._saida())
     osc1.start(now)
     osc1.stop(now + 0.2)
 
@@ -206,7 +227,7 @@ class SFX {
     osc2.frequency.exponentialRampToValueAtTime(30, now + 0.5)
     g2.gain.setValueAtTime(0.25, now + 0.35)
     g2.gain.exponentialRampToValueAtTime(0.001, now + 0.55)
-    osc2.connect(g2).connect(ctx.destination)
+    osc2.connect(g2).connect(this._saida())
     osc2.start(now + 0.35)
     osc2.stop(now + 0.55)
 
@@ -369,7 +390,7 @@ class SFX {
     osc.frequency.exponentialRampToValueAtTime(400, now + 0.35)
     gain.gain.setValueAtTime(0.12, now)
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4)
-    osc.connect(gain).connect(ctx.destination)
+    osc.connect(gain).connect(this._saida())
     osc.start(now)
     osc.stop(now + 0.4)
 
@@ -397,7 +418,7 @@ class SFX {
       utterance.lang = 'en-US'
       utterance.rate = 0.85    // mais lento pra soar épico
       utterance.pitch = 0.9    // um pouco grave
-      utterance.volume = 0.7
+      utterance.volume = 0.7 * this.volume
 
       // Escolhe uma voz inglesa na PRIMEIRA chamada e REUSA na mesma batalha
       if (!this._ttsVoice) {

@@ -1,6 +1,37 @@
 {
   "games": {
     "gangues": {
+      "opcoes": {
+        "titulo": "Options",
+        "fechar": "Close",
+        "som": "Sound",
+        "efeitos": "Sound effects",
+        "ligado": "On",
+        "desligado": "Off",
+        "volume": "Effects volume",
+        "sem_trilha": "LDI Gangues has no soundtrack of its own: the game's music is Nina Radio, the soundtrack of the whole Illusion Fight universe. Turn it on here and play listening.",
+        "radio": "Nina Radio",
+        "ligar_radio": "Turn on",
+        "pausar_radio": "Pause",
+        "volume_radio": "Radio volume",
+        "controles": "Controls",
+        "aviso_pc": "You're playing on a computer: you can play all of LDI Gangues with just the keyboard, no mouse needed.",
+        "aviso_toque": "On mobile everything is touch. If you connect a keyboard (or play on a computer), these shortcuts work:",
+        "ou": "or",
+        "e": "and",
+        "espaco": "Space",
+        "teclas": {
+          "setas": "Move",
+          "interagir": "Interact · confirm · next line",
+          "voltar": "Close · back · skip dialogue",
+          "opcao": "Pick an option (dialogue, fight menu, talent)",
+          "atacar": "Attack (in a fight)",
+          "briga_auto": "Auto brawl (on the street)",
+          "mochila": "Backpack",
+          "ficha": "Crew sheet",
+          "navegar": "Move between buttons"
+        }
+      },
       "jogo": {
         "tag": "THE ACCOUNTANT'S GAME",
         "comecar": "Play",

@@ -36,6 +36,8 @@ function lutadoresComPoderPraEquipar(party) {
 }
 import './GanguesLobby.css'
 import './GanguesStory.css' // .gang-lobby-mapa mora lá
+import GanguesOpcoes from '../components/GanguesOpcoes'
+import useGanguesTeclado from '../hooks/useGanguesTeclado'
 import './GanguesProgressionFlow.css'
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
@@ -45,6 +47,9 @@ export default function GanguesLobby({ onNavigate }) {
   const navigate = useNavigate()
   const { user, perfil } = useAuth()
   const store = useGanguesStore()
+  // Opções (som, Rádio Nina, controles) — tecla O abre.
+  const [opcoes, setOpcoes] = useState(false)
+  useGanguesTeclado({ o: () => setOpcoes(true) }, !opcoes)
   const [loading, setLoading] = useState(Boolean(user))
   const [avisoParty, setAvisoParty] = useState('')
   const [avisoPoderes, setAvisoPoderes] = useState(null) // { nomes } — poderes por equipar
@@ -162,6 +167,8 @@ export default function GanguesLobby({ onNavigate }) {
         onClick={() => store._saveId ? onNavigate('save-select') : navigate('/games')}
         className="gang-lobby-voltar"
       />
+      <button type="button" className="gang-opcoes-abrir" onClick={() => { sfx.select?.(); setOpcoes(true) }}>⚙ {t('games.gangues.opcoes.titulo')}</button>
+      {opcoes && <GanguesOpcoes t={t} onFechar={() => setOpcoes(false)} />}
       {roster.length > 0 && <header className="gang-lobby-hero gang-lobby-hero--compact">
         {store._saveId && <button className="gang-lobby-mapa" onClick={() => { sfx.select?.(); onNavigate('story') }}>← {t('games.gangues.story.voltar_mapa')}</button>}
         <h1 className="gang-lobby-nome">{store.gangName}</h1>

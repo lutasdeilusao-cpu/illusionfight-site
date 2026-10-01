@@ -325,3 +325,5 @@ Rules:
 - If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
 - Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+
+- **Gangues: painel de Opções (`components/GanguesOpcoes.jsx`) — som e controles num lugar só** (Isaias, 01/10/2026, pensando na Steam). Abre pelo botão ⚙ na tela de fundar gangue, nos saves e no lobby (tecla O fora de campo de texto). O `sfx` ganhou volume geral (`ldi-sfx-volume`, GainNode `master`) e TODO som do jogo passa por ele — inclusive os de arquivo (`tocarSomCombate`, impacto/tijolo dos saves), que antes ignoravam até o mute. O jogo não tem trilha própria: a trilha é a Rádio Nina (`useRadio`, o mesmo tocador do site). O aviso de controles muda no computador (`hover: hover` + `pointer: fine`). Som novo no Gangues: sempre multiplicar por `sfx.volume` e respeitar `sfx.enabled`. O `useGanguesTeclado` só ignora tecla em campo de DIGITAÇÃO — slider/checkbox não bloqueiam Esc.
