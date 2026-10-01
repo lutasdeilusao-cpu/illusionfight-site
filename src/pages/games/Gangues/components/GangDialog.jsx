@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { sfx } from '../../../../lib/sfx'
 import GanguesRetratoImg from './GanguesRetratoImg'
+import useGanguesTeclado from '../hooks/useGanguesTeclado'
 
 const TYPE_SPEED = 20
 
@@ -44,6 +45,8 @@ export default function GangDialog({ lines = [], speaker, sub, retrato, onFinish
     sfx.click()
     onSkip?.()
   }, [onSkip])
+
+  useGanguesTeclado({ enter: () => advance(), espaco: () => advance(), e: () => advance(), escape: () => { sfx.click(); onSkip ? onSkip() : onFinish?.() } }, lines.length > 0, 1)
 
   if (!lines.length) return null
 

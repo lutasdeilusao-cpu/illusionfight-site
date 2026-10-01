@@ -36,6 +36,7 @@ import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
 import useGanguesEncontroAleatorio from '../hooks/useGanguesEncontroAleatorio.js'
 import useGanguesTrem from '../hooks/useGanguesTrem.js'
+import useGanguesTeclado, { clicarOpcao } from '../hooks/useGanguesTeclado.js'
 import { TremFaixa, BarraRespeito, BarraAlerta, BarreiraFaixa, BarraCaderno, BarraLinhas } from '../components/cena/GanguesBaixadaHud'
 import './GanguesCena.css'
 
@@ -197,6 +198,11 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     const dica = cena?.dicaQuest?.(prog, store.inventario || {})
     setHint(dica ? t(dica) : null)
   }, [intro, encontro, andou, perto, prog, local, t, store.inventario, cena])
+  // Teclado: o hook mora AQUI, antes de qualquer return (regra dos hooks); as
+  // ações são preenchidas mais abaixo em teclasRef, quando já existem.
+  const teclasRef = useRef({})
+  const viaTecla = k => (...a) => (teclasRef.current[k] ? teclasRef.current[k](...a) : false)
+  useGanguesTeclado({ e: viaTecla('e'), enter: viaTecla('enter'), espaco: viaTecla('espaco'), escape: viaTecla('escape'), numero: viaTecla('numero'), b: viaTecla('b'), i: viaTecla('i'), f: viaTecla('f') }, Boolean(cena) && !intro)
   if (!cena || !terr) return <main className="gang-lobby"><button className="gang-new-sheet" onClick={onVoltar || (() => onNavigate('story'))}>{t('games.gangues.btn_voltar')}</button></main>
   // `local` aponta pra um interior inválido — o efeito acima já vai zerar; só
   // não renderiza esse frame pra não quebrar em amb null.
@@ -429,6 +435,16 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // isso trocava a cena inteira por uma tela de "dominado" sem saída, o que
   // trancava o jogador pra fora do próprio conteúdo de farm que ele tinha
   // que revisitar. Agora só mostra um selo no cabeçalho.
+  // Teclado (Steam) — mapa completo em hooks/useGanguesTeclado.js.
+  const confirmarTecla = () => { if (encontro?.vs) { iniciarTreta(encontro.poi); return } if (encontro) return false; if (fichaIndex !== null || bagAberta) return false; if (perto) abrir(perto); else return false }
+  teclasRef.current = {
+    e: confirmarTecla, enter: confirmarTecla, espaco: confirmarTecla,
+    escape: () => { if (encontro) setEncontro(null); else if (fichaIndex !== null) setFichaIndex(null); else if (bagAberta) setBagAberta(false); else if (checklist) setChecklist(false); else return false },
+    numero: (_, n) => (encontro ? clicarOpcao(document.querySelector('.gang-cena-modal-card'), '.gdlg-btn, .gang-cena-btn', Number(n)) || false : false),
+    b: () => { if (encontro || local) return false; brigaAuto.alternar() },
+    i: () => { if (encontro) return false; setBagAberta(v => !v) },
+    f: () => { if (encontro || !store.activeParty.length) return false; setFichaIndex(i => (i === null ? 0 : null)) },
+  }
   const W = amb?.world || WORLD
   const vw = viewportRef.current?.clientWidth || 390, vh = viewportRef.current?.clientHeight || 620, lookX = facing === 'right' ? 52 : facing === 'left' ? -52 : 0, lookY = facing === 'down' ? 60 : facing === 'up' ? -60 : 0
   const camX = W.w <= vw ? (W.w - vw) / 2 : Math.max(0, Math.min(W.w - vw, player.x - vw / 2 + lookX))

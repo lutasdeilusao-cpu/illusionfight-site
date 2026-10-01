@@ -1,0 +1,8 @@
+/* Teclado (Steam, 01/10/2026): quem joga no teclado navega com Tab e vê onde
+   está o foco — contorno ciano do portal, só no foco por teclado
+   (:focus-visible; toque e mouse não acendem). Mapa das teclas em
+   hooks/useGanguesTeclado.js. */
+.gang-page :focus-visible {
+  outline: 2px solid var(--if-cyan);
+  outline-offset: 2px;
+}

@@ -190,6 +190,9 @@ contos.forEach(conto => {
     ],
     priority: '0.7', changefreq: 'monthly', indexable: true,
     parent: { name: 'Illusion Tales', path: '/historias/contos/' },
+    // Miniatura própria do conto (public/og/contos/<id>.jpg, 1200×630) —
+    // o que aparece no WhatsApp/X/Facebook ao compartilhar o link.
+    ogImage: `/og/contos/${conto.id}.jpg`,
   })
   conto.capitulos.forEach((cap, i) => {
     const anterior = conto.capitulos[i - 1]
@@ -209,6 +212,7 @@ contos.forEach(conto => {
       lastmod: pastOr(cap.liberacao?.publico),
       priority: '0.6', changefreq: 'monthly', indexable: true,
       parent: { name: nome, path: `${hub}/` },
+      ogImage: `/og/contos/${conto.id}.jpg`,
     })
   })
 })
@@ -335,6 +339,11 @@ function pageHtml(baseHtml, route) {
   html = replace(html, /<meta name="twitter:url" content="[^"]*">/i, `<meta name="twitter:url" content="${url}">`)
   html = replace(html, /<meta name="twitter:title" content="[^"]*">/i, `<meta name="twitter:title" content="${title}">`)
   html = replace(html, /<meta name="twitter:description" content="[^"]*">/i, `<meta name="twitter:description" content="${description}">`)
+  if (route.ogImage) {
+    const img = `${SITE_URL}${route.ogImage}`
+    html = replace(html, /<meta property="og:image" content="[^"]*">/i, `<meta property="og:image" content="${img}">`)
+    html = replace(html, /<meta name="twitter:image" content="[^"]*">/i, `<meta name="twitter:image" content="${img}">`)
+  }
   html = html.replace('</head>', `    <meta name="ldi-build" content="${escapeHtml(BUILD_HASH)}">\n    <script type="application/ld+json">${structuredData}</script>\n  </head>`)
   return html.replace('<div id="root"></div>', `<div id="root">${staticContent(route, heroImage)}</div><noscript>${staticContent(route, heroImage)}</noscript>`)
 }

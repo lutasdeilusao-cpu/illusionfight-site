@@ -5,6 +5,7 @@ import { getGanguesEffectTheme } from '../data/ganguesEffectThemes.js'
 import { getGanguesProgression, ganguesXpMaxForSheet } from '../data/ganguesLoadout.js'
 import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { describeGanguesSpecialEffect } from '../engine/ganguesSpecialEffects.js'
+import useGanguesTeclado from '../hooks/useGanguesTeclado'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import DramaticDice from './DramaticDice'
@@ -41,6 +42,12 @@ export default function GanguesCombatOverlays({
   revelandoRodada, fichaAberta, setFichaAberta, falaFinal, result, showResultBtn,
   openBattleReport, enemy, velocidade = 1,
 }) {
+  // Teclado (Steam): o aviso por cima da luta passa com Enter/Espaço; Esc fecha a ficha.
+  const passar = () => { if (koCena) dispararProximoKo(); else if (showResultBtn) openBattleReport(); else return false }
+  useGanguesTeclado({
+    enter: passar, espaco: passar,
+    escape: () => { if (fichaAberta) setFichaAberta(null); else return passar() },
+  }, true, 1)
   return (
     <>
       <AnimatePresence>

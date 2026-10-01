@@ -12,6 +12,7 @@ import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS } from '../hooks/use
 import { getGanguesEquip } from '../data/ganguesEquip.js'
 import { getGanguesItem } from '../data/ganguesItens.js'
 import { describeGanguesSpecialEffect } from '../engine/ganguesSpecialEffects.js'
+import useGanguesTeclado from '../hooks/useGanguesTeclado'
 
 // Explica a regra de divisão de XP só na 1ª tela de vitória de verdade
 // (pedido do Isaias, 13/09/2026 — tutorial progressivo: a regra só importa
@@ -56,6 +57,9 @@ export default function GanguesVictoryReport({
   // Modal bloqueante do marco de reputação (a cada 50, ver
   // GANGUES_REP_MARCO_INTERVALO) — fecha só no clique, nunca sozinho.
   const [repMarcoFechado, setRepMarcoFechado] = useState(false)
+  // Teclado (Steam): Enter/Espaço = o que está em destaque na tela.
+  const confirmar = () => { const b = document.querySelector('.gang-progression-prompt__confirm, .gang-report-primary'); if (!b) return false; b.click() }
+  useGanguesTeclado({ enter: confirmar, espaco: confirmar })
   const { jaViu, marcarVisto, carregado } = useTutorialProgress()
   const xpTipVisto = !carregado || jaViu(XP_TUTORIAL_ID)
   const fecharXpTip = () => marcarVisto(XP_TUTORIAL_ID)

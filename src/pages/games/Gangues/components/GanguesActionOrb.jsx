@@ -4,6 +4,7 @@ import { useTutorialProgress } from '../../../../context/TutorialProgressContext
 import { textoEfeitoItem } from '../data/ganguesItens.js'
 import { describeGanguesSpecialEffect } from '../engine/ganguesSpecialEffects.js'
 import GangTip from './GangTip'
+import useGanguesTeclado, { clicarOpcao } from '../hooks/useGanguesTeclado'
 import './GanguesActionOrb.css'
 
 const POS_KEY = 'ldi-gangues-orb-pos'
@@ -52,6 +53,16 @@ export default function GanguesActionOrb({
     if (carregado && !jaViu(AUTO_TUTORIAL_ID)) setTutorialPasso(0)
   }
   const fecharTutorial = () => { setTutorialPasso(null); marcarVisto(AUTO_TUTORIAL_ID) }
+
+  // Teclado (Steam): A ataca direto; Enter/Espaço abre o menu; 1–9 escolhe a
+  // opção N do painel aberto (atacar, talento, item, o talento N…); Esc volta/fecha.
+  useGanguesTeclado({
+    a: () => { if (disabled || autoOn) return false; onAtacar(); fechar() },
+    enter: () => { if (open) return false; setOpen(true) },
+    espaco: () => { if (open) return false; setOpen(true) },
+    escape: () => { if (!open) return false; if (tab !== 'menu') { setTab('menu'); setItemEscolhido(null) } else fechar() },
+    numero: (_, n) => (open ? clicarOpcao(document.querySelector('.gang-orb-panel'), 'button:not(.gang-orb-voltar)', Number(n)) || false : false),
+  })
 
   const onPointerDown = e => {
     dragRef.current = { dragging: true, moved: false, x: e.clientX, y: e.clientY }

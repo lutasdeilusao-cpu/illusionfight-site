@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.324.1' // Gangues: a luta do chefe com ajuste (Cobrador com as páginas) voltou a abrir
+export const SITE_VERSION = '10.325.0' // Contos com miniatura própria ao compartilhar + Gangues jogável no teclado (Steam)
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
-export const GANGUES_VERSION   = '3.88.2' // bug: chefe com ajuste na ficha (ponto fraco, caderno, linhas) tocava o VS e a luta não abria
+export const GANGUES_VERSION   = '3.89.0' // teclado (Steam): E/Enter/Espaço interagir, Esc fechar, 1–9 opções, A atacar, B briga auto, I mochila, F ficha, foco visível
 
 export const TAMA_VERSION      = '3.4.2' // sem cache local: progresso só na conta
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
