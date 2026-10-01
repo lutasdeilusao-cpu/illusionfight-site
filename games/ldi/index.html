@@ -192,7 +192,7 @@
       "keywords": "illusion fight, lutas de ilusão, web shard, webtoon, jogos táticos, arena virtual, ficção científica"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-CtqoFir2.js"></script>
+    <script type="module" crossorigin src="/assets/index-sC6AMK4L.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-GZhdek4G.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-zJ_50EbN.js">
     <link rel="modulepreload" crossorigin href="/assets/supabase-ByYxoL3g.js">
@@ -201,7 +201,7 @@
     <link rel="modulepreload" crossorigin href="/assets/AuthContext-CmaAV9lf.js">
     <link rel="modulepreload" crossorigin href="/assets/releaseAccess-PwRmWFpL.js">
     <link rel="stylesheet" crossorigin href="/assets/index-BkuSGQHB.css">
-      <meta name="ldi-build" content="/assets/index-CtqoFir2.js">
+      <meta name="ldi-build" content="/assets/index-sC6AMK4L.js">
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","name":"LDI Legends","description":"Play LDI Legends, the narrative RPG of the Illusion Fight universe.","url":"https://illusionfight.com/games/ldi/","inLanguage":"en","gamePlatform":"Web Browser","playMode":"SinglePlayer","genre":["Indie game","Action","Strategy"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Illusion Fight","item":"https://illusionfight.com/"},{"@type":"ListItem","position":2,"name":"LDI Legends","item":"https://illusionfight.com/games/ldi/"}]}]}</script>
   </head>
   <body>
@@ -217,7 +217,7 @@
         var el = document.querySelector('#ldi-rotate-lock [data-rotate-text]');
         if (!el) return;
         var lang = 'en';
-        try { lang = localStorage.getItem('ldi-locale') || 'en'; } catch (e) {}
+        try { lang = localStorage.getItem('ldi-locale') || (function(){try{var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language];for(var i=0;i<L.length;i++){var b=String(L[i]||'').slice(0,2).toLowerCase();if(b==='pt'||b==='es'||b==='en')return b;}}catch(e){}return 'en';})(); } catch (e) {}
         var msgs = {
           pt: 'Gire seu aparelho — o app funciona só na vertical.',
           en: 'Rotate your device — the app only works in portrait mode.',
@@ -254,7 +254,7 @@
         var KEY = 'ldi-intro-build', lang = 'en', lastBuild = null;
         var buildMeta = document.querySelector('meta[name="ldi-build"]');
         var currentBuild = buildMeta && buildMeta.content;
-        try { lastBuild = localStorage.getItem(KEY); lang = localStorage.getItem('ldi-locale') || 'en'; } catch (e) {}
+        try { lastBuild = localStorage.getItem(KEY); lang = localStorage.getItem('ldi-locale') || (function(){try{var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language];for(var i=0;i<L.length;i++){var b=String(L[i]||'').slice(0,2).toLowerCase();if(b==='pt'||b==='es'||b==='en')return b;}}catch(e){}return 'en';})(); } catch (e) {}
         var provavelCache = !!currentBuild && currentBuild === lastBuild;
         var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
         var word = el.querySelector('.ldi-intro__word');
