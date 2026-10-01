@@ -38,6 +38,7 @@ const GANGUES_CLUBE_RONDAS = {
   baixada: { 1: { qtd: 1, budget: 36 }, 2: { qtd: 2, budget: 70 }, 3: { qtd: 3, budget: 110 } },
   vila: { 1: { qtd: 1, budget: 49 }, 2: { qtd: 2, budget: 96 }, 3: { qtd: 3, budget: 150 } },
   morro: { 1: { qtd: 1, budget: 61 }, 2: { qtd: 2, budget: 120 }, 3: { qtd: 3, budget: 186 } },
+  alto: { 1: { qtd: 1, budget: 74 }, 2: { qtd: 2, budget: 146 }, 3: { qtd: 3, budget: 227 } },
 }
 
 export function gerarBandoClube({ enemiesData, ronda = GANGUES_CLUBE_RONDAS_TOTAL, territorioId = 'pista' }) {

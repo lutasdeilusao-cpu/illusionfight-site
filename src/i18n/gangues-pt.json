@@ -1,6 +1,24 @@
 {
   "games": {
     "gangues": {
+      "jogo": {
+        "tag": "O JOGO DO CONTADOR",
+        "comecar": "Jogar",
+        "seguir": "Seguir",
+        "de_novo": "Jogar de novo",
+        "voce": "Tu",
+        "contador": "Contador",
+        "porrinha_mao": "Quantos palitos tu esconde na mão?",
+        "porrinha_chute": "Teu chute pro total:",
+        "porrinha_abrir": "Abre a mão",
+        "porrinha_revela": "Tu: {mao} na mão, chutou {chute}. Contador: {maoDele} na mão, chutou {chuteDele}. Total: {total}.",
+        "porrinha_voce_acertou": "Tu acertou — joga um palito fora.",
+        "porrinha_ele_acertou": "O Contador acertou — ele joga um palito fora.",
+        "porrinha_ninguem": "Ninguém acertou. Outra rodada.",
+        "bilhar_tacadas": "Tacadas: {n}/{max}",
+        "bilhar_bolas": "Bolas na mesa: {n}",
+        "bilhar_como": "Arrasta pra trás da bola branca e solta."
+      },
       "log_batalha_inicio": "A briga começou.",
       "combat_item_cheio": "Esse aí já tá no talo — escolhe outro pra curar.",
       "dano_cena_dano": "golpe de {nome}",
@@ -406,6 +424,7 @@
           "epico": "Épico"
         },
         "itens": {
+          "135": "Bengala do Contador",
           "134": "Vara da Fera",
           "141": "Taco da Ferrugem",
           "401": "Chave de Cano",
@@ -1070,7 +1089,236 @@
         "fechar": "entendido, patrão"
       },
       "cena": {
+        "alto": {
+          "chegada": [
+            "Esse é o Alto do Morro, cria. Atrás da porta de aço.",
+            "Aqui em cima cinco cara quase viraram cúpula. Juntaram meio Morro numa mão só antes do Retalho chegar.",
+            "E o Alto inteiro deve favor pro Contador. Ele não briga por raiva — briga porque a conta fecha assim.",
+            "Cada um dos Cinco tu resolve do teu jeito: compra a dívida dele ou quebra ele na porrada. Só lembra que o Contador anota tudo."
+          ],
+          "aviso_informante": "Ninguém no Alto te leva até o Contador ainda. Na birosca do Pé do Morro tem um recado pra ti — escuta ele antes.",
+          "checklist_dica": "Passa a porta de aço e resolve os Cinco — comprando ou na porrada. Depois a Roda, a sala dos Cinco e o escritório do Contador.",
+          "checklist_passagem": "O caderno tá fechado. Entra no escritório e encara o Contador.",
+          "pich": "OS CINCO",
+          "grafite": "A CONTA\nSEMPRE FECHA",
+          "predio": {
+            "birosca": "Birosca do Alto",
+            "oficina": "Ferraria do Alto",
+            "emporio": "Empório do Alto",
+            "sala_cinco": "A Sala dos Cinco",
+            "escritorio": "O Escritório do Contador"
+          },
+          "int": {
+            "birosca": "Birosca do Alto",
+            "oficina": "Ferraria do Alto",
+            "emporio": "Empório do Alto",
+            "sala_cinco": "A Sala dos Cinco",
+            "escritorio": "O Escritório do Contador"
+          },
+          "caderno": {
+            "titulo": "CADERNO DO CONTADOR",
+            "resumo": "{comprados} comprado(s) · {batidos} na porrada"
+          },
+          "porta_aco": {
+            "nome": "A porta de aço",
+            "sub": "a única entrada do Alto",
+            "fala": [
+              "Daqui tu não passa. A porta sou eu.",
+              "Quem bate na porta de aço quebra a mão primeiro."
+            ]
+          },
+          "sala_fechada": {
+            "nome": "A sala fechada",
+            "sub": "a guarda dos Cinco",
+            "fala": [
+              "Os Cinco tão em reunião. Ninguém interrompe.",
+              "Quer falar com eles? Passa por mim antes."
+            ]
+          },
+          "cinco_verme": {
+            "nome": "Verme",
+            "sub": "o primeiro dos Cinco",
+            "fala": [
+              "Eu devo seiscentos pro Contador faz três ano. Ele cobra em favor, todo mês.",
+              "Tu quer passar? Ou paga minha conta, ou me tira do caminho."
+            ],
+            "escolhas": {
+              "comprar": {
+                "label": "Compra a dívida dele (600)",
+                "resultado": "Tu conta a grana na frente dele. Ele risca o próprio nome do caderno do Contador. \"Agora eu devo é pra ti.\""
+              },
+              "encarar": {
+                "label": "Resolve na porrada",
+                "resultado": "\"Então vem. Mas fica sabendo: quem apanha de ti vai chorar no ouvido do Contador.\""
+              }
+            }
+          },
+          "cinco_presa": {
+            "nome": "Presa",
+            "sub": "braço-direito da cúpula que quase existiu",
+            "fala": [
+              "A gente ia mandar no Morro inteiro. O Retalho chegou antes.",
+              "Paga o que eu devo pro Contador e eu saio da tua frente. Senão, vem."
+            ],
+            "escolhas": {
+              "comprar": {
+                "label": "Compra a dívida dele (650)",
+                "resultado": "Tu conta a grana na frente dele. Ele risca o próprio nome do caderno do Contador. \"Agora eu devo é pra ti.\""
+              },
+              "encarar": {
+                "label": "Resolve na porrada",
+                "resultado": "\"Então vem. Mas fica sabendo: quem apanha de ti vai chorar no ouvido do Contador.\""
+              }
+            }
+          },
+          "cinco_engrenagem": {
+            "nome": "Engrenagem",
+            "sub": "luta em formação, protege o centro",
+            "fala": [
+              "Os Cinco funcionam como máquina. Tira uma peça e o resto trava.",
+              "Setecentos e eu me desmonto sozinho. Ou tu me desmonta na mão."
+            ],
+            "escolhas": {
+              "comprar": {
+                "label": "Compra a dívida dele (700)",
+                "resultado": "Tu conta a grana na frente dele. Ele risca o próprio nome do caderno do Contador. \"Agora eu devo é pra ti.\""
+              },
+              "encarar": {
+                "label": "Resolve na porrada",
+                "resultado": "\"Então vem. Mas fica sabendo: quem apanha de ti vai chorar no ouvido do Contador.\""
+              }
+            }
+          },
+          "cinco_quase": {
+            "nome": "Quase-Cúpula",
+            "sub": "o mais ambicioso dos Cinco",
+            "fala": [
+              "Eu ia ser a cúpula. Eu ainda vou. Mas antes eu preciso me livrar do caderno.",
+              "Compra minha dívida e eu fico te devendo. Isso vale mais que porrada."
+            ],
+            "escolhas": {
+              "comprar": {
+                "label": "Compra a dívida dele (750)",
+                "resultado": "Tu conta a grana na frente dele. Ele risca o próprio nome do caderno do Contador. \"Agora eu devo é pra ti.\""
+              },
+              "encarar": {
+                "label": "Resolve na porrada",
+                "resultado": "\"Então vem. Mas fica sabendo: quem apanha de ti vai chorar no ouvido do Contador.\""
+              }
+            }
+          },
+          "cinco_quarto": {
+            "nome": "Quarto Nome",
+            "sub": "o mais perto de virar cúpula de verdade",
+            "fala": [
+              "Faltou um nome pra gente ser cúpula. Um só.",
+              "Oitocentos. Ou tu descobre por que me chamam de general."
+            ],
+            "escolhas": {
+              "comprar": {
+                "label": "Compra a dívida dele (800)",
+                "resultado": "Tu conta a grana na frente dele. Ele risca o próprio nome do caderno do Contador. \"Agora eu devo é pra ti.\""
+              },
+              "encarar": {
+                "label": "Resolve na porrada",
+                "resultado": "\"Então vem. Mas fica sabendo: quem apanha de ti vai chorar no ouvido do Contador.\""
+              }
+            }
+          },
+          "roda": {
+            "nome": "A Roda",
+            "sub": "a formação que treina pros Cinco",
+            "fala": [
+              "Aqui ninguém briga sozinho. Nem a gente, nem tu.",
+              "Entra no círculo. Sai quem aguentar."
+            ]
+          },
+          "formacao_completa": {
+            "nome": "Formação Completa",
+            "sub": "a doutrina da Roda virou corpo",
+            "fala": [
+              "Os Cinco eram a cabeça. Eu sou o corpo.",
+              "Quer o Contador? Ele tá do outro lado da minha formação."
+            ]
+          },
+          "favor_devido": {
+            "nome": "Favor Devido",
+            "sub": "deve ao Contador, luta pra pagar",
+            "fala": [
+              "Cada um que eu derrubo é um mês a menos no caderno.",
+              "Tu vale uns três mês, no mínimo."
+            ]
+          },
+          "rinha_alto": {
+            "nome": "Rinha do Alto",
+            "sub": "briga sem fim com vista pra Marelia inteira",
+            "fala": [
+              "A roda do Alto tem a melhor vista da cidade. E a pior pancada.",
+              "Acabou uma, já entra outro, sorteado. Pode largar a tropa aqui — 1 briga a cada 5 minutos."
+            ]
+          },
+          "birosca_alto": {
+            "nome": "Birosca do Alto",
+            "sub": "uísque falsificado e cadeira de couro rasgada",
+            "intro": "Aqui em cima até a birosca se acha cúpula. Mas a tropa descansa igual. Custa uns trocado."
+          },
+          "divida_do_alto": {
+            "nome": "Dívida do Alto",
+            "sub": "trabalha direto pro Contador",
+            "fala": [
+              "Precisa de grana? O Contador sempre tem. E sempre anota.",
+              "1200 na mão agora. A conta, o Contador faz."
+            ],
+            "botao_ver_contrato": "Quero os 1200",
+            "contrato_tag": "Contrato · caderno do Contador",
+            "contrato_corpo": "\"1200 na mão, na hora. Aceita ou não aceita?\"",
+            "contrato_letra_miuda": "Letra miúda do contrato: você fica devendo {divida}.",
+            "contrato_aceitar": "Aceito",
+            "contrato_recusar": "Não aceito"
+          },
+          "emporio": {
+            "nome": "Empório do Alto",
+            "sub": "o melhor que sobe o Morro"
+          },
+          "ferraria_alto": {
+            "nome": "Ferraria do Alto",
+            "fala": "Aqui a gente forja a porta de aço. Traz a peça e sucata que eu deixo ela no ponto — até +8."
+          },
+          "mesa_dos_cinco": {
+            "nome": "A mesa dos Cinco",
+            "sub": "onde eles quase viraram cúpula",
+            "linha": "Cinco cadeira, uma vazia. Na gaveta, uns trocado e um vidro de xarope que ninguém teve coragem de levar."
+          },
+          "jogo_porrinha": {
+            "nome": "O Contador · Porrinha",
+            "fala": "\"Senta aí, cria. Antes da porrada, a gente joga. Porrada todo mundo sabe. Conta, quase ninguém.\"",
+            "regra": "Cada um tem 3 palitos. Esconde de 0 até o que tu tem e chuta o total das duas mãos. Quem acerta o total joga um palito fora. Zerou primeiro, ganhou.",
+            "ganhou": "\"Hm. Tu conta direitinho.\" Ele empurra a cadeira pra trás e aponta a porta do fundo. \"Bilhar. Vem.\"",
+            "perdeu": "\"Viu? A conta sempre fecha pro meu lado.\" Ele embaralha os palitos de novo. \"Quer outra? Eu tenho a noite toda.\""
+          },
+          "jogo_bilhar": {
+            "nome": "O Contador · Bilhar de três bolas",
+            "fala": "\"Três bola, seis caçapa. Eu fiz em cinco tacada. Tu tem seis. Justo, né?\"",
+            "regra": "Arrasta o dedo pra trás da bola branca pra mirar e dar força, e solta. Encaçapa as 3 bolas em até 6 tacadas. A branca na caçapa volta pro lugar e gasta a tacada.",
+            "ganhou": "Ele bate palma devagar. \"Bonito. Agora sim.\" Tira o paletó, dobra em cima da mesa. \"Agora a gente faz do jeito que tu gosta.\"",
+            "perdeu": "\"Faltou bola, cria.\" Ele arruma as bolas de novo no triângulo. \"Arruma o taco e tenta outra.\""
+          }
+        },
         "morro": {
+          "informante_alto": {
+            "nome": "O recado do Alto",
+            "sub": "um moleque da Roda",
+            "fala": [
+              "O Contador mandou avisar: quem derrubou a Zefa pode subir pro Alto.",
+              "Mas lá em cima tudo tem preço. E o Contador sabe o preço de todo mundo."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Recebe o recado",
+                "resultado": "O moleque some atrás da porta de aço. Agora o Alto sabe que tu tá chegando."
+              }
+            }
+          },
           "chegada": [
             "Esse é o Morro, cria. Ninguém nunca tomou isso aqui. Nem o Retalho.",
             "A Zefa não vende o Morro, ela negocia. E os Fogueteiro fecham a escadaria em três portão.",
@@ -1956,6 +2204,7 @@
         "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando, na oficina. Ele te retorna.",
         "hint_sucata_falta": "🔩 Falta um pedaço de sucata — tá no fundo do ferro-velho. Pega os dois e leva pro Nando.",
         "acao": {
+          "jogo": "JOGAR",
           "fundos": "FUNDOS",
           "subir": "SUBIR",
           "entrar": "ENTRA",

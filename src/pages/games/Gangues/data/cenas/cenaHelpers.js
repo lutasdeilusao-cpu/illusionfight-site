@@ -13,6 +13,7 @@ import { CENA_FEIRA } from './feira/index.js'
 import { CENA_BAIXADA } from './baixada/index.js'
 import { CENA_VILA } from './vila/index.js'
 import { CENA_MORRO } from './morro/index.js'
+import { CENA_ALTO } from './alto/index.js'
 import { tetoDoTerritorio } from '../ganguesChefes.js'
 
 export const CENAS_POR_ID = {
@@ -21,6 +22,7 @@ export const CENAS_POR_ID = {
   [CENA_BAIXADA.id]: CENA_BAIXADA,
   [CENA_VILA.id]: CENA_VILA,
   [CENA_MORRO.id]: CENA_MORRO,
+  [CENA_ALTO.id]: CENA_ALTO,
 }
 
 /** Uma cena existe para este território? (senão, cai na trilha antiga) */

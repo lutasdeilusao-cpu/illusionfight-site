@@ -150,6 +150,8 @@ export const GANGUES_TERRITORIOS = [
     cor: '#ff6b6b',
     poly: '56,76 74,84 90,70 100,80 96,68 90,60 74,50 62,58 50,54 43,58',
     pos: { top: 44, left: 74 },
+    // Ponte do Morro: o recado do Alto (POI `informante_alto`) grava __flags.alto.
+    precisaInformante: true,
     pontos: [
       { id: 'alto-1', gangue: 'os_cinco', enemy: 1316, pontosFixo: proximoDegrauLadder() },
       { id: 'alto-2', gangue: 'os_cinco', enemy: 1317, pontosFixo: proximoDegrauLadder() },

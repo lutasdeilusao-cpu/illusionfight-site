@@ -48,3 +48,18 @@ export function BarreiraFaixa({ b, t }) {
     </div>
   )
 }
+
+/** O Caderno do Contador (Alto, `cena.caderno`): cada um dos Cinco —
+ *  comprado (verde), batido (vermelho) ou pendente. */
+export function BarraCaderno({ cena, prog, flags, t }) {
+  const estados = cena.caderno.ids.map(id => cena.caderno.estado(id, prog, flags))
+  const comprados = estados.filter(e => e === 'comprado').length
+  const batidos = estados.filter(e => e === 'batido').length
+  return (
+    <div className="gang-respeito gang-caderno">
+      <small>{t('games.gangues.cena.alto.caderno.titulo')}</small>
+      <span className="gang-respeito__barra">{estados.map((e, i) => <i key={i} className={e ? `is-${e}` : ''} />)}</span>
+      <em>{t('games.gangues.cena.alto.caderno.resumo', { comprados, batidos })}</em>
+    </div>
+  )
+}

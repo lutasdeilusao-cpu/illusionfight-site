@@ -66,7 +66,7 @@ export function ZonaChao({ p, active }) {
   return <div className={`gang-cena-zona-chao ${farol}${active ? ' is-perto' : ''}`} style={{ left: z.x, top: z.y, width: z.w, height: z.h }} aria-hidden="true"><span>{ICONE[p.tipo] || '●'}</span></div>
 }
 
-const ICONE = { treta: '✊', parada: '🔧', papo: '●', corre: '!', achado: '◆', descanso: '☕', loja: '🏪', agiota: '💰', banca: '🎲' }
+const ICONE = { treta: '✊', parada: '🔧', papo: '●', corre: '!', achado: '◆', descanso: '☕', loja: '🏪', agiota: '💰', banca: '🎲', jogo: '🎱' }
 
 // Hash estável (string -> inteiro não-negativo) — só pra escolher SEMPRE o
 // mesmo molde de um pool pro mesmo POI (nunca sorteado de novo a cada
@@ -283,7 +283,7 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado, longeDe }) {
 }
 
 // Verbo do botão de ação por tipo de POI (texto no i18n, cena.acao.<tipo>).
-const TIPOS_COM_VERBO = new Set(['papo', 'treta', 'parada', 'corre', 'descanso', 'loja', 'achado', 'agiota', 'ferreiro', 'banca'])
+const TIPOS_COM_VERBO = new Set(['papo', 'treta', 'parada', 'corre', 'descanso', 'loja', 'achado', 'agiota', 'ferreiro', 'banca', 'jogo'])
 export function interactionLabel(p, t) {
   if (p.ehChefe) return t('games.gangues.cena.acao.desafiar')
   if (p.ehPorta) return t('games.gangues.cena.acao.entrar')

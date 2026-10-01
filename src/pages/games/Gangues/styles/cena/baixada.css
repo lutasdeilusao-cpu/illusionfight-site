@@ -56,6 +56,10 @@
   background: rgba(0, 0, 0, .8); padding: 3px 8px; max-width: 90%; text-align: center;
 }
 
+/* Caderno do Contador (Alto): verde = dívida comprada, vermelho = batido na porrada. */
+.gang-caderno .gang-respeito__barra i.is-comprado { background: var(--if-teal); box-shadow: 0 0 6px var(--if-teal); }
+.gang-caderno .gang-respeito__barra i.is-batido { background: var(--if-danger); box-shadow: 0 0 6px var(--if-danger); }
+
 /* Barra de Alerta (Vila): mesma peça, cor de perigo — encher é ruim. */
 .gang-alerta { border-color: var(--if-danger); }
 /* Dentro do prédio a escada de subir fica no topo: a barra vira uma linha só, sem o texto. */

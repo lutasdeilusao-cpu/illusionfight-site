@@ -1,6 +1,24 @@
 {
   "games": {
     "gangues": {
+      "jogo": {
+        "tag": "THE ACCOUNTANT'S GAME",
+        "comecar": "Play",
+        "seguir": "Continue",
+        "de_novo": "Play again",
+        "voce": "You",
+        "contador": "Accountant",
+        "porrinha_mao": "How many sticks are you hiding?",
+        "porrinha_chute": "Your guess for the total:",
+        "porrinha_abrir": "Open your hand",
+        "porrinha_revela": "You: {mao} in hand, guessed {chute}. Accountant: {maoDele} in hand, guessed {chuteDele}. Total: {total}.",
+        "porrinha_voce_acertou": "You got it — throw one stick away.",
+        "porrinha_ele_acertou": "The Accountant got it — he throws one stick away.",
+        "porrinha_ninguem": "Nobody got it. Another round.",
+        "bilhar_tacadas": "Shots: {n}/{max}",
+        "bilhar_bolas": "Balls on the table: {n}",
+        "bilhar_como": "Drag back from the cue ball and let go."
+      },
       "log_batalha_inicio": "The fight has begun.",
       "combat_item_cheio": "That one's already maxed — pick someone else to heal.",
       "dano_cena_dano": "{nome}'s hit",
@@ -406,6 +424,7 @@
           "epico": "Epic"
         },
         "itens": {
+          "135": "The Accountant's Cane",
           "134": "The Beast's Staff",
           "141": "Rust's Bat",
           "401": "Pipe Wrench",
@@ -4173,7 +4192,236 @@
         "fechar": "got it, boss"
       },
       "cena": {
+        "alto": {
+          "chegada": [
+            "This is the Hilltop, kid. Behind the steel door.",
+            "Up here five guys almost became a council. They pulled half the Hill into one fist before the Patchwork showed up.",
+            "And the whole Hilltop owes the Accountant a favor. He doesn't fight out of anger — he fights because that's how the numbers add up.",
+            "Each of the Five you handle your way: buy out his debt or break him with your fists. Just remember the Accountant writes everything down."
+          ],
+          "aviso_informante": "Nobody on the Hilltop will take you to the Accountant yet. There's a message for you at the Foot of the Hill Bar — hear it first.",
+          "checklist_dica": "Get past the steel door and deal with the Five — buy them out or beat them. Then the Ring, the room of the Five and the Accountant's office.",
+          "checklist_passagem": "The book is closed. Walk into the office and face the Accountant.",
+          "pich": "THE FIVE",
+          "grafite": "THE NUMBERS\nALWAYS ADD UP",
+          "predio": {
+            "birosca": "Hilltop Bar",
+            "oficina": "Hilltop Forge",
+            "emporio": "Hilltop Emporium",
+            "sala_cinco": "The Room of the Five",
+            "escritorio": "The Accountant's Office"
+          },
+          "int": {
+            "birosca": "Hilltop Bar",
+            "oficina": "Hilltop Forge",
+            "emporio": "Hilltop Emporium",
+            "sala_cinco": "The Room of the Five",
+            "escritorio": "The Accountant's Office"
+          },
+          "caderno": {
+            "titulo": "THE ACCOUNTANT'S BOOK",
+            "resumo": "{comprados} bought out · {batidos} beaten"
+          },
+          "porta_aco": {
+            "nome": "The steel door",
+            "sub": "the only way into the Hilltop",
+            "fala": [
+              "You're not getting through. I am the door.",
+              "Whoever punches a steel door breaks his hand first."
+            ]
+          },
+          "sala_fechada": {
+            "nome": "The locked room",
+            "sub": "the Five's guard",
+            "fala": [
+              "The Five are in a meeting. Nobody interrupts.",
+              "Wanna talk to them? Get through me first."
+            ]
+          },
+          "cinco_verme": {
+            "nome": "Worm",
+            "sub": "the first of the Five",
+            "fala": [
+              "I've owed the Accountant six hundred for three years. He collects in favors, every month.",
+              "You wanna pass? Either pay my tab or move me out of the way."
+            ],
+            "escolhas": {
+              "comprar": {
+                "label": "Buy out his debt (600)",
+                "resultado": "You count the cash in front of him. He crosses his own name out of the Accountant's book. \"Now I owe you.\""
+              },
+              "encarar": {
+                "label": "Settle it with your fists",
+                "resultado": "\"Then come on. But know this: whoever gets beat by you goes crying to the Accountant.\""
+              }
+            }
+          },
+          "cinco_presa": {
+            "nome": "Fang",
+            "sub": "right hand of the council that almost was",
+            "fala": [
+              "We were gonna run the whole Hill. The Patchwork got here first.",
+              "Pay what I owe the Accountant and I'll step aside. Otherwise, come on."
+            ],
+            "escolhas": {
+              "comprar": {
+                "label": "Buy out his debt (650)",
+                "resultado": "You count the cash in front of him. He crosses his own name out of the Accountant's book. \"Now I owe you.\""
+              },
+              "encarar": {
+                "label": "Settle it with your fists",
+                "resultado": "\"Then come on. But know this: whoever gets beat by you goes crying to the Accountant.\""
+              }
+            }
+          },
+          "cinco_engrenagem": {
+            "nome": "Gear",
+            "sub": "fights in formation, guards the center",
+            "fala": [
+              "The Five work like a machine. Pull one piece and the rest jams.",
+              "Seven hundred and I take myself apart. Or you take me apart by hand."
+            ],
+            "escolhas": {
+              "comprar": {
+                "label": "Buy out his debt (700)",
+                "resultado": "You count the cash in front of him. He crosses his own name out of the Accountant's book. \"Now I owe you.\""
+              },
+              "encarar": {
+                "label": "Settle it with your fists",
+                "resultado": "\"Then come on. But know this: whoever gets beat by you goes crying to the Accountant.\""
+              }
+            }
+          },
+          "cinco_quase": {
+            "nome": "Near-Council",
+            "sub": "the most ambitious of the Five",
+            "fala": [
+              "I was gonna be the council. I still will. But first I gotta get out of that book.",
+              "Buy my debt and I'll owe you. That's worth more than a beating."
+            ],
+            "escolhas": {
+              "comprar": {
+                "label": "Buy out his debt (750)",
+                "resultado": "You count the cash in front of him. He crosses his own name out of the Accountant's book. \"Now I owe you.\""
+              },
+              "encarar": {
+                "label": "Settle it with your fists",
+                "resultado": "\"Then come on. But know this: whoever gets beat by you goes crying to the Accountant.\""
+              }
+            }
+          },
+          "cinco_quarto": {
+            "nome": "Fourth Name",
+            "sub": "the closest to becoming a real council",
+            "fala": [
+              "We were one name short of being a council. Just one.",
+              "Eight hundred. Or you find out why they call me general."
+            ],
+            "escolhas": {
+              "comprar": {
+                "label": "Buy out his debt (800)",
+                "resultado": "You count the cash in front of him. He crosses his own name out of the Accountant's book. \"Now I owe you.\""
+              },
+              "encarar": {
+                "label": "Settle it with your fists",
+                "resultado": "\"Then come on. But know this: whoever gets beat by you goes crying to the Accountant.\""
+              }
+            }
+          },
+          "roda": {
+            "nome": "The Ring",
+            "sub": "the formation that trains for the Five",
+            "fala": [
+              "Nobody fights alone here. Not us, not you.",
+              "Step into the circle. Whoever holds up walks out."
+            ]
+          },
+          "formacao_completa": {
+            "nome": "Full Formation",
+            "sub": "the Ring's doctrine made flesh",
+            "fala": [
+              "The Five were the head. I'm the body.",
+              "You want the Accountant? He's on the other side of my formation."
+            ]
+          },
+          "favor_devido": {
+            "nome": "Owed Favor",
+            "sub": "owes the Accountant, fights to pay it off",
+            "fala": [
+              "Every guy I drop is one month off the book.",
+              "You're worth three months, at least."
+            ]
+          },
+          "rinha_alto": {
+            "nome": "Hilltop Ring",
+            "sub": "endless fights with a view of all of Marélia",
+            "fala": [
+              "The Hilltop ring has the best view in the city. And the worst hits.",
+              "One ends, another steps in, random. You can leave the crew here — 1 fight every 5 minutes."
+            ]
+          },
+          "birosca_alto": {
+            "nome": "Hilltop Bar",
+            "sub": "fake whiskey and torn leather chairs",
+            "intro": "Up here even the bar thinks it's a council. But the crew rests the same. Costs a little."
+          },
+          "divida_do_alto": {
+            "nome": "Upper Debt",
+            "sub": "works straight for the Accountant",
+            "fala": [
+              "Need cash? The Accountant always has some. And always writes it down.",
+              "1200 in your hand now. The math, the Accountant does."
+            ],
+            "botao_ver_contrato": "I want the 1200",
+            "contrato_tag": "Contract · the Accountant's book",
+            "contrato_corpo": "\"1200 in hand, right now. Take it or leave it?\"",
+            "contrato_letra_miuda": "Fine print: you end up owing {divida}.",
+            "contrato_aceitar": "I'm in",
+            "contrato_recusar": "No deal"
+          },
+          "emporio": {
+            "nome": "Hilltop Emporium",
+            "sub": "the best stuff that makes it up the Hill"
+          },
+          "ferraria_alto": {
+            "nome": "Hilltop Forge",
+            "fala": "We forge the steel door here. Bring the piece and some scrap and I'll get it right — up to +8."
+          },
+          "mesa_dos_cinco": {
+            "nome": "The table of the Five",
+            "sub": "where they almost became a council",
+            "linha": "Five chairs, one empty. In the drawer, a little cash and a bottle of syrup nobody had the nerve to take."
+          },
+          "jogo_porrinha": {
+            "nome": "The Accountant · Hand Sticks",
+            "fala": "\"Sit down, kid. Before the beating, we play. Everybody knows how to fight. Hardly anybody knows how to count.\"",
+            "regra": "Each of you has 3 sticks. Hide 0 up to what you have and guess the total of both hands. Whoever guesses the total throws one stick away. First to run out wins.",
+            "ganhou": "\"Hm. You count right.\" He pushes his chair back and points to the back door. \"Pool. Come on.\"",
+            "perdeu": "\"See? The math always works out in my favor.\" He shuffles the sticks again. \"Another one? I've got all night.\""
+          },
+          "jogo_bilhar": {
+            "nome": "The Accountant · Three-Ball Pool",
+            "fala": "\"Three balls, six pockets. I did it in five shots. You get six. Fair, right?\"",
+            "regra": "Drag your finger back from the cue ball to aim and set the power, then let go. Sink all 3 balls in 6 shots or fewer. A scratched cue ball goes back to its spot and costs the shot.",
+            "ganhou": "He claps slowly. \"Nice. Now we're talking.\" He takes off his jacket and folds it on the table. \"Now we do it the way you like.\"",
+            "perdeu": "\"Ran out of shots, kid.\" He racks the balls again. \"Chalk up and try another.\""
+          }
+        },
         "morro": {
+          "informante_alto": {
+            "nome": "The message from the Hilltop",
+            "sub": "a kid from the Ring",
+            "fala": [
+              "The Accountant says: whoever took down Zefa can come up to the Hilltop.",
+              "But up there everything has a price. And the Accountant knows everybody's price."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Take the message",
+                "resultado": "The kid disappears behind the steel door. Now the Hilltop knows you're coming."
+              }
+            }
+          },
           "chegada": [
             "This is the Hill, kid. Nobody ever took this place. Not even the Patchwork.",
             "Zefa doesn't sell the Hill, she negotiates it. And the Firework Boys lock the stairway with three gates.",
@@ -5059,6 +5307,7 @@
         "hint_sucata": "🔩 Take both scrap pieces to Nando at the workshop. He'll sort you out.",
         "hint_sucata_falta": "🔩 You're missing a scrap piece — it's in the back of the junkyard. Grab both and take them to Nando.",
         "acao": {
+          "jogo": "PLAY",
           "fundos": "BACK ROOM",
           "subir": "CLIMB",
           "entrar": "GO IN",

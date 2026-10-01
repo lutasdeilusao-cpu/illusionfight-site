@@ -116,4 +116,14 @@ export const POIS_MORRO = [
     i18n: 'games.gangues.cena.morro.creche_achado',
     recompensa: { grana: 120, rep: 3, item: 34 },
   },
+  {
+    // O recado do Alto (sala dos fundos da birosca): a ponte pro 6º território —
+    // destranca o Contador (`__flags.alto`, ver `precisaInformante`).
+    id: 'informante_alto',
+    tipo: 'papo',
+    opcional: true,
+    repetivel: true,
+    i18n: 'games.gangues.cena.morro.informante_alto',
+    escolhas: [{ id: 'ouvir', informante: 'alto' }],
+  },
 ]

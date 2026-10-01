@@ -151,6 +151,8 @@ const CATALOGO = [
   // O Espeto do Fura-Bucho — prêmio da 1ª vitória contra o chefe da Baixada.
   { id: 140, slug: 'espeto_do_fura_bucho', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [3, 6], D: [1, 3] }, cardSlots: 2, icone: '🗡️' },
   { id: 139, slug: 'facao_do_carvao', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [2, 5], D: [0, 2] }, cardSlots: 2, icone: '🔪' },
+  // A Bengala do Contador — prêmio da 1ª vitória contra o chefe do Alto do Morro.
+  { id: 135, slug: 'bengala_do_contador', caminho: 'livre', slot: 'amuleto', raridade: 'epico', bonus: { A: [1, 3], D: [1, 3] }, cardSlots: 2, icone: '🦯' },
   // A Vara da Fera — prêmio da 1ª vitória contra a Zefa (chefe do Morro).
   { id: 134, slug: 'vara_da_fera', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [4, 7], H: [1, 2] }, cardSlots: 2, icone: '🦯' },
   // O Taco da Ferrugem — prêmio da 1ª vitória contra o chefe da Vila.

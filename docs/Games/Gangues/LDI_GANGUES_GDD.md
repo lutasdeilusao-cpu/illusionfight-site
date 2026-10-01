@@ -535,6 +535,23 @@ Roda** (onde treinam a formação de combate) · **A sala dos Cinco** (quase vir
 sede de cúpula paralela) · **O escritório do Contador** (improvisado, todo o Alto
 deve favor a ele).
 
+**Cena navegável (v3.86.0, 30/09/2026 — código em `data/cenas/alto/`).** Mecânica do
+Alto: **o Caderno do Contador**. Cada um dos Cinco (Verme 75, Presa 76, Engrenagem 77,
+Quase-Cúpula 78, Quarto Nome 79) se resolve COMPRANDO a dívida dele (600–800 de grana;
+o Contador perde 1 de Couro) ou na PORRADA (de graça; o Contador ganha 1 de Porrada) —
+`cena.ajusteChefe`, barra do caderno no topo. Ponte: o recado do Alto na sala dos fundos
+da birosca do Morro. Caminho: porta de aço 73 → sala fechada 74 → os Cinco → a Roda 80
+(sempre em dupla) → sala dos Cinco: Formação Completa 82 (G) → escritório: Favor
+Devido 83 → **as fases do Contador**: ele gosta de se divertir, então antes da porrada
+se ganha dele em dois JOGOS próprios (POI `tipo: 'jogo'`, `components/cena/jogos/`):
+**porrinha** (3 palitos cada, chuta o total, quem acerta joga um fora, zerou ganhou) e
+**bilhar de três bolas** (arrasta e solta, encaçapa as 3 em até 6 tacadas — ele fez em
+5). Perder um jogo não custa nada, joga de novo. Só a fase final é porrada: **O
+Contador 85** (orçamento 213 × 0,40, escolta Quarto Nome + Formação Completa ~64).
+Birosca (descanso 50, agiota Dívida do Alto com 1200 nos fundos), Ferraria (+8),
+Empório (ainda o pesado da Vila), Rinha, Clube 74/146/227, AP ×1,5. Drop: Bengala do
+Contador (135).
+
 ### Território 7 — A Laje · A Coroa · `#a855f7`
 Facção: Bonde do Retalho (114). O topo. De um lado, Marélia inteira. Do outro, o
 Retalho. **Onde a pergunta do jogo ("dá pra segurar Marélia?") é respondida com

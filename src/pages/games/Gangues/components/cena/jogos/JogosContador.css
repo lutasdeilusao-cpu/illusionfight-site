@@ -1,0 +1,36 @@
+/* As fases-jogo do Contador (Alto do Morro): porrinha e bilhar de três bolas. */
+.gang-jogo { display: grid; gap: 10px; text-align: center; }
+.gang-jogo h3 { margin: 0; font: 800 1.05rem var(--font-display, var(--font-mono)); color: var(--gang-branco); letter-spacing: .04em; }
+.gang-jogo-tag { font: 800 .55rem var(--font-mono); letter-spacing: .16em; color: var(--if-amber); }
+.gang-jogo-fala { margin: 0; font: 600 .82rem/1.45 var(--font-mono); color: var(--gang-branco); }
+.gang-jogo-regra, .gang-jogo-rotulo { margin: 0; font: 500 .68rem/1.4 var(--font-mono); color: rgba(255, 255, 255, .7); }
+
+.gang-jogo-acao {
+  justify-self: center; min-height: 44px; padding: 0 22px; border: 1px solid var(--if-amber);
+  background: rgba(245, 166, 35, .14); color: var(--gang-branco); font: 800 .72rem var(--font-mono); letter-spacing: .1em;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-jogo-acao:disabled { opacity: .4; }
+.gang-jogo-acao.is-sec { border-color: rgba(255, 255, 255, .3); background: transparent; }
+.gang-jogo-fim-botoes { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+.gang-jogo-placar { display: flex; justify-content: space-between; gap: 10px; font: 700 .7rem var(--font-mono); color: rgba(255, 255, 255, .8); }
+.gang-jogo-placar b { color: var(--if-amber); letter-spacing: .15em; }
+
+/* porrinha */
+.gang-jogo-porrinha { display: grid; gap: 8px; }
+.gang-jogo-opcoes { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.gang-jogo-opcoes button {
+  min-width: 40px; min-height: 40px; border: 1px solid rgba(255, 255, 255, .25); background: rgba(0, 0, 0, .35);
+  color: var(--gang-branco); font: 800 .9rem var(--font-mono);
+}
+.gang-jogo-opcoes button.is-on { border-color: var(--if-amber); background: rgba(245, 166, 35, .25); }
+.gang-jogo-revela { display: grid; gap: 8px; }
+.gang-jogo-revela p { margin: 0; font: 600 .74rem/1.5 var(--font-mono); color: var(--gang-branco); }
+.gang-jogo-revela strong { font: 800 .8rem var(--font-mono); color: rgba(255, 255, 255, .7); }
+.gang-jogo-revela strong.is-voce { color: var(--if-teal); }
+.gang-jogo-revela strong.is-ele { color: var(--if-danger); }
+
+/* bilhar */
+.gang-jogo-bilhar { display: grid; gap: 8px; }
+.gang-jogo-mesa { width: 100%; max-width: 300px; justify-self: center; aspect-ratio: 300 / 480; touch-action: none; border: 2px solid #2a170c; }
