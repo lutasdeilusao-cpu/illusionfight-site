@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+import { BASE_ROTAS } from './lib/idiomaUrl'
 import { HelmetProvider } from 'react-helmet-async'
 import './config/version'
 import './lib/runtimePlatform'
@@ -24,7 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ReaderProvider>
       <HelmetProvider>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename={BASE_ROTAS}>
           <AuthProvider>
             <FichasProvider>
               <DixProvider>

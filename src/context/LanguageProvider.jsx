@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { LanguageContext } from './LanguageContext'
 import { useAuth } from './AuthContext'
 import { supabase } from '../lib/supabase'
+import { IDIOMA_DA_URL, irParaIdioma, idiomaDaSessao, guardarIdiomaDaSessao } from '../lib/idiomaUrl'
 import { carregarCore, carregarArea, areaDaRota } from '../i18n/locales'
 
 const IDIOMAS_SUPORTADOS = ['pt', 'en', 'es']
@@ -59,7 +60,7 @@ export function LanguageProvider({ children }) {
   // desta sessão (troca manual no menu funciona, mas não sobrevive a uma
   // nova visita); só a CONTA guarda preferência de idioma de verdade,
   // aplicada pelo efeito abaixo assim que `perfil.locale` chega.
-  const [locale, setLocale] = useState(idiomaDoNavegador)
+  const [locale, setLocale] = useState(() => IDIOMA_DA_URL || (IDIOMAS_SUPORTADOS.includes(idiomaDaSessao()) ? idiomaDaSessao() : idiomaDoNavegador()))
   // Depois que a conta já aplicou seu idioma salvo uma vez, uma troca
   // manual no menu não deve ser sobrescrita se `perfil` for recarregado
   // por outro motivo (ex.: outra aba atualiza o perfil) — só reage à
@@ -106,6 +107,8 @@ export function LanguageProvider({ children }) {
   useEffect(() => {
     const salvo = perfil?.locale
     if (!salvo || !IDIOMAS_SUPORTADOS.includes(salvo)) return
+    // endereço /pt ou /es diz o idioma desta visita: a conta não troca por cima
+    if (IDIOMA_DA_URL) return
     if (perfilLocaleAplicadoRef.current === salvo) return
     perfilLocaleAplicadoRef.current = salvo
     setLocale(salvo)
@@ -148,7 +151,10 @@ export function LanguageProvider({ children }) {
   }, [t])
 
   const changeLocale = useCallback((next) => {
-    setLocale(next)
+    // numa versão /pt ou /es: vai pro endereço da outra língua (grava a conta antes)
+    guardarIdiomaDaSessao(next)
+    const vaiNavegar = irParaIdioma(next)
+    if (!vaiNavegar) setLocale(next)
     // Sem conta: a troca vale só pra esta sessão (nunca persiste) — é o
     // pedido central, primeiro contato sempre em inglês. Com conta: grava
     // no perfil, é isso que faz o idioma voltar sozinho no próximo login.

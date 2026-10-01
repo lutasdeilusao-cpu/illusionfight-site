@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.328.0' // Idioma pelo aparelho (pt/es, resto inglês) + SEO: metade livre do capítulo no HTML estático, schema Chapter/Book, Organization com redes
+export const SITE_VERSION = '10.329.0' // SEO: versões /pt e /es com hreflang (483 páginas) + títulos e descrições escritos pra busca nos 3 idiomas
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
