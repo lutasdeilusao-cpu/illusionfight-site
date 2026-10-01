@@ -259,6 +259,8 @@
         "open_sheet": "Ficha"
       },
       "levelup": {
+        "passiva_sempre": "PASSIVA · vale em toda luta, sozinha",
+        "ativa_equipar": "ATIVA · leva pra luta na ficha (máx. 2)",
         "titulo": "SUBIU DE NÍVEL!",
         "continuar": "Continuar"
       },
@@ -656,6 +658,11 @@
         "aposta_sem_grana": "Sem grana pra essa aposta."
       },
       "skill_info": {
+        "titulo_luta": "Leva pra luta",
+        "dica_luta": "A técnica base vai sempre. Escolhe mais 2 talentos ativos pra levar — dá pra trocar antes de cada briga.",
+        "titulo_passivas": "Passivas · sempre ligadas",
+        "dica_passivas": "Não ocupam vaga: valem em toda luta, sozinhas. Quando uma faz diferença, o dado mostra.",
+        "sempre": "SEMPRE",
         "titulo": "Talentos",
         "ativa": "Ativa",
         "passiva": "Passiva",

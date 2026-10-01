@@ -259,6 +259,8 @@
         "open_sheet": "Sheet"
       },
       "levelup": {
+        "passiva_sempre": "PASSIVE · works in every fight, on its own",
+        "ativa_equipar": "ACTIVE · take it into the fight from the sheet (max. 2)",
         "titulo": "LEVEL UP!",
         "continuar": "Continue"
       },
@@ -656,6 +658,11 @@
         "aposta_sem_grana": "Not enough cash for that bet."
       },
       "skill_info": {
+        "titulo_luta": "Take into the fight",
+        "dica_luta": "Your base technique always comes along. Pick 2 more active talents to bring — you can swap them before every fight.",
+        "titulo_passivas": "Passives · always on",
+        "dica_passivas": "They don't take a slot: they work in every fight, on their own. When one makes a difference, the dice shows it.",
+        "sempre": "ALWAYS",
         "titulo": "Talents",
         "ativa": "Active",
         "passiva": "Passive",

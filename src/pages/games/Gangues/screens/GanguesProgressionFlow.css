@@ -43,6 +43,11 @@
   font: 700 10px var(--font-mono); letter-spacing: .04em; text-transform: uppercase;
 }
 .gang-levelup-tag--poder { border-color: var(--if-amber); color: var(--if-amber); background: var(--if-amber-16); }
+/* talento novo no aviso de nível: nome, onde vale e o que faz */
+.gang-levelup-talento { display: grid; gap: 2px; margin: 8px 0 0; padding: 8px 10px; border-left: 2px solid var(--if-amber); background: rgba(0, 0, 0, .25); text-align: left; }
+.gang-levelup-talento b { font-size: 12px; color: var(--if-amber); }
+.gang-levelup-talento em { font-style: normal; font-size: 10px; letter-spacing: .5px; color: var(--if-teal); }
+.gang-levelup-talento span { font-size: 11px; line-height: 1.4; color: var(--gang-gelo-50); }
 
 /* ══════════════════════════════════════════════════════════════
    PROGRESSÃO — tela dedicada (v10.208)

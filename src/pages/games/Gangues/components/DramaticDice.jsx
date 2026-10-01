@@ -222,7 +222,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
               transition={{ delay: 0.1, duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
             >
               <small className="dramatic-dice-passivename__tag">{passivaLabel}</small>
-              🛡 {passiveNames.join(' · ')}
+              {passiveNames.map(p => <span key={p.nome} className="dramatic-dice-passivename__linha">🛡 {p.nome}{p.desc && <em>{p.desc}</em>}</span>)}
             </motion.div>
           )}
 

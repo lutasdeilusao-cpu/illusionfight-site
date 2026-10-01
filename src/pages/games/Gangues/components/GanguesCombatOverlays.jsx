@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { getGanguesEffectTheme } from '../data/ganguesEffectThemes.js'
 import { getGanguesProgression, ganguesXpMaxForSheet } from '../data/ganguesLoadout.js'
 import { fighterName } from '../engine/ganguesCombatPresentation.js'
+import { describeGanguesSpecialEffect } from '../engine/ganguesSpecialEffects.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import DramaticDice from './DramaticDice'
@@ -123,7 +124,11 @@ export default function GanguesCombatOverlays({
             passiveNames={[
               ...(machine.pending.result.passivosGatilho?.attacker || []),
               ...(machine.pending.result.passivosGatilho?.defender || []),
-            ].map(id => t(`games.gangues.progression.skills.${id}`))}
+            ].map(id => {
+              // Nome + o que ela FEZ (Isaias, 30/09/2026: "não explica o que ela faz").
+              const desc = describeGanguesSpecialEffect(t, id, machine.pending.result.passivosNivel?.[id] || 1)
+              return { nome: t(`games.gangues.progression.skills.${id}`), desc }
+            })}
             passivaLabel={t('games.gangues.passiva_ativou')}
             statusNome={machine.pending.result.statusAplicado ? `${GANGUES_STATUS[machine.pending.result.statusAplicado]?.icone || ''} ${t(`games.gangues.status.${machine.pending.result.statusAplicado}.nome`)}!` : null}
             statusDesc={machine.pending.result.statusAplicado ? t(`games.gangues.status.${machine.pending.result.statusAplicado}.desc`) : null}

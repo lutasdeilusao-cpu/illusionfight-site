@@ -70,15 +70,17 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   const retrato = () => camposComparados.map(campo => ctx[campo])
   const mudou = (antes, depois) => camposComparados.some((_, i) => antes[i] !== depois[i])
   const passivosGatilho = { attacker: [], defender: [] }
+  // nível de cada passiva que disparou (pra mostrar o efeito certo no dado)
+  const passivosNivel = {}
   for (const item of attackerEffects) {
     const antes = retrato()
     applyGanguesAttackerEffect(item, ctx)
-    if (item.kind === 'passive' && mudou(antes, retrato())) passivosGatilho.attacker.push(item.id)
+    if (item.kind === 'passive' && mudou(antes, retrato())) { passivosGatilho.attacker.push(item.id); passivosNivel[item.id] = item.level }
   }
   for (const item of defenderEffects) {
     const antes = retrato()
     applyGanguesDefenderEffect(item, ctx)
-    if (item.kind === 'passive' && mudou(antes, retrato())) passivosGatilho.defender.push(item.id)
+    if (item.kind === 'passive' && mudou(antes, retrato())) { passivosGatilho.defender.push(item.id); passivosNivel[item.id] = item.level }
   }
 
   const effectiveDefense = Math.max(0, Math.round(defense * (1 - ctx.ignoreDefPct / 100)) - ctx.targetDefenseReduction)
@@ -121,6 +123,7 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
     statusAplicado: ctx.statusAplicar?.id || null,
     activeSpecialId: attackerEffects.find(item => item.kind === 'active')?.id || null,
     passivosGatilho,
+    passivosNivel,
     ignoreDefPct: ctx.ignoreDefPct, shieldConsumed,
     attackerSpecialState, defenderSpecialState,
   }

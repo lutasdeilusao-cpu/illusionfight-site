@@ -11,6 +11,7 @@ import GanguesRetratoImg from '../components/GanguesRetratoImg'
 import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS } from '../hooks/useGanguesBrigaAutomatica.js'
 import { getGanguesEquip } from '../data/ganguesEquip.js'
 import { getGanguesItem } from '../data/ganguesItens.js'
+import { describeGanguesSpecialEffect } from '../engine/ganguesSpecialEffects.js'
 
 // Explica a regra de divisão de XP só na 1ª tela de vitória de verdade
 // (pedido do Isaias, 13/09/2026 — tutorial progressivo: a regra só importa
@@ -122,6 +123,18 @@ export default function GanguesVictoryReport({
                       </span>
                     ))}
                   </div>
+                  {/* Talento novo: o que faz e se vale sempre (passiva) ou se tem que
+                      levar pra luta (ativa, máx. 2 na ficha) — Isaias, 30/09/2026. */}
+                  {eventos.filter(evento => evento.type === 'unlock_special').map(evento => {
+                    const passiva = character?.signature_specials?.find(s => s.id === evento.special_id)?.kind === 'passive'
+                    return (
+                      <p key={evento.special_id} className="gang-levelup-talento">
+                        <b>{t(`games.gangues.progression.skills.${evento.special_id}`)}</b>
+                        <em>{t(passiva ? 'games.gangues.levelup.passiva_sempre' : 'games.gangues.levelup.ativa_equipar')}</em>
+                        <span>{describeGanguesSpecialEffect(t, evento.special_id, 1)}</span>
+                      </p>
+                    )
+                  })}
                 </div>
               )
             })}

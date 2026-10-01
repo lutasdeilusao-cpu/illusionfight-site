@@ -140,9 +140,15 @@ export function hydrateGanguesTemplateSheet(sheet = {}) {
   // (recruta novo, `selected_specials` ainda nem existe na ficha).
   const unlockedActiveIds = new Set(unlocked.filter(special => special.kind === 'active').map(special => special.id))
   const salvos = sheet.attributes?.progression?.selected_specials
-  const selectedSpecials = Array.isArray(salvos)
+  let selectedSpecials = Array.isArray(salvos)
     ? salvos.filter(id => unlockedActiveIds.has(id))
     : unlocked.filter(special => special.kind === 'active').slice(-2).map(special => special.id)
+  // Vaga sobrando (Isaias, 30/09/2026: "eu não senti quando ganhei"): o
+  // talento ativo mais novo entra sozinho na luta até completar as 2 vagas.
+  for (const special of [...unlocked].reverse()) {
+    if (selectedSpecials.length >= 2) break
+    if (special.kind === 'active' && !selectedSpecials.includes(special.id)) selectedSpecials = [...selectedSpecials, special.id]
+  }
   const progression = {
     ap: Math.max(0, Number(sheet.attributes?.progression?.ap) || 0),
     xp_unspent: 0,
