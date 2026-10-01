@@ -14,12 +14,17 @@ import { miniaturaCapHistoria, numeroCapHistoria } from '../../lib/historias/cat
 import { lerHistorico, aoMudarHistorico } from '../../lib/historias/historico'
 import { recomendarDepoisDe, extrasDe, praVoce, recomendadosPraVoce } from '../../lib/historias/recomendacoes'
 import ninaImg from '../../assets/images/characters/nina-balloon.png'
-import paredeGangues from '../../pages/games/Gangues/assets/backgrounds/parede-oficial.jpg'
+import miniGanguesPt from '../../pages/games/Gangues/assets/miniaturas/recomendacao-pt.webp'
+import miniGanguesEn from '../../pages/games/Gangues/assets/miniaturas/recomendacao-en.webp'
+import miniGanguesEs from '../../pages/games/Gangues/assets/miniaturas/recomendacao-es.webp'
 import { getTopTrumpsCardImage } from '../../lib/topTrumpsCardImages'
 import './Recomendacoes.css'
 
+// LDI Gangues: miniatura montada com a mesma arte da vitrine da Home (parede
+// oficial + Navalha, Trinca e Marreta de corpo inteiro + logo do idioma).
+const MINI_GANGUES = { pt: miniGanguesPt, en: miniGanguesEn, es: miniGanguesEs }
 const CAPA_EXTRA = {
-  gangues: () => paredeGangues,
+  gangues: locale => MINI_GANGUES[locale] || MINI_GANGUES.pt,
   trunfo: () => getTopTrumpsCardImage(9),
   webshard: () => imagemWebshard(tituloLegado().capa),
   radio: () => ninaImg,
@@ -86,10 +91,10 @@ function CartaoHistoria({ historia, sub, rota, capa }) {
 }
 
 function CartaoExtra({ extra }) {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   return (
     <Link to={extra.rota} className="rec-cartao rec-cartao--extra">
-      <img src={CAPA_EXTRA[extra.chave]?.()} alt="" loading="lazy" decoding="async" />
+      <img src={CAPA_EXTRA[extra.chave]?.(locale)} alt="" loading="lazy" decoding="async" />
       <span className="rec-cartao__info">
         <strong>{t(`pages.recomendacoes.extras.${extra.chave}.titulo`)}</strong>
         <small>{t(`pages.recomendacoes.extras.${extra.chave}.sub`)}</small>
@@ -152,7 +157,7 @@ function Poster({ rec }) {
   const { t, locale } = useLanguage()
   const ehExtra = rec.tipo === 'extra'
   const rota = ehExtra ? rec.extra.rota : rec.historia.rota
-  const capa = ehExtra ? CAPA_EXTRA[rec.chave]?.() : rec.historia.capa
+  const capa = ehExtra ? CAPA_EXTRA[rec.chave]?.(locale) : rec.historia.capa
   const nome = ehExtra ? t(`pages.recomendacoes.extras.${rec.chave}.titulo`) : localizado(rec.historia, 'nome', locale)
   return (
     <Link to={rota} className={`rec-poster rec-poster--${rec.motivo.tipo}`}>
