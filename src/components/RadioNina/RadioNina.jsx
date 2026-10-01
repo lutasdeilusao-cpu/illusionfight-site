@@ -3,7 +3,8 @@ import { useLocation } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import ninaImg from '../../assets/images/characters/nina-balloon.png'
 import STRINGS from './radio-nina.i18n.json'
-import { useRadioNina, marcarSessao, sessaoRespondida, CORES_RADIO } from './useRadioNina'
+import { marcarSessao, sessaoRespondida, CORES_RADIO } from './useRadioNina'
+import { useRadio } from './RadioNinaContext'
 import RadioNinaPlaylist from './RadioNinaPlaylist'
 import './RadioNina.css'
 
@@ -28,7 +29,7 @@ export default function RadioNina() {
   const { locale } = useLanguage()
   const S = STRINGS[locale] || STRINGS.pt
   const location = useLocation()
-  const radio = useRadioNina()
+  const radio = useRadio()
   const {
     estado, setEstado, tocando, faixaAtual, tempo, duracao, cor, setCor,
     volume, setVolume, pool, playlistSalva, logado,

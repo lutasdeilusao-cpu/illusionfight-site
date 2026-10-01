@@ -44,7 +44,8 @@
         "icone": "tidal",
         "url": "https://tidal.com/album/459125153"
       }
-    ]
+    ],
+    "arquivo": "Lutas de Ilusão(Opening) - Isaias Leal Music.mp3"
   },
   {
     "id": "unico-role",
@@ -96,6 +97,12 @@
         "cor": "#FC3C44",
         "icone": "apple",
         "url": "https://geo.itunes.apple.com/au/album/unico-rol%C3%AA-single/1837513207?app=itunes&ls=1&ct=FFM_16d1021634d383353582561441fea129&at=1001lwQy"
+      },
+      {
+        "nome": "Amazon Music",
+        "cor": "#00A8E1",
+        "icone": "amazon",
+        "url": "https://music.amazon.com/albums/B0FPHTCD6R?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
       }
     ]
   },
@@ -131,37 +138,15 @@
         "cor": "#000000",
         "icone": "tidal",
         "url": "http://www.tidal.com/album/506956397"
-      }
-    ]
-  },
-  {
-    "id": "andando-por-voce",
-    "titulo": "Andando por Você",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/1fCo0LIRbR7L7ZuMZgTIbe"
       },
       {
         "nome": "Amazon Music",
         "cor": "#00A8E1",
         "icone": "amazon",
         "url": "https://music.amazon.com/albums/B0GSHPPZN1?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/506988912"
       }
-    ]
+    ],
+    "arquivo": "Andando Por Você  - Isaias Leal Music.mp3"
   },
   {
     "id": "a-garota-de-fora",
@@ -196,7 +181,8 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/505846475"
       }
-    ]
+    ],
+    "arquivo": "Garota de Fora  - Isaias Leal Music.mp3"
   },
   {
     "id": "bizarre-run",
@@ -235,7 +221,7 @@
   },
   {
     "id": "so-mais-um-round",
-    "titulo": "Só mais um Round",
+    "titulo": "Só Mais um Round",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -260,7 +246,8 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/505765297"
       }
-    ]
+    ],
+    "arquivo": "Só Mais Um Round  - Isaias Leal Music.mp3"
   },
   {
     "id": "sorte-minha",
@@ -301,7 +288,8 @@
         "icone": "apple",
         "url": "https://geo.itunes.apple.com/au/album/sorte-minha-single/1871255124?app=itunes&ls=1&ct=FFM_7a7ff7764f1d3939b9f95826594b1f53&at=1001lwQy"
       }
-    ]
+    ],
+    "arquivo": "🎵 Sorte Minha (Lucky Me) - Isaias Leal Music.mp3"
   },
   {
     "id": "meu-lugar",
@@ -348,11 +336,12 @@
         "icone": "apple",
         "url": "https://geo.itunes.apple.com/au/album/meu-lugar-single/1871246544?app=itunes&ls=1&ct=FFM_e672e7eb4a6eaceed722c12745a39aab&at=1001lwQy"
       }
-    ]
+    ],
+    "arquivo": "Meu Lugar Anime Opening  - Isaias Leal Music.mp3"
   },
   {
     "id": "felicidade-que-eu-nao-procurava",
-    "titulo": "Felicidade que eu não procurava",
+    "titulo": "Felicidade que Eu Não Procurava",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -395,7 +384,8 @@
         "icone": "apple",
         "url": "https://geo.itunes.apple.com/au/album/felicidade-que-eu-n%C3%A3o-procurava-single/1871208574?app=itunes&ls=1&ct=FFM_0a6d16b0ead126b642f121ebc29e92ee&at=1001lwQy"
       }
-    ]
+    ],
+    "arquivo": "Felicidade Que Eu Não Procurava - Isaias Leal Music.mp3"
   },
   {
     "id": "infelizes",
@@ -430,7 +420,8 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/488747617"
       }
-    ]
+    ],
+    "arquivo": "Infelizes  - Isaias Leal Music.mp3"
   },
   {
     "id": "traidores",
@@ -477,11 +468,12 @@
         "icone": "apple",
         "url": "https://geo.itunes.apple.com/au/album/traidores-single/1871201570?app=itunes&ls=1&ct=FFM_04cef8b29a0d69a9fb149d654c719288&at=1001lwQy"
       }
-    ]
+    ],
+    "arquivo": "Traidores  - Isaias Leal Music.mp3"
   },
   {
     "id": "garota-de-chanel",
-    "titulo": "Garota de chanel",
+    "titulo": "Garota de Chanel",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -524,11 +516,12 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/488331155"
       }
-    ]
+    ],
+    "arquivo": "Garota de Channelll  - Isaias Leal Music.mp3"
   },
   {
     "id": "todo-dia-cedo",
-    "titulo": "Todo dia cedo",
+    "titulo": "Todo Dia Cedo",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -571,7 +564,8 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/488338740"
       }
-    ]
+    ],
+    "arquivo": "Todo dia Cedo  - Isaias Leal Music.mp3"
   },
   {
     "id": "pior-de-mim",
@@ -622,7 +616,7 @@
   },
   {
     "id": "gonna-be-stars",
-    "titulo": "Gonna be Stars",
+    "titulo": "Gonna Be Stars",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -659,7 +653,8 @@
         "icone": "apple",
         "url": "https://geo.itunes.apple.com/au/album/gonna-be-stars-single/1856234243?app=itunes&ls=1&ct=FFM_ae4460e0b41c3f57ecde15d0a84fcebe&at=1001lwQy"
       }
-    ]
+    ],
+    "arquivo": "Gonna Be Stars - Isaias Leal Music.mp3"
   },
   {
     "id": "offline",
@@ -729,11 +724,12 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/474603300"
       }
-    ]
+    ],
+    "arquivo": "V de VINGANCA  - Isaias Leal Music.mp3"
   },
   {
     "id": "a-pilula-vermelha",
-    "titulo": "A pílula vermelha",
+    "titulo": "A Pílula Vermelha",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -752,11 +748,12 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/463498226"
       }
-    ]
+    ],
+    "arquivo": "A Pilula Vermelha - Isaias Leal Music.mp3"
   },
   {
     "id": "pelo-espaco-sideral",
-    "titulo": "Pelo espaço sideral",
+    "titulo": "Pelo Espaço Sideral",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -775,7 +772,8 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/463497779"
       }
-    ]
+    ],
+    "arquivo": "Pelo Espaco Sideral  - Isaias Leal Music.mp3"
   },
   {
     "id": "todo-lo-que-veo-es-freeze",
@@ -818,29 +816,6 @@
     ]
   },
   {
-    "id": "unico-role",
-    "titulo": "Único rolê",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Amazon Music",
-        "cor": "#00A8E1",
-        "icone": "amazon",
-        "url": "https://music.amazon.com/albums/B0FPHTCD6R?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/462985681"
-      }
-    ]
-  },
-  {
     "id": "inevitavel",
     "titulo": "Inevitável",
     "artista": "Isaias Leal",
@@ -860,52 +835,19 @@
         "cor": "#000000",
         "icone": "tidal",
         "url": "http://www.tidal.com/album/463388549"
-      }
-    ]
-  },
-  {
-    "id": "inevitavel",
-    "titulo": "Inevitável",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
+      },
       {
         "nome": "Apple Music",
         "cor": "#FC3C44",
         "icone": "apple",
         "url": "https://geo.music.apple.com/au/album/inevit%C3%A1vel-single/1842918503?app=music&ls=1&ct=FFM_97c2d867e5ff61f166d8e9dae0f27aaa&at=1001lwQy"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/463388545"
       }
-    ]
-  },
-  {
-    "id": "inevitavel",
-    "titulo": "Inevitável",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/462975478"
-      }
-    ]
+    ],
+    "arquivo": "Inevitáve  - Isaias Leal Music.mp3"
   },
   {
     "id": "tudo-que-sinto-e-love",
-    "titulo": "Tudo que sinto é Love",
+    "titulo": "Tudo que Sinto é Love",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -924,7 +866,8 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/462972967"
       }
-    ]
+    ],
+    "arquivo": "Tudo que sinto é love   - Isaias Leal Music.mp3"
   },
   {
     "id": "go-easy",
@@ -947,7 +890,8 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/462681311"
       }
-    ]
+    ],
+    "arquivo": "Go Easy  - Isaias Leal Music.mp3"
   },
   {
     "id": "one-night-out",
@@ -964,7 +908,8 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/462447876"
       }
-    ]
+    ],
+    "arquivo": "One Night Out  - Isaias Leal Music.mp3"
   },
   {
     "id": "come-para-neverland",
@@ -987,11 +932,12 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/462448549"
       }
-    ]
+    ],
+    "arquivo": "Come para Neverland - Isaias Leal Music.mp3"
   },
   {
     "id": "tudo-que-vejo-e-freeze",
-    "titulo": "Tudo que vejo é freeze",
+    "titulo": "Tudo que Vejo é Freeze",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -1016,11 +962,12 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/461447626"
       }
-    ]
+    ],
+    "arquivo": "Tudo que vejo é freeze  - Isaias Leal Musicr.mp3"
   },
   {
     "id": "sou-sua-vitima",
-    "titulo": "Sou sua Vítima",
+    "titulo": "Sou Sua Vítima",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -1033,11 +980,12 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/461198007"
       }
-    ]
+    ],
+    "arquivo": "Sou sua Vitima  - Isaias Leal Music.mp3"
   },
   {
     "id": "escola-pra-q",
-    "titulo": "Escola pra q?",
+    "titulo": "Escola pra Quê?",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -1050,11 +998,12 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/460938523"
       }
-    ]
+    ],
+    "arquivo": "Escola Pra Q  - Isaias Leal Music.mp3"
   },
   {
     "id": "chega-de-la-la-la",
-    "titulo": "CHEGA DE LÁ, LÁ, LÁ",
+    "titulo": "Chega de Lá, Lá, Lá",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -1085,7 +1034,8 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/461290527"
       }
-    ]
+    ],
+    "arquivo": "Chega de La! La! La! - Isaias Leal Music.mp3"
   },
   {
     "id": "sinfonia-imperfeita",
@@ -1132,7 +1082,8 @@
         "icone": "tidal",
         "url": "http://www.tidal.com/album/459563482"
       }
-    ]
+    ],
+    "arquivo": "Sinfonia Imperfeita  - Isaias Leal Music.mp3"
   },
   {
     "id": "balada-dos-esquizitos",
@@ -1185,6 +1136,7 @@
         "icone": "apple",
         "url": "https://geo.itunes.apple.com/au/album/balada-dos-esquizitos-single/1839014168?app=itunes&ls=1&ct=FFM_a332189c43d53628e8926488ec931a82&at=1001lwQy"
       }
-    ]
+    ],
+    "arquivo": "Balada dos Esquisitos - Isaias Leal Music.mp3"
   }
 ]

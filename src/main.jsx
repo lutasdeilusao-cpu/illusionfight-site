@@ -14,6 +14,7 @@ import { DixProvider } from './context/DixContext'
 import { AchievementsProvider } from './context/AchievementsContext'
 import { TutorialProgressProvider } from './context/TutorialProgressContext'
 import { EventosProvider } from './context/EventosContext'
+import { RadioNinaProvider } from './components/RadioNina/RadioNinaContext'
 import App from './App'
 import './index.css'
 
@@ -31,7 +32,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                   <TutorialProgressProvider>
                     <EventosProvider>
                       <LanguageProvider>
-                        <App />
+                        <RadioNinaProvider>
+                          <App />
+                        </RadioNinaProvider>
                       </LanguageProvider>
                     </EventosProvider>
                   </TutorialProgressProvider>

@@ -20,7 +20,17 @@
 .music-circle::after { content: ''; position: absolute; inset: 0; background: linear-gradient(145deg, rgba(0,229,255,.12), transparent 45%, rgba(168,85,247,.12)); pointer-events: none; }
 .music-circle:hover:not(:disabled) { transform: translateY(-5px); border-color: var(--if-cyan); }
 .music-circle img { width: 100%; height: 100%; object-fit: cover; }
+.music-circle.is-ativa { border-color: var(--if-amber); }
+/* o play por cima da capa — a música toca na hora pela Rádio Nina */
+.music-circle__play { position: absolute; inset: auto 6px 6px auto; z-index: 1; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 0, 0, .65); color: var(--if-ink); font-size: .75rem; }
+.music-circle.is-ativa .music-circle__play { color: var(--if-amber); }
+.music-section__acoes { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 6px; }
+.music-section__todas { color: var(--if-cyan); font: 700 .7rem var(--font-mono); letter-spacing: .08em; text-decoration: none; }
 .music-title { width: 100%; margin-top: 9px; overflow: hidden; color: #c5ccd1; font-size: 0.7rem; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
-.music-item__badge { margin-top: 4px; color: #66727b; font: 600 0.52rem 'JetBrains Mono', monospace; letter-spacing: 0.06em; }
-.music-circle__note { color: #53616b; }
 @keyframes music-scroll { to { transform: translateX(-50%); } }
+/* ligar a Rádio Nina direto da Home */
+.music-section__radio {
+  min-height: 44px; padding: 0 18px; border: 1px solid var(--if-amber); background: rgba(255, 174, 50, .14);
+  color: var(--if-ink); font: 800 .72rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}

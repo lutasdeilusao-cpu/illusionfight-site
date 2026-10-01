@@ -4,6 +4,7 @@ import { trackEvent } from '../../lib/analytics'
 import CONFIG from './radio-nina.config.json'
 import { carregarPlaylistSalva, salvarPlaylistSalva } from './radio-nina.playlist'
 import ninaArt from '../../assets/images/characters/nina-balloon.png'
+import MUSICAS from '../../data/musicas.json'
 
 // Capa pra tela de bloqueio / notificação de mídia (MediaSession).
 const MS_ARTWORK = ['96x96', '128x128', '192x192', '256x256', '384x384', '512x512']
@@ -22,7 +23,11 @@ let memoriaSessao = null
 export const marcarSessao = (v) => { memoriaSessao = v }
 export const sessaoRespondida = () => memoriaSessao !== null
 
-export const tituloDe = (key) => TITULOS[key] || key.replace(/\.mp3$/i, '')
+// Título de uma faixa: o do catálogo (data/musicas.json, campo `arquivo`), o da
+// config, ou o nome do arquivo limpo (sem " - Isaias Leal Music" nem emoji).
+const TITULO_CATALOGO = Object.fromEntries(MUSICAS.filter((m) => m.arquivo).map((m) => [m.arquivo, m.titulo]))
+export const tituloDe = (key) => TITULO_CATALOGO[key] || TITULOS[key]
+  || key.replace(/\.mp3$/i, '').replace(/\s*-\s*Isaias Leal Music\w*\s*$/i, '').replace(/^\p{Extended_Pictographic}\s*/u, '').replace(/\s+/g, ' ').trim()
 export const CORES_RADIO = CORES
 
 function embaralhar(arr) {
@@ -535,6 +540,6 @@ export function useRadioNina() {
   return {
     estado, setEstado, tocando, faixaAtual, tempo, duracao, cor, setCor, volume, setVolume,
     pool, playlistSalva, logado: Boolean(user?.id),
-    ligar, alternar, pular, fechar, tocarKey, tocarMinhaPlaylist, seek, salvar,
+    garantirPool, ligar, alternar, pular, fechar, tocarKey, tocarMinhaPlaylist, seek, salvar,
   }
 }
