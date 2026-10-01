@@ -369,7 +369,10 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     const bonusDivida = !viraTreta && poi.inimigoBonusSeDivida && dividaAgiota > 0 ? poi.inimigoBonusSeDivida : null
     // Ajuste do chefe que a própria cena calcula (Alto: o Caderno do Contador).
     const ajusteCena = chefe && cena.ajusteChefe ? cena.ajusteChefe(prog, store.storyProgress.__flags || {}, store.cenaProgresso) : null
-    const ajusteInimigo = [fraqueza, bonusDivida, ajusteCena].filter(Boolean).reduce((acc, a) => { for (const [k, v] of Object.entries(a)) acc[k] = (acc[k] || 0) + v; return acc }, null) || null
+    // Soma começa de {} (não de null — com null quebrava todo chefe com ajuste
+    // ativo, ex. o Cobrador com as páginas da caderneta: tocava o VS e a luta não abria).
+    const ajustes = [fraqueza, bonusDivida, ajusteCena].filter(Boolean)
+    const ajusteInimigo = ajustes.length ? ajustes.reduce((acc, a) => { for (const [k, v] of Object.entries(a)) acc[k] = (acc[k] || 0) + v; return acc }, {}) : null
     // Barra de Alerta (Vila): +1 de ficha por corpo a cada ponto de alerta, nunca no chefe nem acima dele.
     const comAlerta = pts => (chefe || !pts ? pts : pontosComAlerta(pts, cena, store.storyProgress))
     const revez = viraTreta ? (viraTreta.revezamento || null) : poi.revezamento
