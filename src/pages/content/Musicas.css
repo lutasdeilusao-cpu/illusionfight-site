@@ -1,68 +1,180 @@
-/* Área de Músicas com a Rádio Nina dentro (redesign de 30/09/2026).
-   Mesma linguagem da navbar (design-system.css): painel escuro, canto chanfrado,
-   eyebrow mono, âmbar no que está tocando. */
-.musicas { display: grid; gap: 22px; padding-block: 24px 48px; }
-.musicas__head { display: grid; gap: 6px; }
-.musicas__head h1 { margin: 0; font: 800 1.9rem/1.05 var(--font-display, inherit); letter-spacing: .02em; color: var(--if-ink); text-wrap: balance; }
-.musicas__head p { margin: 0; font-size: .9rem; color: rgba(234, 255, 255, .7); }
-.musicas__sub { margin: 0 0 10px; font: 700 .62rem var(--font-mono); letter-spacing: .18em; text-transform: uppercase; color: var(--if-cyan); }
-.musicas__dica { margin: -4px 0 10px; font-size: .78rem; color: rgba(234, 255, 255, .6); }
+/* ══════════════════════════════════════════════════════════════
+   MÚSICAS (/musicas) — redesign de 01/10/2026, no padrão do WEB SHARD.
+   Coluna única. O herói da rádio sangra até as bordas da coluna; o resto
+   respeita o gutter do .container (1.5rem). Os cinco gestos do portal:
+   canto chanfrado, eyebrow mono, índice numerado, varredura e barra ativa.
+   ══════════════════════════════════════════════════════════════ */
 
-/* ── O tocador da Rádio Nina ── */
-.musicas-radio {
-  position: relative; display: grid; grid-template-columns: auto 1fr; grid-template-areas: "nina info" "ctl ctl" "barra barra";
-  gap: 12px 14px; align-items: center; padding: 16px;
-  background: var(--if-panel); border: 1px solid var(--if-edge);
+.mu { min-height: 100vh; padding: 1.25rem 0 3rem; }
+
+.mu__cabeca { display: flex; flex-direction: column; gap: 0.25rem; padding-bottom: 1rem; }
+.mu__h1 {
+  margin: 0; color: var(--text-primary); font-family: var(--font-title);
+  font-size: clamp(1.6rem, calc(8 * var(--app-vw) / 100), 2.1rem); font-weight: 400; line-height: 1; letter-spacing: 0.04em;
+}
+.mu__sub { margin: 0.2rem 0 0; color: var(--text-muted); font-family: var(--font-body); font-size: 0.85rem; line-height: 1.45; }
+
+.mu__secao { margin-top: 2rem; scroll-margin-top: 80px; }
+.mu__secao-cabeca { display: flex; flex-direction: column; gap: 0.2rem; margin-bottom: 0.85rem; }
+.mu__h2 { margin: 0; color: var(--text-primary); font-family: var(--font-display); font-weight: 700; font-size: 1.45rem; line-height: 1.05; letter-spacing: 0.02em; }
+.mu__hint { margin: 0; color: var(--text-muted); font-family: var(--font-body); font-size: 0.78rem; }
+.mu__seo { margin: 1.75rem 0 0; color: var(--text-muted); font-family: var(--font-body); font-size: 0.78rem; line-height: 1.55; }
+
+/* ── Equalizador (4 barras) ── */
+.mu-eq { display: inline-flex; align-items: flex-end; gap: 2px; width: 14px; height: 12px; }
+.mu-eq i { flex: 1; height: 30%; background: currentColor; }
+.mu-eq.is-on i { animation: mu-eq 0.9s ease-in-out infinite; }
+.mu-eq.is-on i:nth-child(2) { animation-delay: -0.3s; }
+.mu-eq.is-on i:nth-child(3) { animation-delay: -0.6s; }
+.mu-eq.is-on i:nth-child(4) { animation-delay: -0.15s; }
+@keyframes mu-eq { 0%, 100% { height: 25%; } 50% { height: 100%; } }
+
+/* ══ 1. RÁDIO NINA — o herói ══ */
+.mu-radio {
+  position: relative; display: flex; flex-direction: column; margin: 0 -1.5rem;
+  overflow: hidden; background: var(--bg-primary);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 26px));
+}
+/* o fio diagonal da base, âmbar (a cor da rádio) */
+.mu-radio::after {
+  content: ''; position: absolute; right: 0; bottom: 0; left: 0; height: 26px; pointer-events: none;
+  background: linear-gradient(to top right, transparent calc(50% - 1px), var(--if-amber) 50%, transparent calc(50% + 1.5px));
+}
+.mu-radio__arte { position: relative; aspect-ratio: 1 / 0.92; min-height: 0; overflow: hidden; }
+.mu-radio__arte img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 34%; display: block; transition: filter 0.4s; }
+.mu-radio.is-no-ar .mu-radio__arte img { filter: saturate(1.15) brightness(0.8); }
+.mu-radio__arte::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 22%, transparent 55%, var(--bg-primary) 100%);
+}
+.mu-radio__conteudo { position: relative; display: flex; flex-direction: column; gap: 0.55rem; margin-top: -3.2rem; padding: 0 1.5rem 2.4rem; }
+.mu-radio__selo {
+  display: inline-flex; align-items: center; gap: 0.45rem; align-self: flex-start;
+  padding: 0.22rem 0.55rem; border: 1px solid var(--if-amber-72); background: rgba(0, 0, 0, 0.6);
+  color: var(--if-amber-soft); font: 700 0.56rem var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase;
+}
+.mu-radio.is-tocando .mu-radio__selo { background: var(--if-amber); color: #1b1000; }
+.mu-radio__nome {
+  margin: 0; padding-right: 90px; color: var(--if-ink); font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.9rem, calc(9.5 * var(--app-vw) / 100), 2.6rem); line-height: 0.95; letter-spacing: 0.01em;
+  text-transform: uppercase; text-shadow: 0 2px 18px rgba(0, 0, 0, 0.85); overflow-wrap: anywhere;
+}
+.mu-radio__texto { margin: 0; color: var(--text-secondary); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.5; text-shadow: 0 1px 8px #000; }
+.mu-radio__meta { margin: 0; color: var(--text-muted); font: 600 0.62rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; }
+.mu-radio__acoes { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.3rem; }
+.mu-radio__acoes .if-btn { flex: 1 1 auto; }
+/* a Nina "apresentando" no canto do herói */
+.mu-radio__nina { position: absolute; top: -0.4rem; right: 1.1rem; width: 84px; height: 84px; object-fit: cover; border: 1px solid var(--if-amber-72); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6); clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%); }
+.mu-radio.is-tocando .mu-radio__nina { animation: mu-balanco 2.4s ease-in-out infinite; }
+@keyframes mu-balanco { 50% { transform: translateY(-5px) rotate(-4deg); } }
+
+.mu-radio__barra { position: relative; height: 4px; margin-top: 0.4rem; background: var(--if-hair-strong); }
+.mu-radio__fill { position: absolute; inset: 0 auto 0 0; width: var(--pct, 0%); background: var(--if-amber); box-shadow: 0 0 10px rgba(255, 174, 50, 0.6); }
+.mu-radio__barra input { position: absolute; inset: -12px 0; width: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.mu-radio__tempo { display: flex; justify-content: space-between; color: var(--text-muted); font: 600 0.6rem var(--font-mono); font-variant-numeric: tabular-nums; }
+.mu-radio__controles { display: flex; justify-content: center; align-items: center; gap: 0.75rem; margin-top: 0.2rem; }
+.mu-radio__btn {
+  display: grid; place-items: center; width: 52px; height: 52px; border: 1px solid var(--if-hair-strong);
+  background: rgba(0, 0, 0, 0.45); color: var(--if-ink); font-size: 1.05rem; cursor: pointer;
   clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  transition: border-color 0.2s, background 0.2s;
 }
-.musicas-radio.is-tocando { border-color: var(--if-amber); box-shadow: inset 0 0 40px rgba(255, 174, 50, .08); }
-.musicas-radio__nina { grid-area: nina; width: 72px; height: 72px; object-fit: contain; }
-.musicas-radio.is-tocando .musicas-radio__nina { animation: musicas-balanco 2.4s ease-in-out infinite; }
-.musicas-radio__info { grid-area: info; display: grid; gap: 3px; min-width: 0; }
-.musicas-radio__selo { display: flex; align-items: center; gap: 6px; font: 700 .58rem var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--if-cyan); }
-.musicas-radio__selo i { width: 8px; height: 8px; border-radius: 50%; background: rgba(234, 255, 255, .3); }
-.musicas-radio.is-tocando .musicas-radio__selo { color: var(--if-amber); }
-.musicas-radio.is-tocando .musicas-radio__selo i { background: var(--if-danger); animation: musicas-pulso 1.2s ease-in-out infinite; }
-.musicas-radio__faixa { font: 700 1.05rem/1.25 var(--font-display, inherit); color: var(--if-ink); overflow-wrap: anywhere; }
-.musicas-radio__info small { font: 500 .72rem var(--font-mono); color: rgba(234, 255, 255, .6); font-variant-numeric: tabular-nums; }
-.musicas-radio__controles { grid-area: ctl; display: flex; justify-content: center; align-items: center; gap: 18px; }
-.musicas-radio__controles button {
-  width: 44px; height: 44px; border: 1px solid var(--if-hair-strong); background: rgba(0, 0, 0, .3); color: var(--if-ink);
-  font-size: 1rem; cursor: pointer; border-radius: 50%;
-}
-.musicas-radio__controles .musicas-radio__play { width: 64px; height: 64px; font-size: 1.4rem; border-color: var(--if-amber); background: rgba(255, 174, 50, .18); }
-.musicas-radio__barra { grid-area: barra; position: relative; height: 6px; background: var(--if-hair-strong); }
-.musicas-radio__barra-fill { position: absolute; inset: 0 auto 0 0; width: var(--pct, 0%); background: var(--if-amber); }
-.musicas-radio__barra input { position: absolute; inset: -10px 0; width: 100%; opacity: 0; cursor: pointer; }
+.mu-radio__btn:hover { border-color: var(--if-cyan-45); }
+.mu-radio__btn--play { width: 72px; height: 72px; border-color: var(--if-amber-72); background: var(--if-amber); color: #1b1000; font-size: 1.5rem; }
+.mu-radio__btn--play:hover { box-shadow: 0 0 24px rgba(255, 174, 50, 0.45); }
 
-/* ── Lista de faixas ── */
-.musicas-lista ol { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
-.musica-linha {
-  display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: center; padding: 8px;
-  background: var(--if-panel-flat); border: 1px solid var(--if-hair);
+/* ══ 2. Lançamento em destaque ══ */
+.mu-destaque { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 0.9rem; padding: 0.75rem; box-shadow: inset 2px 0 var(--mu-cor, var(--if-cyan)); }
+.mu-destaque.is-ativa { border-color: var(--if-amber-72); }
+.mu-destaque__capa { position: relative; padding: 0; border: 0; background: #000; cursor: pointer; aspect-ratio: 1; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+.mu-destaque__capa img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.mu-destaque__capa:hover img { transform: scale(1.05); }
+.mu-destaque__play {
+  position: absolute; right: 8px; bottom: 16px; display: grid; place-items: center; width: 38px; height: 38px;
+  background: var(--if-amber); color: #1b1000; font-size: 0.95rem;
+  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
 }
-.musica-linha.is-ativa { border-color: var(--if-amber); background: rgba(255, 174, 50, .07); }
-.musica-linha__capa { position: relative; width: 56px; height: 56px; padding: 0; border: 0; background: none; cursor: pointer; }
-.musica-linha__capa:disabled { cursor: default; opacity: .75; }
-.musica-linha__capa img { width: 56px; height: 56px; object-fit: cover; display: block; }
-.musica-linha__capa span {
-  position: absolute; inset: 0; display: grid; place-items: center; font-size: 1.1rem; color: var(--if-ink);
-  background: rgba(0, 0, 0, .45);
-}
-.musica-linha.is-ativa .musica-linha__capa span { color: var(--if-amber); }
-.musica-linha__info { display: grid; gap: 3px; min-width: 0; }
-.musica-linha__info strong { font-size: .92rem; color: var(--if-ink); overflow-wrap: anywhere; }
-.musica-linha.is-ativa .musica-linha__info strong { color: var(--if-amber); }
-.musica-linha__info small { font: 500 .68rem var(--font-mono); color: rgba(234, 255, 255, .55); }
-.musica-linha__plataformas { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
-.musica-linha__plataformas a {
-  display: grid; place-items: center; width: 28px; height: 28px; color: rgba(234, 255, 255, .75);
-  border: 1px solid var(--if-hair-strong); font-size: .6rem;
-}
-.musica-linha__plataformas a svg { width: 15px; height: 15px; }
+.mu-destaque__info { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+.mu-destaque__info .if-badge { align-self: flex-start; }
+.mu-destaque__info h3 { margin: 0.1rem 0 0; color: var(--if-ink); font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; line-height: 1.05; overflow-wrap: anywhere; }
+.mu-destaque__info small { color: var(--text-muted); font: 600 0.62rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
 
-@keyframes musicas-pulso { 50% { opacity: .35; } }
-@keyframes musicas-balanco { 50% { transform: translateY(-4px) rotate(-3deg); } }
+.mu-plataformas { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto; padding-top: 0.4rem; }
+.mu-plataformas a {
+  display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.025); color: var(--text-secondary);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%); transition: border-color 0.2s, color 0.2s;
+}
+.mu-plataformas a:hover { border-color: var(--if-cyan-45); color: var(--if-cyan); }
+.mu-plataformas svg { width: 16px; height: 16px; }
+
+/* ══ 3. Discografia — estante de capas ══ */
+.mu-estante { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+.mu-card {
+  position: relative; display: flex; flex-direction: column; min-width: 0;
+  border: 1px solid var(--if-edge); background: var(--if-panel);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  transition: border-color 0.22s, transform 0.22s;
+}
+.mu-card:hover { border-color: var(--mu-cor, var(--if-cyan)); transform: translateY(-2px); }
+.mu-card.is-ativa { border-color: var(--if-amber); }
+.mu-card__capa { position: relative; padding: 0; border: 0; background: #000; cursor: pointer; aspect-ratio: 1; overflow: hidden; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+.mu-card__capa img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease, filter 0.3s; }
+.mu-card:hover .mu-card__capa img { transform: scale(1.05); }
+.mu-card.is-fora .mu-card__capa img { filter: saturate(0.6) brightness(0.75); }
+.mu-card__indice { position: absolute; top: 6px; left: 8px; color: var(--if-ink); font: 700 0.55rem var(--font-mono); letter-spacing: 0.1em; text-shadow: 0 1px 4px #000; }
+.mu-card.is-ativa .mu-card__indice { color: var(--if-amber-soft); }
+.mu-card__play {
+  position: absolute; right: 8px; bottom: 14%; display: grid; place-items: center; width: 34px; height: 34px;
+  background: rgba(0, 0, 0, 0.7); border: 1px solid var(--if-hair-strong); color: var(--if-ink); font-size: 0.8rem;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%); transition: background 0.2s, color 0.2s;
+}
+.mu-card:hover .mu-card__play, .mu-card.is-ativa .mu-card__play { background: var(--if-amber); color: #1b1000; border-color: var(--if-amber); }
+.mu-card__fora {
+  position: absolute; bottom: 12%; left: 0; padding: 0.18rem 0.5rem; background: rgba(0, 0, 0, 0.75);
+  color: var(--text-secondary); font: 700 0.5rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase;
+}
+.mu-card__info {
+  display: flex; flex-direction: column; gap: 0.2rem; padding: 0.4rem 0.6rem 0.7rem; border: 0; background: none;
+  color: inherit; text-align: left; cursor: pointer; box-shadow: inset 0 2px 0 var(--mu-cor, var(--if-cyan));
+}
+.mu-card.is-ativa .mu-card__info { box-shadow: inset 0 2px 0 var(--if-amber); }
+.mu-card__info strong { color: var(--text-primary); font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.1; letter-spacing: 0.02em; overflow-wrap: anywhere; }
+.mu-card.is-ativa .mu-card__info strong { color: var(--if-amber-soft); }
+.mu-card__info small { color: var(--text-muted); font: 600 0.56rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* ══ 4. Só na Rádio Nina — lista no padrão do drawer ══ */
+.mu-exclusivas { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--if-hair); }
+.mu-exclusiva { width: 100%; border-top: 0; border-right: 0; border-left: 0; background: none; cursor: pointer; text-align: left; isolation: isolate; }
+.mu-exclusiva__nome { flex: 1; min-width: 0; font-size: 0.98rem; overflow-wrap: anywhere; }
+.mu-exclusiva__acao { display: grid; place-items: center; width: 24px; color: var(--text-muted); font-size: 0.7rem; }
+.mu-exclusiva.is-active .mu-exclusiva__acao, .mu-exclusiva:hover .mu-exclusiva__acao { color: var(--if-amber-soft); }
+.mu-exclusiva.is-active { box-shadow: inset 2px 0 var(--if-amber); }
+
+/* ══ Folha "onde ouvir" — sobe de baixo, presa à coluna ══ */
+.mu-folha { position: fixed; inset: 0 var(--app-gutter); z-index: 1100; display: flex; align-items: flex-end; overscroll-behavior: none; }
+.mu-folha__fundo { position: absolute; inset: 0; border: 0; background: rgba(0, 0, 0, 0.7); cursor: pointer; }
+.mu-folha__card {
+  position: relative; display: flex; flex-direction: column; gap: 0.75rem; width: 100%; max-height: 82vh; overflow-y: auto;
+  overscroll-behavior: contain; padding: 1.1rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--if-edge); background: var(--if-glow-corner), var(--if-panel);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  animation: mu-sobe 0.24s ease-out;
+}
+@keyframes mu-sobe { from { transform: translateY(24px); opacity: 0; } }
+.mu-folha__topo { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 0.85rem; align-items: center; }
+.mu-folha__topo img { width: 96px; height: 96px; object-fit: cover; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+.mu-folha__topo div { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+.mu-folha__topo strong { color: var(--if-ink); font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; line-height: 1.05; overflow-wrap: anywhere; }
+.mu-folha__topo small { color: var(--text-muted); font: 600 0.6rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
+.mu-folha__tocar, .mu-folha__fechar { width: 100%; }
+.mu-folha__lista { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--if-hair); }
+.mu-folha__lista .if-item { color: var(--text-primary); text-decoration: none; isolation: isolate; }
+.mu-folha__icone { display: grid; place-items: center; width: 22px; }
+.mu-folha__icone svg { width: 18px; height: 18px; }
+.mu-folha__nome { flex: 1; font-size: 0.98rem; }
+.mu-folha__seta { color: var(--text-muted); font-size: 0.8rem; }
+
 @media (prefers-reduced-motion: reduce) {
-  .musicas-radio.is-tocando .musicas-radio__nina, .musicas-radio.is-tocando .musicas-radio__selo i { animation: none; }
+  .mu-eq.is-on i, .mu-radio.is-tocando .mu-radio__nina, .mu-folha__card { animation: none; }
 }
