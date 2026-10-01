@@ -15,6 +15,7 @@
 //   → Fura-Bucho 46 (+ os dois Generais de escolta, ~35 cada).
 import { BAIXADA_POOL_RUA, BAIXADA_POOL_SANGRIA, BAIXADA_POOL_GELO, BAIXADA_POOL_SOBRA } from './pools.js'
 import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
+import { GANGUES_LOJA_EQUIP } from '../../ganguesEquipDistribuicao.js'
 
 // A cadeia do folgado — a Barra de Respeito conta estes cinco.
 export const BAIXADA_RESPEITO = ['folgado_1', 'folgado_2', 'folgado_3', 'folgado_4', 'folgado_5']
@@ -174,7 +175,7 @@ export const POIS_BAIXADA = [
     opcional: true,
     repetivel: true,
     i18n: 'games.gangues.cena.baixada.deposito',
-    itens: [1, 2, 4, 10, 34, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318],
+    itens: [1, 2, 4, 10, 34, ...GANGUES_LOJA_EQUIP.baixada],
   },
   {
     // O remédio da creche da Zefa: 2 Poções de Osso (Vila) abrem o 3º portão.

@@ -13,6 +13,7 @@
 //   → a boca da Zefa: 70 Conta do Morro → A FERA 72 (+ escolta ~54).
 import { MORRO_POOL_ESCADA, MORRO_POOL_MEIO, MORRO_POOL_ALTO, MORRO_POOL_RUA } from './pools.js'
 import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
+import { GANGUES_LOJA_EQUIP } from '../../ganguesEquipDistribuicao.js'
 
 function treta(id, pontos, pool, chanceDupla, extra) {
   return {
@@ -90,7 +91,7 @@ export const POIS_MORRO = [
     opcional: true,
     repetivel: true,
     i18n: 'games.gangues.cena.morro.venda',
-    itens: [1, 2, 10, 34, 41, 401, 402, 403, 404, 406, 407, 408, 409, 410, 411, 413, 414, 415, 416, 417, 418],
+    itens: [1, 2, 10, 34, 41, ...GANGUES_LOJA_EQUIP.morro],
   },
   {
     id: 'serralheria_morro',

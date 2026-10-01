@@ -12,6 +12,7 @@
 //   → escritório: 83 Favor Devido → porrinha → bilhar → O CONTADOR 85 (+ escolta ~64).
 import { ALTO_POOL_ENTRADA, ALTO_POOL_RODA, ALTO_POOL_RUA } from './pools.js'
 import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
+import { GANGUES_LOJA_EQUIP } from '../../ganguesEquipDistribuicao.js'
 
 // Os Cinco, na ordem do caderno: id do POI, molde, ficha e o preço da dívida.
 export const ALTO_CINCO = [
@@ -102,7 +103,7 @@ export const POIS_ALTO = [
     opcional: true,
     repetivel: true,
     i18n: 'games.gangues.cena.alto.emporio',
-    itens: [1, 2, 10, 34, 41, 401, 402, 403, 404, 406, 407, 408, 409, 410, 411, 413, 414, 415, 416, 417, 418],
+    itens: [1, 2, 10, 34, 41, ...GANGUES_LOJA_EQUIP.alto],
   },
   {
     id: 'ferraria_alto',

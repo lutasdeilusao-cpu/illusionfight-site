@@ -16,6 +16,7 @@
 // Ferrugem). Bater o Portaria desce; bater a última aparição dele zera.
 import { VILA_POOL_TERREO, VILA_POOL_ESCADA, VILA_POOL_MEIO, VILA_POOL_ALTO } from './pools.js'
 import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
+import { GANGUES_LOJA_EQUIP } from '../../ganguesEquipDistribuicao.js'
 
 // A chave do elevador (a Dona Neide entrega no 5º andar).
 export const VILA_CHAVE_ELEVADOR_ID = 18
@@ -120,7 +121,7 @@ export const POIS_VILA = [
     opcional: true,
     repetivel: true,
     i18n: 'games.gangues.cena.vila.brecho',
-    itens: [1, 2, 10, 34, 41, 401, 402, 403, 404, 406, 407, 408, 409, 410, 411, 413, 414, 415, 416, 417, 418],
+    itens: [1, 2, 10, 34, 41, ...GANGUES_LOJA_EQUIP.vila],
   },
   {
     // A Oficina do Zelador — aprimoramento até +6.

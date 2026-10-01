@@ -18,6 +18,7 @@
 // linha cortada na porrada é uma a menos; cada uma que sobrar dá +1 de Porrada
 // e +1 de Couro pro Retalho na fase final.
 import { LAJE_POOL_ENTRADA, LAJE_POOL_COSTURA, LAJE_POOL_LINHAS, LAJE_POOL_RUA } from './pools.js'
+import { GANGUES_LOJA_EQUIP } from '../../ganguesEquipDistribuicao.js'
 
 // As 6 linhas: bairro, id do POI lá embaixo, molde do contato.
 export const LAJE_LINHAS = [
@@ -124,7 +125,7 @@ export const POIS_LAJE = [
     opcional: true,
     repetivel: true,
     i18n: 'games.gangues.cena.laje.loja_laje',
-    itens: [1, 2, 10, 34, 41, 401, 402, 403, 404, 406, 407, 408, 409, 410, 411, 413, 414, 415, 416, 417, 418],
+    itens: [1, 2, 10, 34, 41, ...GANGUES_LOJA_EQUIP.laje],
   },
   {
     id: 'alfaiataria',

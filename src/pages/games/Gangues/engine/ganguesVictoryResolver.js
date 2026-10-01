@@ -3,6 +3,7 @@
 // aqui chama store.* — só recebe dados e devolve números prontos pra aplicar.
 // Isso permite testar a distribuição de AP/recompensa sem montar componente.
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
+import { dropDoPonto } from '../data/ganguesEquipDistribuicao.js'
 
 /** Nome do combatente pro relatório — numera instâncias repetidas do mesmo
  *  molde de inimigo (ver gerarBandoInimigo/numeroInstancia). */
@@ -191,7 +192,9 @@ export function calcularRecompensaCena({ emCena, storyAlvo, enemyCount = 1, ehCh
   const grana = emCena && storyAlvo.semGrana ? 0 : calcularGranaTotal({ enemyCount, ehChefe, territorioId: storyAlvo?.territorioId }) * (rec?.granaMult || 1)
   return {
     grana, rep, itens,
-    equipPrimeiraVez: rec?.equipPrimeiraVez || null,
+    // A distribuição por bairro manda (ganguesEquipDistribuicao.js); o chefe
+    // e quem não está na tabela usam o que o próprio ponto define.
+    equipPrimeiraVez: (emCena && dropDoPonto(storyAlvo.cenaId, storyAlvo.cenaPoiId)) || rec?.equipPrimeiraVez || null,
     itemPrimeiraVez: rec?.itemPrimeiraVez || null,
     pagaFavor: Boolean(rec?.pagaFavor),
   }

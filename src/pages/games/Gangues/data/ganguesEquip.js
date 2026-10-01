@@ -131,20 +131,77 @@ const CATALOGO = [
   { id: 402, slug: 'capacete_obra_pintado', caminho: 'atacante', slot: 'cabeca', raridade: 'pesado', bonus: { pv: 3 }, cardSlots: 2, custo: 105, icone: '⛑️' },
   { id: 403, slug: 'colete_do_bonde', caminho: 'atacante', slot: 'corpo', raridade: 'pesado', bonus: { pv: 6, D: [0, 2] }, cardSlots: 2, custo: 230, icone: '🦺' },
   { id: 404, slug: 'cotoveleira_borracha', caminho: 'atacante', slot: 'bracos', raridade: 'pesado', bonus: { H: [1, 3] }, cardSlots: 2, custo: 335, icone: '💪' },
-  { id: 405, slug: 'bota_de_trabalho', caminho: 'atacante', slot: 'pes', raridade: 'pesado', bonus: { A: [0, 2] }, cardSlots: 2, icone: '🥾' },
+  { id: 405, slug: 'bota_de_trabalho', caminho: 'atacante', slot: 'pes', raridade: 'pesado', bonus: { A: [0, 2] }, cardSlots: 2, custo: 250, icone: '🥾' },
   { id: 406, slug: 'molho_de_chaves', caminho: 'atacante', slot: 'amuleto', raridade: 'pesado', bonus: { pm: 3 }, cardSlots: 2, custo: 65, icone: '🗝️' },
   { id: 407, slug: 'porta_de_aco', caminho: 'defensor', slot: 'arma', raridade: 'pesado', bonus: { D: [2, 4], A: 1 }, cardSlots: 2, custo: 330, icone: '🚪' },
   { id: 408, slug: 'balde_de_concreto', caminho: 'defensor', slot: 'cabeca', raridade: 'pesado', bonus: { D: [0, 2] }, cardSlots: 2, custo: 125, icone: '🪣' },
   { id: 409, slug: 'colchao_amarrado', caminho: 'defensor', slot: 'corpo', raridade: 'pesado', bonus: { pv: 12 }, cardSlots: 2, custo: 335, icone: '🛏️' },
   { id: 410, slug: 'grade_de_janela', caminho: 'defensor', slot: 'bracos', raridade: 'pesado', bonus: { D: [0, 2] }, cardSlots: 2, custo: 125, icone: '🪟' },
   { id: 411, slug: 'bota_de_borracha', caminho: 'defensor', slot: 'pes', raridade: 'pesado', bonus: { pv: 6 }, cardSlots: 2, custo: 170, icone: '🥾' },
-  { id: 412, slug: 'cracha_da_sindica', caminho: 'defensor', slot: 'amuleto', raridade: 'pesado', bonus: { pm: 3, pv: 3 }, cardSlots: 2, icone: '🪪' },
+  { id: 412, slug: 'cracha_da_sindica', caminho: 'defensor', slot: 'amuleto', raridade: 'pesado', bonus: { pm: 3, pv: 3 }, cardSlots: 2, custo: 170, icone: '🪪' },
   { id: 413, slug: 'antena_de_tv', caminho: 'mistico', slot: 'arma', raridade: 'pesado', bonus: { PM: [3, 5] }, cardSlots: 2, custo: 440, icone: '📡' },
   { id: 414, slug: 'touca_de_aluminio', caminho: 'mistico', slot: 'cabeca', raridade: 'pesado', bonus: { pm: 4, A: 1 }, cardSlots: 2, custo: 200, icone: '🧢' },
   { id: 415, slug: 'cortina_de_renda', caminho: 'mistico', slot: 'corpo', raridade: 'pesado', bonus: { pm: 6, pv: 3, D: 1 }, cardSlots: 2, custo: 330, icone: '🥻' },
   { id: 416, slug: 'pulseira_de_fio', caminho: 'mistico', slot: 'bracos', raridade: 'pesado', bonus: { H: 1, pv: 3 }, cardSlots: 2, custo: 190, icone: '🧵' },
   { id: 417, slug: 'chinelo_de_quarto', caminho: 'mistico', slot: 'pes', raridade: 'pesado', bonus: { pm: 4 }, cardSlots: 2, custo: 125, icone: '🩴' },
   { id: 418, slug: 'santinho_do_elevador', caminho: 'mistico', slot: 'amuleto', raridade: 'pesado', bonus: { PM: 1, pm: 2 }, cardSlots: 2, custo: 290, icone: '📿' },
+  // ── GRIFE — Morro (30/09/2026, reequilíbrio: 1 categoria por bairro). ──
+  { id: 501, slug: 'rojao_de_mao', caminho: 'atacante', slot: 'arma', raridade: 'grife', bonus: { A: [4, 6] }, cardSlots: 3, custo: 645, icone: '🧨' },
+  { id: 502, slug: 'bone_de_grife', caminho: 'atacante', slot: 'cabeca', raridade: 'grife', bonus: { pv: 4 }, cardSlots: 3, custo: 145, icone: '🧢' },
+  { id: 503, slug: 'jaqueta_da_frente', caminho: 'atacante', slot: 'corpo', raridade: 'grife', bonus: { pv: 8, D: [1, 3] }, cardSlots: 3, custo: 320, icone: '🧥' },
+  { id: 504, slug: 'luva_de_pedreiro', caminho: 'atacante', slot: 'bracos', raridade: 'grife', bonus: { H: [2, 4] }, cardSlots: 3, custo: 470, icone: '🧤' },
+  { id: 505, slug: 'tenis_de_grife', caminho: 'atacante', slot: 'pes', raridade: 'grife', bonus: { A: [1, 3] }, cardSlots: 3, custo: 350, icone: '👟' },
+  { id: 506, slug: 'cordao_de_prata', caminho: 'atacante', slot: 'amuleto', raridade: 'grife', bonus: { pm: 4 }, cardSlots: 3, custo: 90, icone: '⛓️' },
+  { id: 507, slug: 'tampa_de_caixa_dagua', caminho: 'defensor', slot: 'arma', raridade: 'grife', bonus: { D: [3, 5], A: 1 }, cardSlots: 3, custo: 460, icone: '🛡️' },
+  { id: 508, slug: 'capacete_de_laje', caminho: 'defensor', slot: 'cabeca', raridade: 'grife', bonus: { D: [1, 3] }, cardSlots: 3, custo: 175, icone: '⛑️' },
+  { id: 509, slug: 'colete_de_cimento', caminho: 'defensor', slot: 'corpo', raridade: 'grife', bonus: { pv: 16 }, cardSlots: 3, custo: 470, icone: '🦺' },
+  { id: 510, slug: 'caneleira_de_bambu', caminho: 'defensor', slot: 'bracos', raridade: 'grife', bonus: { D: [1, 3] }, cardSlots: 3, custo: 175, icone: '🦾' },
+  { id: 511, slug: 'bota_de_obra', caminho: 'defensor', slot: 'pes', raridade: 'grife', bonus: { pv: 8 }, cardSlots: 3, custo: 240, icone: '🥾' },
+  { id: 512, slug: 'escapulario', caminho: 'defensor', slot: 'amuleto', raridade: 'grife', bonus: { pm: 4, pv: 4 }, cardSlots: 3, custo: 240, icone: '📿' },
+  { id: 513, slug: 'vara_da_benzedeira', caminho: 'mistico', slot: 'arma', raridade: 'grife', bonus: { PM: [4, 6] }, cardSlots: 3, custo: 615, icone: '🪄' },
+  { id: 514, slug: 'lenco_de_cabeca', caminho: 'mistico', slot: 'cabeca', raridade: 'grife', bonus: { pm: 5, A: 2 }, cardSlots: 3, custo: 280, icone: '🧕' },
+  { id: 515, slug: 'saia_de_chita', caminho: 'mistico', slot: 'corpo', raridade: 'grife', bonus: { pm: 8, pv: 4, D: 2 }, cardSlots: 3, custo: 460, icone: '🥻' },
+  { id: 516, slug: 'pulseira_de_semente', caminho: 'mistico', slot: 'bracos', raridade: 'grife', bonus: { H: 2, pv: 4 }, cardSlots: 3, custo: 265, icone: '📿' },
+  { id: 517, slug: 'alpargata', caminho: 'mistico', slot: 'pes', raridade: 'grife', bonus: { pm: 5 }, cardSlots: 3, custo: 175, icone: '🩴' },
+  { id: 518, slug: 'guia_de_sete_linhas', caminho: 'mistico', slot: 'amuleto', raridade: 'grife', bonus: { PM: 2, pm: 3 }, cardSlots: 3, custo: 405, icone: '🔮' },
+  // ── NOBRE — Alto do Morro (30/09/2026, reequilíbrio: 1 categoria por bairro). ──
+  { id: 601, slug: 'taco_de_sinuca', caminho: 'atacante', slot: 'arma', raridade: 'nobre', bonus: { A: [5, 7] }, cardSlots: 3, custo: 900, icone: '🎱' },
+  { id: 602, slug: 'chapeu_panama', caminho: 'atacante', slot: 'cabeca', raridade: 'nobre', bonus: { pv: 5 }, cardSlots: 3, custo: 205, icone: '👒' },
+  { id: 603, slug: 'paleto_riscado', caminho: 'atacante', slot: 'corpo', raridade: 'nobre', bonus: { pv: 10, D: [2, 4] }, cardSlots: 3, custo: 450, icone: '🧥' },
+  { id: 604, slug: 'abotoadura_de_ouro', caminho: 'atacante', slot: 'bracos', raridade: 'nobre', bonus: { H: [3, 5] }, cardSlots: 3, custo: 655, icone: '💛' },
+  { id: 605, slug: 'sapato_bicolor', caminho: 'atacante', slot: 'pes', raridade: 'nobre', bonus: { A: [2, 4] }, cardSlots: 3, custo: 490, icone: '👞' },
+  { id: 606, slug: 'relogio_de_bolso', caminho: 'atacante', slot: 'amuleto', raridade: 'nobre', bonus: { pm: 5 }, cardSlots: 3, custo: 125, icone: '⌚' },
+  { id: 607, slug: 'porta_de_cofre', caminho: 'defensor', slot: 'arma', raridade: 'nobre', bonus: { D: [4, 6], A: 1 }, cardSlots: 3, custo: 645, icone: '🚪' },
+  { id: 608, slug: 'boina_de_feltro', caminho: 'defensor', slot: 'cabeca', raridade: 'nobre', bonus: { D: [2, 4] }, cardSlots: 3, custo: 245, icone: '🎩' },
+  { id: 609, slug: 'sobretudo_blindado', caminho: 'defensor', slot: 'corpo', raridade: 'nobre', bonus: { pv: 19 }, cardSlots: 3, custo: 655, icone: '🧥' },
+  { id: 610, slug: 'luva_de_couro_fino', caminho: 'defensor', slot: 'bracos', raridade: 'nobre', bonus: { D: [2, 4] }, cardSlots: 3, custo: 245, icone: '🧤' },
+  { id: 611, slug: 'sapato_de_bico_fino', caminho: 'defensor', slot: 'pes', raridade: 'nobre', bonus: { pv: 10 }, cardSlots: 3, custo: 335, icone: '👞' },
+  { id: 612, slug: 'medalha_do_alto', caminho: 'defensor', slot: 'amuleto', raridade: 'nobre', bonus: { pm: 5, pv: 5 }, cardSlots: 3, custo: 335, icone: '🏅' },
+  { id: 613, slug: 'baralho_marcado', caminho: 'mistico', slot: 'arma', raridade: 'nobre', bonus: { PM: [5, 7] }, cardSlots: 3, custo: 860, icone: '🃏' },
+  { id: 614, slug: 'oculos_escuros', caminho: 'mistico', slot: 'cabeca', raridade: 'nobre', bonus: { pm: 6, A: 2 }, cardSlots: 3, custo: 390, icone: '🕶️' },
+  { id: 615, slug: 'colete_de_seda', caminho: 'mistico', slot: 'corpo', raridade: 'nobre', bonus: { pm: 10, pv: 5, D: 2 }, cardSlots: 3, custo: 645, icone: '🥋' },
+  { id: 616, slug: 'anel_de_formatura', caminho: 'mistico', slot: 'bracos', raridade: 'nobre', bonus: { H: 2, pv: 5 }, cardSlots: 3, custo: 370, icone: '💍' },
+  { id: 617, slug: 'mocassim', caminho: 'mistico', slot: 'pes', raridade: 'nobre', bonus: { pm: 6 }, cardSlots: 3, custo: 245, icone: '👞' },
+  { id: 618, slug: 'dado_viciado', caminho: 'mistico', slot: 'amuleto', raridade: 'nobre', bonus: { PM: 2, pm: 3 }, cardSlots: 3, custo: 570, icone: '🎲' },
+  // ── LENDARIO — Laje (30/09/2026, reequilíbrio: 1 categoria por bairro). ──
+  { id: 701, slug: 'facao_costurado', caminho: 'atacante', slot: 'arma', raridade: 'lendario', bonus: { A: [6, 8] }, cardSlots: 3, custo: 1260, icone: '🗡️' },
+  { id: 702, slug: 'bandana_de_retalho', caminho: 'atacante', slot: 'cabeca', raridade: 'lendario', bonus: { pv: 6 }, cardSlots: 3, custo: 290, icone: '🏴' },
+  { id: 703, slug: 'jaqueta_de_retalhos', caminho: 'atacante', slot: 'corpo', raridade: 'lendario', bonus: { pv: 11, D: [3, 5] }, cardSlots: 3, custo: 630, icone: '🧥' },
+  { id: 704, slug: 'luva_remendada', caminho: 'atacante', slot: 'bracos', raridade: 'lendario', bonus: { H: [4, 6] }, cardSlots: 3, custo: 920, icone: '🧤' },
+  { id: 705, slug: 'coturno_costurado', caminho: 'atacante', slot: 'pes', raridade: 'lendario', bonus: { A: [3, 5] }, cardSlots: 3, custo: 685, icone: '🥾' },
+  { id: 706, slug: 'dedal_de_ferro', caminho: 'atacante', slot: 'amuleto', raridade: 'lendario', bonus: { pm: 6 }, cardSlots: 3, custo: 180, icone: '🔘' },
+  { id: 707, slug: 'escudo_de_lona', caminho: 'defensor', slot: 'arma', raridade: 'lendario', bonus: { D: [5, 7], A: 1 }, cardSlots: 3, custo: 905, icone: '🛡️' },
+  { id: 708, slug: 'capacete_remendado', caminho: 'defensor', slot: 'cabeca', raridade: 'lendario', bonus: { D: [3, 5] }, cardSlots: 3, custo: 345, icone: '⛑️' },
+  { id: 709, slug: 'colcha_blindada', caminho: 'defensor', slot: 'corpo', raridade: 'lendario', bonus: { pv: 23 }, cardSlots: 3, custo: 920, icone: '🛏️' },
+  { id: 710, slug: 'bracadeira_de_couro_grosso', caminho: 'defensor', slot: 'bracos', raridade: 'lendario', bonus: { D: [3, 5] }, cardSlots: 3, custo: 345, icone: '⛓️' },
+  { id: 711, slug: 'bota_de_sola_dupla', caminho: 'defensor', slot: 'pes', raridade: 'lendario', bonus: { pv: 11 }, cardSlots: 3, custo: 465, icone: '🥾' },
+  { id: 712, slug: 'carretel', caminho: 'defensor', slot: 'amuleto', raridade: 'lendario', bonus: { pm: 6, pv: 6 }, cardSlots: 3, custo: 465, icone: '🧵' },
+  { id: 713, slug: 'agulha_de_croche', caminho: 'mistico', slot: 'arma', raridade: 'lendario', bonus: { PM: [6, 8] }, cardSlots: 3, custo: 1205, icone: '🪡' },
+  { id: 714, slug: 'touca_de_trico', caminho: 'mistico', slot: 'cabeca', raridade: 'lendario', bonus: { pm: 8, A: 3 }, cardSlots: 3, custo: 550, icone: '🧶' },
+  { id: 715, slug: 'manto_de_retalhos', caminho: 'mistico', slot: 'corpo', raridade: 'lendario', bonus: { pm: 11, pv: 6, D: 3 }, cardSlots: 3, custo: 905, icone: '🥻' },
+  { id: 716, slug: 'fita_metrica', caminho: 'mistico', slot: 'bracos', raridade: 'lendario', bonus: { H: 3, pv: 6 }, cardSlots: 3, custo: 520, icone: '📏' },
+  { id: 717, slug: 'pantufa_de_la', caminho: 'mistico', slot: 'pes', raridade: 'lendario', bonus: { pm: 8 }, cardSlots: 3, custo: 345, icone: '🥿' },
+  { id: 718, slug: 'botao_do_retalho', caminho: 'mistico', slot: 'amuleto', raridade: 'lendario', bonus: { PM: 3, pm: 4 }, cardSlots: 3, custo: 795, icone: '🔵' },
   // ── ÉPICO de chefe — drop, nunca à venda, qualquer caminho (vem da branch
   // da Feira, 27/09/2026). Faixa de valor: rola a cada golpe. ──
   { id: 138, slug: 'porrete_do_cobrador', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [3, 7], H: [1, 3], D: [0, 2] }, cardSlots: 2, icone: '🏏' },
@@ -167,7 +224,8 @@ export const GANGUES_EQUIP_LISTA = Object.values(GANGUES_EQUIP)
 // Nível mínimo da peça (29/09/2026): sai da faixa do território que vende a
 // raridade — comum = Pista (5), incomum = Feira (20), e daí pra cima segue a
 // escada de tetos (GDD §9.7). Épico de chefe tem o nível da luta que o dá.
-const NIVEL_MIN_RARIDADE = { comum: 5, incomum: 20, raro: 33, pesado: 46, epico: 59, grife: 72, lendario: 85 }
+// Uma categoria por bairro (30/09/2026): o nível mínimo é a entrada do bairro.
+const NIVEL_MIN_RARIDADE = { comum: 5, incomum: 20, raro: 33, pesado: 46, grife: 59, nobre: 72, lendario: 85, epico: 59 }
 const NIVEL_MIN_PECA = { 139: 15, 138: 28, 140: 44 }
 
 export function nivelMinEquip(def) {
@@ -283,7 +341,7 @@ export function rolarFaixa(f, rnd = Math.random) {
 // Preço pela fórmula do plano (mesma dos preços do catálogo) — referência
 // pra peça que não vende em loja (épico/prêmio) poder ser aprimorada também.
 const PESO_PRECO = { A: 28, D: 22, H: 30, pv: 6, pm: 6 }
-const FATOR_RARIDADE = { comum: 1, incomum: 1.1, raro: 1.3, pesado: 1.45, epico: 1.6 }
+const FATOR_RARIDADE = { comum: 1, incomum: 1.1, raro: 1.3, pesado: 1.45, grife: 1.6, nobre: 1.75, lendario: 1.9, epico: 1.6 }
 function precoReferencia(def) {
   if (!def) return 0
   if (Number.isFinite(def.custo)) return def.custo

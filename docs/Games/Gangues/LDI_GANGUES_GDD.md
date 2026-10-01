@@ -1409,6 +1409,17 @@ próprio. Hoje a Pista tem duas:
 
 ### 9.7 Progressão das lojas por território (plano fechado em 29/09/2026)
 
+> **Reequilíbrio de 30/09/2026 (v3.88.0) — vale por cima do que vem abaixo.** Uma
+> categoria de equipamento por bairro, EXCLUSIVA: comum (Pista) · incomum (Feira) ·
+> raro (Baixada) · pesado (Vila) · **grife** (Morro, 501–518) · **nobre** (Alto, 601–618) ·
+> **lendário** (Laje, 701–718); épico continua sendo só drop de chefe. Cada categoria
+> sobe +1 na faixa de atributo e ~30% em PV/PM sobre a anterior (arma do atacante:
+> 1–3 → 2–4 → 3–5 → 4–6 → 5–7 → 6–8), preço ×1,4 por degrau, nível mínimo = entrada
+> do bairro (5/20/33/46/59/72/85). A loja vende ~10 peças: o caminho da especialidade
+> inteiro + arma e corpo dos outros dois (Pista e Vila atacante, Feira e Morro defensor,
+> Baixada e Alto místico; Laje arma, corpo e amuleto de todos). O resto sai como
+> prêmio da 1ª vitória nas lutas do bairro. Tabela única: `data/ganguesEquipDistribuicao.js`.
+
 Regras do Isaias: **cada território tem uma loja própria, cada uma melhor que
 a anterior, e nenhuma repete peça** — quem quiser peça de um bairro anterior
 volta lá. As melhores peças ficam na Laje. Bairro só ganha loja quando ganhar

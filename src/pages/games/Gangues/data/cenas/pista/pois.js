@@ -8,6 +8,7 @@
 import { PISTA_POOL_RUA, PISTA_POOL_GALPAO } from './pools.js'
 import { GANGUES_REP_GATE_GALPAO } from '../../ganguesLoadout.js'
 import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
+import { GANGUES_LOJA_EQUIP } from '../../ganguesEquipDistribuicao.js'
 
 export const POIS_PISTA = [
   {
@@ -255,7 +256,7 @@ export const POIS_PISTA = [
     // Loja da Pista (GDD §9.7): poções, remédios de status (30–39) e só o
     // equipamento COMUM dos 3 caminhos + o boné livre. O incomum é da loja da
     // Feira — cada território vende a sua faixa, sem repetir.
-    itens: [1, 2, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 201, 202, 203, 204, 205, 206, 213, 214, 215, 216, 217, 218, 225, 226, 227, 228, 229, 230, 238],
+    itens: [1, 2, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, ...GANGUES_LOJA_EQUIP.pista],
   },
   {
     // Reaproveitamento: continua na Pista mesmo depois dela virar

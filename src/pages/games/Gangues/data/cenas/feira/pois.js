@@ -13,6 +13,7 @@
 // da Pista: é caminho, não teste.
 import { FEIRA_POOL_RUA, FEIRA_POOL_COBRANCA, FEIRA_POOL_MERCADAO } from './pools.js'
 import { LAJE_LINHAS, poiLinha } from '../laje/pois.js'
+import { GANGUES_LOJA_EQUIP } from '../../ganguesEquipDistribuicao.js'
 
 // Rep pra encarar o 2º guarda do depósito (gate do Mercadão).
 export const FEIRA_REP_GATE_DEPOSITO = 60
@@ -297,7 +298,7 @@ export const POIS_FEIRA = [
     i18n: 'games.gangues.cena.feira.mercearia',
     // Catálogo por caminho (merge 29/09/2026, GDD §9.7): a Feira vende o
     // INCOMUM dos 3 caminhos — nada que a Pista já vende.
-    itens: [1, 2, 4, 10, 34, 207, 208, 209, 210, 211, 212, 219, 220, 221, 222, 223, 224, 231, 232, 233, 234, 235, 236],
+    itens: [1, 2, 4, 10, 34, ...GANGUES_LOJA_EQUIP.feira],
   },
   {
     // A Serralheria do Bigode — aprimoramento até +4 (o Nando da Pista só +1).

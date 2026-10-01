@@ -55,6 +55,9 @@
 .gang-equip-oferta--incomum { border-color: rgba(0,180,216,0.4); }
 .gang-equip-oferta--raro { border-color: rgba(168,120,255,0.5); }
 .gang-equip-oferta--pesado { border-color: rgba(255,120,60,0.55); }
+.gang-equip-oferta--grife { border-color: rgba(255,143,60,0.6); }
+.gang-equip-oferta--nobre { border-color: rgba(255,107,107,0.6); }
+.gang-equip-oferta--lendario { border-color: rgba(168,85,247,0.7); }
 .gang-equip-oferta--epico { border-color: rgba(255,196,0,0.55); }
 
 .gang-equip-picker__lista { margin-top: 4px; }
