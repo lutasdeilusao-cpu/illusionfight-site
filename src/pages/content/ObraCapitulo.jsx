@@ -4,6 +4,7 @@ import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { estaDisponivel } from '../../config/site'
 import obras from '../../data/historias/obras.json'
+import { historiaPorSlug, linhaPrincipal } from '../../lib/historias/catalogo'
 import { useTrackedSession } from '../../lib/sessionAnalytics'
 import LeitorCapitulo from '../../components/Leitor/LeitorCapitulo'
 
@@ -68,6 +69,9 @@ export default function ObraCapitulo() {
       anterior={passo(disponiveis[cur - 1])}
       proximo={passo(disponiveis[cur + 1])}
       reacoes={obra && capitulo ? { titulo: `obra-${obra.id}`, capitulo: capitulo.id } : null}
+      historia={historiaPorSlug(slug, 'obra')}
+      capId={capitulo?.id}
+      completa={Boolean(obra && capitulo && obra.capitulos[obra.capitulos.length - 1]?.id === capitulo.id)}
       isAdmin={isAdmin}
       semConta={!user}
       idioma={locale}

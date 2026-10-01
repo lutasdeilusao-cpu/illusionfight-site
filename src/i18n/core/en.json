@@ -556,6 +556,67 @@
     }
   },
   "pages": {
+    "recomendacoes": {
+      "fim_completa": "The end",
+      "fim_por_enquanto": "The end — for now",
+      "fim_titulo": "You finished {nome}.",
+      "leia_depois": "Read next",
+      "alem": "Beyond the stories",
+      "motivo_personagem": "More {nome} for you",
+      "motivo_tema": "Also about {tema}",
+      "pra_voce_eyebrow": "For you",
+      "pra_voce": "Picked for you",
+      "continuar": "Pick up where you left off",
+      "porque_leu": "Because you read {nome}",
+      "novidades": "Just out",
+      "cap": "Ch.",
+      "personagens": {
+        "kim": "Kim",
+        "jack": "Jack",
+        "nina": "Nina",
+        "helena": "Helena",
+        "alan": "Alan",
+        "ryan": "Ryan",
+        "osvaldo": "Osvaldo",
+        "freddy": "Freddy"
+      },
+      "temas": {
+        "solidao": "loneliness",
+        "familia": "family",
+        "superacao": "overcoming",
+        "luta": "fighting",
+        "crime": "crime",
+        "violencia": "violence",
+        "infancia": "childhood",
+        "humor": "humor",
+        "amizade": "friendship",
+        "musica": "music",
+        "adocao": "adoption",
+        "sobrenatural": "the supernatural",
+        "luto": "grief",
+        "opressao": "oppression",
+        "horror_cosmico": "cosmic horror",
+        "resistencia": "resistance"
+      },
+      "extras": {
+        "gangues": {
+          "titulo": "Play LDI Gangues",
+          "sub": "Marélia ten years before Alan became king."
+        },
+        "trunfo": {
+          "titulo": "Play LDI Top Trumps",
+          "sub": "Kim, Jack, Nina and the whole cast as cards."
+        },
+        "webshard": {
+          "titulo": "Read it on WEB SHARD",
+          "sub": "The comic, chapter by chapter."
+        },
+        "radio": {
+          "titulo": "Listen to Nina Radio",
+          "sub": "The soundtrack of the universe, nonstop."
+        }
+      }
+    },
     "musicas": {
       "eyebrow": "Soundtrack",
       "radio_titulo": "Nina Radio",

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useScrollReveal } from '../../../hooks/useScrollReveal'
 import HeroSlideshow from './components/HeroSlideshow'
+import { PraVoce } from '../../../components/Recomendacoes/Recomendacoes'
 import LatestEpisodes from './components/LatestEpisodes'
 import DeferredSection from '../../../components/DeferredSection'
 import './Home.css'
@@ -36,6 +37,8 @@ export default function Home() {
           Trunfo) → Histórias (capa oficial dos Contos + capítulos liberados) →
           WEB SHARD (só capítulo que existe) → músicas → apoio → redes. */}
       <HeroSlideshow />
+      {/* Quem volta: continuar de onde parou, porque você leu X, novidades. */}
+      <PraVoce />
       <DeferredSection size="large"><Suspense fallback={null}><HomeGames /></Suspense></DeferredSection>
       <DeferredSection size="large"><Suspense fallback={null}><HomeHistorias /></Suspense></DeferredSection>
       <LatestEpisodes />

@@ -556,6 +556,67 @@
     }
   },
   "pages": {
+    "recomendacoes": {
+      "fim_completa": "Fin de la historia",
+      "fim_por_enquanto": "Fin — por ahora",
+      "fim_titulo": "Terminaste {nome}.",
+      "leia_depois": "Lee después",
+      "alem": "Más allá de las historias",
+      "motivo_personagem": "Más {nome} para ti",
+      "motivo_tema": "También habla de {tema}",
+      "pra_voce_eyebrow": "Para ti",
+      "pra_voce": "Elegido para ti",
+      "continuar": "Sigue donde lo dejaste",
+      "porque_leu": "Porque leíste {nome}",
+      "novidades": "Recién salido",
+      "cap": "Cap.",
+      "personagens": {
+        "kim": "Kim",
+        "jack": "Jack",
+        "nina": "Nina",
+        "helena": "Helena",
+        "alan": "Alan",
+        "ryan": "Ryan",
+        "osvaldo": "Osvaldo",
+        "freddy": "Freddy"
+      },
+      "temas": {
+        "solidao": "soledad",
+        "familia": "familia",
+        "superacao": "superación",
+        "luta": "pelea",
+        "crime": "crimen",
+        "violencia": "violencia",
+        "infancia": "infancia",
+        "humor": "humor",
+        "amizade": "amistad",
+        "musica": "música",
+        "adocao": "adopción",
+        "sobrenatural": "lo sobrenatural",
+        "luto": "duelo",
+        "opressao": "opresión",
+        "horror_cosmico": "horror cósmico",
+        "resistencia": "resistencia"
+      },
+      "extras": {
+        "gangues": {
+          "titulo": "Juega LDI Gangues",
+          "sub": "Marélia diez años antes de que Alan fuera rey."
+        },
+        "trunfo": {
+          "titulo": "Juega el LDI Super Trunfo",
+          "sub": "Kim, Jack, Nina y todo el elenco en cartas."
+        },
+        "webshard": {
+          "titulo": "Léelo en WEB SHARD",
+          "sub": "El cómic, capítulo por capítulo."
+        },
+        "radio": {
+          "titulo": "Escucha Radio Nina",
+          "sub": "La banda sonora del universo, sin parar."
+        }
+      }
+    },
     "musicas": {
       "eyebrow": "Banda sonora",
       "radio_titulo": "Radio Nina",

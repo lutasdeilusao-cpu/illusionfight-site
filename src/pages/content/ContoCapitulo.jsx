@@ -4,6 +4,7 @@ import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { contoLiberado } from '../../config/site'
 import index from '../../data/historias/contos.json'
+import { historiaPorSlug, linhaPrincipal } from '../../lib/historias/catalogo'
 import { useTrackedSession } from '../../lib/sessionAnalytics'
 import LeitorCapitulo from '../../components/Leitor/LeitorCapitulo'
 
@@ -67,6 +68,9 @@ export default function ContoCapitulo() {
       anterior={passo(disponiveis[cur - 1])}
       proximo={passo(disponiveis[cur + 1])}
       reacoes={h && capitulo ? { titulo: `conto-${h.id}`, capitulo: capitulo.id } : null}
+      historia={historiaPorSlug(historia, 'conto')}
+      capId={capitulo?.id}
+      completa={Boolean(h && capitulo && h.capitulos[h.capitulos.length - 1]?.id === capitulo.id)}
       isAdmin={isAdmin}
       semConta={!user}
       idioma={locale}

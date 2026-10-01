@@ -12,6 +12,8 @@ import LeitorFim from './LeitorFim'
 import { leitorMarkdown, semTituloDoArquivo } from './leitorMarkdown'
 import { useLeitorPreferencias } from './useLeitorPreferencias'
 import { useProgressoLeitura, minutosDeLeitura } from './useProgressoLeitura'
+import { registrarAbertura, registrarLeitura } from '../../lib/historias/historico'
+import { RecomendacaoFim } from '../Recomendacoes/Recomendacoes'
 import './LeitorCapitulo.css'
 
 /* O LEITOR de capítulo de texto do site — um só pra linha principal, contos
@@ -35,10 +37,14 @@ import './LeitorCapitulo.css'
      reacoes       { titulo, capitulo } — chave das reações (ver lib/webshard/reacoes)
      isAdmin, semConta   (semConta = visitante: lê até a metade, GateLeitura)
      sentinelRef   ref opcional no fim do texto (conquista de leitura completa)
+     historia      o título do catálogo (lib/historias/catalogo) — histórico e recomendação
+     capId         id do capítulo aberto
+     completa      este é o último capítulo que a história TEM
      idioma */
 export default function LeitorCapitulo({
   md = '', carregando, naoEncontrado, eyebrow, obra, numero, titulo, tituloAba,
   onVoltar, indice, anterior, proximo, reacoes, isAdmin, semConta, sentinelRef, idioma,
+  historia, capId, completa,
 }) {
   const { t } = useLanguage()
   const { setReaderMode } = useReader()
@@ -54,6 +60,16 @@ export default function LeitorCapitulo({
   const cortado = semConta && visivelNoGate !== corpo
   const minutos = useMemo(() => minutosDeLeitura(corpo), [corpo])
   const pct = useProgressoLeitura(textoRef, corpo)
+
+  // Histórico de leitura (base das recomendações): abriu → "continuar lendo";
+  // passou de 95% do texto → capítulo lido (e história terminada, se era o último).
+  useEffect(() => { if (historia && capId) registrarAbertura(historia, capId) }, [historia, capId])
+  const lidoRef = useRef(null)
+  useEffect(() => {
+    if (!historia || !capId || carregando || cortado || pct < 95 || lidoRef.current === capId) return
+    lidoRef.current = capId
+    registrarLeitura(historia, capId, completa)
+  }, [historia, capId, completa, carregando, cortado, pct])
 
   if (naoEncontrado) {
     return (
@@ -87,6 +103,8 @@ export default function LeitorCapitulo({
       {!cortado && !carregando && (
         <LeitorFim reacoes={reacoes} idioma={idioma} isAdmin={isAdmin} proximo={proximo} anterior={anterior} indice={indice} />
       )}
+      {/* Acabou o que tem pra ler desta história: recomenda a próxima (Isaias, 30/09/2026). */}
+      {!cortado && !carregando && !proximo && historia && <RecomendacaoFim historia={historia} completa={completa} />}
 
       <LeitorAjustes aberto={ajustes} onFechar={() => setAjustes(false)} prefs={prefs} />
     </main>

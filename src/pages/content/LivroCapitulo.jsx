@@ -9,6 +9,7 @@ import { useReadingCompletionGate } from '../../hooks/useReadingCompletionGate'
 import { notificationManager } from '../../lib/notificationManager'
 import { useTrackedSession } from '../../lib/sessionAnalytics'
 import index from '../../data/historias/lutas-de-ilusao.json'
+import { historiaPorSlug, linhaPrincipal } from '../../lib/historias/catalogo'
 import LeitorCapitulo from '../../components/Leitor/LeitorCapitulo'
 
 const chapterLoaders = import.meta.glob('../../data/historias/lutas-de-ilusao/**/*.md', { query: '?raw', import: 'default' })
@@ -98,6 +99,9 @@ export default function LivroCapitulo() {
       anterior={passo(capitulos[cur - 1])}
       proximo={passo(capitulos[cur + 1])}
       reacoes={chapter ? { titulo: 'livro-lutas-de-ilusao', capitulo: chapter.id } : null}
+      historia={linhaPrincipal()}
+      capId={chapter?.id}
+      completa={Boolean(chapter && index[index.length - 1]?.id === chapter.id)}
       isAdmin={isAdmin}
       semConta={!user}
       sentinelRef={sentinelRef}
