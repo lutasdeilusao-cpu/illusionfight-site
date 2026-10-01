@@ -161,6 +161,7 @@ capitulos.forEach((capitulo, i) => {
       proximo && { name: `Chapter ${proximo.numero} — ${proximo.titulo_en || proximo.titulo}`, path: `/historias/lutas-de-ilusao/${proximo.id}/` },
       { name: 'All chapters', path: '/historias/lutas-de-ilusao/' },
     ].filter(Boolean),
+    body: capitulo.liberacao?.publico <= BUILD_DATE ? trechoLivre(`src/data/historias/lutas-de-ilusao/en/${capitulo.id}.md`) : null,
     lastmod: pastOr(capitulo.liberacao.publico),
     priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'chapter', datePublished: capitulo.liberacao.publico,
     parent: { name: 'The Novel — Illusion Fight', path: '/historias/lutas-de-ilusao/' },
@@ -173,6 +174,32 @@ capitulos.forEach((capitulo, i) => {
 // veem título nem miniatura (pedido do Isaias, 29/09/2026 — o link do conto 06
 // saía sem prévia). Capítulo ainda não liberado ganha página (a prévia do link
 // funciona), mas fica fora do Google (`indexable` só quando já é público).
+// TEXTO DO CAPÍTULO no HTML estático (SEO, 01/10/2026): antes o Google só via
+// o resumo (~130 palavras) e nunca a história. Vai exatamente o que o visitante
+// sem conta lê no site — os primeiros 50% dos parágrafos (mesma regra do
+// GateLeitura, GATE_FRACAO) — e só de capítulo já liberado ao público.
+const GATE_FRACAO = 0.5
+const escapeTexto = v => v.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c])
+function inlineMd(t) {
+  return escapeTexto(t)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\[([^\]]+)\]\((\/[^)\s]*)\)/g, '<a href="$2">$1</a>')
+}
+function trechoLivre(arquivo) {
+  const p = path.resolve(process.cwd(), arquivo)
+  if (!fs.existsSync(p)) return null
+  const blocos = fs.readFileSync(p, 'utf-8').replace(/\r\n/g, '\n').split(/\n\s*\n/).map(b => b.trim()).filter(Boolean)
+  if (blocos.length < 2) return null
+  // mesmo corte do site (conta os blocos com o título, como o cortarTexto),
+  // e o "# CAPÍTULO" sai porque o <h1> da página já diz
+  const livres = blocos.slice(0, Math.max(1, Math.floor(blocos.length * GATE_FRACAO))).filter((b, i) => !(i === 0 && /^#\s/.test(b)))
+  const html = livres.map(b => (/^(-{3,}|\*{3,})$/.test(b) ? '<hr>'
+    : /^#+\s/.test(b) ? `<h2>${inlineMd(b.replace(/^#+\s*/, ''))}</h2>`
+      : `<p>${inlineMd(b).replace(/\n/g, '<br>')}</p>`)).join('')
+  return `${html}<p><a href="/cadastro/">Create a free account to read the rest of this chapter.</a></p>`
+}
+
 const liberadoAte = cap => Boolean(cap.liberacao?.publico && cap.liberacao.publico <= BUILD_DATE)
 contos.forEach(conto => {
   const nome = conto.titulo_en || conto.titulo
@@ -185,10 +212,10 @@ contos.forEach(conto => {
     content: conto.resumo_en || conto.resumo_pt,
     extra: [conto.tagline_en, 'Read it online for free on Illusion Fight.'].filter(Boolean),
     related: [
-      ...conto.capitulos.slice(0, 3).map(cap => ({ name: `Chapter ${cap.numero} — ${cap.titulo_en || cap.titulo}`, path: `${hub}/${cap.id}/` })),
+      ...conto.capitulos.filter(liberadoAte).map(cap => ({ name: `Chapter ${cap.numero} — ${cap.titulo_en || cap.titulo}`, path: `${hub}/${cap.id}/` })),
       { name: 'All Illusion Tales', path: '/historias/contos/' },
     ],
-    priority: '0.7', changefreq: 'monthly', indexable: true,
+    priority: '0.7', changefreq: 'monthly', indexable: true, schemaType: 'book', book: { name: nome, path: `${hub}/` },
     parent: { name: 'Illusion Tales', path: '/historias/contos/' },
     // Miniatura própria do conto (public/og/contos/<id>.jpg, 1200×630) —
     // o que aparece no WhatsApp/X/Facebook ao compartilhar o link.
@@ -209,8 +236,9 @@ contos.forEach(conto => {
         proximo && { name: `Chapter ${proximo.numero} — ${proximo.titulo_en || proximo.titulo}`, path: `${hub}/${proximo.id}/` },
         { name: nome, path: `${hub}/` },
       ].filter(Boolean),
+      body: liberadoAte(cap) ? trechoLivre(`src/data/historias/contos/${conto.id}/en/${cap.id}.md`) : null,
       lastmod: pastOr(cap.liberacao?.publico),
-      priority: '0.6', changefreq: 'monthly', indexable: true,
+      priority: '0.6', changefreq: 'monthly', indexable: true, schemaType: 'chapter', datePublished: cap.liberacao?.publico, book: { name: nome, path: `${hub}/` },
       parent: { name: nome, path: `${hub}/` },
       ogImage: `/og/contos/${conto.id}.jpg`,
     })
@@ -225,8 +253,9 @@ obras.forEach(obra => {
     heading: `${nome} — ${cap.titulo_en || cap.titulo}`,
     content: cap.resumo_en || obra.resumo_en || obra.tagline_en,
     related: [{ name: nome, path: `/historias/${obra.id}/` }],
+    body: liberadoAte(cap) ? trechoLivre(`src/data/historias/obras/${obra.id}/en/${cap.id}.md`) : null,
     lastmod: pastOr(cap.liberacao?.publico),
-    priority: '0.5', changefreq: 'monthly', indexable: liberadoAte(cap),
+    priority: '0.5', changefreq: 'monthly', indexable: liberadoAte(cap), schemaType: 'chapter', datePublished: cap.liberacao?.publico, book: { name: nome, path: `/historias/${obra.id}/` },
     parent: { name: nome, path: `/historias/${obra.id}/` },
   }))
 })
@@ -245,6 +274,11 @@ episodios.filter(episodio => episodio.paginas).forEach(episodio => ROUTES.push({
     { name: 'All chapters', path: '/webtoon/lutas-de-ilusao/' },
     { name: 'Meet the characters', path: '/personagens/' },
   ],
+  // 1ª página do capítulo: miniatura no compartilhamento e imagem pro Google
+  ...(fs.existsSync(path.resolve(process.cwd(), `public/webtoon/${episodio.id}/en/01.webp`)) && {
+    ogImage: `/webtoon/${episodio.id}/en/01.webp`,
+    body: `<img src="/webtoon/${episodio.id}/en/01.webp" alt="${escapeTexto(`Illusion Fight WEB SHARD chapter ${episodio.numero}: ${episodio.titulo_en || episodio.titulo_pt} — page 1`).replace(/"/g, "&quot;")}" loading="lazy" width="800">`,
+  }),
   lastmod: pastOr(episodio.data_publicacao),
   priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'webtoon', datePublished: episodio.data_publicacao,
   parent: { name: 'WEB SHARD', path: '/webtoon/' },
@@ -273,13 +307,15 @@ const replace = (html, pattern, value) => html.replace(pattern, value)
 function schemaFor(route, url) {
   const common = { name: route.heading, description: route.description, url, inLanguage: 'en' }
   if (route.schemaType === 'character') return { '@type': 'ProfilePage', ...common, mainEntity: { '@type': 'Person', name: route.heading, description: route.description } }
-  if (route.schemaType === 'chapter') return { '@type': 'Chapter', ...common, datePublished: route.datePublished, isPartOf: { '@type': 'Book', name: 'Illusion Fight', author: { '@type': 'Person', name: 'Isaias Leal' }, url: `${SITE_URL}/historias/lutas-de-ilusao/` } }
+  const livro = route.book || { name: 'Illusion Fight', path: '/historias/lutas-de-ilusao/' }
+  if (route.schemaType === 'chapter') return { '@type': 'Chapter', ...common, datePublished: route.datePublished, isAccessibleForFree: true, isPartOf: { '@type': 'Book', name: livro.name, author: { '@type': 'Person', name: 'Isaias Leal' }, url: `${SITE_URL}${livro.path}` } }
+  if (route.schemaType === 'book') return { '@type': 'Book', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Fiction', 'Short story'] }
   if (route.schemaType === 'webtoon') return { '@type': 'ComicStory', ...common, datePublished: route.datePublished, isPartOf: { '@type': 'ComicSeries', name: 'Illusion Fight', author: { '@type': 'Person', name: 'Isaias Leal' }, url: `${SITE_URL}/webtoon/` } }
   if (route.schemaType === 'game' || route.path.startsWith('/games/')) return { '@type': 'VideoGame', ...common, gamePlatform: 'Web Browser', playMode: 'SinglePlayer', genre: ['Indie game', 'Action', 'Strategy'] }
   if (route.path === '/historias/lutas-de-ilusao') return { '@type': 'Book', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Action fiction', 'Science fiction', 'Web novel'] }
   if (route.path === '/historias/mundo-das-sombras' || route.path === '/historias/mar-de-cinzas') return { '@type': 'Book', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Dark fantasy', 'Fiction'] }
   if (route.path === '/webtoon') return { '@type': 'ComicSeries', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Action', 'Science fiction', 'Webcomic'] }
-  if (route.path === '') return { '@type': 'WebSite', ...common, publisher: { '@type': 'Organization', name: 'Illusion Fight', url: SITE_URL } }
+  if (route.path === '') return { '@type': 'WebSite', ...common, publisher: { '@type': 'Organization', name: 'Illusion Fight', url: SITE_URL, logo: `${SITE_URL}/icon-if-512.png`, sameAs: ['https://x.com/IllusionFightIF', 'https://www.instagram.com/illusionfightif', 'https://www.tiktok.com/@illusionfightif', 'https://www.youtube.com/@illusionfightIF'] } }
   return { '@type': 'WebPage', ...common }
 }
 
@@ -318,7 +354,7 @@ function staticContent(route, heroImage = '') {
   const relatedNav = related.length
     ? `<nav aria-label="See also"><h2>See also</h2><ul>${related.map(item => `<li><a href="${item.path}">${escapeHtml(item.name)}</a></li>`).join('')}</ul></nav>`
     : ''
-  return `<main data-seo-static${homeClass}>${hero}<nav aria-label="Breadcrumb"><a href="/">Illusion Fight</a> · ${parentLink}${navLinks}</nav><article><h1>${escapeHtml(route.heading)}</h1>${paragraphs}${factList}</article>${relatedNav}</main>`
+  return `<main data-seo-static${homeClass}>${hero}<nav aria-label="Breadcrumb"><a href="/">Illusion Fight</a> · ${parentLink}${navLinks}</nav><article><h1>${escapeHtml(route.heading)}</h1>${paragraphs}${route.body || ''}${factList}</article>${relatedNav}</main>`
 }
 
 function pageHtml(baseHtml, route) {

@@ -7,6 +7,20 @@ import { carregarCore, carregarArea, areaDaRota } from '../i18n/locales'
 
 const IDIOMAS_SUPORTADOS = ['pt', 'en', 'es']
 
+/** Idioma do aparelho (Isaias, 01/10/2026): português → pt, espanhol → es,
+ *  qualquer outro (ou nenhum) → inglês. Vale a 1ª língua da lista do
+ *  navegador que o portal fala. */
+export function idiomaDoNavegador() {
+  try {
+    const lista = navigator.languages?.length ? navigator.languages : [navigator.language]
+    for (const l of lista) {
+      const base = String(l || '').slice(0, 2).toLowerCase()
+      if (IDIOMAS_SUPORTADOS.includes(base)) return base
+    }
+  } catch { /* sem navigator */ }
+  return 'en'
+}
+
 function getNested(obj, path) {
   // Converte "specializations[0]" → "specializations.0" para suportar arrays
   const normalized = path.replace(/\[(\d+)\]/g, '.$1')
@@ -40,12 +54,12 @@ export function LanguageProvider({ children }) {
   const { pathname } = useLocation()
   const { user, perfil } = useAuth()
 
-  // Padrão INGLÊS pro primeiro contato de qualquer visitante — não lê
-  // localStorage aqui de propósito. Idioma de visitante sem conta é só
+  // Padrão = idioma do APARELHO (pt/es/en; outra língua cai no inglês) —
+  // não lê localStorage aqui de propósito. Idioma de visitante sem conta é só
   // desta sessão (troca manual no menu funciona, mas não sobrevive a uma
   // nova visita); só a CONTA guarda preferência de idioma de verdade,
   // aplicada pelo efeito abaixo assim que `perfil.locale` chega.
-  const [locale, setLocale] = useState('en')
+  const [locale, setLocale] = useState(idiomaDoNavegador)
   // Depois que a conta já aplicou seu idioma salvo uma vez, uma troca
   // manual no menu não deve ser sobrescrita se `perfil` for recarregado
   // por outro motivo (ex.: outra aba atualiza o perfil) — só reage à
@@ -76,8 +90,8 @@ export function LanguageProvider({ children }) {
   }, [locale])
 
   // Mantém `ldi-locale` no localStorage como espelho do idioma ATIVO agora
-  // — não é mais a fonte do padrão inicial (isso é sempre 'en' pra quem
-  // não tem conta), só serve pra outros módulos fora do Context (splash
+  // — não é mais a fonte do padrão inicial (isso é o idioma do aparelho
+  // pra quem não tem conta), só serve pra outros módulos fora do Context (splash
   // do index.html, Rádio Nina, Tamagoshi, TopTrumps) saberem em que
   // idioma a UI está nesta sessão.
   useEffect(() => {

@@ -207,7 +207,7 @@
         var el = document.querySelector('#ldi-rotate-lock [data-rotate-text]');
         if (!el) return;
         var lang = 'en';
-        try { lang = localStorage.getItem('ldi-locale') || 'en'; } catch (e) {}
+        try { lang = localStorage.getItem('ldi-locale') || (function(){try{var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language];for(var i=0;i<L.length;i++){var b=String(L[i]||'').slice(0,2).toLowerCase();if(b==='pt'||b==='es'||b==='en')return b;}}catch(e){}return 'en';})(); } catch (e) {}
         var msgs = {
           pt: 'Gire seu aparelho — o app funciona só na vertical.',
           en: 'Rotate your device — the app only works in portrait mode.',
@@ -244,7 +244,7 @@
         var KEY = 'ldi-intro-build', lang = 'en', lastBuild = null;
         var buildMeta = document.querySelector('meta[name="ldi-build"]');
         var currentBuild = buildMeta && buildMeta.content;
-        try { lastBuild = localStorage.getItem(KEY); lang = localStorage.getItem('ldi-locale') || 'en'; } catch (e) {}
+        try { lastBuild = localStorage.getItem(KEY); lang = localStorage.getItem('ldi-locale') || (function(){try{var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language];for(var i=0;i<L.length;i++){var b=String(L[i]||'').slice(0,2).toLowerCase();if(b==='pt'||b==='es'||b==='en')return b;}}catch(e){}return 'en';})(); } catch (e) {}
         var provavelCache = !!currentBuild && currentBuild === lastBuild;
         var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
         var word = el.querySelector('.ldi-intro__word');
