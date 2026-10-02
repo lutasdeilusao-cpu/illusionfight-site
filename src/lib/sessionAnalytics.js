@@ -28,6 +28,8 @@ export function useTrackedSession(openEventName, timeEventName, params, { active
   useEffect(() => {
     if (!active) return
     sentRef.current = false
+    // a página onde a leitura começou: o fim chega depois da troca de rota
+    const paginaDaSessao = typeof location !== 'undefined' ? location.pathname : undefined
     accumulatedRef.current = 0
     lastResumeRef.current = typeof document !== 'undefined' && document.visibilityState === 'visible' ? Date.now() : null
     trackEvent(openEventName, paramsRef.current)
@@ -44,7 +46,7 @@ export function useTrackedSession(openEventName, timeEventName, params, { active
       if (sentRef.current) return
       if (lastResumeRef.current) { accumulatedRef.current += Date.now() - lastResumeRef.current; lastResumeRef.current = null }
       const seconds = Math.round(accumulatedRef.current / 1000)
-      if (seconds >= minSeconds) trackEvent(timeEventName, { ...paramsRef.current, duration_seconds: seconds })
+      if (seconds >= minSeconds) trackEvent(timeEventName, { ...paramsRef.current, duration_seconds: seconds, page_path: paginaDaSessao })
       sentRef.current = true
     }
 

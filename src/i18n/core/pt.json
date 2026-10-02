@@ -290,7 +290,20 @@
       "cadastrar_link": "Cadastre-se",
       "erro": "Erro ao fazer login",
       "credenciais_invalidas": "Email ou senha incorretos.",
-      "erro_generico": "Não deu pra entrar agora. Tente de novo em instantes."
+      "erro_generico": "Não deu pra entrar agora. Tente de novo em instantes.",
+      "esqueci": "Esqueci minha senha",
+      "esqueci_erro": "Esqueceu a senha? Receba um link pra criar outra.",
+      "recuperar_titulo": "NOVA SENHA",
+      "recuperar_sub": "Digite o e-mail da sua conta. A gente manda um link pra você criar uma senha nova.",
+      "enviar_link": "MANDAR LINK",
+      "enviando": "ENVIANDO...",
+      "link_enviado": "Pronto! Se existe uma conta com esse e-mail, o link já está a caminho. Olhe também o spam.",
+      "voltar_entrar": "Voltar pro login",
+      "nova_senha_titulo": "CRIE SUA SENHA",
+      "nova_senha_sub": "Escolha a senha nova da sua conta.",
+      "nova_senha": "Senha nova",
+      "salvar_senha": "SALVAR E ENTRAR",
+      "senha_curta": "A senha precisa ter pelo menos 6 caracteres."
     },
     "cadastro": {
       "titulo": "CADASTRO",

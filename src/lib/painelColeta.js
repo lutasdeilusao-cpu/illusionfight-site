@@ -29,7 +29,11 @@ const consentiu = () => ler(localStorage, 'ldi-cookies-accepted') === 'true'
 // capítulo por capítulo era 29 das 35 sessões do 1º dia e puxava a rejeição
 // pra 97%. Crawler, ferramenta de teste e navegador automatizado ficam de fora.
 const ROBO = /bot|crawl|spider|slurp|mediapartners|lighthouse|headless|pagespeed|prerender|facebookexternalhit|whatsapp|preview/i
-const ehRobo = () => typeof navigator !== 'undefined' && (navigator.webdriver || ROBO.test(navigator.userAgent || ''))
+// O renderizador do Google nem sempre se diz "bot" no navegador: ele finge ser
+// um Nexus 5X com Android 6.0.1 (Build/MMB29P) — passou 6x pelo filtro entre
+// 30/09 e 02/10/2026. Ninguém de verdade usa esse aparelho hoje.
+const APARELHO_DE_ROBO = /Nexus 5X Build\/MMB29P/
+const ehRobo = () => typeof navigator !== 'undefined' && (navigator.webdriver || ROBO.test(navigator.userAgent || '') || APARELHO_DE_ROBO.test(navigator.userAgent || ''))
 
 function desligado() {
   if (ehRobo()) return true
@@ -156,7 +160,9 @@ async function montarContexto() {
 function empurrar(evento) {
   if (desligado()) return
   const origem = (() => { try { return JSON.parse(ler(sessionStorage, 'ldi-sessao-origem') || '{}') } catch { return {} } })()
-  fila.push({ ...evento, sessao: sessao(), rota: location.pathname, titulo: document.title?.slice(0, 200), ...origem, _t: Date.now() })
+  // evento que fecha depois da troca de página (tempo de leitura) traz a
+  // página dele em dados.page_path — senão caía na rota seguinte
+  fila.push({ ...evento, sessao: sessao(), rota: evento.dados?.page_path || location.pathname, titulo: document.title?.slice(0, 200), ...origem, _t: Date.now() })
   if (!timerLote) timerLote = setTimeout(enviar, LOTE_MS)
 }
 

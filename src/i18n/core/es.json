@@ -290,7 +290,20 @@
       "cadastrar_link": "Regístrate",
       "erro": "Error al iniciar sesión",
       "credenciais_invalidas": "Correo o contraseña incorrectos.",
-      "erro_generico": "No se pudo iniciar sesión ahora. Inténtalo de nuevo en un momento."
+      "erro_generico": "No se pudo iniciar sesión ahora. Inténtalo de nuevo en un momento.",
+      "esqueci": "Olvidé mi contraseña",
+      "esqueci_erro": "¿Olvidaste tu contraseña? Recibe un enlace para crear otra.",
+      "recuperar_titulo": "NUEVA CONTRASEÑA",
+      "recuperar_sub": "Escribe el correo de tu cuenta. Te enviamos un enlace para crear una contraseña nueva.",
+      "enviar_link": "ENVIAR ENLACE",
+      "enviando": "ENVIANDO...",
+      "link_enviado": "¡Listo! Si existe una cuenta con ese correo, el enlace ya va en camino. Revisa también el spam.",
+      "voltar_entrar": "Volver a iniciar sesión",
+      "nova_senha_titulo": "CREA TU CONTRASEÑA",
+      "nova_senha_sub": "Elige la nueva contraseña de tu cuenta.",
+      "nova_senha": "Contraseña nueva",
+      "salvar_senha": "GUARDAR Y ENTRAR",
+      "senha_curta": "La contraseña necesita al menos 6 caracteres."
     },
     "cadastro": {
       "titulo": "REGISTRO",

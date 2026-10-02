@@ -154,3 +154,20 @@
   line-height: 1.5;
   text-align: center;
 }
+
+/* "Esqueci minha senha": discreto sob a senha, em destaque dentro do erro */
+.auth-esqueci {
+  display: block;
+  margin: -0.4rem 0 1rem auto;
+  padding: 0.25rem 0;
+  border: 0;
+  background: none;
+  color: var(--if-cyan);
+  font: 700 0.62rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.auth-link-text .auth-esqueci { display: inline; margin: 0; }
+.auth-esqueci--erro { display: inline; margin: 0; color: #fff; border-bottom: 1px solid currentColor; }
+.auth-esqueci:hover { color: #fff; }

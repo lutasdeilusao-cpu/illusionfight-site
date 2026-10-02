@@ -118,3 +118,13 @@
 .ws-hero__texto + .ws-hero__texto {
   margin-top: 0.6em;
 }
+
+/* vitrine: arte mais baixa e os botões antes do texto (1ª tela do celular) */
+.ws-hero--compacto .ws-hero__arte { aspect-ratio: 16 / 10; min-height: 0; overflow: hidden; }
+.ws-hero--compacto .ws-hero__arte img { position: absolute; inset: 0; }
+.ws-hero--compacto .ws-hero__arte img { object-position: center 30%; }
+.ws-hero__arte-link { position: absolute; inset: 0; display: block; }
+.ws-hero--compacto .ws-hero__eyebrow, .ws-hero--compacto .ws-hero__nome { order: 1; }
+.ws-hero--compacto .ws-hero__acoes { order: 2; margin-top: 0.3rem; }
+.ws-hero--compacto .ws-hero__selos { order: 3; }
+.ws-hero--compacto .ws-hero__texto { order: 4; }

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { imagemWebshard, localizado } from '../../../../lib/webshard/catalogo'
 import './TituloHero.css'
@@ -6,16 +7,22 @@ import './TituloHero.css'
  *  nome, selos (gênero, classificação, status) e o texto de apoio.
  *  Os botões vêm de fora (children) — o hub e a página do título pedem
  *  ações diferentes. Histórias reaproveita: `capa`/`nome` já resolvidos e
- *  `selos` próprios (peso, canon) no lugar de gênero/classificação. */
-export default function TituloHero({ titulo, texto, eyebrow, as: Titulo = 'h2', children, capa: capaProp, nome: nomeProp, selos }) {
+ *  `selos` próprios (peso, canon) no lugar de gênero/classificação.
+ *  `compacto` (vitrines /historias e /webtoon): arte mais baixa e os botões
+ *  logo abaixo do nome, pra o "ler agora" caber na 1ª tela do celular — o
+ *  painel mostrou quem chega do Google saindo sem ver botão nenhum (02/10/2026).
+ *  `href`: a arte vira link (tocar na capa já leva pra leitura). */
+export default function TituloHero({ titulo, texto, eyebrow, as: Titulo = 'h2', children, capa: capaProp, nome: nomeProp, selos, compacto = false, href }) {
   const { t, locale } = useLanguage()
   const capa = capaProp ?? imagemWebshard(titulo.capa)
   const nome = nomeProp ?? localizado(titulo, 'nome', locale)
 
   return (
-    <section className="ws-hero" style={{ '--ws-cor': titulo.cor }}>
+    <section className={compacto ? 'ws-hero ws-hero--compacto' : 'ws-hero'} style={{ '--ws-cor': titulo.cor }}>
       <div className="ws-hero__arte">
-        {capa && <img src={capa} alt={nome} fetchpriority="high" decoding="async" />}
+        {capa && (href
+          ? <Link to={href} className="ws-hero__arte-link" tabIndex={-1}><img src={capa} alt={nome} fetchpriority="high" decoding="async" /></Link>
+          : <img src={capa} alt={nome} fetchpriority="high" decoding="async" />)}
       </div>
       <div className="ws-hero__conteudo">
         {eyebrow && <span className="ws-hero__eyebrow">{eyebrow}</span>}

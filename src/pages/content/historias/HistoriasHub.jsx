@@ -109,6 +109,8 @@ export default function HistoriasHub({ tipo = null }) {
               eyebrow={t('pages.historias.destaque_eyebrow')}
               texto={localizado(destaque, 'tagline', locale)}
               selos={[t(`pages.contos.peso_${destaque.peso}`)]}
+              compacto
+              href={capHero ? destaque.rotaCap(capHero) : destaque.rota}
             >
               {capHero && (
                 <Link to={destaque.rotaCap(capHero)} className="if-btn if-btn--primary">

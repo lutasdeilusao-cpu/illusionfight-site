@@ -58,7 +58,7 @@ export default function WebshardHub() {
           </header>
 
           {destaque && (
-            <TituloHero titulo={destaque} eyebrow={t('webShard.hub.destaque')} texto={localizado(destaque, 'tagline', locale)}>
+            <TituloHero titulo={destaque} eyebrow={t('webShard.hub.destaque')} texto={localizado(destaque, 'tagline', locale)} compacto href={capHero ? rotaCapitulo(destaque, capHero) : rotaTitulo(destaque)}>
               {capHero && (
                 <Link
                   to={rotaCapitulo(destaque, capHero)}
