@@ -145,6 +145,7 @@
 /* agora / sessões / trilha */
 .painel-pulso { width: 7px; height: 7px; background: var(--if-ok); border-radius: 50%; animation: painel-pulso 1.4s ease-in-out infinite; flex: none; }
 @keyframes painel-pulso { 50% { opacity: .3; } }
+.painel-pulso.is-parado { background: var(--text-muted, rgba(234, 255, 255, .35)); animation: none; }
 .painel-agora, .painel-sessoes, .painel-tabela, .painel-trilha { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
 .painel-agora li {
   display: grid;

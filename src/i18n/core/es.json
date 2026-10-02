@@ -1673,12 +1673,14 @@
       "cadastraram": "Crearon cuenta"
     },
     "agora": {
-      "online": "En línea ahora",
-      "janela": "activos en los últimos 2 min",
+      "online": "Visitaron en la última hora",
+      "janela": "sesiones en los últimos 60 min",
       "quem": "Dónde está cada uno",
-      "ninguem": "Nadie en el sitio ahora.",
+      "ninguem": "Nadie visitó el sitio en la última hora.",
       "ha": "visto hace {t}",
-      "nota": "Se actualiza cada 10s · {hora}"
+      "nota": "Se actualiza cada 10s · {hora}",
+      "aovivo": "En el sitio ahora",
+      "aovivo_sub": "activos en los últimos 2 min"
     },
     "sessoes": {
       "titulo": "Sesiones ({n})",

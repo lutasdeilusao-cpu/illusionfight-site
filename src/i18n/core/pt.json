@@ -1673,12 +1673,14 @@
       "cadastraram": "Criaram conta"
     },
     "agora": {
-      "online": "Online agora",
-      "janela": "ativos nos últimos 2 min",
+      "online": "Visitaram na última hora",
+      "janela": "sessões nos últimos 60 min",
       "quem": "Onde cada um está",
-      "ninguem": "Ninguém no site agora.",
+      "ninguem": "Ninguém visitou o site na última hora.",
       "ha": "visto há {t}",
-      "nota": "Atualiza sozinho a cada 10s · {hora}"
+      "nota": "Atualiza sozinho a cada 10s · {hora}",
+      "aovivo": "No site agora",
+      "aovivo_sub": "ativos nos últimos 2 min"
     },
     "sessoes": {
       "titulo": "Sessões ({n})",

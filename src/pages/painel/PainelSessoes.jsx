@@ -1,4 +1,5 @@
-// Abas "Agora" (quem está no site, atualiza sozinho) e "Sessões" (cada visita
+// Abas "Agora" (quem visitou na última hora e quem ainda está no site,
+// atualiza sozinho) e "Sessões" (cada visita
 // e a trilha dela, em ordem).
 import { useEffect, useState } from 'react'
 import { Cartao, Kpi } from './PainelBlocos'
@@ -28,13 +29,15 @@ export function PainelAgora({ t, locale }) {
     <div className="painel-grade">
       <div className="painel-kpis">
         <Kpi rotulo={t('painel.agora.online')} valor={agora?.online ?? '…'} sub={t('painel.agora.janela')} destaque />
+        <Kpi rotulo={t('painel.agora.aovivo')} valor={agora?.aovivo ?? '…'} sub={t('painel.agora.aovivo_sub')} />
       </div>
       <Cartao titulo={t('painel.agora.quem')}>
         {!sessoes.length ? <p className="painel-vazio">{t('painel.agora.ninguem')}</p> : (
           <ul className="painel-agora">
             {sessoes.map((s, i) => (
               <li key={i}>
-                <i className="painel-pulso" aria-hidden="true" />
+                {/* bolinha piscando = ainda no site; parada = visitou na última hora */}
+                <i className={s.aovivo ? 'painel-pulso' : 'painel-pulso is-parado'} aria-hidden="true" />
                 <div>
                   <strong>{s.titulo || s.rota}</strong>
                   <small>{s.rota}</small>

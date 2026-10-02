@@ -1673,12 +1673,14 @@
       "cadastraram": "Signed up"
     },
     "agora": {
-      "online": "Online now",
-      "janela": "active in the last 2 min",
+      "online": "Visited in the last hour",
+      "janela": "sessions in the last 60 min",
       "quem": "Where everyone is",
-      "ninguem": "Nobody on the site right now.",
+      "ninguem": "Nobody visited the site in the last hour.",
       "ha": "seen {t} ago",
-      "nota": "Refreshes every 10s · {hora}"
+      "nota": "Refreshes every 10s · {hora}",
+      "aovivo": "On the site now",
+      "aovivo_sub": "active in the last 2 min"
     },
     "sessoes": {
       "titulo": "Sessions ({n})",
