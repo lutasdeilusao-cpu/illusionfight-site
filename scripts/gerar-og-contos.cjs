@@ -1,17 +1,22 @@
 // Gera public/og/contos/<id>.jpg (1200×630) — a miniatura de compartilhamento de
-// cada conto (capa do Illusion Tales + nome e chamada em inglês). Rodar de novo
+// cada conto (capa própria do conto ou a do Illusion Tales + nome e chamada em inglês). Rodar de novo
 // quando entrar conto novo: node scripts/gerar-og-contos.cjs
 const { chromium } = require('playwright')
 const fs = require('fs')
 const RAIZ = require('path').join(__dirname, '..') + '/'
-const capa = 'data:image/webp;base64,' + fs.readFileSync(RAIZ + 'src/assets/images/contos/capa-illusion-tales.webp').toString('base64')
+// Capa própria do conto (assets/images/contos/capas/<id>.webp) ou, sem ela, a da coleção.
+const capaDe = id => {
+  const propria = RAIZ + `src/assets/images/contos/capas/${id}.webp`
+  return 'data:image/webp;base64,' + fs.readFileSync(fs.existsSync(propria) ? propria : RAIZ + 'src/assets/images/contos/capa-illusion-tales.webp').toString('base64')
+}
 const contos = JSON.parse(fs.readFileSync(RAIZ + 'src/data/historias/contos.json', 'utf8'))
 const COR = { leve: '#22c55e', media: '#ffae32', pesada: '#ff0055' }
 const esc = s => String(s || '').replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c])
 ;(async () => {
-  const b = await chromium.launch()
+  const b = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined })
   const p = await b.newPage({ viewport: { width: 1200, height: 630 } })
   for (const c of contos) {
+    const capa = capaDe(c.id)
     const cor = COR[c.peso] || '#18dafb'
     await p.setContent(`<!doctype html><html><head><style>
       *{margin:0;box-sizing:border-box} body{width:1200px;height:630px;overflow:hidden;background:#05090c;font-family:'Arial Black',Impact,sans-serif;color:#eaffff;position:relative}

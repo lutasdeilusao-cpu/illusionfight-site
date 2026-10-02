@@ -6,6 +6,10 @@ import comingSoon from '../../assets/images/ComingSoon.png'
 // Arte oficial da área de Contos (Illusion Tales) — por enquanto a mesma pra
 // tudo: capa da coleção, capa de cada conto e miniatura de cada capítulo.
 import capaContosArte from '../../assets/images/contos/capa-illusion-tales.webp'
+// Capa própria de cada conto (960×1635, o padrão vertical do WEB SHARD):
+// assets/images/contos/capas/<id>.webp. Conto sem arquivo usa a capa da coleção.
+const CAPAS_CONTO = Object.fromEntries(Object.entries(import.meta.glob('../../assets/images/contos/capas/*.webp', { eager: true, import: 'default' }))
+  .map(([caminho, url]) => [caminho.split('/').pop().replace('.webp', ''), url]))
 
 /* Catálogo de Histórias — mesma ideia do catálogo WEB SHARD: a UI nunca lê
    historias/lutas-de-ilusao.json / contos.json / obras.json direto. Os três viram "títulos"
@@ -69,7 +73,7 @@ const CONTOS = contosIndex.map(h => ({
   peso: h.peso,
   temas: h.temas || [],
   cor: COR_PESO[h.peso] || COR_PESO.media,
-  capa: capaContosArte,
+  capa: CAPAS_CONTO[h.id] || capaContosArte,
   arte: true,
   nome_pt: h.titulo, nome_en: h.titulo_en, nome_es: h.titulo_es,
   tagline_pt: h.tagline_pt, tagline_en: h.tagline_en, tagline_es: h.tagline_es,
