@@ -133,23 +133,46 @@ export function custoRecuperacaoRinha(cena, prog) {
  *  (`tetoTerritorio`, com a ficha REAL do líder dele).
  *  Substitui o sorteio entre todas as lutas do bairro (28/09), que chegava
  *  no nível do chefão. */
-export const GANGUES_RINHA_FAIXA = [-5, -4, -3, -2, -1, 0, 0, 1, 2]
+/*  REVISTO (Isaias, 03/10/2026: "tava com ficha 19 e veio ficha 20... no
+ *  máximo fichas iguais... a cada 5 a 8 lutas aparece uma forte, as outras
+ *  têm que ser fracas, porque ali é pra grindar"):
+ *  • luta COMUM: 1 a 5 abaixo do teu mais forte (2-3 abaixo é o mais comum);
+ *  • luta FORTE: ficha IGUAL à do teu mais forte, uma a cada 5 a 8 lutas
+ *    (sorteado; a conta mora em storyTarget.rinhaForteEm — ver avancarRinha);
+ *  • NUNCA acima: o teto do bando na Rinha é a ficha do teu mais forte
+ *    (`tetoPontos`), o que também segura o arredondamento do escalarInimigo. */
+export const GANGUES_RINHA_FAIXA = [-5, -4, -3, -3, -2, -2, -1]
+export const GANGUES_RINHA_FORTE_A_CADA = [5, 8]
 const pontosFicha = m => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(m?.attributes?.[k]) || 0), 0)
-export function niveisDaRinha(playerTeam) {
-  const maisForte = Math.max(0, ...(playerTeam || []).map(pontosFicha))
+export const fichaMaisForte = playerTeam => Math.max(0, ...(playerTeam || []).map(pontosFicha))
+export function niveisDaRinha(playerTeam, forte = false) {
+  const maisForte = fichaMaisForte(playerTeam)
   if (!maisForte) return []
-  return GANGUES_RINHA_FAIXA.map(d => Math.max(2, maisForte + d))
+  return forte ? [maisForte] : GANGUES_RINHA_FAIXA.map(d => Math.max(2, maisForte + d))
+}
+const [FORTE_MIN, FORTE_MAX] = GANGUES_RINHA_FORTE_A_CADA
+const proximaForte = depoisDe => depoisDe + FORTE_MIN + Math.floor(Math.random() * (FORTE_MAX - FORTE_MIN + 1))
+/** A luta atual da Rinha é a forte? (a 1ª da sessão nunca é) */
+export const lutaForteDaRinha = alvo => Boolean(alvo?.rinhaForteEm) && (alvo.rinhaLuta || 1) === alvo.rinhaForteEm
+/** Próxima luta da Rinha: conta +1 e agenda a próxima forte (5 a 8 depois). */
+export function avancarRinha(alvo) {
+  const luta = (alvo?.rinhaLuta || 1) + 1
+  let forteEm = alvo?.rinhaForteEm || proximaForte(1)
+  while (forteEm < luta) forteEm = proximaForte(forteEm)
+  return { ...alvo, rinhaLuta: luta, rinhaForteEm: forteEm }
 }
 
 /** O revezamento de uma luta como ele vai pro gerador de bando, com as regras
  *  do território: teto no chefão (`tetoTerritorio`) e, na Rinha, o nível
  *  sorteado em volta da tropa (`niveisSorteio`, ver niveisDaRinha). */
-export function revezamentoNoTerritorio(revezamento, territorioId, playerTeam) {
+export function revezamentoNoTerritorio(revezamento, territorioId, playerTeam, forte = false) {
   if (!revezamento) return revezamento
   return {
     ...revezamento,
     tetoTerritorio: tetoDoTerritorio(territorioId) ? territorioId : undefined,
-    niveisSorteio: revezamento.nivelDaTropa ? niveisDaRinha(playerTeam) : undefined,
+    niveisSorteio: revezamento.nivelDaTropa ? niveisDaRinha(playerTeam, forte) : undefined,
+    // teto: na forte, a tua ficha; na comum, 1 abaixo dela (nem o arredondamento encosta)
+    tetoPontos: revezamento.nivelDaTropa && fichaMaisForte(playerTeam) ? Math.max(2, fichaMaisForte(playerTeam) - (forte ? 0 : 1)) : undefined,
   }
 }
 

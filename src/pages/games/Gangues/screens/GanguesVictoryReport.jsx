@@ -12,6 +12,7 @@ import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS } from '../hooks/use
 import { getGanguesEquip } from '../data/ganguesEquip.js'
 import { getGanguesItem } from '../data/ganguesItens.js'
 import { describeGanguesSpecialEffect } from '../engine/ganguesSpecialEffects.js'
+import { avancarRinha } from '../data/cenas/cenaHelpers.js'
 import useGanguesTeclado from '../hooks/useGanguesTeclado'
 
 // Explica a regra de divisão de XP só na 1ª tela de vitória de verdade
@@ -82,7 +83,7 @@ export default function GanguesVictoryReport({
   // a roda segue igual (socorro.tipo 'rinha', useGanguesVictoryResolution);
   // perdeu SEM grana, acabou: caminho normal da derrota (birosca).
   const naRinha = Boolean(storyAlvo?.rinha) && noModoHistoria && (victory || socorro?.tipo === 'rinha')
-  const proximaRinha = () => { const { rinhaRemendada, ...alvo } = storyAlvo; store.setStoryTarget({ ...alvo, rinhaLuta: (alvo.rinhaLuta || 1) + 1 }); onNavigate('story-combat') }
+  const proximaRinha = () => { const { rinhaRemendada, ...alvo } = storyAlvo; store.setStoryTarget(avancarRinha(alvo)); onNavigate('story-combat') }
   // Briga automática da cena ligada: "Segue na quebrada" se clica sozinho em
   // 3s (ver useGanguesAvancoAutomatico). A vitória sobre o chefe fica de fora
   // — é o fecho do bairro, com a vaga de recruta pra decidir — e a derrota

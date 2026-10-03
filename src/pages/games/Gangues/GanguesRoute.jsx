@@ -23,7 +23,7 @@ import GanguesClube from './clube/GanguesClube'
 import GanguesClubeSala from './clube/GanguesClubeSala'
 import GanguesClubeResultado from './clube/GanguesClubeResultado'
 import { gerarBandoClube } from './clube/ganguesClubeRegras.js'
-import { temCena, revezamentoNoTerritorio } from './data/cenas/cenaHelpers.js'
+import { temCena, revezamentoNoTerritorio, avancarRinha, lutaForteDaRinha } from './data/cenas/cenaHelpers.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
 import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, suavizarPrimeiraLuta, suavizarPorFrustracao, escalarInimigo } from './data/ganguesEncontros.js'
 import { ajustarPontosFixo, GANGUES_FRUSTRACAO_LIMIAR } from './data/ganguesDificuldade.js'
@@ -133,7 +133,7 @@ export default function GanguesRoute() {
   // bairro, ou de volta pra Rinha — a próxima luta da sessão, com a tropa
   // remendada (vale até com a página recarregada: o alvo vem da marca).
   const voltarPraRua = () => { store.setStoryTarget({ territorioId: useGanguesStore.getState().storyTarget?.territorioId }); setFase('territorio') }
-  const continuarRinha = alvo => { store.setStoryTarget({ ...alvo, rinhaLuta: (alvo.rinhaLuta || 1) + 1 }); setFase('story-combat') }
+  const continuarRinha = alvo => { store.setStoryTarget(avancarRinha(alvo)); setFase('story-combat') }
 
   // Lembra o último território (storyProgress.__ultimoTerritorio): entrar na
   // cena marca — é pra lá que o save abre (GanguesSaveSelect).
@@ -289,7 +289,7 @@ export default function GanguesRoute() {
       // quase sempre 1 sozinho, orçamento leve e fixo por corpo — A MENOS que
       // o POI peça "multidão garantida" (qtdMin/qtdMax) e/ou escalonamento
       // pelo time (ratioComTime), caso do galpão do Carvão (ver interiores.js).
-      enemyTeam = gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId, party), enemiesData, modo, playerTeam: party })
+      enemyTeam = gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId, party, lutaForteDaRinha(alvo)), enemiesData, modo, playerTeam: party })
       if (!enemyTeam?.length) { setFase('story'); return }
       // Encontro aleatório (perseguidor) nunca é suavizado: o Isaias quer
       // SEMPRE no mínimo 2 inimigos (26/09/2026) — as duas suavizações cortam pra 1.

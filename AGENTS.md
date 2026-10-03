@@ -347,3 +347,8 @@ Rules:
   - O áudio (WebAudio) nascia SUSPENSO e só tentava tocar depois que a aba já estava escondida. O navegador bloqueia começar mídia sem um toque, e o Android congelava a aba mesmo assim.
 
   Hoje é um `<audio>` de verdade com um WAV de ruído baixíssimo (2 s em loop: curto de propósito, abaixo dos 5 s que fazem o Android mostrar a notificação de mídia e brigar com a da Rádio Nina). Ele começa no 1º toque/tecla dentro do jogo e FICA tocando enquanto o Gangues está aberto. Os timers vão para o Worker SEMPRE que a aba esconde, sem condição. `algumAutomaticoLigado` foi apagado (não tinha mais uso). Limite real: o navegador ainda pode matar a aba por falta de memória ou por economia de bateria agressiva do aparelho. Isso não dá para contornar com site comum.
+- **Gangues: a Rinha é pra GRINDAR (v3.92.0)** (Isaias, 03/10/2026: "tava com ficha 19 e veio ficha 20... tá pior do que estar no jogo"). Substitui a faixa de 30/09 (de 5 abaixo a 2 acima). Regra (`niveisDaRinha`/`avancarRinha`/`lutaForteDaRinha`, cenaHelpers.js):
+  - **Luta comum:** de 1 a 5 abaixo da ficha do teu mais forte (2 a 3 abaixo é o mais comum), com teto duro em 1 abaixo.
+  - **Luta forte:** ficha IGUAL à tua, uma a cada 5 a 8 lutas (sorteado). A conta mora em `storyTarget.rinhaForteEm` e avança pelo `avancarRinha` (ao vivo, no relatório e no farm calculado).
+  - **Nunca acima:** `tetoPontos` no `gerarBandoRevezamento` corta também o estouro de arredondamento do `escalarInimigo`, que fazia o 19 virar 20.
+  - Simulado com 2000 lutas e tropa de ficha 19: comum de 13 a 18 (o miolo em 15 e 16), forte de 18 a 19, zero acima.

@@ -31,7 +31,7 @@
 import { iniciarBrigaMultidao, iniciarBrigaMultidaoDeCombatentes, avancarRodadaMultidao } from './ganguesBrigaMultidao.js'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from './ganguesVictoryResolver.js'
 import { gerarBandoRevezamento } from '../data/ganguesEncontros.js'
-import { revezamentoNoTerritorio, destinoSocorroDerrota, custoRecuperacaoRinha } from '../data/cenas/cenaHelpers.js'
+import { revezamentoNoTerritorio, destinoSocorroDerrota, custoRecuperacaoRinha, avancarRinha, lutaForteDaRinha } from '../data/cenas/cenaHelpers.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
 import { GANGUES_SUCATA_ID } from '../data/ganguesEquip.js'
@@ -164,7 +164,9 @@ export function simularFarmRinha({ store, cena, segundos, enemiesData, alvo, lut
       inicio = iniciarBrigaMultidaoDeCombatentes(emAndamento.combatants, emAndamento.round || 1)
       emAndamento = null
     } else {
-      const bando = gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId, party), enemiesData, modo, playerTeam: party })
+      // cada luta calculada também avança a conta da Rinha (a forte de 5 em 5 a 8)
+      alvo = avancarRinha(alvo)
+      const bando = gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId, party, lutaForteDaRinha(alvo)), enemiesData, modo, playerTeam: party })
       if (!bando?.length) break
       // Luta nova da sessão: a casa remenda a tropa (igual à Rinha ao vivo).
       inicio = iniciarBrigaMultidao({ playerTeam: party.map(remendar), enemyTeam: bando })

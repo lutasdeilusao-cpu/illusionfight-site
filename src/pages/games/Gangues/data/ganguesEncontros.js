@@ -329,12 +329,11 @@ const GANGUES_DUPLA_DEDUCAO_MIN = 2
 const GANGUES_DUPLA_DEDUCAO_MAX = 3
 const GANGUES_MULTIDAO_DEGRAU_ABAIXO = GANGUES_LADDER_PASSO
 
-export function gerarBandoRevezamento({ pool, budgetPorCorpo: budgetBase = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0, baseMaisForte = false, niveisSorteio, tetoTerritorio, apelidos }) {
+export function gerarBandoRevezamento({ pool, budgetPorCorpo: budgetBase = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0, baseMaisForte = false, niveisSorteio, tetoTerritorio, tetoPontos, apelidos }) {
   if (!pool?.length || !enemiesData?.length) return null
   // Rinha infinita (`niveisSorteio`): cada luta sorteia o nível em volta da
-  // ficha do mais forte da tropa, de 5 abaixo a 2 acima (niveisDaRinha,
-  // cenaHelpers.js — Isaias 30/09/2026, a faixa do bairro inteiro chegava no
-  // chefão e ficou difícil demais).
+  // ficha do mais forte da tropa — comum de 1 a 5 abaixo, forte igual a ela
+  // a cada 5 a 8 lutas (niveisDaRinha, cenaHelpers.js — Isaias 03/10/2026).
   // Dupla na Rinha só vem da metade de baixo da faixa (até 1 abaixo do teu
   // mais forte): 2 corpos no teu nível ou acima era derrota quase certa
   // (simulado: +2 em dupla = 0% de vitória); o +1/+2 fica pro solo.
@@ -362,7 +361,8 @@ export function gerarBandoRevezamento({ pool, budgetPorCorpo: budgetBase = 5, ch
     return multidaoGarantida ? GANGUES_MULTIDAO_DEGRAU_ABAIXO : (GANGUES_DUPLA_DEDUCAO_MIN + Math.floor(Math.random() * (GANGUES_DUPLA_DEDUCAO_MAX - GANGUES_DUPLA_DEDUCAO_MIN + 1)))
   }
 
-  const teto = tetoTerritorio ? pontosDoChefe(tetoTerritorio, modo, enemiesData) : Infinity
+  // Rinha: `tetoPontos` = a ficha do teu mais forte (nunca vem acima dela)
+  const teto = Math.min(tetoTerritorio ? pontosDoChefe(tetoTerritorio, modo, enemiesData) : Infinity, tetoPontos || Infinity)
   const bag = []
   const sortear = () => {
     if (!bag.length) bag.push(...pool)
