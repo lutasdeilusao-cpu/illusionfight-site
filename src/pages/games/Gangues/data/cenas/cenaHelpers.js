@@ -140,15 +140,24 @@ export function custoRecuperacaoRinha(cena, prog) {
  *  • luta FORTE: ficha IGUAL à do teu mais forte, uma a cada 5 a 8 lutas
  *    (sorteado; a conta mora em storyTarget.rinhaForteEm — ver avancarRinha);
  *  • NUNCA acima: o teto do bando na Rinha é a ficha do teu mais forte
- *    (`tetoPontos`), o que também segura o arredondamento do escalarInimigo. */
-export const GANGUES_RINHA_FAIXA = [-5, -4, -3, -3, -2, -2, -1]
+ *    (`tetoPontos`), o que também segura o arredondamento do escalarInimigo.
+ *  REVISTO DE NOVO no mesmo dia (Isaias: "tá muito difícil... todos lá, mesmo
+ *  os mais fortes, entre menos 8 e menos 4 da ficha mais forte... é pra ser
+ *  batalha fraca, rápida, pra grindar"): a faixa inteira é de 8 a 4 ABAIXO,
+ *  pesada pro lado fraco, com teto duro em −4. A luta marcada (a cada 5 a 8
+ *  lutas) e as lutas calculadas com o app no fundo (1 a cada 5 min) vêm na
+ *  ponta FRACA, −8 ("a luta de 5 em 5, deixa ela menos 8"). */
+// pesada pro lado FRACO ("é pra ser batalha fraca, rápida, pra grindar"): −8/−7 são os mais comuns
+export const GANGUES_RINHA_FAIXA = [-8, -8, -8, -7, -7, -7, -6, -6, -5, -4]
+export const GANGUES_RINHA_TETO = -4
+export const GANGUES_RINHA_MARCADA = -8
 export const GANGUES_RINHA_FORTE_A_CADA = [5, 8]
 const pontosFicha = m => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(m?.attributes?.[k]) || 0), 0)
 export const fichaMaisForte = playerTeam => Math.max(0, ...(playerTeam || []).map(pontosFicha))
 export function niveisDaRinha(playerTeam, forte = false) {
   const maisForte = fichaMaisForte(playerTeam)
   if (!maisForte) return []
-  return forte ? [maisForte] : GANGUES_RINHA_FAIXA.map(d => Math.max(2, maisForte + d))
+  return forte ? [Math.max(2, maisForte + GANGUES_RINHA_MARCADA)] : GANGUES_RINHA_FAIXA.map(d => Math.max(2, maisForte + d))
 }
 const [FORTE_MIN, FORTE_MAX] = GANGUES_RINHA_FORTE_A_CADA
 const proximaForte = depoisDe => depoisDe + FORTE_MIN + Math.floor(Math.random() * (FORTE_MAX - FORTE_MIN + 1))
@@ -171,8 +180,8 @@ export function revezamentoNoTerritorio(revezamento, territorioId, playerTeam, f
     ...revezamento,
     tetoTerritorio: tetoDoTerritorio(territorioId) ? territorioId : undefined,
     niveisSorteio: revezamento.nivelDaTropa ? niveisDaRinha(playerTeam, forte) : undefined,
-    // teto: na forte, a tua ficha; na comum, 1 abaixo dela (nem o arredondamento encosta)
-    tetoPontos: revezamento.nivelDaTropa && fichaMaisForte(playerTeam) ? Math.max(2, fichaMaisForte(playerTeam) - (forte ? 0 : 1)) : undefined,
+    // teto duro: 4 abaixo da tua ficha, em qualquer luta (nem o arredondamento passa)
+    tetoPontos: revezamento.nivelDaTropa && fichaMaisForte(playerTeam) ? Math.max(2, fichaMaisForte(playerTeam) + GANGUES_RINHA_TETO) : undefined,
   }
 }
 

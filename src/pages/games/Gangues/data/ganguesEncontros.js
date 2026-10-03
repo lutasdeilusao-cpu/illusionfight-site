@@ -332,8 +332,8 @@ const GANGUES_MULTIDAO_DEGRAU_ABAIXO = GANGUES_LADDER_PASSO
 export function gerarBandoRevezamento({ pool, budgetPorCorpo: budgetBase = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0, baseMaisForte = false, niveisSorteio, tetoTerritorio, tetoPontos, apelidos }) {
   if (!pool?.length || !enemiesData?.length) return null
   // Rinha infinita (`niveisSorteio`): cada luta sorteia o nível em volta da
-  // ficha do mais forte da tropa — comum de 1 a 5 abaixo, forte igual a ela
-  // a cada 5 a 8 lutas (niveisDaRinha, cenaHelpers.js — Isaias 03/10/2026).
+  // ficha do mais forte da tropa — sempre de 8 a 4 abaixo, pesado pro fraco;
+  // a marcada (−8) a cada 5 a 8 lutas (niveisDaRinha, cenaHelpers.js — Isaias 03/10/2026).
   // Dupla na Rinha só vem da metade de baixo da faixa (até 1 abaixo do teu
   // mais forte): 2 corpos no teu nível ou acima era derrota quase certa
   // (simulado: +2 em dupla = 0% de vitória); o +1/+2 fica pro solo.
