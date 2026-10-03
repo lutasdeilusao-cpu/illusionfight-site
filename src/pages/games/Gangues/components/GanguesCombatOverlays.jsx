@@ -128,14 +128,17 @@ export default function GanguesCombatOverlays({
             })()}
             targetName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.targetKey))}
             powerName={machine.pending.result.activeSpecialId ? t(`games.gangues.progression.skills.${machine.pending.result.activeSpecialId}`) : null}
-            passiveNames={[
-              ...(machine.pending.result.passivosGatilho?.attacker || []),
-              ...(machine.pending.result.passivosGatilho?.defender || []),
-            ].map(id => {
-              // Nome + o que ela FEZ (Isaias, 30/09/2026: "não explica o que ela faz").
-              const desc = describeGanguesSpecialEffect(t, id, machine.pending.result.passivosNivel?.[id] || 1)
-              return { nome: t(`games.gangues.progression.skills.${id}`), desc }
-            })}
+            passiveNames={(() => {
+              // Nome + o que ela FEZ + DE QUEM é (Isaias, 03/10/2026: aparecia
+              // passiva do inimigo no ataque do Trinca e parecia dele).
+              const dono = key => fighterName(t, machine.combatants.find(item => item.key === key))
+              const lado = (ids, key) => (ids || []).map(id => ({
+                nome: t(`games.gangues.progression.skills.${id}`),
+                dono: dono(key),
+                desc: describeGanguesSpecialEffect(t, id, machine.pending.result.passivosNivel?.[id] || 1),
+              }))
+              return [...lado(machine.pending.result.passivosGatilho?.attacker, machine.pending.actorKey), ...lado(machine.pending.result.passivosGatilho?.defender, machine.pending.targetKey)]
+            })()}
             passivaLabel={t('games.gangues.passiva_ativou')}
             statusNome={machine.pending.result.statusAplicado ? `${GANGUES_STATUS[machine.pending.result.statusAplicado]?.icone || ''} ${t(`games.gangues.status.${machine.pending.result.statusAplicado}.nome`)}!` : null}
             statusDesc={machine.pending.result.statusAplicado ? t(`games.gangues.status.${machine.pending.result.statusAplicado}.desc`) : null}

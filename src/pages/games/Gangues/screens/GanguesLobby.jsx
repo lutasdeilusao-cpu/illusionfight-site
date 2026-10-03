@@ -28,7 +28,6 @@ function lutadoresComPoderPraEquipar(party) {
       if ((prog.selected_specials?.length || 0) >= 2) return false
       const specials = getGanguesSpecials(member)
       return specials.some(s =>
-        s.kind === 'active' &&
         (prog.special_levels?.[s.id] || 0) > 0 &&
         !prog.selected_specials?.includes(s.id))
     })

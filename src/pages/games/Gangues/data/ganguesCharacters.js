@@ -138,16 +138,20 @@ export function hydrateGanguesTemplateSheet(sheet = {}) {
   // seleção salva, ela é PRESERVADA (só tira poder que não existe mais). O
   // auto-default "últimos 2 abertos" só roda na hidratação BEM primeira
   // (recruta novo, `selected_specials` ainda nem existe na ficha).
-  const unlockedActiveIds = new Set(unlocked.filter(special => special.kind === 'active').map(special => special.id))
+  // REGRA (Isaias, 03/10/2026): só 2 talentos vão pra luta, ATIVO OU PASSIVO
+  // — a passiva também ocupa vaga e só vale equipada. Antes a vaga era só de
+  // ativo e a passiva "valia sempre" no papel, mas o motor só aplica o que
+  // está equipado: na prática a passiva do jogador nunca funcionava.
+  const unlockedIds = new Set(unlocked.map(special => special.id))
   const salvos = sheet.attributes?.progression?.selected_specials
   let selectedSpecials = Array.isArray(salvos)
-    ? salvos.filter(id => unlockedActiveIds.has(id))
-    : unlocked.filter(special => special.kind === 'active').slice(-2).map(special => special.id)
+    ? salvos.filter(id => unlockedIds.has(id)).slice(0, 2)
+    : unlocked.slice(-2).map(special => special.id)
   // Vaga sobrando (Isaias, 30/09/2026: "eu não senti quando ganhei"): o
-  // talento ativo mais novo entra sozinho na luta até completar as 2 vagas.
+  // talento mais novo entra sozinho na luta até completar as 2 vagas.
   for (const special of [...unlocked].reverse()) {
     if (selectedSpecials.length >= 2) break
-    if (special.kind === 'active' && !selectedSpecials.includes(special.id)) selectedSpecials = [...selectedSpecials, special.id]
+    if (!selectedSpecials.includes(special.id)) selectedSpecials = [...selectedSpecials, special.id]
   }
   const progression = {
     ap: Math.max(0, Number(sheet.attributes?.progression?.ap) || 0),
@@ -187,7 +191,7 @@ export function hydrateGanguesTemplateSheet(sheet = {}) {
 // getGanguesUnlockedSpecials (a lista certa) e do array cru salvo na ficha.
 export function toggleGanguesTemplateSpecial(sheet, specialId) {
   const unlocked = getGanguesUnlockedSpecials(sheet.character_template_id, sheet.xp_total)
-  const podeEquipar = unlocked.some(special => special.id === specialId && special.kind === 'active')
+  const podeEquipar = unlocked.some(special => special.id === specialId)
   if (!podeEquipar) return null
   const atuais = Array.isArray(sheet.attributes?.progression?.selected_specials) ? sheet.attributes.progression.selected_specials : []
   const selected = atuais.includes(specialId)

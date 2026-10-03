@@ -690,9 +690,9 @@
       },
       "skill_info": {
         "titulo_luta": "Leva pra luta",
-        "dica_luta": "A técnica base vai sempre. Escolhe mais 2 talentos ativos pra levar — dá pra trocar antes de cada briga.",
-        "titulo_passivas": "Passivas · sempre ligadas",
-        "dica_passivas": "Não ocupam vaga: valem em toda luta, sozinhas. Quando uma faz diferença, o dado mostra.",
+        "dica_luta": "A técnica base vai sempre. Você leva mais 2 talentos — ativos ou passivos, você escolhe — e dá pra trocar antes de cada briga.",
+        "titulo_passivas": "Passivas",
+        "dica_passivas": "Passiva também ocupa uma das 2 vagas: só vale na luta se estiver equipada. Quando uma faz diferença, o dado mostra de quem é.",
         "sempre": "SEMPRE",
         "titulo": "Talentos",
         "ativa": "Ativa",

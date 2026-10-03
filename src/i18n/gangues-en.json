@@ -690,9 +690,9 @@
       },
       "skill_info": {
         "titulo_luta": "Take into the fight",
-        "dica_luta": "Your base technique always comes along. Pick 2 more active talents to bring — you can swap them before every fight.",
-        "titulo_passivas": "Passives · always on",
-        "dica_passivas": "They don't take a slot: they work in every fight, on their own. When one makes a difference, the dice shows it.",
+        "dica_luta": "Your base technique always comes along. Take 2 more talents — active or passive, your call — and swap them before any fight.",
+        "titulo_passivas": "Passives",
+        "dica_passivas": "A passive also takes one of the 2 slots: it only works in a fight if it is equipped. When one makes a difference, the die shows whose it is.",
         "sempre": "ALWAYS",
         "titulo": "Talents",
         "ativa": "Active",

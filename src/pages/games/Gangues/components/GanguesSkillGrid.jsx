@@ -6,9 +6,10 @@ import { getGanguesSpecialUnlockLevel } from '../data/ganguesCharacters.js'
 /* Talentos do personagem, em DUAS partes (Isaias, 30/09/2026: "tá meio
    confuso... você só pode levar dois poderes pra batalha, tem que equipar...
    e tem que explicar o que essas passivas fazem"):
-   • LEVA PRA LUTA — a técnica base (vai sempre) + os talentos ATIVOS; o
-     jogador equipa até 2 (botão EQUIPAR/TIRAR) e troca antes de cada briga.
-   • PASSIVAS — valem em toda luta, não ocupam vaga.
+   • LEVA PRA LUTA — a técnica base (vai sempre) + os talentos ATIVOS.
+   • PASSIVAS — também se equipam (Isaias, 03/10/2026: "você só leva dois
+     poderes, independente de ser passivo ou ativo"). As 2 vagas são
+     divididas entre as duas listas; passiva fora da vaga não vale na luta.
    Cada talento aberto mostra o que faz direto no cartão; tocar abre o detalhe
    (efeito + custo). `selectedIds` + `onToggle` (opcionais) ligam o equipar;
    sem eles a grade fica só leitura. Usada na ficha da cena e na Progressão. */
@@ -42,9 +43,9 @@ export default function GanguesSkillGrid({ character, unlockedIds = [], levelsBy
   }
 
   const cartao = node => {
-    const podeEquipar = editavel && !node.base && node.aberto && node.kind === 'active'
+    const podeEquipar = editavel && !node.base && node.aberto
     const equipado = node.base || (podeEquipar && selectedIds.includes(node.id))
-    const classe = !node.aberto ? ' gang-skill-node--locked' : node.kind === 'passive' ? ' gang-skill-node--passiva' : equipado ? ' gang-skill-node--equipped' : ''
+    const classe = !node.aberto ? ' gang-skill-node--locked' : `${node.kind === 'passive' ? ' gang-skill-node--passiva' : ''}${equipado ? ' gang-skill-node--equipped' : ''}`
     return (
       <div key={node.id} className={`gang-skill-node${classe}`}>
         {equipado && <span className="gang-skill-node-badge">{t(node.base ? 'games.gangues.skill_info.sempre' : 'games.gangues.progression.equipped_badge')}</span>}

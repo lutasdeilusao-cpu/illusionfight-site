@@ -30,6 +30,7 @@
 .gang-skill-node--equipped .gang-skill-node-kind { color: var(--if-amber); }
 /* passiva: vale sempre, sem vaga — borda verde-água em vez do âmbar de equipado */
 .gang-skill-node--passiva { border-color: rgba(0, 180, 216, 0.45); background: rgba(0, 180, 216, 0.06); }
+.gang-skill-node--passiva.gang-skill-node--equipped { border-color: var(--if-amber); }
 /* o que o talento faz, escrito no próprio cartão */
 .gang-skill-node-efeito { display: block; margin-top: 3px; font-size: 9px; line-height: 1.35; color: var(--gang-gelo-50); opacity: .8; text-transform: none; letter-spacing: 0; }
 .gang-skillgrid-dica { margin: -4px 0 8px; font-size: 10px; line-height: 1.4; color: var(--gang-gelo-50); opacity: .75; }

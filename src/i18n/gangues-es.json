@@ -690,9 +690,9 @@
       },
       "skill_info": {
         "titulo_luta": "Lleva a la pelea",
-        "dica_luta": "La técnica base va siempre. Elige 2 talentos activos más para llevar — puedes cambiarlos antes de cada pelea.",
-        "titulo_passivas": "Pasivas · siempre activas",
-        "dica_passivas": "No ocupan espacio: valen en toda pelea, solas. Cuando una hace la diferencia, el dado lo muestra.",
+        "dica_luta": "La técnica base va siempre. Llevas 2 talentos más — activos o pasivos, tú eliges — y puedes cambiarlos antes de cada pelea.",
+        "titulo_passivas": "Pasivas",
+        "dica_passivas": "La pasiva también ocupa uno de los 2 espacios: solo cuenta en la pelea si está equipada. Cuando una hace la diferencia, el dado muestra de quién es.",
         "sempre": "SIEMPRE",
         "titulo": "Talentos",
         "ativa": "Activa",
