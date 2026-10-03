@@ -342,3 +342,8 @@ Rules:
   - A grade (`GanguesSkillGrid`) tem EQUIPAR/TIRAR nas passivas.
   - O aviso do lobby conta passiva fora da luta.
   - O dado (`DramaticDice`) mostra o DONO de cada passiva que disparou.
+- **Gangues no fundo — revisão (v3.91.1, 03/10/2026, Isaias: "tá pausando o jogo, é pra continuar até a memória estourar").** O `useGanguesManterVivo` antigo tinha duas falhas:
+  - Só agia com "algum automático ligado" (lido do `localStorage` por save). Quando essa leitura falhava, nada segurava o jogo.
+  - O áudio (WebAudio) nascia SUSPENSO e só tentava tocar depois que a aba já estava escondida. O navegador bloqueia começar mídia sem um toque, e o Android congelava a aba mesmo assim.
+
+  Hoje é um `<audio>` de verdade com um WAV de ruído baixíssimo (2 s em loop: curto de propósito, abaixo dos 5 s que fazem o Android mostrar a notificação de mídia e brigar com a da Rádio Nina). Ele começa no 1º toque/tecla dentro do jogo e FICA tocando enquanto o Gangues está aberto. Os timers vão para o Worker SEMPRE que a aba esconde, sem condição. `algumAutomaticoLigado` foi apagado (não tinha mais uso). Limite real: o navegador ainda pode matar a aba por falta de memória ou por economia de bateria agressiva do aparelho. Isso não dá para contornar com site comum.

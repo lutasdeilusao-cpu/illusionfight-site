@@ -1,18 +1,15 @@
-// Mantém o Gangues rodando com o app no fundo enquanto algum automático
-// estiver ligado (Isaias, 30/09/2026: "deixa ficar rolando o jogo até a
+// Mantém o Gangues rodando com o app no fundo (Isaias, 30/09/2026: "deixa ficar rolando o jogo até a
 // memória estourar, até o navegador fechar a aba").
 //
 // Quem pausava não era o jogo — era o navegador: aba escondida tem os timers
 // segurados (Chrome: 1x/s, e depois de ~5 min os encadeados caem pra 1x/min)
-// e o Android congela a página de vez. Duas defesas, só com a aba escondida
-// E automático ligado:
+// e o Android congela a página de vez. Duas defesas:
 //  1. timers pelo Worker: setTimeout/setInterval da página passam a ser
 //     disparados por um Web Worker, que o navegador não segura do mesmo jeito;
-//  2. áudio quase mudo: um ruído baixíssimo pelo WebAudio. Aba tocando áudio
+//  2. áudio quase mudo tocando sempre (ver tocarAudio). Aba tocando áudio
 //     não é congelada nem estrangulada (é o que já mantém a Rádio Nina viva).
-// Voltou pra frente ou desligou o automático → tudo volta ao normal.
+// Voltou pra frente → os timers voltam ao normal; o áudio segue até sair do jogo.
 import { useEffect } from 'react'
-import { algumAutomaticoLigado } from './useGanguesBrigaAutomatica.js'
 
 const ID_BASE = 1e9 // ids do Worker não colidem com os do navegador
 const nativo = {
@@ -82,47 +79,62 @@ function desligarTimers() {
   timersNoWorker = false
 }
 
+// Áudio de fundo quase mudo, num <audio> de verdade (não WebAudio). Mídia
+// TOCANDO é o que o Android respeita pra não congelar a aba no fundo — é o
+// que já mantém a Rádio Nina viva. Ele nasce no 1º toque dentro do jogo
+// (regra de autoplay) e fica tocando o tempo todo enquanto o Gangues está
+// aberto: começar a tocar SÓ depois de ir pro fundo (como era antes, com o
+// WebAudio suspenso) é bloqueado pelo navegador sem um toque, e a aba
+// congelava mesmo assim (Isaias, 03/10/2026: "tá pausando o jogo").
 let audio = null
-function prepararAudio() {
-  if (audio) return
+function ruidoWav(segundos = 2, taxa = 8000) {
+  const n = segundos * taxa
+  const buf = new ArrayBuffer(44 + n * 2)
+  const v = new DataView(buf)
+  const txt = (o, s) => [...s].forEach((c, i) => v.setUint8(o + i, c.charCodeAt(0)))
+  txt(0, 'RIFF'); v.setUint32(4, 36 + n * 2, true); txt(8, 'WAVE'); txt(12, 'fmt ')
+  v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true)
+  v.setUint32(24, taxa, true); v.setUint32(28, taxa * 2, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true)
+  txt(36, 'data'); v.setUint32(40, n * 2, true)
+  // ruído baixíssimo: inaudível, mas não é silêncio digital (silêncio puro
+  // o navegador trata como "não está tocando")
+  for (let i = 0; i < n; i++) v.setInt16(44 + i * 2, Math.round((Math.random() * 2 - 1) * 12), true)
+  return URL.createObjectURL(new Blob([buf], { type: 'audio/wav' }))
+}
+function tocarAudio() {
   try {
-    const Ctx = window.AudioContext || window.webkitAudioContext
-    const ctx = new Ctx()
-    const buffer = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate)
-    const dados = buffer.getChannelData(0)
-    for (let i = 0; i < dados.length; i++) dados[i] = (Math.random() * 2 - 1) * 0.0004 // inaudível, mas não é silêncio
-    const fonte = ctx.createBufferSource()
-    fonte.buffer = buffer
-    fonte.loop = true
-    fonte.connect(ctx.destination)
-    fonte.start()
-    ctx.suspend()
-    audio = ctx
+    if (!audio) {
+      audio = new Audio(ruidoWav())
+      audio.loop = true
+      audio.setAttribute('playsinline', '')
+    }
+    audio.play().catch(() => {})
   } catch { audio = null }
+}
+function pararAudio() {
+  try { audio?.pause() } catch { /* nada */ }
 }
 
 export default function useGanguesManterVivo() {
   useEffect(() => {
-    // O áudio precisa nascer num toque do jogador (regra de autoplay); fica
-    // suspenso e só "toca" com a aba escondida.
-    const aoTocar = () => prepararAudio()
-    window.addEventListener('pointerdown', aoTocar, { once: true })
+    // 1º toque (e qualquer toque depois, caso o navegador tenha pausado a
+    // mídia) garante o áudio de fundo tocando.
+    const aoTocar = () => { if (audio?.paused !== false) tocarAudio() }
+    window.addEventListener('pointerdown', aoTocar)
+    window.addEventListener('keydown', aoTocar)
 
+    // Aba escondida: timers pelo Worker, SEMPRE (antes só com automático
+    // ligado — se a leitura do automático falhasse, nada segurava o jogo).
     const aoMudar = () => {
-      if (document.hidden && algumAutomaticoLigado()) {
-        ligarTimers()
-        audio?.resume().catch(() => {})
-      } else {
-        desligarTimers()
-        audio?.suspend().catch(() => {})
-      }
+      if (document.hidden) { ligarTimers(); if (audio?.paused) audio.play().catch(() => {}) } else desligarTimers()
     }
     document.addEventListener('visibilitychange', aoMudar)
     return () => {
       window.removeEventListener('pointerdown', aoTocar)
+      window.removeEventListener('keydown', aoTocar)
       document.removeEventListener('visibilitychange', aoMudar)
       desligarTimers()
-      audio?.suspend().catch(() => {})
+      pararAudio()
     }
   }, [])
 }
