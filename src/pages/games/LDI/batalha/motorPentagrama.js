@@ -2,12 +2,13 @@
 // pra qualquer jogo consumir.
 //
 // ATAQUE E DEFESA — é porrada, não turno: quem está atacando bate, quem está
-// defendendo espelha pra bloquear (`resolverAtaque`). Bloqueou QUALQUER golpe:
-// o ritmo do atacante quebra ali (o resto do combo não sai) e quem bloqueou
-// entra no contra-ataque. Esquiva e poder na defesa também viram, e atacante
-// que fica parado (sem golpe) perde o tempo e a vez. Sem bloqueio, o atacante
-// segue batendo e o outro segue apanhando.
-//
+// defendendo escolhe até MAX_DEFESA pontos pra proteger, SEM ver o ataque
+// (`resolverAtaque`). No fim da batida compara os pontos defendidos com os
+// atacados, membro com membro, sem importar a ordem: golpe num membro
+// defendido não entra; os outros entram. Defendeu pelo menos um, a vez vira.
+// Esquiva e poder na defesa também viram, e atacante que fica parado perde o
+// tempo e a vez.
+
 // O corpo é um pentagrama: 5 pontos grandes (cabeça, mãos, pés), 4 pequenos
 // (cotovelos e joelhos, entre a mão/pé e o centro) e o centro, que abre de vez
 // em quando pra esquiva.
@@ -20,30 +21,25 @@
 // TOQUES_POR_CARGA toques sobem um nível (até 2). Carga I: até 2 golpes,
 // energia ×1,5. Carga II: 1 golpe, ×2,2. A carga soma na gravidade.
 //
-// BLOQUEIO — o defensor espelha: mesmo membro na mesma posição do combo do
-// atacante. Bloqueio sempre custa um pouco de sangue (raspão: 25% do golpe, no
-// mínimo 1); cotovelo/joelho bloqueando mão/pé devolve 2 no atacante; quem
-// bloqueia ganha energia pro ataque que vem. Só a esquiva sai limpa.
-//
+// BLOQUEIO — golpe num membro defendido não dá dano. Cotovelo/joelho
+// defendendo mão/pé do mesmo membro devolve 2 no atacante; quem defende ganha
+// energia pro ataque que vem.
+
 // GRAVIDADE — mão e pé 1; cabeça, cotovelo e joelho 2 (+carga). Levar
 // gravidade 3 ou mais sem bloquear numa batida = TONTO: na próxima, 1 golpe só
 // e sem carga.
 //
-// ENERGIA — 10 por batida (teto 16), dividida pelos golpes do combo.
-//
-// NO TEMPO — o jogo é tocar no beat. `noTempo[i]` diz se o golpe i saiu no
-// tempo (até JANELA_TEMPO de um tempo do compasso). No tempo, bate
-// MULT_NO_TEMPO mais forte. FORA do tempo é erro: no ataque, aquele golpe não
-// entra e deixa abertura (a vez vira no fim da batida), mas os golpes no tempo,
-// antes e depois, entram; na defesa, o bloqueio fora do tempo não conta. Sem
-// `noTempo` (o inimigo), vale tudo.
-//
-// REPETIÇÃO — atacar com o MESMO combo pela 3ª vez seguida: o inimigo já leu,
-// bloqueia certinho, o combo quebra no 1º golpe e a vez vira (`combo lido`).
+// VALOR DO GOLPE — cada batida tem um golpe cheio de energia × FATOR_GOLPE
+// (energia 10 → 24), × a carga. Cada golpe entrega uma fração dele: no beat
+// (amarelo) PCT_NO_TEMPO = 25%, fora do beat PCT_FORA = 10%. Ex.: 1 amarelo +
+// 3 fora = 55% do golpe cheio; 4 amarelos = 100%. Cotovelo, joelho e cabeça
+// pesam um pouco mais (o `mult` de cada ponto).
+
+// REPETIÇÃO — atacar com o MESMO combo pela 3ª vez seguida: o inimigo já leu e
+// defende exatamente aqueles membros (`comboLido`).
 //
 // ESQUIVA — o centro abre raramente, por um instante, e é um ponto do traço:
-// passar o dedo por ele aberto, defendendo, esquiva o ataque inteiro e vira a
-// vez.
+// tocar nele aberto, defendendo, esquiva o ataque inteiro e vira a vez.
 //
 // PODER — a bolinha em cima da cabeça (ORBE) enche a barra de poder a cada
 // toque e enquanto o dedo segura; bloquear e apanhar também enchem. Barra
@@ -73,8 +69,10 @@ export const BONUS_BLOQUEIO = 2
 export const BONUS_ESQUIVA = 2
 export const DANO_BLOQUEIO_DURO = 2
 export const LIMITE_TONTO = 3
-export const RASPAO = 0.25
-export const MULT_NO_TEMPO = 1.25
+export const FATOR_GOLPE = 2.4
+export const PCT_NO_TEMPO = 0.25
+export const PCT_FORA = 0.1
+export const MAX_DEFESA = 2
 export const JANELA_TEMPO = 0.18 // fração de um tempo (1/4 da batida) pra cada lado
 export const REPETICOES_LIDAS = 3
 export const ORBE = { x: 150, y: -20 }
@@ -104,9 +102,10 @@ export function comboValido(traco, max = 4) {
 
 export const gravidade = (ponto, carga = 0) => PONTOS[ponto].grav + carga
 
-export function danoDoGolpe(lado, ponto) {
-  const base = (lado.energia * MULT_CARGA[lado.carga || 0]) / lado.combo.length
-  return Math.max(1, Math.round(base * PONTOS[ponto].mult * (lado.forca?.[PONTOS[ponto].membro] ?? 1)))
+export function danoDoGolpe(lado, ponto, noTempo = true) {
+  const cheio = lado.energia * FATOR_GOLPE * MULT_CARGA[lado.carga || 0]
+  const pct = noTempo ? PCT_NO_TEMPO : PCT_FORA
+  return Math.max(1, Math.round(cheio * pct * PONTOS[ponto].mult * (lado.forca?.[PONTOS[ponto].membro] ?? 1)))
 }
 
 // Distância de um ponto até o segmento a→b.
@@ -141,13 +140,13 @@ export const acertouSequencia = (traco, seq) => {
   return g.length === seq.length && g.every((p, i) => p === seq[i])
 }
 
-// Uma batida de ataque/defesa. atacante = { combo, carga, energia, forca },
-// defensor = { combo (o espelho que ele desenhou; pode ter o centro = esquiva),
-// energia, poder? }. Devolve o dano no defensor (e o reflexo do bloqueio duro
-// no atacante), se a vez vira e o passo a passo.
+// Uma batida de ataque/defesa. atacante = { combo, carga, energia, noTempo?,
+// poder? }; defensor = { combo (os pontos que ele defendeu; o centro =
+// esquiva), energia, poder? }. Devolve o dano no defensor (e o reflexo no
+// atacante), se a vez vira e o passo a passo.
 export function resolverAtaque(atacanteEntrada, defensorEntrada) {
   const atk = { ...atacanteEntrada, combo: golpesDe(atacanteEntrada.combo) }
-  const def = { ...defensorEntrada, esquivou: defensorEntrada.combo.includes(ESQUIVA), combo: golpesDe(defensorEntrada.combo) }
+  const def = { ...defensorEntrada, esquivou: defensorEntrada.combo.includes(ESQUIVA), combo: golpesDe(defensorEntrada.combo).filter(Boolean) }
   const r = { danoDef: 0, danoAtk: 0, bonusDef: 0, gravLevada: 0, passos: [], vira: false, poderGanhoDef: 0 }
   const poder = PODERES[def.poder]
   if (poder) {
@@ -164,7 +163,7 @@ export function resolverAtaque(atacanteEntrada, defensorEntrada) {
     r.defTonto = poderAtk.congela
     return r
   }
-  // Atacante parado (não desenhou golpe nenhum): perdeu o tempo, a vez vira.
+  // Atacante parado (não tocou golpe nenhum): perdeu o tempo, a vez vira.
   if (!atk.combo.length) {
     r.passos.push({ tipo: 'parado', quem: 'atk' })
     r.vira = true
@@ -177,34 +176,24 @@ export function resolverAtaque(atacanteEntrada, defensorEntrada) {
     r.vira = true
     return r
   }
-  for (let i = 0; i < atk.combo.length; i++) {
-    const pa = atk.combo[i]
-    const pd = def.combo[i]
-    if (atk.noTempo && atk.noTempo[i] === false) {
-      r.passos.push({ tipo: 'fora', i, quem: 'atk', ponto: pa })
-      r.vira = true
-      continue
-    }
-    const bloqueioValeu = !def.noTempo || def.noTempo[i] !== false
-    if (pd && bloqueioValeu && PONTOS[pd].membro === PONTOS[pa].membro) {
-      const raspao = Math.max(1, Math.round(danoDoGolpe(atk, pa) * RASPAO))
-      const duro = !PONTOS[pd].grande && PONTOS[pa].grande
-      r.danoDef += raspao
+  atk.combo.forEach((pa, i) => {
+    const noTempo = !atk.noTempo || atk.noTempo[i] !== false
+    const defesa = def.combo.find(pd => PONTOS[pd].membro === PONTOS[pa].membro)
+    if (defesa) {
+      const duro = !PONTOS[defesa].grande && PONTOS[pa].grande
       if (duro) r.danoAtk += DANO_BLOQUEIO_DURO
       r.bonusDef += BONUS_BLOQUEIO
       r.poderGanhoDef += PODER_BLOQUEIO
       r.vira = true
-      r.passos.push({ tipo: 'bloqueio', i, ponto: pa, defesa: pd, raspao, duro })
-      // Bloqueou: o ritmo do atacante quebra ali — o resto do combo não sai.
-      atk.combo.slice(i + 1).forEach((p, k) => r.passos.push({ tipo: 'cortado', i: i + 1 + k, quem: 'atk', ponto: p }))
-      break
+      r.passos.push({ tipo: 'bloqueio', i, ponto: pa, defesa, duro })
+      return
     }
-    const d = Math.round(danoDoGolpe(atk, pa) * (atk.noTempo?.[i] ? MULT_NO_TEMPO : 1))
+    const d = danoDoGolpe(atk, pa, noTempo)
     r.danoDef += d
     r.gravLevada += gravidade(pa, atk.carga)
     r.poderGanhoDef += PODER_APANHOU
-    r.passos.push({ tipo: 'acerto', i, quem: 'atk', ponto: pa, dano: d, noTempo: Boolean(atk.noTempo?.[i]) })
-  }
+    r.passos.push({ tipo: 'acerto', i, quem: 'atk', ponto: pa, dano: d, noTempo })
+  })
   r.defTonto = r.gravLevada >= LIMITE_TONTO
   return r
 }
@@ -215,20 +204,25 @@ export const comboLido = (historico, combo) => {
   return g !== '' && historico.length >= REPETICOES_LIDAS - 1 && historico.slice(-(REPETICOES_LIDAS - 1)).every(h => h.join() === g)
 }
 
-// O inimigo defendendo adivinha membro a membro: `leitura` = chance de
-// acertar cada membro (sobe se o jogador repete o combo).
+// O inimigo defendendo: no começo da batida escolhe 1 ou 2 pontos pra
+// proteger. Com chance `leitura` ele aposta num membro que você usou no último
+// ataque; senão chuta. Se você está repetindo o combo (já leu), ele protege
+// exatamente os membros dele.
 const PONTO_DO_MEMBRO = { cab: 'cab', bracoD: 'maoD', bracoE: 'maoE', pernaD: 'peD', pernaE: 'peE' }
 
-// A defesa dele contra UM golpe: acerta o membro com chance `leitura`, senão
-// chuta um membro qualquer. (Usado golpe a golpe, na hora em que o jogador toca.)
-export function defesaDoGolpe(ponto, leitura, rnd = Math.random) {
+export function escolherDefesaDele(ficha, { ultimoDoJogador = [], lido = false } = {}, rnd = Math.random) {
+  if (lido) return [...new Set(ultimoDoJogador.map(p => PONTOS[p].membro))].map(m => PONTO_DO_MEMBRO[m])
+  if (rnd() < (ficha.esquiva || 0)) return [ESQUIVA]
   const membros = Object.keys(PONTO_DO_MEMBRO)
-  const m = rnd() < leitura ? PONTOS[ponto].membro : membros[Math.floor(rnd() * membros.length)]
-  return PONTO_DO_MEMBRO[m]
+  const usados = [...new Set(ultimoDoJogador.map(p => PONTOS[p].membro))]
+  const quantos = rnd() < 0.5 ? 1 : MAX_DEFESA
+  const escolhidos = new Set()
+  while (escolhidos.size < quantos) {
+    const m = usados.length && rnd() < (ficha.leitura || 0.2) ? usados[Math.floor(rnd() * usados.length)] : membros[Math.floor(rnd() * membros.length)]
+    escolhidos.add(m)
+  }
+  return [...escolhidos].map(m => PONTO_DO_MEMBRO[m])
 }
-
-export const leituraDe = (ficha, repetiu = false) => Math.min(0.9, (ficha.leitura || 0.2) + (repetiu ? 0.4 : 0))
-
 
 // O inimigo escolhe o combo pela ficha: combos com peso, e às vezes repete o
 // SEU último combo (quem repete o mesmo combo apanha bloqueado). Tonto, só o

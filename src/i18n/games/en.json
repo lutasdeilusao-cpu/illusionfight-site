@@ -971,12 +971,12 @@
         "regras": {
           "r1": "Any point, in any order: head, hands, feet, elbows and knees. Tap them one by one on the beat (or drag).",
           "r2": "Up to 4 strikes; the energy is split between them. Tap the last point again to charge: Charge I (up to 2 strikes) and Charge II (1 strike) hit much harder.",
-          "r3": "ATTACK: draw your combo; he tries to guess and block. If he blocks nothing, you keep attacking.",
-          "r4": "DEFENSE: you know how many strikes are coming (sound and notice). Mirror each strike’s limb, in order, to block. A block always grazes you a little. Block one strike and the turn flips.",
+          "r3": "ATTACK: draw your combo. He has already picked 1 or 2 points to guard, and each strike shows right away whether it landed (blue) or he guarded it (gold). A guarded strike deals no damage, the rest land; if he guarded any, the turn flips.",
+          "r4": "DEFENSE: you can’t see his strikes, only how many are coming. Pick up to 2 points to guard, in any order. Then it compares: strikes on a limb you guarded don’t land, the rest do. Guard at least one and the turn is yours.",
           "r5": "A heavy strike (head, elbow, knee) landing unblocked leaves you dizzy: only 1 strike next time.",
           "r6": "The center lights up green rarely: run your finger through it on defense and you dodge the whole attack, losing no blood, and the turn flips.",
           "r7": "Tap (or hold) the ⚡ orb above the head to fill the power bar. Full, the blue sequence shows up: draw it and Black Ice comes out — heavy damage, unblockable, and he freezes.",
-          "r8": "Rhythm is everything: every point has a ring that closes on the beat. Tap as the ring closes — on beat (gold point) the strike hits 25% harder. Off beat is a miss: on attack that strike misses and leaves an opening (the turn flips), but your on-beat strikes land; on defense the block doesn’t count. On defense, each of his strikes shows up on your body on the beat it lands: red got in, gold you blocked. And don’t repeat the same combo 3 times in a row — he reads it."
+          "r8": "Rhythm is damage: every beat has one full strike. A point hit on the beat (gold, as the ring closes) delivers 25% of it; off beat, 10%. 4 on-beat strikes = a full strike; 1 on beat + 3 off = 55%. Elbows, knees and the head weigh a bit more. And don’t repeat the same combo 3 times in a row — he reads it and guards."
         },
         "oponente": "Opponent",
         "velocidade": "Speed",
@@ -1020,18 +1020,14 @@
           "poder_jog": "{poder}! −{dano} and he froze.",
           "poder_ini": "He unleashed {poder}: −{dano}",
           "congelado": "His {golpe} froze mid-air.",
-          "bloqueou_jog": "You blocked his {golpe} (−{raspao} graze).",
-          "bloqueou_jog_duro": "You blocked his {golpe} with bone and hurt him (−{raspao} graze).",
-          "bloqueou_ini": "He blocked your {golpe} (−{raspao} graze on him).",
+          "bloqueou_jog": "You guarded his {golpe}.",
+          "bloqueou_jog_duro": "You guarded his {golpe} with bone and hurt him.",
+          "bloqueou_ini": "He guarded your {golpe}.",
           "bloqueou_ini_duro": "He blocked your {golpe} with bone and hurt you.",
-          "cortado_jog": "Your {golpe} never came out — the rhythm broke.",
-          "cortado_ini": "His {golpe} never came out — you broke his rhythm.",
           "parado_jog": "You stood still on attack — you lost the beat.",
           "parado_ini": "He stood still — the beat is yours.",
-          "lido": "He’s read that combo — 3rd time the same. Blocked, and the turn is his.",
-          "no_tempo": "(on beat!)",
-          "fora_jog": "Your {golpe} was off beat — it missed and left an opening.",
-          "fora_ini": "His {golpe} was off beat."
+          "lido": "He’s read that combo — 3rd time the same. He guarded those limbs.",
+          "no_tempo": "(on beat!)"
         },
         "som": "Sound on or off",
         "ele": "Him",
@@ -1057,7 +1053,8 @@
         "super": "SUPER",
         "recusa": {
           "tonto": "Dizzy: only 1 strike this beat",
-          "maximo": "Max 4 strikes"
+          "maximo": "Max 4 strikes",
+          "maximo_defesa": "On defense, 2 points max"
         }
       }
     },

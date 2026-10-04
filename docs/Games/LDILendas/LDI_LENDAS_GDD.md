@@ -250,45 +250,38 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
   não liga o mesmo ponto duas vezes seguidas (tocar de novo no último é
   carga). Alvo generoso (34 no toque).
 - **Ataque e defesa, como porrada (não turno):** quem está atacando desenha o
-  combo; quem está defendendo espelha (mesmo membro, na mesma posição) pra
-  bloquear — golpe de defesa não causa dano. Bloqueou QUALQUER golpe: o ritmo
-  do atacante quebra ali (o resto do combo não sai) e quem bloqueou entra no
-  contra-ataque na batida seguinte. Atacante que fica parado (sem golpe)
-  perde o tempo e a vez vira. Sem bloqueio, o atacante segue batendo.
-  Na defesa o jogador sabe quantos golpes vêm (um som por golpe e o aviso "ele
-  vem com N golpes"); com a habilidade de ler a origem (chave no menu do
-  laboratório; no Lendas, de Veia/habilidade) vê de onde nasce o 1º golpe.
-  O inimigo defendendo adivinha membro a membro (`leitura` da ficha), e lê
-  melhor quem repete o mesmo combo.
-- **Bloqueio sempre custa sangue:** raspão de 25% do golpe (mínimo 1).
-  Cotovelo/joelho bloqueando mão/pé devolve 2 no atacante. Quem bloqueia ganha
-  energia pro ataque que vem. Só a esquiva sai limpa.
+  combo; quem está defendendo escolhe até 2 pontos pra proteger, às cegas
+  (não vê os golpes, só sabe quantos vêm: um som por golpe e o aviso "ele vem
+  com N golpes"; com a habilidade de ler a origem vê de onde nasce o 1º).
+  No fim da batida compara os pontos defendidos com os atacados, membro com
+  membro, sem importar a ordem: golpe num membro defendido não dá dano, os
+  outros entram. Defendeu pelo menos um, a vez vira. Atacante parado (sem
+  golpe) perde o tempo e a vez. Vale igual pro jogador e pro inimigo.
+  O inimigo defendendo escolhe 1 ou 2 pontos no começo da batida, apostando
+  (pela `leitura` da ficha) nos membros do seu último ataque.
+- **Bloqueio:** golpe defendido não dá dano. Cotovelo/joelho defendendo mão/pé
+  do mesmo membro devolve 2 no atacante. Quem defende ganha energia pro ataque
+  que vem.
 - **Carga:** tocar de novo no último ponto do combo (ele pisca); cada 3 toques
   sobem um nível. Carga I: até 2 golpes, energia ×1,5. Carga II: 1 golpe, ×2,2.
 - **Gravidade:** mão e pé 1; cabeça, cotovelo e joelho 2 (+carga). Levar 3+ sem
   bloquear numa batida = **tonto**: na próxima, 1 golpe só e sem carga.
-- **Energia:** 10 por batida (teto 16), dividida pelos golpes.
+- **Valor do golpe:** cada batida tem um golpe cheio (energia × 2,4, × carga;
+  energia 10 por batida, teto 16). Golpe ligado no beat entrega 25% dele,
+  fora do beat 10%: 4 no beat = 100%, 1 no beat + 3 fora = 55%. Cotovelo,
+  joelho e cabeça pesam um pouco mais (o multiplicador de cada ponto).
 - **Toque recusado avisa:** tocar num ponto quando não cabe mais golpe (tonto:
-  1 golpe; ou o máximo de 4) treme o tabuleiro e mostra o motivo.
+  1 golpe; o máximo de 4; ou 2 na defesa) treme o tabuleiro e mostra o motivo.
 - **O jogo é tocar no beat:** cada ponto tem um anel que fecha sobre ele a
   cada tempo do compasso. Tocar quando o anel fecha (até 18% de um tempo pra
-  cada lado) conta no tempo: ponto dourado, brilho, golpe 25% mais forte.
-  **Fora do tempo é erro:** no ataque aquele golpe não entra e deixa abertura
-  (a vez vira no fim), mas os golpes no tempo, antes e depois, entram; na
-  defesa o bloqueio não conta. Quem quebra o resto do combo é só o bloqueio.
-- **Fantasma das porradas, o tempo todo:** cada golpe aparece como fantasma
-  no ponto, com o som na hora.
-  - Na defesa, cada golpe dele chega no seu corpo num tempo do compasso (1º no
-    tempo 1, 2º no 2, 3º no 3): vermelho entrou (com o dano que entrou),
-    dourado você bloqueou, tracejado se você esquivou. Ele vem com 1 a 3
-    golpes. O bloqueio vale quando você toca o mesmo membro NO MESMO TEMPO em
-    que o golpe chega — o fantasma e o resultado final usam a mesma conta.
-  - No ataque, a defesa dele é decidida golpe a golpe, na hora em que você
-    toca: azul entrou, dourado ele bloqueou, cinza fora do tempo, tracejado
-    ele esquivou, apagado se o combo já tinha quebrado. O replay usa
-    exatamente essa defesa.
+  cada lado) conta no tempo: ponto dourado e brilho. Fora do tempo não é erro,
+  só vale menos (10% em vez de 25%).
+- **Fantasma no ataque:** cada golpe seu aparece como fantasma no ponto, com o
+  som na hora, contra os pontos que ele já escolheu defender: azul entrou,
+  cinza entrou fora do tempo, dourado ele defendeu, tracejado ele esquivou.
+  Na defesa não tem fantasma: é às cegas.
 - **Repetição é castigada:** atacar com o mesmo combo pela 3ª vez seguida, ele
-  já leu — bloqueia certinho, o combo quebra no 1º golpe e a vez vira.
+  já leu e defende exatamente aqueles membros.
 - **Esquiva:** o centro abre raramente (~0,4 s) e é um ponto do traço; passar o
   dedo por ele aberto, defendendo, esquiva o ataque inteiro e vira a vez.
 - **Poder (Gelo Negro):** a bolinha ⚡ em cima da cabeça enche a barra de poder

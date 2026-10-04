@@ -971,12 +971,12 @@
         "regras": {
           "r1": "Qualquer ponto, em qualquer ordem: cabeça, mãos, pés, cotovelos e joelhos. Toque um por um no ritmo (ou arraste).",
           "r2": "Até 4 golpes; a energia se divide entre eles. Toque de novo no último ponto pra carregar: Carga I (até 2 golpes) e Carga II (1 golpe) batem muito mais forte.",
-          "r3": "ATAQUE: desenhe o seu combo; ele tenta adivinhar e bloquear. Se ele não bloquear nada, você segue atacando.",
-          "r4": "DEFESA: você sabe quantos golpes vêm (som e aviso). Espelhe o membro de cada golpe, na ordem, pra bloquear. Bloqueio sempre raspa um pouco de sangue. Bloqueou um golpe, a vez vira.",
+          "r3": "ATAQUE: desenhe o seu combo. Ele já escolheu 1 ou 2 pontos pra defender, e cada golpe seu mostra na hora se entrou (azul) ou se ele defendeu (dourado). Golpe defendido não dá dano, os outros entram; defendeu algum, a vez vira.",
+          "r4": "DEFESA: você não vê os golpes dele, só sabe quantos vêm. Escolha até 2 pontos pra proteger, em qualquer ordem. No fim compara: golpe no membro que você protegeu não entra, os outros entram. Defendeu pelo menos um, a vez é sua.",
           "r5": "Golpe grave (cabeça, cotovelo, joelho) entrando sem bloqueio deixa tonto: na próxima, 1 golpe só.",
           "r6": "O centro acende verde raramente: passe o dedo por ele na defesa e você esquiva o ataque inteiro, sem perder sangue, e a vez vira.",
           "r7": "Toque (ou segure) a bolinha ⚡ em cima da cabeça pra encher a barra de poder. Cheia, aparece a sequência azul: desenhe ela e sai o Gelo Negro — dano alto, sem bloqueio, e ele congela.",
-          "r8": "Ritmo é tudo: cada ponto tem um anel que fecha no beat. Toque quando o anel fecha — no tempo (ponto dourado) o golpe bate 25% mais forte. Fora do tempo é erro: no ataque aquele golpe erra e deixa abertura (a vez vira), mas os golpes no tempo entram; na defesa o bloqueio não conta. Na defesa, cada golpe dele aparece no seu corpo no beat em que chega: vermelho entrou, dourado você bloqueou. E não repita o mesmo combo 3 vezes seguidas — ele lê."
+          "r8": "Ritmo vale dano: cada batida tem um golpe cheio. Ponto ligado no beat (dourado, quando o anel fecha) entrega 25% dele; fora do beat, 10%. 4 golpes no beat = golpe cheio; 1 no beat + 3 fora = 55%. Cotovelo, joelho e cabeça pesam um pouco mais. E não repita o mesmo combo 3 vezes seguidas — ele lê e defende."
         },
         "oponente": "Oponente",
         "velocidade": "Velocidade",
@@ -1020,18 +1020,14 @@
           "poder_jog": "{poder}! −{dano} e ele congelou.",
           "poder_ini": "Ele soltou {poder}: −{dano}",
           "congelado": "{golpe} dele congelou no ar.",
-          "bloqueou_jog": "Você bloqueou o {golpe} dele (−{raspao} de raspão).",
-          "bloqueou_jog_duro": "Você bloqueou o {golpe} dele com osso e machucou (−{raspao} de raspão).",
-          "bloqueou_ini": "Ele bloqueou o seu {golpe} (−{raspao} de raspão nele).",
+          "bloqueou_jog": "Você defendeu o {golpe} dele.",
+          "bloqueou_jog_duro": "Você defendeu o {golpe} dele com osso e machucou ele.",
+          "bloqueou_ini": "Ele defendeu o seu {golpe}.",
           "bloqueou_ini_duro": "Ele bloqueou o seu {golpe} com osso e te machucou.",
-          "cortado_jog": "Combo quebrado: {golpe} nem saiu.",
-          "cortado_ini": "Você quebrou o ritmo dele: {golpe} nem saiu.",
           "parado_jog": "Você ficou parado no ataque — perdeu o tempo.",
           "parado_ini": "Ele ficou parado — o tempo é seu.",
-          "lido": "Ele já leu esse combo — 3ª vez igual. Bloqueou e a vez é dele.",
-          "no_tempo": "(no tempo!)",
-          "fora_jog": "Seu {golpe} saiu fora do tempo — errou e deixou abertura.",
-          "fora_ini": "O {golpe} dele saiu fora do tempo."
+          "lido": "Ele já leu esse combo — 3ª vez igual. Defendeu esses membros.",
+          "no_tempo": "(no tempo!)"
         },
         "som": "Ligar ou desligar o som",
         "ele": "Ele",
@@ -1057,7 +1053,8 @@
         "super": "SUPER",
         "recusa": {
           "tonto": "Tonto: só 1 golpe nessa batida",
-          "maximo": "Máximo de 4 golpes"
+          "maximo": "Máximo de 4 golpes",
+          "maximo_defesa": "Na defesa, no máximo 2 pontos"
         }
       }
     },

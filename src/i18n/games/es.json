@@ -971,12 +971,12 @@
         "regras": {
           "r1": "Cualquier punto, en cualquier orden: cabeza, manos, pies, codos y rodillas. Tócalos uno por uno al ritmo (o arrastra).",
           "r2": "Hasta 4 golpes; la energía se divide entre ellos. Toca otra vez el último punto para cargar: Carga I (hasta 2 golpes) y Carga II (1 golpe) pegan mucho más fuerte.",
-          "r3": "ATAQUE: dibuja tu combo; él intenta adivinar y bloquear. Si no bloquea nada, sigues atacando.",
-          "r4": "DEFENSA: sabes cuántos golpes vienen (sonido y aviso). Refleja el miembro de cada golpe, en orden, para bloquear. El bloqueo siempre te roza un poco. Bloqueas un golpe y el turno cambia.",
+          "r3": "ATAQUE: dibuja tu combo. Él ya eligió 1 o 2 puntos para defender, y cada golpe tuyo muestra al instante si entró (azul) o si lo defendió (dorado). Golpe defendido no hace daño, los demás entran; si defendió alguno, el turno cambia.",
+          "r4": "DEFENSA: no ves sus golpes, solo cuántos vienen. Elige hasta 2 puntos para proteger, en cualquier orden. Al final compara: golpe en el miembro que protegiste no entra, los demás sí. Defiende al menos uno y el turno es tuyo.",
           "r5": "Un golpe grave (cabeza, codo, rodilla) que entra sin bloqueo te marea: la próxima, solo 1 golpe.",
           "r6": "El centro se enciende verde muy pocas veces: pasa el dedo por él en la defensa y esquivas todo el ataque, sin perder sangre, y el turno cambia.",
           "r7": "Toca (o mantén) la bolita ⚡ encima de la cabeza para llenar la barra de poder. Llena, aparece la secuencia azul: dibújala y sale el Hielo Negro — daño alto, sin bloqueo, y él se congela.",
-          "r8": "El ritmo lo es todo: cada punto tiene un anillo que se cierra con el compás. Toca cuando el anillo se cierra — a tiempo (punto dorado) el golpe pega 25% más fuerte. Fuera de tiempo es error: en el ataque ese golpe falla y deja una abertura (el turno cambia), pero tus golpes a tiempo entran; en la defensa el bloqueo no cuenta. En la defensa, cada golpe suyo aparece en tu cuerpo en el compás en que llega: rojo entró, dorado lo bloqueaste. Y no repitas el mismo combo 3 veces seguidas — te lo lee."
+          "r8": "El ritmo es daño: cada compás tiene un golpe completo. Punto unido a tiempo (dorado, cuando el anillo se cierra) entrega el 25%; fuera de tiempo, el 10%. 4 golpes a tiempo = golpe completo; 1 a tiempo + 3 fuera = 55%. Codos, rodillas y cabeza pesan un poco más. Y no repitas el mismo combo 3 veces seguidas — te lo lee y lo defiende."
         },
         "oponente": "Oponente",
         "velocidade": "Velocidad",
@@ -1020,18 +1020,14 @@
           "poder_jog": "¡{poder}! −{dano} y se congeló.",
           "poder_ini": "Soltó {poder}: −{dano}",
           "congelado": "Su {golpe} se congeló en el aire.",
-          "bloqueou_jog": "Bloqueaste su {golpe} (−{raspao} de roce).",
-          "bloqueou_jog_duro": "Bloqueaste su {golpe} con hueso y le dolió (−{raspao} de roce).",
-          "bloqueou_ini": "Bloqueó tu {golpe} (−{raspao} de roce en él).",
+          "bloqueou_jog": "Defendiste su {golpe}.",
+          "bloqueou_jog_duro": "Defendiste su {golpe} con hueso y le dolió.",
+          "bloqueou_ini": "Defendió tu {golpe}.",
           "bloqueou_ini_duro": "Bloqueó tu {golpe} con hueso y te dolió.",
-          "cortado_jog": "Tu {golpe} ni salió — se rompió el ritmo.",
-          "cortado_ini": "Su {golpe} ni salió — le rompiste el ritmo.",
           "parado_jog": "Te quedaste quieto en el ataque — perdiste el tiempo.",
           "parado_ini": "Se quedó quieto — el tiempo es tuyo.",
-          "lido": "Ya te leyó ese combo — 3ª vez igual. Bloqueó y el turno es suyo.",
-          "no_tempo": "(¡a tiempo!)",
-          "fora_jog": "Tu {golpe} salió fuera de tiempo — falló y dejó una abertura.",
-          "fora_ini": "Su {golpe} salió fuera de tiempo."
+          "lido": "Ya te leyó ese combo — 3ª vez igual. Defendió esos miembros.",
+          "no_tempo": "(¡a tiempo!)"
         },
         "som": "Activar o desactivar el sonido",
         "ele": "Él",
@@ -1057,7 +1053,8 @@
         "super": "SUPER",
         "recusa": {
           "tonto": "Mareado: solo 1 golpe en este compás",
-          "maximo": "Máximo 4 golpes"
+          "maximo": "Máximo 4 golpes",
+          "maximo_defesa": "En la defensa, máximo 2 puntos"
         }
       }
     },
