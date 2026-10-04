@@ -432,13 +432,12 @@
       },
       "equip": {
         "titulo": "Gear",
-        "sub": "Every piece has a card socket — cards come with the drop system.",
+        "sub": "Shop gear has no slots. Gear dropped by enemies comes with 1 or 2 card slots.",
         "vazio": "Empty",
         "equipar": "Equip",
         "desequipar": "Remove",
         "sem_itens": "Nothing in the gang's pockets for this slot.",
         "sem_carta": "No socket",
-        "carta_em_breve": "Card socket — coming soon",
         "o_que_da": "What it gives",
         "equipar_em": "Buy and equip on",
         "so_comprar": "Just buy (stash)",
@@ -622,7 +621,9 @@
         "equipou": "{nome} equipped {item} ({slot}).",
         "ja_equipado": "already has it",
         "status_curado": "{nome} is clear of the status.",
-        "sem_status": "{nome} doesn't have that status."
+        "sem_status": "{nome} doesn't have that status.",
+        "cartas": "Cards",
+        "nota_cartas": "Slot them into slotted gear, from the character sheet."
       },
       "clube": {
         "nome": "Fight Club",
@@ -6451,8 +6452,7 @@
         "item_dica_loja": "Buy it at a turf shop.",
         "item_dica_drop": "Drop — from a boss or a fight.",
         "item_dica_quest": "Earned by running a favor for the block.",
-        "cartas_explica": "Socket cards slot into gear for extra bonuses — master-card style. They come from the drop system, arriving in a future update.",
-        "cartas_em_breve": "— coming soon —",
+        "cartas_explica": "Every card drops from its own enemy. Slotted into gear, it stays forever.",
         "cargos": {
           "vigia": "Lookout",
           "vapor": "Dealer",
@@ -6734,6 +6734,29 @@
         "rinha_sem": "Nothing drops in the Pit: drops only come from real fights.",
         "tag_equip_especial": "Special gear",
         "variante": "may come with 2 slots or already upgraded"
+      },
+      "carta": {
+        "attr": "+{v} {attr}",
+        "pv": "+{v} max Grit",
+        "pm": "+{v} max energy",
+        "status_ao_bater": "{pct}% to leave the target {status} on hit",
+        "auto_talento": "{pct}% to fire {talento} (level {n}) for free when attacking",
+        "cura_ao_bater": "{pct}% to recover {v} Grit on hit",
+        "cura_ao_derrubar": "recovers {v} Grit when dropping someone",
+        "bloqueio": "{pct}% to block the hit",
+        "reduz_dano": "−{v} damage from every hit taken",
+        "imune": "immune to {status}",
+        "grana": "+{pct}% cash on victory",
+        "encaixar_em": "Slot card · {peca}",
+        "so_espaco": "Only {espaco} cards fit.",
+        "pra_sempre": "Once slotted, it stays: the card never leaves this gear.",
+        "voltar": "Back",
+        "encaixar": "Slot it",
+        "sem_cartas": "No cards for this slot in the bag. Cards drop from enemies — rare, but the guarantee gets there.",
+        "espaco": "Slot: {espaco}",
+        "disparou_talento": "Card fired {talento}",
+        "disparou_bloqueio": "Card blocked the hit",
+        "disparou_cura": "Card recovered {v} Grit"
       }
     }
   }

@@ -12,6 +12,7 @@ import { CENAS_POR_ID, destinoSocorroDerrota, custoRecuperacaoRinha } from '../d
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
 import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import { desligarAutomaticos } from './useGanguesBrigaAutomatica.js'
+import { bonusGranaDasCartas } from '../engine/ganguesCartaEfeitos.js'
 
 export default function useGanguesVictoryResolution({ store, user, report, victory, storyAlvo, match, torre, torreAndar, clube, emCena, noModoHistoria, cenaChefe, confrontoFinal, onNavigate }) {
   const processed = useRef(false)
@@ -116,7 +117,9 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
           // `__aleatorio` (perseguidor) não é ponto do mapa — não marca nada.
           else if (storyAlvo.cenaPoiId !== '__aleatorio') store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
         }
-        if (grana) { store.ganharGrana(grana); granaGanha += grana }
+        // Cartas de grana do time: +% em cima do que a luta pagou.
+        const granaFinal = grana ? Math.round(grana * (1 + bonusGranaDasCartas(report.combatants.filter(c => c.side === 'player')) / 100)) : 0
+        if (granaFinal) { store.ganharGrana(granaFinal); granaGanha += granaFinal }
         // Aposta em você (já descontada ao entrar): venceu, paga multiplicado.
         if (rep) { repMarcos = store.ganharRep(rep); repGanha += rep }
         itens.forEach(({ id, qtd }) => store.darItem(id, qtd))

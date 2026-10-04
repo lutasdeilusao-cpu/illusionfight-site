@@ -127,7 +127,7 @@ export default function GanguesCombatOverlays({
               return actor.side === 'player' ? getGanguesPortraitByTemplateId(actor.character_template_id) : getGanguesEnemyPortraitById(actor.id)
             })()}
             targetName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.targetKey))}
-            powerName={machine.pending.result.activeSpecialId ? t(`games.gangues.progression.skills.${machine.pending.result.activeSpecialId}`) : null}
+            powerName={machine.pending.result.activeSpecialId || machine.pending.result.cartaTalento ? t(`games.gangues.progression.skills.${machine.pending.result.activeSpecialId || machine.pending.result.cartaTalento}`) : null}
             passiveNames={(() => {
               // Nome + o que ela FEZ + DE QUEM é (Isaias, 03/10/2026: aparecia
               // passiva do inimigo no ataque do Trinca e parecia dele).
@@ -137,7 +137,14 @@ export default function GanguesCombatOverlays({
                 dono: dono(key),
                 desc: describeGanguesSpecialEffect(t, id, machine.pending.result.passivosNivel?.[id] || 1),
               }))
-              return [...lado(machine.pending.result.passivosGatilho?.attacker, machine.pending.actorKey), ...lado(machine.pending.result.passivosGatilho?.defender, machine.pending.targetKey)]
+              // O que as cartas encaixadas fizeram neste golpe.
+              const r = machine.pending.result
+              const cartas = [
+                r.cartaTalento && { nome: `🃏 ${t('games.gangues.carta.disparou_talento', { talento: t(`games.gangues.progression.skills.${r.cartaTalento}`) })}`, dono: dono(machine.pending.actorKey) },
+                r.cartaBloqueio && { nome: `🃏 ${t('games.gangues.carta.disparou_bloqueio')}`, dono: dono(machine.pending.targetKey) },
+                r.cartaCura > 0 && { nome: `🃏 ${t('games.gangues.carta.disparou_cura', { v: r.cartaCura })}`, dono: dono(machine.pending.actorKey) },
+              ].filter(Boolean)
+              return [...lado(r.passivosGatilho?.attacker, machine.pending.actorKey), ...lado(r.passivosGatilho?.defender, machine.pending.targetKey), ...cartas]
             })()}
             passivaLabel={t('games.gangues.passiva_ativou')}
             statusNome={machine.pending.result.statusAplicado ? `${GANGUES_STATUS[machine.pending.result.statusAplicado]?.icone || ''} ${t(`games.gangues.status.${machine.pending.result.statusAplicado}.nome`)}!` : null}

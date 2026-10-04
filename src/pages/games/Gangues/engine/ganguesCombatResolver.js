@@ -1,6 +1,7 @@
 import { applyGanguesAttackerEffect, applyGanguesDefenderEffect, buildGanguesEffectsList } from './ganguesSpecialEffects.js'
 import { aplicarStatus, acordarAoApanhar, modAtaqueStatus, modDefesaStatus } from './ganguesStatus.js'
 import { rolarFaixa } from '../data/ganguesEquip.js'
+import { sortearAutoTalento, sortearStatusAoBater, imuneAoStatus, defesaDasCartas, curaDasCartas } from './ganguesCartaEfeitos.js'
 
 // Dado das peças em FAIXA (27/09/2026, PLANO_ITENS_RANGE.md): cada peça rola o
 // próprio dado e soma. `null` = ninguém tem peça com faixa daquele atributo
@@ -53,6 +54,10 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   const attackRollValue = rolls.fa + (critical ? CRITICAL_BONUS : 0)
 
   const attackerEffects = buildGanguesEffectsList(attacker, activeSpecialId, forcedSpecial)
+  // Carta de talento automático: num ataque normal, chance de soltar um
+  // talento de graça (não gasta energia nem conta como talento na linha do tempo).
+  const talentoDaCarta = sortearAutoTalento(attacker, attackerEffects.some(item => item.kind === 'active'))
+  if (talentoDaCarta) attackerEffects.push(talentoDaCarta)
   const defenderEffects = buildGanguesEffectsList(defender, null)
   const ctx = { attacker, target: defender, faMod: 0, fdMod: 0, ignoreDefPct: 0, targetDefenseReduction: 0, pmCost: 0, pvCostPct: 0, selfShieldSet: 0, chargeGain: 0, chargeSpent: 0, statusAplicar: null }
   // Achado do Isaias (19/09/2026): quando um PODER ATIVO é usado, o dado
@@ -94,11 +99,18 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   const fa = attack + malandragem + attackRollValue + ctx.faMod
   const fd = effectiveDefense + rolls.fd + ctx.fdMod
   let damage = Math.max(0, fa - fd)
+  // Cartas de quem apanha: bloqueio e redução de dano.
+  const defesaCarta = defesaDasCartas(defender, damage)
+  damage = defesaCarta.damage
+  // Carta de status ao bater (se o talento não pôs nenhum); imunidade da carta do alvo.
+  if (!ctx.statusAplicar) ctx.statusAplicar = sortearStatusAoBater(attacker)
+  if (ctx.statusAplicar && imuneAoStatus(defender, ctx.statusAplicar.id)) ctx.statusAplicar = null
 
   const incomingShield = defender.specialState?.shield || 0
   let shieldConsumed = 0
   if (incomingShield > 0) { shieldConsumed = Math.min(incomingShield, damage); damage = Math.max(0, damage - incomingShield) }
 
+  const cartaCura = curaDasCartas(attacker, defender, damage)
   const pvCost = ctx.pvCostPct ? Math.max(1, Math.ceil((attacker.pv || 0) * ctx.pvCostPct / 100)) : 0
 
   const attackerSpecialState = {
@@ -121,7 +133,8 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
     // Apanhou de verdade, acorda (Apagado); depois entra o status do talento.
     defenderStatuses: ctx.statusAplicar ? aplicarStatus(acordarAoApanhar(defender.statuses || [], damage), ctx.statusAplicar.id, ctx.statusAplicar.turnos) : acordarAoApanhar(defender.statuses || [], damage),
     statusAplicado: ctx.statusAplicar?.id || null,
-    activeSpecialId: attackerEffects.find(item => item.kind === 'active')?.id || null,
+    activeSpecialId: attackerEffects.find(item => item.kind === 'active' && !item.daCarta)?.id || null,
+    cartaTalento: talentoDaCarta?.id || null, cartaBloqueio: defesaCarta.bloqueio, cartaCura,
     passivosGatilho,
     passivosNivel,
     ignoreDefPct: ctx.ignoreDefPct, shieldConsumed,

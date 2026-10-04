@@ -3,17 +3,35 @@ import { createPortal } from 'react-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { GANGUES_EQUIP_SLOTS, getGanguesEquip, normalizeGanguesEquipment, textoBonusEquip, podeEquiparGangues, nomePeca } from '../data/ganguesEquip.js'
+import { getGanguesCarta, nomeCarta, textoCarta } from '../data/ganguesCartas.js'
+import GanguesCartaEncaixe from './GanguesCartaEncaixe'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesEquipPanel.css'
 
-/** Quadradinhos de slot de carta — vazios por enquanto (cartas vêm com o drop). */
-function CardSlots({ t, quantidade }) {
-  if (!quantidade) return <span className="gang-equip-cards gang-equip-cards--none">{t('games.gangues.equip.sem_carta')}</span>
+/** Encaixes de carta da peça. Com `onEncaixar`, cada encaixe vazio vira botão. */
+function CardSlots({ t, peca, onEncaixar }) {
+  const cards = peca?.encaixe ? peca.cards || [] : []
+  if (!cards.length) return <span className="gang-equip-cards gang-equip-cards--none">{t('games.gangues.equip.sem_carta')}</span>
   return (
-    <span className="gang-equip-cards" title={t('games.gangues.equip.carta_em_breve')}>
-      {Array.from({ length: quantidade }, (_, i) => <b key={i} className="gang-equip-card-slot" />)}
+    <span className="gang-equip-cards">
+      {cards.map((cartaId, i) => {
+        const carta = cartaId && getGanguesCarta(cartaId)
+        if (!onEncaixar) return <b key={i} className={`gang-equip-card-slot${carta ? ' gang-equip-card-slot--cheio' : ''}`} />
+        return (
+          <button key={i} type="button" className={`gang-equip-card-slot gang-equip-card-slot--btn${carta ? ' gang-equip-card-slot--cheio' : ''}`} disabled={Boolean(carta)} aria-label={carta ? nomeCarta(t, carta) : t('games.gangues.carta.encaixar')} onClick={event => { event.stopPropagation(); onEncaixar(i) }}>
+            {carta ? '🃏' : '+'}
+          </button>
+        )
+      })}
     </span>
   )
+}
+
+/** O que as cartas encaixadas fazem, em uma linha. */
+function TextoCartas({ t, peca }) {
+  const cartas = (peca?.cards || []).map(getGanguesCarta).filter(Boolean)
+  if (!cartas.length) return null
+  return <small className="gang-equip-cartas-texto">🃏 {cartas.map(c => textoCarta(t, c)).join(' · ')}</small>
 }
 
 export default function GanguesEquipPanel({ member }) {
@@ -22,6 +40,7 @@ export default function GanguesEquipPanel({ member }) {
   const equiparItem = useGanguesStore(state => state.equiparItem)
   const desequiparItem = useGanguesStore(state => state.desequiparItem)
   const [slotAberto, setSlotAberto] = useState(null)
+  const [encaixe, setEncaixe] = useState(null) // { def, peca, alvo, indice }
 
   const equipment = useMemo(() => normalizeGanguesEquipment(member?.attributes?.equipment), [member])
 
@@ -61,8 +80,9 @@ export default function GanguesEquipPanel({ member }) {
                   <small>{t(`games.gangues.equip.slots.${slot}`)}</small>
                   <strong>{def ? nomePeca(t, def, equipada) : t('games.gangues.equip.vazio')}</strong>
                   {def && <em>{textoBonusEquip(t, def, equipada.aprim)}</em>}
+                  {def && <TextoCartas t={t} peca={equipada} />}
                 </span>
-                {def && <CardSlots t={t} quantidade={equipada.cards?.length || 0} />}
+                {def && <CardSlots t={t} peca={equipada} />}
               </button>
             </li>
           )
@@ -88,7 +108,8 @@ export default function GanguesEquipPanel({ member }) {
                   <span className="gang-equip-slot__info">
                     <strong>{nomePeca(t, def, peca)}</strong>
                     <em>{textoBonusEquip(t, def, aprim)}</em>
-                    <CardSlots t={t} quantidade={peca.cards?.length || 0} />
+                    <TextoCartas t={t} peca={peca} />
+                    <CardSlots t={t} peca={peca} onEncaixar={indice => setEncaixe({ def, peca, alvo: { memberId: member.id, slot: slotAberto }, indice })} />
                   </span>
                   <button className="gang-equip-btn gang-equip-btn--off" onClick={() => desequipar(slotAberto)}>{t('games.gangues.equip.desequipar')}</button>
                 </div>
@@ -104,7 +125,8 @@ export default function GanguesEquipPanel({ member }) {
                     <strong>{nomePeca(t, def, inst)}</strong>
                     <small>{t(`games.gangues.equip.raridade.${def.raridade}`)}</small>
                     <em>{textoBonusEquip(t, def, inst.aprim)}</em>
-                    <CardSlots t={t} quantidade={inst.encaixe ? inst.cards?.length || 0 : 0} />
+                    <TextoCartas t={t} peca={inst} />
+                    <CardSlots t={t} peca={inst} onEncaixar={indice => setEncaixe({ def, peca: inst, alvo: { uid: inst.uid }, indice })} />
                   </span>
                   <button className="gang-equip-btn" onClick={() => equipar(inst.uid)}>{t('games.gangues.equip.equipar')}</button>
                 </div>
@@ -113,6 +135,7 @@ export default function GanguesEquipPanel({ member }) {
           </div>
         </div>
       ), document.body)}
+      {encaixe && <GanguesCartaEncaixe t={t} {...encaixe} onClose={() => setEncaixe(null)} />}
     </div>
   )
 }

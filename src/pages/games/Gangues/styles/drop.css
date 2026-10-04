@@ -37,3 +37,32 @@
   font: 800 0.54rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--if-teal);
 }
 .gang-drop-bloco-nota { margin: 0; font: 700 0.54rem var(--font-mono); color: var(--text-secondary); }
+
+/* Cartas: encaixe na peça */
+.gang-equip-cards .gang-equip-card-slot--btn { width: 22px; height: 22px; padding: 0; cursor: pointer; font-size: 0.7rem; line-height: 1; color: var(--if-violet); }
+.gang-equip-cards .gang-equip-card-slot--cheio { border-color: var(--if-violet); background: color-mix(in srgb, var(--if-violet) 18%, transparent); }
+.gang-equip-cartas-texto { display: block; font: 700 0.5rem var(--font-mono); color: var(--if-violet); }
+.gang-carta-encaixe { position: fixed; inset: 0 var(--app-gutter); z-index: 1300; display: flex; align-items: flex-end; justify-content: center; overscroll-behavior: none; }
+.gang-carta-encaixe__scrim { position: absolute; inset: 0; border: 0; background: rgba(2, 6, 9, 0.78); backdrop-filter: blur(3px); }
+.gang-carta-encaixe__card {
+  position: relative; width: 100%; max-height: 78dvh; overflow-y: auto; overscroll-behavior: contain;
+  padding: 14px; background: var(--if-panel); border: 1px solid var(--if-violet); border-bottom: 0;
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+.gang-carta-encaixe__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.gang-carta-encaixe__head strong { font: 800 0.8rem var(--font-display); color: var(--gang-branco); text-transform: uppercase; }
+.gang-carta-encaixe__head button { border: 0; background: none; color: var(--text-secondary); font-size: 1.3rem; cursor: pointer; }
+.gang-carta-encaixe__sub, .gang-carta-encaixe__vazio { margin: 6px 0 10px; font: 700 0.56rem var(--font-mono); color: var(--text-secondary); }
+.gang-carta-encaixe__lista { display: flex; flex-direction: column; gap: 6px; }
+.gang-carta-encaixe__item {
+  display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 10px; text-align: left; cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--if-violet) 45%, transparent); background: rgba(255, 255, 255, 0.03);
+}
+.gang-carta-encaixe__icone { font-size: 1.3rem; }
+.gang-carta-encaixe__info { display: flex; flex-direction: column; gap: 2px; }
+.gang-carta-encaixe__info strong, .gang-carta-encaixe__confirma strong { font: 800 0.7rem var(--font-display); color: var(--if-violet); text-transform: uppercase; }
+.gang-carta-encaixe__info em, .gang-carta-encaixe__confirma em { font: 700 0.56rem var(--font-mono); font-style: normal; color: var(--gang-branco); }
+.gang-carta-encaixe__confirma { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+.gang-carta-encaixe__confirma p { margin: 4px 0; font: 700 0.58rem var(--font-mono); color: var(--if-amber); }
+.gang-carta-encaixe__acoes { display: flex; gap: 8px; width: 100%; }
+.gang-carta-encaixe__acoes > * { flex: 1; }

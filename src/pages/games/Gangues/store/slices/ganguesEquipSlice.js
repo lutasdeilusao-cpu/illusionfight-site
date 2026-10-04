@@ -3,6 +3,7 @@
 // (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
 import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip, aprimTeto, custoAprimoramento, GANGUES_SUCATA_ID, podeEquiparGangues } from '../../data/ganguesEquip.js'
 import { toggleGanguesTemplateSpecial } from '../../data/ganguesCharacters.js'
+import { getGanguesCarta } from '../../data/ganguesCartas.js'
 
 export default function createGanguesEquipSlice(set, get) {
   return {
@@ -73,6 +74,35 @@ export default function createGanguesEquipSlice(set, get) {
       get().registrarItemVisto([itemId])
       get()._persistCena()
       return instancia.uid
+    },
+
+    // Encaixa uma carta (do inventário) num encaixe vazio da peça — pra
+    // sempre. A carta tem que ser do mesmo espaço da peça.
+    encaixarCarta: ({ uid = null, memberId = null, slot = null }, indice, cartaId) => {
+      const carta = getGanguesCarta(cartaId)
+      if (!carta || (get().inventario[cartaId] || 0) <= 0) return false
+      const encaixar = peca => {
+        const def = peca && getGanguesEquip(peca.itemId)
+        if (!def || !peca.encaixe || def.slot !== carta.slot || !Array.isArray(peca.cards) || indice >= peca.cards.length || peca.cards[indice]) return null
+        return { ...peca, cards: peca.cards.map((c, i) => (i === indice ? carta.id : c)) }
+      }
+      if (uid) {
+        const nova = encaixar(get().equipamentos.find(eq => eq.uid === uid))
+        if (!nova) return false
+        set(state => ({ equipamentos: state.equipamentos.map(eq => (eq.uid === uid ? nova : eq)) }))
+      } else {
+        const member = get().roster.find(m => m.id === memberId)
+        const equipment = normalizeGanguesEquipment(member?.attributes?.equipment)
+        const nova = encaixar(equipment[slot])
+        if (!nova) return false
+        equipment[slot] = nova
+        const aplicar = m => (m.id === memberId ? { ...m, attributes: { ...m.attributes, equipment } } : m)
+        set(state => ({ roster: state.roster.map(aplicar), activeParty: state.activeParty.map(aplicar), sheet: state.sheet?.id === memberId ? aplicar(state.sheet) : state.sheet }))
+        get().saveParticipantProgress([memberId])
+      }
+      set(state => ({ inventario: { ...state.inventario, [cartaId]: (state.inventario[cartaId] || 0) - 1 } }))
+      get()._persistCena()
+      return true
     },
 
     // Vende uma peça guardada (só o que está no bolso; equipada não vende).

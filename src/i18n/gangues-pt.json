@@ -432,13 +432,12 @@
       },
       "equip": {
         "titulo": "Equipamento",
-        "sub": "Cada peça tem espaço pra carta — as cartas vêm com o sistema de drop.",
+        "sub": "Peça da loja não tem encaixe. Peça que cai de inimigo vem com 1 ou 2 encaixes de carta.",
         "vazio": "Vazio",
         "equipar": "Equipar",
         "desequipar": "Tirar",
         "sem_itens": "Nada no bolso da gangue pra esse espaço.",
         "sem_carta": "Sem slot",
-        "carta_em_breve": "Slot de carta — em breve",
         "o_que_da": "O que dá",
         "equipar_em": "Comprar e equipar em",
         "so_comprar": "Só comprar (guardar)",
@@ -622,7 +621,9 @@
         "equipou": "{nome} equipou {item} ({slot}).",
         "ja_equipado": "já tá com essa",
         "status_curado": "{nome} tá limpo do status.",
-        "sem_status": "{nome} não tem esse status."
+        "sem_status": "{nome} não tem esse status.",
+        "cartas": "Cartas",
+        "nota_cartas": "Encaixa nas peças com encaixe, na ficha do personagem."
       },
       "clube": {
         "nome": "Clube da Luta",
@@ -3348,8 +3349,7 @@
         "item_dica_loja": "Compra numa loja de quebrada.",
         "item_dica_drop": "Drop — cai de chefe ou de treta.",
         "item_dica_quest": "Ganha resolvendo um corre da quebrada.",
-        "cartas_explica": "Cartas de socket encaixam em equipamento e dão bônus extra — estilo carta de mestre. Vêm do sistema de drop, que chega numa atualização futura.",
-        "cartas_em_breve": "— em breve —",
+        "cartas_explica": "Toda carta cai do próprio inimigo. Encaixada numa peça, fica pra sempre.",
         "cargos": {
           "vigia": "Vigia",
           "vapor": "Vapor",
@@ -3631,6 +3631,29 @@
         "rinha_sem": "Na Rinha não cai nada: drop é só na treta de verdade.",
         "tag_equip_especial": "Peça especial",
         "variante": "pode vir com 2 encaixes ou já aprimorada"
+      },
+      "carta": {
+        "attr": "+{v} {attr}",
+        "pv": "+{v} de Osso máximo",
+        "pm": "+{v} de energia máxima",
+        "status_ao_bater": "{pct}% de deixar o alvo {status} ao bater",
+        "auto_talento": "{pct}% de soltar {talento} (nível {n}) de graça ao atacar",
+        "cura_ao_bater": "{pct}% de recuperar {v} de Osso ao acertar",
+        "cura_ao_derrubar": "recupera {v} de Osso ao derrubar alguém",
+        "bloqueio": "{pct}% de bloquear o golpe",
+        "reduz_dano": "−{v} de dano em todo golpe recebido",
+        "imune": "não pega {status}",
+        "grana": "+{pct}% de grana na vitória",
+        "encaixar_em": "Encaixar carta · {peca}",
+        "so_espaco": "Só entra carta de {espaco}.",
+        "pra_sempre": "Encaixou, ficou: a carta não sai mais dessa peça.",
+        "voltar": "Voltar",
+        "encaixar": "Encaixar",
+        "sem_cartas": "Nenhuma carta desse espaço na bolsa. Carta cai de inimigo — é raro, mas a garantia chega.",
+        "espaco": "Espaço: {espaco}",
+        "disparou_talento": "Carta soltou {talento}",
+        "disparou_bloqueio": "Carta bloqueou o golpe",
+        "disparou_cura": "Carta recuperou {v} de Osso"
       }
     }
   }

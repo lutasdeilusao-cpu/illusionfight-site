@@ -432,13 +432,12 @@
       },
       "equip": {
         "titulo": "Equipo",
-        "sub": "Cada pieza tiene ranura de carta — las cartas llegan con el sistema de drop.",
+        "sub": "Las piezas de la tienda no tienen ranura. Las que sueltan los enemigos vienen con 1 o 2 ranuras de carta.",
         "vazio": "Vacío",
         "equipar": "Equipar",
         "desequipar": "Quitar",
         "sem_itens": "Nada en los bolsillos de la banda para esta ranura.",
         "sem_carta": "Sin ranura",
-        "carta_em_breve": "Ranura de carta — pronto",
         "o_que_da": "Qué da",
         "equipar_em": "Comprar y equipar en",
         "so_comprar": "Solo comprar (guardar)",
@@ -622,7 +621,9 @@
         "equipou": "{nome} equipó {item} ({slot}).",
         "ja_equipado": "ya la tiene",
         "status_curado": "{nome} quedó limpio del estado.",
-        "sem_status": "{nome} no tiene ese estado."
+        "sem_status": "{nome} no tiene ese estado.",
+        "cartas": "Cartas",
+        "nota_cartas": "Ponlas en las piezas con ranura, desde la ficha del personaje."
       },
       "clube": {
         "nome": "Club de la Pelea",
@@ -6451,8 +6452,7 @@
         "item_dica_loja": "Se compra en una tienda de barrio.",
         "item_dica_drop": "Drop — cae de un jefe o de una pelea.",
         "item_dica_quest": "Se gana resolviendo un mandado del barrio.",
-        "cartas_explica": "Las cartas de socket encajan en el equipo y dan bonus extra — estilo carta de maestro. Vienen del sistema de drop, que llega en una actualización futura.",
-        "cartas_em_breve": "— próximamente —",
+        "cartas_explica": "Cada carta la suelta su propio enemigo. Puesta en una pieza, se queda para siempre.",
         "cargos": {
           "vigia": "Vigía",
           "vapor": "Vendedor",
@@ -6734,6 +6734,29 @@
         "rinha_sem": "En la Riña no cae nada: solo se consigue en peleas de verdad.",
         "tag_equip_especial": "Pieza especial",
         "variante": "puede venir con 2 ranuras o ya mejorada"
+      },
+      "carta": {
+        "attr": "+{v} {attr}",
+        "pv": "+{v} de Aguante máximo",
+        "pm": "+{v} de energía máxima",
+        "status_ao_bater": "{pct}% de dejar al rival {status} al golpear",
+        "auto_talento": "{pct}% de soltar {talento} (nivel {n}) gratis al atacar",
+        "cura_ao_bater": "{pct}% de recuperar {v} de Aguante al acertar",
+        "cura_ao_derrubar": "recupera {v} de Aguante al tumbar a alguien",
+        "bloqueio": "{pct}% de bloquear el golpe",
+        "reduz_dano": "−{v} de daño en cada golpe recibido",
+        "imune": "inmune a {status}",
+        "grana": "+{pct}% de dinero al ganar",
+        "encaixar_em": "Poner carta · {peca}",
+        "so_espaco": "Solo entran cartas de {espaco}.",
+        "pra_sempre": "Una vez puesta, se queda: la carta ya no sale de esta pieza.",
+        "voltar": "Volver",
+        "encaixar": "Poner",
+        "sem_cartas": "No tienes cartas de este espacio. Las cartas las sueltan los enemigos — es raro, pero la garantía llega.",
+        "espaco": "Espacio: {espaco}",
+        "disparou_talento": "La carta soltó {talento}",
+        "disparou_bloqueio": "La carta bloqueó el golpe",
+        "disparou_cura": "La carta recuperó {v} de Aguante"
       }
     }
   }

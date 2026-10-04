@@ -142,7 +142,7 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
         })
         usouTalento = Boolean(result.activeSpecialId)
         lista = lista.map(c => {
-          if (c.key === actor.key) return { ...c, statuses: c.key === target.key ? result.defenderStatuses : result.attackerStatuses, pm: Math.max(0, c.pm - result.pmCost), pv: Math.max(0, c.pv - (result.pvCost || 0) - (c.key === target.key ? result.damage : 0)), specialState: result.attackerSpecialState }
+          if (c.key === actor.key) return { ...c, statuses: c.key === target.key ? result.defenderStatuses : result.attackerStatuses, pm: Math.max(0, c.pm - result.pmCost), pv: Math.min(c.pvMax, Math.max(0, c.pv - (result.pvCost || 0) - (c.key === target.key ? result.damage : 0)) + (result.cartaCura || 0)), specialState: result.attackerSpecialState }
           if (c.key === target.key) return { ...c, statuses: result.defenderStatuses, pv: Math.max(0, c.pv - result.damage), specialState: result.defenderSpecialState }
           return c
         })

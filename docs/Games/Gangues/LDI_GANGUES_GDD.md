@@ -1499,6 +1499,38 @@ cada corpo derrotado sorteia a dele (`engine/ganguesDrop.js`, ação
 - **Chefe batido vira revanche repetível** (`storyTarget.revanche`): dá drop e
   XP, mas não domina o bairro de novo nem conta a campanha outra vez.
 
+### 9.9 Cartas
+
+Uma carta por inimigo (103), id = 10000 + id do inimigo, estilo Ragnarok
+(`data/ganguesCartas.js`, gerada por regra; os 7 chefes têm carta própria com
+dois efeitos). Só cai do próprio inimigo (§9.8) e mora no inventário da gangue.
+
+- **Espaço:** cada carta só entra num espaço de peça (arma, corpo, cabeça, mãos,
+  pés, amuleto). Encaixa num encaixe vazio de peça de drop, pela ficha do
+  personagem (`GanguesCartaEncaixe.jsx`, ação `encaixarCarta`). **Encaixou,
+  ficou pra sempre** — a carta não sai mais da peça (a peça leva a carta junto se
+  trocar de dono ou for vendida).
+- **Força:** o território do inimigo (1 Pista … 7 Laje; General vale +1).
+- **Efeitos por espaço:**
+
+  | Espaço | Variações |
+  |---|---|
+  | Arma | +Porrada · chance de status ao bater · chance de soltar um talento de graça |
+  | Corpo | +Couro · +Osso máximo · chance de bloquear o golpe |
+  | Cabeça | imune a um status (+Osso) · +energia · +Malandragem |
+  | Mãos | chance de curar Osso ao acertar · +Porrada |
+  | Pés | +Pique · −dano em todo golpe recebido |
+  | Amuleto | +% de grana na vitória · cura ao derrubar · +energia e +Osso |
+
+- **No motor:** a soma fixa (atributo, Osso, energia) entra no `prepare` e na
+  ficha (`getGanguesEquipBonuses`); o resto vem de `cartaEfeitos` e é aplicado no
+  golpe (`engine/ganguesCartaEfeitos.js`): talento automático só em ataque normal,
+  sem gastar energia nem contar como talento na linha do tempo; status ao bater só
+  se o talento não pôs nenhum; imunidade do alvo barra; bloqueio zera o golpe;
+  redução tira do dano; cura entra depois do golpe. Vale nos dois motores (normal
+  e Multidão). O dado dramático mostra "🃏 Carta…" quando uma carta dispara.
+- **Coleção:** aba Cartas (103, com retrato do inimigo, espaço e efeito).
+
 ### 9.6 Lojas, descansos e ferreiros por bairro
 
 POI de tipo `loja` com `poi.itens` (mistura consumível e equipamento;

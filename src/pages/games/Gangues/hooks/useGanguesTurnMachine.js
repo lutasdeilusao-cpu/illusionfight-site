@@ -5,7 +5,8 @@ import { atribuirPersonas, decidirAcaoInimigo } from '../engine/ganguesPersonas.
 import { statusImpedeAcao, alvoComTontura, normalizarStatus } from '../engine/ganguesStatus.js'
 import { iniciarLinhaDoTempo, proximaVez, consumirVez, marcarAgiu, ordemDeVelocidade } from '../engine/ganguesLinhaDoTempo.js'
 import { getGanguesResources, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
-import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquipDados, rolarFaixa } from '../data/ganguesEquip.js'
+import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquipDados, rolarFaixa, normalizeGanguesEquipment } from '../data/ganguesEquip.js'
+import { somaFixaDasCartas, efeitosDasCartas } from '../data/ganguesCartas.js'
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
 
@@ -32,7 +33,9 @@ export function prepare(combatant, side, index) {
     equipPique = dados.H.length ? dados.H.reduce((soma, f) => soma + rolarFaixa(f), 0) : null
     // Malandragem de peça (Mandingueiro) é fixa: entra direto no atributo.
     const equipPM = dados.PM.reduce((soma, f) => soma + f.min, 0)
-    normalized.attributes = { ...normalized.attributes, H: baseH + (equipPique || 0), PM: (Number(normalized.attributes?.PM) || 0) + equipPM }
+    // Cartas encaixadas: soma fixa no atributo; o resto vai em `cartaEfeitos`.
+    const cartas = somaFixaDasCartas(equipment)
+    normalized.attributes = { ...normalized.attributes, A: (Number(normalized.attributes?.A) || 0) + cartas.A, D: (Number(normalized.attributes?.D) || 0) + cartas.D, H: baseH + (equipPique || 0) + cartas.H, PM: (Number(normalized.attributes?.PM) || 0) + equipPM + cartas.PM }
     atributosFicha = { ...atributosFicha, H: normalized.attributes.H }
     equipDados = { A: dados.A, D: dados.D }
   }
@@ -47,7 +50,7 @@ export function prepare(combatant, side, index) {
   return { ...normalized, key: `${side}-${index}-${combatant.id}`, side,
     // Status do jogador persiste entre lutas (status_atual, gravado junto do
     // PV/PM) — só sai com item ou no descanso completo.
-    statuses: enemy ? [] : normalizarStatus(normalized.attributes?.status_atual), pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
+    statuses: enemy ? [] : normalizarStatus(normalized.attributes?.status_atual), cartaEfeitos: enemy ? [] : efeitosDasCartas(normalizeGanguesEquipment(equipment)), pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
 }
 
 /** Prepara os dois times e sorteia as personas dos inimigos — usado pelos
@@ -132,7 +135,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     // Grogue batendo em si mesmo: ator e alvo são o mesmo — aplica o dano no ator.
     const emSiMesmo = pending.actorKey === pending.targetKey
     const next = combatants.map(item => {
-      if (item.key === pending.actorKey) return { ...item, statuses: emSiMesmo ? pending.result.defenderStatuses : pending.result.attackerStatuses, pm: Math.max(0, item.pm - pending.result.pmCost), pv: Math.max(0, item.pv - (pending.result.pvCost || 0) - (emSiMesmo ? pending.result.damage : 0)), specialState: pending.result.attackerSpecialState }
+      if (item.key === pending.actorKey) return { ...item, statuses: emSiMesmo ? pending.result.defenderStatuses : pending.result.attackerStatuses, pm: Math.max(0, item.pm - pending.result.pmCost), pv: Math.min(item.pvMax, Math.max(0, item.pv - (pending.result.pvCost || 0) - (emSiMesmo ? pending.result.damage : 0)) + (pending.result.cartaCura || 0)), specialState: pending.result.attackerSpecialState }
       if (item.key === pending.targetKey) return { ...item, statuses: pending.result.defenderStatuses, pv: Math.max(0, item.pv - pending.result.damage), specialState: pending.result.defenderSpecialState }
       return item
     })

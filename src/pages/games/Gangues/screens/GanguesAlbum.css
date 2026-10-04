@@ -189,33 +189,5 @@
   color: var(--bg-primary);
 }
 
-.gang-album__cartas-vazio {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  text-align: center;
-  padding: 32px 18px;
-  border: 1px dashed var(--if-hair);
-  background: var(--if-panel-flat);
-}
-.gang-album__cartas-vazio .gang-album__portrait {
-  width: 52px;
-  height: 52px;
-  flex-basis: 52px;
-  font-size: 1.5rem;
-  border-style: dashed;
-}
-.gang-album__cartas-vazio p {
-  margin: 0;
-  font-size: 0.84rem;
-  color: var(--text-secondary);
-  line-height: 1.35;
-}
-.gang-album__cartas-vazio em {
-  font-style: normal;
-  font: 800 0.72rem var(--font-mono);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--if-amber);
-}
+.gang-album__card--carta { border-color: color-mix(in srgb, var(--if-violet) 55%, transparent); }
+.gang-album__card--carta .gang-album__body strong { color: var(--if-violet); }

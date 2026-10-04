@@ -17,8 +17,8 @@ import { GANGUES_INIMIGOS, GANGUES_INIMIGOS_LISTA, cargoSlugDeInimigo } from './
 import { GANGUES_EQUIP_LISTA, aprimTeto } from './ganguesEquip.js'
 import { getGanguesItem } from './ganguesItens.js'
 
-export const GANGUES_CARTA_BASE = 10000
-export const cartaDoInimigo = enemyId => GANGUES_CARTA_BASE + Number(enemyId)
+import { GANGUES_CARTA_BASE, cartaDoInimigo } from './ganguesCartas.js'
+export { GANGUES_CARTA_BASE, cartaDoInimigo }
 
 // Raridade de peça que cada território derruba (1 Pista … 7 Laje).
 const RARIDADE_DO_TERRITORIO = { 1: 'comum', 2: 'incomum', 3: 'raro', 4: 'pesado', 5: 'grife', 6: 'nobre', 7: 'lendario' }

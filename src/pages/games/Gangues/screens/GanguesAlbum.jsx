@@ -11,6 +11,7 @@ import { GANGUES_ITENS_LISTA, textoEfeitoItem } from '../data/ganguesItens.js'
 import { GANGUES_EQUIP_LISTA, normalizeGanguesEquipment, textoBonusEquip } from '../data/ganguesEquip.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import GanguesDropLista from '../components/GanguesDropLista'
+import { GANGUES_CARTAS_LISTA, nomeCarta, textoCarta } from '../data/ganguesCartas.js'
 import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import './GanguesAlbum.css'
 
@@ -92,7 +93,9 @@ export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
         <span className="gang-album__count">
           {secao === 'itens'
             ? <><b>{feitosItens}</b>/{totalItens}</>
-            : <><b>{totalFeito}</b>/{GANGUES_ALBUM_TOTAL}</>}
+            : secao === 'cartas'
+              ? <><b>{GANGUES_CARTAS_LISTA.filter(c => itensVistos.has(c.id)).length}</b>/{GANGUES_CARTAS_LISTA.length}</>
+              : <><b>{totalFeito}</b>/{GANGUES_ALBUM_TOTAL}</>}
         </span>
       </header>
 
@@ -220,10 +223,35 @@ export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
       ))}
 
       {secao === 'cartas' && (
-        <div className="gang-album__cartas-vazio">
-          <span className="gang-album__portrait">🃏</span>
-          <p>{t('games.gangues.album.cartas_explica')}</p>
-          <em>{t('games.gangues.album.cartas_em_breve')}</em>
+        <div>
+          <p className="gang-album__aba-count">{t('games.gangues.album.cartas_explica')}</p>
+          <ul className="gang-album__grid">
+            {GANGUES_CARTAS_LISTA.map(carta => {
+              const on = itensVistos.has(carta.id)
+              const espaco = t(`games.gangues.equip.slots.${carta.slot}`)
+              if (!on) {
+                return (
+                  <li key={carta.id} className="gang-album__card gang-album__card--locked">
+                    <span className="gang-album__portrait">?</span>
+                    <div className="gang-album__body">
+                      <strong>{t('games.gangues.album.bloqueado')}</strong>
+                      <small>{t('games.gangues.carta.espaco', { espaco })}</small>
+                    </div>
+                  </li>
+                )
+              }
+              return (
+                <li key={carta.id} className="gang-album__card gang-album__card--carta">
+                  <AlbumPortrait retrato={getGanguesEnemyPortraitById(carta.enemyId)} nome={nomeCarta(t, carta)} />
+                  <div className="gang-album__body">
+                    <strong>{nomeCarta(t, carta)}{(store.inventario[carta.id] || 0) > 0 ? ` ×${store.inventario[carta.id]}` : ''}</strong>
+                    <small>{t('games.gangues.carta.espaco', { espaco })}</small>
+                    <em>{textoCarta(t, carta)}</em>
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
         </div>
       )}
     </main>

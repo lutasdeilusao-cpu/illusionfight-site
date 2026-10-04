@@ -5,6 +5,7 @@ import { sfx } from '../../../../../lib/sfx'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources } from '../../data/ganguesLoadout.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip, podeEquiparGangues, nomePeca } from '../../data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA, textoEfeitoItem } from '../../data/ganguesItens.js'
+import { GANGUES_CARTAS_LISTA, nomeCarta, textoCarta } from '../../data/ganguesCartas.js'
 
 // Bolsa da gangue — o que o bando tem de item (consumível + equipamento
 // guardado). É a MESMA fonte que a loja abastece e que o combate lê pra usar
@@ -20,7 +21,8 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
     const chave = `${eq.itemId}-${eq.encaixe ? 1 : 0}-${eq.aprim || 0}`
     acc[chave] = acc[chave] || { chave, def, peca: eq, qtd: 0 }; acc[chave].qtd++; return acc
   }, {}))
-  const vazio = consumiveis.length === 0 && pecas.length === 0
+  const cartas = GANGUES_CARTAS_LISTA.filter(c => (store.inventario[c.id] || 0) > 0)
+  const vazio = consumiveis.length === 0 && pecas.length === 0 && cartas.length === 0
   // PV/PM atuais de cada ficha do time — pro picker de "usar poção".
   const time = (store.activeParty.length ? store.activeParty : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX).map(m => {
     const attrs = getGanguesAttributesWithEquip(m.attributes)
@@ -115,6 +117,17 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
         </Fragment>
       ))}</div>
       <p className="gang-bag-nota">{t('games.gangues.bag.nota_equip')}</p>
+    </>}
+    {cartas.length > 0 && <>
+      <small className="gang-bag-sec">{t('games.gangues.bag.cartas')}</small>
+      <div className="gang-bag-lista">{cartas.map(c => (
+        <div key={c.id} className="gang-bag-row">
+          <span>🃏</span>
+          <strong>{nomeCarta(t, c)}<small className="gang-bag-efeito">{t(`games.gangues.equip.slots.${c.slot}`)} · {textoCarta(t, c)}</small></strong>
+          <b>×{store.inventario[c.id]}</b>
+        </div>
+      ))}</div>
+      <p className="gang-bag-nota">{t('games.gangues.bag.nota_cartas')}</p>
     </>}
     <div className="gang-cena-enc-acoes"><button className="gang-cena-btn gang-cena-btn--go" onClick={onClose}>{t('games.gangues.cena.fechar')}</button></div>
   </div>

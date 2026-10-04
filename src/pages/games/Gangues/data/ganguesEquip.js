@@ -1,5 +1,6 @@
 import { getGanguesLevelFromXp } from './ganguesCharacters.js'
 import { GANGUES_VENDA_FRAC } from './ganguesItens.js'
+import { somaFixaDasCartas } from './ganguesCartas.js'
 /* ══════════════════════════════════════════════════════════════
    Catálogo de EQUIPAMENTO — pedido do Isaias.
 
@@ -407,6 +408,9 @@ export function getGanguesEquipBonuses(equipment = {}) {
     for (const attr of GANGUES_EQUIP_ATTR_KEYS) total[attr] += mediaFaixa(faixaDaPeca(def, attr, eq.aprim))
     for (const key of GANGUES_EQUIP_RES_KEYS) total[key] += Number(def.bonus?.[key]) || 0
   }
+  // Soma fixa das cartas encaixadas (atributo, Osso, energia).
+  const cartas = somaFixaDasCartas(safe)
+  for (const k of Object.keys(total)) total[k] += cartas[k] || 0
   return total
 }
 
