@@ -1,6 +1,6 @@
 import { ST_TODOS, normalizarStatus } from '../../engine/ganguesStatus.js'
 import { GANGUES_STATUS } from '../../engine/ganguesStatus.js'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { sfx } from '../../../../../lib/sfx'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources } from '../../data/ganguesLoadout.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip, podeEquiparGangues } from '../../data/ganguesEquip.js'
@@ -9,7 +9,7 @@ import { GANGUES_ITENS_LISTA, textoEfeitoItem } from '../../data/ganguesItens.js
 // Bolsa da gangue — o que o bando tem de item (consumível + equipamento
 // guardado). É a MESMA fonte que a loja abastece e que o combate lê pra usar
 // poção (store.inventario / store.equipamentos) — um sistema só.
-// Extraído de GanguesCena.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §5).
+// A escolha de quem usa/equipa abre logo abaixo do item tocado.
 export default function GanguesCenaBagSheet({ store, t, onClose }) {
   const [usando, setUsando] = useState(null)     // consumível escolhido pra usar (mostra o picker de personagem)
   const [equipando, setEquipando] = useState(null) // { def } — peça escolhida pra equipar da bolsa
@@ -67,13 +67,13 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
     {consumiveis.length > 0 && <>
       <small className="gang-bag-sec">{t('games.gangues.bag.consumiveis')}</small>
       <div className="gang-bag-lista">{consumiveis.map(it => (
-        <div key={it.id} className="gang-bag-row">
+        <Fragment key={it.id}>
+        <div className="gang-bag-row">
           <span>{it.icone}</span><strong>{t(it.nome)}<small className="gang-bag-efeito">{textoEfeitoItem(t, it)}</small></strong>
           {podeUsar(it) && time.length > 0 && <button className="gang-bag-usar" onClick={() => setUsando(u => u?.id === it.id ? null : it)}>{t('games.gangues.bag.usar')}</button>}
           <b>×{it.qtd}</b>
         </div>
-      ))}</div>
-      {usando && <div className="gang-bag-alvos">
+        {usando?.id === it.id && <div className="gang-bag-alvos">
         <small>{t('games.gangues.bag.usar_em', { item: t(usando.nome) })}</small>
         {time.map(m => {
           const ehStatus = usando.tipo === 'cura_status'
@@ -83,21 +83,23 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
             <em>{ehStatus ? (m.statuses.map(s => GANGUES_STATUS[s.id]?.icone).join(' ') || '—') : usando.tipo === 'cura_pm' ? `${m.pm}/${m.pmMax} PM` : `${m.pv}/${m.pvMax} PV`}</em>
           </button>
         })}
-      </div>}
+        </div>}
+        </Fragment>
+      ))}</div>
       <p className="gang-bag-nota">{t('games.gangues.bag.nota_combate')}</p>
     </>}
     {pecas.length > 0 && <>
       <small className="gang-bag-sec">{t('games.gangues.bag.equip_bolso')}</small>
       <div className="gang-bag-lista">{pecas.map(({ def, qtd }) => (
-        <div key={def.id} className="gang-bag-row">
+        <Fragment key={def.id}>
+        <div className="gang-bag-row">
           <span>{def.icone}</span>
           <strong>{t(def.nome)}</strong>
           <small>{t(`games.gangues.equip.slots.${def.slot}`)}</small>
           {timeEquip.length > 0 && <button className="gang-bag-usar" onClick={() => setEquipando(e => e?.def?.id === def.id ? null : { def })}>{t('games.gangues.equip.equipar')}</button>}
           <b>×{qtd}</b>
         </div>
-      ))}</div>
-      {equipando && <div className="gang-bag-alvos">
+        {equipando?.def?.id === def.id && <div className="gang-bag-alvos">
         <small>{t('games.gangues.bag.equipar_em', { item: t(equipando.def.nome), slot: t(`games.gangues.equip.slots.${equipando.def.slot}`) })}</small>
         {timeEquip.filter(m => podeEquiparGangues(equipando.def, m)).map(m => {
           const noSlot = m.attributes?.equipment?.[equipando.def.slot]
@@ -108,7 +110,9 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
             <em>{jaEssa ? t('games.gangues.bag.ja_equipado') : defAtual ? `↺ ${t(defAtual.nome)}` : t('games.gangues.equip.vazio')}</em>
           </button>
         })}
-      </div>}
+        </div>}
+        </Fragment>
+      ))}</div>
       <p className="gang-bag-nota">{t('games.gangues.bag.nota_equip')}</p>
     </>}
     <div className="gang-cena-enc-acoes"><button className="gang-cena-btn gang-cena-btn--go" onClick={onClose}>{t('games.gangues.cena.fechar')}</button></div>
