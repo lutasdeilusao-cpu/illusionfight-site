@@ -57,7 +57,12 @@ export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = 
     if (mini || travado) return
     const { x, y } = coord(e)
     e.currentTarget.setPointerCapture(e.pointerId)
-    if (onOrbe && Math.hypot(x - ORBE.x, y - ORBE.y) < RAIO_ORBE) {
+    // Bolinha de energia ou ponto: vale o que estiver mais perto do dedo (a
+    // bolinha fica colada na cabeça).
+    const pertoPonto = pontoPerto(x, y, centroAberto)
+    const distPonto = pertoPonto ? Math.hypot(x - pos(pertoPonto).x, y - pos(pertoPonto).y) : Infinity
+    const distOrbe = Math.hypot(x - ORBE.x, y - ORBE.y)
+    if (onOrbe && distOrbe < RAIO_ORBE && distOrbe < distPonto) {
       noOrbe.current = true
       onOrbeToque?.()
       onOrbe(true)

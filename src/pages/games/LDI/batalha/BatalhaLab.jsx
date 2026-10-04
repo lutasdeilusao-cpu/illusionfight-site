@@ -231,7 +231,8 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
     const dd = defesaDele.current
     const id = `atk-${i}`
     const dur = (batida / 4) * 0.9
-    const jaQuebrou = estado.current.tempos.slice(0, i).some(x => x === false) || dd.golpes.slice(0, i).some((d, k) => d && PONTOS[d].membro === PONTOS[golpesDe(estado.current.combo)[k]]?.membro)
+    // Só o bloqueio dele quebra o resto do combo; golpe fora do tempo erra sozinho.
+    const jaQuebrou = dd.golpes.slice(0, i).some((d, k) => d && PONTOS[d].membro === PONTOS[golpesDe(estado.current.combo)[k]]?.membro)
     if (jaQuebrou) return mostrarFantasma(id, ponto, 'cortado', dur)
     if (!noTempo) return mostrarFantasma(id, ponto, 'fora', dur)
     if (dd.esquiva) return mostrarFantasma(id, ponto, 'vazio', dur)

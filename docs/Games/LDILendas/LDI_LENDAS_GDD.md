@@ -242,7 +242,8 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 
 - **O corpo é o tabuleiro:** pentagrama com 5 pontos grandes (cabeça, mão D/E,
   pé D/E), 4 pequenos (cotovelos e joelhos, entre a mão/pé e o centro), o
-  centro (esquiva) e a bolinha de energia em cima da cabeça.
+  centro (esquiva) e a bolinha de energia em cima da cabeça (o toque vai pro
+  que estiver mais perto do dedo, bolinha ou cabeça).
 - **Combo = toque ou traço do dedão**, até 4 golpes. Tocar
   num ponto já liga ele (arrastar também liga); tirar o dedo não fecha nada, o
   combo continua até a batida acabar. Qualquer ponto, em qualquer ordem — só
@@ -270,8 +271,9 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 - **O jogo é tocar no beat:** cada ponto tem um anel que fecha sobre ele a
   cada tempo do compasso. Tocar quando o anel fecha (até 18% de um tempo pra
   cada lado) conta no tempo: ponto dourado, brilho, golpe 25% mais forte.
-  **Fora do tempo é erro:** no ataque o golpe não entra, o combo quebra ali e a
-  abertura é dele (a vez vira); na defesa o bloqueio não conta.
+  **Fora do tempo é erro:** no ataque aquele golpe não entra e deixa abertura
+  (a vez vira no fim), mas os golpes no tempo, antes e depois, entram; na
+  defesa o bloqueio não conta. Quem quebra o resto do combo é só o bloqueio.
 - **Fantasma das porradas, o tempo todo:** cada golpe aparece como fantasma
   no ponto, com o som na hora.
   - Na defesa, cada golpe dele chega no seu corpo num tempo do compasso (1º no

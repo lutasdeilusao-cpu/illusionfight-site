@@ -976,7 +976,7 @@
           "r5": "Un golpe grave (cabeza, codo, rodilla) que entra sin bloqueo te marea: la próxima, solo 1 golpe.",
           "r6": "El centro se enciende verde muy pocas veces: pasa el dedo por él en la defensa y esquivas todo el ataque, sin perder sangre, y el turno cambia.",
           "r7": "Toca (o mantén) la bolita ⚡ encima de la cabeza para llenar la barra de poder. Llena, aparece la secuencia azul: dibújala y sale el Hielo Negro — daño alto, sin bloqueo, y él se congela.",
-          "r8": "El ritmo lo es todo: cada punto tiene un anillo que se cierra con el compás. Toca cuando el anillo se cierra — a tiempo (punto dorado) el golpe pega 25% más fuerte. Fuera de tiempo es error: en el ataque el golpe no entra, el combo se rompe y el turno es suyo; en la defensa el bloqueo no cuenta. En la defensa, cada golpe suyo aparece en tu cuerpo en el compás en que llega: rojo entró, dorado lo bloqueaste. Y no repitas el mismo combo 3 veces seguidas — te lo lee."
+          "r8": "El ritmo lo es todo: cada punto tiene un anillo que se cierra con el compás. Toca cuando el anillo se cierra — a tiempo (punto dorado) el golpe pega 25% más fuerte. Fuera de tiempo es error: en el ataque ese golpe falla y deja una abertura (el turno cambia), pero tus golpes a tiempo entran; en la defensa el bloqueo no cuenta. En la defensa, cada golpe suyo aparece en tu cuerpo en el compás en que llega: rojo entró, dorado lo bloqueaste. Y no repitas el mismo combo 3 veces seguidas — te lo lee."
         },
         "oponente": "Oponente",
         "velocidade": "Velocidad",
@@ -1030,7 +1030,7 @@
           "parado_ini": "Se quedó quieto — el tiempo es tuyo.",
           "lido": "Ya te leyó ese combo — 3ª vez igual. Bloqueó y el turno es suyo.",
           "no_tempo": "(¡a tiempo!)",
-          "fora_jog": "Tu {golpe} salió fuera de tiempo — combo roto, abertura para él.",
+          "fora_jog": "Tu {golpe} salió fuera de tiempo — falló y dejó una abertura.",
           "fora_ini": "Su {golpe} salió fuera de tiempo."
         },
         "som": "Activar o desactivar el sonido",

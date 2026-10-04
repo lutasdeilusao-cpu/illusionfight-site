@@ -976,7 +976,7 @@
           "r5": "Golpe grave (cabeça, cotovelo, joelho) entrando sem bloqueio deixa tonto: na próxima, 1 golpe só.",
           "r6": "O centro acende verde raramente: passe o dedo por ele na defesa e você esquiva o ataque inteiro, sem perder sangue, e a vez vira.",
           "r7": "Toque (ou segure) a bolinha ⚡ em cima da cabeça pra encher a barra de poder. Cheia, aparece a sequência azul: desenhe ela e sai o Gelo Negro — dano alto, sem bloqueio, e ele congela.",
-          "r8": "Ritmo é tudo: cada ponto tem um anel que fecha no beat. Toque quando o anel fecha — no tempo (ponto dourado) o golpe bate 25% mais forte. Fora do tempo é erro: no ataque o golpe não entra, o combo quebra e a vez é dele; na defesa o bloqueio não conta. Na defesa, cada golpe dele aparece no seu corpo no beat em que chega: vermelho entrou, dourado você bloqueou. E não repita o mesmo combo 3 vezes seguidas — ele lê."
+          "r8": "Ritmo é tudo: cada ponto tem um anel que fecha no beat. Toque quando o anel fecha — no tempo (ponto dourado) o golpe bate 25% mais forte. Fora do tempo é erro: no ataque aquele golpe erra e deixa abertura (a vez vira), mas os golpes no tempo entram; na defesa o bloqueio não conta. Na defesa, cada golpe dele aparece no seu corpo no beat em que chega: vermelho entrou, dourado você bloqueou. E não repita o mesmo combo 3 vezes seguidas — ele lê."
         },
         "oponente": "Oponente",
         "velocidade": "Velocidade",
@@ -1030,7 +1030,7 @@
           "parado_ini": "Ele ficou parado — o tempo é seu.",
           "lido": "Ele já leu esse combo — 3ª vez igual. Bloqueou e a vez é dele.",
           "no_tempo": "(no tempo!)",
-          "fora_jog": "Seu {golpe} saiu fora do tempo — combo quebrado, abertura dele.",
+          "fora_jog": "Seu {golpe} saiu fora do tempo — errou e deixou abertura.",
           "fora_ini": "O {golpe} dele saiu fora do tempo."
         },
         "som": "Ligar ou desligar o som",
