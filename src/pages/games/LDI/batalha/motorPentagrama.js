@@ -244,7 +244,8 @@ export function escolherCombo(ficha, { ultimoDoJogador = [], tonto = false } = {
   return tonto ? combo.slice(0, 1) : combo
 }
 
-// Fichas de treino.
+// Fichas de treino. O inimigo ataca com 1 a 3 golpes por batida: o golpe i
+// chega no tempo i+1 do compasso, e o 4º tempo é o fechamento.
 export const FICHAS = {
   saco: {
     id: 'saco', vida: 60, esquiva: 0, espelho: 0, leitura: 0.15,
@@ -253,16 +254,15 @@ export const FICHAS = {
       { combo: ['maoD', 'maoE', 'peD'], peso: 3 },
       { combo: ['peD', 'joeD'], peso: 2 },
       { combo: ['maoD', 'cotD', 'maoE'], peso: 2 },
-      { combo: ['maoE', 'maoD', 'peE', 'peD'], peso: 1 },
     ],
   },
   stormbyte: {
     id: 'stormbyte', vida: 70, esquiva: 0.08, espelho: 0.35, leitura: 0.35,
     combos: [
       { combo: ['maoE', 'maoD', 'cotD'], peso: 3 },
-      { combo: ['maoD', 'cotD', 'joeD', 'cotE'], peso: 2 },
+      { combo: ['cotD', 'joeD', 'cotE'], peso: 2 },
       { combo: ['peE', 'joeE', 'cotE'], peso: 3 },
-      { combo: ['maoE', 'cotE', 'maoD', 'peD'], peso: 2 },
+      { combo: ['maoE', 'cotE', 'peD'], peso: 2 },
       { combo: ['cab', 'maoD'], peso: 1 },
       { combo: ['peD', 'joeD', 'maoE'], peso: 2 },
     ],

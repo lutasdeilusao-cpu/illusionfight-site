@@ -27,7 +27,7 @@ function pontoPerto(x, y, centroAberto, arrastando = false) {
   return melhor
 }
 
-export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = [], quarto = 0, fantasmas = [], centroAberto = false, travado = false, max = 4, carga = 0, progresso = 0, podeCarregar = false, segurandoOrbe = false, mini = false, onMudar, onToque, onOrbe, onOrbeToque }) {
+export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = [], quarto = 0, fantasmas = [], onRecusado, centroAberto = false, travado = false, max = 4, carga = 0, progresso = 0, podeCarregar = false, segurandoOrbe = false, mini = false, onMudar, onToque, onOrbe, onOrbeToque }) {
   const svgRef = useRef(null)
   const desenhando = useRef(false)
   const ligouNesteToque = useRef(false)
@@ -45,7 +45,12 @@ export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = 
 
   const ligar = p => {
     const { combo: c, max: m, centroAberto: ab } = ref.current
-    if (!p || !podeLigar(c, p, m, ab)) return false
+    if (!p) return false
+    if (!podeLigar(c, p, m, ab)) {
+      // Tocou num ponto de verdade mas não cabe mais golpe (tonto ou máximo).
+      if (p !== golpesDe(c).at(-1) && p !== ESQUIVA && golpesDe(c).length >= m) onRecusado?.()
+      return false
+    }
     const novo = [...c, p]
     ref.current.combo = novo
     onMudar(novo)
@@ -118,7 +123,10 @@ export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = 
         )
       })}
       {fantasmas.map(f => (
-        <circle key={f.id} className={`pg-fantasma is-${f.estado}`} cx={PONTOS[f.ponto].x} cy={PONTOS[f.ponto].y} r={PONTOS[f.ponto].grande ? 24 : 16} />
+        <g key={f.id}>
+          <circle className={`pg-fantasma is-${f.estado}`} cx={PONTOS[f.ponto].x} cy={PONTOS[f.ponto].y} r={PONTOS[f.ponto].grande ? 24 : 16} />
+          {f.dano > 0 && <text className="pg-fantasma__dano" x={PONTOS[f.ponto].x} y={PONTOS[f.ponto].y - 26}>−{f.dano}</text>}
+        </g>
       ))}
       {onOrbe && (
         <g className={`pg-orbe${segurandoOrbe ? ' is-segurando' : ''}`}>

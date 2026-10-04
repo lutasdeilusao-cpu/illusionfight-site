@@ -1054,7 +1054,11 @@
         "status_defesa": "He’s coming with {n} strikes — mirror them to block",
         "virada_voce": "Turnaround! Your turn to attack",
         "virada_ele": "He blocked — now he attacks",
-        "super": "SUPER"
+        "super": "SUPER",
+        "recusa": {
+          "tonto": "Dizzy: only 1 strike this beat",
+          "maximo": "Max 4 strikes"
+        }
       }
     },
     "toptrumps": {

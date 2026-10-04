@@ -1054,7 +1054,11 @@
         "status_defesa": "Ele vem com {n} golpes — espelhe pra bloquear",
         "virada_voce": "Virada! Sua vez de atacar",
         "virada_ele": "Ele bloqueou — agora ele ataca",
-        "super": "SUPER"
+        "super": "SUPER",
+        "recusa": {
+          "tonto": "Tonto: só 1 golpe nessa batida",
+          "maximo": "Máximo de 4 golpes"
+        }
       }
     },
     "toptrumps": {

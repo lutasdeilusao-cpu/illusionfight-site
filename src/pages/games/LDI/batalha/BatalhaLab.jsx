@@ -3,7 +3,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useFichas } from '../../../../context/FichasContext'
 import { useReader } from '../../../../context/ReaderContext'
 import Pentagrama from './Pentagrama'
-import { FICHAS, PONTOS, ENERGIA_BASE, ENERGIA_MAX, ESQUIVA, MAX_POR_CARGA, TOQUES_POR_CARGA, PODER_MAX, PODER_POR_SEGUNDO, PODER_POR_TOQUE, PODERES, escolherCombo, resolverAtaque, comboLido, defesaDoGolpe, leituraDe, JANELA_TEMPO, golpesDe, maxGolpes, sequenciaDoPoder, acertouSequencia } from './motorPentagrama'
+import { FICHAS, PONTOS, ENERGIA_BASE, ENERGIA_MAX, ESQUIVA, MAX_POR_CARGA, TOQUES_POR_CARGA, PODER_MAX, PODER_POR_SEGUNDO, PODER_POR_TOQUE, PODERES, escolherCombo, resolverAtaque, comboLido, danoDoGolpe, defesaDoGolpe, leituraDe, JANELA_TEMPO, golpesDe, maxGolpes, sequenciaDoPoder, acertouSequencia } from './motorPentagrama'
 import { ligarSom, alternarMudo, estaMudo, tocarCompasso, somAcende, somLigar, somGolpe, somBloqueio, somEsquiva, somPoder, somPapel } from './somPentagrama'
 import './Batalha.css'
 
@@ -98,6 +98,8 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
   const [vemGolpes, setVemGolpes] = useState(0)
   const [virou, setVirou] = useState(false)
   const [tempos, setTempos] = useState([]) // um por golpe: ligado no tempo do beat?
+  const [batidasDosToques, setBatidasDosToques] = useState([]) // um por golpe: em que tempo (0–4) caiu
+  const [recusa, setRecusa] = useState(null) // toque recusado: mostra o motivo e treme o tabuleiro
   const [fantasmas, setFantasmas] = useState([]) // golpes dele chegando no seu corpo, no beat
   const inicioBatida = useRef(0)
   const historicoAtaque = useRef([])
@@ -111,7 +113,7 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
   const golpes = golpesDe(combo).length
   const cargaMax = tonto.jog ? 0 : golpes === 0 ? 0 : golpes <= MAX_POR_CARGA[2] ? 2 : golpes <= MAX_POR_CARGA[1] ? 1 : 0
   const carga = Math.min(cargaMax, Math.floor(toques / TOQUES_POR_CARGA))
-  estado.current = { combo, carga, energia, vida, tonto, poder, guia, papel, tempos }
+  estado.current = { combo, carga, energia, vida, tonto, poder, guia, papel, tempos, batidasDosToques }
   const ultimoJog = useRef([])
 
   // Uma batida: um ataca, o outro defende. Atacando, você desenha livre e ele
@@ -136,11 +138,12 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
     // dourado; entrou, pisca vermelho com o som do golpe.
     const quarto = batida / 4
     comboIni.forEach((p, i) => timers.push(setTimeout(() => {
-      const { combo: cj, tempos: tp } = estado.current
-      const meuGolpe = golpesDe(cj)[i]
-      const bloqueou = !cj.includes(ESQUIVA) && Boolean(meuGolpe) && tp[i] !== false && PONTOS[meuGolpe].membro === PONTOS[p].membro
+      const { combo: cj, energia: en } = estado.current
+      const minha = defesaNoBeat(i + 1)
       const esquivou = cj.includes(ESQUIVA)
-      setFantasmas(f => [...f, { id: `${i}`, ponto: p, estado: esquivou ? 'vazio' : bloqueou ? 'bloqueado' : 'entrou' }])
+      const bloqueou = !esquivou && Boolean(minha) && minha.noTempo && PONTOS[minha.ponto].membro === PONTOS[p].membro
+      const dano = esquivou || bloqueou ? 0 : danoDoGolpe({ combo: comboIni, energia: en.ini }, p)
+      setFantasmas(f => [...f, { id: `${i}`, ponto: p, estado: esquivou ? 'vazio' : bloqueou ? 'bloqueado' : 'entrou', dano }])
       if (bloqueou) somBloqueio(false)
       else if (!esquivou) somGolpe(p)
       timers.push(setTimeout(() => setFantasmas(f => f.filter(x => x.id !== `${i}`)), quarto * 0.9))
@@ -167,7 +170,10 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
         if (golpesDe(cj).length) historicoAtaque.current = [...historicoAtaque.current, golpesDe(cj)].slice(-3)
       } else {
         comboOutro = comboIni
-        r = resolverAtaque({ combo: comboIni, energia: en.ini }, { combo: cj, energia: en.jog, poder: soltouPoder, noTempo: tp })
+        // A sua defesa alinhada pelo beat: o golpe i dele chega no tempo i+1.
+        const alinhada = comboIni.map((_, i) => defesaNoBeat(i + 1))
+        const defesa = cj.includes(ESQUIVA) ? [ESQUIVA] : alinhada.map(d => d?.ponto)
+        r = resolverAtaque({ combo: comboIni, energia: en.ini }, { combo: defesa, energia: en.jog, poder: soltouPoder, noTempo: alinhada.map(d => (d ? d.noTempo : true)) })
       }
       // Normaliza atacante/defensor pra jogador/inimigo.
       const eu = meu === 'ataque' ? 'atk' : 'def'
@@ -197,7 +203,7 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
       })
       timers.push(setTimeout(() => {
         if (novaVida.jog <= 0 || novaVida.ini <= 0) { setFim(novaVida.ini <= 0 ? 'vitoria' : 'derrota'); return }
-        setCombo([]); setTempos([]); setFantasmas([]); setToques(0); setTelegrafo([]); setTravado(false); setReplay(null)
+        setCombo([]); setTempos([]); setBatidasDosToques([]); setFantasmas([]); setToques(0); setTelegrafo([]); setTravado(false); setReplay(null)
         setVirou(false)
         if (r.vira) setPapel(p => (p === 'ataque' ? 'defesa' : 'ataque'))
         setN(x => x + 1)
@@ -216,13 +222,29 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
         const quarto = batida / 4
         const t = (performance.now() - inicioBatida.current) % quarto
         const noTempo = Math.min(t, quarto - t) <= JANELA_TEMPO * quarto
+        const qualTempo = Math.round((performance.now() - inicioBatida.current) / quarto)
         setTempos(tp => [...tp, noTempo])
+        setBatidasDosToques(b => [...b, qualTempo])
         somLigar(golpesDe(novo).length - 1, ultimo, noTempo)
         if (estado.current.papel === 'ataque') reagirAoGolpe(golpesDe(novo).length - 1, ultimo, noTempo)
       }
     }
     setCombo(novo)
   }, [batida]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // O seu toque que caiu no tempo `n` do compasso (pra defender o golpe que
+  // chega naquele tempo): { ponto, noTempo } ou nada.
+  function defesaNoBeat(n) {
+    const { combo: cj, tempos: tp, batidasDosToques: bt } = estado.current
+    const golpes = golpesDe(cj)
+    const k = bt.findIndex(b => b === n)
+    return k >= 0 && golpes[k] ? { ponto: golpes[k], noTempo: tp[k] !== false } : null
+  }
+
+  const recusar = useCallback(motivo => {
+    setRecusa({ motivo, id: Date.now() })
+    setTimeout(() => setRecusa(r => (r && Date.now() - r.id >= 900 ? null : r)), 950)
+  }, [])
 
   // Atacando: cada golpe que você solta já mostra a reação dele, como
   // fantasma no ponto: azul entrou, dourado ele bloqueou, cinza fora do tempo,
@@ -309,11 +331,13 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
       </div>
 
       {/* O palco pulsa no tempo (4 por batida), na cor do papel. */}
-      <div key={`${n}-${replay ? 'r' : 'b'}`} className={`pg-palco is-${replay ? 'replay' : papel}`} style={{ '--quarto': `${batida / 4}ms` }}>
+      {recusa && <p key={recusa.id} className="pg-recusa">{t(`games.ldi.batalha.recusa.${recusa.motivo}`)}</p>}
+      <div key={`${n}-${replay ? 'r' : 'b'}`} className={`pg-palco is-${replay ? 'replay' : papel}${recusa ? ' is-treme' : ''}`} style={{ '--quarto': `${batida / 4}ms` }}>
         <Pentagrama combo={combo} telegrafo={replay ? [] : telegrafo} guia={replay ? [] : guia} centroAberto={centroAberto} travado={travado}
           segurandoOrbe={segurando} onOrbe={setSegurando} onOrbeToque={tocarOrbe}
           max={max} carga={carga} progresso={progresso} podeCarregar={podeCarregar} onMudar={mudar} onToque={tocar}
-          tempos={tempos} quarto={batida / 4} fantasmas={replay ? [] : fantasmas} />
+          tempos={tempos} quarto={batida / 4} fantasmas={replay ? [] : fantasmas}
+          onRecusado={() => recusar(tonto.jog ? 'tonto' : 'maximo')} />
       </div>
     </div>
   )

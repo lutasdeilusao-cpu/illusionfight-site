@@ -1054,7 +1054,11 @@
         "status_defesa": "Viene con {n} golpes — refléjalos para bloquear",
         "virada_voce": "¡Vuelta! Te toca atacar",
         "virada_ele": "Bloqueó — ahora ataca él",
-        "super": "SUPER"
+        "super": "SUPER",
+        "recusa": {
+          "tonto": "Mareado: solo 1 golpe en este compás",
+          "maximo": "Máximo 4 golpes"
+        }
       }
     },
     "toptrumps": {

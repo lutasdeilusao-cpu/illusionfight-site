@@ -106,6 +106,9 @@
 .pg-fantasma.is-acerto { fill: color-mix(in srgb, var(--pg-jog) 50%, transparent); stroke: var(--pg-jog); stroke-width: 3; filter: drop-shadow(0 0 12px var(--pg-jog)); }
 .pg-fantasma.is-fora { fill: none; stroke: var(--text-secondary); stroke-width: 3; }
 .pg-fantasma.is-cortado { fill: none; stroke: var(--if-hair-strong); stroke-width: 2; }
+.pg-fantasma__dano { font: 900 15px var(--font-display); fill: var(--pg-ini); text-anchor: middle; pointer-events: none; animation: pg-dano-sobe 0.7s ease-out forwards; }
+.pg-recusa { margin: 0; text-align: center; font: 800 0.7rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--if-amber); }
+.pg-palco.is-treme { animation: pg-treme 0.35s ease-in-out; }
 .pg-fantasma.is-vazio { fill: none; stroke: var(--text-secondary); stroke-width: 2; stroke-dasharray: 4 4; }
 .pg-passo.is-fora { color: var(--pg-ini); font-weight: 800; }
 .pg-passo.is-lido { color: var(--if-amber); font-weight: 900; }
@@ -133,5 +136,7 @@
 @keyframes pg-pulso { 0% { border-color: var(--pulso, transparent); box-shadow: inset 0 0 22px color-mix(in srgb, var(--pulso, transparent) 35%, transparent); } 60%, 100% { border-color: transparent; box-shadow: none; } }
 @keyframes pg-anel { 0% { transform: scale(2); opacity: 0; } 60% { opacity: 0.55; } 100% { transform: scale(1); opacity: 0.9; } }
 @keyframes pg-fantasma { 0% { transform: scale(1.6); opacity: 0; } 25% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.15); opacity: 0.85; } }
+@keyframes pg-dano-sobe { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-14px); opacity: 0; } }
+@keyframes pg-treme { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
 @keyframes pg-papel-entra { from { transform: scale(1.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 @keyframes pg-pisca { from { filter: brightness(1); } to { filter: brightness(1.8) drop-shadow(0 0 10px var(--if-amber)); } }

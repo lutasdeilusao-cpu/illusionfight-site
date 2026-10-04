@@ -268,6 +268,8 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 - **Gravidade:** mão e pé 1; cabeça, cotovelo e joelho 2 (+carga). Levar 3+ sem
   bloquear numa batida = **tonto**: na próxima, 1 golpe só e sem carga.
 - **Energia:** 10 por batida (teto 16), dividida pelos golpes.
+- **Toque recusado avisa:** tocar num ponto quando não cabe mais golpe (tonto:
+  1 golpe; ou o máximo de 4) treme o tabuleiro e mostra o motivo.
 - **O jogo é tocar no beat:** cada ponto tem um anel que fecha sobre ele a
   cada tempo do compasso. Tocar quando o anel fecha (até 18% de um tempo pra
   cada lado) conta no tempo: ponto dourado, brilho, golpe 25% mais forte.
@@ -277,8 +279,10 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 - **Fantasma das porradas, o tempo todo:** cada golpe aparece como fantasma
   no ponto, com o som na hora.
   - Na defesa, cada golpe dele chega no seu corpo num tempo do compasso (1º no
-    tempo 1, 2º no 2…): vermelho entrou, dourado você bloqueou, tracejado se
-    você esquivou. Ele vem com 1 a 4 golpes.
+    tempo 1, 2º no 2, 3º no 3): vermelho entrou (com o dano que entrou),
+    dourado você bloqueou, tracejado se você esquivou. Ele vem com 1 a 3
+    golpes. O bloqueio vale quando você toca o mesmo membro NO MESMO TEMPO em
+    que o golpe chega — o fantasma e o resultado final usam a mesma conta.
   - No ataque, a defesa dele é decidida golpe a golpe, na hora em que você
     toca: azul entrou, dourado ele bloqueou, cinza fora do tempo, tracejado
     ele esquivou, apagado se o combo já tinha quebrado. O replay usa
