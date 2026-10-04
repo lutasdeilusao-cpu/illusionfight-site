@@ -253,6 +253,8 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 - **Gravidade:** mão e pé 1; cabeça, cotovelo e joelho 2 (+carga).
   - Mesmo membro na mesma posição = **bloqueio**: quem bloqueia +2 de energia na
     próxima, o bloqueado −1. Cotovelo/joelho bloqueando mão/pé devolve 2.
+    Bloqueio sempre custa sangue: raspão de 25% do golpe (mínimo 1). Só a
+    esquiva sai limpa.
   - Membros diferentes na mesma posição: o mais grave **interrompe** o mais
     leve; mesma gravidade, os dois entram.
   - Levar gravidade 3+ sem bloquear numa troca = **tonto**: na próxima, 1 golpe

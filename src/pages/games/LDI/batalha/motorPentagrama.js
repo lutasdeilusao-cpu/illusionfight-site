@@ -20,7 +20,8 @@
 // GRAVIDADE — cada golpe pesa: mão e pé 1; cabeça, cotovelo e joelho 2.
 //   • Mesma posição, mesmo membro = BLOQUEIO: quem bloqueia ganha +2 de
 //     energia na próxima troca, quem foi bloqueado perde 1. Bloquear mão/pé
-//     com cotovelo/joelho devolve 2 de dano.
+//     com cotovelo/joelho devolve 2 de dano. Bloqueio sempre custa um pouco de
+//     sangue (raspão: 25% do golpe, no mínimo 1) — só a esquiva sai limpa.
 //   • Mesma posição, membros diferentes: o golpe mais grave INTERROMPE o mais
 //     leve (o leve não entra). Mesma gravidade: os dois entram.
 //   • Levou golpes sem bloquear somando gravidade 3 ou mais numa troca =
@@ -67,6 +68,7 @@ export const DANO_BLOQUEIO_DURO = 2
 export const GUARDA_ABERTA = 1.5
 export const LIMITE_TONTO = 3
 export const MULT_GOLPE_LIMPO = 1.3
+export const RASPAO = 0.25
 export const ORBE = { x: 150, y: 290 }
 export const PODER_MAX = 100
 export const PODER_POR_SEGUNDO = 26
@@ -191,7 +193,12 @@ export function resolverTroca(jogEntrada, iniEntrada) {
         if (ini.carga) r.aberto.ini = true
         if (duroJog) r.dano.ini += DANO_BLOQUEIO_DURO
         if (duroIni) r.dano.jog += DANO_BLOQUEIO_DURO
-        r.passos.push({ tipo: 'bloqueio', i, pontoJog: pj, pontoIni: pi, duro: duroJog ? 'jog' : duroIni ? 'ini' : null })
+        // Raspão: os dois bloquearam o golpe um do outro, cada um leva um pouco.
+        const raspaoJog = Math.max(1, Math.round(danoDoGolpe(ini, pi) * RASPAO))
+        const raspaoIni = Math.max(1, Math.round(danoDoGolpe(jog, pj) * RASPAO))
+        r.dano.jog += raspaoJog
+        r.dano.ini += raspaoIni
+        r.passos.push({ tipo: 'bloqueio', i, pontoJog: pj, pontoIni: pi, duro: duroJog ? 'jog' : duroIni ? 'ini' : null, raspaoJog, raspaoIni })
         continue
       }
       if (pj && pi) {

@@ -41,6 +41,22 @@ function alvoDe(valor, lado) {
   return giro.multiply(face)
 }
 
+// UM renderizador pro jogo inteiro: cada painel de golpe pega emprestado e
+// devolve. Criar um por golpe esgota os contextos WebGL do navegador numa
+// sessão longa (dispose não devolve o contexto) e a tela trava.
+let rendererCompartilhado = null
+function pegarRenderer() {
+  if (rendererCompartilhado === false) return null
+  if (!rendererCompartilhado) {
+    try {
+      rendererCompartilhado = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+      rendererCompartilhado.setPixelRatio(Math.min(2, window.devicePixelRatio || 1))
+      rendererCompartilhado.domElement.addEventListener('webglcontextlost', e => { e.preventDefault(); rendererCompartilhado = null })
+    } catch { rendererCompartilhado = false; return null }
+  }
+  return rendererCompartilhado
+}
+
 export default function GanguesDado3D({ ataque, defesa, rolando, critico }) {
   const caixa = useRef(null)
   const estado = useRef({ rolando })
@@ -49,10 +65,9 @@ export default function GanguesDado3D({ ataque, defesa, rolando, critico }) {
   useEffect(() => {
     const el = caixa.current
     if (!el) return
-    let renderer
-    try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }) } catch { el.dataset.semWebgl = '1'; return }
+    const renderer = pegarRenderer()
+    if (!renderer) { el.dataset.semWebgl = '1'; return }
     const w = el.clientWidth, h = el.clientHeight
-    renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1))
     renderer.setSize(w, h)
     el.appendChild(renderer.domElement)
 
@@ -96,7 +111,6 @@ export default function GanguesDado3D({ ataque, defesa, rolando, critico }) {
     return () => {
       cancelAnimationFrame(quadro)
       dados.forEach(d => { d.geometry.dispose(); d.material.forEach(m => { m.map.dispose(); m.dispose() }) })
-      renderer.dispose()
       renderer.domElement.remove()
     }
   }, [ataque, defesa])

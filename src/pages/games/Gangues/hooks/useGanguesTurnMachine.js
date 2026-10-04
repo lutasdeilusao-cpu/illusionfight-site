@@ -1,3 +1,4 @@
+import { logDebug } from '../../../../lib/debugLog'
 import { ST_TODOS } from '../engine/ganguesStatus.js'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { resolveGanguesAction, resolveGanguesCura, gastarAcaoStatus } from '../engine/ganguesCombatResolver.js'
@@ -262,6 +263,25 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     advanceTurn(next, actorKey)
     return true
   }, [phase, currentActor, combatants, advanceTurn, record, round])
+
+  // Log de batalha (contas admin): cada troca de vez.
+  useEffect(() => {
+    if (!started) return
+    logDebug('gangues.luta.vez', { round, turnoSeq, ator: currentActor?.key, lado: currentActor?.side, fase: phase, pending: Boolean(pending), vivos: combatants.filter(c => c.pv > 0).map(c => c.key) })
+  }, [turnoSeq, started]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Vigia: painel de golpe aberto há mais de 12 s = preso (ex.: a tela do dado
+  // quebrou). Grava no log e fecha o golpe pra luta seguir.
+  const completeRef = useRef(completePending)
+  completeRef.current = completePending
+  useEffect(() => {
+    if (!pending) return
+    const id = setTimeout(() => {
+      logDebug('gangues.luta.golpe_preso', { round, turnoSeq, pending: { id: pending.id, actorKey: pending.actorKey, targetKey: pending.targetKey, side: pending.side } })
+      completeRef.current()
+    }, 12000)
+    return () => clearTimeout(id)
+  }, [pending?.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return { combatants, phase, round, pending, events, initiative, tempo, turnoSeq, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending, useItemAction, syncFrom, playerCura }
 }

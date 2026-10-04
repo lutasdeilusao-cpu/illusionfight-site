@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791106929.705123,
-    "ast_hash": "ab8af52ad5f55cbe854c1f4ae927950d",
+    "mtime": 1791122548.4409797,
+    "ast_hash": "ef65b31946bed7381d097140bb2135d5",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791106929.7061274,
-    "ast_hash": "84ad7f71091cb992a052c92ed66e0ec8",
+    "mtime": 1791122548.4419744,
+    "ast_hash": "b37e73f37d04dfc45951ae345ff537aa",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3685,18 +3685,18 @@
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
-    "mtime": 1791106929.702559,
-    "ast_hash": "f0ce94d47bfd7e21b5d21278f5960a80",
+    "mtime": 1791122313.903205,
+    "ast_hash": "9dfca46e753726418d8700b401b89894",
     "semantic_hash": ""
   },
   "src/i18n/games/es.json": {
-    "mtime": 1791106929.7041252,
-    "ast_hash": "686d4e4d341a7142f946b8096a3f140e",
+    "mtime": 1791122313.9072018,
+    "ast_hash": "2abb1bfb0f2ad8ea34a07167207020f5",
     "semantic_hash": ""
   },
   "src/i18n/games/pt.json": {
-    "mtime": 1791106929.7001245,
-    "ast_hash": "1c32cf3c25d317e0b8420c45b7c39899",
+    "mtime": 1791122313.900201,
+    "ast_hash": "12e2c8afb17b2142c79d898b7213a8b4",
     "semantic_hash": ""
   },
   "src/i18n/prototype/en.json": {
@@ -6985,8 +6985,8 @@
     "semantic_hash": ""
   },
   "docs/Games/LDILendas/LDI_LENDAS_GDD.md": {
-    "mtime": 1791106929.705123,
-    "ast_hash": "1684adac7fd1d830f2c7612d45bd252a",
+    "mtime": 1791122548.4399798,
+    "ast_hash": "9ec8fb2b37496daf4f6845f0f51db119",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/components/Diario.jsx": {
@@ -7035,23 +7035,23 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/BatalhaLab.jsx": {
-    "mtime": 1791106929.69619,
-    "ast_hash": "27087a68c524b1e59ed2d7fdcba40dcc",
+    "mtime": 1791122403.9334078,
+    "ast_hash": "26c85deb9f9130b92cdad298a2ddebfe",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/Pentagrama.jsx": {
-    "mtime": 1791106706.2710443,
-    "ast_hash": "ae8f08d806a687d3da3aacb679c51075",
+    "mtime": 1791122450.982558,
+    "ast_hash": "f26e2d6ce47e03f8ed402a19d54210a6",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/motorPentagrama.js": {
-    "mtime": 1791106674.8185492,
-    "ast_hash": "7471ecb9bb44f511073625994931dac6",
+    "mtime": 1791122450.982558,
+    "ast_hash": "583510d01d1f6fde6a421c2923c9d158",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/somPentagrama.js": {
-    "mtime": 1791104298.3571,
-    "ast_hash": "9eaf0d5a26bdb6c5a10dcbf8084ce4fb",
+    "mtime": 1791122297.4662302,
+    "ast_hash": "b3dde996b7d12707958fc5147b51fc5c",
     "semantic_hash": ""
   }
 }

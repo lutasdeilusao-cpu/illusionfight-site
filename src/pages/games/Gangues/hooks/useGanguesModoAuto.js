@@ -107,7 +107,10 @@ export default function useGanguesModoAuto({ modoAutoOn, setModoAutoOn, velocida
   const podeAgir = !modoMultidaoAtivo && modoAutoOn && podeUsarModoAuto && machinePhase === 'player' && !result && !koCena && Boolean(selectedActor) && Boolean(selectedTarget)
   useEffect(() => {
     if (!podeAgir) return
-    const timer = setTimeout(() => agirRef.current(), 750 / velocidade)
+    const timer = setTimeout(() => {
+      logDebug('gangues.auto.acao', { turnoSeq, ator: selectedActor, alvo: selectedTarget })
+      agirRef.current()
+    }, 750 / velocidade)
     return () => clearTimeout(timer)
   }, [velocidade, podeAgir, turnoSeq, selectedActor, selectedTarget])
 
@@ -119,9 +122,10 @@ export default function useGanguesModoAuto({ modoAutoOn, setModoAutoOn, velocida
     if (modoMultidaoAtivo || !modoAutoOn || !podeUsarModoAuto || result) return
     const timer = setTimeout(() => {
       const e = estadoRef.current
-      if (e.machinePhase !== 'player' || e.result || e.koCena) return
+      if (e.result || e.koCena) return
+      // Parada em qualquer fase vai pro log; só na vez do jogador dá pra agir.
       logDebug('gangues.auto.travou', e)
-      agirRef.current()
+      if (e.machinePhase === 'player') agirRef.current()
     }, 4000 / velocidade)
     return () => clearTimeout(timer)
   }, [turnoSeq, modoAutoOn, modoMultidaoAtivo, podeUsarModoAuto, result, velocidade])

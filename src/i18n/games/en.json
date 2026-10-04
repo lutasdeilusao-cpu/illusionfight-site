@@ -971,7 +971,7 @@
         "regras": {
           "r1": "Big points (head, hands, feet) connect to anything. Elbow and knee only come after the hand/foot on the same side or another small point: foot → knee → elbow works.",
           "r2": "Up to 4 strikes. The energy is split between them. Once you release your line, the last point blinks: every 3 taps on it raise the charge one level. Charge I only works with up to 2 strikes, Charge II with just 1, and they hit much harder.",
-          "r3": "Same limb in the same position as his combo = block: you gain energy and he loses it. An elbow/knee blocking a punch/kick still hurts.",
+          "r3": "Same limb in the same position as his combo = block: you gain energy and he loses it. But a block always grazes you a little — only a dodge comes out clean. An elbow/knee blocking a punch/kick still hurts him.",
           "r4": "Different limbs in the same position: the heavier strike cuts through the lighter one (hands and feet are light; head, elbow and knee are heavy; charge adds up). Taking too many heavy hits unblocked leaves you dizzy: only 1 strike next time.",
           "r5": "A charged strike opens your guard: if he blocks or dodges, you take 50% more.",
           "r6": "The center lights up green rarely. Run your finger through it in your line: you dodge everything and all your strikes land clean, unblockable. Dodge alone, with no strike, and nobody takes damage.",
@@ -1010,7 +1010,7 @@
           "joeE": "left knee"
         },
         "passo": {
-          "bloqueio": "Block: {golpe} stopped cold.",
+          "bloqueio": "Block: {golpe} stopped (−{raspao} graze).",
           "bloqueio_duro_jog": "Hard block: you stopped the {golpe} and it hurt him.",
           "bloqueio_duro_ini": "He stopped your strike and it hurt you.",
           "acerto_jog": "You landed a {golpe}: −{dano}",

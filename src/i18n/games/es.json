@@ -971,7 +971,7 @@
         "regras": {
           "r1": "Los puntos grandes (cabeza, manos, pies) se unen con cualquiera. Codo y rodilla solo después de la mano/pie del mismo lado o de otro punto pequeño: pie → rodilla → codo vale.",
           "r2": "Hasta 4 golpes. La energía se divide entre ellos. Al soltar el trazo, el último punto parpadea: cada 3 toques suben un nivel de carga. Carga I solo vale con hasta 2 golpes, Carga II con 1 solo, y pegan mucho más fuerte.",
-          "r3": "Mismo miembro en la misma posición que su combo = bloqueo: tú ganas energía y él pierde. Codo/rodilla bloqueando un puñetazo/patada todavía lastima.",
+          "r3": "Mismo miembro en la misma posición que su combo = bloqueo: tú ganas energía y él pierde. Pero el bloqueo siempre te roza un poco — solo la esquiva sale limpia. Codo/rodilla bloqueando un puñetazo/patada todavía lo lastima.",
           "r4": "Miembros distintos en la misma posición: el golpe más grave atraviesa al más leve (manos y pies son leves; cabeza, codo y rodilla, graves; la carga suma). Recibir demasiados golpes graves sin bloquear te deja mareado: la próxima, solo 1 golpe.",
           "r5": "Un golpe cargado abre la guardia: si él bloquea o esquiva, recibes 50% más.",
           "r6": "El centro se enciende verde muy pocas veces. Pasa el dedo por él en tu trazo: esquivas todo y todos tus golpes entran limpios, sin bloqueo. Solo esquivar, sin golpe, y nadie recibe daño.",
@@ -1010,7 +1010,7 @@
           "joeE": "rodillazo izquierdo"
         },
         "passo": {
-          "bloqueio": "Bloqueo: {golpe} detenido en seco.",
+          "bloqueio": "Bloqueo: {golpe} detenido (−{raspao} de roce).",
           "bloqueio_duro_jog": "Bloqueo duro: paraste el {golpe} y le dolió.",
           "bloqueio_duro_ini": "Paró tu golpe y te dolió.",
           "acerto_jog": "Conectaste un {golpe}: −{dano}",

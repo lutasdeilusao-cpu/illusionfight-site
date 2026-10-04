@@ -971,7 +971,7 @@
         "regras": {
           "r1": "Pontos grandes (cabeça, mãos, pés) ligam com qualquer um. Cotovelo e joelho só depois da mão/pé do mesmo lado ou de outro ponto pequeno: pé → joelho → cotovelo vale.",
           "r2": "Até 4 golpes. A energia se divide entre eles. Soltou o traço, o último ponto pisca: cada 3 toques nele sobem um nível de carga. Carga I só vale com até 2 golpes, Carga II com 1 só, e batem muito mais forte.",
-          "r3": "Mesmo membro na mesma posição do combo dele = bloqueio: você ganha energia e ele perde. Cotovelo/joelho bloqueando soco/chute ainda machuca.",
+          "r3": "Mesmo membro na mesma posição do combo dele = bloqueio: você ganha energia e ele perde. Mas bloqueio sempre raspa um pouco de sangue — só a esquiva sai limpa. Cotovelo/joelho bloqueando soco/chute ainda machuca ele.",
           "r4": "Membros diferentes na mesma posição: o golpe mais grave interrompe o mais leve (mão e pé são leves; cabeça, cotovelo e joelho, graves; carga soma). Levar golpe grave demais sem bloquear te deixa tonto: na próxima só 1 golpe.",
           "r5": "Golpe carregado abre a guarda: se ele bloquear ou esquivar, você leva 50% a mais.",
           "r6": "O centro acende verde raramente. Passe o dedo por ele no traço: você esquiva de tudo e todos os seus golpes entram limpos, sem bloqueio. Só esquivar, sem golpe, ninguém leva dano.",
@@ -1010,7 +1010,7 @@
           "joeE": "joelhada esquerda"
         },
         "passo": {
-          "bloqueio": "Bloqueio: {golpe} parado no meio.",
+          "bloqueio": "Bloqueio: {golpe} parado no meio (−{raspao} de raspão).",
           "bloqueio_duro_jog": "Bloqueio duro: você parou {golpe} e machucou.",
           "bloqueio_duro_ini": "Ele parou o seu golpe e te machucou.",
           "acerto_jog": "Você acertou {golpe}: −{dano}",
