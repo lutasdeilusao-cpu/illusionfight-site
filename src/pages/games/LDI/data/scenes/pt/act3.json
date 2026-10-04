@@ -112,7 +112,8 @@
       {
         "id": "A",
         "label": "Levar o arquivo pra Kaeda",
-        "next_scene": "3.3_dia9"
+        "next_scene": "3.3_dia9",
+        "luta": 5
       }
     ]
   },
@@ -253,7 +254,8 @@
       {
         "id": "A",
         "label": "Levar isso pra Kaeda",
-        "next_scene": "3.4_dia10"
+        "next_scene": "3.4_dia10",
+        "luta": 6
       }
     ]
   },
@@ -550,7 +552,8 @@
       {
         "id": "A",
         "label": "Desconectar",
-        "next_scene": "3.8_captura_ok"
+        "next_scene": "3.8_captura_ok",
+        "luta": 7
       }
     ]
   },

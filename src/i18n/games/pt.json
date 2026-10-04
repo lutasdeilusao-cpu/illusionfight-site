@@ -1111,7 +1111,9 @@
         "sem_poder": "sem poder",
         "super_dele": "⚠ {nome} vai soltar {poder}! Toque os {n} pontos vermelhos, qualquer ordem",
         "paralisado": "Paralisado: essa batida você não se mexe",
-        "cego": "Cego: não dá pra ver o que vem"
+        "cego": "Cego: não dá pra ver o que vem",
+        "seguir": "Seguir",
+        "tentar_de_novo": "Tentar de novo"
       }
     },
     "toptrumps": {

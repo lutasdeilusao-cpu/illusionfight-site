@@ -308,6 +308,26 @@ entram as Veias); visão em
 primeira pessoa (só as luvas); mais poderes; combos liberados aos poucos;
 membro machucado.
 
+### 11.2 As lutas da história
+
+Escolha com `luta: <id do inimigo>` abre a batalha do pentagrama por cima da cena
+(`Game.jsx` → `batalha/LutaPentagrama.jsx`, o mesmo componente do laboratório).
+Venceu, segue pelo `next_scene`; perdeu, vai pro `next_falha` se existir, senão
+tenta de novo. "Ler o Golpe" (23) mostra de onde nasce o 1º golpe dele.
+
+| Cena | Inimigo |
+|---|---|
+| 1.4t Treino | 1 · Saco de Pancada |
+| 1.3d-briga Primeira Luta | 2 · StormByte_91 · o beco |
+| 1.5-briga | 3 · A lutadora sem nome |
+| 1.4a-briga Revanche | 4 · StormByte_91 · a revanche |
+| 1.5a-briga, 3.2-briga | 5 · GhostPulse |
+| 3.3-briga | 6 · IronVeil |
+| 3.6-briga | 7 · Sombra Digital |
+| 4.1a-briga, 4.1d-briga | 8 · NULL_ENTITY (na 4.1d perder leva a `4.2_derrota`) |
+
+O laboratório (`/games/ldi/pentagrama`) continua: é onde se mexe na batalha.
+
 ### 11.1 Campanha do pentagrama
 
 Os inimigos do Lendas em ordem de dificuldade (`batalha/campanhaPentagrama.js`).

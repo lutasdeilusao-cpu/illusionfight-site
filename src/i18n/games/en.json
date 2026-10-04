@@ -1111,7 +1111,9 @@
         "sem_poder": "no power",
         "super_dele": "⚠ {nome} is unleashing {poder}! Tap the {n} red points, any order",
         "paralisado": "Paralyzed: you can’t move this beat",
-        "cego": "Blind: you can’t see what’s coming"
+        "cego": "Blind: you can’t see what’s coming",
+        "seguir": "Continue",
+        "tentar_de_novo": "Try again"
       }
     },
     "toptrumps": {

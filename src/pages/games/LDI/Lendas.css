@@ -138,3 +138,6 @@
 .ld-lobby__veias li small { font: 600 0.5rem var(--font-mono); color: var(--text-secondary); }
 
 @keyframes ld-pisca { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+/* Batalha do pentagrama por cima da cena. */
+.ld-luta { position: fixed; inset: 0 var(--app-gutter); z-index: 40; overflow-y: auto; overscroll-behavior: none; background: var(--if-panel-flat); }

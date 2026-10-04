@@ -113,7 +113,8 @@
       {
         "id": "A",
         "label": "Terminar",
-        "next_scene": "4.2_vitoria"
+        "next_scene": "4.2_vitoria",
+        "luta": 8
       }
     ]
   },
@@ -263,7 +264,9 @@
           ]
         },
         "decisao": true,
-        "next_scene": "4.2_vitoria_desperado"
+        "next_scene": "4.2_vitoria_desperado",
+        "luta": 8,
+        "next_falha": "4.2_derrota"
       },
       {
         "id": "B",

@@ -394,7 +394,8 @@
       {
         "id": "A",
         "label": "Respirar",
-        "next_scene": "1.3d-pos"
+        "next_scene": "1.3d-pos",
+        "luta": 2
       }
     ]
   },
@@ -602,7 +603,8 @@
       {
         "id": "A",
         "label": "Descer do ringue",
-        "next_scene": "1.4"
+        "next_scene": "1.4",
+        "luta": 4
       }
     ]
   },
@@ -752,7 +754,8 @@
       {
         "id": "A",
         "label": "Ir no endereço",
-        "next_scene": "2.1"
+        "next_scene": "2.1",
+        "luta": 3
       }
     ]
   },
@@ -806,7 +809,8 @@
       {
         "id": "A",
         "label": "Ir no endereço",
-        "next_scene": "2.1"
+        "next_scene": "2.1",
+        "luta": 5
       }
     ]
   },
@@ -834,7 +838,8 @@
       {
         "id": "A",
         "label": "Voltar pro cubo",
-        "next_scene": "1.4"
+        "next_scene": "1.4",
+        "luta": 1
       }
     ]
   },

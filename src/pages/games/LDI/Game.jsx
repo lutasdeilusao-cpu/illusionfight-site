@@ -10,6 +10,9 @@ import Narrativa from './components/Narrativa'
 import Escolhas from './components/Escolhas'
 import Diario from './components/Diario'
 import PuzzleRouter from './components/PuzzleRouter'
+import Luta, { VELOCIDADES } from './batalha/LutaPentagrama'
+import { INIMIGOS } from './batalha/campanhaPentagrama'
+import { ligarSom } from './batalha/somPentagrama'
 import './Lendas.css'
 
 export default function Game() {
@@ -21,6 +24,7 @@ export default function Game() {
   const [pronto, setPronto] = useState(false)
   const [diario, setDiario] = useState(false)
   const [puzzle, setPuzzle] = useState(null)
+  const [luta, setLuta] = useState(null) // { escolha, tentativa }
   const [capitulo, setCapitulo] = useState(null)
   const [capsVistos] = useState(() => new Set())
 
@@ -45,7 +49,18 @@ export default function Game() {
   }, [save.status]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const onPronto = useCallback(() => setPronto(true), [])
-  const onEscolher = ch => (ch.isPuzzle ? setPuzzle(ch) : escolher(ch))
+  // Escolha com `luta` (id do inimigo da campanha) abre a batalha do pentagrama
+  // por cima da cena. Venceu, segue; perdeu, vai pro `next_falha` ou tenta de novo.
+  const onEscolher = ch => {
+    if (ch.luta) { ligarSom(); setLuta({ escolha: ch, tentativa: 0 }); return }
+    if (ch.isPuzzle) setPuzzle(ch); else escolher(ch)
+  }
+  const fimLuta = resultado => {
+    const ch = luta.escolha
+    if (resultado === 'vitoria') { setLuta(null); escolher(ch) }
+    else if (ch.next_falha) { setLuta(null); escolher(ch, true) }
+    else setLuta(l => ({ ...l, tentativa: l.tentativa + 1 }))
+  }
   const fimPuzzle = (resolvido, pista) => {
     if (pista) addPista(pista)
     const ch = puzzle
@@ -96,6 +111,12 @@ export default function Game() {
         {diario && <Diario key="diario" t={t} save={save} onFechar={() => setDiario(false)} />}
       </AnimatePresence>
 
+      {luta && (
+        <div className="ld-luta">
+          <Luta key={luta.tentativa} t={t} ficha={INIMIGOS.find(i => i.id === luta.escolha.luta)} batida={VELOCIDADES.normal}
+            verOrigem={save.habilidades.includes(23)} onSair={() => setLuta(null)} onResultado={fimLuta} />
+        </div>
+      )}
       {puzzle && (
         <div className="ld-puzzle">
           <PuzzleRouter t={t} type={puzzle.puzzleType} difficulty={puzzle.puzzleDiff || 3} onComplete={fimPuzzle} />

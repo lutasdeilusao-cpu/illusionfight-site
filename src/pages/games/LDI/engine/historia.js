@@ -3,7 +3,7 @@
 //
 // Cena:    { id, title, text[], choices[], capitulo?, destaque?, luta?, ensina?: [ids] }
 // Escolha: { id, label, next_scene, requer?: { hab: id | [ids] }, veia?, someQuandoSabe?: [ids],
-//            decisao?, flags_required?, flags_set?, isPuzzle?, puzzleType?, puzzleDiff?, next_falha? }
+//            decisao?, flags_required?, flags_set?, isPuzzle?, puzzleType?, puzzleDiff?, luta?, next_falha? }
 // next_scene "fim:<vitoria|derrota|fork>" encerra a jornada.
 //
 // Habilidade só se aprende dentro da própria Veia. `ensina` numa cena é uma
