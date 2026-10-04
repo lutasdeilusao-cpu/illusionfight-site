@@ -12,10 +12,9 @@
 // (cotovelos e joelhos, entre a mão/pé e o centro) e o centro, que abre de vez
 // em quando pra esquiva.
 //
-// COMBO — de 1 a 4 pontos ligados com o dedo, sem repetir. Ponto grande liga
-// com qualquer um. Ponto pequeno (cotovelo/joelho) só entra logo depois do
-// ponto grande do mesmo lado (mão→cotovelo, pé→joelho) ou de outro ponto
-// pequeno, porque o corpo já tá "dentro" (pé→joelho→cotovelo vale).
+// COMBO — de 1 a 4 golpes, qualquer ponto em qualquer ordem (cotovelo direto,
+// cotovelo e depois perna...). Só não dá pra ligar o mesmo ponto duas vezes
+// SEGUIDAS — tocar de novo no último ponto é carga. Repetir mais tarde vale.
 //
 // CARGA — tocar de novo no último ponto do combo (ele pisca): cada
 // TOQUES_POR_CARGA toques sobem um nível (até 2). Carga I: até 2 golpes,
@@ -57,10 +56,10 @@ export const PONTOS = {
   maoE: { membro: 'bracoE', grande: true, x: 34, y: 114, mult: 1, grav: 1 },
   peD: { membro: 'pernaD', grande: true, x: 222, y: 252, mult: 1.1, grav: 1 },
   peE: { membro: 'pernaE', grande: true, x: 78, y: 252, mult: 1.1, grav: 1 },
-  cotD: { membro: 'bracoD', grande: false, x: 208, y: 132, mult: 1.3, grav: 2, base: 'maoD' },
-  cotE: { membro: 'bracoE', grande: false, x: 92, y: 132, mult: 1.3, grav: 2, base: 'maoE' },
-  joeD: { membro: 'pernaD', grande: false, x: 186, y: 201, mult: 1.4, grav: 2, base: 'peD' },
-  joeE: { membro: 'pernaE', grande: false, x: 114, y: 201, mult: 1.4, grav: 2, base: 'peE' },
+  cotD: { membro: 'bracoD', grande: false, x: 208, y: 132, mult: 1.3, grav: 2 },
+  cotE: { membro: 'bracoE', grande: false, x: 92, y: 132, mult: 1.3, grav: 2 },
+  joeD: { membro: 'pernaD', grande: false, x: 186, y: 201, mult: 1.4, grav: 2 },
+  joeE: { membro: 'pernaE', grande: false, x: 114, y: 201, mult: 1.4, grav: 2 },
 }
 export const CENTRO = { x: 150, y: 150 }
 export const MAX_POR_CARGA = [4, 2, 1]
@@ -93,14 +92,9 @@ export const golpesDe = combo => combo.filter(p => p !== ESQUIVA)
 
 // Dá pra ligar esse ponto no fim do traço? (`traco` pode ter o centro no meio)
 export function podeLigar(traco, ponto, max = 4, centroAberto = false) {
-  if (traco.includes(ponto)) return false
-  if (ponto === ESQUIVA) return centroAberto
-  const p = PONTOS[ponto]
-  if (!p || golpesDe(traco).length >= max) return false
-  if (p.grande) return true
-  const ultimo = traco[traco.length - 1]
-  if (!ultimo) return false
-  return ultimo === ESQUIVA || ultimo === p.base || !PONTOS[ultimo].grande
+  if (ponto === ESQUIVA) return centroAberto && !traco.includes(ESQUIVA)
+  if (!PONTOS[ponto] || golpesDe(traco).length >= max) return false
+  return golpesDe(traco).at(-1) !== ponto
 }
 
 export function comboValido(traco, max = 4) {

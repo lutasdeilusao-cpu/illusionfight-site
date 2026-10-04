@@ -243,11 +243,11 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 - **O corpo é o tabuleiro:** pentagrama com 5 pontos grandes (cabeça, mão D/E,
   pé D/E), 4 pequenos (cotovelos e joelhos, entre a mão/pé e o centro), o
   centro (esquiva) e a bolinha de energia em cima da cabeça.
-- **Combo = toque ou traço do dedão**, até 4 golpes, sem repetir ponto. Tocar
+- **Combo = toque ou traço do dedão**, até 4 golpes. Tocar
   num ponto já liga ele (arrastar também liga); tirar o dedo não fecha nada, o
-  combo continua até a batida acabar. Ponto grande liga com qualquer um;
-  cotovelo/joelho só depois da mão/pé do mesmo lado ou de outro ponto pequeno
-  (pé → joelho → cotovelo vale). Alvo generoso (34 no toque).
+  combo continua até a batida acabar. Qualquer ponto, em qualquer ordem — só
+  não liga o mesmo ponto duas vezes seguidas (tocar de novo no último é
+  carga). Alvo generoso (34 no toque).
 - **Ataque e defesa, como porrada (não turno):** quem está atacando desenha o
   combo; quem está defendendo espelha (mesmo membro, na mesma posição) pra
   bloquear — golpe de defesa não causa dano. Bloqueou QUALQUER golpe: o ritmo

@@ -969,7 +969,7 @@
         "restrito": "Área de teste, só pra admin.",
         "como": "O seu corpo é um pentagrama: toque nos pontos e cada ponto vira um golpe. A luta tem vez: no ATAQUE você desenha o seu combo e ele tenta bloquear; na DEFESA ele vem com golpes e você espelha os membros pra bloquear. Bloqueou ou esquivou, a vez vira. Tudo no ritmo da batida.",
         "regras": {
-          "r1": "Pontos grandes (cabeça, mãos, pés) ligam com qualquer um; cotovelo e joelho só depois da mão/pé do mesmo lado ou de outro ponto pequeno. Toque nos pontos, um por um, ou arraste.",
+          "r1": "Qualquer ponto, em qualquer ordem: cabeça, mãos, pés, cotovelos e joelhos. Toque um por um no ritmo (ou arraste).",
           "r2": "Até 4 golpes; a energia se divide entre eles. Toque de novo no último ponto pra carregar: Carga I (até 2 golpes) e Carga II (1 golpe) batem muito mais forte.",
           "r3": "ATAQUE: desenhe o seu combo; ele tenta adivinhar e bloquear. Se ele não bloquear nada, você segue atacando.",
           "r4": "DEFESA: você sabe quantos golpes vêm (som e aviso). Espelhe o membro de cada golpe, na ordem, pra bloquear. Bloqueio sempre raspa um pouco de sangue. Bloqueou um golpe, a vez vira.",

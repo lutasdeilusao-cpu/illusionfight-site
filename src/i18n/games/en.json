@@ -969,7 +969,7 @@
         "restrito": "Test area, admins only.",
         "como": "Your body is a pentagram: tap the points and each point becomes a strike. The fight has turns: on ATTACK you draw your combo and he tries to block; on DEFENSE he comes at you and you mirror the limbs to block. Block or dodge and the turn flips. All on the beat.",
         "regras": {
-          "r1": "Big points (head, hands, feet) connect to anything; elbow and knee only after the hand/foot on the same side or another small point. Tap the points one by one, or drag.",
+          "r1": "Any point, in any order: head, hands, feet, elbows and knees. Tap them one by one on the beat (or drag).",
           "r2": "Up to 4 strikes; the energy is split between them. Tap the last point again to charge: Charge I (up to 2 strikes) and Charge II (1 strike) hit much harder.",
           "r3": "ATTACK: draw your combo; he tries to guess and block. If he blocks nothing, you keep attacking.",
           "r4": "DEFENSE: you know how many strikes are coming (sound and notice). Mirror each strike’s limb, in order, to block. A block always grazes you a little. Block one strike and the turn flips.",
