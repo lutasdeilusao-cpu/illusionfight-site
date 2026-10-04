@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791125711.426243,
-    "ast_hash": "27078c055df0a09807376f0bcbde87cc",
+    "mtime": 1791125968.467991,
+    "ast_hash": "d49aaa753ba3723586d234109376f1b9",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -640,8 +640,8 @@
     "semantic_hash": ""
   },
   "src/main.jsx": {
-    "mtime": 1790871520.4182403,
-    "ast_hash": "f6b4fb540fb25a2a95574f55300f6a55",
+    "mtime": 1791125922.2226517,
+    "ast_hash": "1ec4a5c49f868c05ef50f1281306d98e",
     "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
@@ -2550,8 +2550,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791106580.7749689,
-    "ast_hash": "f91b3f94db6744f80f19f935565d98db",
+    "mtime": 1791125922.224652,
+    "ast_hash": "23415826636d05485adb252e393efeea",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791125711.4272435,
-    "ast_hash": "8f400b5831b7aa7555dbc5c83f1f10be",
+    "mtime": 1791125968.4689977,
+    "ast_hash": "88233cbfd761b77cbde4277265ea669b",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7052,6 +7052,11 @@
   "src/pages/games/LDI/batalha/somPentagrama.js": {
     "mtime": 1791122297.4662302,
     "ast_hash": "b3dde996b7d12707958fc5147b51fc5c",
+    "semantic_hash": ""
+  },
+  "src/lib/versaoNova.js": {
+    "mtime": 1791125920.6357393,
+    "ast_hash": "56a65ea18f100bc75a887915021681d3",
     "semantic_hash": ""
   }
 }

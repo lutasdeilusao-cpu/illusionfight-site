@@ -77,6 +77,7 @@ const RadioNina = lazyWithReload(() => import('./components/RadioNina/RadioNina'
 const UnifiedNotification = lazyWithReload(() => import('./components/UnifiedNotification/UnifiedNotification'))
 import { trackPageView } from './lib/analytics'
 import { AfinidadeTracker } from './components/Recomendacoes/Recomendacoes'
+import { pontoSeguro } from './lib/versaoNova'
 import './pages/games/Duelo/version' // side-effect: console.log version
 
 function LegacyLivroRedirect({ to }) {
@@ -87,6 +88,9 @@ function LegacyLivroRedirect({ to }) {
 
 function AnalyticsPageView() {
   const location = useLocation()
+
+  // Troca de tela = ponto seguro pra aplicar uma versão nova que estava esperando.
+  useEffect(() => { pontoSeguro() }, [location.pathname])
 
   useEffect(() => {
     // Espera a página trocar o <title> (Helmet + i18n da área carregando);

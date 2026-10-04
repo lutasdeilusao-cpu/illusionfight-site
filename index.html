@@ -238,6 +238,19 @@
       // novo (deploy novo) ou nunca vimos essa marca (1ª visita), é cache miss
       // de verdade — toca o show completo, já que o carregamento real vai
       // demorar mesmo.
+      // Atualização forçada: antes de apresentar o produto, pergunta ao servidor
+      // (sem cache) qual build está no ar; se for outro, recarrega ainda na
+      // vinheta — ninguém vê a versão velha. Uma vez por build (sem laço).
+      (function () {
+        var meta = document.querySelector('meta[name="ldi-build"]');
+        if (!meta || !window.fetch) return;
+        fetch('/?v=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (html) {
+          var m = html.match(/<meta name="ldi-build" content="([^"]+)"/);
+          if (!m || m[1] === meta.content) return;
+          try { if (sessionStorage.getItem('ldi-recarregou-build') === m[1]) return; sessionStorage.setItem('ldi-recarregou-build', m[1]); } catch (e) {}
+          window.location.reload();
+        }).catch(function () {});
+      })();
       (function () {
         var el = document.getElementById('ldi-intro');
         if (!el) return;
