@@ -975,10 +975,11 @@
           "r4": "DEFESA: você não vê os golpes dele, só sabe quantos vêm. Escolha até 2 pontos pra proteger, em qualquer ordem. No fim compara: golpe no membro que você protegeu não entra, os outros entram. Defendeu pelo menos um, a vez é sua.",
           "r5": "Golpe grave (cabeça, cotovelo, joelho) entrando sem bloqueio deixa tonto: na próxima, 1 golpe só.",
           "r6": "O centro acende verde raramente: passe o dedo por ele na defesa e você esquiva o ataque inteiro, sem perder sangue, e a vez vira.",
-          "r7": "Toque (ou segure) a bolinha ⚡ em cima da cabeça pra encher a barra de poder. Cheia, aparece a sequência azul: desenhe ela e sai o Gelo Negro — dano alto, sem bloqueio, e ele congela.",
-          "r8": "Ritmo vale dano: cada batida tem um golpe cheio. Ponto ligado no beat (dourado, quando o anel fecha) entrega 25% dele; fora do beat, 10%. 4 golpes no beat = golpe cheio; 1 no beat + 3 fora = 55%. Cotovelo, joelho e cabeça pesam um pouco mais. E não repita o mesmo combo 3 vezes seguidas — ele lê e defende."
+          "r7": "Toque (ou segure) a bolinha ⚡ em cima da cabeça pra encher a barra de poder. Cheia, o jogo pausa e você escolhe o poder (Gelo Negro congela, Choque paralisa, Cegueira cega). Desenhe a sequência e ele sai — dano sem bloqueio e o efeito.",
+          "r8": "Ritmo vale dano: cada batida tem um golpe cheio. Ponto ligado no beat (dourado, quando o anel fecha) entrega 25% dele; fora do beat, 10%. 4 golpes no beat = golpe cheio; 1 no beat + 3 fora = 55%. Cotovelo, joelho e cabeça pesam um pouco mais. E não repita o mesmo combo 3 vezes seguidas — ele lê e defende.",
+          "r9": "Ele também tem super: quando a barra dele enche, aparece o aviso e uma sequência vermelha de 3 a 6 pontos. Toque TODOS, em qualquer ordem e fora do beat mesmo. Escapou um, você toma o poder e o efeito dele."
         },
-        "oponente": "Oponente",
+        "oponente": "Escolha a luta",
         "velocidade": "Velocidade",
         "lutar": "Lutar",
         "voce": "Você",
@@ -987,10 +988,6 @@
           "lento": "Lento",
           "normal": "Normal",
           "rapido": "Rápido"
-        },
-        "fichas": {
-          "saco": "Saco de Pancada",
-          "stormbyte": "StormByte_91"
         },
         "energia": "energia {n}",
         "vitoria": "Você venceu",
@@ -1027,7 +1024,14 @@
           "parado_jog": "Você ficou parado no ataque — perdeu o tempo.",
           "parado_ini": "Ele ficou parado — o tempo é seu.",
           "lido": "Ele já leu esse combo — 3ª vez igual. Defendeu esses membros.",
-          "no_tempo": "(no tempo!)"
+          "no_tempo": "(no tempo!)",
+          "super_defendido": "Você segurou o {poder} dele — a vez é sua.",
+          "efeito_tonto_jog": "Você congelou: 1 golpe só na próxima.",
+          "efeito_tonto_ini": "Ele congelou: 1 golpe só na próxima.",
+          "efeito_paralisia_jog": "Você ficou paralisado.",
+          "efeito_paralisia_ini": "Ele ficou paralisado.",
+          "efeito_cego_jog": "Você ficou cego.",
+          "efeito_cego_ini": "Ele ficou cego."
         },
         "som": "Ligar ou desligar o som",
         "ele": "Ele",
@@ -1037,17 +1041,19 @@
         "habilidade": "Habilidade (teste)",
         "ver_origem": "Ver de onde nasce o 1º golpe dele",
         "toque_carregar": "Toque {n}× no ponto que pisca pra carregar",
-        "poder_pronto": "Gelo Negro pronto: desenhe a sequência branca",
+        "poder_pronto": "{poder} pronto: desenhe a sequência branca",
         "carregando_poder": "Carregando poder…",
         "poderes": {
-          "geloNegro": "Gelo Negro"
+          "geloNegro": "Gelo Negro",
+          "choque": "Choque",
+          "cegueira": "Cegueira"
         },
         "papel": {
           "ataque": "Ataque",
           "defesa": "Defesa"
         },
         "status_ataque": "Desenhe o seu combo — ele vai tentar bloquear",
-        "status_defesa": "Ele vem com {n} golpes — espelhe pra bloquear",
+        "status_defesa": "Ele vem com {n} golpe(s) — proteja até 2 pontos",
         "virada_voce": "Virada! Sua vez de atacar",
         "virada_ele": "Ele bloqueou — agora ele ataca",
         "super": "SUPER",
@@ -1055,7 +1061,57 @@
           "tonto": "Tonto: só 1 golpe nessa batida",
           "maximo": "Máximo de 4 golpes",
           "maximo_defesa": "Na defesa, no máximo 2 pontos"
-        }
+        },
+        "inimigos": {
+          "1": {
+            "nome": "Saco de Pancada",
+            "desc": "Treino na praça morta. Soca uma vez e defende quando lembra."
+          },
+          "2": {
+            "nome": "StormByte_91 · o beco",
+            "desc": "Jab, direto, e só. Ainda acha que ganha no grito."
+          },
+          "3": {
+            "nome": "A lutadora sem nome",
+            "desc": "Mistura o chute. Defende mais do que parece."
+          },
+          "4": {
+            "nome": "StormByte_91 · a revanche",
+            "desc": "Voltou estudado: copia o seu combo e tem Choque."
+          },
+          "5": {
+            "nome": "GhostPulse",
+            "desc": "Cotovelo e joelho, some no centro e cega você."
+          },
+          "6": {
+            "nome": "IronVeil",
+            "desc": "Uma parede. Defende sempre, bate com osso, solta Gelo Negro."
+          },
+          "7": {
+            "nome": "Sombra Digital",
+            "desc": "Lê o que você repete e esquiva no último instante."
+          },
+          "8": {
+            "nome": "NULL_ENTITY",
+            "desc": "O Engenheiro de Integridade. Tudo que os outros fazem, e o super dele é qualquer um."
+          }
+        },
+        "efeitos": {
+          "tonto": "Congela: na próxima batida, 1 golpe só.",
+          "paralisia": "Paralisa: a próxima batida inteira parado.",
+          "cego": "Cega: 2 batidas sem ver o ritmo nem o que vem."
+        },
+        "escolha": {
+          "pausa": "Jogo pausado",
+          "titulo": "Qual poder agora?",
+          "detalhe": "{dano} de dano · sequência de {n} pontos",
+          "depois": "Agora não (toque na ⚡ pra voltar)"
+        },
+        "kit": "você: {n} pontos",
+        "sem_poder": "sem poder",
+        "super_dele": "⚠ {nome} vai soltar {poder}! Toque os {n} pontos vermelhos, qualquer ordem",
+        "paralisado": "Paralisado: essa batida você não se mexe",
+        "cego": "Cego: não dá pra ver o que vem"
       }
     },
     "toptrumps": {

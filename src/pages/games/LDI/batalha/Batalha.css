@@ -140,3 +140,29 @@
 @keyframes pg-treme { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
 @keyframes pg-papel-entra { from { transform: scale(1.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 @keyframes pg-pisca { from { filter: brightness(1); } to { filter: brightness(1.8) drop-shadow(0 0 10px var(--if-amber)); } }
+
+/* Campanha: a escada de inimigos no menu. */
+.pg-escada { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.pg-degrau { width: 100%; display: grid; grid-template-columns: 34px 1fr; column-gap: 10px; align-items: baseline; text-align: left; padding: 10px 12px; cursor: pointer; border: 1px solid var(--if-hair-strong); background: var(--if-panel); color: var(--text-secondary); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); }
+.pg-degrau b { color: var(--text-primary); font: 800 0.9rem var(--font-display); }
+.pg-degrau small { grid-column: 2; font-size: 0.74rem; line-height: 1.35; }
+.pg-degrau__n { grid-row: span 3; font: 900 1rem var(--font-mono); color: var(--if-amber); }
+.pg-degrau small.pg-degrau__kit { color: var(--if-cyan); font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.pg-degrau.is-on { border-color: var(--if-amber); box-shadow: inset 2px 0 0 var(--if-amber); }
+
+/* Pausa pra escolher o poder: opções embaixo, no alcance do dedão. */
+.pg-escolha { position: fixed; inset: 0 var(--app-gutter); z-index: 60; display: flex; align-items: flex-end; background: var(--if-glass); backdrop-filter: blur(6px) brightness(0.45); overscroll-behavior: none; touch-action: none; }
+.pg-escolha__painel { width: 100%; display: grid; gap: 8px; padding: 18px 16px 28px; background: var(--if-panel); border-top: 2px solid var(--if-cyan); }
+.pg-escolha__titulo { margin: 0 0 4px; font: 900 1.3rem var(--font-display); color: var(--text-primary); }
+.pg-escolha__poder { display: grid; gap: 2px; text-align: left; min-height: 56px; padding: 10px 14px; cursor: pointer; border: 1px solid var(--if-cyan); background: color-mix(in srgb, var(--if-cyan) 10%, transparent); color: var(--text-secondary); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); }
+.pg-escolha__poder b { color: var(--text-primary); font: 800 1rem var(--font-display); }
+.pg-escolha__poder small { font-size: 0.74rem; line-height: 1.35; }
+.pg-escolha__poder.is-choque { border-color: var(--if-amber); background: color-mix(in srgb, var(--if-amber) 10%, transparent); }
+.pg-escolha__poder.is-cegueira { border-color: var(--text-secondary); background: color-mix(in srgb, var(--text-secondary) 10%, transparent); }
+.pg-escolha__depois { min-height: 44px; cursor: pointer; border: 1px solid var(--if-hair-strong); background: transparent; color: var(--text-secondary); font: 800 0.66rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* Super dele: a sequência vem em vermelho. Cego: o tabuleiro apaga. */
+.pg-tabuleiro.is-perigo .pg-linha--guia { stroke: var(--pg-ini); filter: drop-shadow(0 0 8px var(--pg-ini)); }
+.pg-tabuleiro.is-perigo .pg-num--guia { fill: var(--pg-ini); font-weight: 900; }
+.pg-palco.is-super { border-color: var(--pg-ini); }
+.pg-palco.is-cego { filter: blur(1.5px) brightness(0.55); }

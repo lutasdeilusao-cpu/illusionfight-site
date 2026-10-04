@@ -27,7 +27,7 @@ function pontoPerto(x, y, centroAberto, arrastando = false) {
   return melhor
 }
 
-export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = [], quarto = 0, fantasmas = [], onRecusado, centroAberto = false, travado = false, max = 4, carga = 0, progresso = 0, podeCarregar = false, segurandoOrbe = false, mini = false, onMudar, onToque, onOrbe, onOrbeToque }) {
+export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = [], quarto = 0, fantasmas = [], perigo = false, onRecusado, centroAberto = false, travado = false, max = 4, carga = 0, progresso = 0, podeCarregar = false, segurandoOrbe = false, mini = false, onMudar, onToque, onOrbe, onOrbeToque }) {
   const svgRef = useRef(null)
   const desenhando = useRef(false)
   const ligouNesteToque = useRef(false)
@@ -96,7 +96,7 @@ export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = 
   const ultimo = golpesDe(combo).at(-1)
 
   return (
-    <svg ref={svgRef} className={`pg-tabuleiro${travado ? ' is-travado' : ''}${mini ? ' is-mini' : ''}`} viewBox="0 -42 300 312"
+    <svg ref={svgRef} className={`pg-tabuleiro${travado ? ' is-travado' : ''}${mini ? ' is-mini' : ''}${perigo ? ' is-perigo' : ''}`} viewBox="0 -42 300 312"
       style={quarto ? { '--quarto': `${quarto}ms` } : undefined}
       onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up}>
       <polyline className="pg-estrela" points={linha(ESTRELA)} />

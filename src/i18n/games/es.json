@@ -975,10 +975,11 @@
           "r4": "DEFENSA: no ves sus golpes, solo cuántos vienen. Elige hasta 2 puntos para proteger, en cualquier orden. Al final compara: golpe en el miembro que protegiste no entra, los demás sí. Defiende al menos uno y el turno es tuyo.",
           "r5": "Un golpe grave (cabeza, codo, rodilla) que entra sin bloqueo te marea: la próxima, solo 1 golpe.",
           "r6": "El centro se enciende verde muy pocas veces: pasa el dedo por él en la defensa y esquivas todo el ataque, sin perder sangre, y el turno cambia.",
-          "r7": "Toca (o mantén) la bolita ⚡ encima de la cabeza para llenar la barra de poder. Llena, aparece la secuencia azul: dibújala y sale el Hielo Negro — daño alto, sin bloqueo, y él se congela.",
-          "r8": "El ritmo es daño: cada compás tiene un golpe completo. Punto unido a tiempo (dorado, cuando el anillo se cierra) entrega el 25%; fuera de tiempo, el 10%. 4 golpes a tiempo = golpe completo; 1 a tiempo + 3 fuera = 55%. Codos, rodillas y cabeza pesan un poco más. Y no repitas el mismo combo 3 veces seguidas — te lo lee y lo defiende."
+          "r7": "Toca (o mantén) la bolita ⚡ sobre la cabeza para llenar la barra de poder. Llena, el juego se pausa y eliges el poder (Hielo Negro congela, Descarga paraliza, Ceguera ciega). Dibuja la secuencia y sale — daño sin bloqueo y el efecto.",
+          "r8": "El ritmo es daño: cada compás tiene un golpe completo. Punto unido a tiempo (dorado, cuando el anillo se cierra) entrega el 25%; fuera de tiempo, el 10%. 4 golpes a tiempo = golpe completo; 1 a tiempo + 3 fuera = 55%. Codos, rodillas y cabeza pesan un poco más. Y no repitas el mismo combo 3 veces seguidas — te lo lee y lo defiende.",
+          "r9": "Él también tiene súper: cuando su barra se llena aparece el aviso y una secuencia roja de 3 a 6 puntos. Toca TODOS, en cualquier orden y aunque sea fuera de tiempo. Se te escapa uno y te comes el poder y su efecto."
         },
-        "oponente": "Oponente",
+        "oponente": "Elige la pelea",
         "velocidade": "Velocidad",
         "lutar": "Pelear",
         "voce": "Tú",
@@ -987,10 +988,6 @@
           "lento": "Lento",
           "normal": "Normal",
           "rapido": "Rápido"
-        },
-        "fichas": {
-          "saco": "Saco de Boxeo",
-          "stormbyte": "StormByte_91"
         },
         "energia": "energía {n}",
         "vitoria": "Ganaste",
@@ -1027,7 +1024,14 @@
           "parado_jog": "Te quedaste quieto en el ataque — perdiste el tiempo.",
           "parado_ini": "Se quedó quieto — el tiempo es tuyo.",
           "lido": "Ya te leyó ese combo — 3ª vez igual. Defendió esos miembros.",
-          "no_tempo": "(¡a tiempo!)"
+          "no_tempo": "(¡a tiempo!)",
+          "super_defendido": "Aguantaste su {poder} — tu turno.",
+          "efeito_tonto_jog": "Te congelaste: 1 golpe nada más el próximo.",
+          "efeito_tonto_ini": "Se congeló: 1 golpe nada más el próximo.",
+          "efeito_paralisia_jog": "Quedaste paralizado.",
+          "efeito_paralisia_ini": "Quedó paralizado.",
+          "efeito_cego_jog": "Quedaste ciego.",
+          "efeito_cego_ini": "Quedó ciego."
         },
         "som": "Activar o desactivar el sonido",
         "ele": "Él",
@@ -1037,17 +1041,19 @@
         "habilidade": "Habilidad (prueba)",
         "ver_origem": "Ver de dónde nace su 1er golpe",
         "toque_carregar": "Toca {n} veces el punto que parpadea para cargar",
-        "poder_pronto": "Hielo Negro listo: dibuja la secuencia blanca",
+        "poder_pronto": "{poder} listo: dibuja la secuencia blanca",
         "carregando_poder": "Cargando poder…",
         "poderes": {
-          "geloNegro": "Hielo Negro"
+          "geloNegro": "Hielo Negro",
+          "choque": "Descarga",
+          "cegueira": "Ceguera"
         },
         "papel": {
           "ataque": "Ataque",
           "defesa": "Defensa"
         },
         "status_ataque": "Dibuja tu combo — él va a intentar bloquear",
-        "status_defesa": "Viene con {n} golpes — refléjalos para bloquear",
+        "status_defesa": "Viene con {n} golpe(s) — protege hasta 2 puntos",
         "virada_voce": "¡Vuelta! Te toca atacar",
         "virada_ele": "Bloqueó — ahora ataca él",
         "super": "SUPER",
@@ -1055,7 +1061,57 @@
           "tonto": "Mareado: solo 1 golpe en este compás",
           "maximo": "Máximo 4 golpes",
           "maximo_defesa": "En la defensa, máximo 2 puntos"
-        }
+        },
+        "inimigos": {
+          "1": {
+            "nome": "Saco de Boxeo",
+            "desc": "Práctica en la plaza muerta. Pega una vez y se defiende cuando se acuerda."
+          },
+          "2": {
+            "nome": "StormByte_91 · el callejón",
+            "desc": "Jab, directo, y ya. Todavía cree que gana a gritos."
+          },
+          "3": {
+            "nome": "La peleadora sin nombre",
+            "desc": "Mete la patada. Se defiende más de lo que parece."
+          },
+          "4": {
+            "nome": "StormByte_91 · la revancha",
+            "desc": "Volvió estudiado: copia tu combo y tiene Descarga."
+          },
+          "5": {
+            "nome": "GhostPulse",
+            "desc": "Codo y rodilla, desaparece por el centro y te ciega."
+          },
+          "6": {
+            "nome": "IronVeil",
+            "desc": "Una pared. Siempre defiende, pega con hueso, suelta Hielo Negro."
+          },
+          "7": {
+            "nome": "Sombra Digital",
+            "desc": "Lee lo que repites y esquiva en el último instante."
+          },
+          "8": {
+            "nome": "NULL_ENTITY",
+            "desc": "El Ingeniero de Integridad. Todo lo que hacen los demás, y su súper puede ser cualquiera."
+          }
+        },
+        "efeitos": {
+          "tonto": "Congela: el próximo compás, 1 golpe nada más.",
+          "paralisia": "Paraliza: todo el próximo compás quieto.",
+          "cego": "Ciega: 2 compases sin ver el ritmo ni lo que viene."
+        },
+        "escolha": {
+          "pausa": "Juego en pausa",
+          "titulo": "¿Qué poder ahora?",
+          "detalhe": "{dano} de daño · secuencia de {n} puntos",
+          "depois": "Ahora no (toca el ⚡ para volver)"
+        },
+        "kit": "tú: {n} puntos",
+        "sem_poder": "sin poder",
+        "super_dele": "⚠ ¡{nome} va a soltar {poder}! Toca los {n} puntos rojos, en cualquier orden",
+        "paralisado": "Paralizado: este compás no te mueves",
+        "cego": "Ciego: no ves lo que viene"
       }
     },
     "toptrumps": {

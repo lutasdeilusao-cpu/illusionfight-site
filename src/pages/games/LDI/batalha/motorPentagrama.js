@@ -81,11 +81,20 @@ export const PODER_POR_SEGUNDO = 26
 export const PODER_POR_TOQUE = 5
 export const PODER_BLOQUEIO = 8
 export const PODER_APANHOU = 4
+// Poderes: dano direto, sem bloqueio, e um efeito no alvo.
+//   tonto: na próxima batida, 1 golpe só.
+//   paralisia: a próxima batida inteira parado (não ataca nem defende).
+//   cego: 2 batidas sem ver nada — quem ataca chuta a defesa, quem defende não
+//   vê o anel do beat nem quantos golpes vêm.
 export const PODERES = {
-  geloNegro: { id: 'geloNegro', dano: 24, golpes: 4, congela: true },
+  geloNegro: { id: 'geloNegro', dano: 22, golpes: 4, efeito: 'tonto' },
+  choque: { id: 'choque', dano: 14, golpes: 3, efeito: 'paralisia' },
+  cegueira: { id: 'cegueira', dano: 10, golpes: 5, efeito: 'cego' },
 }
+export const DURACAO_EFEITO = { tonto: 1, paralisia: 1, cego: 2 }
 
-export const maxGolpes = (carga = 0, tonto = false) => (tonto ? 1 : MAX_POR_CARGA[carga])
+// `kit` = quantos pontos o jogador consegue ligar nessa fase da campanha.
+export const maxGolpes = (carga = 0, tonto = false, kit = 4) => (tonto ? 1 : Math.min(kit, MAX_POR_CARGA[carga]))
 export const ESQUIVA = 'centro'
 export const golpesDe = combo => combo.filter(p => p !== ESQUIVA)
 
@@ -135,6 +144,14 @@ export function sequenciaDoPoder(poder, rnd = Math.random) {
   return ['maoD', 'cotD', 'joeD', 'cotE']
 }
 
+// O super do inimigo: n pontos diferentes que o jogador tem que tocar todos,
+// em qualquer ordem e fora do beat mesmo, pra não tomar.
+export function sequenciaDoSuper(n, rnd = Math.random) {
+  const ids = Object.keys(PONTOS).sort(() => rnd() - 0.5)
+  return ids.slice(0, n)
+}
+export const defendeuSuper = (traco, seq) => seq.every(p => traco.includes(p))
+
 export const acertouSequencia = (traco, seq) => {
   const g = golpesDe(traco)
   return g.length === seq.length && g.every((p, i) => p === seq[i])
@@ -153,14 +170,14 @@ export function resolverAtaque(atacanteEntrada, defensorEntrada) {
     r.danoAtk = poder.dano
     r.passos.push({ tipo: 'poder', quem: 'def', poder: poder.id, dano: poder.dano })
     atk.combo.forEach((p, i) => r.passos.push({ tipo: 'congelado', i, quem: 'atk', ponto: p }))
-    r.vira = true; r.atkTonto = poder.congela
+    r.vira = true; r.atkEfeito = poder.efeito
     return r
   }
   const poderAtk = PODERES[atk.poder]
   if (poderAtk) {
     r.danoDef = poderAtk.dano
     r.passos.push({ tipo: 'poder', quem: 'atk', poder: poderAtk.id, dano: poderAtk.dano })
-    r.defTonto = poderAtk.congela
+    r.defEfeito = poderAtk.efeito
     return r
   }
   // Atacante parado (não tocou golpe nenhum): perdeu o tempo, a vez vira.
@@ -204,18 +221,22 @@ export const comboLido = (historico, combo) => {
   return g !== '' && historico.length >= REPETICOES_LIDAS - 1 && historico.slice(-(REPETICOES_LIDAS - 1)).every(h => h.join() === g)
 }
 
-// O inimigo defendendo: no começo da batida escolhe 1 ou 2 pontos pra
-// proteger. Com chance `leitura` ele aposta num membro que você usou no último
-// ataque; senão chuta. Se você está repetindo o combo (já leu), ele protege
-// exatamente os membros dele.
+// O inimigo defendendo: no começo da batida decide se defende (`defende`, a
+// chance da ficha) e escolhe até `defesaMax` pontos. Com chance `leitura` ele
+// aposta num membro que você usou no último ataque; senão chuta. Se você está
+// repetindo o combo (já leu), ele protege exatamente os membros dele. Cego,
+// chuta 1 ponto qualquer.
 const PONTO_DO_MEMBRO = { cab: 'cab', bracoD: 'maoD', bracoE: 'maoE', pernaD: 'peD', pernaE: 'peE' }
 
-export function escolherDefesaDele(ficha, { ultimoDoJogador = [], lido = false } = {}, rnd = Math.random) {
+export function escolherDefesaDele(ficha, { ultimoDoJogador = [], lido = false, cego = false } = {}, rnd = Math.random) {
+  const membros = Object.keys(PONTO_DO_MEMBRO)
+  if (cego) return [PONTO_DO_MEMBRO[membros[Math.floor(rnd() * membros.length)]]]
   if (lido) return [...new Set(ultimoDoJogador.map(p => PONTOS[p].membro))].map(m => PONTO_DO_MEMBRO[m])
   if (rnd() < (ficha.esquiva || 0)) return [ESQUIVA]
-  const membros = Object.keys(PONTO_DO_MEMBRO)
+  if (rnd() >= (ficha.defende ?? 1)) return []
   const usados = [...new Set(ultimoDoJogador.map(p => PONTOS[p].membro))]
-  const quantos = rnd() < 0.5 ? 1 : MAX_DEFESA
+  const teto = ficha.defesaMax ?? MAX_DEFESA
+  const quantos = teto > 1 && rnd() >= 0.5 ? teto : 1
   const escolhidos = new Set()
   while (escolhidos.size < quantos) {
     const m = usados.length && rnd() < (ficha.leitura || 0.2) ? usados[Math.floor(rnd() * usados.length)] : membros[Math.floor(rnd() * membros.length)]
@@ -236,29 +257,4 @@ export function escolherCombo(ficha, { ultimoDoJogador = [], tonto = false } = {
     combo = ficha.combos.find(c => (x -= c.peso) <= 0)?.combo || ficha.combos[0].combo
   }
   return tonto ? combo.slice(0, 1) : combo
-}
-
-// Fichas de treino. O inimigo ataca com 1 a 3 golpes por batida: o golpe i
-// chega no tempo i+1 do compasso, e o 4º tempo é o fechamento.
-export const FICHAS = {
-  saco: {
-    id: 'saco', vida: 60, esquiva: 0, espelho: 0, leitura: 0.15,
-    combos: [
-      { combo: ['maoE', 'maoD'], peso: 4 },
-      { combo: ['maoD', 'maoE', 'peD'], peso: 3 },
-      { combo: ['peD', 'joeD'], peso: 2 },
-      { combo: ['maoD', 'cotD', 'maoE'], peso: 2 },
-    ],
-  },
-  stormbyte: {
-    id: 'stormbyte', vida: 70, esquiva: 0.08, espelho: 0.35, leitura: 0.35,
-    combos: [
-      { combo: ['maoE', 'maoD', 'cotD'], peso: 3 },
-      { combo: ['cotD', 'joeD', 'cotE'], peso: 2 },
-      { combo: ['peE', 'joeE', 'cotE'], peso: 3 },
-      { combo: ['maoE', 'cotE', 'peD'], peso: 2 },
-      { combo: ['cab', 'maoD'], peso: 1 },
-      { combo: ['peD', 'joeD', 'maoE'], peso: 2 },
-    ],
-  },
 }

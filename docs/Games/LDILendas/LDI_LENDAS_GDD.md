@@ -308,6 +308,34 @@ entram as Veias); visão em
 primeira pessoa (só as luvas); mais poderes; combos liberados aos poucos;
 membro machucado.
 
+### 11.1 Campanha do pentagrama
+
+Os inimigos do Lendas em ordem de dificuldade (`batalha/campanhaPentagrama.js`).
+Cada luta define o que o inimigo faz e o kit do jogador naquela luta:
+
+| # | Inimigo | Ele | Você |
+|---|---|---|---|
+| 1 | Saco de Pancada | 1 golpe, defende 1 ponto às vezes | 2 pontos, sem poder |
+| 2 | StormByte_91 · o beco | jab-direto | 2 pontos, Gelo Negro |
+| 3 | A lutadora sem nome | mistura chute | 3 pontos, Gelo Negro |
+| 4 | StormByte_91 · a revanche | até 3 golpes, copia combo, super Choque | 3 pontos, + Choque |
+| 5 | GhostPulse | cotovelo/joelho, esquiva, super Cegueira | 4 pontos, + Cegueira |
+| 6 | IronVeil | sempre defende, bate com osso, super Gelo Negro | 4 pontos, os 3 |
+| 7 | Sombra Digital | lê repetição, esquiva, super Cegueira (5 pontos) | 4 pontos, os 3 |
+| 8 | NULL_ENTITY | tudo; super sorteado, 6 pontos | 4 pontos, os 3 |
+
+- **Poderes:** Gelo Negro (22, congela: 1 golpe na próxima), Choque (14,
+  paralisa: a próxima batida inteira parado), Cegueira (10, cega 2 batidas:
+  quem ataca chuta a defesa; quem defende não vê o anel do beat, o fantasma
+  nem quantos golpes vêm).
+- **Escolher o poder:** barra cheia, o jogo pausa inteiro e mostra os poderes do
+  kit; escolheu, a sequência aparece. Errou a sequência, ela fica pra próxima
+  batida. "Agora não" fecha; tocar na ⚡ reabre.
+- **Super do inimigo:** a barra dele enche um tanto por batida. Cheia, numa
+  batida em que ele ataca, aparece o aviso e uma sequência vermelha de 3 a 6
+  pontos diferentes: tocar todos, em qualquer ordem e fora do beat mesmo,
+  defende e a vez vira; escapou um, toma o dano e o efeito.
+
 ## 12. Arquivos
 
 ```

@@ -457,7 +457,7 @@
       "label": "12. Arquivos",
       "file_type": "document",
       "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L318",
+      "source_location": "L311",
       "_origin": "ast",
       "id": "docs_games_ldilendas_ldi_lendas_gdd_12_arquivos",
       "community": 710,
@@ -517,7 +517,7 @@
       "label": "Replay()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L347",
+      "source_location": "L308",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_batalhalab_replay",
       "community": 71,
@@ -527,7 +527,7 @@
       "label": "Barra()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L371",
+      "source_location": "L332",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_batalhalab_barra",
       "community": 71,
@@ -537,81 +537,11 @@
       "label": "textoPasso()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L387",
+      "source_location": "L348",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_batalhalab_textopasso",
       "community": 71,
       "norm_label": "textopasso()"
-    },
-    {
-      "label": "Pentagrama.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_pentagrama",
-      "community": 71,
-      "norm_label": "pentagrama.jsx"
-    },
-    {
-      "label": "RAIO_ARRASTO",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_pentagrama_raio_arrasto",
-      "community": 71,
-      "norm_label": "raio_arrasto"
-    },
-    {
-      "label": "ESTRELA",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_pentagrama_estrela",
-      "community": 71,
-      "norm_label": "estrela"
-    },
-    {
-      "label": "IDS",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_pentagrama_ids",
-      "community": 71,
-      "norm_label": "ids"
-    },
-    {
-      "label": "pos()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_pentagrama_pos",
-      "community": 71,
-      "norm_label": "pos()"
-    },
-    {
-      "label": "pontoPerto()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_pentagrama_pontoperto",
-      "community": 71,
-      "norm_label": "pontoperto()"
-    },
-    {
-      "label": "Pentagrama()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
-      "community": 71,
-      "norm_label": "pentagrama()"
     },
     {
       "label": "motorPentagrama.js",
@@ -627,7 +557,7 @@
       "label": "PONTOS",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L54",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_pontos",
       "community": 71,
@@ -637,7 +567,7 @@
       "label": "CENTRO",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L65",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_centro",
       "community": 71,
@@ -647,7 +577,7 @@
       "label": "MAX_POR_CARGA",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L66",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_max_por_carga",
       "community": 71,
@@ -657,7 +587,7 @@
       "label": "MULT_CARGA",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L68",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_mult_carga",
       "community": 71,
@@ -667,7 +597,7 @@
       "label": "ORBE",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L80",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_orbe",
       "community": 71,
@@ -677,7 +607,7 @@
       "label": "PODERES",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L86",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_poderes",
       "community": 71,
@@ -687,7 +617,7 @@
       "label": "maxGolpes()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L90",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_maxgolpes",
       "community": 71,
@@ -697,7 +627,7 @@
       "label": "golpesDe()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L92",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
       "community": 71,
@@ -707,7 +637,7 @@
       "label": "podeLigar()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L95",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
       "community": 71,
@@ -717,7 +647,7 @@
       "label": "comboValido()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L101",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_combovalido",
       "community": 71,
@@ -727,7 +657,7 @@
       "label": "gravidade()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L105",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_gravidade",
       "community": 71,
@@ -737,7 +667,7 @@
       "label": "danoDoGolpe()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L107",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_danodogolpe",
       "community": 71,
@@ -747,7 +677,7 @@
       "label": "distSegmento()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L113",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_distsegmento",
       "community": 71,
@@ -757,7 +687,7 @@
       "label": "trechoLimpo()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L120",
+      "source_location": "L119",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo",
       "community": 71,
@@ -767,7 +697,7 @@
       "label": "sequenciaDoPoder()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L126",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder",
       "community": 71,
@@ -777,7 +707,7 @@
       "label": "acertouSequencia()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L139",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_acertousequencia",
       "community": 71,
@@ -787,7 +717,7 @@
       "label": "resolverAtaque()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L148",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
       "community": 71,
@@ -797,7 +727,7 @@
       "label": "comboLido()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L213",
+      "source_location": "L202",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_combolido",
       "community": 71,
@@ -807,37 +737,27 @@
       "label": "PONTO_DO_MEMBRO",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L220",
+      "source_location": "L211",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_ponto_do_membro",
       "community": 71,
       "norm_label": "ponto_do_membro"
     },
     {
-      "label": "defesaDoGolpe()",
+      "label": "escolherDefesaDele()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L224",
+      "source_location": "L213",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_defesadogolpe",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_escolherdefesadele",
       "community": 71,
-      "norm_label": "defesadogolpe()"
-    },
-    {
-      "label": "leituraDe()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L230",
-      "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_leiturade",
-      "community": 71,
-      "norm_label": "leiturade()"
+      "norm_label": "escolherdefesadele()"
     },
     {
       "label": "escolherCombo()",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L236",
+      "source_location": "L230",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_escolhercombo",
       "community": 71,
@@ -847,11 +767,81 @@
       "label": "FICHAS",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L249",
+      "source_location": "L243",
       "_origin": "ast",
       "id": "src_pages_games_ldi_batalha_motorpentagrama_fichas",
       "community": 71,
       "norm_label": "fichas"
+    },
+    {
+      "label": "Pentagrama.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 71,
+      "norm_label": "pentagrama.jsx",
+      "id": "src_pages_games_ldi_batalha_pentagrama"
+    },
+    {
+      "label": "RAIO_ARRASTO",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "community": 71,
+      "norm_label": "raio_arrasto",
+      "id": "src_pages_games_ldi_batalha_pentagrama_raio_arrasto"
+    },
+    {
+      "label": "ESTRELA",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 71,
+      "norm_label": "estrela",
+      "id": "src_pages_games_ldi_batalha_pentagrama_estrela"
+    },
+    {
+      "label": "IDS",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "community": 71,
+      "norm_label": "ids",
+      "id": "src_pages_games_ldi_batalha_pentagrama_ids"
+    },
+    {
+      "label": "pos()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "community": 71,
+      "norm_label": "pos()",
+      "id": "src_pages_games_ldi_batalha_pentagrama_pos"
+    },
+    {
+      "label": "pontoPerto()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "community": 71,
+      "norm_label": "pontoperto()",
+      "id": "src_pages_games_ldi_batalha_pentagrama_pontoperto"
+    },
+    {
+      "label": "Pentagrama()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "community": 71,
+      "norm_label": "pentagrama()",
+      "id": "src_pages_games_ldi_batalha_pentagrama_pentagrama"
     },
     {
       "label": "somPentagrama.js",
@@ -10129,7 +10119,7 @@
       "source_file": "src/lib/sfx.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 460,
+      "community": 713,
       "norm_label": "sfx.js",
       "id": "src_lib_sfx"
     },
@@ -10139,7 +10129,7 @@
       "source_file": "src/lib/sfx.js",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 460,
+      "community": 713,
       "norm_label": "volumesalvo()",
       "id": "src_lib_sfx_volumesalvo"
     },
@@ -10159,7 +10149,7 @@
       "source_file": "src/lib/sfx.js",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 460,
+      "community": 7,
       "norm_label": ".constructor()",
       "id": "src_lib_sfx_sfx_constructor"
     },
@@ -10169,7 +10159,7 @@
       "source_file": "src/lib/sfx.js",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 460,
+      "community": 7,
       "norm_label": "._installunlock()",
       "id": "src_lib_sfx_sfx_installunlock"
     },
@@ -10239,7 +10229,7 @@
       "source_file": "src/lib/sfx.js",
       "source_location": "L113",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": ".setvolume()",
       "id": "src_lib_sfx_sfx_setvolume"
     },
@@ -10369,7 +10359,7 @@
       "source_file": "src/lib/sfx.js",
       "source_location": "L265",
       "_origin": "ast",
-      "community": 713,
+      "community": 7,
       "norm_label": ".win()",
       "id": "src_lib_sfx_sfx_win"
     },
@@ -10389,7 +10379,7 @@
       "source_file": "src/lib/sfx.js",
       "source_location": "L282",
       "_origin": "ast",
-      "community": 713,
+      "community": 7,
       "norm_label": ".draw()",
       "id": "src_lib_sfx_sfx_draw"
     },
@@ -10579,7 +10569,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesOpcoes.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "ganguesopcoes.jsx",
       "id": "src_pages_games_gangues_components_ganguesopcoes"
     },
@@ -10589,7 +10579,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesOpcoes.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "teclas",
       "id": "src_pages_games_gangues_components_ganguesopcoes_teclas"
     },
@@ -10599,7 +10589,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesOpcoes.jsx",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "nocomputador()",
       "id": "src_pages_games_gangues_components_ganguesopcoes_nocomputador"
     },
@@ -10609,7 +10599,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesOpcoes.jsx",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "ganguesopcoes()",
       "id": "src_pages_games_gangues_components_ganguesopcoes_ganguesopcoes"
     },
@@ -10619,7 +10609,7 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTeclado.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "useganguesteclado.js",
       "id": "src_pages_games_gangues_hooks_useganguesteclado"
     },
@@ -10629,7 +10619,7 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTeclado.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "digitando()",
       "id": "src_pages_games_gangues_hooks_useganguesteclado_digitando"
     },
@@ -10639,7 +10629,7 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTeclado.js",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "teclade()",
       "id": "src_pages_games_gangues_hooks_useganguesteclado_teclade"
     },
@@ -10649,7 +10639,7 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTeclado.js",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "useganguesteclado()",
       "id": "src_pages_games_gangues_hooks_useganguesteclado_useganguesteclado"
     },
@@ -10659,7 +10649,7 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTeclado.js",
       "source_location": "L48",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "clicaropcao()",
       "id": "src_pages_games_gangues_hooks_useganguesteclado_clicaropcao"
     },
@@ -10669,7 +10659,7 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesNaming.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "ganguesnaming.jsx",
       "id": "src_pages_games_gangues_screens_ganguesnaming"
     },
@@ -10679,7 +10669,7 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesNaming.jsx",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "logos",
       "id": "src_pages_games_gangues_screens_ganguesnaming_logos"
     },
@@ -10689,7 +10679,7 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesNaming.jsx",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "ganguesnaming()",
       "id": "src_pages_games_gangues_screens_ganguesnaming_ganguesnaming"
     },
@@ -10699,7 +10689,7 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesSaveSelect.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "ganguessaveselect.jsx",
       "id": "src_pages_games_gangues_screens_ganguessaveselect"
     },
@@ -10709,7 +10699,7 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesSaveSelect.jsx",
       "source_location": "L58",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "logos",
       "id": "src_pages_games_gangues_screens_ganguessaveselect_logos"
     },
@@ -10719,7 +10709,7 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesSaveSelect.jsx",
       "source_location": "L59",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "cores_card",
       "id": "src_pages_games_gangues_screens_ganguessaveselect_cores_card"
     },
@@ -10729,7 +10719,7 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesSaveSelect.jsx",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "tijolo_knock_ms",
       "id": "src_pages_games_gangues_screens_ganguessaveselect_tijolo_knock_ms"
     },
@@ -10739,7 +10729,7 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesSaveSelect.jsx",
       "source_location": "L72",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "formatardata()",
       "id": "src_pages_games_gangues_screens_ganguessaveselect_formatardata"
     },
@@ -10749,7 +10739,7 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesSaveSelect.jsx",
       "source_location": "L80",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "territorioparaabrir()",
       "id": "src_pages_games_gangues_screens_ganguessaveselect_territorioparaabrir"
     },
@@ -10759,7 +10749,7 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesSaveSelect.jsx",
       "source_location": "L87",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "ganguessaveselect()",
       "id": "src_pages_games_gangues_screens_ganguessaveselect_ganguessaveselect"
     },
@@ -10769,7 +10759,7 @@
       "source_file": "src/pages/games/Gangues/components/GangDialog.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "gangdialog.jsx",
       "id": "src_pages_games_gangues_components_gangdialog"
     },
@@ -10779,7 +10769,7 @@
       "source_file": "src/pages/games/Gangues/components/GangDialog.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "gangdialog()",
       "id": "src_pages_games_gangues_components_gangdialog_gangdialog"
     },
@@ -10789,7 +10779,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesActionOrb.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "ganguesactionorb.jsx",
       "id": "src_pages_games_gangues_components_ganguesactionorb"
     },
@@ -10799,7 +10789,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesActionOrb.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "anchors",
       "id": "src_pages_games_gangues_components_ganguesactionorb_anchors"
     },
@@ -10809,7 +10799,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesActionOrb.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "possalva()",
       "id": "src_pages_games_gangues_components_ganguesactionorb_possalva"
     },
@@ -10819,7 +10809,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesActionOrb.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "salvarpos()",
       "id": "src_pages_games_gangues_components_ganguesactionorb_salvarpos"
     },
@@ -10829,7 +10819,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesActionOrb.jsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "auto_tutorial_passos",
       "id": "src_pages_games_gangues_components_ganguesactionorb_auto_tutorial_passos"
     },
@@ -10839,7 +10829,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesActionOrb.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "pct()",
       "id": "src_pages_games_gangues_components_ganguesactionorb_pct"
     },
@@ -10849,7 +10839,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesActionOrb.jsx",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 353,
+      "community": 7,
       "norm_label": "ganguesactionorb()",
       "id": "src_pages_games_gangues_components_ganguesactionorb_ganguesactionorb"
     },
@@ -14119,7 +14109,7 @@
       "source_file": "src/config/trial.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 715,
+      "community": 228,
       "norm_label": "trial.js",
       "id": "src_config_trial"
     },
@@ -22639,7 +22629,7 @@
       "source_file": "src/data/search-index.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 715,
+      "community": 228,
       "norm_label": "search-index.js",
       "id": "src_data_search_index"
     },
@@ -22649,7 +22639,7 @@
       "source_file": "src/data/search-index.js",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 715,
+      "community": 228,
       "norm_label": "index",
       "id": "src_data_search_index_index"
     },
@@ -24259,7 +24249,7 @@
       "source_file": "src/pages/games/Tamagoshi/store/useTamagoshiStore.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 677,
       "norm_label": "usetamagoshistore.js",
       "id": "src_pages_games_tamagoshi_store_usetamagoshistore"
     },
@@ -24269,7 +24259,7 @@
       "source_file": "src/pages/games/Tamagoshi/store/useTamagoshiStore.js",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 8,
+      "community": 677,
       "norm_label": "pontos_tama",
       "id": "src_pages_games_tamagoshi_store_usetamagoshistore_pontos_tama"
     },
@@ -24279,7 +24269,7 @@
       "source_file": "src/pages/games/Tamagoshi/store/useTamagoshiStore.js",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 8,
+      "community": 677,
       "norm_label": "base_decay",
       "id": "src_pages_games_tamagoshi_store_usetamagoshistore_base_decay"
     },
@@ -24289,7 +24279,7 @@
       "source_file": "src/pages/games/Tamagoshi/store/useTamagoshiStore.js",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 8,
+      "community": 677,
       "norm_label": "barra_para_campo",
       "id": "src_pages_games_tamagoshi_store_usetamagoshistore_barra_para_campo"
     },
@@ -24299,7 +24289,7 @@
       "source_file": "src/pages/games/Tamagoshi/store/useTamagoshiStore.js",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 8,
+      "community": 677,
       "norm_label": "getfocusedbars()",
       "id": "src_pages_games_tamagoshi_store_usetamagoshistore_getfocusedbars"
     },
@@ -24309,7 +24299,7 @@
       "source_file": "src/pages/games/Tamagoshi/store/useTamagoshiStore.js",
       "source_location": "L50",
       "_origin": "ast",
-      "community": 8,
+      "community": 677,
       "norm_label": "gettaxa()",
       "id": "src_pages_games_tamagoshi_store_usetamagoshistore_gettaxa"
     },
@@ -24319,7 +24309,7 @@
       "source_file": "src/pages/games/Tamagoshi/store/useTamagoshiStore.js",
       "source_location": "L60",
       "_origin": "ast",
-      "community": 8,
+      "community": 677,
       "norm_label": "calcbarra()",
       "id": "src_pages_games_tamagoshi_store_usetamagoshistore_calcbarra"
     },
@@ -24329,7 +24319,7 @@
       "source_file": "src/pages/games/Tamagoshi/store/useTamagoshiStore.js",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 8,
+      "community": 677,
       "norm_label": "calcestado()",
       "id": "src_pages_games_tamagoshi_store_usetamagoshistore_calcestado"
     },
@@ -24339,7 +24329,7 @@
       "source_file": "src/pages/games/Tamagoshi/store/useTamagoshiStore.js",
       "source_location": "L121",
       "_origin": "ast",
-      "community": 8,
+      "community": 677,
       "norm_label": "defaultstate",
       "id": "src_pages_games_tamagoshi_store_usetamagoshistore_defaultstate"
     },
@@ -28219,7 +28209,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 125,
+      "community": 87,
       "norm_label": "authcontext.jsx",
       "id": "src_context_authcontext"
     },
@@ -28229,7 +28219,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 125,
+      "community": 87,
       "norm_label": "authcontext",
       "id": "src_context_authcontext_authcontext"
     },
@@ -28239,7 +28229,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 125,
+      "community": 87,
       "norm_label": "lercadastropendente()",
       "id": "src_context_authcontext_lercadastropendente"
     },
@@ -28249,7 +28239,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 125,
+      "community": 87,
       "norm_label": "limparcadastropendente()",
       "id": "src_context_authcontext_limparcadastropendente"
     },
@@ -28259,7 +28249,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 125,
+      "community": 87,
       "norm_label": "authprovider()",
       "id": "src_context_authcontext_authprovider"
     },
@@ -28269,7 +28259,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L240",
       "_origin": "ast",
-      "community": 125,
+      "community": 87,
       "norm_label": "useauth()",
       "id": "src_context_authcontext_useauth"
     },
@@ -28699,7 +28689,7 @@
       "source_file": "src/components/Puzzles/PuzzleStealthGrid.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 708,
+      "community": 23,
       "norm_label": "puzzlestealthgrid.jsx",
       "id": "src_components_puzzles_puzzlestealthgrid"
     },
@@ -28709,7 +28699,7 @@
       "source_file": "src/components/Puzzles/PuzzleStealthGrid.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 708,
+      "community": 23,
       "norm_label": "getvisioncone()",
       "id": "src_components_puzzles_puzzlestealthgrid_getvisioncone"
     },
@@ -28719,7 +28709,7 @@
       "source_file": "src/components/Puzzles/PuzzleStealthGrid.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 708,
+      "community": 23,
       "norm_label": "calculateallvision()",
       "id": "src_components_puzzles_puzzlestealthgrid_calculateallvision"
     },
@@ -28729,7 +28719,7 @@
       "source_file": "src/components/Puzzles/PuzzleStealthGrid.jsx",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 708,
+      "community": 23,
       "norm_label": "temcaminholivre()",
       "id": "src_components_puzzles_puzzlestealthgrid_temcaminholivre"
     },
@@ -28739,7 +28729,7 @@
       "source_file": "src/components/Puzzles/PuzzleStealthGrid.jsx",
       "source_location": "L50",
       "_origin": "ast",
-      "community": 708,
+      "community": 23,
       "norm_label": "gerarcameras()",
       "id": "src_components_puzzles_puzzlestealthgrid_gerarcameras"
     },
@@ -28749,7 +28739,7 @@
       "source_file": "src/components/Puzzles/PuzzleStealthGrid.jsx",
       "source_location": "L68",
       "_origin": "ast",
-      "community": 708,
+      "community": 23,
       "norm_label": "puzzlestealthgrid()",
       "id": "src_components_puzzles_puzzlestealthgrid_puzzlestealthgrid"
     },
@@ -32169,7 +32159,7 @@
       "source_file": "src/components/GuestNotice/GuestNotice.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 125,
+      "community": 87,
       "norm_label": "guestnotice.jsx",
       "id": "src_components_guestnotice_guestnotice"
     },
@@ -32179,7 +32169,7 @@
       "source_file": "src/components/GuestNotice/GuestNotice.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 125,
+      "community": 87,
       "norm_label": "guestnotice()",
       "id": "src_components_guestnotice_guestnotice_guestnotice"
     },
@@ -33019,7 +33009,7 @@
       "source_file": "src/components/SearchModal/SearchModal.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 715,
+      "community": 228,
       "norm_label": "searchmodal.jsx",
       "id": "src_components_searchmodal_searchmodal"
     },
@@ -33029,7 +33019,7 @@
       "source_file": "src/components/SearchModal/SearchModal.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 715,
+      "community": 228,
       "norm_label": "searchmodal()",
       "id": "src_components_searchmodal_searchmodal_searchmodal"
     },
@@ -33259,7 +33249,7 @@
       "source_file": "src/context/AchievementsContext.jsx",
       "source_location": "L114",
       "_origin": "ast",
-      "community": 228,
+      "community": 125,
       "norm_label": "useachievements()",
       "id": "src_context_achievementscontext_useachievements"
     },
@@ -33459,7 +33449,7 @@
       "source_file": "src/context/ReaderContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "readercontext.jsx",
       "id": "src_context_readercontext"
     },
@@ -33469,7 +33459,7 @@
       "source_file": "src/context/ReaderContext.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "readercontext",
       "id": "src_context_readercontext_readercontext"
     },
@@ -33479,7 +33469,7 @@
       "source_file": "src/context/ReaderContext.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "readerprovider()",
       "id": "src_context_readercontext_readerprovider"
     },
@@ -33489,7 +33479,7 @@
       "source_file": "src/context/ReaderContext.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "usereader()",
       "id": "src_context_readercontext_usereader"
     },
@@ -33639,7 +33629,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "salvarcartasdeck()",
       "id": "src_hooks_useleaderboarddb_salvarcartasdeck"
     },
@@ -33659,7 +33649,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L50",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "substituirdeck()",
       "id": "src_hooks_useleaderboarddb_substituirdeck"
     },
@@ -34199,7 +34189,7 @@
       "source_file": "src/hooks/useTopTrumpsMP.js",
       "source_location": "L164",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "registrarmovimento()",
       "id": "src_hooks_usetoptrumpsmp_registrarmovimento"
     },
@@ -34279,7 +34269,7 @@
       "source_file": "src/hooks/useTopTrumpsMP.js",
       "source_location": "L242",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "subscribetomatchpresence()",
       "id": "src_hooks_usetoptrumpsmp_subscribetomatchpresence"
     },
@@ -34289,7 +34279,7 @@
       "source_file": "src/hooks/useTopTrumpsMP.js",
       "source_location": "L260",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "subscribetomovimentos()",
       "id": "src_hooks_usetoptrumpsmp_subscribetomovimentos"
     },
@@ -34859,7 +34849,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "toptrumpscardaccess.js",
       "id": "src_lib_toptrumpscardaccess"
     },
@@ -34869,7 +34859,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "top_trumps_card_limits",
       "id": "src_lib_toptrumpscardaccess_top_trumps_card_limits"
     },
@@ -34879,7 +34869,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "card_ids_by_tier",
       "id": "src_lib_toptrumpscardaccess_card_ids_by_tier"
     },
@@ -34889,7 +34879,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "access_rank",
       "id": "src_lib_toptrumpscardaccess_access_rank"
     },
@@ -34899,7 +34889,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "card_rank",
       "id": "src_lib_toptrumpscardaccess_card_rank"
     },
@@ -34909,7 +34899,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "gettoptrumpstierforcard()",
       "id": "src_lib_toptrumpscardaccess_gettoptrumpstierforcard"
     },
@@ -34919,7 +34909,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "gettoptrumpsaccesstier()",
       "id": "src_lib_toptrumpscardaccess_gettoptrumpsaccesstier"
     },
@@ -34929,7 +34919,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "canacquiretoptrumpscard()",
       "id": "src_lib_toptrumpscardaccess_canacquiretoptrumpscard"
     },
@@ -34939,7 +34929,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L41",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "filtertoptrumpscardpool()",
       "id": "src_lib_toptrumpscardaccess_filtertoptrumpscardpool"
     },
@@ -34949,7 +34939,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L45",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "filtertoptrumpsinitialaccountpool()",
       "id": "src_lib_toptrumpscardaccess_filtertoptrumpsinitialaccountpool"
     },
@@ -34989,7 +34979,7 @@
       "source_file": "src/lib/topTrumpsCardImages.js",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "gettoptrumpscardimage()",
       "id": "src_lib_toptrumpscardimages_gettoptrumpscardimage"
     },
@@ -37609,7 +37599,7 @@
       "source_file": "src/pages/games/Duelo/data/cards.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "cards.js",
       "id": "src_pages_games_duelo_data_cards"
     },
@@ -37619,7 +37609,7 @@
       "source_file": "src/pages/games/Duelo/data/cards.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "cards",
       "id": "src_pages_games_duelo_data_cards_cards"
     },
@@ -37629,7 +37619,7 @@
       "source_file": "src/pages/games/Duelo/data/cards.js",
       "source_location": "L81",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "getcardbynum()",
       "id": "src_pages_games_duelo_data_cards_getcardbynum"
     },
@@ -37639,7 +37629,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "ai.js",
       "id": "src_pages_games_duelo_engine_ai"
     },
@@ -37649,7 +37639,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "getaimonsters()",
       "id": "src_pages_games_duelo_engine_ai_getaimonsters"
     },
@@ -37659,7 +37649,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "getplayermonsters()",
       "id": "src_pages_games_duelo_engine_ai_getplayermonsters"
     },
@@ -37669,7 +37659,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "geteffectiveatk()",
       "id": "src_pages_games_duelo_engine_ai_geteffectiveatk"
     },
@@ -37679,7 +37669,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "geteffectivedef()",
       "id": "src_pages_games_duelo_engine_ai_geteffectivedef"
     },
@@ -37689,7 +37679,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L42",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "geteffectivemov()",
       "id": "src_pages_games_duelo_engine_ai_geteffectivemov"
     },
@@ -37699,7 +37689,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L47",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "geteffectiverng()",
       "id": "src_pages_games_duelo_engine_ai_geteffectiverng"
     },
@@ -37709,7 +37699,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "aisacrificiosnecessarios()",
       "id": "src_pages_games_duelo_engine_ai_aisacrificiosnecessarios"
     },
@@ -37719,7 +37709,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L61",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "countaimonsters()",
       "id": "src_pages_games_duelo_engine_ai_countaimonsters"
     },
@@ -37729,7 +37719,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "sacrificeaimonsters()",
       "id": "src_pages_games_duelo_engine_ai_sacrificeaimonsters"
     },
@@ -37739,7 +37729,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L85",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "findsummonposition()",
       "id": "src_pages_games_duelo_engine_ai_findsummonposition"
     },
@@ -37749,7 +37739,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L96",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "findtrapposition()",
       "id": "src_pages_games_duelo_engine_ai_findtrapposition"
     },
@@ -37759,7 +37749,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L108",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "aidescerfase()",
       "id": "src_pages_games_duelo_engine_ai_aidescerfase"
     },
@@ -37769,7 +37759,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L206",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "aimovimentofase()",
       "id": "src_pages_games_duelo_engine_ai_aimovimentofase"
     },
@@ -37779,7 +37769,7 @@
       "source_file": "src/pages/games/Duelo/engine/ai.js",
       "source_location": "L272",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "aiataquefase()",
       "id": "src_pages_games_duelo_engine_ai_aiataquefase"
     },
@@ -37789,7 +37779,7 @@
       "source_file": "src/pages/games/Duelo/engine/deck.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "deck.js",
       "id": "src_pages_games_duelo_engine_deck"
     },
@@ -37799,7 +37789,7 @@
       "source_file": "src/pages/games/Duelo/engine/deck.js",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "shuffle()",
       "id": "src_pages_games_duelo_engine_deck_shuffle"
     },
@@ -37809,7 +37799,7 @@
       "source_file": "src/pages/games/Duelo/engine/deck.js",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "draw()",
       "id": "src_pages_games_duelo_engine_deck_draw"
     },
@@ -37819,7 +37809,7 @@
       "source_file": "src/pages/games/Duelo/engine/deck.js",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "drawmultiple()",
       "id": "src_pages_games_duelo_engine_deck_drawmultiple"
     },
@@ -37829,7 +37819,7 @@
       "source_file": "src/pages/games/Duelo/engine/deck.js",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "createshuffleddeck()",
       "id": "src_pages_games_duelo_engine_deck_createshuffleddeck"
     },
@@ -37869,7 +37859,7 @@
       "source_file": "src/pages/games/Duelo/engine/gameState.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "gamestate.js",
       "id": "src_pages_games_duelo_engine_gamestate"
     },
@@ -37879,7 +37869,7 @@
       "source_file": "src/pages/games/Duelo/engine/gameState.js",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "createemptygrid()",
       "id": "src_pages_games_duelo_engine_gamestate_createemptygrid"
     },
@@ -37889,7 +37879,7 @@
       "source_file": "src/pages/games/Duelo/engine/gameState.js",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "manhattan()",
       "id": "src_pages_games_duelo_engine_gamestate_manhattan"
     },
@@ -37899,7 +37889,7 @@
       "source_file": "src/pages/games/Duelo/engine/gameState.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "getmoverange()",
       "id": "src_pages_games_duelo_engine_gamestate_getmoverange"
     },
@@ -37909,7 +37899,7 @@
       "source_file": "src/pages/games/Duelo/engine/gameState.js",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "getattackrange()",
       "id": "src_pages_games_duelo_engine_gamestate_getattackrange"
     },
@@ -37919,7 +37909,7 @@
       "source_file": "src/pages/games/Duelo/engine/gameState.js",
       "source_location": "L82",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "isplayerterritory()",
       "id": "src_pages_games_duelo_engine_gamestate_isplayerterritory"
     },
@@ -37929,7 +37919,7 @@
       "source_file": "src/pages/games/Duelo/engine/gameState.js",
       "source_location": "L83",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "isaiterritory()",
       "id": "src_pages_games_duelo_engine_gamestate_isaiterritory"
     },
@@ -37939,7 +37929,7 @@
       "source_file": "src/pages/games/Duelo/engine/gameState.js",
       "source_location": "L84",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "getplayerrows()",
       "id": "src_pages_games_duelo_engine_gamestate_getplayerrows"
     },
@@ -37949,7 +37939,7 @@
       "source_file": "src/pages/games/Duelo/engine/gameState.js",
       "source_location": "L85",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "getairows()",
       "id": "src_pages_games_duelo_engine_gamestate_getairows"
     },
@@ -37959,7 +37949,7 @@
       "source_file": "src/pages/games/Duelo/engine/gameState.js",
       "source_location": "L88",
       "_origin": "ast",
-      "community": 17,
+      "community": 22,
       "norm_label": "createinitialstate()",
       "id": "src_pages_games_duelo_engine_gamestate_createinitialstate"
     },
@@ -38029,7 +38019,7 @@
       "source_file": "src/pages/games/Duelo/screens/DueloMenu.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 60,
+      "community": 17,
       "norm_label": "duelomenu()",
       "id": "src_pages_games_duelo_screens_duelomenu_duelomenu"
     },
@@ -38039,7 +38029,7 @@
       "source_file": "src/pages/games/Duelo/screens/DueloVitoria.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 60,
+      "community": 17,
       "norm_label": "duelovitoria.jsx",
       "id": "src_pages_games_duelo_screens_duelovitoria"
     },
@@ -38049,7 +38039,7 @@
       "source_file": "src/pages/games/Duelo/screens/DueloVitoria.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 60,
+      "community": 17,
       "norm_label": "duelovitoria()",
       "id": "src_pages_games_duelo_screens_duelovitoria_duelovitoria"
     },
@@ -38949,7 +38939,7 @@
       "source_file": "src/pages/games/KernelGames/CodigoPerdido/CodigoPerdido.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 460,
+      "community": 713,
       "norm_label": "codigoperdido.jsx",
       "id": "src_pages_games_kernelgames_codigoperdido_codigoperdido"
     },
@@ -38959,7 +38949,7 @@
       "source_file": "src/pages/games/KernelGames/CodigoPerdido/CodigoPerdido.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 460,
+      "community": 713,
       "norm_label": "keyboard_rows",
       "id": "src_pages_games_kernelgames_codigoperdido_codigoperdido_keyboard_rows"
     },
@@ -38969,7 +38959,7 @@
       "source_file": "src/pages/games/KernelGames/CodigoPerdido/CodigoPerdido.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 460,
+      "community": 713,
       "norm_label": "dif_cfg",
       "id": "src_pages_games_kernelgames_codigoperdido_codigoperdido_dif_cfg"
     },
@@ -38979,7 +38969,7 @@
       "source_file": "src/pages/games/KernelGames/CodigoPerdido/CodigoPerdido.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 460,
+      "community": 713,
       "norm_label": "pick()",
       "id": "src_pages_games_kernelgames_codigoperdido_codigoperdido_pick"
     },
@@ -38989,7 +38979,7 @@
       "source_file": "src/pages/games/KernelGames/CodigoPerdido/CodigoPerdido.jsx",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 460,
+      "community": 713,
       "norm_label": "puzzlecodigoperdido()",
       "id": "src_pages_games_kernelgames_codigoperdido_codigoperdido_puzzlecodigoperdido"
     },
@@ -38999,7 +38989,7 @@
       "source_file": "src/pages/games/KernelGames/CodigoPerdido/CodigoPerdido.jsx",
       "source_location": "L215",
       "_origin": "ast",
-      "community": 460,
+      "community": 713,
       "norm_label": "codigoperdido()",
       "id": "src_pages_games_kernelgames_codigoperdido_codigoperdido_codigoperdido"
     },
@@ -39009,7 +38999,7 @@
       "source_file": "src/pages/games/KernelGames/GlitchRafael/GlitchRafael.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "glitchrafael.jsx",
       "id": "src_pages_games_kernelgames_glitchrafael_glitchrafael"
     },
@@ -39019,7 +39009,7 @@
       "source_file": "src/pages/games/KernelGames/GlitchRafael/GlitchRafael.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "cfg",
       "id": "src_pages_games_kernelgames_glitchrafael_glitchrafael_cfg"
     },
@@ -39029,7 +39019,7 @@
       "source_file": "src/pages/games/KernelGames/GlitchRafael/GlitchRafael.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "pick()",
       "id": "src_pages_games_kernelgames_glitchrafael_glitchrafael_pick"
     },
@@ -39049,7 +39039,7 @@
       "source_file": "src/pages/games/KernelGames/GlitchRafael/GlitchRafael.jsx",
       "source_location": "L291",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "glitchrafael()",
       "id": "src_pages_games_kernelgames_glitchrafael_glitchrafael_glitchrafael"
     },
@@ -40059,7 +40049,7 @@
       "source_file": "src/pages/games/KernelGames/MazeRafael/MazeRafael.jsx",
       "source_location": "L575",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "mazerafael()",
       "id": "src_pages_games_kernelgames_mazerafael_mazerafael_mazerafael"
     },
@@ -40069,7 +40059,7 @@
       "source_file": "src/pages/games/KernelGames/SlidingRafael/SlidingRafael.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "slidingrafael.jsx",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael"
     },
@@ -40079,7 +40069,7 @@
       "source_file": "src/pages/games/KernelGames/SlidingRafael/SlidingRafael.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "cfg",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_cfg"
     },
@@ -40089,7 +40079,7 @@
       "source_file": "src/pages/games/KernelGames/SlidingRafael/SlidingRafael.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "getneighbors()",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_getneighbors"
     },
@@ -40099,7 +40089,7 @@
       "source_file": "src/pages/games/KernelGames/SlidingRafael/SlidingRafael.jsx",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "generateboard()",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_generateboard"
     },
@@ -40109,7 +40099,7 @@
       "source_file": "src/pages/games/KernelGames/SlidingRafael/SlidingRafael.jsx",
       "source_location": "L41",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "issolved()",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_issolved"
     },
@@ -40119,7 +40109,7 @@
       "source_file": "src/pages/games/KernelGames/SlidingRafael/SlidingRafael.jsx",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "puzzleslidingrafael()",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_puzzleslidingrafael"
     },
@@ -40129,7 +40119,7 @@
       "source_file": "src/pages/games/KernelGames/SlidingRafael/SlidingRafael.jsx",
       "source_location": "L279",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "slidingrafael()",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_slidingrafael"
     },
@@ -41029,7 +41019,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/BalloonFala.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 717,
       "norm_label": "balloonfala.jsx",
       "id": "src_pages_games_tamagoshi_components_balloonfala"
     },
@@ -41039,7 +41029,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/BalloonFala.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 8,
+      "community": 717,
       "norm_label": "balloonfala()",
       "id": "src_pages_games_tamagoshi_components_balloonfala_balloonfala"
     },
@@ -41069,7 +41059,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/CriaturaSprite.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "criaturasprite.jsx",
       "id": "src_pages_games_tamagoshi_components_criaturasprite"
     },
@@ -41079,7 +41069,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/CriaturaSprite.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "estado_anim",
       "id": "src_pages_games_tamagoshi_components_criaturasprite_estado_anim"
     },
@@ -41089,7 +41079,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/CriaturaSprite.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "resolverestadovisualtama()",
       "id": "src_pages_games_tamagoshi_components_criaturasprite_resolverestadovisualtama"
     },
@@ -41099,7 +41089,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/CriaturaSprite.jsx",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "criaturasprite()",
       "id": "src_pages_games_tamagoshi_components_criaturasprite_criaturasprite"
     },
@@ -41109,7 +41099,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/MetricBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 717,
       "norm_label": "metricbar.jsx",
       "id": "src_pages_games_tamagoshi_components_metricbar"
     },
@@ -41119,7 +41109,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/MetricBar.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 8,
+      "community": 717,
       "norm_label": "metricbar()",
       "id": "src_pages_games_tamagoshi_components_metricbar_metricbar"
     },
@@ -41129,7 +41119,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "criaturas.js",
       "id": "src_pages_games_tamagoshi_data_criaturas"
     },
@@ -41139,7 +41129,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L111",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "sprite_1",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_1"
     },
@@ -41149,7 +41139,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L127",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "sprite_2",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_2"
     },
@@ -41159,7 +41149,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L143",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "sprite_3",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_3"
     },
@@ -41169,7 +41159,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L159",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "sprite_4",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_4"
     },
@@ -41179,7 +41169,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L175",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "sprite_5",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_5"
     },
@@ -41189,7 +41179,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L191",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "sprite_6",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_6"
     },
@@ -41199,7 +41189,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L207",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "sprite_7",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_7"
     },
@@ -41209,7 +41199,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L223",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "sprite_8",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_8"
     },
@@ -41219,7 +41209,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L239",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "sprite_9",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_9"
     },
@@ -41229,7 +41219,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L255",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "sprite_10",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_10"
     },
@@ -41239,7 +41229,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L272",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "criaturas_base",
       "id": "src_pages_games_tamagoshi_data_criaturas_criaturas_base"
     },
@@ -41249,7 +41239,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L315",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "sprite_map",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_map"
     },
@@ -41259,7 +41249,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L327",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "criaturas",
       "id": "src_pages_games_tamagoshi_data_criaturas_criaturas"
     },
@@ -41359,7 +41349,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/itens_loja.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "itens_loja.js",
       "id": "src_pages_games_tamagoshi_data_itens_loja"
     },
@@ -41369,7 +41359,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/itens_loja.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "itens_loja",
       "id": "src_pages_games_tamagoshi_data_itens_loja_itens_loja"
     },
@@ -41379,7 +41369,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/itens_loja.js",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "item_key_map",
       "id": "src_pages_games_tamagoshi_data_itens_loja_item_key_map"
     },
@@ -41389,7 +41379,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/itens_loja.js",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "comida_tematica",
       "id": "src_pages_games_tamagoshi_data_itens_loja_comida_tematica"
     },
@@ -41399,7 +41389,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/moedas.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 715,
       "norm_label": "moedas.js",
       "id": "src_pages_games_tamagoshi_data_moedas"
     },
@@ -41409,7 +41399,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/moedas.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 8,
+      "community": 715,
       "norm_label": "dix_boas_vindas",
       "id": "src_pages_games_tamagoshi_data_moedas_dix_boas_vindas"
     },
@@ -41429,7 +41419,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/moedas.js",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 8,
+      "community": 715,
       "norm_label": "badges",
       "id": "src_pages_games_tamagoshi_data_moedas_badges"
     },
@@ -41439,7 +41429,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/moedas.js",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 8,
+      "community": 715,
       "norm_label": "textos_partida",
       "id": "src_pages_games_tamagoshi_data_moedas_textos_partida"
     },
@@ -41449,7 +41439,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 129,
+      "community": 718,
       "norm_label": "passeios.js",
       "id": "src_pages_games_tamagoshi_data_passeios"
     },
@@ -41459,7 +41449,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 129,
+      "community": 718,
       "norm_label": "passeios",
       "id": "src_pages_games_tamagoshi_data_passeios_passeios"
     },
@@ -41469,7 +41459,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 129,
+      "community": 718,
       "norm_label": "passeio_key_map",
       "id": "src_pages_games_tamagoshi_data_passeios_passeio_key_map"
     },
@@ -41479,7 +41469,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L55",
       "_origin": "ast",
-      "community": 129,
+      "community": 718,
       "norm_label": "getpasseio()",
       "id": "src_pages_games_tamagoshi_data_passeios_getpasseio"
     },
@@ -41499,7 +41489,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/personalidades.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 129,
+      "community": 717,
       "norm_label": "personalidades",
       "id": "src_pages_games_tamagoshi_data_personalidades_personalidades"
     },
@@ -41539,7 +41529,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Alimentar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "alimentar.jsx",
       "id": "src_pages_games_tamagoshi_screens_alimentar"
     },
@@ -41559,7 +41549,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Banhar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "banhar.jsx",
       "id": "src_pages_games_tamagoshi_screens_banhar"
     },
@@ -41569,7 +41559,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Banhar.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "banhar()",
       "id": "src_pages_games_tamagoshi_screens_banhar_banhar"
     },
@@ -41619,7 +41609,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Criatura.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 717,
       "norm_label": "criatura.jsx",
       "id": "src_pages_games_tamagoshi_screens_criatura"
     },
@@ -41679,7 +41669,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Loja.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "loja.jsx",
       "id": "src_pages_games_tamagoshi_screens_loja"
     },
@@ -41699,7 +41689,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Luto.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 60,
+      "community": 8,
       "norm_label": "luto.jsx",
       "id": "src_pages_games_tamagoshi_screens_luto"
     },
@@ -41739,7 +41729,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Partida.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "partida.jsx",
       "id": "src_pages_games_tamagoshi_screens_partida"
     },
@@ -41749,7 +41739,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Partida.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "tipo_para_key",
       "id": "src_pages_games_tamagoshi_screens_partida_tipo_para_key"
     },
@@ -41759,7 +41749,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Partida.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 8,
+      "community": 353,
       "norm_label": "partida()",
       "id": "src_pages_games_tamagoshi_screens_partida_partida"
     },
@@ -41769,7 +41759,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passear.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 353,
       "norm_label": "passear.jsx",
       "id": "src_pages_games_tamagoshi_screens_passear"
     },
@@ -41779,7 +41769,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passear.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 23,
+      "community": 353,
       "norm_label": "getvidas()",
       "id": "src_pages_games_tamagoshi_screens_passear_getvidas"
     },
@@ -41789,7 +41779,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passear.jsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 23,
+      "community": 353,
       "norm_label": "passear()",
       "id": "src_pages_games_tamagoshi_screens_passear_passear"
     },
@@ -41799,7 +41789,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passeio.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 129,
+      "community": 718,
       "norm_label": "passeio.jsx",
       "id": "src_pages_games_tamagoshi_screens_passeio"
     },
@@ -41809,7 +41799,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passeio.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 129,
+      "community": 718,
       "norm_label": "passeio()",
       "id": "src_pages_games_tamagoshi_screens_passeio_passeio"
     },
@@ -41819,7 +41809,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 716,
       "norm_label": "restaurarsaude.jsx",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude"
     },
@@ -41829,7 +41819,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 8,
+      "community": 716,
       "norm_label": "acoes",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_acoes"
     },
@@ -41839,7 +41829,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 8,
+      "community": 716,
       "norm_label": "itens_saude",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_itens_saude"
     },
@@ -41849,7 +41839,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 8,
+      "community": 716,
       "norm_label": "item_emoji",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_item_emoji"
     },
@@ -41859,7 +41849,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 8,
+      "community": 716,
       "norm_label": "gerarparticulas()",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_gerarparticulas"
     },
@@ -41869,7 +41859,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 8,
+      "community": 716,
       "norm_label": "gerarbolhas()",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_gerarbolhas"
     },
@@ -41879,7 +41869,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 8,
+      "community": 716,
       "norm_label": "restaurarsaude()",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_restaurarsaude"
     },
@@ -41969,7 +41959,7 @@
       "source_file": "src/pages/games/Tamagoshi/sfx.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "sfx.js",
       "id": "src_pages_games_tamagoshi_sfx"
     },
@@ -41979,7 +41969,7 @@
       "source_file": "src/pages/games/Tamagoshi/sfx.js",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "getctx()",
       "id": "src_pages_games_tamagoshi_sfx_getctx"
     },
@@ -41989,7 +41979,7 @@
       "source_file": "src/pages/games/Tamagoshi/sfx.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "tocar()",
       "id": "src_pages_games_tamagoshi_sfx_tocar"
     },
@@ -41999,7 +41989,7 @@
       "source_file": "src/pages/games/Tamagoshi/sfx.js",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 8,
+      "community": 460,
       "norm_label": "sfx",
       "id": "src_pages_games_tamagoshi_sfx_sfx"
     },
@@ -42009,7 +41999,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "toptrumpsmp.jsx",
       "id": "src_pages_games_toptrumps_toptrumpsmp"
     },
@@ -42019,7 +42009,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "logmp()",
       "id": "src_pages_games_toptrumps_toptrumpsmp_logmp"
     },
@@ -42029,7 +42019,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "attrnomekey()",
       "id": "src_pages_games_toptrumps_toptrumpsmp_attrnomekey"
     },
@@ -42039,7 +42029,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "avatarcor()",
       "id": "src_pages_games_toptrumps_toptrumpsmp_avatarcor"
     },
@@ -42049,7 +42039,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "toptrumpsmp()",
       "id": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp"
     },
@@ -42059,7 +42049,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L816",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "note: para top trumps (um jogador por rodada) nao dependemos mais",
       "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_816"
     },
@@ -42519,7 +42509,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "usemultiplayerturnmachine.js",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine"
     },
@@ -42529,7 +42519,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "initialstate",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_initialstate"
     },
@@ -42539,7 +42529,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "reduce()",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_reduce"
     },
@@ -42549,7 +42539,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js",
       "source_location": "L62",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "usemultiplayerturnmachine()",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_usemultiplayerturnmachine"
     },
@@ -42559,7 +42549,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useTopTrumpsDeck.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "usetoptrumpsdeck.js",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsdeck"
     },
@@ -42569,7 +42559,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useTopTrumpsDeck.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "embaralhar()",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsdeck_embaralhar"
     },
@@ -42579,7 +42569,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useTopTrumpsDeck.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 226,
+      "community": 708,
       "norm_label": "usetoptrumpsdeck()",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsdeck_usetoptrumpsdeck"
     },
@@ -42639,7 +42629,7 @@
       "source_file": "src/pages/games/TopTrumps/utils/deterministicDeck.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "deterministicdeck.js",
       "id": "src_pages_games_toptrumps_utils_deterministicdeck"
     },
@@ -42649,7 +42639,7 @@
       "source_file": "src/pages/games/TopTrumps/utils/deterministicDeck.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "hashseed()",
       "id": "src_pages_games_toptrumps_utils_deterministicdeck_hashseed"
     },
@@ -42659,7 +42649,7 @@
       "source_file": "src/pages/games/TopTrumps/utils/deterministicDeck.js",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 220,
+      "community": 441,
       "norm_label": "ordenardeckdeterministico()",
       "id": "src_pages_games_toptrumps_utils_deterministicdeck_ordenardeckdeterministico"
     },
@@ -43109,7 +43099,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/TurnController.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 24,
+      "community": 549,
       "norm_label": "tipoacao",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turncontroller_tipoacao"
     },
@@ -43339,7 +43329,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "ai.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai"
     },
@@ -43349,7 +43339,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai.js",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "decidiracaoia()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_decidiracaoia"
     },
@@ -44739,7 +44729,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "combat.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat"
     },
@@ -44749,7 +44739,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "calcularfa()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfa"
     },
@@ -44759,7 +44749,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "calcularfd()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfd"
     },
@@ -44769,7 +44759,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "resolverataque()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_resolverataque"
     },
@@ -44779,7 +44769,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L129",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "resolvercontraataque()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_resolvercontraataque"
     },
@@ -44789,7 +44779,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L153",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "rolard6()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_rolard6"
     },
@@ -44799,7 +44789,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L162",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "getcasasmovimento()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_getcasasmovimento"
     },
@@ -44809,7 +44799,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L174",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "gethp()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_gethp"
     },
@@ -44819,7 +44809,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L182",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "getmp()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_getmp"
     },
@@ -44829,7 +44819,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L189",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "getchanceacerto()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_getchanceacerto"
     },
@@ -44839,7 +44829,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L203",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "criarpersonagem()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_criarpersonagem"
     },
@@ -45129,7 +45119,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 441,
+      "community": 289,
       "norm_label": "regrasficha.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha"
     },
@@ -45139,7 +45129,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 441,
+      "community": 289,
       "norm_label": "cores_disponiveis",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_cores_disponiveis"
     },
@@ -45149,7 +45139,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 441,
+      "community": 289,
       "norm_label": "nomes_disponiveis",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_nomes_disponiveis"
     },
@@ -45169,7 +45159,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 441,
+      "community": 289,
       "norm_label": "podeadicionarpersonagemabatalha()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_podeadicionarpersonagemabatalha"
     },
@@ -45179,7 +45169,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 441,
+      "community": 289,
       "norm_label": "cordisponivel()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_cordisponivel"
     },
@@ -45189,7 +45179,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 441,
+      "community": 289,
       "norm_label": "nomedisponivel()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_nomedisponivel"
     },
@@ -45199,7 +45189,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 441,
+      "community": 289,
       "norm_label": "getcoresdisponiveis()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_getcoresdisponiveis"
     },
@@ -45209,7 +45199,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 441,
+      "community": 289,
       "norm_label": "getnomesdisponiveis()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_getnomesdisponiveis"
     },
@@ -45219,7 +45209,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "turnorder.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder"
     },
@@ -45229,7 +45219,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "calculargruposeordem()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder_calculargruposeordem"
     },
@@ -45239,7 +45229,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L60",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "aplicarordeminterna()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder_aplicarordeminterna"
     },
@@ -45249,7 +45239,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L68",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "encontrarproximojokenpo()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder_encontrarproximojokenpo"
     },
@@ -45259,7 +45249,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L92",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "processarresultadojokenpo()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder_processarresultadojokenpo"
     },
@@ -45269,7 +45259,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L98",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "aplicarresultadoscruzados()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder_aplicarresultadoscruzados"
     },
@@ -45299,7 +45289,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/useCombatEngine.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "usecombatengine.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_usecombatengine"
     },
@@ -45489,7 +45479,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "phase1sheetbuilder.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder"
     },
@@ -45499,7 +45489,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "attributes",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder_attributes"
     },
@@ -45509,7 +45499,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "budget_options",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder_budget_options"
     },
@@ -45519,7 +45509,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 407,
+      "community": 549,
       "norm_label": "phase1sheetbuilder()",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder_phase1sheetbuilder"
     },
@@ -45529,7 +45519,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase2Customize.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 441,
+      "community": 289,
       "norm_label": "phase2customize.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase2customize"
     },
@@ -45539,7 +45529,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase2Customize.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 441,
+      "community": 289,
       "norm_label": "icones",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase2customize_icones"
     },
@@ -45549,7 +45539,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase2Customize.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 441,
+      "community": 289,
       "norm_label": "phase2customize()",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase2customize_phase2customize"
     },
@@ -45719,7 +45709,7 @@
       "source_file": "src/pages/lab/Prototype/Prototype.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "prototype.jsx",
       "id": "src_pages_lab_prototype_prototype"
     },
@@ -45729,7 +45719,7 @@
       "source_file": "src/pages/lab/Prototype/Prototype.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "admin_emails",
       "id": "src_pages_lab_prototype_prototype_admin_emails"
     },
@@ -45739,7 +45729,7 @@
       "source_file": "src/pages/lab/Prototype/Prototype.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "prototypes",
       "id": "src_pages_lab_prototype_prototype_prototypes"
     },
@@ -45749,7 +45739,7 @@
       "source_file": "src/pages/lab/Prototype/Prototype.jsx",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 22,
+      "community": 713,
       "norm_label": "prototype()",
       "id": "src_pages_lab_prototype_prototype_prototype"
     },
@@ -47659,7 +47649,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilTamagoshi.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 715,
       "norm_label": "perfiltamagoshi.jsx",
       "id": "src_pages_platform_perfil_abas_perfiltamagoshi"
     },
@@ -47669,7 +47659,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilTamagoshi.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 8,
+      "community": 715,
       "norm_label": "error_i18n_map",
       "id": "src_pages_platform_perfil_abas_perfiltamagoshi_error_i18n_map"
     },
@@ -47679,7 +47669,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilTamagoshi.jsx",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 8,
+      "community": 715,
       "norm_label": "traduzirerro()",
       "id": "src_pages_platform_perfil_abas_perfiltamagoshi_traduzirerro"
     },
@@ -47689,7 +47679,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilTamagoshi.jsx",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 8,
+      "community": 715,
       "norm_label": "perfiltamagoshi()",
       "id": "src_pages_platform_perfil_abas_perfiltamagoshi_perfiltamagoshi"
     },
@@ -47899,7 +47889,7 @@
       "source_file": "src/store/notificationStore.js",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 8,
+      "community": 715,
       "norm_label": "usenotificationstore",
       "id": "src_store_notificationstore_usenotificationstore"
     },
@@ -57119,7 +57109,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L318",
+      "source_location": "L311",
       "weight": 1.0,
       "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
       "target": "docs_games_ldilendas_ldi_lendas_gdd_12_arquivos",
@@ -57414,7 +57404,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L371",
+      "source_location": "L332",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
       "target": "src_pages_games_ldi_batalha_batalhalab_barra",
@@ -57444,7 +57434,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L347",
+      "source_location": "L308",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
       "target": "src_pages_games_ldi_batalha_batalhalab_replay",
@@ -57454,7 +57444,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L387",
+      "source_location": "L348",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
       "target": "src_pages_games_ldi_batalha_batalhalab_textopasso",
@@ -57511,29 +57501,18 @@
       "source_location": "L6",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_danodogolpe",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_defesadogolpe",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_batalhalab",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_escolhercombo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_batalhalab",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_escolherdefesadele",
       "confidence_score": 1.0
     },
     {
@@ -57556,17 +57535,6 @@
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_leiturade",
       "confidence_score": 1.0
     },
     {
@@ -57636,33 +57604,11 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_pentagrama",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L160",
+      "source_location": "L144",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_acertousequencia",
@@ -57673,7 +57619,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L165",
+      "source_location": "L148",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_combolido",
@@ -57684,29 +57630,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L145",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_danodogolpe",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L167",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_defesadogolpe",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L129",
+      "source_location": "L130",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_escolhercombo",
@@ -57717,7 +57641,18 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L113",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_batalhalab_luta",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_escolherdefesadele",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
+      "source_location": "L112",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
@@ -57728,18 +57663,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L167",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_leiturade",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L298",
+      "source_location": "L258",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_maxgolpes",
@@ -57750,7 +57674,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L168",
+      "source_location": "L150",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
@@ -57761,7 +57685,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L278",
+      "source_location": "L238",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder",
@@ -57772,187 +57696,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
-      "source_location": "L362",
+      "source_location": "L323",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_replay",
       "target": "src_pages_games_ldi_batalha_batalhalab_textopasso",
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_centro",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_orbe",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_pontos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_estrela",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_ids",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L30",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_pontoperto",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_pos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_raio_arrasto",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_pos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L67",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_pontoperto",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L139",
+      "source_location": "L138",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_acertousequencia",
@@ -57962,7 +57716,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L65",
+      "source_location": "L61",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_centro",
@@ -57972,7 +57726,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L213",
+      "source_location": "L202",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_combolido",
@@ -57982,7 +57736,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L101",
+      "source_location": "L99",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_combovalido",
@@ -57992,7 +57746,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L107",
+      "source_location": "L105",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_danodogolpe",
@@ -58002,17 +57756,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L224",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_defesadogolpe",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L113",
+      "source_location": "L112",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_distsegmento",
@@ -58022,7 +57766,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L236",
+      "source_location": "L230",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_escolhercombo",
@@ -58032,7 +57776,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L249",
+      "source_location": "L213",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_escolherdefesadele",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L243",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_fichas",
@@ -58042,7 +57796,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L92",
+      "source_location": "L90",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
@@ -58052,7 +57806,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L105",
+      "source_location": "L103",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_gravidade",
@@ -58062,17 +57816,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L230",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_leiturade",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L66",
+      "source_location": "L62",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_max_por_carga",
@@ -58082,7 +57826,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L90",
+      "source_location": "L88",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_maxgolpes",
@@ -58092,7 +57836,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L68",
+      "source_location": "L64",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_mult_carga",
@@ -58102,7 +57846,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L80",
+      "source_location": "L78",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_orbe",
@@ -58112,7 +57856,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L95",
+      "source_location": "L93",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
@@ -58122,7 +57866,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L86",
+      "source_location": "L84",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_poderes",
@@ -58132,7 +57876,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L220",
+      "source_location": "L211",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_ponto_do_membro",
@@ -58142,7 +57886,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L54",
+      "source_location": "L50",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_pontos",
@@ -58152,7 +57896,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L148",
+      "source_location": "L147",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
@@ -58162,7 +57906,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L126",
+      "source_location": "L125",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder",
@@ -58172,11 +57916,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L120",
+      "source_location": "L119",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama"
     },
     {
       "relation": "imports_from",
@@ -58193,6 +57948,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_pontos"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L4",
       "weight": 1.0,
@@ -58201,11 +57967,33 @@
       "target": "src_pages_games_ldi_batalha_motorpentagrama_pontos"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_centro"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_orbe"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L140",
+      "source_location": "L139",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama_acertousequencia",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
@@ -58216,7 +58004,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L214",
+      "source_location": "L203",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama_combolido",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
@@ -58227,7 +58015,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L102",
+      "source_location": "L100",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama_combovalido",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
@@ -58238,7 +58026,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L97",
+      "source_location": "L95",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
@@ -58249,18 +58037,40 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L149",
+      "source_location": "L148",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L102",
+      "source_location": "L100",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama_combovalido",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
@@ -58271,18 +58081,40 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L130",
+      "source_location": "L129",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L204",
+      "source_location": "L193",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_gravidade",
@@ -58293,7 +58125,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L190",
+      "source_location": "L191",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_danodogolpe",
@@ -58304,7 +58136,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L121",
+      "source_location": "L120",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_distsegmento",
@@ -58315,11 +58147,93 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L130",
+      "source_location": "L129",
       "weight": 1.0,
       "source": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder",
       "target": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_estrela"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_ids"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_pentagrama"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_pontoperto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_pos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_raio_arrasto"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_pos"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_pontoperto"
     },
     {
       "relation": "contains",
@@ -149787,5 +149701,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e5a5da2b618e5a892b1ca5f37c7efcc00a235b68"
+  "built_at_commit": "28754cdb6b64f93dca13c1ef5c4d1231341d598e"
 }

@@ -975,10 +975,11 @@
           "r4": "DEFENSE: you can’t see his strikes, only how many are coming. Pick up to 2 points to guard, in any order. Then it compares: strikes on a limb you guarded don’t land, the rest do. Guard at least one and the turn is yours.",
           "r5": "A heavy strike (head, elbow, knee) landing unblocked leaves you dizzy: only 1 strike next time.",
           "r6": "The center lights up green rarely: run your finger through it on defense and you dodge the whole attack, losing no blood, and the turn flips.",
-          "r7": "Tap (or hold) the ⚡ orb above the head to fill the power bar. Full, the blue sequence shows up: draw it and Black Ice comes out — heavy damage, unblockable, and he freezes.",
-          "r8": "Rhythm is damage: every beat has one full strike. A point hit on the beat (gold, as the ring closes) delivers 25% of it; off beat, 10%. 4 on-beat strikes = a full strike; 1 on beat + 3 off = 55%. Elbows, knees and the head weigh a bit more. And don’t repeat the same combo 3 times in a row — he reads it and guards."
+          "r7": "Tap (or hold) the ⚡ orb above the head to fill the power bar. When it’s full the game pauses and you pick a power (Black Ice freezes, Shock paralyzes, Blindness blinds). Draw the sequence and it fires — unblockable damage plus the effect.",
+          "r8": "Rhythm is damage: every beat has one full strike. A point hit on the beat (gold, as the ring closes) delivers 25% of it; off beat, 10%. 4 on-beat strikes = a full strike; 1 on beat + 3 off = 55%. Elbows, knees and the head weigh a bit more. And don’t repeat the same combo 3 times in a row — he reads it and guards.",
+          "r9": "He has a super too: when his bar fills you get a warning and a red sequence of 3 to 6 points. Tap ALL of them, in any order, even off beat. Miss one and you take the power and its effect."
         },
-        "oponente": "Opponent",
+        "oponente": "Pick the fight",
         "velocidade": "Speed",
         "lutar": "Fight",
         "voce": "You",
@@ -987,10 +988,6 @@
           "lento": "Slow",
           "normal": "Normal",
           "rapido": "Fast"
-        },
-        "fichas": {
-          "saco": "Punching Bag",
-          "stormbyte": "StormByte_91"
         },
         "energia": "energy {n}",
         "vitoria": "You won",
@@ -1027,7 +1024,14 @@
           "parado_jog": "You stood still on attack — you lost the beat.",
           "parado_ini": "He stood still — the beat is yours.",
           "lido": "He’s read that combo — 3rd time the same. He guarded those limbs.",
-          "no_tempo": "(on beat!)"
+          "no_tempo": "(on beat!)",
+          "super_defendido": "You held off his {poder} — your turn.",
+          "efeito_tonto_jog": "You froze: only 1 strike next beat.",
+          "efeito_tonto_ini": "He froze: only 1 strike next beat.",
+          "efeito_paralisia_jog": "You’re paralyzed.",
+          "efeito_paralisia_ini": "He’s paralyzed.",
+          "efeito_cego_jog": "You’re blind.",
+          "efeito_cego_ini": "He’s blind."
         },
         "som": "Sound on or off",
         "ele": "Him",
@@ -1037,17 +1041,19 @@
         "habilidade": "Skill (test)",
         "ver_origem": "See where his 1st strike starts",
         "toque_carregar": "Tap the blinking point {n}× to charge",
-        "poder_pronto": "Black Ice ready: draw the white sequence",
+        "poder_pronto": "{poder} ready: draw the white sequence",
         "carregando_poder": "Charging power…",
         "poderes": {
-          "geloNegro": "Black Ice"
+          "geloNegro": "Black Ice",
+          "choque": "Shock",
+          "cegueira": "Blindness"
         },
         "papel": {
           "ataque": "Attack",
           "defesa": "Defense"
         },
         "status_ataque": "Draw your combo — he’ll try to block",
-        "status_defesa": "He’s coming with {n} strikes — mirror them to block",
+        "status_defesa": "He’s coming with {n} strike(s) — guard up to 2 points",
         "virada_voce": "Turnaround! Your turn to attack",
         "virada_ele": "He blocked — now he attacks",
         "super": "SUPER",
@@ -1055,7 +1061,57 @@
           "tonto": "Dizzy: only 1 strike this beat",
           "maximo": "Max 4 strikes",
           "maximo_defesa": "On defense, 2 points max"
-        }
+        },
+        "inimigos": {
+          "1": {
+            "nome": "Punching Bag",
+            "desc": "Practice in the dead square. Throws one punch and blocks when it remembers."
+          },
+          "2": {
+            "nome": "StormByte_91 · the alley",
+            "desc": "Jab, cross, that’s it. Still thinks yelling wins fights."
+          },
+          "3": {
+            "nome": "The nameless fighter",
+            "desc": "Mixes in kicks. Blocks more than she lets on."
+          },
+          "4": {
+            "nome": "StormByte_91 · the rematch",
+            "desc": "Came back studied: copies your combo and has Shock."
+          },
+          "5": {
+            "nome": "GhostPulse",
+            "desc": "Elbows and knees, vanishes through the center and blinds you."
+          },
+          "6": {
+            "nome": "IronVeil",
+            "desc": "A wall. Always guards, hits with bone, throws Black Ice."
+          },
+          "7": {
+            "nome": "Shadow Digital",
+            "desc": "Reads what you repeat and dodges at the last second."
+          },
+          "8": {
+            "nome": "NULL_ENTITY",
+            "desc": "The Integrity Engineer. Everything the others do, and the super can be any of them."
+          }
+        },
+        "efeitos": {
+          "tonto": "Freezes: next beat, only 1 strike.",
+          "paralisia": "Paralyzes: stuck for the whole next beat.",
+          "cego": "Blinds: 2 beats without seeing the rhythm or what’s coming."
+        },
+        "escolha": {
+          "pausa": "Game paused",
+          "titulo": "Which power now?",
+          "detalhe": "{dano} damage · {n}-point sequence",
+          "depois": "Not now (tap the ⚡ to come back)"
+        },
+        "kit": "you: {n} points",
+        "sem_poder": "no power",
+        "super_dele": "⚠ {nome} is unleashing {poder}! Tap the {n} red points, any order",
+        "paralisado": "Paralyzed: you can’t move this beat",
+        "cego": "Blind: you can’t see what’s coming"
       }
     },
     "toptrumps": {
