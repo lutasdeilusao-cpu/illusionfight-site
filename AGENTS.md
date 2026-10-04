@@ -270,6 +270,10 @@ Registro vivo de problemas já resolvidos no projeto para o agente não repetir 
 
 - **Gangues: aposta SÓ na birosca** (Isaias, 30/09/2026: "tá muito sujo... tá muito fácil ganhar dinheiro"). Existem só dois lugares com aposta: a **Banca do Tio Dado** (desafio de mão e rinha NPC × NPC, `ganguesApostas.js`) e o **Clube da Luta de quem entra sem dívida** (escolhe a aposta na oferta do agiota; sai do bolso na entrada; vencer as 3 rondas paga o prêmio do bairro + o DOBRO da aposta; perdeu, perdeu — `prepararEntradaClube({ aposta })` → `storyTarget.clubeAposta` → `resolverClubeDaLuta`). Removidos de vez: a "aposta em você" antes de toda treta (`multApostaEmVoce`) e a aposta da Rinha da Feira (o POI mantém o id `rinha_apostas` por causa dos saves, mas virou "Rinha da Feira"). Não reintroduzir aposta em luta comum.
 
+## 🔴 Proibido histórico de mudanças no produto
+
+Histórico de mudanças não existe no produto, de maneira alguma (Isaias, 03/10/2026). Documentação em código e em arquivos do produto (comentários, `SITE_MAP.md`, comentários em `version.js`, CSS, dados) serve só para duas coisas: **definir que algo existe** ou **explicar de forma simples como algo funciona**. Qualquer outra coisa é proibida — "antes era X", "corrigido em", "pedido do fulano em tal data", número de versão em comentário, "redesign de", "substitui o antigo", bug que já foi resolvido. O histórico mora no `git log`. Ao encontrar histórico em qualquer arquivo do produto, retire na hora.
+
 ## Regra Anti-Over-Engineering
 
 Antes de criar **mais de 2 arquivos novos** para resolver qualquer problema, o agente deve apresentar a proposta e aguardar aprovação explícita.

@@ -1,8 +1,8 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-10-02 — `SITE_VERSION` **10.334.1**.
-> Histórico de tarefas, bugfixes e pendências não pertence a este documento.
+> `SITE_VERSION` **10.334.2**.
+> Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
 ## 1. Visão geral
@@ -12,7 +12,7 @@
 - Aplicação: SPA React hospedada no GitHub Pages, com domínio próprio e fallback de rotas.
 - Stack: Vite 8, React 19, React Router 7, Zustand 5, Framer Motion 12, Supabase JS 2, React Helmet Async e React Markdown.
 - Backend: Supabase para autenticação, persistência, realtime e Edge Functions; Stripe para assinaturas.
-- Idiomas: português, inglês e espanhol, persistidos em `ldi-locale`.
+- Idiomas: inglês (raiz), português (`/pt/...`) e espanhol (`/es/...`). O prefixo do endereço vira o `basename` do roteador (`src/lib/idiomaUrl.js`); sem prefixo, vale a conta, depois `ldi-locale`, depois o idioma do aparelho.
 - Estilos: CSS global e arquivos `.css` associados aos componentes; sem CSS-in-JS.
 - Fontes (Google Fonts, carregadas em `index.html`): IBM Plex Sans, Rajdhani, JetBrains Mono, Share Tech Mono, Orbitron, Bebas Neue, Bangers (base); **Cinzel** + **Cormorant Garamond** + **EB Garamond** + **Fira Code** (temas dos universos em `Universo.css`). Tokens em `src/index.css` (`--font-display`, `--font-body`, `--font-mono`, `--font-title`).
 - Versões: todas centralizadas em `src/config/version.js`.
@@ -36,9 +36,9 @@
 
 ### 2.1 Abertura (vinheta de carregamento)
 
-Inline em `index.html`, **antes** do React — um componente montaria tarde demais. Objetivo: cobrir o vão entre o HTML estático de SEO que já vem no `#root` (gerado por `prerender-routes.js`, texto cru sem o visual real) e o momento em que o bundle React monta por cima. Esse vão **sempre** precisa de cobertura — sem ela o visitante vê o texto cru piscando antes do site oficial (bug reportado pelo Isaias em 12/09/2026).
+Inline em `index.html`, **antes** do React — um componente montaria tarde demais. Objetivo: cobrir o vão entre o HTML estático de SEO que já vem no `#root` (gerado por `prerender-routes.js`, texto cru sem o visual real) e o momento em que o bundle React monta por cima. Sem ela o visitante veria o texto cru antes do site.
 
-- **Detecção é por cache real, não por dia de calendário.** `prerender-routes.js` extrai o hash de conteúdo do chunk de entrada (ex.: `index-qeKNvZ-p.js` — o mesmo em toda rota) e grava em `<meta name="ldi-build">`. O script compara esse hash com `localStorage['ldi-intro-build']` (o hash do último build que **terminou de montar com sucesso** nesse navegador — só grava no evento `ldi:ready` de verdade, nunca no teto de segurança, senão um load que travou marcaria falso-positivo).
+- **Detecção é por cache real, não por dia de calendário.** `prerender-routes.js` extrai o hash de conteúdo do chunk de entrada (ex.: `index-qeKNvZ-p.js` — o mesmo em toda rota) e grava em `<meta name="ldi-build">`. O script compara esse hash com `localStorage['ldi-intro-build']` (o hash do último build que terminou de montar nesse navegador — gravado só no evento `ldi:ready`, nunca no teto de segurança).
   - **Hash bate** (`provavelCache = true`, bundle quase certo já em cache — deploy não mudou): modo silencioso — mesma classe `--static` (logo/wordmark visíveis na hora, sem animação), **sem som**, **sem espera mínima** (`MIN = 0`). Cobre só o necessário e some assim que o React monta.
   - **Hash não bate ou nunca visitou** (deploy novo ou 1ª visita — cache miss de verdade): show completo — logo com scale-in + glow pulsante, wordmark em `RacingGames` com varredura de luz, barra de progresso ciano→roxo, som. Duração **mínimo 2 s, teto absoluto 4 s**. Com `prefers-reduced-motion` vira `--static` (sem keyframes, mínimo 600 ms).
   - Em ambos os casos, teto de **4 s** como rede de segurança caso `ldi:ready` nunca dispare.
@@ -53,17 +53,19 @@ Ordem dos providers em `src/main.jsx`:
 ```text
 ReaderProvider
 └── HelmetProvider
-    └── BrowserRouter
+    └── BrowserRouter (basename = prefixo de idioma)
         └── AuthProvider
             └── FichasProvider
                 └── DixProvider
                     └── AchievementsProvider
-                        └── EventosProvider
-                            └── LanguageProvider
-                                └── App
+                        └── TutorialProgressProvider
+                            └── EventosProvider
+                                └── LanguageProvider
+                                    └── RadioNinaProvider
+                                        └── App
 ```
 
-Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTopOnNav`, `DesktopShellBar` (só runtime steam-demo), `Navbar`, `SearchModal`, `Footer`, `TrialBanner`, `ScrollToTop`, `LDINotification`, `RadioNina`, `UnifiedNotification` e `CookieBanner`. `AnalyticsTracker` registra cliques, submits e profundidade de scroll sem capturar valores digitados. A Navbar é uma faixa azul-escura de 48 px, fixa e com espaçador no fluxo, mantendo o hero abaixo dela — igual em qualquer plataforma, já que o portal é mobile only (§10.1). O hambúrguer é a única navegação; não existe barra de links de desktop. O `TrialBanner` fica no fluxo normal, depois do rodapé, e só aparece quando o visitante chega ao fim da página; o `readerMode` oculta Navbar, TrialBanner e Footer durante leitura.
+Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeTracker` (uso do portal para recomendações), `DebugLogTracker` (só contas admin), `AnalyticsTracker`, `ScrollToTopOnNav`, `DesktopShellBar` (só runtime steam-demo), `Navbar`, `SearchModal`, `Footer`, `TrialBanner`, `ScrollToTop`, `LDINotification`, `RadioNina`, `UnifiedNotification` e `CookieBanner`. `AnalyticsTracker` registra cliques, submits e profundidade de scroll sem capturar valores digitados. A Navbar é uma faixa azul-escura de 48 px, fixa e com espaçador no fluxo, mantendo o hero abaixo dela (§10.1). O hambúrguer é a única navegação; não existe barra de links de desktop. O `TrialBanner` fica no fluxo normal, depois do rodapé, e só aparece quando o visitante chega ao fim da página; o `readerMode` oculta Navbar, TrialBanner e Footer durante leitura.
 
 ## 3. Rotas atuais
 
@@ -108,7 +110,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTop
 | `/login` | Login | `src/pages/platform/Login.jsx` |
 | `/cadastro` | Cadastro | `src/pages/platform/Cadastro.jsx` |
 | `/perfil` | Perfil, progresso, coleção e conta | `src/pages/platform/Perfil/Perfil.jsx` |
-| `/admin` | Painel de administrador (escondido, só `is_admin`) | `src/pages/painel/Painel.jsx` |
+| `/admin` (`ROTA_PAINEL`) | Painel de administrador: Visão, Agora, Sessões, Financeiro, Logs (escondido, só `is_admin`, `noindex`) | `src/pages/painel/Painel.jsx` |
 
 ### 3.3 Catálogo e jogos
 
@@ -157,17 +159,17 @@ Os Kernel Games usam layout portrait compartilhado em `src/pages/games/KernelGam
 |---|---|---|
 | `/prototype` | Índice de protótipos | `src/pages/lab/Prototype/Prototype.jsx` |
 | `/prototype/srgrm` | Protótipo SRGRM 3v3 | `src/pages/lab/Prototype/SRGRM/SRGRM.jsx` |
+| `/preview-privado/webtoon-00-comparar` | Comparação privada de páginas do WEB SHARD (imagens repostas no `predeploy` por `scripts/restaurar-preview-privado.cjs`) | `src/pages/preview/WebtoonCompare.jsx` |
 | `/prototype/arenatestbed` | Arena Testbed V2 | `src/pages/lab/Prototype/ArenaTestbed/ArenaTestbed.jsx` |
 | `*` | Página 404 interna | `src/pages/site/NotFound/NotFound.jsx` |
 
 ### 3.6 Arquitetura de Histórias e Universos
 
-Reorganização de setembro/2026: `/livro` e `/mundo` (páginas únicas) viraram **dois hubs**.
-
-- **`/historias`** (`historias/HistoriasHub.jsx`) — redesign 25/09/2026 (v10.293.10) no padrão do WEB SHARD: cabeçalho `IF // HISTÓRIAS`, destaque da linha principal (capa oficial do WEB SHARD), "continuar lendo" por título, estante numerada (`TituloCard`) com filtro do farol, **próximos capítulos** com a cascata assinante → conta → público (`CascataLiberacao`) e **capítulos recentes**. `/historias/contos` é o mesmo hub com `tipo="conto"`.
+- **`/historias`** (`historias/HistoriasHub.jsx`) — no padrão do WEB SHARD: destaque da linha principal (capa oficial do WEB SHARD), "continuar lendo" por título, estante numerada (`TituloCard`) com filtro do farol, **próximos capítulos** com a cascata assinante → conta → público (`CascataLiberacao`) e **capítulos recentes**. `/historias/contos` é o mesmo hub com `tipo="conto"`.
 - **Página de título** (`historias/HistoriaTitulo.jsx`) — uma só pra linha principal, conto e obra: `TituloHero` (capa, selos, sinopse), farol completo, bloco "o universo" (obras), link da Amazon, lista de capítulos (`historias/HistoriaCapLinha.jsx`, o `.ws-cap` do WEB SHARD + resumo) e o `LerAntesCta`.
 - **Dado**: `src/lib/historias/catalogo.js` junta `historias/lutas-de-ilusao.json` / `contos.json` / `obras.json` no formato de título do WEB SHARD — a UI nunca lê os índices direto. A linha principal puxa nome/chamada/sinopse/capa de `webshard-titulos.json` (uma fonte só do produto). Sem arte própria → `ComingSoon.png` (padrão do projeto). Acesso em `src/hooks/useHistoriasAcesso.js` (espelho do `useWebshardAcesso`: Cap. 01 do livro sempre livre, contos pela Beta, resto pela cascata).
-- **Leitores** inalterados: `LivroCapitulo.jsx`, `ContoCapitulo.jsx`, `ObraCapitulo.jsx` (com o gate de conta em 50%).
+- **Leitor único**: `LivroCapitulo.jsx`, `ContoCapitulo.jsx` e `ObraCapitulo.jsx` só resolvem o dado e entregam para `src/components/Leitor/LeitorCapitulo.jsx` (barra, ajustes, fim do capítulo com reações e recomendação). Visitante sem conta lê até 50% (`GateLeitura`).
+- **Recomendação**: `src/lib/historias/recomendacoes.js` + `historico.js` (histórico de leitura local) e `src/lib/recomendacao/afinidade.js` (uso do portal, sincronizado em `perfil_afinidade` para quem tem conta).
 - **Gating de conteúdo não-lançado:** `data_publicacao` futura (`2099-01-01` nas obras) → badge "Em breve" pro público; `estaDisponivel(cap, isAdmin)` libera pra admin. Mesmo mecanismo dos contos, sem lógica de auth nova.
 - **Cross-links entre histórias:** citações de eventos viram `[texto](/historias/lutas-de-ilusao/capitulo-0N)` ou `[texto](/historias/contos/NN/NN)`, renderizados client-side por `readerMdComponents` (`src/lib/mdComponents.jsx`).
 
@@ -189,7 +191,9 @@ src/
     ├── content/            # historias (hub/obras), universo (worldbuilding), livro/contos, webtoon, mundo, músicas, personagens
     ├── games/              # catálogo e módulos independentes dos jogos
     ├── lab/                # protótipos e testbeds
-    ├── platform/           # autenticação, perfil, assinatura, ranking, admin
+    ├── painel/             # painel de administrador
+    ├── platform/           # autenticação, perfil, assinatura, ranking
+    ├── preview/            # páginas privadas de comparação
     └── site/               # home, autor, loja, quiz, custos e 404
 ```
 
@@ -207,6 +211,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | `AchievementsContext.jsx` | Conquistas, persistência e notificações |
 | `EventosContext.jsx` | Eventos globais da plataforma |
 | `LanguageContext.jsx` / `LanguageProvider.jsx` | Locale e função `t()` |
+| `TutorialProgressContext.jsx` | Progresso de tutoriais |
 | `ReaderContext.jsx` | Modo de leitura imersivo |
 
 ### 5.2 Bibliotecas e hooks
@@ -221,6 +226,11 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | `src/lib/sfx.js` | Efeitos sonoros globais |
 | `src/lib/topTrumpsCardImages.js` | Resolução central das artes Top Trumps |
 | `src/lib/topTrumpsCardAccess.js` | Regras de acesso às cartas Top Trumps |
+| `src/lib/idiomaUrl.js` | Prefixo de idioma do endereço e `basename` do roteador |
+| `src/lib/painelColeta.js` | Coleta própria de visitas do painel (`painel_registrar`) |
+| `src/lib/debugLog.js` | Log de depuração das contas admin (`debug_logs`) |
+| `src/lib/lazyWithReload.js` | `lazy()` que recarrega 1x se o chunk sumiu após deploy |
+| `src/lib/webshard/` / `src/lib/historias/` | Catálogos, progresso e reações do WEB SHARD e das histórias |
 | `src/hooks/useFichaGate.js` | Gate reutilizável de fichas |
 | `src/hooks/useLeaderboardDB.js` | Consultas do leaderboard |
 | `src/hooks/usePresence.js` | Presença realtime |
@@ -229,15 +239,16 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 
 ### 5.3 Componentes reutilizáveis
 
-- Navegação e shell: `Navbar`, `Footer`, `ScrollToTop`, `ScrollToTopOnNav`, `SearchModal`, `CookieBanner`, `TrialBanner`.
+- Navegação e shell: `Navbar`, `Footer`, `ScrollToTop`, `ScrollToTopOnNav`, `SearchModal`, `CookieBanner`, `TrialBanner`, `DeferredSection` (carga por proximidade).
+- Leitura: `Leitor/` (leitor único de texto), `GateLeitura`, `Reacoes` (reações anônimas, RPC `webshard_reagir`), `Recomendacoes`, `ShareButton`.
 - Acesso e economia: `LoginGate`, `FichaGateRoute`, `GuestNotice`, `ModalConfirmacaoFicha`, `ModalSemFichas`.
 - Notificações: `AchievementToast`, `LDINotification`, `UnifiedNotification`.
-- Home/conteúdo: `src/pages/site/Home/` concentra a página, o CSS visual e os componentes exclusivos `HeroSlideshow`, `LatestEpisodes`, `BookChaptersRow`, `CharactersRow`, `MusicSection`, `NowLive` e `StoryProgress`. As vitrines consomem os catálogos oficiais para refletir novos conteúdos sem listas duplicadas.
+- Home/conteúdo: `src/pages/site/Home/` em ordem: `HeroSlideshow` (banner rotativo de 5 artes, obrigatório), `PraVoce` (recomendados), `HomeGames`, `HomeHistorias`, `LatestEpisodes` (WEB SHARD), `MusicSection`, apoio, `NowLive`. A Home só mostra o que já dá para ler ou jogar; as vitrines consomem os catálogos oficiais.
 - Histórias: `HistoriaCapLinha` (`src/pages/content/historias/`) — linha de capítulo em texto sobre o `.ws-cap` do WEB SHARD.
 - Farol (`src/components/Farol/`) — badge de peso (leve/média/pesada), canonicidade e tags de temática. Dados em `historias/contos.json` / `historias/obras.json` (`peso`, `canon`, `temas[]`, `selo`); labels em `pages.contos.peso_*` / `tema_*` (temas incluem `sobrenatural`, `opressao`, `horror_cosmico`, `resistencia`). Usado em `historias/HistoriasHub.jsx` (estante + filtro por peso) e `historias/HistoriaTitulo.jsx`.
 - Universo: `src/lib/mdComponents.jsx` (`readerMdComponents`) transforma links `/...` do markdown em `<Link>` do React Router — usado por todos os leitores (livro, conto, obra) para as citações cruzadas.
 - Jogos/resultado: `BackToGamesBtn`, `Jokempo`, `Puzzles`, `ResultCard`, `TopTrumpsCard`.
-- Mídia: `RadioNina` — barra fixa no rodapé, toca MP3 do R2 via Worker. Pasta dedicada `src/components/RadioNina/`: `RadioNina.jsx` (casca), `useRadioNina.js` (motor de áudio + fila + eventos GA), `RadioNinaPlaylist.jsx` (painel), `radio-nina.playlist.js` (Supabase CRUD), `radio-nina.config.json` (base/cores/aberturas/excluir/títulos), `radio-nina.i18n.json`. 1ª faixa = abertura oficial do locale. Progresso/seek estilo streaming, painel de playlist, e playlist salva por conta (`radio_nina_playlists`). A cada 2 músicas ouvidas toca 1 **propaganda** do idioma do site (pastas R2 `MaketingBR/EN/ES/`, servidas pelo Worker em `/ads/<lang>`; shuffle-bag sem repetir a última). Eventos GA4: `radio_ligar`, `radio_play`, `radio_completa`, `radio_pular`, `radio_ad`, `radio_playlist_salva`. A barra é um rodapé real: publica `--radio-nina-h` (54px/0) em `:root`, e `body`/nav flutuante do leitor reservam essa altura. Modo compacto = bolinha arrastável pros 4 cantos (`ldi-radio-nina-canto`). Volume no `ldi-radio-nina-vol`. Também: `PlatformIcons`, `SocialBar`.
+- Mídia: `RadioNina` — tocador único do site (barra no rodapé, `/musicas` e a Home comandam o mesmo áudio por `useRadio()`), MP3 do R2 via Worker `illusionfightsongs`; catálogo em `src/data/musicas.json` (`arquivo` = nome no R2). Pasta `src/components/RadioNina/`: `RadioNinaContext.jsx` (provider, roda o motor uma vez), `RadioNina.jsx` (casca), `useRadioNina.js` (motor de áudio + fila + eventos GA), `RadioNinaPlaylist.jsx` (painel), `radio-nina.playlist.js` (Supabase CRUD), `radio-nina.config.json` (base/cores/aberturas/excluir/títulos), `radio-nina.i18n.json`. 1ª faixa = abertura oficial do locale. Progresso/seek estilo streaming, painel de playlist, e playlist salva por conta (`radio_nina_playlists`). A cada 2 músicas ouvidas toca 1 **propaganda** do idioma do site (pastas R2 `MaketingBR/EN/ES/`, servidas pelo Worker em `/ads/<lang>`; shuffle-bag sem repetir a última). Eventos GA4: `radio_ligar`, `radio_play`, `radio_completa`, `radio_pular`, `radio_ad`, `radio_playlist_salva`. A barra é um rodapé real: publica `--radio-nina-h` (54px/0) em `:root`, e `body`/nav flutuante do leitor reservam essa altura. Modo compacto = bolinha arrastável pros 4 cantos (`ldi-radio-nina-canto`). Volume no `ldi-radio-nina-vol`. Também: `PlatformIcons`, `SocialBar`.
 
 ## 6. Conteúdo, dados e assets
 
@@ -251,7 +262,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | Calendário público | `src/data/season-one-schedule.js` reúne as 39 linhas da timeline da Temporada 1 (Portal: assinante/conta grátis/público, sempre -15/0/+15 dias entre si, + Outras Plataformas com ritmo próprio) + `SEASONS_OVERVIEW` (panorama T1-T6, só T1 marcada como confirmada, T2+ é projeção explícita). `Calendario.jsx` renderiza uma grade mês a mês real (nov/2026–jan/2028, ano de 2027 inteiro, todo mês aparece mesmo sem evento) com bolinhas por dia (assinante/conta/público/outras), igual nas abas Capítulos e WEB SHARD; as datas de acesso que alimentam o gate ficam nos três índices editoriais |
 | Contos de Ilusão | `src/data/historias/contos.json` (com `resumo_{pt,en,es}` por capítulo) e `src/data/historias/contos/<id>/{pt,en,es}/NN.md` |
 | Obras (Mundo das Sombras, Mar de Cinzas) | `src/data/historias/obras.json` (`peso`, `canon:false`, `selo`, `idiomas`, `capitulos[].data_publicacao`) e `src/data/historias/obras/<slug>/<lang>/NN.md`; arte webp em `src/assets/obras/<slug>/` (capa + `cap-NN`). Gating por `data_publicacao` futura + bypass de admin |
-| Worldbuilding dos universos | `src/data/universo-index.json` (define abas; uma aba pode ter `partes: [...]`) e `src/data/universo/<slug>/<lang>/<secao>.json` — **array de blocos tipados** (`prose`, `card`, `box`, `callout`, `timeline`, `personagens`, `protagonista`, `tabela`, `quote`, `lista`, `sub`, `tags`) renderizado por `Universo.jsx`. Mar de Cinzas foi extraído do `mar-de-cinzas-v5.html` via `bs4`. `/mundo/lutas-de-ilusao` ainda usa o formato antigo (`mundo-{pt,en,es}.json` + `Mundo.jsx`) |
+| Worldbuilding dos universos | `src/data/universo-index.json` (define abas; uma aba pode ter `partes: [...]`) e `src/data/universo/<slug>/<lang>/<secao>.json` — **array de blocos tipados** (`prose`, `card`, `box`, `callout`, `timeline`, `personagens`, `protagonista`, `tabela`, `quote`, `lista`, `sub`, `tags`) renderizado por `Universo.jsx`. `/universos/lutas-de-ilusao` usa o formato (`mundo-{pt,en,es}.json` + `Mundo.jsx`) |
 | WEB SHARD (webtoon) | Títulos em `src/data/webshard-titulos.json`; capítulos de Lutas de Ilusão em `src/data/episodios.json`; páginas em `public/webtoon/<cap>/<idioma>/`; capas/miniaturas em `src/assets/webshard/`; lógica em `src/lib/webshard/` (catálogo, progresso, reações — tabela `webshard_reacoes`, migration 042) |
 | Músicas | `src/data/musicas.json` |
 | Loja | `src/data/produtos.json` e `src/data/loja-digital.json` |
@@ -267,7 +278,7 @@ Arquivos do livro são carregados por `import.meta.glob`; ao mover leitores, os 
 
 ### 6.2 i18n
 
-Carregamento **por idioma e por área**: o visitante baixa só o núcleo do idioma que usa, e a área pesada chega quando ele entra nela. Antes os três idiomas inteiros entravam no bundle (~356K) para servir um.
+Carregamento **por idioma e por área**: o visitante baixa só o núcleo do idioma que usa, e a área pesada chega quando ele entra nela.
 
 | Pasta | Conteúdo | Quando carrega |
 |---|---|---|
@@ -296,8 +307,8 @@ Namespaces de conteúdo relevantes: `nav.links`, `pages.livro`, `pages.contos` (
 
 - Projeto Supabase: `dvxfrzixtetdzmdrzkpx`.
 - Cliente: `src/lib/supabase.js`.
-- Migrações locais: `supabase/migrations/004_*.sql` até `036_gangues_equipamentos.sql` (035 = inventário de itens/poções, 036 = inventário de equipamento com slots de carta); os números podem se repetir porque algumas linhas de evolução foram criadas em paralelo.
-- Principais domínios persistidos: perfis, fichas, DIX, conquistas, saves de jogos, Tamagoshi, Arena, decks/ranking/partidas Top Trumps, submissões compartilhadas, playlist da Rádio Nina (`radio_nina_playlists`, 1 por usuário) e o LDI Gangues (`gangues_saves` = a gangue/save, N por usuário — teto por tier em `GANGUES_SAVE_SLOT_LIMITS`; `gangues_fichas` = os lutadores recrutados, cascade no save). Migration única `038_gangues_church_unified.sql` (substitui 031–037; o Gangues não usa mais `character_sheets`).
+- Migrações locais: `supabase/migrations/004_*.sql` até `049_painel_sem_robo.sql`; alguns números se repetem.
+- Principais domínios persistidos: perfis, fichas, DIX, conquistas, saves de jogos, Tamagoshi, Arena, decks/ranking/partidas Top Trumps, submissões compartilhadas, playlist da Rádio Nina (`radio_nina_playlists`, 1 por usuário) e o LDI Gangues (`gangues_saves` = a gangue/save, N por usuário — teto por tier em `GANGUES_SAVE_SLOT_LIMITS`; `gangues_fichas` = os lutadores recrutados, cascade no save). Esquema do Gangues em `038_gangues_church_unified.sql`. Também: reações do WEB SHARD e dos leitores (`webshard_reacoes`, 042), painel (`painel_eventos`, `painel_pagamentos`, `painel_custos`, `painel_ips_excluidos`), `debug_logs` (046) e `perfil_afinidade` (047). Progresso de jogo só existe na conta — não há save local.
 - RLS usa o usuário autenticado como autoridade nos dados pessoais.
 
 | Edge Function | Função | JWT |
@@ -311,15 +322,12 @@ As Edge Functions ficam em `supabase/functions/`; o frontend de assinatura está
 ## 9. GitHub Pages, SEO e deploy
 
 - `public/404.html` e o script de restauração em `index.html` sustentam deep links da SPA no GitHub Pages.
-- `scripts/prerender-routes.js` roda após o build e gera ~50 páginas SEO + 4 redirects estáticos. `/login/` e `/cadastro/` saem com `noindex`.
-- O prerender inclui páginas gerais, jogos públicos selecionados, os personagens do catálogo, os capítulos/episódios já publicados e as landings de `/historias*` e `/mundo*` (incluindo `/historias/mundo-das-sombras`, `/historias/mar-de-cinzas`, `/mundo/lutas-de-ilusao`, `/mundo/mundo-das-sombras`, `/mundo/mar-de-cinzas`). Conteúdo futuro ou bloqueado não entra automaticamente no sitemap.
-- Redirects estáticos gerados: `/livro` → `/historias/lutas-de-ilusao`, `/livro/contos` → `/historias/contos`, `/games/ldi-arena`, `/games/toptrumps/lobby`. Links internos da Navbar/Footer usam barra final (`/loja/`) para evitar o 301 automático do GitHub Pages.
-- Cada entrada recebe título, descrição, canonical, conteúdo HTML inicial, navegação interna, breadcrumbs e JSON-LD adequado (`WebSite`, `WebPage`, `ProfilePage`, `Book`, `Chapter`, `ComicSeries`, `ComicStory` ou `VideoGame`).
-- A aplicação usa divisão de código por rota com `React.lazy`; na Home, seções abaixo da dobra são carregadas por proximidade da viewport e o primeiro banner WebP é pré-carregado exclusivamente na página inicial.
-- `/login/` e `/cadastro/` também recebem HTML estático para responder HTTP 200, com `noindex` e fora do sitemap.
-- Existem entradas SEO legadas sob `public/*/index.html`; a saída final autoritativa é regenerada em `dist/` pelo prerender.
-- `public/sitemap.xml` lista URLs indexáveis; rotas privadas, internas e de laboratório não devem ser tratadas como páginas SEO só por existirem na SPA.
-- Deploy: `npm run build`, commit/push da fonte e `npm run deploy` para publicar `dist/` em `gh-pages`.
+- `scripts/prerender-routes.js` roda após o build e gera um HTML estático por rota indexável, em três idiomas (raiz em inglês, `/pt/`, `/es/`), com `canonical`, `hreflang`, JSON-LD (`WebSite`, `Organization`, `WebPage`, `ProfilePage`, `Book`, `Chapter`, `ComicSeries`, `ComicStory`, `VideoGame`) e, nos capítulos liberados, o mesmo trecho que o visitante sem conta lê. Textos SEO das páginas fixas em `scripts/seo-textos.js`; `ogImage` por rota (miniaturas dos contos em `public/og/contos/`, geradas por `scripts/gerar-og-contos.cjs`).
+- `/login/` e `/cadastro/` saem com `noindex` e fora do sitemap; rotas privadas, de admin e de laboratório não entram.
+- Redirects estáticos: `/livro*` → `/historias*`, `/mundo*` → `/universos*`, `/games/ldi-arena`, `/games/toptrumps/lobby`. Links internos da Navbar/Footer usam barra final para evitar o 301 do GitHub Pages.
+- Divisão de código por rota com `lazyWithReload`; na Home, seções abaixo da dobra carregam por proximidade.
+- `public/sitemap.xml` lista as URLs indexáveis nos três idiomas.
+- Deploy: `npm run build`, commit/push da fonte e `npm run deploy` (o `predeploy` roda o build, a auditoria de CSS do Gangues e a reposição do preview privado) para publicar `dist/` em `gh-pages`.
 - O portal pode ser instalado como PWA no Android. Quando aberto pelo ícone instalado, solicita `fullscreen`, com fallback para `standalone`; uma aba comum do navegador não pode esconder suas barras automaticamente.
 
 ## 10. Camadas visuais globais
@@ -348,8 +356,8 @@ Media queries de viewport e unidades `vw` medem a tela, não a coluna, e por iss
 
 | Token | Papel |
 |---|---|
-| `--if-cyan` / `--if-teal` | Ciano de assinatura e a base mais sóbria. Substituíram `#00eeff`, `#00e5ff`, `#18dafb`, `#00b4d8`. |
-| `--if-amber` / `--if-amber-soft` | Destaque, premium, apoiar. Substituíram `#f5a623`, `#e8853a`, `#f4a227`, `#ffae32`. |
+| `--if-cyan` / `--if-teal` | Ciano de assinatura e a base mais sóbria. |
+| `--if-amber` / `--if-amber-soft` | Destaque, premium, apoiar. |
 | `--if-cta` / `--if-cta-edge` | Laranja de conversão (Conta Grátis, Entrar). |
 | `--if-ok` / `--if-danger` | Estado: liberado, erro. |
 | `--if-violet` / `--if-pink` / `--if-blood` | Identidade curada para distinguir jogos. |
@@ -386,23 +394,23 @@ CSS de jogos é global após importação pelo Vite: seletores devem ser limitad
 
 ## 12. Versões atuais
 
-Fonte única: `src/config/version.js`. Esta tabela registra somente a identificação atual, sem histórico de alterações.
+Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.334.1** |
-| `PP_VERSION` | Pesadelo Particular | 2.3.1 |
+| `SITE_VERSION` | Site global | **10.334.2** |
+| `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
-| `GANGUES_VERSION` | LDI Gangues | **3.92.1** |
+| `GANGUES_VERSION` | LDI Gangues | 3.92.1 |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.2 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.7 |
 | `TS_VERSION` | Top Trumps single-player | 6.0.4 |
 | `TM_VERSION` | Top Trumps multiplayer | 6.0.2 |
-| `TATICS_VERSION` | Arena LDI Tatics | 7.5.0 |
+| `TATICS_VERSION` | Arena LDI Tatics | 7.5.1 |
 | `SRGRM_VERSION` | SRGRM 3v3 | 3.5.0 |
-| `ARENATESTBED_VERSION` | Arena Testbed | 6.22.1 |
+| `ARENATESTBED_VERSION` | Arena Testbed | 6.22.2 |
 | `KP_VERSION` | Kernel Panic | 1.4.2 |
 | `SLIDING_VERSION` | Sliding Rafael | 1.4.4 |
 | `CODIGO_VERSION` | Código Perdido | 1.3.3 |
