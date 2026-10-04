@@ -8,11 +8,11 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.346.0' // dados 3D do Gangues com um renderizador só + log de batalha; raspão no bloqueio do pentagrama
+export const SITE_VERSION = '10.346.1' // pentagrama: ligar por toque, combo segue depois de tirar o dedo, bolinha de energia por toque
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
-export const LDI_VERSION       = '3.5.1'  // Lendas do LDI — 3 habilidades por Veia; laboratório da batalha do pentagrama
+export const LDI_VERSION       = '3.5.2'  // Lendas do LDI — 3 habilidades por Veia; laboratório da batalha do pentagrama
 export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
 export const GANGUES_VERSION   = '3.97.4' // Dados 3D com um renderizador só (sem esgotar WebGL); log de cada vez, ação do automático e golpe preso
 

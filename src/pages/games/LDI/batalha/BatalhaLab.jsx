@@ -3,7 +3,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useFichas } from '../../../../context/FichasContext'
 import { useReader } from '../../../../context/ReaderContext'
 import Pentagrama from './Pentagrama'
-import { FICHAS, ENERGIA_BASE, ESQUIVA, MAX_POR_CARGA, TOQUES_POR_CARGA, PODER_MAX, PODER_POR_SEGUNDO, PODERES, escolherCombo, resolverTroca, golpesDe, maxGolpes, sequenciaDoPoder, acertouSequencia } from './motorPentagrama'
+import { FICHAS, ENERGIA_BASE, ESQUIVA, MAX_POR_CARGA, TOQUES_POR_CARGA, PODER_MAX, PODER_POR_SEGUNDO, PODER_POR_TOQUE, PODERES, escolherCombo, resolverTroca, golpesDe, maxGolpes, sequenciaDoPoder, acertouSequencia } from './motorPentagrama'
 import { ligarSom, alternarMudo, estaMudo, tocarCompasso, somAcende, somLigar, somGolpe, somBloqueio, somEsquiva, somPoder } from './somPentagrama'
 import './Batalha.css'
 
@@ -162,7 +162,7 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
     setToques(x => x + 1)
     somLigar(2 + Math.floor((toques + 1) / TOQUES_POR_CARGA), 'cab')
   }, [toques])
-  const soltar = useCallback(() => setTravado(true), [])
+  const tocarOrbe = useCallback(() => setPoder(p => Math.min(PODER_MAX, p + PODER_POR_TOQUE)), [])
   // Segurando a bolinha: a barra de poder enche (e você não ataca).
   useEffect(() => {
     if (!segurando) return
@@ -182,7 +182,7 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
 
   // Com o poder pronto, a sequência dele vale mesmo tonto.
   const max = guia.length ? Math.max(guia.length, maxGolpes(0, tonto.jog)) : maxGolpes(0, tonto.jog)
-  const podeCarregar = travado && !replay && carga < cargaMax
+  const podeCarregar = !travado && golpes > 0 && carga < cargaMax
   const progresso = carga > 0 && carga >= cargaMax ? 100 : carga >= cargaMax ? 0 : ((toques % TOQUES_POR_CARGA) / TOQUES_POR_CARGA) * 100
 
   return (
@@ -202,14 +202,14 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
               : tonto.jog ? t('games.ldi.batalha.tonto')
               : carga ? t('games.ldi.batalha.carga', { n: carga === 1 ? 'I' : 'II' })
               : podeCarregar ? t('games.ldi.batalha.toque_carregar', { n: TOQUES_POR_CARGA })
-              : t(travado ? 'games.ldi.batalha.travado' : 'games.ldi.batalha.desenhe')}
+              : t('games.ldi.batalha.desenhe')}
           </p>
         )}
       </div>
 
       <Pentagrama combo={combo} telegrafo={replay ? [] : telegrafo} guia={replay ? [] : guia} centroAberto={centroAberto} travado={travado}
-        segurandoOrbe={segurando} onOrbe={setSegurando}
-        max={max} carga={carga} progresso={progresso} podeCarregar={podeCarregar} onMudar={mudar} onSoltar={soltar} onToque={tocar} />
+        segurandoOrbe={segurando} onOrbe={setSegurando} onOrbeToque={tocarOrbe}
+        max={max} carga={carga} progresso={progresso} podeCarregar={podeCarregar} onMudar={mudar} onToque={tocar} />
       <div className="pg-rodape">
         <button type="button" className="pg-sair" onClick={() => setMudo(alternarMudo())} aria-label={t('games.ldi.batalha.som')}>{mudo ? '🔇' : '🔊'}</button>
         <button type="button" className="pg-sair" onClick={onSair}>{t('games.ldi.batalha.sair')}</button>

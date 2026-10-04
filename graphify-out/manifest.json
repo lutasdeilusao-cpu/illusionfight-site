@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791122548.4409797,
-    "ast_hash": "ef65b31946bed7381d097140bb2135d5",
+    "mtime": 1791123221.978556,
+    "ast_hash": "bff6e0db9dd0a22df6165c652e5f926b",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791122548.4419744,
-    "ast_hash": "b37e73f37d04dfc45951ae345ff537aa",
+    "mtime": 1791123221.9795556,
+    "ast_hash": "5256503c5ddbe20b73636caf36f9758d",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3200,8 +3200,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js": {
-    "mtime": 1791098054.8940277,
-    "ast_hash": "b5c239c1e40c3e0fb3089f3d5aff66f5",
+    "mtime": 1791122835.1989725,
+    "ast_hash": "6c706c8e4c28092165259ebdcaf3c56c",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/useGanguesStore.js": {
@@ -3685,18 +3685,18 @@
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
-    "mtime": 1791122313.903205,
-    "ast_hash": "9dfca46e753726418d8700b401b89894",
+    "mtime": 1791122866.895753,
+    "ast_hash": "c6eff36db42daffbc28bd658094f23b2",
     "semantic_hash": ""
   },
   "src/i18n/games/es.json": {
-    "mtime": 1791122313.9072018,
-    "ast_hash": "2abb1bfb0f2ad8ea34a07167207020f5",
+    "mtime": 1791122866.898754,
+    "ast_hash": "d1a3136065090127ec69f9bde2feac5e",
     "semantic_hash": ""
   },
   "src/i18n/games/pt.json": {
-    "mtime": 1791122313.900201,
-    "ast_hash": "12e2c8afb17b2142c79d898b7213a8b4",
+    "mtime": 1791122866.8927531,
+    "ast_hash": "4bbde24a71c69980a98d0b1313a1e488",
     "semantic_hash": ""
   },
   "src/i18n/prototype/en.json": {
@@ -4070,8 +4070,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesModoAuto.js": {
-    "mtime": 1791105255.9317436,
-    "ast_hash": "40bb02c4a99f7b98d2a972d93a44d4b1",
+    "mtime": 1791122835.19997,
+    "ast_hash": "26fe1ad9f14e4c9c3cc276ef8697de57",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesModoMultidao.js": {
@@ -6950,8 +6950,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/golpe/GanguesDado3D.jsx": {
-    "mtime": 1791094407.244404,
-    "ast_hash": "d0d5d49a299970f8f9706cd510cfdcda",
+    "mtime": 1791122835.1879117,
+    "ast_hash": "964bb3482032aa819c8cad34bdd8a18f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/golpe/GanguesGolpe.jsx": {
@@ -6985,8 +6985,8 @@
     "semantic_hash": ""
   },
   "docs/Games/LDILendas/LDI_LENDAS_GDD.md": {
-    "mtime": 1791122548.4399798,
-    "ast_hash": "9ec8fb2b37496daf4f6845f0f51db119",
+    "mtime": 1791123221.9775627,
+    "ast_hash": "625b57c07b2f29bbf25d3c4f49da4fc7",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/components/Diario.jsx": {
@@ -7035,8 +7035,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/BatalhaLab.jsx": {
-    "mtime": 1791122403.9334078,
-    "ast_hash": "26c85deb9f9130b92cdad298a2ddebfe",
+    "mtime": 1791122866.8897538,
+    "ast_hash": "8a62cdd038ad008faec1d9a2f64a4e78",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/Pentagrama.jsx": {
@@ -7045,8 +7045,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/motorPentagrama.js": {
-    "mtime": 1791122450.982558,
-    "ast_hash": "583510d01d1f6fde6a421c2923c9d158",
+    "mtime": 1791122852.501515,
+    "ast_hash": "84ee4e8d465127e1f518e8e31cf7885a",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/somPentagrama.js": {

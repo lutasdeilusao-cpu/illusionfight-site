@@ -1,22 +1,23 @@
 import { useRef } from 'react'
 import { PONTOS, CENTRO, ORBE, ESQUIVA, podeLigar, golpesDe } from './motorPentagrama'
 
-// O tabuleiro: desenha o pentagrama, recebe o traço do dedo e mostra o traço
-// do jogador (linha na cor dele) e o do inimigo acendendo (anéis vermelhos).
-// Depois de soltar o traço, o último ponto pisca: tocar nele carrega o golpe
-// (`onToque`; o anel mostra a carga). A bolinha entre as pernas (orbe) carrega
-// a barra de poder enquanto o dedo segura (`onOrbe(true/false)`). `guia` é a
-// sequência que o poder pede. `mini` = só mostra (o replay), sem toque.
-const RAIO_TOQUE = 30
-// Arrastando, o raio encolhe: passar por cima de um ponto a caminho de outro
-// não liga ele sem querer.
-const RAIO_ARRASTO = { grande: 22, pequeno: 15 }
+// O tabuleiro: desenha o pentagrama e recebe o combo do jogador.
+// Responsivo de propósito: TOCAR num ponto já liga ele (não precisa arrastar;
+// arrastar também liga), e tirar o dedo não fecha nada — o combo continua até
+// a batida acabar (`travado` = a troca já resolveu). Tocar de novo no ÚLTIMO
+// ponto carrega o golpe (`onToque`; o anel mostra a carga). A bolinha entre as
+// pernas (orbe) enche a barra de poder a cada toque (`onOrbeToque`) e enquanto
+// o dedo segura (`onOrbe(true/false)`), a qualquer hora. `guia` é a sequência
+// que o poder pede. `mini` = só mostra (o replay), sem toque.
+const RAIO_TOQUE = 34
+const RAIO_ARRASTO = { grande: 30, pequeno: 22 }
+const RAIO_ORBE = 30
 const ESTRELA = ['cab', 'peD', 'maoE', 'maoD', 'peE', 'cab']
 const IDS = Object.keys(PONTOS)
 const pos = id => (id === ESQUIVA ? CENTRO : PONTOS[id])
 
 function pontoPerto(x, y, centroAberto, arrastando = false) {
-  if (centroAberto && Math.hypot(x - CENTRO.x, y - CENTRO.y) < (arrastando ? 18 : 26)) return ESQUIVA
+  if (centroAberto && Math.hypot(x - CENTRO.x, y - CENTRO.y) < (arrastando ? 22 : 30)) return ESQUIVA
   let melhor = null, dist = Infinity
   for (const id of IDS) {
     const raio = arrastando ? RAIO_ARRASTO[PONTOS[id].grande ? 'grande' : 'pequeno'] : RAIO_TOQUE
@@ -26,9 +27,11 @@ function pontoPerto(x, y, centroAberto, arrastando = false) {
   return melhor
 }
 
-export default function Pentagrama({ combo, telegrafo = [], guia = [], centroAberto = false, travado = false, max = 4, carga = 0, progresso = 0, podeCarregar = false, segurandoOrbe = false, mini = false, onMudar, onSoltar, onToque, onOrbe }) {
+export default function Pentagrama({ combo, telegrafo = [], guia = [], centroAberto = false, travado = false, max = 4, carga = 0, progresso = 0, podeCarregar = false, segurandoOrbe = false, mini = false, onMudar, onToque, onOrbe, onOrbeToque }) {
   const svgRef = useRef(null)
   const desenhando = useRef(false)
+  const ligouNesteToque = useRef(false)
+  const comecouNoUltimo = useRef(false)
   const noOrbe = useRef(false)
   const ref = useRef({})
   ref.current = { combo, max, centroAberto }
@@ -40,38 +43,43 @@ export default function Pentagrama({ combo, telegrafo = [], guia = [], centroAbe
     return pt.matrixTransform(svg.getScreenCTM().inverse())
   }
 
+  const ligar = p => {
+    const { combo: c, max: m, centroAberto: ab } = ref.current
+    if (!p || !podeLigar(c, p, m, ab)) return false
+    const novo = [...c, p]
+    ref.current.combo = novo
+    onMudar(novo)
+    ligouNesteToque.current = true
+    return true
+  }
+
   const down = e => {
-    if (mini) return
+    if (mini || travado) return
     const { x, y } = coord(e)
-    if (onOrbe && !travado && Math.hypot(x - ORBE.x, y - ORBE.y) < 24) {
+    e.currentTarget.setPointerCapture(e.pointerId)
+    if (onOrbe && Math.hypot(x - ORBE.x, y - ORBE.y) < RAIO_ORBE) {
       noOrbe.current = true
-      e.currentTarget.setPointerCapture(e.pointerId)
+      onOrbeToque?.()
       onOrbe(true)
       return
     }
-    if (travado) {
-      const ultimo = golpesDe(combo).at(-1)
-      if (podeCarregar && ultimo && pontoPerto(x, y, false) === ultimo) onToque?.()
-      return
-    }
     const p = pontoPerto(x, y, centroAberto)
-    if (!p || !podeLigar([], p, max, centroAberto)) return
+    ligouNesteToque.current = false
+    comecouNoUltimo.current = Boolean(p) && p === golpesDe(ref.current.combo).at(-1)
     desenhando.current = true
-    e.currentTarget.setPointerCapture(e.pointerId)
-    onMudar([p])
+    if (!comecouNoUltimo.current) ligar(p)
   }
   const move = e => {
     if (!desenhando.current) return
     const { x, y } = coord(e)
-    const { combo: c, max: m, centroAberto: ab } = ref.current
-    const p = pontoPerto(x, y, ab, true)
-    if (p && podeLigar(c, p, m, ab)) onMudar([...c, p])
+    ligar(pontoPerto(x, y, ref.current.centroAberto, true))
   }
   const up = () => {
     if (noOrbe.current) { noOrbe.current = false; onOrbe?.(false); return }
     if (!desenhando.current) return
     desenhando.current = false
-    onSoltar?.()
+    // Tocou no último ponto e não puxou pra outro = toque de carga.
+    if (comecouNoUltimo.current && !ligouNesteToque.current && podeCarregar) onToque?.()
   }
 
   const linha = ids => ids.map(id => `${pos(id).x},${pos(id).y}`).join(' ')

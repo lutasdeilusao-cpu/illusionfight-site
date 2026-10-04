@@ -10,8 +10,8 @@
 // ponto grande do mesmo lado (mão→cotovelo, pé→joelho) ou de outro ponto
 // pequeno, porque o corpo já tá "dentro" (pé→joelho→cotovelo vale).
 //
-// CARGA — depois de soltar o traço, o último ponto pisca: cada TOQUES_POR_CARGA
-// toques nele sobem um nível (até 2).
+// CARGA — tocar de novo no último ponto do combo (ele pisca): cada
+// TOQUES_POR_CARGA toques sobem um nível (até 2).
 // Carga I: no máximo 2 golpes, energia ×1,5. Carga II: 1 golpe só, energia
 // ×2,2. Carga soma na gravidade. Mas golpe carregado abre a guarda: se o
 // inimigo bloquear um golpe seu ou esquivar, o dano que você leva na troca
@@ -29,8 +29,8 @@
 //
 // ENERGIA — 10 por troca (teto 16), dividida pelos golpes do combo.
 //
-// PODER — a bolinha entre as pernas (ORBE) carrega a barra de poder enquanto
-// o dedo segura nela; segurar é abrir mão de atacar. Bloquear e apanhar também
+// PODER — a bolinha entre as pernas (ORBE) carrega a barra de poder a cada
+// toque e enquanto o dedo segura nela; o tempo ali é tempo sem atacar. Bloquear e apanhar também
 // enchem um pouco. Barra cheia: a cada batida o jogo manda uma sequência de
 // pontos; desenhou exatamente ela, sai o poder (Gelo Negro: dano alto, sem
 // bloqueio, cancela o combo dele e o congela — tonto na próxima). A barra zera.
@@ -72,6 +72,7 @@ export const RASPAO = 0.25
 export const ORBE = { x: 150, y: 290 }
 export const PODER_MAX = 100
 export const PODER_POR_SEGUNDO = 26
+export const PODER_POR_TOQUE = 5
 export const PODER_BLOQUEIO = 8
 export const PODER_APANHOU = 4
 export const PODERES = {
