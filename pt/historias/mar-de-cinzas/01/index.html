@@ -196,7 +196,7 @@
       "keywords": "illusion fight, lutas de ilusão, web shard, webtoon, jogos táticos, arena virtual, ficção científica"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-BWkOxOVG.js"></script>
+    <script type="module" crossorigin src="/assets/index-CxH5o6vE.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-GZhdek4G.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-zJ_50EbN.js">
     <link rel="modulepreload" crossorigin href="/assets/supabase-ByYxoL3g.js">
@@ -205,7 +205,7 @@
     <link rel="modulepreload" crossorigin href="/assets/AuthContext-BTodk_6c.js">
     <link rel="modulepreload" crossorigin href="/assets/releaseAccess-PwRmWFpL.js">
     <link rel="stylesheet" crossorigin href="/assets/index-BkuSGQHB.css">
-      <meta name="ldi-build" content="/assets/index-BWkOxOVG.js">
+      <meta name="ldi-build" content="/assets/index-CxH5o6vE.js">
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Chapter","name":"Mar de Cinzas — Capítulo Um — As Doze Obrigações","description":"Dezessete anos, vestido branco, um comandante com três esposas mortas. Elizabeth conta os passos até o altar.","url":"https://illusionfight.com/pt/historias/mar-de-cinzas/01/","inLanguage":"pt-BR","datePublished":"2027-10-18","isAccessibleForFree":true,"isPartOf":{"@type":"Book","name":"Mar de Cinzas","author":{"@type":"Person","name":"Isaias Leal","url":"https://illusionfight.com/pt/autor/"},"url":"https://illusionfight.com/pt/historias/mar-de-cinzas/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Illusion Fight","item":"https://illusionfight.com/pt/"},{"@type":"ListItem","position":2,"name":"Mar de Cinzas","item":"https://illusionfight.com/pt/historias/mar-de-cinzas/"},{"@type":"ListItem","position":3,"name":"Mar de Cinzas — Capítulo Um — As Doze Obrigações","item":"https://illusionfight.com/pt/historias/mar-de-cinzas/01/"}]}]}</script>
   </head>
   <body>
@@ -252,6 +252,19 @@
       // novo (deploy novo) ou nunca vimos essa marca (1ª visita), é cache miss
       // de verdade — toca o show completo, já que o carregamento real vai
       // demorar mesmo.
+      // Atualização forçada: antes de apresentar o produto, pergunta ao servidor
+      // (sem cache) qual build está no ar; se for outro, recarrega ainda na
+      // vinheta — ninguém vê a versão velha. Uma vez por build (sem laço).
+      (function () {
+        var meta = document.querySelector('meta[name="ldi-build"]');
+        if (!meta || !window.fetch) return;
+        fetch('/?v=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (html) {
+          var m = html.match(/<meta name="ldi-build" content="([^"]+)"/);
+          if (!m || m[1] === meta.content) return;
+          try { if (sessionStorage.getItem('ldi-recarregou-build') === m[1]) return; sessionStorage.setItem('ldi-recarregou-build', m[1]); } catch (e) {}
+          window.location.reload();
+        }).catch(function () {});
+      })();
       (function () {
         var el = document.getElementById('ldi-intro');
         if (!el) return;
@@ -294,7 +307,7 @@
         setTimeout(function () { ready = true; tryFinish(); }, MAX);
       })();
     </script>
-    <div id="root"><main data-seo-static><nav aria-label="Navegação"><a href="/pt/">Illusion Fight</a> · <a href="/pt/historias/mar-de-cinzas/">Mar de Cinzas</a> · <a href="/pt/historias/">Histórias</a> · <a href="/pt/webtoon/">WEB SHARD</a> · <a href="/pt/games/">Jogos</a> · <a href="/pt/personagens/">Personagens</a> · <a href="/pt/universos/">Universos</a></nav><article><h1>Mar de Cinzas — Capítulo Um — As Doze Obrigações</h1><p>Dezessete anos, vestido branco, um comandante com três esposas mortas. Elizabeth conta os passos até o altar.</p></article><nav aria-label="Veja também"><h2>Veja também</h2><ul><li><a href="/pt/historias/mar-de-cinzas/">Mar de Cinzas</a></li></ul></nav><p><a href="/historias/mar-de-cinzas/01/" hreflang="en">English</a> · <a href="/es/historias/mar-de-cinzas/01/" hreflang="es">Español</a></p></main></div><noscript><main data-seo-static><nav aria-label="Navegação"><a href="/pt/">Illusion Fight</a> · <a href="/pt/historias/mar-de-cinzas/">Mar de Cinzas</a> · <a href="/pt/historias/">Histórias</a> · <a href="/pt/webtoon/">WEB SHARD</a> · <a href="/pt/games/">Jogos</a> · <a href="/pt/personagens/">Personagens</a> · <a href="/pt/universos/">Universos</a></nav><article><h1>Mar de Cinzas — Capítulo Um — As Doze Obrigações</h1><p>Dezessete anos, vestido branco, um comandante com três esposas mortas. Elizabeth conta os passos até o altar.</p></article><nav aria-label="Veja também"><h2>Veja também</h2><ul><li><a href="/pt/historias/mar-de-cinzas/">Mar de Cinzas</a></li></ul></nav><p><a href="/historias/mar-de-cinzas/01/" hreflang="en">English</a> · <a href="/es/historias/mar-de-cinzas/01/" hreflang="es">Español</a></p></main></noscript>
+    <div id="root"><main data-seo-static><nav aria-label="Navegação"><a href="/pt/">Illusion Fight</a> · <a href="/pt/historias/mar-de-cinzas/">Mar de Cinzas</a> · <a href="/pt/historias/">Histórias</a> · <a href="/pt/webtoon/">WEB SHARD</a> · <a href="/pt/games/">Jogos</a> · <a href="/pt/personagens/">Personagens</a> · <a href="/pt/universos/">Universos</a></nav><article><h1>Mar de Cinzas — Capítulo Um — As Doze Obrigações</h1><p>Dezessete anos, vestido branco, um comandante com três esposas mortas. Elizabeth conta os passos até o altar.</p></article><nav aria-label="Veja também"><h2>Veja também</h2><ul><li><a href="/pt/historias/mar-de-cinzas/">Mar de Cinzas</a></li></ul></nav><p><a href="/historias/mar-de-cinzas/01/" hreflang="en">English</a> · <a href="/es/historias/mar-de-cinzas/01/" hreflang="es">Español</a></p></main></div><noscript><main data-seo-static><nav aria-label="Navegação"><a href="/pt/">Illusion Fight</a> · <a href="/pt/historias/mar-de-cinzas/">Mar de Cinzas</a> · <a href="/pt/historias/">Histórias</a> · <a href="/pt/webtoon/">WEB SHARD</a> · <a href="/pt/games/">Jogos</a> · <a href="/pt/personagens/">Personagens</a> · <a href="/pt/universos/">Universos</a></nav><article><h1>Mar de Cinzas — Capítulo Um — As Doze Obrigações</h1><p>Dezessete anos, vestido branco, um comandante com três esposas mortas. Elizabeth conta os passos até o altar.</p></article><nav aria-label="Veja também"><h2>Veja também</h2><ul><li><a href="/pt/historias/mar-de-cinzas/">Mar de Cinzas</a></li></ul></nav><p><a href="/historias/mar-de-cinzas/01/" hreflang="en">English</a> · <a href="/es/historias/mar-de-cinzas/01/" hreflang="es">Español</a></p></main></noscript>
     <script>
       if ('serviceWorker' in navigator && 'PushManager' in window) {
         navigator.serviceWorker.register('/sw.js').catch(() => {})

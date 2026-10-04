@@ -196,7 +196,7 @@
       "keywords": "illusion fight, lutas de ilusão, web shard, webtoon, jogos táticos, arena virtual, ficção científica"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-BWkOxOVG.js"></script>
+    <script type="module" crossorigin src="/assets/index-CxH5o6vE.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-GZhdek4G.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-zJ_50EbN.js">
     <link rel="modulepreload" crossorigin href="/assets/supabase-ByYxoL3g.js">
@@ -205,7 +205,7 @@
     <link rel="modulepreload" crossorigin href="/assets/AuthContext-BTodk_6c.js">
     <link rel="modulepreload" crossorigin href="/assets/releaseAccess-PwRmWFpL.js">
     <link rel="stylesheet" crossorigin href="/assets/index-BkuSGQHB.css">
-      <meta name="ldi-build" content="/assets/index-BWkOxOVG.js">
+      <meta name="ldi-build" content="/assets/index-CxH5o6vE.js">
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Chapter","name":"Sea of Ashes — Chapter Two — The Thirteenth Day","description":"Algemada num contensor do Almirantado, Elizabeth é levada a Amvesh — e ao que fazem lá.","url":"https://illusionfight.com/historias/mar-de-cinzas/02/","inLanguage":"en","datePublished":"2027-10-18","isAccessibleForFree":true,"isPartOf":{"@type":"Book","name":"Sea of Ashes","author":{"@type":"Person","name":"Isaias Leal","url":"https://illusionfight.com/autor/"},"url":"https://illusionfight.com/historias/mar-de-cinzas/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Illusion Fight","item":"https://illusionfight.com/"},{"@type":"ListItem","position":2,"name":"Sea of Ashes","item":"https://illusionfight.com/historias/mar-de-cinzas/"},{"@type":"ListItem","position":3,"name":"Sea of Ashes — Chapter Two — The Thirteenth Day","item":"https://illusionfight.com/historias/mar-de-cinzas/02/"}]}]}</script>
   </head>
   <body>
@@ -252,6 +252,19 @@
       // novo (deploy novo) ou nunca vimos essa marca (1ª visita), é cache miss
       // de verdade — toca o show completo, já que o carregamento real vai
       // demorar mesmo.
+      // Atualização forçada: antes de apresentar o produto, pergunta ao servidor
+      // (sem cache) qual build está no ar; se for outro, recarrega ainda na
+      // vinheta — ninguém vê a versão velha. Uma vez por build (sem laço).
+      (function () {
+        var meta = document.querySelector('meta[name="ldi-build"]');
+        if (!meta || !window.fetch) return;
+        fetch('/?v=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (html) {
+          var m = html.match(/<meta name="ldi-build" content="([^"]+)"/);
+          if (!m || m[1] === meta.content) return;
+          try { if (sessionStorage.getItem('ldi-recarregou-build') === m[1]) return; sessionStorage.setItem('ldi-recarregou-build', m[1]); } catch (e) {}
+          window.location.reload();
+        }).catch(function () {});
+      })();
       (function () {
         var el = document.getElementById('ldi-intro');
         if (!el) return;
@@ -294,7 +307,7 @@
         setTimeout(function () { ready = true; tryFinish(); }, MAX);
       })();
     </script>
-    <div id="root"><main data-seo-static><nav aria-label="Breadcrumb"><a href="/">Illusion Fight</a> · <a href="/historias/mar-de-cinzas/">Sea of Ashes</a> · <a href="/historias/">Stories</a> · <a href="/webtoon/">WEB SHARD</a> · <a href="/games/">Games</a> · <a href="/personagens/">Characters</a> · <a href="/universos/">Universes</a></nav><article><h1>Sea of Ashes — Chapter Two — The Thirteenth Day</h1><p>Algemada num contensor do Almirantado, Elizabeth é levada a Amvesh — e ao que fazem lá.</p></article><nav aria-label="See also"><h2>See also</h2><ul><li><a href="/historias/mar-de-cinzas/">Sea of Ashes</a></li></ul></nav><p><a href="/pt/historias/mar-de-cinzas/02/" hreflang="pt-BR">Português</a> · <a href="/es/historias/mar-de-cinzas/02/" hreflang="es">Español</a></p></main></div><noscript><main data-seo-static><nav aria-label="Breadcrumb"><a href="/">Illusion Fight</a> · <a href="/historias/mar-de-cinzas/">Sea of Ashes</a> · <a href="/historias/">Stories</a> · <a href="/webtoon/">WEB SHARD</a> · <a href="/games/">Games</a> · <a href="/personagens/">Characters</a> · <a href="/universos/">Universes</a></nav><article><h1>Sea of Ashes — Chapter Two — The Thirteenth Day</h1><p>Algemada num contensor do Almirantado, Elizabeth é levada a Amvesh — e ao que fazem lá.</p></article><nav aria-label="See also"><h2>See also</h2><ul><li><a href="/historias/mar-de-cinzas/">Sea of Ashes</a></li></ul></nav><p><a href="/pt/historias/mar-de-cinzas/02/" hreflang="pt-BR">Português</a> · <a href="/es/historias/mar-de-cinzas/02/" hreflang="es">Español</a></p></main></noscript>
+    <div id="root"><main data-seo-static><nav aria-label="Breadcrumb"><a href="/">Illusion Fight</a> · <a href="/historias/mar-de-cinzas/">Sea of Ashes</a> · <a href="/historias/">Stories</a> · <a href="/webtoon/">WEB SHARD</a> · <a href="/games/">Games</a> · <a href="/personagens/">Characters</a> · <a href="/universos/">Universes</a></nav><article><h1>Sea of Ashes — Chapter Two — The Thirteenth Day</h1><p>Algemada num contensor do Almirantado, Elizabeth é levada a Amvesh — e ao que fazem lá.</p></article><nav aria-label="See also"><h2>See also</h2><ul><li><a href="/historias/mar-de-cinzas/">Sea of Ashes</a></li></ul></nav><p><a href="/pt/historias/mar-de-cinzas/02/" hreflang="pt-BR">Português</a> · <a href="/es/historias/mar-de-cinzas/02/" hreflang="es">Español</a></p></main></div><noscript><main data-seo-static><nav aria-label="Breadcrumb"><a href="/">Illusion Fight</a> · <a href="/historias/mar-de-cinzas/">Sea of Ashes</a> · <a href="/historias/">Stories</a> · <a href="/webtoon/">WEB SHARD</a> · <a href="/games/">Games</a> · <a href="/personagens/">Characters</a> · <a href="/universos/">Universes</a></nav><article><h1>Sea of Ashes — Chapter Two — The Thirteenth Day</h1><p>Algemada num contensor do Almirantado, Elizabeth é levada a Amvesh — e ao que fazem lá.</p></article><nav aria-label="See also"><h2>See also</h2><ul><li><a href="/historias/mar-de-cinzas/">Sea of Ashes</a></li></ul></nav><p><a href="/pt/historias/mar-de-cinzas/02/" hreflang="pt-BR">Português</a> · <a href="/es/historias/mar-de-cinzas/02/" hreflang="es">Español</a></p></main></noscript>
     <script>
       if ('serviceWorker' in navigator && 'PushManager' in window) {
         navigator.serviceWorker.register('/sw.js').catch(() => {})

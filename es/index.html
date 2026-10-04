@@ -197,7 +197,7 @@
       "keywords": "illusion fight, lutas de ilusão, web shard, webtoon, jogos táticos, arena virtual, ficção científica"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-BWkOxOVG.js"></script>
+    <script type="module" crossorigin src="/assets/index-CxH5o6vE.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-GZhdek4G.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-zJ_50EbN.js">
     <link rel="modulepreload" crossorigin href="/assets/supabase-ByYxoL3g.js">
@@ -206,7 +206,7 @@
     <link rel="modulepreload" crossorigin href="/assets/AuthContext-BTodk_6c.js">
     <link rel="modulepreload" crossorigin href="/assets/releaseAccess-PwRmWFpL.js">
     <link rel="stylesheet" crossorigin href="/assets/index-BkuSGQHB.css">
-      <meta name="ldi-build" content="/assets/index-BWkOxOVG.js">
+      <meta name="ldi-build" content="/assets/index-CxH5o6vE.js">
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"Luchas de Ilusión: webtoon, historias y juegos en un solo universo","description":"Luchas de Ilusión: universo brasileño de acción con webtoon gratis (WEB SHARD), novela y cuentos para leer online y juegos gratis en el navegador.","url":"https://illusionfight.com/es/","inLanguage":"es","publisher":{"@type":"Organization","name":"Illusion Fight","alternateName":["Lutas de Ilusão","Luchas de Ilusión"],"url":"https://illusionfight.com","logo":"https://illusionfight.com/icon-if-512.png","sameAs":["https://x.com/IllusionFightIF","https://www.instagram.com/illusionfightif","https://www.tiktok.com/@illusionfightif","https://www.youtube.com/@illusionfightIF"]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Illusion Fight","item":"https://illusionfight.com/es/"}]}]}</script>
   </head>
   <body>
@@ -253,6 +253,19 @@
       // novo (deploy novo) ou nunca vimos essa marca (1ª visita), é cache miss
       // de verdade — toca o show completo, já que o carregamento real vai
       // demorar mesmo.
+      // Atualização forçada: antes de apresentar o produto, pergunta ao servidor
+      // (sem cache) qual build está no ar; se for outro, recarrega ainda na
+      // vinheta — ninguém vê a versão velha. Uma vez por build (sem laço).
+      (function () {
+        var meta = document.querySelector('meta[name="ldi-build"]');
+        if (!meta || !window.fetch) return;
+        fetch('/?v=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (html) {
+          var m = html.match(/<meta name="ldi-build" content="([^"]+)"/);
+          if (!m || m[1] === meta.content) return;
+          try { if (sessionStorage.getItem('ldi-recarregou-build') === m[1]) return; sessionStorage.setItem('ldi-recarregou-build', m[1]); } catch (e) {}
+          window.location.reload();
+        }).catch(function () {});
+      })();
       (function () {
         var el = document.getElementById('ldi-intro');
         if (!el) return;
@@ -295,7 +308,7 @@
         setTimeout(function () { ready = true; tryFinish(); }, MAX);
       })();
     </script>
-    <div id="root"><main data-seo-static class="seo-static-home"><img class="seo-static-hero" src="/assets/banner-01-CAC3zQ8u.webp" alt="" width="1258" height="768" fetchpriority="high"><nav aria-label="Navegación"><a href="/es/">Illusion Fight</a> · <a href="/es/historias/">Historias</a> · <a href="/es/webtoon/">WEB SHARD</a> · <a href="/es/games/">Juegos</a> · <a href="/es/personagens/">Personajes</a> · <a href="/es/universos/">Universos</a></nav><article><h1>Luchas de Ilusión: webtoon, historias y juegos en un solo universo</h1><p>Una historia brasileña de acción y ciencia ficción. Lee el webtoon WEB SHARD y las historias por capítulos online y gratis, conoce a los personajes y juega gratis en el navegador en el universo de Luchas de Ilusión: RPG de pandillas, juego de cartas, minijuegos y más — sin descargar nada.</p></article><p><a href="/" hreflang="en">English</a> · <a href="/pt/" hreflang="pt-BR">Português</a></p></main></div><noscript><main data-seo-static class="seo-static-home"><img class="seo-static-hero" src="/assets/banner-01-CAC3zQ8u.webp" alt="" width="1258" height="768" fetchpriority="high"><nav aria-label="Navegación"><a href="/es/">Illusion Fight</a> · <a href="/es/historias/">Historias</a> · <a href="/es/webtoon/">WEB SHARD</a> · <a href="/es/games/">Juegos</a> · <a href="/es/personagens/">Personajes</a> · <a href="/es/universos/">Universos</a></nav><article><h1>Luchas de Ilusión: webtoon, historias y juegos en un solo universo</h1><p>Una historia brasileña de acción y ciencia ficción. Lee el webtoon WEB SHARD y las historias por capítulos online y gratis, conoce a los personajes y juega gratis en el navegador en el universo de Luchas de Ilusión: RPG de pandillas, juego de cartas, minijuegos y más — sin descargar nada.</p></article><p><a href="/" hreflang="en">English</a> · <a href="/pt/" hreflang="pt-BR">Português</a></p></main></noscript>
+    <div id="root"><main data-seo-static class="seo-static-home"><img class="seo-static-hero" src="/assets/banner-01-CAC3zQ8u.webp" alt="" width="1258" height="768" fetchpriority="high"><nav aria-label="Navegación"><a href="/es/">Illusion Fight</a> · <a href="/es/historias/">Historias</a> · <a href="/es/webtoon/">WEB SHARD</a> · <a href="/es/games/">Juegos</a> · <a href="/es/personagens/">Personajes</a> · <a href="/es/universos/">Universos</a></nav><article><h1>Luchas de Ilusión: webtoon, historias y juegos en un solo universo</h1><p>Una historia brasileña de acción y ciencia ficción. Lee el webtoon WEB SHARD y las historias por capítulos online y gratis, conoce a los personajes y juega gratis en el navegador en el universo de Luchas de Ilusión: RPG de pandillas, juego de cartas, minijuegos y más — sin descargar nada.</p></article><p><a href="/" hreflang="en">English</a> · <a href="/pt/" hreflang="pt-BR">Português</a></p></main></div><noscript><main data-seo-static class="seo-static-home"><img class="seo-static-hero" src="/assets/banner-01-CAC3zQ8u.webp" alt="" width="1258" height="768" fetchpriority="high"><nav aria-label="Navegación"><a href="/es/">Illusion Fight</a> · <a href="/es/historias/">Historias</a> · <a href="/es/webtoon/">WEB SHARD</a> · <a href="/es/games/">Juegos</a> · <a href="/es/personagens/">Personajes</a> · <a href="/es/universos/">Universos</a></nav><article><h1>Luchas de Ilusión: webtoon, historias y juegos en un solo universo</h1><p>Una historia brasileña de acción y ciencia ficción. Lee el webtoon WEB SHARD y las historias por capítulos online y gratis, conoce a los personajes y juega gratis en el navegador en el universo de Luchas de Ilusión: RPG de pandillas, juego de cartas, minijuegos y más — sin descargar nada.</p></article><p><a href="/" hreflang="en">English</a> · <a href="/pt/" hreflang="pt-BR">Português</a></p></main></noscript>
     <script>
       if ('serviceWorker' in navigator && 'PushManager' in window) {
         navigator.serviceWorker.register('/sw.js').catch(() => {})
