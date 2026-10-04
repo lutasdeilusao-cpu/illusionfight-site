@@ -65,6 +65,14 @@ export default function createGanguesEquipSlice(set, get) {
     },
 
     // Tira o item do `slot` do personagem e devolve ao inventário (com cartas).
+    // Vende uma peça guardada (só o que está no bolso; equipada não vende).
+    venderEquip: (uid, preco) => {
+      if (!(preco > 0) || !get().equipamentos.some(eq => eq.uid === uid)) return false
+      set(state => ({ equipamentos: state.equipamentos.filter(eq => eq.uid !== uid) }))
+      get().ganharGrana(preco)
+      return true
+    },
+
     desequiparItem: (memberId, slot) => {
       let devolvido = null
       const aplicar = member => {

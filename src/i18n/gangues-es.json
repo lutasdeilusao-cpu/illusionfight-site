@@ -420,11 +420,18 @@
           "pocao": "Poción",
           "arma": "Arma",
           "protecao": "Protección",
-          "amuleto": "Amuleto"
+          "amuleto": "Amuleto",
+          "vender": "Vender"
         },
         "pechincha_botao": "Regatear (−{n}% si aciertas)",
         "pechincha_ok": "¡Trato hecho! Todo con {n}% de descuento en esta visita.",
-        "pechincha_falha": "Te equivocaste — precio completo, sin llorar."
+        "pechincha_falha": "Te equivocaste — precio completo, sin llorar.",
+        "vender": "Vender",
+        "vender_todos": "Todos ×{n}",
+        "venda_feita": "+{n} 💵",
+        "venda_sub": "La tienda paga una cuarta parte del precio. Lo que alguien lleva puesto no cuenta — quítalo antes.",
+        "nada_vender": "No tienes nada guardado que la tienda compre.",
+        "material": "Material"
       },
       "equip": {
         "titulo": "Equipo",

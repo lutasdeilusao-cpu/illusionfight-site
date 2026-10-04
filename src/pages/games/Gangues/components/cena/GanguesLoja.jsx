@@ -11,33 +11,20 @@ import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
 import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
 import GanguesRetratoImg from '../GanguesRetratoImg'
 import { sfx } from '../../../../../lib/sfx'
+import GanguesLojaVenda from './GanguesLojaVenda'
 import PuzzleAnagrama from '../../../../../components/Puzzles/PuzzleAnagrama'
 import '../../../../../components/Puzzles/Puzzles.css'
 
-/* Encontro LOJA — vende os itens do próprio POI (poi.itens: ['pocao_hp',
-   'colete_couro',...]). Catálogo mistura consumível (data/ganguesItens.js) e
-   equipamento (data/ganguesEquip.js). Tocar no item abre uma folha de detalhe
-   com o que ele dá e como cada personagem da gangue ficaria equipando —
-   comprar já equipa no personagem escolhido (o item anterior do slot volta
-   pro inventário da gangue). Repetível: sempre disponível.
-
-   `poi.precoMultiplicador` (opcional, default 1) — pedido do Isaias,
-   21/09/2026: uma 2ª loja "muito simples", só poção de HP/MP, "pelo dobro
-   do preço da loja de cima, na cara de pau, porque agora que o jogo deu
-   uma balanceada boa, pra arriscar e ganhar mais experiência você tem que
-   ir bem municiado de item". O preço BASE continua um só, no catálogo
-   global (data/ganguesItens.js) — o multiplicador só é aplicado aqui, na
-   hora de montar a vitrine desta loja específica, sem duplicar dado.
-   `poi.npcSlug`/`poi.retratoEnemyId` (opcionais) — cara de quem atende o
-   balcão, mesmo retrato circular das outras telas de encontro (reaproveita
-   as classes `.gdlg-portrait*` já estilizadas em GanguesDialogoEncontro.css,
-   carregado globalmente — sem CSS novo). `retratoEnemyId` existe pra
-   loja poder pedir emprestada uma cara do catálogo de INIMIGO (ex: o
-   "balconista" já tem arte, e nem faz sentido de personagem de vitrine)
-   sem nenhuma implicação de combate — é só a imagem.
-   `poi.pechincha` (opcional, { desconto }) — o Camelô da Feira: acertou o
-   anagrama, a vitrine inteira sai com desconto NESTA visita (estado local,
-   fechou a loja acabou). Errou, paga o preço cheio — só uma tentativa. */
+/* Encontro LOJA — vende os itens do próprio POI (`poi.itens`, ids de
+   consumível e de equipamento) e compra o que a gangue tem (aba Vender,
+   GanguesLojaVenda). Tocar no item abre uma folha de detalhe com o que ele dá
+   e como cada personagem ficaria equipando — comprar já equipa no escolhido
+   (o item anterior do slot volta pro inventário da gangue).
+   `poi.precoMultiplicador` (opcional, default 1) multiplica o preço base só
+   nesta loja. `poi.npcSlug`/`poi.retratoEnemyId` (opcionais) — cara de quem
+   atende o balcão (o retrato de inimigo é só a imagem). `poi.pechincha`
+   (opcional, { desconto }) — acertou o anagrama, a vitrine inteira sai com
+   desconto nesta visita; errou, preço cheio, uma tentativa só. */
 
 const ATTR_ORDER = ['A', 'H', 'D', 'PM']
 
@@ -178,7 +165,7 @@ export default function GanguesLoja({ poi, onClose }) {
 
   const retrato = poi.npcSlug ? getGanguesNpcPortrait(poi.npcSlug) : poi.retratoEnemyId ? getGanguesEnemyPortraitById(poi.retratoEnemyId) : null
 
-  const abasComItem = ABAS.filter(a => catalogo.some(item => abaDoItem(item) === a))
+  const abasComItem = [...ABAS.filter(a => catalogo.some(item => abaDoItem(item) === a)), 'vender']
   const abaAtiva = abasComItem.includes(aba) ? aba : (abasComItem[0] || 'pocao')
   const visiveis = catalogo.filter(item => abaDoItem(item) === abaAtiva)
 
@@ -193,7 +180,7 @@ export default function GanguesLoja({ poi, onClose }) {
     setTimeout(() => setAviso(null), 1400)
   }
 
-  const notificar = (texto) => { setAviso({ itemId: '_global', texto }); setTimeout(() => setAviso(null), 1400) }
+  const notificar = (texto, itemId = '_global') => { setAviso({ itemId, texto }); setTimeout(() => setAviso(null), 1400) }
 
   return (
     <div className="gang-cena-enc gang-cena-enc--loja">
@@ -238,7 +225,9 @@ export default function GanguesLoja({ poi, onClose }) {
         ))}
       </div>
 
-      <div className="gang-loja-cena-lista">
+      {abaAtiva === 'vender'
+        ? <GanguesLojaVenda store={store} t={t} aviso={aviso} notificar={(itemId, texto) => notificar(texto, itemId)} />
+        : <div className="gang-loja-cena-lista">
         {visiveis.map(item => {
           const quantidade = contarNoInventario(item)
           return (
@@ -259,7 +248,7 @@ export default function GanguesLoja({ poi, onClose }) {
             </div>
           )
         })}
-      </div>
+      </div>}
       </>}
 
       <div className="gang-cena-enc-acoes">

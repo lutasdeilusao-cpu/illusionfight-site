@@ -95,6 +95,16 @@ export default function createGanguesCenaEconomiaSlice(set, get) {
       return true
     },
 
+    // Vende `qtd` unidades do consumível a `preco` cada.
+    venderItem: (itemId, preco, qtd = 1) => {
+      const atual = get().inventario[itemId] || 0
+      const n = Math.min(atual, Math.max(1, qtd))
+      if (n <= 0 || !(preco > 0)) return 0
+      set(state => ({ inventario: { ...state.inventario, [itemId]: atual - n } }))
+      get().ganharGrana(preco * n)
+      return n
+    },
+
     resetCena: () => {
       set({ grana: 0, rep: 0, cenaProgresso: {}, inventario: {}, equipamentos: [] })
       get()._persistStory()

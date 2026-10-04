@@ -83,6 +83,9 @@
   flex: 1; display: flex; align-items: center; gap: 10px; min-width: 0;
   padding: 0; border: 0; background: none; cursor: pointer;
 }
+/* Aba Vender */
+.gang-loja-venda-nota { margin: 0; font: 700 0.56rem var(--font-mono); color: var(--text-secondary); text-align: center; }
+.gang-loja-venda-botoes { display: flex; flex-direction: column; gap: 4px; }
 .gang-loja-cena-item__ver { font: 700 0.5rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--if-teal); }
 
 /* ── Folha de detalhe do item (loja) ── */

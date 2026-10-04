@@ -420,11 +420,18 @@
           "pocao": "Potion",
           "arma": "Weapon",
           "protecao": "Armor",
-          "amuleto": "Charm"
+          "amuleto": "Charm",
+          "vender": "Sell"
         },
         "pechincha_botao": "Haggle (−{n}% if you nail it)",
         "pechincha_ok": "Deal! Everything {n}% off this visit.",
-        "pechincha_falha": "Blew the pitch — full price, no crying."
+        "pechincha_falha": "Blew the pitch — full price, no crying.",
+        "vender": "Sell",
+        "vender_todos": "All ×{n}",
+        "venda_feita": "+{n} 💵",
+        "venda_sub": "The shop pays a quarter of the price. Gear someone is wearing doesn't count — take it off first.",
+        "nada_vender": "Nothing stashed the shop will buy.",
+        "material": "Material"
       },
       "equip": {
         "titulo": "Gear",

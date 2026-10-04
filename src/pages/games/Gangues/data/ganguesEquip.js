@@ -1,4 +1,5 @@
 import { getGanguesLevelFromXp } from './ganguesCharacters.js'
+import { GANGUES_VENDA_FRAC } from './ganguesItens.js'
 /* ══════════════════════════════════════════════════════════════
    Catálogo de EQUIPAMENTO — pedido do Isaias.
 
@@ -348,6 +349,12 @@ function precoReferencia(def) {
   let soma = 0
   for (const [k, v] of Object.entries(def.bonus || {})) soma += (Array.isArray(v) ? (v[0] + v[1]) / 2 : Number(v) || 0) * (PESO_PRECO[k] || 0)
   return Math.round(soma * (FATOR_RARIDADE[def.raridade] || 1) / 5) * 5
+}
+
+/** Quanto a loja paga pela peça: 25% do preço (o da fórmula, se não vende), mínimo 1. */
+export function precoVendaEquip(def) {
+  if (!def) return 0
+  return Math.max(1, Math.floor(precoReferencia(def) * GANGUES_VENDA_FRAC))
 }
 
 // Custo de levar a peça pro nível `nivel` de aprimoramento: grana = 25% do

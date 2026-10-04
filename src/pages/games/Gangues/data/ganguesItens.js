@@ -44,7 +44,7 @@ const CATALOGO = [
   // ação filtra por tipo — ver itensDisponiveis em GanguesCombat.jsx). A Sucata
   // cai no ferro-velho (POI `ferro` + `achado` da Pista), em ~20% das vitórias
   // de rua e o Camelô da Feira vende — é o material do aprimoramento.
-  { id: 13, slug: 'sucata', custo: 10, tipo: 'material', valor: 0, icone: '🔩' },
+  { id: 13, slug: 'sucata', custo: 10, venda: 1, tipo: 'material', valor: 0, icone: '🔩' },
   // Fetch quest do rádio do Toninho (Feira): 1 fio de cobre (do Quadro de
   // Luz) + 3 válvulas (a balança, a muamba e uma comprada no Camelô).
   { id: 14, slug: 'fio_cobre', custo: 0, tipo: 'material', valor: 0, icone: '🔌' },
@@ -84,6 +84,16 @@ export function getGanguesItem(itemId) {
   const key = Number(itemId)
   if (!Number.isFinite(key)) return null
   return GANGUES_ITENS[key] || null
+}
+
+// Venda na loja: 25% do preço base, mínimo 1. `venda` no item fixa o valor
+// (a sucata vale 1). Sem preço (item de missão) ou chip de poder = não vende.
+export const GANGUES_VENDA_FRAC = 0.25
+export function precoVendaItem(item) {
+  if (!item || item.tipo === 'poder_unico') return 0
+  if (Number.isFinite(item.venda)) return item.venda
+  if (!(item.custo > 0)) return 0
+  return Math.max(1, Math.floor(item.custo * GANGUES_VENDA_FRAC))
 }
 
 /** Tipos que dá pra usar no meio da luta (a bolinha de ação lista esses). */

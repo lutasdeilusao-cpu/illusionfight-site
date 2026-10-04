@@ -420,11 +420,18 @@
           "pocao": "Poção",
           "arma": "Arma",
           "protecao": "Proteção",
-          "amuleto": "Amuleto"
+          "amuleto": "Amuleto",
+          "vender": "Vender"
         },
         "pechincha_botao": "Pechinchar (−{n}% se acertar)",
         "pechincha_ok": "Fechou! Tudo com {n}% de desconto nesta visita.",
-        "pechincha_falha": "Errou a conversa — preço cheio, sem choro."
+        "pechincha_falha": "Errou a conversa — preço cheio, sem choro.",
+        "vender": "Vender",
+        "vender_todos": "Todos ×{n}",
+        "venda_feita": "+{n} 💵",
+        "venda_sub": "A loja paga um quarto do preço. Equipado no corpo não entra — tira antes.",
+        "nada_vender": "Nada guardado que a loja compre.",
+        "material": "Material"
       },
       "equip": {
         "titulo": "Equipamento",
