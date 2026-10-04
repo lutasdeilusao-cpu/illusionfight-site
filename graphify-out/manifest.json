@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791083377.5896535,
-    "ast_hash": "e05e992e00c1a56b9b843b9153ef0330",
+    "mtime": 1791085647.330147,
+    "ast_hash": "4c499dedeadf75390794cd3a271f11b1",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2720,8 +2720,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791083377.640325,
-    "ast_hash": "37050f109d61aeaf43d2a113c706cccb",
+    "mtime": 1791085647.4048731,
+    "ast_hash": "6be772eafcc572af3d923b4d2ad2f0af",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3350,18 +3350,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1791030918.5350456,
-    "ast_hash": "aeea719355467a42bb6ac8c57ba80091",
+    "mtime": 1791085285.2670038,
+    "ast_hash": "4adf5fa8e0f7a5674855e9d9c13fcabd",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1791030918.5390463,
-    "ast_hash": "3af733326be650de5645313732f544e5",
+    "mtime": 1791085285.2766833,
+    "ast_hash": "294a57b85a9219a8f215cb697273be47",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1791030918.5320463,
-    "ast_hash": "d4f23702bffbf03846b7e8da421e70a9",
+    "mtime": 1791085285.2584968,
+    "ast_hash": "694977a1b84d79c7bd05656abe38fb4a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -3955,8 +3955,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesItens.js": {
-    "mtime": 1790808877.4885192,
-    "ast_hash": "0b63226398855dc498ad7c3469cd1265",
+    "mtime": 1791085242.7910383,
+    "ast_hash": "54b54f7ffd953e78ac4862e94599b09a",
     "semantic_hash": ""
   },
   "supabase/migrations/035_gangues_inventario.sql": {
@@ -3965,8 +3965,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesLoja.jsx": {
-    "mtime": 1790703493.5480175,
-    "ast_hash": "0e1e544e47643df3f4c8c2ca40f4a607",
+    "mtime": 1791085272.210585,
+    "ast_hash": "0259d2ece7ebbbceadbde9d0b48ffdf2",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesEquipPanel.jsx": {
@@ -3975,8 +3975,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesEquip.js": {
-    "mtime": 1790816795.5930588,
-    "ast_hash": "bd458789674cba9bcc42cc231c006fff",
+    "mtime": 1791085242.7920384,
+    "ast_hash": "ccb3534186db534c39a46743c2eec150",
     "semantic_hash": ""
   },
   "supabase/migrations/036_gangues_equipamentos.sql": {
@@ -3990,8 +3990,8 @@
     "semantic_hash": ""
   },
   "docs/Games/Gangues/LDI_GANGUES_GDD.md": {
-    "mtime": 1791083369.083282,
-    "ast_hash": "5c7e8506baab4b31fd805fd06bc1d49e",
+    "mtime": 1791085647.3028777,
+    "ast_hash": "210317d22c71dc38a8defa46607a9090",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesInimigos.js": {
@@ -4050,8 +4050,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesCenaEconomiaSlice.js": {
-    "mtime": 1790690488.261949,
-    "ast_hash": "91748ed166af73a148d40483da305acb",
+    "mtime": 1791085242.7920384,
+    "ast_hash": "8b0f086924706bcbb3d47518584f61c9",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesCenaProgressoSlice.js": {
@@ -4065,8 +4065,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesEquipSlice.js": {
-    "mtime": 1790691694.8063295,
-    "ast_hash": "0d02c02670f05daf7b0db6324f7e7051",
+    "mtime": 1791085242.7930388,
+    "ast_hash": "0c96c88d40c28c7af2a3603c1251de15",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesMatchSlice.js": {
@@ -7032,6 +7032,11 @@
   "src/assets/images/contos/capas/07.webp": {
     "mtime": 1790981760.0089426,
     "ast_hash": "392115c0d0a74ee5afdd0c7781f2a34b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/cena/GanguesLojaVenda.jsx": {
+    "mtime": 1791085259.270014,
+    "ast_hash": "d1ec8eaa30fd3d4142c9a0a63fc0f64f",
     "semantic_hash": ""
   }
 }

@@ -351,10 +351,10 @@ function precoReferencia(def) {
   return Math.round(soma * (FATOR_RARIDADE[def.raridade] || 1) / 5) * 5
 }
 
-/** Quanto a loja paga pela peça: 25% do preço (o da fórmula, se não vende), mínimo 1. */
-export function precoVendaEquip(def) {
+/** Quanto a loja paga pela peça: 25% do preço (o da fórmula, se não vende), mínimo 1, +2 por nível de aprimoramento. */
+export function precoVendaEquip(def, aprim = 0) {
   if (!def) return 0
-  return Math.max(1, Math.floor(precoReferencia(def) * GANGUES_VENDA_FRAC))
+  return Math.max(1, Math.floor(precoReferencia(def) * GANGUES_VENDA_FRAC)) + 2 * Math.max(0, Number(aprim) || 0)
 }
 
 // Custo de levar a peça pro nível `nivel` de aprimoramento: grana = 25% do

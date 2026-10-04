@@ -1485,7 +1485,7 @@ gangue tem guardado a **25% do preço base**, mínimo 1 (`GANGUES_VENDA_FRAC`,
 `precoVendaItem` / `precoVendaEquip`). A **Sucata** vale fixo **1** (`venda: 1`).
 Item de missão sem preço (fio de cobre, café do véio, chave do elevador) e chip
 de poder não vendem. Equipamento só vende guardado, peça por peça, pelo preço
-da peça (o aprimoramento não entra); épico usa o preço da fórmula. Consumível
+da peça + 2 por nível de aprimoramento; épico usa o preço da fórmula. Consumível
 vende 1 ou todos de uma vez.
 
 A Lojinha do Zé existe porque quem quer arriscar luta mais forte precisa ir

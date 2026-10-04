@@ -21,7 +21,7 @@ export default function GanguesLojaVenda({ store, t, aviso, notificar }) {
     if (n > 0) { sfx.reward?.(); notificar(item.id, t('games.gangues.loja.venda_feita', { n: preco * n })) }
   }
   const venderPeca = (eq, def) => {
-    const preco = precoVendaEquip(def)
+    const preco = precoVendaEquip(def, eq.aprim)
     if (store.venderEquip(eq.uid, preco)) { sfx.reward?.(); notificar(eq.uid, t('games.gangues.loja.venda_feita', { n: preco })) }
   }
 
@@ -62,7 +62,7 @@ export default function GanguesLojaVenda({ store, t, aviso, notificar }) {
             <small>{t(`games.gangues.equip.slots.${def.slot}`)} · {t(`games.gangues.equip.raridade.${def.raridade}`)}</small>
           </span>
           <button className="gang-loja-cena-item__comprar" onClick={() => venderPeca(eq, def)}>
-            {t('games.gangues.loja.vender')}<b>{t('games.gangues.loja.custo', { n: precoVendaEquip(def) })}</b>
+            {t('games.gangues.loja.vender')}<b>{t('games.gangues.loja.custo', { n: precoVendaEquip(def, eq.aprim) })}</b>
           </button>
           {aviso?.itemId === eq.uid && <span className="gang-loja-cena-item__aviso">{aviso.texto}</span>}
         </div>
