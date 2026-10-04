@@ -962,6 +962,61 @@
           "desc": "Respondes. Y lo que está del otro lado de la señal te responde.",
           "onde": "Alguien la enseña el Día 3, o se puede entrenar en el refugio de Kaeda."
         }
+      },
+      "batalha": {
+        "lab": "Laboratorio",
+        "titulo": "Pelea del Pentagrama",
+        "restrito": "Área de prueba, solo para admin.",
+        "como": "Tu cuerpo es un pentagrama. Unes los puntos con el dedo y cada punto es un golpe. La pelea avanza por compases: el combo del enemigo se enciende en rojo y tienes hasta que se acabe la barra amarilla para dibujar el tuyo.",
+        "regras": {
+          "r1": "Puntos grandes: cabeza, manos y pies. Puntos pequeños: codos y rodillas — el codo solo justo después de la mano del mismo lado, la rodilla solo después del pie.",
+          "r2": "Combos de 1 a 4 golpes. La energía del intercambio se divide entre ellos: un golpe solo sale con todo, cuatro salen débiles.",
+          "r3": "Mismo miembro en la misma posición que el combo del enemigo = bloqueo. Lo demás entra, de los dos lados.",
+          "r4": "Bloquear un puñetazo o una patada con el codo o la rodilla devuelve algo de daño. Bloquear y esquivar dan energía para el siguiente intercambio.",
+          "r5": "El centro se enciende verde de vez en cuando: tócalo para esquivar todo el intercambio, pero no atacas."
+        },
+        "oponente": "Oponente",
+        "velocidade": "Velocidad",
+        "lutar": "Pelear",
+        "voce": "Tú",
+        "sair": "Salir",
+        "vel": {
+          "lento": "Lento",
+          "normal": "Normal",
+          "rapido": "Rápido"
+        },
+        "fichas": {
+          "saco": "Saco de Boxeo",
+          "stormbyte": "StormByte_91"
+        },
+        "energia": "energía {n}",
+        "desenhe": "Dibuja tu combo",
+        "travado": "Combo fijado",
+        "vitoria": "Ganaste",
+        "derrota": "Caíste",
+        "trocas": "{n} intercambios",
+        "de_novo": "Otra vez",
+        "pontos": {
+          "cab": "cabezazo",
+          "maoD": "puñetazo derecho",
+          "maoE": "puñetazo izquierdo",
+          "cotD": "codazo derecho",
+          "cotE": "codazo izquierdo",
+          "peD": "patada derecha",
+          "peE": "patada izquierda",
+          "joeD": "rodillazo derecho",
+          "joeE": "rodillazo izquierdo"
+        },
+        "passo": {
+          "bloqueio": "Bloqueo: {golpe} detenido en seco.",
+          "bloqueio_duro_jog": "Bloqueo duro: paraste el {golpe} y le dolió.",
+          "bloqueio_duro_ini": "Paró tu golpe y te dolió.",
+          "acerto_jog": "Conectaste un {golpe}: −{dano}",
+          "acerto_ini": "Recibiste un {golpe}: −{dano}",
+          "esquiva_jog": "Esquivaste.",
+          "esquiva_ini": "Esquivó.",
+          "vazio": "{golpe} al aire."
+        }
       }
     },
     "toptrumps": {

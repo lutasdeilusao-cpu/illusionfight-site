@@ -52,6 +52,7 @@ const SRGRM = lazyWithReload(() => import('./pages/lab/Prototype/SRGRM/SRGRM'))
 const ArenaTestbed = lazyWithReload(() => import('./pages/lab/Prototype/ArenaTestbed/ArenaTestbed'))
 const LDILobby = lazyWithReload(() => import('./pages/games/LDI/Lobby'))
 const LDIGame = lazyWithReload(() => import('./pages/games/LDI/Game'))
+const LDIBatalhaLab = lazyWithReload(() => import('./pages/games/LDI/batalha/BatalhaLab'))
 const JackCandy = lazyWithReload(() => import('./pages/games/JackCandy/JackCandy'))
 const GanguesRoute = lazyWithReload(() => import('./pages/games/Gangues/GanguesRoute'))
 const ArenaTaticsRoute = lazyWithReload(() => import('./pages/games/ArenaTatics/ArenaTaticsRoute'))
@@ -184,6 +185,7 @@ export default function App() {
         <Route path="/games/multiplayer/lobby" element={<FichaGateRoute gameId="top_trumps" feature="o lobby multiplayer" nomeExibicao="Top Trumps LDI"><MultiplayerLobby /></FichaGateRoute>} />
         <Route path="/games/ldi" element={<FichaGateRoute gameId="lendas_ldi" feature="o Lendas do LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDILobby /></FichaGateRoute>} />
         <Route path="/games/ldi/game" element={<FichaGateRoute gameId="lendas_ldi" feature="o Lendas do LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDIGame /></FichaGateRoute>} />
+        <Route path="/games/ldi/pentagrama" element={<LDIBatalhaLab />} />
         <Route path="/games/jackcandy" element={<FichaGateRoute gameId="jack_dream_beer" feature="o Jack Dream Beer" nomeExibicao="Jack Dream Beer"><JackCandy /></FichaGateRoute>} />
         <Route path="/games/minigames" element={<FichaGateRoute gameId="minigames" feature="os MiniGames" nomeExibicao="MiniGames" isFree={true}><MiniGames /></FichaGateRoute>} />
         <Route path="/games/ldi-gangues" element={<FichaGateRoute gameId="gangues" feature="o LDI Gangues" nomeExibicao="LDI Gangues"><GanguesRoute /></FichaGateRoute>} />

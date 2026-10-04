@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.341.0**.
+> `SITE_VERSION` **10.342.0**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -124,6 +124,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/games/toptrumps/multiplayer` | Partida Top Trumps multiplayer | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | 🔒 |
 | `/games/ldi` | Lobby Lendas do LDI | `src/pages/games/LDI/Lobby.jsx` | 🔒 gratuito |
 | `/games/ldi/game` | História LDI (cenas, escolhas, diário, minijogos e fim) | `src/pages/games/LDI/Game.jsx` | 🔒 gratuito |
+| `/games/ldi/pentagrama` | Laboratório da batalha do pentagrama | `src/pages/games/LDI/batalha/BatalhaLab.jsx` | 🔒 admin |
 | `/games/jackcandy` | Jack Dream Beer | `src/pages/games/JackCandy/JackCandy.jsx` | 🔒 |
 | `/games/minigames` | Coleção MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | 🔒 gratuito |
 | `/games/ldi-gangues` | LDI Gangues | `src/pages/games/Gangues/GanguesRoute.jsx` | 🔒 |
@@ -392,9 +393,9 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.341.0** |
+| `SITE_VERSION` | Site global | **10.342.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
-| `LDI_VERSION` | Lendas do LDI | 3.1.0 |
+| `LDI_VERSION` | Lendas do LDI | 3.2.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
 | `GANGUES_VERSION` | LDI Gangues | **3.97.2** |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.2 |

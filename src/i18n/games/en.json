@@ -962,6 +962,61 @@
           "desc": "You answer. And whatever is on the other side of the signal answers back.",
           "onde": "Someone teaches it on Day 3, or you can train it at Kaeda’s hideout."
         }
+      },
+      "batalha": {
+        "lab": "Lab",
+        "titulo": "Pentagram Fight",
+        "restrito": "Test area, admins only.",
+        "como": "Your body is a pentagram. You connect the points with your finger and each point is a strike. The fight moves in beats: the enemy combo lights up in red and you have until the yellow bar runs out to draw yours.",
+        "regras": {
+          "r1": "Big points: head, hands and feet. Small points: elbows and knees — an elbow only right after the hand on the same side, a knee only after the foot.",
+          "r2": "Combos of 1 to 4 strikes. The exchange energy is split between them: one strike alone hits with everything, four hit weak.",
+          "r3": "Same limb in the same position as the enemy combo = block. The rest lands, both ways.",
+          "r4": "Blocking a punch or kick with an elbow or knee deals some damage back. Blocking and dodging give energy for the next exchange.",
+          "r5": "The center lights up green now and then: tap it to dodge the whole exchange, but you don’t attack."
+        },
+        "oponente": "Opponent",
+        "velocidade": "Speed",
+        "lutar": "Fight",
+        "voce": "You",
+        "sair": "Exit",
+        "vel": {
+          "lento": "Slow",
+          "normal": "Normal",
+          "rapido": "Fast"
+        },
+        "fichas": {
+          "saco": "Punching Bag",
+          "stormbyte": "StormByte_91"
+        },
+        "energia": "energy {n}",
+        "desenhe": "Draw your combo",
+        "travado": "Combo locked",
+        "vitoria": "You won",
+        "derrota": "You went down",
+        "trocas": "{n} exchanges",
+        "de_novo": "Again",
+        "pontos": {
+          "cab": "headbutt",
+          "maoD": "right punch",
+          "maoE": "left punch",
+          "cotD": "right elbow",
+          "cotE": "left elbow",
+          "peD": "right kick",
+          "peE": "left kick",
+          "joeD": "right knee",
+          "joeE": "left knee"
+        },
+        "passo": {
+          "bloqueio": "Block: {golpe} stopped cold.",
+          "bloqueio_duro_jog": "Hard block: you stopped the {golpe} and it hurt him.",
+          "bloqueio_duro_ini": "He stopped your strike and it hurt you.",
+          "acerto_jog": "You landed a {golpe}: −{dano}",
+          "acerto_ini": "Took a {golpe}: −{dano}",
+          "esquiva_jog": "You dodged.",
+          "esquiva_ini": "He dodged.",
+          "vazio": "{golpe} into thin air."
+        }
       }
     },
     "toptrumps": {

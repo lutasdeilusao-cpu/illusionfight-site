@@ -229,16 +229,51 @@ português dentro dos componentes.
    depois dela, cenas próprias de cada Veia, com as habilidades aprendidas em
    lugares e jeitos diferentes por Veia. Habilidades novas nos Atos 2–4.
 2. **Um final por Veia.**
-3. **Batalha rítmica no dedo** no lugar das lutas narradas: notas acendem no
-   tempo, cada nota é golpe ou defesa (jab, direto, gancho, uppercut, bloqueio,
-   esquiva; chutes de Muay Thai). A Veia modifica a batalha (a definir: ex.
-   Lona aguenta mais erro, Fio Solto vê a próxima nota antes, Estática ouve o
-   ritmo escondido). Contraste é o ponto: a história é calma, a luta acelera.
+3. **Batalha do pentagrama** no lugar das lutas narradas — ver §11.
 4. **Inglês e espanhol** do texto aprovado.
 
 ---
 
-## 11. Arquivos
+## 11. Batalha do pentagrama (protótipo)
+
+Laboratório em `/games/ldi/pentagrama` (só admin; no `npm run dev` abre pra
+qualquer um). Motor sem tela em `batalha/motorPentagrama.js`, pra o Lendas (e
+qualquer jogo) consumir depois.
+
+- **O corpo é o tabuleiro:** pentagrama com 5 pontos grandes (cabeça, mão D/E,
+  pé D/E), 4 pequenos (cotovelos e joelhos, entre a mão/pé e o centro) e o
+  centro.
+- **Combo = linha desenhada com o dedo**, de 1 a 4 pontos, sem repetir.
+  Cotovelo só logo depois da mão do mesmo lado; joelho só logo depois do pé.
+- **Batidas:** a luta anda em batidas (lento 3,4 s · normal 2,6 s · rápido
+  1,9 s). O combo do inimigo acende ponto a ponto em vermelho na primeira
+  metade da batida; o jogador desenha o dele até a barra amarela acabar.
+- **Bloqueio por espelho:** posição por posição, golpe do mesmo membro contra
+  golpe do mesmo membro = bloqueio. O resto entra, dos dois lados. O membro já
+  diz o que é o golpe (soco, cotovelada, chute, joelhada, cabeçada).
+- **Energia:** 10 por troca, dividida pelos golpes do combo (um golpe sozinho
+  sai com tudo). Cotovelo ×1,3, joelho ×1,4, cabeçada ×1,25, chute ×1,1.
+  Bloquear rende +1 de energia na próxima troca, esquivar +3 (teto 16).
+  Bloquear soco/chute com cotovelo/joelho devolve 2 de dano.
+- **Esquiva:** o centro abre (verde) em parte das batidas; tocar nele esquiva a
+  troca inteira, e quem esquiva não ataca.
+- **Ficha do inimigo:** lista de combos com peso e chance de esquiva
+  (`FICHAS`: Saco de Pancada, StormByte_91). A ficha do jogador ainda não existe.
+- **Tela:** barras de sangue no topo, estilo jogo de luta (a do inimigo
+  espelhada, rastro vermelho atrás do dano), tabuleiro no meio, o passo a passo
+  da troca embaixo.
+
+**Planejado:**
+- **Visão em primeira pessoa**, estilo boxe antigo que só mostra as luvas, com
+  o inimigo de frente (alternativa: lado a lado).
+- **Barra de poder:** enche com a luta e solta um golpe especial que quebra o
+  combo do inimigo; os poderes chegam aos poucos com a Veia e as habilidades.
+- **Combos liberados aos poucos:** o personagem começa ligando só pontos
+  básicos e vai destravando ligações (cotovelo, joelho, cabeça, combos longos).
+- **Membro machucado** (golpe demais no mesmo membro enfraquece ele por um
+  tempo) e a ficha de movimentos do jogador contra a do inimigo.
+
+## 12. Arquivos
 
 ```
 src/pages/games/LDI/
@@ -251,6 +286,7 @@ src/pages/games/LDI/
 ├── data/
 │   ├── veias.js · habilidades.js
 │   └── scenes/<idioma>/act1–4.json
+├── batalha/                    # motorPentagrama.js · Pentagrama.jsx · BatalhaLab.jsx · Batalha.css
 ├── engine/historia.js          # cenas, escolhas, habilidades
 └── store/useLendasStore.js     # estado + save em lendas_saves
 ```

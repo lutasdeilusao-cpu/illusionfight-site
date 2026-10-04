@@ -962,6 +962,61 @@
           "desc": "Você responde. E o que tá do outro lado do sinal responde de volta.",
           "onde": "Alguém ensina no Dia 3, ou dá pra treinar no abrigo da Kaeda."
         }
+      },
+      "batalha": {
+        "lab": "Laboratório",
+        "titulo": "Batalha do Pentagrama",
+        "restrito": "Área de teste, só pra admin.",
+        "como": "O seu corpo é um pentagrama. Você liga os pontos com o dedo e cada ponto é um golpe. A luta anda em batidas: o combo do inimigo vai acendendo em vermelho e você tem até a barra amarela acabar pra desenhar o seu.",
+        "regras": {
+          "r1": "Pontos grandes: cabeça, mãos e pés. Pontos pequenos: cotovelos e joelhos — cotovelo só logo depois da mão do mesmo lado, joelho só depois do pé.",
+          "r2": "Combo de 1 a 4 golpes. A energia da troca se divide entre eles: um golpe sozinho sai com tudo, quatro saem fracos.",
+          "r3": "Mesmo membro na mesma posição do combo do inimigo = bloqueio. O resto entra, dos dois lados.",
+          "r4": "Bloquear soco ou chute com cotovelo ou joelho devolve um pouco de dano. Bloquear e esquivar dão energia pra próxima troca.",
+          "r5": "O centro acende verde de vez em quando: tocar nele esquiva a troca inteira, mas você não ataca."
+        },
+        "oponente": "Oponente",
+        "velocidade": "Velocidade",
+        "lutar": "Lutar",
+        "voce": "Você",
+        "sair": "Sair",
+        "vel": {
+          "lento": "Lento",
+          "normal": "Normal",
+          "rapido": "Rápido"
+        },
+        "fichas": {
+          "saco": "Saco de Pancada",
+          "stormbyte": "StormByte_91"
+        },
+        "energia": "energia {n}",
+        "desenhe": "Desenhe o seu combo",
+        "travado": "Combo travado",
+        "vitoria": "Você venceu",
+        "derrota": "Você caiu",
+        "trocas": "{n} trocas",
+        "de_novo": "De novo",
+        "pontos": {
+          "cab": "cabeçada",
+          "maoD": "soco direito",
+          "maoE": "soco esquerdo",
+          "cotD": "cotovelada direita",
+          "cotE": "cotovelada esquerda",
+          "peD": "chute direito",
+          "peE": "chute esquerdo",
+          "joeD": "joelhada direita",
+          "joeE": "joelhada esquerda"
+        },
+        "passo": {
+          "bloqueio": "Bloqueio: {golpe} parado no meio.",
+          "bloqueio_duro_jog": "Bloqueio duro: você parou {golpe} e machucou.",
+          "bloqueio_duro_ini": "Ele parou o seu golpe e te machucou.",
+          "acerto_jog": "Você acertou {golpe}: −{dano}",
+          "acerto_ini": "Levou {golpe}: −{dano}",
+          "esquiva_jog": "Você esquivou.",
+          "esquiva_ini": "Ele esquivou.",
+          "vazio": "{golpe} no vazio."
+        }
       }
     },
     "toptrumps": {
