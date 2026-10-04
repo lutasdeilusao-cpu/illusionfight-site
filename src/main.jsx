@@ -7,6 +7,7 @@ import './config/version'
 import './lib/runtimePlatform'
 import './lib/colunaApp'
 import { iniciarPainelColeta } from './lib/painelColeta'
+import { iniciarConferenciaDeVersao } from './lib/versaoNova'
 import { LanguageProvider } from './context/LanguageProvider'
 import { ReaderProvider } from './context/ReaderContext'
 import { AuthProvider } from './context/AuthContext'
@@ -20,6 +21,7 @@ import App from './App'
 import './index.css'
 
 iniciarPainelColeta()
+iniciarConferenciaDeVersao()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -28,7 +28,7 @@ No exceptions. Every modification to any game file:
 4. **`git add -A && git commit -m "<desc> + vX.X.X"`**
 5. **`git push`**
 6. **`npm run deploy`**
-7. **Verify** the deploy published without errors
+7. **Verify** the deploy published without errors — **e só dizer "pronto" depois de confirmar que o site NO AR já serve a versão nova**: baixar `https://illusionfight.com/` (com cache-buster, `?v=<timestamp>`), achar o bundle `assets/index-*.js` e conferir que ele contém o `SITE_VERSION` novo, repetindo até aparecer (o GitHub Pages demora). Isaias, 04/10/2026: "antes de você me dizer que tá pronto, você tem que ver se o deploy já tá atualizado no ar... eu acabo testando uma versão anterior". O navegador de quem já abriu o site guarda a página por até 10 min (`Cache-Control: max-age=600` do Pages) — `src/lib/versaoNova.js` pergunta ao servidor sem cache e recarrega sozinho quando o build no ar é outro (ao abrir; ao voltar pra aba, só fora dos jogos). Sempre fechar o relatório com o link direto do que mudou.
 
 > **📋 AO FINAL, O RELATÓRIO DEVE INCLUIR:**
 > ```
