@@ -45,6 +45,9 @@
 .pg-barra.is-jog .pg-sangue i { right: auto; left: 0; }
 .pg-barra.is-ini .pg-sangue i { left: auto; right: 0; }
 .pg-sangue__vida { background: linear-gradient(180deg, color-mix(in srgb, var(--if-amber) 50%, white), var(--if-amber) 45%, color-mix(in srgb, var(--if-amber) 70%, black)); transition: width 0.15s ease-out; }
+.pg-poder { position: relative; display: block; height: 6px; margin-top: 2px; background: var(--if-hair); transform: skewX(-12deg); overflow: hidden; }
+.pg-poder i { position: absolute; inset: 0 auto 0 0; width: var(--pct); background: linear-gradient(90deg, var(--if-teal), var(--if-cyan)); transition: width 0.12s linear; }
+.pg-poder.is-cheia i { background: var(--if-cyan); animation: pg-pisca 0.5s ease-in-out infinite alternate; }
 .pg-sangue__rastro { background: var(--if-danger); transition: width 0.9s ease-in 0.35s; }
 
 .pg-batida { position: relative; height: 4px; background: var(--if-hair); overflow: hidden; }
@@ -52,7 +55,7 @@
 .pg-batida i.is-replay { background: var(--text-secondary); }
 
 /* Tabuleiro */
-.pg-tabuleiro { width: 100%; aspect-ratio: 300 / 290; display: block; touch-action: none; }
+.pg-tabuleiro { width: 100%; aspect-ratio: 300 / 312; display: block; touch-action: none; }
 .pg-tabuleiro.is-mini { pointer-events: none; }
 .pg-tabuleiro.is-travado .pg-ponto circle { opacity: 0.7; }
 .pg-estrela { fill: none; stroke: var(--if-hair-strong); stroke-width: 1.5; }
@@ -70,8 +73,17 @@
 .pg-centro { fill: var(--if-hair-strong); transition: r 0.12s, fill 0.12s; }
 .pg-centro.is-aberto { fill: var(--if-ok); filter: drop-shadow(0 0 10px var(--if-ok)); }
 .pg-centro.is-ligado { fill: var(--pg-jog); filter: drop-shadow(0 0 10px var(--pg-jog)); }
-.pg-carga { fill: none; stroke: var(--if-amber); stroke-width: 3; stroke-dasharray: 6 4; animation: pg-gira 1.2s linear infinite; transform-box: fill-box; transform-origin: center; }
-.pg-carga.is-c2 { stroke-width: 5; stroke-dasharray: none; filter: drop-shadow(0 0 8px var(--if-amber)); }
+.pg-linha--guia { stroke: var(--if-ink); stroke-width: 3; stroke-dasharray: 2 6; opacity: 0.85; }
+.pg-num--guia { fill: var(--if-ink); font-size: 11px; }
+.pg-orbe circle { fill: var(--if-panel-flat); stroke: var(--if-cyan); stroke-width: 2; }
+.pg-orbe text { font-size: 13px; text-anchor: middle; pointer-events: none; }
+.pg-orbe.is-segurando circle { fill: var(--if-cyan); filter: drop-shadow(0 0 12px var(--if-cyan)); animation: pg-pisca 0.3s ease-in-out infinite alternate; }
+.pg-passo.is-poder { color: var(--if-cyan); font-weight: 900; text-transform: uppercase; }
+.pg-passo.is-congelado { color: var(--text-secondary); }
+.pg-carga { fill: none; stroke: var(--pg-jog); stroke-width: 4; stroke-dasharray: var(--prog) 100; transform: rotate(-90deg); transform-box: fill-box; transform-origin: center; transition: stroke-dasharray 0.15s; }
+.pg-carga.is-c1 { stroke: var(--if-amber); }
+.pg-carga.is-c2 { stroke: var(--if-amber); stroke-width: 6; filter: drop-shadow(0 0 8px var(--if-amber)); }
+.pg-ponto.is-pisca circle { animation: pg-pisca 0.5s ease-in-out infinite alternate; }
 
 /* Replay da troca: o seu pentagrama contra o dele */
 .pg-replay { display: flex; flex-direction: column; gap: 6px; }
@@ -93,4 +105,4 @@
 .pg-sair { min-height: 40px; padding: 8px 14px; cursor: pointer; background: none; border: 1px solid var(--if-hair-strong); color: var(--text-secondary); font: 700 0.6rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; }
 
 @keyframes pg-batida { to { width: 100%; } }
-@keyframes pg-gira { to { transform: rotate(360deg); } }
+@keyframes pg-pisca { from { filter: brightness(1); } to { filter: brightness(1.8) drop-shadow(0 0 10px var(--if-amber)); } }

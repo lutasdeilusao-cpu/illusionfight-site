@@ -967,14 +967,15 @@
         "lab": "Lab",
         "titulo": "Pentagram Fight",
         "restrito": "Test area, admins only.",
-        "como": "Your body is a pentagram. Connect the points with your thumb and each point becomes a strike. Every beat the enemy combo lights up in red and you draw yours until the yellow bar runs out. Then the replay shows your pentagram against his.",
+        "como": "Your body is a pentagram. Connect the points with your thumb and each point becomes a strike. You can’t see the enemy combo: you have to read his style and guess. Every beat you draw yours until the yellow bar runs out; then the replay shows your pentagram against his whole one.",
         "regras": {
           "r1": "Big points (head, hands, feet) connect to anything. Elbow and knee only come after the hand/foot on the same side or another small point: foot → knee → elbow works.",
-          "r2": "Up to 4 strikes. The energy is split between them. Hold your finger still on the last point to charge: Charge I allows only 2 strikes, Charge II only 1, and they hit much harder.",
+          "r2": "Up to 4 strikes. The energy is split between them. Once you release your line, the last point blinks: every 3 taps on it raise the charge one level. Charge I only works with up to 2 strikes, Charge II with just 1, and they hit much harder.",
           "r3": "Same limb in the same position as his combo = block: you gain energy and he loses it. An elbow/knee blocking a punch/kick still hurts.",
           "r4": "Different limbs in the same position: the heavier strike cuts through the lighter one (hands and feet are light; head, elbow and knee are heavy; charge adds up). Taking too many heavy hits unblocked leaves you dizzy: only 1 strike next time.",
           "r5": "A charged strike opens your guard: if he blocks or dodges, you take 50% more.",
-          "r6": "The center lights up green rarely. Run your finger through it in your line: you dodge everything and all your strikes land clean, unblockable. Dodge alone, with no strike, and nobody takes damage."
+          "r6": "The center lights up green rarely. Run your finger through it in your line: you dodge everything and all your strikes land clean, unblockable. Dodge alone, with no strike, and nobody takes damage.",
+          "r7": "Hold the ⚡ orb between the legs to fill the power bar (under your health) — while you hold it, you don’t attack. Full bar: every beat a white sequence shows up. Draw it exactly and Black Ice comes out: heavy damage, unblockable, cancels his combo and freezes him."
         },
         "oponente": "Opponent",
         "velocidade": "Speed",
@@ -1024,13 +1025,24 @@
           "nada": "Nobody touched anybody.",
           "guarda_aberta": "Charged strike with your guard open: you took more.",
           "ficou_tonto": "You got dizzy.",
-          "deixou_tonto": "He got dizzy."
+          "deixou_tonto": "He got dizzy.",
+          "poder_jog": "{poder}! −{dano} and he froze.",
+          "poder_ini": "He unleashed {poder}: −{dano}",
+          "congelado": "His {golpe} froze mid-air."
         },
         "som": "Sound on or off",
         "ele": "Him",
         "tonto": "Dizzy: only 1 strike this time",
         "carga": "Charge {n}",
-        "como_joga": "How to play"
+        "como_joga": "How to play",
+        "habilidade": "Skill (test)",
+        "ver_origem": "See where his 1st strike starts",
+        "toque_carregar": "Tap the blinking point {n}× to charge",
+        "poder_pronto": "Black Ice ready: draw the white sequence",
+        "carregando_poder": "Charging power…",
+        "poderes": {
+          "geloNegro": "Black Ice"
+        }
       }
     },
     "toptrumps": {

@@ -967,14 +967,15 @@
         "lab": "Laboratório",
         "titulo": "Batalha do Pentagrama",
         "restrito": "Área de teste, só pra admin.",
-        "como": "O seu corpo é um pentagrama. Ligue os pontos com o dedão e cada ponto vira um golpe. A cada batida o combo do inimigo acende em vermelho e você desenha o seu até a barra amarela acabar. Depois, o replay mostra o seu pentagrama contra o dele.",
+        "como": "O seu corpo é um pentagrama. Ligue os pontos com o dedão e cada ponto vira um golpe. Você não vê o combo do inimigo: tem que ler o jeito dele e adivinhar. A cada batida você desenha o seu até a barra amarela acabar; depois, o replay mostra o seu pentagrama contra o dele inteiro.",
         "regras": {
           "r1": "Pontos grandes (cabeça, mãos, pés) ligam com qualquer um. Cotovelo e joelho só depois da mão/pé do mesmo lado ou de outro ponto pequeno: pé → joelho → cotovelo vale.",
-          "r2": "Até 4 golpes. A energia se divide entre eles. Segure o dedo parado no último ponto pra carregar: Carga I deixa só 2 golpes, Carga II só 1, e batem muito mais forte.",
+          "r2": "Até 4 golpes. A energia se divide entre eles. Soltou o traço, o último ponto pisca: cada 3 toques nele sobem um nível de carga. Carga I só vale com até 2 golpes, Carga II com 1 só, e batem muito mais forte.",
           "r3": "Mesmo membro na mesma posição do combo dele = bloqueio: você ganha energia e ele perde. Cotovelo/joelho bloqueando soco/chute ainda machuca.",
           "r4": "Membros diferentes na mesma posição: o golpe mais grave interrompe o mais leve (mão e pé são leves; cabeça, cotovelo e joelho, graves; carga soma). Levar golpe grave demais sem bloquear te deixa tonto: na próxima só 1 golpe.",
           "r5": "Golpe carregado abre a guarda: se ele bloquear ou esquivar, você leva 50% a mais.",
-          "r6": "O centro acende verde raramente. Passe o dedo por ele no traço: você esquiva de tudo e todos os seus golpes entram limpos, sem bloqueio. Só esquivar, sem golpe, ninguém leva dano."
+          "r6": "O centro acende verde raramente. Passe o dedo por ele no traço: você esquiva de tudo e todos os seus golpes entram limpos, sem bloqueio. Só esquivar, sem golpe, ninguém leva dano.",
+          "r7": "Segure a bolinha ⚡ entre as pernas pra encher a barra de poder (embaixo da sua vida) — enquanto segura, você não ataca. Barra cheia: a cada batida aparece uma sequência branca. Desenhe ela certinha e sai o Gelo Negro: dano alto, sem bloqueio, cancela o combo dele e deixa ele congelado."
         },
         "oponente": "Oponente",
         "velocidade": "Velocidade",
@@ -1024,13 +1025,24 @@
           "nada": "Ninguém encostou em ninguém.",
           "guarda_aberta": "Golpe carregado com a guarda aberta: você levou mais.",
           "ficou_tonto": "Você ficou tonto.",
-          "deixou_tonto": "Ele ficou tonto."
+          "deixou_tonto": "Ele ficou tonto.",
+          "poder_jog": "{poder}! −{dano} e ele congelou.",
+          "poder_ini": "Ele soltou {poder}: −{dano}",
+          "congelado": "{golpe} dele congelou no ar."
         },
         "som": "Ligar ou desligar o som",
         "ele": "Ele",
         "tonto": "Tonto: só 1 golpe nessa",
         "carga": "Carga {n}",
-        "como_joga": "Como joga"
+        "como_joga": "Como joga",
+        "habilidade": "Habilidade (teste)",
+        "ver_origem": "Ver de onde nasce o 1º golpe dele",
+        "toque_carregar": "Toque {n}× no ponto que pisca pra carregar",
+        "poder_pronto": "Gelo Negro pronto: desenhe a sequência branca",
+        "carregando_poder": "Carregando poder…",
+        "poderes": {
+          "geloNegro": "Gelo Negro"
+        }
       }
     },
     "toptrumps": {

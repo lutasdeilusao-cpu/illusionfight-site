@@ -246,8 +246,8 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 - **Combo = traço do dedão**, até 4 golpes, sem repetir ponto. Ponto grande
   liga com qualquer um. Cotovelo/joelho só logo depois da mão/pé do mesmo lado
   ou de outro ponto pequeno (pé → joelho → cotovelo vale).
-- **Carga:** segurar o dedo parado no último ponto carrega (480 ms por nível).
-  Carga I: até 2 golpes, energia ×1,5. Carga II: 1 golpe, ×2,2. A carga soma na
+- **Carga:** soltou o traço, o último ponto pisca; cada 3 toques nele sobem um
+  nível. Carga I: até 2 golpes, energia ×1,5. Carga II: 1 golpe, ×2,2. A carga soma na
   gravidade. Golpe carregado abre a guarda: se o inimigo bloqueia ou esquiva,
   você leva 50% a mais na troca.
 - **Gravidade:** mão e pé 1; cabeça, cotovelo e joelho 2 (+carga).
@@ -263,10 +263,23 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
   golpe. Com ela, todos os golpes do inimigo passam no vazio e todos os seus
   entram limpos (×1,3), sem bloqueio nem interrupção. Só esquivar, sem golpe:
   ninguém leva dano.
+- **O combo do inimigo não aparece.** Só com a habilidade de ler a origem (no
+  laboratório, uma chave no menu; no Lendas, vai vir de Veia/habilidade) dá pra
+  ver de onde nasce o 1º golpe dele — os outros nunca.
 - **Batidas:** compasso de 8 tempos (lento 3,4 s · normal 2,6 s · rápido
-  1,9 s); o inimigo acende um ponto por tempo. Depois, um compasso de
-  **replay**: o seu pentagrama contra o dele, lado a lado, e o passo a passo.
-- **Inimigo:** combos com peso, chance de esquiva e de **repetir o seu último
+  1,9 s). Depois, um compasso de **replay**: o seu pentagrama contra o dele
+  inteiro, lado a lado, e o passo a passo.
+- **Poder (Gelo Negro):** a bolinha ⚡ entre as pernas enche a barra de poder
+  (embaixo da barra de sangue) enquanto o dedo segura nela — segurando, você
+  não ataca. Bloquear (+8) e apanhar (+4) também enchem. Barra cheia: a cada
+  batida aparece uma sequência branca numerada de 4 pontos (sorteada, só com
+  trechos que não raspam em outro ponto). Desenhou ela exata: Gelo Negro sai
+  antes de tudo, 24 de dano, sem bloqueio, cancela o combo dele e o congela
+  (tonto na próxima). A barra zera. Com o poder pronto, a sequência vale mesmo
+  tonto. Novos poderes entram em `PODERES`.
+- **Arrasto:** com o dedo arrastando, o raio de cada ponto encolhe (22 grande,
+  15 pequeno) pra passar por cima de um ponto a caminho de outro sem ligá-lo.
+- **Inimigo:** combos de 2 a 4 golpes com peso, chance de esquiva e de **repetir o seu último
   combo** (quem repete o mesmo combo apanha bloqueado). Tonto, só o 1º golpe.
 - **Som:** `batalha/somPentagrama.js` (Web Audio, sem arquivo) — compasso com
   bumbo/chimbal/estalo, timbre por golpe (soco, cotovelada, joelhada, chute,
@@ -274,8 +287,8 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 - **Uma mão:** placar e replay em cima, tabuleiro na metade de baixo, no
   dedão; regras fechadas em "Como joga" pra o botão de lutar caber na tela.
 
-**Planejado:** visão em primeira pessoa (só as luvas); barra de poder que
-solta um golpe especial; combos liberados aos poucos; membro machucado; a
+**Planejado:** visão em primeira pessoa (só as luvas); mais poderes; combos
+liberados aos poucos; membro machucado; a
 ficha de movimentos do jogador contra a do inimigo.
 
 ## 12. Arquivos

@@ -90,6 +90,15 @@ export function somEsquiva(quando = 0) {
   sopro(ctx.currentTime + quando, { dur: 0.22, vol: 0.5, f0: 2500, f1: 600, q: 3 })
 }
 
+// O poder (Gelo Negro): cristal subindo agudo e um estrondo grave por baixo.
+export function somPoder() {
+  if (!ctx) return
+  const t = ctx.currentTime
+  for (let i = 0; i < 5; i++) tom(t + i * 0.05, { f0: 1200 + i * 380, f1: 2400 + i * 300, dur: 0.25, vol: 0.18, tipo: 'triangle' })
+  tom(t + 0.2, { f0: 80, f1: 30, dur: 0.7, vol: 1 })
+  sopro(t + 0.2, { dur: 0.6, vol: 0.6, filtro: 'lowpass', f0: 900, f1: 200 })
+}
+
 // Tique de ligar um ponto no traço: a altura sobe a cada ponto do combo.
 export function somLigar(ordem, ponto) {
   if (!ctx) return

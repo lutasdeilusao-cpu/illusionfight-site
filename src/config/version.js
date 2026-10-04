@@ -8,11 +8,11 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.344.0' // batalha do pentagrama: carga, gravidade, esquiva no traço, replay, uma mão
+export const SITE_VERSION = '10.345.0' // batalha do pentagrama: inimigo escondido, carga por toques, poder Gelo Negro
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
-export const LDI_VERSION       = '3.4.0'  // Lendas do LDI — 3 habilidades por Veia; laboratório da batalha do pentagrama
+export const LDI_VERSION       = '3.5.0'  // Lendas do LDI — 3 habilidades por Veia; laboratório da batalha do pentagrama
 export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
 export const GANGUES_VERSION   = '3.97.3' // Automático: a vez nunca fica sem timer; vigia grava no log e age se nada sair em 4 s
 
