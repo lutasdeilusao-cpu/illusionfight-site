@@ -6445,7 +6445,8 @@
         "secoes": {
           "inimigos": "Enemies",
           "itens": "Items",
-          "cartas": "Cards"
+          "cartas": "Cards",
+          "trofeus": "Trophies"
         },
         "itens_consumivel": "Consumable",
         "itens_equip": "Gear",
@@ -6757,6 +6758,123 @@
         "disparou_talento": "Card fired {talento}",
         "disparou_bloqueio": "Card blocked the hit",
         "disparou_cura": "Card recovered {v} Grit"
+      },
+      "trofeus": {
+        "titulo": "trophies",
+        "desbloqueou": "Trophy unlocked",
+        "resumo": "{n} trophies unlocked",
+        "grupos": {
+          "progressao": "Progress",
+          "combate": "Brawling",
+          "colecao": "Drops & collection",
+          "rua": "Street"
+        },
+        "tipos": {
+          "dominar": {
+            "nome": "Turf · {bairro}",
+            "desc": "Take down the block boss."
+          },
+          "zerar": {
+            "nome": "King for two weeks",
+            "desc": "Take down The Patchwork on The Roof."
+          },
+          "zerar_de_novo": {
+            "nome": "Again and again",
+            "desc": "Beat the campaign {n} times."
+          },
+          "nivel": {
+            "nome": "Level {n} rookie",
+            "desc": "Have a fighter at level {n}."
+          },
+          "elenco": {
+            "nome": "Crew of {n}",
+            "desc": "Have {n} fighters on the roster."
+          },
+          "vitorias": {
+            "nome": "{n} wins",
+            "desc": "Win {n} fights."
+          },
+          "inimigos": {
+            "nome": "{n} on the floor",
+            "desc": "Drop {n} enemies."
+          },
+          "chefe_perfeito": {
+            "nome": "Nobody went down",
+            "desc": "Beat a boss without any of your fighters going down."
+          },
+          "clube": {
+            "nome": "King of the ring",
+            "desc": "Win the Fight Club {n}x."
+          },
+          "revanche": {
+            "nome": "Rematch",
+            "desc": "Beat a boss again {n}x."
+          },
+          "drops": {
+            "nome": "Sticky fingers",
+            "desc": "Get {n} enemy drops."
+          },
+          "peca_encaixe": {
+            "nome": "Slotted gear",
+            "desc": "Get your first gear with a card slot."
+          },
+          "peca_dois_encaixes": {
+            "nome": "Special gear",
+            "desc": "Get a piece with 2 slots."
+          },
+          "primeira_carta": {
+            "nome": "First card",
+            "desc": "Get your first enemy card."
+          },
+          "cartas": {
+            "nome": "Collector",
+            "desc": "Own {n} different cards."
+          },
+          "carta_encaixada": {
+            "nome": "Locked in",
+            "desc": "Slot your first card into gear."
+          },
+          "carta_chefe": {
+            "nome": "Boss card",
+            "desc": "Get a boss card."
+          },
+          "album": {
+            "nome": "Marelia Album",
+            "desc": "Have {n} enemies in the album."
+          },
+          "album_chefes": {
+            "nome": "Every boss",
+            "desc": "Have all {n} bosses in the album."
+          },
+          "itens": {
+            "nome": "Full bag",
+            "desc": "See {n} different items."
+          },
+          "grana": {
+            "nome": "Stacking paper",
+            "desc": "Hold {n} cash."
+          },
+          "rep": {
+            "nome": "Street name",
+            "desc": "Reach {n} rep."
+          },
+          "aprimorar": {
+            "nome": "Smith hands",
+            "desc": "Upgrade gear {n}x."
+          },
+          "vendas": {
+            "nome": "Deal closer",
+            "desc": "Sell {n} items."
+          },
+          "banca": {
+            "nome": "Regular at the table",
+            "desc": "Win {n}x at the Table."
+          },
+          "primeira_vitoria": {
+            "nome": "First win",
+            "desc": "Win your first fight."
+          }
+        }
       }
     }
   }

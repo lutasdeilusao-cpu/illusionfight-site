@@ -102,6 +102,7 @@ export default function createGanguesCenaEconomiaSlice(set, get) {
       if (n <= 0 || !(preco > 0)) return 0
       set(state => ({ inventario: { ...state.inventario, [itemId]: atual - n } }))
       get().ganharGrana(preco * n)
+      get().contarStat({ vendas: n })
       return n
     },
 

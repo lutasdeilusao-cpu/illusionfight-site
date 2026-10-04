@@ -50,7 +50,7 @@ function MesaDesafio({ t, store, onFim }) {
   }
   const terminar = ok => {
     const ganho = ok ? premio(jogo.valor, jogo.dif.mult) : 0
-    if (ganho) store.ganharGrana(ganho)
+    if (ganho) { store.ganharGrana(ganho); store.contarStat({ bancaVitorias: 1 }) }
     ok ? sfx.win?.() : sfx.lose?.()
     setFim({ ok, ganho, valor: jogo.valor })
     setJogo(null)
@@ -122,7 +122,7 @@ function MesaRinha({ t, store, poi, onFim }) {
     const linhas = res.eventos.filter(ev => ev.type === 'attack').slice(-6).map(ev => t('games.gangues.banca.linha_golpe', { quem: nomeDe(ev.actorKey), dano: ev.result.damage }))
     const cot = lado === 'a' ? dupla.cotacaoA : dupla.cotacaoB
     const ganho = res.vencedor === lado ? premio(valor, cot) : 0
-    if (ganho) store.ganharGrana(ganho)
+    if (ganho) { store.ganharGrana(ganho); store.contarStat({ bancaVitorias: 1 }) }
     setMostradas(0)
     setLuta({ linhas, vencedor: res.vencedor, ganho, valor })
     onFim?.()

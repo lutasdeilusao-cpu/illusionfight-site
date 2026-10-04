@@ -522,8 +522,6 @@
       "slot_2": "Slot 2",
       "troca_notif_ver": "ver tamagoshi",
       "gangues_titulo": "🥊 LDI GANGUES",
-      "gangues_fichas": "Fichas",
-      "gangues_xp_total": "XP Total",
       "gangues_inimigos": "Inimigos Desbloqueados",
       "gangues_sem_fichas": "Nenhuma ficha de personagem ainda — crie seu lutador!",
       "gangues_ir_para": "IR PARA LDI GANGUES →",
@@ -565,7 +563,11 @@
       "recomp_acao_compartilhar": "Compartilhar resultado",
       "recomp_acao_elite": "Assinar Elite",
       "recomp_acao_primordial": "Assinar Primordial",
-      "recomp_acoes_fichas": "+{n} 🎰"
+      "recomp_acoes_fichas": "+{n} 🎰",
+      "gangues_bairros": "Bairros",
+      "gangues_trofeus": "Troféus",
+      "gangues_cartas": "Cartas",
+      "gangues_nivel": "Nível máx."
     }
   },
   "pages": {

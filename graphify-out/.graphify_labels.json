@@ -706,5 +706,7 @@
   "704": "OBSTACULOS_VILA",
   "705": "POSTES_VILA",
   "706": "QUARTEIROES_VILA",
-  "707": "RUAS_VILA"
+  "707": "RUAS_VILA",
+  "708": ".stopHeartbeatLoop",
+  "709": "mecanicasPoder.js"
 }

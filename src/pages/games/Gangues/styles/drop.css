@@ -66,3 +66,16 @@
 .gang-carta-encaixe__confirma p { margin: 4px 0; font: 700 0.58rem var(--font-mono); color: var(--if-amber); }
 .gang-carta-encaixe__acoes { display: flex; gap: 8px; width: 100%; }
 .gang-carta-encaixe__acoes > * { flex: 1; }
+
+/* Troféus: aviso de desbloqueio */
+.gang-trofeu-toast {
+  position: fixed; top: 12px; left: calc(var(--app-gutter) + 12px); right: calc(var(--app-gutter) + 12px); z-index: 1600;
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px; cursor: pointer; text-align: left;
+  border: 1px solid var(--if-amber); background: var(--if-panel); box-shadow: 0 0 26px -6px var(--if-amber);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+.gang-trofeu-toast__icone { font-size: 1.6rem; }
+.gang-trofeu-toast__info { display: flex; flex-direction: column; gap: 1px; }
+.gang-trofeu-toast__info small { font: 800 0.5rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--if-amber); }
+.gang-trofeu-toast__info strong { font: 800 0.8rem var(--font-display); color: var(--gang-branco); text-transform: uppercase; }
+.gang-trofeu-toast__info em { font: 700 0.56rem var(--font-mono); font-style: normal; color: var(--text-secondary); }

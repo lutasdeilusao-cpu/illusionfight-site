@@ -6445,7 +6445,8 @@
         "secoes": {
           "inimigos": "Enemigos",
           "itens": "Ítems",
-          "cartas": "Cartas"
+          "cartas": "Cartas",
+          "trofeus": "Trofeos"
         },
         "itens_consumivel": "Consumible",
         "itens_equip": "Equipo",
@@ -6757,6 +6758,123 @@
         "disparou_talento": "La carta soltó {talento}",
         "disparou_bloqueio": "La carta bloqueó el golpe",
         "disparou_cura": "La carta recuperó {v} de Aguante"
+      },
+      "trofeus": {
+        "titulo": "trofeos",
+        "desbloqueou": "Trofeo desbloqueado",
+        "resumo": "{n} trofeos desbloqueados",
+        "grupos": {
+          "progressao": "Progreso",
+          "combate": "Pelea",
+          "colecao": "Botín y colección",
+          "rua": "Calle"
+        },
+        "tipos": {
+          "dominar": {
+            "nome": "Dominio · {bairro}",
+            "desc": "Tumba al jefe del barrio."
+          },
+          "zerar": {
+            "nome": "Rey por dos semanas",
+            "desc": "Tumbar a El Retazo en La Azotea."
+          },
+          "zerar_de_novo": {
+            "nome": "Otra vez y otra vez",
+            "desc": "Terminar la campaña {n} veces."
+          },
+          "nivel": {
+            "nome": "Novato nivel {n}",
+            "desc": "Tener un luchador en nivel {n}."
+          },
+          "elenco": {
+            "nome": "Banda de {n}",
+            "desc": "Tener {n} luchadores en el elenco."
+          },
+          "vitorias": {
+            "nome": "{n} victorias",
+            "desc": "Ganar {n} peleas."
+          },
+          "inimigos": {
+            "nome": "{n} en el piso",
+            "desc": "Tumbar a {n} enemigos."
+          },
+          "chefe_perfeito": {
+            "nome": "Nadie cayó",
+            "desc": "Ganarle a un jefe sin que caiga ninguno de los tuyos."
+          },
+          "clube": {
+            "nome": "Rey del ring",
+            "desc": "Ganar el Club de la Pelea {n}x."
+          },
+          "revanche": {
+            "nome": "Revancha",
+            "desc": "Ganarle otra vez a un jefe {n}x."
+          },
+          "drops": {
+            "nome": "Mano ligera",
+            "desc": "Conseguir {n} botines de enemigo."
+          },
+          "peca_encaixe": {
+            "nome": "Pieza con ranura",
+            "desc": "Conseguir la primera pieza con ranura de carta."
+          },
+          "peca_dois_encaixes": {
+            "nome": "Pieza especial",
+            "desc": "Conseguir una pieza con 2 ranuras."
+          },
+          "primeira_carta": {
+            "nome": "Primera carta",
+            "desc": "Conseguir la primera carta de enemigo."
+          },
+          "cartas": {
+            "nome": "Coleccionista",
+            "desc": "Tener {n} cartas distintas."
+          },
+          "carta_encaixada": {
+            "nome": "Puesta y se queda",
+            "desc": "Poner la primera carta en una pieza."
+          },
+          "carta_chefe": {
+            "nome": "Carta de jefe",
+            "desc": "Conseguir la carta de un jefe."
+          },
+          "album": {
+            "nome": "Álbum de Marelia",
+            "desc": "Tener {n} enemigos en el álbum."
+          },
+          "album_chefes": {
+            "nome": "Todos los jefes",
+            "desc": "Tener a los {n} jefes en el álbum."
+          },
+          "itens": {
+            "nome": "Bolsa llena",
+            "desc": "Ver {n} objetos distintos."
+          },
+          "grana": {
+            "nome": "Billete",
+            "desc": "Juntar {n} de dinero en mano."
+          },
+          "rep": {
+            "nome": "Nombre en la calle",
+            "desc": "Llegar a {n} de reputación."
+          },
+          "aprimorar": {
+            "nome": "Manos de herrero",
+            "desc": "Mejorar piezas {n}x."
+          },
+          "vendas": {
+            "nome": "Cierra tratos",
+            "desc": "Vender {n} objetos."
+          },
+          "banca": {
+            "nome": "Cliente de la Mesa",
+            "desc": "Ganar {n}x en la Mesa."
+          },
+          "primeira_vitoria": {
+            "nome": "Primera victoria",
+            "desc": "Ganar la primera pelea."
+          }
+        }
       }
     }
   }

@@ -1676,9 +1676,21 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
   destrava o card em `GanguesModes`.
 - **Cards bloqueados da tela de Modos são clicáveis:** tocar num modo trancado
   abre o Nego Véio explicando o que falta pra liberar.
-- **A Coleção** (botão da HUD da cena + lobby): abas Inimigos (o Álbum), Itens
-  (consumível + equipamento, descoberto via `storyProgress.__itens`) e Cartas
-  (placeholder — sockets, faixa 10000+, **planejado**).
+- **A Coleção** (botão da HUD da cena + lobby): abas Inimigos (o Álbum, com a
+  tabela de drop de cada um), Itens (consumível + equipamento, descoberto via
+  `storyProgress.__itens`), Cartas (§9.9) e Troféus.
+- **Troféus** (`data/ganguesTrofeus.js`, 51, id numérico: 1xx progressão · 2xx
+  porrada · 3xx drop e coleção · 4xx rua). Cada um mede um número do save
+  (`medir(estado)`) contra um alvo; os contadores que não saem do save direto
+  moram em `storyProgress.__stats` (vitórias, inimigos, drops, peças com encaixe,
+  chefe sem ninguém cair, Clube, revanches, aprimoramentos, vendas, Banca —
+  ação `contarStat`). O vigia `components/GanguesTrofeus.jsx` (montado no
+  GanguesRoute) confere a cada mudança do save, marca em `storyProgress.__trofeus`,
+  entrega a recompensa (grana, consumível, chip) e mostra o aviso; mais de 3 de
+  uma vez (save antigo) vira um aviso só de resumo. Texto por tipo no i18n
+  (`games.gangues.trofeus.tipos.<tipo>`). Lista com progresso em
+  `GanguesTrofeusLista.jsx`, usada na Coleção e na aba Gangues do perfil do site
+  (`PerfilGangues.jsx`, lê `gangues_saves`/`gangues_fichas` de cada gangue).
 
 ---
 

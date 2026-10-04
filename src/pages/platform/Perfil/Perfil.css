@@ -866,3 +866,11 @@
   .perfil-tab-label { display: none; }
   .perfil-achievements { grid-template-columns: repeat(2,1fr); }
 }
+/* Aba Gangues: escolha da gangue (save) */
+.perfil-gangues-saves { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.6rem; }
+.perfil-gangues-save {
+  padding: 6px 10px; border: 1px solid var(--if-hair-strong); background: none; cursor: pointer;
+  font: 800 0.62rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary);
+}
+.perfil-gangues-save.is-ativo { border-color: var(--if-amber); color: var(--if-amber); }
+.perfil-gangues-nome { margin: 0 0 0.6rem; font: 800 1rem var(--font-display); text-transform: uppercase; color: var(--if-amber); }

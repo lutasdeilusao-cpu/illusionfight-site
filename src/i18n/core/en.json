@@ -522,8 +522,6 @@
       "slot_2": "Slot 2",
       "troca_notif_ver": "view tamagoshi",
       "gangues_titulo": "🥊 LDI GANGS",
-      "gangues_fichas": "Sheets",
-      "gangues_xp_total": "Total XP",
       "gangues_inimigos": "Unlocked Enemies",
       "gangues_sem_fichas": "No character sheets yet — create your fighter!",
       "gangues_ir_para": "GO TO LDI GANGS →",
@@ -565,7 +563,11 @@
       "recomp_acao_compartilhar": "Share result",
       "recomp_acao_elite": "Subscribe Elite",
       "recomp_acao_primordial": "Subscribe Primordial",
-      "recomp_acoes_fichas": "+{n} 🎰"
+      "recomp_acoes_fichas": "+{n} 🎰",
+      "gangues_bairros": "Blocks",
+      "gangues_trofeus": "Trophies",
+      "gangues_cartas": "Cards",
+      "gangues_nivel": "Top level"
     }
   },
   "pages": {

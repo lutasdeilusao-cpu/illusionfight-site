@@ -110,6 +110,7 @@ export default function createGanguesEquipSlice(set, get) {
       if (!(preco > 0) || !get().equipamentos.some(eq => eq.uid === uid)) return false
       set(state => ({ equipamentos: state.equipamentos.filter(eq => eq.uid !== uid) }))
       get().ganharGrana(preco)
+      get().contarStat({ vendas: 1 })
       return true
     },
 
@@ -176,6 +177,7 @@ export default function createGanguesEquipSlice(set, get) {
         get().saveParticipantProgress([memberId])
       }
       get()._persistCena()
+      get().contarStat({ aprimoramentos: 1 })
       return { ok: true, nivel, custo }
     },
 

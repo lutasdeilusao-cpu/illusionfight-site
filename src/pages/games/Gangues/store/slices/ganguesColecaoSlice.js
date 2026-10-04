@@ -46,6 +46,17 @@ export default function createGanguesColecaoSlice(set, get) {
       get()._persistCena()
     },
 
+    // Contadores dos troféus (storyProgress.__stats): soma cada chave do mapa.
+    contarStat: (mapa = {}) => {
+      set(state => {
+        const atual = state.storyProgress.__stats || {}
+        const prox = { ...atual }
+        for (const [k, v] of Object.entries(mapa)) if (v) prox[k] = (Number(prox[k]) || 0) + v
+        return { storyProgress: { ...state.storyProgress, __stats: prox } }
+      })
+      get()._persistStory()
+    },
+
     // Drop dos inimigos derrotados (um id por corpo batido). Sorteia com a
     // garantia (engine/ganguesDrop.js), entrega e grava os contadores em
     // storyProgress.__drops. Devolve o que caiu.
@@ -58,7 +69,8 @@ export default function createGanguesColecaoSlice(set, get) {
         if (g.tipo === 'equip') get().ganharEquipDrop(g.id, g.variante)
         else get().darItem(g.id, 1)
       }
-      get()._persistStory()
+      const equips = ganhos.filter(g => g.tipo === 'equip')
+      get().contarStat({ drops: ganhos.length, pecasEncaixe: equips.length, pecasDoisEncaixes: equips.filter(g => g.variante?.encaixes > 1).length })
       return ganhos
     },
 

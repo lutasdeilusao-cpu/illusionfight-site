@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.337.0' // Gangues: cartas (103, encaixe pra sempre, efeitos no combate)
+export const SITE_VERSION = '10.338.0' // Gangues: troféus no jogo e no perfil
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
-export const GANGUES_VERSION   = '3.95.0' // Cartas: 103 cartas estilo Ragnarok, encaixe pra sempre, efeitos no combate, aba Cartas na Coleção
+export const GANGUES_VERSION   = '3.96.0' // Troféus: 51 conquistas com recompensa, aba na Coleção e no perfil do site
 
 export const TAMA_VERSION      = '3.4.2' // sem cache local: progresso só na conta
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

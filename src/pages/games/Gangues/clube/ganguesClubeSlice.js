@@ -81,7 +81,7 @@ export default function createGanguesClubeSlice(set, get) {
         return 'clube-sala'
       }
       get().resolverClubeDaLuta(victory, alvo?.clubeDividaPrevia || 0, alvo?.clubeHeals || 0, alvo?.voltar?.territorioId || 'pista', alvo?.clubeAposta || 0)
-      if (victory) get().darItem(GANGUES_CLUBE_ITEM_PREMIO, 1)
+      if (victory) { get().darItem(GANGUES_CLUBE_ITEM_PREMIO, 1); get().contarStat({ clube: 1 }) }
       return null
     },
 

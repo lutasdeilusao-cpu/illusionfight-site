@@ -3342,7 +3342,8 @@
         "secoes": {
           "inimigos": "Inimigos",
           "itens": "Itens",
-          "cartas": "Cartas"
+          "cartas": "Cartas",
+          "trofeus": "Troféus"
         },
         "itens_consumivel": "Consumível",
         "itens_equip": "Equipamento",
@@ -3654,6 +3655,123 @@
         "disparou_talento": "Carta soltou {talento}",
         "disparou_bloqueio": "Carta bloqueou o golpe",
         "disparou_cura": "Carta recuperou {v} de Osso"
+      },
+      "trofeus": {
+        "titulo": "troféus",
+        "desbloqueou": "Troféu desbloqueado",
+        "resumo": "{n} troféus desbloqueados",
+        "grupos": {
+          "progressao": "Progressão",
+          "combate": "Porrada",
+          "colecao": "Drop e coleção",
+          "rua": "Rua"
+        },
+        "tipos": {
+          "dominar": {
+            "nome": "Domínio · {bairro}",
+            "desc": "Derrube o chefe do bairro."
+          },
+          "zerar": {
+            "nome": "Rei por duas semanas",
+            "desc": "Derrubar o Retalho na Laje."
+          },
+          "zerar_de_novo": {
+            "nome": "De novo, e de novo",
+            "desc": "Zerar a campanha {n} vezes."
+          },
+          "nivel": {
+            "nome": "Cria nível {n}",
+            "desc": "Ter um lutador no nível {n}."
+          },
+          "elenco": {
+            "nome": "Bonde de {n}",
+            "desc": "Ter {n} lutadores no elenco."
+          },
+          "vitorias": {
+            "nome": "{n} vitórias",
+            "desc": "Vencer {n} lutas."
+          },
+          "inimigos": {
+            "nome": "{n} no chão",
+            "desc": "Derrubar {n} inimigos."
+          },
+          "chefe_perfeito": {
+            "nome": "Ninguém caiu",
+            "desc": "Vencer um chefe sem nenhum lutador seu cair."
+          },
+          "clube": {
+            "nome": "Rei da roda",
+            "desc": "Vencer o Clube da Luta {n}x."
+          },
+          "revanche": {
+            "nome": "Revanche",
+            "desc": "Bater um chefe de novo {n}x."
+          },
+          "drops": {
+            "nome": "Mão leve",
+            "desc": "Pegar {n} drops de inimigo."
+          },
+          "peca_encaixe": {
+            "nome": "Peça com encaixe",
+            "desc": "Pegar a primeira peça com encaixe de carta."
+          },
+          "peca_dois_encaixes": {
+            "nome": "Peça especial",
+            "desc": "Pegar uma peça com 2 encaixes."
+          },
+          "primeira_carta": {
+            "nome": "Primeira carta",
+            "desc": "Pegar a primeira carta de inimigo."
+          },
+          "cartas": {
+            "nome": "Colecionador",
+            "desc": "Ter {n} cartas diferentes."
+          },
+          "carta_encaixada": {
+            "nome": "Encaixou, ficou",
+            "desc": "Encaixar a primeira carta numa peça."
+          },
+          "carta_chefe": {
+            "nome": "Carta de chefe",
+            "desc": "Pegar a carta de um chefe."
+          },
+          "album": {
+            "nome": "Álbum de Marélia",
+            "desc": "Ter {n} inimigos no álbum."
+          },
+          "album_chefes": {
+            "nome": "Todos os chefes",
+            "desc": "Ter os {n} chefes no álbum."
+          },
+          "itens": {
+            "nome": "Bolsa cheia",
+            "desc": "Ver {n} itens diferentes."
+          },
+          "grana": {
+            "nome": "Bufunfa",
+            "desc": "Juntar {n} de grana na mão."
+          },
+          "rep": {
+            "nome": "Nome na rua",
+            "desc": "Chegar em {n} de reputação."
+          },
+          "aprimorar": {
+            "nome": "Mão de ferreiro",
+            "desc": "Aprimorar peça {n}x."
+          },
+          "vendas": {
+            "nome": "Fecha negócio",
+            "desc": "Vender {n} itens."
+          },
+          "banca": {
+            "nome": "Freguês do Tio Dado",
+            "desc": "Ganhar {n}x na Banca."
+          },
+          "primeira_vitoria": {
+            "nome": "Primeira vitória",
+            "desc": "Vencer a primeira luta."
+          }
+        }
       }
     }
   }

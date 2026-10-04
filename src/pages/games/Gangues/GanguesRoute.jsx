@@ -4,6 +4,7 @@ import { useReader } from '../../../context/ReaderContext'
 import { useTutorialProgress } from '../../../context/TutorialProgressContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import useGanguesI18n from './hooks/useGanguesI18n'
+import GanguesTrofeus from './components/GanguesTrofeus'
 import GanguesLobby from './screens/GanguesLobby'
 import GanguesSaveSelect from './screens/GanguesSaveSelect'
 import GanguesModes from './screens/GanguesModes'
@@ -334,6 +335,7 @@ export default function GanguesRoute() {
   return (
     <div className={`gang-page ${fase === 'lobby' ? 'gang-page--lobby' : ''}`}>
       <GuestNotice />
+      {i18nReady && <GanguesTrofeus />}
       {fase === 'save-select' && <GanguesSaveSelect onNavigate={setFase} />}
       {fase === 'lobby' && <GanguesLobby onNavigate={navegar} />}
       {fase === 'create' && (

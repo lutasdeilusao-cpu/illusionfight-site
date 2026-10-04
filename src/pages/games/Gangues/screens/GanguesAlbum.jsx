@@ -12,11 +12,13 @@ import { GANGUES_EQUIP_LISTA, normalizeGanguesEquipment, textoBonusEquip } from 
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import GanguesDropLista from '../components/GanguesDropLista'
 import { GANGUES_CARTAS_LISTA, nomeCarta, textoCarta } from '../data/ganguesCartas.js'
+import { GANGUES_TROFEUS, estadoDosTrofeus } from '../data/ganguesTrofeus.js'
+import GanguesTrofeusLista from '../components/GanguesTrofeusLista'
 import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import './GanguesAlbum.css'
 
 const ATTRS = ['A', 'H', 'D', 'PV', 'PM']
-const SECOES = ['inimigos', 'itens', 'cartas']
+const SECOES = ['inimigos', 'itens', 'cartas', 'trofeus']
 
 // Retrato do inimigo no álbum — componente próprio pra poder cair pro
 // inicial de sempre se a imagem falhar ao CARREGAR (rede ruim), não só
@@ -93,7 +95,9 @@ export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
         <span className="gang-album__count">
           {secao === 'itens'
             ? <><b>{feitosItens}</b>/{totalItens}</>
-            : secao === 'cartas'
+            : secao === 'trofeus'
+              ? <><b>{(store.storyProgress.__trofeus || []).length}</b>/{GANGUES_TROFEUS.length}</>
+              : secao === 'cartas'
               ? <><b>{GANGUES_CARTAS_LISTA.filter(c => itensVistos.has(c.id)).length}</b>/{GANGUES_CARTAS_LISTA.length}</>
               : <><b>{totalFeito}</b>/{GANGUES_ALBUM_TOTAL}</>}
         </span>
@@ -253,6 +257,9 @@ export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
             })}
           </ul>
         </div>
+      )}
+      {secao === 'trofeus' && (
+        <GanguesTrofeusLista t={t} estado={estadoDosTrofeus({ storyProgress: store.storyProgress, roster: store.roster, grana: store.grana, rep: store.rep, campaignClears: store.campaignClears, inventario: store.inventario, equipamentos: store.equipamentos })} />
       )}
     </main>
   )

@@ -102,6 +102,11 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       // Drop: cada corpo batido sorteia a tabela dele (com garantia). A Rinha
       // não dá drop nem conta pra garantia.
       const drops = storyAlvo?.rinha ? [] : store.aplicarDrops(inimigosCombatentes.map(c => c.id))
+      store.contarStat({
+        vitorias: 1, inimigos: inimigosCombatentes.length,
+        chefePerfeito: cenaChefe && !report.combatants.some(c => c.side === 'player' && c.pv <= 0) ? 1 : 0,
+        revanches: storyAlvo?.revanche ? 1 : 0,
+      })
       let granaGanha = 0, repGanha = 0, repMarcos = []
       if (emCena || noModoHistoria) {
         const { grana, rep, itens, pagaFavor } = calcularRecompensaCena({ emCena, storyAlvo, enemyCount, ehChefe: Boolean(storyAlvo.isChefe) })
