@@ -1,14 +1,11 @@
-import { GANGUES_STATUS } from '../engine/ganguesStatus.js'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { getGanguesEffectTheme } from '../data/ganguesEffectThemes.js'
 import { getGanguesProgression, ganguesXpMaxForSheet } from '../data/ganguesLoadout.js'
 import { fighterName } from '../engine/ganguesCombatPresentation.js'
-import { describeGanguesSpecialEffect } from '../engine/ganguesSpecialEffects.js'
 import useGanguesTeclado from '../hooks/useGanguesTeclado'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
-import DramaticDice from './DramaticDice'
+import GanguesGolpe from './golpe/GanguesGolpe'
 import GanguesFichaCard from './GanguesFichaCard'
 import GanguesRetratoImg from './GanguesRetratoImg'
 
@@ -112,52 +109,13 @@ export default function GanguesCombatOverlays({
       </AnimatePresence>
       <AnimatePresence>
         {machine.pending && !modoMultidaoAtivo && (
-          <DramaticDice
+          <GanguesGolpe
             key={machine.pending.id}
-            velocidade={velocidade}
-            finalValue={machine.pending.result.rolls.fa}
-            armaRolada={machine.pending.result.rolls.arma}
-            armaduraRolada={machine.pending.result.rolls.armadura}
-            sides={3}
+            result={machine.pending.result}
+            atacante={machine.combatants.find(item => item.key === machine.pending.actorKey)}
+            alvo={machine.combatants.find(item => item.key === machine.pending.targetKey)}
             side={machine.pending.side}
-            attackerName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.actorKey))}
-            attackerRetrato={(() => {
-              const actor = machine.combatants.find(item => item.key === machine.pending.actorKey)
-              if (!actor) return null
-              return actor.side === 'player' ? getGanguesPortraitByTemplateId(actor.character_template_id) : getGanguesEnemyPortraitById(actor.id)
-            })()}
-            targetName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.targetKey))}
-            powerName={machine.pending.result.activeSpecialId || machine.pending.result.cartaTalento ? t(`games.gangues.progression.skills.${machine.pending.result.activeSpecialId || machine.pending.result.cartaTalento}`) : null}
-            passiveNames={(() => {
-              // Nome + o que ela FEZ + DE QUEM é (Isaias, 03/10/2026: aparecia
-              // passiva do inimigo no ataque do Trinca e parecia dele).
-              const dono = key => fighterName(t, machine.combatants.find(item => item.key === key))
-              const lado = (ids, key) => (ids || []).map(id => ({
-                nome: t(`games.gangues.progression.skills.${id}`),
-                dono: dono(key),
-                desc: describeGanguesSpecialEffect(t, id, machine.pending.result.passivosNivel?.[id] || 1),
-              }))
-              // O que as cartas encaixadas fizeram neste golpe.
-              const r = machine.pending.result
-              const cartas = [
-                r.cartaTalento && { nome: `🃏 ${t('games.gangues.carta.disparou_talento', { talento: t(`games.gangues.progression.skills.${r.cartaTalento}`) })}`, dono: dono(machine.pending.actorKey) },
-                r.cartaBloqueio && { nome: `🃏 ${t('games.gangues.carta.disparou_bloqueio')}`, dono: dono(machine.pending.targetKey) },
-                r.cartaCura > 0 && { nome: `🃏 ${t('games.gangues.carta.disparou_cura', { v: r.cartaCura })}`, dono: dono(machine.pending.actorKey) },
-              ].filter(Boolean)
-              return [...lado(r.passivosGatilho?.attacker, machine.pending.actorKey), ...lado(r.passivosGatilho?.defender, machine.pending.targetKey), ...cartas]
-            })()}
-            passivaLabel={t('games.gangues.passiva_ativou')}
-            statusNome={machine.pending.result.statusAplicado ? `${GANGUES_STATUS[machine.pending.result.statusAplicado]?.icone || ''} ${t(`games.gangues.status.${machine.pending.result.statusAplicado}.nome`)}!` : null}
-            statusDesc={machine.pending.result.statusAplicado ? t(`games.gangues.status.${machine.pending.result.statusAplicado}.desc`) : null}
-            theme={getGanguesEffectTheme(machine.pending.result.activeSpecialId)}
-            attackerTemplateId={(() => {
-              const actor = machine.combatants.find(item => item.key === machine.pending.actorKey)
-              return actor?.side === 'player' ? actor.character_template_id : null
-            })()}
-            targetTemplateId={(() => {
-              const target = machine.combatants.find(item => item.key === machine.pending.targetKey)
-              return target?.side === 'player' ? target.character_template_id : null
-            })()}
+            velocidade={velocidade}
             onComplete={machine.completePending}
           />
         )}

@@ -118,7 +118,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
       activeSpecialId, forcedSpecial,
     })
     // `id` único por ação: com a linha do tempo o MESMO lutador pode agir 2x
-    // na mesma rodada — a key do DramaticDice não pode ser actorKey+round.
+    // na mesma rodada — a key do painel do golpe não pode ser actorKey+round.
     acaoSeq.current += 1
     setPending({ id: acaoSeq.current, actorKey: actor.key, targetKey: target.key, side: actor.side, result, confuso })
     return true

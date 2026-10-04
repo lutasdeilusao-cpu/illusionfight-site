@@ -1,0 +1,71 @@
+/* O momento do golpe: painel embaixo, a luta visível atrás. */
+.golpe {
+  position: fixed; inset: 0 var(--app-gutter); z-index: 9999;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+  background: linear-gradient(to bottom, rgba(2, 5, 8, 0.15), rgba(2, 5, 8, 0.7) 55%);
+  overscroll-behavior: none; touch-action: none;
+}
+.golpe-sprite { display: block; width: 227px; margin-bottom: -6px; background-repeat: no-repeat; image-rendering: pixelated; filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6)); }
+
+.golpe-painel {
+  width: 100%; padding: 12px 14px 16px;
+  display: flex; flex-direction: column; gap: 8px;
+  background: var(--if-panel); border-top: 2px solid var(--if-teal);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+.golpe--enemy .golpe-painel { border-top-color: var(--if-danger); }
+/* Com o automático ligado, a barra dele fica embaixo por cima de tudo: reserva o espaço. */
+body:has(.gang-auto-barra) .golpe-painel { padding-bottom: 170px; }
+.golpe-painel.is-critico { border-top-color: var(--if-amber); box-shadow: 0 -10px 40px -12px var(--if-amber); }
+
+/* Quem bate em quem */
+.golpe-quem { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 6px; }
+.golpe-quem__lado { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.golpe-quem__lado--alvo { justify-content: flex-end; }
+.golpe-quem__lado b { font: 800 0.74rem var(--font-display); text-transform: uppercase; color: var(--gang-branco); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.golpe-quem__seta { color: var(--text-secondary); font-size: 0.9rem; }
+.golpe-rosto { width: 30px; height: 30px; flex: 0 0 30px; border: 1px solid var(--if-hair-strong); background: rgba(0, 0, 0, 0.35); image-rendering: pixelated; object-fit: cover; }
+.golpe-rosto--letra { display: grid; place-items: center; font: 800 0.8rem var(--font-display); color: var(--text-secondary); }
+
+/* Os dois dados */
+.golpe-dados { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+.golpe-dados__rotulo { font: 800 0.52rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: #e05a4b; text-align: right; }
+.golpe-dados__rotulo--def { color: #5aa2e0; text-align: left; }
+.golpe-dado3d { position: relative; width: 210px; height: 104px; }
+.golpe-dado3d canvas { position: absolute; inset: 0; }
+.golpe-dado3d__semwebgl { display: none; position: absolute; inset: 0; place-items: center; font: 800 1.2rem var(--font-display); color: var(--gang-branco); }
+.golpe-dado3d[data-sem-webgl] .golpe-dado3d__semwebgl { display: grid; }
+.golpe-dado3d.is-critico { filter: drop-shadow(0 0 12px var(--if-amber)); }
+
+/* A conta: uma linha pro ataque, outra pra defesa, total na ponta */
+.golpe-resultado { display: flex; flex-direction: column; gap: 6px; }
+.golpe-contas { display: flex; flex-direction: column; gap: 3px; }
+.golpe-conta { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 5px 8px; border-left: 3px solid; background: rgba(255, 255, 255, 0.03); }
+.golpe-conta--ataque { border-color: #e05a4b; }
+.golpe-conta--defesa { border-color: #5aa2e0; }
+.golpe-conta__parcelas { font: 700 0.56rem var(--font-mono); color: var(--text-secondary); line-height: 1.5; }
+.golpe-conta__parcelas b { color: var(--gang-branco); font-size: 0.66rem; }
+.golpe-conta__parcelas small { margin-left: 2px; font-size: 0.5rem; }
+.golpe-conta__parcelas .is-dado b { color: var(--if-amber); }
+.golpe-conta__total { font: 900 1.25rem var(--font-display); line-height: 1; color: var(--gang-branco); }
+
+.golpe-dano { margin: 2px 0 0; text-align: center; font: 900 1.3rem var(--font-display); text-transform: uppercase; color: var(--if-danger); letter-spacing: 0.04em; }
+.golpe-dano em { font-style: normal; color: var(--if-amber); }
+.golpe-dano.is-zero { color: var(--text-secondary); font-size: 1rem; }
+
+/* PV do alvo: o que sobrou e o que acabou de cair */
+.golpe-pv { display: flex; flex-direction: column; gap: 3px; }
+.golpe-pv__barra { position: relative; display: block; height: 8px; border: 1px solid var(--if-hair-strong); background: rgba(0, 0, 0, 0.4); }
+.golpe-pv__barra i { position: absolute; inset: 0 auto 0 0; width: var(--pv); }
+.golpe-pv__perdido { background: color-mix(in srgb, var(--if-danger) 55%, transparent); }
+.golpe-pv__resta { background: var(--if-ok); transition: width 0.6s ease-out; }
+.golpe-pv small { font: 700 0.52rem var(--font-mono); color: var(--text-secondary); text-align: center; }
+
+/* Efeitos que entraram, com o rosto do dono */
+.golpe-efeitos { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.golpe-efeitos li { display: flex; align-items: center; gap: 7px; padding: 4px 6px; border: 1px solid var(--if-hair); background: rgba(255, 255, 255, 0.02); }
+.golpe-efeitos .golpe-rosto { width: 24px; height: 24px; flex-basis: 24px; }
+.golpe-efeitos__icone { font-size: 0.9rem; }
+.golpe-efeitos__texto { display: flex; flex-direction: column; min-width: 0; }
+.golpe-efeitos__texto b { font: 800 0.62rem var(--font-display); text-transform: uppercase; color: var(--gang-branco); }
+.golpe-efeitos__texto small { font: 600 0.52rem var(--font-mono); color: var(--text-secondary); }

@@ -113,55 +113,7 @@
 
 /* ── Tira de ficha: números que importam em batalha ── */
 
-/* ══════════════════════════════════════════════════════════════
-   Painel de RECOMPENSA na tela de vitória — antes o XP/grana/rep
-   ganho na luta era aplicado em silêncio, sem aparecer em lugar
-   nenhum pro jogador. Mesma linguagem visual do resto (clip-path
-   de canto cortado, amber/cyan/violet).
-   ══════════════════════════════════════════════════════════════ */
-.gang-reward-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin: 4px 16px 0;
-  padding: 14px 12px 16px;
-  border: 1px solid var(--if-hair);
-  background: radial-gradient(circle at 50% 0, rgba(245, 166, 35, 0.1), transparent 55%), var(--if-panel-flat);
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-}
-.gang-reward-panel__kicker {
-  font: 800 0.62rem var(--font-mono);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
-.gang-reward-panel__items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-.gang-reward-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  min-width: 84px;
-  padding: 10px 14px;
-  border: 1px solid var(--if-hair);
-  background: rgba(255, 255, 255, 0.02);
-}
-.gang-reward-item b { font-size: 1.15rem; line-height: 1; }
-.gang-reward-item strong { font: 900 1.3rem var(--font-display); color: var(--gang-branco); line-height: 1.1; }
-.gang-reward-item span { font: 700 0.56rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); }
-.gang-reward-item--grana { border-color: color-mix(in srgb, #7ed957 45%, transparent); box-shadow: 0 0 20px -8px rgba(126, 217, 87, .45); }
-.gang-reward-item--grana strong { color: #7ed957; }
-.gang-reward-item--rep { border-color: color-mix(in srgb, var(--if-amber) 45%, transparent); box-shadow: 0 0 20px -8px var(--if-amber-45, rgba(245, 166, 35, .45)); }
-.gang-reward-item--rep strong { color: var(--if-amber); }
-
-/* Item ganho no modal bloqueante de marco de reputação recorrente (ver
-   GanguesRepRecompensaModal.jsx) — dentro do card .gang-progression-prompt__card. */
+/* Item ganho no modal de marco de reputação (GanguesRepRecompensaModal). */
 .gang-rep-recompensa-item {
   display: flex; flex-direction: column; align-items: center; gap: 4px;
   margin: 4px 0 16px; padding: 12px; border-radius: 6px;
@@ -170,56 +122,3 @@
 }
 .gang-rep-recompensa-item b { font-size: 2rem; line-height: 1; }
 .gang-rep-recompensa-item span { font: 700 0.72rem 'Rajdhani', sans-serif; letter-spacing: .3px; color: #dce6e9; }
-
-/* Pontos de Ação por personagem — número que o jogador acompanha de
-   verdade; substitui o XP já convertido, que é só conta de bastidor. */
-.gang-reward-ap-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: 100%;
-  max-width: 280px;
-}
-.gang-reward-ap-item {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  padding: 6px 10px;
-  border: 1px solid color-mix(in srgb, var(--if-cyan) 35%, transparent);
-  background: rgba(255, 255, 255, 0.02);
-}
-.gang-reward-ap-item__nome { flex: 1; font: 700 0.72rem var(--font-display); color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.03em; }
-.gang-reward-ap-item__val { font: 900 1rem var(--font-display); color: var(--if-cyan); }
-.gang-reward-ap-item__label { font: 700 0.54rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
-/* Personagem que caiu na luta — 0 PA (regra: quem morre não ganha participação). */
-.gang-reward-ap-item--ko { border-color: rgba(224, 72, 76, 0.4); opacity: 0.72; }
-.gang-reward-ap-item--ko .gang-reward-ap-item__val { color: #e0484c; }
-.gang-reward-ap-item--ko .gang-reward-ap-item__label { color: #e0848a; }
-
-/* Derrota na cena: a tropa foi arrastada pra birosca e a conta já veio. */
-.gang-socorro-panel {
-  background: radial-gradient(circle at 50% 0, color-mix(in srgb, var(--if-danger) 12%, transparent), transparent 55%), var(--if-panel-flat);
-  text-align: center;
-}
-.gang-socorro-panel__texto {
-  margin: 0;
-  color: var(--text-primary);
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-.gang-socorro-panel__divida {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin: 0;
-  color: var(--if-danger);
-  font: 800 0.8rem var(--font-mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.gang-socorro-panel__divida small {
-  color: var(--text-secondary);
-  font: 600 0.7rem var(--font-mono);
-  letter-spacing: 0.04em;
-  text-transform: none;
-}

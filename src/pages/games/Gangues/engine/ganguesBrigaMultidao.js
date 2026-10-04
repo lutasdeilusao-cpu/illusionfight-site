@@ -13,7 +13,7 @@ import { prepararTimes } from '../hooks/useGanguesTurnMachine.js'
    focando o inimigo mais fraco, inimigo com a IA de sempre) e PARA. O
    jogador vê o resultado daquela rodada e decide se continua. Só o alvo
    automático (em vez de escolher manualmente) e o dano em lote (em vez de
-   um DramaticDice por golpe) são "rápidos" — o ritmo de jogo (uma decisão
+   um painel de golpe por ataque) são "rápidos" — o ritmo de jogo (uma decisão
    por rodada) continua igual ao combate normal.
 
    Usa exatamente as mesmas contas do combate normal (mesmo

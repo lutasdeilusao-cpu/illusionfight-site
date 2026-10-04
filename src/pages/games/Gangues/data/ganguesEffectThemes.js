@@ -1,6 +1,6 @@
 import { GANGUES_SPECIAL_PATHS } from './ganguesSpecials.js'
 
-// Efeito visual por PODER usado em combate (DramaticDice) — em vez de tratar
+// Efeito visual por PODER usado em combate (registro da luta) — em vez de tratar
 // os 75 poderes um por um (inviável escrever à mão de uma vez), cada um
 // herda o visual do seu ARQUÉTIPO (special_path): todo poder de "furia" é
 // vermelho-sangue agressivo, todo poder "aquatico" é azul líquido, etc. 15

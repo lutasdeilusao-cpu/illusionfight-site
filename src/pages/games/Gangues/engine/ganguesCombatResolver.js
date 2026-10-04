@@ -60,17 +60,9 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   if (talentoDaCarta) attackerEffects.push(talentoDaCarta)
   const defenderEffects = buildGanguesEffectsList(defender, null)
   const ctx = { attacker, target: defender, faMod: 0, fdMod: 0, ignoreDefPct: 0, targetDefenseReduction: 0, pmCost: 0, pvCostPct: 0, selfShieldSet: 0, chargeGain: 0, chargeSpent: 0, statusAplicar: null }
-  // Achado do Isaias (19/09/2026): quando um PODER ATIVO é usado, o dado
-  // mostra "⚡ Nome do poder ⚡" (ver `powerName` em DramaticDice.jsx) — mas
-  // um poder PASSIVO nunca tinha nenhum destaque, mesmo quando o efeito dele
-  // fez diferença de verdade na jogada (ex.: "Segunda Respiração" só entra
-  // com PV crítico, "Passo Elétrico" só se o alvo ainda não agiu no round —
-  // sem aviso nenhum, o jogador nunca sabia QUANDO um passivo condicional
-  // realmente disparou). `passivosGatilho` registra o id de cada passivo
-  // (nunca ativo — esse já tem o próprio destaque) cujo efeito mudou de
-  // verdade o resultado desta ação — compara um retrato ANTES/DEPOIS de
-  // cada item aplicado, só nos campos numéricos que os efeitos mexem (não
-  // `attacker`/`target`, que não mudam durante o loop).
+  // `passivosGatilho`: cada passiva (de quem ataca e de quem defende) cujo
+  // efeito mudou o resultado desta ação — compara os campos numéricos do ctx
+  // antes e depois de cada uma. O painel do golpe mostra essas passivas.
   const camposComparados = ['faMod', 'fdMod', 'ignoreDefPct', 'targetDefenseReduction', 'pmCost', 'pvCostPct', 'selfShieldSet', 'chargeGain', 'chargeSpent']
   const retrato = () => camposComparados.map(campo => ctx[campo])
   const mudou = (antes, depois) => camposComparados.some((_, i) => antes[i] !== depois[i])
@@ -99,6 +91,7 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   const fa = attack + malandragem + attackRollValue + ctx.faMod
   const fd = effectiveDefense + rolls.fd + ctx.fdMod
   let damage = Math.max(0, fa - fd)
+  const danoBruto = damage
   // Cartas de quem apanha: bloqueio e redução de dano.
   const defesaCarta = defesaDasCartas(defender, damage)
   damage = defesaCarta.damage
@@ -127,6 +120,12 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
 
   return {
     action, mode: 'attack', fa, fd, malandragem, damage, pmCost: ctx.pmCost, pvCost,
+    // As parcelas da conta, pra tela do golpe mostrar de onde veio cada número.
+    conta: {
+      porrada: attack - (arma || 0), dado: rolls.fa, critico: critical ? CRITICAL_BONUS : 0, arma: arma || 0, malandragem, bonus: ctx.faMod,
+      couro: defense - (armadura || 0), armadura: armadura || 0, ignorou: defense - effectiveDefense, dadoDef: rolls.fd, bonusDef: ctx.fdMod,
+      bruto: danoBruto, cartaDefesa: danoBruto - defesaCarta.damage, escudo: shieldConsumed,
+    },
     rolls: { ...rolls }, critical, criticalBonus: critical ? CRITICAL_BONUS : 0,
     attackerStatuses: gastarAcaoStatus(attacker.statuses),
     // Talento de status do Mandingueiro: pega no alvo mesmo sem dano.

@@ -1,27 +1,7 @@
 import { sfx } from '../../../../lib/sfx'
 // Máquina de animação de combate — registro de dados + cache/preload.
-// Substitui o protótipo hardcoded do Trinca (só ele, só DramaticDice.jsx,
-// `GANGUES_TRINCA_SPRITE_TESTE_ID` fixo) por um sistema genérico, pedido do
-// Isaias em 16/09/2026 depois de aprovar o teste: "a partir de agora a
-// gente vai implementar uma máquina de animação... vai ser oficial os 30
-// personagens recrutáveis... animação de ataque normal, poderes especiais
-// (uma específica pra cada um) e defendendo — só do jogador, os inimigos
-// não entram (exceto os 7 chefes, tratados à parte depois)".
-//
-// Dois TIPOS com uso real hoje — `ataqueNormal` (toca quando o próprio
-// personagem ataca) e `dano` (toca quando o personagem É ATACADO pelo
-// oponente, pedido no mesmo dia: "sempre que eles forem atacados pelo
-// oponente deve tocar essa animação"). `poder` ainda não tem consumidor —
-// fica pra quando tiver arte+design desse momento.
-//
-// Convenção de arquivo — mesma ideia de ganguesPortraits.js/
-// ganguesEnemyPortraits.js (pasta por personagem), estendida com o tipo de
-// golpe: `assets/personagens/<slug>/ataque-normal.webp` (folha 4×4/16
-// quadros), `.../dano.webp` (mesma grade), `.../poder-<id>.webp` (id =
-// special_path ou o id exato do poder — decisão de conteúdo, o sistema
-// aceita qualquer string). O tamanho de quadro (frameW/frameH) é dado
-// explícito por personagem/tipo porque nada garante que toda arte futura
-// tenha a mesma proporção 4:3 que Trinca/Muro tiveram (fonte 1448×1086).
+// Cada personagem com folha própria (ataque normal e dano) fica em
+// DADOS_POR_SLUG; o painel do golpe (components/golpe/) toca a animação.
 const ATAQUE_NORMAL_SHEETS = import.meta.glob('../assets/personagens/*/ataque-normal.webp', { eager: true, import: 'default' })
 const DANO_SHEETS = import.meta.glob('../assets/personagens/*/dano.webp', { eager: true, import: 'default' })
 
@@ -262,7 +242,7 @@ export function getGanguesAnimacao(characterTemplateId, tipo) {
 // ── Pré-carregamento (pedido do Isaias: "durante a batalha já deixa
 // carregada... não precisa ficar baixando toda hora") ───────────────────
 // Cache em nível de módulo (sobrevive entre lutas e entre remontagens de
-// DramaticDice — só baixa/decodifica cada arquivo UMA vez por sessão de
+// painel do golpe — só baixa/decodifica cada arquivo UMA vez por sessão de
 // jogo, nunca de novo a cada golpe). `precarregarAnimacaoCombate` é
 // chamado 1x quando a batalha começa (GanguesCombat.jsx), pra cada membro
 // do time do jogador que tiver animação registrada — carrega TODOS os

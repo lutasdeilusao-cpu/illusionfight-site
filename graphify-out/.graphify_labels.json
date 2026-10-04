@@ -662,7 +662,6 @@
   "660": "pois.js",
   "661": "criaturas.js",
   "662": "Alimentar.jsx",
-  "663": "topTrumpsCardAccess.js",
   "664": "initBattle",
   "665": "RadioNinaPlaylist.jsx",
   "666": "personalidades.js",
@@ -671,7 +670,6 @@
   "669": "PerfilTamagoshi.jsx",
   "670": "LDINotification.jsx",
   "671": "pools.js",
-  "672": "ResultCard.jsx",
   "673": "ganguesChefes.js",
   "674": "SearchModal.jsx",
   "675": "pools.js",
@@ -707,6 +705,5 @@
   "705": "POSTES_VILA",
   "706": "QUARTEIROES_VILA",
   "707": "RUAS_VILA",
-  "708": ".stopHeartbeatLoop",
-  "709": "mecanicasPoder.js"
+  "708": ".stopHeartbeatLoop"
 }

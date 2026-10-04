@@ -1266,7 +1266,7 @@ peça nova = historinha nova, uma ou duas frases, vocabulário da rua).
     (`rolls.arma` / `rolls.armadura` em `resolveGanguesAction`), o Pique **uma
     vez na entrada da luta** (no `prepare`). Cada peça rola o próprio dado e
     soma; a Briga em Multidão usa o mesmo resolver.
-  - O dado dramático mostra **"🔪 arma +N"** / **"🛡️ couro +N"** na revelação;
+  - O painel do golpe mostra a arma (🔪) e a armadura (🛡️) sorteadas na conta;
     a pista da linha do tempo mostra **"+N"** em cima de quem teve Pique
     sorteado; cards mostram a faixa (**"+1–3 Porrada"**). Toda previsão (loja,
     ficha, aviso de nível) usa a **média**, nunca o máximo
@@ -1528,7 +1528,7 @@ dois efeitos). Só cai do próprio inimigo (§9.8) e mora no inventário da gang
   sem gastar energia nem contar como talento na linha do tempo; status ao bater só
   se o talento não pôs nenhum; imunidade do alvo barra; bloqueio zera o golpe;
   redução tira do dano; cura entra depois do golpe. Vale nos dois motores (normal
-  e Multidão). O dado dramático mostra "🃏 Carta…" quando uma carta dispara.
+  e Multidão). O painel do golpe mostra cada carta que disparou, com o rosto do dono.
 - **Coleção:** aba Cartas (103, com retrato do inimigo, espaço e efeito).
 
 ### 9.6 Lojas, descansos e ferreiros por bairro
@@ -1827,7 +1827,7 @@ attr_labels, btn_fugir}`.
   o resto cai no fallback (inicial).
 - **NPCs:** `assets/npcs/<slug>/neutro.png` (§8).
 - **Onde aparece:** recrutamento, elenco do lobby, roster de combate (os dois
-  lados), dado dramático, card de KO, fala final, relatório de vitória, álbum,
+  lados), painel do golpe, card de KO, fala final, relatório de vitória, álbum,
   diálogos, pinos e marcador da cena (a cabeça do **líder**, §16).
 - **Falha de carregamento:** todo `<img>` de retrato usa
   `GanguesRetratoImg.jsx` (ou o mesmo padrão `onError` local) — se a imagem
@@ -1861,7 +1861,7 @@ attr_labels, btn_fugir}`.
 ### 15.2 Animação de combate (sprite)
 
 `data/ganguesCombatAnimations.js` (`DADOS_POR_SLUG`, `TEMPLATE_SLUG`,
-`getGanguesAnimacao(id, tipo)`), tocada **dentro do `DramaticDice`** — o
+`getGanguesAnimacao(id, tipo)`), tocada em cima do painel do golpe — o
 momento do golpe, não o log.
 
 - **Cobertura:** os 5 iniciais — **Trinca, Fenda, Muro, Catraca, Faísca** —
@@ -2004,11 +2004,25 @@ estilo Medabots/ATB do Chrono Trigger):
   jogador escolhe **ATACAR** (ataque normal), **TALENTO** (um talento ativo
   equipado, gasta PM ou PV) ou **ITEM** (consumível da gangue). A bolinha usa
   `onPointerDown/Up`, não `onClick` (importa pra teste automatizado).
-- **O dado dramático** (`DramaticDice`): todo ataque pausa o combate numa tela
-  cheia que rola o dado, mostra atacante e alvo e o resultado. É o "momento" do
-  golpe — as animações de sprite de ataque (§15.2) tocam aqui, não no log.
-  Quando uma passiva dispara, aparece no dado com o **dono** dela e o efeito
-  (`passivosNivel` no resultado do resolver).
+- **O painel do golpe** (`components/golpe/`): todo ataque abre um painel na
+  parte de baixo da tela, com a luta visível atrás. Mostra quem bate em quem
+  (rostos), **dois dados 3D** (three.js, `GanguesDado3D.jsx`, carregado só na
+  luta: ataque vermelho, defesa azul, d3 de verdade com faces 1-1-2-2-3-3, o
+  resultado na face de cima), **a conta inteira** (cada parcela de ataque e
+  defesa: atributo, dado, crítico, arma, Malandragem, bônus de talento,
+  armadura, quanto a defesa foi furada), o dano, a barra de PV do alvo caindo e
+  cada efeito que entrou (talento, passiva, carta, escudo, status) com o rosto
+  do dono. A regra que monta isso é `golpeConta.js`; o resolver devolve as
+  parcelas em `result.conta`. A animação de sprite do golpe (§15.2) toca em cima
+  do painel. Em 2x/3x fica sem sprite e mais rápido. Com o automático ligado o
+  painel reserva o espaço da barra do automático.
+- **Tela de resultado** (`components/resultado/`, organizada por
+  `GanguesVictoryReport.jsx`): de cima pra baixo, vitória ou derrota (com quem
+  caiu), o socorro da derrota, a recompensa (rosto, nível e barra de cada
+  lutador, AP, grana, reputação, drops), os destaques (quem mais bateu, quem
+  derrubou mais, maior golpe, rodadas, dano dos dois lados, críticos) e os
+  detalhes fechados (estado final, ordem do Pique, registro). Botões presos
+  embaixo. O modal de subida de nível é `LevelUpModal.jsx`.
 - **KO:** personagem com PV 0 cai e para de agir até o fim da luta. **PV e PM
   perdidos persistem entre lutas dentro do bairro** (só voltam no descanso,
   saindo ou dominando). Tropa inteira caída não entra em luta nenhuma.
@@ -2354,7 +2368,7 @@ src/pages/games/Gangues/
 │                         # Progression, SaveSelect, StoryMap, Territorio)
 ├── styles/               # CSS por assunto + paleta.css (--gang-*); cena/ e lobby/
 ├── assets/               # personagens/, enemies/, npcs/, backgrounds/, logos/, sons/
-├── components/           # peças reutilizadas (dado dramático, orb, pista do Pique…)
+├── components/           # peças reutilizadas (golpe/, resultado/, orb, pista do Pique…)
 │   └── cena/             # peças da cena navegável (atores, loja, descanso, agiota…)
 ├── clube/                # Clube da Luta: telas, regras e slice próprios
 ├── data/                 # catálogos (30 personagens, 103 inimigos, itens, equip,

@@ -80,10 +80,7 @@
         "reward_ap": "Pontos de Ação",
         "reward_ap_ko": "Caiu — sem PA",
         "reward_ap_teto": "Nível máximo da área ({n}) — derruba o chefe pra subir",
-        "reward_grana": "Grana",
-        "reward_rep": "Reputação",
         "rounds": "RODADAS",
-        "attacks": "ATAQUES",
         "damage_dealt": "DANO CAUSADO",
         "damage_taken": "DANO RECEBIDO",
         "final_state": "ESTADO FINAL DAS GANGUES",
@@ -971,16 +968,6 @@
         "lobby_pitch": "Cinco lutadores ouviram o nome da sua gangue. Entre no ponto de encontro, leia cada ficha e escolha os dois primeiros membros.",
         "enter": "ENTRAR NO PONTO DE ENCONTRO",
         "pose_trocar": "Trocar pose (frente / costas / lado)"
-      },
-      "dado": {
-        "preparando": "Preparando...",
-        "girando": "Girando... Girando...",
-        "resultado": "RESULTADO: {n}!",
-        "ataca": "ataca",
-        "critico_player": "CRÍTICO! GOLPE PERFEITO!",
-        "critico_enemy": "CRÍTICO! GOLPE FATAL!",
-        "arma": "arma +{n}",
-        "armadura": "couro +{n}"
       },
       "beat": {
         "derrotado": "DERROTADO"
@@ -3370,7 +3357,6 @@
         }
       },
       "velocidade_auto": "Velocidade do automático",
-      "passiva_ativou": "PASSIVA ATIVOU",
       "log_passiva": "🛡 Passiva de {nome}: {talento} entrou na jogada.",
       "log_status": "😵 {alvo} ficou {status}.",
       "log_cura": "💚 {nome} usou {talento} em {alvo} (+{n} de Osso).",
@@ -3772,6 +3758,26 @@
             "desc": "Vencer a primeira luta."
           }
         }
+      },
+      "golpe": {
+        "ataque": "Ataque",
+        "defesa": "Defesa",
+        "critico": "Crítico",
+        "bonus": "bônus",
+        "ignorou": "furou",
+        "dano": "{n} de dano",
+        "sem_dano": "Não passou nada",
+        "bloqueado": "Bloqueado",
+        "pv": "{nome}: {de} → {para} de Osso",
+        "carta_reduziu": "Carta segurou {v} de dano",
+        "escudo": "Guarda segurou {v} de dano"
+      },
+      "resultado": {
+        "destaques": "Destaques",
+        "mais_dano": "mais dano",
+        "mais_abates": "mais derrubadas",
+        "maior_golpe": "Maior golpe · {nome}",
+        "criticos": "críticos"
       }
     }
   }

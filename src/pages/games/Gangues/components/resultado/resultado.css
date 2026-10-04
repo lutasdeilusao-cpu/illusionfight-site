@@ -1,0 +1,76 @@
+/* Tela de resultado da luta: blocos empilhados por importância e os botões
+   presos embaixo. */
+.gang-report.resultado { padding: 54px 16px 0; display: flex; flex-direction: column; gap: 12px; }
+.resultado-bloco { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid var(--if-hair); background: var(--if-panel); }
+.resultado-titulo { margin: 0; font: 800 0.6rem var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--if-teal); }
+.resultado-subtitulo { margin: 4px 0 0; font: 800 0.56rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); }
+
+/* Lutadores: rosto, nível com a barra, AP ganho */
+.resultado-lutadores { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.resultado-lutadores li { display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: 10px; }
+.resultado-lutadores li.is-ko { opacity: 0.6; }
+.resultado-lutadores__rosto, .resultado-estado__rosto, .resultado-destaques__rosto {
+  display: grid; place-items: center; overflow: hidden; border: 1px solid var(--if-hair-strong); background: rgba(0, 0, 0, 0.35);
+  font: 800 0.8rem var(--font-display); color: var(--text-secondary);
+}
+.resultado-lutadores__rosto { width: 38px; height: 38px; }
+.resultado-lutadores__rosto img, .resultado-estado__rosto img, .resultado-destaques__rosto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.resultado-lutadores__info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.resultado-lutadores__info b { font: 800 0.76rem var(--font-display); text-transform: uppercase; color: var(--gang-branco); }
+.resultado-lutadores__info small { font: 700 0.56rem var(--font-mono); color: var(--if-amber); }
+.resultado-lutadores__ap { display: flex; flex-direction: column; align-items: flex-end; }
+.resultado-lutadores__ap strong { font: 900 1.1rem var(--font-display); line-height: 1; color: var(--if-teal); }
+.resultado-lutadores__ap small { font: 700 0.48rem var(--font-mono); text-transform: uppercase; color: var(--text-secondary); }
+.resultado-barra { position: relative; display: block; height: 6px; border: 1px solid var(--if-hair-strong); background: rgba(0, 0, 0, 0.4); }
+.resultado-barra i { position: absolute; inset: 0 auto 0 0; width: var(--pct); background: var(--if-teal); transition: width 0.8s ease-out; }
+
+/* Grana e reputação */
+.resultado-moedas { display: flex; gap: 8px; }
+.resultado-moeda { flex: 1; padding: 7px; text-align: center; border: 1px solid var(--if-hair-strong); font: 700 0.7rem var(--font-mono); color: var(--text-secondary); }
+.resultado-moeda b { font: 900 1rem var(--font-display); }
+.resultado-moeda.is-grana b { color: var(--if-ok); }
+.resultado-moeda.is-rep b { color: var(--if-amber); }
+
+/* Destaques */
+.resultado-destaques { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.resultado-destaques li { display: grid; grid-template-columns: 30px 1fr auto; align-items: center; gap: 8px; }
+.resultado-destaques__rosto { width: 30px; height: 30px; font-size: 1rem; }
+.resultado-destaques small { font: 700 0.58rem var(--font-mono); color: var(--text-secondary); }
+.resultado-destaques strong { font: 900 1rem var(--font-display); color: var(--gang-branco); }
+.resultado-numeros { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.resultado-numeros div { display: flex; flex-direction: column; align-items: center; padding: 6px 2px; border: 1px solid var(--if-hair); }
+.resultado-numeros strong { font: 900 1rem var(--font-display); color: var(--if-teal); }
+.gang-report--defeat .resultado-numeros strong { color: var(--if-danger); }
+.resultado-numeros small { font: 700 0.46rem var(--font-mono); text-transform: uppercase; color: var(--text-secondary); text-align: center; }
+
+/* Socorro da derrota */
+.resultado-socorro { border-color: color-mix(in srgb, var(--if-danger) 45%, transparent); }
+.resultado-socorro__texto { margin: 0; font: 600 0.72rem/1.4 var(--font-body); color: var(--gang-branco); }
+.resultado-socorro__divida { margin: 0; display: flex; flex-direction: column; font: 800 0.8rem var(--font-display); color: var(--if-danger); text-transform: uppercase; }
+.resultado-socorro__divida small { font: 600 0.56rem var(--font-mono); color: var(--text-secondary); text-transform: none; }
+
+/* Detalhes (fechados por padrão) */
+.resultado-detalhes { gap: 0; padding: 0; }
+.resultado-detalhes details { border-bottom: 1px solid var(--if-hair); }
+.resultado-detalhes details:last-child { border-bottom: 0; }
+.resultado-detalhes summary { padding: 11px 12px; cursor: pointer; font: 800 0.6rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary); }
+.resultado-estado, .resultado-pique, .resultado-log { list-style: none; margin: 0; padding: 0 12px 12px; display: flex; flex-direction: column; gap: 5px; }
+.resultado-estado li { display: grid; grid-template-columns: 26px 1fr 70px auto; align-items: center; gap: 8px; }
+.resultado-estado li.is-enemy b { color: var(--if-danger); }
+.resultado-estado li.is-ko { opacity: 0.5; }
+.resultado-estado__rosto { width: 26px; height: 26px; }
+.resultado-estado b { font: 800 0.66rem var(--font-display); text-transform: uppercase; color: var(--gang-branco); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.resultado-estado small, .resultado-pique small, .resultado-log small { font: 700 0.52rem var(--font-mono); color: var(--text-secondary); }
+.resultado-pique li { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; font: 700 0.64rem var(--font-display); color: var(--gang-branco); }
+.resultado-pique strong, .resultado-log b { font: 900 0.8rem var(--font-display); color: var(--if-teal); }
+.resultado-log li { display: grid; grid-template-columns: auto 1fr auto auto; gap: 8px; align-items: center; font: 700 0.6rem var(--font-display); color: var(--gang-branco); }
+.resultado-log li.is-enemy b { color: var(--if-danger); }
+.resultado-log em { font: 700 0.52rem var(--font-mono); font-style: normal; color: var(--text-secondary); }
+.resultado-log__vazio { color: var(--text-secondary); }
+
+/* Botões presos embaixo */
+.resultado-acoes {
+  position: sticky; bottom: 0; z-index: 2; margin: 0 -16px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  display: flex; flex-direction: column; gap: 8px; background: linear-gradient(to top, var(--bg-primary, #050a0c) 70%, transparent);
+}
+.resultado-acoes button { width: 100%; padding: 14px 10px; cursor: pointer; font: 900 0.62rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; }

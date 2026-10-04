@@ -80,10 +80,7 @@
         "reward_ap": "Puntos de Acción",
         "reward_ap_ko": "Cayó — sin PA",
         "reward_ap_teto": "Nivel máximo de la zona ({n}) — tumba al jefe para subir",
-        "reward_grana": "Plata",
-        "reward_rep": "Reputación",
         "rounds": "RONDAS",
-        "attacks": "ATAQUES",
         "damage_dealt": "DAÑO CAUSADO",
         "damage_taken": "DAÑO RECIBIDO",
         "final_state": "ESTADO FINAL DE LAS PANDILLAS",
@@ -4075,16 +4072,6 @@
         "todo el barrio va a saber que te pegaron hoy",
         "cae con estilo al menos"
       ],
-      "dado": {
-        "preparando": "Preparando...",
-        "girando": "Girando... Girando...",
-        "resultado": "RESULTADO: {n}!",
-        "ataca": "ataca",
-        "critico_player": "¡CRÍTICO! ¡GOLPE PERFECTO!",
-        "critico_enemy": "¡CRÍTICO! ¡GOLPE FATAL!",
-        "arma": "arma +{n}",
-        "armadura": "cuero +{n}"
-      },
       "beat": {
         "derrotado": "DERROTADO"
       },
@@ -6473,7 +6460,6 @@
         }
       },
       "velocidade_auto": "Velocidad del automático",
-      "passiva_ativou": "PASIVA ACTIVADA",
       "log_passiva": "🛡 Pasiva de {nome}: {talento} entró en juego.",
       "log_status": "😵 {alvo} quedó {status}.",
       "log_cura": "💚 {nome} usó {talento} en {alvo} (+{n} de Aguante).",
@@ -6875,6 +6861,26 @@
             "desc": "Ganar la primera pelea."
           }
         }
+      },
+      "golpe": {
+        "ataque": "Ataque",
+        "defesa": "Defensa",
+        "critico": "Crítico",
+        "bonus": "bono",
+        "ignorou": "perforó",
+        "dano": "{n} de daño",
+        "sem_dano": "No pasó nada",
+        "bloqueado": "Bloqueado",
+        "pv": "{nome}: {de} → {para} de Aguante",
+        "carta_reduziu": "La carta aguantó {v} de daño",
+        "escudo": "La guardia aguantó {v} de daño"
+      },
+      "resultado": {
+        "destaques": "Destacados",
+        "mais_dano": "más daño",
+        "mais_abates": "más derribos",
+        "maior_golpe": "Golpe más fuerte · {nome}",
+        "criticos": "críticos"
       }
     }
   }

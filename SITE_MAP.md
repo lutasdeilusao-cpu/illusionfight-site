@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.338.0**.
+> `SITE_VERSION` **10.339.0**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -10,7 +10,7 @@
 - Site oficial: `https://illusionfight.com/`
 - Repositório: `https://github.com/lutasdeilusao-cpu/illusionfight-site`
 - Aplicação: SPA React hospedada no GitHub Pages, com domínio próprio e fallback de rotas.
-- Stack: Vite 8, React 19, React Router 7, Zustand 5, Framer Motion 12, Supabase JS 2, React Helmet Async e React Markdown.
+- Stack: Vite 8, React 19, React Router 7, Zustand 5, Framer Motion 12, Supabase JS 2, React Helmet Async, React Markdown e three.js (só no painel do golpe do LDI Gangues, carregado sob demanda).
 - Backend: Supabase para autenticação, persistência, realtime e Edge Functions; Stripe para assinaturas.
 - Idiomas: inglês (raiz), português (`/pt/...`) e espanhol (`/es/...`). O prefixo do endereço vira o `basename` do roteador (`src/lib/idiomaUrl.js`); sem prefixo, vale a conta, depois `ldi-locale`, depois o idioma do aparelho.
 - Estilos: CSS global e arquivos `.css` associados aos componentes; sem CSS-in-JS.
@@ -398,11 +398,11 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.338.0** |
+| `SITE_VERSION` | Site global | **10.339.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
-| `GANGUES_VERSION` | LDI Gangues | **3.96.0** |
+| `GANGUES_VERSION` | LDI Gangues | **3.97.0** |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.2 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.7 |
