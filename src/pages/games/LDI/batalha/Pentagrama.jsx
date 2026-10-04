@@ -27,7 +27,7 @@ function pontoPerto(x, y, centroAberto, arrastando = false) {
   return melhor
 }
 
-export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = [], quarto = 0, centroAberto = false, travado = false, max = 4, carga = 0, progresso = 0, podeCarregar = false, segurandoOrbe = false, mini = false, onMudar, onToque, onOrbe, onOrbeToque }) {
+export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = [], quarto = 0, fantasmas = [], centroAberto = false, travado = false, max = 4, carga = 0, progresso = 0, podeCarregar = false, segurandoOrbe = false, mini = false, onMudar, onToque, onOrbe, onOrbeToque }) {
   const svgRef = useRef(null)
   const desenhando = useRef(false)
   const ligouNesteToque = useRef(false)
@@ -112,6 +112,9 @@ export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = 
           </g>
         )
       })}
+      {fantasmas.map(f => (
+        <circle key={f.id} className={`pg-fantasma is-${f.estado}`} cx={PONTOS[f.ponto].x} cy={PONTOS[f.ponto].y} r={PONTOS[f.ponto].grande ? 24 : 16} />
+      ))}
       {onOrbe && (
         <g className={`pg-orbe${segurandoOrbe ? ' is-segurando' : ''}`}>
           <circle cx={ORBE.x} cy={ORBE.y} r={14} />

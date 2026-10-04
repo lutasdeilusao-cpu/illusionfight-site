@@ -976,7 +976,7 @@
           "r5": "A heavy strike (head, elbow, knee) landing unblocked leaves you dizzy: only 1 strike next time.",
           "r6": "The center lights up green rarely: run your finger through it on defense and you dodge the whole attack, losing no blood, and the turn flips.",
           "r7": "Tap (or hold) the ⚡ orb above the head to fill the power bar. Full, the blue sequence shows up: draw it and Black Ice comes out — heavy damage, unblockable, and he freezes.",
-          "r8": "Rhythm counts: every point has a ring that closes on the beat. Connect the point as the ring closes and it’s on beat (gold point) — that strike hits 25% harder. And don’t repeat: the same combo a 3rd time in a row, he’s read it — he blocks and you lose the turn."
+          "r8": "Rhythm is everything: every point has a ring that closes on the beat. Tap as the ring closes — on beat (gold point) the strike hits 25% harder. Off beat is a miss: on attack the strike doesn’t land, the combo breaks and the turn is his; on defense the block doesn’t count. On defense, each of his strikes shows up on your body on the beat it lands: red got in, gold you blocked. And don’t repeat the same combo 3 times in a row — he reads it."
         },
         "oponente": "Opponent",
         "velocidade": "Speed",
@@ -1029,7 +1029,9 @@
           "parado_jog": "You stood still on attack — you lost the beat.",
           "parado_ini": "He stood still — the beat is yours.",
           "lido": "He’s read that combo — 3rd time the same. Blocked, and the turn is his.",
-          "no_tempo": "(on beat!)"
+          "no_tempo": "(on beat!)",
+          "fora_jog": "Your {golpe} was off beat — combo broken, his opening.",
+          "fora_ini": "His {golpe} was off beat."
         },
         "som": "Sound on or off",
         "ele": "Him",

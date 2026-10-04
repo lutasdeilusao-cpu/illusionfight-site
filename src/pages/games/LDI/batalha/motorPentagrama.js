@@ -32,8 +32,11 @@
 //
 // ENERGIA — 10 por batida (teto 16), dividida pelos golpes do combo.
 //
-// NO TEMPO — cada ponto ligado no beat (até JANELA_TEMPO de um tempo do
-// compasso) bate MULT_NO_TEMPO mais forte. `atacante.noTempo[i]` diz quais.
+// NO TEMPO — o jogo é tocar no beat. `noTempo[i]` diz se o golpe i saiu no
+// tempo (até JANELA_TEMPO de um tempo do compasso). No tempo, bate
+// MULT_NO_TEMPO mais forte. FORA do tempo é erro: no ataque, o golpe não entra,
+// o combo quebra ali e a abertura é do outro (a vez vira); na defesa, o
+// bloqueio fora do tempo não conta. Sem `noTempo` (o inimigo), vale tudo.
 //
 // REPETIÇÃO — atacar com o MESMO combo pela 3ª vez seguida: o inimigo já leu,
 // bloqueia certinho, o combo quebra no 1º golpe e a vez vira (`combo lido`).
@@ -182,7 +185,14 @@ export function resolverAtaque(atacanteEntrada, defensorEntrada) {
   for (let i = 0; i < atk.combo.length; i++) {
     const pa = atk.combo[i]
     const pd = def.combo[i]
-    if (pd && PONTOS[pd].membro === PONTOS[pa].membro) {
+    if (atk.noTempo && atk.noTempo[i] === false) {
+      r.passos.push({ tipo: 'fora', i, quem: 'atk', ponto: pa })
+      atk.combo.slice(i + 1).forEach((p, k) => r.passos.push({ tipo: 'cortado', i: i + 1 + k, quem: 'atk', ponto: p }))
+      r.vira = true
+      break
+    }
+    const bloqueioValeu = !def.noTempo || def.noTempo[i] !== false
+    if (pd && bloqueioValeu && PONTOS[pd].membro === PONTOS[pa].membro) {
       const raspao = Math.max(1, Math.round(danoDoGolpe(atk, pa) * RASPAO))
       const duro = !PONTOS[pd].grande && PONTOS[pa].grande
       r.danoDef += raspao

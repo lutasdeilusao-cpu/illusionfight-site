@@ -267,10 +267,15 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 - **Gravidade:** mão e pé 1; cabeça, cotovelo e joelho 2 (+carga). Levar 3+ sem
   bloquear numa batida = **tonto**: na próxima, 1 golpe só e sem carga.
 - **Energia:** 10 por batida (teto 16), dividida pelos golpes.
-- **No tempo:** cada ponto tem um anel que fecha sobre ele a cada tempo do
-  compasso. Ligar o ponto quando o anel fecha (até 18% de um tempo pra cada
-  lado) conta no tempo: o ponto fica dourado, toca um brilho e esse golpe bate
-  25% mais forte.
+- **O jogo é tocar no beat:** cada ponto tem um anel que fecha sobre ele a
+  cada tempo do compasso. Tocar quando o anel fecha (até 18% de um tempo pra
+  cada lado) conta no tempo: ponto dourado, brilho, golpe 25% mais forte.
+  **Fora do tempo é erro:** no ataque o golpe não entra, o combo quebra ali e a
+  abertura é dele (a vez vira); na defesa o bloqueio não conta.
+- **Fantasma das porradas dele:** na defesa, cada golpe do inimigo chega no
+  seu corpo num tempo do compasso (1º no tempo 1, 2º no 2…) e aparece como
+  fantasma no ponto atingido: vermelho entrou (com o som do golpe), dourado
+  você bloqueou, tracejado se você esquivou. Ele vem com 1 a 4 golpes.
 - **Repetição é castigada:** atacar com o mesmo combo pela 3ª vez seguida, ele
   já leu — bloqueia certinho, o combo quebra no 1º golpe e a vez vira.
 - **Esquiva:** o centro abre raramente (~0,4 s) e é um ponto do traço; passar o
