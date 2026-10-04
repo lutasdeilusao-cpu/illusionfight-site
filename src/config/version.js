@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.343.0' // som da batalha do pentagrama
+export const SITE_VERSION = '10.343.1' // automático do Gangues não trava na troca de vez
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '3.3.0'  // Lendas do LDI — 3 habilidades por Veia; laboratório da batalha do pentagrama com som
 export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
-export const GANGUES_VERSION   = '3.97.2' // Automático não trava mais depois de usar item; topo do resultado com o nome da gangue pichado
+export const GANGUES_VERSION   = '3.97.3' // Automático: a vez nunca fica sem timer; vigia grava no log e age se nada sair em 4 s
 
 export const TAMA_VERSION      = '3.4.2' // sem cache local: progresso só na conta
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

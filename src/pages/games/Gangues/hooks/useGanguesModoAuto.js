@@ -1,6 +1,5 @@
 // Modo Automático do combate normal. Liga e a vez de cada personagem sai
-// sozinha. Desde a v3.73.0 (pedido do Isaias, 28/09/2026) é CONFIGURÁVEL —
-// ver `escolherAcaoAuto`:
+// sozinha, e é configurável — ver `escolherAcaoAuto`:
 //  • por personagem: só ataque normal (o de sempre) ou UM talento escolhido,
 //    que ele usa toda vez que tiver PM/PV pra pagar (senão, ataque normal);
 //  • poção automática: alguém da tropa com PV ≤ 50% → o MAIS INTEIRO (mais
@@ -11,6 +10,7 @@
 // `modoAutoOn` mora no GanguesCombat (o motor precisa dele pra acelerar a IA
 // do inimigo em 2x/3x — ver useGanguesVelocidadeAuto.js).
 // Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
+import { logDebug } from '../../../../lib/debugLog'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MODO_AUTO_EXIGE_ASSINATURA, TIERS_COM_MODO_AUTO } from '../engine/ganguesCombatPresentation.js'
@@ -25,8 +25,7 @@ export const POCAO_LIMIAR_PV = 0.5
 export function lerAutoConfig() {
   try {
     const v = JSON.parse(localStorage.getItem(chaveDoSave(CONFIG_CHAVE)) || 'null')
-    // `pocaoPm` nasceu separado da poção de PV (v3.75.0); config antiga, que
-    // tinha as duas juntas em `pocao`, herda o mesmo valor.
+    // Config sem `pocaoPm` herda o valor de `pocao`.
     return v && typeof v === 'object' ? { talentos: v.talentos || {}, pocao: Boolean(v.pocao), pocaoPm: Boolean(v.pocaoPm ?? v.pocao) } : CONFIG_PADRAO
   } catch { return CONFIG_PADRAO }
 }
@@ -91,7 +90,6 @@ export default function useGanguesModoAuto({ modoAutoOn, setModoAutoOn, velocida
   // toda hora que podia automatizar). `podeUsarModoAuto` só decide se toca ou
   // se manda pro /assinar. Hoje o flag está desligado → todo mundo pode.
   const podeUsarModoAuto = !MODO_AUTO_EXIGE_ASSINATURA || TIERS_COM_MODO_AUTO.includes(perfil?.tier)
-  const autoQueuedRef = useRef(false)
   const agirRef = useRef(agir)
   agirRef.current = agir
   const toggleModoAuto = () => {
@@ -101,23 +99,32 @@ export default function useGanguesModoAuto({ modoAutoOn, setModoAutoOn, velocida
 
   // ── Quando é a vez do jogador, a ação configurada sai sozinha depois de
   // uma pausa curta — dá pra ver o alvo escolhido antes do golpe sair.
-  // `turnoSeq` muda a cada vez que passa: sem ele, o mesmo personagem agindo
-  // duas vezes seguidas depois de um item (que não passa pela fase do golpe)
-  // não disparava a vez automática de novo.
-  // autoQueuedRef evita disparar de novo enquanto o timer da vez atual
-  // ainda não resolveu (mesmo padrão do aiQueued em useGanguesTurnMachine).
+  // `turnoSeq` muda a cada vez que passa, então o mesmo personagem agindo duas
+  // vezes seguidas (depois de um item) também dispara. Mudou qualquer coisa
+  // no meio da espera (ex.: a vez passou e o personagem selecionado troca logo
+  // depois), o timer velho é cancelado e um novo é armado — nunca fica sem.
+  // koCena: o automático PARA enquanto o cartão de KO está na tela.
+  const podeAgir = !modoMultidaoAtivo && modoAutoOn && podeUsarModoAuto && machinePhase === 'player' && !result && !koCena && Boolean(selectedActor) && Boolean(selectedTarget)
   useEffect(() => {
-    // koCena: o modo automático PARA enquanto o cartão de KO está na tela —
-    // senão o próximo golpe já sai e o momento passa batido.
-    if (modoMultidaoAtivo || !modoAutoOn || !podeUsarModoAuto || machinePhase !== 'player' || result || koCena || !selectedActor || !selectedTarget) {
-      autoQueuedRef.current = false
-      return
-    }
-    if (autoQueuedRef.current) return
-    autoQueuedRef.current = true
-    const timer = setTimeout(() => { agirRef.current(); autoQueuedRef.current = false }, 750 / velocidade)
+    if (!podeAgir) return
+    const timer = setTimeout(() => agirRef.current(), 750 / velocidade)
     return () => clearTimeout(timer)
-  }, [velocidade, modoMultidaoAtivo, modoAutoOn, podeUsarModoAuto, machinePhase, turnoSeq, result, koCena, selectedActor, selectedTarget])
+  }, [velocidade, podeAgir, turnoSeq, selectedActor, selectedTarget])
+
+  // Vigia: automático ligado, vez do jogador e nada saiu em 4 s → grava no log
+  // de depuração (contas admin) o estado da luta e força a ação.
+  const estadoRef = useRef({})
+  estadoRef.current = { modoAutoOn, machinePhase, turnoSeq, result, koCena, selectedActor, selectedTarget, modoMultidaoAtivo }
+  useEffect(() => {
+    if (modoMultidaoAtivo || !modoAutoOn || !podeUsarModoAuto || result) return
+    const timer = setTimeout(() => {
+      const e = estadoRef.current
+      if (e.machinePhase !== 'player' || e.result || e.koCena) return
+      logDebug('gangues.auto.travou', e)
+      agirRef.current()
+    }, 4000 / velocidade)
+    return () => clearTimeout(timer)
+  }, [turnoSeq, modoAutoOn, modoMultidaoAtivo, podeUsarModoAuto, result, velocidade])
 
   return { podeUsarModoAuto, modoAutoOn, setModoAutoOn, toggleModoAuto }
 }
