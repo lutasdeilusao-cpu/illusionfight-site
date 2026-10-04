@@ -1,35 +1,22 @@
 # LDI GANGUES — GDD (Game Design Document · a bíblia única)
 
 > **Base oficial e única de tudo sobre o LDI Gangues — lore E mecânica.**
-> v1 — 2026-09-08, consolidado em bíblia única em set/2026 (pedido do
-> Isaias: "o GDD tem que ser a única bíblia... a documentação tem que
-> estar num único lugar"). Tudo aqui é **cânone fechado**. Substitui todos
-> os docs de lore E de mecânica anteriores — os 4 `.md` que viviam soltos
-> em `src/pages/games/Gangues/` (`GANGUES_DESIGN.md`, `GANGUES_HEADSUP.md`,
-> `GANGUES_PROGRESSAO_RASCUNHO.md`, `GANGUES_MODO_HISTORIA_ENCONTROS.md`)
-> foram fundidos aqui (ver seção 17) e **removidos do repositório**.
+> Descreve o jogo como ele é hoje. Histórico de mudanças não entra aqui — mora
+> no `git log`. O que ainda não está no código aparece marcado como
+> **planejado**.
 >
 > **Fonte narrativa:** o conto **"Alan, o Campeão"** (`src/data/historias/contos/02/pt/01.md`
 > … `19.md`, `historias/contos.json` id `02`). O jogo é o pano de fundo histórico desse
 > conto: a década final da fragmentação de Marélia, terminando pouco antes de o
-> Alan reivindicar a coroa.
+> Alan reivindicar a coroa. O Alan nunca aparece no jogo; quando citado, é
+> sempre no futuro.
 >
 > Seções 1–14 = **o mundo** (quem manda, como o crime funciona, o que
 > aconteceu antes, quem o jogador enfrenta e por quê, o que ele coleciona e
-> equipa). Seções 15–17 = **mecânica** (combate, progressão, retratos,
-> líder, estrutura de arquivos) — nasceram depois, quando a lore e a
-> mecânica pararam de fazer sentido separadas.
+> equipa). Seções 15–17 = **mecânica** (retratos, líder, combate,
+> progressão, estrutura de arquivos).
 
-Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo ainda
-tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
-
-> **Última revisão geral: 28/09/2026 — conferido contra o código de
-> GANGUES 3.78.0.** Nesta revisão saiu tudo que era histórico sem uso
-> (crosswalk string→id, Ranking Clandestino, narrativa de bug já corrigido,
-> atributos A/H/R/D antigos, NeoGuide) e entrou o que só existia no código:
-> sistema do Pique (linha do tempo com raias), encontro aleatório com sirene,
-> retratos de inimigo/NPC, ciclo automático de pose e a estrutura de `styles/`.
-> O que ainda NÃO está no código aparece marcado como **planejado**.
+Grafia oficial: **Marélia** com acento.
 
 ---
 
@@ -45,7 +32,7 @@ tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 | 200–299 | Cargos da hierarquia (flavor text dinâmico, não stats) |
 | **1101–1121** | Inimigo comum — **Vigia / Fogueteiro** (21) |
 | **1201–1221** | Inimigo comum — **Vapor** (21) |
-| **1301–1321** | Inimigo comum — **Gerente de Boca** (21) |
+| **1301–1322** | Inimigo comum — **Gerente de Boca** (22) |
 | **1401–1414** | Inimigo comum — **Cobrador** (14) |
 | **1451–1464** | Inimigo comum — **General / Braço-Direito** (14) |
 | 1500–1599 | Chefes de território (7 bosses) |
@@ -56,8 +43,8 @@ tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 | 101–999 | Equipamento |
 | 10000+ | Cartas de socket (sistema futuro) |
 
-> **Estado real:** `data/gangues-enemies.json` tem **102 fichas** com id
-> numérico — 91 da hierarquia (com bloco `album`), 7 chefes e 4 fichas do
+> `data/gangues-enemies.json` tem **103 fichas** com id
+> numérico — 92 da hierarquia (com bloco `album`), 7 chefes e 4 fichas do
 > encontro aleatório (1701/1702/1711/1712, fora do Álbum, ver §5.6).
 > `data/ganguesInimigos.js` é o módulo-catálogo.
 >
@@ -121,11 +108,10 @@ preso, **desaparece**.
    sem avisar é declaração de guerra.
 4. **Ninguém desafia o topo de um bairro sem provar que já rachou a base dele
    por baixo.** É a lógica por trás do **portão do chefe** em cada território —
-   você só encara o Geral depois de bater os pontos. Na Pista isso virou
-   literal (v2.74.4): o **muro** no fim da rua nunca abre por fora; depois de
-   fechar os pontos você acha a **boca de um túnel** que fura *por baixo* do
-   muro — uns vigias no caminho — e emerge do outro lado. O muro físico só
-   abre depois que você derruba o chefe, como atalho.
+   você só encara o Geral depois de bater os pontos. Na Pista o **muro** no
+   fim da rua nunca abre por fora; depois de fechar os pontos você acha a
+   **boca de um túnel** que fura *por baixo* do muro e emerge do outro lado.
+   O muro físico só abre depois que você derruba o chefe, como atalho.
 5. **Criança não é dono, mas também não é intocável.** É a brecha que o Alan
    usou a vida inteira — bucha primeiro, cria de proteção depois. Personagens
    jovens recrutados carregam essa dualidade: menos suspeita narrativa, menos R
@@ -208,154 +194,171 @@ só se cruzam depois, quando o Alan já é o Campeão).
 ## 4. Os 7 territórios — com pontos de interesse (faixa 1–99)
 
 Escala de temperatura: `rato → muvuca → correria → disputa → guerra → sangue → coroa`.
-Cada território tem um **motivo histórico** pra sua dificuldade (§3). Crosswalk de
-id (string atual → oficial): `pista→1, feira→2, baixada→3, vila→4, morro→5,
-alto→6, laje→7`.
+Cada território tem um **motivo histórico** pra sua dificuldade (§3). Id numérico
+de cada um: `pista→1, feira→2, baixada→3, vila→4, morro→5, alto→6, laje→7`. Os 7
+são cenas navegáveis com o mesmo motor (`data/cenas/<id>/`).
 
 ### Território 1 — A Pista · Rato de rua · `#3ddc97`
 Facção: Rato de Pista (101) / Bonde do Sinal (102). O asfalto lá embaixo. Cria
 que corre no farol, arranca corrente, vende bala. **Todo mundo começa aqui** — o
 Retalho, o jogador, e (noutro bairro) o Alan.
 
-**POIs (estado atual, v3.62.3 — `data/cenas/pista/pois.js`):**
+Cena em `data/cenas/pista/`. Faixa de nível até **20**.
+
+**POIs (`data/cenas/pista/pois.js`):**
 
 - **Obrigatórios pro portão** (`portao.precisa`, 8): A boca do sinal (`sinal`) ·
   O ferro-velho (`ferro`, `PuzzleSimonSays`) · **A oficina do Nando**
-  (`oficina` — fetch quest estilo Zelda: junta 2× sucata, uma do `ferro` e
-  outra do `achado`, e o Nando forja a Soqueira de Lata, 101, grátis + conta
-  onde o Carvão se esconde) · O beco da Rasteira (`beco`) · O outro ponto da
-  Rasteira (`beco_2`) · O terceiro ponto (`beco_3`) · **O Sinaleiro Chefe**
-  (`sinaleiro`, 1451, General) · **A Rasteira Velha** (`rasteira_velha`, 1452,
-  General). Os dois generais entram no Álbum aqui, antes do chefe.
-- **Ferro-velho na rua (v3.62.2–3.62.3):** o pino e a zona de interação do
-  `ferro` ficam na calçada acima do prédio (pino no centro); quando um pino
-  mora dentro de um prédio, uma marca de chão mostra onde interagir.
+  (`oficina` — junta 2× sucata, uma do `ferro` e outra do `achado`, e o Nando
+  forja a Soqueira de Lata (237) grátis + conta onde o Carvão se esconde) · O
+  beco da Rasteira (`beco`) · O outro ponto da Rasteira (`beco_2`) · O terceiro
+  ponto (`beco_3`) · **O Sinaleiro Chefe** (`sinaleiro`, 1451, General) · **A
+  Rasteira Velha** (`rasteira_velha`, 1452, General).
+- O pino e a zona de interação do `ferro` ficam na calçada acima do prédio;
+  quando um pino mora dentro de um prédio, uma marca de chão mostra onde
+  interagir. Falhar a gazua do `ferro` vira treta sem travar o ponto
+  (`falha.viraTreta.semTravar`).
 - **Opcionais do lado de cá do muro:** o fundo do ferro-velho (`achado`) · o
-  corre do Nato (`corre`, stealth — o convite dele agora aparece DENTRO do
-  modal de Descanso, não num pino próprio) · a rinha (`rinha`, farm) · Duda, o
-  Orelha (`informante`, destrava o chefe da Feira) · Descanso na birosca
-  (`descanso`) · **a Lojinha do Zé** (`loja_pocoes`, na rua) · **o agiota
-  Marimbondo** (`agiota`, dentro da birosca).
+  corre do Nato (`corre`, stealth — o convite aparece dentro do modal de
+  Descanso) · a Rinha (`rinha`, farm infinito, §17.6) · Duda, o Orelha
+  (`informante`, destrava o chefe da Feira) · Descanso na birosca (`descanso`)
+  · **a Lojinha do Zé** (`loja_pocoes`, na rua) · e, na **sala dos fundos** da
+  birosca, o agiota **Marimbondo** (`agiota`) e a **Banca do Tio Dado**
+  (`banca`, §17.2.3).
 - **Do lado de lá do muro** (`pos_portao`, via túnel): a loja da Pista (`loja`) ·
   o descanso do primo do Nato (`descanso_2`, dentro do barraco pm1) · os
   guarda-costas do Carvão (`posmuro_1` e `posmuro_2`, que destrancam o galpão) ·
   o galpão-dungeon com o Carvão no fim.
 - **Encontro aleatório (perseguidor):** em qualquer lugar da rua — ver abaixo.
 
-Ladder de força de cada ponto, lojas, descanso e agiota: §17.6.
+Ladder de força de cada ponto: §17.6.
 
-**Mapa de RPG:** o exterior é favela desenhada em CSS (barraco /
-laje com caixa d'água / sobrado / comércio com toldo / galpão) com rua de
-periferia (buracos, entulho, fiação/gato) e praça de verdade. **Interiores
-navegáveis**: encosta na porta → `ENTRAR` → fade → cômodo pequeno onde você anda
-até o dono e fala (birosca do Nato, oficina do Nando, mercearia da Cida). **O
-covil do Carvão é um galpão-dungeon de 4 cômodos** (doca → estoque → escritório
-→ o breu): mobs da Pista trancam a passagem entre os cômodos, uma prateleira dá
-achado, o contador do movimento entrega a dica, e no último cômodo o Carvão está
-parado no escuro → `DESAFIAR`. Motor único (`montarAmbiente`/`ctx`) serve rua e
-cômodo; comando contextual (`ENTRAR`/`SAIR`/`VOLTAR`/`AVANÇAR`/`DESAFIAR`); a
-posição salva inclui o interior. É o **template dos 7 bairros**.
+**Mapa de RPG:** o exterior é favela desenhada em CSS (barraco / laje com caixa
+d'água / sobrado / comércio com toldo / galpão) com rua de periferia (buracos,
+entulho, fiação/gato) e praça. **Interiores navegáveis**: encosta na porta →
+`ENTRAR` → fade → cômodo pequeno onde você anda até o dono e fala (birosca do
+Nato, oficina do Nando, mercearia da Cida). **O covil do Carvão é um
+galpão-dungeon de 4 cômodos** (doca → estoque → escritório → o breu): mobs da
+Pista trancam a passagem entre os cômodos, uma prateleira dá achado, o contador
+do movimento entrega a dica, e no último cômodo o Carvão está parado no escuro →
+`DESAFIAR`. Motor único (`montarAmbiente`/`ctx`) serve rua e cômodo; comando
+contextual (`ENTRAR`/`SAIR`/`VOLTAR`/`AVANÇAR`/`DESAFIAR`); a posição salva
+inclui o interior.
 
-**Descanso, agiota e Clube da Luta:**
+**O túnel por baixo do muro:** o muro no fim da rua não abre por fora. Fechados
+todos os `portao.precisa`, destranca a **boca do túnel** (prédio `tunel_ent`,
+"Barraco do beco") — mini-dungeon de 3 cômodos com vigias do Sinal
+(`tunel_m1/m2/m3`), passagem trancada até vencer cada um, e um achado ("Buraco
+na parede"). Você sai no `tunel_sai` ("Barraco do outro lado"), já do lado de lá
+do muro. Túnel bidirecional. O muro físico só abre com `prog.boss` (chefe
+derrotado), aí vira atalho.
 
-- **A birosca do Seu Nato (`descanso`) é só cura, sem dívida nenhuma.** Três
-  opções de preço: **10** recupera só quem **não caiu** (PV > 0); **30** (3×)
-  recupera **todo mundo, revivendo os caídos**; **50** (5×, só aparece com
-  alguém de status) é o descanso completo: vida, caídos e **status**.
-  Store: `descansarTropa(custo, incluirCaidos)` / `descansoInfo()`.
-- **A agiotagem mudou de dono:** é o **agiota Marimbondo** (`agiota`), NPC
-  novo, parado dentro do cômodo da birosca (retrato emprestado da ficha 1206,
-  "Fiado Vencido"). Escada de dívida, sem contador de fiados:
-  1. **Sem dívida:** pega um **empréstimo em dinheiro** de **100**, e já fica
-     devendo **10×** (**1.000**).
+**Descanso, agiota e Clube da Luta** (regra igual em todo bairro; os valores
+de cada um estão na tabela de §9.6):
+
+- **A birosca (`descanso`) é só cura.** Três opções: **1×** o preço (10 na
+  Pista) recupera só quem **não caiu**; **3×** recupera **todo mundo,
+  revivendo os caídos**; **5×** (só aparece com alguém de status) é o descanso
+  completo: vida, caídos e **status**. Store: `descansarTropa(custo,
+  incluirCaidos, curarStatus)` / `descansoInfo()`.
+- **Agiota** (`agiota`, na sala dos fundos). Escada de dívida:
+  1. **Sem dívida:** pega um **empréstimo** (100 na Pista, `poi.emprestimo` nos
+     outros bairros) e já fica devendo **10×**.
   2. **Já devendo:** cada **cura fiada DOBRA** a dívida atual.
-  3. **No teto (dívida × 2 passaria de 10.000):** o agiota não cobra mais —
-     **remenda de graça e te joga direto no Clube da Luta** ("socorro"), sem
-     tela de aceitar ou recusar.
-  - A dívida é **global** (uma caderneta pra todas as biroscas de todos os
-    bairros) e **silenciosa** (sem HUD). Dá pra pagar parcial ou total a
-    qualquer momento (`pagarBirosca`).
-  - Constantes: `GANGUES_EMPRESTIMO_NATO_VALOR/MULT/TETO` = 100 / 10 / 10.000
+  3. **No teto** (dívida × 2 passaria de 10.000): o agiota não fia mais e
+     oferece o Clube da Luta.
+  - A dívida é **global** (uma caderneta pra todas as biroscas) e
+    **silenciosa** (sem HUD). Dá pra pagar parcial ou total a qualquer momento.
+  - Constantes: `GANGUES_EMPRESTIMO_VALOR/MULT/TETO` = 100 / 10 / 10.000
     (`data/ganguesLoadout.js`).
-- **Gate do chefe:** com qualquer dívida em aberto, **o Carvão não aceita a
-  luta** (aviso `aviso_divida_chefe`). O resto da Pista (farm, pós-muro)
-  continua livre, pra não virar soft-lock. O jeito "certo" de quitar é o Clube.
-- **O Clube da Luta** é um **gauntlet de 3 rondas** (`gerarBandoClube`,
-  orçamento FIXO que não escala com o jogador: ronda 1 = 1 corpo com 7 pontos,
-  ronda 2 = 2 corpos dividindo 15, ronda 3 = 3 casca-grossa dividindo 26; pool
-  `GANGUES_CLUBE_POOL` = 1211/1212/1213/1219/1311/1312/1411/1412). O jogador
-  entra **vendado** (saco na cabeça → holofote → rugido da plateia).
+  - Os textos da agiotagem são genéricos com `{agiota}` — o nome do NPC vem do
+    POI de cada bairro.
+- **Gate do chefe:** com qualquer dívida em aberto, **o chefe não aceita a
+  luta** (aviso `aviso_divida_chefe`). O resto do bairro continua livre.
+- **O Clube da Luta** é um módulo à parte (`clube/`): **gauntlet de 3 rondas**
+  (`gerarBandoClube`, orçamento fixo por bairro — ronda 1 = 1 corpo, ronda 2 =
+  2 corpos, ronda 3 = 3 casca-grossa; Pista 7 / 15 / 26, Feira 22 / 42 / 66,
+  Baixada 36 / 70 / 110, Vila 49 / 96 / 150, Morro 61 / 120 / 186, Alto 74 /
+  146 / 227, Laje 86 / 170 / 265; pool 1211/1212/1213/1219/1311/1312/1411/1412).
+  O jogador entra **vendado** (saco na cabeça → holofote → rugido da plateia).
   - **Entrada:** soma **15× o preço do descanso** à dívida e cura a tropa.
-    Quem entra **por vontade própria, sem dívida**, precisa de **Rep 40**
-    (`GANGUES_REP_GATE_CLUBE`); quem já deve entra sem gate.
+    Quem entra **sem dívida** precisa de **Rep 40** (`GANGUES_REP_GATE_CLUBE`)
+    e pode **apostar** na entrada (sai do bolso na hora).
   - **Entre rondas** (`GanguesClubeSala`): encarar machucado, **deixar o
     agiota ajeitar** (cura tudo e **dobra a dívida**) ou **cair fora** (te
     remendam, a dívida fica).
-  - **Vitória na ronda 3:** quita **toda** a dívida e paga **+200 de grana**
-    (`GANGUES_CLUBE_PREMIO`), sempre. Nunca dá XP. É a fonte de grana do
-    grind: a rinha dá só XP, o Clube dá só grana.
-  - **Derrota:** te remendam, a dívida **não cresce mais**, fica o que
-    acumulou. Nunca é game over.
+  - **Vitória na ronda 3:** quita **toda** a dívida, paga o **prêmio do
+    bairro** (`clubePremioDe`: 200 · 300 · 450 · 650 · 900 · 1.200 · 1.600) +
+    o **dobro da aposta**, e dá o **Chip Ígneo** (item 22). Nunca dá XP.
+  - **Derrota:** te remendam, a dívida fica o que acumulou, a aposta se perde.
+  - Portas de entrada do resto do jogo: `store.prepararEntradaClube()` (cena),
+    `gerarBandoClube()` (GanguesRoute) e `store.fecharRondaClube()` (vitória).
 - **Trava:** tropa inteira no chão (todos PV 0) não entra em luta nenhuma.
+- **Derrota na cena — não existe game over.** A tropa acorda na birosca mais
+  perto (`destinoSocorroDerrota`, `data/cenas/cenaHelpers.js`: o interior com
+  descanso mais perto de onde caiu, do mesmo lado do muro/trilho; quem cai na
+  rua nunca acorda num andar de cima; descanso com `precisa` só vale depois de
+  liberado). A recuperação completa é cobrada na hora (`socorroDerrota`:
+  3× o preço do descanso): tem grana → paga; não tem e não deve → empréstimo
+  automático (100 na mão, dívida 1.000), paga e fica com o troco; não tem e já
+  deve → pega só o valor, a 10× na dívida (sem teto). A tela de derrota mostra
+  a conta e o botão vira "Acordar na birosca". Na Rinha a regra é outra
+  (§17.6).
 - Store: `ganguesBiroscaSlice.js` (persistido em `storyProgress.__birosca =
-  { divida }`). Telas: `GanguesAgiota.jsx`, `GanguesDescanso.jsx`,
-  `GanguesClube*.jsx`.
+  { divida }`). Telas: `GanguesAgiota.jsx`, `GanguesAgiotagem.jsx`,
+  `GanguesDescanso.jsx`, `clube/GanguesClube*.jsx`.
 
-**O túnel por baixo do muro (v2.74.4):** o portão/muro no fim da rua **não abre
-mais sozinho**. Fechados todos os `portao.precisa`, destranca a **boca do túnel**
-(prédio `tunel_ent`, "Barraco do beco") — mini-dungeon de 3 cômodos com vigias do
-Sinal (`tunel_m1/m2/m3`), passagem trancada até vencer cada um, e um achado
-("Buraco na parede"). Você sai no `tunel_sai` ("Barraco do outro lado"), já do
-lado de lá do muro, onde ficam a loja e o galpão. Túnel bidirecional. O muro
-físico só abre com `prog.boss` (chefe derrotado), aí vira atalho.
+**Sala dos fundos.** Toda birosca tem na frente só o descanso (+ informante se
+couber); agiota, Banca e o que for negócio escuso ficam num cômodo de trás —
+`portaFundos(w)` + `salaDosFundos([refs])` (`data/cenas/salaDosFundos.js`, até
+4 pinos, aceita `{ ref, precisaFlag }`). Regra geral: mais de 2–3 pinos num
+cômodo de ~460×320 = criar outro cômodo. `com.nome` vira o nome no topo.
 
-**Encontro aleatório — o perseguidor (v3.61.0):**
+**Encontro aleatório — o perseguidor:**
 
 - **Quando:** o 1º vem com **5 minutos de jogo** e depois **a cada 15 minutos**.
   O relógio conta só o tempo andando na RUA da cena (pausa em diálogo, luta,
   interior, mochila, ficha) e fica salvo no save (`storyProgress.__aleatorio`).
 - **Como:** o **Nego Véio avisa** ("sujou o bagulho"), com 3 falas próprias de
-  cada tipo. Aí o perseguidor nasce longe (16–26 passos de caminho) e **vem atrás
-  do jogador pelas ruas**, com pathfinding (BFS na grade de 20px, a mesma colisão
-  que trava o jogador — nunca atravessa prédio, quarteirão ou muro fechado).
-- **Não dá pra fugir:** ele anda um passo a cada 90ms, contra 110ms do jogador
-  (~22% mais rápido). Se o jogador entra em outra luta, num interior ou abre um
-  menu, ele **congela onde está** e continua quando o jogador volta pra rua.
+  cada tipo. O perseguidor nasce longe (16–26 passos de caminho) e **vem atrás
+  do jogador pelas ruas**, com pathfinding (BFS na grade de 20px, a mesma
+  colisão que trava o jogador).
+- **Não dá pra fugir:** ele anda um passo a cada 90ms, contra 110ms do jogador.
+  Se o jogador entra em outra luta, num interior ou abre um menu, ele **congela
+  onde está** e continua quando o jogador volta pra rua.
 - **Alcançou:** uma **onomatopeia** estoura no centro do mapa (~1s) e a luta
-  começa direto, sem escolha. Vitória ou derrota, ele some e o próximo fica
-  agendado pra daqui a 15 minutos.
-- **Sempre no mínimo 2 inimigos** (Isaias) — o encontro é isento da suavização
-  de 1ª luta e da regra da frustração. Força pelo personagem mais forte da
-  gangue (`baseMaisForte`).
-- **Os 4 tipos** (`ALEATORIO_TIPOS` em `engine/ganguesEncontroAleatorio.js`;
-  arte por enquanto = bolinha colorida, moto e viatura vêm depois):
+  começa direto. Vitória ou derrota, ele some e o próximo fica agendado.
+- **Sempre no mínimo 2 inimigos**, isento da suavização de 1ª luta e da regra
+  da frustração. Força pelo personagem mais forte da gangue (`baseMaisForte`),
+  nunca acima do líder do chefão do bairro.
+- **Os tipos** (`ALEATORIO_TIPOS` em `engine/ganguesEncontroAleatorio.js`; cada
+  cena escolhe quais sorteiam em `cena.aleatorio`):
 
   | Tipo | Bolinha | Quem | Onomatopeia |
   |---|---|---|---|
-  | **Dois numa moto** (assalto — "todo mundo tá sujeito") | amarela | 2–3: Piloto (1701) e Garupa (1702), ~90% do mais forte | VRUUUM! |
+  | **Dois numa moto** (assalto) | amarela | 2–3: Piloto (1701) e Garupa (1702), ~90% do mais forte | VRUUUM! |
   | **A Ronda** (polícia) | azul | 2–3: Soldado (1711) e Cabo da Ronda (1712), no nível do mais forte | PARADO! |
   | **Bonde Rival** (outro bairro vem tirar satisfação) | vermelha | 3–4 de Feira/Baixada (1204–1209), ~75% | BANG! |
   | **O Cobrador** (vem cobrar o salve da Banca) | roxa | 2: cobrador (1401–1406) + capanga, ~115% | PÁ! |
 
-  O 1º encontro é sempre a moto e o 2º a polícia; depois sorteia entre os 4, sem
-  repetir o anterior. As fichas 1701–1712 ficam fora do Álbum (não são cargo da
-  hierarquia).
-- **Sirene (v3.62.3):** enquanto a Ronda (polícia) persegue, a tela da cena
-  pisca vermelho/azul (`GanguesCena.jsx` + `styles/cena/mundo.css`).
+  O 1º encontro é sempre a moto e o 2º a polícia; depois sorteia entre os
+  tipos da cena, sem repetir o anterior.
+- **Sirene:** enquanto a Ronda persegue, a tela da cena pisca vermelho/azul.
 
-**Balanço:** todo bando do jogo (rua, revezamento, chefe, evento) parte de um
-número de pontos FIXO autorado por quem criou o encontro (ladder ponto-a-ponto,
-nunca um ratio contra o time do jogador). Pedido do Isaias: "força
-numericamente, é mais fácil de balancear". A dificuldade escolhida
-(fácil/médio/difícil) soma ou tira um valor fixo em cima desse número — ver
-`GANGUES_DIFICULDADE_AJUSTE` em `data/ganguesDificuldade.js`, o ÚNICO lugar
-que decide isso pro jogo inteiro. Curva completa em §17.6 desta bíblia.
+**Balanço:** todo bando do jogo parte de um número de pontos FIXO autorado por
+quem criou o encontro (ladder ponto a ponto, nunca um ratio contra o time do
+jogador). A dificuldade escolhida (fácil/médio/difícil) soma ou tira um valor
+fixo em cima desse número — `GANGUES_DIFICULDADE_AJUSTE` em
+`data/ganguesDificuldade.js`, o único lugar que decide isso pro jogo inteiro.
+**O inimigo mais forte de cada território é o chefão:** todo revezamento de
+território passa por `revezamentoNoTerritorio` (cenaHelpers.js) com
+`tetoTerritorio` — nenhum corpo passa da ficha real do líder do chefe.
 
 **Encontro de revezamento ("estilo Pokémon"):** um POI `treta` com
 `revezamento: { pool:[ids], budgetPorCorpo, chanceDupla }` chama
 `gerarBandoRevezamento` — quase sempre 1 capanga, às vezes dupla (o 2º corpo
 sai 2–3 pontos abaixo, `GANGUES_DUPLA_DEDUCAO_MIN/MAX`). Vale também dentro de
-escolhas (`viraTreta.revezamento`). Pool da rua (`PISTA_POOL_RUA`):
+escolhas (`viraTreta.revezamento`). Pool da rua da Pista (`PISTA_POOL_RUA`):
 Farejador/Zóio/Pingo/Ratazana/Chinelada (1101/1102/1103/1201/1203). Túnel:
 m1 `[1101,1102,1103]` b4 · m2 `[1101,1102,1103,1201]` b6 · m3 `[1101,1102,1103]` b5.
 
@@ -364,231 +367,222 @@ Facção: Acerto de Contas (103) / Os Gato (104). O comércio, os camelô, a luz
 gato. Aqui não tem tiro — tem **dívida**. Primeiro território costurado pelo
 Retalho sem sangue.
 
-**Cena navegável desde a v3.65.0** (`data/cenas/feira/`, plano completo e
-decisões em `PLANO_FEIRA.md`). Mesmo motor da Pista — o mapa é o esqueleto da
-Pista **espelhado** (ruas, muro e colisões iguais, lados trocados), com bancas
-de lona espalhadas. Tudo que era chumbado da Pista virou dado da cena (`ruas`,
-`muro`, `postes`, `textos`, `posMuro`, `dicaQuest`, `aleatorio`,
-`fraquezaChefe`), então o 3º território entra só com dado.
+Cena em `data/cenas/feira/`. Faixa de nível **21–33**. O mapa é o esqueleto da
+Pista **espelhado** (x' = 760 − x), com bancas de lona espalhadas.
 
 - **Duas metades.** Embaixo, a Feira de dia. Em cima da **barricada do
-  apagão** (o "muro" daqui, y 1330–1350), a Feira **no escuro**: só um círculo
-  de luz em volta do jogador (`cena.apagao`) até o Cobrador cair. Chega-se lá
-  pela **Galeria dos Gato** (o "túnel": 3 cômodos escuros, a porta do meio com
-  o `PuzzleDecoder` — errar vira treta com Os Gato, sem travar o ponto).
-- **Caminho obrigatório (10, abre a Galeria):** A Catraca (26) → Banca do Turco
-  (papo: paga 20 de taxa ou não; fala diferente pra quem deve ao agiota) → A
-  cobrança (29) → Quadro de Luz (labirinto; errar dá **choque** −2 PV na tropa
-  e vira treta; dá o **fio de cobre**) → Beco dos Gato (32) → Balança viciada
-  (35, 1ª vitória dá uma válvula) → O Caderneta (35, fixo; **+1 Malícia contra
-  quem deve**) → **Rádio do Toninho** (fetch quest: 1 fio de cobre + 3
-  válvulas; conserta e revela a Mão do Turco e o rádio pirata) → **Mão do
-  Turco** (38, General fixo, 1ª vitória dá o Olho Grego 236) → **Caixa
-  Forte** (41, General fixo, **grana ×2**, 1ª vitória dá o Colete de Placa 221).
-- **Lado apagado:** depósito 1 (44) e depósito 2 (47, **Rep 60**) guardam o
-  **Mercadão** — a dungeon final é um **labirinto de barracas** (v3.66.0,
-  pedido do Isaias: "um mini labirinto com as barraquinhas... umas seis ou
-  sete batalhas antes do chefe"). 3 salas compridas de barracas em
-  zigue-zague (`salaLabirinto` em `feira/interiores.js`: 3 fileiras por sala,
+  apagão** (o "muro" daqui), a Feira **no escuro**: só um círculo de luz em
+  volta do jogador (`cena.apagao`) até o Cobrador cair. Chega-se lá pela
+  **Galeria dos Gato** (o "túnel": 3 cômodos escuros, a porta do meio com o
+  `PuzzleDecoder` — errar vira treta com Os Gato, sem travar o ponto).
+- **Caminho obrigatório (abre a Galeria):** A Catraca → Banca do Turco (papo:
+  paga 20 de taxa ou não; fala diferente pra quem deve ao agiota) → A cobrança
+  → Quadro de Luz (labirinto; errar dá **choque** −2 PV na tropa e vira treta;
+  dá o **fio de cobre**) → Beco dos Gato → Balança viciada (1ª vitória dá uma
+  válvula) → O Caderneta (**+1 Malícia contra quem deve**) → **Rádio do
+  Toninho** (fetch quest: 1 fio de cobre + 3 válvulas; conserta e revela a Mão
+  do Turco e o rádio pirata) → **Mão do Turco** (General fixo) → **Caixa
+  Forte** (General fixo, **grana ×2**).
+- **Lado apagado:** depósito 1 e depósito 2 (**Rep 60**) guardam o
+  **Mercadão** — dungeon final em **labirinto de barracas**: 3 salas compridas
+  em zigue-zague (`salaLabirinto` em `feira/interiores.js`: 3 fileiras por sala,
   cada uma com um vão alternando de lado), **2 brigas por sala** — a 2ª só
-  aparece depois da 1ª e a passagem só abre depois da 2ª, então não dá pra
-  passar reto: barraca_1 (44) → barraca_2 (bando de 3–5) → barraca_3 (46) →
-  barraca_4 (47, com o estoque escondido num canto) → barraca_5 (48) →
-  barraca_6 (49) → o fundo com o **Marreta** e o bando dele (7ª briga) e o
-  livro-caixa → o cofre do Cobrador. **7 brigas obrigatórias dentro do
-  Mercadão**, 9 contando os depósitos.
-- **Chefe — O Cobrador (1501):** nível real 46 (52 pontos) + Mão do Turco e
-  Caixa Forte de escolta (29 cada) — `GANGUES_CHEFE_BUDGET.feira` 110,
-  `liderFracChefe` 0,47, 3 corpos. Só aceita a luta depois do **Duda** (Pista)
-  — `precisaInformante`. Com as **3 páginas da caderneta** (`pagina_1/2/3`,
-  uma em cada metade + uma na Galeria) ele entra com **−2 de Couro**. 1ª
-  vitória: **Porrete do Cobrador (138)**.
-- **Opcionais:** Camelô (loja dos consumíveis novos + válvula + sucata, com
-  **pechincha**: acertou o anagrama, −30% na visita) · Muamba de Domingo
-  (stealth 6×6 com cronômetro, dá válvula) · **Pensão da Dona Regina** (15 /
-  45; **sem grana, ela cura fiado e a gangue fica devendo 1 favor** —
-  `storyProgress.__regina`; os favores `favor_marmita`/`favor_devedor`/
-  `favor_cobrador` pagam) e a pensão da filha do lado apagado · **Juro Alto**
-  (agiota: empréstimo de **300**, mesma caderneta global do Marimbondo — os
-  textos da agiotagem usam `{agiota}`) · **Rinha de Apostas** (aposta 0/50/100/
-  200 antes da luta, volta em dobro) · Mercearia do Seu Aziz (lado apagado,
-  o equipamento INCOMUM dos 3 caminhos — §9.7) · **Serralheria do Bigode** (aprimora até **+4**) · rádio
-  pirata (informante da Baixada).
+  aparece depois da 1ª e a passagem só abre depois da 2ª: barraca_1 →
+  barraca_2 (bando de 3–5) → barraca_3 → barraca_4 (com o estoque escondido
+  num canto) → barraca_5 → barraca_6 → o fundo com o **Marreta** e o bando dele
+  e o livro-caixa → o cofre do Cobrador. 7 brigas obrigatórias dentro do
+  Mercadão, 9 contando os depósitos.
+- **Chefe — O Cobrador (1501):** ficha **33** (orçamento 82 × 0,40) + Mão do
+  Turco e Caixa Forte de escolta, 3 corpos. Só aceita a luta depois do **Duda**
+  (Pista) — `precisaInformante`. Com as **3 páginas da caderneta**
+  (`pagina_1/2/3`, uma em cada metade + uma na Galeria) ele entra com **−2 de
+  Couro** (`cena.fraquezaChefe`). 1ª vitória: **Porrete do Cobrador (138)**.
+- **Opcionais:** Camelô (consumíveis + válvula + sucata, com **pechincha**:
+  acertou o anagrama, −30% na visita) · Muamba de Domingo (stealth 6×6 com
+  cronômetro, dá válvula) · **Pensão da Dona Regina** (**sem grana, ela cura
+  fiado e a gangue fica devendo 1 favor** — `storyProgress.__regina`; os favores
+  `favor_marmita`/`favor_devedor`/`favor_cobrador` pagam) e a pensão da filha
+  do lado apagado · **Juro Alto** (agiota, empréstimo de 300) · **Rinha da
+  Feira** (POI `rinha_apostas`, farm infinito como a da Pista) · Mercearia do
+  Seu Aziz (lado apagado, a loja do bairro) · **Serralheria do Bigode**
+  (aprimora até **+4**) · rádio pirata (informante da Baixada).
 - **Encontro aleatório:** os 4 da Pista + **o Rapa** (laranja; se ganhar de
   você leva 1 consumível) + **o Apagão** (só no lado escuro, Os Gato no breu)
   + a **Cobrança do Turco** no lugar do Cobrador quando você deve ao agiota
   (se ganhar, leva 10% da grana na mão; nunca mexe na dívida).
-- **Economia:** grana da vitória 15 + 5 por inimigo a mais (chefe mínimo
-  800) e **AP ×1,5** (`GANGUES_RECOMPENSA_TERRITORIO`, `ganguesVictoryResolver.js`)
-  — a Feira é o grind, o multiplicador evita que fique arrastado. O Clube da
-  Luta escala com o território (rondas 26 / 50 / 80 na Feira).
-- **Derrota:** sem game over, igual à Pista — acorda na pensão mais perto
-  (`destinoSocorroDerrota` é genérico).
-- **Arte que falta:** retratos de 1304–1306, 1403–1404, 1453–1454, **1501** e
-  dos NPCs Regina, Toninho, Aziz e Bigode — até lá, cai na inicial.
 
 ### Território 3 — A Baixada · Correria · `#18dafb`
 Facção: os 3 cacos do Sombra (105/106/107). Do outro lado da linha do trem. A
 facção do Sombra rachou em três. **Fragmentação** — o que acontece quando um
 território perde o dono.
 
-POIs: **A linha do trem** (fronteira física e simbólica com a Pista) · **O
-valão** (onde o Sombra morreu, ninguém entra à noite) · **O barraco do Sombra**
-(abandonado, cada caco disputa o direito de ocupar) · **O trio de esquinas**
-(cada caco domina uma, briga constante entre elas).
-
-**A cena jogável (v3.81.0, 29/09/2026 — plano aprovado pelo Isaias).** Dado em
-`data/cenas/baixada/`, esqueleto da Pista **sem muro**: o bairro inteiro é
-andável desde o começo. Faixa de nível **34–46**.
+Cena em `data/cenas/baixada/`, esqueleto da Pista **sem muro**: o bairro
+inteiro é andável desde o começo. Faixa de nível **34–46**.
 
 - **A virada.** O "chefe" que foge o bairro inteiro é o **folgado** — se
   apresenta como Fura-Bucho, mas é o **Zé Pavão (1322)**, o inimigo mais fraco
-  da Baixada (ficha 34). O dono de verdade é o **velho da entrada**: grogue,
-  com cara de morador de rua, sentado no meio-fio, que a cada conversa solta
-  uma filosofia com gíria (`falasSorteadas` — "o céu vermelho contra o mundo
-  azul", "o cego viu o que o surdo ouviu"…). Ele é o **Fura-Bucho (1502)**.
-- **Barra de Respeito.** Tudo é ganhar respeito. A cadeia do folgado
-  (`folgado_1`…`folgado_5`) enche a barra: o folgado aparece com pino grande
-  (`fuga`), solta a marra ("tu nem é digno de mim"), joga um capanga — Sangria
-  34, Gelo 36, Sobra 38, depois os Generais Caco Maior 41 e Nome do Sombra 43 —
-  e some pro outro lado da linha. Barra cheia, ele não tem mais pra onde
-  correr (`folgado_final`, 34).
+  da Baixada. O dono de verdade é o **velho da entrada**: grogue, com cara de
+  morador de rua, sentado no meio-fio, que a cada conversa solta uma filosofia
+  com gíria (`falasSorteadas` — "o céu vermelho contra o mundo azul", "o cego
+  viu o que o surdo ouviu"…). Ele é o **Fura-Bucho (1502)**.
+- **Barra de Respeito** (`cena.respeito.pois`, `GanguesBaixadaHud.jsx`). A
+  cadeia do folgado (`folgado_1`…`folgado_5`) enche a barra: o folgado aparece
+  com pino grande (`fuga`), solta a marra, joga um capanga — Sangria 34, Gelo
+  36, Sobra 38, depois os Generais Caco Maior 41 e Nome do Sombra 43 — e some
+  pro outro lado da linha. Barra cheia, ele não tem mais pra onde correr
+  (`folgado_final`, 34).
 - **O café.** Batido, o folgado entrega: "dá um café pro véio". A **Dona Cida**
   (padaria) libera o **Café do Véio (item 16)**; entregue ao velho
-  (`veio_cafe`), ele acorda e vira o chefe no mesmo lugar da entrada: Fura-Bucho
-  46 + os dois Generais de escolta (orçamento 115 × 0,40). 1ª vitória: o
-  **Espeto do Fura-Bucho (140, épico, nível mín. 44)**.
-- **A linha do trem** corta o mapa (faixa y1296–1336): a cada ~24 s o trem
-  apita (3 s) e passa (8 s), fechando a travessia. Quem estiver nos trilhos
-  leva 2 de dano na tropa (nunca derruba) e é jogado pro lado mais perto
-  (`hooks/useGanguesTrem.js`).
+  (`veio_cafe`), ele acorda e vira o chefe no mesmo lugar (`someQuando` troca
+  os pinos): Fura-Bucho **46** + os dois Generais de escolta (orçamento 115 ×
+  0,40). 1ª vitória: o **Espeto do Fura-Bucho (140)**.
+- **A linha do trem** (`cena.trem`, `hooks/useGanguesTrem.js`) corta o mapa:
+  a cada ~24 s o trem apita (3 s) e passa (8 s), fechando a travessia. Quem
+  estiver nos trilhos leva 2 de dano na tropa (nunca derruba) e é jogado pro
+  lado mais perto.
 - **O resto do bairro:** Rinha do Trilho (farm infinito), Birosca da Dona
   Lurdes e Pensão do Trilho (descansos dos dois lados da linha), o agiota
-  **Resto de Faca** (empréstimo de 500), o **Depósito do Seu Nono** (loja do
-  RARO 301–318 dos 3 caminhos, com o Mandingueiro acima) e a caixa na beira da
-  linha. O chefe só abre depois do rádio pirata da Feira (`precisaInformante`).
-- **Fica pra depois:** o "corre do respeito" (missão num bairro anterior) não
-  entrou nesta versão.
+  **Resto de Faca** (empréstimo de 500), o **Depósito do Seu Nono** (loja) e a
+  caixa na beira da linha. O chefe só abre depois do rádio pirata da Feira
+  (`precisaInformante`).
 
 ### Território 4 — A Vila · Disputa · `#ffae32`
 Facção: Bonde dos Prédio (108) / Os Andar de Cima (109). O conjunto, os prédios
 de dez andares, a escada sem luz. **Resistência militarizada** — a única região
 que entrou na órbita do Retalho por guerra.
 
-POIs: **O térreo do bloco A** (primeira linha de defesa do bonde) · **A escada
-sem luz** (sobe apanhando, andar por andar) · **O elevador quebrado**
-(puzzle/obstáculo, atalho arriscado) · **A cobertura** (onde Os Andar de Cima
-vivem, vista de toda a Vila).
+Cena em `data/cenas/vila/`. Ponte: a Dona Lurdes (birosca da Baixada,
+`informante_vila`) destranca o Ferrugem.
 
-**Cena navegável (v3.84.0, 30/09/2026 — plano em `PLANO_VILA.md`, código em
-`data/cenas/vila/`).** Ponte: a Dona Lurdes (birosca da Baixada, `informante_vila`)
-destranca o Ferrugem. Térreo livre: guarita (47) → o Portaria foge (48) → Cadeado (49)
-abre o **Bloco A**, um interior só com o hall e os 10 andares (a escada é a
-`passagem` de cada cômodo, trancada até bater quem segura o andar). Ladder 50 · 51 ·
-Trinco 52 · 53 · 54 · 55 · Bloco Inteiro 56 (G, drop 405) · 57 · Chave Mestra Maior
-58 (G, drop 412) · **Ferrugem 59** na cobertura (+ escolta ~44/46; orçamento 148 ×
-0,40, 3 corpos). Andares 1–4 e 6 no escuro até o chefe cair. **Elevador quebrado**:
-sem a chave (Dona Neide, 5º andar) só vai do hall ao 1º; com ela, térreo/5º/9º — só
-andar já liberado — e 35% de travar (emboscada + 1 de alerta). **Barra de Alerta**
-(0–3): perder na Vila ou o elevador travar sobe; cada ponto é +1 de ficha em todo
-corpo das tretas daqui (nunca passa do Ferrugem); bater o Portaria desce, a última
-aparição dele (6º andar) zera e trava. Descanso 30 (Birosca do Térreo e Dona Neide —
-quem cai do 5º pra cima acorda nela), agiota Aluguel Vencido (empréstimo 800), Brechó
-da Síndica (pesado 401–418 + Poção de Osso 41), Oficina do Zelador (aprimora até
-+6), Rinha da Laje, Clube 49/96/150. AP ×1,5. Ponto fraco: a caixa d'água da
-cobertura (−2 Couro). Drop do chefe: Taco da Ferrugem (141). Ficou pra depois: o
-corre do respeito (stealth da ponte), a pilha de lanterna e o chefe falso.
+- **Térreo livre:** guarita (47) → o Portaria foge (48) → Cadeado (49) abre o
+  **Bloco A**, um interior só com o hall e os 10 andares (um cômodo por andar,
+  ligados por `passagem` com `precisa` + `voltaPara` — a escada trancada até
+  bater quem segura o andar). Ladder 50 · 51 · Trinco 52 · 53 · 54 · 55 ·
+  Bloco Inteiro 56 (G) · 57 · Chave Mestra Maior 58 (G) · **Ferrugem 59** na
+  cobertura (+ escolta ~44/46; orçamento 148 × 0,40, 3 corpos; o chefe mora
+  dentro do interior, `ref: '__chefe'`).
+- **Andares 1–4 e 6 no escuro** (`comodo.escuro`) até o chefe cair.
+- **Elevador quebrado** (`cena.elevador`): sem a chave (item 18, Dona Neide, 5º
+  andar) só vai do hall ao 1º; com ela, térreo/5º/9º — só andar já liberado — e
+  35% de travar (emboscada + 1 de alerta).
+- **Barra de Alerta** (`cena.alerta`, `storyProgress.__alerta`, 0–3): perder na
+  Vila ou o elevador travar sobe; cada ponto é +1 de ficha em todo corpo das
+  tretas daqui (`pontosComAlerta`, nunca passa do Ferrugem); bater o Portaria
+  desce, a última aparição dele (6º andar) zera e trava.
+- Descanso na Birosca do Térreo e na Dona Neide (quem cai do 5º pra cima acorda
+  nela), agiota Aluguel Vencido (empréstimo 800), Brechó da Síndica (loja +
+  Poção de Osso 41), Oficina do Zelador (aprimora até +6), Rinha da Laje.
+  Ponto fraco: a caixa d'água da cobertura (−2 Couro). Drop do chefe: Taco da
+  Ferrugem (141).
 
 ### Território 5 — O Morro · Guerra · `#ff8f3c`
 Facção: Frente da Escada (110) / Os Fogueteiro (111), sob Zefa. A favela de
 encosta, a escadaria que muda de forma a cada laje nova. **Lealdade pessoal** — a
 região que nunca foi realmente dominada, só negociada.
 
-POIs: **A escadaria de cimento** (única subida, guardada pela Frente da Escada) ·
-**A boca da Zefa** (onde ela recebe quem quer negociar) · **O posto de rojão**
-(sistema de alerta dos Fogueteiro) · **A creche da Zefa** (onde ela criou a
-molecada, intocável até pra rivais).
+Cena em `data/cenas/morro/`. Mecânica: **a escadaria negociada**. Três portões
+dos Fogueteiro (`cena.barreiras: [{ id, y1, y2, flag }]`) fecham a rua de lado a
+lado; cada um só abre com o AVAL de um bairro já dominado, negociado na sala dos
+fundos da birosca de lá (POI `papo` com `informante: '<flag>'`, pino com
+`precisaFlag`): **Pista** — pedágio de 600 pro Marimbondo; **Feira** — 3
+válvulas pros rádios dos Fogueteiro (Juro Alto); **Baixada** — 2 Poções de Osso
+pro remédio da creche (Dona Lurdes). Os avais só aparecem depois do recado do
+Morro (sala dos fundos da birosca da Vila, `informante_morro`, que também
+destranca a Zefa).
 
-**Cena navegável (v3.85.0, 30/09/2026 — código em `data/cenas/morro/`).** Mecânica
-do Morro: **a escadaria negociada**. Três portões dos Fogueteiro (`cena.barreiras`)
-fecham a rua de lado a lado; cada um só abre com o AVAL de um bairro já dominado,
-negociado na sala dos fundos da birosca de lá: **Pista** — pedágio de 600 pro
-Marimbondo; **Feira** — 3 válvulas pros rádios dos Fogueteiro (Juro Alto);
-**Baixada** — 2 Poções de Osso pro remédio da creche (Dona Lurdes). Os avais só
-aparecem depois do recado do Morro (sala dos fundos da birosca da Vila,
-`informante_morro`, que também destranca a Zefa). Ladder: escadaria 60 → Cupim 61 →
-[portão 1] → laje nova 63 → [portão 2] → posto de rojão 65 → Segunda Mãe 66 (G) →
-[portão 3] → Escadaria Inteira 68 (G) → última escada 69 → a boca da Zefa: Conta do
-Morro 70 → **A Fera 72** (orçamento 180 × 0,40, 3 corpos, escolta ~54). Birosca do Pé
-do Morro (descanso 40, agiota Conta do Morro com empréstimo 1000 nos fundos),
-Serralheria da Laje (+7), Venda do Morro (reaproveita o pesado da Vila — linha de
-item própria do Morro fica pra depois), Creche da Zefa (papo + achado), Rinha da
-Laje de Cima, Clube 61/120/186, AP ×1,5. Drop da Zefa: Vara da Fera (134). Ficou pra
-depois: a creche como zona sem briga de verdade e a escadaria que muda de forma.
+- Ladder: escadaria 60 → Cupim 61 → [portão 1] → laje nova 63 → [portão 2] →
+  posto de rojão 65 → Segunda Mãe 66 (G) → [portão 3] → Escadaria Inteira 68
+  (G) → última escada 69 → a boca da Zefa: Conta do Morro 70 → **A Fera 72**
+  (orçamento 180 × 0,40, 3 corpos, escolta ~54).
+- Birosca do Pé do Morro (agiota Conta do Morro com empréstimo 1.000 nos
+  fundos), Serralheria da Laje (+7), Venda do Morro (loja), Creche da Zefa
+  (papo + achado), Rinha da Laje de Cima. Drop da Zefa: Vara da Fera (134).
 
 ### Território 6 — Alto do Morro · No sangue · `#ff6b6b`
 Facção: Os Cinco (112) / A Roda (113). Atrás da porta de aço. **A ameaça que
 quase virou cúpula paralela** — o ponto mais "político" do jogo.
 
-POIs: **A porta de aço** (única entrada, fisicamente guardada) · **O círculo da
-Roda** (onde treinam a formação de combate) · **A sala dos Cinco** (quase virou
-sede de cúpula paralela) · **O escritório do Contador** (improvisado, todo o Alto
-deve favor a ele).
+Cena em `data/cenas/alto/`. Mecânica: **o Caderno do Contador**. Cada um dos
+Cinco (Verme 75, Presa 76, Engrenagem 77, Quase-Cúpula 78, Quarto Nome 79) se
+resolve COMPRANDO a dívida dele (600–800 de grana; o Contador perde 1 de Couro)
+ou na PORRADA (de graça; o Contador ganha 1 de Porrada) — `cena.ajusteChefe`,
+barra do caderno no topo. Ponte: o recado do Alto na sala dos fundos da birosca
+do Morro.
 
-**Cena navegável (v3.86.0, 30/09/2026 — código em `data/cenas/alto/`).** Mecânica do
-Alto: **o Caderno do Contador**. Cada um dos Cinco (Verme 75, Presa 76, Engrenagem 77,
-Quase-Cúpula 78, Quarto Nome 79) se resolve COMPRANDO a dívida dele (600–800 de grana;
-o Contador perde 1 de Couro) ou na PORRADA (de graça; o Contador ganha 1 de Porrada) —
-`cena.ajusteChefe`, barra do caderno no topo. Ponte: o recado do Alto na sala dos fundos
-da birosca do Morro. Caminho: porta de aço 73 → sala fechada 74 → os Cinco → a Roda 80
-(sempre em dupla) → sala dos Cinco: Formação Completa 82 (G) → escritório: Favor
-Devido 83 → **as fases do Contador**: ele gosta de se divertir, então antes da porrada
-se ganha dele em dois JOGOS próprios (POI `tipo: 'jogo'`, `components/cena/jogos/`):
-**porrinha** (3 palitos cada, chuta o total, quem acerta joga um fora, zerou ganhou) e
-**bilhar de três bolas** (arrasta e solta, encaçapa as 3 em até 6 tacadas — ele fez em
-5). Perder um jogo não custa nada, joga de novo. Só a fase final é porrada: **O
-Contador 85** (orçamento 213 × 0,40, escolta Quarto Nome + Formação Completa ~64).
-Birosca (descanso 50, agiota Dívida do Alto com 1200 nos fundos), Ferraria (+8),
-Empório (ainda o pesado da Vila), Rinha, Clube 74/146/227, AP ×1,5. Drop: Bengala do
-Contador (135).
+- Caminho: porta de aço 73 → sala fechada 74 → os Cinco → a Roda 80 (sempre em
+  dupla) → sala dos Cinco: Formação Completa 82 (G) → escritório: Favor Devido
+  83 → **as fases do Contador**: antes da porrada se ganha dele em dois JOGOS
+  (POI `tipo: 'jogo'`, `components/cena/jogos/GanguesJogoContador.jsx`), um
+  cômodo por fase: **porrinha** (3 palitos cada, chuta o total, quem acerta joga
+  um fora, zerou ganhou) e **bilhar de três bolas** (arrasta e solta, encaçapa
+  as 3 em até 6 tacadas). Perder um jogo não custa nada e não marca o ponto
+  (só a vitória chama `onResolve`). Só a fase final é porrada: **O Contador 85**
+  (orçamento 213 × 0,40, escolta Quarto Nome + Formação Completa ~64).
+- Birosca (agiota Dívida do Alto com 1.200 nos fundos), Ferraria (+8),
+  Empório (loja), Rinha. Drop: Bengala do Contador (135).
 
 ### Território 7 — A Laje · A Coroa · `#a855f7`
 Facção: Bonde do Retalho (114). O topo. De um lado, Marélia inteira. Do outro, o
 Retalho. **Onde a pergunta do jogo ("dá pra segurar Marélia?") é respondida com
 um não.**
 
-POIs: **A entrada costurada** (onde as três linhas do bonde do Retalho vigiam) ·
-**A sala de costura** (onde Damião "organiza" os seis bairros como planilha) · **O
-topo da Laje** (o confronto final, vista de Marélia inteira embaixo).
+Cena em `data/cenas/laje/`. O território mais longo e mais difícil. Ponte: o
+recado da Laje nos fundos da birosca do Alto. Não abre no modo fácil
+(`bloqueadoNoFacil`).
 
-**Cena navegável (v3.87.0, 30/09/2026 — código em `data/cenas/laje/`).** O território
-mais longo e mais difícil (Isaias: "tem que ser épico, memorável"). Ponte: o recado da
-Laje nos fundos da birosca do Alto. **Revanches**: os 6 chefes antigos voltam UMA vez
-cada, sozinhos, já na ficha da Laje (Carvão 87, Cobrador 89, Fura-Bucho 91, Ferrugem 93,
-Zefa 94, Contador 98). Rua (a entrada costurada): Última Guarda 86 → Carvão → Fiapo 88 →
-Cobrador → Agulha 90 → Fura-Bucho → Linha Reta 92 (G). Sala de costura (6 salas em fila):
-Ferrugem → Zefa → Costura Fina 95 → Tesoura 96 (G) → Corte Certo 97 (G) → Contador. **O
-topo, sem descanso** (o dano passa de uma fase pra outra): fase 1 "A Costura" (o Retalho
-+ Tesoura, Corte Certo e Costura Fina, bando de 4, ~85 cada) → fase 2 "A Colcha" (ele
-levanta diferente, + as três linhas do bonde e Conta Fechada, bando de 5) → fase 3 **O
-Retalho 100** (orçamento 250 × 0,40, escolta Tesoura/Corte Certo ~76). **Mecânica — as
-linhas do Retalho**: um contato dele em cada um dos 6 bairros de baixo (sala dos fundos
-da birosca, só depois do recado), cortado na porrada no nível 88; cada linha que sobrar
-dá +1 Porrada e +1 Couro no Retalho final (até +6/+6). Birosca (descanso 60, agiota
-Ponto da Laje com 1500 nos fundos), Alfaiataria (+9), loja (ainda o pesado da Vila),
-Rinha, Clube 86/170/265, AP ×1,5. Drop: Coroa da Laje (133). Próximo passo pedido pelo
-Isaias: reequilibrar os itens com exclusividade por bairro.
+- **Revanches:** os 6 chefes anteriores voltam UMA vez cada, sozinhos, já na
+  ficha da Laje (Carvão 87, Cobrador 89, Fura-Bucho 91, Ferrugem 93, Zefa 94,
+  Contador 98).
+- Rua (a entrada costurada): Última Guarda 86 → Carvão → Fiapo 88 → Cobrador →
+  Agulha 90 → Fura-Bucho → Linha Reta 92 (G). Sala de costura (6 salas em
+  fila): Ferrugem → Zefa → Costura Fina 95 → Tesoura 96 (G) → Corte Certo 97
+  (G) → Contador.
+- **O topo, sem descanso** (o dano passa de uma fase pra outra): fase 1 "A
+  Costura" (o Retalho + Tesoura, Corte Certo e Costura Fina, bando de 4) →
+  fase 2 "A Colcha" (ele levanta diferente, + as três linhas do bonde e Conta
+  Fechada, bando de 5) → fase 3 **O Retalho 100** (orçamento 250 × 0,40,
+  escolta Tesoura/Corte Certo ~76). As fases 1 e 2 são POIs de bando com
+  orçamento total fixo (`liderFixo` + `moldesPool` + `pontosFixo` +
+  `qtdMin/qtdMax`).
+- **As linhas do Retalho:** um contato dele em cada um dos 6 bairros de baixo
+  (sala dos fundos da birosca, só depois do recado), cortado na porrada no
+  nível 88; cada linha que sobrar dá +1 Porrada e +1 Couro no Retalho final
+  (até +6/+6) — `cena.ajusteChefe(prog, flags, cenaProgresso)`.
+- Birosca (agiota Ponto da Laje com 1.500 nos fundos), Alfaiataria (+9), loja,
+  Rinha. Drop: Coroa da Laje (133).
 
-Ponte entre regiões (mantida): a Feira só libera o chefe depois de o jogador
-voltar na Pista e falar com o informante **Duda, o Orelha** (3002).
+**Pontes entre bairros:** cada chefe só aceita a luta depois de um informante
+do bairro anterior (a Feira pede o **Duda, o Orelha** (3002) da Pista, a
+Baixada o rádio pirata da Feira, e assim por diante).
+
+**Economia por bairro** (`engine/ganguesVictoryResolver.js`): grana por vitória
+= base do bairro + 5 por inimigo a mais; chefe garante um mínimo; AP ×1,5 da
+Feira em diante, menos na Baixada. Tabela em §9.7.
+
+**Território novo entra só com dado.** O motor de cena não conhece nenhum
+bairro: tudo é campo da cena (`data/cenas/<id>/index.js`) — `ruas`, `muro`
+({y1,y2,aviso}), `postes`, `textos`, `posMuro`, `dicaQuest(prog, inventario)`,
+`aleatorio`, `fraquezaChefe`, `ajusteChefe`, `apagao`, `trem`, `respeito`,
+`alerta`, `elevador`, `barreiras`. Campos de POI genéricos: `fuga`,
+`someQuando`, `falasSorteadas`, `oferta`, `precisaFlag`, `exigeItem`,
+`precisaResolvido`, `elevador`. Cena sem `muro` funciona (nenhum prédio com
+`pos_portao`; o chefe fica invisível até `portao.precisa` fechar). O mini-mapa
+acha a porta do prédio sozinho (`posNoMapa`). Checklist de bairro novo:
+(1) pasta `data/cenas/<id>/` com os mesmos arquivos; (2) registrar em
+`CENAS_POR_ID` (`cenaHelpers.js`); (3) `GANGUES_CHEFE_BUDGET`/`liderFracChefe`/
+`GANGUES_CHEFE_CORPOS` (`data/ganguesChefes.js`), rondas do Clube
+(`clube/ganguesClubeRegras.js`), grana e AP (`ganguesVictoryResolver.js`),
+loja e drops (`data/ganguesEquipDistribuicao.js`); (4) i18n ×3 em
+`games.gangues.cena.<id>.*`; (5) checagem de alcance por BFS a partir do spawn
+(toda zona de POI e porta alcançável, nenhum pino dentro de colisor).
 
 ---
 
 ## 5. O Álbum de Marélia — roster de inimigos
 
 Cada inimigo derrotado pela **primeira vez** desbloqueia uma entrada. Organizado
-por **cargo** (§0). **91 entradas colecionáveis** = a hierarquia da Banca inteira
-(Vigia 21 + Vapor 21 + Gerente 21 + Cobrador 14 + General 14). Os 8 chefes (§6)
+por **cargo** (§0). **92 entradas colecionáveis** = a hierarquia da Banca inteira
+(Vigia 21 + Vapor 21 + Gerente 22 + Cobrador 14 + General 14). Os 8 chefes (§6)
 aparecem numa aba própria, **fora da contagem**.
 
 Shape canônico:
@@ -609,8 +603,8 @@ Shape canônico:
 }
 ```
 
-Todas as 91 entradas têm ficha de combate em `data/gangues-enemies.json`.
-Retrato (cabeça) existe hoje para o elenco da Pista — ver §15.
+Todas as 92 entradas têm ficha de combate em `data/gangues-enemies.json`.
+Retratos: §15.
 
 ### 5.1 Nível 1 — VIGIA / FOGUETEIRO (faixa 1101–1121)
 
@@ -669,7 +663,7 @@ Vende, sustenta a boca, cara a cara com o cliente. Dano baixo, mas em número.
 | 1220 | Ponto da Laje | Laje | faca pequena | O único ponto de venda que resta no topo — pequeno, simbólico. |
 | 1221 | Fio Cortado | Laje | tesoura de tecido | Vende o que sobra da costura — retalho literal. |
 
-### 5.3 Nível 3 — GERENTE DE BOCA (faixa 1301–1321)
+### 5.3 Nível 3 — GERENTE DE BOCA (faixa 1301–1322)
 
 Administra um ponto de verdade. Dano e defesa acima da média, disciplina própria.
 
@@ -696,6 +690,7 @@ Administra um ponto de verdade. Dano e defesa acima da média, disciplina própr
 | 1319 | Fiapo | Laje | facão | Primeira linha do bonde do Retalho. |
 | 1320 | Agulha | Laje | facão | Segunda linha, confiança de metade da Laje. |
 | 1321 | Linha Reta | Laje | facão longo | General mais antigo, sem movimento desperdiçado. |
+| 1322 | Zé Pavão | Baixada | espeto de pau | O folgado que se apresenta como Fura-Bucho e foge o bairro inteiro (§4). |
 
 ### 5.4 Nível 4 — COBRADOR (faixa 1401–1414)
 
@@ -760,8 +755,8 @@ Não são cargo da hierarquia da Banca — existem só pro perseguidor da rua (�
 ## 6. Dossiê dos chefes (faixa 1500–1600)
 
 Stats = ficha base do catálogo; em luta, o chefe é escalado pro orçamento
-fixo do bairro (`GANGUES_CHEFE_BUDGET`, §12) — na Pista o Carvão luta com
-ficha 30.
+fixo do bairro (`GANGUES_CHEFE_BUDGET`, §9.7) — na Pista o Carvão luta com
+ficha ~29.
 
 ### 1500 · Carvão — Chefe da Pista
 Facção: Rato de Pista (101) · Arma: facão · Stats: Porrada 6 · Pique 1 · Couro 2 · Osso 3 · Malandragem 1 (nível de fachada 29).
@@ -868,13 +863,12 @@ Fim de Linha, A Firma, Trilha de Cima, Sindicato do Beco, Quebrada Nova*.
 ### 7.1 História de recrutamento (bios)
 
 Cada um dos 30 recrutáveis tem uma bio curta (quem é / história / por que
-recrutar), escrita pelo Isaias (set/2026) — mostrada no botão **HISTÓRIA**
+recrutar) — mostrada no botão **HISTÓRIA**
 da ficha de recrutamento (`components/GanguesFichaBio.jsx`, texto em
 `data/ganguesBiografias.js`, chave = `character_template_id`, o mesmo id
 da tabela acima). **PT-first**: o botão/título/fechar respeitam o idioma
 do jogador (pt/en/es), mas o texto de lore em si só existe em português
-por enquanto — traduzir os 30 pra en/es é trabalho futuro, não uma lacuna
-de bug.
+— a tradução pra en/es é **planejada**.
 
 **PORRADEIROS**
 
@@ -1193,12 +1187,13 @@ de bug.
 | 3003 | **A cria do sinal** | Moleque vendendo bala no farol (Pista). Vende informação sobre o ferro-velho; pode ser apertado (vira treta fácil, −rep). |
 | 3004 | **Dona Regina** | Empresta no fiado na Feira em troca de favor. |
 
-Sem id numérico ainda (vivem só como POI/NPC da cena da Pista):
+Sem id numérico (vivem só como POI/NPC da cena):
 **Seu Nando** (oficina — forja a Soqueira de Lata com 2× sucata), **o agiota
-Marimbondo** (dentro da birosca; retrato emprestado da ficha 1206), **o Zé**
+Marimbondo** (sala dos fundos da birosca; retrato emprestado da ficha 1206), **o Zé**
 (Lojinha do Zé; retrato emprestado da ficha 1205) e **a Cida** (mercearia).
-O **Nego Véio** também é a voz que avisa o encontro aleatório e explica os
-modos trancados.
+Cada bairro tem os seus (Regina, Toninho, Aziz, Bigode, Dona Cida, Dona Lurdes,
+Dona Neide, os agiotas de cada birosca — §4). O **Nego Véio** também é a voz
+que avisa o encontro aleatório e explica os modos trancados.
 
 Retratos de NPC: `assets/npcs/<slug>/neutro.png` (`nego_veio`,
 `duda_o_orelha`, `cria_do_sinal`), resolvidos por `data/ganguesNpcPortraits.js`
@@ -1216,315 +1211,304 @@ POI, alimenta o % de domínio e o texto do final). Estado em `store.grana` /
 
 ### 9.2 Inventário — é da GANGUE, não do personagem
 - **Consumível:** `store.inventario` `{ [id]: qtd }`, ids **1–99**.
-- **Equipamento:** `store.equipamentos` `[{ uid, itemId, cards }]`, ids **101+**.
+- **Equipamento:** `store.equipamentos` `[{ uid, itemId, aprim, cards }]`, ids **101+**.
   Uma peça equipada sai do inventário da gangue e vive em
   `sheet.attributes.equipment[slot]`; volta ao desequipar.
 - Ações: `comprarItem`, `usarItem`, `comprarEquip`, `comprarEEquipar`,
   `equiparItem`, `desequiparItem`.
 
-### 9.3 Consumíveis (faixa 1–99)
+### 9.3 Consumíveis e materiais (faixa 1–99)
 
-> **Estado real (26/09/2026, `data/ganguesItens.js`):** existem no jogo os
-> ids **1, 2, 13, 20, 21, 22** e os de curar status **30–39** (§17.2.2). Os ids **3 a 12** abaixo são **design
-> aprovado, ainda não implementado** — não estão no catálogo nem na loja.
+Catálogo em `data/ganguesItens.js`; nome no i18n (`games.gangues.itens.<id>`).
+Preço da tabela = preço base (a Lojinha do Zé cobra o dobro).
 
-| id | Nome | tipo | efeito | custo | ícone |
+| id | Nome | tipo | efeito | preço | ícone |
 |---|---|---|---|---|---|
-| 1 | Poção de HP | `cura_pv` | +5 PV | 14 💵 (28 na Lojinha do Zé) | 🩹 |
-| 2 | Poção de MP | `cura_pm` | +5 PM | 14 💵 (28 na Lojinha do Zé) | 💧 |
-| 3 | Cigarro de Palha | `cura_pm` leve | +3 PM, −1 D por 1 turno | 3 💵 | 🚬 |
-| 4 | Water Energético | `cura_pm` | +8 PM | 8 💵 | 🥤 |
-| 5 | Faixa de Pano | `cura_pv` fraca | +3 PV — só drop | — | 🩹 |
-| 6 | Pinga | `buff_ataque` | +2 A por 2 turnos, −1 D | 6 💵 | 🍾 |
-| 7 | Apito | `fuga` | chance de fugir sem penalidade | 5 💵 | 📯 |
-| 8 | Bombinha de Fumaça | `debuff_inimigo` | −1 H em todos por 1 turno | 10 💵 | 💨 |
-| 9 | Trocado Marcado | `isca` | some com 1 inimigo por 1 turno | 6 💵 | 🪙 |
-| 10 | Farinha de Guaraná | `cura_pv` + | +7 PV | 9 💵 | 🥣 |
-| 11 | Vela Benta | `buff_defesa` | +2 D por 2 turnos | 7 💵 | 🕯️ |
-| 12 | Sacola de Bala | `cura_pv` mini | +2 PV (flavor: o que o Kim vende) | 2 💵 | 🍬 |
-| 13 | Sucata | `material` | sem efeito em combate — item de quest. Cai no ferro-velho da Pista (POI `ferro` + `achado`); o Seu Nando troca 2× por uma peça (POI `oficina`). | — | 🔩 |
-| 20 | Chip do Bruto | `poder_unico` | por 1 golpe, usa o poder *Soco de Ferro* (nível 2) | não vende | 👊 |
-| 21 | Chip da Muralha | `poder_unico` | por 1 golpe, usa o poder *Postura Defensiva* (nível 2) | não vende | 🛡️ |
-| 22 | Chip Ígneo | `poder_unico` | por 1 golpe, usa o poder *Bola de Fogo* (nível 2) | não vende | 🔥 |
+| 1 | Poção de HP | `cura_pv` | +5 Osso | 20 | 🩹 |
+| 2 | Poção de MP | `cura_pm` | +5 energia | 20 | 💧 |
+| 3 | Cigarro de Palha | `cura_pm` | +3 energia, −1 Couro por 1 ação | 7 | 🚬 |
+| 4 | Water Energético | `cura_pm` | +8 energia | 22 | 🥤 |
+| 5 | Faixa de Pano | `cura_pv` | +3 Osso — só drop | — | 🧻 |
+| 6 | Pinga | `buff` | +2 Porrada e −1 Couro por 2 ações | 18 | 🍾 |
+| 8 | Bombinha de Fumaça | `debuff_inimigos` | −1 Pique em todos os inimigos por 1 ação | 25 | 💨 |
+| 10 | Farinha de Guaraná | `cura_pv` | +7 Osso | 20 | 🥣 |
+| 11 | Vela Benta | `buff` | +2 Couro por 2 ações | 18 | 🕯️ |
+| 12 | Sacola de Bala | `cura_pv` | +2 Osso | 6 | 🍬 |
+| 13 | Sucata | `material` | aprimoramento e a quest do Nando | 10 | 🔩 |
+| 14 | Fio de Cobre | `material` | quest do Rádio do Toninho (Feira) | — | 🔌 |
+| 15 | Válvula de Rádio | `material` | quest do Rádio do Toninho; aval do Morro | 20 | 💡 |
+| 16 | Café do Véio | `material` | acorda o Fura-Bucho (Baixada) | — | ☕ |
+| 18 | Chave do Elevador | `material` | libera o elevador da Vila (não se gasta) | — | 🔑 |
+| 20 | Chip do Bruto | `poder_unico` | por 1 golpe, *Soco de Ferro* (nível 2) | não vende | 👊 |
+| 21 | Chip da Muralha | `poder_unico` | por 1 golpe, *Postura Defensiva* (nível 2) | não vende | 🛡️ |
+| 22 | Chip Ígneo | `poder_unico` | por 1 golpe, *Bola de Fogo* (nível 2) | não vende | 🔥 |
+| 30–39 | Remédios de status | `cura_status` | §17.2.2 (34 Xarope da Vó cura todos) | 12 (34: 30) | — |
+| 41 | Poção de Osso | `cura_pv` | +20 Osso | 80 | 🦴 |
 
 **Chips de poder (20–22):** emprestam por um golpe um poder que o personagem
 talvez nem tenha treinado (`forcedSpecial` em `ganguesSpecialEffects.js`).
-Nunca são vendidos. Vêm de dois lugares: **marcos de reputação** (a cada
-**50 de Rep** acumulada, sem teto, a gangue ganha 1 chip, ciclando 20 → 21 →
-22, com tela de recompensa — `repMarcosCruzados` em `ganguesLoadout.js`) e
-**drop de conteúdo arriscado** (ex.: `posmuro_2` e `galpao_m2` dão o chip 21).
+Nunca são vendidos. Vêm de **marcos de reputação** (a cada **50 de Rep**
+acumulada, sem teto, a gangue ganha 1 chip, ciclando 20 → 21 → 22, com tela de
+recompensa — `repMarcosCruzados` em `ganguesLoadout.js`), de **drop de conteúdo
+arriscado** (ex.: `posmuro_2` e `galpao_m2` dão o chip 21) e da vitória no Clube
+da Luta (chip 22).
 
-### 9.4 Equipamento — 6 espaços, por caminho (28/09/2026)
+**Sucata** também cai em ~20% das vitórias de rua na cena (não no chefe) e
+aparece no painel de recompensa.
 
-Espaços (bonecão de cima pra baixo): `cabeca` 🪖 · `corpo` 🦺 · `bracos` 🧤 ·
-`pes` 🥾 · `amuleto` 📿 · `arma` 🥊. Bônus = atributo plano (**A/H/D/PM**, PM =
-Malandragem) ou recurso plano (**pv/pm**, somado no máximo). Raridades hoje:
-`comum` e `incomum` (sockets de carta: 0 e 1).
+### 9.4 Equipamento — 6 espaços, por caminho
 
+Catálogo em `data/ganguesEquip.js`; nome em `games.gangues.equip.itens.<id>`;
+historinha de cada peça em `games.gangues.lore.<id>` (card de detalhe da loja —
+peça nova = historinha nova, uma ou duas frases, vocabulário da rua).
+
+- **Espaços** (bonecão de cima pra baixo): `cabeca` 🪖 · `corpo` 🦺 · `bracos`
+  🧤 · `pes` 🥾 · `amuleto` 📿 · `arma` 🥊.
+- **Bônus:** Porrada (A), Couro (D) e Pique (H) vêm em **faixa** (`bonus: { A:
+  [1, 3] }`); Osso/energia (`pv`/`pm`) e Malandragem são **fixos**.
+  - A Porrada da peça rola **a cada golpe**, o Couro **a cada defesa**
+    (`rolls.arma` / `rolls.armadura` em `resolveGanguesAction`), o Pique **uma
+    vez na entrada da luta** (no `prepare`). Cada peça rola o próprio dado e
+    soma; a Briga em Multidão usa o mesmo resolver.
+  - O dado dramático mostra **"🔪 arma +N"** / **"🛡️ couro +N"** na revelação;
+    a pista da linha do tempo mostra **"+N"** em cima de quem teve Pique
+    sorteado; cards mostram a faixa (**"+1–3 Porrada"**). Toda previsão (loja,
+    ficha, aviso de nível) usa a **média**, nunca o máximo
+    (`getGanguesEquipBonuses` → `getGanguesAttributesWithEquip`).
 - **Cada peça tem dono**: `caminho` = `atacante` (Porradeiro), `defensor`
   (Paredão), `mistico` (Mandingueiro) ou `livre` (qualquer um). Só o caminho
-  certo equipa (`podeEquiparGangues`); a loja mostra "Só Porradeiro" etc. e
-  só oferece equipar em quem pode.
-- **Orçamento calibrado por simulação** (motor real, 120 lutas por cenário,
-  dupla contra o Carvão): conjunto comum completo ≈ **2–3 níveis**, incomum ≈
-  **4–5 níveis**. Porrada e Couro só aparecem no incomum — +1 de Porrada num
-  item comum já valia ~4 níveis (dano é subtração). O Paredão nunca passa de
-  +1 de Porrada. O Mandingueiro rende mais com o mesmo orçamento
-  (Malandragem = força do talento + gás).
-- **O catálogo antigo (101–120) sumiu dos saves** sem reembolso (decisão do
-  Isaias, beta): peça equipada ou no bolso com id que não existe mais é
-  descartada ao carregar.
-- A Soqueira de Lata (237, livre, +1 Porrada) é recompensa do Nando e não é
-  vendida.
+  certo **e** o nível mínimo equipam (`podeEquiparGangues`); a loja e a bolsa
+  só oferecem equipar em quem pode. Na bolsa, a escolha de quem recebe abre
+  logo abaixo da peça tocada.
+- **Raridade = bairro.** Uma categoria por bairro, exclusiva: comum (Pista,
+  201–238) · incomum (Feira) · raro (Baixada, 301–318) · pesado (Vila,
+  401–418) · grife (Morro, 501–518) · nobre (Alto, 601–618) · lendário (Laje,
+  701–718); **épico** é só drop de chefe. Cada categoria sobe +1 na faixa de
+  atributo e ~30% em Osso/energia sobre a anterior (arma do atacante: 1–3 → 2–4
+  → 3–5 → …). Nível mínimo = entrada do bairro (`nivelMinEquip`): 5 / 20 / 33 /
+  46 / 59 / 72 / 85; épico 59, salvo Facão do Carvão 15, Porrete do Cobrador
+  28 e Espeto do Fura-Bucho 44.
+- **Regras fixas:** o **Paredão nunca passa de +1 de Porrada**; Porrada e
+  Couro nunca entram em peça comum; o Mandingueiro rende mais com o mesmo
+  orçamento (Malandragem = força do talento + gás).
+- **Preço** = arredonda5(Σ média × peso × raridade) — pesos A 28 · D 22 · H 30
+  · Osso/energia 6; raridade comum 1 · incomum 1,1 · raro 1,3 · pesado 1,45 ·
+  grife 1,6 · nobre 1,75 · lendário 1,9 · épico 1,6 (`precoReferencia`). Peça
+  sem `custo` não vende em loja.
+- **Onde cada peça sai** mora só em `data/ganguesEquipDistribuicao.js`:
+  `GANGUES_LOJA_EQUIP` (a loja do bairro vende ~10 peças: o caminho da
+  especialidade inteiro + arma e corpo dos outros dois — Pista e Vila atacante,
+  Feira e Morro defensor, Baixada e Alto místico; a Laje vende arma, corpo e
+  amuleto de todos) e `GANGUES_DROP_EQUIP` (o resto sai como prêmio da 1ª
+  vitória numa luta do bairro, lido em `calcularRecompensaCena` antes do
+  `equipPrimeiraVez` do ponto). Peça nova = entrar na tabela, nunca em duas
+  lojas.
 
-| id | Nome | Caminho | Espaço | Raridade | Bônus | Preço |
-|---|---|---|---|---|---|---|
-| 201 | Cabo de Vassoura | Porradeiro | arma | comum | +1 Pique | 35 |
-| 202 | Boné Aba Reta | Porradeiro | cabeça | comum | +1 Osso | 25 |
-| 203 | Regata Rasgada | Porradeiro | corpo | comum | +3 Osso | 30 |
-| 204 | Faixa no Punho | Porradeiro | braços | comum | +1 Osso | 25 |
-| 205 | Tênis Furado | Porradeiro | pés | comum | +1 Osso | 25 |
-| 206 | Corrente de Lata | Porradeiro | amuleto | comum | +2 energia | 30 |
-| 207 | Soqueira de Ferro | Porradeiro | arma | incomum | +2 Porrada | 150 |
-| 208 | Bandana de Bonde | Porradeiro | cabeça | incomum | +2 Osso | 75 |
-| 209 | Jaqueta de Couro | Porradeiro | corpo | incomum | +4 Osso | 95 |
-| 210 | Munhequeira | Porradeiro | braços | incomum | +1 Pique | 100 |
-| 211 | Coturno | Porradeiro | pés | incomum | +1 Osso | 70 |
-| 212 | Dente de Ouro | Porradeiro | amuleto | incomum | +2 energia | 75 |
-| 213 | Cano Curto | Paredão | arma | comum | +2 Osso | 30 |
-| 214 | Gorro de Moletom | Paredão | cabeça | comum | +1 Osso | 25 |
-| 215 | Colete Reforçado | Paredão | corpo | comum | +4 Osso | 35 |
-| 216 | Luva de Couro | Paredão | braços | comum | +1 Osso | 25 |
-| 217 | Chinelo Reforçado | Paredão | pés | comum | +2 Osso | 30 |
-| 218 | Medalhinha | Paredão | amuleto | comum | +2 energia | 30 |
-| 219 | Tampa de Bueiro | Paredão | arma | incomum | +1 Couro | 110 |
-| 220 | Capacete de Obra | Paredão | cabeça | incomum | +1 Couro | 110 |
-| 221 | Colete de Placa | Paredão | corpo | incomum | +8 Osso | 125 |
-| 222 | Braçadeira de Pneu | Paredão | braços | incomum | +2 Osso | 70 |
-| 223 | Bota com Biqueira | Paredão | pés | incomum | +3 Osso | 80 |
-| 224 | Terço da Vó | Paredão | amuleto | incomum | +2 energia | 75 |
-| 225 | Vela Preta | Mandingueiro | arma | comum | +1 Malandragem | 45 |
-| 226 | Capuz Surrado | Mandingueiro | cabeça | comum | +1 energia | 25 |
-| 227 | Manto de Feira | Mandingueiro | corpo | comum | +3 energia | 35 |
-| 228 | Pulseira de Miçanga | Mandingueiro | braços | comum | +1 Osso | 25 |
-| 229 | Sandália de Couro | Mandingueiro | pés | comum | +1 Osso | 25 |
-| 230 | Guia de Contas | Mandingueiro | amuleto | comum | +2 energia | 30 |
-| 231 | Cajado de Galho | Mandingueiro | arma | incomum | +1 Porrada | 110 |
-| 232 | Turbante | Mandingueiro | cabeça | incomum | +1 Malandragem | 110 |
-| 233 | Manto de Sintonia | Mandingueiro | corpo | incomum | +4 energia, +1 Osso | 125 |
-| 234 | Anel de Coco | Mandingueiro | braços | incomum | +2 Osso | 70 |
-| 235 | Chinelo Benzido | Mandingueiro | pés | incomum | +2 energia | 75 |
-| 236 | Olho Grego | Mandingueiro | amuleto | incomum | +1 Malandragem | 110 |
-| 237 | Soqueira de Lata | Livre | arma | comum | +1 Porrada | não vende |
-| 238 | Boné Vira-Lata | Livre | cabeça | comum | +1 Osso | 20 |
-
-**Faixa e aprimoramento (vindo da branch da Feira, 27/09/2026 — merge de 29/09).**
-No merge, o catálogo por caminho (201–238) ganhou faixa em Porrada/Couro/Pique,
-centrada no valor fixo de antes (+2 → 1–3), pra o aprimoramento valer; Osso,
-energia e Malandragem continuam fixos. Os épicos de chefe 138 (Porrete do
-Cobrador) e 139 (Facão do Carvão) ficaram como peças livres. Regra original:
-
-**Bônus em FAIXA (v3.64.0, 27/09/2026 — plano completo em
-`PLANO_ITENS_RANGE.md`, aprovado pelo Isaias).** Porrada (A), Couro (D) e Pique
-(H) viraram **faixa** (`bonus: { A: [1, 3] }` em `data/ganguesEquip.js`);
-Osso/Malandragem (PV/PM) continuam **fixos** (`+6 PV`).
-- **Quando rola:** a Porrada da peça **a cada golpe**, o Couro **a cada defesa**
-  (`rolls.arma` / `rolls.armadura` em `resolveGanguesAction`), o Pique **uma
-  vez na entrada da luta** (no `prepare` — a linha do tempo lê o H já com ele).
-  Cada peça rola o próprio dado e soma. A Briga em Multidão usa o mesmo
-  resolver, então rola igual.
-- **Na tela:** o dado dramático mostra um chip **"🔪 arma +N"** / **"🛡️ couro +N"**
-  na revelação; a pista da linha do tempo mostra **"+N"** em cima de quem teve
-  Pique sorteado; card de item/loja/ficha mostram a faixa (**"+1–3 Porrada"**);
-  toda previsão (loja, ficha, aviso de nível) usa a **média**, nunca o máximo.
-- **Toda faixa nasceu centrada no valor fixo de antes** (a Faca era +2 → 1–3):
-  simulado, +2 fixo × 1–3 empata em 50,3% num duelo — o balanço da Pista não
-  mudou, só a emoção de cada golpe.
-- **Preço** = arredonda5(Σ média × peso × raridade) — pesos A 28 · D 22 ·
-  **H 30** · PV/PM 6; raridade comum 1 · incomum 1,1 · raro 1,3 · épico 1,6. Os
-  5 comuns mais baratos mantiveram o preço de antes (28/22/36).
-
-**Aprimoramento** (+1 a +4, `aprimorarEquip` em `ganguesEquipSlice.js`):
+**Aprimoramento** (`aprimorarEquip` em `ganguesEquipSlice.js`, tela
+`GanguesFerreiro.jsx`):
 - Mexe só no **atributo principal** da peça (o 1º com faixa). **Nível ímpar =
   vantagem** (rola 2 vezes, fica com o maior, "▲" na tela); **nível par = sobe o
-  mínimo em 1**. Teto = mínimo encosta no máximo (faixa de 2 pontos → +4; 2–5 →
-  +6). Faca Serrilhada: +0 1–3 · +1 1–3▲ · **+2 2–3** · +3 2–3▲ · +4 sempre 3.
-  Simulado: a faca +2 vence 62% e a +4 vence 73% contra a mesma sem aprimorar.
-- **Custo:** grana = 25% do preço da peça × o nível (mín. 5) + **Sucata** (item
-  13) igual ao nível. Peça sem preço de loja usa o preço da fórmula.
-- O nível **mora na peça** (`aprim` na instância / no slot equipado), não no
-  personagem — vai junto ao trocar de dono. Save antigo sem `aprim` = +0.
-- **Onde:** a **bancada do Nando** (POI `bancada_nando`, tipo `ferreiro`, dentro
-  da oficina, só depois da quest da sucata) faz até **+1** (`poi.tetoAprim`). A
-  **Serralheria do Bigode** (Feira, `tetoAprim: 4`) vai até +4. Tela: `GanguesFerreiro.jsx`.
-- **Sucata virou recurso:** além do ferro-velho, cai em **~20% das vitórias de
-  rua** na cena (não no chefe) e aparece no painel de recompensa.
+  mínimo em 1**. Teto = mínimo encosta no máximo (`aprimTeto`).
+- **Custo:** grana = 25% do preço da peça × o nível (mín. 5) + **Sucata** igual
+  ao nível. Peça sem preço de loja usa o preço da fórmula.
+- O nível **mora na peça** (`aprim` na instância e no slot equipado) — vai junto
+  ao trocar de dono.
+- **Onde** (POI `ferreiro`, `poi.tetoAprim`): bancada do Nando (Pista, só depois
+  da quest da sucata) +1 · Serralheria do Bigode (Feira) +4 · Oficina do
+  Zelador (Vila) +6 · Serralheria da Laje (Morro) +7 · Ferraria (Alto) +8 ·
+  Alfaiataria (Laje) +9. A Baixada não tem ferreiro.
 
-**Fontes de peça fora da loja** (depois do merge, 29/09/2026): Soqueira de
-Ferro (207) na 1ª vitória sobre o Cão Louco (`posmuro_2`), Bota com Biqueira
-(223) no corre do Nato, Soqueira de Lata (237) na oficina do Nando; na Feira,
-Colete de Placa (221) no Caixa Forte, Olho Grego (236) no Mão do Turco e Dente
-de Ouro (212) no achado do Mercadão. Épicos de chefe: Facão do Carvão (139) e
-Porrete do Cobrador (138).
+**Catálogo completo** (gerado de `data/ganguesEquip.js` +
+`data/ganguesEquipDistribuicao.js`):
+| id | Nome | Caminho | Espaço | Raridade | Bônus | Nível mín. | Preço | Onde sai |
+|---|---|---|---|---|---|---|---|---|
+| 133 | Coroa da Laje | Livre | cabeça | épico | +2–4 Couro, +1–3 Pique | 59 | — | chefe: Retalho (Laje) |
+| 134 | Vara da Fera | Livre | arma | épico | +4–7 Porrada, +1–2 Pique | 59 | — | chefe: Zefa (Morro) |
+| 135 | Bengala do Contador | Livre | amuleto | épico | +1–3 Porrada, +1–3 Couro | 59 | — | chefe: Contador (Alto) |
+| 138 | Porrete do Cobrador | Livre | arma | épico | +3–7 Porrada, +1–3 Pique, +0–2 Couro | 28 | — | chefe: Cobrador (Feira) |
+| 139 | Facão do Carvão | Livre | arma | épico | +2–5 Porrada, +0–2 Couro | 15 | — | chefe: Carvão (Pista) |
+| 140 | Espeto do Fura-Bucho | Livre | arma | épico | +3–6 Porrada, +1–3 Couro | 44 | — | chefe: Fura-Bucho (Baixada) |
+| 141 | Taco da Ferrugem | Livre | arma | épico | +3–6 Porrada, +1–4 Couro | 59 | — | chefe: Ferrugem (Vila) |
+| 201 | Cabo de Vassoura | Porradeiro | arma | comum | +0–2 Pique | 5 | 35 | loja pista |
+| 202 | Boné Aba Reta | Porradeiro | cabeça | comum | +1 Osso | 5 | 25 | loja pista |
+| 203 | Regata Rasgada | Porradeiro | corpo | comum | +3 Osso | 5 | 30 | loja pista |
+| 204 | Faixa no Punho | Porradeiro | mãos | comum | +1 Osso | 5 | 25 | loja pista |
+| 205 | Tênis Furado | Porradeiro | pés | comum | +1 Osso | 5 | 25 | loja pista |
+| 206 | Corrente de Lata | Porradeiro | amuleto | comum | +2 energia | 5 | 30 | loja pista |
+| 207 | Soqueira de Ferro | Porradeiro | arma | incomum | +1–3 Porrada | 20 | 150 | loja feira |
+| 208 | Bandana de Bonde | Porradeiro | cabeça | incomum | +2 Osso | 20 | 75 | 1ª vitória: feira `catraca` |
+| 209 | Jaqueta de Couro | Porradeiro | corpo | incomum | +4 Osso | 20 | 95 | loja feira |
+| 210 | Munhequeira | Porradeiro | mãos | incomum | +0–2 Pique | 20 | 100 | 1ª vitória: feira `cobranca` |
+| 211 | Coturno | Porradeiro | pés | incomum | +1 Osso | 20 | 70 | 1ª vitória: feira `beco_gato` |
+| 212 | Dente de Ouro | Porradeiro | amuleto | incomum | +2 energia | 20 | 75 | 1ª vitória: feira `mao_turco` |
+| 213 | Cano Curto | Paredão | arma | comum | +2 Osso | 5 | 30 | loja pista |
+| 214 | Gorro de Moletom | Paredão | cabeça | comum | +1 Osso | 5 | 25 | 1ª vitória: pista `sinal` |
+| 215 | Colete Reforçado | Paredão | corpo | comum | +4 Osso | 5 | 35 | loja pista |
+| 216 | Luva de Couro | Paredão | mãos | comum | +1 Osso | 5 | 25 | 1ª vitória: pista `tunel_m3` |
+| 217 | Chinelo Reforçado | Paredão | pés | comum | +2 Osso | 5 | 30 | 1ª vitória: pista `tunel_m2` |
+| 218 | Medalhinha | Paredão | amuleto | comum | +2 energia | 5 | 30 | 1ª vitória: pista `beco_2` |
+| 219 | Tampa de Bueiro | Paredão | arma | incomum | +0–2 Couro | 20 | 110 | loja feira |
+| 220 | Capacete de Obra | Paredão | cabeça | incomum | +0–2 Couro | 20 | 110 | loja feira |
+| 221 | Colete de Placa | Paredão | corpo | incomum | +8 Osso | 20 | 125 | loja feira |
+| 222 | Braçadeira de Pneu | Paredão | mãos | incomum | +2 Osso | 20 | 70 | loja feira |
+| 223 | Bota com Biqueira | Paredão | pés | incomum | +3 Osso | 20 | 80 | loja feira |
+| 224 | Terço da Vó | Paredão | amuleto | incomum | +2 energia | 20 | 75 | loja feira |
+| 225 | Vela Preta | Mandingueiro | arma | comum | +1 Malandragem | 5 | 45 | loja pista |
+| 226 | Capuz Surrado | Mandingueiro | cabeça | comum | +2 energia | 5 | 25 | 1ª vitória: pista `beco_3` |
+| 227 | Manto de Feira | Mandingueiro | corpo | comum | +4 energia | 5 | 35 | loja pista |
+| 228 | Pulseira de Miçanga | Mandingueiro | mãos | comum | +2 Osso | 5 | 25 | 1ª vitória: pista `galpao_m2` |
+| 229 | Sandália de Couro | Mandingueiro | pés | comum | +1 Osso | 5 | 25 | 1ª vitória: pista `rasteira_velha` |
+| 230 | Guia de Contas | Mandingueiro | amuleto | comum | +2 energia | 5 | 30 | 1ª vitória: pista `posmuro_2` |
+| 231 | Cajado de Galho | Mandingueiro | arma | incomum | +0–2 Porrada | 20 | 110 | loja feira |
+| 232 | Turbante | Mandingueiro | cabeça | incomum | +1 Malandragem | 20 | 110 | 1ª vitória: feira `deposito_1` |
+| 233 | Manto de Sintonia | Mandingueiro | corpo | incomum | +5 energia, +2 Osso | 20 | 125 | loja feira |
+| 234 | Anel de Coco | Mandingueiro | mãos | incomum | +3 Osso | 20 | 70 | 1ª vitória: feira `deposito_2` |
+| 235 | Chinelo Benzido | Mandingueiro | pés | incomum | +3 energia | 20 | 75 | 1ª vitória: feira `barraca_4` |
+| 236 | Olho Grego | Mandingueiro | amuleto | incomum | +1 Malandragem | 20 | 110 | 1ª vitória: feira `mercadao_m2` |
+| 237 | Soqueira de Lata | Livre | arma | comum | +0–2 Porrada | 5 | — | oficina do Nando (Pista) |
+| 238 | Boné Vira-Lata | Livre | cabeça | comum | +1 Osso | 5 | 20 | loja pista |
+| 301 | Espeto de Churrasco | Porradeiro | arma | raro | +2–4 Porrada | 33 | 330 | loja baixada |
+| 302 | Capuz Preto | Porradeiro | cabeça | raro | +3 Osso | 33 | 75 | 1ª vitória: baixada `folgado_1` |
+| 303 | Colete Cravejado | Porradeiro | corpo | raro | +6 Osso | 33 | 135 | loja baixada |
+| 304 | Luva de Boxe Rasgada | Porradeiro | mãos | raro | +1–3 Pique | 33 | 240 | 1ª vitória: baixada `folgado_final` |
+| 305 | Tênis Falsificado | Porradeiro | pés | raro | +0–2 Pique | 33 | 120 | 1ª vitória: baixada `folgado_2` |
+| 306 | Corrente de Prata | Porradeiro | amuleto | raro | +2 energia | 33 | 45 | 1ª vitória: baixada `folgado_3` |
+| 307 | Porta de Geladeira | Paredão | arma | raro | +1–3 Couro | 33 | 165 | loja baixada |
+| 308 | Capacete de Moto | Paredão | cabeça | raro | +0–2 Couro | 33 | 90 | 1ª vitória: baixada `folgado_4` |
+| 309 | Colete de Pneu | Paredão | corpo | raro | +10 Osso | 33 | 240 | loja baixada |
+| 310 | Caneleira de Cano | Paredão | mãos | raro | +4 Osso | 33 | 90 | 1ª vitória: baixada `folgado_5` |
+| 311 | Bota de Segurança | Paredão | pés | raro | +5 Osso | 33 | 120 | loja baixada |
+| 312 | Figa de Arruda | Paredão | amuleto | raro | +3 energia | 33 | 75 | loja baixada |
+| 313 | Cajado de Arruda | Mandingueiro | arma | raro | +2 Malandragem | 33 | 315 | loja baixada |
+| 314 | Chapéu de Palha Benzido | Mandingueiro | cabeça | raro | +4 energia | 33 | 90 | loja baixada |
+| 315 | Manto de Chita | Mandingueiro | corpo | raro | +6 energia, +3 Osso | 33 | 210 | loja baixada |
+| 316 | Fita do Bonfim | Mandingueiro | mãos | raro | +4 Osso | 33 | 90 | loja baixada |
+| 317 | Sandália de Corda | Mandingueiro | pés | raro | +4 energia | 33 | 90 | loja baixada |
+| 318 | Patuá | Mandingueiro | amuleto | raro | +1 Malandragem, +2 energia | 33 | 210 | loja baixada |
+| 401 | Chave de Cano | Porradeiro | arma | pesado | +3–5 Porrada | 46 | 460 | loja vila |
+| 402 | Capacete de Obra Pintado | Porradeiro | cabeça | pesado | +3 Osso | 46 | 105 | loja vila |
+| 403 | Colete do Bonde | Porradeiro | corpo | pesado | +6 Osso, +0–2 Couro | 46 | 230 | loja vila |
+| 404 | Cotoveleira de Borracha | Porradeiro | mãos | pesado | +1–3 Pique | 46 | 335 | loja vila |
+| 405 | Bota de Trabalho | Porradeiro | pés | pesado | +0–2 Porrada | 46 | 250 | loja vila |
+| 406 | Molho de Chaves | Porradeiro | amuleto | pesado | +3 energia | 46 | 65 | loja vila |
+| 407 | Porta de Aço | Paredão | arma | pesado | +2–4 Couro, +1 Porrada | 46 | 330 | loja vila |
+| 408 | Balde de Concreto | Paredão | cabeça | pesado | +0–2 Couro | 46 | 125 | 1ª vitória: vila `guarita` |
+| 409 | Colchão Amarrado | Paredão | corpo | pesado | +12 Osso | 46 | 335 | loja vila |
+| 410 | Grade de Janela | Paredão | mãos | pesado | +0–2 Couro | 46 | 125 | 1ª vitória: vila `cadeado` |
+| 411 | Bota de Borracha | Paredão | pés | pesado | +6 Osso | 46 | 170 | 1ª vitória: vila `andar_1` |
+| 412 | Crachá da Síndica | Paredão | amuleto | pesado | +3 energia, +3 Osso | 46 | 170 | 1ª vitória: vila `trinco` |
+| 413 | Antena de TV | Mandingueiro | arma | pesado | +3–5 Malandragem | 46 | 440 | loja vila |
+| 414 | Touca de Alumínio | Mandingueiro | cabeça | pesado | +4 energia, +1 Porrada | 46 | 200 | 1ª vitória: vila `andar_4` |
+| 415 | Cortina de Renda | Mandingueiro | corpo | pesado | +6 energia, +3 Osso, +1 Couro | 46 | 330 | loja vila |
+| 416 | Pulseira de Fio | Mandingueiro | mãos | pesado | +1 Pique, +3 Osso | 46 | 190 | 1ª vitória: vila `andar_6` |
+| 417 | Chinelo de Quarto | Mandingueiro | pés | pesado | +4 energia | 46 | 125 | 1ª vitória: vila `bloco_inteiro` |
+| 418 | Santinho do Elevador | Mandingueiro | amuleto | pesado | +1 Malandragem, +2 energia | 46 | 290 | 1ª vitória: vila `chave_mestra` |
+| 501 | Rojão de Mão | Porradeiro | arma | grife | +4–6 Porrada | 59 | 645 | loja morro |
+| 502 | Boné de Grife | Porradeiro | cabeça | grife | +4 Osso | 59 | 145 | 1ª vitória: morro `escadaria` |
+| 503 | Jaqueta da Frente | Porradeiro | corpo | grife | +8 Osso, +1–3 Couro | 59 | 320 | loja morro |
+| 504 | Luva de Pedreiro | Porradeiro | mãos | grife | +2–4 Pique | 59 | 470 | 1ª vitória: morro `cupim` |
+| 505 | Tênis de Grife | Porradeiro | pés | grife | +1–3 Porrada | 59 | 350 | 1ª vitória: morro `laje_nova` |
+| 506 | Cordão de Prata | Porradeiro | amuleto | grife | +4 energia | 59 | 90 | 1ª vitória: morro `posto_rojao` |
+| 507 | Tampa de Caixa d'Água | Paredão | arma | grife | +3–5 Couro, +1 Porrada | 59 | 460 | loja morro |
+| 508 | Capacete de Laje | Paredão | cabeça | grife | +1–3 Couro | 59 | 175 | loja morro |
+| 509 | Colete de Saco de Cimento | Paredão | corpo | grife | +16 Osso | 59 | 470 | loja morro |
+| 510 | Caneleira de Bambu | Paredão | mãos | grife | +1–3 Couro | 59 | 175 | loja morro |
+| 511 | Bota de Obra | Paredão | pés | grife | +8 Osso | 59 | 240 | loja morro |
+| 512 | Escapulário | Paredão | amuleto | grife | +4 energia, +4 Osso | 59 | 240 | loja morro |
+| 513 | Vara da Benzedeira | Mandingueiro | arma | grife | +4–6 Malandragem | 59 | 615 | loja morro |
+| 514 | Lenço de Cabeça | Mandingueiro | cabeça | grife | +5 energia, +2 Porrada | 59 | 280 | 1ª vitória: morro `segunda_mae` |
+| 515 | Saia de Chita | Mandingueiro | corpo | grife | +8 energia, +4 Osso, +2 Couro | 59 | 460 | loja morro |
+| 516 | Pulseira de Semente | Mandingueiro | mãos | grife | +2 Pique, +4 Osso | 59 | 265 | 1ª vitória: morro `escadaria_inteira` |
+| 517 | Alpargata | Mandingueiro | pés | grife | +5 energia | 59 | 175 | 1ª vitória: morro `ultima_escada` |
+| 518 | Guia de Sete Linhas | Mandingueiro | amuleto | grife | +2 Malandragem, +3 energia | 59 | 405 | 1ª vitória: morro `conta_do_morro` |
+| 601 | Taco de Sinuca | Porradeiro | arma | nobre | +5–7 Porrada | 72 | 900 | loja alto |
+| 602 | Chapéu Panamá | Porradeiro | cabeça | nobre | +5 Osso | 72 | 205 | 1ª vitória: alto `porta_aco` |
+| 603 | Paletó Riscado | Porradeiro | corpo | nobre | +10 Osso, +2–4 Couro | 72 | 450 | loja alto |
+| 604 | Abotoadura de Ouro | Porradeiro | mãos | nobre | +3–5 Pique | 72 | 655 | 1ª vitória: alto `sala_fechada` |
+| 605 | Sapato Bicolor | Porradeiro | pés | nobre | +2–4 Porrada | 72 | 490 | 1ª vitória: alto `cinco_presa` |
+| 606 | Relógio de Bolso | Porradeiro | amuleto | nobre | +5 energia | 72 | 125 | 1ª vitória: alto `cinco_engrenagem` |
+| 607 | Porta de Cofre | Paredão | arma | nobre | +4–6 Couro, +1 Porrada | 72 | 645 | loja alto |
+| 608 | Boina de Feltro | Paredão | cabeça | nobre | +2–4 Couro | 72 | 245 | 1ª vitória: alto `cinco_quase` |
+| 609 | Sobretudo Blindado | Paredão | corpo | nobre | +19 Osso | 72 | 655 | loja alto |
+| 610 | Luva de Couro Fino | Paredão | mãos | nobre | +2–4 Couro | 72 | 245 | 1ª vitória: alto `cinco_quarto` |
+| 611 | Sapato de Bico Fino | Paredão | pés | nobre | +10 Osso | 72 | 335 | 1ª vitória: alto `formacao_completa` |
+| 612 | Medalha do Alto | Paredão | amuleto | nobre | +5 energia, +5 Osso | 72 | 335 | 1ª vitória: alto `favor_devido` |
+| 613 | Baralho Marcado | Mandingueiro | arma | nobre | +5–7 Malandragem | 72 | 860 | loja alto |
+| 614 | Óculos Escuros | Mandingueiro | cabeça | nobre | +6 energia, +2 Porrada | 72 | 390 | loja alto |
+| 615 | Colete de Seda | Mandingueiro | corpo | nobre | +10 energia, +5 Osso, +2 Couro | 72 | 645 | loja alto |
+| 616 | Anel de Formatura | Mandingueiro | mãos | nobre | +2 Pique, +5 Osso | 72 | 370 | loja alto |
+| 617 | Mocassim | Mandingueiro | pés | nobre | +6 energia | 72 | 245 | loja alto |
+| 618 | Dado Viciado | Mandingueiro | amuleto | nobre | +2 Malandragem, +3 energia | 72 | 570 | loja alto |
+| 701 | Facão Costurado | Porradeiro | arma | lendário | +6–8 Porrada | 85 | 1260 | loja laje |
+| 702 | Bandana de Retalho | Porradeiro | cabeça | lendário | +6 Osso | 85 | 290 | 1ª vitória: laje `ultima_guarda` |
+| 703 | Jaqueta de Retalhos | Porradeiro | corpo | lendário | +11 Osso, +3–5 Couro | 85 | 630 | loja laje |
+| 704 | Luva Remendada | Porradeiro | mãos | lendário | +4–6 Pique | 85 | 920 | 1ª vitória: laje `fiapo` |
+| 705 | Coturno Costurado | Porradeiro | pés | lendário | +3–5 Porrada | 85 | 685 | 1ª vitória: laje `revanche_cobrador` |
+| 706 | Dedal de Ferro | Porradeiro | amuleto | lendário | +6 energia | 85 | 180 | loja laje |
+| 707 | Escudo de Lona | Paredão | arma | lendário | +5–7 Couro, +1 Porrada | 85 | 905 | loja laje |
+| 708 | Capacete Remendado | Paredão | cabeça | lendário | +3–5 Couro | 85 | 345 | 1ª vitória: laje `revanche_fura_bucho` |
+| 709 | Colcha Blindada | Paredão | corpo | lendário | +23 Osso | 85 | 920 | loja laje |
+| 710 | Braçadeira de Couro Grosso | Paredão | mãos | lendário | +3–5 Couro | 85 | 345 | 1ª vitória: laje `revanche_zefa` |
+| 711 | Bota de Sola Dupla | Paredão | pés | lendário | +11 Osso | 85 | 465 | 1ª vitória: laje `costura_fina` |
+| 712 | Carretel | Paredão | amuleto | lendário | +6 energia, +6 Osso | 85 | 465 | loja laje |
+| 713 | Agulha de Crochê | Mandingueiro | arma | lendário | +6–8 Malandragem | 85 | 1205 | loja laje |
+| 714 | Touca de Tricô | Mandingueiro | cabeça | lendário | +8 energia, +3 Porrada | 85 | 550 | 1ª vitória: laje `corte_certo` |
+| 715 | Manto de Retalhos | Mandingueiro | corpo | lendário | +11 energia, +6 Osso, +3 Couro | 85 | 905 | loja laje |
+| 716 | Fita Métrica | Mandingueiro | mãos | lendário | +3 Pique, +6 Osso | 85 | 520 | 1ª vitória: laje `revanche_contador` |
+| 717 | Pantufa de Lã | Mandingueiro | pés | lendário | +8 energia | 85 | 345 | 1ª vitória: laje `fase_colcha` |
+| 718 | Botão do Retalho | Mandingueiro | amuleto | lendário | +3 Malandragem, +4 energia | 85 | 795 | loja laje |
 
+### 9.5 Épicos — drop de chefe
 
-### 9.5 Épicos — drop de chefe (faixa 132+)
+Sempre 2 slots de carta, caminho livre, sai na **1ª vitória** sobre o chefe:
+Facão do Carvão (139) · Porrete do Cobrador (138) · Espeto do Fura-Bucho (140)
+· Taco da Ferrugem (141) · Vara da Fera (134) · Bengala do Contador (135) ·
+Coroa da Laje (133, o Retalho). Bônus na tabela acima.
 
-Um por chefe. Sempre 2 slots de carta. **Planejado — nenhum épico existe no
-código ainda** (o Carvão hoje não dropa o Facão do Carvão).
+### 9.6 Lojas, descansos e ferreiros por bairro
 
-| id | Nome | slot | bônus | fonte |
+POI de tipo `loja` com `poi.itens` (mistura consumível e equipamento;
+`poi.precoMultiplicador` opcional). Só consumível se repete entre lojas.
+
+| Bairro | Loja (consumível) | Equipamento | Descanso (1×) | Empréstimo do agiota |
 |---|---|---|---|---|
-| 132 | Facão do Retalho | arma | +4 A, +2 D | chefe final (1600) |
-| 133 | Coroa da Laje | cabeça | +3 D, +2 H | chefe final (1600) |
-| 134 | Vara da Fera | arma | +3 A, +1 H, cura 5 PV ao derrotar inimigo | chefe do Morro (1504) |
-| 135 | Bengala do Contador | amuleto | +2 A, +2 D | chefe do Alto do Morro (1505) |
-| 136 | Espeto do Fura-Bucho | arma | +3 A, +2 H | chefe da Baixada (1502) |
-| 137 | Taco da Ferrugem | arma | +2 A, +3 D | chefe da Vila (1503) |
-| 138 | Porrete do Cobrador | arma | +2 A, +2 H, +1 D | chefe da Feira (1501) |
-| 139 | Facão do Carvão | arma | +3 A, +1 D | chefe da Pista (1500) |
+| Pista | Loja da Pista (pós-muro): 1, 2, 30–39 · Lojinha do Zé (rua): os mesmos, preço ×2 | comum | 10 | 100 |
+| Feira | Camelô: 1, 2, 3, 4, 6, 8, 10, 11, 12, 13, 15 · Mercearia do Seu Aziz: 1, 2, 4, 10, 34 | incomum (Aziz) | 15 | 300 |
+| Baixada | Depósito do Seu Nono: 1, 2, 4, 10, 34 | raro | 20 | 500 |
+| Vila | Brechó da Síndica: 1, 2, 10, 34, 41 | pesado | 30 | 800 |
+| Morro | Venda do Morro: 1, 2, 10, 34, 41 | grife | 40 | 1.000 |
+| Alto | Empório: 1, 2, 10, 34, 41 | nobre | 50 | 1.200 |
+| Laje | loja da Laje: 1, 2, 10, 34, 41 | lendário | 60 | 1.500 |
 
-### 9.6 Loja
-POI de tipo `loja`; catálogo por região (`poi.itens`, mistura consumível e
-equipamento; `poi.precoMultiplicador` opcional). Cada região ganha catálogo
-próprio. Hoje a Pista tem duas:
+A Lojinha do Zé existe porque quem quer arriscar luta mais forte precisa ir
+municiado desde o começo. O dono é o Zé do Bar do Zé (retrato emprestado da
+ficha 1205).
 
-- **Cada território vende a SUA faixa, sem repetir peça** (29/09/2026): quem
-  quiser peça de um bairro anterior tem que voltar lá. Bairro só ganha loja
-  quando ganhar cena (decisão do Isaias).
-- **A loja da Pista** (`loja`, do lado de lá do muro, só aparece depois do
-  portão): poções, remédios de status (30–39) e **só o equipamento COMUM** dos
-  3 caminhos + o boné livre. O **incomum (207–212, 219–224, 231–236) fica
-  guardado pra loja da Feira**, quando ela ganhar cena.
-- **Preços (29/09/2026)**: comum ×2 e incomum ×2,5 do valor inicial; poção
-  14 → 20. Conjunto comum completo ≈ 170 por personagem — equipar a dupla ≈
-  a Pista inteira (~300 de grana) + 1 vitória no Clube.
-- **A Lojinha do Zé** (`loja_pocoes`, na rua, desde o começo):
-  **poções e itens de status, pelo dobro do preço** (`precoMultiplicador: 2`), "na
-  cara de pau". Existe porque, com a recompensa por risco, quem quer arriscar
-  luta mais forte precisa ir municiado. O dono é o Zé do Bar do Zé (retrato
-  emprestado da ficha 1205).
+### 9.7 Escada de nível e economia por bairro
 
----
+~13 níveis por bairro, fechando no 99; o Retalho é o único nível 100. Teto de
+nível por área em `nivelTeto` (`ganguesTerritorios.js`, §17.1).
 
-### 9.7 Progressão das lojas por território (plano fechado em 29/09/2026)
+| # | Território | Teto de nível | Chefe (ficha do líder) | Orçamento × fração | Grana por vitória | Chefe (mínimo) | Clube (vitória) | AP |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Pista | 20 | Carvão ~29 | 48 × 0,60, 2 corpos | 10 | 250 | 200 | ×1 |
+| 2 | Feira | 33 | Cobrador 33 | 82 × 0,40, 3 corpos | 15 | 500 | 300 | ×1,5 |
+| 3 | Baixada | 46 | Fura-Bucho 46 | 115 × 0,40, 3 corpos | 20 | 800 | 450 | ×1 |
+| 4 | Vila | 59 | Ferrugem 59 | 148 × 0,40, 3 corpos | 30 | 1.200 | 650 | ×1,5 |
+| 5 | Morro | 72 | A Fera 72 | 180 × 0,40, 3 corpos | 40 | 1.700 | 900 | ×1,5 |
+| 6 | Alto do Morro | 85 | Contador 85 | 213 × 0,40, 3 corpos | 55 | 2.300 | 1.200 | ×1,5 |
+| 7 | Laje | 99 | Retalho 100 | 250 × 0,40, 3 corpos | 75 | 3.000 | 1.600 | ×1,5 |
 
-> **Reequilíbrio de 30/09/2026 (v3.88.0) — vale por cima do que vem abaixo.** Uma
-> categoria de equipamento por bairro, EXCLUSIVA: comum (Pista) · incomum (Feira) ·
-> raro (Baixada) · pesado (Vila) · **grife** (Morro, 501–518) · **nobre** (Alto, 601–618) ·
-> **lendário** (Laje, 701–718); épico continua sendo só drop de chefe. Cada categoria
-> sobe +1 na faixa de atributo e ~30% em PV/PM sobre a anterior (arma do atacante:
-> 1–3 → 2–4 → 3–5 → 4–6 → 5–7 → 6–8), preço ×1,4 por degrau, nível mínimo = entrada
-> do bairro (5/20/33/46/59/72/85). A loja vende ~10 peças: o caminho da especialidade
-> inteiro + arma e corpo dos outros dois (Pista e Vila atacante, Feira e Morro defensor,
-> Baixada e Alto místico; Laje arma, corpo e amuleto de todos). O resto sai como
-> prêmio da 1ª vitória nas lutas do bairro. Tabela única: `data/ganguesEquipDistribuicao.js`.
-
-Regras do Isaias: **cada território tem uma loja própria, cada uma melhor que
-a anterior, e nenhuma repete peça** — quem quiser peça de um bairro anterior
-volta lá. As melhores peças ficam na Laje. Bairro só ganha loja quando ganhar
-cena, mas a distribuição já fica definida aqui. O teto de nível (§12) manda em
-tudo: a peça de cada loja é calibrada pro teto daquele bairro, porque +1 de
-Porrada vale 17% no nível 25 e só 5% no 99 (atributo principal cresce ~0,37
-por nível).
-
-**Nível mínimo da peça** (29/09/2026, `nivelMinEquip` em `ganguesEquip.js`):
-sai do território que vende a raridade — comum (Pista) **5**, incomum (Feira)
-**20**, raro 33, pesado 46, épico 59, grife 72, lendário 85. Épico de chefe usa
-o nível da luta: Facão do Carvão 15, Porrete do Cobrador 28. Só consumível
-(poção/remédio) se repete entre lojas. **Mandingueiro** tem orçamento de peça
-acima dos outros caminhos (comum ≈4,7 pts contra ≈3,7–4; incomum ≈7,3 contra
-≈6–7).
-
-**Feira comprimida pra 21–33** (29/09/2026, Isaias: "46 tá muito alto, é o 2º de 7"): a escada da Feira ia de 23 a 52 (Cobrador 52); foi remapeada linear pra 21–33 — tretas 21→32, Generais 26/27/28, Cobrador **33** (orçamento 82 × fração 0.40), Clube 22/42/66. A Baixada começa em 34.
-
-**Historinha de item** (29/09/2026): todo item tem a chave games.gangues.lore.ID (3 idiomas), mostrada no card de detalhe da loja. Item novo = historinha nova, uma ou duas frases, vocabulário da rua.
-
-**Escada de nível (decisão: Pista entre 15 e 20, o resto redistribuído).**
-~13 níveis por bairro, fechando no 99; o Retalho é o único nível 100.
-Último território só no médio ou difícil (no fácil a Laje não abre —
-`bloqueadoNoFacil`, já no código).
-
-| # | Território | Teto de nível | Ficha no teto (pontos) | Raridade da loja |
-|---|---|---|---|---|
-| 1 | Pista | **20** | ~27 | comum |
-| 2 | Feira | 33 | ~41 | incomum |
-| 3 | Baixada | 46 | ~55 | raro |
-| 4 | Vila | 59 | ~68 | pesado |
-| 5 | Morro | 72 | ~80 | épico |
-| 6 | Alto do Morro | 85 | ~93 | de grife |
-| 7 | Laje | 99 (Retalho 100) | ~106 | lendário |
-
-**Força das peças (decisão: 12%, Mandingueiro 15%).** O conjunto completo (6
-peças) de cada loja vale ~12% da ficha no teto daquele bairro; o do
-Mandingueiro ~15% (ele é o cara de poder). Conta em pontos: 1 de atributo =
-1 ponto, 3 de Osso = 1, 3 de energia = 1. É a proporção que já foi simulada e
-aprovada na Pista (comum) e na Feira (incomum).
-
-| Território | Porradeiro (conjunto) | Paredão (conjunto) | Mandingueiro (conjunto) |
-|---|---|---|---|
-| Pista (3 / 4 pts) | Pique +1, Osso +6, energia +2 | Osso +10, energia +2 | Malandragem +1, energia +6, Osso +2 |
-| Feira (5 / 6) | Porrada +2, Pique +1, Osso +7 | Couro +2, Osso +13 | Malandragem +2, Porrada +1, energia +6, Osso +3 |
-| Baixada (7 / 8) | Porrada +3, Pique +1, Couro +1, Osso +6 | Couro +3, Porrada +1, Osso +9 | Malandragem +3, Porrada +1, Pique +1, energia +6, Osso +3 |
-| Vila (8 / 10) | Porrada +4, Pique +1, Couro +1, Osso +6 | Couro +4, Porrada +1, Osso +9 | Malandragem +4, Porrada +1, Pique +1, Couro +1, energia +6, Osso +3 |
-| Morro (10 / 12) | Porrada +5, Pique +2, Couro +1, Osso +6 | Couro +5, Porrada +1, Osso +12 | Malandragem +5, Porrada +2, Pique +1, Couro +1, energia +6, Osso +3 |
-| Alto (11 / 14) | Porrada +6, Pique +2, Couro +1, Osso +9 | Couro +6, Porrada +1, Osso +12 | Malandragem +6, Porrada +2, Pique +1, Couro +1, energia +9, Osso +3 |
-| Laje (13 / 16) | Porrada +7, Pique +2, Couro +2, Osso +9 | Couro +7, Porrada +1, Osso +15 | Malandragem +7, Porrada +3, Pique +1, Couro +1, energia +9, Osso +6 |
-
-- Regras fixas: o **Paredão nunca passa de +1 de Porrada** em nenhuma loja;
-  Porrada e Couro nunca entram em peça comum; o conjunto de cada loja é
-  dividido pelos 6 espaços (arma e corpo carregam o grosso).
-- Pista e Feira já existem no catálogo (ids 201–236). Baixada em diante usa
-  ids **301+ (Baixada), 401+ (Vila), 501+ (Morro), 601+ (Alto), 701+ (Laje)**
-  — 18 peças por loja (6 espaços × 3 caminhos) + até 2 livres. Criar no
-  catálogo e calibrar por simulação quando cada bairro ganhar cena.
-
-**O que cada loja vende (sem repetir):**
-
-| Território | Equipamento | Poção de Osso / energia | Contra status |
-|---|---|---|---|
-| Pista | comum (201–206, 213–218, 225–230, 238) | +5 (20) | remédios avulsos, 1 por status (30–33, 35–39) |
-| Feira | incomum (207–212, 219–224, 231–236) | +10 (35) | Xarope da Vó — cura todos (34) |
-| Baixada | raro (301+) | +15 (55) | kit de rua: cura status + 10 de Osso |
-| Vila | pesado (401+) | +20 (80) | — |
-| Morro | épico (501+) | +30 (120) | benzedeira: cura status do time inteiro |
-| Alto | de grife (601+) | +40 (170) | — |
-| Laje | lendário (701+) | +50 (230) | — |
-
-(Hoje a loja da Pista ainda vende também o Xarope da Vó — sai de lá quando a
-Feira tiver loja.)
-
-**Grana por bairro (decisão: escala).** Sem isso as peças do fim ficam
-impossíveis de comprar.
-
-| Território | Por inimigo | Chefe (mínimo) | Clube (vitória) | Conjunto por personagem (preço) |
-|---|---|---|---|---|
-| Pista | 10 | 250 | 200 | ~170 |
-| Feira | 15 | 500 | 300 | ~520 |
-| Baixada | 20 | 800 | 450 | ~900 |
-| Vila | 30 | 1.200 | 650 | ~1.300 |
-| Morro | 40 | 1.700 | 900 | ~1.900 |
-| Alto | 55 | 2.300 | 1.200 | ~2.600 |
-| Laje | 75 | 3.000 | 1.600 | ~3.500 |
-
-Conta de referência (≈30 inimigos por bairro, uma passada): a Pista paga ~550
-e equipa a dupla (~340). Daí pra frente o time cresce (+1 vaga por bairro) e
-o conjunto do time todo passa a custar 1,5× a 4× a passada — o resto vem do
-Clube e das apostas, de propósito. O teto de aposta da Banca também deve
-subir por bairro (hoje só sobe pela Rep).
-
-**Aplicado no código (v3.68.0):** teto de todos os bairros (`nivelTeto` em
-`ganguesTerritorios.js`), nível de fachada dos chefes (Carvão 29 · Cobrador 33
-· Fura-Bucho 46 · Ferrugem 59 · Zefa 72 · Contador 85 · Retalho 100), grana
-por inimigo e mínimo do chefe por bairro (`ganguesVictoryResolver.js`) e
-prêmio do Clube por bairro (`clubePremioDe`). **Pista no teto 20:** a ladder
-da rua é em PONTOS de ficha (nível 20 ≈ 27 pontos), então a rua (até 26)
-continua cabendo; o Carvão caiu de orçamento 50 pra **48** (ficha ~29 +
-escolta ~19), calibrado por simulação (dupla nível 20, 80–150 lutas por
-cenário): com o conjunto comum vence ~60% (Trinca+Muro 59%, Trinca+Faísca 95%,
-Muro+Faísca 34%), sem item ~30%. A curva é íngreme: com 50 caía pra ~18% mesmo
-equipado. Os orçamentos de chefe dos outros 6 bairros ainda são da calibragem
-antiga — recalibrar pelo teto novo quando cada um ganhar cena.
+- Orçamento do chefe: `GANGUES_CHEFE_BUDGET` / `liderFracChefe` /
+  `GANGUES_CHEFE_CORPOS` em `data/ganguesChefes.js`. Fixo, nunca escala com o
+  jogador.
+- Grana por vitória = base do bairro + 5 por inimigo a mais
+  (`calcularGranaTotal`); chefe garante o mínimo.
+- O conjunto completo de cada loja vale ~12% da ficha no teto daquele bairro
+  (~15% no Mandingueiro). Conta em pontos: 1 de atributo = 1 ponto, 3 de Osso
+  = 1, 3 de energia = 1.
+- Grana pro time inteiro vem também do Clube e da Banca, de propósito: o
+  conjunto do time todo custa mais que uma passada pelo bairro.
 
 ## 10. Conto 02 — sinopse canônica ("Alan, o Campeão")
 
@@ -1582,10 +1566,10 @@ pelo Campeão. Peso pesado, canônico.
 |---|---|
 | Vigia / Fogueteiro (1101–1121) | 21 |
 | Vapor (1201–1221) | 21 |
-| Gerente de Boca (1301–1321) | 21 |
+| Gerente de Boca (1301–1322) | 22 |
 | Cobrador (1401–1414) | 14 |
 | General / Braço-Direito (1451–1464) | 14 |
-| **Total colecionável (hierarquia da Banca)** | **91** |
+| **Total colecionável (hierarquia da Banca)** | **92** |
 | Chefes de território + chefe final (1500–1600) | 8 *(aba própria, fora da contagem)* |
 
 Reserva: cada faixa comporta crescer até ~99 sem remapear.
@@ -1594,51 +1578,33 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 
 ## 12. Endgame — nível 99, a Torre e o multiplayer
 
-- **Teto de nível: 99.** Cada um dos 30 personagens tem os **99 níveis autorados**
-  no catálogo (`ldi_gangues_30_personagens_v1.json`): níveis 1–10 são os stats
-  originais desenhados (balanceamento já simulado); do 11 ao 99 cada personagem
-  **segue o próprio `growth_order`** — +1 atributo por nível, SEMPRE, sem
-  exceção, fiel à identidade do caminho (um Bruto termina A altíssimo, um
-  Muralha só D/PV, um Resiliente puro PM). Nada procedural em runtime — o
-  catálogo já vem gerado (`scripts/gangues-regen-catalog.cjs`). Poderes de
-  assinatura liberam **devagar** (níveis 4 / 12 / 24 / 40) e sobem de rank
-  (→2 nos níveis 52–70, →3 nos 78–96). PV/PM sobem pela taxa do caminho.
-  `GANGUES_LEVEL_CAP = 99`.
-- **Escada de nível dos 7 chefes** (nível de fachada no catálogo): **Pista 29 ·
-  Feira 33 · Baixada 46 · Vila 59 · Morro 72 · Alto 85 · Laje 100 (o Retalho)**
-  (escada da §9.7).
-  Os chefes usam **orçamento de pontos FIXO** (`GANGUES_CHEFE_BUDGET` em
-  `data/ganguesEncontros.js`, nunca escala com o jogador):
-  `{pista:48, feira:110, baixada:210, vila:345, morro:510, alto:606, laje:732}`.
-  **Pista:** 2 corpos (`GANGUES_CHEFE_CORPOS.pista`), líder leva 60%
-  (`GANGUES_CHEFE_LIDER_FRAC`) → **Carvão com ficha ~29 + 1 escolta com ~19**
-  (orçamento 48); `chefe.nivelRec` = 20. O Carvão quebra de propósito a escada de 3 em 3 da
-  rua (§17.6) — "pra ser ralado". Os outros 6 budgets são da calibragem antiga
-  e serão revistos pelo teto novo (§9.7) quando cada bairro ganhar cena. AP por inimigo = **10 fixo em qualquer modo**.
-  **O Retalho é o único nível 100 do jogo.**
-- **Estrutura de cada chefe** (só a Pista existe hoje; o resto é **planejado**):
-  | # | Bairro | Estrutura |
-  |---|---|---|
-  | 1–3 | Pista · Feira · Baixada | Chefe único, 1 luta. |
-  | 4 | Vila | **Chefe falso.** Você derruba o cara achando que zerou → isso revela +2 eventos → aí aparece o **chefe real** (2 lutas separadas, POIs encadeados pelo grafo `revela`). |
-  | 5 | Morro | **Os Três Irmãos** (trigêmeos). 3 POIs de chefe espalhados no mapa, 1 luta por irmão, caçados um de cada vez. O 3º é o casca-grossa. Budget do bairro dividido entre os 3 (o 3º leva a maior fatia). |
-  | 6 | Alto | **Dupla equilibrada.** Os 2 líderes no MESMO bando, 1 luta. `gerarBandoChefe` com 2 ids-líder em vez de 1 líder + escoltas; budget dividido ~50/50 entre eles. |
-  | 7 | Laje | **3 formas, 3 lutas ENCADEADAS** (sem motor novo). Vence a forma 1 → tela curta "ele levantou diferente" → forma 2 (mais forte) → forma 3 (final). Cada forma tem seu bando. Entre formas: definir se o PV/PM do jogador restaura (provável que sim, senão 3 seguidas é impossível). |
-- **Modo Batalha = A Torre** (`GanguesBatalha`). Destrava ao zerar a campanha 1×.
-  Luta atrás de luta, o jogador escolhe o bairro-tema e a *folga de nível*
-  (folgado → brabo). Cada andar sobe a dificuldade e o AP (+100% a cada 5
-  andares). É o grind de L50 → 99. Recorde de andar por bairro em
+- **Teto de nível: 99** (`GANGUES_LEVEL_CAP`). Cada um dos 30 personagens tem os
+  **99 níveis autorados** no catálogo (`ldi_gangues_30_personagens_v1.json`):
+  níveis 1–10 são os stats desenhados à mão; do 11 ao 99 cada personagem
+  **segue o próprio `growth_order`** — +1 atributo por nível, sempre, fiel à
+  identidade do caminho (um Bruto termina A altíssimo, um Muralha só D/PV, um
+  Resiliente puro PM). Nada procedural em runtime — o catálogo vem gerado
+  (`scripts/gangues-regen-catalog.cjs`). Poderes de assinatura liberam nos
+  níveis 4 / 12 / 24 / 40 e sobem de rank (→2 nos níveis 52–70, →3 nos 78–96).
+- **Chefes:** escada e orçamentos em §9.7. **O Retalho é o único nível 100 do
+  jogo.** Estruturas próprias: Baixada (o chefe que foge + o velho da
+  entrada), Vila (andares + cobertura), Morro (portões negociados), Alto (dois
+  jogos antes da porrada), Laje (revanches + 3 fases encadeadas sem descanso)
+  — §4.
+- **Modo Batalha = A Torre** (`GanguesBatalha`). Destrava ao zerar a campanha
+  1× (`campaignClears`). Luta atrás de luta, o jogador escolhe o bairro-tema e
+  a *folga de nível* (folgado → brabo). Cada andar sobe a dificuldade e o AP
+  (+100% a cada 5 andares). Recorde de andar por bairro em
   `storyProgress.__torre`.
-- **Multiplayer online libera com 3 fichas no nível 99** (
-  `GANGUES_MULTIPLAYER_MIN_FICHAS = 3`, `GANGUES_MULTIPLAYER_LEVEL = 99`,
-  `ganguesTemMultiplayer(roster)`). O online em si é fase futura — por ora só
+- **Multiplayer online libera com 3 fichas no nível 99**
+  (`GANGUES_MULTIPLAYER_MIN_FICHAS = 3`, `GANGUES_MULTIPLAYER_LEVEL = 99`,
+  `ganguesTemMultiplayer(roster)`). O online em si é **planejado** — por ora só
   destrava o card em `GanguesModes`.
-- **Cards bloqueados da tela de Modos são clicáveis:** em vez de
-  "EM BREVE", tocar num modo trancado abre um diálogo em tela cheia do Nego
-  Véio explicando o que falta pra liberar.
-- **A Coleção** (3º botão da HUD da cena + lobby): abas Inimigos (o Álbum),
-  Itens (consumível + equipamento, descoberto via `storyProgress.__itens`) e
-  Cartas (placeholder — sockets, faixa 10000+).
+- **Cards bloqueados da tela de Modos são clicáveis:** tocar num modo trancado
+  abre o Nego Véio explicando o que falta pra liberar.
+- **A Coleção** (botão da HUD da cena + lobby): abas Inimigos (o Álbum), Itens
+  (consumível + equipamento, descoberto via `storyProgress.__itens`) e Cartas
+  (placeholder — sockets, faixa 10000+, **planejado**).
 
 ---
 
@@ -1647,29 +1613,36 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | Assunto | Arquivo |
 |---|---|
 | Conto "Alan, o Campeão" (texto completo) | `src/data/historias/contos/02/pt/01.md` … `19.md` |
-| Mapa, territórios, gangues, chefes, portões | `src/pages/games/Gangues/data/ganguesTerritorios.js` |
+| Mapa, territórios, gangues, teto de nível | `src/pages/games/Gangues/data/ganguesTerritorios.js` |
 | Fichas dos inimigos + trash talk | `src/pages/games/Gangues/data/gangues-enemies.json` |
-| Geração de bando + equipe fixa dos chefes | `src/pages/games/Gangues/data/ganguesEncontros.js` |
-| Cena navegável da Pista (POIs, NPCs, diálogos) | `src/pages/games/Gangues/data/cenas/pista/` |
+| Geração de bando | `data/ganguesEncontros.js` |
+| Chefes (orçamento, fração, corpos) | `data/ganguesChefes.js` |
+| Cenas navegáveis dos 7 bairros | `data/cenas/<bairro>/` + `data/cenas/cenaHelpers.js`, `data/cenas/salaDosFundos.js` |
 | 30 lutadores recrutáveis | `data/ldi_gangues_30_personagens_v1.json` |
-| Consumíveis / equipamento | `src/pages/games/Gangues/data/ganguesItens.js`, `data/ganguesEquip.js` |
-| Loja / painel de equipamento | `src/pages/games/Gangues/components/cena/GanguesLoja.jsx`, `components/GanguesEquipPanel.jsx` |
-| Inventário + economia (store) | `src/pages/games/Gangues/store/useGanguesStore.js` + `store/slices/` |
-| Textos de história / itens (i18n) | `src/i18n/gangues-{pt,en,es}.json` (carregado sob demanda por `hooks/useGanguesI18n.js`) → `games.gangues.*` |
-| Dificuldade (±2), degrau da ladder, frustração, nível real | `src/pages/games/Gangues/data/ganguesDificuldade.js` |
-| AP por risco, divisão do AP, grana da vitória | `src/pages/games/Gangues/engine/ganguesVictoryResolver.js` |
-| Descanso, agiota, Clube da Luta (store) | `src/pages/games/Gangues/store/slices/ganguesBiroscaSlice.js` |
-| Gates de Rep, marcos de Rep, empréstimo, multiplayer | `src/pages/games/Gangues/data/ganguesLoadout.js` |
-| Motor da cena (colisão, câmera) | `src/pages/games/Gangues/engine/ganguesCenaMotor.js` |
-| Encontro aleatório (tipos, relógio, pathfinding) | `engine/ganguesEncontroAleatorio.js` + `hooks/useGanguesEncontroAleatorio.js` |
-| Linha do tempo (Pique) + pista visual com raias | `engine/ganguesLinhaDoTempo.js`, `components/GanguesPistaTempo.jsx` |
-| CSS do jogo (índices de `@import` + paleta `--gang-*`) | `src/pages/games/Gangues/styles/` (auditado por `scripts/gangues-css-audit.cjs` no predeploy) |
+| Consumíveis / equipamento / onde cada peça sai | `data/ganguesItens.js`, `data/ganguesEquip.js`, `data/ganguesEquipDistribuicao.js` |
+| Loja / painel de equipamento / bolsa | `components/cena/GanguesLoja.jsx`, `components/GanguesEquipPanel.jsx`, `components/cena/GanguesCenaBagSheet.jsx` |
+| Inventário + economia (store) | `store/useGanguesStore.js` + `store/slices/` |
+| Textos (i18n) | `src/i18n/gangues-{pt,en,es}.json` (carregado por `hooks/useGanguesI18n.js`) → `games.gangues.*` |
+| Dificuldade, degrau da ladder, frustração, nível real | `data/ganguesDificuldade.js` |
+| AP por risco, divisão do AP, grana da vitória | `engine/ganguesVictoryResolver.js` |
+| Descanso, agiota, socorro de derrota | `store/slices/ganguesBiroscaSlice.js` |
+| Clube da Luta (módulo) | `clube/` |
+| Gates de Rep, marcos de Rep, empréstimo, multiplayer, talentos equipados | `data/ganguesLoadout.js` |
+| Motor da cena (colisão, câmera, mini-mapa) | `engine/ganguesCenaMotor.js` |
+| Encontro aleatório | `engine/ganguesEncontroAleatorio.js` + `hooks/useGanguesEncontroAleatorio.js` |
+| Briga automática da rua | `hooks/useGanguesBrigaAutomatica.js` |
+| Rinha e farm calculado | `data/cenas/cenaHelpers.js` (`niveisDaRinha`), `engine/ganguesFarmAusente.js`, `components/cena/GanguesFarmAusente.jsx` |
+| Jogo vivo com a aba no fundo | `hooks/useGanguesManterVivo.js` |
+| Linha do tempo (Pique) + pista visual | `engine/ganguesLinhaDoTempo.js`, `components/GanguesPistaTempo.jsx` |
+| Teclado | `hooks/useGanguesTeclado.js` |
+| Opções (som, volume, controles) | `components/GanguesOpcoes.jsx` |
+| CSS do jogo | `styles/` (auditado por `scripts/gangues-css-audit.cjs` no predeploy) |
 | Retratos (cabeça, corpo, inimigo, NPC) | `data/ganguesPortraits.js`, `data/ganguesEnemyPortraits.js`, `data/ganguesNpcPortraits.js` |
-| Status (9, ids numéricos) + itens de cura | `engine/ganguesStatus.js`, `data/ganguesItens.js` (30–39) |
-| Personas da IA inimiga + talentos de inimigo | `engine/ganguesPersonas.js` |
+| Status + itens de cura | `engine/ganguesStatus.js`, `data/ganguesItens.js` (30–39) |
+| Personas da IA inimiga | `engine/ganguesPersonas.js` |
 | Dano gravado durante a luta | `hooks/useGanguesDanoAoVivo.js` |
-| Apostas (Banca, rinha de aposta, aposta em você) | `data/ganguesApostas.js`, `components/cena/GanguesBanca.jsx` |
-| Briga em Multidão / modo automático | `engine/ganguesBrigaMultidao.js`, `hooks/useGanguesModoMultidao.js`, `hooks/useGanguesModoAuto.js` |
+| Apostas (Banca do Tio Dado) | `data/ganguesApostas.js`, `components/cena/GanguesBanca.jsx` |
+| Briga em Multidão / modo automático | `engine/ganguesBrigaMultidao.js`, `hooks/useGanguesModoMultidao.js`, `hooks/useGanguesModoAuto.js`, `hooks/useGanguesModoAutoMultidao.js` |
 | Todo texto falado na Pista (pt/en/es, em ordem de fluxo) | `docs/Games/Gangues/PISTA_COMUNICACAO.md` |
 | **Mecânica** (combate, progressão, skill tree, modo história) | Seção 17 desta bíblia |
 
@@ -1679,11 +1652,10 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 
 Banco de palavras pra puxar quando for escrever diálogo, nome de item, rótulo
 de UI ou texto de flavor — **não é lista de tarefa**, é fonte de consulta.
-Curada em cima de um dicionário de gírias do crime/cadeia brasileiro (pedido
-do Isaias, set/2026): a lista original tinha ~300 verbetes; ficaram de fora
+Curada em cima de um dicionário de gírias do crime/cadeia brasileiro; ficam de fora
 de propósito os termos racistas, homofóbicos/transfóbicos e a gíria de droga
 pesada (a economia de vício do jogo já é fictícia — birosca/agiotagem — não
-precisa emprestar vocabulário de droga real). O que sobrou é neutro o
+precisa emprestar vocabulário de droga real). O que entra é neutro o
 bastante pro tom do jogo (rua, gangue, delegacia, cadeia, dinheiro, covardia,
 coragem) sem alterar a faixa etária.
 
@@ -1737,7 +1709,7 @@ Rango, Gororoba, Xepa *(comida de baixa qualidade)*.
 
 **Onde já foi aplicado:** `src/i18n/gangues-{pt,en,es}.json` →
 `games.gangues.{vitoria, vitoria_sub, report.enemy_thinking, report.enemy_gang,
-attr_labels, btn_fugir}`. Ver também a §13 (vocabulário).
+attr_labels, btn_fugir}`.
 
 ## 14. Regras de texto do jogo
 
@@ -1748,8 +1720,10 @@ attr_labels, btn_fugir}`. Ver também a §13 (vocabulário).
 - **Antes de apagar chave "morta" do i18n**, procure por
   `\$\{[^}]*[?|][^}]*\}` (ternário ou `||` dentro de template string, ex.:
   `` `games.gangues.progression.${equipado ? 'unequip' : 'equip'}` ``) e
-  confira os dois lados manualmente — o grep simples não enxerga esses usos
-  e já apagou chave viva uma vez.
+  confira os dois lados manualmente — o grep simples não enxerga esses usos.
+- Espanhol neutro latino-americano (tuteo, sem regionalismo de um país só);
+  inglês americano natural. Nomes de personagem em EN/ES: conferir
+  `story.bosses`/`enemy_names` antes de escrever texto novo.
 
 ## 15. Retratos e animação
 
@@ -1762,9 +1736,9 @@ attr_labels, btn_fugir}`. Ver também a §13 (vocabulário).
   Cobertura: os **12 oficiais** (ids 1–12). Os 18 restantes caem no fallback
   (inicial do nome).
 - **Inimigos:** `assets/enemies/<slug>/neutro.png`, resolvidos por id numérico
-  via `ENEMY_ID_SLUG` em `data/ganguesEnemyPortraits.js`. Cobertura: **todo o
-  elenco de combate da Pista** (+ alguns da Feira/Baixada/Vila usados como
-  molde); os outros bairros caem no fallback.
+  via `ENEMY_ID_SLUG` em `data/ganguesEnemyPortraits.js`. Cobertura: 26
+  inimigos — o elenco de combate da Pista e alguns moldes de outros bairros;
+  o resto cai no fallback (inicial).
 - **NPCs:** `assets/npcs/<slug>/neutro.png` (§8).
 - **Onde aparece:** recrutamento, elenco do lobby, roster de combate (os dois
   lados), dado dramático, card de KO, fala final, relatório de vitória, álbum,
@@ -1818,31 +1792,23 @@ momento do golpe, não o log.
 
 ## 16. Líder da gangue
 
-Pedido do Isaias: dar personalidade real ao "quem manda" da gangue, não só
-decoração. Regras de hoje:
-
 - **O 1º personagem que o jogador marca na fundação vira líder automático.**
   Aviso explícito na tela de recrutamento inicial
   (`recruitment.aviso_lider`).
 - **Guardado em `storyProgress.__lider`** (mesmo JSONB/padrão de
-  `__dificuldade`/`__torre`) — **não depende da ordem do array `roster`**.
-  Isso importa: o roster recarregado da nuvem vem ordenado por
-  `created_at DESC` (mais novo primeiro), então "líder = roster[0]" quebraria
-  silenciosamente assim que o jogador desse F5 numa conta logada. `getLiderId()`
-  valida que o id salvo ainda existe no elenco (cai pro primeiro do roster
-  como fallback de save antigo/sem líder definido ainda).
+  `__dificuldade`/`__torre`) — **não depende da ordem do array `roster`** (o
+  roster da nuvem vem ordenado por `created_at DESC`). `getLiderId()` valida
+  que o id salvo ainda existe no elenco (senão cai pro primeiro do roster).
 - **Troca livre:** estrela clicável (`☆`/`★`) no card do elenco no lobby —
   `store.definirLider(sheetId)`. Sempre tem que ter um líder (não dá pra
   "desligar", só trocar).
-- **Onde aparece hoje:** a cabeça do líder (via retrato — ver seção 15) é o
+- **Onde aparece:** a cabeça do líder (via retrato — ver seção 15) é o
   marcador de navegação flutuante na cena (`GangMarker`). Se ele ainda não
   tem retrato, cai no escudo genérico de sempre.
-- **Visão futura (ainda NÃO implementada — só documentada aqui pra não
-  esquecer):** (1) IA de combate — um aliado tanque, quando existir a
-  mecânica de "proteger", prioriza o líder como alvo de proteção antes de
-  qualquer outro; (2) desafio "líder contra líder" como modalidade de
-  confronto em territórios futuros (não a Pista — pedido explícito do
-  Isaias foi "pra frente", não confundir com o chefe comum de cada bairro).
+- **Planejado:** (1) IA de combate — um aliado tanque, quando existir a
+  mecânica de "proteger", prioriza o líder como alvo de proteção; (2) desafio
+  "líder contra líder" como modalidade de confronto (não confundir com o chefe
+  comum de cada bairro).
 
 ---
 
@@ -1855,7 +1821,7 @@ Fonte única da mecânica, conferida contra o código.
 - Cada personagem tem 5 atributos: **A** (Porrada), **H** (Pique),
   **D** (Couro), **PV** (Osso) e **PM** (Malandragem) (`GANGUES_ATTRS` em
   `data/ganguesCharacters.js`). Crescem por nível seguindo o `growth_order` autorado de cada um dos 30
-  personagens do catálogo (não são mais alocação livre do jogador).
+  personagens do catálogo (o jogador não distribui pontos).
 - **PV máx / PM máx** = atributo PV/PM × uma taxa por caminho
   (`GANGUES_RESOURCE_RATES` em `data/ganguesLoadout.js`):
 
@@ -1870,7 +1836,7 @@ Fonte única da mecânica, conferida contra o código.
   cada um já vem com `base_stats`/`base_resources` fixos do nível 1. Os
   outros 28 liberam por reputação/campanha/evento — ver `getGanguesAvailableCharacterIds`.
   Nome/rótulo dos atributos na tela (`attr_labels` no i18n — gíria de rua,
-  renomeada em 13/09/2026, adaptação livre por idioma, nunca tradução literal):
+  adaptação livre por idioma, nunca tradução literal):
 
   | Código | PT | EN | ES |
   |---|---|---|---|
@@ -1881,25 +1847,23 @@ Fonte única da mecânica, conferida contra o código.
   | PM | **Malandragem** | Street Smarts | Viveza |
   | poderes | **Talento(s)** | Talent(s) | Talento(s) |
 
-  Só o NOME DO ATRIBUTO mudou: a ação de atacar continua "ataque" no texto, e
-  os identificadores de código (`A/H/D`, `onUsarPoder`, `orb.poder`) ficaram
-  como estavam.
+  O nome é só do atributo: a ação de atacar continua "ataque" no texto, e os
+  identificadores de código são `A/H/D`, `onUsarPoder`, `orb.poder`.
 
 - **Papel de cada atributo (sistema do Pique):**
   - **Porrada (A)**: ataque. **Couro (D)**: defesa. **Osso (PV)**: vida.
-  - **Pique (H)**: SÓ velocidade na linha do tempo (§17.2) — saiu do ataque.
+  - **Pique (H)**: só velocidade na linha do tempo (§17.2).
   - **Malandragem (PM)**: o pool de PM E a força dos Talentos (+metade dela
     em todo golpe de talento).
-- **Caminhos renomeados pra gíria** (só o texto; ids `atacante/defensor/mistico`
-  no código continuam): Atacante → **Porradeiro** (Brawler/Pegador), Defensor →
+- **Nome dos caminhos na tela** (ids `atacante/defensor/mistico` no código): Atacante → **Porradeiro** (Brawler/Pegador), Defensor →
   **Paredão** (Wall/Muralla), Místico → **Mandingueiro** (Hexer/Brujo).
 - **Velocidade é personalidade, não classe**: cada um dos 30 tem `speed_tier`
   (lento/médio/rápido) no catálogo. Crescimento por 20 níveis: base do caminho
   (Porradeiro A7 D5 Osso6 Mal2 · Paredão A5 D7 Osso5 Mal3 · Mandingueiro A5 D6
   Osso5 Mal4) e o Pique sai do Osso/Malandragem: lento Pique 1 (−1 Osso),
   médio Pique 2 (−2 Osso), rápido Pique 4 (−3 Osso −1 Mal). Porrada/Couro
-  nunca pagam o Pique — simulação mostrou que, com dano por subtração, 1 ponto
-  a menos ali pesa demais. Todo mundo tem Pique.
+  nunca pagam o Pique (com dano por subtração, 1 ponto a menos ali pesa
+  demais). Todo mundo tem Pique.
 - **Inimigos** seguem o perfil do caminho (`preferred_mode`: fists =
   Porradeiro, armed = Paredão, power = Mandingueiro), mantendo o total de
   pontos de cada ficha; o Pique varia por personalidade (×0,6 a ×1,5).
@@ -1938,34 +1902,27 @@ estilo Medabots/ATB do Chrono Trigger):
   animada no início da luta. A barra do automático fica logo acima do
   roster inimigo.
 - **Velocidade 1x/2x/3x**: só com o AUTOMÁTICO ligado (normal ou Multidão) —
-  benefício de assinante no lançamento; no beta tudo liberado.
+  benefício de assinante no lançamento (**planejado**); hoje liberado pra todos.
 
 - **Dado d3** (1 a 3) pros dois lados, ataque e defesa. Crítico = tirar o
   valor máximo (3) no dado de ataque, soma **+2** na rolagem (vira 5 no
   cálculo de FA). Só o ataque critica.
-- **Sem dano mínimo garantido** — o clamp é `Math.max(0, ...)`, não
-  `Math.max(1, ...)`. Foi tirado de propósito depois de muito playtest: com
-  bandos grandes, "sempre acerta pelo menos 1" deixava toda defesa
-  irrelevante.
+- **Sem dano mínimo garantido** — o clamp é `Math.max(0, ...)`: defesa bem
+  investida pode zerar o golpe.
 - **IA inimiga**: ataca depois de um delay fixo. Escolha de alvo evita
   repetir o último quando dá — ~55% mira em quem tem menos PV entre os
   vivos, ~45% escolhe aleatório (`pickEnemyTarget` em `useGanguesTurnMachine.js`).
-- **⚠️ Bônus de caminho DESLIGADO (pendência de decisão):**
-  `resolveAttackerBonus`/`resolveDefenderBonus` em `ganguesCombatResolver.js`
-  sempre retornam `applied: false, amount: 0`, mas o log de combate
-  (`GanguesCombatLogList.jsx`) e o relatório ainda têm o texto "bônus de
-  ataque". Decidir: religar o bônus ou tirar o texto/UI.
-
 ### 17.2.1 Como o jogador age, e os modos de combate
 
 - **A bolinha de ação** (`GanguesActionOrb`): no turno do personagem, o
-  jogador escolhe **ATACAR** (ataque normal), **TALENTO** (um dos 2 poderes
-  equipados, gasta PM ou PV) ou **ITEM** (consumível da gangue). A bolinha usa
+  jogador escolhe **ATACAR** (ataque normal), **TALENTO** (um talento ativo
+  equipado, gasta PM ou PV) ou **ITEM** (consumível da gangue). A bolinha usa
   `onPointerDown/Up`, não `onClick` (importa pra teste automatizado).
 - **O dado dramático** (`DramaticDice`): todo ataque pausa o combate numa tela
   cheia que rola o dado, mostra atacante e alvo e o resultado. É o "momento" do
   golpe — as animações de sprite de ataque (§15.2) tocam aqui, não no log.
-  Ele **destaca quando um poder passivo do defensor entra em ação** na conta.
+  Quando uma passiva dispara, aparece no dado com o **dono** dela e o efeito
+  (`passivosNivel` no resultado do resolver).
 - **KO:** personagem com PV 0 cai e para de agir até o fim da luta. **PV e PM
   perdidos persistem entre lutas dentro do bairro** (só voltam no descanso,
   saindo ou dominando). Tropa inteira caída não entra em luta nenhuma.
@@ -1981,15 +1938,32 @@ estilo Medabots/ATB do Chrono Trigger):
   - Tem automático próprio (`useGanguesModoAutoMultidao`), que foca o
     inimigo mais perto de cair.
 - **Modo automático** (`hooks/useGanguesModoAuto.js`): a luta anda sozinha,
-  **só com ataque normal**. É **vantagem de assinante** (`TIERS_COM_MODO_AUTO`
-  = elite e primordial), mas o botão **aparece pra todo mundo** de propósito,
-  como chamariz de assinatura. Um botão "sair do automático" fica logo abaixo
-  do roster do jogador (posição medida, pra nunca tampar a barra de PV).
+  **só com ataque normal**. Está liberado pra todos (`MODO_AUTO_EXIGE_ASSINATURA
+  = false`); quando ligado, vira vantagem de assinante (`TIERS_COM_MODO_AUTO` =
+  elite e primordial). Um botão "sair do automático" fica logo abaixo do roster
+  do jogador (posição medida, pra nunca tampar a barra de PV).
+  - **É lembrado entre lutas, por save** (`useGanguesAutoLembrado`, chaves
+    `ldi-gangues-auto`, `ldi-gangues-auto-multidao`, `ldi-gangues-briga-auto`,
+    `ldi-gangues-auto-config` + `:<saveId>`): terminou a luta no automático, a
+    próxima já começa com ele. Gangue nova nasce com tudo desligado. Só a
+    velocidade segue global.
+- **Briga automática da rua** (`hooks/useGanguesBrigaAutomatica.js`, tecla B):
+  com o switch ligado, encostou num adversário, a luta começa. Voltar em cima
+  dele e brigar de novo é o farm: na volta, quem anda nasce na ponta do
+  caminho mais longe do jogador e vem buscar ele; em cima de quem é parado,
+  emenda direto. Só briga barrada por trava (rep, dívida…) fica ignorada. Pra
+  parar: botão "Parar briga de rua" na barra do automático dentro da luta.
+- **Jogo vivo no fundo** (`hooks/useGanguesManterVivo.js`, montado no
+  `GanguesRoute`): um `<audio>` de ruído quase mudo (2 s em loop) começa no 1º
+  toque e fica tocando enquanto o Gangues está aberto, e os timers da página
+  passam pra um Web Worker sempre que a aba esconde — o jogo não pausa com o
+  app no fundo. Som de luta e `sfx` ficam mudos com a aba escondida. Limite:
+  o navegador ainda pode matar a aba por memória ou economia de bateria.
 - **"Mete o pé"** (fugir da luta) volta pra tela de **Modos**, não pro lobby.
 - **Voltar nunca repete recompensa:** as fases de combate e vitória ficam fora
-  da   pilha de histórico (`GANGUES_FASES_TRANSITORIAS`) — senão Voltar duplica XP.
+  da pilha de histórico (`GANGUES_FASES_TRANSITORIAS`) — senão Voltar duplica XP.
 
-### 17.2.2 Personas da IA, status e cura (28/09/2026)
+### 17.2.2 Personas da IA, status e cura
 
 **Personas** (`engine/ganguesPersonas.js`) — todo inimigo sorteia uma no
 começo da luta, com peso pelo `preferred_mode` (fists → Brigão/Caçador/
@@ -2011,8 +1985,8 @@ Mandingueiros). Os dois motores (normal e Multidão) usam a mesma decisão
 - **Bando de 3+ sempre leva 1 mandingueiro** (o de mais Malandragem vira um).
 - **Inimigo tem talento de verdade**: ficha de talentos montada na hora
   (subcaminho do papel; rank pela ficha: <20 pontos = 1, <50 = 2, senão 3).
-  Ativo a partir de 3 pontos de ficha, passiva a partir de 8 — as mesmas
-  passivas e talentos do jogador.
+  Ativo a partir de 3 pontos de ficha, passiva a partir de 8 — os mesmos
+  talentos do jogador.
 
 **Status** (`engine/ganguesStatus.js`, inspiração: Pokémon). **Só o
 Mandingueiro causa status** (e os chips de reputação que emprestam poder).
@@ -2034,15 +2008,13 @@ ou não). Dano de status **nunca derruba**: para em 1 de Osso.
 | 9 | 🔥 **Queimado** | −1/16 do Osso máximo por vez e −2 de Porrada | 3 | Ígneo · `combustao` (Cinza @12, Brasa @24), `explosao_termica` (Brasa @24) |
 
 - **Status persiste entre lutas** (`status_atual`, gravado junto do PV/PM).
-  Só sai com item ou no **descanso completo** (50 na birosca). Save antigo com
-  status por nome (v3.64) é convertido sozinho (`normalizarStatus`).
+  Só sai com item ou no **descanso completo** (5× o preço do descanso).
 - **Itens de curar status** (consumível): 30 Gelo no Tornozelo (Moscando) ·
   31 Atadura (Sangrando) · 32 Café Forte (Braço Mole) · 33 Pomada de Arnica
   (Guarda Aberta) · 35 Balde de Água Fria (Apagado) · 36 Leite Quente
   (Batizado) · 37 Água com Açúcar (Grogue) · 38 Emplastro (Travado) · 39
-  Babosa (Queimado) — 12 cada; **34 Xarope da Vó** cura todos (30). Vendem na
-  Lojinha do Zé (dobro do preço) e na loja da Pista; dá pra usar na luta e na
-  bolsa.
+  Babosa (Queimado) — 12 cada; **34 Xarope da Vó** cura todos (30). Lojas: §9.6.
+  Dá pra usar na luta e na bolsa.
 - **Mandingueiro do jogador em 3 papéis** (todos são Mandingueiros; o status
   vem em cima do dano normal do talento — por isso o Mandingueiro tem mais
   poder que Porradeiro e Paredão, de propósito):
@@ -2053,52 +2025,51 @@ ou não). Dano de status **nunca derruba**: para em 1 de Osso.
     de Osso no aliado mais machucado, sem dado.
   - **Status**: Raiz e Racha (Terreno), Névoa e Espelho (Ilusório).
 - **Na tela**: passiva que entrou aparece grande no dado ("PASSIVA ATIVOU",
-  pulsando) e ganha linha no registro; o status que pegou aparece no dado com
+  pulsando, com o dono) e ganha linha no registro; o status que pegou aparece no dado com
   a explicação; o roster mostra o ícone + vezes restantes, e tocar no ícone
   mostra o que o status faz. Perder a vez (Apagado/Travado) e o Grogue
   acertando parceiro têm linha própria no registro.
-- **Teste (motor real, 60 lutas)**: todos os status aplicam, Apagado/Travado
-  fazem perder a vez, Grogue acerta parceiro, passivas disparam, todas as
-  personas aparecem.
 
-### 17.2.3 Apostas — A Banca do Tio Dado (29/09/2026)
+### 17.2.3 Apostas
 
-Fonte de grana do farm sem porrada (a rinha dá só XP; o Clube paga 200).
-Regra em `data/ganguesApostas.js`, tela em `components/cena/GanguesBanca.jsx`.
-O Tio Dado (POI `banca`, retrato emprestado do Troco Certo/1402) fica **dentro
-da birosca**, na mesa da direita.
+**Aposta só existe em dois lugares:** a **Banca do Tio Dado** e a entrada do
+**Clube da Luta** de quem entra sem dívida (§4). Luta comum não tem aposta.
+
+A Banca: regra em `data/ganguesApostas.js`, tela em
+`components/cena/GanguesBanca.jsx`. O Tio Dado (POI `banca`, retrato emprestado
+do Troco Certo/1402) fica na **sala dos fundos** da birosca.
 
 - **Teto de aposta pela Rep**: <10 → 25 · <25 → 50 · <50 → 100 · 50+ → 200.
   Valores: 10, 25, 50, 100, 200 (só os que cabem no teto e na grana).
 - **Desafio de mão**: escolhe a aposta e a dificuldade, o Tio Dado sorteia um
   puzzle da lib compartilhada (Simon, Decoder, Forca, Anagrama, Labirinto,
-  Stealth — o Sliding fica de fora por ter estilo inline de outro jogo).
-  Resolveu, leva **×1,5 (Mole) · ×2 (Na medida) · ×3 (Cabuloso)**; errou,
-  perde a aposta. É farm por habilidade, de propósito.
-- **Rinha de aposta**: duas fichas NPC do pool da rua, **mesma ficha** (≈8
+  Stealth). Resolveu, leva **×1,5 (Mole) · ×2 (Na medida) · ×3 (Cabuloso)**;
+  errou, perde a aposta.
+- **Rinha NPC × NPC**: duas fichas NPC do pool da rua, **mesma ficha** (≈8
   pontos na Pista), brigam sozinhas no motor da Multidão. A cotação sai de 150
-  simulações da própria briga com **10% de margem da casa**, dos dois lados
-  (testado: apostar sempre no favorito ou sempre no azarão rende ≈ −10%).
-- **Aposta em você**: na carta de encarar a treta. A grana sai ao entrar e
-  volta multiplicada se vencer, pela ficha do inimigo contra o seu mais forte:
-  mais de 5 acima **×3** · 1–5 acima **×2** · até 2 abaixo **×1,5** · mais
-  fraco que isso **×1,1** (farmar fraco com aposta quase não rende). Perdeu ou
-  fugiu, perdeu a aposta.
+  simulações da própria briga com **10% de margem da casa**, dos dois lados.
 
 ### 17.3 Poderes / especiais (skill tree)
 
 - **15 subcaminhos** (5 por caminho × 3 caminhos), **5 poderes cada** = 75
   poderes catalogados (`data/ganguesSpecials.js`), valores reais aplicados
-  em `engine/ganguesSpecialEffects.js`.   Porradeiro: Bruto, Duelista, Fúria,
+  em `engine/ganguesSpecialEffects.js`. Porradeiro: Bruto, Duelista, Fúria,
   Especialista, Vingador. Paredão: Muralha, Guardião, Provocador, Reativo,
   Resiliente. Mandingueiro: Ígneo, Aquático, Terreno, Tempestade, Ilusório.
 - **Os 3 caminhos têm design próprio.** Os ids de subcaminho têm que bater
   com `signature_specials` do catálogo, senão o poder equipado não é achado
-  em combate. Cada poder tem 3 níveis; só dá pra equipar **2 por vez** (`selected_specials`).
+  em combate. Cada poder tem 3 níveis.
 - **6º poder exclusivo por personagem**, nível 50, não repetido dentro do
-  mesmo subcaminho — veio junto da correção acima.
-- Poderes liberam/sobem via **AP → XP**, não mais via pontos de criação:
-  ver §17.4.
+  mesmo subcaminho.
+- Poderes liberam/sobem via **AP → XP** (§17.4).
+- **Equipados pra luta: 2 talentos, ativo ou passivo** (`selected_specials`,
+  máx. 2 — `hydrateGanguesTemplateSheet` / `toggleGanguesTemplateSpecial` em
+  `data/ganguesLoadout.js`). A técnica base vai sempre. Passiva só vale se
+  estiver equipada. Talento novo entra sozinho se tiver vaga (puxa o mais
+  novo, de qualquer tipo). A ficha (`GanguesSkillGrid`) tem EQUIPAR/TIRAR nos
+  dois tipos, e todo lugar que mostra talento mostra o efeito
+  (`describeGanguesSpecialEffect`): a ficha, o aviso de subida de nível e o
+  dado quando a passiva dispara.
 
 ### 17.4 Progressão (AP, XP, nível)
 
@@ -2106,9 +2077,8 @@ da birosca**, na mesa da direita.
   cada 5 andares. Derrota rende sempre 1 AP simbólico.
 - **Recompensa por risco** (`apPorInimigo` em `engine/ganguesVictoryResolver.js`). Cada inimigo rende AP
   pela diferença entre a ficha DELE e a do **personagem mais forte da
-  gangue** (total bruto A+H+D+PV+PM, não o time inteiro). Motivo, nas
-  palavras do Isaias: "subir não dá mais experiência do que ficar embaixo em
-  frente a cara fraco".
+  gangue** (total bruto A+H+D+PV+PM, não o time inteiro): encarar quem é mais
+  forte rende mais que farmar fraco.
 
   | Ficha do inimigo vs. a do mais forte da gangue | AP por inimigo |
   |---|---|
@@ -2117,29 +2087,25 @@ da birosca**, na mesa da direita.
   | igual até 2 pontos abaixo | **10** (cheio) |
   | mais de 2 pontos abaixo | 10 − (pontos além dos 2) × (tamanho da gangue), **piso 5** |
 
-  O piso de 5 é fixo (não por cabeça) — o Isaias pediu "pelo menos 5 pontos"
-  porque o farm de sobrevivência não rendia quase nada. O card de treta mostra
+  O piso de 5 é fixo (não por cabeça). O card de treta mostra
   um aviso de risco comparando **nível real** (`nivelRealDePontos` em
   `ganguesDificuldade.js`: nível 1 nasce com ~7 pontos), nunca pontos crus.
 - **Divisão do AP entre a gangue** (`calcularPesosEParticipantes`): peso por
   faixa de contribuição (abates pesam mais que dano) — quem mais contribuiu
   pesa 3, a 2ª faixa pesa 2, o resto 1; empatados ficam na mesma faixa. Na
   derrota todo mundo pesa igual.
-- **Grana da vitória** (`calcularGranaTotal`): **10 por inimigo
-  derrotado na Pista**, escalando por bairro (15 · 20 · 30 · 40 · 55 · 75 —
-  §9.7), inclusive nas tretas repetíveis (decisão do Isaias, 29/09); chefe
-  garante um mínimo por território (`GANGUES_GRANA_CHEFE_MINIMO`: Carvão 250,
-  depois 500 · 800 · 1.200 · 1.700 · 2.300 · 3.000). POI com `semGrana: true`
-  (hoje só a **rinha**) não paga grana, só XP. Substituiu a grana autorada
-  por POI — a Rep continua autorada por POI.
+- **Grana da vitória** (`calcularGranaTotal`): base do bairro (10 na Pista ·
+  15 · 20 · 30 · 40 · 55 · 75) + 5 por inimigo a mais no bando, inclusive nas
+  tretas repetíveis; chefe garante um mínimo por território
+  (`GANGUES_GRANA_CHEFE_MINIMO`, §9.7). POI com `semGrana: true` (as Rinhas)
+  não paga grana, só XP. A Rep é autorada por POI.
 - **Marcos de reputação:** a cada 50 de Rep acumulada, a gangue ganha um chip
   de poder (§9.3).
 - **Regra da frustração:** **2 derrotas seguidas** na
   história (`storyProgress.__derrotasSeguidas`,
   `GANGUES_FRUSTRACAO_LIMIAR = 2`) fazem a próxima treta comum vir com **um
   inimigo só, um degrau (3 pontos) abaixo** do normal (`suavizarPorFrustracao`).
-  Não é "metade da ficha" — o Isaias corrigiu: "aí é fácil demais e fica
-  roubado, melhor um nível anterior". Zera em qualquer vitória.
+  Zera em qualquer vitória.
 - **Custo de AP por nível**: `ganguesApCostForLevel(nível) = 5 × (nível + 1)`
   — nível 1 custa 10 AP, nível 2 custa 15, sobe 5 a cada nível
   (`data/ganguesLoadout.js`). 10 AP = 1 XP; 1 XP = 1 nível
@@ -2155,9 +2121,7 @@ da birosca**, na mesa da direita.
   adicionar personagem). Poderes liberam/sobem via **AP → XP** nos marcos
   autorados (4/12/24/40, ranks 52-70/78-96) — evento independente do
   atributo, nunca substitui o ganho de atributo do nível.
-  - **Nunca reintroduzir custo escalonado por atributo** sem pedido explícito
-    e playtest — já foi tentado e revertido ("estilo Ragnarok, todo nível
-    sobe atributo").
+  - Não existe custo escalonado por atributo: todo nível sobe atributo.
 - **1ª luta de toda conta nova é suavizada** (1 corpo só, metade dos
   pontos) — `suavizarPrimeiraLuta` em `data/ganguesEncontros.js`. É global
   por conta, não por território.
@@ -2169,31 +2133,25 @@ da birosca**, na mesa da direita.
   (`GANGUES_STORY_BATTLE_PARTY_MAX`, `getGanguesRosterLimitComHistoria`) —
   o maior valor entre "quanto o tier paga" e "quanto a história liberou"
   vale, não soma os dois.
-- Limite de **fichas no roster** por tier: hoje achatado em 2 pra todos os
-  planos (`GANGUES_ROSTER_LIMITS`) — cresce de verdade é pela história, não
+- Limite de **fichas no roster** por tier: 2 pra todos os planos (`GANGUES_ROSTER_LIMITS`) — cresce de verdade é pela história, não
   pela assinatura.
 - **Saves**: 1/2/3 por tier free/elite/primordial (`GANGUES_SAVE_SLOT_LIMITS`).
 
-### 17.6 Modo História — a cena navegável (hoje só a Pista)
+### 17.6 Modo História — a cena navegável
 
-Implementado pra Pista (`data/cenas/pista/`). Os outros 6 bairros ainda usam
-a trilha simples de nós (`GanguesTerritorio.jsx`, 3 pontos comuns + chefe por
-bairro). Os dois formatos usam o MESMO sistema de pontos fixos.
+Os 7 bairros são cenas navegáveis (`data/cenas/<id>/`, §4), todas no mesmo
+motor e no mesmo sistema de pontos fixos.
 
 - Cada bairro-cena é um mapa navegável com **5 tipos de POI**: **Treta**
   (combate), **Parada** (mini-jogo, falhar pode virar treta), **Papo**
   (diálogo com escolhas), **Corre** (tarefa/stealth), **Achado** (loot sem
-  interação) — mais `Descanso` (birosca) e `Loja`.
+  interação) — mais `Descanso`, `Loja`, `Agiota`, `Banca`, `Ferreiro` e `Jogo`.
 - **Grafo de descoberta**: POI escondido não aparece; resolver um revela o
   próximo. Portão do chefe só abre com os POIs-chave batidos.
-- **Economia**: Grana (gasta em descanso/loja) e Rep/Nome (destranca POI,
-  alimenta % de domínio). PV/PM perdido persiste dentro do bairro; só volta
-  ao cheio saindo ou dominando.
-- **Descanso, agiota e Clube da Luta**: regras completas na §4 (Pista). Em
-  resumo: a birosca só cura (10 pra quem está de pé, 30 pra reviver todo
-  mundo); a dívida é com o agiota Marimbondo (empréstimo de 100 que vira
-  1.000, cada cura fiada dobra, teto 10.000 → Clube forçado); com dívida em
-  aberto o chefe não aceita a luta.
+- **Economia**: Grana (gasta em descanso/loja/ferreiro) e Rep/Nome (destranca
+  POI, alimenta % de domínio). PV/PM perdido persiste dentro do bairro; só
+  volta ao cheio saindo ou dominando.
+- **Descanso, agiota, Clube da Luta e derrota**: §4 (Pista).
 - **Farol dos pinos** (`farolDe` em `GanguesCenaAtores.jsx`):
   **vermelho** = obrigatório e ainda não feito; **amarelo** = opcional;
   **verde** = já feito (treta repetível vencida uma vez também fica verde — o
@@ -2214,27 +2172,26 @@ bairro). Os dois formatos usam o MESMO sistema de pontos fixos.
   é `patrulha-h`). Todos **congelam quando o jogador encosta**.
 - **Gates de reputação** (`data/ganguesLoadout.js`): Rep **25** pra encarar o
   galpão do Carvão / Cão Louco (`GANGUES_REP_GATE_GALPAO`) e Rep **40** pra
-  entrar no Clube da Luta por vontade própria (`GANGUES_REP_GATE_CLUBE`).
-  Reputação virou "risco liberado", não vaga de elenco.
+  entrar no Clube da Luta sem dívida (`GANGUES_REP_GATE_CLUBE`). Reputação é
+  "risco liberado", não vaga de elenco.
 - **Bando inimigo é NÍVEL FIXO:** cada nó/POI tem um
   `pontosFixo` autorado (ladder subindo em degraus — ver `pontosFixo` nos
-  nós de `ganguesTerritorios.js` e nos POIs de `data/cenas/pista/`), e a
+  POIs de `data/cenas/<id>/`), e a
   dificuldade escolhida (fácil/médio/difícil) só soma/tira um valor fixo em
   cima disso (`GANGUES_DIFICULDADE_AJUSTE` em `data/ganguesDificuldade.js`
   — ±2 por padrão, único lugar do jogo que decide isso). Chefe continua com
-  orçamento **fixo** próprio (`GANGUES_CHEFE_BUDGET`), sempre acima dos 3
-  pontos comuns do território — o loop de RPG é o jogador voltar mais
-  forte, não o chefe ficar mais fraco.
-- **Ladder da Pista hoje** (ficha em pontos por corpo; "rev" = revezamento:
+  orçamento **fixo** próprio (`GANGUES_CHEFE_BUDGET`), sempre o mais forte do
+  bairro — o loop de RPG é o jogador voltar mais forte, não o chefe ficar mais
+  fraco.
+- **Ladder da Pista** (ficha em pontos por corpo; "rev" = revezamento:
   quase sempre 1 inimigo, às vezes dupla, e o 2º corpo sai 2–3 pontos
-  abaixo). Regra do Isaias: **a 1ª luta é muito fácil de
-  propósito (3); da 2ª em diante sobe de 3 em 3, sem exceção; o chefe quebra
-  o padrão pra ser ralado.**
+  abaixo). Regra: **a 1ª luta é muito fácil de propósito (3); da 2ª em diante
+  sobe de 3 em 3, sem exceção; o chefe quebra o padrão pra ser ralado.**
 
   | Ponto | Ficha | Forma | Obrigatório |
   |---|---|---|---|
   | `sinal` (apertar o pivete) | 3 | rev, dupla 15% | sim |
-  | `rinha` (farm infinito) | sorteada de 5 abaixo a 2 acima do seu mais forte, o seu nível 2× mais comum; dupla só da metade de baixo (`niveisDaRinha`, 30/09/2026); perdeu com grana, paga a recuperação do bairro (30) e segue; sem grana, acaba | rev, dupla 35% | não |
+  | `rinha` (farm infinito) | de 8 a 4 abaixo do seu mais forte (§ Rinha abaixo) | rev, dupla 35% | não |
   | `ferro` (falhar a gazua) | 8 | rev, dupla 10% | sim (a gazua) |
   | `beco` | 8 | rev, dupla 40% | sim |
   | `beco_2` | 11 | rev, dupla 40% | sim |
@@ -2252,21 +2209,53 @@ bairro). Os dois formatos usam o MESMO sistema de pontos fixos.
   A dificuldade soma ou tira 2 de cada número (fácil −2, médio 0,
   difícil +2).
 
+- **A Rinha** (todo bairro tem uma; POI com `rinhaInfinita`, `semGrana`) é
+  pra grindar: luta fraca e rápida, uma atrás da outra
+  (`useGanguesAvancoAutomatico({ forcar })`; a casa remenda a tropa da 2ª luta
+  em diante).
+  - **Ficha:** de **8 a 4 abaixo** da ficha do teu mais forte, pesada pro lado
+    fraco (`GANGUES_RINHA_FAIXA`, −8 e −7 os mais comuns); teto duro em −4
+    (`GANGUES_RINHA_TETO`, corta também o estouro de arredondamento).
+  - **Luta marcada:** uma a cada 5 a 8 lutas (sorteado,
+    `storyTarget.rinhaForteEm`, `avancarRinha`), em −8
+    (`GANGUES_RINHA_MARCADA`).
+  - **Perdeu com grana:** a casa cobra a recuperação do bairro (3× o descanso,
+    `custoRecuperacaoRinha`) e a roda segue. **Perdeu sem grana:** a Rinha
+    acaba e vale o socorro de derrota normal (§4).
+  - **App no fundo:** 20 s de folga (troca rápida de app), depois desmonta e
+    entra no modo calculado — 1 luta a cada 5 min (`simularFarmRinha`,
+    `engine/ganguesFarmAusente.js`, marca `storyProgress.__farmAusente` gravada
+    na hora), com cartão de resumo na volta. Fora da Rinha o jogo segue ao vivo
+    no fundo (§17.2.1), sem marca nem cartão.
+
 ### 17.7 Persistência
 
 - Logado: ficha inteira (incluindo XP/poderes equipados) salva em
   `gangues_fichas` (Supabase), progresso de história em `gangues_saves` —
   ambos com debounce de escrita, sem depender de `localStorage` pra dado
   de jogo.
-- **Dano gravado ao vivo** (`hooks/useGanguesDanoAoVivo.js`, 28/09/2026): PV,
-  PM e status do time vão pro store a cada golpe e pra nuvem com debounce de
-  1,5s — e na hora em que a aba vai pro segundo plano. Antes o dano só era
-  gravado ao abrir o resultado: fugir, sair ou o celular recarregar a aba no
-  meio da luta devolvia a tropa inteira (bug de imortalidade).
-- Guest: tudo em memória, perde ao recarregar — banner avisa.
-- **Logout limpa o store do Gangues de verdade** (`AuthContext.jsx`, no
-  `onAuthStateChange`) — sem isso, o próximo guest/login na mesma aba
-  herdava `_userId` órfão.
+- **Dano gravado ao vivo** (`hooks/useGanguesDanoAoVivo.js`): PV, PM e status
+  do time vão pro store a cada golpe e pra nuvem com debounce de 1,5s — e na
+  hora em que a aba vai pro segundo plano.
+- Estado que precisa sobreviver ao app ir pro fundo mora no save, nunca só na
+  memória da página.
+- **Sem save local:** guest joga tudo em memória e perde ao recarregar —
+  banner avisa. No `localStorage` só ficam preferências (automático por save,
+  velocidade, volume, flags de tutorial "já visto" escopadas por save).
+- **Logout limpa o store do Gangues** (`AuthContext.jsx`, no
+  `onAuthStateChange`).
+
+### 17.7.1 Controles e opções
+
+- **Teclado** (`hooks/useGanguesTeclado.js`): E/Enter/Espaço confirmar ·
+  Esc fechar/voltar · 1–9 opção N · A atacar · B briga automática · I mochila
+  · F ficha · setas/WASD andam · O abre as Opções (fora de campo de texto).
+  Overlay por cima de outra tela usa `prioridade` 1. Botão que só reage a toque
+  (`onPointerDown/Up`) precisa de atalho.
+- **Opções** (`components/GanguesOpcoes.jsx`, botão ⚙ na fundação, nos saves
+  e no lobby): volume geral dos efeitos (`ldi-sfx-volume`, todo som do jogo
+  passa por `sfx`), liga/desliga som, e o aviso de controles (muda no
+  computador). A trilha é a Rádio Nina do site.
 
 ### 17.8 Estrutura de arquivos
 
@@ -2281,12 +2270,13 @@ src/pages/games/Gangues/
 ├── assets/               # personagens/, enemies/, npcs/, backgrounds/, logos/, sons/
 ├── components/           # peças reutilizadas (dado dramático, orb, pista do Pique…)
 │   └── cena/             # peças da cena navegável (atores, loja, descanso, agiota…)
-├── data/                 # catálogos (30 personagens, 102 inimigos, itens, equip,
-│   └── cenas/pista/      # especiais, territórios, encontros) — dados, não UI
+├── clube/                # Clube da Luta: telas, regras e slice próprios
+├── data/                 # catálogos (30 personagens, 103 inimigos, itens, equip,
+│   └── cenas/<bairro>/   # especiais, territórios, encontros, chefes) — dados, não UI
 ├── engine/               # resolver, linha do tempo, Multidão, efeitos, cena,
 │                         # encontro aleatório, vitória, status, personas (IA)
 ├── hooks/                # turno, auto, Multidão, movimento de cena, i18n,
-│                         # dano ao vivo (PV/PM/status gravados durante a luta)
+│                         # dano ao vivo, teclado, trem, briga automática, manter vivo
 └── store/
     ├── useGanguesStore.js    # composição das slices (zustand)
     └── slices/               # save, sheet, story, progression, equip, colecao,
@@ -2299,9 +2289,8 @@ arquivo > 500 linhas, `@media` por largura ≥ 480px, `vw` cru e `fixed` com
 
 ### 17.9 Referência completa — atributos e poderes por personagem (a cada 5 níveis)
 
-Pedido do Isaias: ver como cada um dos 30 personagens evolui, atributo por
-atributo, a cada 5 níveis até o teto (99), e em qual nível exato cada poder
-abre/sobe de rank. Gerado direto do catálogo real
+Como cada um dos 30 personagens evolui, atributo por atributo, a cada 5 níveis
+até o teto (99), e em qual nível exato cada poder abre/sobe de rank. Gerado direto do catálogo real
 (`ldi_gangues_30_personagens_v1.json`) via
 `scripts/gangues-gdd-referencia-personagens.cjs` — **rodar esse script de
 novo e colar a saída aqui sempre que o catálogo for regenerado**
