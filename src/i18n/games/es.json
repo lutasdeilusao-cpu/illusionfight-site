@@ -1016,7 +1016,8 @@
           "esquiva_jog": "Esquivaste.",
           "esquiva_ini": "Esquivó.",
           "vazio": "{golpe} al aire."
-        }
+        },
+        "som": "Activar o desactivar el sonido"
       }
     },
     "toptrumps": {

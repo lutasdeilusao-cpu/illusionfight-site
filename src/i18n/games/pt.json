@@ -1016,7 +1016,8 @@
           "esquiva_jog": "Você esquivou.",
           "esquiva_ini": "Ele esquivou.",
           "vazio": "{golpe} no vazio."
-        }
+        },
+        "som": "Ligar ou desligar o som"
       }
     },
     "toptrumps": {

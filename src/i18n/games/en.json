@@ -1016,7 +1016,8 @@
           "esquiva_jog": "You dodged.",
           "esquiva_ini": "He dodged.",
           "vazio": "{golpe} into thin air."
-        }
+        },
+        "som": "Sound on or off"
       }
     },
     "toptrumps": {

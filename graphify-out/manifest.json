@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1791100851.2200506,
-    "ast_hash": "ca009fdb8175230352a5153e14bcd95b",
+    "mtime": 1791103053.010849,
+    "ast_hash": "465ca71065c7fcbaecf02d4743065bb0",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791102528.03795,
-    "ast_hash": "07ea65a250c93fca5098902b74832f91",
+    "mtime": 1791103204.9739082,
+    "ast_hash": "fde9bb82353b914f436fcb8fc9619013",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791102518.6716955,
-    "ast_hash": "71806e0322548973a8ea5f4b11b2c2d8",
+    "mtime": 1791103204.9749084,
+    "ast_hash": "872c2ab69f809eb566b4656c0cff31b9",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3685,18 +3685,18 @@
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
-    "mtime": 1791102302.1935368,
-    "ast_hash": "a7a15dd9ad9fed67f7ad6e923f512e46",
+    "mtime": 1791103052.951957,
+    "ast_hash": "85387092dcb1b6b9c1e5159059a705fd",
     "semantic_hash": ""
   },
   "src/i18n/games/es.json": {
-    "mtime": 1791102302.1948817,
-    "ast_hash": "159b546a2c9bea93082cb107f0852b90",
+    "mtime": 1791103052.9539535,
+    "ast_hash": "6660d48316a18b7272248d3c47137a34",
     "semantic_hash": ""
   },
   "src/i18n/games/pt.json": {
-    "mtime": 1791102302.1915307,
-    "ast_hash": "e269bdad65ff40cfe96843c44199ede0",
+    "mtime": 1791103052.94996,
+    "ast_hash": "8ed2e8e968f95d581b95ab5c9698f1cf",
     "semantic_hash": ""
   },
   "src/i18n/prototype/en.json": {
@@ -6985,8 +6985,8 @@
     "semantic_hash": ""
   },
   "docs/Games/LDILendas/LDI_LENDAS_GDD.md": {
-    "mtime": 1791102518.6676433,
-    "ast_hash": "5cd8c16d4249c0d085b6d58320f89561",
+    "mtime": 1791103204.972903,
+    "ast_hash": "82af53e3ee4d05a3ab1038b8407a3a7c",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/components/Diario.jsx": {
@@ -7032,6 +7032,21 @@
   "supabase/migrations/051_lendas_habilidades.sql": {
     "mtime": 1791102395.1220696,
     "ast_hash": "6ccb6da6b9b89414612863fe72d457ab",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/BatalhaLab.jsx": {
+    "mtime": 1791103108.6317987,
+    "ast_hash": "ad3f84b060aee14ed1c4b064332d0f30",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/Pentagrama.jsx": {
+    "mtime": 1791102967.3943005,
+    "ast_hash": "cc828f2797c8a3556af1d4af5396ef58",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/motorPentagrama.js": {
+    "mtime": 1791102924.9646509,
+    "ast_hash": "80d2dfcace280f1930d5aa8dd5b36125",
     "semantic_hash": ""
   }
 }

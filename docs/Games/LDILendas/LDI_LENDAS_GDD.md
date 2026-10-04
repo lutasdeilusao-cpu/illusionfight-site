@@ -246,8 +246,17 @@ qualquer jogo) consumir depois.
 - **Combo = linha desenhada com o dedo**, de 1 a 4 pontos, sem repetir.
   Cotovelo só logo depois da mão do mesmo lado; joelho só logo depois do pé.
 - **Batidas:** a luta anda em batidas (lento 3,4 s · normal 2,6 s · rápido
-  1,9 s). O combo do inimigo acende ponto a ponto em vermelho na primeira
-  metade da batida; o jogador desenha o dele até a barra amarela acabar.
+  1,9 s). Cada batida é um compasso de 8 tempos: o combo do inimigo acende um
+  ponto por tempo, em vermelho; o jogador desenha o dele até a barra amarela
+  acabar. Depois da troca, meio compasso mostra o resultado.
+- **Som** (`batalha/somPentagrama.js`, sintetizado com Web Audio, sem arquivo):
+  bumbo no 1 e no 5, chimbal nos outros tempos e estalo no 8 (a troca fecha).
+  Cada golpe tem um timbre próprio — soco (estalo médio + baque), cotovelada
+  (estalo seco e agudo), joelhada (baque grave e longo), chute (vento + baque),
+  cabeçada (batida oca) — e bloqueio (clique metálico), bloqueio duro e esquiva
+  (sopro) também. Na resolução os golpes tocam em semicolcheias, na ordem da
+  troca. Ligar um ponto no traço dá um tique que sobe a cada ponto. Botão de
+  mudo na luta (`ldi-pentagrama-mudo`, preferência do navegador).
 - **Bloqueio por espelho:** posição por posição, golpe do mesmo membro contra
   golpe do mesmo membro = bloqueio. O resto entra, dos dois lados. O membro já
   diz o que é o golpe (soco, cotovelada, chute, joelhada, cabeçada).
@@ -286,7 +295,7 @@ src/pages/games/LDI/
 ├── data/
 │   ├── veias.js · habilidades.js
 │   └── scenes/<idioma>/act1–4.json
-├── batalha/                    # motorPentagrama.js · Pentagrama.jsx · BatalhaLab.jsx · Batalha.css
+├── batalha/                    # motorPentagrama.js · somPentagrama.js · Pentagrama.jsx · BatalhaLab.jsx · Batalha.css
 ├── engine/historia.js          # cenas, escolhas, habilidades
 └── store/useLendasStore.js     # estado + save em lendas_saves
 ```

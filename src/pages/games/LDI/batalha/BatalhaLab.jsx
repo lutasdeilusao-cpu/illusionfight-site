@@ -4,14 +4,15 @@ import { useFichas } from '../../../../context/FichasContext'
 import { useReader } from '../../../../context/ReaderContext'
 import Pentagrama from './Pentagrama'
 import { FICHAS, ENERGIA_BASE, escolherCombo, resolverTroca } from './motorPentagrama'
+import { ligarSom, alternarMudo, estaMudo, tocarCompasso, somAcende, somLigar, somGolpe, somBloqueio, somEsquiva } from './somPentagrama'
 import './Batalha.css'
 
 // Laboratório da batalha do pentagrama (só admin): você contra uma ficha de
 // treino, em batidas. Em cada batida o combo do inimigo vai acendendo; você
 // desenha o seu até a batida fechar. O centro abre às vezes: tocar nele esquiva.
+// A batida é um compasso de 8 tempos: o inimigo acende um ponto por tempo, e
+// depois da troca os golpes tocam em semicolcheias, meio compasso.
 const VELOCIDADES = { lento: 3400, normal: 2600, rapido: 1900 }
-const REVELA = 0.55        // parte da batida em que o combo do inimigo termina de acender
-const MOSTRA_RESULTADO = 1300
 const VIDA_JOG = 60
 const CHANCE_CENTRO = 0.45
 const CENTRO_MS = 600
@@ -56,7 +57,7 @@ export default function BatalhaLab() {
             </button>
           ))}
         </div>
-        <button type="button" className="if-btn if-btn--primary pg-comecar" onClick={() => setFase('luta')}>{t('games.ldi.batalha.lutar')}</button>
+        <button type="button" className="if-btn if-btn--primary pg-comecar" onClick={() => { ligarSom(); setFase('luta') }}>{t('games.ldi.batalha.lutar')}</button>
       </div>
     )
   }
@@ -77,6 +78,7 @@ function Luta({ t, ficha, batida, onSair }) {
   const estado = useRef({})
   estado.current = { combo, energia, vida }
   const esquivou = useRef(false)
+  const [mudo, setMudo] = useState(estaMudo)
 
   // Uma batida: escolhe o combo do inimigo, acende ponto a ponto, abre o
   // centro (às vezes) e resolve quando o tempo acaba.
@@ -84,8 +86,9 @@ function Luta({ t, ficha, batida, onSair }) {
     if (fim) return
     const timers = []
     const comboIni = escolherCombo(ficha)
-    const passo = (batida * REVELA) / comboIni.length
-    comboIni.forEach((_, i) => timers.push(setTimeout(() => setTelegrafo(comboIni.slice(0, i + 1)), passo * i)))
+    const oitavo = batida / 8
+    tocarCompasso(batida)
+    comboIni.forEach((_, i) => timers.push(setTimeout(() => { setTelegrafo(comboIni.slice(0, i + 1)); somAcende() }, oitavo * i)))
     if (Math.random() < CHANCE_CENTRO) {
       const abre = batida * (0.25 + Math.random() * 0.5)
       timers.push(setTimeout(() => setCentroAberto(true), abre))
@@ -101,6 +104,12 @@ function Luta({ t, ficha, batida, onSair }) {
       setVida(novaVida)
       setEnergia({ jog: r.energiaJog, ini: r.energiaIni })
       setResultado({ ...r, comboJog: cj, comboIni })
+      const semi = batida / 16000
+      r.passos.forEach((p, i) => {
+        if (p.tipo === 'acerto') somGolpe(p.ponto, i * semi)
+        else if (p.tipo === 'bloqueio') somBloqueio(!!p.duro, i * semi)
+        else if (p.tipo === 'esquiva') somEsquiva(i * semi)
+      })
       setCentroAberto(false)
       setTravado(true)
       timers.push(setTimeout(() => {
@@ -108,12 +117,16 @@ function Luta({ t, ficha, batida, onSair }) {
         esquivou.current = false
         setCombo([]); setTelegrafo([]); setTravado(false); setResultado(null)
         setN(x => x + 1)
-      }, MOSTRA_RESULTADO))
+      }, batida / 2))
     }, batida))
     return () => timers.forEach(clearTimeout)
   }, [n, fim]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const soltar = useCallback(() => setTravado(true), [])
+  const mudar = useCallback(novo => {
+    if (novo.length > estado.current.combo.length) somLigar(novo.length - 1, novo[novo.length - 1])
+    setCombo(novo)
+  }, [])
   const esquivar = useCallback(() => { esquivou.current = true; setCombo([]); setTravado(true) }, [])
 
   if (fim) {
@@ -135,12 +148,15 @@ function Luta({ t, ficha, batida, onSair }) {
       </div>
       <div className="pg-batida"><i key={n} style={{ '--dur': `${batida}ms` }} /></div>
       <Pentagrama combo={combo} telegrafo={telegrafo} centroAberto={centroAberto} travado={travado}
-        onMudar={setCombo} onSoltar={soltar} onEsquiva={esquivar} />
+        onMudar={mudar} onSoltar={soltar} onEsquiva={esquivar} />
       <div className="pg-resultado">
         {resultado ? resultado.passos.map((p, i) => <p key={i} className={`pg-passo is-${p.tipo}${p.quem ? ` is-${p.quem}` : ''}`}>{textoPasso(t, p)}</p>)
           : <p className="pg-dica">{t(travado ? 'games.ldi.batalha.travado' : 'games.ldi.batalha.desenhe')}</p>}
       </div>
-      <button type="button" className="pg-sair" onClick={onSair}>{t('games.ldi.batalha.sair')}</button>
+      <div className="pg-rodape">
+        <button type="button" className="pg-sair" onClick={() => setMudo(alternarMudo())} aria-label={t('games.ldi.batalha.som')}>{mudo ? '🔇' : '🔊'}</button>
+        <button type="button" className="pg-sair" onClick={onSair}>{t('games.ldi.batalha.sair')}</button>
+      </div>
     </div>
   )
 }
