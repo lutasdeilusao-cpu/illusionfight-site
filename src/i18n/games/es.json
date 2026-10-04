@@ -1024,7 +1024,9 @@
           "bloqueou_ini": "Bloqueó tu {golpe} (−{raspao} de roce en él).",
           "bloqueou_ini_duro": "Bloqueó tu {golpe} con hueso y te dolió.",
           "cortado_jog": "Tu {golpe} ni salió — se rompió el ritmo.",
-          "cortado_ini": "Su {golpe} ni salió — le rompiste el ritmo."
+          "cortado_ini": "Su {golpe} ni salió — le rompiste el ritmo.",
+          "parado_jog": "Te quedaste quieto en el ataque — perdiste el tiempo.",
+          "parado_ini": "Se quedó quieto — el tiempo es tuyo."
         },
         "som": "Activar o desactivar el sonido",
         "ele": "Él",

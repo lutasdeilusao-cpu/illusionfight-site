@@ -1024,7 +1024,9 @@
           "bloqueou_ini": "He blocked your {golpe} (−{raspao} graze on him).",
           "bloqueou_ini_duro": "He blocked your {golpe} with bone and hurt you.",
           "cortado_jog": "Your {golpe} never came out — the rhythm broke.",
-          "cortado_ini": "His {golpe} never came out — you broke his rhythm."
+          "cortado_ini": "His {golpe} never came out — you broke his rhythm.",
+          "parado_jog": "You stood still on attack — you lost the beat.",
+          "parado_ini": "He stood still — the beat is yours."
         },
         "som": "Sound on or off",
         "ele": "Him",

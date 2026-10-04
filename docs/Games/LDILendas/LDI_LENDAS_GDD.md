@@ -252,7 +252,8 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
   combo; quem está defendendo espelha (mesmo membro, na mesma posição) pra
   bloquear — golpe de defesa não causa dano. Bloqueou QUALQUER golpe: o ritmo
   do atacante quebra ali (o resto do combo não sai) e quem bloqueou entra no
-  contra-ataque na batida seguinte. Sem bloqueio, o atacante segue batendo.
+  contra-ataque na batida seguinte. Atacante que fica parado (sem golpe)
+  perde o tempo e a vez vira. Sem bloqueio, o atacante segue batendo.
   Na defesa o jogador sabe quantos golpes vêm (um som por golpe e o aviso "ele
   vem com N golpes"); com a habilidade de ler a origem (chave no menu do
   laboratório; no Lendas, de Veia/habilidade) vê de onde nasce o 1º golpe.

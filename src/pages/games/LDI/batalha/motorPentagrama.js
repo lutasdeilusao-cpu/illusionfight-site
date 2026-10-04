@@ -4,8 +4,9 @@
 // ATAQUE E DEFESA — é porrada, não turno: quem está atacando bate, quem está
 // defendendo espelha pra bloquear (`resolverAtaque`). Bloqueou QUALQUER golpe:
 // o ritmo do atacante quebra ali (o resto do combo não sai) e quem bloqueou
-// entra no contra-ataque. Esquiva e poder na defesa também viram. Sem
-// bloqueio, o atacante segue batendo e o outro segue apanhando.
+// entra no contra-ataque. Esquiva e poder na defesa também viram, e atacante
+// que fica parado (sem golpe) perde o tempo e a vez. Sem bloqueio, o atacante
+// segue batendo e o outro segue apanhando.
 //
 // O corpo é um pentagrama: 5 pontos grandes (cabeça, mãos, pés), 4 pequenos
 // (cotovelos e joelhos, entre a mão/pé e o centro) e o centro, que abre de vez
@@ -154,6 +155,12 @@ export function resolverAtaque(atacanteEntrada, defensorEntrada) {
     r.danoDef = poderAtk.dano
     r.passos.push({ tipo: 'poder', quem: 'atk', poder: poderAtk.id, dano: poderAtk.dano })
     r.defTonto = poderAtk.congela
+    return r
+  }
+  // Atacante parado (não desenhou golpe nenhum): perdeu o tempo, a vez vira.
+  if (!atk.combo.length) {
+    r.passos.push({ tipo: 'parado', quem: 'atk' })
+    r.vira = true
     return r
   }
   if (def.esquivou) {

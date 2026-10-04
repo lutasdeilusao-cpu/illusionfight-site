@@ -1024,7 +1024,9 @@
           "bloqueou_ini": "Ele bloqueou o seu {golpe} (−{raspao} de raspão nele).",
           "bloqueou_ini_duro": "Ele bloqueou o seu {golpe} com osso e te machucou.",
           "cortado_jog": "Seu {golpe} nem saiu — o ritmo quebrou.",
-          "cortado_ini": "O {golpe} dele nem saiu — você quebrou o ritmo."
+          "cortado_ini": "O {golpe} dele nem saiu — você quebrou o ritmo.",
+          "parado_jog": "Você ficou parado no ataque — perdeu o tempo.",
+          "parado_ini": "Ele ficou parado — o tempo é seu."
         },
         "som": "Ligar ou desligar o som",
         "ele": "Ele",

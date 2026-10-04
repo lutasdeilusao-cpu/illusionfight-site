@@ -298,6 +298,7 @@ function textoPasso(t, p) {
   if (p.tipo === 'congelado') return t('games.ldi.batalha.passo.congelado', { golpe: nome(p.ponto) })
   if (p.tipo === 'esquiva') return t(`games.ldi.batalha.passo.esquiva_${p.quem}`)
   if (p.tipo === 'vazio') return t('games.ldi.batalha.passo.vazio', { golpe: nome(p.ponto) })
+  if (p.tipo === 'parado') return t(`games.ldi.batalha.passo.parado_${p.quem}`)
   if (p.tipo === 'cortado') return t(`games.ldi.batalha.passo.cortado_${p.quem}`, { golpe: nome(p.ponto) })
   if (p.tipo === 'bloqueio') return t(`games.ldi.batalha.passo.bloqueou_${p.defensor}${p.duro ? '_duro' : ''}`, { golpe: nome(p.ponto), raspao: p.raspao })
   return t(`games.ldi.batalha.passo.${p.limpo ? 'limpo' : 'acerto'}_${p.quem}`, { golpe: nome(p.ponto), dano: p.dano })
