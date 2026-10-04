@@ -267,6 +267,12 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 - **Gravidade:** mão e pé 1; cabeça, cotovelo e joelho 2 (+carga). Levar 3+ sem
   bloquear numa batida = **tonto**: na próxima, 1 golpe só e sem carga.
 - **Energia:** 10 por batida (teto 16), dividida pelos golpes.
+- **No tempo:** cada ponto tem um anel que fecha sobre ele a cada tempo do
+  compasso. Ligar o ponto quando o anel fecha (até 18% de um tempo pra cada
+  lado) conta no tempo: o ponto fica dourado, toca um brilho e esse golpe bate
+  25% mais forte.
+- **Repetição é castigada:** atacar com o mesmo combo pela 3ª vez seguida, ele
+  já leu — bloqueia certinho, o combo quebra no 1º golpe e a vez vira.
 - **Esquiva:** o centro abre raramente (~0,4 s) e é um ponto do traço; passar o
   dedo por ele aberto, defendendo, esquiva o ataque inteiro e vira a vez.
 - **Poder (Gelo Negro):** a bolinha ⚡ em cima da cabeça enche a barra de poder
@@ -289,7 +295,7 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
   som no topo, longe do tabuleiro; regras em "Como joga".
 
 **Planejado:** caminho sugerido (o "combo de leitura" com bônus de fluxo, onde
-entram as Veias); ritmo valendo dano (ponto ligado no tempo); visão em
+entram as Veias); visão em
 primeira pessoa (só as luvas); mais poderes; combos liberados aos poucos;
 membro machucado.
 

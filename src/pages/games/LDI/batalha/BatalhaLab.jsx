@@ -3,7 +3,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useFichas } from '../../../../context/FichasContext'
 import { useReader } from '../../../../context/ReaderContext'
 import Pentagrama from './Pentagrama'
-import { FICHAS, ENERGIA_BASE, ENERGIA_MAX, ESQUIVA, MAX_POR_CARGA, TOQUES_POR_CARGA, PODER_MAX, PODER_POR_SEGUNDO, PODER_POR_TOQUE, PODERES, escolherCombo, escolherDefesa, resolverAtaque, golpesDe, maxGolpes, sequenciaDoPoder, acertouSequencia } from './motorPentagrama'
+import { FICHAS, ENERGIA_BASE, ENERGIA_MAX, ESQUIVA, MAX_POR_CARGA, TOQUES_POR_CARGA, PODER_MAX, PODER_POR_SEGUNDO, PODER_POR_TOQUE, PODERES, escolherCombo, escolherDefesa, resolverAtaque, comboLido, JANELA_TEMPO, golpesDe, maxGolpes, sequenciaDoPoder, acertouSequencia } from './motorPentagrama'
 import { ligarSom, alternarMudo, estaMudo, tocarCompasso, somAcende, somLigar, somGolpe, somBloqueio, somEsquiva, somPoder, somPapel } from './somPentagrama'
 import './Batalha.css'
 
@@ -45,7 +45,7 @@ export default function BatalhaLab() {
         <details className="pg-como">
           <summary>{t('games.ldi.batalha.como_joga')}</summary>
           <ul className="pg-regras">
-            {['r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7'].map(k => <li key={k}>{t(`games.ldi.batalha.regras.${k}`)}</li>)}
+            {['r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8'].map(k => <li key={k}>{t(`games.ldi.batalha.regras.${k}`)}</li>)}
           </ul>
         </details>
         <div className="pg-menu-acoes">
@@ -97,11 +97,14 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
   const [papel, setPapel] = useState('ataque') // ataque | defesa (o papel do jogador nesta batida)
   const [vemGolpes, setVemGolpes] = useState(0)
   const [virou, setVirou] = useState(false)
+  const [tempos, setTempos] = useState([]) // um por golpe: ligado no tempo do beat?
+  const inicioBatida = useRef(0)
+  const historicoAtaque = useRef([])
   const estado = useRef({})
   const golpes = golpesDe(combo).length
   const cargaMax = tonto.jog ? 0 : golpes === 0 ? 0 : golpes <= MAX_POR_CARGA[2] ? 2 : golpes <= MAX_POR_CARGA[1] ? 1 : 0
   const carga = Math.min(cargaMax, Math.floor(toques / TOQUES_POR_CARGA))
-  estado.current = { combo, carga, energia, vida, tonto, poder, guia, papel }
+  estado.current = { combo, carga, energia, vida, tonto, poder, guia, papel, tempos }
   const ultimoJog = useRef([])
 
   // Uma batida: um ataca, o outro defende. Atacando, você desenha livre e ele
@@ -112,6 +115,7 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
     const timers = []
     const oitavo = batida / 8
     const meu = estado.current.papel
+    inicioBatida.current = performance.now()
     const comboIni = meu === 'defesa' ? escolherCombo(ficha, { ultimoDoJogador: ultimoJog.current, tonto: estado.current.tonto.ini }) : []
     tocarCompasso(batida)
     somPapel(meu)
@@ -125,12 +129,16 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
       timers.push(setTimeout(() => setCentroAberto(false), abre + CENTRO_MS * (batida / VELOCIDADES.normal)))
     }
     timers.push(setTimeout(() => {
-      const { combo: cj, carga: cg, energia: en, vida: vd, guia: seq } = estado.current
+      const { combo: cj, carga: cg, energia: en, vida: vd, guia: seq, tempos: tp } = estado.current
       const soltouPoder = seq.length > 0 && acertouSequencia(cj, seq) ? 'geloNegro' : null
       let r, comboJog = cj, comboOutro
       if (meu === 'ataque') {
-        comboOutro = escolherDefesa(ficha, cj, { ultimoDoJogador: ultimoJog.current })
-        r = resolverAtaque({ combo: cj, carga: cg, energia: en.jog, poder: soltouPoder }, { combo: comboOutro, energia: en.ini })
+        // Mesmo combo pela 3ª vez seguida: ele já leu — bloqueia certinho.
+        const lido = !soltouPoder && comboLido(historicoAtaque.current, cj)
+        comboOutro = lido ? golpesDe(cj) : escolherDefesa(ficha, cj, { ultimoDoJogador: ultimoJog.current })
+        r = resolverAtaque({ combo: cj, carga: cg, energia: en.jog, poder: soltouPoder, noTempo: tp }, { combo: comboOutro, energia: en.ini })
+        if (lido) r.passos.unshift({ tipo: 'lido' })
+        if (golpesDe(cj).length) historicoAtaque.current = [...historicoAtaque.current, golpesDe(cj)].slice(-3)
       } else {
         comboOutro = comboIni
         r = resolverAtaque({ combo: comboIni, energia: en.ini }, { combo: cj, energia: en.jog, poder: soltouPoder })
@@ -162,7 +170,7 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
       })
       timers.push(setTimeout(() => {
         if (novaVida.jog <= 0 || novaVida.ini <= 0) { setFim(novaVida.ini <= 0 ? 'vitoria' : 'derrota'); return }
-        setCombo([]); setToques(0); setTelegrafo([]); setTravado(false); setReplay(null)
+        setCombo([]); setTempos([]); setToques(0); setTelegrafo([]); setTravado(false); setReplay(null)
         setVirou(false)
         if (r.vira) setPapel(p => (p === 'ataque' ? 'defesa' : 'ataque'))
         setN(x => x + 1)
@@ -175,10 +183,18 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
     const antigo = estado.current.combo
     if (novo.length > antigo.length) {
       const ultimo = novo[novo.length - 1]
-      if (ultimo === ESQUIVA) somEsquiva(); else somLigar(golpesDe(novo).length - 1, ultimo)
+      if (ultimo === ESQUIVA) somEsquiva()
+      else {
+        // No tempo? perto de um dos 4 tempos da batida.
+        const quarto = batida / 4
+        const t = (performance.now() - inicioBatida.current) % quarto
+        const noTempo = Math.min(t, quarto - t) <= JANELA_TEMPO * quarto
+        setTempos(tp => [...tp, noTempo])
+        somLigar(golpesDe(novo).length - 1, ultimo, noTempo)
+      }
     }
     setCombo(novo)
-  }, [])
+  }, [batida])
   const tocar = useCallback(() => {
     setToques(x => x + 1)
     somLigar(2 + Math.floor((toques + 1) / TOQUES_POR_CARGA), 'cab')
@@ -245,7 +261,8 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
       <div key={`${n}-${replay ? 'r' : 'b'}`} className={`pg-palco is-${replay ? 'replay' : papel}`} style={{ '--quarto': `${batida / 4}ms` }}>
         <Pentagrama combo={combo} telegrafo={replay ? [] : telegrafo} guia={replay ? [] : guia} centroAberto={centroAberto} travado={travado}
           segurandoOrbe={segurando} onOrbe={setSegurando} onOrbeToque={tocarOrbe}
-          max={max} carga={carga} progresso={progresso} podeCarregar={podeCarregar} onMudar={mudar} onToque={tocar} />
+          max={max} carga={carga} progresso={progresso} podeCarregar={podeCarregar} onMudar={mudar} onToque={tocar}
+          tempos={tempos} quarto={batida / 4} />
       </div>
     </div>
   )
@@ -298,8 +315,9 @@ function textoPasso(t, p) {
   if (p.tipo === 'congelado') return t('games.ldi.batalha.passo.congelado', { golpe: nome(p.ponto) })
   if (p.tipo === 'esquiva') return t(`games.ldi.batalha.passo.esquiva_${p.quem}`)
   if (p.tipo === 'vazio') return t('games.ldi.batalha.passo.vazio', { golpe: nome(p.ponto) })
+  if (p.tipo === 'lido') return t('games.ldi.batalha.passo.lido')
   if (p.tipo === 'parado') return t(`games.ldi.batalha.passo.parado_${p.quem}`)
   if (p.tipo === 'cortado') return t(`games.ldi.batalha.passo.cortado_${p.quem}`, { golpe: nome(p.ponto) })
   if (p.tipo === 'bloqueio') return t(`games.ldi.batalha.passo.bloqueou_${p.defensor}${p.duro ? '_duro' : ''}`, { golpe: nome(p.ponto), raspao: p.raspao })
-  return t(`games.ldi.batalha.passo.${p.limpo ? 'limpo' : 'acerto'}_${p.quem}`, { golpe: nome(p.ponto), dano: p.dano })
+  return t(`games.ldi.batalha.passo.acerto_${p.quem}`, { golpe: nome(p.ponto), dano: p.dano }) + (p.noTempo ? ` ${t('games.ldi.batalha.passo.no_tempo')}` : '')
 }

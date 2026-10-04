@@ -100,10 +100,11 @@ export function somPoder() {
 }
 
 // Tique de ligar um ponto no traço: a altura sobe a cada ponto do combo.
-export function somLigar(ordem, ponto) {
+export function somLigar(ordem, ponto, noTempo = false) {
   if (!ctx) return
   const base = PONTOS[ponto]?.grande ? 520 : 780
   tom(ctx.currentTime, { f0: base * (1 + ordem * 0.18), dur: 0.05, vol: 0.18, tipo: 'triangle' })
+  if (noTempo) tom(ctx.currentTime, { f0: base * 2.5, dur: 0.12, vol: 0.14, tipo: 'sine' })
 }
 
 // O ponto do inimigo acendendo, no tempo da batida.

@@ -975,7 +975,8 @@
           "r4": "DEFENSE: you know how many strikes are coming (sound and notice). Mirror each strike’s limb, in order, to block. A block always grazes you a little. Block one strike and the turn flips.",
           "r5": "A heavy strike (head, elbow, knee) landing unblocked leaves you dizzy: only 1 strike next time.",
           "r6": "The center lights up green rarely: run your finger through it on defense and you dodge the whole attack, losing no blood, and the turn flips.",
-          "r7": "Tap (or hold) the ⚡ orb above the head to fill the power bar. Full, the blue sequence shows up: draw it and Black Ice comes out — heavy damage, unblockable, and he freezes."
+          "r7": "Tap (or hold) the ⚡ orb above the head to fill the power bar. Full, the blue sequence shows up: draw it and Black Ice comes out — heavy damage, unblockable, and he freezes.",
+          "r8": "Rhythm counts: every point has a ring that closes on the beat. Connect the point as the ring closes and it’s on beat (gold point) — that strike hits 25% harder. And don’t repeat: the same combo a 3rd time in a row, he’s read it — he blocks and you lose the turn."
         },
         "oponente": "Opponent",
         "velocidade": "Speed",
@@ -1026,7 +1027,9 @@
           "cortado_jog": "Your {golpe} never came out — the rhythm broke.",
           "cortado_ini": "His {golpe} never came out — you broke his rhythm.",
           "parado_jog": "You stood still on attack — you lost the beat.",
-          "parado_ini": "He stood still — the beat is yours."
+          "parado_ini": "He stood still — the beat is yours.",
+          "lido": "He’s read that combo — 3rd time the same. Blocked, and the turn is his.",
+          "no_tempo": "(on beat!)"
         },
         "som": "Sound on or off",
         "ele": "Him",

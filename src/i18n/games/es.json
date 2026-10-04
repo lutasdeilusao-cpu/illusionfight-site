@@ -975,7 +975,8 @@
           "r4": "DEFENSA: sabes cuántos golpes vienen (sonido y aviso). Refleja el miembro de cada golpe, en orden, para bloquear. El bloqueo siempre te roza un poco. Bloqueas un golpe y el turno cambia.",
           "r5": "Un golpe grave (cabeza, codo, rodilla) que entra sin bloqueo te marea: la próxima, solo 1 golpe.",
           "r6": "El centro se enciende verde muy pocas veces: pasa el dedo por él en la defensa y esquivas todo el ataque, sin perder sangre, y el turno cambia.",
-          "r7": "Toca (o mantén) la bolita ⚡ encima de la cabeza para llenar la barra de poder. Llena, aparece la secuencia azul: dibújala y sale el Hielo Negro — daño alto, sin bloqueo, y él se congela."
+          "r7": "Toca (o mantén) la bolita ⚡ encima de la cabeza para llenar la barra de poder. Llena, aparece la secuencia azul: dibújala y sale el Hielo Negro — daño alto, sin bloqueo, y él se congela.",
+          "r8": "El ritmo cuenta: cada punto tiene un anillo que se cierra con el compás. Une el punto cuando el anillo se cierra y va a tiempo (punto dorado) — ese golpe pega 25% más fuerte. Y no repitas: el mismo combo por 3ª vez seguida ya te lo leyó — bloquea y pierdes el turno."
         },
         "oponente": "Oponente",
         "velocidade": "Velocidad",
@@ -1026,7 +1027,9 @@
           "cortado_jog": "Tu {golpe} ni salió — se rompió el ritmo.",
           "cortado_ini": "Su {golpe} ni salió — le rompiste el ritmo.",
           "parado_jog": "Te quedaste quieto en el ataque — perdiste el tiempo.",
-          "parado_ini": "Se quedó quieto — el tiempo es tuyo."
+          "parado_ini": "Se quedó quieto — el tiempo es tuyo.",
+          "lido": "Ya te leyó ese combo — 3ª vez igual. Bloqueó y el turno es suyo.",
+          "no_tempo": "(¡a tiempo!)"
         },
         "som": "Activar o desactivar el sonido",
         "ele": "Él",

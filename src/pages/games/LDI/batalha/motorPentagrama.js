@@ -32,6 +32,12 @@
 //
 // ENERGIA — 10 por batida (teto 16), dividida pelos golpes do combo.
 //
+// NO TEMPO — cada ponto ligado no beat (até JANELA_TEMPO de um tempo do
+// compasso) bate MULT_NO_TEMPO mais forte. `atacante.noTempo[i]` diz quais.
+//
+// REPETIÇÃO — atacar com o MESMO combo pela 3ª vez seguida: o inimigo já leu,
+// bloqueia certinho, o combo quebra no 1º golpe e a vez vira (`combo lido`).
+//
 // ESQUIVA — o centro abre raramente, por um instante, e é um ponto do traço:
 // passar o dedo por ele aberto, defendendo, esquiva o ataque inteiro e vira a
 // vez.
@@ -65,6 +71,9 @@ export const BONUS_ESQUIVA = 2
 export const DANO_BLOQUEIO_DURO = 2
 export const LIMITE_TONTO = 3
 export const RASPAO = 0.25
+export const MULT_NO_TEMPO = 1.25
+export const JANELA_TEMPO = 0.18 // fração de um tempo (1/4 da batida) pra cada lado
+export const REPETICOES_LIDAS = 3
 export const ORBE = { x: 150, y: -20 }
 export const PODER_MAX = 100
 export const PODER_POR_SEGUNDO = 26
@@ -186,14 +195,20 @@ export function resolverAtaque(atacanteEntrada, defensorEntrada) {
       atk.combo.slice(i + 1).forEach((p, k) => r.passos.push({ tipo: 'cortado', i: i + 1 + k, quem: 'atk', ponto: p }))
       break
     }
-    const d = danoDoGolpe(atk, pa)
+    const d = Math.round(danoDoGolpe(atk, pa) * (atk.noTempo?.[i] ? MULT_NO_TEMPO : 1))
     r.danoDef += d
     r.gravLevada += gravidade(pa, atk.carga)
     r.poderGanhoDef += PODER_APANHOU
-    r.passos.push({ tipo: 'acerto', i, quem: 'atk', ponto: pa, dano: d })
+    r.passos.push({ tipo: 'acerto', i, quem: 'atk', ponto: pa, dano: d, noTempo: Boolean(atk.noTempo?.[i]) })
   }
   r.defTonto = r.gravLevada >= LIMITE_TONTO
   return r
+}
+
+// O jogador repetiu o mesmo combo REPETICOES_LIDAS vezes seguidas?
+export const comboLido = (historico, combo) => {
+  const g = golpesDe(combo).join()
+  return g !== '' && historico.length >= REPETICOES_LIDAS - 1 && historico.slice(-(REPETICOES_LIDAS - 1)).every(h => h.join() === g)
 }
 
 // O inimigo defendendo: tenta adivinhar membro a membro o combo do jogador.

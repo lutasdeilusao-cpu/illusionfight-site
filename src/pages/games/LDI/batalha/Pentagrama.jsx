@@ -27,7 +27,7 @@ function pontoPerto(x, y, centroAberto, arrastando = false) {
   return melhor
 }
 
-export default function Pentagrama({ combo, telegrafo = [], guia = [], centroAberto = false, travado = false, max = 4, carga = 0, progresso = 0, podeCarregar = false, segurandoOrbe = false, mini = false, onMudar, onToque, onOrbe, onOrbeToque }) {
+export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = [], quarto = 0, centroAberto = false, travado = false, max = 4, carga = 0, progresso = 0, podeCarregar = false, segurandoOrbe = false, mini = false, onMudar, onToque, onOrbe, onOrbeToque }) {
   const svgRef = useRef(null)
   const desenhando = useRef(false)
   const ligouNesteToque = useRef(false)
@@ -87,6 +87,7 @@ export default function Pentagrama({ combo, telegrafo = [], guia = [], centroAbe
 
   return (
     <svg ref={svgRef} className={`pg-tabuleiro${travado ? ' is-travado' : ''}${mini ? ' is-mini' : ''}`} viewBox="0 -42 300 312"
+      style={quarto ? { '--quarto': `${quarto}ms` } : undefined}
       onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up}>
       <polyline className="pg-estrela" points={linha(ESTRELA)} />
       {['maoD', 'maoE', 'peD', 'peE'].map(id => (
@@ -101,7 +102,9 @@ export default function Pentagrama({ combo, telegrafo = [], guia = [], centroAbe
         const p = PONTOS[id]
         const iIni = golpesDe(telegrafo).indexOf(id), iJog = golpesDe(combo).indexOf(id)
         return (
-          <g key={id} className={`pg-ponto${p.grande ? '' : ' is-pequeno'}${iIni >= 0 ? ' is-ini' : ''}${iJog >= 0 ? ' is-jog' : ''}${podeCarregar && id === ultimo ? ' is-pisca' : ''}`}>
+          <g key={id} className={`pg-ponto${p.grande ? '' : ' is-pequeno'}${iIni >= 0 ? ' is-ini' : ''}${iJog >= 0 ? ' is-jog' : ''}${iJog >= 0 && tempos[iJog] ? ' is-tempo' : ''}${podeCarregar && id === ultimo ? ' is-pisca' : ''}`}>
+            {/* Anel do beat: fecha sobre o ponto a cada tempo — tocar quando fecha = no tempo. */}
+            {quarto > 0 && !travado && <circle className="pg-anel" cx={p.x} cy={p.y} r={p.grande ? 17 : 10} />}
             <circle cx={p.x} cy={p.y} r={p.grande ? 17 : 10} />
             {iIni >= 0 && <text className="pg-num pg-num--ini" x={p.x + 15} y={p.y - 13}>{iIni + 1}</text>}
             {iJog >= 0 && <text className="pg-num pg-num--jog" x={p.x - 19} y={p.y - 13}>{iJog + 1}</text>}
