@@ -125,6 +125,13 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
   const [efeitos, setEfeitos] = useState({ jog: { paralisia: 0, cego: 0 }, ini: { paralisia: 0, cego: 0 } })
   const [efeitoAgora, setEfeitoAgora] = useState({ jog: {}, ini: {} }) // o que vale nesta batida
   const batidaRef = useRef({ n: -1 })
+  const [contagem, setContagem] = useState(3) // 3, 2, 1 antes da primeira batida
+  useEffect(() => {
+    if (contagem <= 0) return
+    somAcende()
+    const id = setTimeout(() => setContagem(c => c - 1), 800)
+    return () => clearTimeout(id)
+  }, [contagem])
   const inicioBatida = useRef(0)
   const historicoAtaque = useRef([])
   // Atacando: os pontos que ele defende, escolhidos no começo da batida.
@@ -145,7 +152,7 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
   // tenta adivinhar; defendendo, ele vem com N golpes (dá pra ouvir e ver a
   // contagem) e você espelha pra bloquear. Bloqueou ou esquivou, a vez vira.
   useEffect(() => {
-    if (fim || escolhendo) return
+    if (fim || escolhendo || contagem > 0) return
     const timers = []
     const oitavo = batida / 8
     const meu = estado.current.papel
@@ -256,7 +263,7 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
       }, batida))
     }, batida))
     return () => timers.forEach(clearTimeout)
-  }, [n, fim, escolhendo]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [n, fim, escolhendo, contagem]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const mudar = useCallback(novo => {
     const antigo = estado.current.combo
@@ -356,7 +363,7 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
         <span className="pg-hud__vs">VS</span>
         <Barra rotulo={nomeIni} vida={vida.ini} max={ficha.vida} energia={energia.ini} tonto={tonto.ini} lado="ini" t={t} poder={ficha.super ? poderIni : null} efeitos={efeitoAgora.ini} />
       </div>
-      <div className="pg-batida"><i key={`${n}-${retomada}-${replay ? 'r' : 'b'}`} className={replay ? 'is-replay' : ''} style={{ '--dur': `${batida}ms` }} /></div>
+      <div className="pg-batida">{contagem === 0 && <i key={`${n}-${retomada}-${replay ? 'r' : 'b'}`} className={replay ? 'is-replay' : ''} style={{ '--dur': `${batida}ms` }} />}</div>
 
       <div className="pg-leitura">
         {replay ? <Replay t={t} r={replay} /> : (
@@ -382,12 +389,13 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
       {recusa && <p key={recusa.id} className="pg-recusa">{t(`games.ldi.batalha.recusa.${recusa.motivo}`)}</p>}
       <div key={`${n}-${retomada}-${replay ? 'r' : 'b'}`} className={`pg-palco is-${replay ? 'replay' : papel}${recusa ? ' is-treme' : ''}${cego ? ' is-cego' : ''}${superDele && !replay ? ' is-super' : ''}`} style={{ '--quarto': `${batida / 4}ms` }}>
         <Pentagrama combo={combo} telegrafo={replay || cego ? [] : telegrafo} guia={replay ? [] : superDele ? superDele.seq : guia} perigo={Boolean(superDele)}
-          centroAberto={centroAberto} travado={travado || escolhendo}
+          centroAberto={centroAberto} travado={travado || escolhendo || contagem > 0}
           segurandoOrbe={segurando} onOrbe={temPoder ? setSegurando : undefined} onOrbeToque={temPoder ? tocarOrbe : undefined}
           max={max} carga={carga} progresso={progresso} podeCarregar={podeCarregar} onMudar={mudar} onToque={tocar}
           tempos={tempos} quarto={cego ? 0 : batida / 4} fantasmas={replay ? [] : fantasmas}
           onRecusado={() => recusar(tonto.jog ? 'tonto' : papel === 'defesa' ? 'maximo_defesa' : 'maximo')} />
       </div>
+      {contagem > 0 && <p key={contagem} className="pg-contagem">{contagem}</p>}
       {escolhendo && <EscolhaPoder t={t} poderes={ficha.kit.poderes} onEscolher={escolherPoder} onDepois={deixarPraDepois} />}
     </div>
   )

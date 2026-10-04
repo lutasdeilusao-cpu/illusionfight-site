@@ -166,3 +166,7 @@
 .pg-tabuleiro.is-perigo .pg-num--guia { fill: var(--pg-ini); font-weight: 900; }
 .pg-palco.is-super { border-color: var(--pg-ini); }
 .pg-palco.is-cego { filter: blur(1.5px) brightness(0.55); }
+
+/* Contagem 3, 2, 1 antes da primeira batida, por cima do tabuleiro. */
+.pg-contagem { position: fixed; inset: 0 var(--app-gutter); z-index: 55; display: grid; place-items: end center; padding-bottom: 150px; margin: 0; pointer-events: none; font: 900 8rem var(--font-display); color: var(--if-amber); text-shadow: 0 0 30px var(--if-amber), 0 0 6px var(--if-ink); animation: pg-contagem 0.8s ease-out forwards; }
+@keyframes pg-contagem { from { transform: scale(1.8); opacity: 0; } 30% { transform: scale(1); opacity: 1; } to { transform: scale(0.85); opacity: 0; } }
