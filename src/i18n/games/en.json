@@ -967,15 +967,15 @@
         "lab": "Lab",
         "titulo": "Pentagram Fight",
         "restrito": "Test area, admins only.",
-        "como": "Your body is a pentagram. Connect the points with your thumb and each point becomes a strike. You can’t see the enemy combo: you have to read his style and guess. Every beat you draw yours until the yellow bar runs out; then the replay shows your pentagram against his whole one.",
+        "como": "Your body is a pentagram: tap the points and each point becomes a strike. The fight has turns: on ATTACK you draw your combo and he tries to block; on DEFENSE he comes at you and you mirror the limbs to block. Block or dodge and the turn flips. All on the beat.",
         "regras": {
-          "r1": "Big points (head, hands, feet) connect to anything. Elbow and knee only come after the hand/foot on the same side or another small point: foot → knee → elbow works.",
-          "r2": "Up to 4 strikes. The energy is split between them. Once you release your line, the last point blinks: every 3 taps on it raise the charge one level. Charge I only works with up to 2 strikes, Charge II with just 1, and they hit much harder.",
-          "r3": "Same limb in the same position as his combo = block: you gain energy and he loses it. But a block always grazes you a little — only a dodge comes out clean. An elbow/knee blocking a punch/kick still hurts him.",
-          "r4": "Different limbs in the same position: the heavier strike cuts through the lighter one (hands and feet are light; head, elbow and knee are heavy; charge adds up). Taking too many heavy hits unblocked leaves you dizzy: only 1 strike next time.",
-          "r5": "A charged strike opens your guard: if he blocks or dodges, you take 50% more.",
-          "r6": "The center lights up green rarely. Run your finger through it in your line: you dodge everything and all your strikes land clean, unblockable. Dodge alone, with no strike, and nobody takes damage.",
-          "r7": "Hold the ⚡ orb above the head to fill the power bar (under your health) — while you hold it, you don’t attack. Full bar: every beat a white sequence shows up. Draw it exactly and Black Ice comes out: heavy damage, unblockable, cancels his combo and freezes him."
+          "r1": "Big points (head, hands, feet) connect to anything; elbow and knee only after the hand/foot on the same side or another small point. Tap the points one by one, or drag.",
+          "r2": "Up to 4 strikes; the energy is split between them. Tap the last point again to charge: Charge I (up to 2 strikes) and Charge II (1 strike) hit much harder.",
+          "r3": "ATTACK: draw your combo; he tries to guess and block. If he blocks nothing, you keep attacking.",
+          "r4": "DEFENSE: you know how many strikes are coming (sound and notice). Mirror each strike’s limb, in order, to block. A block always grazes you a little. Block one strike and the turn flips.",
+          "r5": "A heavy strike (head, elbow, knee) landing unblocked leaves you dizzy: only 1 strike next time.",
+          "r6": "The center lights up green rarely: run your finger through it on defense and you dodge the whole attack, losing no blood, and the turn flips.",
+          "r7": "Tap (or hold) the ⚡ orb above the head to fill the power bar. Full, the blue sequence shows up: draw it and Black Ice comes out — heavy damage, unblockable, and he freezes."
         },
         "oponente": "Opponent",
         "velocidade": "Speed",
@@ -992,8 +992,6 @@
           "stormbyte": "StormByte_91"
         },
         "energia": "energy {n}",
-        "desenhe": "Draw your combo",
-        "travado": "Combo locked",
         "vitoria": "You won",
         "derrota": "You went down",
         "trocas": "{n} exchanges",
@@ -1010,25 +1008,23 @@
           "joeE": "left knee"
         },
         "passo": {
-          "bloqueio": "Block: {golpe} stopped (−{raspao} graze).",
-          "bloqueio_duro_jog": "Hard block: you stopped the {golpe} and it hurt him.",
-          "bloqueio_duro_ini": "He stopped your strike and it hurt you.",
           "acerto_jog": "You landed a {golpe}: −{dano}",
           "acerto_ini": "Took a {golpe}: −{dano}",
           "esquiva_jog": "You dodged.",
           "esquiva_ini": "He dodged.",
           "vazio": "{golpe} into thin air.",
-          "interrompe_jog": "Your {golpe} cut through his {fraco}.",
-          "interrompe_ini": "His {golpe} cut through your {fraco}.",
-          "limpo_jog": "Clean hit, {golpe}: −{dano}",
-          "limpo_ini": "He came out of the dodge with a {golpe}: −{dano}",
           "nada": "Nobody touched anybody.",
-          "guarda_aberta": "Charged strike with your guard open: you took more.",
           "ficou_tonto": "You got dizzy.",
           "deixou_tonto": "He got dizzy.",
           "poder_jog": "{poder}! −{dano} and he froze.",
           "poder_ini": "He unleashed {poder}: −{dano}",
-          "congelado": "His {golpe} froze mid-air."
+          "congelado": "His {golpe} froze mid-air.",
+          "bloqueou_jog": "You blocked his {golpe} (−{raspao} graze).",
+          "bloqueou_jog_duro": "You blocked his {golpe} with bone and hurt him (−{raspao} graze).",
+          "bloqueou_ini": "He blocked your {golpe} (−{raspao} graze on him).",
+          "bloqueou_ini_duro": "He blocked your {golpe} with bone and hurt you.",
+          "cortado_jog": "Your {golpe} never came out — the rhythm broke.",
+          "cortado_ini": "His {golpe} never came out — you broke his rhythm."
         },
         "som": "Sound on or off",
         "ele": "Him",
@@ -1042,7 +1038,16 @@
         "carregando_poder": "Charging power…",
         "poderes": {
           "geloNegro": "Black Ice"
-        }
+        },
+        "papel": {
+          "ataque": "Attack",
+          "defesa": "Defense"
+        },
+        "status_ataque": "Draw your combo — he’ll try to block",
+        "status_defesa": "He’s coming with {n} strikes — mirror them to block",
+        "virada_voce": "Turnaround! Your turn to attack",
+        "virada_ele": "He blocked — now he attacks",
+        "super": "SUPER"
       }
     },
     "toptrumps": {

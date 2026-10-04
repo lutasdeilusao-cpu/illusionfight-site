@@ -241,59 +241,56 @@ qualquer um). Motor sem tela em `batalha/motorPentagrama.js` (todas as regras e
 números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 
 - **O corpo é o tabuleiro:** pentagrama com 5 pontos grandes (cabeça, mão D/E,
-  pé D/E), 4 pequenos (cotovelos e joelhos, entre a mão/pé e o centro) e o
-  centro.
+  pé D/E), 4 pequenos (cotovelos e joelhos, entre a mão/pé e o centro), o
+  centro (esquiva) e a bolinha de energia em cima da cabeça.
 - **Combo = toque ou traço do dedão**, até 4 golpes, sem repetir ponto. Tocar
   num ponto já liga ele (arrastar também liga); tirar o dedo não fecha nada, o
-  combo continua até a batida acabar. Ponto grande
-  liga com qualquer um. Cotovelo/joelho só logo depois da mão/pé do mesmo lado
-  ou de outro ponto pequeno (pé → joelho → cotovelo vale).
+  combo continua até a batida acabar. Ponto grande liga com qualquer um;
+  cotovelo/joelho só depois da mão/pé do mesmo lado ou de outro ponto pequeno
+  (pé → joelho → cotovelo vale). Alvo generoso (34 no toque).
+- **Ataque e defesa, como porrada (não turno):** quem está atacando desenha o
+  combo; quem está defendendo espelha (mesmo membro, na mesma posição) pra
+  bloquear — golpe de defesa não causa dano. Bloqueou QUALQUER golpe: o ritmo
+  do atacante quebra ali (o resto do combo não sai) e quem bloqueou entra no
+  contra-ataque na batida seguinte. Sem bloqueio, o atacante segue batendo.
+  Na defesa o jogador sabe quantos golpes vêm (um som por golpe e o aviso "ele
+  vem com N golpes"); com a habilidade de ler a origem (chave no menu do
+  laboratório; no Lendas, de Veia/habilidade) vê de onde nasce o 1º golpe.
+  O inimigo defendendo adivinha membro a membro (`leitura` da ficha), e lê
+  melhor quem repete o mesmo combo.
+- **Bloqueio sempre custa sangue:** raspão de 25% do golpe (mínimo 1).
+  Cotovelo/joelho bloqueando mão/pé devolve 2 no atacante. Quem bloqueia ganha
+  energia pro ataque que vem. Só a esquiva sai limpa.
 - **Carga:** tocar de novo no último ponto do combo (ele pisca); cada 3 toques
-  sobem um nível. Carga I: até 2 golpes, energia ×1,5. Carga II: 1 golpe, ×2,2. A carga soma na
-  gravidade. Golpe carregado abre a guarda: se o inimigo bloqueia ou esquiva,
-  você leva 50% a mais na troca.
-- **Gravidade:** mão e pé 1; cabeça, cotovelo e joelho 2 (+carga).
-  - Mesmo membro na mesma posição = **bloqueio**: quem bloqueia +2 de energia na
-    próxima, o bloqueado −1. Cotovelo/joelho bloqueando mão/pé devolve 2.
-    Bloqueio sempre custa sangue: raspão de 25% do golpe (mínimo 1). Só a
-    esquiva sai limpa.
-  - Membros diferentes na mesma posição: o mais grave **interrompe** o mais
-    leve; mesma gravidade, os dois entram.
-  - Levar gravidade 3+ sem bloquear numa troca = **tonto**: na próxima, 1 golpe
-    só e sem carga.
-- **Energia:** 10 por troca (6 a 16), dividida pelos golpes.
-- **Esquiva:** o centro abre raramente (22% das batidas, ~0,4 s) e é um ponto
-  do traço — passar o dedo por ele aberto liga a esquiva sem gastar vaga de
-  golpe. Com ela, todos os golpes do inimigo passam no vazio e todos os seus
-  entram limpos (×1,3), sem bloqueio nem interrupção. Só esquivar, sem golpe:
-  ninguém leva dano.
-- **O combo do inimigo não aparece.** Só com a habilidade de ler a origem (no
-  laboratório, uma chave no menu; no Lendas, vai vir de Veia/habilidade) dá pra
-  ver de onde nasce o 1º golpe dele — os outros nunca.
-- **Batidas:** compasso de 8 tempos (lento 3,4 s · normal 2,6 s · rápido
-  1,9 s). Depois, um compasso de **replay**: o seu pentagrama contra o dele
-  inteiro, lado a lado, e o passo a passo.
+  sobem um nível. Carga I: até 2 golpes, energia ×1,5. Carga II: 1 golpe, ×2,2.
+- **Gravidade:** mão e pé 1; cabeça, cotovelo e joelho 2 (+carga). Levar 3+ sem
+  bloquear numa batida = **tonto**: na próxima, 1 golpe só e sem carga.
+- **Energia:** 10 por batida (teto 16), dividida pelos golpes.
+- **Esquiva:** o centro abre raramente (~0,4 s) e é um ponto do traço; passar o
+  dedo por ele aberto, defendendo, esquiva o ataque inteiro e vira a vez.
 - **Poder (Gelo Negro):** a bolinha ⚡ em cima da cabeça enche a barra de poder
-  (embaixo da barra de sangue) a cada toque (+5) e enquanto o dedo segura
-  nela, a qualquer hora da batida — o tempo ali é tempo sem atacar. Bloquear (+8) e apanhar (+4) também enchem. Barra cheia: a cada
-  batida aparece uma sequência branca numerada de 4 pontos (sorteada, só com
-  trechos que não raspam em outro ponto). Desenhou ela exata: Gelo Negro sai
-  antes de tudo, 24 de dano, sem bloqueio, cancela o combo dele e o congela
-  (tonto na próxima). A barra zera. Com o poder pronto, a sequência vale mesmo
-  tonto. Novos poderes entram em `PODERES`.
-- **Alvo generoso:** toque pega a 34 do ponto; arrastando, 30 (grande) e 22
-  (pequeno).
-- **Inimigo:** combos de 2 a 4 golpes com peso, chance de esquiva e de **repetir o seu último
-  combo** (quem repete o mesmo combo apanha bloqueado). Tonto, só o 1º golpe.
-- **Som:** `batalha/somPentagrama.js` (Web Audio, sem arquivo) — compasso com
-  bumbo/chimbal/estalo, timbre por golpe (soco, cotovelada, joelhada, chute,
-  cabeçada), bloqueio, esquiva e o tique de cada ponto ligado. Botão de mudo.
-- **Uma mão:** placar e replay em cima, tabuleiro na metade de baixo, no
-  dedão; Sair e som no topo, longe do tabuleiro (pra não sair sem querer); regras fechadas em "Como joga" pra o botão de lutar caber na tela.
+  (embaixo da barra de sangue) a cada toque (+5) e enquanto o dedo segura —
+  tempo sem atacar. Bloquear e apanhar também enchem. A barra pulsa mais forte
+  em 50/70/90%; cheia, mostra SUPER e a sequência azul aparece NA HORA, na
+  batida em que você está (sorteada, só com trechos que não raspam em outro
+  ponto). Desenhou exata: Gelo Negro — 24 de dano, sem bloqueio, congela (tonto
+  na próxima). Na defesa, quebra o ataque dele e vira a vez. A barra zera.
+  Novos poderes entram em `PODERES`.
+- **Ritmo e orientação na hora:** cada batida é um compasso de 8 tempos com
+  bumbo forte (lento 3,4 s · normal 2,6 s · rápido 1,9 s), um som de papel na
+  virada (ataque sobe, defesa desce), a faixa grande ATAQUE/DEFESA e a borda
+  do tabuleiro pulsando 4 vezes por batida na cor do papel. Depois, um compasso
+  de **replay**: o seu pentagrama contra o dele, o passo a passo e a VIRADA
+  quando a posição troca.
+- **Som:** `batalha/somPentagrama.js` (Web Audio, sem arquivo) — compasso,
+  timbre por golpe, bloqueio, esquiva, poder, papel e o tique de cada ponto.
+- **Uma mão:** placar e replay em cima, tabuleiro na metade de baixo; Sair e
+  som no topo, longe do tabuleiro; regras em "Como joga".
 
-**Planejado:** visão em primeira pessoa (só as luvas); mais poderes; combos
-liberados aos poucos; membro machucado; a
-ficha de movimentos do jogador contra a do inimigo.
+**Planejado:** caminho sugerido (o "combo de leitura" com bônus de fluxo, onde
+entram as Veias); ritmo valendo dano (ponto ligado no tempo); visão em
+primeira pessoa (só as luvas); mais poderes; combos liberados aos poucos;
+membro machucado.
 
 ## 12. Arquivos
 

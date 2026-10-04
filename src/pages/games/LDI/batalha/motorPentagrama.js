@@ -1,6 +1,12 @@
 // Motor da batalha do pentagrama. Sem React: só regras, pra testar sozinho e
 // pra qualquer jogo consumir.
 //
+// ATAQUE E DEFESA — é porrada, não turno: quem está atacando bate, quem está
+// defendendo espelha pra bloquear (`resolverAtaque`). Bloqueou QUALQUER golpe:
+// o ritmo do atacante quebra ali (o resto do combo não sai) e quem bloqueou
+// entra no contra-ataque. Esquiva e poder na defesa também viram. Sem
+// bloqueio, o atacante segue batendo e o outro segue apanhando.
+//
 // O corpo é um pentagrama: 5 pontos grandes (cabeça, mãos, pés), 4 pequenos
 // (cotovelos e joelhos, entre a mão/pé e o centro) e o centro, que abre de vez
 // em quando pra esquiva.
@@ -11,37 +17,29 @@
 // pequeno, porque o corpo já tá "dentro" (pé→joelho→cotovelo vale).
 //
 // CARGA — tocar de novo no último ponto do combo (ele pisca): cada
-// TOQUES_POR_CARGA toques sobem um nível (até 2).
-// Carga I: no máximo 2 golpes, energia ×1,5. Carga II: 1 golpe só, energia
-// ×2,2. Carga soma na gravidade. Mas golpe carregado abre a guarda: se o
-// inimigo bloquear um golpe seu ou esquivar, o dano que você leva na troca
-// sobe 50%.
+// TOQUES_POR_CARGA toques sobem um nível (até 2). Carga I: até 2 golpes,
+// energia ×1,5. Carga II: 1 golpe, ×2,2. A carga soma na gravidade.
 //
-// GRAVIDADE — cada golpe pesa: mão e pé 1; cabeça, cotovelo e joelho 2.
-//   • Mesma posição, mesmo membro = BLOQUEIO: quem bloqueia ganha +2 de
-//     energia na próxima troca, quem foi bloqueado perde 1. Bloquear mão/pé
-//     com cotovelo/joelho devolve 2 de dano. Bloqueio sempre custa um pouco de
-//     sangue (raspão: 25% do golpe, no mínimo 1) — só a esquiva sai limpa.
-//   • Mesma posição, membros diferentes: o golpe mais grave INTERROMPE o mais
-//     leve (o leve não entra). Mesma gravidade: os dois entram.
-//   • Levou golpes sem bloquear somando gravidade 3 ou mais numa troca =
-//     TONTO: na próxima troca só dá 1 golpe e sem carga.
+// BLOQUEIO — o defensor espelha: mesmo membro na mesma posição do combo do
+// atacante. Bloqueio sempre custa um pouco de sangue (raspão: 25% do golpe, no
+// mínimo 1); cotovelo/joelho bloqueando mão/pé devolve 2 no atacante; quem
+// bloqueia ganha energia pro ataque que vem. Só a esquiva sai limpa.
 //
-// ENERGIA — 10 por troca (teto 16), dividida pelos golpes do combo.
+// GRAVIDADE — mão e pé 1; cabeça, cotovelo e joelho 2 (+carga). Levar
+// gravidade 3 ou mais sem bloquear numa batida = TONTO: na próxima, 1 golpe só
+// e sem carga.
 //
-// PODER — a bolinha em cima da cabeça (ORBE) carrega a barra de poder a cada
-// toque e enquanto o dedo segura nela; o tempo ali é tempo sem atacar. Bloquear e apanhar também
-// enchem um pouco. Barra cheia: a cada batida o jogo manda uma sequência de
-// pontos; desenhou exatamente ela, sai o poder (Gelo Negro: dano alto, sem
-// bloqueio, cancela o combo dele e o congela — tonto na próxima). A barra zera.
+// ENERGIA — 10 por batida (teto 16), dividida pelos golpes do combo.
 //
-// ESQUIVA — o centro abre raramente, por um instante. Ele é um ponto do traço:
-// passar o dedo por ele aberto liga 'centro' no combo (não gasta vaga de
-// golpe; depois dele dá pra ir pra qualquer ponto, até cotovelo/joelho). Com a
-// esquiva ligada, todos os golpes do inimigo passam no vazio e TODOS os seus
-// entram, sem bloqueio e sem interrupção (você já não tá onde ele mirou),
-// como golpe limpo (×1,3). Só esquivar, sem golpe no traço: ninguém leva dano.
-// +2 de energia.
+// ESQUIVA — o centro abre raramente, por um instante, e é um ponto do traço:
+// passar o dedo por ele aberto, defendendo, esquiva o ataque inteiro e vira a
+// vez.
+//
+// PODER — a bolinha em cima da cabeça (ORBE) enche a barra de poder a cada
+// toque e enquanto o dedo segura; bloquear e apanhar também enchem. Barra
+// cheia: aparece na hora uma sequência de pontos; desenhou ela exata, sai o
+// poder (Gelo Negro: dano alto, sem bloqueio, congela — tonto na próxima). Na
+// defesa, o poder quebra o ataque dele e vira a vez. A barra zera.
 
 export const PONTOS = {
   cab: { membro: 'cab', grande: true, x: 150, y: 30, mult: 1.25, grav: 2 },
@@ -62,12 +60,9 @@ export const ENERGIA_BASE = 10
 export const ENERGIA_MAX = 16
 export const ENERGIA_MIN = 6
 export const BONUS_BLOQUEIO = 2
-export const PERDA_BLOQUEADO = 1
 export const BONUS_ESQUIVA = 2
 export const DANO_BLOQUEIO_DURO = 2
-export const GUARDA_ABERTA = 1.5
 export const LIMITE_TONTO = 3
-export const MULT_GOLPE_LIMPO = 1.3
 export const RASPAO = 0.25
 export const ORBE = { x: 150, y: -20 }
 export const PODER_MAX = 100
@@ -106,9 +101,6 @@ export function danoDoGolpe(lado, ponto) {
   return Math.max(1, Math.round(base * PONTOS[ponto].mult * (lado.forca?.[PONTOS[ponto].membro] ?? 1)))
 }
 
-// Resolve uma troca. lado = { combo, carga, esquivou, energia, forca }.
-// Devolve o dano de cada lado, a energia e a tontura da próxima troca e o
-// passo a passo (pra tela e pro log).
 // Distância de um ponto até o segmento a→b.
 function distSegmento(p, a, b) {
   const dx = b.x - a.x, dy = b.y - a.y
@@ -141,96 +133,75 @@ export const acertouSequencia = (traco, seq) => {
   return g.length === seq.length && g.every((p, i) => p === seq[i])
 }
 
-export function resolverTroca(jogEntrada, iniEntrada) {
-  // O traço pode trazer o centro: vira `esquivou` e sai da lista de golpes.
-  const norm = l => ({ ...l, esquivou: Boolean(l.esquivou || l.combo.includes(ESQUIVA)), combo: golpesDe(l.combo) })
-  const jog = norm(jogEntrada), ini = norm(iniEntrada)
-  const L = { jog, ini }
-  // Poder: sai antes de tudo, sem bloqueio, e cancela o combo do outro.
-  for (const q of ['jog', 'ini']) {
-    const poder = PODERES[L[q].poder]
-    if (!poder) continue
-    const o = q === 'jog' ? 'ini' : 'jog'
-    const r = { dano: { jog: 0, ini: 0 }, passos: [{ tipo: 'poder', quem: q, poder: poder.id, dano: poder.dano }] }
-    r.dano[o] = poder.dano
-    L[o].combo.forEach((p, i) => r.passos.push({ tipo: 'congelado', i, quem: o, ponto: p }))
-    return {
-      ...r, danoJog: r.dano.jog, danoIni: r.dano.ini, aberto: { jog: false, ini: false },
-      energiaJog: ENERGIA_BASE, energiaIni: ENERGIA_BASE,
-      tontoJog: poder.congela && o === 'jog', tontoIni: poder.congela && o === 'ini', poderUsado: q,
-      poderGanho: { jog: 0, ini: 0 },
+// Uma batida de ataque/defesa. atacante = { combo, carga, energia, forca },
+// defensor = { combo (o espelho que ele desenhou; pode ter o centro = esquiva),
+// energia, poder? }. Devolve o dano no defensor (e o reflexo do bloqueio duro
+// no atacante), se a vez vira e o passo a passo.
+export function resolverAtaque(atacanteEntrada, defensorEntrada) {
+  const atk = { ...atacanteEntrada, combo: golpesDe(atacanteEntrada.combo) }
+  const def = { ...defensorEntrada, esquivou: defensorEntrada.combo.includes(ESQUIVA), combo: golpesDe(defensorEntrada.combo) }
+  const r = { danoDef: 0, danoAtk: 0, bonusDef: 0, gravLevada: 0, passos: [], vira: false, poderGanhoDef: 0 }
+  const poder = PODERES[def.poder]
+  if (poder) {
+    r.danoAtk = poder.dano
+    r.passos.push({ tipo: 'poder', quem: 'def', poder: poder.id, dano: poder.dano })
+    atk.combo.forEach((p, i) => r.passos.push({ tipo: 'congelado', i, quem: 'atk', ponto: p }))
+    r.vira = true; r.atkTonto = poder.congela
+    return r
+  }
+  const poderAtk = PODERES[atk.poder]
+  if (poderAtk) {
+    r.danoDef = poderAtk.dano
+    r.passos.push({ tipo: 'poder', quem: 'atk', poder: poderAtk.id, dano: poderAtk.dano })
+    r.defTonto = poderAtk.congela
+    return r
+  }
+  if (def.esquivou) {
+    r.bonusDef += BONUS_ESQUIVA
+    r.passos.push({ tipo: 'esquiva', quem: 'def' })
+    atk.combo.forEach((p, i) => r.passos.push({ tipo: 'vazio', i, quem: 'atk', ponto: p }))
+    r.vira = true
+    return r
+  }
+  for (let i = 0; i < atk.combo.length; i++) {
+    const pa = atk.combo[i]
+    const pd = def.combo[i]
+    if (pd && PONTOS[pd].membro === PONTOS[pa].membro) {
+      const raspao = Math.max(1, Math.round(danoDoGolpe(atk, pa) * RASPAO))
+      const duro = !PONTOS[pd].grande && PONTOS[pa].grande
+      r.danoDef += raspao
+      if (duro) r.danoAtk += DANO_BLOQUEIO_DURO
+      r.bonusDef += BONUS_BLOQUEIO
+      r.poderGanhoDef += PODER_BLOQUEIO
+      r.vira = true
+      r.passos.push({ tipo: 'bloqueio', i, ponto: pa, defesa: pd, raspao, duro })
+      // Bloqueou: o ritmo do atacante quebra ali — o resto do combo não sai.
+      atk.combo.slice(i + 1).forEach((p, k) => r.passos.push({ tipo: 'cortado', i: i + 1 + k, quem: 'atk', ponto: p }))
+      break
     }
+    const d = danoDoGolpe(atk, pa)
+    r.danoDef += d
+    r.gravLevada += gravidade(pa, atk.carga)
+    r.poderGanhoDef += PODER_APANHOU
+    r.passos.push({ tipo: 'acerto', i, quem: 'atk', ponto: pa, dano: d })
   }
-  const r = { dano: { jog: 0, ini: 0 }, bonus: { jog: 0, ini: 0 }, gravLevada: { jog: 0, ini: 0 }, aberto: { jog: false, ini: false }, passos: [] }
-  const outro = q => (q === 'jog' ? 'ini' : 'jog')
-  const acerta = (q, i, p) => {
-    const d = Math.round(danoDoGolpe(L[q], p) * (L[q].esquivou ? MULT_GOLPE_LIMPO : 1))
-    r.dano[outro(q)] += d
-    r.gravLevada[outro(q)] += gravidade(p, L[q].carga)
-    r.passos.push({ tipo: 'acerto', i, quem: q, ponto: p, dano: d, limpo: L[q].esquivou })
-  }
-
-  if (jog.esquivou || ini.esquivou) {
-    if (jog.esquivou && ini.esquivou) {
-      r.passos.push({ tipo: 'esquiva', quem: 'jog' }, { tipo: 'esquiva', quem: 'ini' })
-    } else {
-      const q = jog.esquivou ? 'jog' : 'ini'
-      r.bonus[q] += BONUS_ESQUIVA
-      r.passos.push({ tipo: 'esquiva', quem: q })
-      L[outro(q)].combo.forEach((p, i) => r.passos.push({ tipo: 'vazio', i, quem: outro(q), ponto: p }))
-      if (L[outro(q)].carga) r.aberto[outro(q)] = true
-      L[q].combo.forEach((p, i) => acerta(q, i, p))
-    }
-  } else {
-    const n = Math.max(jog.combo.length, ini.combo.length)
-    for (let i = 0; i < n; i++) {
-      const pj = jog.combo[i], pi = ini.combo[i]
-      if (pj && pi && PONTOS[pj].membro === PONTOS[pi].membro) {
-        const duroJog = !PONTOS[pj].grande && PONTOS[pi].grande
-        const duroIni = !PONTOS[pi].grande && PONTOS[pj].grande
-        r.bonus.jog += BONUS_BLOQUEIO - PERDA_BLOQUEADO
-        r.bonus.ini += BONUS_BLOQUEIO - PERDA_BLOQUEADO
-        if (jog.carga) r.aberto.jog = true
-        if (ini.carga) r.aberto.ini = true
-        if (duroJog) r.dano.ini += DANO_BLOQUEIO_DURO
-        if (duroIni) r.dano.jog += DANO_BLOQUEIO_DURO
-        // Raspão: os dois bloquearam o golpe um do outro, cada um leva um pouco.
-        const raspaoJog = Math.max(1, Math.round(danoDoGolpe(ini, pi) * RASPAO))
-        const raspaoIni = Math.max(1, Math.round(danoDoGolpe(jog, pj) * RASPAO))
-        r.dano.jog += raspaoJog
-        r.dano.ini += raspaoIni
-        r.passos.push({ tipo: 'bloqueio', i, pontoJog: pj, pontoIni: pi, duro: duroJog ? 'jog' : duroIni ? 'ini' : null, raspaoJog, raspaoIni })
-        continue
-      }
-      if (pj && pi) {
-        const gj = gravidade(pj, jog.carga), gi = gravidade(pi, ini.carga)
-        if (gj !== gi) {
-          const forte = gj > gi ? 'jog' : 'ini'
-          const fraco = outro(forte)
-          r.passos.push({ tipo: 'interrompe', i, quem: forte, ponto: forte === 'jog' ? pj : pi, pontoFraco: fraco === 'jog' ? pj : pi })
-          acerta(forte, i, forte === 'jog' ? pj : pi)
-          continue
-        }
-      }
-      if (pj) acerta('jog', i, pj)
-      if (pi) acerta('ini', i, pi)
-    }
-  }
-
-  for (const q of ['jog', 'ini']) if (r.aberto[q]) r.dano[q] = Math.round(r.dano[q] * GUARDA_ABERTA)
-  r.danoJog = r.dano.jog
-  r.danoIni = r.dano.ini
-  r.energiaJog = Math.max(ENERGIA_MIN, Math.min(ENERGIA_MAX, ENERGIA_BASE + r.bonus.jog))
-  r.energiaIni = Math.max(ENERGIA_MIN, Math.min(ENERGIA_MAX, ENERGIA_BASE + r.bonus.ini))
-  // Poder ganho: bloqueio e golpe levado enchem um pouco a barra.
-  r.poderGanho = { jog: 0, ini: 0 }
-  for (const p of r.passos) {
-    if (p.tipo === 'bloqueio') { r.poderGanho.jog += PODER_BLOQUEIO; r.poderGanho.ini += PODER_BLOQUEIO }
-    if (p.tipo === 'acerto') r.poderGanho[outro(p.quem)] += PODER_APANHOU
-  }
-  r.tontoJog = r.gravLevada.jog >= LIMITE_TONTO
-  r.tontoIni = r.gravLevada.ini >= LIMITE_TONTO
+  r.defTonto = r.gravLevada >= LIMITE_TONTO
   return r
+}
+
+// O inimigo defendendo: tenta adivinhar membro a membro o combo do jogador.
+// `leitura` = chance de acertar cada membro (sobe se o jogador repete o combo).
+export function escolherDefesa(ficha, comboJogador, { ultimoDoJogador = [] } = {}, rnd = Math.random) {
+  const golpes = golpesDe(comboJogador)
+  const repetiu = golpes.length && golpes.join() === ultimoDoJogador.join()
+  const leitura = Math.min(0.9, (ficha.leitura || 0.2) + (repetiu ? 0.4 : 0))
+  if (rnd() < (ficha.esquiva || 0)) return [ESQUIVA]
+  const porMembro = { cab: ['cab'], bracoD: ['maoD', 'cotD'], bracoE: ['maoE', 'cotE'], pernaD: ['peD', 'joeD'], pernaE: ['peE', 'joeE'] }
+  const membros = Object.keys(porMembro)
+  return golpes.map(p => {
+    const m = rnd() < leitura ? PONTOS[p].membro : membros[Math.floor(rnd() * membros.length)]
+    return porMembro[m][0]
+  })
 }
 
 // O inimigo escolhe o combo pela ficha: combos com peso, e às vezes repete o
@@ -250,7 +221,7 @@ export function escolherCombo(ficha, { ultimoDoJogador = [], tonto = false } = {
 // Fichas de treino.
 export const FICHAS = {
   saco: {
-    id: 'saco', vida: 60, esquiva: 0, espelho: 0,
+    id: 'saco', vida: 60, esquiva: 0, espelho: 0, leitura: 0.15,
     combos: [
       { combo: ['maoE', 'maoD'], peso: 4 },
       { combo: ['maoD', 'maoE', 'peD'], peso: 3 },
@@ -260,7 +231,7 @@ export const FICHAS = {
     ],
   },
   stormbyte: {
-    id: 'stormbyte', vida: 70, esquiva: 0.08, espelho: 0.35,
+    id: 'stormbyte', vida: 70, esquiva: 0.08, espelho: 0.35, leitura: 0.35,
     combos: [
       { combo: ['maoE', 'maoD', 'cotD'], peso: 3 },
       { combo: ['maoD', 'cotD', 'joeD', 'cotE'], peso: 2 },

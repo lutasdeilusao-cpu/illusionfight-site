@@ -24,6 +24,15 @@
 .pg-luta { gap: 8px; min-height: 100svh; padding-bottom: 12px; touch-action: none; user-select: none; -webkit-user-select: none; }
 /* Uma mão: placar e replay em cima (leitura), tabuleiro embaixo (dedão) */
 .pg-leitura { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; min-height: 120px; }
+.pg-papel { margin: 0 0 2px; text-align: center; font: 900 2rem/1 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; animation: pg-papel-entra 0.35s ease-out; }
+.pg-papel.is-ataque { color: var(--pg-jog); text-shadow: 0 0 18px color-mix(in srgb, var(--pg-jog) 60%, transparent); }
+.pg-papel.is-defesa { color: var(--pg-ini); text-shadow: 0 0 18px color-mix(in srgb, var(--pg-ini) 60%, transparent); }
+.pg-virada { margin: 0; text-align: center; font: 900 1.4rem var(--font-display); text-transform: uppercase; color: var(--if-amber); animation: pg-papel-entra 0.35s ease-out; }
+/* Palco: borda que pulsa no tempo (4 por batida), na cor do papel */
+.pg-palco { border: 2px solid transparent; animation: pg-pulso var(--quarto) ease-out infinite; }
+.pg-palco.is-ataque { --pulso: var(--pg-jog); }
+.pg-palco.is-defesa { --pulso: var(--pg-ini); }
+.pg-palco.is-replay { animation: none; }
 .pg-status { margin: 0 0 4px; text-align: center; font: 800 0.66rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); }
 .pg-status.is-tonto { color: var(--if-amber); }
 
@@ -45,9 +54,14 @@
 .pg-barra.is-jog .pg-sangue i { right: auto; left: 0; }
 .pg-barra.is-ini .pg-sangue i { left: auto; right: 0; }
 .pg-sangue__vida { background: linear-gradient(180deg, color-mix(in srgb, var(--if-amber) 50%, white), var(--if-amber) 45%, color-mix(in srgb, var(--if-amber) 70%, black)); transition: width 0.15s ease-out; }
-.pg-poder { position: relative; display: block; height: 6px; margin-top: 2px; background: var(--if-hair); transform: skewX(-12deg); overflow: hidden; }
+.pg-poder { position: relative; display: block; height: 8px; margin-top: 2px; background: var(--if-hair); transform: skewX(-12deg); overflow: hidden; }
 .pg-poder i { position: absolute; inset: 0 auto 0 0; width: var(--pct); background: linear-gradient(90deg, var(--if-teal), var(--if-cyan)); transition: width 0.12s linear; }
-.pg-poder.is-cheia i { background: var(--if-cyan); animation: pg-pisca 0.5s ease-in-out infinite alternate; }
+.pg-poder.is-n1 i { animation: pg-pisca 0.9s ease-in-out infinite alternate; }
+.pg-poder.is-n2 i { animation: pg-pisca 0.6s ease-in-out infinite alternate; }
+.pg-poder.is-n3 i { animation: pg-pisca 0.35s ease-in-out infinite alternate; }
+.pg-poder.is-cheia { overflow: visible; }
+.pg-poder.is-cheia i { background: var(--if-cyan); animation: pg-pisca 0.2s ease-in-out infinite alternate; box-shadow: 0 0 12px var(--if-cyan); }
+.pg-poder__super { position: absolute; right: 2px; top: -14px; transform: skewX(12deg); font: 900 0.6rem var(--font-mono); letter-spacing: 0.2em; color: var(--if-cyan); text-shadow: 0 0 8px var(--if-cyan); animation: pg-pisca 0.3s ease-in-out infinite alternate; }
 .pg-sangue__rastro { background: var(--if-danger); transition: width 0.9s ease-in 0.35s; }
 
 .pg-batida { position: relative; height: 4px; background: var(--if-hair); overflow: hidden; }
@@ -73,7 +87,7 @@
 .pg-centro { fill: var(--if-hair-strong); transition: r 0.12s, fill 0.12s; }
 .pg-centro.is-aberto { fill: var(--if-ok); filter: drop-shadow(0 0 10px var(--if-ok)); }
 .pg-centro.is-ligado { fill: var(--pg-jog); filter: drop-shadow(0 0 10px var(--pg-jog)); }
-.pg-linha--guia { stroke: var(--if-ink); stroke-width: 3; stroke-dasharray: 2 6; opacity: 0.85; }
+.pg-linha--guia { stroke: var(--if-cyan); stroke-width: 4; stroke-dasharray: 4 6; opacity: 0.9; filter: drop-shadow(0 0 6px var(--if-cyan)); animation: pg-pisca 0.4s ease-in-out infinite alternate; }
 .pg-num--guia { fill: var(--if-ink); font-size: 11px; }
 .pg-orbe circle { fill: var(--if-panel-flat); stroke: var(--if-cyan); stroke-width: 2; }
 .pg-orbe text { font-size: 13px; text-anchor: middle; pointer-events: none; }
@@ -94,8 +108,7 @@
 .pg-replay__lados figcaption { text-align: center; font: 800 0.56rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary); }
 .pg-replay .pg-tabuleiro .pg-linha--ini { stroke-dasharray: none; stroke-width: 5; opacity: 1; }
 .pg-passos { display: flex; flex-direction: column; gap: 2px; }
-.pg-passo.is-interrompe.is-jog { color: var(--pg-jog); }
-.pg-passo.is-interrompe.is-ini { color: var(--pg-ini); }
+.pg-passo.is-cortado { color: var(--text-secondary); text-decoration: line-through; }
 .pg-passo { margin: 0; font: 600 0.78rem/1.3 var(--font-body); }
 .pg-passo.is-bloqueio { color: var(--if-amber); }
 .pg-passo.is-acerto.is-jog, .pg-passo.is-esquiva.is-jog { color: var(--pg-jog); }
@@ -105,4 +118,6 @@
 .pg-sair { min-height: 40px; padding: 8px 14px; cursor: pointer; background: none; border: 1px solid var(--if-hair-strong); color: var(--text-secondary); font: 700 0.6rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; }
 
 @keyframes pg-batida { to { width: 100%; } }
+@keyframes pg-pulso { 0% { border-color: var(--pulso, transparent); box-shadow: inset 0 0 22px color-mix(in srgb, var(--pulso, transparent) 35%, transparent); } 60%, 100% { border-color: transparent; box-shadow: none; } }
+@keyframes pg-papel-entra { from { transform: scale(1.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 @keyframes pg-pisca { from { filter: brightness(1); } to { filter: brightness(1.8) drop-shadow(0 0 10px var(--if-amber)); } }

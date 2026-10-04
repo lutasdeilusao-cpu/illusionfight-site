@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1791103053.010849,
-    "ast_hash": "465ca71065c7fcbaecf02d4743065bb0",
+    "mtime": 1791126137.4955242,
+    "ast_hash": "8b1313b90c5d66685e26e03acc45ce93",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791125968.467991,
-    "ast_hash": "d49aaa753ba3723586d234109376f1b9",
+    "mtime": 1791126193.5653937,
+    "ast_hash": "27d2030480bf8236b9f12d0b8222f037",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2550,8 +2550,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791125922.224652,
-    "ast_hash": "23415826636d05485adb252e393efeea",
+    "mtime": 1791126193.5643926,
+    "ast_hash": "a27f3f0540446403da30fe83f330b56b",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791125968.4689977,
-    "ast_hash": "88233cbfd761b77cbde4277265ea669b",
+    "mtime": 1791126193.5663955,
+    "ast_hash": "3a44a218737fa56e916c4081baf7c268",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -2930,8 +2930,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1790870738.8097734,
-    "ast_hash": "4c095a22dfc202646be27bd6829ab6aa",
+    "mtime": 1791126127.7987614,
+    "ast_hash": "3f5ef082209214342eada7bd661a5b0e",
     "semantic_hash": ""
   },
   "public/404.html": {
@@ -7055,8 +7055,8 @@
     "semantic_hash": ""
   },
   "src/lib/versaoNova.js": {
-    "mtime": 1791125920.6357393,
-    "ast_hash": "56a65ea18f100bc75a887915021681d3",
+    "mtime": 1791126127.7997608,
+    "ast_hash": "4fff5978c19bacc9bf7559aa197e5dc6",
     "semantic_hash": ""
   }
 }

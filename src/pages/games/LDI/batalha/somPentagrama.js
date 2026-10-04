@@ -112,13 +112,22 @@ export function somAcende() {
   tom(ctx.currentTime, { f0: 330, f1: 300, dur: 0.06, vol: 0.2, tipo: 'sawtooth' })
 }
 
-// Um compasso inteiro da batida, agendado de uma vez.
+// Aviso do papel na virada do compasso: ataque sobe, defesa desce (alarme).
+export function somPapel(papel) {
+  if (!ctx) return
+  const t = ctx.currentTime
+  if (papel === 'ataque') tom(t, { f0: 440, f1: 880, dur: 0.14, vol: 0.25, tipo: 'square' })
+  else tom(t, { f0: 660, f1: 330, dur: 0.18, vol: 0.25, tipo: 'sawtooth' })
+}
+
+// Um compasso inteiro da batida, agendado de uma vez: bumbo forte a cada
+// tempo, mais alto no 1 e no 5.
 export function tocarCompasso(duracaoMs) {
   if (!ctx) return
   const t0 = ctx.currentTime, oitavo = duracaoMs / 8000
   for (let i = 0; i < 8; i++) {
     const t = t0 + i * oitavo
-    if (i === 0 || i === 4) tom(t, { f0: 110, f1: 42, dur: 0.16, vol: i === 0 ? 0.75 : 0.55 })
+    if (i % 2 === 0) tom(t, { f0: 120, f1: 40, dur: 0.18, vol: i === 0 ? 1 : i === 4 ? 0.85 : 0.6 })
     else if (i === 7) sopro(t, { dur: 0.05, vol: 0.55, filtro: 'highpass', f0: 4500 })
     else sopro(t, { dur: 0.03, vol: 0.18, filtro: 'highpass', f0: 7000 })
   }

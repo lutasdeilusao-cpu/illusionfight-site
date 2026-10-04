@@ -967,15 +967,15 @@
         "lab": "Laboratorio",
         "titulo": "Pelea del Pentagrama",
         "restrito": "Área de prueba, solo para admin.",
-        "como": "Tu cuerpo es un pentagrama. Une los puntos con el pulgar y cada punto se vuelve un golpe. No ves el combo del enemigo: tienes que leer su estilo y adivinar. En cada compás dibujas el tuyo hasta que se acabe la barra amarilla; después, la repetición muestra tu pentagrama contra el suyo completo.",
+        "como": "Tu cuerpo es un pentagrama: toca los puntos y cada punto se vuelve un golpe. La pelea tiene turnos: en ATAQUE dibujas tu combo y él intenta bloquear; en DEFENSA él viene con golpes y tú reflejas los miembros para bloquear. Bloqueas o esquivas y el turno cambia. Todo al ritmo del compás.",
         "regras": {
-          "r1": "Los puntos grandes (cabeza, manos, pies) se unen con cualquiera. Codo y rodilla solo después de la mano/pie del mismo lado o de otro punto pequeño: pie → rodilla → codo vale.",
-          "r2": "Hasta 4 golpes. La energía se divide entre ellos. Al soltar el trazo, el último punto parpadea: cada 3 toques suben un nivel de carga. Carga I solo vale con hasta 2 golpes, Carga II con 1 solo, y pegan mucho más fuerte.",
-          "r3": "Mismo miembro en la misma posición que su combo = bloqueo: tú ganas energía y él pierde. Pero el bloqueo siempre te roza un poco — solo la esquiva sale limpia. Codo/rodilla bloqueando un puñetazo/patada todavía lo lastima.",
-          "r4": "Miembros distintos en la misma posición: el golpe más grave atraviesa al más leve (manos y pies son leves; cabeza, codo y rodilla, graves; la carga suma). Recibir demasiados golpes graves sin bloquear te deja mareado: la próxima, solo 1 golpe.",
-          "r5": "Un golpe cargado abre la guardia: si él bloquea o esquiva, recibes 50% más.",
-          "r6": "El centro se enciende verde muy pocas veces. Pasa el dedo por él en tu trazo: esquivas todo y todos tus golpes entran limpios, sin bloqueo. Solo esquivar, sin golpe, y nadie recibe daño.",
-          "r7": "Mantén presionada la bolita ⚡ encima de la cabeza para llenar la barra de poder (debajo de tu vida) — mientras la mantienes, no atacas. Barra llena: en cada compás aparece una secuencia blanca. Dibújala exacta y sale el Hielo Negro: daño alto, sin bloqueo, cancela su combo y lo deja congelado."
+          "r1": "Los puntos grandes (cabeza, manos, pies) se unen con cualquiera; codo y rodilla solo después de la mano/pie del mismo lado o de otro punto pequeño. Toca los puntos uno por uno, o arrastra.",
+          "r2": "Hasta 4 golpes; la energía se divide entre ellos. Toca otra vez el último punto para cargar: Carga I (hasta 2 golpes) y Carga II (1 golpe) pegan mucho más fuerte.",
+          "r3": "ATAQUE: dibuja tu combo; él intenta adivinar y bloquear. Si no bloquea nada, sigues atacando.",
+          "r4": "DEFENSA: sabes cuántos golpes vienen (sonido y aviso). Refleja el miembro de cada golpe, en orden, para bloquear. El bloqueo siempre te roza un poco. Bloqueas un golpe y el turno cambia.",
+          "r5": "Un golpe grave (cabeza, codo, rodilla) que entra sin bloqueo te marea: la próxima, solo 1 golpe.",
+          "r6": "El centro se enciende verde muy pocas veces: pasa el dedo por él en la defensa y esquivas todo el ataque, sin perder sangre, y el turno cambia.",
+          "r7": "Toca (o mantén) la bolita ⚡ encima de la cabeza para llenar la barra de poder. Llena, aparece la secuencia azul: dibújala y sale el Hielo Negro — daño alto, sin bloqueo, y él se congela."
         },
         "oponente": "Oponente",
         "velocidade": "Velocidad",
@@ -992,8 +992,6 @@
           "stormbyte": "StormByte_91"
         },
         "energia": "energía {n}",
-        "desenhe": "Dibuja tu combo",
-        "travado": "Combo fijado",
         "vitoria": "Ganaste",
         "derrota": "Caíste",
         "trocas": "{n} intercambios",
@@ -1010,25 +1008,23 @@
           "joeE": "rodillazo izquierdo"
         },
         "passo": {
-          "bloqueio": "Bloqueo: {golpe} detenido (−{raspao} de roce).",
-          "bloqueio_duro_jog": "Bloqueo duro: paraste el {golpe} y le dolió.",
-          "bloqueio_duro_ini": "Paró tu golpe y te dolió.",
           "acerto_jog": "Conectaste un {golpe}: −{dano}",
           "acerto_ini": "Recibiste un {golpe}: −{dano}",
           "esquiva_jog": "Esquivaste.",
           "esquiva_ini": "Esquivó.",
           "vazio": "{golpe} al aire.",
-          "interrompe_jog": "Tu {golpe} atravesó su {fraco}.",
-          "interrompe_ini": "Su {golpe} atravesó tu {fraco}.",
-          "limpo_jog": "Golpe limpio, {golpe}: −{dano}",
-          "limpo_ini": "Salió de la esquiva con un {golpe}: −{dano}",
           "nada": "Nadie tocó a nadie.",
-          "guarda_aberta": "Golpe cargado con la guardia abierta: recibiste más.",
           "ficou_tonto": "Quedaste mareado.",
           "deixou_tonto": "Él quedó mareado.",
           "poder_jog": "¡{poder}! −{dano} y se congeló.",
           "poder_ini": "Soltó {poder}: −{dano}",
-          "congelado": "Su {golpe} se congeló en el aire."
+          "congelado": "Su {golpe} se congeló en el aire.",
+          "bloqueou_jog": "Bloqueaste su {golpe} (−{raspao} de roce).",
+          "bloqueou_jog_duro": "Bloqueaste su {golpe} con hueso y le dolió (−{raspao} de roce).",
+          "bloqueou_ini": "Bloqueó tu {golpe} (−{raspao} de roce en él).",
+          "bloqueou_ini_duro": "Bloqueó tu {golpe} con hueso y te dolió.",
+          "cortado_jog": "Tu {golpe} ni salió — se rompió el ritmo.",
+          "cortado_ini": "Su {golpe} ni salió — le rompiste el ritmo."
         },
         "som": "Activar o desactivar el sonido",
         "ele": "Él",
@@ -1042,7 +1038,16 @@
         "carregando_poder": "Cargando poder…",
         "poderes": {
           "geloNegro": "Hielo Negro"
-        }
+        },
+        "papel": {
+          "ataque": "Ataque",
+          "defesa": "Defensa"
+        },
+        "status_ataque": "Dibuja tu combo — él va a intentar bloquear",
+        "status_defesa": "Viene con {n} golpes — refléjalos para bloquear",
+        "virada_voce": "¡Vuelta! Te toca atacar",
+        "virada_ele": "Bloqueó — ahora ataca él",
+        "super": "SUPER"
       }
     },
     "toptrumps": {
