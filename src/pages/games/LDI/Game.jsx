@@ -1,245 +1,124 @@
-import { useEffect, useCallback, useState, useRef } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { useCallback, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
-import { useGameStore } from './store/useGameStore'
-import { useCombatStore } from './store/useCombatStore'
-import { useAuth } from '../../../context/AuthContext'
 import { useReader } from '../../../context/ReaderContext'
 import { useEventos } from '../../../context/EventosContext'
-import SceneView from './components/SceneView'
-import ManualDrawer from './components/ManualDrawer'
-import './LDI.css'
-
-const ATTR_KEYS = {
-  F: 'games.ldi.attr_forca',
-  H: 'games.ldi.attr_agilidade',
-  R: 'games.ldi.attr_resistencia',
-  A: 'games.ldi.attr_protecao',
-  PdF: 'games.ldi.attr_poder_elemental',
-}
+import { useLendasStore } from './store/useLendasStore'
+import { veiaPorId, romano } from './data/veias'
+import Narrativa from './components/Narrativa'
+import Escolhas from './components/Escolhas'
+import Diario from './components/Diario'
+import PuzzleRouter from './components/PuzzleRouter'
+import './Lendas.css'
 
 export default function Game() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const navigate = useNavigate()
-  const { user } = useAuth()
-  const { registrarEvento } = useEventos()
   const { setReaderMode } = useReader()
-  const locale = useLanguage().locale
-  const { sheet, save, currentScene, choices, sceneNav, setScene, makeChoice, updateSave, saveToCloud, updateSheet, clearLevelUp, setLocale } = useGameStore()
-  const combat = useCombatStore()
-  const [levelUpAttr, setLevelUpAttr] = useState(null)
-  const [levelUpPoints, setLevelUpPoints] = useState(1)
-  const [tempAttrs, setTempAttrs] = useState(null)
-  const [showManual, setShowManual] = useState(false)
-  const [searchParams] = useSearchParams()
+  const { registrarEvento } = useEventos()
+  const { save, cena, escolhas, subiu, iniciar, escolher, addPista, limparSubida } = useLendasStore()
+  const [pronto, setPronto] = useState(false)
+  const [diario, setDiario] = useState(false)
+  const [puzzle, setPuzzle] = useState(null)
+  const [capitulo, setCapitulo] = useState(null)
+  const [capsVistos] = useState(() => new Set())
+
+  useEffect(() => { setReaderMode(true); return () => setReaderMode(false) }, [setReaderMode])
+  useEffect(() => { if (!save.nome) navigate('/games/ldi') }, [save.nome, navigate])
+  useEffect(() => { if (save.nome) iniciar(locale) }, [locale]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    if (locale) setLocale(locale)
-  }, [locale, setLocale])
+    setPronto(false)
+    if (cena?.capitulo && !capsVistos.has(cena.id)) { capsVistos.add(cena.id); setCapitulo(cena) }
+    window.scrollTo(0, 0)
+  }, [cena, capsVistos])
 
   useEffect(() => {
-    const sceneParam = searchParams.get('scene')
-    if (sceneParam && sceneParam !== currentScene?.id) {
-      setScene(sceneParam)
-    }
-  }, [searchParams])
+    if (!subiu) return
+    const tm = setTimeout(limparSubida, 3200)
+    return () => clearTimeout(tm)
+  }, [subiu, limparSubida])
 
   useEffect(() => {
-    if (save?.level_up_available) {
-      setLevelUpPoints(1)
-      setLevelUpAttr(null)
-      setTempAttrs(null)
-    }
-  }, [save?.level_up_available])
+    if (save.status === 'vitoria') registrarEvento('lendas_act', 'Completou o Act 1 em Lendas do LDI', 1)
+  }, [save.status]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => {
-    console.log('[LDI] readerMode setado para true (Game)')
-    setReaderMode(true)
-    return () => {
-      console.log('[LDI] readerMode setado para false (Game cleanup)')
-      setReaderMode(false)
-    }
-  }, [setReaderMode])
-
-  useEffect(() => {
-    if (!sheet?.sheet_name) {
-      navigate('/games/ldi')
-      return
-    }
-    if (!currentScene && save.status === 'active') {
-      setScene(save.current_scene_id || '1.1')
-    }
-  }, [sheet, currentScene, save, navigate, setScene])
-
-  useEffect(() => {
-    if (combat.active) {
-      navigate('/games/ldi/combat')
-    }
-  }, [combat.active, navigate])
-
-  const prevSceneRef = useRef(null)
-  useEffect(() => {
-    if (currentScene?.id && currentScene.id !== prevSceneRef.current) {
-      const match = currentScene.id.match(/^end_act(\d+)/)
-      if (match) {
-        const numAct = Number(match[1])
-        registrarEvento('lendas_act', `Completou o Act ${numAct} em Lendas do LDI`, numAct)
-      }
-      prevSceneRef.current = currentScene.id
-    }
-  }, [currentScene?.id])
-
-  useEffect(() => {
-    console.log('[GAME] useEffect save.status:', save?.status)
-    if (save.status === 'ended_victory' || save.status === 'ended_defeat' || save.status === 'ended_fork') {
-      if (user) saveToCloud(user.id)
-      navigate('/games/ldi/end')
-    }
-  }, [save.status, navigate, user, saveToCloud])
-
-  const handleChoice = useCallback((choice) => {
-    if (choice.isPuzzle) {
-      const pType = choice.puzzleType || 'simon'
-      const pDiff = choice.puzzleDiff || 3
-      const returnScene = choice.next_scene || currentScene?.id || '3.2_dia8'
-      const puzzleUrl = `/games/ldi/puzzle?type=${pType}&diff=${pDiff}&return=${returnScene}`
-      setReaderMode(false)
-      navigate(puzzleUrl)
-      return
-    }
-    makeChoice(choice).catch(e => console.error('[LDI] choice error:', e))
-    if (user) saveToCloud(user.id).catch(e => console.error('[LDI] save falhou:', e))
-  }, [makeChoice, user, saveToCloud, currentScene, navigate, setReaderMode])
-
-  const handleLevelUpAttr = (attr) => {
-    if (levelUpPoints <= 0) return
-    const base = sheet?.attributes || {}
-    const temp = tempAttrs || { ...base }
-    const current = temp[attr] || 0
-    if (current >= 4) return
-    temp[attr] = current + 1
-    setTempAttrs(temp)
-    setLevelUpPoints(p => p - 1)
-    setLevelUpAttr(attr)
+  const onPronto = useCallback(() => setPronto(true), [])
+  const onEscolher = ch => (ch.isPuzzle ? setPuzzle(ch) : escolher(ch))
+  const fimPuzzle = (resolvido, pista) => {
+    if (pista) addPista(pista)
+    const ch = puzzle
+    setPuzzle(null)
+    escolher(ch, !resolvido)
   }
 
-  const handleRemoveLevelUp = (attr) => {
-    const base = sheet?.attributes || {}
-    const temp = tempAttrs || { ...base }
-    const current = temp[attr] || 0
-    if (current <= (base[attr] || 0)) return
-    temp[attr] = current - 1
-    setTempAttrs(temp)
-    setLevelUpPoints(p => p + 1)
-    setLevelUpAttr(null)
-  }
+  if (save.status !== 'ativo') return <Fim t={t} save={save} onSair={() => navigate('/games/ldi')} />
+  if (!cena) return <div className="ld-page ld-carregando">{t('games.ldi.jogo.carregando')}</div>
 
-  const handleConfirmLevelUp = () => {
-    if (levelUpPoints > 0) return
-    if (tempAttrs) updateSheet({ attributes: tempAttrs })
-    clearLevelUp()
-    setTempAttrs(null)
-    setLevelUpAttr(null)
-    setLevelUpPoints(1)
-    if (user) saveToCloud(user.id)
-  }
-
-  if (save?.level_up_available) {
-    const baseAttrs = sheet?.attributes || {}
-    const displayAttrs = tempAttrs || baseAttrs
-    return (
-      <div className="ldi-game">
-        <div className="ldi-levelup-overlay">
-          <motion.div
-            className="ldi-levelup-box"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="ldi-levelup-title">{t('games.ldi.game.levelup_titulo')}</div>
-            <div className="ldi-levelup-sub">{t('games.ldi.game.levelup_sub')}</div>
-            <div className="ldi-levelup-points">{t('games.ldi.game.levelup_pontos', { n: levelUpPoints })}</div>
-            {Object.entries(ATTR_KEYS).map(([key, labelKey]) => {
-              const label = t(labelKey)
-              const baseVal = baseAttrs[key] || 0
-              const currentVal = displayAttrs[key] || 0
-              const atMax = currentVal >= 4
-              const isUpgraded = currentVal > baseVal
-              return (
-                <div key={key} className="ldi-levelup-attr" style={isUpgraded ? { borderColor: '#FFD700' } : {}}>
-                  <span className="ldi-levelup-attr-label">{label}</span>
-                  <span className="ldi-levelup-attr-value">
-                    {isUpgraded ? `${baseVal} → ${currentVal}` : baseVal}
-                  </span>
-                  <button
-                    className="ldi-levelup-attr-btn"
-                    onClick={() => handleRemoveLevelUp(key)}
-                    disabled={!isUpgraded}
-                    style={{ marginRight: '0.25rem' }}
-                  >−</button>
-                  <button
-                    className="ldi-levelup-attr-btn"
-                    onClick={() => handleLevelUpAttr(key)}
-                    disabled={atMax || levelUpPoints <= 0}
-                    style={isUpgraded ? { borderColor: '#FFD700', background: 'rgba(255,215,0,0.15)' } : {}}
-                  >+</button>
-                </div>
-              )
-            })}
-            <button
-              className="ldi-levelup-confirm"
-              onClick={handleConfirmLevelUp}
-              disabled={levelUpPoints > 0}
-              style={levelUpPoints > 0 ? { opacity: 0.4, cursor: 'not-allowed' } : {}}
-            >
-              {levelUpPoints > 0 ? t('games.ldi.game.levelup_restam', { n: levelUpPoints }) : t('games.ldi.game.levelup_confirmar')}
-            </button>
-          </motion.div>
-        </div>
-      </div>
-    )
-  }
-
-  if (!currentScene) {
-    return (
-      <div className="ldi-game">
-        <div className="ldi-game-loading">{t('games.ldi.game.carregando')}</div>
-      </div>
-    )
-  }
-
+  const veia = veiaPorId(save.veia)
   return (
-    <div className="ldi-game">
-      <div className="ldi-game-hud">
-        <span className="ldi-game-hud-item" onClick={() => navigate('/games/ldi/sheet')}>
-          {t('games.ldi.game.hud_ficha')}
-        </span>
-        <span className="ldi-game-hud-item">
-          {t('games.ldi.game.hud_dia', { n: save.day_in_game })}
-        </span>
-        <span className="ldi-game-hud-item">
-          {t('games.ldi.game.hud_creditos', { n: save.credits })}
-        </span>
-        <span className="ldi-game-hud-item" onClick={() => navigate('/games/ldi/clues')}>
-          {t('games.ldi.game.hud_pistas', { n: save.clues_collected?.length || 0 })}
-        </span>
-        <span className="ldi-game-hud-item" onClick={() => setShowManual(true)} style={{ cursor: 'pointer' }}>
-          {t('games.ldi.game.hud_manual')}
-        </span>
-        <span className="ldi-game-hud-item ldi-game-hud-pv">
-          ❤️ {save.pv_current}/{Math.max(1, (sheet?.attributes?.R || 0) * 5)}
-        </span>
-      </div>
+    <div className={`ld-page${cena.luta ? ' is-luta' : ''}`} style={veia ? { '--veia-cor': veia.cor } : undefined}>
+      <header className="ld-barra">
+        <button type="button" className="ld-barra__btn" onClick={() => navigate('/games/ldi')}>← {t('games.ldi.jogo.sair')}</button>
+        <span className="ld-barra__ato">{t('games.ldi.jogo.ato', { n: romano(save.ato) })}</span>
+        <button type="button" className="ld-barra__btn ld-barra__veia" onClick={() => setDiario(true)}>
+          {veia ? `${veia.icone} ${t(`games.ldi.veias.${veia.id}.nome`)} ${romano(save.nivel)}` : t('games.ldi.jogo.diario')}
+        </button>
+      </header>
 
-      <SceneView
-        scene={currentScene}
-        choices={choices}
-        onChoice={handleChoice}
-        sceneNav={sceneNav}
-      />
+      <main className="ld-cena" key={cena.id}>
+        {cena.luta
+          ? <p className="ld-cena__luta"><span>{t('games.ldi.jogo.luta')}</span>{cena.luta}</p>
+          : <p className="if-eyebrow">{cena.capitulo || t('games.ldi.jogo.ato', { n: romano(save.ato) })}</p>}
+        <h1 className={`ld-cena__titulo${cena.destaque ? ' is-destaque' : ''}`}>{cena.title}</h1>
+        <Narrativa linhas={cena.text} veia={save.veia} nome={save.nome} onPronto={onPronto} />
+        {pronto
+          ? <Escolhas t={t} escolhas={escolhas} onEscolher={onEscolher} />
+          : <p className="ld-cena__toque">{t('games.ldi.jogo.continuar')}</p>}
+      </main>
 
-      <ManualDrawer open={showManual} onClose={() => setShowManual(false)} />
+      <AnimatePresence>
+        {capitulo && (
+          <motion.div key="capitulo" className="ld-capitulo" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={() => setCapitulo(null)} onAnimationComplete={() => setTimeout(() => setCapitulo(null), 1800)}>
+            <span>{t('games.ldi.jogo.ato', { n: romano(save.ato) })}</span>
+            <strong>{capitulo.capitulo}</strong>
+          </motion.div>
+        )}
+        {subiu > 0 && veia && (
+          <motion.div key="subiu" className="ld-subiu" initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }}>
+            <small>{t('games.ldi.jogo.subiu')}</small>
+            <b>{veia.icone} {t(`games.ldi.veias.${veia.id}.nome`)} {romano(subiu)} · {t(`games.ldi.niveis.${subiu}.nome`)}</b>
+            <span>{t(`games.ldi.niveis.${subiu}.explica`)}</span>
+          </motion.div>
+        )}
+        {diario && <Diario key="diario" t={t} save={save} onFechar={() => setDiario(false)} />}
+      </AnimatePresence>
+
+      {puzzle && (
+        <div className="ld-puzzle">
+          <PuzzleRouter t={t} type={puzzle.puzzleType} difficulty={puzzle.puzzleDiff || 3} onComplete={fimPuzzle} />
+        </div>
+      )}
+    </div>
+  )
+}
+
+function Fim({ t, save, onSair }) {
+  const veia = veiaPorId(save.veia)
+  const s = save.status
+  return (
+    <div className="ld-page ld-fim" style={veia ? { '--veia-cor': veia.cor } : undefined}>
+      <p className="if-eyebrow">{t('games.ldi.fim.jornada')} · {save.nome}</p>
+      <h1 className={`ld-fim__titulo is-${s}`}>{t(`games.ldi.fim.${s}_titulo`)}</h1>
+      <p className="ld-fim__texto">{t(`games.ldi.fim.${s}_texto`)}</p>
+      {veia && (
+        <p className="ld-fim__veia">{veia.icone} {t(`games.ldi.veias.${veia.id}.nome`)} {romano(save.nivel)} · {t(`games.ldi.niveis.${save.nivel}.nome`)}</p>
+      )}
+      <p className="ld-fim__decisoes">{t('games.ldi.fim.decisoes', { n: save.diario.length })}</p>
+      <p className="ld-fim__replay">{t('games.ldi.fim.replay')}</p>
+      <button type="button" className="if-btn if-btn--primary" onClick={onSair}>{t('games.ldi.fim.lobby')}</button>
     </div>
   )
 }

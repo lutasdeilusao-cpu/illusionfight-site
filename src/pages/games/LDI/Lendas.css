@@ -1,0 +1,137 @@
+/* Lendas do LDI — jogo de texto. A cor da Veia do jogador chega como --veia-cor. */
+@font-face { font-family: 'Bring Race'; src: url('/fonts/BringRace.otf') format('opentype'); font-display: swap; }
+
+.ld-page {
+  --veia-cor: var(--if-teal);
+  min-height: 100vh; padding: 16px 16px 48px; display: flex; flex-direction: column; gap: 14px;
+  background: radial-gradient(circle at 50% 0, color-mix(in srgb, var(--veia-cor) 12%, transparent), transparent 55%), var(--ldi-bg);
+  color: var(--if-ink);
+}
+.ld-page.is-luta { background: radial-gradient(circle at 50% 0, color-mix(in srgb, var(--if-danger) 16%, transparent), transparent 60%), var(--ldi-bg); }
+.ld-carregando { align-items: center; justify-content: center; font: 700 0.8rem var(--font-mono); color: var(--text-secondary); }
+
+/* Barra do topo */
+.ld-barra { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: -16px -16px 0; padding: 10px 16px; background: var(--if-glass); backdrop-filter: var(--if-blur); border-bottom: 1px solid var(--if-hair); }
+.ld-barra__btn { padding: 6px 10px; cursor: pointer; border: 1px solid var(--if-hair-strong); background: transparent; color: var(--text-secondary); font: 700 0.62rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; }
+.ld-barra__veia { color: var(--veia-cor); border-color: color-mix(in srgb, var(--veia-cor) 50%, transparent); }
+.ld-barra__ato { font: 800 0.6rem var(--font-mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-secondary); }
+
+/* Cena */
+.ld-cena { display: flex; flex-direction: column; gap: 12px; }
+.ld-cena__titulo { margin: 0; font: 900 1.5rem/1.1 var(--font-display); text-transform: uppercase; color: var(--if-ink); }
+.ld-cena__titulo.is-destaque { color: var(--veia-cor); text-shadow: 0 0 24px color-mix(in srgb, var(--veia-cor) 50%, transparent); }
+.ld-cena__luta { margin: 0; display: flex; gap: 8px; align-items: center; font: 800 0.7rem var(--font-mono); color: var(--if-danger); text-transform: uppercase; letter-spacing: 0.14em; }
+.ld-cena__luta span { padding: 2px 8px; background: var(--if-danger); color: #000; }
+.ld-cena__toque { margin: 8px 0 0; text-align: center; font: 700 0.58rem var(--font-mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-secondary); animation: ld-pisca 1.6s ease-in-out infinite; }
+
+/* As três vozes do texto */
+.ld-narrativa { display: flex; flex-direction: column; gap: 12px; cursor: pointer; }
+.ld-bloco p { margin: 0; }
+.ld-bloco em { font-style: italic; color: var(--veia-cor); }
+.ld-bloco--respiro { height: 1px; margin: 6px 30%; background: linear-gradient(90deg, transparent, var(--if-hair-strong), transparent); }
+.ld-bloco--narra p { font: 400 1.02rem/1.65 var(--font-body); color: color-mix(in srgb, var(--if-ink) 88%, transparent); }
+.ld-bloco--fala { padding: 10px 12px; border-left: 2px solid var(--veia-cor); background: color-mix(in srgb, var(--veia-cor) 7%, transparent); }
+.ld-bloco--fala p { font: 600 1rem/1.5 var(--font-body); color: var(--if-ink); }
+.ld-bloco__nome { display: block; margin-bottom: 3px; font: 800 0.6rem var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--veia-cor); }
+.ld-bloco--sistema { padding: 8px 10px; border: 1px solid color-mix(in srgb, var(--if-cyan) 35%, transparent); background: rgba(0, 0, 0, 0.45); }
+.ld-bloco--sistema p { font: 700 0.78rem/1.45 var(--font-mono); color: var(--if-cyan); letter-spacing: 0.04em; }
+.ld-bloco--sistema p::before { content: '> '; opacity: 0.6; }
+
+/* Escolhas */
+.ld-escolhas__titulo { margin-top: 10px; }
+.ld-escolhas { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.ld-escolha {
+  width: 100%; display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start; padding: 13px 12px; cursor: pointer; text-align: left;
+  border: 1px solid var(--if-hair-strong); background: var(--if-panel); color: var(--if-ink);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ld-escolha:hover:not(:disabled) { border-color: var(--veia-cor); box-shadow: inset 2px 0 0 var(--veia-cor); }
+.ld-escolha__n { font: 800 0.7rem var(--font-mono); color: var(--veia-cor); }
+.ld-escolha__corpo { display: flex; flex-direction: column; gap: 4px; }
+.ld-escolha__texto { font: 600 0.95rem/1.35 var(--font-body); }
+.ld-escolha__veia { font: 800 0.58rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--veia-cor); }
+.ld-escolha__requer { font: 700 0.6rem var(--font-mono); color: var(--veia-cor); }
+.ld-escolha.is-veia { border-color: color-mix(in srgb, var(--veia-cor) 45%, transparent); }
+.ld-escolha.is-decisao .ld-escolha__texto { font-weight: 800; }
+.ld-escolha.is-trancada { cursor: not-allowed; opacity: 0.5; }
+
+/* Confirmação de decisão grande */
+.ld-decisao { position: fixed; inset: 0 var(--app-gutter); z-index: 1200; display: grid; place-items: center; padding: 16px; background: rgba(0, 0, 0, 0.82); overscroll-behavior: none; touch-action: none; }
+.ld-decisao__card { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 26px 18px; text-align: center; border: 1px solid var(--veia-cor, var(--if-teal)); background: var(--if-panel); box-shadow: 0 0 60px color-mix(in srgb, var(--veia-cor, var(--if-teal)) 30%, transparent); }
+.ld-decisao__icone { font-size: 2.6rem; color: var(--veia-cor); }
+.ld-decisao__veia { margin: 0; font: 900 2rem/1 var(--font-display); text-transform: uppercase; color: var(--veia-cor); }
+.ld-decisao__area { margin: 0; font: 800 0.62rem var(--font-mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-secondary); }
+.ld-decisao__desc { margin: 0; font: 400 0.92rem/1.55 var(--font-body); color: var(--if-ink); }
+.ld-decisao__escolha { margin: 4px 0 0; font: 700 0.95rem/1.4 var(--font-body); font-style: italic; color: var(--if-ink); }
+.ld-decisao__aviso { margin: 0; font: 700 0.62rem/1.5 var(--font-mono); color: var(--if-amber); }
+.ld-decisao__ok { width: 100%; border: 1px solid var(--veia-cor); background: var(--veia-cor); color: #04141a; }
+.ld-decisao__ok:hover { box-shadow: 0 0 24px color-mix(in srgb, var(--veia-cor) 50%, transparent); }
+.ld-decisao__voltar { padding: 6px; cursor: pointer; background: none; border: 0; color: var(--text-secondary); font: 700 0.62rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; }
+
+/* Cartão de capítulo e aviso de nível */
+.ld-capitulo { position: fixed; inset: 0 var(--app-gutter); z-index: 1100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: var(--ldi-bg); overscroll-behavior: none; cursor: pointer; }
+.ld-capitulo span { font: 800 0.7rem var(--font-mono); letter-spacing: 0.4em; text-transform: uppercase; color: var(--veia-cor, var(--if-teal)); }
+.ld-capitulo strong { font: 900 2.2rem/1 var(--font-display); text-transform: uppercase; color: var(--if-ink); text-align: center; padding: 0 16px; }
+.ld-subiu { position: fixed; top: 64px; left: var(--app-gutter); right: var(--app-gutter); z-index: 1050; margin: 0 16px; display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border: 1px solid var(--veia-cor); background: var(--if-panel); box-shadow: 0 0 30px color-mix(in srgb, var(--veia-cor) 35%, transparent); }
+.ld-subiu small { font: 800 0.56rem var(--font-mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-secondary); }
+.ld-subiu b { font: 900 1.1rem var(--font-display); text-transform: uppercase; color: var(--veia-cor); }
+.ld-subiu span { font: 600 0.78rem var(--font-body); color: var(--if-ink); }
+
+/* Diário */
+.ld-diario { position: fixed; inset: 0 var(--app-gutter); z-index: 1150; background: rgba(0, 0, 0, 0.6); overscroll-behavior: none; }
+.ld-diario__painel { position: absolute; inset: 0 0 0 12%; display: flex; flex-direction: column; gap: 10px; padding: 16px; overflow-y: auto; overscroll-behavior: contain; background: var(--if-panel-flat); border-left: 1px solid var(--if-hair-strong); }
+.ld-diario__topo { display: flex; justify-content: space-between; align-items: center; }
+.ld-diario__topo h2 { margin: 0; font: 900 1.2rem var(--font-display); text-transform: uppercase; }
+.ld-diario__fechar { cursor: pointer; padding: 6px 10px; background: none; border: 1px solid var(--if-hair-strong); color: var(--text-secondary); font: 700 0.6rem var(--font-mono); text-transform: uppercase; }
+.ld-diario small { text-transform: none; letter-spacing: 0; }
+.ld-diario__veia { display: grid; grid-template-columns: 40px 1fr; gap: 6px 10px; align-items: center; padding: 10px; border: 1px solid var(--veia-cor); }
+.ld-diario__veia-icone { font-size: 1.8rem; color: var(--veia-cor); text-align: center; }
+.ld-diario__veia b { display: block; font: 900 1rem var(--font-display); text-transform: uppercase; color: var(--veia-cor); }
+.ld-diario__veia small { font: 600 0.7rem var(--font-body); color: var(--text-secondary); }
+.ld-diario__trilha { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+.ld-diario__trilha li { padding: 4px 0; text-align: center; border: 1px solid var(--if-hair-strong); font: 800 0.6rem var(--font-mono); color: var(--text-secondary); }
+.ld-diario__trilha li.is-on { background: var(--veia-cor); color: #000; border-color: var(--veia-cor); }
+.ld-diario__pistas { margin: 0; padding-left: 18px; font: 500 0.8rem/1.5 var(--font-body); }
+.ld-diario__ato h3 { margin: 6px 0; font: 800 0.66rem var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--if-teal); }
+.ld-diario__ato ol { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.ld-diario__ato li { display: flex; flex-direction: column; font: 600 0.8rem/1.35 var(--font-body); }
+.ld-diario__ato li small { font: 700 0.56rem var(--font-mono); color: var(--text-secondary); text-transform: uppercase; }
+.ld-diario__vazio { margin: 0; font: 600 0.75rem var(--font-body); color: var(--text-secondary); }
+
+/* Minijogo por cima da cena */
+.ld-puzzle { position: fixed; inset: 0 var(--app-gutter); z-index: 1180; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.9); overscroll-behavior: none; overflow-y: auto; }
+
+/* Fim */
+.ld-fim { justify-content: center; text-align: center; }
+.ld-fim__titulo { margin: 0; font: 900 2.2rem/1.05 var(--font-display); text-transform: uppercase; color: var(--veia-cor); }
+.ld-fim__titulo.is-derrota { color: var(--if-danger); }
+.ld-fim__texto, .ld-fim__replay { margin: 0; font: 400 1rem/1.6 var(--font-body); }
+.ld-fim__replay { color: var(--text-secondary); font-size: 0.85rem; }
+.ld-fim__veia { margin: 0; font: 900 1rem var(--font-display); text-transform: uppercase; color: var(--veia-cor); }
+.ld-fim__decisoes { margin: 0; font: 700 0.62rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); }
+
+/* Lobby */
+.ld-lobby { gap: 16px; }
+.ld-lobby__titulo { margin: 0; font: 400 2.8rem/1 'Bring Race', var(--font-display); color: var(--if-teal); }
+.ld-lobby__desc { margin: 0; font: 400 0.95rem/1.55 var(--font-body); color: color-mix(in srgb, var(--if-ink) 85%, transparent); }
+.ld-lobby__cta { width: 100%; }
+.ld-lobby__novo { display: flex; flex-direction: column; gap: 10px; padding: 14px; }
+.ld-lobby__link { padding: 6px; cursor: pointer; background: none; border: 0; color: var(--text-secondary); font: 700 0.6rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; }
+.ld-lobby__guest { display: flex; flex-direction: column; gap: 6px; padding: 14px; font: 500 0.82rem/1.5 var(--font-body); }
+.ld-lobby__guest p { margin: 0; color: var(--text-secondary); }
+.ld-lobby__guest a { color: var(--if-amber); font-weight: 800; }
+.ld-lobby__saves, .ld-lobby__veias { display: flex; flex-direction: column; gap: 8px; }
+.ld-lobby__vazio { margin: 0; font: 600 0.8rem var(--font-body); color: var(--text-secondary); }
+.ld-save { display: flex; align-items: center; gap: 10px; padding: 12px; border-left: 2px solid var(--veia-cor, var(--if-hair-strong)); }
+.ld-save__info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ld-save__info b { font: 900 1rem var(--font-display); text-transform: uppercase; }
+.ld-save__info small { font: 700 0.62rem var(--font-mono); color: var(--veia-cor, var(--text-secondary)); }
+.ld-save__status { color: var(--if-amber) !important; }
+.ld-lobby__veias ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.ld-lobby__veias li { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 2px; text-align: center; border: 1px solid color-mix(in srgb, var(--veia-cor) 40%, transparent); }
+.ld-lobby__veias li span { font-size: 1.2rem; color: var(--veia-cor); }
+.ld-lobby__veias li b { font: 900 0.62rem var(--font-display); text-transform: uppercase; color: var(--veia-cor); }
+.ld-lobby__veias li small { font: 600 0.5rem var(--font-mono); color: var(--text-secondary); }
+
+@keyframes ld-pisca { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }

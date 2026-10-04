@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791098205.8125534,
-    "ast_hash": "378fc82f0327c5fd7bdaccc07e090c93",
+    "mtime": 1791099618.6311984,
+    "ast_hash": "0251298773f37c86eb6c1c19c0e51ba8",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2720,8 +2720,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791098205.8526125,
-    "ast_hash": "5e0b9bd754d45c0fab905788d9fce079",
+    "mtime": 1791099618.6842031,
+    "ast_hash": "f9bc362c093421f929f5d5978f2b9558",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7112,6 +7112,11 @@
   "src/pages/games/Gangues/components/resultado/ResultadoRecompensa.jsx": {
     "mtime": 1791094506.0949588,
     "ast_hash": "3c66ba8974a1a29c5dfbce101847e1ac",
+    "semantic_hash": ""
+  },
+  "docs/Games/LDILendas/LDI_LENDAS_GDD.md": {
+    "mtime": 1791099605.605826,
+    "ast_hash": "fa3e0b4b360bdd354e15b78ea7ed554e",
     "semantic_hash": ""
   }
 }

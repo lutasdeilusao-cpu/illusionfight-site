@@ -714,5 +714,13 @@
   "712": "usePersonagens.js",
   "713": "index.js",
   "714": "ResultCard.jsx",
-  "715": "Jokempo.jsx"
+  "715": "Jokempo.jsx",
+  "716": "DeckBuilder.jsx",
+  "717": "topTrumpsCardAccess.js",
+  "718": "renderSkillPanel",
+  "719": "resolveAttack",
+  "720": "PerfilColecao.jsx",
+  "721": "MazeRafael.jsx",
+  "722": "SlidingRafael.jsx",
+  "723": "endBattle"
 }

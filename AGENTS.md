@@ -274,6 +274,8 @@ Registro vivo de problemas já resolvidos no projeto para o agente não repetir 
 
 Histórico de mudanças não existe no produto, de maneira alguma (Isaias, 03/10/2026). Documentação em código e em arquivos do produto (comentários, `SITE_MAP.md`, comentários em `version.js`, CSS, dados) serve só para duas coisas: **definir que algo existe** ou **explicar de forma simples como algo funciona**. Qualquer outra coisa é proibida — "antes era X", "corrigido em", "pedido do fulano em tal data", número de versão em comentário, "redesign de", "substitui o antigo", bug que já foi resolvido. O histórico mora no `git log`. Ao encontrar histórico em qualquer arquivo do produto, retire na hora.
 
+- **Lendas do LDI: sem ficha, com Veias, e a narração segue o jeito de contar dos contos** (Isaias, 04/10/2026: "a narração é muito importante nesse jogo... refaça baseada nas maneiras que a gente tem de contar as histórias no produto"). O jogo não tem atributo, dado nem nível de personagem: o jogador escolhe uma das 5 Veias (Fio Solto, Lona, Faro, Caô, Estática — ids 1–5, nomes no i18n) na Encruzilhada, ela sobe de I a V, tranca escolhas (`requer`) e muda o texto (`{veia:N}` no começo da linha). Texto novo do Lendas: narrador em 2ª pessoa com dono, parágrafo curto, linha sozinha pra dar soco, `---` entre momentos, regra de rua virando frase, luta com física (peso, quadril, giro), gíria de Marelia, e o mundo do site (MDR/MDI, SBI, NeoGuide, SDR, PowWow, DIX). Marcação e regras completas no GDD (`docs/Games/LDILendas/LDI_LENDAS_GDD.md` §4.1). Texto da história só em pt até ser aprovado.
+
 ## Regra Anti-Over-Engineering
 
 Antes de criar **mais de 2 arquivos novos** para resolver qualquer problema, o agente deve apresentar a proposta e aguardar aprovação explícita.

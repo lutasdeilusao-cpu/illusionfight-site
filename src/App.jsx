@@ -51,13 +51,7 @@ const Prototype = lazyWithReload(() => import('./pages/lab/Prototype/Prototype')
 const SRGRM = lazyWithReload(() => import('./pages/lab/Prototype/SRGRM/SRGRM'))
 const ArenaTestbed = lazyWithReload(() => import('./pages/lab/Prototype/ArenaTestbed/ArenaTestbed'))
 const LDILobby = lazyWithReload(() => import('./pages/games/LDI/Lobby'))
-const LDICreate = lazyWithReload(() => import('./pages/games/LDI/Create'))
 const LDIGame = lazyWithReload(() => import('./pages/games/LDI/Game'))
-const LDICombat = lazyWithReload(() => import('./pages/games/LDI/Combat'))
-const LDISheet = lazyWithReload(() => import('./pages/games/LDI/Sheet'))
-const LDIClues = lazyWithReload(() => import('./pages/games/LDI/Clues'))
-const LDIEnd = lazyWithReload(() => import('./pages/games/LDI/End'))
-const LDIPuzzle = lazyWithReload(() => import('./pages/games/LDI/PuzzlePage'))
 const JackCandy = lazyWithReload(() => import('./pages/games/JackCandy/JackCandy'))
 const GanguesRoute = lazyWithReload(() => import('./pages/games/Gangues/GanguesRoute'))
 const ArenaTaticsRoute = lazyWithReload(() => import('./pages/games/ArenaTatics/ArenaTaticsRoute'))
@@ -189,13 +183,7 @@ export default function App() {
         <Route path="/games/toptrumps/multiplayer" element={<FichaGateRoute gameId="top_trumps" feature="a partida multiplayer" nomeExibicao="Top Trumps LDI"><TopTrumpsMP /></FichaGateRoute>} />
         <Route path="/games/multiplayer/lobby" element={<FichaGateRoute gameId="top_trumps" feature="o lobby multiplayer" nomeExibicao="Top Trumps LDI"><MultiplayerLobby /></FichaGateRoute>} />
         <Route path="/games/ldi" element={<FichaGateRoute gameId="lendas_ldi" feature="o Lendas do LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDILobby /></FichaGateRoute>} />
-        <Route path="/games/ldi/create" element={<FichaGateRoute gameId="lendas_ldi" feature="a criação de personagem LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDICreate /></FichaGateRoute>} />
         <Route path="/games/ldi/game" element={<FichaGateRoute gameId="lendas_ldi" feature="o Lendas do LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDIGame /></FichaGateRoute>} />
-        <Route path="/games/ldi/combat" element={<FichaGateRoute gameId="lendas_ldi" feature="o combate LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDICombat /></FichaGateRoute>} />
-        <Route path="/games/ldi/sheet" element={<FichaGateRoute gameId="lendas_ldi" feature="a ficha de personagem LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDISheet /></FichaGateRoute>} />
-        <Route path="/games/ldi/clues" element={<FichaGateRoute gameId="lendas_ldi" feature="as pistas LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDIClues /></FichaGateRoute>} />
-        <Route path="/games/ldi/end" element={<FichaGateRoute gameId="lendas_ldi" feature="o resultado LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDIEnd /></FichaGateRoute>} />
-        <Route path="/games/ldi/puzzle" element={<FichaGateRoute gameId="lendas_ldi" feature="o puzzle LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDIPuzzle /></FichaGateRoute>} />
         <Route path="/games/jackcandy" element={<FichaGateRoute gameId="jack_dream_beer" feature="o Jack Dream Beer" nomeExibicao="Jack Dream Beer"><JackCandy /></FichaGateRoute>} />
         <Route path="/games/minigames" element={<FichaGateRoute gameId="minigames" feature="os MiniGames" nomeExibicao="MiniGames" isFree={true}><MiniGames /></FichaGateRoute>} />
         <Route path="/games/ldi-gangues" element={<FichaGateRoute gameId="gangues" feature="o LDI Gangues" nomeExibicao="LDI Gangues"><GanguesRoute /></FichaGateRoute>} />

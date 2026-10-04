@@ -1,291 +1,227 @@
 [
   {
     "id": "4.1",
-    "title": "A Decisão Final",
-    "image": "",
+    "title": "Setenta e Duas Horas",
+    "capitulo": "72 Horas",
+    "ganha": { "nivel": 5 },
     "text": [
-      "72 horas. É o que você tem antes do Engenheiro de Integridade destruir todas as provas.",
-      "Kaeda está no terminal,地图 digital do prédio da Yohualticit aberta.",
-      "[KAEDA] \"A gente tem três jeitos de entrar. Cada um depende do que você construiu até aqui.\"",
+      "Setenta e duas horas. É o que sobra antes do Engenheiro de Integridade apagar a prova, o abrigo e vocês dois.",
+      "Kaeda abre no terminal o mapa do prédio da Yohualticit. Andar por andar. Porta por porta.",
+      "[KAEDA] \"Tem três jeitos de chegar nele. Cada um depende do que você construiu até aqui.\"",
+      "---",
+      "Eu vou te falar a coisa mais importante que eu sei, e depois eu calo a boca: no fim, ninguém chega no topo com o que ganhou. Chega com o que virou.",
+      "{veia:1} Você enxerga o prédio inteiro como um código aberto. Cada porta é uma pergunta. Você já sabe a resposta de quase todas.",
+      "{veia:2} Seus punhos tão enfaixados faz dois dias. Você não lembra de ter enfaixado. Seu corpo já decidiu como isso termina.",
+      "{veia:3} Na sua parede tem o desenho completo. Horário, dinheiro, cargo, assinatura. Falta só uma coisa: alguém ter coragem de mostrar.",
+      "{veia:4} Você já sabe o que esse homem quer, o que ele teme e quanto ele vale. Todo homem tem preço. O dele tá escrito na cara do terminal.",
+      "{veia:5} O chiado agora é uma voz inteira. Ela não fala o que fazer. Ela só repete uma coisa: *você não tá sozinho aqui dentro*.",
+      "---",
       "[KAEDA] \"Escolhe.\""
     ],
     "choices": [
-      {
-        "id": "A",
-        "label": "⚔️ Confronto Direto — invadir e enfrentar",
-        "requires": { "F": 3, "H": 3 },
-        "cost": null,
-        "flags_required": [],
-        "flags_set": ["ROTA_COMBATE"],
-        "next_scene": "4.1a_combate",
-        "sheet_effect": {}
-      },
-      {
-        "id": "B",
-        "label": "📋 Exposição — entregar provas à imprensa",
-        "requires": null,
-        "cost": null,
-        "flags_required": ["PISTA_FINANCEIRA"],
-        "flags_set": ["ROTA_EXPOSICAO"],
-        "next_scene": "4.1b_exposicao",
-        "sheet_effect": {}
-      },
-      {
-        "id": "C",
-        "label": "🗣️ Negociação — encontrar o vilão pessoalmente",
-        "requires": null,
-        "cost": null,
-        "flags_required": ["PISTA_CARGO", "PISTA_NPC"],
-        "flags_set": ["ROTA_NEGOCIACAO"],
-        "next_scene": "4.1c_negociacao",
-        "sheet_effect": {}
-      },
-      {
-        "id": "D",
-        "label": "⚠️ Ir despreparado — não esperar mais",
-        "requires": null,
-        "cost": null,
-        "flags_required": [],
-        "flags_set": ["ROTA_DESPREPARADO"],
-        "next_scene": "4.1d_despreparado",
-        "sheet_effect": {}
-      }
+      { "id": "A", "label": "Invadir pela arena principal e encarar ele", "requer": { "veia": 2, "nivel": 4 }, "flags_set": ["ROTA_COMBATE"], "decisao": true, "next_scene": "4.1a_combate" },
+      { "id": "B", "label": "Jogar tudo na cara do mundo", "flags_required": ["PISTA_FINANCEIRA"], "flags_set": ["ROTA_EXPOSICAO"], "decisao": true, "next_scene": "4.1b_exposicao" },
+      { "id": "C", "label": "Sentar com ele frente a frente", "flags_required": ["PISTA_CARGO", "PISTA_NPC"], "flags_set": ["ROTA_NEGOCIACAO"], "decisao": true, "next_scene": "4.1c_negociacao" },
+      { "id": "D", "label": "Entrar agora, do jeito que der", "flags_set": ["ROTA_DESPREPARADO"], "next_scene": "4.1d_despreparado" }
     ]
   },
   {
     "id": "4.1a_combate",
-    "title": "⚔️ Rota: Confronto Direto",
-    "image": "",
+    "title": "Pela Porta da Frente",
     "text": [
-      "Você escolhe o caminho mais direto: invadir o terminal do Engenheiro pelo LDI e enfrentá-lo na arena.",
-      "Kaeda ajusta seu SBI para o ataque.",
-      "[KAEDA] \"Ele vai estar esperando. Mas não vai esperar que você entre pela arena principal.\"",
-      "[KAEDA] \"Vai ser uma luta suja. Sem regras.\"",
-      "Você conecta. A arena se materializa ao seu redor.",
-      "NULL_ENTITY está lá. Esperando."
+      "O caminho mais burro. E por isso mesmo o único que ele não espera.",
+      "Ninguém invade a Yohualticit pela arena principal, com três bilhões de pessoas podendo assistir. Ninguém é tão maluco.",
+      "Você é.",
+      "Kaeda ajusta o seu SBI sem falar nada. Quando termina, segura o seu rosto com as duas mãos, igual mãe antes da escola.",
+      "[KAEDA] \"Ele vai lutar sujo. Sem regra nenhuma.\"",
+      "Você conhece a única regra da briga de rua. Todo mundo em Marelia conhece.",
+      "Não há regras.",
+      "Você conecta. A arena principal se monta em volta de você, gigante, vazia, com as arquibancadas apagadas.",
+      "E no meio dela, esperando, uma coisa que não é bem gente."
     ],
     "choices": [
-      {
-        "id": "A",
-        "label": "Enfrentar NULL_ENTITY ⚔️",
-        "requires": null,
-        "cost": null,
-        "flags_required": [],
-        "flags_set": ["CONFRONTO_FINAL"],
-        "next_scene": "combat_null_entity_final",
-        "next_after_combat": "4.2_vitoria",
-        "sheet_effect": {}
-      }
+      { "id": "A", "label": "Andar até o centro", "flags_set": ["CONFRONTO_FINAL"], "next_scene": "4.1a-briga" }
+    ]
+  },
+  {
+    "id": "4.1a-briga",
+    "title": "NULL_ENTITY",
+    "luta": "NULL_ENTITY",
+    "text": [
+      "NULL_ENTITY não é um jogador. É o Engenheiro de Integridade vestido de arma.",
+      "Ele não tem rosto. Tem um vazio em forma de rosto. E quando ele se mexe, a arena se mexe junto, porque a arena é dele.",
+      "O primeiro golpe dele não pega em você. Pega no chão embaixo de você. O piso some e você cai três metros, de costas, no nada.",
+      "[SISTEMA] \"RANK: 210.000... 850.000... 1.300.000... ERRO.\"",
+      "Ele tá te apagando enquanto bate. Cada soco tira um pedaço de quem você é aqui dentro.",
+      "Você levanta. Ele vira a gravidade. Você levanta de novo, no teto agora. Ele ri. É um som de modem velho, de internet discada, do tempo em que o mundo ainda era lento.",
+      "---",
+      "Ele luta com o sistema inteiro do lado dele.",
+      "Você luta com o que aprendeu. Com o beco, com a lona encardida, com o GhostPulse, com o muro que andou. Com cada surra dos últimos quinze dias.",
+      "E isso, o seu jeito, é a única coisa naquela arena que ele não escreveu.",
+      "Ele não sabe ler você. Ele sabe ler código. E você parou de ser código faz tempo.",
+      "Você acha a brecha. O meio segundo entre ele reescrever a arena e ela terminar de carregar.",
+      "E não solta mais."
+    ],
+    "choices": [
+      { "id": "A", "label": "Terminar", "next_scene": "4.2_vitoria" }
     ]
   },
   {
     "id": "4.1b_exposicao",
-    "title": "📋 Rota: Exposição Pública",
-    "image": "",
+    "title": "Na Cara do Mundo",
     "text": [
-      "Você entrega todo o dossiê para a Organização. Eles têm contatos na imprensa do MDR.",
-      "Kaeda coordena a operação.",
-      "[KAEDA] \"As provas são sólidas. Logs, registros financeiros, assinatura digital.\"",
-      "[KAEDA] \"Vai levar algumas horas, mas quando a história estourar, ele não vai ter para onde correr.\"",
-      "Você espera. O terminal da Organização transmite os dados.",
-      "E, uma hora depois, a notificação chega:",
-      "[SISTEMA] \"ENG_INTEGRIDADE_47 — Acesso revogado. Investigação interna iniciada.\"",
-      "Funcionou. O vilão está exposto. Você venceu sem um único golpe."
+      "Você entrega o dossiê inteiro pra Organização. Logs, transferência, assinatura, horário. Tudo.",
+      "A Organização tem contato na imprensa do MDR. Gente que escreve sobre o LDI, gente que tem medo da Yohu, gente que tá esperando faz anos uma história desse tamanho.",
+      "[KAEDA] \"A prova é sólida. Quando estourar, ele não vai ter pra onde correr.\"",
+      "Vocês esperam. O abrigo fica num silêncio de sala de espera de hospital.",
+      "Uma hora. Uma hora e meia.",
+      "Aí o PowWow explode. Um vídeo, depois cem, depois dez mil. A hashtag sobe pro topo do mundo. Todo mundo que perdeu uma luta de madrugada nos últimos dois anos quer saber o nome do Engenheiro.",
+      "[SISTEMA] \"ENG_INTEGRIDADE_47: ACESSO REVOGADO. INVESTIGAÇÃO INTERNA INICIADA.\"",
+      "Você venceu sem dar um soco.",
+      "Tem gente que acha que isso é vitória menor. Essa gente nunca viu um homem cair pela própria assinatura."
     ],
     "choices": [
-      {
-        "id": "A",
-        "label": "Comemorar com Kaeda",
-        "requires": null,
-        "cost": null,
-        "flags_required": [],
-        "flags_set": ["VITORIA_EXPOSICAO"],
-        "next_scene": "4.2_vitoria",
-        "sheet_effect": {}
-      }
+      { "id": "A", "label": "Olhar pra Kaeda", "flags_set": ["VITORIA_EXPOSICAO"], "next_scene": "4.2_vitoria" }
     ]
   },
   {
     "id": "4.1c_negociacao",
-    "title": "🗣️ Rota: Negociação",
-    "image": "",
+    "title": "Café",
     "text": [
-      "Você marca um encontro no MDR. Um café. Sem armas.",
-      "O Engenheiro de Integridade aparece. É um homem magro, olheiras profundas, terno barato.",
-      "Ele não parece um vilão. Parece alguém que fez escolhas erradas.",
-      "Você mostra as provas.",
-      "\"Você não vai entregar isso.\" — a voz dele treme.",
-      "\"Se entregar, eu perco tudo. Meu emprego. Minha liberdade.\"",
-      "Ele oferece um acordo: os nomes dos apostadores em troca de não ser denunciado.",
-      "O que você faz?"
+      "Você marca no MDR. Lá fora, no mundo de verdade. Uma padaria de esquina em Marelia, mesa de plástico, café coado.",
+      "Sem SBI. Sem arena. Sem nada que ele possa reescrever.",
+      "Ele chega atrasado. É um homem magro, olheira funda, terno barato que já foi caro. Pede um pingado e não toma.",
+      "Não parece vilão. Parece um cara que fez uma escolha errada, depois outra pra esconder a primeira, depois mais vinte.",
+      "Você mostra as provas no celular. Ele lê tudo sem piscar. Quando termina, a mão dele treme na xícara.",
+      "[ENGENHEIRO] \"Você não vai entregar isso.\"",
+      "[ENGENHEIRO] \"Se entregar, eu perco tudo. O emprego, a casa, a liberdade. Eu tenho filha.\"",
+      "Ele respira fundo.",
+      "[ENGENHEIRO] \"Eu te dou os nomes. De quem apostava. De quem me pagava. Gente muito maior que eu. Em troca, você me deixa sair andando.\"",
+      "{veia:4} Ele não tá mentindo sobre a filha. Mas tá mentindo sobre outra coisa. Você vê no jeito que ele segura o celular virado pra baixo."
     ],
     "choices": [
-      {
-        "id": "A",
-        "label": "Aceitar o acordo — nomes dos apostadores",
-        "requires": null,
-        "cost": null,
-        "flags_required": [],
-        "flags_set": ["ACEITOU_ACORDO"],
-        "next_scene": "4.1c_acordo",
-        "sheet_effect": {}
-      },
-      {
-        "id": "B",
-        "label": "Recusar — entregar tudo para a Organização",
-        "requires": null,
-        "cost": null,
-        "flags_required": [],
-        "flags_set": ["RECUSOU_ACORDO"],
-        "next_scene": "4.1b_exposicao",
-        "sheet_effect": {}
-      }
+      { "id": "A", "label": "Pegar os nomes e deixar ele ir", "flags_set": ["ACEITOU_ACORDO"], "decisao": true, "next_scene": "4.1c_acordo" },
+      { "id": "B", "label": "Levantar e entregar tudo pra Organização", "flags_set": ["RECUSOU_ACORDO"], "decisao": true, "next_scene": "4.1b_exposicao" }
     ]
   },
   {
     "id": "4.1c_acordo",
-    "title": "O Acordo",
-    "image": "",
+    "title": "Os Nomes",
     "text": [
-      "Você aceita. Ele entrega um chip com os nomes.",
-      "\"Sinceramente? Obrigado.\" — ele parece aliviado.",
-      "\"Eu sei que não mereço, mas... obrigado.\"",
-      "Ele vai responder pelo que fez, mas sem a destruição completa da vida dele.",
-      "Kaeda não concorda totalmente, mas respeita sua decisão.",
+      "Você aceita. Ele empurra um chip pela mesa, por baixo do guardanapo.",
+      "[ENGENHEIRO] \"Sinceramente? Obrigado.\"",
+      "Ele levanta, deixa o pingado intacto e o dinheiro em cima da mesa. Na porta, vira.",
+      "[ENGENHEIRO] \"Eu sei que não mereço.\"",
+      "E some na calçada, um homem comum no meio de um monte de homens comuns.",
+      "---",
+      "Kaeda não concorda. Ela fala isso com o silêncio, que é o jeito mais alto que ela tem de falar.",
       "[KAEDA] \"Você é melhor pessoa do que eu. Espero que esteja certo.\"",
-      "O chip revela uma rede de apostadores que leva a lugares que vocês nem imaginavam.",
-      "Isso é maior que um engenheiro corrupto. Muito maior."
+      "Vocês abrem o chip.",
+      "E os nomes levam a lugares que nem ela imaginava. Apostadores, patrocinadores, gente de terno no alto de torre corporativa, e um nome no fim da lista que faz a Kaeda fechar o terminal na hora.",
+      "Isso é maior que um engenheiro vendido. Muito maior."
     ],
     "choices": [
-      {
-        "id": "A",
-        "label": "Encerrar o Arco 1",
-        "requires": null,
-        "cost": null,
-        "flags_required": [],
-        "flags_set": ["VITORIA_NEGOCIACAO"],
-        "next_scene": "4.2_vitoria",
-        "sheet_effect": {}
-      }
+      { "id": "A", "label": "Guardar o chip", "flags_set": ["VITORIA_NEGOCIACAO"], "next_scene": "4.2_vitoria" }
     ]
   },
   {
     "id": "4.1d_despreparado",
-    "title": "⚠️ Confronto Despreparado",
-    "image": "",
+    "title": "Teimosia",
     "text": [
-      "Você não tem todas as provas. Não tem o plano ideal.",
-      "Mas tem coragem. Ou teimosia.",
-      "Kaeda tenta te convencer a esperar.",
-      "[KAEDA] \"Você não está pronto. A gente pode esperar mais um dia.\"",
-      "[KAEDA] \"Se entrar assim, as chances são... pequenas.\"",
-      "Você insiste. Não vai esperar."
+      "Você não tem todas as provas. Não tem plano bom. Não tem nem plano ruim.",
+      "Tem coragem. Ou teimosia. De perto, as duas têm a mesma cara.",
+      "Kaeda fica entre você e a porta.",
+      "[KAEDA] \"Você não tá pronto. Espera um dia. Só um.\"",
+      "[KAEDA] \"Se entrar assim, as chances são pequenas. Pequenas mesmo.\"",
+      "Ela não tá blefando. Ela nunca blefa. Ela tá com medo de verdade, e o medo dela é por você.",
+      "Você olha pra porta. Depois pra ela."
     ],
     "choices": [
-      {
-        "id": "A",
-        "label": "Insistir — entrar agora (⚠️ perigo extremo)",
-        "requires": null,
-        "cost": null,
-        "flags_required": [],
-        "flags_set": ["CONFRONTO_DESPREPARADO"],
-        "next_scene": "combat_null_entity_final",
-        "next_after_combat": "4.2_vitoria_desperado",
-        "sheet_effect": {}
-      },
-      {
-        "id": "B",
-        "label": "Esperar — voltar e se preparar melhor",
-        "requires": null,
-        "cost": null,
-        "flags_required": [],
-        "flags_set": ["VOLTOU_PREPARO"],
-        "next_scene": "4.1",
-        "sheet_effect": {}
-      }
+      { "id": "A", "label": "Passar por ela e entrar mesmo assim", "flags_set": ["CONFRONTO_DESPREPARADO"], "decisao": true, "next_scene": "4.1d-briga" },
+      { "id": "B", "label": "Sentar. Ela tem razão", "flags_set": ["VOLTOU_PREPARO"], "next_scene": "4.1" }
+    ]
+  },
+  {
+    "id": "4.1d-briga",
+    "title": "Sem Plano",
+    "luta": "NULL_ENTITY",
+    "text": [
+      "Você entra sem plano, sem as provas e sem a Kaeda no ouvido.",
+      "NULL_ENTITY tá te esperando no meio da arena, como se soubesse que você vinha. Claro que sabia.",
+      "[NULL_ENTITY] \"Veio sozinho. Isso facilita.\"",
+      "O primeiro golpe te joga de costas no chão. O segundo apaga metade da sua visão. O terceiro você nem vê, só sente o gosto de ferro na boca e o seu rank despencando em números vermelhos.",
+      "Lá fora, no quarto de três por três, o seu corpo de verdade tá suando frio. O Immersor range igual no primeiro dia.",
+      "Sobra uma escolha. Talvez a última."
+    ],
+    "choices": [
+      { "id": "A", "label": "Jogar a sua Veia inteira nessa luta", "requer": { "nivel": 5 }, "decisao": true, "next_scene": "4.2_vitoria_desperado" },
+      { "id": "B", "label": "Levantar só no braço e na teimosia", "next_scene": "4.2_derrota" }
     ]
   },
   {
     "id": "4.2_vitoria",
-    "title": "🏆 Vitória",
-    "image": "",
+    "title": "Lenda",
+    "destaque": true,
     "text": [
-      "O Arco 1 está encerrado.",
-      "O Engenheiro de Integridade não é mais uma ameaça.",
-      "NULL_ENTITY foi derrotado.",
-      "Kaeda está ao seu lado, exausta, mas sorrindo.",
+      "Acabou.",
+      "O Engenheiro de Integridade não é mais ameaça pra ninguém. NULL_ENTITY virou uma linha apagada num log que ninguém vai ler.",
+      "Kaeda senta do seu lado no chão do abrigo. Exausta. Sorrindo. Ela agora sorri, às vezes. Ainda fica estranho no rosto dela, mas fica menos.",
       "[KAEDA] \"A gente conseguiu.\"",
-      "[KAEDA] \"Mas isso foi só o começo. A Organização tem um nome.\"",
-      "Ela hesita.",
-      "[KAEDA] \"E Kronos sabe que você existe.\"",
-      "O terminal da Organização pisca uma última mensagem:",
-      "[SISTEMA] \"Arquivo: missão concluída. Novos dados disponíveis para o Arco 2.\"",
-      "Fim do Arco 1."
+      "Ela demora pra falar a próxima. Escolhe as palavras igual quem escolhe onde pisar.",
+      "[KAEDA] \"Mas isso foi só a porta. Quem pagava o Engenheiro tem nome. E esse nome sabe que você existe.\"",
+      "[KAEDA] \"Kronos sabe que você existe.\"",
+      "---",
+      "Quinze dias atrás você era ninguém. Rank de um milhão e pouco, um SBI de terceira mão e um quarto de três por três na periferia de Marelia.",
+      "Hoje no PowWow tem gente perguntando seu nome. Errado, mas perguntando.",
+      "É assim que começa uma lenda. Não com um soco bonito. Com alguém que caiu, levantou e não aceitou ser apagado.",
+      "[SISTEMA] \"ARQUIVO: TEMPORADA 1 CONCLUÍDA.\""
     ],
     "choices": [
-      {
-        "id": "A",
-        "label": "Ver retrospecto da jornada",
-        "requires": null,
-        "cost": null,
-        "flags_required": [],
-        "flags_set": [],
-        "next_scene": "end_act1_vitoria",
-        "sheet_effect": {}
-      }
+      { "id": "A", "label": "Ver a sua jornada", "next_scene": "fim:vitoria" }
     ]
   },
   {
     "id": "4.2_vitoria_desperado",
-    "title": "🏆 Vitória — Por pouco",
-    "image": "",
+    "title": "Por Pouco",
+    "destaque": true,
     "text": [
-      "Você venceu. Por pouco.",
-      "O corpo digital de NULL_ENTITY se desfaz em dados corrompidos.",
-      "Você está à beira do colapso — PV crítico, SBI superaquecido.",
-      "Mas venceu.",
-      "Kaeda aparece na arena, puxa você para fora antes do sistema travar.",
-      "[KAEDA] \"Você é louco. Mas conseguiu.\"",
-      "Ela ajuda você a se levantar.",
-      "[KAEDA] \"Descansa. A gente continua amanhã.\""
+      "Você levanta.",
+      "Não sei explicar como. Não tinha mais nada pra levantar. Mas você levanta, e quando levanta, a coisa que você aprendeu nesses quinze dias levanta junto.",
+      "{veia:1} Você para de lutar contra ele e começa a lutar contra a arena. Puxa o fio solto que ninguém viu e a arena dele desmonta igual roupa mal costurada.",
+      "{veia:2} Seu corpo assume. A Lona. Você não pensa em golpe nenhum. Você só lembra de todas as vezes que caiu e voltou, e volta mais uma.",
+      "{veia:3} Você viu. Faz tempo que você viu. Antes de cada golpe ele olha pro mesmo canto da arena, pro mesmo log. Você chega no canto antes dele.",
+      "{veia:4} \"Teus patrões já te venderam, sabia?\" Ele trava. Só um segundo. Gente que vive de mentira não aguenta uma verdade bem colocada.",
+      "{veia:5} O chiado vira um grito com mil vozes, antigas, de muito antes do LDI. E por um instante elas lutam com você.",
+      "---",
+      "O corpo digital do NULL_ENTITY se desfaz em dado corrompido.",
+      "Você venceu. Por pouco. PV no fim, SBI fervendo, a nuca queimando lá fora.",
+      "Kaeda entra na arena e te arranca de lá um segundo antes do sistema travar.",
+      "[KAEDA] \"Você é louco.\"",
+      "Ela te ajuda a levantar.",
+      "[KAEDA] \"Mas conseguiu. Descansa. Amanhã a gente vê o tamanho do estrago.\""
     ],
     "choices": [
-      {
-        "id": "A",
-        "label": "Fim da jornada",
-        "requires": null,
-        "cost": null,
-        "flags_required": [],
-        "flags_set": [],
-        "next_scene": "end_act1_vitoria",
-        "sheet_effect": {}
-      }
+      { "id": "A", "label": "Ver a sua jornada", "next_scene": "fim:vitoria" }
     ]
   },
   {
     "id": "4.2_derrota",
-    "title": "💀 Derrota",
-    "image": "",
+    "title": "Apagado",
     "text": [
       "NULL_ENTITY foi mais forte.",
-      "Seu avatar se desfaz em pixels. A arena desaparece.",
-      "Você acorda no MDR, desconectado.",
-      "O SBI está queimado. A modificação da Organização, perdida.",
-      "Kaeda não atende.",
-      "Você perdeu. Mas a ficha ainda está aqui. A experiência ainda conta.",
-      "O Arco 1 terminou. Mas sua história pode continuar."
+      "Você levanta uma vez. Duas. Na terceira, o chão não volta.",
+      "Seu avatar se desfaz em pixel. A arena some. O azul some.",
+      "---",
+      "Você acorda no quarto de três por três, com o Immersor ainda rangendo e a luz piscando por causa do gato do vizinho.",
+      "O SBI tá queimado. Cheiro de plástico derretido. A modificação da Organização foi junto. Quatro meses de economia e quinze dias de vida, fumaça.",
+      "Você liga pra Kaeda. Ela não atende.",
+      "Você liga de novo. Nada.",
+      "Lá fora, Marelia faz o barulho de sempre. Moto subindo a ladeira, o cachorro que late pra nada, o funk que não dorme.",
+      "Você perdeu. Mas eu vou te contar uma coisa que eu aprendi na rua: perder não é o fim de ninguém. O fim é não voltar.",
+      "E toda Veia tem outro caminho."
     ],
     "choices": [
-      {
-        "id": "A",
-        "label": "Recomeçar — novo run com esta ficha",
-        "requires": null,
-        "cost": null,
-        "flags_required": [],
-        "flags_set": [],
-        "next_scene": "end_act1_derrota",
-        "sheet_effect": {}
-      }
+      { "id": "A", "label": "Ver a sua jornada", "next_scene": "fim:derrota" }
     ]
   }
 ]
