@@ -341,6 +341,10 @@ cômodo de ~460×320 = criar outro cômodo. `com.nome` vira o nome no topo.
   | **Bonde Rival** (outro bairro vem tirar satisfação) | vermelha | 3–4 de Feira/Baixada (1204–1209), ~75% | BANG! |
   | **O Cobrador** (vem cobrar o salve da Banca) | roxa | 2: cobrador (1401–1406) + capanga, ~115% | PÁ! |
 
+  **Perdeu, perde coisa:** a moto te rapela (até 3 consumíveis da bolsa); a
+  Ronda pega o acerto (20% da grana na mão) e ainda leva 1 consumível. A tela
+  de derrota mostra quem levou o quê (`derrota` em `ALEATORIO_TIPOS`).
+
   O 1º encontro é sempre a moto e o 2º a polícia; depois sorteia entre os
   tipos da cena, sem repetir o anterior.
 - **Sirene:** enquanto a Ronda persegue, a tela da cena pisca vermelho/azul.

@@ -12,6 +12,7 @@ import { CENAS_POR_ID, destinoSocorroDerrota, custoRecuperacaoRinha } from '../d
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
 import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import { desligarAutomaticos } from './useGanguesBrigaAutomatica.js'
+import { useGanguesStore } from '../store/useGanguesStore'
 import { bonusGranaDasCartas } from '../engine/ganguesCartaEfeitos.js'
 
 export default function useGanguesVictoryResolution({ store, user, report, victory, storyAlvo, match, torre, torreAndar, clube, emCena, noModoHistoria, cenaChefe, confrontoFinal, onNavigate }) {
@@ -191,14 +192,17 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       // a recuperação em cima do que sobrou.
       const regraDerrota = storyAlvo?.cenaPoiId === '__aleatorio' ? ALEATORIO_TIPOS[storyAlvo.aleatorioTipo]?.derrota : null
       let perda = null
-      if (regraDerrota?.levaConsumivel) {
-        const consumiveis = GANGUES_ITENS_LISTA.filter(it => (it.tipo === 'cura_pv' || it.tipo === 'cura_pm' || it.tipo === 'buff' || it.tipo === 'debuff_inimigos') && (store.inventario[it.id] || 0) > 0)
-        const levado = consumiveis[Math.floor(Math.random() * consumiveis.length)]
-        if (levado && store.usarItem(levado.id)) perda = { itemId: levado.id }
-      }
-      if (regraDerrota?.levaGranaFrac) {
-        const valor = Math.floor(store.grana * regraDerrota.levaGranaFrac)
-        if (valor > 0 && store.gastarGrana(valor)) perda = { grana: valor }
+      if (regraDerrota) {
+        const quem = storyAlvo.aleatorioTipo
+        const itens = []
+        for (let n = 0; n < (regraDerrota.levaConsumivel || 0); n++) {
+          const consumiveis = GANGUES_ITENS_LISTA.filter(it => ['cura_pv', 'cura_pm', 'cura_status', 'buff', 'debuff_inimigos'].includes(it.tipo) && (useGanguesStore.getState().inventario[it.id] || 0) > 0)
+          const levado = consumiveis[Math.floor(Math.random() * consumiveis.length)]
+          if (levado && store.usarItem(levado.id)) itens.push(levado.id)
+        }
+        const grana = regraDerrota.levaGranaFrac ? Math.floor(store.grana * regraDerrota.levaGranaFrac) : 0
+        const pagou = grana > 0 && store.gastarGrana(grana)
+        if (itens.length || pagou) perda = { quem, itens, grana: pagou ? grana : 0 }
       }
       if (destino) {
         const custoBase = cena.pois.find(p => p.id === destino.poiId)?.custoGrana || 10

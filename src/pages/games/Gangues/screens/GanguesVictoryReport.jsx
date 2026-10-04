@@ -83,8 +83,8 @@ export default function GanguesVictoryReport({
       {!victory && socorro && (
         <section className="resultado-bloco resultado-socorro">
           <h2 className="resultado-titulo">{t(socorro.tipo === 'rinha' ? 'games.gangues.report.socorro_rinha_titulo' : 'games.gangues.report.socorro_titulo')}</h2>
-          {socorro.perda?.itemId && <p className="resultado-socorro__texto">{t('games.gangues.report.perda_item', { item: t(getGanguesItem(socorro.perda.itemId)?.nome || '') })}</p>}
-          {socorro.perda?.grana > 0 && <p className="resultado-socorro__texto">{t('games.gangues.report.perda_grana', { n: socorro.perda.grana })}</p>}
+          {socorro.perda?.itens?.length > 0 && <p className="resultado-socorro__texto">{t('games.gangues.report.perda_item', { quem: t(`games.gangues.cena.aleatorio.${socorro.perda.quem}.nome`), itens: Object.entries(socorro.perda.itens.reduce((acc, id) => ({ ...acc, [id]: (acc[id] || 0) + 1 }), {})).map(([id, n]) => `${t(getGanguesItem(id)?.nome || '')}${n > 1 ? ` ×${n}` : ''}`).join(', ') })}</p>}
+          {socorro.perda?.grana > 0 && <p className="resultado-socorro__texto">{t('games.gangues.report.perda_grana', { quem: t(`games.gangues.cena.aleatorio.${socorro.perda.quem}.nome`), n: socorro.perda.grana })}</p>}
           <p className="resultado-socorro__texto">{t(`games.gangues.report.socorro_${socorro.tipo}`, socorro)}</p>
           {socorro.divida > 0 && (
             <p className="resultado-socorro__divida">

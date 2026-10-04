@@ -98,8 +98,8 @@
         "socorro_fiado": "Sin plata y ya debiendo, el usurero pagó los {custo} de la recuperación — a 10× el valor. La deuda subió {acrescimo}.",
         "socorro_divida": "Deuda con el usurero: {divida}",
         "socorro_clube": "Solo el Club de la Pelea limpia ese nombre.",
-        "perda_item": "La Redada se llevó tu {item}.",
-        "perda_grana": "El Cobro del Turco se llevó {n} de tu plata.",
+        "perda_item": "Perdiste contra {quem}: se llevaron {itens}.",
+        "perda_grana": "Perdiste contra {quem}: se llevaron {n} de tu dinero.",
         "socorro_rinha_titulo": "La casa te remendó",
         "socorro_rinha": "La banda cayó, pero tenías plata: la riña cobró {custo} por la recuperación y ya está llamando al siguiente. Te quedaron {grana}."
       },

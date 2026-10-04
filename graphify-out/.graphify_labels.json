@@ -498,12 +498,10 @@
   "496": "interiores.js",
   "497": "Universo.jsx",
   "498": "useGanguesVictoryResolution.js",
-  "499": "useSharedLobbyMachine.js",
   "500": "colunaApp.js",
   "501": "Vila.jsx",
   "502": "ResultScreen.jsx",
   "503": "Phase2Customize.jsx",
-  "504": "LanguageProvider.jsx",
   "505": "PerfilTamagoshi.jsx",
   "506": "GanguesCenaEncontros.jsx",
   "507": "paridade-exata.mjs",
@@ -662,9 +660,7 @@
   "660": "pois.js",
   "661": "criaturas.js",
   "662": "Alimentar.jsx",
-  "664": "initBattle",
   "665": "RadioNinaPlaylist.jsx",
-  "666": "personalidades.js",
   "667": "ganguesChefes.js",
   "668": "useTamagoshiStore.js",
   "669": "PerfilTamagoshi.jsx",
@@ -704,6 +700,5 @@
   "704": "OBSTACULOS_VILA",
   "705": "POSTES_VILA",
   "706": "QUARTEIROES_VILA",
-  "707": "RUAS_VILA",
-  "708": ".stopHeartbeatLoop"
+  "707": "RUAS_VILA"
 }

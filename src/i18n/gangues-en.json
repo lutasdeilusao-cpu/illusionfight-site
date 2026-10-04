@@ -98,8 +98,8 @@
         "socorro_fiado": "Broke and already in debt, the loan shark covered the {custo} patch-up — at 10× the price. Your debt went up {acrescimo}.",
         "socorro_divida": "Debt with the loan shark: {divida}",
         "socorro_clube": "Only the Fight Club clears that name.",
-        "perda_item": "The Raid took your {item}.",
-        "perda_grana": "The Turk's Collection took {n} of your cash.",
+        "perda_item": "Lost to {quem}: they took {itens}.",
+        "perda_grana": "Lost to {quem}: they took {n} of your cash.",
         "socorro_rinha_titulo": "The house patched you up",
         "socorro_rinha": "The crew went down, but you had cash: the pit charged {custo} for the patch-up and is already calling the next one. You kept {grana}."
       },

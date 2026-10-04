@@ -37,8 +37,10 @@ const SPAWN_MIN_PASSOS = 16, SPAWN_MAX_PASSOS = 26
  *  genérico (Piloto/Garupa, Soldado/Cabo) ganha nome de rua próprio por
  *  corpo, sem repetir (batizarBando, ganguesEncontros.js). */
 export const ALEATORIO_TIPOS = {
-  moto: { id: 'moto', cor: 'amarela', revezamento: { pool: [1701, 1702], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 0.9, baseMaisForte: true, apelidos: 'moto' } },
-  policia: { id: 'policia', cor: 'azul', revezamento: { pool: [1711, 1712], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 1, baseMaisForte: true, apelidos: 'policia' } },
+  // Se ganharem de você (`derrota`): a moto te rapela (até 3 consumíveis); a
+  // Ronda pega o acerto (20% da grana na mão) e ainda leva 1 consumível.
+  moto: { id: 'moto', cor: 'amarela', revezamento: { pool: [1701, 1702], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 0.9, baseMaisForte: true, apelidos: 'moto' }, derrota: { levaConsumivel: 3 } },
+  policia: { id: 'policia', cor: 'azul', revezamento: { pool: [1711, 1712], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 1, baseMaisForte: true, apelidos: 'policia' }, derrota: { levaGranaFrac: 0.2, levaConsumivel: 1 } },
   bonde: { id: 'bonde', cor: 'vermelha', revezamento: { pool: [1204, 1205, 1206, 1207, 1208, 1209], budgetPorCorpo: 3, qtdMin: 3, qtdMax: 4, ratioComTime: 0.75, baseMaisForte: true } },
   cobranca: { id: 'cobranca', cor: 'roxa', revezamento: { pool: [1401, 1402, 1404, 1405, 1406], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 2, ratioComTime: 1.15, baseMaisForte: true } },
   // ── Feira (v3.65.0) ──

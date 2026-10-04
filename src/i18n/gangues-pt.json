@@ -98,8 +98,8 @@
         "socorro_fiado": "Sem grana e já devendo, o agiota bancou os {custo} da recuperação — a 10× o valor. A dívida subiu {acrescimo}.",
         "socorro_divida": "Dívida com o agiota: {divida}",
         "socorro_clube": "Só o Clube da Luta limpa esse nome.",
-        "perda_item": "O Rapa levou teu {item} embora.",
-        "perda_grana": "A Cobrança do Turco levou {n} da tua grana na mão.",
+        "perda_item": "Perdeu pra {quem}: levaram {itens}.",
+        "perda_grana": "Perdeu pra {quem}: levaram {n} da tua grana na mão.",
         "socorro_rinha_titulo": "A casa te remendou",
         "socorro_rinha": "A tropa caiu, mas tinha grana: a rinha cobrou {custo} da recuperação e já tá chamando o próximo. Sobrou {grana} na mão."
       },
