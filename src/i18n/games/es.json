@@ -967,13 +967,14 @@
         "lab": "Laboratorio",
         "titulo": "Pelea del Pentagrama",
         "restrito": "Área de prueba, solo para admin.",
-        "como": "Tu cuerpo es un pentagrama. Unes los puntos con el dedo y cada punto es un golpe. La pelea avanza por compases: el combo del enemigo se enciende en rojo y tienes hasta que se acabe la barra amarilla para dibujar el tuyo.",
+        "como": "Tu cuerpo es un pentagrama. Une los puntos con el pulgar y cada punto se vuelve un golpe. En cada compás el combo del enemigo se enciende en rojo y dibujas el tuyo hasta que se acabe la barra amarilla. Después, la repetición muestra tu pentagrama contra el suyo.",
         "regras": {
-          "r1": "Puntos grandes: cabeza, manos y pies. Puntos pequeños: codos y rodillas — el codo solo justo después de la mano del mismo lado, la rodilla solo después del pie.",
-          "r2": "Combos de 1 a 4 golpes. La energía del intercambio se divide entre ellos: un golpe solo sale con todo, cuatro salen débiles.",
-          "r3": "Mismo miembro en la misma posición que el combo del enemigo = bloqueo. Lo demás entra, de los dos lados.",
-          "r4": "Bloquear un puñetazo o una patada con el codo o la rodilla devuelve algo de daño. Bloquear y esquivar dan energía para el siguiente intercambio.",
-          "r5": "El centro se enciende verde de vez en cuando: tócalo para esquivar todo el intercambio, pero no atacas."
+          "r1": "Los puntos grandes (cabeza, manos, pies) se unen con cualquiera. Codo y rodilla solo después de la mano/pie del mismo lado o de otro punto pequeño: pie → rodilla → codo vale.",
+          "r2": "Hasta 4 golpes. La energía se divide entre ellos. Mantén el dedo quieto en el último punto para cargar: Carga I deja solo 2 golpes, Carga II solo 1, y pegan mucho más fuerte.",
+          "r3": "Mismo miembro en la misma posición que su combo = bloqueo: tú ganas energía y él pierde. Codo/rodilla bloqueando un puñetazo/patada todavía lastima.",
+          "r4": "Miembros distintos en la misma posición: el golpe más grave atraviesa al más leve (manos y pies son leves; cabeza, codo y rodilla, graves; la carga suma). Recibir demasiados golpes graves sin bloquear te deja mareado: la próxima, solo 1 golpe.",
+          "r5": "Un golpe cargado abre la guardia: si él bloquea o esquiva, recibes 50% más.",
+          "r6": "El centro se enciende verde muy pocas veces. Pasa el dedo por él en tu trazo: esquivas todo y todos tus golpes entran limpios, sin bloqueo. Solo esquivar, sin golpe, y nadie recibe daño."
         },
         "oponente": "Oponente",
         "velocidade": "Velocidad",
@@ -1015,9 +1016,21 @@
           "acerto_ini": "Recibiste un {golpe}: −{dano}",
           "esquiva_jog": "Esquivaste.",
           "esquiva_ini": "Esquivó.",
-          "vazio": "{golpe} al aire."
+          "vazio": "{golpe} al aire.",
+          "interrompe_jog": "Tu {golpe} atravesó su {fraco}.",
+          "interrompe_ini": "Su {golpe} atravesó tu {fraco}.",
+          "limpo_jog": "Golpe limpio, {golpe}: −{dano}",
+          "limpo_ini": "Salió de la esquiva con un {golpe}: −{dano}",
+          "nada": "Nadie tocó a nadie.",
+          "guarda_aberta": "Golpe cargado con la guardia abierta: recibiste más.",
+          "ficou_tonto": "Quedaste mareado.",
+          "deixou_tonto": "Él quedó mareado."
         },
-        "som": "Activar o desactivar el sonido"
+        "som": "Activar o desactivar el sonido",
+        "ele": "Él",
+        "tonto": "Mareado: solo 1 golpe esta vez",
+        "carga": "Carga {n}",
+        "como_joga": "Cómo se juega"
       }
     },
     "toptrumps": {

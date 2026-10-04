@@ -237,50 +237,46 @@ português dentro dos componentes.
 ## 11. Batalha do pentagrama (protótipo)
 
 Laboratório em `/games/ldi/pentagrama` (só admin; no `npm run dev` abre pra
-qualquer um). Motor sem tela em `batalha/motorPentagrama.js`, pra o Lendas (e
-qualquer jogo) consumir depois.
+qualquer um). Motor sem tela em `batalha/motorPentagrama.js` (todas as regras e
+números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 
 - **O corpo é o tabuleiro:** pentagrama com 5 pontos grandes (cabeça, mão D/E,
   pé D/E), 4 pequenos (cotovelos e joelhos, entre a mão/pé e o centro) e o
   centro.
-- **Combo = linha desenhada com o dedo**, de 1 a 4 pontos, sem repetir.
-  Cotovelo só logo depois da mão do mesmo lado; joelho só logo depois do pé.
-- **Batidas:** a luta anda em batidas (lento 3,4 s · normal 2,6 s · rápido
-  1,9 s). Cada batida é um compasso de 8 tempos: o combo do inimigo acende um
-  ponto por tempo, em vermelho; o jogador desenha o dele até a barra amarela
-  acabar. Depois da troca, meio compasso mostra o resultado.
-- **Som** (`batalha/somPentagrama.js`, sintetizado com Web Audio, sem arquivo):
-  bumbo no 1 e no 5, chimbal nos outros tempos e estalo no 8 (a troca fecha).
-  Cada golpe tem um timbre próprio — soco (estalo médio + baque), cotovelada
-  (estalo seco e agudo), joelhada (baque grave e longo), chute (vento + baque),
-  cabeçada (batida oca) — e bloqueio (clique metálico), bloqueio duro e esquiva
-  (sopro) também. Na resolução os golpes tocam em semicolcheias, na ordem da
-  troca. Ligar um ponto no traço dá um tique que sobe a cada ponto. Botão de
-  mudo na luta (`ldi-pentagrama-mudo`, preferência do navegador).
-- **Bloqueio por espelho:** posição por posição, golpe do mesmo membro contra
-  golpe do mesmo membro = bloqueio. O resto entra, dos dois lados. O membro já
-  diz o que é o golpe (soco, cotovelada, chute, joelhada, cabeçada).
-- **Energia:** 10 por troca, dividida pelos golpes do combo (um golpe sozinho
-  sai com tudo). Cotovelo ×1,3, joelho ×1,4, cabeçada ×1,25, chute ×1,1.
-  Bloquear rende +1 de energia na próxima troca, esquivar +3 (teto 16).
-  Bloquear soco/chute com cotovelo/joelho devolve 2 de dano.
-- **Esquiva:** o centro abre (verde) em parte das batidas; tocar nele esquiva a
-  troca inteira, e quem esquiva não ataca.
-- **Ficha do inimigo:** lista de combos com peso e chance de esquiva
-  (`FICHAS`: Saco de Pancada, StormByte_91). A ficha do jogador ainda não existe.
-- **Tela:** barras de sangue no topo, estilo jogo de luta (a do inimigo
-  espelhada, rastro vermelho atrás do dano), tabuleiro no meio, o passo a passo
-  da troca embaixo.
+- **Combo = traço do dedão**, até 4 golpes, sem repetir ponto. Ponto grande
+  liga com qualquer um. Cotovelo/joelho só logo depois da mão/pé do mesmo lado
+  ou de outro ponto pequeno (pé → joelho → cotovelo vale).
+- **Carga:** segurar o dedo parado no último ponto carrega (480 ms por nível).
+  Carga I: até 2 golpes, energia ×1,5. Carga II: 1 golpe, ×2,2. A carga soma na
+  gravidade. Golpe carregado abre a guarda: se o inimigo bloqueia ou esquiva,
+  você leva 50% a mais na troca.
+- **Gravidade:** mão e pé 1; cabeça, cotovelo e joelho 2 (+carga).
+  - Mesmo membro na mesma posição = **bloqueio**: quem bloqueia +2 de energia na
+    próxima, o bloqueado −1. Cotovelo/joelho bloqueando mão/pé devolve 2.
+  - Membros diferentes na mesma posição: o mais grave **interrompe** o mais
+    leve; mesma gravidade, os dois entram.
+  - Levar gravidade 3+ sem bloquear numa troca = **tonto**: na próxima, 1 golpe
+    só e sem carga.
+- **Energia:** 10 por troca (6 a 16), dividida pelos golpes.
+- **Esquiva:** o centro abre raramente (22% das batidas, ~0,4 s) e é um ponto
+  do traço — passar o dedo por ele aberto liga a esquiva sem gastar vaga de
+  golpe. Com ela, todos os golpes do inimigo passam no vazio e todos os seus
+  entram limpos (×1,3), sem bloqueio nem interrupção. Só esquivar, sem golpe:
+  ninguém leva dano.
+- **Batidas:** compasso de 8 tempos (lento 3,4 s · normal 2,6 s · rápido
+  1,9 s); o inimigo acende um ponto por tempo. Depois, um compasso de
+  **replay**: o seu pentagrama contra o dele, lado a lado, e o passo a passo.
+- **Inimigo:** combos com peso, chance de esquiva e de **repetir o seu último
+  combo** (quem repete o mesmo combo apanha bloqueado). Tonto, só o 1º golpe.
+- **Som:** `batalha/somPentagrama.js` (Web Audio, sem arquivo) — compasso com
+  bumbo/chimbal/estalo, timbre por golpe (soco, cotovelada, joelhada, chute,
+  cabeçada), bloqueio, esquiva e o tique de cada ponto ligado. Botão de mudo.
+- **Uma mão:** placar e replay em cima, tabuleiro na metade de baixo, no
+  dedão; regras fechadas em "Como joga" pra o botão de lutar caber na tela.
 
-**Planejado:**
-- **Visão em primeira pessoa**, estilo boxe antigo que só mostra as luvas, com
-  o inimigo de frente (alternativa: lado a lado).
-- **Barra de poder:** enche com a luta e solta um golpe especial que quebra o
-  combo do inimigo; os poderes chegam aos poucos com a Veia e as habilidades.
-- **Combos liberados aos poucos:** o personagem começa ligando só pontos
-  básicos e vai destravando ligações (cotovelo, joelho, cabeça, combos longos).
-- **Membro machucado** (golpe demais no mesmo membro enfraquece ele por um
-  tempo) e a ficha de movimentos do jogador contra a do inimigo.
+**Planejado:** visão em primeira pessoa (só as luvas); barra de poder que
+solta um golpe especial; combos liberados aos poucos; membro machucado; a
+ficha de movimentos do jogador contra a do inimigo.
 
 ## 12. Arquivos
 

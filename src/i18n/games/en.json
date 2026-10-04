@@ -967,13 +967,14 @@
         "lab": "Lab",
         "titulo": "Pentagram Fight",
         "restrito": "Test area, admins only.",
-        "como": "Your body is a pentagram. You connect the points with your finger and each point is a strike. The fight moves in beats: the enemy combo lights up in red and you have until the yellow bar runs out to draw yours.",
+        "como": "Your body is a pentagram. Connect the points with your thumb and each point becomes a strike. Every beat the enemy combo lights up in red and you draw yours until the yellow bar runs out. Then the replay shows your pentagram against his.",
         "regras": {
-          "r1": "Big points: head, hands and feet. Small points: elbows and knees — an elbow only right after the hand on the same side, a knee only after the foot.",
-          "r2": "Combos of 1 to 4 strikes. The exchange energy is split between them: one strike alone hits with everything, four hit weak.",
-          "r3": "Same limb in the same position as the enemy combo = block. The rest lands, both ways.",
-          "r4": "Blocking a punch or kick with an elbow or knee deals some damage back. Blocking and dodging give energy for the next exchange.",
-          "r5": "The center lights up green now and then: tap it to dodge the whole exchange, but you don’t attack."
+          "r1": "Big points (head, hands, feet) connect to anything. Elbow and knee only come after the hand/foot on the same side or another small point: foot → knee → elbow works.",
+          "r2": "Up to 4 strikes. The energy is split between them. Hold your finger still on the last point to charge: Charge I allows only 2 strikes, Charge II only 1, and they hit much harder.",
+          "r3": "Same limb in the same position as his combo = block: you gain energy and he loses it. An elbow/knee blocking a punch/kick still hurts.",
+          "r4": "Different limbs in the same position: the heavier strike cuts through the lighter one (hands and feet are light; head, elbow and knee are heavy; charge adds up). Taking too many heavy hits unblocked leaves you dizzy: only 1 strike next time.",
+          "r5": "A charged strike opens your guard: if he blocks or dodges, you take 50% more.",
+          "r6": "The center lights up green rarely. Run your finger through it in your line: you dodge everything and all your strikes land clean, unblockable. Dodge alone, with no strike, and nobody takes damage."
         },
         "oponente": "Opponent",
         "velocidade": "Speed",
@@ -1015,9 +1016,21 @@
           "acerto_ini": "Took a {golpe}: −{dano}",
           "esquiva_jog": "You dodged.",
           "esquiva_ini": "He dodged.",
-          "vazio": "{golpe} into thin air."
+          "vazio": "{golpe} into thin air.",
+          "interrompe_jog": "Your {golpe} cut through his {fraco}.",
+          "interrompe_ini": "His {golpe} cut through your {fraco}.",
+          "limpo_jog": "Clean hit, {golpe}: −{dano}",
+          "limpo_ini": "He came out of the dodge with a {golpe}: −{dano}",
+          "nada": "Nobody touched anybody.",
+          "guarda_aberta": "Charged strike with your guard open: you took more.",
+          "ficou_tonto": "You got dizzy.",
+          "deixou_tonto": "He got dizzy."
         },
-        "som": "Sound on or off"
+        "som": "Sound on or off",
+        "ele": "Him",
+        "tonto": "Dizzy: only 1 strike this time",
+        "carga": "Charge {n}",
+        "como_joga": "How to play"
       }
     },
     "toptrumps": {

@@ -294,176 +294,6 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "LDI_LENDAS_GDD.md",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd",
-      "community": 710,
-      "norm_label": "ldi_lendas_gdd.md"
-    },
-    {
-      "label": "LENDAS DO LDI \u2014 GDD (Game Design Document)",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "community": 710,
-      "norm_label": "lendas do ldi \u2014 gdd (game design document)"
-    },
-    {
-      "label": "1. O que \u00e9",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_1_o_que_\u00e9",
-      "community": 710,
-      "norm_label": "1. o que e"
-    },
-    {
-      "label": "2. Telas e rotas",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L29",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_2_telas_e_rotas",
-      "community": 710,
-      "norm_label": "2. telas e rotas"
-    },
-    {
-      "label": "3. As Veias",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
-      "community": 710,
-      "norm_label": "3. as veias"
-    },
-    {
-      "label": "3.1 Habilidades",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L55",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_1_habilidades",
-      "community": 710,
-      "norm_label": "3.1 habilidades"
-    },
-    {
-      "label": "3.2 Como a Veia muda o jogo",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L79",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_2_como_a_veia_muda_o_jogo",
-      "community": 710,
-      "norm_label": "3.2 como a veia muda o jogo"
-    },
-    {
-      "label": "4. Motor da hist\u00f3ria",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L91",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria",
-      "community": 710,
-      "norm_label": "4. motor da historia"
-    },
-    {
-      "label": "4.1 Como o texto \u00e9 escrito (a voz)",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L112",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_4_1_como_o_texto_\u00e9_escrito_a_voz",
-      "community": 710,
-      "norm_label": "4.1 como o texto e escrito (a voz)"
-    },
-    {
-      "label": "5. A Temporada 1",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L146",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_5_a_temporada_1",
-      "community": 710,
-      "norm_label": "5. a temporada 1"
-    },
-    {
-      "label": "6. Di\u00e1rio",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L174",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_6_di\u00e1rio",
-      "community": 710,
-      "norm_label": "6. diario"
-    },
-    {
-      "label": "7. Minijogos",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L182",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_7_minijogos",
-      "community": 710,
-      "norm_label": "7. minijogos"
-    },
-    {
-      "label": "8. Salvamento",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L199",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_8_salvamento",
-      "community": 710,
-      "norm_label": "8. salvamento"
-    },
-    {
-      "label": "9. Idiomas",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L209",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_9_idiomas",
-      "community": 710,
-      "norm_label": "9. idiomas"
-    },
-    {
-      "label": "10. Dire\u00e7\u00e3o aprovada (**planejado**)",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L226",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_10_dire\u00e7\u00e3o_aprovada_planejado",
-      "community": 710,
-      "norm_label": "10. direcao aprovada (**planejado**)"
-    },
-    {
-      "label": "11. Batalha do pentagrama (prot\u00f3tipo)",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L237",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo",
-      "community": 710,
-      "norm_label": "11. batalha do pentagrama (prototipo)"
-    },
-    {
-      "label": "12. Arquivos",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L285",
-      "_origin": "ast",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_12_arquivos",
-      "community": 710,
-      "norm_label": "12. arquivos"
-    },
-    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
@@ -474,14 +304,254 @@
       "norm_label": "version.js"
     },
     {
+      "label": "useGanguesModoAuto.js",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_hooks_useganguesmodoauto",
+      "community": 487,
+      "norm_label": "useganguesmodoauto.js"
+    },
+    {
+      "label": "CONFIG_PADRAO",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_config_padrao",
+      "community": 487,
+      "norm_label": "config_padrao"
+    },
+    {
+      "label": "lerAutoConfig()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_lerautoconfig",
+      "community": 487,
+      "norm_label": "lerautoconfig()"
+    },
+    {
+      "label": "useGanguesAutoConfig()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesautoconfig",
+      "community": 487,
+      "norm_label": "useganguesautoconfig()"
+    },
+    {
+      "label": "melhorPocao()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_melhorpocao",
+      "community": 487,
+      "norm_label": "melhorpocao()"
+    },
+    {
+      "label": "escolherAcaoAuto()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_escolheracaoauto",
+      "community": 487,
+      "norm_label": "escolheracaoauto()"
+    },
+    {
+      "label": "useGanguesModoAuto()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L87",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesmodoauto",
+      "community": 487,
+      "norm_label": "useganguesmodoauto()"
+    },
+    {
+      "label": "LDI_LENDAS_GDD.md",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "ldi_lendas_gdd.md",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd"
+    },
+    {
+      "label": "LENDAS DO LDI \u2014 GDD (Game Design Document)",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "lendas do ldi \u2014 gdd (game design document)",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document"
+    },
+    {
+      "label": "1. O que \u00e9",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L11",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "1. o que e",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_1_o_que_\u00e9"
+    },
+    {
+      "label": "2. Telas e rotas",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "2. telas e rotas",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_2_telas_e_rotas"
+    },
+    {
+      "label": "3. As Veias",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L38",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "3. as veias",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias"
+    },
+    {
+      "label": "3.1 Habilidades",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L55",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "3.1 habilidades",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_1_habilidades"
+    },
+    {
+      "label": "3.2 Como a Veia muda o jogo",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L79",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "3.2 como a veia muda o jogo",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_2_como_a_veia_muda_o_jogo"
+    },
+    {
+      "label": "4. Motor da hist\u00f3ria",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L91",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "4. motor da historia",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria"
+    },
+    {
+      "label": "4.1 Como o texto \u00e9 escrito (a voz)",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L112",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "4.1 como o texto e escrito (a voz)",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_4_1_como_o_texto_\u00e9_escrito_a_voz"
+    },
+    {
+      "label": "5. A Temporada 1",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L146",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "5. a temporada 1",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_5_a_temporada_1"
+    },
+    {
+      "label": "6. Di\u00e1rio",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L174",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "6. diario",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_6_di\u00e1rio"
+    },
+    {
+      "label": "7. Minijogos",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L182",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "7. minijogos",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_7_minijogos"
+    },
+    {
+      "label": "8. Salvamento",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L199",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "8. salvamento",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_8_salvamento"
+    },
+    {
+      "label": "9. Idiomas",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L209",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "9. idiomas",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_9_idiomas"
+    },
+    {
+      "label": "10. Dire\u00e7\u00e3o aprovada (**planejado**)",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L226",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "10. direcao aprovada (**planejado**)",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_10_dire\u00e7\u00e3o_aprovada_planejado"
+    },
+    {
+      "label": "11. Batalha do pentagrama (prot\u00f3tipo)",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L237",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "11. batalha do pentagrama (prototipo)",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo"
+    },
+    {
+      "label": "12. Arquivos",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L285",
+      "_origin": "ast",
+      "community": 710,
+      "norm_label": "12. arquivos",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_12_arquivos"
+    },
+    {
       "label": "BatalhaLab.jsx",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab",
       "community": 125,
-      "norm_label": "batalhalab.jsx"
+      "norm_label": "batalhalab.jsx",
+      "id": "src_pages_games_ldi_batalha_batalhalab"
     },
     {
       "label": "VELOCIDADES",
@@ -489,9 +559,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab_velocidades",
       "community": 125,
-      "norm_label": "velocidades"
+      "norm_label": "velocidades",
+      "id": "src_pages_games_ldi_batalha_batalhalab_velocidades"
     },
     {
       "label": "BatalhaLab()",
@@ -499,9 +569,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab_batalhalab",
       "community": 125,
-      "norm_label": "batalhalab()"
+      "norm_label": "batalhalab()",
+      "id": "src_pages_games_ldi_batalha_batalhalab_batalhalab"
     },
     {
       "label": "Luta()",
@@ -509,9 +579,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L68",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab_luta",
       "community": 125,
-      "norm_label": "luta()"
+      "norm_label": "luta()",
+      "id": "src_pages_games_ldi_batalha_batalhalab_luta"
     },
     {
       "label": "Barra()",
@@ -519,9 +589,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L169",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab_barra",
       "community": 125,
-      "norm_label": "barra()"
+      "norm_label": "barra()",
+      "id": "src_pages_games_ldi_batalha_batalhalab_barra"
     },
     {
       "label": "textoPasso()",
@@ -529,9 +599,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L179",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab_textopasso",
       "community": 125,
-      "norm_label": "textopasso()"
+      "norm_label": "textopasso()",
+      "id": "src_pages_games_ldi_batalha_batalhalab_textopasso"
     },
     {
       "label": "somPentagrama.js",
@@ -539,9 +609,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama",
       "community": 125,
-      "norm_label": "sompentagrama.js"
+      "norm_label": "sompentagrama.js",
+      "id": "src_pages_games_ldi_batalha_sompentagrama"
     },
     {
       "label": "mudo",
@@ -549,9 +619,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_mudo",
       "community": 125,
-      "norm_label": "mudo"
+      "norm_label": "mudo",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_mudo"
     },
     {
       "label": "ligarSom()",
@@ -559,9 +629,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_ligarsom",
       "community": 125,
-      "norm_label": "ligarsom()"
+      "norm_label": "ligarsom()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_ligarsom"
     },
     {
       "label": "estaMudo()",
@@ -569,9 +639,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_estamudo",
       "community": 125,
-      "norm_label": "estamudo()"
+      "norm_label": "estamudo()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_estamudo"
     },
     {
       "label": "alternarMudo()",
@@ -579,9 +649,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_alternarmudo",
       "community": 125,
-      "norm_label": "alternarmudo()"
+      "norm_label": "alternarmudo()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_alternarmudo"
     },
     {
       "label": "ruido()",
@@ -589,9 +659,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_ruido",
       "community": 125,
-      "norm_label": "ruido()"
+      "norm_label": "ruido()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_ruido"
     },
     {
       "label": "tom()",
@@ -599,9 +669,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_tom",
       "community": 125,
-      "norm_label": "tom()"
+      "norm_label": "tom()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_tom"
     },
     {
       "label": "sopro()",
@@ -609,9 +679,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L53",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_sopro",
       "community": 125,
-      "norm_label": "sopro()"
+      "norm_label": "sopro()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_sopro"
     },
     {
       "label": "TIMBRES",
@@ -619,9 +689,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L66",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_timbres",
       "community": 125,
-      "norm_label": "timbres"
+      "norm_label": "timbres",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_timbres"
     },
     {
       "label": "TIMBRE_DO_PONTO",
@@ -629,9 +699,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L73",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_timbre_do_ponto",
       "community": 125,
-      "norm_label": "timbre_do_ponto"
+      "norm_label": "timbre_do_ponto",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_timbre_do_ponto"
     },
     {
       "label": "somGolpe()",
@@ -639,9 +709,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L75",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_somgolpe",
       "community": 125,
-      "norm_label": "somgolpe()"
+      "norm_label": "somgolpe()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_somgolpe"
     },
     {
       "label": "somBloqueio()",
@@ -649,9 +719,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L80",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_sombloqueio",
       "community": 125,
-      "norm_label": "sombloqueio()"
+      "norm_label": "sombloqueio()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_sombloqueio"
     },
     {
       "label": "somEsquiva()",
@@ -659,9 +729,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L88",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_somesquiva",
       "community": 125,
-      "norm_label": "somesquiva()"
+      "norm_label": "somesquiva()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_somesquiva"
     },
     {
       "label": "somLigar()",
@@ -669,9 +739,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L94",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_somligar",
       "community": 125,
-      "norm_label": "somligar()"
+      "norm_label": "somligar()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_somligar"
     },
     {
       "label": "somAcende()",
@@ -679,9 +749,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L101",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_somacende",
       "community": 125,
-      "norm_label": "somacende()"
+      "norm_label": "somacende()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_somacende"
     },
     {
       "label": "tocarCompasso()",
@@ -689,9 +759,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L107",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_sompentagrama_tocarcompasso",
       "community": 125,
-      "norm_label": "tocarcompasso()"
+      "norm_label": "tocarcompasso()",
+      "id": "src_pages_games_ldi_batalha_sompentagrama_tocarcompasso"
     },
     {
       "label": "App.jsx",
@@ -3252,76 +3322,6 @@
       "community": 25,
       "norm_label": "espelho \u2014 mistico (ilusorio)",
       "id": "docs_games_gangues_ldi_gangues_gdd_espelho_mistico_ilusorio"
-    },
-    {
-      "label": "useGanguesModoAuto.js",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 487,
-      "norm_label": "useganguesmodoauto.js",
-      "id": "src_pages_games_gangues_hooks_useganguesmodoauto"
-    },
-    {
-      "label": "CONFIG_PADRAO",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L22",
-      "_origin": "ast",
-      "community": 487,
-      "norm_label": "config_padrao",
-      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_config_padrao"
-    },
-    {
-      "label": "lerAutoConfig()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L25",
-      "_origin": "ast",
-      "community": 487,
-      "norm_label": "lerautoconfig()",
-      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_lerautoconfig"
-    },
-    {
-      "label": "useGanguesAutoConfig()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L34",
-      "_origin": "ast",
-      "community": 487,
-      "norm_label": "useganguesautoconfig()",
-      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesautoconfig"
-    },
-    {
-      "label": "melhorPocao()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L49",
-      "_origin": "ast",
-      "community": 487,
-      "norm_label": "melhorpocao()",
-      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_melhorpocao"
-    },
-    {
-      "label": "escolherAcaoAuto()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L62",
-      "_origin": "ast",
-      "community": 487,
-      "norm_label": "escolheracaoauto()",
-      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_escolheracaoauto"
-    },
-    {
-      "label": "useGanguesModoAuto()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L88",
-      "_origin": "ast",
-      "community": 487,
-      "norm_label": "useganguesmodoauto()",
-      "id": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesmodoauto"
     },
     {
       "label": "useGanguesTurnMachine.js",
@@ -56806,166 +56806,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L226",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_10_dire\u00e7\u00e3o_aprovada_planejado",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L237",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L285",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_12_arquivos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_1_o_que_\u00e9",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_2_telas_e_rotas",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L91",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L146",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_5_a_temporada_1",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L174",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_6_di\u00e1rio",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L182",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_7_minijogos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L199",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_8_salvamento",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L209",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_9_idiomas",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L55",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_1_habilidades",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L79",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_2_como_a_veia_muda_o_jogo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L112",
-      "weight": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_4_1_como_o_texto_\u00e9_escrito_a_voz",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -57133,12 +56973,320 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_config_padrao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_escolheracaoauto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_lerautoconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_melhorpocao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesautoconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesmodoauto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_screens_ganguescombat",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto"
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesautoconfig",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_lerautoconfig",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_screens_ganguescombat",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesautoconfig"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
+      "source_location": "L240",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_screens_ganguescombat_ganguescombat",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesautoconfig"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_hooks_useganguesmodoauto_escolheracaoauto",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_melhorpocao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_screens_ganguescombat",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_escolheracaoauto"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_screens_ganguescombat",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesmodoauto"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
+      "source_location": "L235",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_screens_ganguescombat_ganguescombat",
+      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesmodoauto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L226",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_10_dire\u00e7\u00e3o_aprovada_planejado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L237",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L285",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_12_arquivos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_1_o_que_\u00e9"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_2_telas_e_rotas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L91",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_5_a_temporada_1"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L174",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_6_di\u00e1rio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L182",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_7_minijogos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L199",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_8_salvamento"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L209",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_9_idiomas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_1_habilidades"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_2_como_a_veia_muda_o_jogo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_4_1_como_o_texto_\u00e9_escrito_a_voz"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L169",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_batalhalab_barra",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_barra"
     },
     {
       "relation": "contains",
@@ -57146,9 +57294,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_batalhalab_batalhalab",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_batalhalab"
     },
     {
       "relation": "contains",
@@ -57156,9 +57304,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_luta"
     },
     {
       "relation": "contains",
@@ -57166,9 +57314,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L179",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_batalhalab_textopasso",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_textopasso"
     },
     {
       "relation": "contains",
@@ -57176,9 +57324,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_batalhalab_velocidades",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_velocidades"
     },
     {
       "relation": "imports_from",
@@ -57187,9 +57335,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_sompentagrama",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama"
     },
     {
       "relation": "imports",
@@ -57198,9 +57346,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_alternarmudo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_alternarmudo"
     },
     {
       "relation": "imports",
@@ -57209,9 +57357,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_estamudo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_estamudo"
     },
     {
       "relation": "imports",
@@ -57220,9 +57368,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_ligarsom",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_ligarsom"
     },
     {
       "relation": "imports",
@@ -57231,9 +57379,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somacende",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somacende"
     },
     {
       "relation": "imports",
@@ -57242,9 +57390,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_sombloqueio",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_sombloqueio"
     },
     {
       "relation": "imports",
@@ -57253,9 +57401,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somesquiva",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somesquiva"
     },
     {
       "relation": "imports",
@@ -57264,9 +57412,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somgolpe",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somgolpe"
     },
     {
       "relation": "imports",
@@ -57275,9 +57423,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somligar",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somligar"
     },
     {
       "relation": "imports",
@@ -57286,9 +57434,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_tocarcompasso",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_tocarcompasso"
     },
     {
       "relation": "calls",
@@ -57308,9 +57456,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L153",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "target": "src_pages_games_ldi_batalha_batalhalab_textopasso",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_textopasso"
     },
     {
       "relation": "calls",
@@ -57319,9 +57467,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L157",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_alternarmudo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_alternarmudo"
     },
     {
       "relation": "indirect_call",
@@ -57341,9 +57489,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somacende",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somacende"
     },
     {
       "relation": "calls",
@@ -57352,9 +57500,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_sombloqueio",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_sombloqueio"
     },
     {
       "relation": "calls",
@@ -57363,9 +57511,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somesquiva",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somesquiva"
     },
     {
       "relation": "calls",
@@ -57374,9 +57522,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L109",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somgolpe",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somgolpe"
     },
     {
       "relation": "calls",
@@ -57385,9 +57533,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somligar",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somligar"
     },
     {
       "relation": "calls",
@@ -57396,9 +57544,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_tocarcompasso",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_tocarcompasso"
     },
     {
       "relation": "contains",
@@ -57406,9 +57554,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_alternarmudo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_alternarmudo"
     },
     {
       "relation": "contains",
@@ -57416,9 +57564,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_estamudo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_estamudo"
     },
     {
       "relation": "contains",
@@ -57426,9 +57574,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_ligarsom",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_ligarsom"
     },
     {
       "relation": "contains",
@@ -57436,9 +57584,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_mudo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_mudo"
     },
     {
       "relation": "contains",
@@ -57446,9 +57594,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_ruido",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_ruido"
     },
     {
       "relation": "contains",
@@ -57456,9 +57604,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somacende",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somacende"
     },
     {
       "relation": "contains",
@@ -57466,9 +57614,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_sombloqueio",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_sombloqueio"
     },
     {
       "relation": "contains",
@@ -57476,9 +57624,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somesquiva",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somesquiva"
     },
     {
       "relation": "contains",
@@ -57486,9 +57634,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somgolpe",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somgolpe"
     },
     {
       "relation": "contains",
@@ -57496,9 +57644,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_somligar",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_somligar"
     },
     {
       "relation": "contains",
@@ -57506,9 +57654,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_sopro",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_sopro"
     },
     {
       "relation": "contains",
@@ -57516,9 +57664,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_timbre_do_ponto",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_timbre_do_ponto"
     },
     {
       "relation": "contains",
@@ -57526,9 +57674,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_timbres",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_timbres"
     },
     {
       "relation": "contains",
@@ -57536,9 +57684,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_tocarcompasso",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_tocarcompasso"
     },
     {
       "relation": "contains",
@@ -57546,9 +57694,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_tom",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_tom"
     },
     {
       "relation": "calls",
@@ -57557,9 +57705,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama_sopro",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_ruido",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_ruido"
     },
     {
       "relation": "calls",
@@ -57568,9 +57716,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama_somacende",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_tom",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_tom"
     },
     {
       "relation": "calls",
@@ -57579,9 +57727,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama_sombloqueio",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_tom",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_tom"
     },
     {
       "relation": "calls",
@@ -57590,9 +57738,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama_somligar",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_tom",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_tom"
     },
     {
       "relation": "calls",
@@ -57601,9 +57749,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L112",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama_tocarcompasso",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_tom",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_tom"
     },
     {
       "relation": "calls",
@@ -57612,9 +57760,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama_sombloqueio",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_sopro",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_sopro"
     },
     {
       "relation": "calls",
@@ -57623,9 +57771,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama_somesquiva",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_sopro",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_sopro"
     },
     {
       "relation": "calls",
@@ -57634,9 +57782,9 @@
       "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_sompentagrama_tocarcompasso",
-      "target": "src_pages_games_ldi_batalha_sompentagrama_sopro",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_sompentagrama_sopro"
     },
     {
       "relation": "contains",
@@ -60828,154 +60976,6 @@
       "confidence_score": 1.0,
       "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
       "target": "docs_games_gangues_ldi_gangues_gdd_trov\u00e3o_mistico_tempestade"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_config_padrao"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L62",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_escolheracaoauto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_lerautoconfig"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L49",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_melhorpocao"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L34",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesautoconfig"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L88",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_hooks_useganguesmodoauto",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesmodoauto"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_screens_ganguescombat",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L35",
-      "weight": 1.0,
-      "confidence_score": 0.5,
-      "source": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesautoconfig",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_lerautoconfig"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_screens_ganguescombat",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesautoconfig"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
-      "source_location": "L240",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_screens_ganguescombat_ganguescombat",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesautoconfig"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/hooks/useGanguesModoAuto.js",
-      "source_location": "L72",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_hooks_useganguesmodoauto_escolheracaoauto",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_melhorpocao"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_screens_ganguescombat",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_escolheracaoauto"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_screens_ganguescombat",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesmodoauto"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/Gangues/screens/GanguesCombat.jsx",
-      "source_location": "L235",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_screens_ganguescombat_ganguescombat",
-      "target": "src_pages_games_gangues_hooks_useganguesmodoauto_useganguesmodoauto"
     },
     {
       "relation": "imports_from",
@@ -148863,5 +148863,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "fcd0910663f03abb5f5d8fdcc22b490c2485cbe5"
+  "built_at_commit": "18269da343a4a213ac888029bf0a56b2c9916e30"
 }
