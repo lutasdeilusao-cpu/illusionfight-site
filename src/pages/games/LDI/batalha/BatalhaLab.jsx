@@ -13,7 +13,7 @@ import './Batalha.css'
 // a origem, e aí só de onde nasce o 1º golpe. Soltou o traço, o último ponto
 // pisca: tocar nele carrega. Depois vem um compasso de replay: o seu
 // pentagrama contra o dele, inteiro, e o passo a passo.
-// Segurar a bolinha entre as pernas enche a barra de poder; cheia, cada batida
+// Tocar/segurar a bolinha em cima da cabeça enche a barra de poder; cheia, cada batida
 // manda uma sequência — desenhou ela, sai o Gelo Negro.
 // Tudo de uma mão: leitura em cima, tabuleiro embaixo, no alcance do dedão.
 const VELOCIDADES = { lento: 3400, normal: 2600, rapido: 1900 }
@@ -187,6 +187,11 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
 
   return (
     <div className="pg-page pg-luta">
+      {/* Sair e som no topo, longe do tabuleiro e da bolinha de energia. */}
+      <div className="pg-topo">
+        <button type="button" className="pg-sair" onClick={onSair}>{t('games.ldi.batalha.sair')}</button>
+        <button type="button" className="pg-sair" onClick={() => setMudo(alternarMudo())} aria-label={t('games.ldi.batalha.som')}>{mudo ? '🔇' : '🔊'}</button>
+      </div>
       <div className="pg-hud">
         <Barra rotulo={t('games.ldi.batalha.voce')} vida={vida.jog} max={VIDA_JOG} energia={energia.jog} tonto={tonto.jog} lado="jog" t={t} poder={poder} />
         <span className="pg-hud__vs">VS</span>
@@ -210,10 +215,6 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
       <Pentagrama combo={combo} telegrafo={replay ? [] : telegrafo} guia={replay ? [] : guia} centroAberto={centroAberto} travado={travado}
         segurandoOrbe={segurando} onOrbe={setSegurando} onOrbeToque={tocarOrbe}
         max={max} carga={carga} progresso={progresso} podeCarregar={podeCarregar} onMudar={mudar} onToque={tocar} />
-      <div className="pg-rodape">
-        <button type="button" className="pg-sair" onClick={() => setMudo(alternarMudo())} aria-label={t('games.ldi.batalha.som')}>{mudo ? '🔇' : '🔊'}</button>
-        <button type="button" className="pg-sair" onClick={onSair}>{t('games.ldi.batalha.sair')}</button>
-      </div>
     </div>
   )
 }

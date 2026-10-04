@@ -101,7 +101,7 @@
 .pg-passo.is-acerto.is-jog, .pg-passo.is-esquiva.is-jog { color: var(--pg-jog); }
 .pg-passo.is-acerto.is-ini { color: var(--pg-ini); }
 .pg-passo.is-vazio, .pg-passo.is-esquiva.is-ini { color: var(--text-secondary); }
-.pg-rodape { display: flex; justify-content: center; gap: 8px; }
+.pg-topo { display: flex; justify-content: space-between; margin: -8px 0 -2px; }
 .pg-sair { min-height: 40px; padding: 8px 14px; cursor: pointer; background: none; border: 1px solid var(--if-hair-strong); color: var(--text-secondary); font: 700 0.6rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; }
 
 @keyframes pg-batida { to { width: 100%; } }

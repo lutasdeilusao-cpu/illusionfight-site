@@ -5,8 +5,8 @@ import { PONTOS, CENTRO, ORBE, ESQUIVA, podeLigar, golpesDe } from './motorPenta
 // Responsivo de propósito: TOCAR num ponto já liga ele (não precisa arrastar;
 // arrastar também liga), e tirar o dedo não fecha nada — o combo continua até
 // a batida acabar (`travado` = a troca já resolveu). Tocar de novo no ÚLTIMO
-// ponto carrega o golpe (`onToque`; o anel mostra a carga). A bolinha entre as
-// pernas (orbe) enche a barra de poder a cada toque (`onOrbeToque`) e enquanto
+// ponto carrega o golpe (`onToque`; o anel mostra a carga). A bolinha em cima
+// da cabeça (orbe) enche a barra de poder a cada toque (`onOrbeToque`) e enquanto
 // o dedo segura (`onOrbe(true/false)`), a qualquer hora. `guia` é a sequência
 // que o poder pede. `mini` = só mostra (o replay), sem toque.
 const RAIO_TOQUE = 34
@@ -86,7 +86,7 @@ export default function Pentagrama({ combo, telegrafo = [], guia = [], centroAbe
   const ultimo = golpesDe(combo).at(-1)
 
   return (
-    <svg ref={svgRef} className={`pg-tabuleiro${travado ? ' is-travado' : ''}${mini ? ' is-mini' : ''}`} viewBox="0 0 300 312"
+    <svg ref={svgRef} className={`pg-tabuleiro${travado ? ' is-travado' : ''}${mini ? ' is-mini' : ''}`} viewBox="0 -42 300 312"
       onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up}>
       <polyline className="pg-estrela" points={linha(ESTRELA)} />
       {['maoD', 'maoE', 'peD', 'peE'].map(id => (

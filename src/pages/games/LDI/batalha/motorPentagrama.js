@@ -29,7 +29,7 @@
 //
 // ENERGIA — 10 por troca (teto 16), dividida pelos golpes do combo.
 //
-// PODER — a bolinha entre as pernas (ORBE) carrega a barra de poder a cada
+// PODER — a bolinha em cima da cabeça (ORBE) carrega a barra de poder a cada
 // toque e enquanto o dedo segura nela; o tempo ali é tempo sem atacar. Bloquear e apanhar também
 // enchem um pouco. Barra cheia: a cada batida o jogo manda uma sequência de
 // pontos; desenhou exatamente ela, sai o poder (Gelo Negro: dano alto, sem
@@ -69,7 +69,7 @@ export const GUARDA_ABERTA = 1.5
 export const LIMITE_TONTO = 3
 export const MULT_GOLPE_LIMPO = 1.3
 export const RASPAO = 0.25
-export const ORBE = { x: 150, y: 290 }
+export const ORBE = { x: 150, y: -20 }
 export const PODER_MAX = 100
 export const PODER_POR_SEGUNDO = 26
 export const PODER_POR_TOQUE = 5

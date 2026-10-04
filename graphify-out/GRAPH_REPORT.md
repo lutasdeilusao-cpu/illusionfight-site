@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-10-04)
 
 ## Corpus Check
-- 1213 files · ~2,116,809 words
+- 1213 files · ~2,116,885 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 5667 nodes · 8834 edges · 717 communities (395 shown, 322 thin omitted)
+- 5667 nodes · 8836 edges · 713 communities (393 shown, 320 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 82 edges (avg confidence: 0.62)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b55349db`
+- Built from commit: `082bfb29`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -242,7 +242,6 @@
 - prepare-steam-demo.js
 - local
 - Phase0Start.jsx
-- local
 - react-markdown
 - ShopSection.jsx
 - 07.md
@@ -281,7 +280,6 @@
 - 08.md
 - GanguesCombat.jsx
 - 10.md
-- pois.js
 - criaturas.js
 - 11.md
 - 12.md
@@ -329,7 +327,6 @@
 - TopTrumpsSP.jsx
 - RestaurarSaude.jsx
 - PuzzleAnagrama.jsx
-- GanguesVictory.jsx
 - 01.md
 - 02.md
 - 03.md
@@ -384,7 +381,6 @@
 - A7. TRÁFEGO PAGO — HISTÓRICO
 - avancarRinha
 - GanguesParada.jsx
-- Brincadeira.jsx
 - BuildingInterior.jsx
 - BLOCO C — STEAM
 - A10. ESTRATÉGIA DE MONETIZAÇÃO DO YOUTUBE — DOUTRINA OFICIAL
@@ -650,7 +646,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (717 total, 322 thin omitted)
+## Communities (713 total, 320 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -681,8 +677,8 @@ Cohesion: 0.06
 Nodes (23): SFX, GangDialog(), ANCHORS, AUTO_TUTORIAL_PASSOS, GanguesActionOrb(), pct(), posSalva(), salvarPos() (+15 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.06
-Nodes (66): BalloonFala(), CriaturaSprite(), ESTADO_ANIM, resolverEstadoVisualTama(), MetricBar(), CRIATURAS, CRIATURAS_BASE, SPRITE_1 (+58 more)
+Cohesion: 0.05
+Nodes (79): BalloonFala(), CriaturaSprite(), ESTADO_ANIM, resolverEstadoVisualTama(), MetricBar(), CRIATURAS, CRIATURAS_BASE, SPRITE_1 (+71 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.31
@@ -729,8 +725,8 @@ Cohesion: 0.22
 Nodes (6): GanguesPapo(), CATALOGO, GANGUES_ITENS, GANGUES_ITENS_LISTA, GANGUES_TIPOS_USO_COMBATE, getGanguesItem()
 
 ### Community 20 - "Community 20"
-Cohesion: 0.06
-Nodes (52): AchievementToast(), CharacterCard(), ModalConfirmacaoFicha(), ModalSemFichas(), useLanguage(), ConfirmEndTurn(), StatusBar(), TrapActivator() (+44 more)
+Cohesion: 0.07
+Nodes (42): DialogoCaso(), PERSONAGEM_STYLE, DICAS, DicaToast(), getDica(), IntroNoir(), PistaCard(), StatusBar() (+34 more)
 
 ### Community 21 - "Lobby.jsx"
 Cohesion: 0.14
@@ -1396,10 +1392,6 @@ Nodes (3): destination, destinationDirectory, source
 Cohesion: 0.04
 Nodes (48): 0.1 Fundar a gangue — abertura, 0.2 A explicação do Véio (abertura da história), 0.3 Rótulos do balão de diálogo, 0. Antes da Pista, 10. Trash talk — o que existe e o que falta, 1.1 Fala de chegada (Nego Véio), 1.2 Descrição do território (card do mapa), 1.3 Dicas (hints) (+40 more)
 
-### Community 263 - "local"
-Cohesion: 0.16
-Nodes (13): FALAS_CRIATURA, FALAS_CRIATURA, FALAS_CRIATURA, getPasseio(), PASSEIO_KEY_MAP, PASSEIOS, FALAS_MAP, PERS_NOME_KEY (+5 more)
-
 ### Community 264 - "react-markdown"
 Cohesion: 0.33
 Nodes (8): alvoDe(), CORES, criarDado(), GanguesDado3D(), pegarRenderer(), texturaFace(), VALORES, VIRADA
@@ -1435,10 +1427,6 @@ Nodes (9): contoLiberado(), estaDisponivel(), SITE_CONFIG, ACCESS_LEVELS, ACTIVE
 ### Community 292 - "Value"
 Cohesion: 0.67
 Nodes (3): Value, anyOf, description
-
-### Community 304 - "pois.js"
-Cohesion: 0.31
-Nodes (7): DATA, GROUP_LABELS, GROUP_ORDER, usePersonagem(), usePersonagens(), usePersonagensAgrupados(), PersonagemDetalhe()
 
 ### Community 309 - "TrialBanner.jsx"
 Cohesion: 0.31
@@ -1773,8 +1761,8 @@ Cohesion: 0.25
 Nodes (9): applyDisease(), ARROWS, DISEASE_STAGES, getEffectiveMaxHP(), getItemDef(), ITEMS_CONSUMABLE, processDiseaseProgression(), selectItemUse() (+1 more)
 
 ### Community 715 - "Jokempo.jsx"
-Cohesion: 0.10
-Nodes (17): BackToGamesBtn(), Farol(), pesoIndex(), PESOS, LanguageContext, Derrota(), Intro(), LINES_EN (+9 more)
+Cohesion: 0.06
+Nodes (38): AchievementToast(), BackToGamesBtn(), CharacterCard(), Farol(), pesoIndex(), PESOS, ModalConfirmacaoFicha(), ModalSemFichas() (+30 more)
 
 ### Community 717 - "test-arena-refactor.mjs"
 Cohesion: 0.25
@@ -1795,12 +1783,12 @@ Nodes (6): execute(), execute(), execute(), DefenseAnimId, getDefenseAnimation()
 ## Knowledge Gaps
 - **2287 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2282 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **322 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **320 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 20` to `Community 0`, `Community 1`, `powersData.js`, `local`, `Community 8`, `Community 10`, `CityOverworld.jsx`, `Confronto.jsx`, `Footer.jsx`, `Lobby.jsx`, `AuthContext.jsx`, `Historias.jsx`, `Brincadeira.jsx`, `PuzzleStealthGrid.jsx`, `DixContext.jsx`, `BuildingInterior.jsx`, `UniversosHub.jsx`, `react`, `pois.js`, `TopTrumpsSP.jsx`, `ResultScreen.jsx`, `criaturas.js`, `Navbar.jsx`, `Jokempo.jsx`, `PerfilColecao.jsx`, `useGameStore.js`, `Number`, `04.md`, `TopTrumpsSP.jsx`, `GanguesVictory.jsx`, `capitulo-05.md`, `Community 125`, `useRadioNina.js`?**
+- **Why does `useLanguage()` connect `Jokempo.jsx` to `Community 0`, `Community 1`, `powersData.js`, `Community 8`, `Community 10`, `CityOverworld.jsx`, `Confronto.jsx`, `Community 20`, `Footer.jsx`, `Lobby.jsx`, `AuthContext.jsx`, `Historias.jsx`, `PuzzleStealthGrid.jsx`, `DixContext.jsx`, `BuildingInterior.jsx`, `UniversosHub.jsx`, `react`, `TopTrumpsSP.jsx`, `ResultScreen.jsx`, `criaturas.js`, `Navbar.jsx`, `PerfilColecao.jsx`, `useGameStore.js`, `Number`, `04.md`, `TopTrumpsSP.jsx`, `capitulo-05.md`, `Community 125`, `useRadioNina.js`?**
   _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `criaturas.js` to `Community 0`, `DixContext.jsx`, `Community 8`, `Confronto.jsx`, `Community 20`, `AuthContext.jsx`, `04.md`, `TopTrumpsSP.jsx`, `PuzzleStealthGrid.jsx`?**
   _High betweenness centrality (0.007) - this node is a cross-community bridge._

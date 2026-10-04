@@ -273,7 +273,7 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
 - **Batidas:** compasso de 8 tempos (lento 3,4 s · normal 2,6 s · rápido
   1,9 s). Depois, um compasso de **replay**: o seu pentagrama contra o dele
   inteiro, lado a lado, e o passo a passo.
-- **Poder (Gelo Negro):** a bolinha ⚡ entre as pernas enche a barra de poder
+- **Poder (Gelo Negro):** a bolinha ⚡ em cima da cabeça enche a barra de poder
   (embaixo da barra de sangue) a cada toque (+5) e enquanto o dedo segura
   nela, a qualquer hora da batida — o tempo ali é tempo sem atacar. Bloquear (+8) e apanhar (+4) também enchem. Barra cheia: a cada
   batida aparece uma sequência branca numerada de 4 pontos (sorteada, só com
@@ -289,7 +289,7 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
   bumbo/chimbal/estalo, timbre por golpe (soco, cotovelada, joelhada, chute,
   cabeçada), bloqueio, esquiva e o tique de cada ponto ligado. Botão de mudo.
 - **Uma mão:** placar e replay em cima, tabuleiro na metade de baixo, no
-  dedão; regras fechadas em "Como joga" pra o botão de lutar caber na tela.
+  dedão; Sair e som no topo, longe do tabuleiro (pra não sair sem querer); regras fechadas em "Como joga" pra o botão de lutar caber na tela.
 
 **Planejado:** visão em primeira pessoa (só as luvas); mais poderes; combos
 liberados aos poucos; membro machucado; a
