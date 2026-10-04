@@ -121,12 +121,11 @@ export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = 
           </g>
         )
       })}
-      {/* Ordem da sequência por cima de tudo: o ponto de partida ganha um anel e
-          um ponto que aparece mais de uma vez mostra todas as posições. */}
+      {/* Ordem da sequência por cima de tudo; o ponto de partida ganha um anel. */}
       {guia.length > 0 && <circle className="pg-guia-inicio" cx={PONTOS[guia[0]].x} cy={PONTOS[guia[0]].y} r={PONTOS[guia[0]].grande ? 23 : 16} />}
-      {[...new Set(guia)].map(id => (
+      {guia.map((id, i) => (
         <text key={`g-${id}`} className={`pg-num pg-num--guia${id === guia[0] ? ' is-inicio' : ''}`} x={PONTOS[id].x} y={PONTOS[id].y + (PONTOS[id].grande ? 34 : 26)}>
-          {guia.map((g, i) => (g === id ? i + 1 : null)).filter(Boolean).join('·')}
+          {i + 1}
         </text>
       ))}
       {fantasmas.map(f => (

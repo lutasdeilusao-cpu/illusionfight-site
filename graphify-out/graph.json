@@ -304,14 +304,334 @@
       "norm_label": "version.js"
     },
     {
+      "label": "Pentagrama.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_pentagrama",
+      "community": 71,
+      "norm_label": "pentagrama.jsx"
+    },
+    {
+      "label": "RAIO_ARRASTO",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_pentagrama_raio_arrasto",
+      "community": 71,
+      "norm_label": "raio_arrasto"
+    },
+    {
+      "label": "ESTRELA",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_pentagrama_estrela",
+      "community": 71,
+      "norm_label": "estrela"
+    },
+    {
+      "label": "IDS",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_pentagrama_ids",
+      "community": 71,
+      "norm_label": "ids"
+    },
+    {
+      "label": "pos()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_pentagrama_pos",
+      "community": 71,
+      "norm_label": "pos()"
+    },
+    {
+      "label": "pontoPerto()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_pentagrama_pontoperto",
+      "community": 71,
+      "norm_label": "pontoperto()"
+    },
+    {
+      "label": "Pentagrama()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
+      "community": 71,
+      "norm_label": "pentagrama()"
+    },
+    {
+      "label": "motorPentagrama.js",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama",
+      "community": 71,
+      "norm_label": "motorpentagrama.js"
+    },
+    {
+      "label": "PONTOS",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_pontos",
+      "community": 71,
+      "norm_label": "pontos"
+    },
+    {
+      "label": "CENTRO",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_centro",
+      "community": 71,
+      "norm_label": "centro"
+    },
+    {
+      "label": "MAX_POR_CARGA",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_max_por_carga",
+      "community": 71,
+      "norm_label": "max_por_carga"
+    },
+    {
+      "label": "MULT_CARGA",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_mult_carga",
+      "community": 71,
+      "norm_label": "mult_carga"
+    },
+    {
+      "label": "ORBE",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_orbe",
+      "community": 71,
+      "norm_label": "orbe"
+    },
+    {
+      "label": "PODERES",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_poderes",
+      "community": 71,
+      "norm_label": "poderes"
+    },
+    {
+      "label": "DURACAO_EFEITO",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L94",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_duracao_efeito",
+      "community": 71,
+      "norm_label": "duracao_efeito"
+    },
+    {
+      "label": "maxGolpes()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_maxgolpes",
+      "community": 71,
+      "norm_label": "maxgolpes()"
+    },
+    {
+      "label": "golpesDe()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
+      "community": 71,
+      "norm_label": "golpesde()"
+    },
+    {
+      "label": "podeLigar()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L102",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
+      "community": 71,
+      "norm_label": "podeligar()"
+    },
+    {
+      "label": "comboValido()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_combovalido",
+      "community": 71,
+      "norm_label": "combovalido()"
+    },
+    {
+      "label": "gravidade()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_gravidade",
+      "community": 71,
+      "norm_label": "gravidade()"
+    },
+    {
+      "label": "danoDoGolpe()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_danodogolpe",
+      "community": 71,
+      "norm_label": "danodogolpe()"
+    },
+    {
+      "label": "distSegmento()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_distsegmento",
+      "community": 71,
+      "norm_label": "distsegmento()"
+    },
+    {
+      "label": "trechoLimpo()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo",
+      "community": 71,
+      "norm_label": "trecholimpo()"
+    },
+    {
+      "label": "sequenciaDoPoder()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L134",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder",
+      "community": 71,
+      "norm_label": "sequenciadopoder()"
+    },
+    {
+      "label": "sequenciaDoSuper()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadosuper",
+      "community": 71,
+      "norm_label": "sequenciadosuper()"
+    },
+    {
+      "label": "defendeuSuper()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L155",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_defendeusuper",
+      "community": 71,
+      "norm_label": "defendeusuper()"
+    },
+    {
+      "label": "acertouSequencia()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L157",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_acertousequencia",
+      "community": 71,
+      "norm_label": "acertousequencia()"
+    },
+    {
+      "label": "resolverAtaque()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L166",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
+      "community": 71,
+      "norm_label": "resolverataque()"
+    },
+    {
+      "label": "comboLido()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L221",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_combolido",
+      "community": 71,
+      "norm_label": "combolido()"
+    },
+    {
+      "label": "PONTO_DO_MEMBRO",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L231",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_ponto_do_membro",
+      "community": 71,
+      "norm_label": "ponto_do_membro"
+    },
+    {
+      "label": "escolherDefesaDele()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L233",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_escolherdefesadele",
+      "community": 71,
+      "norm_label": "escolherdefesadele()"
+    },
+    {
+      "label": "escolherCombo()",
+      "file_type": "code",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L253",
+      "_origin": "ast",
+      "id": "src_pages_games_ldi_batalha_motorpentagrama_escolhercombo",
+      "community": 71,
+      "norm_label": "escolhercombo()"
+    },
+    {
       "label": "BatalhaLab.jsx",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab",
       "community": 504,
-      "norm_label": "batalhalab.jsx"
+      "norm_label": "batalhalab.jsx",
+      "id": "src_pages_games_ldi_batalha_batalhalab"
     },
     {
       "label": "VELOCIDADES",
@@ -319,9 +639,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab_velocidades",
       "community": 504,
-      "norm_label": "velocidades"
+      "norm_label": "velocidades",
+      "id": "src_pages_games_ldi_batalha_batalhalab_velocidades"
     },
     {
       "label": "BatalhaLab()",
@@ -329,9 +649,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab_batalhalab",
       "community": 504,
-      "norm_label": "batalhalab()"
+      "norm_label": "batalhalab()",
+      "id": "src_pages_games_ldi_batalha_batalhalab_batalhalab"
     },
     {
       "label": "Luta()",
@@ -339,9 +659,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L96",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab_luta",
       "community": 504,
-      "norm_label": "luta()"
+      "norm_label": "luta()",
+      "id": "src_pages_games_ldi_batalha_batalhalab_luta"
     },
     {
       "label": "Replay()",
@@ -349,9 +669,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L405",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab_replay",
       "community": 504,
-      "norm_label": "replay()"
+      "norm_label": "replay()",
+      "id": "src_pages_games_ldi_batalha_batalhalab_replay"
     },
     {
       "label": "Barra()",
@@ -359,9 +679,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L429",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab_barra",
       "community": 504,
-      "norm_label": "barra()"
+      "norm_label": "barra()",
+      "id": "src_pages_games_ldi_batalha_batalhalab_barra"
     },
     {
       "label": "textoPasso()",
@@ -369,9 +689,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L445",
       "_origin": "ast",
-      "id": "src_pages_games_ldi_batalha_batalhalab_textopasso",
       "community": 504,
-      "norm_label": "textopasso()"
+      "norm_label": "textopasso()",
+      "id": "src_pages_games_ldi_batalha_batalhalab_textopasso"
     },
     {
       "label": "LDI_LENDAS_GDD.md",
@@ -574,76 +894,6 @@
       "id": "src_pages_games_ldi_batalha_escolhapoder_escolhapoder"
     },
     {
-      "label": "Pentagrama.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "pentagrama.jsx",
-      "id": "src_pages_games_ldi_batalha_pentagrama"
-    },
-    {
-      "label": "RAIO_ARRASTO",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "raio_arrasto",
-      "id": "src_pages_games_ldi_batalha_pentagrama_raio_arrasto"
-    },
-    {
-      "label": "ESTRELA",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "estrela",
-      "id": "src_pages_games_ldi_batalha_pentagrama_estrela"
-    },
-    {
-      "label": "IDS",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "ids",
-      "id": "src_pages_games_ldi_batalha_pentagrama_ids"
-    },
-    {
-      "label": "pos()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "pos()",
-      "id": "src_pages_games_ldi_batalha_pentagrama_pos"
-    },
-    {
-      "label": "pontoPerto()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L19",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "pontoperto()",
-      "id": "src_pages_games_ldi_batalha_pentagrama_pontoperto"
-    },
-    {
-      "label": "Pentagrama()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L30",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "pentagrama()",
-      "id": "src_pages_games_ldi_batalha_pentagrama_pentagrama"
-    },
-    {
       "label": "campanhaPentagrama.js",
       "file_type": "code",
       "source_file": "src/pages/games/LDI/batalha/campanhaPentagrama.js",
@@ -672,256 +922,6 @@
       "community": 533,
       "norm_label": "inimigos",
       "id": "src_pages_games_ldi_batalha_campanhapentagrama_inimigos"
-    },
-    {
-      "label": "motorPentagrama.js",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "motorpentagrama.js",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama"
-    },
-    {
-      "label": "PONTOS",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L50",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "pontos",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_pontos"
-    },
-    {
-      "label": "CENTRO",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L61",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "centro",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_centro"
-    },
-    {
-      "label": "MAX_POR_CARGA",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L62",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "max_por_carga",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_max_por_carga"
-    },
-    {
-      "label": "MULT_CARGA",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L64",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "mult_carga",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_mult_carga"
-    },
-    {
-      "label": "ORBE",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L78",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "orbe",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_orbe"
-    },
-    {
-      "label": "PODERES",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L89",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "poderes",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_poderes"
-    },
-    {
-      "label": "DURACAO_EFEITO",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L94",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "duracao_efeito",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_duracao_efeito"
-    },
-    {
-      "label": "maxGolpes()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L97",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "maxgolpes()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_maxgolpes"
-    },
-    {
-      "label": "golpesDe()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L99",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "golpesde()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
-    },
-    {
-      "label": "podeLigar()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L102",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "podeligar()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_podeligar"
-    },
-    {
-      "label": "comboValido()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L108",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "combovalido()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_combovalido"
-    },
-    {
-      "label": "gravidade()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L112",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "gravidade()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_gravidade"
-    },
-    {
-      "label": "danoDoGolpe()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L114",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "danodogolpe()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_danodogolpe"
-    },
-    {
-      "label": "distSegmento()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L121",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "distsegmento()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_distsegmento"
-    },
-    {
-      "label": "trechoLimpo()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L128",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "trecholimpo()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo"
-    },
-    {
-      "label": "sequenciaDoPoder()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L134",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "sequenciadopoder()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder"
-    },
-    {
-      "label": "sequenciaDoSuper()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L149",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "sequenciadosuper()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadosuper"
-    },
-    {
-      "label": "defendeuSuper()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L153",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "defendeusuper()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_defendeusuper"
-    },
-    {
-      "label": "acertouSequencia()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L155",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "acertousequencia()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_acertousequencia"
-    },
-    {
-      "label": "resolverAtaque()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L164",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "resolverataque()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque"
-    },
-    {
-      "label": "comboLido()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L219",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "combolido()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_combolido"
-    },
-    {
-      "label": "PONTO_DO_MEMBRO",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L229",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "ponto_do_membro",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_ponto_do_membro"
-    },
-    {
-      "label": "escolherDefesaDele()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L231",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "escolherdefesadele()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_escolherdefesadele"
-    },
-    {
-      "label": "escolherCombo()",
-      "file_type": "code",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L251",
-      "_origin": "ast",
-      "community": 71,
-      "norm_label": "escolhercombo()",
-      "id": "src_pages_games_ldi_batalha_motorpentagrama_escolhercombo"
     },
     {
       "label": "somPentagrama.js",
@@ -57321,14 +57321,589 @@
       "target": "src_config_version"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_centro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_orbe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_pontos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_estrela",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_ids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_pontoperto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_pos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_raio_arrasto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_pos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
+      "target": "src_pages_games_ldi_batalha_pentagrama_pontoperto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/EscolhaPoder.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_escolhapoder",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_acertousequencia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_centro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L221",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_combolido",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_combovalido",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_danodogolpe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L155",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_defendeusuper",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_distsegmento",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_duracao_efeito",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L253",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_escolhercombo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L233",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_escolherdefesadele",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_gravidade",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_max_por_carga",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_maxgolpes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_mult_carga",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_orbe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_poderes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L231",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_ponto_do_membro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_pontos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadosuper",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_sompentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_sompentagrama",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_pontos"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/EscolhaPoder.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_ldi_batalha_escolhapoder",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_poderes"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama_acertousequencia",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama_combolido",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama_combovalido",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L167",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama_combovalido",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L140",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L212",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_gravidade",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_danodogolpe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_distsegmento",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
+      "source_location": "L140",
+      "weight": 1.0,
+      "source": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder",
+      "target": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L429",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_batalhalab_barra",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_barra"
     },
     {
       "relation": "contains",
@@ -57336,9 +57911,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_batalhalab_batalhalab",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_batalhalab"
     },
     {
       "relation": "contains",
@@ -57346,9 +57921,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_batalhalab_luta",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_luta"
     },
     {
       "relation": "contains",
@@ -57356,9 +57931,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L405",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_batalhalab_replay",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_replay"
     },
     {
       "relation": "contains",
@@ -57366,9 +57941,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L445",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_batalhalab_textopasso",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_textopasso"
     },
     {
       "relation": "contains",
@@ -57376,9 +57951,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab",
-      "target": "src_pages_games_ldi_batalha_batalhalab_velocidades",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_velocidades"
     },
     {
       "relation": "calls",
@@ -57387,9 +57962,9 @@
       "source_file": "src/pages/games/LDI/batalha/BatalhaLab.jsx",
       "source_location": "L420",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_batalhalab_replay",
-      "target": "src_pages_games_ldi_batalha_batalhalab_textopasso",
-      "confidence_score": 1.0
+      "target": "src_pages_games_ldi_batalha_batalhalab_textopasso"
     },
     {
       "relation": "contains",
@@ -57572,198 +58147,6 @@
       "target": "src_pages_games_ldi_batalha_escolhapoder_escolhapoder"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/EscolhaPoder.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_escolhapoder",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/EscolhaPoder.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_escolhapoder",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_poderes"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_centro"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_orbe"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_pontos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_estrela"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_ids"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L30",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_pentagrama"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_pontoperto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_pos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_raio_arrasto"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L68",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_pos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L67",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
-      "target": "src_pages_games_ldi_batalha_pentagrama_pontoperto"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/LDI/batalha/Pentagrama.jsx",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "src_pages_games_ldi_batalha_pentagrama_pentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/LDI/batalha/campanhaPentagrama.js",
@@ -57782,389 +58165,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_games_ldi_batalha_campanhapentagrama",
       "target": "src_pages_games_ldi_batalha_campanhapentagrama_jab_direto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L155",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_acertousequencia"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L61",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_centro"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L219",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_combolido"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L108",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_combovalido"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L114",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_danodogolpe"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L153",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_defendeusuper"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L121",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_distsegmento"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L94",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_duracao_efeito"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L251",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_escolhercombo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L231",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_escolherdefesadele"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L99",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L112",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_gravidade"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L62",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_max_por_carga"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L97",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_maxgolpes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L64",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_mult_carga"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L78",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_orbe"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L102",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L89",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_poderes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L229",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_ponto_do_membro"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L50",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_pontos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L164",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L134",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L149",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadosuper"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L128",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/somPentagrama.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_sompentagrama",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_pontos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L156",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama_acertousequencia",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L220",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama_combolido",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L109",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama_combovalido",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L104",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama_podeligar",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L165",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_golpesde"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L109",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama_combovalido",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L138",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_podeligar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L210",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_gravidade"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L208",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama_resolverataque",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_danodogolpe"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L129",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_distsegmento"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/LDI/batalha/motorPentagrama.js",
-      "source_location": "L138",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_ldi_batalha_motorpentagrama_sequenciadopoder",
-      "target": "src_pages_games_ldi_batalha_motorpentagrama_trecholimpo"
     },
     {
       "relation": "contains",
@@ -149632,5 +149632,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "83a2429dc5f2ffdaecec53a418fe29b98acc0b76"
+  "built_at_commit": "a2babfdb7cc99aedaa2836b34d02f4283f1e6358"
 }

@@ -129,7 +129,7 @@ function trechoLimpo(a, b) {
   return Object.keys(PONTOS).every(id => id === a || id === b || distSegmento(PONTOS[id], PONTOS[a], PONTOS[b]) > 24)
 }
 
-// A sequência que o poder pede nesta batida: um traço válido sorteado, só com
+// A sequência que o poder pede nesta batida: pontos sem repetir, sorteados de preferência com
 // trechos que o dedão consegue fazer sem raspar em outro ponto.
 export function sequenciaDoPoder(poder, rnd = Math.random) {
   // Primeiro tenta só com trechos limpos; se não sair do tamanho certo, aceita qualquer trecho.
@@ -137,7 +137,7 @@ export function sequenciaDoPoder(poder, rnd = Math.random) {
     const limpo = tentativa < 80
     const seq = []
     while (seq.length < poder.golpes) {
-      const opcoes = Object.keys(PONTOS).filter(p => podeLigar(seq, p, poder.golpes) && (!limpo || !seq.length || trechoLimpo(seq[seq.length - 1], p)))
+      const opcoes = Object.keys(PONTOS).filter(p => !seq.includes(p) && podeLigar(seq, p, poder.golpes) && (!limpo || !seq.length || trechoLimpo(seq[seq.length - 1], p)))
       if (!opcoes.length) break
       seq.push(opcoes[Math.floor(rnd() * opcoes.length)])
     }
