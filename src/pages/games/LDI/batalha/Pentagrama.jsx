@@ -118,10 +118,17 @@ export default function Pentagrama({ combo, telegrafo = [], guia = [], tempos = 
             <circle cx={p.x} cy={p.y} r={p.grande ? 17 : 10} />
             {iIni >= 0 && <text className="pg-num pg-num--ini" x={p.x + 15} y={p.y - 13}>{iIni + 1}</text>}
             {iJog >= 0 && <text className="pg-num pg-num--jog" x={p.x - 19} y={p.y - 13}>{iJog + 1}</text>}
-            {guia.includes(id) && <text className="pg-num pg-num--guia" x={p.x - 4} y={p.y + 30}>{guia.indexOf(id) + 1}</text>}
           </g>
         )
       })}
+      {/* Ordem da sequência por cima de tudo: o ponto de partida ganha um anel e
+          um ponto que aparece mais de uma vez mostra todas as posições. */}
+      {guia.length > 0 && <circle className="pg-guia-inicio" cx={PONTOS[guia[0]].x} cy={PONTOS[guia[0]].y} r={PONTOS[guia[0]].grande ? 23 : 16} />}
+      {[...new Set(guia)].map(id => (
+        <text key={`g-${id}`} className={`pg-num pg-num--guia${id === guia[0] ? ' is-inicio' : ''}`} x={PONTOS[id].x} y={PONTOS[id].y + (PONTOS[id].grande ? 34 : 26)}>
+          {guia.map((g, i) => (g === id ? i + 1 : null)).filter(Boolean).join('·')}
+        </text>
+      ))}
       {fantasmas.map(f => (
         <g key={f.id}>
           <circle className={`pg-fantasma is-${f.estado}`} cx={PONTOS[f.ponto].x} cy={PONTOS[f.ponto].y} r={PONTOS[f.ponto].grande ? 24 : 16} />

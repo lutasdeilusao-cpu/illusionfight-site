@@ -132,16 +132,18 @@ function trechoLimpo(a, b) {
 // A sequência que o poder pede nesta batida: um traço válido sorteado, só com
 // trechos que o dedão consegue fazer sem raspar em outro ponto.
 export function sequenciaDoPoder(poder, rnd = Math.random) {
-  for (let tentativa = 0; tentativa < 80; tentativa++) {
+  // Primeiro tenta só com trechos limpos; se não sair do tamanho certo, aceita qualquer trecho.
+  for (let tentativa = 0; tentativa < 160; tentativa++) {
+    const limpo = tentativa < 80
     const seq = []
     while (seq.length < poder.golpes) {
-      const opcoes = Object.keys(PONTOS).filter(p => podeLigar(seq, p) && (!seq.length || trechoLimpo(seq[seq.length - 1], p)))
+      const opcoes = Object.keys(PONTOS).filter(p => podeLigar(seq, p, poder.golpes) && (!limpo || !seq.length || trechoLimpo(seq[seq.length - 1], p)))
       if (!opcoes.length) break
       seq.push(opcoes[Math.floor(rnd() * opcoes.length)])
     }
     if (seq.length === poder.golpes) return seq
   }
-  return ['maoD', 'cotD', 'joeD', 'cotE']
+  return Object.keys(PONTOS).slice(0, poder.golpes)
 }
 
 // O super do inimigo: n pontos diferentes que o jogador tem que tocar todos,

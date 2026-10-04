@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791142356.3033843,
-    "ast_hash": "4a762ce502af4d7eeb6e560d86bdf8bd",
+    "mtime": 1791143093.677215,
+    "ast_hash": "733f3ee0f114a82122939440095718c3",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791142356.3043847,
-    "ast_hash": "c1af185627d3220e3b3f3d400853d7f8",
+    "mtime": 1791143093.6782167,
+    "ast_hash": "a82860bed1dd5a261230726734524fda",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7035,8 +7035,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/BatalhaLab.jsx": {
-    "mtime": 1791141598.3608787,
-    "ast_hash": "5d75bcec1cbc5423597243690e2b93c1",
+    "mtime": 1791143116.661299,
+    "ast_hash": "ab37aa0be5991f7ff2f08b923b96ecb0",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/Pentagrama.jsx": {

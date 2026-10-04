@@ -88,7 +88,10 @@
 .pg-centro.is-aberto { fill: var(--if-ok); filter: drop-shadow(0 0 10px var(--if-ok)); }
 .pg-centro.is-ligado { fill: var(--pg-jog); filter: drop-shadow(0 0 10px var(--pg-jog)); }
 .pg-linha--guia { stroke: var(--if-cyan); stroke-width: 4; stroke-dasharray: 4 6; opacity: 0.9; filter: drop-shadow(0 0 6px var(--if-cyan)); animation: pg-pisca 0.4s ease-in-out infinite alternate; }
-.pg-num--guia { fill: var(--if-ink); font-size: 11px; }
+.pg-num--guia { fill: var(--if-ink); font-size: 14px; text-anchor: middle; paint-order: stroke; stroke: var(--if-panel-flat); stroke-width: 4px; pointer-events: none; }
+.pg-num--guia.is-inicio { fill: var(--if-cyan); font-size: 16px; }
+.pg-guia-inicio { fill: none; stroke: var(--if-cyan); stroke-width: 3; pointer-events: none; animation: pg-pisca 0.4s ease-in-out infinite alternate; }
+.pg-tabuleiro.is-perigo .pg-guia-inicio, .pg-tabuleiro.is-perigo .pg-num--guia.is-inicio { stroke: var(--pg-ini); }
 .pg-orbe circle { fill: var(--if-panel-flat); stroke: var(--if-cyan); stroke-width: 2; }
 .pg-orbe text { font-size: 13px; text-anchor: middle; pointer-events: none; }
 .pg-orbe.is-segurando circle { fill: var(--if-cyan); filter: drop-shadow(0 0 12px var(--if-cyan)); animation: pg-pisca 0.3s ease-in-out infinite alternate; }
