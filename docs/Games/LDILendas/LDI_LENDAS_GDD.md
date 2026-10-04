@@ -272,10 +272,15 @@ números ficam no topo dele), pra o Lendas e qualquer jogo consumirem depois.
   cada lado) conta no tempo: ponto dourado, brilho, golpe 25% mais forte.
   **Fora do tempo é erro:** no ataque o golpe não entra, o combo quebra ali e a
   abertura é dele (a vez vira); na defesa o bloqueio não conta.
-- **Fantasma das porradas dele:** na defesa, cada golpe do inimigo chega no
-  seu corpo num tempo do compasso (1º no tempo 1, 2º no 2…) e aparece como
-  fantasma no ponto atingido: vermelho entrou (com o som do golpe), dourado
-  você bloqueou, tracejado se você esquivou. Ele vem com 1 a 4 golpes.
+- **Fantasma das porradas, o tempo todo:** cada golpe aparece como fantasma
+  no ponto, com o som na hora.
+  - Na defesa, cada golpe dele chega no seu corpo num tempo do compasso (1º no
+    tempo 1, 2º no 2…): vermelho entrou, dourado você bloqueou, tracejado se
+    você esquivou. Ele vem com 1 a 4 golpes.
+  - No ataque, a defesa dele é decidida golpe a golpe, na hora em que você
+    toca: azul entrou, dourado ele bloqueou, cinza fora do tempo, tracejado
+    ele esquivou, apagado se o combo já tinha quebrado. O replay usa
+    exatamente essa defesa.
 - **Repetição é castigada:** atacar com o mesmo combo pela 3ª vez seguida, ele
   já leu — bloqueia certinho, o combo quebra no 1º golpe e a vez vira.
 - **Esquiva:** o centro abre raramente (~0,4 s) e é um ponto do traço; passar o

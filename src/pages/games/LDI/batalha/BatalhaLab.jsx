@@ -3,7 +3,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useFichas } from '../../../../context/FichasContext'
 import { useReader } from '../../../../context/ReaderContext'
 import Pentagrama from './Pentagrama'
-import { FICHAS, PONTOS, ENERGIA_BASE, ENERGIA_MAX, ESQUIVA, MAX_POR_CARGA, TOQUES_POR_CARGA, PODER_MAX, PODER_POR_SEGUNDO, PODER_POR_TOQUE, PODERES, escolherCombo, escolherDefesa, resolverAtaque, comboLido, JANELA_TEMPO, golpesDe, maxGolpes, sequenciaDoPoder, acertouSequencia } from './motorPentagrama'
+import { FICHAS, PONTOS, ENERGIA_BASE, ENERGIA_MAX, ESQUIVA, MAX_POR_CARGA, TOQUES_POR_CARGA, PODER_MAX, PODER_POR_SEGUNDO, PODER_POR_TOQUE, PODERES, escolherCombo, resolverAtaque, comboLido, defesaDoGolpe, leituraDe, JANELA_TEMPO, golpesDe, maxGolpes, sequenciaDoPoder, acertouSequencia } from './motorPentagrama'
 import { ligarSom, alternarMudo, estaMudo, tocarCompasso, somAcende, somLigar, somGolpe, somBloqueio, somEsquiva, somPoder, somPapel } from './somPentagrama'
 import './Batalha.css'
 
@@ -101,6 +101,12 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
   const [fantasmas, setFantasmas] = useState([]) // golpes dele chegando no seu corpo, no beat
   const inicioBatida = useRef(0)
   const historicoAtaque = useRef([])
+  // Atacando: a defesa dele é decidida golpe a golpe, na hora que você toca.
+  const defesaDele = useRef({ golpes: [], esquiva: false })
+  const mostrarFantasma = useCallback((id, ponto, estadoF, dur) => {
+    setFantasmas(f => [...f.filter(x => x.id !== id), { id, ponto, estado: estadoF }])
+    setTimeout(() => setFantasmas(f => f.filter(x => x.id !== id)), dur)
+  }, [])
   const estado = useRef({})
   const golpes = golpesDe(combo).length
   const cargaMax = tonto.jog ? 0 : golpes === 0 ? 0 : golpes <= MAX_POR_CARGA[2] ? 2 : golpes <= MAX_POR_CARGA[1] ? 1 : 0
@@ -117,6 +123,7 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
     const oitavo = batida / 8
     const meu = estado.current.papel
     inicioBatida.current = performance.now()
+    defesaDele.current = { golpes: [], esquiva: meu === 'ataque' && Math.random() < ficha.esquiva }
     const comboIni = meu === 'defesa' ? escolherCombo(ficha, { ultimoDoJogador: ultimoJog.current, tonto: estado.current.tonto.ini }) : []
     tocarCompasso(batida)
     somPapel(meu)
@@ -151,8 +158,10 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
       let r, comboJog = cj, comboOutro
       if (meu === 'ataque') {
         // Mesmo combo pela 3ª vez seguida: ele já leu — bloqueia certinho.
+        // Senão vale a defesa que ele já fez golpe a golpe (o fantasma que você viu).
         const lido = !soltouPoder && comboLido(historicoAtaque.current, cj)
-        comboOutro = lido ? golpesDe(cj) : escolherDefesa(ficha, cj, { ultimoDoJogador: ultimoJog.current })
+        const dd = defesaDele.current
+        comboOutro = lido ? golpesDe(cj) : dd.esquiva ? [ESQUIVA] : golpesDe(cj).map((p, i) => dd.golpes[i] ?? defesaDoGolpe(p, leituraDe(ficha)))
         r = resolverAtaque({ combo: cj, carga: cg, energia: en.jog, poder: soltouPoder, noTempo: tp }, { combo: comboOutro, energia: en.ini })
         if (lido) r.passos.unshift({ tipo: 'lido' })
         if (golpesDe(cj).length) historicoAtaque.current = [...historicoAtaque.current, golpesDe(cj)].slice(-3)
@@ -181,7 +190,7 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
       setTravado(true)
       const semi = batida / 16000
       passos.forEach((p, i) => {
-        if (meu === 'defesa' && (p.tipo === 'acerto' || p.tipo === 'bloqueio')) return
+        if (p.tipo === 'acerto' || p.tipo === 'bloqueio') return // já tocou ao vivo, no fantasma
         if (p.tipo === 'acerto') somGolpe(p.ponto, i * semi)
         else if (p.tipo === 'bloqueio') somBloqueio(!!p.duro, i * semi)
         else if (p.tipo === 'esquiva') somEsquiva(i * semi)
@@ -209,10 +218,33 @@ function Luta({ t, ficha, batida, verOrigem, onSair }) {
         const noTempo = Math.min(t, quarto - t) <= JANELA_TEMPO * quarto
         setTempos(tp => [...tp, noTempo])
         somLigar(golpesDe(novo).length - 1, ultimo, noTempo)
+        if (estado.current.papel === 'ataque') reagirAoGolpe(golpesDe(novo).length - 1, ultimo, noTempo)
       }
     }
     setCombo(novo)
-  }, [batida])
+  }, [batida]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Atacando: cada golpe que você solta já mostra a reação dele, como
+  // fantasma no ponto: azul entrou, dourado ele bloqueou, cinza fora do tempo,
+  // tracejado ele esquivou, apagado se o combo já tinha quebrado.
+  function reagirAoGolpe(i, ponto, noTempo) {
+    const dd = defesaDele.current
+    const id = `atk-${i}`
+    const dur = (batida / 4) * 0.9
+    const jaQuebrou = estado.current.tempos.slice(0, i).some(x => x === false) || dd.golpes.slice(0, i).some((d, k) => d && PONTOS[d].membro === PONTOS[golpesDe(estado.current.combo)[k]]?.membro)
+    if (jaQuebrou) return mostrarFantasma(id, ponto, 'cortado', dur)
+    if (!noTempo) return mostrarFantasma(id, ponto, 'fora', dur)
+    if (dd.esquiva) return mostrarFantasma(id, ponto, 'vazio', dur)
+    // Já leu: o mesmo combo das duas últimas vezes, e você tá seguindo ele.
+    const hist = historicoAtaque.current
+    const repete = hist.length >= 2 && hist.at(-1).join() === hist.at(-2).join() && hist.at(-1)[i] === ponto
+    const defesa = repete ? ponto : defesaDoGolpe(ponto, leituraDe(ficha))
+    dd.golpes[i] = defesa
+    const bloqueou = PONTOS[defesa].membro === PONTOS[ponto].membro
+    mostrarFantasma(id, ponto, bloqueou ? 'bloqueado' : 'acerto', dur)
+    if (bloqueou) somBloqueio(false)
+    else somGolpe(ponto)
+  }
   const tocar = useCallback(() => {
     setToques(x => x + 1)
     somLigar(2 + Math.floor((toques + 1) / TOQUES_POR_CARGA), 'cab')

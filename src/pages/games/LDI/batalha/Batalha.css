@@ -103,6 +103,9 @@
 .pg-fantasma { pointer-events: none; transform-box: fill-box; transform-origin: center; animation: pg-fantasma 0.45s ease-out forwards; }
 .pg-fantasma.is-entrou { fill: color-mix(in srgb, var(--pg-ini) 55%, transparent); stroke: var(--pg-ini); stroke-width: 3; filter: drop-shadow(0 0 12px var(--pg-ini)); }
 .pg-fantasma.is-bloqueado { fill: color-mix(in srgb, var(--if-amber) 45%, transparent); stroke: var(--if-amber); stroke-width: 3; filter: drop-shadow(0 0 12px var(--if-amber)); }
+.pg-fantasma.is-acerto { fill: color-mix(in srgb, var(--pg-jog) 50%, transparent); stroke: var(--pg-jog); stroke-width: 3; filter: drop-shadow(0 0 12px var(--pg-jog)); }
+.pg-fantasma.is-fora { fill: none; stroke: var(--text-secondary); stroke-width: 3; }
+.pg-fantasma.is-cortado { fill: none; stroke: var(--if-hair-strong); stroke-width: 2; }
 .pg-fantasma.is-vazio { fill: none; stroke: var(--text-secondary); stroke-width: 2; stroke-dasharray: 4 4; }
 .pg-passo.is-fora { color: var(--pg-ini); font-weight: 800; }
 .pg-passo.is-lido { color: var(--if-amber); font-weight: 900; }

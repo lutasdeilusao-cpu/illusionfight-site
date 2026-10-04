@@ -221,20 +221,20 @@ export const comboLido = (historico, combo) => {
   return g !== '' && historico.length >= REPETICOES_LIDAS - 1 && historico.slice(-(REPETICOES_LIDAS - 1)).every(h => h.join() === g)
 }
 
-// O inimigo defendendo: tenta adivinhar membro a membro o combo do jogador.
-// `leitura` = chance de acertar cada membro (sobe se o jogador repete o combo).
-export function escolherDefesa(ficha, comboJogador, { ultimoDoJogador = [] } = {}, rnd = Math.random) {
-  const golpes = golpesDe(comboJogador)
-  const repetiu = golpes.length && golpes.join() === ultimoDoJogador.join()
-  const leitura = Math.min(0.9, (ficha.leitura || 0.2) + (repetiu ? 0.4 : 0))
-  if (rnd() < (ficha.esquiva || 0)) return [ESQUIVA]
-  const porMembro = { cab: ['cab'], bracoD: ['maoD', 'cotD'], bracoE: ['maoE', 'cotE'], pernaD: ['peD', 'joeD'], pernaE: ['peE', 'joeE'] }
-  const membros = Object.keys(porMembro)
-  return golpes.map(p => {
-    const m = rnd() < leitura ? PONTOS[p].membro : membros[Math.floor(rnd() * membros.length)]
-    return porMembro[m][0]
-  })
+// O inimigo defendendo adivinha membro a membro: `leitura` = chance de
+// acertar cada membro (sobe se o jogador repete o combo).
+const PONTO_DO_MEMBRO = { cab: 'cab', bracoD: 'maoD', bracoE: 'maoE', pernaD: 'peD', pernaE: 'peE' }
+
+// A defesa dele contra UM golpe: acerta o membro com chance `leitura`, senão
+// chuta um membro qualquer. (Usado golpe a golpe, na hora em que o jogador toca.)
+export function defesaDoGolpe(ponto, leitura, rnd = Math.random) {
+  const membros = Object.keys(PONTO_DO_MEMBRO)
+  const m = rnd() < leitura ? PONTOS[ponto].membro : membros[Math.floor(rnd() * membros.length)]
+  return PONTO_DO_MEMBRO[m]
 }
+
+export const leituraDe = (ficha, repetiu = false) => Math.min(0.9, (ficha.leitura || 0.2) + (repetiu ? 0.4 : 0))
+
 
 // O inimigo escolhe o combo pela ficha: combos com peso, e às vezes repete o
 // SEU último combo (quem repete o mesmo combo apanha bloqueado). Tonto, só o
