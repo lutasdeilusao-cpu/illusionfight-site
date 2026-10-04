@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.339.1' // Gangues: moto e polícia levam coisa quando ganham
+export const SITE_VERSION = '10.339.2' // Gangues: automático não trava depois de item, nome da gangue no topo do resultado
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
-export const GANGUES_VERSION   = '3.97.1' // Encontro aleatório: a moto leva até 3 consumíveis; a Ronda leva 20% da grana e 1 consumível
+export const GANGUES_VERSION   = '3.97.2' // Automático não trava mais depois de usar item; topo do resultado com o nome da gangue pichado
 
 export const TAMA_VERSION      = '3.4.2' // sem cache local: progresso só na conta
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791095141.3374891,
-    "ast_hash": "609ace1f743479c060b4ebea9e637ea0",
+    "mtime": 1791097180.2563396,
+    "ast_hash": "5270d6593e05aa9bb23e56c43b141061",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2720,8 +2720,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791095141.419871,
-    "ast_hash": "384c3cf4303d79a70651876e16a9c246",
+    "mtime": 1791097180.2969067,
+    "ast_hash": "4081e4411fd07b13ed6d57c9922edf85",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3345,18 +3345,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1791094687.6090987,
-    "ast_hash": "491dbcdf2a2b6928b02b990e26e5e359",
+    "mtime": 1791097145.591076,
+    "ast_hash": "0b45e17e152387c996adc065ab6eb6a3",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1791094687.6200988,
-    "ast_hash": "a50c3205f6e231ebbabc9a89ebd0be63",
+    "mtime": 1791097145.6008973,
+    "ast_hash": "c27d81f83b0523122a6725a1bc08953d",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1791094687.5981085,
-    "ast_hash": "b79f33c661a9b50c9ad5fd7b18d9457d",
+    "mtime": 1791097145.5812106,
+    "ast_hash": "4943f97fb82475f1e858f20b0b9d5b16",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -3985,8 +3985,8 @@
     "semantic_hash": ""
   },
   "docs/Games/Gangues/LDI_GANGUES_GDD.md": {
-    "mtime": 1791095141.2741406,
-    "ast_hash": "8c7a2fb4ed1bb15b9fe0974c3c4991c3",
+    "mtime": 1791097081.8464112,
+    "ast_hash": "951ea05b8cbb084aa051584d68f202dc",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesInimigos.js": {
@@ -4035,8 +4035,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesVictoryResolution.js": {
-    "mtime": 1791090050.5160384,
-    "ast_hash": "27df01be47bf1a1fe8e5cb5348386a9d",
+    "mtime": 1791097145.559981,
+    "ast_hash": "65918405da126821b46e70313d80be4e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesBiroscaSlice.js": {
@@ -4360,8 +4360,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesVictoryReport.jsx": {
-    "mtime": 1791094578.2147176,
-    "ast_hash": "95b613091adbdb33e328bf9c7896a1cd",
+    "mtime": 1791097170.154122,
+    "ast_hash": "ceef1a6f68bd6cecc3abe05dff1f44b0",
     "semantic_hash": ""
   },
   "src/pages/preview/WebtoonCompare.jsx": {
@@ -4990,8 +4990,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesEncontroAleatorio.js": {
-    "mtime": 1790690488.2509441,
-    "ast_hash": "fc538f7ee39faa2fc98f9b38ab8d9fe4",
+    "mtime": 1791097064.7983203,
+    "ast_hash": "ee29379e82d5cb6b6cf2ba90a02c6d9f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesEncontroAleatorio.js": {

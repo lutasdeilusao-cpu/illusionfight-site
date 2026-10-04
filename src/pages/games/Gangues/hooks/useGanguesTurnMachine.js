@@ -263,5 +263,5 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     return true
   }, [phase, currentActor, combatants, advanceTurn, record, round])
 
-  return { combatants, phase, round, pending, events, initiative, tempo, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending, useItemAction, syncFrom, playerCura }
+  return { combatants, phase, round, pending, events, initiative, tempo, turnoSeq, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending, useItemAction, syncFrom, playerCura }
 }

@@ -85,7 +85,7 @@ export function escolherAcaoAuto({ ator, aliados, especiais, pagavel, itens, con
   return { tipo: 'ataque' }
 }
 
-export default function useGanguesModoAuto({ modoAutoOn, setModoAutoOn, velocidade = 1, perfil, modoMultidaoAtivo, machinePhase, result, koCena, selectedActor, selectedTarget, agir }) {
+export default function useGanguesModoAuto({ modoAutoOn, setModoAutoOn, velocidade = 1, perfil, modoMultidaoAtivo, machinePhase, turnoSeq, result, koCena, selectedActor, selectedTarget, agir }) {
   const navigate = useNavigate()
   // Beta: o botão APARECE pra todo mundo (é chamariz de assinatura — o cara vê
   // toda hora que podia automatizar). `podeUsarModoAuto` só decide se toca ou
@@ -101,6 +101,9 @@ export default function useGanguesModoAuto({ modoAutoOn, setModoAutoOn, velocida
 
   // ── Quando é a vez do jogador, a ação configurada sai sozinha depois de
   // uma pausa curta — dá pra ver o alvo escolhido antes do golpe sair.
+  // `turnoSeq` muda a cada vez que passa: sem ele, o mesmo personagem agindo
+  // duas vezes seguidas depois de um item (que não passa pela fase do golpe)
+  // não disparava a vez automática de novo.
   // autoQueuedRef evita disparar de novo enquanto o timer da vez atual
   // ainda não resolveu (mesmo padrão do aiQueued em useGanguesTurnMachine).
   useEffect(() => {
@@ -114,7 +117,7 @@ export default function useGanguesModoAuto({ modoAutoOn, setModoAutoOn, velocida
     autoQueuedRef.current = true
     const timer = setTimeout(() => { agirRef.current(); autoQueuedRef.current = false }, 750 / velocidade)
     return () => clearTimeout(timer)
-  }, [velocidade, modoMultidaoAtivo, modoAutoOn, podeUsarModoAuto, machinePhase, result, koCena, selectedActor, selectedTarget])
+  }, [velocidade, modoMultidaoAtivo, modoAutoOn, podeUsarModoAuto, machinePhase, turnoSeq, result, koCena, selectedActor, selectedTarget])
 
   return { podeUsarModoAuto, modoAutoOn, setModoAutoOn, toggleModoAuto }
 }

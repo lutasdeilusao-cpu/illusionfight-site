@@ -74,8 +74,6 @@
         "enemy_thinking": "O SOBRINHO TÁ TRAMANDO",
         "enemy_strategy": "Vendo o último golpe e bolando a próxima jogada...",
         "initiative": "ORDEM DA PISTA",
-        "victory_message": "Sua gangue controlou o combate. Analise cada decisão abaixo.",
-        "defeat_message": "A gangue caiu, mas o registro mostra onde a luta foi perdida.",
         "rewards_title": "Recompensa",
         "reward_ap": "Pontos de Ação",
         "reward_ap_ko": "Caiu — sem PA",
@@ -3777,7 +3775,9 @@
         "mais_dano": "mais dano",
         "mais_abates": "mais derrubadas",
         "maior_golpe": "Maior golpe · {nome}",
-        "criticos": "críticos"
+        "criticos": "críticos",
+        "vitoria": "Vitória",
+        "derrota": "Derrota"
       }
     }
   }

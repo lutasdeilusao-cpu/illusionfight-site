@@ -74,8 +74,6 @@
         "enemy_thinking": "THE MARK'S PLOTTING",
         "enemy_strategy": "Sizing up that last hit and cooking up the next move...",
         "initiative": "TRACK ORDER",
-        "victory_message": "Your gang controlled the fight. Analyze every decision below.",
-        "defeat_message": "The gang fell, but the record shows where the fight was lost.",
         "rewards_title": "Reward",
         "reward_ap": "Action Points",
         "reward_ap_ko": "Went down — no AP",
@@ -6880,7 +6878,9 @@
         "mais_dano": "most damage",
         "mais_abates": "most knockdowns",
         "maior_golpe": "Biggest hit · {nome}",
-        "criticos": "crits"
+        "criticos": "crits",
+        "vitoria": "Victory",
+        "derrota": "Defeat"
       }
     }
   }

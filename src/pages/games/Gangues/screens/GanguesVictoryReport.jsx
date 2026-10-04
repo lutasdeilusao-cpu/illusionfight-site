@@ -55,9 +55,11 @@ export default function GanguesVictoryReport({
   return (
     <main className={`gang-report gang-report--${victory ? 'victory' : 'defeat'} resultado`}>
       {levelUps.length > 0 && <LevelUpModal t={t} levelUps={levelUps} onClose={clearLevelUps} />}
-      <motion.header className="gang-report-hero" initial={{ opacity: 0, y: -18 }} animate={{ opacity: 1, y: 0 }}>
-        <h1>{victory ? t('games.gangues.vitoria') : t('games.gangues.derrota')}</h1>
-        <p>{victory ? t('games.gangues.report.victory_message') : t('games.gangues.report.defeat_message')}</p>
+      <motion.header className="gang-report-hero resultado-topo" initial={{ opacity: 0, y: -18 }} animate={{ opacity: 1, y: 0 }}>
+        <span className="resultado-topo__selo">{t(victory ? 'games.gangues.resultado.vitoria' : 'games.gangues.resultado.derrota')}</span>
+        <motion.h1 className="resultado-topo__nome" initial={{ scale: 0.85, rotate: -4 }} animate={{ scale: 1, rotate: -2 }} transition={{ type: 'spring', stiffness: 220, damping: 14 }}>
+          {store.gangName || t('games.gangues.report.your_gang')}
+        </motion.h1>
         {derrotados.length > 0 && (
           <div className="gang-report-derrotados">
             {derrotados.map((member, index) => {

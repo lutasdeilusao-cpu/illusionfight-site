@@ -74,8 +74,6 @@
         "enemy_thinking": "EL GIL ESTÁ TRAMANDO ALGO",
         "enemy_strategy": "Mirando ese último golpe y armando la próxima jugada...",
         "initiative": "ORDEN DE LA PISTA",
-        "victory_message": "Tu pandilla controló el combate. Analiza cada decisión abajo.",
-        "defeat_message": "La pandilla cayó, pero el registro muestra dónde se perdió la lucha.",
         "rewards_title": "Recompensa",
         "reward_ap": "Puntos de Acción",
         "reward_ap_ko": "Cayó — sin PA",
@@ -6880,7 +6878,9 @@
         "mais_dano": "más daño",
         "mais_abates": "más derribos",
         "maior_golpe": "Golpe más fuerte · {nome}",
-        "criticos": "críticos"
+        "criticos": "críticos",
+        "vitoria": "Victoria",
+        "derrota": "Derrota"
       }
     }
   }

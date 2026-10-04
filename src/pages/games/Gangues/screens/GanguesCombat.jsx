@@ -234,7 +234,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
 
   const modoAuto = useGanguesModoAuto({
     modoAutoOn, setModoAutoOn, velocidade: velocidadeEfetiva,
-    perfil, modoMultidaoAtivo, machinePhase: machine.phase, result, koCena: fx.koCena,
+    perfil, modoMultidaoAtivo, machinePhase: machine.phase, turnoSeq: machine.turnoSeq, result, koCena: fx.koCena,
     selectedActor, selectedTarget, agir: agirAuto,
   })
   const autoConfig = useGanguesAutoConfig()
@@ -253,32 +253,32 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // `selectedTarget` que o fluxo de ataque normal já mantém, não o
   // aliado/`alvoKey` que a cura usa.
   const handleUsarItem = (itemId, alvoKey) => {
-    if (!selectedActor) return
+    if (!selectedActor) return false
     const item = getGanguesItem(itemId)
-    if (!item) return
+    if (!item) return false
     if (item.tipo === 'poder_unico') {
-      if (!selectedTarget) return
-      if (!store.usarItem(itemId)) return
+      if (!selectedTarget) return false
+      if (!store.usarItem(itemId)) return false
       sfx.reward?.()
       machine.playerAction(selectedActor, selectedTarget, item.poderId, { id: item.poderId, level: item.poderNivel || 1 })
-      return
+      return true
     }
     const alvo = alvoKey || selectedActor
     // Não desperdiça o item se o alvo já tá cheio no recurso que ele cura.
     const alvoC = players.find(p => p.key === alvo)
     if (alvoC) {
-      if (item.tipo === 'cura_pv' && alvoC.pv >= alvoC.pvMax) { setAviso(t('games.gangues.combat_item_cheio')); setTimeout(() => setAviso(null), 2200); return }
-      if (item.tipo === 'cura_pm' && alvoC.pm >= alvoC.pmMax) { setAviso(t('games.gangues.combat_item_cheio')); setTimeout(() => setAviso(null), 2200); return }
-      if (item.tipo === 'cura_status' && !(alvoC.statuses || []).some(s => item.status === ST_TODOS || s.id === item.status)) { setAviso(t('games.gangues.combat_item_sem_status')); setTimeout(() => setAviso(null), 2200); return }
+      if (item.tipo === 'cura_pv' && alvoC.pv >= alvoC.pvMax) { setAviso(t('games.gangues.combat_item_cheio')); setTimeout(() => setAviso(null), 2200); return false }
+      if (item.tipo === 'cura_pm' && alvoC.pm >= alvoC.pmMax) { setAviso(t('games.gangues.combat_item_cheio')); setTimeout(() => setAviso(null), 2200); return false }
+      if (item.tipo === 'cura_status' && !(alvoC.statuses || []).some(s => item.status === ST_TODOS || s.id === item.status)) { setAviso(t('games.gangues.combat_item_sem_status')); setTimeout(() => setAviso(null), 2200); return false }
     }
-    if (!store.usarItem(itemId)) return
+    if (!store.usarItem(itemId)) return false
     sfx.reward?.()
     // Cura (PV/PM) + efeitos temporários (status) — ver ganguesItens.js.
     const delta = {
       ...(item.tipo === 'cura_pv' ? { pv: item.valor } : item.tipo === 'cura_pm' ? { pm: item.valor } : {}),
       ...(item.tipo === 'debuff_inimigos' ? { statusInimigos: item.status } : item.tipo === 'cura_status' ? { curaStatus: item.status } : { status: item.status || [] }),
     }
-    machine.useItemAction(selectedActor, alvo, itemId, delta)
+    return machine.useItemAction(selectedActor, alvo, itemId, delta)
   }
 
   const actingMember = players.find(item => item.key === (modoMultidaoAtivo ? null : selectedActor)) || null
@@ -312,8 +312,9 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   useEffect(() => () => { lutaAoVivo.ler = null }, [])
   function agirAuto() {
     const acao = escolherAcaoAuto({ ator: actingMember, aliados: aliadosOrb, especiais: equippedSpecials, pagavel: canAffordSpecial, itens: itensDisponiveis, config: autoConfig.config })
-    if (acao.tipo === 'item') handleUsarItem(acao.itemId, acao.alvoKey)
-    else handleAttack(acao.tipo === 'talento' ? acao.specialId : null)
+    // Item que não deu pra usar (alvo cheio etc.) vira ataque, senão a vez trava.
+    if (acao.tipo === 'item' && handleUsarItem(acao.itemId, acao.alvoKey)) return
+    handleAttack(acao.tipo === 'talento' ? acao.specialId : null)
   }
 
   if (!store.match.playerTeam?.length) return null

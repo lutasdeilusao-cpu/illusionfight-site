@@ -2020,9 +2020,12 @@ estilo Medabots/ATB do Chrono Trigger):
   parcelas em `result.conta`. A animação de sprite do golpe (§15.2) toca em cima
   do painel. Em 2x/3x fica sem sprite e mais rápido. Com o automático ligado o
   painel reserva o espaço da barra do automático.
+- **Automático:** age de novo a cada vez que passa (`turnoSeq` da máquina),
+  mesmo quando o mesmo personagem age duas vezes seguidas depois de usar item;
+  item que não dá pra usar vira ataque.
 - **Tela de resultado** (`components/resultado/`, organizada por
-  `GanguesVictoryReport.jsx`): de cima pra baixo, vitória ou derrota (com quem
-  caiu), o socorro da derrota, a recompensa (rosto, nível e barra de cada
+  `GanguesVictoryReport.jsx`): de cima pra baixo, o nome da gangue pichado na
+  parede (selo de vitória ou derrota, e quem caiu), o socorro da derrota, a recompensa (rosto, nível e barra de cada
   lutador, AP, grana, reputação, drops), os destaques (quem mais bateu, quem
   derrubou mais, maior golpe, rodadas, dano dos dois lados, críticos) e os
   detalhes fechados (estado final, ordem do Pique, registro). Botões presos

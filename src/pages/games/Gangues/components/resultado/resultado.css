@@ -74,3 +74,20 @@
   display: flex; flex-direction: column; gap: 8px; background: linear-gradient(to top, var(--bg-primary, #050a0c) 70%, transparent);
 }
 .resultado-acoes button { width: 100%; padding: 14px 10px; cursor: pointer; font: 900 0.62rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; }
+
+/* Topo: o nome da gangue pichado na parede */
+.resultado-topo {
+  position: relative; padding: 26px 16px 22px; overflow: hidden; text-align: center;
+  background: linear-gradient(rgba(5, 8, 10, 0.3), rgba(5, 8, 10, 0.62)), url('../../assets/backgrounds/parede-oficial.jpg') center / cover;
+}
+.resultado-topo__selo {
+  display: inline-block; padding: 3px 10px; border: 1px solid var(--if-amber);
+  font: 800 0.58rem var(--font-mono); letter-spacing: 0.3em; text-transform: uppercase; color: var(--if-amber);
+}
+.gang-report--defeat .resultado-topo__selo { border-color: var(--if-danger); color: var(--if-danger); }
+.gang-report-hero .resultado-topo__nome {
+  margin: 12px 0 0; letter-spacing: 0; word-break: break-word;
+  font: 400 clamp(2rem, calc(12 * var(--app-vw) / 100), 3.2rem)/1.05 'Permanent Marker', cursive; color: var(--gang-creme);
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.7), 0 0 30px color-mix(in srgb, var(--if-amber) 55%, transparent);
+}
+.gang-report--defeat .gang-report-hero .resultado-topo__nome { color: var(--gang-creme); text-shadow: 0 3px 0 rgba(0, 0, 0, 0.7), 0 0 30px color-mix(in srgb, var(--if-danger) 60%, transparent); }
