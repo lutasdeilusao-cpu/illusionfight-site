@@ -9,9 +9,7 @@ export const VEIAS = [
   { id: 5, slug: 'estatica', cor: 'var(--if-violet)', icone: '≋' },
 ]
 
-export const NIVEL_MAX = 5
-
 export const veiaPorId = id => VEIAS.find(v => v.id === id) || null
 
-// Algarismo romano do nível (I a V), usado em "Faro II".
+// Algarismo romano do ato (I a IV).
 export const romano = n => ['', 'I', 'II', 'III', 'IV', 'V'][n] || ''

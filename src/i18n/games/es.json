@@ -793,10 +793,10 @@
         "luta": "Pelea",
         "continuar": "Toca para leer todo",
         "decidir": "¿Qué haces?",
-        "requer": "Requiere {veia} {nivel}",
-        "requer_nivel": "Requiere Vena {nivel}",
-        "subiu": "Tu Vena se hizo más fuerte",
-        "carregando": "Cargando la historia..."
+        "requer": "Requiere {hab}",
+        "carregando": "Cargando la historia...",
+        "aprendeu": "Aprendiste",
+        "requer_outra": "Solo quien sigue {veia} sabe esto."
       },
       "decisao": {
         "eyebrow": "Decisión",
@@ -809,7 +809,8 @@
         "pistas": "Pistas",
         "escolhas": "Lo que elegiste",
         "vazio": "Nada anotado todavía.",
-        "fechar": "Cerrar"
+        "fechar": "Cerrar",
+        "nao_sabe": "Todavía no aprendiste esta."
       },
       "fim": {
         "jornada": "Jornada",
@@ -821,7 +822,8 @@
         "derrota_titulo": "Desconectado",
         "derrota_texto": "Esta vez ganó el sistema. La jornada termina aquí, pero toda Vena tiene otro camino.",
         "fork_titulo": "Te saliste del juego",
-        "fork_texto": "Rechazaste a Kaeda y volviste al Mundo de Realidad. A veces no entrar también es una elección."
+        "fork_texto": "Rechazaste a Kaeda y volviste al Mundo de Realidad. A veces no entrar también es una elección.",
+        "habilidades": "{n} de 3 habilidades"
       },
       "veias": {
         "1": {
@@ -848,28 +850,6 @@
           "nome": "Estática",
           "area": "Sintonía",
           "desc": "Hay alguien al otro lado de la señal. Oyes el ruido detrás del MDI: los ecos, las voces antiguas, lo que el sistema intenta callar."
-        }
-      },
-      "niveis": {
-        "1": {
-          "nome": "Crudo",
-          "explica": "acaba de llegar"
-        },
-        "2": {
-          "nome": "Curtido",
-          "explica": "ya recibió unos golpes"
-        },
-        "3": {
-          "nome": "Afilado",
-          "explica": "sabe lo que hace"
-        },
-        "4": {
-          "nome": "Duro",
-          "explica": "la calle te respeta"
-        },
-        "5": {
-          "nome": "Leyenda",
-          "explica": "cuentan historias de ti"
         }
       },
       "puzzle": {
@@ -904,6 +884,83 @@
             "desc": "Cruza sin que te vean las cámaras.",
             "pista": "Los datos del empleado."
           }
+        }
+      },
+      "habilidades": {
+        "11": {
+          "nome": "Ver la Costura",
+          "desc": "Ves el código que se escapa por los bordes de las cosas.",
+          "onde": "Viene con la Vena, en la Encrucijada."
+        },
+        "12": {
+          "nome": "Jalar el Cable",
+          "desc": "Abres paneles, cerraduras y puertas del sistema jalando el cabo suelto.",
+          "onde": "Se aprende entrenando la Vena el Día 2, o en el refugio de Kaeda."
+        },
+        "13": {
+          "nome": "Andar Sin Rastro",
+          "desc": "Entras a un sistema y sales sin disparar alarmas ni dejar registro.",
+          "onde": "Alguien la enseña el Día 3, o se puede entrenar en el refugio de Kaeda."
+        },
+        "21": {
+          "nome": "Contar el Ritmo",
+          "desc": "Tu cuerpo agarra el compás del que pega antes que tu cabeza.",
+          "onde": "Viene con la Vena, en la Encrucijada."
+        },
+        "22": {
+          "nome": "Caer Bien",
+          "desc": "Sabes recibir: caes sin romperte y te levantas antes de lo que el otro espera.",
+          "onde": "Se aprende entrenando la Vena el Día 2, o en el refugio de Kaeda."
+        },
+        "23": {
+          "nome": "Leer el Golpe",
+          "desc": "Ves nacer el puñetazo en el hombro, medio segundo antes de que salga.",
+          "onde": "Alguien la enseña el Día 3, o se puede entrenar en el refugio de Kaeda."
+        },
+        "31": {
+          "nome": "Fijarse",
+          "desc": "Notas el detalle que todos están entrenados para no ver.",
+          "onde": "Viene con la Vena, en la Encrucijada."
+        },
+        "32": {
+          "nome": "Leer el Registro",
+          "desc": "Lees quién entró, cuándo y por dónde, y encuentras lo que no cuadra.",
+          "onde": "Se aprende entrenando la Vena el Día 2, o en el refugio de Kaeda."
+        },
+        "33": {
+          "nome": "Seguir el Dinero",
+          "desc": "La gente miente, el dinero solo se mueve. Vas a donde fue.",
+          "onde": "Alguien la enseña el Día 3, o se puede entrenar en el refugio de Kaeda."
+        },
+        "41": {
+          "nome": "Escuchar la Plaza",
+          "desc": "Te quedas cerca, te ríes del chiste correcto y la gente habla sola.",
+          "onde": "Viene con la Vena, en la Encrucijada."
+        },
+        "42": {
+          "nome": "Aceitar la Mano",
+          "desc": "Sabes cuánto cuesta cada boca y pagas el precio justo, ni un centavo más.",
+          "onde": "Se aprende entrenando la Vena el Día 2, o en el refugio de Kaeda."
+        },
+        "43": {
+          "nome": "Leer la Mentira",
+          "desc": "Ves en cómo alguien agarra el celular que está escondiendo algo.",
+          "onde": "Alguien la enseña el Día 3, o se puede entrenar en el refugio de Kaeda."
+        },
+        "51": {
+          "nome": "Oír el Ruido",
+          "desc": "Hay una voz debajo del sistema, y eres de los pocos que la oyen.",
+          "onde": "Viene con la Vena, en la Encrucijada."
+        },
+        "52": {
+          "nome": "Sintonizar",
+          "desc": "Encuentras la frecuencia del ruido y entiendes lo que intenta decir.",
+          "onde": "Se aprende entrenando la Vena el Día 2, o en el refugio de Kaeda."
+        },
+        "53": {
+          "nome": "Hablar con el Eco",
+          "desc": "Respondes. Y lo que está del otro lado de la señal te responde.",
+          "onde": "Alguien la enseña el Día 3, o se puede entrenar en el refugio de Kaeda."
         }
       }
     },

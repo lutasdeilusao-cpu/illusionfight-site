@@ -793,10 +793,10 @@
         "luta": "Luta",
         "continuar": "Toque pra ler tudo",
         "decidir": "O que você faz?",
-        "requer": "Requer {veia} {nivel}",
-        "requer_nivel": "Requer Veia {nivel}",
-        "subiu": "A sua Veia engrossou",
-        "carregando": "Carregando a história..."
+        "requer": "Requer {hab}",
+        "carregando": "Carregando a história...",
+        "aprendeu": "Você aprendeu",
+        "requer_outra": "Só quem segue {veia} sabe isso."
       },
       "decisao": {
         "eyebrow": "Decisão",
@@ -809,7 +809,8 @@
         "pistas": "Pistas",
         "escolhas": "O que você escolheu",
         "vazio": "Nada anotado ainda.",
-        "fechar": "Fechar"
+        "fechar": "Fechar",
+        "nao_sabe": "Você ainda não aprendeu essa."
       },
       "fim": {
         "jornada": "Jornada",
@@ -821,7 +822,8 @@
         "derrota_titulo": "Desconectado",
         "derrota_texto": "Dessa vez o sistema venceu. A jornada acaba aqui, mas toda Veia tem outro caminho.",
         "fork_titulo": "Você saiu do jogo",
-        "fork_texto": "Você recusou a Kaeda e voltou pro Mundo de Realidade. Às vezes, não entrar também é escolha."
+        "fork_texto": "Você recusou a Kaeda e voltou pro Mundo de Realidade. Às vezes, não entrar também é escolha.",
+        "habilidades": "{n} de 3 habilidades"
       },
       "veias": {
         "1": {
@@ -848,28 +850,6 @@
           "nome": "Estática",
           "area": "Sintonia",
           "desc": "Tem alguém do outro lado do sinal. Você ouve o chiado por trás do MDI: os ecos, as vozes antigas, o que o sistema tenta abafar."
-        }
-      },
-      "niveis": {
-        "1": {
-          "nome": "Cru",
-          "explica": "acabou de chegar"
-        },
-        "2": {
-          "nome": "Rodado",
-          "explica": "já levou umas"
-        },
-        "3": {
-          "nome": "Afiado",
-          "explica": "sabe o que faz"
-        },
-        "4": {
-          "nome": "Cascudo",
-          "explica": "a rua te respeita"
-        },
-        "5": {
-          "nome": "Lenda",
-          "explica": "contam história de você"
         }
       },
       "puzzle": {
@@ -904,6 +884,83 @@
             "desc": "Atravesse sem ser visto pelas câmeras.",
             "pista": "Os dados do funcionário."
           }
+        }
+      },
+      "habilidades": {
+        "11": {
+          "nome": "Ver a Costura",
+          "desc": "Você enxerga o código vazando pela borda das coisas.",
+          "onde": "Vem junto com a Veia, na Encruzilhada."
+        },
+        "12": {
+          "nome": "Puxar o Fio",
+          "desc": "Abre painel, tranca e porta de sistema puxando a ponta solta.",
+          "onde": "Se aprende treinando a Veia no Dia 2, ou no abrigo da Kaeda."
+        },
+        "13": {
+          "nome": "Andar Sem Rastro",
+          "desc": "Entra num sistema e sai sem disparar alarme nem deixar log.",
+          "onde": "Alguém ensina no Dia 3, ou dá pra treinar no abrigo da Kaeda."
+        },
+        "21": {
+          "nome": "Contar o Ritmo",
+          "desc": "Seu corpo pega o compasso de quem bate antes da cabeça.",
+          "onde": "Vem junto com a Veia, na Encruzilhada."
+        },
+        "22": {
+          "nome": "Cair Certo",
+          "desc": "Você sabe apanhar: cai sem quebrar e levanta antes do outro esperar.",
+          "onde": "Se aprende treinando a Veia no Dia 2, ou no abrigo da Kaeda."
+        },
+        "23": {
+          "nome": "Ler o Golpe",
+          "desc": "Você vê o soco nascer no ombro, meio segundo antes dele sair.",
+          "onde": "Alguém ensina no Dia 3, ou dá pra treinar no abrigo da Kaeda."
+        },
+        "31": {
+          "nome": "Reparar",
+          "desc": "Você nota o detalhe que todo mundo tá treinado pra não ver.",
+          "onde": "Vem junto com a Veia, na Encruzilhada."
+        },
+        "32": {
+          "nome": "Ler Log",
+          "desc": "Você lê a lista de quem entrou, quando e por onde, e acha o que não bate.",
+          "onde": "Se aprende treinando a Veia no Dia 2, ou no abrigo da Kaeda."
+        },
+        "33": {
+          "nome": "Seguir o Dinheiro",
+          "desc": "Gente mente, dinheiro só anda. Você vai atrás de onde ele foi.",
+          "onde": "Alguém ensina no Dia 3, ou dá pra treinar no abrigo da Kaeda."
+        },
+        "41": {
+          "nome": "Ouvir a Praça",
+          "desc": "Você fica perto, ri da piada certa, e as pessoas falam sozinhas.",
+          "onde": "Vem junto com a Veia, na Encruzilhada."
+        },
+        "42": {
+          "nome": "Molhar a Mão",
+          "desc": "Você sabe quanto custa cada boca e paga o preço certo, nem um centavo a mais.",
+          "onde": "Se aprende treinando a Veia no Dia 2, ou no abrigo da Kaeda."
+        },
+        "43": {
+          "nome": "Ler a Mentira",
+          "desc": "Você vê no jeito de segurar o celular quem tá escondendo alguma coisa.",
+          "onde": "Alguém ensina no Dia 3, ou dá pra treinar no abrigo da Kaeda."
+        },
+        "51": {
+          "nome": "Ouvir o Chiado",
+          "desc": "Tem uma voz por baixo do sistema, e você é dos poucos que escuta.",
+          "onde": "Vem junto com a Veia, na Encruzilhada."
+        },
+        "52": {
+          "nome": "Sintonizar",
+          "desc": "Você acha a frequência do chiado e entende o que ele tenta dizer.",
+          "onde": "Se aprende treinando a Veia no Dia 2, ou no abrigo da Kaeda."
+        },
+        "53": {
+          "nome": "Falar com o Eco",
+          "desc": "Você responde. E o que tá do outro lado do sinal responde de volta.",
+          "onde": "Alguém ensina no Dia 3, ou dá pra treinar no abrigo da Kaeda."
         }
       }
     },

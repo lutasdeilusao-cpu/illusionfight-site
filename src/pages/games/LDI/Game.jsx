@@ -17,7 +17,7 @@ export default function Game() {
   const navigate = useNavigate()
   const { setReaderMode } = useReader()
   const { registrarEvento } = useEventos()
-  const { save, cena, escolhas, subiu, iniciar, escolher, addPista, limparSubida } = useLendasStore()
+  const { save, cena, escolhas, aprendeu, iniciar, escolher, addPista, limparAprendeu } = useLendasStore()
   const [pronto, setPronto] = useState(false)
   const [diario, setDiario] = useState(false)
   const [puzzle, setPuzzle] = useState(null)
@@ -35,10 +35,10 @@ export default function Game() {
   }, [cena, capsVistos])
 
   useEffect(() => {
-    if (!subiu) return
-    const tm = setTimeout(limparSubida, 3200)
+    if (!aprendeu) return
+    const tm = setTimeout(limparAprendeu, 3600)
     return () => clearTimeout(tm)
-  }, [subiu, limparSubida])
+  }, [aprendeu, limparAprendeu])
 
   useEffect(() => {
     if (save.status === 'vitoria') registrarEvento('lendas_act', 'Completou o Act 1 em Lendas do LDI', 1)
@@ -63,7 +63,7 @@ export default function Game() {
         <button type="button" className="ld-barra__btn" onClick={() => navigate('/games/ldi')}>← {t('games.ldi.jogo.sair')}</button>
         <span className="ld-barra__ato">{t('games.ldi.jogo.ato', { n: romano(save.ato) })}</span>
         <button type="button" className="ld-barra__btn ld-barra__veia" onClick={() => setDiario(true)}>
-          {veia ? `${veia.icone} ${t(`games.ldi.veias.${veia.id}.nome`)} ${romano(save.nivel)}` : t('games.ldi.jogo.diario')}
+          {veia ? `${veia.icone} ${t(`games.ldi.veias.${veia.id}.nome`)} · ${save.habilidades.length}/3` : t('games.ldi.jogo.diario')}
         </button>
       </header>
 
@@ -72,9 +72,9 @@ export default function Game() {
           ? <p className="ld-cena__luta"><span>{t('games.ldi.jogo.luta')}</span>{cena.luta}</p>
           : <p className="if-eyebrow">{cena.capitulo || t('games.ldi.jogo.ato', { n: romano(save.ato) })}</p>}
         <h1 className={`ld-cena__titulo${cena.destaque ? ' is-destaque' : ''}`}>{cena.title}</h1>
-        <Narrativa linhas={cena.text} veia={save.veia} nome={save.nome} onPronto={onPronto} />
+        <Narrativa linhas={cena.text} veia={save.veia} habilidades={save.habilidades} nome={save.nome} onPronto={onPronto} />
         {pronto
-          ? <Escolhas t={t} escolhas={escolhas} onEscolher={onEscolher} />
+          ? <Escolhas t={t} escolhas={escolhas} veiaJogador={save.veia} onEscolher={onEscolher} />
           : <p className="ld-cena__toque">{t('games.ldi.jogo.continuar')}</p>}
       </main>
 
@@ -86,11 +86,11 @@ export default function Game() {
             <strong>{capitulo.capitulo}</strong>
           </motion.div>
         )}
-        {subiu > 0 && veia && (
-          <motion.div key="subiu" className="ld-subiu" initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }}>
-            <small>{t('games.ldi.jogo.subiu')}</small>
-            <b>{veia.icone} {t(`games.ldi.veias.${veia.id}.nome`)} {romano(subiu)} · {t(`games.ldi.niveis.${subiu}.nome`)}</b>
-            <span>{t(`games.ldi.niveis.${subiu}.explica`)}</span>
+        {aprendeu && veia && (
+          <motion.div key="aprendeu" className="ld-aprendeu" initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }} onClick={limparAprendeu}>
+            <small>{veia.icone} {t('games.ldi.jogo.aprendeu')}</small>
+            <b>{t(`games.ldi.habilidades.${aprendeu}.nome`)}</b>
+            <span>{t(`games.ldi.habilidades.${aprendeu}.desc`)}</span>
           </motion.div>
         )}
         {diario && <Diario key="diario" t={t} save={save} onFechar={() => setDiario(false)} />}
@@ -114,7 +114,7 @@ function Fim({ t, save, onSair }) {
       <h1 className={`ld-fim__titulo is-${s}`}>{t(`games.ldi.fim.${s}_titulo`)}</h1>
       <p className="ld-fim__texto">{t(`games.ldi.fim.${s}_texto`)}</p>
       {veia && (
-        <p className="ld-fim__veia">{veia.icone} {t(`games.ldi.veias.${veia.id}.nome`)} {romano(save.nivel)} · {t(`games.ldi.niveis.${save.nivel}.nome`)}</p>
+        <p className="ld-fim__veia">{veia.icone} {t(`games.ldi.veias.${veia.id}.nome`)} · {t('games.ldi.fim.habilidades', { n: save.habilidades.length })}</p>
       )}
       <p className="ld-fim__decisoes">{t('games.ldi.fim.decisoes', { n: save.diario.length })}</p>
       <p className="ld-fim__replay">{t('games.ldi.fim.replay')}</p>

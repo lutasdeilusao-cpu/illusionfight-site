@@ -6,7 +6,8 @@ import { motion } from 'framer-motion'
 //   [NOME] "fala"         → balão com o nome de quem fala
 //   [SISTEMA] "mensagem"  → linha de terminal do LDI
 //   ---                   → respiro entre dois momentos da cena
-// Linha que começa com {veia:N} só aparece pra quem segue a Veia N.
+// Linha que começa com {veia:N} só aparece pra quem segue a Veia N;
+// com {hab:ID}, só pra quem já sabe aquela habilidade.
 // {nome} vira o nome do jogador; *assim* vira pensamento (itálico).
 const NOMES = { NEOGUIDE: 'NeoGuide', STORMBYTE: 'StormByte_91' }
 
@@ -30,10 +31,14 @@ export function lerLinha(linha) {
   return { tipo: 'narra', texto: linha }
 }
 
-function prepararLinhas(linhas, { veia, nome }) {
+function prepararLinhas(linhas, { veia, habilidades, nome }) {
   return linhas
-    .filter(l => { const m = l.match(/^\{veia:(\d)\}/); return !m || Number(m[1]) === veia })
-    .map(l => l.replace(/^\{veia:\d\}\s*/, '').replaceAll('{nome}', nome || ''))
+    .filter(l => {
+      const m = l.match(/^\{(veia|hab):(\d+)\}/)
+      if (!m) return true
+      return m[1] === 'veia' ? Number(m[2]) === veia : habilidades.includes(Number(m[2]))
+    })
+    .map(l => l.replace(/^\{(veia|hab):\d+\}\s*/, '').replaceAll('{nome}', nome || ''))
 }
 
 // *trecho* → <em>trecho</em>
@@ -42,8 +47,11 @@ function comItalico(texto) {
 }
 
 // Revela um bloco de cada vez; tocar no texto mostra tudo de uma vez.
-export default function Narrativa({ linhas, veia, nome, onPronto }) {
-  const blocos = useMemo(() => prepararLinhas(linhas, { veia, nome }).map(lerLinha), [linhas, veia, nome])
+export default function Narrativa({ linhas, veia, habilidades = [], nome, onPronto }) {
+  // A lista de habilidades entra pela chave, não pela referência: aprender no
+  // meio da cena não pode reiniciar o texto.
+  const chaveHabs = habilidades.join(',')
+  const blocos = useMemo(() => prepararLinhas(linhas, { veia, habilidades, nome }).map(lerLinha), [linhas, veia, chaveHabs, nome]) // eslint-disable-line react-hooks/exhaustive-deps
   const [vistos, setVistos] = useState(1)
   const pronto = vistos >= blocos.length
 

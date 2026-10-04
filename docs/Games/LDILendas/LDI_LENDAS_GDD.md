@@ -14,14 +14,14 @@ Livro-jogo de texto, single-player, numa coluna de celular. O jogador entra no
 LDI com um SBI de terceira mão, cai por um erro do sistema e atravessa a
 **Temporada 1 — Descobrimento** lendo cenas e escolhendo o que fazer.
 
-- **Sem ficha e sem dado.** Não existe atributo, ponto, nível de personagem,
-  vantagem nem poder. O que muda o jogo é a **Veia** que o jogador escolhe e o
-  quanto ela engrossa (§3).
+- **Sem ficha, sem dado e sem nível.** Não existe atributo, ponto, nível,
+  vantagem nem poder. O que muda o jogo é a **Veia** que o jogador escolhe e as
+  **habilidades** que ele aprende dentro dela (§3).
 - **Lutas narradas.** Por enquanto toda luta é uma cena de texto (§5). A luta
   jogável é a batalha rítmica, **planejada** (§10).
 - **Rejogável.** Cada Veia vê a mesma cena de outro jeito, destrava escolhas
   próprias e (**planejado**) leva a um final próprio.
-- **Duração:** 63 cenas em 4 atos, ~8.500 palavras em português.
+- **Duração:** 66 cenas em 4 atos, ~8.500 palavras em português.
 - **Acesso:** gratuito; o progresso só fica salvo com conta (§8).
 
 ---
@@ -52,42 +52,56 @@ decisão grande (confirmação em tela cheia) e vale até o fim da jornada.
 O código só usa o id (`data/veias.js`: id, slug, cor, ícone). Nome, área e
 descrição moram em `games.ldi.veias.<id>`.
 
-### 3.1 Níveis
+### 3.1 Habilidades
 
-| Nível | Nome | (explicação) | Onde sobe hoje |
+Cada Veia tem 3 habilidades, do básico ao avançado (`data/habilidades.js`, id =
+veia × 10 + ordem; nome, o que faz e onde se aprende em
+`games.ldi.habilidades.<id>`). **Cada jogador só aprende as da própria Veia** —
+a porta de outra Veia fica trancada pra sempre naquela jornada, e é isso que
+faz rejogar mostrar coisa nova.
+
+| Veia | Básica | Média | Avançada |
 |---|---|---|---|
-| I | Cru | acabou de chegar | ao escolher a Veia |
-| II | Rodado | já levou umas | Dia 2 (cena 1.4) |
-| III | Afiado | sabe o que faz | Dia 3 (cena 1.5) |
-| IV | Cascudo | a rua te respeita | início do Ato III (3.1) |
-| V | Lenda | contam história de você | 72 Horas (4.1) |
+| Fio Solto | 11 Ver a Costura | 12 Puxar o Fio | 13 Andar Sem Rastro |
+| Lona | 21 Contar o Ritmo | 22 Cair Certo | 23 Ler o Golpe |
+| Faro | 31 Reparar | 32 Ler Log | 33 Seguir o Dinheiro |
+| Caô | 41 Ouvir a Praça | 42 Molhar a Mão | 43 Ler a Mentira |
+| Estática | 51 Ouvir o Chiado | 52 Sintonizar | 53 Falar com o Eco |
 
-A cena sobe o nível com `ganha: { nivel }` ao ser aberta; a tela anuncia
-("A sua Veia engrossou"). **Planejado:** subir o nível pelo que o jogador faz
-dentro da própria Veia, e não por marco fixo da história.
+**Onde se aprende:** a básica vem com a Veia (a primeira cena depois da
+Encruzilhada). A média no **Treino** do Dia 2 (`1.4t`) e a avançada com **Quem
+Ensina**, no Dia 3 (`1.5t`). Quem passou reto pode buscar as duas no **Treino no
+Abrigo** da Kaeda (`3.treino`), que fica no Dia 10, do lado das portas que
+pedem habilidade: tranca, vai treinar e volta. A escolha de treino some quando
+o jogador já aprendeu o que ela ensina (`someQuandoSabe`). A tela anuncia cada
+habilidade nova ("Você aprendeu").
 
 ### 3.2 Como a Veia muda o jogo
 
-- **Escolha trancada:** `requer: { veia, nivel }` (ou só `nivel`, qualquer
-  Veia). Aparece trancada com o motivo ("Requer Faro III (Afiado)"), pra mostrar
-  que outro caminho abriria aquela porta.
-- **Texto da cena:** linha que começa com `{veia:N}` só aparece pra quem segue
-  a Veia N. As cenas importantes têm uma linha por Veia.
+- **Porta trancada:** `requer: { hab: id }` (lista = qualquer uma serve).
+  Aparece trancada com o nome da habilidade e, embaixo, onde se aprende — ou
+  "Só quem segue <Veia> sabe isso", quando é de outra Veia.
+- **Texto da cena:** linha com `{veia:N}` só pra quem segue a Veia N; linha com
+  `{hab:ID}` só pra quem já sabe aquela habilidade.
+- **Batalha (planejado):** a batalha rítmica vai depender da mão do jogador, não
+  de número. A Veia e as habilidades podem dar poderes nela — a definir.
 
 ---
 
 ## 4. Motor da história
 
 `engine/historia.js` (sem React e sem Supabase) carrega as cenas, avalia as
-escolhas, aplica a escolha no save e sobe o nível. `store/useLendasStore.js`
+escolhas, aplica a escolha no save e ensina habilidades. `store/useLendasStore.js`
 guarda o estado e salva.
 
-**Cena:** `{ id, title, text[], choices[], capitulo?, destaque?, luta?, ganha? }`
+**Cena:** `{ id, title, text[], choices[], capitulo?, destaque?, luta?, ensina? }` —
+`ensina` é uma lista de ids: o jogador aprende a primeira da sua Veia que ainda
+não sabe (uma por visita).
 — o ato sai do número do id (`3.2_dia8` → Ato III). `capitulo` abre o cartão de
 capítulo na primeira vez; `luta` troca o cabeçalho pela faixa "LUTA · nome".
 
-**Escolha:** `{ id, label, next_scene, requer?, veia?, decisao?, flags_required?,
-flags_set?, isPuzzle?, puzzleType?, puzzleDiff?, next_falha? }`
+**Escolha:** `{ id, label, next_scene, requer?: { hab }, veia?, someQuandoSabe?, decisao?,
+flags_required?, flags_set?, isPuzzle?, puzzleType?, puzzleDiff?, next_falha? }`
 
 - `flags_required` não cumprido = a escolha nem aparece (é evento da história,
   não caminho).
@@ -119,6 +133,7 @@ Marcação no texto (`components/Narrativa.jsx`):
 | `[NOME] "fala"` | fala com o nome de quem fala |
 | `[SISTEMA] "mensagem"` | linha de terminal do LDI |
 | `---` | respiro entre momentos |
+| `{hab:ID} linha` | só pra quem já sabe a habilidade ID |
 | `*trecho*` | pensamento (itálico na cor da Veia) |
 | `{nome}` | o nome do jogador |
 | `{veia:N} linha` | só pra quem segue a Veia N |
@@ -141,25 +156,26 @@ Integridade (o vilão) · e, no fim, a sombra de Kronos.
   Organização. Recusar leva ao fim "fora" (`fim:fork`).
 - **Ato III — A Coleta (dias 8–12):** cada luta é cobertura pra puxar arquivo;
   o usuário 47, o vigia que é o ladrão, a captura da assinatura.
-- **Ato IV — 72 Horas:** quatro saídas — pela porta da frente (Lona IV), na
+- **Ato IV — 72 Horas:** quatro saídas — pela porta da frente (Ler o Golpe), na
   cara do mundo (precisa da prova financeira), o café com o Engenheiro (precisa
   do cargo e do relato da praça) ou entrar sem plano (só sobrevive quem tem a
-  Veia em V).
+  habilidade avançada da própria Veia).
 
 **Lutas narradas:** StormByte_91 (beco e revanche), a lutadora sem nome,
 GhostPulse (ranked kill e coleta), IronVeil, Sombra Digital, NULL_ENTITY (dois
 jeitos). Cada luta tem uma linha por Veia.
 
 **Finais:** vitória (`4.2_vitoria` / `4.2_vitoria_desperado`), derrota
-(`4.2_derrota`) e fora (`2.4fim`). A tela de fim mostra a Veia, o nível e
-quantas decisões o jogador tomou.
+(`4.2_derrota`) e fora (`2.4fim`). A tela de fim mostra a Veia, quantas
+habilidades o jogador aprendeu e quantas decisões tomou.
 
 ---
 
 ## 6. Diário
 
-Botão da Veia na barra de cima. Mostra a Veia e a trilha de níveis I–V, as
-pistas dos minijogos e cada escolha feita, separada por ato.
+Botão da Veia na barra de cima (mostra Veia e `n/3` habilidades). O diário
+mostra as 3 habilidades da Veia (as que faltam aparecem como `???`), as pistas
+dos minijogos e cada escolha feita, separada por ato.
 
 ---
 
@@ -182,8 +198,8 @@ Simon Says (`simon`) e Corte de Cabos (`wire`) existem e nenhuma cena usa.
 
 ## 8. Salvamento
 
-Tabela `lendas_saves` (migration `050_lendas_saves.sql`): uma linha por
-jornada — `nome`, `veia` (1–5), `nivel` (0–5), `cena`, `ato`, `flags`,
+Tabela `lendas_saves` (migrations `050_lendas_saves.sql` e `051_lendas_habilidades.sql`): uma linha por
+jornada — `nome`, `veia` (1–5), `habilidades` (lista de ids), `cena`, `ato`, `flags`,
 `pistas`, `diario`, `status` (`ativo`, `vitoria`, `derrota`, `fork`). Só o dono
 lê e escreve (RLS). Salva a cada escolha, em fila (o primeiro insert devolve o
 id antes do próximo virar update). Sem conta, a jornada vive só na memória.
@@ -199,8 +215,8 @@ qualquer idioma (`IDIOMAS_PRONTOS` em `engine/historia.js`). Os arquivos em
 
 A interface (`games.ldi.*`) está nos três idiomas, com o vocabulário adaptado:
 Veia/Vein/Vena; Fio Solto/Loose Wire/Cable Suelto; Lona/Canvas/Lona;
-Faro/Nose/Olfato; Caô/Hustle/Labia; Estática/Static/Estática;
-Cru/Raw/Crudo … Lenda/Legend/Leyenda.
+Faro/Nose/Olfato; Caô/Hustle/Labia; Estática/Static/Estática. As 15
+habilidades também têm nome adaptado em cada idioma.
 
 **Pendências conhecidas:** os cinco minijogos ainda têm textos fixos em
 português dentro dos componentes.
@@ -210,8 +226,8 @@ português dentro dos componentes.
 ## 10. Direção aprovada (**planejado**)
 
 1. **Ato I reescrito em volta das Veias:** trecho linear até a Encruzilhada e,
-   depois dela, cenas próprias de cada Veia, com os níveis I–III aprendidos
-   dentro da própria linha (do básico ao avançado). Níveis IV–V nos Atos 2–4.
+   depois dela, cenas próprias de cada Veia, com as habilidades aprendidas em
+   lugares e jeitos diferentes por Veia. Habilidades novas nos Atos 2–4.
 2. **Um final por Veia.**
 3. **Batalha rítmica no dedo** no lugar das lutas narradas: notas acendem no
    tempo, cada nota é golpe ou defesa (jab, direto, gancho, uppercut, bloqueio,
@@ -233,8 +249,8 @@ src/pages/games/LDI/
 │   ├── Diario.jsx
 │   ├── PuzzleRouter.jsx · puzzles.css · Puzzle*.jsx (5 minijogos)
 ├── data/
-│   ├── veias.js
+│   ├── veias.js · habilidades.js
 │   └── scenes/<idioma>/act1–4.json
-├── engine/historia.js          # cenas, escolhas, níveis
+├── engine/historia.js          # cenas, escolhas, habilidades
 └── store/useLendasStore.js     # estado + save em lendas_saves
 ```

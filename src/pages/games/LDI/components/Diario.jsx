@@ -1,8 +1,9 @@
 import { createPortal } from 'react-dom'
 import { motion } from 'framer-motion'
 import { veiaPorId, romano } from '../data/veias'
+import { habilidadesDaVeia } from '../data/habilidades'
 
-// Gaveta com a Veia e o nível, as pistas e tudo que o jogador escolheu,
+// Gaveta com a Veia e as habilidades dela, as pistas e tudo que o jogador escolheu,
 // separado por ato.
 export default function Diario({ t, save, onFechar }) {
   const veia = veiaPorId(save.veia)
@@ -20,11 +21,19 @@ export default function Diario({ t, save, onFechar }) {
           <div className="ld-diario__veia" style={{ '--veia-cor': veia.cor }}>
             <span className="ld-diario__veia-icone">{veia.icone}</span>
             <div>
-              <b>{t(`games.ldi.veias.${veia.id}.nome`)} {romano(save.nivel)}</b>
-              <small>{t(`games.ldi.niveis.${save.nivel}.nome`)} ({t(`games.ldi.niveis.${save.nivel}.explica`)})</small>
+              <b>{t(`games.ldi.veias.${veia.id}.nome`)}</b>
+              <small>{t(`games.ldi.veias.${veia.id}.area`)}</small>
             </div>
-            <ol className="ld-diario__trilha">
-              {[1, 2, 3, 4, 5].map(n => <li key={n} className={n <= save.nivel ? 'is-on' : ''}>{romano(n)}</li>)}
+            <ol className="ld-diario__habs">
+              {habilidadesDaVeia(veia.id).map(h => {
+                const sabe = save.habilidades.includes(h.id)
+                return (
+                  <li key={h.id} className={sabe ? 'is-on' : ''}>
+                    <b>{sabe ? t(`games.ldi.habilidades.${h.id}.nome`) : '???'}</b>
+                    <small>{sabe ? t(`games.ldi.habilidades.${h.id}.desc`) : t('games.ldi.diario.nao_sabe')}</small>
+                  </li>
+                )
+              })}
             </ol>
           </div>
         ) : <p className="ld-diario__vazio">{t('games.ldi.lobby.sem_veia')}</p>}

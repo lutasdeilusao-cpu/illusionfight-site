@@ -52,6 +52,7 @@
 .ld-escolha__texto { font: 600 0.95rem/1.35 var(--font-body); }
 .ld-escolha__veia { font: 800 0.58rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--veia-cor); }
 .ld-escolha__requer { font: 700 0.6rem var(--font-mono); color: var(--veia-cor); }
+.ld-escolha__dica { font: 500 0.72rem/1.35 var(--font-body); font-style: italic; color: var(--text-secondary); }
 .ld-escolha.is-veia { border-color: color-mix(in srgb, var(--veia-cor) 45%, transparent); }
 .ld-escolha.is-decisao .ld-escolha__texto { font-weight: 800; }
 .ld-escolha.is-trancada { cursor: not-allowed; opacity: 0.5; }
@@ -73,10 +74,10 @@
 .ld-capitulo { position: fixed; inset: 0 var(--app-gutter); z-index: 1100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: var(--ldi-bg); overscroll-behavior: none; cursor: pointer; }
 .ld-capitulo span { font: 800 0.7rem var(--font-mono); letter-spacing: 0.4em; text-transform: uppercase; color: var(--veia-cor, var(--if-teal)); }
 .ld-capitulo strong { font: 900 2.2rem/1 var(--font-display); text-transform: uppercase; color: var(--if-ink); text-align: center; padding: 0 16px; }
-.ld-subiu { position: fixed; top: 64px; left: var(--app-gutter); right: var(--app-gutter); z-index: 1050; margin: 0 16px; display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border: 1px solid var(--veia-cor); background: var(--if-panel); box-shadow: 0 0 30px color-mix(in srgb, var(--veia-cor) 35%, transparent); }
-.ld-subiu small { font: 800 0.56rem var(--font-mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-secondary); }
-.ld-subiu b { font: 900 1.1rem var(--font-display); text-transform: uppercase; color: var(--veia-cor); }
-.ld-subiu span { font: 600 0.78rem var(--font-body); color: var(--if-ink); }
+.ld-aprendeu { position: fixed; top: 64px; left: var(--app-gutter); right: var(--app-gutter); z-index: 1050; margin: 0 16px; display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border: 1px solid var(--veia-cor); background: var(--if-panel); box-shadow: 0 0 30px color-mix(in srgb, var(--veia-cor) 35%, transparent); }
+.ld-aprendeu small { font: 800 0.56rem var(--font-mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-secondary); }
+.ld-aprendeu b { font: 900 1.1rem var(--font-display); text-transform: uppercase; color: var(--veia-cor); }
+.ld-aprendeu span { font: 600 0.78rem var(--font-body); color: var(--if-ink); }
 
 /* Diário */
 .ld-diario { position: fixed; inset: 0 var(--app-gutter); z-index: 1150; background: rgba(0, 0, 0, 0.6); overscroll-behavior: none; }
@@ -89,9 +90,11 @@
 .ld-diario__veia-icone { font-size: 1.8rem; color: var(--veia-cor); text-align: center; }
 .ld-diario__veia b { display: block; font: 900 1rem var(--font-display); text-transform: uppercase; color: var(--veia-cor); }
 .ld-diario__veia small { font: 600 0.7rem var(--font-body); color: var(--text-secondary); }
-.ld-diario__trilha { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
-.ld-diario__trilha li { padding: 4px 0; text-align: center; border: 1px solid var(--if-hair-strong); font: 800 0.6rem var(--font-mono); color: var(--text-secondary); }
-.ld-diario__trilha li.is-on { background: var(--veia-cor); color: #000; border-color: var(--veia-cor); }
+.ld-diario__habs { grid-column: 1 / -1; list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.ld-diario__habs li { display: flex; flex-direction: column; gap: 1px; padding: 7px 9px; border: 1px dashed var(--if-hair-strong); }
+.ld-diario__habs li b { font: 800 0.72rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+.ld-diario__habs li.is-on { border: 1px solid var(--veia-cor); box-shadow: inset 2px 0 0 var(--veia-cor); }
+.ld-diario__habs li.is-on b { color: var(--veia-cor); }
 .ld-diario__pistas { margin: 0; padding-left: 18px; font: 500 0.8rem/1.5 var(--font-body); }
 .ld-diario__ato h3 { margin: 6px 0; font: 800 0.66rem var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--if-teal); }
 .ld-diario__ato ol { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }

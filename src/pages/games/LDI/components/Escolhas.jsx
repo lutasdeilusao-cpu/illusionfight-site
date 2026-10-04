@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { veiaPorId, romano } from '../data/veias'
+import { veiaPorId } from '../data/veias'
+import { habilidadePorId } from '../data/habilidades'
 
 // Cartões de escolha. Escolha com `decisao` pede confirmação em tela cheia
 // antes de valer; escolha trancada mostra a Veia e o nível que abririam.
-export default function Escolhas({ t, escolhas, onEscolher }) {
+export default function Escolhas({ t, escolhas, veiaJogador, onEscolher }) {
   const [pendente, setPendente] = useState(null)
 
   const tocar = ch => {
@@ -18,7 +19,7 @@ export default function Escolhas({ t, escolhas, onEscolher }) {
     <>
       <p className="if-eyebrow ld-escolhas__titulo">{t('games.ldi.jogo.decidir')}</p>
       <ol className="ld-escolhas if-stagger">
-        {escolhas.map((ch, i) => <Cartao key={ch.id} t={t} ch={ch} i={i} onClick={() => tocar(ch)} />)}
+        {escolhas.map((ch, i) => <Cartao key={ch.id} t={t} ch={ch} i={i} veiaJogador={veiaJogador} onClick={() => tocar(ch)} />)}
       </ol>
       {createPortal(
         <AnimatePresence>
@@ -34,8 +35,8 @@ export default function Escolhas({ t, escolhas, onEscolher }) {
   )
 }
 
-function Cartao({ t, ch, i, onClick }) {
-  const veia = veiaPorId(ch.veia || ch.motivo?.veia)
+function Cartao({ t, ch, i, veiaJogador, onClick }) {
+  const veia = veiaPorId(ch.veia || habilidadePorId(ch.motivo)?.veia)
   const classes = ['ld-escolha', !ch.disponivel && 'is-trancada', ch.veia && 'is-veia', ch.decisao && 'is-decisao'].filter(Boolean).join(' ')
   return (
     <li>
@@ -45,18 +46,26 @@ function Cartao({ t, ch, i, onClick }) {
         <span className="ld-escolha__corpo">
           {ch.veia && <span className="ld-escolha__veia">{veia.icone} {t(`games.ldi.veias.${ch.veia}.nome`)} · {t(`games.ldi.veias.${ch.veia}.area`)}</span>}
           <span className="ld-escolha__texto">{ch.label}</span>
-          {ch.motivo && <span className="ld-escolha__requer">🔒 {requerTexto(t, ch.motivo)}</span>}
+          {ch.motivo && <Trava t={t} hab={ch.motivo} veiaJogador={veiaJogador} />}
         </span>
       </button>
     </li>
   )
 }
 
-export function requerTexto(t, r) {
-  const nivel = `${romano(r.nivel)} (${t(`games.ldi.niveis.${r.nivel}.nome`)})`
-  return r.veia
-    ? t('games.ldi.jogo.requer', { veia: t(`games.ldi.veias.${r.veia}.nome`), nivel })
-    : t('games.ldi.jogo.requer_nivel', { nivel })
+// Porta trancada: o nome da habilidade e, se ela é da Veia do jogador, onde
+// se aprende; se é de outra Veia, só dá pra abrir seguindo aquela Veia.
+function Trava({ t, hab, veiaJogador }) {
+  const h = habilidadePorId(hab)
+  const daMinhaVeia = h?.veia === veiaJogador
+  return (
+    <>
+      <span className="ld-escolha__requer">🔒 {t('games.ldi.jogo.requer', { hab: t(`games.ldi.habilidades.${hab}.nome`) })}</span>
+      <span className="ld-escolha__dica">
+        {daMinhaVeia ? t(`games.ldi.habilidades.${hab}.onde`) : t('games.ldi.jogo.requer_outra', { veia: t(`games.ldi.veias.${h?.veia}.nome`) })}
+      </span>
+    </>
+  )
 }
 
 function Decisao({ t, ch, onConfirmar, onVoltar }) {

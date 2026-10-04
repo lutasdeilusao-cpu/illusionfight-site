@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1790864949.7720692,
-    "ast_hash": "7aff0c0d6270b1e5e844addeb59e06ab",
+    "mtime": 1791100851.2200506,
+    "ast_hash": "ca009fdb8175230352a5153e14bcd95b",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791099618.6311984,
-    "ast_hash": "0251298773f37c86eb6c1c19c0e51ba8",
+    "mtime": 1791101725.0157466,
+    "ast_hash": "2dc0a93e44cdb961742c73bfcd32dab8",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -1369,75 +1369,15 @@
     "ast_hash": "27fc5a2e72c9f1cef9f8ec1c61cb7eb2",
     "semantic_hash": "27fc5a2e72c9f1cef9f8ec1c61cb7eb2"
   },
-  "src/pages/games/LDI/Clues.jsx": {
-    "mtime": 1782447787.3896587,
-    "ast_hash": "881563066c5b21eb7f5a6bd5d47fef5c",
-    "semantic_hash": "881563066c5b21eb7f5a6bd5d47fef5c"
-  },
-  "src/pages/games/LDI/Combat.jsx": {
-    "mtime": 1782447843.8448298,
-    "ast_hash": "9586f620e4bd8bd05b677965c1f30f4d",
-    "semantic_hash": "9586f620e4bd8bd05b677965c1f30f4d"
-  },
-  "src/pages/games/LDI/Create.jsx": {
-    "mtime": 1783911586.3294897,
-    "ast_hash": "e1e2aabd03b9f43583c1ed4943472054",
-    "semantic_hash": "e1e2aabd03b9f43583c1ed4943472054"
-  },
-  "src/pages/games/LDI/End.jsx": {
-    "mtime": 1782447843.8929384,
-    "ast_hash": "146ed67ae69a2f1c4740ab3cc362389c",
-    "semantic_hash": "146ed67ae69a2f1c4740ab3cc362389c"
-  },
   "src/pages/games/LDI/Game.jsx": {
-    "mtime": 1783911499.345217,
-    "ast_hash": "413b6a2208fe7c4b2fcfe0db17875d10",
-    "semantic_hash": "413b6a2208fe7c4b2fcfe0db17875d10"
+    "mtime": 1791101702.7433438,
+    "ast_hash": "0b516d21a5e49792f413b1dddc3796d4",
+    "semantic_hash": ""
   },
   "src/pages/games/LDI/Lobby.jsx": {
-    "mtime": 1782447843.9453266,
-    "ast_hash": "c5aa6de8300966dd8003ba3014534512",
-    "semantic_hash": "c5aa6de8300966dd8003ba3014534512"
-  },
-  "src/pages/games/LDI/PuzzlePage.jsx": {
-    "mtime": 1783911466.7354186,
-    "ast_hash": "32756825262ae0775a774c98ec73f13a",
-    "semantic_hash": "32756825262ae0775a774c98ec73f13a"
-  },
-  "src/pages/games/LDI/Sheet.jsx": {
-    "mtime": 1782447787.3936574,
-    "ast_hash": "6ed0cd2ba4f2ff6985c608ddf16f1c19",
-    "semantic_hash": "6ed0cd2ba4f2ff6985c608ddf16f1c19"
-  },
-  "src/pages/games/LDI/components/CharacterSheetView.jsx": {
-    "mtime": 1782441630.3990664,
-    "ast_hash": "9c2d54521e8166c797e914b67ec7514b",
-    "semantic_hash": "9c2d54521e8166c797e914b67ec7514b"
-  },
-  "src/pages/games/LDI/components/ChoiceList.jsx": {
-    "mtime": 1782441630.4000666,
-    "ast_hash": "aabbf020ed31fbaf147105292eb7479a",
-    "semantic_hash": "aabbf020ed31fbaf147105292eb7479a"
-  },
-  "src/pages/games/LDI/components/ClueBook.jsx": {
-    "mtime": 1782447843.99949,
-    "ast_hash": "8b4286378b3f567c07c958561f2739f1",
-    "semantic_hash": "8b4286378b3f567c07c958561f2739f1"
-  },
-  "src/pages/games/LDI/components/CombatView.jsx": {
-    "mtime": 1782441630.4000666,
-    "ast_hash": "2010b9567b95a4799edf56b7b5d04aba",
-    "semantic_hash": "2010b9567b95a4799edf56b7b5d04aba"
-  },
-  "src/pages/games/LDI/components/DiceRoll.jsx": {
-    "mtime": 1782441630.4010656,
-    "ast_hash": "b907810cbc19cbbe9d5a63305152a89b",
-    "semantic_hash": "b907810cbc19cbbe9d5a63305152a89b"
-  },
-  "src/pages/games/LDI/components/ManualDrawer.jsx": {
-    "mtime": 1782447844.0434387,
-    "ast_hash": "27cc365d034177d16c31e70fe9bf3e27",
-    "semantic_hash": "27cc365d034177d16c31e70fe9bf3e27"
+    "mtime": 1791101702.7433438,
+    "ast_hash": "118e46bdb802e93fe321a9ad10a3691b",
+    "semantic_hash": ""
   },
   "src/pages/games/LDI/components/PuzzleDecoder.jsx": {
     "mtime": 1782441630.4010656,
@@ -1445,9 +1385,9 @@
     "semantic_hash": "8246c48ece34e04de6f923201bcc09f1"
   },
   "src/pages/games/LDI/components/PuzzleRouter.jsx": {
-    "mtime": 1782441630.4021864,
-    "ast_hash": "7fe4fbe6444badcd7f72774f21a1a76d",
-    "semantic_hash": "7fe4fbe6444badcd7f72774f21a1a76d"
+    "mtime": 1791101702.7444797,
+    "ast_hash": "04a2ca0fb7cd3654915b32d7f9da3d70",
+    "semantic_hash": ""
   },
   "src/pages/games/LDI/components/PuzzleSimonSays.jsx": {
     "mtime": 1788408770.9994133,
@@ -1468,36 +1408,6 @@
     "mtime": 1788408771.0004137,
     "ast_hash": "9ab8532749259b68cda9529aa7e707e6",
     "semantic_hash": "9ab8532749259b68cda9529aa7e707e6"
-  },
-  "src/pages/games/LDI/components/SceneView.jsx": {
-    "mtime": 1782441630.4031873,
-    "ast_hash": "a93846eb66f6ab8aa82038be8c0cbc76",
-    "semantic_hash": "a93846eb66f6ab8aa82038be8c0cbc76"
-  },
-  "src/pages/games/LDI/components/Typewriter.jsx": {
-    "mtime": 1788408771.0004137,
-    "ast_hash": "fb4830857203f2a466cf04595dacc360",
-    "semantic_hash": "fb4830857203f2a466cf04595dacc360"
-  },
-  "src/pages/games/LDI/data/characterData.js": {
-    "mtime": 1782441630.4041865,
-    "ast_hash": "e65bfcc0d39b7b32e57f77503ee41e52",
-    "semantic_hash": "e65bfcc0d39b7b32e57f77503ee41e52"
-  },
-  "src/pages/games/LDI/data/enemies/enemies.json": {
-    "mtime": 1782441630.4051864,
-    "ast_hash": "5fe5e65ee0ad4da0b55ff69fdf0fbdbe",
-    "semantic_hash": "5fe5e65ee0ad4da0b55ff69fdf0fbdbe"
-  },
-  "src/pages/games/LDI/data/manualData.js": {
-    "mtime": 1782441630.4051864,
-    "ast_hash": "6345356ffe4249793ffdc100f8cf1668",
-    "semantic_hash": "6345356ffe4249793ffdc100f8cf1668"
-  },
-  "src/pages/games/LDI/data/powersData.js": {
-    "mtime": 1782441630.406186,
-    "ast_hash": "cb84bdb6a646bc49421889d962199230",
-    "semantic_hash": "cb84bdb6a646bc49421889d962199230"
   },
   "src/pages/games/LDI/data/scenes/en/act1.json": {
     "mtime": 1782441630.4071865,
@@ -1525,64 +1435,24 @@
     "semantic_hash": "5bfcca65dfae1055d806b95652317f36"
   },
   "src/pages/games/LDI/data/scenes/pt/act1.json": {
-    "mtime": 1782441630.4106925,
-    "ast_hash": "8f4087ac537cde3d3d493bf634534621",
-    "semantic_hash": "8f4087ac537cde3d3d493bf634534621"
+    "mtime": 1791101453.6265838,
+    "ast_hash": "5edd7cd9f3dbfe339e6f160996f2372f",
+    "semantic_hash": ""
   },
   "src/pages/games/LDI/data/scenes/pt/act2.json": {
-    "mtime": 1782441630.4106925,
-    "ast_hash": "ed57cca44731f05b46770ce87a2621cf",
-    "semantic_hash": "ed57cca44731f05b46770ce87a2621cf"
+    "mtime": 1791101261.0139706,
+    "ast_hash": "eb075fb452f9f1f8e664b541c0945748",
+    "semantic_hash": ""
   },
   "src/pages/games/LDI/data/scenes/pt/act3.json": {
-    "mtime": 1782441630.411698,
-    "ast_hash": "1c302bed98a56774e3adc047dd671c32",
-    "semantic_hash": "1c302bed98a56774e3adc047dd671c32"
+    "mtime": 1791101348.9007895,
+    "ast_hash": "a1b35a91a0504035c8a130475be727d5",
+    "semantic_hash": ""
   },
   "src/pages/games/LDI/data/scenes/pt/act4.json": {
-    "mtime": 1782441630.411698,
-    "ast_hash": "8faa6982fb1885e7bf47fe632f951f97",
-    "semantic_hash": "8faa6982fb1885e7bf47fe632f951f97"
-  },
-  "src/pages/games/LDI/engine/character.js": {
-    "mtime": 1782441630.4126976,
-    "ast_hash": "f180e5b1de6f0f5900619def74e229d3",
-    "semantic_hash": "f180e5b1de6f0f5900619def74e229d3"
-  },
-  "src/pages/games/LDI/engine/combat.js": {
-    "mtime": 1782441630.4126976,
-    "ast_hash": "2433379bb038c2d9097f7c9c68518c08",
-    "semantic_hash": "2433379bb038c2d9097f7c9c68518c08"
-  },
-  "src/pages/games/LDI/engine/dice.js": {
-    "mtime": 1782441630.4136975,
-    "ast_hash": "deef144f6d836897d57773bc2cc8f3c2",
-    "semantic_hash": "deef144f6d836897d57773bc2cc8f3c2"
-  },
-  "src/pages/games/LDI/engine/flags.js": {
-    "mtime": 1782441630.4136975,
-    "ast_hash": "cd2950e9cc7fdd3eb2321ebb5be57258",
-    "semantic_hash": "cd2950e9cc7fdd3eb2321ebb5be57258"
-  },
-  "src/pages/games/LDI/engine/scenes.js": {
-    "mtime": 1782441630.4136975,
-    "ast_hash": "7c6cecace5d3a750f30cc688d7a4afda",
-    "semantic_hash": "7c6cecace5d3a750f30cc688d7a4afda"
-  },
-  "src/pages/games/LDI/hooks/useLDIStorage.js": {
-    "mtime": 1782447787.3961775,
-    "ast_hash": "445318e29ead9485b16d9cc4719bbb19",
-    "semantic_hash": "445318e29ead9485b16d9cc4719bbb19"
-  },
-  "src/pages/games/LDI/store/useCombatStore.js": {
-    "mtime": 1782441630.4156976,
-    "ast_hash": "d2e27ed05ea6dc1d42f0f4cc7bbd7128",
-    "semantic_hash": "d2e27ed05ea6dc1d42f0f4cc7bbd7128"
-  },
-  "src/pages/games/LDI/store/useGameStore.js": {
-    "mtime": 1783911809.395347,
-    "ast_hash": "99aa646fabce8ecc2e825cec5eaa0b37",
-    "semantic_hash": "99aa646fabce8ecc2e825cec5eaa0b37"
+    "mtime": 1791101415.2777636,
+    "ast_hash": "b40f8196c48511f3668f34f60fa561c5",
+    "semantic_hash": ""
   },
   "src/pages/games/MiniGames/MiniGames.jsx": {
     "mtime": 1788408771.0014133,
@@ -2680,8 +2550,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791081760.956515,
-    "ast_hash": "c5df06bec36fa7f56ba83331c531c50c",
+    "mtime": 1791101791.0728767,
+    "ast_hash": "bb097d38753dbd5a1c4b646d0d5a91d8",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2720,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791099618.6842031,
-    "ast_hash": "f9bc362c093421f929f5d5978f2b9558",
+    "mtime": 1791101725.0336778,
+    "ast_hash": "d6f5540f63af9b9d17378118060aacbb",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3815,18 +3685,18 @@
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
-    "mtime": 1790087469.8583167,
-    "ast_hash": "2c6fb88343912febd3f24ddf4c992364",
+    "mtime": 1791100908.2818644,
+    "ast_hash": "5aa47ac55ab10c7cce4d42f7944297bb",
     "semantic_hash": ""
   },
   "src/i18n/games/es.json": {
-    "mtime": 1790776816.274752,
-    "ast_hash": "3072abbbc5aa3af0248e12e41fc8c9d7",
+    "mtime": 1791100908.282864,
+    "ast_hash": "5e7741d0ff8ca6a2148755cf04fcac61",
     "semantic_hash": ""
   },
   "src/i18n/games/pt.json": {
-    "mtime": 1790087462.716481,
-    "ast_hash": "f9560ea235a3d0ae01bfe23e1b64e26f",
+    "mtime": 1791100908.2798052,
+    "ast_hash": "7e45ef8edbd193e9e9f73b31a81d1b92",
     "semantic_hash": ""
   },
   "src/i18n/prototype/en.json": {
@@ -7115,8 +6985,43 @@
     "semantic_hash": ""
   },
   "docs/Games/LDILendas/LDI_LENDAS_GDD.md": {
-    "mtime": 1791099605.605826,
-    "ast_hash": "fa3e0b4b360bdd354e15b78ea7ed554e",
+    "mtime": 1791101779.5481682,
+    "ast_hash": "2a3abc08491d7a60ce33d40019932753",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/components/Diario.jsx": {
+    "mtime": 1791100740.2965398,
+    "ast_hash": "677e19b759966a620f28cc633b44f7e8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/components/Escolhas.jsx": {
+    "mtime": 1791101702.7418833,
+    "ast_hash": "6bfc59f1c6175958c655a05ba3051f62",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/components/Narrativa.jsx": {
+    "mtime": 1791101060.4348674,
+    "ast_hash": "94ca84af416b7d4144d1429221bec9d5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/data/veias.js": {
+    "mtime": 1791100626.4149296,
+    "ast_hash": "c887f8f44fd09da3b69e958f406428a1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/engine/historia.js": {
+    "mtime": 1791101702.7454853,
+    "ast_hash": "b835a1c956f94f2b26ba78f725d9e65b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/store/useLendasStore.js": {
+    "mtime": 1791100670.0743196,
+    "ast_hash": "a01085b755d9a21f8a8ba8b7b21a961c",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/050_lendas_saves.sql": {
+    "mtime": 1791100250.1051524,
+    "ast_hash": "f2d872a6617e2f426447ed2b235a9952",
     "semantic_hash": ""
   }
 }

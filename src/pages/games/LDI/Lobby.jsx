@@ -77,7 +77,7 @@ export default function Lobby() {
               <article key={s.id} className="if-panel ld-save" style={v ? { '--veia-cor': v.cor } : undefined}>
                 <div className="ld-save__info">
                   <b>{s.nome}</b>
-                  <small>{v ? `${v.icone} ${t(`games.ldi.veias.${v.id}.nome`)} ${romano(s.nivel)}` : t('games.ldi.lobby.sem_veia')} · {t('games.ldi.jogo.ato', { n: romano(s.ato) })}</small>
+                  <small>{v ? `${v.icone} ${t(`games.ldi.veias.${v.id}.nome`)} · ${(s.habilidades || []).length}/3` : t('games.ldi.lobby.sem_veia')} · {t('games.ldi.jogo.ato', { n: romano(s.ato) })}</small>
                   {s.status !== 'ativo' && <small className="ld-save__status">{t(`games.ldi.lobby.status_${s.status}`)}</small>}
                 </div>
                 {s.status === 'ativo' && <button type="button" className="if-btn if-btn--ghost" onClick={() => continuar(s)}>{t('games.ldi.lobby.continuar')}</button>}

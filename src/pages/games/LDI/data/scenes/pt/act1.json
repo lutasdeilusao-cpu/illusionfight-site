@@ -217,6 +217,13 @@
         ],
         "next_scene": "1.4"
       }
+    ],
+    "ensina": [
+      11,
+      21,
+      31,
+      41,
+      51
     ]
   },
   {
@@ -293,8 +300,7 @@
         "id": "A",
         "label": "Puxar o fio do painel",
         "requer": {
-          "veia": 1,
-          "nivel": 1
+          "hab": 11
         },
         "flags_set": [
           "HACKEOU_PAINEL"
@@ -484,9 +490,6 @@
     "id": "1.4",
     "title": "Prazo",
     "capitulo": "Dia 2",
-    "ganha": {
-      "nivel": 2
-    },
     "text": [
       "No LDI não amanhece. O violeta só clareia um tom e o sistema chama isso de manhã.",
       "Você acorda num cubo de segurança alugado fiado, quatro paredes lisas e uma porta que só abre por dentro. Parece cela. Mas pelo menos ninguém entra.",
@@ -531,6 +534,18 @@
       },
       {
         "id": "D",
+        "label": "Treinar a sua Veia",
+        "someQuandoSabe": [
+          12,
+          22,
+          32,
+          42,
+          52
+        ],
+        "next_scene": "1.4t"
+      },
+      {
+        "id": "E",
         "label": "Voltar pro cubo e deixar o dia acabar",
         "next_scene": "1.5"
       }
@@ -656,9 +671,6 @@
     "id": "1.5",
     "title": "Último Dia",
     "capitulo": "Dia 3",
-    "ganha": {
-      "nivel": 3
-    },
     "text": [
       "Terceiro dia. O aviso já não fica no canto. Fica no meio da sua visão, vermelho, piscando no ritmo do seu coração.",
       "[SISTEMA] \"FALTA 1 DIA PARA O RANKED KILL.\"",
@@ -698,6 +710,18 @@
           "MISSAO_OFICIAL"
         ],
         "next_scene": "1.5a"
+      },
+      {
+        "id": "D",
+        "label": "Procurar quem sabe mais do que você",
+        "someQuandoSabe": [
+          13,
+          23,
+          33,
+          43,
+          53
+        ],
+        "next_scene": "1.5t"
       }
     ]
   },
@@ -783,6 +807,62 @@
         "id": "A",
         "label": "Ir no endereço",
         "next_scene": "2.1"
+      }
+    ]
+  },
+  {
+    "id": "1.4t",
+    "title": "Treino",
+    "ensina": [
+      12,
+      22,
+      32,
+      42,
+      52
+    ],
+    "text": [
+      "Ninguém fica bom em nada parado num cubo. Você sai pra treinar.",
+      "{veia:1} Você passa a tarde inteira na frente de um painel de serviço quebrado atrás do mercado de baixo. Puxa uma linha, ele trava. Puxa outra, ele apita. Na trigésima vez você entende: o painel não é tranca, é pergunta. E toda pergunta tem uma ponta solta.",
+      "{veia:2} Você paga cinco créditos pra apanhar de um robô de treino na Arena. Ele bate, você cai. Bate, você cai. Lá pela vigésima queda seu corpo para de cair igual saco e começa a cair igual gente que vai levantar.",
+      "{veia:3} Você senta na frente do terminal da praça e lê, um por um, os registros de quem entrou nas últimas vinte e quatro horas. É chato. É muito chato. E no meio do chato tem um horário que não bate com nada.",
+      "{veia:4} Você volta no mercado de baixo e fica. Compra um café que não precisava, um boato que já sabia, uma conversa que não ia dar em nada. No fim do dia você sabe quanto custa cada boca daquele porão.",
+      "{veia:5} Você deita no chão do cubo, fecha os olhos e para de lutar contra o chiado. Deixa ele vir. Ele vem. E pela primeira vez você acha onde ele mora: uma frequência, estreita, igual rádio velho achando estação.",
+      "---",
+      "Não tem música subindo nem plateia batendo palma. Treino é isso: repetir uma coisa feia até ela ficar sua."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Voltar pro cubo",
+        "next_scene": "1.4"
+      }
+    ]
+  },
+  {
+    "id": "1.5t",
+    "title": "Quem Ensina",
+    "ensina": [
+      13,
+      23,
+      33,
+      43,
+      53
+    ],
+    "text": [
+      "Tem coisa que treino sozinho não dá. Precisa de alguém que já apanhou mais do que você.",
+      "{veia:1} No fundo do mercado de baixo tem uma velha que conserta SBI por baixo do balcão. Ela te olha mexer num terminal por três minutos e ri. \"Tu abre a porta e deixa a marca do pé no tapete, criança.\" Ela te mostra como entrar e sair sem o sistema saber que você passou.",
+      "{veia:2} Um lutador aposentado, rank que já foi de quatro dígitos, encostado nas cordas da Arena de Treino. Ele não te ensina golpe nenhum. Ele só manda você olhar o ombro dele. Três horas olhando ombro. No fim, você vê o soco antes dele sair.",
+      "{veia:3} Um comerciante de dados que perdeu tudo num esquema de aposta te paga um café e te dá uma aula sem perceber. \"Esquece o que o cara fala. Vê pra onde o dinheiro andou.\" Ele tá falando dele mesmo. Você anota tudo.",
+      "{veia:4} Um vendedor de chapéu de feltro, o mesmo da dica de graça, te chama de canto. \"Tu tá aprendendo rápido. Então aprende a última: todo mundo mente com a mão, não com a boca.\" Ele mostra. Você nunca mais vai deixar de ver.",
+      "{veia:5} Não é ninguém. É o chiado. Ele para de ser barulho e vira uma voz inteira, velha, muito mais velha que o LDI. Ela não te ensina nada. Ela só espera você responder. E você responde.",
+      "---",
+      "Quem ensina de verdade nunca cobra o preço na hora. Você vai pagar depois, de algum jeito. Sempre paga."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Voltar",
+        "next_scene": "1.5"
       }
     ]
   }

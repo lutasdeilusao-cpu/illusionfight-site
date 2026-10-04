@@ -8,10 +8,10 @@ console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 // Save do Lendas: uma linha em lendas_saves. Sem conta, vive só na memória
 // (o progresso some ao recarregar, de propósito — ver regra "sem save local").
 const SAVE_VAZIO = {
-  id: null, nome: '', veia: null, nivel: 0, cena: '1.1', ato: 1,
+  id: null, nome: '', veia: null, habilidades: [], cena: '1.1', ato: 1,
   flags: {}, pistas: [], diario: [], status: 'ativo',
 }
-const COLUNAS = 'id,nome,veia,nivel,cena,ato,flags,pistas,diario,status,atualizado_em'
+const COLUNAS = 'id,nome,veia,habilidades,cena,ato,flags,pistas,diario,status,atualizado_em'
 
 export const useLendasStore = create((set, get) => ({
   save: SAVE_VAZIO,
@@ -19,7 +19,7 @@ export const useLendasStore = create((set, get) => ({
   cenas: null,
   cena: null,
   escolhas: [],
-  subiu: 0,
+  aprendeu: null,
 
   async iniciar(locale) {
     const cenas = await carregarCenas(locale)
@@ -28,19 +28,19 @@ export const useLendasStore = create((set, get) => ({
   },
 
   novoJogo(nome, userId) {
-    set({ save: { ...SAVE_VAZIO, nome: nome.trim() }, userId, cena: null, subiu: 0 })
+    set({ save: { ...SAVE_VAZIO, nome: nome.trim() }, userId, cena: null, aprendeu: null })
   },
 
   carregar(linha, userId) {
-    set({ save: { ...SAVE_VAZIO, ...linha }, userId, cena: null, subiu: 0 })
+    set({ save: { ...SAVE_VAZIO, ...linha }, userId, cena: null, aprendeu: null })
   },
 
   irPara(id) {
     const { cenas, save } = get()
     const cena = cenas?.get(id) || cenas?.get('1.1')
     if (!cena) return
-    const { save: novo, subiu } = entrarNaCena(save, cena)
-    set({ save: novo, cena, escolhas: avaliarEscolhas(cena, novo), subiu })
+    const { save: novo, aprendeu } = entrarNaCena(save, cena)
+    set({ save: novo, cena, escolhas: avaliarEscolhas(cena, novo), aprendeu })
   },
 
   // Escolha feita (ou puzzle terminado, com `falhou`).
@@ -62,7 +62,7 @@ export const useLendasStore = create((set, get) => ({
     set(s => ({ save: { ...s.save, pistas: [...s.save.pistas, texto] } }))
   },
 
-  limparSubida: () => set({ subiu: 0 }),
+  limparAprendeu: () => set({ aprendeu: null }),
 
   // Os saves entram em fila: o 1º insert precisa devolver o id antes do
   // próximo virar update, senão a mesma jornada vira duas linhas.

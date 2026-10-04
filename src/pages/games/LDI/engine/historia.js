@@ -1,12 +1,16 @@
 // Motor da história do Lendas: carrega as cenas, decide quais escolhas
 // aparecem e o que cada escolha muda no save. Sem React e sem Supabase.
 //
-// Cena:    { id, title, text[], choices[], capitulo?, destaque?, luta?, ganha?: { nivel } }
-// Escolha: { id, label, next_scene, requer?: { veia?, nivel }, veia?, decisao?,
-//            flags_required?, flags_set?, isPuzzle?, puzzleType?, puzzleDiff?, next_falha? }
+// Cena:    { id, title, text[], choices[], capitulo?, destaque?, luta?, ensina?: [ids] }
+// Escolha: { id, label, next_scene, requer?: { hab: id | [ids] }, veia?, someQuandoSabe?: [ids],
+//            decisao?, flags_required?, flags_set?, isPuzzle?, puzzleType?, puzzleDiff?, next_falha? }
 // next_scene "fim:<vitoria|derrota|fork>" encerra a jornada.
+//
+// Habilidade só se aprende dentro da própria Veia. `ensina` numa cena é uma
+// lista: o jogador aprende a primeira da lista que é da Veia dele e que ele
+// ainda não sabe (uma por visita). `requer.hab` com lista = qualquer uma serve.
 
-import { NIVEL_MAX } from '../data/veias'
+import { habilidadePorId } from '../data/habilidades'
 
 // O texto do Lendas só está pronto em português; os outros idiomas entram
 // depois que o texto for aprovado.
@@ -26,17 +30,18 @@ export async function carregarCenas(locale) {
 export const atoDaCena = id => parseInt(id, 10) || 1
 
 // Cada escolha volta com { disponivel, motivo }. Escolha presa a um evento
-// que não aconteceu some; presa a Veia ou nível aparece trancada, pra
-// mostrar que outro caminho abriria aquela porta.
+// que não aconteceu some; presa a habilidade aparece trancada com o nome dela
+// (motivo = id da habilidade), pra mostrar que outro caminho abre a porta.
 export function avaliarEscolhas(cena, save) {
+  const sabe = save.habilidades || []
   return (cena?.choices || [])
     .filter(ch => (ch.flags_required || []).every(f => save.flags?.[f]))
+    .filter(ch => !(ch.someQuandoSabe || []).some(h => sabe.includes(h)))
     .map(ch => {
-      const r = ch.requer
-      if (!r) return { ...ch, disponivel: true }
-      const veiaOk = !r.veia || save.veia === r.veia
-      const nivelOk = (save.nivel || 0) >= r.nivel
-      return { ...ch, disponivel: veiaOk && nivelOk, motivo: veiaOk && nivelOk ? null : r }
+      const pedidas = [].concat(ch.requer?.hab ?? [])
+      if (!pedidas.length || pedidas.some(h => sabe.includes(h))) return { ...ch, disponivel: true }
+      const motivo = pedidas.find(h => habilidadePorId(h)?.veia === save.veia) ?? pedidas[0]
+      return { ...ch, disponivel: false, motivo }
     })
 }
 
@@ -52,20 +57,20 @@ export function aplicarEscolha(save, cena, escolha) {
     flags,
     diario: escolheu ? [...save.diario, { cena: cena.title, escolha: escolha.label, ato: atoDaCena(cena.id) }] : save.diario,
   }
-  if (escolha.veia) { novo.veia = escolha.veia; novo.nivel = Math.max(1, save.nivel || 0) }
+  if (escolha.veia) novo.veia = escolha.veia
   return novo
 }
 
-// Entrar numa cena: atualiza cena/ato e sobe o nível se a cena der um nível
-// novo. Devolve o save novo e quanto subiu (pra tela anunciar).
+function aprender(save, lista) {
+  const sabe = save.habilidades || []
+  const nova = lista.find(id => habilidadePorId(id)?.veia === save.veia && !sabe.includes(id))
+  return nova ? { save: { ...save, habilidades: [...sabe, nova] }, aprendeu: nova } : { save, aprendeu: null }
+}
+
+// Entrar numa cena: atualiza cena/ato e aprende o que a cena ensina.
+// Devolve o save novo e a habilidade aprendida (pra tela anunciar).
 export function entrarNaCena(save, cena) {
-  const novo = { ...save, cena: cena.id, ato: atoDaCena(cena.id) }
-  const alvo = Math.min(NIVEL_MAX, cena.ganha?.nivel || 0)
-  if (save.veia && alvo > (save.nivel || 0)) {
-    novo.nivel = alvo
-    return { save: novo, subiu: alvo }
-  }
-  return { save: novo, subiu: 0 }
+  return aprender({ ...save, cena: cena.id, ato: atoDaCena(cena.id) }, cena.ensina || [])
 }
 
 export const fimDe = destino => (destino?.startsWith('fim:') ? destino.slice(4) : null)

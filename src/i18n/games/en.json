@@ -793,10 +793,10 @@
         "luta": "Fight",
         "continuar": "Tap to read it all",
         "decidir": "What do you do?",
-        "requer": "Requires {veia} {nivel}",
-        "requer_nivel": "Requires Vein {nivel}",
-        "subiu": "Your Vein runs deeper",
-        "carregando": "Loading the story..."
+        "requer": "Requires {hab}",
+        "carregando": "Loading the story...",
+        "aprendeu": "You learned",
+        "requer_outra": "Only those who follow {veia} know this."
       },
       "decisao": {
         "eyebrow": "Decision",
@@ -809,7 +809,8 @@
         "pistas": "Clues",
         "escolhas": "What you chose",
         "vazio": "Nothing written yet.",
-        "fechar": "Close"
+        "fechar": "Close",
+        "nao_sabe": "You haven’t learned this one yet."
       },
       "fim": {
         "jornada": "Journey",
@@ -821,7 +822,8 @@
         "derrota_titulo": "Disconnected",
         "derrota_texto": "This time the system won. The journey ends here, but every Vein has another path.",
         "fork_titulo": "You walked away",
-        "fork_texto": "You turned Kaeda down and went back to the World of Reality. Sometimes not going in is a choice too."
+        "fork_texto": "You turned Kaeda down and went back to the World of Reality. Sometimes not going in is a choice too.",
+        "habilidades": "{n} of 3 skills"
       },
       "veias": {
         "1": {
@@ -848,28 +850,6 @@
           "nome": "Static",
           "area": "Attunement",
           "desc": "Someone’s on the other side of the signal. You hear the hiss behind the MDI: the echoes, the old voices, what the system tries to drown out."
-        }
-      },
-      "niveis": {
-        "1": {
-          "nome": "Raw",
-          "explica": "just got here"
-        },
-        "2": {
-          "nome": "Seasoned",
-          "explica": "took a few hits already"
-        },
-        "3": {
-          "nome": "Sharp",
-          "explica": "knows what they’re doing"
-        },
-        "4": {
-          "nome": "Hardened",
-          "explica": "the streets respect you"
-        },
-        "5": {
-          "nome": "Legend",
-          "explica": "people tell stories about you"
         }
       },
       "puzzle": {
@@ -904,6 +884,83 @@
             "desc": "Get across without the cameras seeing you.",
             "pista": "The employee’s data."
           }
+        }
+      },
+      "habilidades": {
+        "11": {
+          "nome": "See the Seams",
+          "desc": "You see code leaking out of the edges of things.",
+          "onde": "Comes with the Vein, at the Crossroads."
+        },
+        "12": {
+          "nome": "Pull the Wire",
+          "desc": "You open panels, locks and system doors by pulling the loose end.",
+          "onde": "Learned by training your Vein on Day 2, or at Kaeda’s hideout."
+        },
+        "13": {
+          "nome": "Leave No Trace",
+          "desc": "You get into a system and out again without tripping an alarm or leaving a log.",
+          "onde": "Someone teaches it on Day 3, or you can train it at Kaeda’s hideout."
+        },
+        "21": {
+          "nome": "Count the Rhythm",
+          "desc": "Your body picks up the other guy’s beat before your head does.",
+          "onde": "Comes with the Vein, at the Crossroads."
+        },
+        "22": {
+          "nome": "Fall Right",
+          "desc": "You know how to take a hit: you go down without breaking and get up before they expect.",
+          "onde": "Learned by training your Vein on Day 2, or at Kaeda’s hideout."
+        },
+        "23": {
+          "nome": "Read the Punch",
+          "desc": "You see the punch start in the shoulder, half a second before it comes.",
+          "onde": "Someone teaches it on Day 3, or you can train it at Kaeda’s hideout."
+        },
+        "31": {
+          "nome": "Notice",
+          "desc": "You catch the detail everyone has been trained not to see.",
+          "onde": "Comes with the Vein, at the Crossroads."
+        },
+        "32": {
+          "nome": "Read the Log",
+          "desc": "You read who got in, when and how, and find what doesn’t add up.",
+          "onde": "Learned by training your Vein on Day 2, or at Kaeda’s hideout."
+        },
+        "33": {
+          "nome": "Follow the Money",
+          "desc": "People lie, money just moves. You go where it went.",
+          "onde": "Someone teaches it on Day 3, or you can train it at Kaeda’s hideout."
+        },
+        "41": {
+          "nome": "Work the Square",
+          "desc": "You hang around, laugh at the right joke, and people start talking on their own.",
+          "onde": "Comes with the Vein, at the Crossroads."
+        },
+        "42": {
+          "nome": "Grease the Palm",
+          "desc": "You know what every mouth costs and pay the right price, not a cent more.",
+          "onde": "Learned by training your Vein on Day 2, or at Kaeda’s hideout."
+        },
+        "43": {
+          "nome": "Read the Lie",
+          "desc": "You can tell who’s hiding something by the way they hold their phone.",
+          "onde": "Someone teaches it on Day 3, or you can train it at Kaeda’s hideout."
+        },
+        "51": {
+          "nome": "Hear the Static",
+          "desc": "There’s a voice under the system, and you’re one of the few who hears it.",
+          "onde": "Comes with the Vein, at the Crossroads."
+        },
+        "52": {
+          "nome": "Tune In",
+          "desc": "You find the static’s frequency and understand what it’s trying to say.",
+          "onde": "Learned by training your Vein on Day 2, or at Kaeda’s hideout."
+        },
+        "53": {
+          "nome": "Talk to the Echo",
+          "desc": "You answer. And whatever is on the other side of the signal answers back.",
+          "onde": "Someone teaches it on Day 3, or you can train it at Kaeda’s hideout."
         }
       }
     },

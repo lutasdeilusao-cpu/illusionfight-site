@@ -16,9 +16,33 @@
       "A palavra bate em você igual sino em igreja vazia. E fica ecoando, que é exatamente o que ela queria que acontecesse."
     ],
     "choices": [
-      { "id": "A", "label": "\"Que porra é um Eco?\"", "flags_set": ["PERGUNTOU_ECO"], "next_scene": "2.1a" },
-      { "id": "B", "label": "\"Como você sabe disso?\"", "flags_set": ["PERGUNTOU_SABE"], "next_scene": "2.1b" },
-      { "id": "C", "label": "Encostar nela antes que ela encoste em você", "requer": { "veia": 2, "nivel": 2 }, "flags_set": ["DESCONFIOU_KAEDA"], "next_scene": "2.1c" }
+      {
+        "id": "A",
+        "label": "\"Que porra é um Eco?\"",
+        "flags_set": [
+          "PERGUNTOU_ECO"
+        ],
+        "next_scene": "2.1a"
+      },
+      {
+        "id": "B",
+        "label": "\"Como você sabe disso?\"",
+        "flags_set": [
+          "PERGUNTOU_SABE"
+        ],
+        "next_scene": "2.1b"
+      },
+      {
+        "id": "C",
+        "label": "Encostar nela antes que ela encoste em você",
+        "requer": {
+          "hab": 21
+        },
+        "flags_set": [
+          "DESCONFIOU_KAEDA"
+        ],
+        "next_scene": "2.1c"
+      }
     ]
   },
   {
@@ -35,7 +59,11 @@
       "{veia:5} O chiado na sua cabeça para. Pela primeira vez desde a queda, silêncio total. Como se a coisa do outro lado tivesse se escondido pra escutar."
     ],
     "choices": [
-      { "id": "A", "label": "Deixar ela terminar", "next_scene": "2.1d" }
+      {
+        "id": "A",
+        "label": "Deixar ela terminar",
+        "next_scene": "2.1d"
+      }
     ]
   },
   {
@@ -51,7 +79,11 @@
       "[KAEDA] \"Eles rastreiam essa tag. A gente precisa sair daqui.\""
     ],
     "choices": [
-      { "id": "A", "label": "Ir com ela", "next_scene": "2.1d" }
+      {
+        "id": "A",
+        "label": "Ir com ela",
+        "next_scene": "2.1d"
+      }
     ]
   },
   {
@@ -69,7 +101,11 @@
       "[KAEDA] \"Bom. Agora vem. A gente tem pouco tempo.\""
     ],
     "choices": [
-      { "id": "A", "label": "Tirar o braço e ir com ela", "next_scene": "2.1d" }
+      {
+        "id": "A",
+        "label": "Tirar o braço e ir com ela",
+        "next_scene": "2.1d"
+      }
     ]
   },
   {
@@ -88,8 +124,23 @@
       "{veia:4} Ela não tá oferecendo. Tá recrutando. É diferente. Quem oferece te dá uma coisa. Quem recruta te pede a vida e chama de presente."
     ],
     "choices": [
-      { "id": "A", "label": "Entregar o display", "flags_set": ["CONFIOU_KAEDA", "RECRUTADO"], "next_scene": "2.2" },
-      { "id": "B", "label": "\"Dado passado é dado rastreado. Não.\"", "flags_set": ["RECUSOU_DADOS_KAEDA"], "next_scene": "2.2b" }
+      {
+        "id": "A",
+        "label": "Entregar o display",
+        "flags_set": [
+          "CONFIOU_KAEDA",
+          "RECRUTADO"
+        ],
+        "next_scene": "2.2"
+      },
+      {
+        "id": "B",
+        "label": "\"Dado passado é dado rastreado. Não.\"",
+        "flags_set": [
+          "RECUSOU_DADOS_KAEDA"
+        ],
+        "next_scene": "2.2b"
+      }
     ]
   },
   {
@@ -106,9 +157,35 @@
       "[KAEDA] \"Topa?\""
     ],
     "choices": [
-      { "id": "A", "label": "\"Topo.\"", "flags_required": ["CONFIOU_KAEDA"], "flags_set": ["ACEITOU_ORGANIZACAO"], "decisao": true, "next_scene": "2.3" },
-      { "id": "B", "label": "\"Me dá um dia.\"", "flags_set": ["PENSOU_ORGANIZACAO"], "next_scene": "2.2b" },
-      { "id": "C", "label": "\"Isso não é briga minha.\"", "flags_set": ["RECUSOU_ORGANIZACAO"], "decisao": true, "next_scene": "2.4fim" }
+      {
+        "id": "A",
+        "label": "\"Topo.\"",
+        "flags_required": [
+          "CONFIOU_KAEDA"
+        ],
+        "flags_set": [
+          "ACEITOU_ORGANIZACAO"
+        ],
+        "decisao": true,
+        "next_scene": "2.3"
+      },
+      {
+        "id": "B",
+        "label": "\"Me dá um dia.\"",
+        "flags_set": [
+          "PENSOU_ORGANIZACAO"
+        ],
+        "next_scene": "2.2b"
+      },
+      {
+        "id": "C",
+        "label": "\"Isso não é briga minha.\"",
+        "flags_set": [
+          "RECUSOU_ORGANIZACAO"
+        ],
+        "decisao": true,
+        "next_scene": "2.4fim"
+      }
     ]
   },
   {
@@ -126,8 +203,25 @@
       "É ela. Perguntando sem perguntar."
     ],
     "choices": [
-      { "id": "A", "label": "\"Tô dentro.\"", "flags_set": ["ACEITOU_ORGANIZACAO", "RECRUTADO"], "decisao": true, "next_scene": "2.3" },
-      { "id": "B", "label": "Jogar o token fora", "flags_set": ["RECUSOU_ORGANIZACAO"], "decisao": true, "next_scene": "2.4fim" }
+      {
+        "id": "A",
+        "label": "\"Tô dentro.\"",
+        "flags_set": [
+          "ACEITOU_ORGANIZACAO",
+          "RECRUTADO"
+        ],
+        "decisao": true,
+        "next_scene": "2.3"
+      },
+      {
+        "id": "B",
+        "label": "Jogar o token fora",
+        "flags_set": [
+          "RECUSOU_ORGANIZACAO"
+        ],
+        "decisao": true,
+        "next_scene": "2.4fim"
+      }
     ]
   },
   {
@@ -146,7 +240,14 @@
       "{veia:5} O chiado volta. Mais perto. E agora você tem quase certeza: ele gosta da Kaeda."
     ],
     "choices": [
-      { "id": "A", "label": "Ver o que mudou", "flags_set": ["ATO2_COMPLETO"], "next_scene": "2.fim" }
+      {
+        "id": "A",
+        "label": "Ver o que mudou",
+        "flags_set": [
+          "ATO2_COMPLETO"
+        ],
+        "next_scene": "2.fim"
+      }
     ]
   },
   {
@@ -169,7 +270,14 @@
       "Às vezes não entrar também é escolha. Só que a conta chega do mesmo jeito."
     ],
     "choices": [
-      { "id": "A", "label": "Desligar o SBI", "flags_set": ["FIM_FORK_RECUSA"], "next_scene": "fim:fork" }
+      {
+        "id": "A",
+        "label": "Desligar o SBI",
+        "flags_set": [
+          "FIM_FORK_RECUSA"
+        ],
+        "next_scene": "fim:fork"
+      }
     ]
   },
   {
@@ -186,7 +294,14 @@
       "[KAEDA] \"Chegou a hora de descobrir quem é.\""
     ],
     "choices": [
-      { "id": "A", "label": "Abrir a pasta", "flags_set": ["FIM_ATO2"], "next_scene": "3.1" }
+      {
+        "id": "A",
+        "label": "Abrir a pasta",
+        "flags_set": [
+          "FIM_ATO2"
+        ],
+        "next_scene": "3.1"
+      }
     ]
   }
 ]
