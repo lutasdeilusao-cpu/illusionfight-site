@@ -84,7 +84,7 @@ export const CENA_PISTA = {
     // — chefe sempre garante pelo menos 500 (Isaias, 19/09/2026), não mais
     // um valor autorado aqui. `rep` continua autorado.
     // O Facão do Carvão (139, épico) — o 1º épico que existe de verdade.
-    recompensa: { rep: 5, equipPrimeiraVez: 139 },
+    recompensa: { rep: 5 },
   },
 
   // A área final só abre depois de todo o caminho obrigatório da Pista —

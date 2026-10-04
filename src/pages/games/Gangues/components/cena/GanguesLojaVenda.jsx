@@ -1,5 +1,5 @@
 import { getGanguesItem, precoVendaItem, textoEfeitoItem } from '../../data/ganguesItens.js'
-import { getGanguesEquip, precoVendaEquip } from '../../data/ganguesEquip.js'
+import { getGanguesEquip, precoVendaEquip, nomePeca } from '../../data/ganguesEquip.js'
 import { sfx } from '../../../../../lib/sfx'
 
 /* Aba VENDER da loja: tudo que a gangue tem guardado e a loja compra, a 25%
@@ -58,7 +58,7 @@ export default function GanguesLojaVenda({ store, t, aviso, notificar }) {
         <div key={eq.uid} className="gang-loja-cena-item">
           <span className="gang-loja-cena-item__icone">{def.icone}</span>
           <span className="gang-loja-cena-item__info">
-            <strong>{t(def.nome)}{eq.aprim > 0 ? ` +${eq.aprim}` : ''}</strong>
+            <strong>{nomePeca(t, def, eq)}</strong>
             <small>{t(`games.gangues.equip.slots.${def.slot}`)} · {t(`games.gangues.equip.raridade.${def.raridade}`)}</small>
           </span>
           <button className="gang-loja-cena-item__comprar" onClick={() => venderPeca(eq, def)}>

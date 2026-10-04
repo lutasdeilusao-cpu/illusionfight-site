@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791085647.330147,
-    "ast_hash": "4c499dedeadf75390794cd3a271f11b1",
+    "mtime": 1791085971.645611,
+    "ast_hash": "9e403fa957b56857abfd2cf7b428cd8f",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2720,8 +2720,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791085647.4048731,
-    "ast_hash": "6be772eafcc572af3d923b4d2ad2f0af",
+    "mtime": 1791085971.6866283,
+    "ast_hash": "1ecc6ffdb9d9a36cb27379d9805cd3b7",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3975,8 +3975,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesEquip.js": {
-    "mtime": 1791085242.7920384,
-    "ast_hash": "ccb3534186db534c39a46743c2eec150",
+    "mtime": 1791085971.5650465,
+    "ast_hash": "1474459b9c1debcacb643857350fa3a2",
     "semantic_hash": ""
   },
   "supabase/migrations/036_gangues_equipamentos.sql": {
@@ -3990,8 +3990,8 @@
     "semantic_hash": ""
   },
   "docs/Games/Gangues/LDI_GANGUES_GDD.md": {
-    "mtime": 1791085647.3028777,
-    "ast_hash": "210317d22c71dc38a8defa46607a9090",
+    "mtime": 1791085971.6150792,
+    "ast_hash": "3ce7c30147b9de2576e3403dd645b4cd",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesInimigos.js": {
@@ -7035,8 +7035,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesLojaVenda.jsx": {
-    "mtime": 1791085259.270014,
-    "ast_hash": "d1ec8eaa30fd3d4142c9a0a63fc0f64f",
+    "mtime": 1791085971.5660405,
+    "ast_hash": "a6f4817e83dbfd99f9882874b5f5b22d",
     "semantic_hash": ""
   }
 }

@@ -30,7 +30,7 @@ export default function GanguesVictory({ onNavigate }) {
   const emCena = Boolean(storyAlvo?.cenaId) && !torre
   const noModoHistoria = (Boolean(storyAlvo?.noId) || emCena) && !torre
   const cenaChefe = emCena && storyAlvo.isChefe
-  const confrontoFinal = Boolean(storyAlvo?.noId) && ehConfrontoFinal(storyAlvo)
+  const confrontoFinal = Boolean(storyAlvo?.noId) && !storyAlvo?.revanche && ehConfrontoFinal(storyAlvo)
   // Território dominado nesta vitória? (chefe caiu, seja no fluxo de cena
   // da Pista ou na trilha dos outros bairros) — libera 1 vaga de recruta.
   const territorioDominado = victory && (cenaChefe || (noModoHistoria && !emCena && storyAlvo.isChefe))

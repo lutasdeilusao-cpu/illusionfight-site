@@ -59,7 +59,7 @@ export const CENA_VILA = {
     enemy: 1503,
     boss: 'sala',
     // O Taco da Ferrugem (141, épico) na 1ª vitória.
-    recompensa: { rep: 10, equipPrimeiraVez: 141 },
+    recompensa: { rep: 10 },
   },
 
   portao: {

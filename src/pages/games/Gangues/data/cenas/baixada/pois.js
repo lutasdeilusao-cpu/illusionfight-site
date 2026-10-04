@@ -77,12 +77,12 @@ export const POIS_BAIXADA = [
   }),
   fuga('folgado_4', 41, {
     enemy: 1455, fixo: true, pontosFixo: 41,
-    recompensa: { rep: 5, equipPrimeiraVez: 312 },
+    recompensa: { rep: 5 },
     revela: ['folgado_5'],
   }),
   fuga('folgado_5', 43, {
     enemy: 1456, fixo: true, pontosFixo: 43,
-    recompensa: { rep: 6, equipPrimeiraVez: 306 },
+    recompensa: { rep: 6 },
     revela: ['folgado_final'],
   }),
   {

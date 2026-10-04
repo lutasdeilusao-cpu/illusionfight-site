@@ -101,9 +101,6 @@
         "socorro_fiado": "Broke and already in debt, the loan shark covered the {custo} patch-up — at 10× the price. Your debt went up {acrescimo}.",
         "socorro_divida": "Debt with the loan shark: {divida}",
         "socorro_clube": "Only the Fight Club clears that name.",
-        "reward_sucata": "Scrap",
-        "reward_equip": "New gear",
-        "reward_item": "Item",
         "perda_item": "The Raid took your {item}.",
         "perda_grana": "The Turk's Collection took {n} of your cash.",
         "socorro_rinha_titulo": "The house patched you up",
@@ -443,7 +440,6 @@
         "sem_carta": "No socket",
         "carta_em_breve": "Card socket — coming soon",
         "o_que_da": "What it gives",
-        "slots_carta": "Card sockets: {n}",
         "equipar_em": "Buy and equip on",
         "so_comprar": "Just buy (stash)",
         "sem_elenco": "Recruit a character first.",
@@ -608,7 +604,8 @@
         "so_caminho": "{caminho} only",
         "faixa_explica": "The bonus is a range and rolls on the spot: Wallop every hit, Hide every block, Pace once at the start of the fight. The comparison below uses the average.",
         "nivel_min": "Min. level {n}",
-        "falta_nivel": "Nobody in the crew has hit level {n} to use this yet."
+        "falta_nivel": "Nobody in the crew has hit level {n} to use this yet.",
+        "loja_sem_encaixe": "Shop version: no card slot, can be upgraded at the smith. The slotted version only drops from enemies."
       },
       "bag": {
         "eyebrow": "Bag",
@@ -6596,7 +6593,6 @@
         "lutas": "Brawls",
         "grana": "Cash",
         "rep": "Rep",
-        "sucata": "Scrap",
         "niveis": "Leveled up",
         "teto": "Hit the +5 levels cap for one absence — from here on, you gotta play.",
         "derrota": "The crew went down with no cash to patch up: the pit is over, you got dragged to the bar and every auto switched off.",
@@ -6723,6 +6719,21 @@
         "316": "Three knots, three wishes. It can only break on its own — and when it does, the wish comes true.",
         "317": "A rope sandal the healer wore until it wore out. Steps light and leaves the street silent.",
         "318": "A little leather pouch sewn shut with a prayer inside. Nobody opens it, nobody asks, everybody respects it."
+      },
+      "drop": {
+        "titulo": "Dropped by the crew",
+        "carta_nome": "{inimigo} Card",
+        "tag_carta": "Card",
+        "tag_equip": "Slotted gear",
+        "tag_item": "Item",
+        "garantia": "guaranteed within {n} wins",
+        "ver": "See what they drop",
+        "esconder": "Hide drops",
+        "de": "{inimigo} drops",
+        "bando_nota": "Everyone in the crew has their own table — the Collection shows them all.",
+        "rinha_sem": "Nothing drops in the Pit: drops only come from real fights.",
+        "tag_equip_especial": "Special gear",
+        "variante": "may come with 2 slots or already upgraded"
       }
     }
   }

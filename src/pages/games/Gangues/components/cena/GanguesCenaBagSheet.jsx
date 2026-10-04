@@ -3,7 +3,7 @@ import { GANGUES_STATUS } from '../../engine/ganguesStatus.js'
 import { Fragment, useState } from 'react'
 import { sfx } from '../../../../../lib/sfx'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources } from '../../data/ganguesLoadout.js'
-import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip, podeEquiparGangues } from '../../data/ganguesEquip.js'
+import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip, podeEquiparGangues, nomePeca } from '../../data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA, textoEfeitoItem } from '../../data/ganguesItens.js'
 
 // Bolsa da gangue — o que o bando tem de item (consumível + equipamento
@@ -17,7 +17,8 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
   const consumiveis = GANGUES_ITENS_LISTA.map(it => ({ ...it, qtd: store.inventario[it.id] || 0 })).filter(it => it.qtd > 0)
   const pecas = Object.values(store.equipamentos.reduce((acc, eq) => {
     const def = getGanguesEquip(eq.itemId); if (!def) return acc
-    acc[eq.itemId] = acc[eq.itemId] || { def, qtd: 0 }; acc[eq.itemId].qtd++; return acc
+    const chave = `${eq.itemId}-${eq.encaixe ? 1 : 0}-${eq.aprim || 0}`
+    acc[chave] = acc[chave] || { chave, def, peca: eq, qtd: 0 }; acc[chave].qtd++; return acc
   }, {}))
   const vazio = consumiveis.length === 0 && pecas.length === 0
   // PV/PM atuais de cada ficha do time — pro picker de "usar poção".
@@ -48,12 +49,12 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
   }
   // Time pro picker de equipar (só fichas de template — legado não equipa).
   const timeEquip = (store.activeParty.length ? store.activeParty : store.roster).filter(m => m.character_type === 'template').slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
-  const equiparEm = (def, memberId) => {
-    const inst = store.equipamentos.find(eq => eq.itemId === def.id)
+  const equiparEm = (def, memberId, peca) => {
+    const inst = store.equipamentos.find(eq => eq.itemId === def.id && Boolean(eq.encaixe) === Boolean(peca?.encaixe) && (eq.aprim || 0) === (peca?.aprim || 0))
     const membro = store.roster.find(m => m.id === memberId)
     if (inst && store.equiparItem(memberId, inst.uid)) {
       sfx.select?.()
-      setFeito(t('games.gangues.bag.equipou', { nome: membro?.sheet_name || '?', item: t(def.nome), slot: t(`games.gangues.equip.slots.${def.slot}`) }))
+      setFeito(t('games.gangues.bag.equipou', { nome: membro?.sheet_name || '?', item: nomePeca(t, def, peca), slot: t(`games.gangues.equip.slots.${def.slot}`) }))
     } else sfx.cancel()
     setEquipando(null); setTimeout(() => setFeito(null), 2800)
   }
@@ -90,22 +91,22 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
     </>}
     {pecas.length > 0 && <>
       <small className="gang-bag-sec">{t('games.gangues.bag.equip_bolso')}</small>
-      <div className="gang-bag-lista">{pecas.map(({ def, qtd }) => (
-        <Fragment key={def.id}>
+      <div className="gang-bag-lista">{pecas.map(({ chave, def, peca, qtd }) => (
+        <Fragment key={chave}>
         <div className="gang-bag-row">
           <span>{def.icone}</span>
-          <strong>{t(def.nome)}</strong>
+          <strong>{nomePeca(t, def, peca)}</strong>
           <small>{t(`games.gangues.equip.slots.${def.slot}`)}</small>
-          {timeEquip.length > 0 && <button className="gang-bag-usar" onClick={() => setEquipando(e => e?.def?.id === def.id ? null : { def })}>{t('games.gangues.equip.equipar')}</button>}
+          {timeEquip.length > 0 && <button className="gang-bag-usar" onClick={() => setEquipando(e => e?.chave === chave ? null : { chave, def, peca })}>{t('games.gangues.equip.equipar')}</button>}
           <b>×{qtd}</b>
         </div>
-        {equipando?.def?.id === def.id && <div className="gang-bag-alvos">
-        <small>{t('games.gangues.bag.equipar_em', { item: t(equipando.def.nome), slot: t(`games.gangues.equip.slots.${equipando.def.slot}`) })}</small>
+        {equipando?.chave === chave && <div className="gang-bag-alvos">
+        <small>{t('games.gangues.bag.equipar_em', { item: nomePeca(t, equipando.def, equipando.peca), slot: t(`games.gangues.equip.slots.${equipando.def.slot}`) })}</small>
         {timeEquip.filter(m => podeEquiparGangues(equipando.def, m)).map(m => {
           const noSlot = m.attributes?.equipment?.[equipando.def.slot]
           const defAtual = noSlot && getGanguesEquip(noSlot.itemId)
           const jaEssa = noSlot && noSlot.itemId === equipando.def.id
-          return <button key={m.id} className="gang-bag-alvo" disabled={jaEssa} onClick={() => equiparEm(equipando.def, m.id)}>
+          return <button key={m.id} className="gang-bag-alvo" disabled={jaEssa} onClick={() => equiparEm(equipando.def, m.id, equipando.peca)}>
             <strong>{m.sheet_name || '?'}</strong>
             <em>{jaEssa ? t('games.gangues.bag.ja_equipado') : defAtual ? `↺ ${t(defAtual.nome)}` : t('games.gangues.equip.vazio')}</em>
           </button>

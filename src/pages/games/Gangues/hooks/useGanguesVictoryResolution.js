@@ -9,14 +9,9 @@ import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } 
 import { nivelTetoDaHistoria } from '../data/ganguesTerritorios.js'
 import { GANGUES_LEVEL_CAP } from '../data/ganguesCharacters.js'
 import { CENAS_POR_ID, destinoSocorroDerrota, custoRecuperacaoRinha } from '../data/cenas/cenaHelpers.js'
-import { GANGUES_SUCATA_ID } from '../data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
 import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import { desligarAutomaticos } from './useGanguesBrigaAutomatica.js'
-
-// Sucata virou recurso do aprimoramento (27/09/2026, PLANO_ITENS_RANGE.md §3):
-// cai em ~20% das vitórias de rua na cena (não no chefe, que já paga 500).
-const GANGUES_SUCATA_DROP_CHANCE = 0.2
 
 export default function useGanguesVictoryResolution({ store, user, report, victory, storyAlvo, match, torre, torreAndar, clube, emCena, noModoHistoria, cenaChefe, confrontoFinal, onNavigate }) {
   const processed = useRef(false)
@@ -103,12 +98,12 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
     if (victory) {
       // Álbum de Marélia — todo inimigo do bando batido vira entrada.
       store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
-      let granaGanha = 0, repGanha = 0, repMarcos = [], sucataGanha = 0, equipGanho = null, itemGanho = null
+      // Drop: cada corpo batido sorteia a tabela dele (com garantia). A Rinha
+      // não dá drop nem conta pra garantia.
+      const drops = storyAlvo?.rinha ? [] : store.aplicarDrops(inimigosCombatentes.map(c => c.id))
+      let granaGanha = 0, repGanha = 0, repMarcos = []
       if (emCena || noModoHistoria) {
-        const { grana, rep, itens, equipPrimeiraVez, itemPrimeiraVez, pagaFavor } = calcularRecompensaCena({ emCena, storyAlvo, enemyCount, ehChefe: Boolean(storyAlvo.isChefe) })
-        // Checa "1ª vitória" ANTES de marcar o ponto como resolvido logo abaixo.
-        const progAntes = emCena ? (store.cenaProgresso[storyAlvo.cenaId] || {}) : {}
-        const primeiraVitoria = cenaChefe ? !progAntes.boss : !progAntes.resolvidos?.[storyAlvo.cenaPoiId]
+        const { grana, rep, itens, pagaFavor } = calcularRecompensaCena({ emCena, storyAlvo, enemyCount, ehChefe: Boolean(storyAlvo.isChefe) })
         if (emCena) {
           // Modo história — cena: marca o POI resolvido. O repDelta (rep de
           // uma escolha tipo "aperta") já está somado dentro de `rep` por
@@ -125,11 +120,8 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
         // Aposta em você (já descontada ao entrar): venceu, paga multiplicado.
         if (rep) { repMarcos = store.ganharRep(rep); repGanha += rep }
         itens.forEach(({ id, qtd }) => store.darItem(id, qtd))
-        if (equipPrimeiraVez && primeiraVitoria) { store.comprarEquip(equipPrimeiraVez, 0); equipGanho = equipPrimeiraVez }
-        if (itemPrimeiraVez && primeiraVitoria) { store.darItem(itemPrimeiraVez, 1); itemGanho = itemPrimeiraVez }
         // Favor da Dona Regina pago (Feira) — libera o fiado da pensão de novo.
         if (pagaFavor) store.pagarFavorRegina()
-        if (emCena && !cenaChefe && Math.random() < GANGUES_SUCATA_DROP_CHANCE) { store.darItem(GANGUES_SUCATA_ID, 1); sucataGanha = 1 }
         // Barra de Alerta (Vila): bater o Portaria desce 1; a última
         // aparição dele zera e trava a barra.
         const cenaAlerta = emCena ? CENAS_POR_ID[storyAlvo.cenaId] : null
@@ -137,7 +129,9 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
           if (storyAlvo.cenaPoiId === cenaAlerta.alerta.zeraCom) store.mexerAlerta(cenaAlerta.id, cenaAlerta.alerta.max, 'zera')
           else if (cenaAlerta.alerta.pois.includes(storyAlvo.cenaPoiId)) store.mexerAlerta(cenaAlerta.id, cenaAlerta.alerta.max, -1)
         }
-        if (emCena && cenaChefe) {
+        // Revanche (o chefe já tinha caído): dá drop e XP, mas não domina o
+        // bairro de novo.
+        if (emCena && cenaChefe && !storyAlvo.revanche) {
           store.marcarBossCena(storyAlvo.cenaId)
           store.dominarTerritorioViaCena(storyAlvo.territorioId, storyAlvo.pontoIds || [])
           store.restaurarPvPmTodos()
@@ -151,7 +145,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       if (confrontoFinal) store.completeCampaign()
       // repMarco: só o ÚLTIMO marco cruzado (pra mostrar 1 modal) — todos os
       // itens já foram concedidos de verdade no inventário dentro de ganharRep.
-      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, sucata: sucataGanha, equip: equipGanho, item: itemGanho, repMarco: repMarcos[repMarcos.length - 1] || null })
+      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, drops, repMarco: repMarcos[repMarcos.length - 1] || null })
       sfx.win()
     } else {
       sfx.lose()

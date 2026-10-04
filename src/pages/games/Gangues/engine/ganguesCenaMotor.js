@@ -32,7 +32,8 @@ export function resolverRefPoi(cena, refId) {
   return cena.pois.find(p => p.id === refId) || null
 }
 export function estadoInternoPoi(def, prog) {
-  if (def.ehChefe) return prog.boss ? 'resolvido' : 'disponivel'
+  // Chefe batido continua lá como revanche repetível (drop e XP).
+  if (def.ehChefe) return 'disponivel'
   if (prog.resolvidos[def.id] && !def.repetivel) return 'resolvido'
   return 'disponivel'
 }
@@ -109,7 +110,7 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto, flags =
     if (!temGalpaoInterno) {
       alvos.push({
         ...cena.chefe, world: POS.boss, zona: ENTRY_ZONES.boss, ehChefe: true,
-        estado: prog.boss ? 'resolvido' : laDeCima ? 'disponivel' : 'trancado',
+        estado: prog.boss || laDeCima ? 'disponivel' : 'trancado', farmCompleto: Boolean(prog.boss),
       })
     }
     // Portões da escadaria (Morro, `cena.barreiras`): fechados até o aval
@@ -133,7 +134,7 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto, flags =
     if (!def) return null
     return {
       ...def, world: pd.pos, zona: { x: pd.pos.x - 34, y: pd.pos.y - 34, w: 68, h: 68 },
-      estado: estadoInternoPoi(def, prog), farmCompleto: Boolean(def.repetivel && prog.resolvidos[def.id]),
+      estado: estadoInternoPoi(def, prog), farmCompleto: Boolean(def.ehChefe ? prog.boss : def.repetivel && prog.resolvidos[def.id]),
       ofertaPendente: ofertaPendente(def, prog),
     }
   }).filter(Boolean)

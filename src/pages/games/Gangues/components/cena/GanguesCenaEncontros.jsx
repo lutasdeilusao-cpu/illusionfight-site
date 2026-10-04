@@ -2,16 +2,13 @@ import { useState } from 'react'
 import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
 import { pontosPreviewPoi } from '../../data/ganguesEncontros.js'
 import { nivelRealDePontos } from '../../data/ganguesDificuldade.js'
+import GanguesDropLista from '../GanguesDropLista'
 
-// A tela de "encarar ou não" da treta programada (POI/chefe) — extraído de
-// GanguesCena.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md
-// §5). O antigo EventoVS (encontro aleatório de rua, sorteio cego por
-// passo) foi removido em 21/09/2026 — virou "o bicho" (pino persistente, que por sua vez foi substituído em 26/09/2026 pelo encontro aleatório perseguidor — engine/ganguesEncontroAleatorio.js,
-// colide = luta automática, sem essa tela de escolha — ver GanguesCena.jsx).
-
-// Sem aposta aqui (Isaias, 30/09/2026: "a aposta é só lá na birosca" — a
-// Banca do Tio Dado e o Clube da Luta de quem entra sem dívida).
-export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim, onNao, t, territorioId }) {
+// A tela de "encarar ou não" da treta programada (POI/chefe): quem é, a fala,
+// o aviso de nível e o que o inimigo derruba.
+export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim, onNao, t, territorioId, contadoresDrop }) {
+  const [verDrop, setVerDrop] = useState(false)
+  const enemyDrop = poi.enemy || poi.liderFixo || poi.revezamento?.pool?.[0] || null
   const nome = poi.ehChefe ? t(`games.gangues.story.bosses.${poi.boss}.nome`) : t(`${poi.i18n}.nome`)
   const falaRaw = fala ?? (poi.ehChefe ? t(`games.gangues.story.bosses.${poi.boss}.fala`, { suaGangue: t('games.gangues.report.your_gang') }) : t(`${poi.i18n}.fala`))
   const falaShow = Array.isArray(falaRaw) ? falaRaw[0] : falaRaw
@@ -40,6 +37,16 @@ export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim
     <span className="gang-cena-eyebrow">{poi.ehChefe ? t('games.gangues.story.boss_tag') : t('games.gangues.cena.tipo.treta')}</span>
     <h3 className="gang-cena-enc-titulo">{nome}</h3>
     <p className="gang-cena-papo-fala">{falaShow}</p>
+    {poi.rinhaInfinita
+      ? <p className="gang-drop-bloco-nota">{t('games.gangues.drop.rinha_sem')}</p>
+      : enemyDrop && <div className="gang-drop-bloco">
+        <button type="button" className="gang-drop-toggle" onClick={() => setVerDrop(v => !v)}>{t(verDrop ? 'games.gangues.drop.esconder' : 'games.gangues.drop.ver')}</button>
+        {verDrop && <>
+          <small>{t('games.gangues.drop.de', { inimigo: t(`games.gangues.enemy_names.${enemyDrop}`) })}</small>
+          <GanguesDropLista enemyId={enemyDrop} contadores={contadoresDrop} t={t} />
+          <p>{t('games.gangues.drop.bando_nota')}</p>
+        </>}
+      </div>}
     {abaixo && <div className="gang-cena-vs-aviso">⚠ {t('games.gangues.cena.nivel_rec_baixo', { rec: nivelRecReal, atual: nivelTropa })}<button type="button" className="gang-cena-vs-aviso-off" onClick={onOcultarAviso}>{t('games.gangues.cena.nivel_rec_ocultar')}</button></div>}
     <div className="gang-cena-enc-acoes">
       <button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.treta_nao')}</button>

@@ -3,7 +3,6 @@ import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { CENAS_POR_ID } from '../../data/cenas/cenaHelpers.js'
 import { getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
-import { GANGUES_SUCATA_ID } from '../../data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA } from '../../data/ganguesItens.js'
 import { simularFarmRinha, lutaAoVivo, rinhaDoAlvo } from '../../engine/ganguesFarmAusente.js'
 import enemiesData from '../../data/gangues-enemies.json'
@@ -25,7 +24,7 @@ import enemiesData from '../../data/gangues-enemies.json'
 // (store.marcarFarmAusente, gravada sem debounce): { tipo: 'rinha', desde,
 // foto, lutas, vitorias, caiu, remendos, territorioId, alvo, luta, ids }.
 // `alvo` null = a Rinha acabou no fundo (perdeu sem grana pra se remendar).
-// `foto` = grana/rep/sucata/poções/XP na saída: o relatório é a diferença
+// `foto` = grana/rep/poções/XP na saída: o relatório é a diferença
 // entre ela e o que o save tem na volta — vale com a página viva ou
 // recarregada (aba descartada). `lutas`/`vitorias`/`caiu` contam as lutas
 // que terminaram AO VIVO no fundo (a tela de vitória que monta com o app
@@ -45,7 +44,7 @@ function fotoDoSave() {
   const st = useGanguesStore.getState()
   const inv = st.inventario || {}
   return {
-    grana: st.grana || 0, rep: st.rep || 0, sucata: inv[GANGUES_SUCATA_ID] || 0,
+    grana: st.grana || 0, rep: st.rep || 0,
     pocoes: Object.entries(inv).reduce((n, [id, q]) => n + (POCOES.has(Number(id)) ? q : 0), 0),
     xp: Object.fromEntries(st.roster.map(m => [m.id, m.xp_total || 0])),
   }
@@ -78,12 +77,12 @@ function montarResumo(m, calc) {
     remendos: (m.remendos || 0) + (calc?.remendos || 0),
     lutas: (m.lutas || 0) + (calc?.lutas || 0),
     vitorias: (m.vitorias || 0) + (calc?.vitorias || 0),
-    grana: agora.grana - m.foto.grana, rep: agora.rep - m.foto.rep, sucata: agora.sucata - m.foto.sucata,
+    grana: agora.grana - m.foto.grana, rep: agora.rep - m.foto.rep,
     pocoes: Math.max(0, m.foto.pocoes - agora.pocoes), niveis,
     derrota: Boolean(m.caiu || calc?.derrota), teto: Boolean(calc?.teto), meioNaoConta: Boolean(calc?.meioNaoConta),
   }
 }
-const mudouAlgo = r => Boolean(r.lutas > 0 || r.grana || r.rep || r.sucata || r.pocoes || r.niveis.length)
+const mudouAlgo = r => Boolean(r.lutas > 0 || r.grana || r.rep || r.pocoes || r.niveis.length)
 
 const sinal = n => (n < 0 ? `${n}` : `+${n}`)
 
@@ -204,7 +203,6 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
               <div><dt>{t('games.gangues.farm_ausente.lutas')}</dt><dd>{resumo.vitorias}/{resumo.lutas}</dd></div>
               <div><dt>{t('games.gangues.farm_ausente.grana')}</dt><dd>{sinal(resumo.grana)}</dd></div>
               <div><dt>{t('games.gangues.farm_ausente.rep')}</dt><dd>{sinal(resumo.rep)}</dd></div>
-              <div><dt>{t('games.gangues.farm_ausente.sucata')}</dt><dd>{sinal(resumo.sucata)}</dd></div>
               {resumo.pocoes > 0 && <div><dt>{t('games.gangues.farm_ausente.pocoes')}</dt><dd>−{resumo.pocoes}</dd></div>}
             </dl>
           )}

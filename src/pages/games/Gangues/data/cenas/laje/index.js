@@ -56,7 +56,7 @@ export const CENA_LAJE = {
     enemy: 1600,
     boss: 'costura',
     // A Coroa da Laje (133, épico) na vitória — o fim do jogo.
-    recompensa: { rep: 20, equipPrimeiraVez: 133 },
+    recompensa: { rep: 20 },
   },
 
   portao: {

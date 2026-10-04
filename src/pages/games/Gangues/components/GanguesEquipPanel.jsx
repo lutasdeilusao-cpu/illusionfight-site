@@ -2,12 +2,9 @@ import { useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
-import { GANGUES_EQUIP_SLOTS, getGanguesEquip, normalizeGanguesEquipment, textoBonusEquip, podeEquiparGangues } from '../data/ganguesEquip.js'
+import { GANGUES_EQUIP_SLOTS, getGanguesEquip, normalizeGanguesEquipment, textoBonusEquip, podeEquiparGangues, nomePeca } from '../data/ganguesEquip.js'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesEquipPanel.css'
-
-/** Nome da peça com o aprimoramento ("Faca Serrilhada +2"). */
-const nomePeca = (t, def, aprim) => `${t(def.nome)}${aprim ? ` +${aprim}` : ''}`
 
 /** Quadradinhos de slot de carta — vazios por enquanto (cartas vêm com o drop). */
 function CardSlots({ t, quantidade }) {
@@ -62,10 +59,10 @@ export default function GanguesEquipPanel({ member }) {
                 <span className="gang-equip-slot__icone">{def ? def.icone : icone}</span>
                 <span className="gang-equip-slot__info">
                   <small>{t(`games.gangues.equip.slots.${slot}`)}</small>
-                  <strong>{def ? nomePeca(t, def, equipada.aprim) : t('games.gangues.equip.vazio')}</strong>
+                  <strong>{def ? nomePeca(t, def, equipada) : t('games.gangues.equip.vazio')}</strong>
                   {def && <em>{textoBonusEquip(t, def, equipada.aprim)}</em>}
                 </span>
-                {def && <CardSlots t={t} quantidade={def.cardSlots} />}
+                {def && <CardSlots t={t} quantidade={equipada.cards?.length || 0} />}
               </button>
             </li>
           )
@@ -82,15 +79,16 @@ export default function GanguesEquipPanel({ member }) {
             </header>
 
             {equipment[slotAberto] && (() => {
-              const { aprim } = equipment[slotAberto]
+              const peca = equipment[slotAberto]
+              const { aprim } = peca
               const def = getGanguesEquip(equipment[slotAberto].itemId)
               return (
                 <div className="gang-equip-picker__equipada">
                   <span className="gang-equip-slot__icone">{def.icone}</span>
                   <span className="gang-equip-slot__info">
-                    <strong>{nomePeca(t, def, aprim)}</strong>
+                    <strong>{nomePeca(t, def, peca)}</strong>
                     <em>{textoBonusEquip(t, def, aprim)}</em>
-                    <CardSlots t={t} quantidade={def.cardSlots} />
+                    <CardSlots t={t} quantidade={peca.cards?.length || 0} />
                   </span>
                   <button className="gang-equip-btn gang-equip-btn--off" onClick={() => desequipar(slotAberto)}>{t('games.gangues.equip.desequipar')}</button>
                 </div>
@@ -103,10 +101,10 @@ export default function GanguesEquipPanel({ member }) {
                 <div key={inst.uid} className={`gang-equip-oferta gang-equip-oferta--${def.raridade}`}>
                   <span className="gang-equip-slot__icone">{def.icone}</span>
                   <span className="gang-equip-slot__info">
-                    <strong>{nomePeca(t, def, inst.aprim)}</strong>
+                    <strong>{nomePeca(t, def, inst)}</strong>
                     <small>{t(`games.gangues.equip.raridade.${def.raridade}`)}</small>
                     <em>{textoBonusEquip(t, def, inst.aprim)}</em>
-                    <CardSlots t={t} quantidade={def.cardSlots} />
+                    <CardSlots t={t} quantidade={inst.encaixe ? inst.cards?.length || 0 : 0} />
                   </span>
                   <button className="gang-equip-btn" onClick={() => equipar(inst.uid)}>{t('games.gangues.equip.equipar')}</button>
                 </div>

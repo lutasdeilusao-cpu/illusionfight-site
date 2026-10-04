@@ -3,7 +3,6 @@
 // aqui chama store.* — só recebe dados e devolve números prontos pra aplicar.
 // Isso permite testar a distribuição de AP/recompensa sem montar componente.
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
-import { dropDoPonto } from '../data/ganguesEquipDistribuicao.js'
 
 /** Nome do combatente pro relatório — numera instâncias repetidas do mesmo
  *  molde de inimigo (ver gerarBandoInimigo/numeroInstancia). */
@@ -185,17 +184,11 @@ export function calcularRecompensaCena({ emCena, storyAlvo, enemyCount = 1, ehCh
       if (rec.item) itens.push({ id: rec.item, qtd: rec.qtd || 1 })
     }
   }
-  // Só na 1ª vitória daquele ponto (quem chama decide se é a 1ª — aqui é
-  // cálculo puro, não lê o progresso): uma peça ou um item de quest.
   // `granaMult` (o Caixa Forte dobra a grana) e `pagaFavor` (favor da Regina).
-  // `semGrana` (a rinha, 28/09/2026): farm dá só XP; grana vem do Clube e da Banca.
+  // `semGrana` (a Rinha): só XP.
   const grana = emCena && storyAlvo.semGrana ? 0 : calcularGranaTotal({ enemyCount, ehChefe, territorioId: storyAlvo?.territorioId }) * (rec?.granaMult || 1)
   return {
     grana, rep, itens,
-    // A distribuição por bairro manda (ganguesEquipDistribuicao.js); o chefe
-    // e quem não está na tabela usam o que o próprio ponto define.
-    equipPrimeiraVez: (emCena && dropDoPonto(storyAlvo.cenaId, storyAlvo.cenaPoiId)) || rec?.equipPrimeiraVez || null,
-    itemPrimeiraVez: rec?.itemPrimeiraVez || null,
     pagaFavor: Boolean(rec?.pagaFavor),
   }
 }

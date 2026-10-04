@@ -48,7 +48,7 @@ export const CENA_MORRO = {
     enemy: 1504,
     boss: 'zefa',
     // A Vara da Fera (134, épico) na 1ª vitória.
-    recompensa: { rep: 12, equipPrimeiraVez: 134 },
+    recompensa: { rep: 12 },
   },
 
   portao: {

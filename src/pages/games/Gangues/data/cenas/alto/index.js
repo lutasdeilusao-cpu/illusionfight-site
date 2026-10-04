@@ -66,7 +66,7 @@ export const CENA_ALTO = {
     enemy: 1505,
     boss: 'doutor',
     // A Bengala do Contador (135, épico) na 1ª vitória.
-    recompensa: { rep: 14, equipPrimeiraVez: 135 },
+    recompensa: { rep: 14 },
   },
 
   portao: {

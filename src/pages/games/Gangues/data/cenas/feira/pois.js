@@ -84,7 +84,7 @@ export const POIS_FEIRA = [
     repetivel: true,
     i18n: 'games.gangues.cena.feira.balanca',
     revezamento: { pool: FEIRA_POOL_COBRANCA, budgetPorCorpo: 26, chanceDupla: 0.4 },
-    recompensa: { rep: 3, itemPrimeiraVez: 15 },
+    recompensa: { rep: 3 },
     revela: ['caderneta_viva'],
   },
   {
@@ -112,7 +112,7 @@ export const POIS_FEIRA = [
     enemy: 1453,
     fixo: true,
     pontosFixo: 27,
-    recompensa: { rep: 5, equipPrimeiraVez: 236 }, // Olho Grego (merge 29/09: o Pingente de Asa saiu com o catálogo por caminho)
+    recompensa: { rep: 5 },
     revela: ['caixa_forte'],
   },
   {
@@ -126,7 +126,7 @@ export const POIS_FEIRA = [
     enemy: 1454,
     fixo: true,
     pontosFixo: 28,
-    recompensa: { rep: 6, granaMult: 2, equipPrimeiraVez: 221 },
+    recompensa: { rep: 6, granaMult: 2 },
   },
   {
     // A oficina de rádio do Toninho (DENTRO do prédio `radio`) — fetch quest:
@@ -274,7 +274,7 @@ export const POIS_FEIRA = [
     repGate: FEIRA_REP_GATE_DEPOSITO,
     i18n: 'games.gangues.cena.feira.deposito_2',
     revezamento: { pool: [1403, 1404, 1304], budgetPorCorpo: 31, chanceDupla: 0.6 },
-    recompensa: { rep: 5, item: 21, qtd: 1 },
+    recompensa: { rep: 5 },
   },
   {
     // A Rinha da Feira — o farm do bairro. Sem aposta (Isaias, 30/09/2026:

@@ -378,8 +378,7 @@ Pista **espelhado** (x' = 760 − x), com bancas de lona espalhadas.
 - **Caminho obrigatório (abre a Galeria):** A Catraca → Banca do Turco (papo:
   paga 20 de taxa ou não; fala diferente pra quem deve ao agiota) → A cobrança
   → Quadro de Luz (labirinto; errar dá **choque** −2 PV na tropa e vira treta;
-  dá o **fio de cobre**) → Beco dos Gato → Balança viciada (1ª vitória dá uma
-  válvula) → O Caderneta (**+1 Malícia contra quem deve**) → **Rádio do
+  dá o **fio de cobre**) → Beco dos Gato → Balança viciada → O Caderneta (**+1 Malícia contra quem deve**) → **Rádio do
   Toninho** (fetch quest: 1 fio de cobre + 3 válvulas; conserta e revela a Mão
   do Turco e o rádio pirata) → **Mão do Turco** (General fixo) → **Caixa
   Forte** (General fixo, **grana ×2**).
@@ -396,7 +395,7 @@ Pista **espelhado** (x' = 760 − x), com bancas de lona espalhadas.
   Turco e Caixa Forte de escolta, 3 corpos. Só aceita a luta depois do **Duda**
   (Pista) — `precisaInformante`. Com as **3 páginas da caderneta**
   (`pagina_1/2/3`, uma em cada metade + uma na Galeria) ele entra com **−2 de
-  Couro** (`cena.fraquezaChefe`). 1ª vitória: **Porrete do Cobrador (138)**.
+  Couro** (`cena.fraquezaChefe`). Drop: **Porrete do Cobrador (138)**.
 - **Opcionais:** Camelô (consumíveis + válvula + sucata, com **pechincha**:
   acertou o anagrama, −30% na visita) · Muamba de Domingo (stealth 6×6 com
   cronômetro, dá válvula) · **Pensão da Dona Regina** (**sem grana, ela cura
@@ -435,7 +434,7 @@ inteiro é andável desde o começo. Faixa de nível **34–46**.
   (padaria) libera o **Café do Véio (item 16)**; entregue ao velho
   (`veio_cafe`), ele acorda e vira o chefe no mesmo lugar (`someQuando` troca
   os pinos): Fura-Bucho **46** + os dois Generais de escolta (orçamento 115 ×
-  0,40). 1ª vitória: o **Espeto do Fura-Bucho (140)**.
+  0,40). Drop: o **Espeto do Fura-Bucho (140)**.
 - **A linha do trem** (`cena.trem`, `hooks/useGanguesTrem.js`) corta o mapa:
   a cada ~24 s o trem apita (3 s) e passa (8 s), fechando a travessia. Quem
   estiver nos trilhos leva 2 de dano na tropa (nunca derruba) e é jogado pro
@@ -1249,12 +1248,9 @@ Preço da tabela = preço base (a Lojinha do Zé cobra o dobro).
 talvez nem tenha treinado (`forcedSpecial` em `ganguesSpecialEffects.js`).
 Nunca são vendidos. Vêm de **marcos de reputação** (a cada **50 de Rep**
 acumulada, sem teto, a gangue ganha 1 chip, ciclando 20 → 21 → 22, com tela de
-recompensa — `repMarcosCruzados` em `ganguesLoadout.js`), de **drop de conteúdo
-arriscado** (ex.: `posmuro_2` e `galpao_m2` dão o chip 21) e da vitória no Clube
-da Luta (chip 22).
+recompensa — `repMarcosCruzados` em `ganguesLoadout.js`), do **drop** de
+Gerentes, Cobradores e Generais (§9.8) e da vitória no Clube da Luta (chip 22).
 
-**Sucata** também cai em ~20% das vitórias de rua na cena (não no chefe) e
-aparece no painel de recompensa.
 
 ### 9.4 Equipamento — 6 espaços, por caminho
 
@@ -1295,14 +1291,15 @@ peça nova = historinha nova, uma ou duas frases, vocabulário da rua).
   · Osso/energia 6; raridade comum 1 · incomum 1,1 · raro 1,3 · pesado 1,45 ·
   grife 1,6 · nobre 1,75 · lendário 1,9 · épico 1,6 (`precoReferencia`). Peça
   sem `custo` não vende em loja.
-- **Onde cada peça sai** mora só em `data/ganguesEquipDistribuicao.js`:
-  `GANGUES_LOJA_EQUIP` (a loja do bairro vende ~10 peças: o caminho da
-  especialidade inteiro + arma e corpo dos outros dois — Pista e Vila atacante,
-  Feira e Morro defensor, Baixada e Alto místico; a Laje vende arma, corpo e
-  amuleto de todos) e `GANGUES_DROP_EQUIP` (o resto sai como prêmio da 1ª
-  vitória numa luta do bairro, lido em `calcularRecompensaCena` antes do
-  `equipPrimeiraVez` do ponto). Peça nova = entrar na tabela, nunca em duas
-  lojas.
+- **Duas versões de cada peça.** A da **loja** (sem encaixe, aprimora no
+  ferreiro) e a de **drop** (`encaixe: true`): 1 encaixe de carta, ou 2 na
+  variação rara (teto de 2), e pode já vir aprimorada (+1/+2) — mas nunca
+  aprimora no ferreiro. Nome na tela: "Faca Serrilhada [2] +1" (`nomePeca`).
+- **Loja:** `GANGUES_LOJA_EQUIP` (`data/ganguesEquipDistribuicao.js`) — a loja do
+  bairro vende ~10 peças: o caminho da especialidade inteiro + arma e corpo dos
+  outros dois (Pista e Vila atacante, Feira e Morro defensor, Baixada e Alto
+  místico; a Laje vende arma, corpo e amuleto de todos). Toda peça cai de algum
+  inimigo (§9.8).
 
 **Aprimoramento** (`aprimorarEquip` em `ganguesEquipSlice.js`, tela
 `GanguesFerreiro.jsx`):
@@ -1322,148 +1319,185 @@ peça nova = historinha nova, uma ou duas frases, vocabulário da rua).
 `data/ganguesEquipDistribuicao.js`):
 | id | Nome | Caminho | Espaço | Raridade | Bônus | Nível mín. | Preço | Onde sai |
 |---|---|---|---|---|---|---|---|---|
-| 133 | Coroa da Laje | Livre | cabeça | épico | +2–4 Couro, +1–3 Pique | 59 | — | chefe: Retalho (Laje) |
-| 134 | Vara da Fera | Livre | arma | épico | +4–7 Porrada, +1–2 Pique | 59 | — | chefe: Zefa (Morro) |
-| 135 | Bengala do Contador | Livre | amuleto | épico | +1–3 Porrada, +1–3 Couro | 59 | — | chefe: Contador (Alto) |
-| 138 | Porrete do Cobrador | Livre | arma | épico | +3–7 Porrada, +1–3 Pique, +0–2 Couro | 28 | — | chefe: Cobrador (Feira) |
-| 139 | Facão do Carvão | Livre | arma | épico | +2–5 Porrada, +0–2 Couro | 15 | — | chefe: Carvão (Pista) |
-| 140 | Espeto do Fura-Bucho | Livre | arma | épico | +3–6 Porrada, +1–3 Couro | 44 | — | chefe: Fura-Bucho (Baixada) |
-| 141 | Taco da Ferrugem | Livre | arma | épico | +3–6 Porrada, +1–4 Couro | 59 | — | chefe: Ferrugem (Vila) |
-| 201 | Cabo de Vassoura | Porradeiro | arma | comum | +0–2 Pique | 5 | 35 | loja pista |
-| 202 | Boné Aba Reta | Porradeiro | cabeça | comum | +1 Osso | 5 | 25 | loja pista |
-| 203 | Regata Rasgada | Porradeiro | corpo | comum | +3 Osso | 5 | 30 | loja pista |
-| 204 | Faixa no Punho | Porradeiro | mãos | comum | +1 Osso | 5 | 25 | loja pista |
-| 205 | Tênis Furado | Porradeiro | pés | comum | +1 Osso | 5 | 25 | loja pista |
-| 206 | Corrente de Lata | Porradeiro | amuleto | comum | +2 energia | 5 | 30 | loja pista |
-| 207 | Soqueira de Ferro | Porradeiro | arma | incomum | +1–3 Porrada | 20 | 150 | loja feira |
-| 208 | Bandana de Bonde | Porradeiro | cabeça | incomum | +2 Osso | 20 | 75 | 1ª vitória: feira `catraca` |
-| 209 | Jaqueta de Couro | Porradeiro | corpo | incomum | +4 Osso | 20 | 95 | loja feira |
-| 210 | Munhequeira | Porradeiro | mãos | incomum | +0–2 Pique | 20 | 100 | 1ª vitória: feira `cobranca` |
-| 211 | Coturno | Porradeiro | pés | incomum | +1 Osso | 20 | 70 | 1ª vitória: feira `beco_gato` |
-| 212 | Dente de Ouro | Porradeiro | amuleto | incomum | +2 energia | 20 | 75 | 1ª vitória: feira `mao_turco` |
-| 213 | Cano Curto | Paredão | arma | comum | +2 Osso | 5 | 30 | loja pista |
-| 214 | Gorro de Moletom | Paredão | cabeça | comum | +1 Osso | 5 | 25 | 1ª vitória: pista `sinal` |
-| 215 | Colete Reforçado | Paredão | corpo | comum | +4 Osso | 5 | 35 | loja pista |
-| 216 | Luva de Couro | Paredão | mãos | comum | +1 Osso | 5 | 25 | 1ª vitória: pista `tunel_m3` |
-| 217 | Chinelo Reforçado | Paredão | pés | comum | +2 Osso | 5 | 30 | 1ª vitória: pista `tunel_m2` |
-| 218 | Medalhinha | Paredão | amuleto | comum | +2 energia | 5 | 30 | 1ª vitória: pista `beco_2` |
-| 219 | Tampa de Bueiro | Paredão | arma | incomum | +0–2 Couro | 20 | 110 | loja feira |
-| 220 | Capacete de Obra | Paredão | cabeça | incomum | +0–2 Couro | 20 | 110 | loja feira |
-| 221 | Colete de Placa | Paredão | corpo | incomum | +8 Osso | 20 | 125 | loja feira |
-| 222 | Braçadeira de Pneu | Paredão | mãos | incomum | +2 Osso | 20 | 70 | loja feira |
-| 223 | Bota com Biqueira | Paredão | pés | incomum | +3 Osso | 20 | 80 | loja feira |
-| 224 | Terço da Vó | Paredão | amuleto | incomum | +2 energia | 20 | 75 | loja feira |
-| 225 | Vela Preta | Mandingueiro | arma | comum | +1 Malandragem | 5 | 45 | loja pista |
-| 226 | Capuz Surrado | Mandingueiro | cabeça | comum | +2 energia | 5 | 25 | 1ª vitória: pista `beco_3` |
-| 227 | Manto de Feira | Mandingueiro | corpo | comum | +4 energia | 5 | 35 | loja pista |
-| 228 | Pulseira de Miçanga | Mandingueiro | mãos | comum | +2 Osso | 5 | 25 | 1ª vitória: pista `galpao_m2` |
-| 229 | Sandália de Couro | Mandingueiro | pés | comum | +1 Osso | 5 | 25 | 1ª vitória: pista `rasteira_velha` |
-| 230 | Guia de Contas | Mandingueiro | amuleto | comum | +2 energia | 5 | 30 | 1ª vitória: pista `posmuro_2` |
-| 231 | Cajado de Galho | Mandingueiro | arma | incomum | +0–2 Porrada | 20 | 110 | loja feira |
-| 232 | Turbante | Mandingueiro | cabeça | incomum | +1 Malandragem | 20 | 110 | 1ª vitória: feira `deposito_1` |
-| 233 | Manto de Sintonia | Mandingueiro | corpo | incomum | +5 energia, +2 Osso | 20 | 125 | loja feira |
-| 234 | Anel de Coco | Mandingueiro | mãos | incomum | +3 Osso | 20 | 70 | 1ª vitória: feira `deposito_2` |
-| 235 | Chinelo Benzido | Mandingueiro | pés | incomum | +3 energia | 20 | 75 | 1ª vitória: feira `barraca_4` |
-| 236 | Olho Grego | Mandingueiro | amuleto | incomum | +1 Malandragem | 20 | 110 | 1ª vitória: feira `mercadao_m2` |
+| 133 | Coroa da Laje | Livre | cabeça | épico | +2–4 Couro, +1–3 Pique | 59 | — | cai de: O Retalho 10% |
+| 134 | Vara da Fera | Livre | arma | épico | +4–7 Porrada, +1–2 Pique | 59 | — | cai de: A Fera 10% |
+| 135 | Bengala do Contador | Livre | amuleto | épico | +1–3 Porrada, +1–3 Couro | 59 | — | cai de: O Contador 10% |
+| 138 | Porrete do Cobrador | Livre | arma | épico | +3–7 Porrada, +1–3 Pique, +0–2 Couro | 28 | — | cai de: O Cobrador 10% |
+| 139 | Facão do Carvão | Livre | arma | épico | +2–5 Porrada, +0–2 Couro | 15 | — | cai de: Carvão 10% |
+| 140 | Espeto do Fura-Bucho | Livre | arma | épico | +3–6 Porrada, +1–3 Couro | 44 | — | cai de: Fura-Bucho 10% |
+| 141 | Taco da Ferrugem | Livre | arma | épico | +3–6 Porrada, +1–4 Couro | 59 | — | cai de: Ferrugem 10% |
+| 201 | Cabo de Vassoura | Porradeiro | arma | comum | +0–2 Pique | 5 | 35 | loja pista · cai de: Farejador 1% |
+| 202 | Boné Aba Reta | Porradeiro | cabeça | comum | +1 Osso | 5 | 25 | loja pista · cai de: Zóio 1%, Soldado da Ronda 1% |
+| 203 | Regata Rasgada | Porradeiro | corpo | comum | +3 Osso | 5 | 30 | loja pista · cai de: Pingo 1%, Cabo da Ronda 1% |
+| 204 | Faixa no Punho | Porradeiro | mãos | comum | +1 Osso | 5 | 25 | loja pista · cai de: Ratazana 1% |
+| 205 | Tênis Furado | Porradeiro | pés | comum | +1 Osso | 5 | 25 | loja pista · cai de: Brasa 1% |
+| 206 | Corrente de Lata | Porradeiro | amuleto | comum | +2 energia | 5 | 30 | loja pista · cai de: Chinelada 1% |
+| 207 | Soqueira de Ferro | Porradeiro | arma | incomum | +1–3 Porrada | 20 | 150 | loja feira · cai de: Extensão 1% |
+| 208 | Bandana de Bonde | Porradeiro | cabeça | incomum | +2 Osso | 20 | 75 | cai de: Boleto Vencido 1% |
+| 209 | Jaqueta de Couro | Porradeiro | corpo | incomum | +4 Osso | 20 | 95 | loja feira · cai de: Luz de Gato 1% |
+| 210 | Munhequeira | Porradeiro | mãos | incomum | +0–2 Pique | 20 | 100 | cai de: Choque 1% |
+| 211 | Coturno | Porradeiro | pés | incomum | +1 Osso | 20 | 70 | cai de: Balconista 1% |
+| 212 | Dente de Ouro | Porradeiro | amuleto | incomum | +2 energia | 20 | 75 | cai de: Fiado Vencido 1% |
+| 213 | Cano Curto | Paredão | arma | comum | +2 Osso | 5 | 30 | loja pista · cai de: Cão Louco 1,5% |
+| 214 | Gorro de Moletom | Paredão | cabeça | comum | +1 Osso | 5 | 25 | cai de: Riscado 1,5% |
+| 215 | Colete Reforçado | Paredão | corpo | comum | +4 Osso | 5 | 35 | loja pista · cai de: Mão de Cola 1,5% |
+| 216 | Luva de Couro | Paredão | mãos | comum | +1 Osso | 5 | 25 | cai de: Bala Solta 1,5% |
+| 217 | Chinelo Reforçado | Paredão | pés | comum | +2 Osso | 5 | 30 | cai de: Troco Certo 1,5%, Piloto 1% |
+| 218 | Medalhinha | Paredão | amuleto | comum | +2 energia | 5 | 30 | cai de: Sinaleiro Chefe 3%, Garupa 1% |
+| 219 | Tampa de Bueiro | Paredão | arma | incomum | +0–2 Couro | 20 | 110 | loja feira · cai de: Unha de Fome 1,5% |
+| 220 | Capacete de Obra | Paredão | cabeça | incomum | +0–2 Couro | 20 | 110 | loja feira · cai de: Caderneta 1,5% |
+| 221 | Colete de Placa | Paredão | corpo | incomum | +8 Osso | 20 | 125 | loja feira · cai de: Pesagem 1,5% |
+| 222 | Braçadeira de Pneu | Paredão | mãos | incomum | +2 Osso | 20 | 70 | loja feira · cai de: Marreta 1,5% |
+| 223 | Bota com Biqueira | Paredão | pés | incomum | +3 Osso | 20 | 80 | loja feira · cai de: Juro Alto 1,5% |
+| 224 | Terço da Vó | Paredão | amuleto | incomum | +2 energia | 20 | 75 | loja feira · cai de: Mão do Turco 3% |
+| 225 | Vela Preta | Mandingueiro | arma | comum | +1 Malandragem | 5 | 45 | loja pista · cai de: Rasteira Velha 3% |
+| 226 | Capuz Surrado | Mandingueiro | cabeça | comum | +2 energia | 5 | 25 | cai de: Farejador 1% |
+| 227 | Manto de Feira | Mandingueiro | corpo | comum | +4 energia | 5 | 35 | loja pista · cai de: Zóio 1% |
+| 228 | Pulseira de Miçanga | Mandingueiro | mãos | comum | +2 Osso | 5 | 25 | cai de: Pingo 1% |
+| 229 | Sandália de Couro | Mandingueiro | pés | comum | +1 Osso | 5 | 25 | cai de: Ratazana 1% |
+| 230 | Guia de Contas | Mandingueiro | amuleto | comum | +2 energia | 5 | 30 | cai de: Brasa 1%, Carvão 5% |
+| 231 | Cajado de Galho | Mandingueiro | arma | incomum | +0–2 Porrada | 20 | 110 | loja feira · cai de: Caixa Forte 3% |
+| 232 | Turbante | Mandingueiro | cabeça | incomum | +1 Malandragem | 20 | 110 | cai de: Extensão 1% |
+| 233 | Manto de Sintonia | Mandingueiro | corpo | incomum | +5 energia, +2 Osso | 20 | 125 | loja feira · cai de: Boleto Vencido 1% |
+| 234 | Anel de Coco | Mandingueiro | mãos | incomum | +3 Osso | 20 | 70 | cai de: Luz de Gato 1% |
+| 235 | Chinelo Benzido | Mandingueiro | pés | incomum | +3 energia | 20 | 75 | cai de: Choque 1%, O Cobrador 5% |
+| 236 | Olho Grego | Mandingueiro | amuleto | incomum | +1 Malandragem | 20 | 110 | cai de: Balconista 1%, O Cobrador 5% |
 | 237 | Soqueira de Lata | Livre | arma | comum | +0–2 Porrada | 5 | — | oficina do Nando (Pista) |
-| 238 | Boné Vira-Lata | Livre | cabeça | comum | +1 Osso | 5 | 20 | loja pista |
-| 301 | Espeto de Churrasco | Porradeiro | arma | raro | +2–4 Porrada | 33 | 330 | loja baixada |
-| 302 | Capuz Preto | Porradeiro | cabeça | raro | +3 Osso | 33 | 75 | 1ª vitória: baixada `folgado_1` |
-| 303 | Colete Cravejado | Porradeiro | corpo | raro | +6 Osso | 33 | 135 | loja baixada |
-| 304 | Luva de Boxe Rasgada | Porradeiro | mãos | raro | +1–3 Pique | 33 | 240 | 1ª vitória: baixada `folgado_final` |
-| 305 | Tênis Falsificado | Porradeiro | pés | raro | +0–2 Pique | 33 | 120 | 1ª vitória: baixada `folgado_2` |
-| 306 | Corrente de Prata | Porradeiro | amuleto | raro | +2 energia | 33 | 45 | 1ª vitória: baixada `folgado_3` |
-| 307 | Porta de Geladeira | Paredão | arma | raro | +1–3 Couro | 33 | 165 | loja baixada |
-| 308 | Capacete de Moto | Paredão | cabeça | raro | +0–2 Couro | 33 | 90 | 1ª vitória: baixada `folgado_4` |
-| 309 | Colete de Pneu | Paredão | corpo | raro | +10 Osso | 33 | 240 | loja baixada |
-| 310 | Caneleira de Cano | Paredão | mãos | raro | +4 Osso | 33 | 90 | 1ª vitória: baixada `folgado_5` |
-| 311 | Bota de Segurança | Paredão | pés | raro | +5 Osso | 33 | 120 | loja baixada |
-| 312 | Figa de Arruda | Paredão | amuleto | raro | +3 energia | 33 | 75 | loja baixada |
-| 313 | Cajado de Arruda | Mandingueiro | arma | raro | +2 Malandragem | 33 | 315 | loja baixada |
-| 314 | Chapéu de Palha Benzido | Mandingueiro | cabeça | raro | +4 energia | 33 | 90 | loja baixada |
-| 315 | Manto de Chita | Mandingueiro | corpo | raro | +6 energia, +3 Osso | 33 | 210 | loja baixada |
-| 316 | Fita do Bonfim | Mandingueiro | mãos | raro | +4 Osso | 33 | 90 | loja baixada |
-| 317 | Sandália de Corda | Mandingueiro | pés | raro | +4 energia | 33 | 90 | loja baixada |
-| 318 | Patuá | Mandingueiro | amuleto | raro | +1 Malandragem, +2 energia | 33 | 210 | loja baixada |
-| 401 | Chave de Cano | Porradeiro | arma | pesado | +3–5 Porrada | 46 | 460 | loja vila |
-| 402 | Capacete de Obra Pintado | Porradeiro | cabeça | pesado | +3 Osso | 46 | 105 | loja vila |
-| 403 | Colete do Bonde | Porradeiro | corpo | pesado | +6 Osso, +0–2 Couro | 46 | 230 | loja vila |
-| 404 | Cotoveleira de Borracha | Porradeiro | mãos | pesado | +1–3 Pique | 46 | 335 | loja vila |
-| 405 | Bota de Trabalho | Porradeiro | pés | pesado | +0–2 Porrada | 46 | 250 | loja vila |
-| 406 | Molho de Chaves | Porradeiro | amuleto | pesado | +3 energia | 46 | 65 | loja vila |
-| 407 | Porta de Aço | Paredão | arma | pesado | +2–4 Couro, +1 Porrada | 46 | 330 | loja vila |
-| 408 | Balde de Concreto | Paredão | cabeça | pesado | +0–2 Couro | 46 | 125 | 1ª vitória: vila `guarita` |
-| 409 | Colchão Amarrado | Paredão | corpo | pesado | +12 Osso | 46 | 335 | loja vila |
-| 410 | Grade de Janela | Paredão | mãos | pesado | +0–2 Couro | 46 | 125 | 1ª vitória: vila `cadeado` |
-| 411 | Bota de Borracha | Paredão | pés | pesado | +6 Osso | 46 | 170 | 1ª vitória: vila `andar_1` |
-| 412 | Crachá da Síndica | Paredão | amuleto | pesado | +3 energia, +3 Osso | 46 | 170 | 1ª vitória: vila `trinco` |
-| 413 | Antena de TV | Mandingueiro | arma | pesado | +3–5 Malandragem | 46 | 440 | loja vila |
-| 414 | Touca de Alumínio | Mandingueiro | cabeça | pesado | +4 energia, +1 Porrada | 46 | 200 | 1ª vitória: vila `andar_4` |
-| 415 | Cortina de Renda | Mandingueiro | corpo | pesado | +6 energia, +3 Osso, +1 Couro | 46 | 330 | loja vila |
-| 416 | Pulseira de Fio | Mandingueiro | mãos | pesado | +1 Pique, +3 Osso | 46 | 190 | 1ª vitória: vila `andar_6` |
-| 417 | Chinelo de Quarto | Mandingueiro | pés | pesado | +4 energia | 46 | 125 | 1ª vitória: vila `bloco_inteiro` |
-| 418 | Santinho do Elevador | Mandingueiro | amuleto | pesado | +1 Malandragem, +2 energia | 46 | 290 | 1ª vitória: vila `chave_mestra` |
-| 501 | Rojão de Mão | Porradeiro | arma | grife | +4–6 Porrada | 59 | 645 | loja morro |
-| 502 | Boné de Grife | Porradeiro | cabeça | grife | +4 Osso | 59 | 145 | 1ª vitória: morro `escadaria` |
-| 503 | Jaqueta da Frente | Porradeiro | corpo | grife | +8 Osso, +1–3 Couro | 59 | 320 | loja morro |
-| 504 | Luva de Pedreiro | Porradeiro | mãos | grife | +2–4 Pique | 59 | 470 | 1ª vitória: morro `cupim` |
-| 505 | Tênis de Grife | Porradeiro | pés | grife | +1–3 Porrada | 59 | 350 | 1ª vitória: morro `laje_nova` |
-| 506 | Cordão de Prata | Porradeiro | amuleto | grife | +4 energia | 59 | 90 | 1ª vitória: morro `posto_rojao` |
-| 507 | Tampa de Caixa d'Água | Paredão | arma | grife | +3–5 Couro, +1 Porrada | 59 | 460 | loja morro |
-| 508 | Capacete de Laje | Paredão | cabeça | grife | +1–3 Couro | 59 | 175 | loja morro |
-| 509 | Colete de Saco de Cimento | Paredão | corpo | grife | +16 Osso | 59 | 470 | loja morro |
-| 510 | Caneleira de Bambu | Paredão | mãos | grife | +1–3 Couro | 59 | 175 | loja morro |
-| 511 | Bota de Obra | Paredão | pés | grife | +8 Osso | 59 | 240 | loja morro |
-| 512 | Escapulário | Paredão | amuleto | grife | +4 energia, +4 Osso | 59 | 240 | loja morro |
-| 513 | Vara da Benzedeira | Mandingueiro | arma | grife | +4–6 Malandragem | 59 | 615 | loja morro |
-| 514 | Lenço de Cabeça | Mandingueiro | cabeça | grife | +5 energia, +2 Porrada | 59 | 280 | 1ª vitória: morro `segunda_mae` |
-| 515 | Saia de Chita | Mandingueiro | corpo | grife | +8 energia, +4 Osso, +2 Couro | 59 | 460 | loja morro |
-| 516 | Pulseira de Semente | Mandingueiro | mãos | grife | +2 Pique, +4 Osso | 59 | 265 | 1ª vitória: morro `escadaria_inteira` |
-| 517 | Alpargata | Mandingueiro | pés | grife | +5 energia | 59 | 175 | 1ª vitória: morro `ultima_escada` |
-| 518 | Guia de Sete Linhas | Mandingueiro | amuleto | grife | +2 Malandragem, +3 energia | 59 | 405 | 1ª vitória: morro `conta_do_morro` |
-| 601 | Taco de Sinuca | Porradeiro | arma | nobre | +5–7 Porrada | 72 | 900 | loja alto |
-| 602 | Chapéu Panamá | Porradeiro | cabeça | nobre | +5 Osso | 72 | 205 | 1ª vitória: alto `porta_aco` |
-| 603 | Paletó Riscado | Porradeiro | corpo | nobre | +10 Osso, +2–4 Couro | 72 | 450 | loja alto |
-| 604 | Abotoadura de Ouro | Porradeiro | mãos | nobre | +3–5 Pique | 72 | 655 | 1ª vitória: alto `sala_fechada` |
-| 605 | Sapato Bicolor | Porradeiro | pés | nobre | +2–4 Porrada | 72 | 490 | 1ª vitória: alto `cinco_presa` |
-| 606 | Relógio de Bolso | Porradeiro | amuleto | nobre | +5 energia | 72 | 125 | 1ª vitória: alto `cinco_engrenagem` |
-| 607 | Porta de Cofre | Paredão | arma | nobre | +4–6 Couro, +1 Porrada | 72 | 645 | loja alto |
-| 608 | Boina de Feltro | Paredão | cabeça | nobre | +2–4 Couro | 72 | 245 | 1ª vitória: alto `cinco_quase` |
-| 609 | Sobretudo Blindado | Paredão | corpo | nobre | +19 Osso | 72 | 655 | loja alto |
-| 610 | Luva de Couro Fino | Paredão | mãos | nobre | +2–4 Couro | 72 | 245 | 1ª vitória: alto `cinco_quarto` |
-| 611 | Sapato de Bico Fino | Paredão | pés | nobre | +10 Osso | 72 | 335 | 1ª vitória: alto `formacao_completa` |
-| 612 | Medalha do Alto | Paredão | amuleto | nobre | +5 energia, +5 Osso | 72 | 335 | 1ª vitória: alto `favor_devido` |
-| 613 | Baralho Marcado | Mandingueiro | arma | nobre | +5–7 Malandragem | 72 | 860 | loja alto |
-| 614 | Óculos Escuros | Mandingueiro | cabeça | nobre | +6 energia, +2 Porrada | 72 | 390 | loja alto |
-| 615 | Colete de Seda | Mandingueiro | corpo | nobre | +10 energia, +5 Osso, +2 Couro | 72 | 645 | loja alto |
-| 616 | Anel de Formatura | Mandingueiro | mãos | nobre | +2 Pique, +5 Osso | 72 | 370 | loja alto |
-| 617 | Mocassim | Mandingueiro | pés | nobre | +6 energia | 72 | 245 | loja alto |
-| 618 | Dado Viciado | Mandingueiro | amuleto | nobre | +2 Malandragem, +3 energia | 72 | 570 | loja alto |
-| 701 | Facão Costurado | Porradeiro | arma | lendário | +6–8 Porrada | 85 | 1260 | loja laje |
-| 702 | Bandana de Retalho | Porradeiro | cabeça | lendário | +6 Osso | 85 | 290 | 1ª vitória: laje `ultima_guarda` |
-| 703 | Jaqueta de Retalhos | Porradeiro | corpo | lendário | +11 Osso, +3–5 Couro | 85 | 630 | loja laje |
-| 704 | Luva Remendada | Porradeiro | mãos | lendário | +4–6 Pique | 85 | 920 | 1ª vitória: laje `fiapo` |
-| 705 | Coturno Costurado | Porradeiro | pés | lendário | +3–5 Porrada | 85 | 685 | 1ª vitória: laje `revanche_cobrador` |
-| 706 | Dedal de Ferro | Porradeiro | amuleto | lendário | +6 energia | 85 | 180 | loja laje |
-| 707 | Escudo de Lona | Paredão | arma | lendário | +5–7 Couro, +1 Porrada | 85 | 905 | loja laje |
-| 708 | Capacete Remendado | Paredão | cabeça | lendário | +3–5 Couro | 85 | 345 | 1ª vitória: laje `revanche_fura_bucho` |
-| 709 | Colcha Blindada | Paredão | corpo | lendário | +23 Osso | 85 | 920 | loja laje |
-| 710 | Braçadeira de Couro Grosso | Paredão | mãos | lendário | +3–5 Couro | 85 | 345 | 1ª vitória: laje `revanche_zefa` |
-| 711 | Bota de Sola Dupla | Paredão | pés | lendário | +11 Osso | 85 | 465 | 1ª vitória: laje `costura_fina` |
-| 712 | Carretel | Paredão | amuleto | lendário | +6 energia, +6 Osso | 85 | 465 | loja laje |
-| 713 | Agulha de Crochê | Mandingueiro | arma | lendário | +6–8 Malandragem | 85 | 1205 | loja laje |
-| 714 | Touca de Tricô | Mandingueiro | cabeça | lendário | +8 energia, +3 Porrada | 85 | 550 | 1ª vitória: laje `corte_certo` |
-| 715 | Manto de Retalhos | Mandingueiro | corpo | lendário | +11 energia, +6 Osso, +3 Couro | 85 | 905 | loja laje |
-| 716 | Fita Métrica | Mandingueiro | mãos | lendário | +3 Pique, +6 Osso | 85 | 520 | 1ª vitória: laje `revanche_contador` |
-| 717 | Pantufa de Lã | Mandingueiro | pés | lendário | +8 energia | 85 | 345 | 1ª vitória: laje `fase_colcha` |
-| 718 | Botão do Retalho | Mandingueiro | amuleto | lendário | +3 Malandragem, +4 energia | 85 | 795 | loja laje |
+| 238 | Boné Vira-Lata | Livre | cabeça | comum | +1 Osso | 5 | 20 | loja pista · cai de: Chinelada 1%, Carvão 5% |
+| 301 | Espeto de Churrasco | Porradeiro | arma | raro | +2–4 Porrada | 33 | 330 | loja baixada · cai de: Maré Baixa 1% |
+| 302 | Capuz Preto | Porradeiro | cabeça | raro | +3 Osso | 33 | 75 | cai de: Trilho 1% |
+| 303 | Colete Cravejado | Porradeiro | corpo | raro | +6 Osso | 33 | 135 | loja baixada · cai de: Boato 1% |
+| 304 | Luva de Boxe Rasgada | Porradeiro | mãos | raro | +1–3 Pique | 33 | 240 | cai de: Água Parada 1% |
+| 305 | Tênis Falsificado | Porradeiro | pés | raro | +0–2 Pique | 33 | 120 | cai de: Ferro Velho 1% |
+| 306 | Corrente de Prata | Porradeiro | amuleto | raro | +2 energia | 33 | 45 | cai de: Valão 1% |
+| 307 | Porta de Geladeira | Paredão | arma | raro | +1–3 Couro | 33 | 165 | loja baixada · cai de: Herdeiro 1,5% |
+| 308 | Capacete de Moto | Paredão | cabeça | raro | +0–2 Couro | 33 | 90 | cai de: Sangria 1,5% |
+| 309 | Colete de Pneu | Paredão | corpo | raro | +10 Osso | 33 | 240 | loja baixada · cai de: Gelo 1,5% |
+| 310 | Caneleira de Cano | Paredão | mãos | raro | +4 Osso | 33 | 90 | cai de: Zé Pavão 1,5% |
+| 311 | Bota de Segurança | Paredão | pés | raro | +5 Osso | 33 | 120 | loja baixada · cai de: Sobra 1,5% |
+| 312 | Figa de Arruda | Paredão | amuleto | raro | +3 energia | 33 | 75 | loja baixada · cai de: Resto de Faca 1,5% |
+| 313 | Cajado de Arruda | Mandingueiro | arma | raro | +2 Malandragem | 33 | 315 | loja baixada · cai de: Caco Maior 3% |
+| 314 | Chapéu de Palha Benzido | Mandingueiro | cabeça | raro | +4 energia | 33 | 90 | loja baixada · cai de: Nome do Sombra 3% |
+| 315 | Manto de Chita | Mandingueiro | corpo | raro | +6 energia, +3 Osso | 33 | 210 | loja baixada · cai de: Maré Baixa 1% |
+| 316 | Fita do Bonfim | Mandingueiro | mãos | raro | +4 Osso | 33 | 90 | loja baixada · cai de: Trilho 1% |
+| 317 | Sandália de Corda | Mandingueiro | pés | raro | +4 energia | 33 | 90 | loja baixada · cai de: Boato 1%, Fura-Bucho 5% |
+| 318 | Patuá | Mandingueiro | amuleto | raro | +1 Malandragem, +2 energia | 33 | 210 | loja baixada · cai de: Água Parada 1%, Fura-Bucho 5% |
+| 401 | Chave de Cano | Porradeiro | arma | pesado | +3–5 Porrada | 46 | 460 | loja vila · cai de: Portaria 1% |
+| 402 | Capacete de Obra Pintado | Porradeiro | cabeça | pesado | +3 Osso | 46 | 105 | loja vila · cai de: Escada Cega 1% |
+| 403 | Colete do Bonde | Porradeiro | corpo | pesado | +6 Osso, +0–2 Couro | 46 | 230 | loja vila · cai de: Vizinho Barulhento 1% |
+| 404 | Cotoveleira de Borracha | Porradeiro | mãos | pesado | +1–3 Pique | 46 | 335 | loja vila · cai de: Varal 1% |
+| 405 | Bota de Trabalho | Porradeiro | pés | pesado | +0–2 Porrada | 46 | 250 | loja vila · cai de: Condomínio 1% |
+| 406 | Molho de Chaves | Porradeiro | amuleto | pesado | +3 energia | 46 | 65 | loja vila · cai de: Zelador 1% |
+| 407 | Porta de Aço | Paredão | arma | pesado | +2–4 Couro, +1 Porrada | 46 | 330 | loja vila · cai de: Cadeado 1,5% |
+| 408 | Balde de Concreto | Paredão | cabeça | pesado | +0–2 Couro | 46 | 125 | cai de: Trinco 1,5% |
+| 409 | Colchão Amarrado | Paredão | corpo | pesado | +12 Osso | 46 | 335 | loja vila · cai de: Elevador 1,5% |
+| 410 | Grade de Janela | Paredão | mãos | pesado | +0–2 Couro | 46 | 125 | cai de: Goteira 1,5% |
+| 411 | Bota de Borracha | Paredão | pés | pesado | +6 Osso | 46 | 170 | cai de: Aluguel Vencido 1,5% |
+| 412 | Crachá da Síndica | Paredão | amuleto | pesado | +3 energia, +3 Osso | 46 | 170 | cai de: Bloco Inteiro 3% |
+| 413 | Antena de TV | Mandingueiro | arma | pesado | +3–5 Malandragem | 46 | 440 | loja vila · cai de: Chave Mestra Maior 3% |
+| 414 | Touca de Alumínio | Mandingueiro | cabeça | pesado | +4 energia, +1 Porrada | 46 | 200 | cai de: Portaria 1% |
+| 415 | Cortina de Renda | Mandingueiro | corpo | pesado | +6 energia, +3 Osso, +1 Couro | 46 | 330 | loja vila · cai de: Escada Cega 1% |
+| 416 | Pulseira de Fio | Mandingueiro | mãos | pesado | +1 Pique, +3 Osso | 46 | 190 | cai de: Vizinho Barulhento 1% |
+| 417 | Chinelo de Quarto | Mandingueiro | pés | pesado | +4 energia | 46 | 125 | cai de: Varal 1%, Ferrugem 5% |
+| 418 | Santinho do Elevador | Mandingueiro | amuleto | pesado | +1 Malandragem, +2 energia | 46 | 290 | cai de: Condomínio 1%, Ferrugem 5% |
+| 501 | Rojão de Mão | Porradeiro | arma | grife | +4–6 Porrada | 59 | 645 | loja morro · cai de: Vento do Alto 1% |
+| 502 | Boné de Grife | Porradeiro | cabeça | grife | +4 Osso | 59 | 145 | cai de: Fumaça de Rojão 1% |
+| 503 | Jaqueta da Frente | Porradeiro | corpo | grife | +8 Osso, +1–3 Couro | 59 | 320 | loja morro · cai de: Beco sem Saída 1% |
+| 504 | Luva de Pedreiro | Porradeiro | mãos | grife | +2–4 Pique | 59 | 470 | cai de: Ladeira 1% |
+| 505 | Tênis de Grife | Porradeiro | pés | grife | +1–3 Porrada | 59 | 350 | cai de: Laje Nova 1% |
+| 506 | Cordão de Prata | Porradeiro | amuleto | grife | +4 energia | 59 | 90 | cai de: Criação da Zefa 1% |
+| 507 | Tampa de Caixa d'Água | Paredão | arma | grife | +3–5 Couro, +1 Porrada | 59 | 460 | loja morro · cai de: Cupim 1,5% |
+| 508 | Capacete de Laje | Paredão | cabeça | grife | +1–3 Couro | 59 | 175 | loja morro · cai de: Cascalho 1,5% |
+| 509 | Colete de Saco de Cimento | Paredão | corpo | grife | +16 Osso | 59 | 470 | loja morro · cai de: Última Escada 1,5% |
+| 510 | Caneleira de Bambu | Paredão | mãos | grife | +1–3 Couro | 59 | 175 | loja morro · cai de: Pavio Curto 1,5% |
+| 511 | Bota de Obra | Paredão | pés | grife | +8 Osso | 59 | 240 | loja morro · cai de: Conta do Morro 1,5% |
+| 512 | Escapulário | Paredão | amuleto | grife | +4 energia, +4 Osso | 59 | 240 | loja morro · cai de: Segunda Mãe 3% |
+| 513 | Vara da Benzedeira | Mandingueiro | arma | grife | +4–6 Malandragem | 59 | 615 | loja morro · cai de: Escadaria Inteira 3% |
+| 514 | Lenço de Cabeça | Mandingueiro | cabeça | grife | +5 energia, +2 Porrada | 59 | 280 | cai de: Vento do Alto 1% |
+| 515 | Saia de Chita | Mandingueiro | corpo | grife | +8 energia, +4 Osso, +2 Couro | 59 | 460 | loja morro · cai de: Fumaça de Rojão 1% |
+| 516 | Pulseira de Semente | Mandingueiro | mãos | grife | +2 Pique, +4 Osso | 59 | 265 | cai de: Beco sem Saída 1% |
+| 517 | Alpargata | Mandingueiro | pés | grife | +5 energia | 59 | 175 | cai de: Ladeira 1%, A Fera 5% |
+| 518 | Guia de Sete Linhas | Mandingueiro | amuleto | grife | +2 Malandragem, +3 energia | 59 | 405 | cai de: Laje Nova 1%, A Fera 5% |
+| 601 | Taco de Sinuca | Porradeiro | arma | nobre | +5–7 Porrada | 72 | 900 | loja alto · cai de: Porta de Aço 1% |
+| 602 | Chapéu Panamá | Porradeiro | cabeça | nobre | +5 Osso | 72 | 205 | cai de: Sala Fechada 1% |
+| 603 | Paletó Riscado | Porradeiro | corpo | nobre | +10 Osso, +2–4 Couro | 72 | 450 | loja alto · cai de: Favor Devido 1% |
+| 604 | Abotoadura de Ouro | Porradeiro | mãos | nobre | +3–5 Pique | 72 | 655 | cai de: Círculo 1% |
+| 605 | Sapato Bicolor | Porradeiro | pés | nobre | +2–4 Porrada | 72 | 490 | cai de: Disciplina 1% |
+| 606 | Relógio de Bolso | Porradeiro | amuleto | nobre | +5 energia | 72 | 125 | cai de: Doutrina 1% |
+| 607 | Porta de Cofre | Paredão | arma | nobre | +4–6 Couro, +1 Porrada | 72 | 645 | loja alto · cai de: Verme 1,5% |
+| 608 | Boina de Feltro | Paredão | cabeça | nobre | +2–4 Couro | 72 | 245 | cai de: Presa 1,5% |
+| 609 | Sobretudo Blindado | Paredão | corpo | nobre | +19 Osso | 72 | 655 | loja alto · cai de: Engrenagem 1,5% |
+| 610 | Luva de Couro Fino | Paredão | mãos | nobre | +2–4 Couro | 72 | 245 | cai de: Quase-Cúpula 1,5% |
+| 611 | Sapato de Bico Fino | Paredão | pés | nobre | +10 Osso | 72 | 335 | cai de: Dívida do Alto 1,5% |
+| 612 | Medalha do Alto | Paredão | amuleto | nobre | +5 energia, +5 Osso | 72 | 335 | cai de: Quarto Nome 3% |
+| 613 | Baralho Marcado | Mandingueiro | arma | nobre | +5–7 Malandragem | 72 | 860 | loja alto · cai de: Formação Completa 3% |
+| 614 | Óculos Escuros | Mandingueiro | cabeça | nobre | +6 energia, +2 Porrada | 72 | 390 | loja alto · cai de: Porta de Aço 1% |
+| 615 | Colete de Seda | Mandingueiro | corpo | nobre | +10 energia, +5 Osso, +2 Couro | 72 | 645 | loja alto · cai de: Sala Fechada 1% |
+| 616 | Anel de Formatura | Mandingueiro | mãos | nobre | +2 Pique, +5 Osso | 72 | 370 | loja alto · cai de: Favor Devido 1% |
+| 617 | Mocassim | Mandingueiro | pés | nobre | +6 energia | 72 | 245 | loja alto · cai de: Círculo 1%, O Contador 5% |
+| 618 | Dado Viciado | Mandingueiro | amuleto | nobre | +2 Malandragem, +3 energia | 72 | 570 | loja alto · cai de: Disciplina 1%, O Contador 5% |
+| 701 | Facão Costurado | Porradeiro | arma | lendário | +6–8 Porrada | 85 | 1260 | loja laje · cai de: Última Guarda 1% |
+| 702 | Bandana de Retalho | Porradeiro | cabeça | lendário | +6 Osso | 85 | 290 | cai de: Olho da Costura 1% |
+| 703 | Jaqueta de Retalhos | Porradeiro | corpo | lendário | +11 Osso, +3–5 Couro | 85 | 630 | loja laje · cai de: Sentinela do Topo 1% |
+| 704 | Luva Remendada | Porradeiro | mãos | lendário | +4–6 Pique | 85 | 920 | cai de: Retalho Solto 1% |
+| 705 | Coturno Costurado | Porradeiro | pés | lendário | +3–5 Porrada | 85 | 685 | cai de: Ponto da Laje 1% |
+| 706 | Dedal de Ferro | Porradeiro | amuleto | lendário | +6 energia | 85 | 180 | loja laje · cai de: Fio Cortado 1% |
+| 707 | Escudo de Lona | Paredão | arma | lendário | +5–7 Couro, +1 Porrada | 85 | 905 | loja laje · cai de: Fiapo 1,5% |
+| 708 | Capacete Remendado | Paredão | cabeça | lendário | +3–5 Couro | 85 | 345 | cai de: Agulha 1,5% |
+| 709 | Colcha Blindada | Paredão | corpo | lendário | +23 Osso | 85 | 920 | loja laje · cai de: Linha Reta 1,5% |
+| 710 | Braçadeira de Couro Grosso | Paredão | mãos | lendário | +3–5 Couro | 85 | 345 | cai de: Costura Fina 1,5% |
+| 711 | Bota de Sola Dupla | Paredão | pés | lendário | +11 Osso | 85 | 465 | cai de: Conta Fechada 1,5% |
+| 712 | Carretel | Paredão | amuleto | lendário | +6 energia, +6 Osso | 85 | 465 | loja laje · cai de: Tesoura 3% |
+| 713 | Agulha de Crochê | Mandingueiro | arma | lendário | +6–8 Malandragem | 85 | 1205 | loja laje · cai de: Corte Certo 3% |
+| 714 | Touca de Tricô | Mandingueiro | cabeça | lendário | +8 energia, +3 Porrada | 85 | 550 | cai de: Última Guarda 1% |
+| 715 | Manto de Retalhos | Mandingueiro | corpo | lendário | +11 energia, +6 Osso, +3 Couro | 85 | 905 | loja laje · cai de: Olho da Costura 1% |
+| 716 | Fita Métrica | Mandingueiro | mãos | lendário | +3 Pique, +6 Osso | 85 | 520 | cai de: Sentinela do Topo 1% |
+| 717 | Pantufa de Lã | Mandingueiro | pés | lendário | +8 energia | 85 | 345 | cai de: Retalho Solto 1%, O Retalho 5% |
+| 718 | Botão do Retalho | Mandingueiro | amuleto | lendário | +3 Malandragem, +4 energia | 85 | 795 | loja laje · cai de: Ponto da Laje 1%, O Retalho 5% |
 
 ### 9.5 Épicos — drop de chefe
 
-Sempre 2 slots de carta, caminho livre, sai na **1ª vitória** sobre o chefe:
+Caminho livre, cai do chefe (10%, garantido em 10 vitórias — o chefe batido
+fica no mapa como revanche repetível):
 Facão do Carvão (139) · Porrete do Cobrador (138) · Espeto do Fura-Bucho (140)
 · Taco da Ferrugem (141) · Vara da Fera (134) · Bengala do Contador (135) ·
 Coroa da Laje (133, o Retalho). Bônus na tabela acima.
+
+### 9.8 Drop dos inimigos
+
+Não existe prêmio de 1ª vitória: o que vem de luta é **drop**. Cada inimigo tem
+uma tabela própria (`data/ganguesDrops.js`, gerada por regra a partir do
+território do álbum e do cargo, então todo inimigo novo já nasce com tabela) e
+cada corpo derrotado sorteia a dele (`engine/ganguesDrop.js`, ação
+`store.aplicarDrops`).
+
+| Linha | Chance | Garantido em |
+|---|---|---|
+| Sucata | 10% | 10 |
+| Consumível comum do bairro | 15% | 7 |
+| Consumível secundário | 5% | 20 |
+| Válvula (só Feira) | 5% | 20 |
+| Chip de poder (Gerente/Cobrador · General) | 2% · 3% | 50 · 34 |
+| Peça com encaixe (Vigia/Vapor · Gerente/Cobrador · General · chefe) | 1% · 1,5% · 3% · 5% | 100 · 67 · 34 · 20 |
+| Épico do chefe | 10% | 10 |
+| Consumível do chefe | 30% | 4 |
+| **Carta do próprio inimigo** (Vigia/Vapor · Gerente/Cobrador · General · chefe · aleatório) | 0,2% · 0,25% · 0,5% · 1% · 0,5% | 500 · 400 · 200 · 100 · 200 |
+
+- **Garantia (sem frustração):** cada linha tem um contador por inimigo
+  (`storyProgress.__drops`). Quem tem chance p ganha o drop, no máximo, na
+  ceil(1/p)-ésima vitória sobre aquele inimigo; antes disso o sorteio vale
+  normal. Caiu, o contador zera.
+- **Variação da peça que cai:** 10% de vir com 2 encaixes; 5% de vir +2 e 20%
+  de vir +1 (até o teto da peça) — `rolarVariante`.
+- As peças de cada bairro são repartidas entre os inimigos dele (toda peça cai
+  de pelo menos um); o chefe leva as duas últimas. A Soqueira de Lata (237) é
+  prêmio da oficina do Nando e não cai.
+- **Rinha não dá drop e não conta pra garantia** (nem no farm calculado).
+- **Onde aparece:** a carta de "quem vou enfrentar" (botão "Ver o que ele
+  derruba"), a ficha do inimigo na Coleção e o painel "Caiu do bando" na
+  vitória — sempre com a chance e quantas vitórias faltam pra garantia.
+- **Chefe batido vira revanche repetível** (`storyTarget.revanche`): dá drop e
+  XP, mas não domina o bairro de novo nem conta a campanha outra vez.
 
 ### 9.6 Lojas, descansos e ferreiros por bairro
 

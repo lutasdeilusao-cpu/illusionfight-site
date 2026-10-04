@@ -53,7 +53,7 @@ export const CENA_FEIRA = {
     enemy: 1501,
     boss: 'turco',
     // O Porrete do Cobrador (138, épico) na 1ª vitória.
-    recompensa: { rep: 6, equipPrimeiraVez: 138 },
+    recompensa: { rep: 6 },
   },
 
   portao: {

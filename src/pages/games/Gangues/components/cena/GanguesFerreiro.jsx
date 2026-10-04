@@ -31,12 +31,12 @@ export default function GanguesFerreiro({ poi, onClose }) {
     for (const slot of GANGUES_EQUIP_SLOT_IDS) {
       const peca = eq[slot]
       const def = peca && getGanguesEquip(peca.itemId)
-      if (def && aprimTeto(def) > 0) pecas.push({ key: `${m.id}-${slot}`, ref: { memberId: m.id, slot }, def, aprim: peca.aprim || 0, dono: m.sheet_name })
+      if (def && !peca.encaixe && aprimTeto(def) > 0) pecas.push({ key: `${m.id}-${slot}`, ref: { memberId: m.id, slot }, def, aprim: peca.aprim || 0, dono: m.sheet_name })
     }
   }
   for (const inst of store.equipamentos) {
     const def = getGanguesEquip(inst.itemId)
-    if (def && aprimTeto(def) > 0) pecas.push({ key: inst.uid, ref: { uid: inst.uid }, def, aprim: inst.aprim || 0, dono: null })
+    if (def && !inst.encaixe && aprimTeto(def) > 0) pecas.push({ key: inst.uid, ref: { uid: inst.uid }, def, aprim: inst.aprim || 0, dono: null })
   }
 
   const aprimorar = (peca) => {

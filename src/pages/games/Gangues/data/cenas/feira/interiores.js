@@ -278,7 +278,7 @@ export const INTERIORES_FEIRA = {
         ],
         pois: [
           // 7ª briga: o Marreta e o bando dele guardam a porta do cofre.
-          { poi: { id: 'mercadao_m2', tipo: 'treta', repetivel: true, nivelRec: 31, enemy: 1403, liderFixo: 1403, repGate: FEIRA_REP_GATE_DEPOSITO, moldesPool: FEIRA_POOL_MERCADAO, pontosFixo: 28, qtdMin: 3, qtdMax: 5, i18n: 'games.gangues.cena.feira.mercadao.m2', recompensa: { rep: 4, item: 21, qtd: 1 } }, pos: { x: 220, y: 170 } },
+          { poi: { id: 'mercadao_m2', tipo: 'treta', repetivel: true, nivelRec: 31, enemy: 1403, liderFixo: 1403, repGate: FEIRA_REP_GATE_DEPOSITO, moldesPool: FEIRA_POOL_MERCADAO, pontosFixo: 28, qtdMin: 3, qtdMax: 5, i18n: 'games.gangues.cena.feira.mercadao.m2', recompensa: { rep: 4 } }, pos: { x: 220, y: 170 } },
           // O livro-caixa do Turco: quanto a Feira inteira deve. Com as 3
           // páginas da caderneta na mão, o ponto fraco do Cobrador fica claro.
           { poi: { id: 'livro_caixa', tipo: 'papo', opcional: true, repetivel: true, i18n: 'games.gangues.cena.feira.mercadao.livro_caixa', escolhas: [{ id: 'ler' }] }, pos: { x: 378, y: 150 } },

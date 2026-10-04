@@ -59,9 +59,9 @@ export const POIS_VILA = [
   treta('condominio', 54, VILA_POOL_MEIO, 0.4, { enemy: 1211 }),
   // A última aparição do Portaria — batido, o rádio dele quebra e o alerta zera.
   treta('andar_6', 55, [1110, 1312, 1211], 0.45, { fuga: true, enemy: 1110 }),
-  fixo('bloco_inteiro', 56, 1457, { recompensa: { rep: 6, equipPrimeiraVez: 405 } }),
+  fixo('bloco_inteiro', 56, 1457, { recompensa: { rep: 6 } }),
   treta('goteira', 57, VILA_POOL_ALTO, 0.5, { enemy: 1407 }),
-  fixo('chave_mestra', 58, 1458, { recompensa: { rep: 6, equipPrimeiraVez: 412 } }),
+  fixo('chave_mestra', 58, 1458, { recompensa: { rep: 6 } }),
 
   // ══ OPCIONAIS ═══════════════════════════════════════════════════════
   {

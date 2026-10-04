@@ -256,7 +256,7 @@ export const INTERIORES_PISTA = {
           // rua comum. `repetivel` continua — o Isaias usa essa sala pra
           // treinar/upar — mas sem "farm-lock" nenhum: o número é fixo
           // desde sempre, não precisa congelar nada.
-          { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, repGate: GANGUES_REP_GATE_GALPAO, moldesPool: PISTA_POOL_GALPAO, pontosFixo: 22, qtdMin: 3, qtdMax: 5, i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { rep: 3, item: 21, qtd: 1 } }, pos: { x: 220, y: 180 } },
+          { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, repGate: GANGUES_REP_GATE_GALPAO, moldesPool: PISTA_POOL_GALPAO, pontosFixo: 22, qtdMin: 3, qtdMax: 5, i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { rep: 3 } }, pos: { x: 220, y: 180 } },
           { poi: { id: 'galpao_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.galpao.achado', recompensa: { grana: 18, item: 1 } }, pos: { x: 388, y: 150 } },
         ],
         passagem: { x: 200, y: 34, w: 80, h: 24, para: 2, precisa: 'galpao_m2', label: 'avancar' },

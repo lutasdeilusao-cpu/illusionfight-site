@@ -118,9 +118,7 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
 
         {item._equip && (
           <p className="gang-loja-det__cards">
-            {item.cardSlots
-              ? t('games.gangues.equip.slots_carta', { n: item.cardSlots })
-              : t('games.gangues.equip.sem_carta')}
+            {t('games.gangues.equip.loja_sem_encaixe')}
           </p>
         )}
 

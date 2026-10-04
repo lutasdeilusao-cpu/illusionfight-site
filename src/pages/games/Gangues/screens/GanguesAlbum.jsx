@@ -10,6 +10,7 @@ import {
 import { GANGUES_ITENS_LISTA, textoEfeitoItem } from '../data/ganguesItens.js'
 import { GANGUES_EQUIP_LISTA, normalizeGanguesEquipment, textoBonusEquip } from '../data/ganguesEquip.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
+import GanguesDropLista from '../components/GanguesDropLista'
 import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import './GanguesAlbum.css'
 
@@ -40,6 +41,7 @@ export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
   const store = useGanguesStore()
   const [secao, setSecao] = useState('inimigos')
   const [aba, setAba] = useState('vigia')
+  const [dropAberto, setDropAberto] = useState(null)
 
   const voltar = () => {
     sfx.cancel?.()
@@ -161,6 +163,10 @@ export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
                       ))}
                     </span>
                     <em>{t(`games.gangues.enemy_album.${inimigo.id}`)}</em>
+                    <div className="gang-drop-bloco">
+                      <button type="button" className="gang-drop-toggle" onClick={() => setDropAberto(d => d === inimigo.id ? null : inimigo.id)}>{t(dropAberto === inimigo.id ? 'games.gangues.drop.esconder' : 'games.gangues.drop.ver')}</button>
+                      {dropAberto === inimigo.id && <GanguesDropLista enemyId={inimigo.id} contadores={store.storyProgress.__drops} t={t} />}
+                    </div>
                   </div>
                 </li>
               )

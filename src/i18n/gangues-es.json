@@ -101,9 +101,6 @@
         "socorro_fiado": "Sin plata y ya debiendo, el usurero pagó los {custo} de la recuperación — a 10× el valor. La deuda subió {acrescimo}.",
         "socorro_divida": "Deuda con el usurero: {divida}",
         "socorro_clube": "Solo el Club de la Pelea limpia ese nombre.",
-        "reward_sucata": "Chatarra",
-        "reward_equip": "Pieza nueva",
-        "reward_item": "Objeto",
         "perda_item": "La Redada se llevó tu {item}.",
         "perda_grana": "El Cobro del Turco se llevó {n} de tu plata.",
         "socorro_rinha_titulo": "La casa te remendó",
@@ -443,7 +440,6 @@
         "sem_carta": "Sin ranura",
         "carta_em_breve": "Ranura de carta — pronto",
         "o_que_da": "Qué da",
-        "slots_carta": "Ranuras de carta: {n}",
         "equipar_em": "Comprar y equipar en",
         "so_comprar": "Solo comprar (guardar)",
         "sem_elenco": "Recluta a un personaje primero.",
@@ -608,7 +604,8 @@
         "so_caminho": "Solo {caminho}",
         "faixa_explica": "El bono es un rango y se tira en el momento: Trompada en cada golpe, Cuero en cada defensa, Pique una vez al empezar la pelea. La comparación de abajo usa el promedio.",
         "nivel_min": "Nivel mín. {n}",
-        "falta_nivel": "Nadie de la tropa llegó al nivel {n} para usar esto todavía."
+        "falta_nivel": "Nadie de la tropa llegó al nivel {n} para usar esto todavía.",
+        "loja_sem_encaixe": "Versión de la tienda: sin ranura de carta, se mejora en el herrero. La versión con ranura solo la sueltan los enemigos."
       },
       "bag": {
         "eyebrow": "Bolso",
@@ -6596,7 +6593,6 @@
         "lutas": "Peleas",
         "grana": "Plata",
         "rep": "Rep",
-        "sucata": "Chatarra",
         "niveis": "Subió de nivel",
         "teto": "Llegaste al tope de +5 niveles por ausencia — de acá en adelante, a jugar.",
         "derrota": "La banda cayó sin plata para recuperarse: se acabó la riña, los arrastraron al bar y todo el automático se apagó.",
@@ -6723,6 +6719,21 @@
         "316": "Tres nudos, tres pedidos. Solo puede cortarse sola — y cuando se corta, el pedido llega.",
         "317": "Sandalia de soga que la curandera usó hasta gastarla. Pisa liviano y deja la calle en silencio.",
         "318": "Bolsita de cuero cosida con un rezo adentro. Nadie la abre, nadie pregunta, todos la respetan."
+      },
+      "drop": {
+        "titulo": "Lo que soltó la pandilla",
+        "carta_nome": "Carta · {inimigo}",
+        "tag_carta": "Carta",
+        "tag_equip": "Pieza con ranura",
+        "tag_item": "Objeto",
+        "garantia": "garantizado en máximo {n} victorias",
+        "ver": "Ver lo que suelta",
+        "esconder": "Ocultar lo que suelta",
+        "de": "Lo que suelta {inimigo}",
+        "bando_nota": "Cada uno de la pandilla tiene su propia tabla — la Colección las muestra todas.",
+        "rinha_sem": "En la Riña no cae nada: solo se consigue en peleas de verdad.",
+        "tag_equip_especial": "Pieza especial",
+        "variante": "puede venir con 2 ranuras o ya mejorada"
       }
     }
   }

@@ -11,7 +11,7 @@
 
      Vigia/Fogueteiro  1101–1121  (21)
      Vapor             1201–1221  (21)
-     Gerente de Boca   1301–1321  (21)
+     Gerente de Boca   1301–1322  (22)
      Cobrador          1401–1414  (14)
      General           1451–1464  (14)   → 91 colecionáveis da hierarquia
      Chefes            1500–1699  (7 territoriais + 1 final, fora da contagem)
@@ -38,7 +38,7 @@ export function idsValidosUnicos(lista = []) {
 export const GANGUES_ALBUM_CARGOS = Object.freeze([
   { slug: 'vigia', min: 1101, max: 1121 },
   { slug: 'vapor', min: 1201, max: 1221 },
-  { slug: 'gerente', min: 1301, max: 1321 },
+  { slug: 'gerente', min: 1301, max: 1349 },
   { slug: 'cobrador', min: 1401, max: 1414 },
   { slug: 'general', min: 1451, max: 1464 },
   { slug: 'chefes', min: 1500, max: 1699 },

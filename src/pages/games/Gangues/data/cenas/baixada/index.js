@@ -52,7 +52,7 @@ export const CENA_BAIXADA = {
     enemy: 1502,
     boss: 'espeto',
     // O Espeto do Fura-Bucho (140, épico) na 1ª vitória.
-    recompensa: { rep: 8, equipPrimeiraVez: 140 },
+    recompensa: { rep: 8 },
   },
 
   portao: {

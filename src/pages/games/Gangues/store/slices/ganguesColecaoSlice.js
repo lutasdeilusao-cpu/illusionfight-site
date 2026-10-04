@@ -1,6 +1,6 @@
-// Slice: Álbum de Marélia + coleção de itens vistos. Extraído de
-// store/useGanguesStore.js (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
+// Slice: Álbum de Marélia, coleção de itens vistos e drop dos inimigos.
 import { idsValidosUnicos } from '../../data/ganguesInimigos.js'
+import { rolarDrops } from '../../engine/ganguesDrop.js'
 
 export default function createGanguesColecaoSlice(set, get) {
   return {
@@ -44,6 +44,22 @@ export default function createGanguesColecaoSlice(set, get) {
       set(state => ({ inventario: { ...state.inventario, [id]: (state.inventario[id] || 0) + Math.max(1, qtd) } }))
       get().registrarItemVisto([id])
       get()._persistCena()
+    },
+
+    // Drop dos inimigos derrotados (um id por corpo batido). Sorteia com a
+    // garantia (engine/ganguesDrop.js), entrega e grava os contadores em
+    // storyProgress.__drops. Devolve o que caiu.
+    aplicarDrops: (enemyIds = []) => {
+      const ids = enemyIds.map(Number).filter(Number.isFinite)
+      if (!ids.length) return []
+      const { ganhos, contadores } = rolarDrops(ids, get().storyProgress.__drops || {})
+      set(state => ({ storyProgress: { ...state.storyProgress, __drops: contadores } }))
+      for (const g of ganhos) {
+        if (g.tipo === 'equip') get().ganharEquipDrop(g.id, g.variante)
+        else get().darItem(g.id, 1)
+      }
+      get()._persistStory()
+      return ganhos
     },
 
     temItens: (mapa = {}) => Object.entries(mapa).every(([id, q]) => (get().inventario[id] || 0) >= q),

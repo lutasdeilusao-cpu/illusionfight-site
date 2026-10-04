@@ -34,7 +34,6 @@ import { gerarBandoRevezamento } from '../data/ganguesEncontros.js'
 import { revezamentoNoTerritorio, destinoSocorroDerrota, custoRecuperacaoRinha, avancarRinha } from '../data/cenas/cenaHelpers.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
-import { GANGUES_SUCATA_ID } from '../data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
 import { desligarAutomaticos } from '../hooks/useGanguesBrigaAutomatica.js'
 import { lerAutoConfig, melhorPocao, POCAO_LIMIAR_PV } from '../hooks/useGanguesModoAuto.js'
@@ -49,8 +48,6 @@ export const GANGUES_FARM_TETO_NIVEIS = 5
  *  costuma parar bem antes. */
 const GANGUES_FARM_MAX_LUTAS = 100
 const GANGUES_FARM_MAX_RODADAS = 80
-// Mesma chance de sucata da vitória de rua de verdade (useGanguesVictoryResolution).
-const GANGUES_FARM_SUCATA_CHANCE = 0.2
 
 const nivelDe = m => getGanguesLevelFromXp(m?.xp_total ?? 0)
 const remendar = m => ({ ...m, attributes: { ...m.attributes, pv_atual: null, pm_atual: null } })
@@ -112,8 +109,7 @@ export const lutaAoVivo = { ler: null }
 
 // Aplica o resultado de UMA luta calculada da Rinha no store, com as mesmas
 // regras da tela de vitória de verdade (useGanguesVictoryResolution): dano,
-// AP, álbum, grana/rep/itens do ponto e
-// sucata. Perdeu, nada dessa luta — e a sessão acaba ali (simularFarmRinha para).
+// AP, álbum e grana/rep/itens do ponto (a Rinha não dá drop). Perdeu, nada dessa luta — e a sessão acaba ali (simularFarmRinha para).
 function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo }) {
   const s = store()
   resumo.lutas++
@@ -131,7 +127,6 @@ function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo }) 
   if (grana) s.ganharGrana(grana)
   if (rep) s.ganharRep(rep)
   itens.forEach(({ id, qtd }) => s.darItem(id, qtd))
-  if (Math.random() < GANGUES_FARM_SUCATA_CHANCE) s.darItem(GANGUES_SUCATA_ID, 1)
 }
 
 /** O que aconteceu na Rinha com o app no fundo. `store` = useGanguesStore.getState

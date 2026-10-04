@@ -101,9 +101,6 @@
         "socorro_fiado": "Sem grana e já devendo, o agiota bancou os {custo} da recuperação — a 10× o valor. A dívida subiu {acrescimo}.",
         "socorro_divida": "Dívida com o agiota: {divida}",
         "socorro_clube": "Só o Clube da Luta limpa esse nome.",
-        "reward_sucata": "Sucata",
-        "reward_equip": "Peça nova",
-        "reward_item": "Item",
         "perda_item": "O Rapa levou teu {item} embora.",
         "perda_grana": "A Cobrança do Turco levou {n} da tua grana na mão.",
         "socorro_rinha_titulo": "A casa te remendou",
@@ -443,7 +440,6 @@
         "sem_carta": "Sem slot",
         "carta_em_breve": "Slot de carta — em breve",
         "o_que_da": "O que dá",
-        "slots_carta": "Slots de carta: {n}",
         "equipar_em": "Comprar e equipar em",
         "so_comprar": "Só comprar (guardar)",
         "sem_elenco": "Recrute um personagem primeiro.",
@@ -608,7 +604,8 @@
         "so_caminho": "Só {caminho}",
         "faixa_explica": "O bônus é uma faixa e rola na hora: Porrada a cada golpe, Couro a cada defesa, Pique uma vez no começo da luta. A comparação abaixo usa a média.",
         "nivel_min": "Nível mín. {n}",
-        "falta_nivel": "Ninguém da tropa chegou no nível {n} pra usar isso ainda."
+        "falta_nivel": "Ninguém da tropa chegou no nível {n} pra usar isso ainda.",
+        "loja_sem_encaixe": "Versão da loja: sem encaixe de carta, aprimora no ferreiro. A versão com encaixe só cai de inimigo."
       },
       "bag": {
         "eyebrow": "Bolsa",
@@ -3493,7 +3490,6 @@
         "lutas": "Brigas",
         "grana": "Grana",
         "rep": "Rep",
-        "sucata": "Sucata",
         "niveis": "Subiu de nível",
         "teto": "Bateu o teto de +5 níveis por ausência — daqui pra frente, só jogando.",
         "derrota": "A tropa caiu sem grana pra se remendar: a rinha acabou, arrastaram vocês pra birosca e todo automático desligou.",
@@ -3620,6 +3616,21 @@
         "316": "Três nós, três pedidos. Só pode arrebentar sozinha — e quando arrebenta, o pedido vem.",
         "317": "Sandália de corda que a benzedeira usou até gastar. Pisa leve e deixa a rua em silêncio.",
         "318": "Saquinho de couro costurado com reza dentro. Ninguém abre, ninguém pergunta, todo mundo respeita."
+      },
+      "drop": {
+        "titulo": "Caiu do bando",
+        "carta_nome": "Carta · {inimigo}",
+        "tag_carta": "Carta",
+        "tag_equip": "Peça com encaixe",
+        "tag_item": "Item",
+        "garantia": "garantido em até {n} vitórias",
+        "ver": "Ver o que ele derruba",
+        "esconder": "Esconder o drop",
+        "de": "Drop de {inimigo}",
+        "bando_nota": "Cada um do bando tem a própria tabela — a Coleção mostra todas.",
+        "rinha_sem": "Na Rinha não cai nada: drop é só na treta de verdade.",
+        "tag_equip_especial": "Peça especial",
+        "variante": "pode vir com 2 encaixes ou já aprimorada"
       }
     }
   }

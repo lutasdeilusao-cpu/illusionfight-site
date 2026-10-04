@@ -416,9 +416,7 @@ export const POIS_PISTA = [
     // da rua — não trava o Sinaleiro/Rasteira Velha (progressão obrigatória).
     repGate: GANGUES_REP_GATE_GALPAO,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 26, chanceDupla: 0.6 },
-    // `equipPrimeiraVez`: a Soqueira de Ferro (207, incomum) só na 1ª vitória — é
-    // treta repetível, o chip continua saindo em toda vitória.
-    recompensa: { rep: 4, item: 21, qtd: 1, equipPrimeiraVez: 207 },
+    recompensa: { rep: 4 },
   },
   {
     // O pedágio do Morro: o Marimbondo abre o 1º portão da escadaria por 600.

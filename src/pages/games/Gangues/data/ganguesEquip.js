@@ -256,26 +256,35 @@ export function emptyGanguesEquipment() {
   return GANGUES_EQUIP_SLOT_IDS.reduce((acc, slot) => { acc[slot] = null; return acc }, {})
 }
 
-/** Normaliza o que veio do banco pro shape esperado (6 chaves, cards do tamanho certo,
- *  itemId numérico, `aprim` dentro do teto da peça). Item que não existe mais no
- *  catálogo é descartado do slot. Save antigo sem `aprim` = +0. */
+/** Duas versões de cada peça: a da LOJA (sem encaixe, aprimora no ferreiro) e
+ *  a de DROP (`encaixe: true`, 1 ou 2 encaixes de carta, pode já vir aprimorada
+ *  do drop, mas nunca aprimora no ferreiro). Teto: 2 encaixes. */
+export const GANGUES_ENCAIXES_MAX = 2
+const nEncaixes = n => Math.min(GANGUES_ENCAIXES_MAX, Math.max(1, Number(n) || 1))
+export const cartasVazias = (encaixe, n = 1, antigas = []) => encaixe ? Array.from({ length: nEncaixes(n) }, (_, i) => antigas?.[i] ?? null) : []
+/** Nome da peça na tela: "Faca Serrilhada [2] +1" (com encaixe) ou "Faca Serrilhada +3". */
+export const nomePeca = (t, def, peca = {}) => `${t(def?.nome || '')}${peca?.encaixe ? ` [${peca.cards?.length || 1}]` : ''}${peca?.aprim ? ` +${peca.aprim}` : ''}`
+
+/** Normaliza o que veio do banco pro shape esperado (6 chaves, encaixes, itemId
+ *  numérico, `aprim` dentro do teto da peça). Item que não existe mais no
+ *  catálogo é descartado do slot. */
 export function normalizeGanguesEquipment(equipment = {}) {
   const safe = emptyGanguesEquipment()
   for (const slot of GANGUES_EQUIP_SLOT_IDS) {
     const equipped = equipment?.[slot]
     const def = equipped && getGanguesEquip(equipped.itemId)
     if (!def || def.slot !== slot) continue
-    const cards = Array.from({ length: def.cardSlots }, (_, i) => equipped.cards?.[i] ?? null)
-    safe[slot] = { itemId: def.id, cards, aprim: normalizarAprim(def, equipped.aprim) }
+    const encaixe = Boolean(equipped.encaixe)
+    safe[slot] = { itemId: def.id, encaixe, cards: cartasVazias(encaixe, equipped.cards?.length, equipped.cards), aprim: normalizarAprim(def, equipped.aprim) }
   }
   return safe
 }
 
-/** Instância de item pro inventário (uid próprio + sockets vazios + aprimoramento). */
-export function createGanguesEquipInstance(itemId, aprim = 0) {
+/** Instância de item pro inventário. `encaixe` = versão de drop, com `encaixes` (1 ou 2). */
+export function createGanguesEquipInstance(itemId, aprim = 0, encaixe = false, encaixes = 1) {
   const def = getGanguesEquip(itemId)
   if (!def) return null
-  return { uid: `eq-${def.id}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: def.id, cards: Array.from({ length: def.cardSlots }, () => null), aprim: normalizarAprim(def, aprim) }
+  return { uid: `eq-${def.id}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: def.id, encaixe, cards: cartasVazias(encaixe, encaixes), aprim: normalizarAprim(def, aprim) }
 }
 
 // ── Faixa, aprimoramento e rolagem ──────────────────────────────
@@ -437,7 +446,7 @@ export function applyGanguesEquipResources(resources = {}, equipment = {}) {
 export function withGanguesEquip(equipment = {}, itemId) {
   const eq = normalizeGanguesEquipment(equipment)
   const def = getGanguesEquip(itemId)
-  if (def) eq[def.slot] = { itemId: def.id, cards: Array.from({ length: def.cardSlots }, () => null), aprim: 0 }
+  if (def) eq[def.slot] = { itemId: def.id, encaixe: false, cards: [], aprim: 0 }
   return eq
 }
 

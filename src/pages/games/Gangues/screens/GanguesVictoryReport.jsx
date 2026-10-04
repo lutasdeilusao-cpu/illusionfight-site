@@ -9,7 +9,7 @@ import GangTip from '../components/GangTip'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 import GanguesRetratoImg from '../components/GanguesRetratoImg'
 import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS } from '../hooks/useGanguesBrigaAutomatica.js'
-import { getGanguesEquip } from '../data/ganguesEquip.js'
+import { infoDoDrop } from '../data/ganguesDrops.js'
 import { getGanguesItem } from '../data/ganguesItens.js'
 import { describeGanguesSpecialEffect } from '../engine/ganguesSpecialEffects.js'
 import { avancarRinha } from '../data/cenas/cenaHelpers.js'
@@ -211,27 +211,25 @@ export default function GanguesVictoryReport({
                 <b>💵</b><strong>+{rewardSummary.grana}</strong><span>{t('games.gangues.report.reward_grana')}</span>
               </motion.div>
             )}
-            {rewardSummary.equip && (
-              <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.9, type: 'spring', stiffness: 260, damping: 16 }}>
-                <b>{getGanguesEquip(rewardSummary.equip)?.icone}</b><strong>{t(getGanguesEquip(rewardSummary.equip)?.nome || '')}</strong><span>{t('games.gangues.report.reward_equip')}</span>
-              </motion.div>
-            )}
-            {rewardSummary.item && (
-              <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.95, type: 'spring', stiffness: 260, damping: 16 }}>
-                <b>{getGanguesItem(rewardSummary.item)?.icone}</b><strong>{t(getGanguesItem(rewardSummary.item)?.nome || '')}</strong><span>{t('games.gangues.report.reward_item')}</span>
-              </motion.div>
-            )}
-            {rewardSummary.sucata > 0 && (
-              <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.8, type: 'spring', stiffness: 260, damping: 16 }}>
-                <b>🔩</b><strong>+{rewardSummary.sucata}</strong><span>{t('games.gangues.report.reward_sucata')}</span>
-              </motion.div>
-            )}
             {rewardSummary.rep > 0 && (
               <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.65, type: 'spring', stiffness: 260, damping: 16 }}>
                 <b>⚑</b><strong>+{rewardSummary.rep}</strong><span>{t('games.gangues.report.reward_rep')}</span>
               </motion.div>
             )}
           </div>
+          {rewardSummary.drops?.length > 0 && (
+            <div className="gang-reward-drops">
+              <span className="gang-reward-panel__kicker">{t('games.gangues.drop.titulo')}</span>
+              {rewardSummary.drops.map((d, index) => {
+                const info = infoDoDrop(t, d)
+                return (
+                  <motion.div key={`${d.enemyId}-${d.tipo}-${d.id}-${index}`} className={`gang-reward-drop gang-reward-drop--${d.tipo}`} initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.8 + index * 0.12, type: 'spring', stiffness: 260, damping: 16 }}>
+                    <b>{info.icone}</b><strong>{info.nome}</strong><span>{info.tag}</span>
+                  </motion.div>
+                )
+              })}
+            </div>
+          )}
         </section>
       )}
       {/* Marco de reputação cruzado NESSA luta (ex: chegou em 50) — modal

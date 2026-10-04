@@ -42,8 +42,8 @@ export default function createGanguesEquipSlice(set, get) {
         if (member.id !== memberId) return member
         const equipment = normalizeGanguesEquipment(member.attributes?.equipment)
         const anterior = equipment[slot]
-        if (anterior) devolvidoAoInventario = { uid: `eq-${anterior.itemId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: anterior.itemId, cards: anterior.cards, aprim: anterior.aprim || 0 }
-        equipment[slot] = { itemId: def.id, cards: instancia.cards, aprim: instancia.aprim || 0 }
+        if (anterior) devolvidoAoInventario = { uid: `eq-${anterior.itemId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: anterior.itemId, encaixe: Boolean(anterior.encaixe), cards: anterior.cards || [], aprim: anterior.aprim || 0 }
+        equipment[slot] = { itemId: def.id, encaixe: Boolean(instancia.encaixe), cards: instancia.cards || [], aprim: instancia.aprim || 0 }
         return { ...member, attributes: { ...member.attributes, equipment } }
       }
 
@@ -65,6 +65,16 @@ export default function createGanguesEquipSlice(set, get) {
     },
 
     // Tira o item do `slot` do personagem e devolve ao inventário (com cartas).
+    // Peça que caiu de inimigo: vai pro bolso na versão com encaixe.
+    ganharEquipDrop: (itemId, variante = {}) => {
+      const instancia = createGanguesEquipInstance(itemId, variante.aprim || 0, true, variante.encaixes || 1)
+      if (!instancia) return false
+      set(state => ({ equipamentos: [...state.equipamentos, instancia] }))
+      get().registrarItemVisto([itemId])
+      get()._persistCena()
+      return instancia.uid
+    },
+
     // Vende uma peça guardada (só o que está no bolso; equipada não vende).
     venderEquip: (uid, preco) => {
       if (!(preco > 0) || !get().equipamentos.some(eq => eq.uid === uid)) return false
@@ -80,7 +90,7 @@ export default function createGanguesEquipSlice(set, get) {
         const equipment = normalizeGanguesEquipment(member.attributes?.equipment)
         const atual = equipment[slot]
         if (!atual) return member
-        devolvido = { uid: `eq-${atual.itemId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: atual.itemId, cards: atual.cards, aprim: atual.aprim || 0 }
+        devolvido = { uid: `eq-${atual.itemId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: atual.itemId, encaixe: Boolean(atual.encaixe), cards: atual.cards || [], aprim: atual.aprim || 0 }
         equipment[slot] = null
         return { ...member, attributes: { ...member.attributes, equipment } }
       }
@@ -111,6 +121,7 @@ export default function createGanguesEquipSlice(set, get) {
         : normalizeGanguesEquipment(member?.attributes?.equipment)[slot]
       const def = peca && getGanguesEquip(peca.itemId)
       if (!def) return { ok: false, motivo: 'sem_peca' }
+      if (peca.encaixe) return { ok: false, motivo: 'encaixe' }
       const nivel = (peca.aprim || 0) + 1
       if (nivel > Math.min(aprimTeto(def), tetoFerreiro)) return { ok: false, motivo: 'teto' }
       const custo = custoAprimoramento(def, nivel)

@@ -1,0 +1,39 @@
+/* Drop dos inimigos: lista de chances (carta de pré-luta e Coleção) e o que
+   caiu na tela de vitória. */
+.gang-drop-bloco { width: 100%; text-align: left; }
+.gang-drop-bloco > small {
+  display: block; margin-bottom: 4px;
+  font: 800 0.52rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary);
+}
+.gang-drop-bloco > p { margin: 4px 0 0; font: 700 0.52rem var(--font-mono); color: var(--text-secondary); }
+.gang-drop-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
+.gang-drop-linha {
+  display: grid; grid-template-columns: 20px 1fr auto; column-gap: 6px; align-items: center;
+  padding: 4px 6px; border: 1px solid var(--if-hair-strong); background: rgba(255, 255, 255, 0.03);
+}
+.gang-drop-linha b { grid-row: span 2; font-size: 0.95rem; text-align: center; }
+.gang-drop-linha__nome { font: 800 0.6rem var(--font-display); color: var(--gang-branco); text-transform: uppercase; }
+.gang-drop-linha__chance { font: 800 0.6rem var(--font-mono); color: var(--if-teal); text-align: right; }
+.gang-drop-linha__garantia { grid-column: 2 / 4; font: 700 0.5rem var(--font-mono); color: var(--text-secondary); }
+.gang-drop-linha--equip .gang-drop-linha__nome { color: var(--if-amber); }
+.gang-drop-linha--carta { border-color: color-mix(in srgb, var(--if-violet) 55%, transparent); }
+.gang-drop-linha--carta .gang-drop-linha__nome { color: var(--if-violet); }
+
+.gang-reward-drops { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 100%; }
+.gang-reward-drop {
+  display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; width: 100%;
+  padding: 7px 10px; border: 1px solid var(--if-hair-strong); background: rgba(255, 255, 255, 0.03);
+}
+.gang-reward-drop b { font-size: 1.05rem; text-align: center; }
+.gang-reward-drop strong { font: 800 0.72rem var(--font-display); color: var(--gang-branco); text-transform: uppercase; text-align: left; }
+.gang-reward-drop span { font: 700 0.5rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); }
+.gang-reward-drop--equip { border-color: color-mix(in srgb, var(--if-amber) 50%, transparent); }
+.gang-reward-drop--equip strong { color: var(--if-amber); }
+.gang-reward-drop--carta { border-color: var(--if-violet); box-shadow: 0 0 22px -6px var(--if-violet); }
+.gang-reward-drop--carta strong { color: var(--if-violet); }
+.gang-drop-toggle {
+  display: block; width: 100%; margin-bottom: 4px; padding: 5px 8px;
+  border: 1px dashed var(--if-hair-strong); background: none; cursor: pointer;
+  font: 800 0.54rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--if-teal);
+}
+.gang-drop-bloco-nota { margin: 0; font: 700 0.54rem var(--font-mono); color: var(--text-secondary); }
