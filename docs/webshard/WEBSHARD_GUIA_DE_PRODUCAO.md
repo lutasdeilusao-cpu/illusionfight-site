@@ -390,7 +390,7 @@ O leitor também aplica o gate de visitante sem conta sobre parte do conteúdo. 
 
 Seguir `AGENTS.md`: trabalhar na `main`; conferir Git; incrementar primeiro `SITE_VERSION`; atualizar `SITE_MAP.md`; executar build com sourcemap; revisar o diff; commit e push antes de `npm run deploy`; confirmar a versão do bundle servida por `https://illusionfight.com/` com cache-buster antes de declarar a publicação concluída.
 
-Artes finais precisam estar em fontes persistentes do build, como `public/`. Nunca depender de cópia manual em `dist/`: o build limpa esse diretório. A restauração do preview histórico é um mecanismo específico já automatizado. Os dois guias MD ficam em `public/docs/webshard/` e entram automaticamente em todo build, disponíveis em `/docs/webshard/` pelos nomes completos dos arquivos.
+Artes finais precisam estar em fontes persistentes do build, como `public/`. Nunca depender de cópia manual em `dist/`: o build limpa esse diretório. A restauração do preview histórico é um mecanismo específico já automatizado. A fonte única dos dois guias MD fica em **`docs/LDI/`**, junto à documentação existente. O plugin `webshard-docs` de `vite.config.js` os emite no build em `/docs/webshard/`, pelos nomes completos, sem manter cópias em `public/`.
 
 ## 11. Processo e modelos
 
