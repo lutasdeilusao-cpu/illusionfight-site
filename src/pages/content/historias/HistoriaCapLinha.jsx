@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
 import { formatarData, localizado } from '../../../lib/webshard/catalogo'
-import { miniaturaCapHistoria, numeroCapHistoria } from '../../../lib/historias/catalogo'
+import { miniaturaCapHistoria, numeroCapHistoria, soCreator } from '../../../lib/historias/catalogo'
 import CascataLiberacao from '../webshard/components/CascataLiberacao'
 import '../webshard/components/CapituloLinha.css'
 import './Historias.css'
@@ -11,11 +11,13 @@ import './Historias.css'
  *  a cascata assinante → conta → público; o último aberto leva a barra. */
 export default function HistoriaCapLinha({ historia, cap, liberado, data, nivel, atual = false, previa = false, mostrarTitulo = false }) {
   const { t, locale } = useLanguage()
-  const cascata = !liberado && cap.liberacao
+  const exclusivo = !liberado && soCreator(cap)
+  const cascata = !liberado && cap.liberacao && !exclusivo
   const resumo = localizado(cap, 'resumo', locale)
 
   let estado
-  if (!liberado) estado = data ? t('webShard.cap.em_breve_data', { data: formatarData(data) }) : t('webShard.cap.em_breve')
+  if (exclusivo) estado = t('pages.historias.exclusivo_creator')
+  else if (!liberado) estado = data ? t('webShard.cap.em_breve_data', { data: formatarData(data) }) : t('webShard.cap.em_breve')
   else if (atual) estado = t('webShard.continuar.eyebrow')
   else estado = t('pages.historias.ler_cap')
 

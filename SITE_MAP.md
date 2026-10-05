@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.356.0**.
+> `SITE_VERSION` **10.357.0**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -94,7 +94,8 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/universos/lutas-de-ilusao` | Lore do universo LDI | `src/pages/content/Mundo.jsx` |
 | `/universos/:universo` | Worldbuilding (Mundo das Sombras, Mar de Cinzas) | `src/pages/content/Universo.jsx` |
 | `/mundo` → `/universos`, `/mundo/:universo` → `/universos/:universo` | Redirects 301 legados | `src/App.jsx` (`LegacyLivroRedirect`) + `public/_redirects` + `public/mundo/index.html` + prerender REDIRECTS |
-| `/autor` | Autor | `src/pages/site/Autor.jsx` |
+| `/autor` | Porta de entrada das Histórias do Autor (índice dos capítulos) + a versão curta da trajetória | `src/pages/site/Autor.jsx` |
+| `/historias/autor` · `/historias/autor/:cap` | Histórias do Autor: a vida real do Isaias em capítulos, 1ª pessoa. Dado em `historias/autor.json` + `historias/autor/{pt,en,es}/NN.md` (só aparece capítulo com texto); começa exclusivo de creator | `src/pages/content/historias/HistoriaTitulo.jsx` · `src/pages/content/AutorCapitulo.jsx` |
 | `/loja` | Loja | `src/pages/site/Loja/Loja.jsx` |
 | `/quiz` | Quiz | `src/pages/site/Quiz.jsx` |
 | `/custos` | Custos da plataforma | `src/pages/site/Custos.jsx` |
@@ -394,7 +395,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.356.0** |
+| `SITE_VERSION` | Site global | **10.357.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.12.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |

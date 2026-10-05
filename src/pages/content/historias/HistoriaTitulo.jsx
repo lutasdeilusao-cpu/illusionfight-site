@@ -20,9 +20,8 @@ export default function HistoriaTitulo({ tipo }) {
   const { t, locale } = useLanguage()
   const { nivel, liberado, previa, dataPara } = useHistoriasAcesso()
 
-  const historia = tipo === 'livro'
-    ? historiaPorSlug('lutas-de-ilusao', 'livro')
-    : historiaPorSlug(tipo === 'conto' ? contoSlug : slug, tipo)
+  const slugFixo = { livro: 'lutas-de-ilusao', autor: 'autor' }[tipo]
+  const historia = historiaPorSlug(slugFixo || (tipo === 'conto' ? contoSlug : slug), tipo)
   const voltar = tipo === 'conto' ? '/historias/contos' : '/historias'
 
   if (!historia) {

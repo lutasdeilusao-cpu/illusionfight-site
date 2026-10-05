@@ -718,7 +718,8 @@
       "tipo": {
         "livro": "Linha principal",
         "conto": "Conto de Ilusão",
-        "obra": "Outro universo"
+        "obra": "Outro universo",
+        "autor": "Histórias do Autor"
       },
       "titulo": "HISTÓRIAS",
       "intro": "Todo o universo de leitura de Illusion Fight num lugar só: a linha principal, os Contos de Ilusão e outros mundos.",
@@ -731,7 +732,9 @@
       "outras_desc": "Histórias fora da linha principal: outros mundos, o mesmo autor.",
       "abrir": "Abrir",
       "caps": "{n} capítulos",
-      "cap_1": "1 capítulo"
+      "cap_1": "1 capítulo",
+      "autor_eyebrow": "A VIDA REAL",
+      "exclusivo_creator": "Exclusivo para creators e imprensa"
     },
     "obra": {
       "voltar": "← HISTÓRIAS",
@@ -850,7 +853,14 @@
     },
     "autor": {
       "by": "BY:",
-      "name": "ISAIAS LEAL"
+      "name": "ISAIAS LEAL",
+      "intro": "Eu sou o cara que escreve Lutas de Ilusão. Aqui eu conto, em capítulos, a vida real que virou essa história: as brigas, os trampos, as quedas e como eu estou hoje. Não é bonito. É verdade.",
+      "meta_titulo": "Histórias do Autor — Isaias Leal | Illusion Fight",
+      "meta_desc": "Isaias Leal conta em primeira pessoa a vida real por trás de Lutas de Ilusão.",
+      "ler_primeiro": "Ler o capítulo 1",
+      "ver_todos": "Ver todos os capítulos",
+      "versao_curta": "A VERSÃO CURTA",
+      "em_breve": "O primeiro capítulo sai em breve."
     },
     "assinar": {
       "og_title": "Assinar — Lutas de Ilusão",

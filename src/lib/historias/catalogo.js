@@ -1,6 +1,8 @@
 import livroIndex from '../../data/historias/lutas-de-ilusao.json'
 import contosIndex from '../../data/historias/contos.json'
 import obrasIndex from '../../data/historias/obras.json'
+import autorIndex from '../../data/historias/autor.json'
+import capaAutorPadrao from '../../assets/images/banners/banner-04.webp'
 import { imagemWebshard, tituloLegado } from '../webshard/catalogo'
 import comingSoon from '../../assets/images/ComingSoon.png'
 // Arte oficial da área de Contos (Illusion Tales) — por enquanto a mesma pra
@@ -15,7 +17,7 @@ const CAPAS_CONTO = Object.fromEntries(Object.entries(import.meta.glob('../../as
    historias/lutas-de-ilusao.json / contos.json / obras.json direto. Os três viram "títulos"
    no mesmo formato (nome_*, tagline_*, sinopse_*, capa, cor, capítulos com
    `liberacao`), então a vitrine e a página do título não sabem de onde o
-   dado veio. Título novo entra só com dado.
+   dado veio. As Histórias do Autor (historias/autor.json) entram igual. Título novo entra só com dado.
 
    Rotas antigas ficam (indexadas): /historias/lutas-de-ilusao/:id,
    /historias/contos/:historia/:cap, /historias/:slug/:cap. */
@@ -110,7 +112,33 @@ const OBRAS = obrasIndex.map(o => ({
   rotaCap: cap => `/historias/${o.id}/${cap.id}`,
 }))
 
-const TODOS = [LINHA_PRINCIPAL, ...CONTOS, ...OBRAS]
+// Histórias do Autor: a vida real por trás da obra, em primeira pessoa.
+// Capa própria em assets/images/autor/capa.webp; sem ela, a arte da banda.
+// Só entra na lista o capítulo que já tem texto (historias/autor/pt/<id>.md).
+const textosAutor = new Set(Object.keys(import.meta.glob('../../data/historias/autor/pt/*.md')).map(c => c.split('/').pop().replace('.md', '')))
+const capaAutor = Object.values(import.meta.glob('../../assets/images/autor/capa.webp', { eager: true, import: 'default' }))[0] || capaAutorPadrao
+
+const AUTOR = {
+  id: autorIndex.id,
+  slug: autorIndex.id,
+  tipo: 'autor',
+  universo: 'autor',
+  canon: autorIndex.canon,
+  peso: autorIndex.peso,
+  temas: [],
+  cor: 'var(--if-amber)',
+  capa: capaAutor,
+  arte: true,
+  autor: 'Isaias Leal',
+  nome_pt: autorIndex.titulo, nome_en: autorIndex.titulo_en, nome_es: autorIndex.titulo_es,
+  tagline_pt: autorIndex.tagline_pt, tagline_en: autorIndex.tagline_en, tagline_es: autorIndex.tagline_es,
+  sinopse_pt: autorIndex.resumo_pt, sinopse_en: autorIndex.resumo_en, sinopse_es: autorIndex.resumo_es,
+  capitulos: autorIndex.capitulos.filter(c => textosAutor.has(c.id)).map(normalizarCap),
+  rota: '/historias/autor',
+  rotaCap: cap => `/historias/autor/${cap.id}`,
+}
+
+const TODOS = [LINHA_PRINCIPAL, ...CONTOS, ...OBRAS, AUTOR]
 
 export function listarHistorias(tipo = null) {
   return tipo ? TODOS.filter(h => h.tipo === tipo) : TODOS
@@ -129,10 +157,19 @@ export function linhaPrincipal() {
   return LINHA_PRINCIPAL
 }
 
+export function historiasDoAutor() {
+  return AUTOR
+}
+
 /** Miniatura do capítulo: galeria da obra (1 arte por capítulo) ou a capa. */
 export function miniaturaCapHistoria(historia, cap) {
   const i = historia.capitulos.findIndex(c => c.id === cap.id)
   return historia.galeria?.[i] || historia.capa
+}
+
+/** Capítulo só de creator por enquanto: marcado `creator` e sem data pública real. */
+export function soCreator(cap) {
+  return Boolean(cap?.creator) && (cap.liberacao?.publico || '') >= '2099'
 }
 
 export function numeroCapHistoria(cap) {
@@ -146,7 +183,7 @@ export function progressoHistoria(historia) {
       const id = localStorage.getItem('ldi-livro-ultimo')
       return historia.capitulos.find(c => c.id === id) || null
     }
-    const chave = historia.tipo === 'conto' ? 'ldi-conto-ultimo' : 'ldi-obra-ultimo'
+    const chave = { conto: 'ldi-conto-ultimo', autor: 'ldi-autor-ultimo' }[historia.tipo] || 'ldi-obra-ultimo'
     const [slug, capId] = (localStorage.getItem(chave) || '').split('/')
     if (slug !== historia.slug) return null
     return historia.capitulos.find(c => c.id === capId) || null

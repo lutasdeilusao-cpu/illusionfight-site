@@ -11,12 +11,14 @@ import './Historias.css'
  *  1. Lutas de Ilusão: a linha principal + a coleção dos Contos (1 card,
  *     os 5 contos moram em /historias/contos);
  *  2+. cada obra externa (Mundo das Sombras, Mar de Cinzas) na sua seção,
- *     num card largo com capa, saga, chamada e o universo. */
+ *     num card largo com capa, saga, chamada e o universo;
+ *  por último, as Histórias do Autor (a vida real por trás da obra). */
 export default function HistoriasUniversos({ historias }) {
   const { t, locale } = useLanguage()
   const principal = historias.find(h => h.tipo === 'livro')
   const contos = historias.filter(h => h.tipo === 'conto')
   const obras = historias.filter(h => h.tipo === 'obra')
+  const autor = historias.find(h => h.tipo === 'autor')
 
   // A coleção dos contos vira um "título" só na estante do universo LDI.
   const nomeContos = t('pages.contos.linha_contos')
@@ -74,6 +76,27 @@ export default function HistoriasUniversos({ historias }) {
           </section>
         )
       })}
+
+      {autor && (
+        <section className="ws-hub__secao">
+          <div className="ws-hub__secao-cabeca">
+            <span className="if-eyebrow">{t('pages.historias.autor_eyebrow')}</span>
+            <h2 className="ws-hub__h2">{localizado(autor, 'nome', locale)}</h2>
+            <p className="ws-hub__hint">{localizado(autor, 'tagline', locale)}</p>
+          </div>
+          <Link to={autor.rota} className="hist-obra" style={{ '--ws-cor': autor.cor }}>
+            <span className="hist-obra__capa">
+              <img src={autor.capa} alt="" loading="lazy" decoding="async" />
+              <span className="hist-obra__status">{t(`webShard.status.${autor.status}`)}</span>
+            </span>
+            <span className="hist-obra__info">
+              <span className="hist-obra__saga">{t('pages.historias.tipo.autor')}</span>
+              <span className="hist-obra__tagline">{localizado(autor, 'sinopse', locale)}</span>
+              <span className="hist-obra__cta">{t('webShard.hub.ver_titulo')} ›</span>
+            </span>
+          </Link>
+        </section>
+      )}
     </>
   )
 }

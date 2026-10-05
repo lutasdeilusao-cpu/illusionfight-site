@@ -1,0 +1,33 @@
+{
+  "id": "autor",
+  "peso": "pesada",
+  "canon": false,
+  "titulo": "Histórias do Autor",
+  "titulo_en": "The Author's Stories",
+  "titulo_es": "Historias del Autor",
+  "tagline_pt": "A vida real por trás de Lutas de Ilusão. Sem filtro.",
+  "tagline_en": "The real life behind Illusion Fight. No filter.",
+  "tagline_es": "La vida real detrás de Lutas de Ilusión. Sin filtro.",
+  "resumo_pt": "Isaias Leal conta, em primeira pessoa, as histórias que viraram Lutas de Ilusão: as brigas de rua que inspiraram as lutas, os trampos, as quedas e o que ele faz hoje pra sustentar a família e o sonho. A ficção é bonita. A realidade, nem sempre.",
+  "resumo_en": "Isaias Leal tells, in the first person, the stories that became Illusion Fight: the street fights behind the fights, the jobs, the falls, and what he does today to support his family and the dream. Fiction is beautiful. Reality isn't always.",
+  "resumo_es": "Isaias Leal cuenta, en primera persona, las historias que se convirtieron en Lutas de Ilusión: las peleas callejeras detrás de las peleas, los trabajos, las caídas y lo que hace hoy para mantener a su familia y el sueño. La ficción es bonita. La realidad, no siempre.",
+  "capitulos": [
+    {
+      "id": "01",
+      "numero": 1,
+      "titulo": "Como eu estou hoje",
+      "titulo_en": "Where I Am Today",
+      "titulo_es": "Cómo estoy hoy",
+      "resumo_pt": "Seis da tarde, fim do trampo, chuva em São Paulo. A Guerreira, a mesma bike do Jack, e as entregas que ninguém sabia.",
+      "resumo_en": "Six in the evening, end of the workday, rain in São Paulo. The Warrior, the same bike as Jack's, and the deliveries nobody knew about.",
+      "resumo_es": "Seis de la tarde, fin del trabajo, lluvia en São Paulo. La Guerrera, la misma bici de Jack, y las entregas que nadie conocía.",
+      "creator": true,
+      "liberacao": {
+        "primordial": "2099-01-01",
+        "elite": "2099-01-01",
+        "conta": "2099-01-01",
+        "publico": "2099-01-01"
+      }
+    }
+  ]
+}

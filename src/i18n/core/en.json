@@ -718,7 +718,8 @@
       "tipo": {
         "livro": "Main storyline",
         "conto": "Illusion Tale",
-        "obra": "Another universe"
+        "obra": "Another universe",
+        "autor": "The Author's Stories"
       },
       "titulo": "STORIES",
       "intro": "Free online stories and serialized dark fantasy fiction, all in one place: the main saga, the Illusion Tales side stories, and other worlds by the same creator.",
@@ -731,7 +732,9 @@
       "outras_desc": "Stories outside the main line: other worlds, the same author.",
       "abrir": "Open",
       "caps": "{n} chapters",
-      "cap_1": "1 chapter"
+      "cap_1": "1 chapter",
+      "autor_eyebrow": "REAL LIFE",
+      "exclusivo_creator": "Exclusive to creators and press"
     },
     "obra": {
       "voltar": "← STORIES",
@@ -850,7 +853,14 @@
     },
     "autor": {
       "by": "BY:",
-      "name": "ISAIAS LEAL"
+      "name": "ISAIAS LEAL",
+      "intro": "I'm the guy who writes Illusion Fight. Here I tell, in chapters, the real life that became this story: the fights, the jobs, the falls, and where I am today. It isn't pretty. It's true.",
+      "meta_titulo": "The Author's Stories — Isaias Leal | Illusion Fight",
+      "meta_desc": "Isaias Leal tells, in the first person, the real life behind Illusion Fight.",
+      "ler_primeiro": "Read chapter 1",
+      "ver_todos": "See all chapters",
+      "versao_curta": "THE SHORT VERSION",
+      "em_breve": "The first chapter is coming soon."
     },
     "assinar": {
       "og_title": "Subscribe — Illusion Fight",

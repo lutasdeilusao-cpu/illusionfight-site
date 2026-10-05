@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1791126137.4955242,
-    "ast_hash": "8b1313b90c5d66685e26e03acc45ce93",
+    "mtime": 1791236782.2809439,
+    "ast_hash": "98a8e10fc655bcc1e42dbde8766116d3",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "src/config/site.js": {
-    "mtime": 1788457133.1355572,
-    "ast_hash": "ffbe2fb8266df4893992fbafe4c1b120",
+    "mtime": 1791236486.800095,
+    "ast_hash": "6fcd64d42b4ea827d970df5414ab9ce0",
     "semantic_hash": ""
   },
   "src/config/trial.js": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791228215.629064,
-    "ast_hash": "19a4981a64b3ce3c7807e27202546fa6",
+    "mtime": 1791237092.2137206,
+    "ast_hash": "3b6e95c1755e5b33e01620d161ebbbb6",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -610,8 +610,8 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/locales.js": {
-    "mtime": 1788409622.437674,
-    "ast_hash": "14391de1f5a7ea5ab3658f80c421685c",
+    "mtime": 1791236782.2809439,
+    "ast_hash": "ce43e61e17e909fc7870515e08b6f1b0",
     "semantic_hash": ""
   },
   "src/lib/getDeck.js": {
@@ -645,8 +645,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
-    "mtime": 1790820435.8072486,
-    "ast_hash": "8d17e878ff06ad61b8b684bb760c6aa3",
+    "mtime": 1791237331.0224993,
+    "ast_hash": "10f7430a0cb2dd464ece1e8fd5dd0320",
     "semantic_hash": ""
   },
   "src/pages/content/Mundo.jsx": {
@@ -2550,8 +2550,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791225044.7400248,
-    "ast_hash": "602610af52b742cfc467b4ca03506f15",
+    "mtime": 1791237667.5383499,
+    "ast_hash": "c661f43be250e25f049bfdabd0d162f4",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791228215.6300616,
-    "ast_hash": "1c706758a00b3368992426b9ac70d7dd",
+    "mtime": 1791237092.2571867,
+    "ast_hash": "68d0faf9f6c07ca09e46862df66f8e95",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3350,8 +3350,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/ContoCapitulo.jsx": {
-    "mtime": 1790820435.8062494,
-    "ast_hash": "387b8a4a0beea0aba3bf4553952b8e08",
+    "mtime": 1791237350.731154,
+    "ast_hash": "d93fb031b8afbccc362cf200cfdad3e6",
     "semantic_hash": ""
   },
   "workers/songs-r2/worker.js": {
@@ -3590,8 +3590,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/ObraCapitulo.jsx": {
-    "mtime": 1790820435.8072486,
-    "ast_hash": "4a2096383578498ff5a8a32f62bf1fe4",
+    "mtime": 1791237331.0214994,
+    "ast_hash": "e248f441ba106bc37c3c00945a8ddc8c",
     "semantic_hash": ""
   },
   "src/pages/content/Universo.jsx": {
@@ -3670,18 +3670,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1791090274.485512,
-    "ast_hash": "bdd14e7a49f0d014bbbf0af9e96e9351",
+    "mtime": 1791237032.222572,
+    "ast_hash": "caf37439efe7568dbad85cac0d6f6320",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1791090274.4997628,
-    "ast_hash": "76d456e4d9d2b8593af9a5452197f074",
+    "mtime": 1791237032.224857,
+    "ast_hash": "ff08d6f0595786f756caf623c31ec437",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1791090274.4730008,
-    "ast_hash": "f69c0a322b1c7b84d13bc1d187fadaaf",
+    "mtime": 1791237032.220306,
+    "ast_hash": "2db51b8c3574571d51c9dd4c5e0fbc18",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -4605,8 +4605,8 @@
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
-    "mtime": 1790300042.2393062,
-    "ast_hash": "b891993236fad25f22158c526bcac83a",
+    "mtime": 1791236486.8011825,
+    "ast_hash": "fc06c0f27bc939cd3892b0a9b9f2bfed",
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
@@ -5100,8 +5100,8 @@
     "semantic_hash": ""
   },
   "src/pages/painel/Painel.jsx": {
-    "mtime": 1790808579.3128264,
-    "ast_hash": "9f79d941ec0c4f1b998113fdeede782b",
+    "mtime": 1791237032.217605,
+    "ast_hash": "e6ae938ad4108d8d5cf816408692806c",
     "semantic_hash": ""
   },
   "src/pages/painel/PainelBlocos.jsx": {
@@ -5155,13 +5155,13 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao.json": {
-    "mtime": 1788400516.3706968,
-    "ast_hash": "a3a0b3b11ef066b081cc16e89811c5af",
+    "mtime": 1791236463.8385513,
+    "ast_hash": "0672718cda830286b7102fa2e9c81b6d",
     "semantic_hash": ""
   },
   "src/data/historias/obras.json": {
-    "mtime": 1790365489.7166111,
-    "ast_hash": "f5a0ebb7a70586644b618f44d0a518b5",
+    "mtime": 1791236463.8385513,
+    "ast_hash": "2ea43d63ac1e3d56cbbd16506cc19c70",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/en/01.md": {
@@ -7082,6 +7082,106 @@
   "docs/LDI/WEBSHARD_REFERENCIAS_E_PROCESSO.md": {
     "mtime": 1791228281.6971412,
     "ast_hash": "087ba41d9c20c44202da67a239473a37",
+    "semantic_hash": ""
+  },
+  "src/i18n/creators/en.json": {
+    "mtime": 1791237596.8837187,
+    "ast_hash": "1c453138fd2d8300b4906ce109d4d30d",
+    "semantic_hash": ""
+  },
+  "src/i18n/creators/es.json": {
+    "mtime": 1791237596.8848398,
+    "ast_hash": "6effed456581ded66b59ea33b6d0dc66",
+    "semantic_hash": ""
+  },
+  "src/i18n/creators/pt.json": {
+    "mtime": 1791237596.8826544,
+    "ast_hash": "ac22e30cd9a1b5a8275d891c40d10495",
+    "semantic_hash": ""
+  },
+  "src/lib/creator.js": {
+    "mtime": 1791236486.7475255,
+    "ast_hash": "dd5f8f13574ff3a1bf0e79bbf9783c72",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/Creators.jsx": {
+    "mtime": 1791236771.7185082,
+    "ast_hash": "b56347f998f5d02ee72deb0d3c07ab5d",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/components/BotaoCopiar.jsx": {
+    "mtime": 1791236736.0755615,
+    "ast_hash": "2a2ca1972e14b9b89607dc4b0e113bad",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/components/CreatorsBoasVindas.jsx": {
+    "mtime": 1791236639.2721322,
+    "ast_hash": "4893c81ec1d7d421c90728cba53e878d",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/components/CreatorsCardapio.jsx": {
+    "mtime": 1791236704.6295903,
+    "ast_hash": "d8a90c0628b1c884cfc7d6dea788735e",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/components/CreatorsPorta.jsx": {
+    "mtime": 1791236612.053677,
+    "ast_hash": "237f9f0a957a332595fbce89fe9d4fd1",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/components/CreatorsSalao.jsx": {
+    "mtime": 1791237487.007659,
+    "ast_hash": "1ec74538fb7a16958771e1865dba2a83",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/components/CreatorsServicos.jsx": {
+    "mtime": 1791236737.12443,
+    "ast_hash": "e1b28d354bf142fe2cbf588a3531835f",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/components/CreatorsTemas.jsx": {
+    "mtime": 1791237487.0346572,
+    "ast_hash": "e6931d1956ec2aefd3c54efef035ca34",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/components/NeoGuideFala.jsx": {
+    "mtime": 1791236582.32004,
+    "ast_hash": "71e3e7c39097f5a99084bbd3b98e97e4",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/data/creatorsCardapio.js": {
+    "mtime": 1791237487.007659,
+    "ast_hash": "38ba1e916f41105cab24a3f34e6d0943",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/useCreator.js": {
+    "mtime": 1791236559.047363,
+    "ast_hash": "ce6ff584af0c1ad4040968e3a77622db",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/PainelCreators.jsx": {
+    "mtime": 1791237014.8703125,
+    "ast_hash": "b2b6bc9939e2ccff425602f552d92945",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/052_creators.sql": {
+    "mtime": 1791236431.2963347,
+    "ast_hash": "4fc2d000b77bdc437bf62a5ee55a7af6",
+    "semantic_hash": ""
+  },
+  "src/assets/images/creators/neoguide-concierge.webp": {
+    "mtime": 1791236496.270531,
+    "ast_hash": "671d05b5ea1ef227d4aef8b37271c576",
+    "semantic_hash": ""
+  },
+  "src/assets/images/creators/neoguide-holo.webp": {
+    "mtime": 1791236496.4031987,
+    "ast_hash": "5b9cba979f987ab4b82c5a3a403e7818",
+    "semantic_hash": ""
+  },
+  "src/assets/images/creators/neoguide-rosto.webp": {
+    "mtime": 1791236496.4313233,
+    "ast_hash": "b7ae3920c6d8d5be1533a1554fe4a15d",
     "semantic_hash": ""
   }
 }

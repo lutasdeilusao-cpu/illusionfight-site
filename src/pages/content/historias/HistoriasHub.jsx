@@ -5,7 +5,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useHistoriasAcesso } from '../../../hooks/useHistoriasAcesso'
 import { localizado } from '../../../lib/webshard/catalogo'
 import {
-  capaContos, linhaPrincipal, listarHistorias, miniaturaCapHistoria, numeroCapHistoria, progressoHistoria,
+  capaContos, linhaPrincipal, listarHistorias, miniaturaCapHistoria, numeroCapHistoria, progressoHistoria, soCreator,
 } from '../../../lib/historias/catalogo'
 import Farol, { PESOS } from '../../../components/Farol/Farol'
 import TituloHero from '../webshard/components/TituloHero'
@@ -53,7 +53,7 @@ export default function HistoriasHub({ tipo = null }) {
 
   const todosCaps = historias.flatMap(h => h.capitulos.map(cap => ({ h, cap, data: dataPara(cap) })))
   const proximos = todosCaps
-    .filter(({ h, cap, data }) => !liberado(h, cap) && data && data >= hoje)
+    .filter(({ h, cap, data }) => !liberado(h, cap) && !soCreator(cap) && data && data >= hoje)
     .sort((a, b) => a.data.localeCompare(b.data))
     .slice(0, 5)
   const recentes = todosCaps

@@ -95,7 +95,7 @@ export const FICHA = ['nome', 'criador', 'formato', 'jogos', 'idiomas', 'preco',
 /** "Sobre o que eu posso falar?": temas que a NeoGuide sugere, cada um com
  *  os links onde o creator encontra o material. */
 export const TEMAS = [
-  { id: 'autor', icone: '✍️', links: [{ id: 'autor', rota: '/autor' }] },
+  { id: 'autor', icone: '✍️', links: [{ id: 'historias_autor', rota: '/historias/autor' }, { id: 'autor', rota: '/autor' }] },
   { id: 'personagens', icone: '🧬', links: [{ id: 'personagens', rota: '/personagens' }, { id: 'conto_nina', rota: '/historias/contos/04' }, { id: 'conto_jack', rota: '/historias/contos/05' }] },
   { id: 'contos', icone: '📜', links: [{ id: 'conto_alan', rota: '/historias/contos/02' }, { id: 'conto_ryan', rota: '/historias/contos/01' }, { id: 'conto_correntes', rota: '/historias/contos/07' }, { id: 'contos', rota: '/historias/contos' }] },
   { id: 'principal', icone: '📖', links: [{ id: 'livro', rota: '/historias/lutas-de-ilusao' }, { id: 'webtoon', rota: '/webtoon' }] },

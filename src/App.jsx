@@ -25,6 +25,7 @@ const HistoriaTitulo = lazyWithReload(() => import('./pages/content/historias/Hi
 const LivroCapitulo = lazyWithReload(() => import('./pages/content/LivroCapitulo'))
 const ContoCapitulo = lazyWithReload(() => import('./pages/content/ContoCapitulo'))
 const ObraCapitulo = lazyWithReload(() => import('./pages/content/ObraCapitulo'))
+const AutorCapitulo = lazyWithReload(() => import('./pages/content/AutorCapitulo'))
 const Assinar = lazyWithReload(() => import('./pages/platform/Assinar'))
 const Autor = lazyWithReload(() => import('./pages/site/Autor'))
 const WebshardHub = lazyWithReload(() => import('./pages/content/webshard/WebshardHub'))
@@ -161,6 +162,8 @@ export default function App() {
         <Route path="/historias/contos" element={<HistoriasHub tipo="conto" />} />
         <Route path="/historias/contos/:historia" element={<HistoriaTitulo tipo="conto" />} />
         <Route path="/historias/contos/:historia/:cap" element={<ContoCapitulo />} />
+        <Route path="/historias/autor" element={<HistoriaTitulo tipo="autor" />} />
+        <Route path="/historias/autor/:cap" element={<AutorCapitulo />} />
         <Route path="/historias/:slug" element={<HistoriaTitulo tipo="obra" />} />
         <Route path="/historias/:slug/:cap" element={<ObraCapitulo />} />
         {/* Redirects legados — /livro migrou para /historias (v10.199.0) */}
