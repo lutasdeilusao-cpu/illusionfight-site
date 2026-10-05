@@ -1,0 +1,30 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "02-C6YDI9aC.js",
+      "file_type": "code",
+      "source_file": "assets/02-C6YDI9aC.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "assets_02_c6ydi9ac",
+      "community": 0,
+      "norm_label": "02-c6ydi9ac.js"
+    },
+    {
+      "label": "03-QDZmjLvm.js",
+      "file_type": "code",
+      "source_file": "assets/03-QDZmjLvm.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "assets_03_qdzmjlvm",
+      "community": 1,
+      "norm_label": "03-qdzmjlvm.js"
+    }
+  ],
+  "links": [],
+  "hyperedges": [],
+  "built_at_commit": "dcc4c89f248189a12754aff675b240d3858a092a"
+}
