@@ -1632,7 +1632,8 @@
       "agora": "Ahora",
       "sessoes": "Sesiones",
       "financeiro": "Finanzas",
-      "logs": "Logs"
+      "logs": "Logs",
+      "creators": "Creators"
     },
     "periodo": {
       "hoje": "Hoy",
@@ -1778,6 +1779,27 @@
       "copiado": "¡Copiado!",
       "vazio": "No hay logs en este período.",
       "falta_migration": "Falta ejecutar la migration 046_debug_logs.sql en Supabase."
+    },
+    "creators": {
+      "titulo": "Creadores ({n})",
+      "email": "Correo de la cuenta",
+      "canal": "Canal (opcional)",
+      "prazo": "Plazo",
+      "meses": "{n} mes(es)",
+      "sem_prazo": "Sin fecha de fin",
+      "liberar": "Activar creador",
+      "nota": "La persona necesita una cuenta en el sitio. Entra en illusionfight.com/creators.",
+      "vazio": "Todavía no hay creadores.",
+      "ate": "Hasta {data}",
+      "expirou": "Venció el {data}",
+      "termos_ok": "Términos aceptados",
+      "termos_pendente": "Términos pendientes",
+      "mais_mes": "Renovar 1 mes",
+      "remover": "Quitar",
+      "liberado": "{email} ahora es creador.",
+      "removido": "{email} ya no es creador.",
+      "nao_achou": "No hay cuenta con {email}. Primero tiene que registrarse.",
+      "falta_migration": "Falta ejecutar la migration 052_creators.sql en Supabase."
     }
   }
 }

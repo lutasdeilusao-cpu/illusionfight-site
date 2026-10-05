@@ -1,0 +1,61 @@
+/* Temas sugeridos pela NeoGuide: chips de escolha e a resposta com links. */
+.cr-temas {
+  display: grid;
+  gap: 12px;
+  padding: 0 16px;
+}
+
+.cr-temas__chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.cr-temas__chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 8px 10px;
+  font: 600 0.84rem var(--font-body);
+  line-height: 1.25;
+  color: var(--if-ink);
+  text-align: left;
+  background: var(--if-panel-flat);
+  border: 1px solid var(--if-hair-strong);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  cursor: pointer;
+}
+
+.cr-temas__chip.is-ativo {
+  border-color: var(--if-cyan-45);
+  box-shadow: inset 2px 0 var(--if-cyan), 0 0 18px var(--if-cyan-13);
+}
+
+.cr-temas__resposta {
+  display: grid;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.cr-temas__links {
+  display: grid;
+}
+
+.cr-temas__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 48px;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.cr-temas__ano {
+  margin: 6px 0 0;
+  padding: 12px 14px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  border: 1px dashed var(--if-edge);
+}

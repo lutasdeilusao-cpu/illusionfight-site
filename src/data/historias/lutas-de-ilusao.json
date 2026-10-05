@@ -16,7 +16,8 @@
       "elite": "2026-11-30",
       "conta": "2026-11-30",
       "publico": "2026-11-30"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-02",
@@ -35,7 +36,8 @@
       "elite": "2026-11-30",
       "conta": "2026-11-30",
       "publico": "2026-12-14"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-03",
@@ -54,7 +56,8 @@
       "elite": "2026-11-30",
       "conta": "2026-12-14",
       "publico": "2026-12-28"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-04",
@@ -70,7 +73,8 @@
       "elite": "2026-12-14",
       "conta": "2026-12-28",
       "publico": "2027-01-11"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-05",
@@ -86,7 +90,8 @@
       "elite": "2026-12-28",
       "conta": "2027-01-11",
       "publico": "2027-01-25"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-06",
@@ -102,7 +107,8 @@
       "elite": "2027-01-11",
       "conta": "2027-01-25",
       "publico": "2027-02-08"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-07",
@@ -118,7 +124,8 @@
       "elite": "2027-03-08",
       "conta": "2027-03-22",
       "publico": "2027-04-05"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-08",
@@ -134,7 +141,8 @@
       "elite": "2027-03-22",
       "conta": "2027-04-05",
       "publico": "2027-04-19"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-09",
@@ -150,7 +158,8 @@
       "elite": "2027-04-05",
       "conta": "2027-04-19",
       "publico": "2027-05-03"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-10",
@@ -166,7 +175,8 @@
       "elite": "2027-04-19",
       "conta": "2027-05-03",
       "publico": "2027-05-17"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-11",
@@ -182,7 +192,8 @@
       "elite": "2027-05-03",
       "conta": "2027-05-17",
       "publico": "2027-05-31"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-12",
@@ -198,7 +209,8 @@
       "elite": "2027-05-17",
       "conta": "2027-05-31",
       "publico": "2027-06-14"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-13",

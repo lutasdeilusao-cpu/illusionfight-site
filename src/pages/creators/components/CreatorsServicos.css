@@ -1,0 +1,175 @@
+/* Serviços da casa: artes, ficha técnica, dúvidas e o botão de copiar. */
+.cr-serv {
+  display: grid;
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.cr-serv__nota {
+  margin: -4px 0 2px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.cr-serv__sub {
+  margin-top: 10px;
+}
+
+.cr-artes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.cr-arte {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid var(--if-edge);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  text-decoration: none;
+}
+
+.cr-arte img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cr-arte__rotulo,
+.cr-arte__baixar {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+}
+
+.cr-arte__rotulo {
+  bottom: 24px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--if-ink);
+  text-shadow: 0 1px 6px var(--bg-primary);
+}
+
+.cr-arte__baixar {
+  bottom: 8px;
+  font: 700 0.55rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--if-cyan);
+}
+
+.cr-arte::before {
+  content: '';
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(180deg, transparent, var(--bg-primary));
+}
+
+.cr-ficha {
+  margin: 0;
+  padding: 6px 14px;
+}
+
+.cr-ficha__linha {
+  display: grid;
+  grid-template-columns: 38% 1fr;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--if-hair);
+}
+
+.cr-ficha__linha:last-child {
+  border-bottom: 0;
+}
+
+.cr-ficha dt {
+  font: 700 0.6rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+  padding-top: 2px;
+}
+
+.cr-ficha dd {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--if-ink);
+  word-break: break-word;
+}
+
+.cr-ficha__desc {
+  margin: 0;
+  padding: 14px;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--if-ink);
+}
+
+.cr-duvidas {
+  display: grid;
+  gap: 6px;
+}
+
+.cr-duvida {
+  background: var(--if-panel-flat);
+  border: 1px solid var(--if-hair-strong);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+.cr-duvida.is-aberta {
+  border-color: var(--if-edge);
+  box-shadow: inset 2px 0 var(--if-cyan);
+}
+
+.cr-duvida__pergunta {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 8px;
+  width: 100%;
+  min-height: 50px;
+  padding: 12px;
+  font: 600 0.9rem var(--font-body);
+  color: var(--if-ink);
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.cr-duvida__num {
+  font: 700 0.62rem var(--font-mono);
+  color: var(--if-cyan-58);
+  padding-top: 3px;
+}
+
+.cr-duvida__resposta {
+  margin: 0;
+  padding: 0 14px 14px 46px;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  white-space: pre-line;
+}
+
+.cr-copiar {
+  justify-self: start;
+  min-height: 36px;
+  padding: 6px 12px;
+  font: 700 0.6rem var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--if-cyan);
+  background: var(--if-cyan-08);
+  border: 1px solid var(--if-cyan-20);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cr-copiar.is-copiado {
+  color: var(--if-ok);
+  border-color: var(--if-ok);
+}

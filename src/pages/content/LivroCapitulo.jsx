@@ -59,15 +59,18 @@ export default function LivroCapitulo() {
     chapter_id: id, chapter_numero: chapter?.numero, chapter_titulo: chapter?.[tituloKey],
   }, { active: Boolean(chapter) })
 
+  // O perfil chega depois do primeiro render: o efeito tem que refazer quando o acesso muda.
+  const aberto = Boolean(chapter && liberado(chapter))
+
   useEffect(() => {
     setNotFound(false)
     setCarregando(true)
-    if (!chapter || !liberado(chapter)) { setNotFound(true); return }
+    if (!aberto) { setNotFound(true); return }
     const lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt'
     const loader = chapterLoaders[`../../data/historias/lutas-de-ilusao/${lang}/${id}.md`] || chapterLoaders[`../../data/historias/lutas-de-ilusao/pt/${id}.md`]
     if (!loader) { setNotFound(true); return }
     loader().then(texto => { setMd(texto); setCarregando(false) }).catch(() => setNotFound(true))
-  }, [id, chapter, isAdmin, locale])
+  }, [id, chapter, aberto, locale])
 
   useLayoutEffect(() => {
     if (id === 'capitulo-01') notificationManager.removeByAchievementId('leitor_marelia')

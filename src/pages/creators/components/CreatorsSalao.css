@@ -1,0 +1,169 @@
+/* Salão do creator: a mesa no topo, a conversa e o menu embaixo. */
+.cr-salao {
+  display: grid;
+  gap: 16px;
+  padding-bottom: 110px;
+}
+
+.cr-salao__topo {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+}
+
+.cr-salao__holo {
+  position: absolute;
+  right: -20px;
+  top: -30px;
+  width: 62%;
+  height: auto;
+  opacity: 0.9;
+  animation: cr-salao-flutua 6s ease-in-out infinite alternate;
+}
+
+.cr-salao__veu {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--bg-primary) 30%, transparent 75%),
+    linear-gradient(180deg, transparent 55%, var(--bg-primary));
+}
+
+.cr-salao__mesa {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  right: 40%;
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.cr-salao__mesa h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 1.05;
+  color: var(--if-ink);
+}
+
+.cr-salao__conversa {
+  padding: 0 16px;
+}
+
+.cr-salao__menu {
+  display: grid;
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.cr-salao__assunto {
+  position: relative;
+  display: block;
+  height: 118px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--if-edge);
+  background: var(--if-panel-flat);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  cursor: pointer;
+  text-align: left;
+}
+
+.cr-salao__assunto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  transition: transform 0.5s ease;
+}
+
+.cr-salao__assunto:hover img,
+.cr-salao__assunto:focus-visible img {
+  transform: scale(1.06);
+}
+
+.cr-salao__assunto-veu {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5, 11, 15, 0.94) 35%, rgba(5, 11, 15, 0.25));
+}
+
+.cr-salao__assunto-num {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  font: 700 0.6rem var(--font-mono);
+  color: var(--if-cyan-58);
+}
+
+.cr-salao__pref {
+  position: absolute;
+  top: 9px;
+  right: 18px;
+  font: 700 0.55rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--if-amber);
+}
+
+.cr-salao__assunto-txt {
+  position: absolute;
+  left: 14px;
+  right: 30%;
+  bottom: 14px;
+  display: grid;
+  gap: 4px;
+}
+
+.cr-salao__assunto-txt strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--if-ink);
+}
+
+.cr-salao__assunto-txt small {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+.cr-salao__servicos {
+  display: grid;
+  padding: 0 16px;
+}
+
+.cr-salao__servico {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 52px;
+  font-size: 0.95rem;
+}
+
+.cr-salao__voltar {
+  position: fixed;
+  left: var(--app-gutter);
+  right: var(--app-gutter);
+  bottom: 0;
+  z-index: 60;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, transparent, var(--bg-primary) 35%);
+}
+
+.cr-salao__voltar-btn {
+  width: 100%;
+  min-height: 48px;
+  justify-content: center;
+}
+
+@keyframes cr-salao-flutua {
+  to { transform: translateY(10px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cr-salao__holo { animation: none; }
+}

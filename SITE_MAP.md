@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.355.4**.
+> `SITE_VERSION` **10.356.0**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -110,6 +110,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/login` | Login | `src/pages/platform/Login.jsx` |
 | `/cadastro` | Cadastro | `src/pages/platform/Cadastro.jsx` |
 | `/perfil` | Perfil, progresso, coleção e conta | `src/pages/platform/Perfil/Perfil.jsx` |
+| `/creators` | Área Creator: porta com login, termos, NeoGuide servindo livros, webtoon, jogos, artes, ficha técnica e dúvidas. Acesso pela tag `is_creator` (migration 052), concedida na aba Creators do painel | `src/pages/creators/Creators.jsx` |
 | `/admin` (`ROTA_PAINEL`) | Painel de administrador: Visão, Agora, Sessões, Financeiro, Logs (escondido, só `is_admin`, `noindex`) | `src/pages/painel/Painel.jsx` |
 
 ### 3.3 Catálogo e jogos
@@ -393,7 +394,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.355.4** |
+| `SITE_VERSION` | Site global | **10.356.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.12.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |

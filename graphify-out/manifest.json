@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791146995.2085898,
-    "ast_hash": "9c9505df9730d51f091645af17eeab1b",
+    "mtime": 1791228215.629064,
+    "ast_hash": "19a4981a64b3ce3c7807e27202546fa6",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2280,9 +2280,9 @@
     "semantic_hash": "31db883e4c2a874f607640a28016b53b"
   },
   "vite.config.js": {
-    "mtime": 1782231306.0686662,
-    "ast_hash": "7c30ba8f892e2ef17afd8c545234ab85",
-    "semantic_hash": "7c30ba8f892e2ef17afd8c545234ab85"
+    "mtime": 1791228215.6320639,
+    "ast_hash": "ac1769a9a5d4b85397659cc78a7d0d1d",
+    "semantic_hash": ""
   },
   "public/arena/sfx/combat/dagger_hit.wav": {
     "mtime": 1770169348.0,
@@ -2550,8 +2550,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791146874.7922363,
-    "ast_hash": "8081d1bcdae801c3f5b651953f378773",
+    "mtime": 1791225044.7400248,
+    "ast_hash": "602610af52b742cfc467b4ca03506f15",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791146995.2501204,
-    "ast_hash": "9d7e4bf65a5c9e418ab6418cb0c322ca",
+    "mtime": 1791228215.6300616,
+    "ast_hash": "1c706758a00b3368992426b9ac70d7dd",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7072,6 +7072,16 @@
   "src/pages/games/LDI/batalha/LutaPentagrama.jsx": {
     "mtime": 1791146524.2211812,
     "ast_hash": "64b043b6aa622212a1cbc0a3f950d575",
+    "semantic_hash": ""
+  },
+  "docs/LDI/WEBSHARD_GUIA_DE_PRODUCAO.md": {
+    "mtime": 1791228281.6941442,
+    "ast_hash": "ff91ebde7a1502d8db15fae053ea99bc",
+    "semantic_hash": ""
+  },
+  "docs/LDI/WEBSHARD_REFERENCIAS_E_PROCESSO.md": {
+    "mtime": 1791228281.6971412,
+    "ast_hash": "087ba41d9c20c44202da67a239473a37",
     "semantic_hash": ""
   }
 }

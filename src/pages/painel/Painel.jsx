@@ -9,12 +9,13 @@ import { ADMIN_EMAILS } from '../../config/launch'
 import PainelVisao from './PainelVisao'
 import PainelFinanceiro from './PainelFinanceiro'
 import PainelLogs from './PainelLogs'
+import PainelCreators from './PainelCreators'
 import { PainelAgora, PainelSessoes } from './PainelSessoes'
 import { PERIODOS, intervalo, rpc, localeDe } from './painelUtil'
 import './Painel.css'
 
 const NotFound = lazy(() => import('../site/NotFound/NotFound'))
-const ABAS = ['visao', 'agora', 'sessoes', 'financeiro', 'logs']
+const ABAS = ['visao', 'agora', 'sessoes', 'financeiro', 'logs', 'creators']
 const FILTROS = ['origem', 'rota', 'dispositivo', 'idioma', 'pais', 'logado']
 
 export default function Painel() {
@@ -87,7 +88,7 @@ export default function Painel() {
         ))}
       </nav>
 
-      {aba !== 'agora' && (
+      {aba !== 'agora' && aba !== 'creators' && (
         <section className="painel-controles">
           <div className="painel-periodos">
             {PERIODOS.map(p => (
@@ -122,6 +123,7 @@ export default function Painel() {
       {aba === 'sessoes' && <PainelSessoes t={t} locale={lc} inicio={inicio} fim={fim} />}
       {aba === 'logs' && <PainelLogs t={t} locale={lc} inicio={inicio} />}
       {aba === 'financeiro' && <PainelFinanceiro t={t} locale={lc} inicio={inicio} fim={fim} />}
+      {aba === 'creators' && <PainelCreators t={t} locale={lc} />}
     </main>
   )
 }

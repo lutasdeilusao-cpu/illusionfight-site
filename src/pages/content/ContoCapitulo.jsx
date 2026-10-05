@@ -38,16 +38,19 @@ export default function ContoCapitulo() {
     chapter_id: cap, chapter_numero: capitulo?.numero, chapter_titulo: capitulo?.[tituloKey],
   }, { active: Boolean(h) && Boolean(capitulo) })
 
+  // O perfil chega depois do primeiro render: o efeito tem que refazer quando o acesso muda.
+  const aberto = Boolean(h && capitulo && contoLiberado(capitulo, isAdmin, { user, perfil }))
+
   useEffect(() => {
     setNotFound(false)
     setCarregando(true)
-    if (!h || !capitulo || !contoLiberado(capitulo, isAdmin, { user, perfil })) { setNotFound(true); return }
+    if (!aberto) { setNotFound(true); return }
     const lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt'
     const loader = contoLoaders[`../../data/historias/contos/${historia}/${lang}/${cap}.md`] || contoLoaders[`../../data/historias/contos/${historia}/pt/${cap}.md`]
     if (!loader) { setNotFound(true); return }
     loader().then(texto => { setMd(texto); setCarregando(false) }).catch(() => setNotFound(true))
     window.scrollTo(0, 0)
-  }, [historia, cap, h, capitulo, isAdmin, locale])
+  }, [historia, cap, h, capitulo, aberto, locale])
 
   const disponiveis = h ? h.capitulos.filter(c => contoLiberado(c, isAdmin, { user, perfil })) : []
   const cur = disponiveis.findIndex(c => c.id === cap)

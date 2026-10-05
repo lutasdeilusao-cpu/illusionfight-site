@@ -7,6 +7,7 @@
 
    • core      → navegação, home, histórias, conta, loja. Sempre.
    • games     → strings de dentro dos jogos (inclui pp e toptrumps).
+   • creators  → área Creator (/creators).
    • prototype → laboratório.
 
    Gangues continua à parte, em gangues-<lang>.json, carregado por
@@ -24,6 +25,11 @@ const AREAS = {
     pt: () => import('./games/pt.json'),
     es: () => import('./games/es.json'),
     en: () => import('./games/en.json'),
+  },
+  creators: {
+    pt: () => import('./creators/pt.json'),
+    es: () => import('./creators/es.json'),
+    en: () => import('./creators/en.json'),
   },
   prototype: {
     pt: () => import('./prototype/pt.json'),
@@ -54,6 +60,7 @@ export async function carregarArea(area, locale) {
 export function areaDaRota(pathname) {
   if (/^\/games\/./.test(pathname)) return 'games'
   if (pathname.startsWith('/lab')) return 'prototype'
+  if (pathname.startsWith('/creators')) return 'creators'
   return null
 }
 

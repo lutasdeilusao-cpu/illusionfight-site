@@ -1,0 +1,134 @@
+/* Cardápio de um assunto: pratos para abrir e pautas para copiar. */
+.cr-cardapio {
+  display: grid;
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.cr-cardapio__eyebrow {
+  margin-top: 8px;
+}
+
+.cr-cardapio__nota {
+  margin: -4px 0 2px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.cr-cardapio__pratos {
+  display: grid;
+  gap: 10px;
+}
+
+.cr-prato {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  min-height: 128px;
+  text-decoration: none;
+  color: var(--if-ink);
+  background: var(--if-panel);
+  border: 1px solid var(--if-edge);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cr-prato:hover,
+.cr-prato:focus-visible {
+  border-color: var(--if-cyan-45);
+  box-shadow: inset 2px 0 var(--if-cyan);
+}
+
+.cr-prato__capa {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--if-cyan-08);
+}
+
+.cr-prato__capa img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cr-prato__icone {
+  font-size: 2.2rem;
+}
+
+.cr-prato__txt {
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 12px 14px;
+}
+
+.cr-prato__txt strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.05;
+}
+
+.cr-prato__txt small {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.cr-prato__servir {
+  margin-top: 2px;
+  font: 700 0.62rem var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--if-cyan);
+}
+
+.cr-prato__selo {
+  justify-self: start;
+  font: 700 0.55rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.cr-prato__selo--exclusivo,
+.cr-prato__selo--inedito { color: var(--if-amber); }
+
+.cr-prato__selo--completo,
+.cr-prato__selo--online { color: var(--if-ok); }
+
+.cr-prato__selo--steam { color: var(--if-cyan); }
+
+.cr-cardapio__pautas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.cr-pauta {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  gap: 8px;
+  align-items: start;
+  padding: 12px;
+}
+
+.cr-pauta__num {
+  font: 700 0.62rem var(--font-mono);
+  color: var(--if-cyan-58);
+  padding-top: 3px;
+}
+
+.cr-pauta__corpo strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--if-ink);
+}
+
+.cr-pauta__corpo p {
+  margin: 4px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}

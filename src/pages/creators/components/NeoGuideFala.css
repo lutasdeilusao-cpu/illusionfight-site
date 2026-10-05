@@ -1,0 +1,82 @@
+/* Balão da NeoGuide: avatar redondo de holograma + fala chanfrada. */
+.neo-fala {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.neo-fala__rosto {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--if-cyan-45);
+  box-shadow: 0 0 18px var(--if-cyan-20);
+  animation: neo-fala-pulso 3.2s ease-in-out infinite;
+}
+
+.neo-fala__balao {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 12px 14px 13px;
+  text-align: left;
+  font: inherit;
+  color: var(--if-ink);
+  background: var(--if-glass);
+  border: 1px solid var(--if-edge);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  box-shadow: inset 2px 0 var(--if-cyan);
+  cursor: pointer;
+}
+
+.neo-fala__nome {
+  font: 700 0.55rem var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+}
+
+.neo-fala__texto {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  white-space: pre-line;
+  min-height: 1.5em;
+}
+
+.neo-fala__cursor {
+  display: inline-block;
+  width: 7px;
+  height: 0.95em;
+  margin-left: 2px;
+  vertical-align: -0.12em;
+  background: var(--if-cyan);
+  animation: neo-fala-cursor 0.8s steps(1) infinite;
+}
+
+.neo-fala--compacta {
+  grid-template-columns: 38px 1fr;
+}
+
+.neo-fala--compacta .neo-fala__rosto {
+  width: 38px;
+  height: 38px;
+}
+
+.neo-fala--compacta .neo-fala__texto {
+  font-size: 0.84rem;
+}
+
+@keyframes neo-fala-cursor {
+  50% { opacity: 0; }
+}
+
+@keyframes neo-fala-pulso {
+  50% { box-shadow: 0 0 26px var(--if-cyan-45); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neo-fala__rosto,
+  .neo-fala__cursor { animation: none; }
+}

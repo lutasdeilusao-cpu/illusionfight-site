@@ -1,0 +1,26 @@
+/* Moldura da área Creator. A coluna vem do #root; aqui só o fundo de holograma. */
+.cr-page {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 3rem;
+  background:
+    radial-gradient(circle at 100% 0, var(--if-cyan-13), transparent 40%),
+    radial-gradient(circle at 0 60%, var(--if-amber-16), transparent 35%),
+    var(--bg-primary);
+  overflow-x: hidden;
+}
+
+.cr-carregando {
+  height: 60vh;
+  background: linear-gradient(90deg, transparent, var(--if-cyan-08), transparent);
+  background-size: 200% 100%;
+  animation: cr-carregando 1.4s linear infinite;
+}
+
+@keyframes cr-carregando {
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cr-carregando { animation: none; }
+}

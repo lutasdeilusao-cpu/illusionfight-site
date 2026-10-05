@@ -38,17 +38,20 @@ export default function ObraCapitulo() {
     chapter_id: cap, chapter_numero: capitulo?.numero, chapter_titulo: capitulo?.[tituloKey],
   }, { active: Boolean(obra) && Boolean(capitulo) })
 
+  // O perfil chega depois do primeiro render: o efeito tem que refazer quando o acesso muda.
+  const aberto = Boolean(obra && capitulo && estaDisponivel(capitulo, isAdmin, { user, perfil }))
+
   useEffect(() => {
     setNotFound(false)
     setCarregando(true)
-    if (!obra || !capitulo || !estaDisponivel(capitulo, isAdmin, { user, perfil })) { setNotFound(true); return }
+    if (!aberto) { setNotFound(true); return }
     const idiomas = obra.idiomas || ['pt']
     const lang = idiomas.includes(locale) ? locale : 'pt'
     const loader = obraLoaders[`../../data/historias/obras/${slug}/${lang}/${cap}.md`] || obraLoaders[`../../data/historias/obras/${slug}/pt/${cap}.md`]
     if (!loader) { setNotFound(true); return }
     loader().then(texto => { setMd(texto); setCarregando(false) }).catch(() => setNotFound(true))
     window.scrollTo(0, 0)
-  }, [slug, cap, obra, capitulo, isAdmin, locale])
+  }, [slug, cap, obra, capitulo, aberto, locale])
 
   const disponiveis = obra ? obra.capitulos.filter(c => estaDisponivel(c, isAdmin, { user, perfil })) : []
   const cur = disponiveis.findIndex(c => c.id === cap)

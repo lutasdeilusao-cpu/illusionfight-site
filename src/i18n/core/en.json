@@ -1632,7 +1632,8 @@
       "agora": "Live",
       "sessoes": "Sessions",
       "financeiro": "Finance",
-      "logs": "Logs"
+      "logs": "Logs",
+      "creators": "Creators"
     },
     "periodo": {
       "hoje": "Today",
@@ -1778,6 +1779,27 @@
       "copiado": "Copied!",
       "vazio": "No logs in this period.",
       "falta_migration": "Migration 046_debug_logs.sql has not been run on Supabase yet."
+    },
+    "creators": {
+      "titulo": "Creators ({n})",
+      "email": "Account email",
+      "canal": "Channel (optional)",
+      "prazo": "Duration",
+      "meses": "{n} month(s)",
+      "sem_prazo": "No end date",
+      "liberar": "Grant creator",
+      "nota": "The person needs an account on the site. They sign in at illusionfight.com/creators.",
+      "vazio": "No creators yet.",
+      "ate": "Until {data}",
+      "expirou": "Expired on {data}",
+      "termos_ok": "Terms accepted",
+      "termos_pendente": "Terms pending",
+      "mais_mes": "Renew 1 month",
+      "remover": "Remove",
+      "liberado": "{email} is now a creator.",
+      "removido": "{email} is no longer a creator.",
+      "nao_achou": "No account with {email}. They need to sign up first.",
+      "falta_migration": "Run migration 052_creators.sql on Supabase."
     }
   }
 }

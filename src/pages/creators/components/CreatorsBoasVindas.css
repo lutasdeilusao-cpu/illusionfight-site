@@ -1,0 +1,96 @@
+/* Primeira visita: termos e interesses. A ação mora embaixo, no alcance do dedão. */
+.cr-bv {
+  display: grid;
+  gap: 16px;
+  padding: 18px 16px 120px;
+}
+
+.cr-bv__termos {
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.cr-bv__regras {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.cr-bv__regra {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 8px;
+}
+
+.cr-bv__regra strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--if-ink);
+}
+
+.cr-bv__regra p {
+  margin: 3px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.cr-bv__regra.is-destaque strong {
+  color: var(--if-amber);
+}
+
+.cr-bv__num {
+  font: 700 0.62rem var(--font-mono);
+  color: var(--if-cyan-58);
+  padding-top: 3px;
+}
+
+.cr-bv__chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.cr-bv__chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 10px 12px;
+  font: 600 0.92rem var(--font-body);
+  color: var(--if-ink);
+  text-align: left;
+  background: var(--if-panel-flat);
+  border: 1px solid var(--if-hair-strong);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cr-bv__chip.is-ativo {
+  border-color: var(--if-cyan-45);
+  box-shadow: inset 2px 0 var(--if-cyan), 0 0 18px var(--if-cyan-13);
+}
+
+.cr-bv__chip-icone {
+  font-size: 1.3rem;
+}
+
+.cr-bv__acao {
+  position: fixed;
+  left: var(--app-gutter);
+  right: var(--app-gutter);
+  bottom: 0;
+  z-index: 60;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, transparent, var(--bg-primary) 35%);
+}
+
+.cr-bv__btn {
+  width: 100%;
+  min-height: 50px;
+  justify-content: center;
+}
