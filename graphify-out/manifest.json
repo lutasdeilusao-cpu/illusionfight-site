@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791239680.094028,
-    "ast_hash": "3430322654284ee5341e1017e0589d43",
+    "mtime": 1791242855.0300765,
+    "ast_hash": "648758e7a484a4f4ee6b9a671fa852f9",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791239680.1946425,
-    "ast_hash": "c4f229f9588d241e99fc332c784c66af",
+    "mtime": 1791242855.0769572,
+    "ast_hash": "b47b8a0e71564efd6b9cd5a7e62c2412",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7192,6 +7192,21 @@
   "src/pages/content/AutorCapitulo.jsx": {
     "mtime": 1791239463.0894458,
     "ast_hash": "cb25e62cf144e7d63b433fd334bae79c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/autor/en/01.md": {
+    "mtime": 1791242837.2688234,
+    "ast_hash": "d488e6372071eef59642dbb6ee7a68a6",
+    "semantic_hash": ""
+  },
+  "src/data/historias/autor/es/01.md": {
+    "mtime": 1791242854.8752527,
+    "ast_hash": "a10b4b3c6e8293f9d88c9fcb44bc9b10",
+    "semantic_hash": ""
+  },
+  "src/data/historias/autor/pt/01.md": {
+    "mtime": 1791242782.3897755,
+    "ast_hash": "2496c4b8d31885d5058d4a2d38fa759e",
     "semantic_hash": ""
   }
 }
