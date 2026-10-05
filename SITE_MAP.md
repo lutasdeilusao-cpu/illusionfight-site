@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.355.2**.
+> `SITE_VERSION` **10.355.3**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -393,7 +393,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.355.2** |
+| `SITE_VERSION` | Site global | **10.355.3** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.12.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
@@ -424,6 +424,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 | Versões | `src/config/version.js` |
 | Catálogo visível de jogos | `src/pages/games/Games.jsx` |
 | Conteúdo e traduções | `src/data/` e `src/i18n/` |
+| WEBSHARD LDI — manifesto e guia de produção (composição, texto, neon, safe area e acervo) | `public/docs/webshard/WEBSHARD_GUIA_DE_PRODUCAO.md` e `WEBSHARD_REFERENCIAS_E_PROCESSO.md` na mesma pasta; publicados como MD em `/docs/webshard/` |
 | Histórias, obras e cross-links | `src/data/historias/obras.json`, `src/data/historias/obras/`, `src/lib/historias/catalogo.js` · `src/pages/content/historias/` |
 | Worldbuilding dos universos | `src/data/universo-index.json`, `src/data/universo/`, `src/pages/content/Universo.jsx` (blocos tipados) |
 | Estado de um jogo | `src/pages/games/<Jogo>/store/` ou hooks do próprio módulo |
