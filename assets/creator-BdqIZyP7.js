@@ -1,0 +1,2 @@
+function e(e,t=new Date().toISOString().slice(0,10)){return e?.is_creator===!0?!e.creator_ate||e.creator_ate>=t:!1}function t(e,t=new Date){if(!e?.creator_ate)return null;let n=new Date(`${e.creator_ate}T23:59:59`);return Math.max(0,Math.ceil((n-t)/864e5))}export{t as n,e as t};
+//# sourceMappingURL=creator-BdqIZyP7.js.map
