@@ -1,0 +1,1 @@
+import"./PuzzleAnagrama-DapiFJeS.js";import"./PuzzleSimonSays-C9xXMZFS.js";import"./PuzzleSlidingTiles-C2Ee1o-W.js";
