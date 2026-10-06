@@ -26,6 +26,7 @@ export default function HistoriaCapLinha({ historia, cap, liberado, data, nivel,
       <span className="ws-cap__thumb">
         <img src={miniaturaCapHistoria(historia, cap)} alt="" loading="lazy" decoding="async" />
         <span className="ws-cap__num">{numeroCapHistoria(cap)}</span>
+        {cap.sensivel && <span className="hist-cap__sensivel-thumb" aria-hidden="true">⚠</span>}
       </span>
       <span className="ws-cap__corpo">
         <span className="ws-cap__rotulo">
@@ -33,6 +34,7 @@ export default function HistoriaCapLinha({ historia, cap, liberado, data, nivel,
           {t('webShard.cap.rotulo', { n: numeroCapHistoria(cap) })}
         </span>
         <span className="ws-cap__nome">{localizado(cap, 'titulo', locale)}</span>
+        {cap.sensivel && <span className="hist-cap__sensivel">⚠ {t('pages.historias.sensivel')}</span>}
         {resumo && <span className="hist-cap__resumo">{resumo}</span>}
         {cascata && <CascataLiberacao liberacao={cap.liberacao} nivel={nivel} />}
         {!cascata && (

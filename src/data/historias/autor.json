@@ -45,6 +45,41 @@
         "conta": "2099-01-01",
         "publico": "2099-01-01"
       }
+    },
+    {
+      "id": "03",
+      "numero": 3,
+      "titulo": "Quarenta minutos",
+      "titulo_en": "Forty Minutes",
+      "titulo_es": "Cuarenta minutos",
+      "resumo_pt": "Um vizinho caído no chão, vinte pessoas olhando e uma vida nas minhas mãos. É por isso que ninguém acredita nas minhas histórias.",
+      "resumo_en": "A neighbor on the ground, twenty people watching and a life in my hands. That's why nobody believes my stories.",
+      "resumo_es": "Un vecino en el suelo, veinte personas mirando y una vida en mis manos. Por eso nadie cree mis historias.",
+      "creator": true,
+      "liberacao": {
+        "primordial": "2099-01-01",
+        "elite": "2099-01-01",
+        "conta": "2099-01-01",
+        "publico": "2099-01-01"
+      }
+    },
+    {
+      "id": "04",
+      "numero": 4,
+      "titulo": "O último degrau",
+      "titulo_en": "The Last Step",
+      "titulo_es": "El último escalón",
+      "sensivel": true,
+      "resumo_pt": "⚠ Conteúdo sensível. Quatro anos de bullying, um soco no último degrau da escada e a decisão que mudou tudo. E a faca na quinta série.",
+      "resumo_en": "⚠ Sensitive content. Four years of bullying, a punch on the last step of a staircase and the decision that changed everything. And the knife in fifth grade.",
+      "resumo_es": "⚠ Contenido sensible. Cuatro años de bullying, un golpe en el último escalón y la decisión que lo cambió todo. Y el cuchillo en quinto grado.",
+      "creator": true,
+      "liberacao": {
+        "primordial": "2099-01-01",
+        "elite": "2099-01-01",
+        "conta": "2099-01-01",
+        "publico": "2099-01-01"
+      }
     }
   ]
 }

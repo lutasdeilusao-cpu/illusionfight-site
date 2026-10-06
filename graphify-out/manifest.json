@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791242925.6507938,
-    "ast_hash": "19745d6e7a54aaa72ff3e0456ee47f5c",
+    "mtime": 1791244973.378975,
+    "ast_hash": "911df83a6c909a32a74877532671b159",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791242925.6895676,
-    "ast_hash": "ac85689483485f1219002b956211fe77",
+    "mtime": 1791244973.4119744,
+    "ast_hash": "8d09c7f915dbaa0ad092f5a890875690",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7185,8 +7185,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/autor.json": {
-    "mtime": 1791239431.3149776,
-    "ast_hash": "51606765c8240223406132a742e7317c",
+    "mtime": 1791244962.489178,
+    "ast_hash": "79898703cc598c53e723340337a1c256",
     "semantic_hash": ""
   },
   "src/pages/content/AutorCapitulo.jsx": {
@@ -7195,18 +7195,33 @@
     "semantic_hash": ""
   },
   "src/data/historias/autor/en/01.md": {
-    "mtime": 1791242917.1590981,
-    "ast_hash": "921e0b58450e9fe0bd34567acf0d2a20",
+    "mtime": 1791244962.487969,
+    "ast_hash": "9bc6efb5ca68779b08679c23202dfdbc",
     "semantic_hash": ""
   },
   "src/data/historias/autor/es/01.md": {
-    "mtime": 1791242917.2521572,
-    "ast_hash": "928396773357c417d34d5d35fb562de6",
+    "mtime": 1791244962.489178,
+    "ast_hash": "72d0207bb76c1c5dcb6b9640bfe2a9b9",
     "semantic_hash": ""
   },
   "src/data/historias/autor/pt/01.md": {
-    "mtime": 1791242917.0810325,
-    "ast_hash": "1e6f6bf9234cf1aad090fd724776beed",
+    "mtime": 1791244962.4865963,
+    "ast_hash": "17521b101134df34f8590182eae6ca1c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/autor/en/02.md": {
+    "mtime": 1791244962.487969,
+    "ast_hash": "d3db01f075aa4ab352cf5b6eb849079b",
+    "semantic_hash": ""
+  },
+  "src/data/historias/autor/es/02.md": {
+    "mtime": 1791244962.489178,
+    "ast_hash": "6acaa8324925712c18f761157f4c5871",
+    "semantic_hash": ""
+  },
+  "src/data/historias/autor/pt/02.md": {
+    "mtime": 1791244962.487969,
+    "ast_hash": "88cb72998a622ed9f8108899f4d75d65",
     "semantic_hash": ""
   }
 }

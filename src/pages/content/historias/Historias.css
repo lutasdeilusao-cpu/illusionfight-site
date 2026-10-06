@@ -214,3 +214,23 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
+
+/* Capítulo com conteúdo sensível: selo na miniatura e na linha. */
+.hist-cap__sensivel-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  padding: 1px 4px;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  color: var(--bg-primary);
+  background: var(--if-amber);
+}
+
+.hist-cap__sensivel {
+  justify-self: start;
+  font: 700 0.56rem var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--if-amber);
+}
