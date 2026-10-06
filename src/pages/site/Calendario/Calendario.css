@@ -108,3 +108,11 @@ button.calendar-day { padding: 0; cursor: pointer; font: inherit; color: inherit
 @keyframes calendarPulse { 70% { box-shadow: 0 0 0 9px rgba(255,174,50,0); } 100% { box-shadow: 0 0 0 0 rgba(255,174,50,0); } }
 @keyframes channelSignal { 50% { transform: rotate(45deg) scale(.9); opacity: .62; } }
 @media (prefers-reduced-motion: reduce) { .calendar-pulse { animation: none; } }
+
+/* Músicas: destaque de que elas são canônicas (existem dentro da história). */
+.calendar-musica-canon { margin-top: 28px; padding: 22px 18px; border: 1px solid color-mix(in srgb, var(--if-pink, var(--if-violet)) 55%, transparent); background: radial-gradient(circle at 85% 0, color-mix(in srgb, var(--if-pink, var(--if-violet)) 22%, transparent), transparent 55%), rgba(8,14,19,.94); clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%); }
+.calendar-musica-canon span { font: 700 .62rem var(--font-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--if-pink, var(--if-violet)); }
+.calendar-musica-canon h2 { margin: 10px 0 10px; font: 800 1.5rem/1.05 var(--font-display); text-transform: uppercase; }
+.calendar-musica-canon p { margin: 0 0 14px; font: 500 .92rem/1.55 var(--font-body); color: #b9cbd1; }
+.calendar-musica-canon ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.calendar-musica-canon li { padding: 9px 10px 9px 12px; border-left: 2px solid var(--if-pink, var(--if-violet)); background: rgba(255,255,255,.035); font: 600 .84rem/1.4 var(--font-body); color: var(--if-ink); }

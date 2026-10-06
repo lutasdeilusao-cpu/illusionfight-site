@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { trackEvent } from '../../lib/analytics'
+import { resolveAccessLevel } from '../../lib/releaseAccess'
 import CONFIG from './radio-nina.config.json'
 import { carregarPlaylistSalva, salvarPlaylistSalva } from './radio-nina.playlist'
 import ninaArt from '../../assets/images/characters/nina-balloon.png'
@@ -12,7 +13,7 @@ const MS_ARTWORK = ['96x96', '128x128', '192x192', '256x256', '384x384', '512x51
 
 const {
   base: BASE, cores: CORES, aberturas: ABERTURAS, excluir: EXCLUIR, titulos: TITULOS,
-  musicas_por_ad: MUSICAS_POR_AD = 2, ads_pastas: ADS_PASTAS = {},
+  musicas_por_ad: MUSICAS_POR_AD = 2, ads_pastas: ADS_PASTAS = {}, bloqueios: BLOQUEIOS = [],
 } = CONFIG
 const COR_STORAGE = 'ldi-radio-nina-cor'
 const VOL_STORAGE = 'ldi-radio-nina-vol'
@@ -59,6 +60,17 @@ function filaComAbertura(pool) {
 
 const TIERS_SEM_AD = ['elite', 'primordial', 'moderator', 'admin']
 
+// Música da T1 bloqueada pelo calendário (config `bloqueios`): até `fecha_em`
+// toca pra todo mundo; dali em diante só pra assinante, e a conta grátis e o
+// público voltam a ouvir nas datas do calendário de músicas.
+const hojeBrasilia = () => new Date(Date.now() - 3 * 3600 * 1000).toISOString().slice(0, 10)
+function podeOuvir(key, nivel, admin) {
+  const b = BLOQUEIOS.find((x) => x.arquivos.includes(key))
+  const hoje = hojeBrasilia()
+  if (!b || admin || hoje < b.fecha_em || nivel === 'primordial' || nivel === 'elite') return true
+  return hoje >= (nivel === 'conta' ? b.conta : b.publico)
+}
+
 export function useRadioNina() {
   const { user, perfil } = useAuth()
   const semAds = perfil?.is_admin === true || TIERS_SEM_AD.includes(perfil?.tier)
@@ -77,7 +89,11 @@ export function useRadioNina() {
   const [playlistSalva, setPlaylistSalva] = useState([])
 
   const audioRef = useRef(null)
-  const poolRef = useRef([])
+  const poolRef = useRef([]) // o que essa pessoa pode ouvir agora
+  const poolTodoRef = useRef([]) // tudo que existe no servidor
+  const nivel = resolveAccessLevel(user, perfil)
+  const admin = perfil?.is_admin === true
+  const filtroRef = useRef((k) => podeOuvir(k, nivel, admin))
   const filaRef = useRef([])
   const idxRef = useRef(0)
   const carregandoRef = useRef(false)
@@ -99,14 +115,22 @@ export function useRadioNina() {
   useEffect(() => { semAdsRef.current = semAds }, [semAds])
   const tocandoRef = useRef(false)
   useEffect(() => { tocandoRef.current = tocando }, [tocando])
+  // Login, assinatura ou troca de nível: refiltra o que dá pra ouvir.
+  useEffect(() => {
+    filtroRef.current = (k) => podeOuvir(k, nivel, admin)
+    if (!poolTodoRef.current.length) return
+    poolRef.current = poolTodoRef.current.filter((t) => filtroRef.current(t.key))
+    setPool(poolRef.current)
+  }, [nivel, admin])
 
   const garantirPool = useCallback(async () => {
-    if (poolRef.current.length || carregandoRef.current) return
+    if (poolTodoRef.current.length || carregandoRef.current) return
     carregandoRef.current = true
     try {
       const p = await buscarPool()
-      poolRef.current = p
-      setPool(p)
+      poolTodoRef.current = p
+      poolRef.current = p.filter((t) => filtroRef.current(t.key))
+      setPool(poolRef.current)
     } catch (err) {
       console.warn(err)
     } finally {

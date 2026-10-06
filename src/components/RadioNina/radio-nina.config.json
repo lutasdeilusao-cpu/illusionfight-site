@@ -1,8 +1,19 @@
 {
   "base": "https://illusionfightsongs.lutasdeilusao.workers.dev",
-  "cores": ["#ff6b9d", "#2ec4b6", "#f4a52b", "#a56bff", "#4d9dff", "#3ddc84"],
+  "cores": [
+    "#ff6b9d",
+    "#2ec4b6",
+    "#f4a52b",
+    "#a56bff",
+    "#4d9dff",
+    "#3ddc84"
+  ],
   "musicas_por_ad": 2,
-  "ads_pastas": { "pt": "MaketingBR", "en": "MaketingEN", "es": "MaketingES" },
+  "ads_pastas": {
+    "pt": "MaketingBR",
+    "en": "MaketingEN",
+    "es": "MaketingES"
+  },
   "aberturas": {
     "pt": "Lutas de Ilusão(Opening) - Isaias Leal Music.mp3",
     "es": "Luchas de ilusión (Opening) - Isaias Leal Music.mp3",
@@ -23,5 +34,18 @@
     "Asilo Star (ROCK).mp3": "Asilo Star (Rock)",
     "Deixa essa night rolar v2.mp3": "Deixa Essa Night Rolar (v2)",
     "Deixa essa night rolar.mp3": "Deixa Essa Night Rolar"
-  }
+  },
+  "bloqueios": [
+    {
+      "musica_t1": 1,
+      "arquivos": [
+        "Lutas de Ilusão(Opening) - Isaias Leal Music.mp3",
+        "Luchas de ilusión (Opening) - Isaias Leal Music.mp3",
+        "Illusion Fight (Opening)  - Isaias Leal Music.mp3"
+      ],
+      "fecha_em": "2026-11-01",
+      "conta": "2026-12-15",
+      "publico": "2027-01-15"
+    }
+  ]
 }

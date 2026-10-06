@@ -1390,7 +1390,14 @@
     "game_isometrico_desc": "El LDI en vista isométrica.",
     "item_musica": "Canción {n} de la T1 · Radio Nina",
     "work_musicas": "Banda sonora de la T1 · 9 canciones",
-    "launch_music": "Canciones en el lanzamiento"
+    "launch_music": "Canciones en el lanzamiento",
+    "musica_canon_eyebrow": "Banda sonora canónica",
+    "musica_canon_titulo": "Estas canciones existen dentro de la historia",
+    "musica_canon_texto": "Cada canción de la Temporada 1 es exclusiva de Lutas de Ilusão y forma parte del canon: se menciona y se toca en la historia, con la banda de Kim, Jack y Nina y con quien todavía va a aparecer.",
+    "musica_canon_1": "Se menciona y se toca en los capítulos: lees la escena y escuchas la canción de verdad.",
+    "musica_canon_2": "El suscriptor la escucha primero, exclusiva en Radio Nina.",
+    "musica_canon_3": "Después llega a la cuenta gratis, al público y a las plataformas.",
+    "item_musica_titulo": "Canción {n} de la T1: {titulo} · Radio Nina"
   },
   "home": {
     "section_latest": "Lanzamientos",

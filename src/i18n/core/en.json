@@ -1390,7 +1390,14 @@
     "game_isometrico_desc": "LDI in isometric view.",
     "item_musica": "Song {n} of S1 · Radio Nina",
     "work_musicas": "S1 soundtrack · 9 songs",
-    "launch_music": "Songs at launch"
+    "launch_music": "Songs at launch",
+    "musica_canon_eyebrow": "Canon soundtrack",
+    "musica_canon_titulo": "These songs exist inside the story",
+    "musica_canon_texto": "Every Season 1 song is exclusive to Illusion Fight and part of the canon: it is mentioned and played in the story, by Kim, Jack and Nina’s band and by the members still to come.",
+    "musica_canon_1": "It is mentioned and played in the chapters: you read the scene and hear the actual song.",
+    "musica_canon_2": "Subscribers hear it first, exclusively on Radio Nina.",
+    "musica_canon_3": "Only later does it reach free accounts, everyone else and the streaming platforms.",
+    "item_musica_titulo": "Song {n} of S1: {titulo} · Radio Nina"
   },
   "home": {
     "section_latest": "New releases",

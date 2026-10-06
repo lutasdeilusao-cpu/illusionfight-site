@@ -192,6 +192,14 @@ export default function Calendario() {
       )}
 
       {(channel === 'chapters' || channel === 'webtoon' || channel === 'music') && <>
+      {channel === 'music' && (
+        <section className="calendar-musica-canon">
+          <span>{t('calendar.musica_canon_eyebrow')}</span>
+          <h2>{t('calendar.musica_canon_titulo')}</h2>
+          <p>{t('calendar.musica_canon_texto')}</p>
+          <ul>{['1', '2', '3'].map(k => <li key={k}>{t(`calendar.musica_canon_${k}`)}</li>)}</ul>
+        </section>
+      )}
 
       <section className="calendar-section" aria-labelledby="levels-title">
         <div className="calendar-section-heading"><span>01</span><h2 id="levels-title">{t('calendar.levels_title')}</h2></div>
