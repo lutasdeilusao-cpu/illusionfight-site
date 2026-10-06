@@ -975,7 +975,7 @@
           "r4": "DEFENSE: you can’t see his strikes, only how many are coming. Pick up to 2 points to guard, in any order. Then it compares: strikes on a limb you guarded don’t land, the rest do. Guard at least one and the turn is yours.",
           "r5": "A heavy strike (head, elbow, knee) landing unblocked leaves you dizzy: only 1 strike next time.",
           "r6": "The center lights up green rarely: run your finger through it on defense and you dodge the whole attack, losing no blood, and the turn flips.",
-          "r7": "Tap (or hold) the ⚡ orb above the head to fill the power bar. When it’s full the game pauses and you pick a power (Black Ice freezes, Shock paralyzes, Blindness blinds). Draw the sequence and it fires — unblockable damage plus the effect.",
+          "r7": "Tap (or hold) the ⚡ orb above the head to fill the power bar. When it’s full the orb becomes the SUPER button: tap it and the numbered sequence shows up on your pentagram (with more than one power, the game pauses so you can pick: Black Ice freezes, Shock paralyzes, Blindness blinds). Follow the numbers and the power fires — unblockable damage plus the effect.",
           "r8": "Rhythm is damage: every beat has one full strike. A point hit on the beat (gold, as the ring closes) delivers 25% of it; off beat, 10%. 4 on-beat strikes = a full strike; 1 on beat + 3 off = 55%. Elbows, knees and the head weigh a bit more. And don’t repeat the same combo 3 times in a row — he reads it and guards.",
           "r9": "He has a super too: when his bar fills you get a warning and a red sequence of 3 to 6 points. Tap ALL of them, in any order, even off beat. Miss one and you take the power and its effect."
         },
@@ -1041,7 +1041,7 @@
         "habilidade": "Skill (test)",
         "ver_origem": "See where his 1st strike starts",
         "toque_carregar": "Tap the blinking point {n}× to charge",
-        "poder_pronto": "{poder} ready: draw the white sequence",
+        "poder_pronto": "{poder} ready: follow the numbered sequence",
         "carregando_poder": "Charging power…",
         "poderes": {
           "geloNegro": "Black Ice",
@@ -1105,7 +1105,7 @@
           "pausa": "Game paused",
           "titulo": "Which power now?",
           "detalhe": "{dano} damage · {n}-point sequence",
-          "depois": "Not now (tap the ⚡ to come back)"
+          "voltar": "Back to the fight"
         },
         "kit": "you: {n} points",
         "sem_poder": "no power",
@@ -1113,7 +1113,11 @@
         "paralisado": "Paralyzed: you can’t move this beat",
         "cego": "Blind: you can’t see what’s coming",
         "seguir": "Continue",
-        "tentar_de_novo": "Try again"
+        "tentar_de_novo": "Try again",
+        "super_pronto": "SUPER ready: tap the ⚡ above the head",
+        "virada_parado": "You lost the beat — now he attacks",
+        "sem_ataque": "no attack",
+        "sem_defesa": "no guard"
       }
     },
     "toptrumps": {

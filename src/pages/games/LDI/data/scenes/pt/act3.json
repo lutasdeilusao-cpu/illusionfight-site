@@ -98,13 +98,6 @@
     "title": "Coleta na Arena",
     "luta": "GhostPulse",
     "text": [
-      "GhostPulse de novo. Claro que ele pediu a revanche. Gente que perde na frente da câmera sempre pede.",
-      "Ele lembra de você. E lembra do chat gritando o seu nome enquanto ele tava no chão.",
-      "Hoje não tem beijo pra câmera. Hoje não tem pose.",
-      "Ele entra rápido e você apanha rápido. Dois socos limpos na cara antes de você levantar a guarda direito. O gosto de sangue é o mesmo aqui dentro e lá fora. Ninguém te conta isso também.",
-      "Só que você não veio só pra ganhar. Por baixo da luta, o SBI da Kaeda tá rodando, verde, quieto, gravando cada pacote estranho que passa pelo chão da arena.",
-      "Então você faz o que precisa: aguenta. Segura a luta viva. Quanto mais tempo no ringue, mais arquivo no bolso.",
-      "No sexto minuto o GhostPulse cansa de bater em alguém que não cai. E cansado ele erra. Você não.",
       "Você ganha por pouco. A coleta, por muito.",
       "[SISTEMA] \"COLETA: 1 ARQUIVO.\""
     ],
@@ -240,13 +233,6 @@
     "title": "O Muro",
     "luta": "IronVeil",
     "text": [
-      "IronVeil é um muro com perna. Rank 98 mil, armadura de tanque, paciência infinita.",
-      "Ele não ataca. Espera. Deixa você bater na guarda dele até o seu braço doer mais que a cara dele.",
-      "Você tenta pela esquerda. Muro. Pela direita. Muro. Por baixo. Muro com joelho.",
-      "Não dá pra quebrar o muro.",
-      "Mas dá pra fazer o muro andar.",
-      "Você para de bater e começa a rodar. Em volta dele, devagar, sempre pro lado em que a armadura pesa mais. Ele gira junto, gira, gira, e a cada giro aquela armadura linda vai ficando um pouco mais pesada que a vontade dele.",
-      "Quando a guarda dele desce dois dedos, é o suficiente.",
       "Ele cai igual prédio implodido: devagar, depois tudo de uma vez.",
       "O SBI vibra duas vezes. Mais um arquivo. E uma anomalia: a luta foi reprogramada três vezes antes de começar. Por alguém que não era nem você nem ele."
     ],
@@ -535,15 +521,6 @@
     "title": "A Captura",
     "luta": "Sombra Digital",
     "text": [
-      "A luta foi marcada no minuto exato. A arena carrega.",
-      "E carrega errado.",
-      "O chão demora meio segundo a mais pra aparecer. A luz pisca. E o oponente não tem rosto: é uma silhueta escura que falha igual sinal de TV com chuva. O letreiro diz SOMBRA DIGITAL. O rank diz um número que muda toda vez que você olha.",
-      "Ela bate como se soubesse onde você vai estar antes de você saber.",
-      "Porque sabe. Tem alguém mexendo no sistema enquanto vocês lutam. Alguém lendo o seu próximo movimento direto do seu SBI.",
-      "É esse o momento. O seu único trabalho agora é não cair.",
-      "Você apanha. Apanha muito. Segura a guarda, segura o chão, segura a respiração. Um minuto. Um minuto e meio.",
-      "{veia:2} Você para de pensar em golpe. Lona é isso: o corpo sabe ficar de pé quando a cabeça já desistiu.",
-      "{veia:5} O chiado grita. Pela primeira vez ele grita. E a sombra hesita, como se também tivesse ouvido.",
       "[SISTEMA] \"CAPTURA EM ANDAMENTO... 40%... 80%...\"",
       "A sombra trava no meio de um golpe. O punho dela para a dois dedos do seu rosto.",
       "[SISTEMA] \"100%.\""

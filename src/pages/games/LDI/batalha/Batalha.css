@@ -68,7 +68,8 @@
 .pg-batida i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--if-amber); animation: pg-batida var(--dur) linear forwards; }
 .pg-batida i.is-replay { background: var(--text-secondary); }
 
-/* Tabuleiro */
+/* Tabuleiro: menor que a coluna, centrado, perto do dedão. */
+.pg-palco { width: min(100%, 300px); margin: 0 auto; }
 .pg-tabuleiro { width: 100%; aspect-ratio: 300 / 312; display: block; touch-action: none; }
 .pg-tabuleiro.is-mini { pointer-events: none; }
 .pg-tabuleiro.is-travado .pg-ponto circle { opacity: 0.7; }
@@ -88,13 +89,23 @@
 .pg-centro.is-aberto { fill: var(--if-ok); filter: drop-shadow(0 0 10px var(--if-ok)); }
 .pg-centro.is-ligado { fill: var(--pg-jog); filter: drop-shadow(0 0 10px var(--pg-jog)); }
 .pg-linha--guia { stroke: var(--if-cyan); stroke-width: 4; stroke-dasharray: 4 6; opacity: 0.9; filter: drop-shadow(0 0 6px var(--if-cyan)); animation: pg-pisca 0.4s ease-in-out infinite alternate; }
-.pg-num--guia { fill: var(--if-ink); font-size: 14px; text-anchor: middle; paint-order: stroke; stroke: var(--if-panel-flat); stroke-width: 4px; pointer-events: none; }
-.pg-num--guia.is-inicio { fill: var(--if-cyan); font-size: 16px; }
-.pg-guia-inicio { fill: none; stroke: var(--if-cyan); stroke-width: 3; pointer-events: none; animation: pg-pisca 0.4s ease-in-out infinite alternate; }
-.pg-tabuleiro.is-perigo .pg-guia-inicio, .pg-tabuleiro.is-perigo .pg-num--guia.is-inicio { stroke: var(--pg-ini); }
+.pg-num--guia { fill: var(--if-ink); font-size: 15px; text-anchor: middle; paint-order: stroke; stroke: var(--if-panel-flat); stroke-width: 3px; pointer-events: none; }
+.pg-num--guia.is-proximo { fill: var(--if-cyan); font-size: 18px; }
+.pg-num--guia.is-feito { opacity: 0.35; }
+/* Sequência do poder: pendente em ciano tracejado, próximo pulsando, feito aceso. */
+.pg-ponto.is-guia circle:not(.pg-anel) { stroke: var(--if-cyan); stroke-dasharray: 4 3; }
+.pg-ponto.is-guia-proximo circle:not(.pg-anel) { fill: color-mix(in srgb, var(--if-cyan) 22%, var(--if-panel-flat)); stroke: var(--if-cyan); stroke-width: 3; }
+.pg-ponto.is-guia-feito circle:not(.pg-anel) { fill: var(--if-cyan); stroke: var(--if-cyan); }
+.pg-guia-proximo { fill: none; stroke: var(--if-cyan); stroke-width: 3; pointer-events: none; transform-box: fill-box; transform-origin: center; animation: pg-chama 0.7s ease-out infinite; }
+.pg-tabuleiro.is-perigo .pg-ponto.is-guia-proximo circle:not(.pg-anel) { fill: color-mix(in srgb, var(--pg-ini) 22%, var(--if-panel-flat)); stroke: var(--pg-ini); animation: pg-pisca 0.35s ease-in-out infinite alternate; }
+.pg-tabuleiro.is-perigo .pg-ponto.is-guia-feito circle:not(.pg-anel) { fill: var(--pg-ini); stroke: var(--pg-ini); }
 .pg-orbe circle { fill: var(--if-panel-flat); stroke: var(--if-cyan); stroke-width: 2; }
 .pg-orbe text { font-size: 13px; text-anchor: middle; pointer-events: none; }
 .pg-orbe.is-segurando circle { fill: var(--if-cyan); filter: drop-shadow(0 0 12px var(--if-cyan)); animation: pg-pisca 0.3s ease-in-out infinite alternate; }
+/* SUPER pronto: a bolinha vira botão grande, com onda saindo. */
+.pg-orbe.is-pronto circle:not(.pg-orbe__onda) { fill: var(--if-cyan); stroke: var(--if-ink); filter: drop-shadow(0 0 14px var(--if-cyan)); }
+.pg-orbe.is-pronto text { font-size: 18px; }
+.pg-orbe__onda { fill: none; stroke: var(--if-cyan); stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: pg-chama 0.9s ease-out infinite; }
 .pg-passo.is-poder { color: var(--if-cyan); font-weight: 900; text-transform: uppercase; }
 .pg-passo.is-congelado { color: var(--text-secondary); }
 .pg-carga { fill: none; stroke: var(--pg-jog); stroke-width: 4; stroke-dasharray: var(--prog) 100; transform: rotate(-90deg); transform-box: fill-box; transform-origin: center; transition: stroke-dasharray 0.15s; }
@@ -135,6 +146,22 @@
 .pg-topo { display: flex; justify-content: space-between; margin: -8px 0 -2px; }
 .pg-sair { min-height: 40px; padding: 8px 14px; cursor: pointer; background: none; border: 1px solid var(--if-hair-strong); color: var(--text-secondary); font: 700 0.6rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; }
 
+/* Impacto da troca: tela pisca vermelho quando você apanha, ciano quando acerta;
+   o dano sobe da barra de quem tomou; poder solto atravessa a tela. */
+.pg-impacto { position: fixed; inset: 0 var(--app-gutter); z-index: 50; pointer-events: none; animation: pg-impacto 0.55s ease-out forwards; }
+.pg-impacto.is-golpeado { box-shadow: inset 0 0 90px color-mix(in srgb, var(--pg-ini) 75%, transparent); }
+.pg-impacto.is-acertou { box-shadow: inset 0 0 70px color-mix(in srgb, var(--pg-jog) 55%, transparent); }
+.pg-barra { position: relative; }
+.pg-barra__dano { position: absolute; top: 52px; font: 900 1.3rem var(--font-display); color: var(--if-amber); text-shadow: 0 0 10px var(--pg-ini), 0 2px 0 var(--ldi-bg); pointer-events: none; animation: pg-dano-barra 0.9s ease-out forwards; }
+.pg-barra.is-jog .pg-barra__dano { left: 30%; }
+.pg-barra.is-ini .pg-barra__dano { right: 30%; }
+.pg-flash-poder { position: fixed; inset: 40% var(--app-gutter) auto; z-index: 52; margin: 0; text-align: center; pointer-events: none; font: 900 2.4rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.06em; animation: pg-flash-poder 1.1s ease-out forwards; }
+.pg-flash-poder.is-jog { color: var(--pg-jog); text-shadow: 0 0 24px var(--pg-jog); }
+.pg-flash-poder.is-ini { color: var(--pg-ini); text-shadow: 0 0 24px var(--pg-ini); }
+@keyframes pg-impacto { from { opacity: 1; } to { opacity: 0; } }
+@keyframes pg-dano-barra { 0% { transform: translateY(6px) scale(1.4); opacity: 0; } 20% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-14px); opacity: 0; } }
+@keyframes pg-flash-poder { 0% { transform: scale(2.2); opacity: 0; } 25% { transform: scale(1); opacity: 1; } 75% { opacity: 1; } 100% { transform: scale(0.9); opacity: 0; } }
+@keyframes pg-chama { from { transform: scale(1); opacity: 0.9; } to { transform: scale(1.7); opacity: 0; } }
 @keyframes pg-batida { to { width: 100%; } }
 @keyframes pg-pulso { 0% { border-color: var(--pulso, transparent); box-shadow: inset 0 0 22px color-mix(in srgb, var(--pulso, transparent) 35%, transparent); } 60%, 100% { border-color: transparent; box-shadow: none; } }
 @keyframes pg-anel { 0% { transform: scale(2); opacity: 0; } 60% { opacity: 0.55; } 100% { transform: scale(1); opacity: 0.9; } }
@@ -162,7 +189,8 @@
 .pg-escolha__poder small { font-size: 0.74rem; line-height: 1.35; }
 .pg-escolha__poder.is-choque { border-color: var(--if-amber); background: color-mix(in srgb, var(--if-amber) 10%, transparent); }
 .pg-escolha__poder.is-cegueira { border-color: var(--text-secondary); background: color-mix(in srgb, var(--text-secondary) 10%, transparent); }
-.pg-escolha__depois { min-height: 44px; cursor: pointer; border: 1px solid var(--if-hair-strong); background: transparent; color: var(--text-secondary); font: 800 0.66rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
+.pg-escolha__poder:disabled, .pg-escolha__voltar:disabled { opacity: 0.5; }
+.pg-escolha__voltar { min-height: 44px; cursor: pointer; border: 1px solid var(--if-hair-strong); background: transparent; color: var(--text-secondary); font: 800 0.66rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
 
 /* Super dele: a sequência vem em vermelho. Cego: o tabuleiro apaga. */
 .pg-tabuleiro.is-perigo .pg-linha--guia { stroke: var(--pg-ini); filter: drop-shadow(0 0 8px var(--pg-ini)); }

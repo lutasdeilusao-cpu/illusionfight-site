@@ -975,7 +975,7 @@
           "r4": "DEFESA: você não vê os golpes dele, só sabe quantos vêm. Escolha até 2 pontos pra proteger, em qualquer ordem. No fim compara: golpe no membro que você protegeu não entra, os outros entram. Defendeu pelo menos um, a vez é sua.",
           "r5": "Golpe grave (cabeça, cotovelo, joelho) entrando sem bloqueio deixa tonto: na próxima, 1 golpe só.",
           "r6": "O centro acende verde raramente: passe o dedo por ele na defesa e você esquiva o ataque inteiro, sem perder sangue, e a vez vira.",
-          "r7": "Toque (ou segure) a bolinha ⚡ em cima da cabeça pra encher a barra de poder. Cheia, o jogo pausa e você escolhe o poder (Gelo Negro congela, Choque paralisa, Cegueira cega). Desenhe a sequência e ele sai — dano sem bloqueio e o efeito.",
+          "r7": "Toque (ou segure) a bolinha ⚡ em cima da cabeça pra encher a barra de poder. Cheia, a bolinha vira o botão do SUPER: toque nela e aparece a sequência numerada no seu pentagrama (com mais de um poder, o jogo pausa pra você escolher: Gelo Negro congela, Choque paralisa, Cegueira cega). Siga os números e o poder sai — dano sem bloqueio e o efeito.",
           "r8": "Ritmo vale dano: cada batida tem um golpe cheio. Ponto ligado no beat (dourado, quando o anel fecha) entrega 25% dele; fora do beat, 10%. 4 golpes no beat = golpe cheio; 1 no beat + 3 fora = 55%. Cotovelo, joelho e cabeça pesam um pouco mais. E não repita o mesmo combo 3 vezes seguidas — ele lê e defende.",
           "r9": "Ele também tem super: quando a barra dele enche, aparece o aviso e uma sequência vermelha de 3 a 6 pontos. Toque TODOS, em qualquer ordem e fora do beat mesmo. Escapou um, você toma o poder e o efeito dele."
         },
@@ -1041,7 +1041,7 @@
         "habilidade": "Habilidade (teste)",
         "ver_origem": "Ver de onde nasce o 1º golpe dele",
         "toque_carregar": "Toque {n}× no ponto que pisca pra carregar",
-        "poder_pronto": "{poder} pronto: desenhe a sequência branca",
+        "poder_pronto": "{poder} pronto: siga os números da sequência",
         "carregando_poder": "Carregando poder…",
         "poderes": {
           "geloNegro": "Gelo Negro",
@@ -1105,7 +1105,7 @@
           "pausa": "Jogo pausado",
           "titulo": "Qual poder agora?",
           "detalhe": "{dano} de dano · sequência de {n} pontos",
-          "depois": "Agora não (toque na ⚡ pra voltar)"
+          "voltar": "Voltar pra luta"
         },
         "kit": "você: {n} pontos",
         "sem_poder": "sem poder",
@@ -1113,7 +1113,11 @@
         "paralisado": "Paralisado: essa batida você não se mexe",
         "cego": "Cego: não dá pra ver o que vem",
         "seguir": "Seguir",
-        "tentar_de_novo": "Tentar de novo"
+        "tentar_de_novo": "Tentar de novo",
+        "super_pronto": "SUPER pronto: toque na ⚡ em cima da cabeça",
+        "virada_parado": "Você perdeu o tempo — agora ele ataca",
+        "sem_ataque": "não atacou",
+        "sem_defesa": "não defendeu"
       }
     },
     "toptrumps": {

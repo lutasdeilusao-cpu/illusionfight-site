@@ -287,6 +287,9 @@ Histórico de mudanças não existe no produto, de maneira alguma (Isaias, 03/10
 - **Gangues: a pergunta "começar em Briga em Multidão?" só aparece na 1ª luta elegível do save** — a resposta fica em `ldi-gangues-multidao-escolha:<saveId>` (`useEscolhaMultidao`), e o switch regrava. Pergunta modal em toda luta travava o automático, a Rinha e a briga de rua.
 - **Botão invisível também recebe toque** — `opacity: 0` não tira o elemento do caminho do dedo. O "voltar ao topo" do site ficava invisível no canto de baixo à direita e roubava o toque do botão Automático da Multidão. Todo elemento escondido por opacidade leva `visibility: hidden; pointer-events: none`.
 
+- **Lendas: a briga é o pentagrama, nunca texto** — cena com `luta` (nome do inimigo) e uma escolha com `luta` (id da campanha) abre a batalha ao entrar; o `text` dessa cena é só a consequência depois da vitória (nada de luta narrada golpe a golpe). Só existe cena em `data/scenes/pt/`; a versão antiga com ficha e `combat_*` (en/es) foi apagada — idioma novo entra quando o texto pt for aprovado, já no formato novo.
+- **Pentagrama: nada abre sozinho embaixo do dedão** — a barra de SUPER cheia não abre janela; a bolinha ⚡ vira o botão do SUPER e só um toque nela solta o poder (kit com 1 poder) ou pausa pra escolher (`EscolhaPoder`, botões travados nos primeiros 450 ms). A janela automática antiga abria no meio de um toque no tabuleiro e o "agora não" travava o super pra sempre.
+
 ## Regra Anti-Over-Engineering
 
 Antes de criar **mais de 2 arquivos novos** para resolver qualquer problema, o agente deve apresentar a proposta e aguardar aprovação explícita.

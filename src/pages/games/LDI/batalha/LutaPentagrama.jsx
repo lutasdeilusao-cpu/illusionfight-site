@@ -38,7 +38,7 @@ export default function Luta({ t, ficha, batida, verOrigem, onSair, onResultado 
   const [recusa, setRecusa] = useState(null) // toque recusado: mostra o motivo e treme o tabuleiro
   const [fantasmas, setFantasmas] = useState([]) // atacando: a reação dele a cada golpe seu
   const [escolhendo, setEscolhendo] = useState(false) // pausa pra escolher o poder
-  const [dispensou, setDispensou] = useState(false) // "agora não": só reabre tocando na bolinha
+  const [impacto, setImpacto] = useState(null) // { jog, ini, poder, id }: flash e número de dano da troca
   const [poderEsc, setPoderEsc] = useState(null) // o poder escolhido (a sequência dele é a `guia`)
   const [retomada, setRetomada] = useState(0) // a batida recomeça depois da pausa
   const [poderIni, setPoderIni] = useState(0) // a barra do super dele
@@ -161,12 +161,15 @@ export default function Luta({ t, ficha, batida, verOrigem, onSair, onResultado 
       if (golpesDe(cj).length && meu === 'ataque') ultimoJog.current = golpesDe(cj)
       const novaVida = { jog: Math.max(0, vd.jog - danoJog), ini: Math.max(0, vd.ini - danoIni) }
       setVida(novaVida)
+      const poderSaiu = r.passos.find(p => p.tipo === 'poder')
+      if (danoJog || danoIni || poderSaiu) setImpacto({ jog: danoJog, ini: danoIni, poder: poderSaiu?.poder || null, quemPoder: poderSaiu ? quem(poderSaiu.quem) : null, id: Date.now() })
       const bonus = Math.min(ENERGIA_MAX, ENERGIA_BASE + r.bonusDef)
       setEnergia(meu === 'ataque' ? { jog: ENERGIA_BASE, ini: bonus } : { jog: bonus, ini: ENERGIA_BASE })
       const tontoGrav = { jog: meu === 'ataque' ? false : Boolean(r.defTonto), ini: meu === 'ataque' ? Boolean(r.defTonto) : false }
       setTonto({ jog: tontoGrav.jog || efJog === 'tonto', ini: tontoGrav.ini || efIni === 'tonto' })
       setVirou(r.vira)
-      setReplay({ passos, comboJog, comboIni: comboOutro, carga: cg, papel: meu, vira: r.vira, tontoJog: tontoGrav.jog, tontoIni: tontoGrav.ini })
+      const parado = r.passos.some(p => p.tipo === 'parado')
+      setReplay({ passos, comboJog, comboIni: comboOutro, carga: cg, papel: meu, vira: r.vira, parado, tontoJog: tontoGrav.jog, tontoIni: tontoGrav.ini })
       setCentroAberto(false)
       setTravado(true)
       const semi = batida / 16000
@@ -178,7 +181,7 @@ export default function Luta({ t, ficha, batida, verOrigem, onSair, onResultado 
       })
       timers.push(setTimeout(() => {
         if (novaVida.jog <= 0 || novaVida.ini <= 0) { setFim(novaVida.ini <= 0 ? 'vitoria' : 'derrota'); return }
-        setCombo([]); setTempos([]); setFantasmas([]); setToques(0); setTelegrafo([]); setTravado(false); setReplay(null); setSuperDele(null)
+        setCombo([]); setTempos([]); setFantasmas([]); setToques(0); setTelegrafo([]); setTravado(false); setReplay(null); setSuperDele(null); setImpacto(null)
         setVirou(false)
         if (r.vira) setPapel(p => (p === 'ataque' ? 'defesa' : 'ataque'))
         setN(x => x + 1)
@@ -228,24 +231,23 @@ export default function Luta({ t, ficha, batida, verOrigem, onSair, onResultado 
     setToques(x => x + 1)
     somLigar(2 + Math.floor((toques + 1) / TOQUES_POR_CARGA), 'cab')
   }, [toques])
-  const tocarOrbe = useCallback(() => {
-    setDispensou(false)
-    setPoder(p => Math.min(PODER_MAX, p + PODER_POR_TOQUE))
-  }, [])
-  // Barra cheia: o jogo pausa inteiro pra você escolher o poder.
-  useEffect(() => {
-    if (poder >= PODER_MAX && !poderEsc && !dispensou && !replay && !fim && ficha.kit.poderes.length) {
-      setSegurando(false)
-      setEscolhendo(true)
-    }
-  }, [poder, poderEsc, dispensou, replay, fim, ficha.kit.poderes.length])
-  const escolherPoder = id => {
+  // SUPER: a barra cheia nunca abre nada sozinha (abria embaixo do dedão no
+  // meio de um toque e um toque sem querer fechava). A bolinha ⚡ vira o botão
+  // do SUPER; tocar nela solta o poder (um só no kit) ou pausa pra escolher.
+  const superPronto = poder >= PODER_MAX && !poderEsc && ficha.kit.poderes.length > 0
+  const escolherPoder = useCallback(id => {
     setPoderEsc(id)
     setGuia(sequenciaDoPoder(PODERES[id]))
     setEscolhendo(false)
-    setRetomada(x => x + 1)
-  }
-  const deixarPraDepois = () => { setDispensou(true); setEscolhendo(false); setRetomada(x => x + 1) }
+  }, [])
+  const tocarOrbe = useCallback(() => {
+    if (!superPronto) { setPoder(p => Math.min(PODER_MAX, p + PODER_POR_TOQUE)); return }
+    somPoder()
+    if (ficha.kit.poderes.length === 1) { escolherPoder(ficha.kit.poderes[0]); return }
+    setEscolhendo(true)
+  }, [superPronto, ficha.kit.poderes, escolherPoder])
+  const voltarDaEscolha = () => { setEscolhendo(false); setRetomada(x => x + 1) }
+  const segurarOrbe = useCallback(v => setSegurando(v && !superPronto), [superPronto])
   // Segurando a bolinha: a barra de poder enche (e você não ataca).
   useEffect(() => {
     if (!segurando) return
@@ -277,15 +279,16 @@ export default function Luta({ t, ficha, batida, verOrigem, onSair, onResultado 
 
   return (
     <div className="pg-page pg-luta">
+      {impacto && (impacto.jog > 0 || impacto.ini > 0) && <i key={impacto.id} className={`pg-impacto${impacto.jog > 0 ? ' is-golpeado' : ' is-acertou'}`} aria-hidden="true" />}
       {/* Sair e som no topo, longe do tabuleiro e da bolinha de energia. */}
       <div className="pg-topo">
         <button type="button" className="pg-sair" onClick={onSair}>{t('games.ldi.batalha.sair')}</button>
         <button type="button" className="pg-sair" onClick={() => setMudo(alternarMudo())} aria-label={t('games.ldi.batalha.som')}>{mudo ? '🔇' : '🔊'}</button>
       </div>
       <div className="pg-hud">
-        <Barra rotulo={t('games.ldi.batalha.voce')} vida={vida.jog} max={VIDA_JOG} energia={energia.jog} tonto={tonto.jog} lado="jog" t={t} poder={temPoder ? poder : null} efeitos={efeitoAgora.jog} />
+        <Barra rotulo={t('games.ldi.batalha.voce')} vida={vida.jog} max={VIDA_JOG} energia={energia.jog} tonto={tonto.jog} lado="jog" t={t} poder={temPoder ? poder : null} efeitos={efeitoAgora.jog} dano={impacto?.jog} />
         <span className="pg-hud__vs">VS</span>
-        <Barra rotulo={nomeIni} vida={vida.ini} max={ficha.vida} energia={energia.ini} tonto={tonto.ini} lado="ini" t={t} poder={ficha.super ? poderIni : null} efeitos={efeitoAgora.ini} />
+        <Barra rotulo={nomeIni} vida={vida.ini} max={ficha.vida} energia={energia.ini} tonto={tonto.ini} lado="ini" t={t} poder={ficha.super ? poderIni : null} efeitos={efeitoAgora.ini} dano={impacto?.ini} />
       </div>
       <div className="pg-batida">{contagem === 0 && <i key={`${n}-${retomada}-${replay ? 'r' : 'b'}`} className={replay ? 'is-replay' : ''} style={{ '--dur': `${batida}ms` }} />}</div>
 
@@ -297,6 +300,7 @@ export default function Luta({ t, ficha, batida, verOrigem, onSair, onResultado 
               {superDele ? t('games.ldi.batalha.super_dele', { nome: nomeIni, poder: t(`games.ldi.batalha.poderes.${superDele.poder}`), n: superDele.seq.length })
                 : paralisado ? t('games.ldi.batalha.paralisado')
                 : guia.length ? t('games.ldi.batalha.poder_pronto', { poder: t(`games.ldi.batalha.poderes.${poderEsc}`) })
+                : superPronto ? t('games.ldi.batalha.super_pronto')
                 : cego && papel === 'defesa' ? t('games.ldi.batalha.cego')
                 : segurando ? t('games.ldi.batalha.carregando_poder')
                 : tonto.jog ? t('games.ldi.batalha.tonto')
@@ -314,13 +318,14 @@ export default function Luta({ t, ficha, batida, verOrigem, onSair, onResultado 
       <div key={`${n}-${retomada}-${replay ? 'r' : 'b'}`} className={`pg-palco is-${replay ? 'replay' : papel}${recusa ? ' is-treme' : ''}${cego ? ' is-cego' : ''}${superDele && !replay ? ' is-super' : ''}`} style={{ '--quarto': `${batida / 4}ms` }}>
         <Pentagrama combo={combo} telegrafo={replay || cego ? [] : telegrafo} guia={replay ? [] : superDele ? superDele.seq : guia} perigo={Boolean(superDele)}
           centroAberto={centroAberto} travado={travado || escolhendo || contagem > 0}
-          segurandoOrbe={segurando} onOrbe={temPoder ? setSegurando : undefined} onOrbeToque={temPoder ? tocarOrbe : undefined}
+          segurandoOrbe={segurando} superPronto={superPronto && !replay} onOrbe={temPoder ? segurarOrbe : undefined} onOrbeToque={temPoder ? tocarOrbe : undefined}
           max={max} carga={carga} progresso={progresso} podeCarregar={podeCarregar} onMudar={mudar} onToque={tocar}
           tempos={tempos} quarto={cego ? 0 : batida / 4} fantasmas={replay ? [] : fantasmas}
           onRecusado={() => recusar(tonto.jog ? 'tonto' : papel === 'defesa' ? 'maximo_defesa' : 'maximo')} />
       </div>
       {contagem > 0 && <p key={contagem} className="pg-contagem">{contagem}</p>}
-      {escolhendo && <EscolhaPoder t={t} poderes={ficha.kit.poderes} onEscolher={escolherPoder} onDepois={deixarPraDepois} />}
+      {escolhendo && <EscolhaPoder t={t} poderes={ficha.kit.poderes} onEscolher={id => { escolherPoder(id); setRetomada(x => x + 1) }} onVoltar={voltarDaEscolha} />}
+      {impacto?.poder && <p key={impacto.id} className={`pg-flash-poder is-${impacto.quemPoder}`}>{t(`games.ldi.batalha.poderes.${impacto.poder}`)}</p>}
     </div>
   )
 }
@@ -329,15 +334,15 @@ export default function Luta({ t, ficha, batida, verOrigem, onSair, onResultado 
 function Replay({ t, r }) {
   return (
     <div className="pg-replay">
-      {r.vira && <p className="pg-virada">{t(r.papel === 'ataque' ? 'games.ldi.batalha.virada_ele' : 'games.ldi.batalha.virada_voce')}</p>}
+      {r.vira && <p className="pg-virada">{t(r.parado ? 'games.ldi.batalha.virada_parado' : r.papel === 'ataque' ? 'games.ldi.batalha.virada_ele' : 'games.ldi.batalha.virada_voce')}</p>}
       <div className="pg-replay__lados">
         <figure className="is-jog">
           <Pentagrama mini combo={r.comboJog} carga={r.carga} />
-          <figcaption>{t('games.ldi.batalha.voce')} · {t(`games.ldi.batalha.papel.${r.papel}`)}</figcaption>
+          <figcaption>{t('games.ldi.batalha.voce')} · {r.comboJog.length ? t(`games.ldi.batalha.papel.${r.papel}`) : t(r.papel === 'ataque' ? 'games.ldi.batalha.sem_ataque' : 'games.ldi.batalha.sem_defesa')}</figcaption>
         </figure>
         <figure className="is-ini">
           <Pentagrama mini telegrafo={r.comboIni} combo={[]} />
-          <figcaption>{t('games.ldi.batalha.ele')} · {t(`games.ldi.batalha.papel.${r.papel === 'ataque' ? 'defesa' : 'ataque'}`)}</figcaption>
+          <figcaption>{t('games.ldi.batalha.ele')} · {r.comboIni.length ? t(`games.ldi.batalha.papel.${r.papel === 'ataque' ? 'defesa' : 'ataque'}`) : t(r.papel === 'ataque' ? 'games.ldi.batalha.sem_defesa' : 'games.ldi.batalha.sem_ataque')}</figcaption>
         </figure>
       </div>
       <div className="pg-passos">
@@ -350,11 +355,12 @@ function Replay({ t, r }) {
   )
 }
 
-function Barra({ rotulo, vida, max, energia, tonto, lado, t, poder, efeitos = {} }) {
+function Barra({ rotulo, vida, max, energia, tonto, lado, t, poder, efeitos = {}, dano = 0 }) {
   const pct = `${(vida / max) * 100}%`
   return (
     <div className={`pg-barra is-${lado}`}>
       <span className="pg-sangue"><i className="pg-sangue__rastro" style={{ '--pct': pct }} /><i className="pg-sangue__vida" style={{ '--pct': pct }} /></span>
+      {dano > 0 && <b className="pg-barra__dano">−{dano}</b>}
       {poder != null && (
         <span className={`pg-poder${poder >= PODER_MAX ? ' is-cheia' : poder >= 90 ? ' is-n3' : poder >= 70 ? ' is-n2' : poder >= 50 ? ' is-n1' : ''}`}>
           <i style={{ '--pct': `${poder}%` }} />
