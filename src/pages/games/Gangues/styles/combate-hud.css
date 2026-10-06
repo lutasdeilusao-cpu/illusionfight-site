@@ -67,34 +67,6 @@
   .gang-multidao-switch--blink .gang-multidao-switch-track { animation: none; border-color: var(--if-amber); }
 }
 
-/* Fila de poderes por rodada — um chip por personagem, toque pra ciclar
-   entre ataque normal e os poderes equipados. */
-.gang-multidao-poderes-fila { display: flex; flex-direction: column; gap: 6px; }
-.gang-multidao-chips { display: flex; gap: 6px; flex-wrap: wrap; }
-.gang-multidao-chip {
-  display: flex; flex-direction: column; gap: 1px; text-align: left;
-  padding: 5px 10px; min-width: 84px; border-radius: 8px;
-  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
-  color: #a4adb6; cursor: pointer; transition: border-color 0.15s, background 0.15s;
-}
-.gang-multidao-chip:disabled { opacity: 0.45; cursor: not-allowed; }
-.gang-multidao-chip strong { font: 700 0.72rem var(--font-display); color: #d5dde0; }
-.gang-multidao-chip small { font-size: 0.6rem; }
-.gang-multidao-chip--poder { border-color: rgba(245,166,35,0.5); background: rgba(245,166,35,0.1); }
-.gang-multidao-chip--poder small { color: var(--if-amber); }
-.gang-multidao-chip--item { border-color: color-mix(in srgb, var(--if-violet) 55%, transparent); background: color-mix(in srgb, var(--if-violet) 10%, transparent); }
-.gang-multidao-chip--item small { color: var(--if-violet); }
-
-/* Wrapper: chip (cicla poder) + botão pequeno separado (usar item nesta
-   rodada) — não dá pra aninhar <button> dentro de <button>. */
-.gang-multidao-chip-wrap { display: flex; align-items: stretch; gap: 3px; }
-.gang-multidao-item-toggle {
-  flex-shrink: 0; width: 28px; border-radius: 8px;
-  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
-  font-size: 0.85rem; cursor: pointer; opacity: 0.6;
-}
-.gang-multidao-item-toggle--on { opacity: 1; border-color: var(--if-violet); background: color-mix(in srgb, var(--if-violet) 16%, transparent); }
-
 /* Momento de KO — para a leitura da luta com um cartão grande no centro.
    Antes era um aviso pequeno no topo que passava batido. */
 .gang-ko-cena {

@@ -763,6 +763,7 @@
         "prompt_pergunta": "Es una banda grande — ¿quieres empezar la pelea en modo Pelea Multitudinaria?",
         "prompt_sim": "SÍ, MULTITUDINARIA",
         "prompt_nao": "NO, GOLPE A GOLPE",
+        "prompt_lembra": "Tu elección vale para las próximas peleas. Puedes cambiarla con el interruptor de arriba.",
         "poderes_titulo": "Talentos de la ronda",
         "avancar_rodada": "SIGUIENTE RONDA",
         "resolvendo": "Tirando los dados de la ronda...",

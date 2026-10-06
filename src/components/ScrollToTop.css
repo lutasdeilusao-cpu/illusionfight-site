@@ -9,8 +9,10 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transform: translateY(16px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   position: fixed;
   bottom: 32px;
   right: 32px;
@@ -19,6 +21,8 @@
 
 .scroll-top-btn.visible {
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   transform: translateY(0);
 }
 

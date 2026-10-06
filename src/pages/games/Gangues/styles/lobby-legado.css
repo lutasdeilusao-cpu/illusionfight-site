@@ -72,15 +72,6 @@
 
 /* ── SFX Toggle ── */
 
-/* ── Exit Button (combat) ── */
-.gang-exit-btn {
-  display: flex; align-items: center; gap: 6px;
-  background: rgba(139,0,0,0.1); border: 1px solid rgba(139,0,0,0.3); color: var(--gang-vermelho-600);
-  padding: 6px 14px; cursor: pointer; font-family: 'Courier New', monospace;
-  font-size: 11px; letter-spacing: 2px; transition: all 0.2s; border-radius: 2px;
-  text-transform: uppercase;
-}
-.gang-exit-btn:hover { background: rgba(139,0,0,0.2); border-color: #cc2222; color: #ff4444; }
 
 /* ===== CREATE ===== */
 

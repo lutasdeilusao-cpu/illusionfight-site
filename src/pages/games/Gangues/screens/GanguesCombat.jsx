@@ -1,5 +1,5 @@
 import { ST_TODOS } from '../engine/ganguesStatus.js'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useAuth } from '../../../../context/AuthContext'
 import { useEventos } from '../../../../context/EventosContext'
@@ -8,7 +8,7 @@ import useGanguesTurnMachine from '../hooks/useGanguesTurnMachine'
 import useGanguesCombatFx from '../hooks/useGanguesCombatFx.js'
 import useGanguesModoAuto, { useGanguesAutoConfig, escolherAcaoAuto } from '../hooks/useGanguesModoAuto.js'
 import useGanguesModoAutoMultidao from '../hooks/useGanguesModoAutoMultidao.js'
-import useGanguesVelocidadeAuto, { useGanguesAutoLembrado } from '../hooks/useGanguesVelocidadeAuto.js'
+import useGanguesVelocidadeAuto, { useGanguesAutoLembrado, useEscolhaMultidao } from '../hooks/useGanguesVelocidadeAuto.js'
 import useGanguesModoMultidao from '../hooks/useGanguesModoMultidao.js'
 import useGanguesBattleOutcome from '../hooks/useGanguesBattleOutcome.js'
 import useGanguesCombatLog from '../hooks/useGanguesCombatLog.js'
@@ -101,8 +101,15 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // de apertar o botãozinho já para os inimigos de atacar" — na real o
   // ataque acontecia sim, só que invisível). Por isso o estado mora aqui
   // (não mais dentro de useGanguesModoMultidao) e é passado pros dois lados.
-  const [modoMultidaoOn, setModoMultidaoOn] = useState(false)
   const multidaoDisponivelPreMachine = ((store.match.playerTeam?.length || 0) + (store.match.enemyTeam?.length || 0)) >= 5
+  // A pergunta de Multidão só aparece na 1ª luta elegível do save; dali em
+  // diante a escolha guardada vale sozinha (o switch troca e regrava).
+  const [escolhaMultidao, gravarEscolhaMultidao] = useEscolhaMultidao()
+  const [modoMultidaoOn, setModoMultidaoOnState] = useState(() => multidaoDisponivelPreMachine && escolhaMultidao === 'sim')
+  const setModoMultidaoOn = useCallback((valor) => {
+    setModoMultidaoOnState(valor)
+    gravarEscolhaMultidao(valor ? 'sim' : 'nao')
+  }, [gravarEscolhaMultidao])
   const modoMultidaoAtivoPreMachine = multidaoDisponivelPreMachine && modoMultidaoOn
   // Pergunta de início de luta (pedido do Isaias, 2026-09-14): toda luta
   // elegível pra Multidão (5+ combatentes) PARA TUDO antes do 1º ataque e
@@ -111,7 +118,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // manualmente depois se quiser (respeitando a trava de "só na sua vez").
   // Só combates SEM elegibilidade (menos de 5 combatentes) pulam a pergunta
   // direto (`respondida` já nasce true).
-  const [multidaoPromptRespondida, setMultidaoPromptRespondida] = useState(!multidaoDisponivelPreMachine)
+  const [multidaoPromptRespondida, setMultidaoPromptRespondida] = useState(!multidaoDisponivelPreMachine || escolhaMultidao != null)
   const perguntaMultidaoAtiva = multidaoDisponivelPreMachine && !multidaoPromptRespondida
 
   // Velocidade 1x/2x/3x (pedido do Isaias, 26/09/2026: "automático mais rápido
@@ -341,6 +348,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
         <div className="gang-multidao-prompt-overlay">
           <div className="gang-multidao-prompt-box">
             <p className="gang-multidao-prompt-texto">{t('games.gangues.multidao.prompt_pergunta')}</p>
+            <p className="gang-multidao-prompt-lembra">{t('games.gangues.multidao.prompt_lembra')}</p>
             <div className="gang-multidao-prompt-acoes">
               <button
                 type="button"
@@ -352,7 +360,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
               <button
                 type="button"
                 className="gang-multidao-prompt-btn"
-                onClick={() => setMultidaoPromptRespondida(true)}
+                onClick={() => { setModoMultidaoOn(false); setMultidaoPromptRespondida(true) }}
               >
                 {t('games.gangues.multidao.prompt_nao')}
               </button>
@@ -426,7 +434,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
       {/* ── Modo Briga em Multidão: poderes configuráveis por toque + avançar rodada ── */}
       {modoMultidaoAtivo && !result && (
         <GanguesMultidaoActionBar
-          t={t} onPedirSair={() => setPedindoSair(true)} playerTeam={store.match.playerTeam}
+          t={t} playerTeam={store.match.playerTeam}
           poderesMultidao={poderesMultidao} itensMultidao={itensMultidao}
           cicloPoderMultidao={cicloPoderMultidao} toggleItemMultidao={toggleItemMultidao}
           avancarRodada={avancarRodada} revelandoRodada={revelandoRodada} estadoMultidao={estadoMultidao}

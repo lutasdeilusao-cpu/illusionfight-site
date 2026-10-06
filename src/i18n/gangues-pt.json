@@ -763,6 +763,7 @@
         "prompt_pergunta": "Esse bando é grande — quer começar a luta em modo Briga em Multidão?",
         "prompt_sim": "SIM, MULTIDÃO",
         "prompt_nao": "NÃO, GOLPE A GOLPE",
+        "prompt_lembra": "Sua escolha vale pras próximas lutas. Dá pra trocar no interruptor lá em cima.",
         "poderes_titulo": "Talentos da rodada",
         "avancar_rodada": "AVANÇAR RODADA",
         "resolvendo": "Rolando os dados da rodada...",

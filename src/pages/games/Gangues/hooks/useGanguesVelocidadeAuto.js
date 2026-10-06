@@ -53,3 +53,18 @@ export function useGanguesAutoLembrado(chave) {
   }, [chave, saveId])
   return [ligado, setLigado]
 }
+
+// Resposta da pergunta "começar em Briga em Multidão?" — 'sim', 'nao' ou null
+// (ainda não respondeu neste save). Por navegador e por save, igual ao
+// automático lembrado.
+const CHAVE_MULTIDAO = 'ldi-gangues-multidao-escolha'
+export function useEscolhaMultidao() {
+  const [escolha, setEscolha] = useState(() => {
+    try { const v = localStorage.getItem(chaveDoSave(CHAVE_MULTIDAO)); return v === 'sim' || v === 'nao' ? v : null } catch { return null }
+  })
+  const gravar = useCallback((valor) => {
+    setEscolha(valor)
+    try { localStorage.setItem(chaveDoSave(CHAVE_MULTIDAO), valor) } catch { /* sem storage: pergunta de novo na próxima */ }
+  }, [])
+  return [escolha, gravar]
+}

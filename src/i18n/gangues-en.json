@@ -763,6 +763,7 @@
         "prompt_pergunta": "This is a big mob — want to start the fight in Mob Brawl mode?",
         "prompt_sim": "YES, MOB BRAWL",
         "prompt_nao": "NO, ONE BY ONE",
+        "prompt_lembra": "Your choice sticks for the next fights. Flip it anytime with the switch up top.",
         "poderes_titulo": "This round's talents",
         "avancar_rodada": "NEXT ROUND",
         "resolvendo": "Rolling this round's dice...",
