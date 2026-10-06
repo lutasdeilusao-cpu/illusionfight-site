@@ -1378,7 +1378,8 @@
     "legenda_hiato": "Hiato",
     "toque_dia": "Toque num dia marcado pra ver o que sai e pra quem.",
     "voce_curto": "você",
-    "hiato_sombras": "O Mundo das Sombras sai pro assinante (dias 15 e 30) e 1 capítulo pra conta grátis no dia 30; o público fica em hiato até a volta do ciclo."
+    "hiato_sombras": "O Mundo das Sombras sai pro assinante (dias 15 e 30) e 1 capítulo pra conta grátis no dia 30; o público fica em hiato até a volta do ciclo.",
+    "item_conto": "Conto: {titulo} (completo)"
   },
   "home": {
     "section_latest": "Lançamentos",

@@ -1378,7 +1378,8 @@
     "legenda_hiato": "Hiatus",
     "toque_dia": "Tap a marked day to see what comes out and for whom.",
     "voce_curto": "you",
-    "hiato_sombras": "The Shadow World comes out for subscribers (on the 15th and 30th) and one chapter for free accounts on the 30th; everyone else waits for the cycle to come back."
+    "hiato_sombras": "The Shadow World comes out for subscribers (on the 15th and 30th) and one chapter for free accounts on the 30th; everyone else waits for the cycle to come back.",
+    "item_conto": "Short story: {titulo} (complete)"
   },
   "home": {
     "section_latest": "New releases",

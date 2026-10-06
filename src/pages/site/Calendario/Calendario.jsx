@@ -34,10 +34,10 @@ const CALENDAR_START = { year: 2026, month: 10 }
 const CALENDAR_END = { year: 2027, month: 9 }
 
 // Texto de um item do calendário (capítulo, hiato...) no idioma da tela.
-function textoItem(t, item) {
-  return t(`calendar.item_${item.tipo}`, { n: item.n })
+function textoItem(t, item, locale) {
+  return t(`calendar.item_${item.tipo}`, { n: item.n, titulo: item.titulo?.[locale] || item.titulo?.pt })
 }
-const textoLista = (t, itens) => (itens.length ? itens.map(i => textoItem(t, i)).join(' + ') : '—')
+const textoLista = (t, itens, locale) => (itens.length ? itens.map(i => textoItem(t, i, locale)).join(' + ') : '—')
 
 function buildMonths(start, end) {
   const months = []
@@ -78,7 +78,7 @@ function DiaDetalhe({ t, locale, drop, access }) {
       {NIVEIS_DROP.map(nivel => drop[nivel].length > 0 && (
         <div key={nivel} className={`calendar-dia__linha${souEu[nivel] ? ' is-you' : ''}`}>
           <b><span className={`calendar-day-dot is-${nivel}`} />{t(`calendar.level_${nivel}`)}{souEu[nivel] ? ` · ${t('calendar.voce_curto')}` : ''}</b>
-          <ul>{drop[nivel].map((item, i) => <li key={i}>{textoItem(t, item)}</li>)}</ul>
+          <ul>{drop[nivel].map((item, i) => <li key={i}>{textoItem(t, item, locale)}</li>)}</ul>
         </div>
       ))}
     </div>
@@ -218,7 +218,7 @@ export default function Calendario() {
                         {event && (
                           <div className="calendar-day-dots">
                             {NIVEIS_DROP.map(nivel => event[nivel].length > 0 && (
-                              <span key={nivel} className={`calendar-day-dot is-${nivel}`} title={`${t(`calendar.level_${nivel}`)}: ${textoLista(t, event[nivel])}`} />
+                              <span key={nivel} className={`calendar-day-dot is-${nivel}`} title={`${t(`calendar.level_${nivel}`)}: ${textoLista(t, event[nivel], locale)}`} />
                             ))}
                           </div>
                         )}
@@ -242,7 +242,7 @@ export default function Calendario() {
               <div className="calendar-drop-date"><span>DROP {String(drop.number).padStart(2, '0')}</span><time>{formatDate(drop.date, locale)}</time></div>
               {(state === 'current' || state === 'next') && <span className="calendar-drop-state">{t(`calendar.${state}`)}</span>}
               {NIVEIS_DROP.map(nivel => drop[nivel].length > 0 && (
-                <div key={nivel} className={`calendar-drop-line${souEu[nivel] ? ' is-you' : ''}`}><b>{t(`calendar.level_${nivel}`)}</b><span>{textoLista(t, drop[nivel])}</span></div>
+                <div key={nivel} className={`calendar-drop-line${souEu[nivel] ? ' is-you' : ''}`}><b>{t(`calendar.level_${nivel}`)}</b><span>{textoLista(t, drop[nivel], locale)}</span></div>
               ))}
             </article>
           })}

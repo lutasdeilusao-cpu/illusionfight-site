@@ -11,6 +11,7 @@
 // hiato sai na volta do ciclo — e Mar de Cinzas fica em avaliação.
 import livro from './historias/lutas-de-ilusao.json'
 import obras from './historias/obras.json'
+import contos from './historias/contos.json'
 import episodios from './episodios.json'
 
 export const T1 = { inicio: '2026-11-15', fim: '2027-10-31' }
@@ -40,6 +41,8 @@ const sombras = obras.find(o => o.id === 'mundo-das-sombras')?.capitulos || []
 const itensHistorias = [
   ...livro.map(c => ({ item: { tipo: 'livro', n: c.numero }, liberacao: c.liberacao })),
   ...sombras.map((c, i) => ({ item: { tipo: 'sombras', n: i + 1 }, liberacao: c.liberacao })),
+  // Conto entra inteiro de uma vez: um item por conto, na data do 1º capítulo.
+  ...contos.map(c => ({ item: { tipo: 'conto', titulo: { pt: c.titulo, en: c.titulo_en, es: c.titulo_es } }, liberacao: c.capitulos[0]?.liberacao })),
 ]
 const itensWebshard = episodios
   .filter(e => e.liberacao)
