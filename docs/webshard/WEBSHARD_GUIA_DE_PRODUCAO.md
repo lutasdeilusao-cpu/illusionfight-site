@@ -621,7 +621,29 @@ Como usar no prompt:
 
 A página anterior, quando já está na biblioteca, entra pelo código `REF-PAG-<número>`. Imagens de uso único, como a marcação de uma correção pontual, continuam sendo anexadas direto no chat, com nome de arquivo.
 
-### 16.2 Regras gerais
+### 16.2 Estilo de arte: bloco obrigatório em todo prompt
+
+**Regra autoral:** todo prompt reforça o estilo de arte do WEBSHARD LDI. Sem esse bloco, a ferramenta deriva para outro estilo, como anime chapado, entre uma página e outra.
+
+Usar uma página aprovada como **âncora de estilo**, por link da biblioteca, e colar este bloco logo depois das referências:
+
+```text
+═══ ESTILO DE ARTE WEBSHARD LDI (OBRIGATÓRIO, IGUAL À PÁGINA ÂNCORA) ═══
+Copiar o estilo de desenho da [REF-PAG-ÂNCORA]: mesmo traço, mesma pintura, mesma luz.
+- Ilustração de quadrinho SEMI-REALISTA DETALHADA. Proporções realistas de adolescentes; rostos com estrutura óssea, nariz e boca desenhados com volume.
+- Olhos de tamanho REALISTA. Nada de olhos grandes de anime.
+- Linha de contorno fina a média, com variação de espessura, discreta.
+- Pintura com SOMBREAMENTO SUAVE em degradê e volume: pele com meios-tons, reflexos e sombras modeladas. NÃO usar cel-shading chapado de anime em duas cores.
+- Cabelos com mechas e fios detalhados; tecidos com dobras e textura (algodão da camisa, moletom, jeans).
+- Iluminação dramática e cinematográfica: sol dourado da manhã de um lado e brilho azul dos tampos e telas do outro, com luz de recorte nas bordas dos personagens. Alto contraste.
+- Vidro e superfícies com reflexos brilhantes. Fundo com profundidade de campo e desfoque suave.
+- Cores ricas e saturadas, sem aspecto lavado.
+NÃO USAR: anime/mangá chapado, chibi, screentone de mangá, contorno grosso uniforme, render 3D, fotografia, aquarela.
+```
+
+A página âncora atual é a `REF-PAG-17`. Quando uma página nova for aprovada com o estilo certo, ela pode virar a âncora. A linha da iluminação descreve a Sala A-304 de manhã; fora dela, trocar pela luz da cena, mantendo o alto contraste e a luz de recorte.
+
+### 16.3 Regras gerais
 
 1. Identificar anexos por **nome de arquivo** ou **código da biblioteca**, nunca apenas “imagem 1”.
 2. Ficha prevalece em aparência, mas sua pose neutra deve ser ignorada quando há movimento.
@@ -776,6 +798,8 @@ Pendências e responsável pela decisão:
 ANTES DE GERAR: abra os links e descreva em uma linha o que cada um mostra.
 Se algum não abrir, avise e NÃO gere a imagem.
 
+[bloco ESTILO DE ARTE WEBSHARD LDI do §16.2, com a página âncora]
+
 Criar uma página WEBSHARD de Lutas de Ilusão, vertical, conforme
 as referências acima e o roteiro abaixo.
 
@@ -813,6 +837,7 @@ Campos pendentes não devem ser preenchidos com valores apresentados como oficia
 
 ### Linguagem e narrativa
 
+- [ ] O estilo bate com a página âncora: semi-realista, sombreamento suave, olhos realistas, sem anime chapado.
 - [ ] A página tem uma batida principal compreensível.
 - [ ] Há no máximo dois painéis grandes, ou justificativa expressa para a exceção de três.
 - [ ] Cada estilhaço tem função e permanece subordinado à cena.
