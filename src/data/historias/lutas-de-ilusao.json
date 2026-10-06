@@ -275,5 +275,31 @@
       "conta": "2027-08-30",
       "publico": "2027-09-15"
     }
+  },
+  {
+    "id": "capitulo-17",
+    "numero": 17,
+    "titulo": "Em breve",
+    "titulo_en": "Coming Soon",
+    "titulo_es": "Próximamente",
+    "liberacao": {
+      "primordial": "2027-08-30",
+      "elite": "2027-08-30",
+      "conta": "2027-09-15",
+      "publico": "2027-09-30"
+    }
+  },
+  {
+    "id": "capitulo-18",
+    "numero": 18,
+    "titulo": "Em breve",
+    "titulo_en": "Coming Soon",
+    "titulo_es": "Próximamente",
+    "liberacao": {
+      "primordial": "2027-09-15",
+      "elite": "2027-09-15",
+      "conta": "2027-09-30",
+      "publico": "2027-10-15"
+    }
   }
 ]
