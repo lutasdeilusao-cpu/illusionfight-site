@@ -29,7 +29,8 @@
     "publicidade": "Publicidade",
     "fechar_de_vez": "Fechar a rádio",
     "mover_para_cima": "Mover a rádio para cima (acima do menu)",
-    "mover_para_baixo": "Mover a rádio para o rodapé"
+    "mover_para_baixo": "Mover a rádio para o rodapé",
+    "trava": "Exclusiva pra assinantes · libera pra você em {data}"
   },
   "en": {
     "nome": "Nina Radio",
@@ -61,7 +62,8 @@
     "publicidade": "Advertisement",
     "fechar_de_vez": "Close the radio",
     "mover_para_cima": "Move the radio to the top (above the menu)",
-    "mover_para_baixo": "Move the radio to the bottom"
+    "mover_para_baixo": "Move the radio to the bottom",
+    "trava": "Subscribers only · unlocks for you on {data}"
   },
   "es": {
     "nome": "Radio Nina",
@@ -93,6 +95,7 @@
     "publicidade": "Publicidad",
     "fechar_de_vez": "Cerrar la radio",
     "mover_para_cima": "Mover la radio arriba (sobre el menú)",
-    "mover_para_baixo": "Mover la radio al pie de página"
+    "mover_para_baixo": "Mover la radio al pie de página",
+    "trava": "Exclusiva para suscriptores · se libera para ti el {data}"
   }
 }

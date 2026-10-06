@@ -670,7 +670,10 @@
       "ver_todas": "Todas as músicas",
       "titulo": "MÚSICAS",
       "videoclipes": "Videoclipes",
-      "em_breve": "EM BREVE"
+      "em_breve": "EM BREVE",
+      "trava_titulo": "Exclusiva pra assinantes",
+      "trava_libera": "Na Rádio Nina, libera pra você em {data}.",
+      "trava_assinar": "Assinar e ouvir agora"
     },
     "livro": {
       "titulo": "CAPÍTULOS",

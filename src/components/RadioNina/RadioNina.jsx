@@ -32,7 +32,7 @@ export default function RadioNina() {
   const radio = useRadio()
   const {
     estado, setEstado, tocando, faixaAtual, tempo, duracao, cor, setCor,
-    volume, setVolume, pool, playlistSalva, logado,
+    volume, setVolume, pool, travadas, travaDe, playlistSalva, logado,
     ligar, alternar, pular, fechar, tocarKey, tocarMinhaPlaylist, seek,
   } = radio
 
@@ -158,6 +158,8 @@ export default function RadioNina() {
       {listaAberta && (
         <RadioNinaPlaylist
           pool={pool}
+          travadas={travadas}
+          travaDe={travaDe}
           faixaAtualKey={faixaAtual?.key}
           playlistSalva={playlistSalva}
           logado={logado}

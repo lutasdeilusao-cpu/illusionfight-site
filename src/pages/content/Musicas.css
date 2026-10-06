@@ -178,3 +178,10 @@
 @media (prefers-reduced-motion: reduce) {
   .mu-eq.is-on i, .mu-radio.is-tocando .mu-radio__nina, .mu-folha__card { animation: none; }
 }
+
+/* Música da T1 travada pelo calendário: cadeado, data de liberação e convite pra assinar. */
+.mu-cadeado { display: grid; gap: 6px; margin-top: 10px; padding: 10px 12px; border: 1px solid color-mix(in srgb, var(--if-amber) 55%, transparent); background: color-mix(in srgb, var(--if-amber) 10%, transparent); }
+.mu-cadeado strong { font: 800 .74rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--if-amber); }
+.mu-cadeado span { font: 500 .82rem/1.4 var(--font-body); color: var(--if-ink); }
+.mu-cadeado .if-btn { justify-self: start; }
+.mu-card.is-travada .mu-card__capa img, .mu-destaque.is-travada .mu-destaque__capa img, .music-circle.is-travada img { filter: grayscale(.6) brightness(.6); }

@@ -670,7 +670,10 @@
       "ver_todas": "All songs",
       "titulo": "MUSIC",
       "videoclipes": "Music Videos",
-      "em_breve": "COMING SOON"
+      "em_breve": "COMING SOON",
+      "trava_titulo": "Subscribers only",
+      "trava_libera": "On Radio Nina it unlocks for you on {data}.",
+      "trava_assinar": "Subscribe and listen now"
     },
     "livro": {
       "titulo": "CHAPTERS",

@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 export default function RadioNinaPlaylist({
-  pool, faixaAtualKey, playlistSalva, logado, S, cor, cores, posicao,
+  pool, travadas = [], travaDe, faixaAtualKey, playlistSalva, logado, S, cor, cores, posicao,
   onCor, onTocar, onTocarMinha, onSalvar, onFechar,
 }) {
   const [marcadas, setMarcadas] = useState(() => new Set(playlistSalva))
@@ -69,6 +70,19 @@ export default function RadioNinaPlaylist({
             </button>
           </li>
         ))}
+        {travadas.map((t) => {
+          const trava = travaDe?.(t.key)
+          if (!trava) return null
+          const [a, m, d] = trava.liberaEm.split('-')
+          return (
+            <li key={t.key} className="radio-nina-lista__item radio-nina-lista__item--travada">
+              <Link className="radio-nina-lista__nome" to="/assinar">
+                🔒 {t.titulo}
+                <small>{S.trava.replace('{data}', `${d}/${m}/${a}`)}</small>
+              </Link>
+            </li>
+          )
+        })}
       </ul>
 
       {logado ? (

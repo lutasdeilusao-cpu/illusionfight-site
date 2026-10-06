@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useLanguage } from '../../context/LanguageContext'
+import { Link } from 'react-router-dom'
 import { useRadio } from '../../components/RadioNina/RadioNinaContext'
 import musicas from '../../data/musicas.json'
 import { platformIconMap } from '../../components/PlatformIcons'
@@ -28,7 +29,21 @@ function Equalizador({ ativo }) {
 }
 
 /** Folha "onde ouvir" de uma música: capa, tocar na rádio e as plataformas. */
-function OndeOuvir({ musica, capa, tocando, onTocar, onFechar, t }) {
+// Data no formato curto do idioma (dd/mm/aaaa).
+const dataCurta = (iso, locale) => new Intl.DateTimeFormat(locale === 'en' ? 'en-US' : locale === 'es' ? 'es-ES' : 'pt-BR', { timeZone: 'UTC' }).format(new Date(`${iso}T12:00:00Z`))
+
+/** Cadeado de música da T1 ainda exclusiva de assinante. */
+function Cadeado({ trava, t, locale }) {
+  return (
+    <div className="mu-cadeado">
+      <strong>🔒 {t('pages.musicas.trava_titulo')}</strong>
+      <span>{t('pages.musicas.trava_libera', { data: dataCurta(trava.liberaEm, locale) })}</span>
+      <Link to="/assinar" className="if-btn if-btn--amber">{t('pages.musicas.trava_assinar')}</Link>
+    </div>
+  )
+}
+
+function OndeOuvir({ musica, capa, tocando, onTocar, onFechar, t, trava, locale }) {
   useEffect(() => {
     const esc = e => e.key === 'Escape' && onFechar()
     window.addEventListener('keydown', esc)
@@ -46,7 +61,8 @@ function OndeOuvir({ musica, capa, tocando, onTocar, onFechar, t }) {
             <small>{musica.artista}{musica.ano ? ` · ${musica.ano}` : ''}</small>
           </div>
         </div>
-        {musica.arquivo && (
+        {trava && <Cadeado trava={trava} t={t} locale={locale} />}
+        {musica.arquivo && !trava && (
           <button type="button" className="if-btn if-btn--amber mu-folha__tocar" onClick={onTocar}>
             {tocando ? `⏸ ${t('pages.musicas.pausar')}` : `▶ ${t('pages.musicas.tocar_radio')}`}
           </button>
@@ -73,8 +89,8 @@ function OndeOuvir({ musica, capa, tocando, onTocar, onFechar, t }) {
 }
 
 export default function Musicas() {
-  const { t } = useLanguage()
-  const { estado, tocando, faixaAtual, tempo, duracao, pool, garantirPool, ligar, alternar, pular, tocarKey, seek } = useRadio()
+  const { t, locale } = useLanguage()
+  const { estado, tocando, faixaAtual, tempo, duracao, pool, garantirPool, ligar, alternar, pular, tocarKey, seek, travaDe } = useRadio()
   const [aberta, setAberta] = useState(null) // índice da música na folha "onde ouvir"
 
   useEffect(() => { garantirPool() }, [garantirPool])
@@ -158,15 +174,16 @@ export default function Musicas() {
                 <span className="if-eyebrow">{t('pages.musicas.destaque_eyebrow')}</span>
                 <h2 className="mu__h2">{t('pages.musicas.destaque')}</h2>
               </div>
-              <article className={`mu-destaque if-panel${eDaVez(destaque.arquivo) ? ' is-ativa' : ''}`} style={{ '--mu-cor': destaque.cor }}>
-                <button type="button" className="mu-destaque__capa" onClick={() => destaque.arquivo && tocar(destaque.arquivo)} aria-label={`${t('pages.musicas.tocar')} ${destaque.titulo}`}>
+              <article className={`mu-destaque if-panel${eDaVez(destaque.arquivo) ? ' is-ativa' : ''}${travaDe(destaque.arquivo) ? ' is-travada' : ''}`} style={{ '--mu-cor': destaque.cor }}>
+                <button type="button" className="mu-destaque__capa" onClick={() => (travaDe(destaque.arquivo) ? setAberta(0) : destaque.arquivo && tocar(destaque.arquivo))} aria-label={`${t('pages.musicas.tocar')} ${destaque.titulo}`}>
                   <img src={capaDe(0)} alt="" width="300" height="300" />
-                  <span className="mu-destaque__play" aria-hidden="true">{tocandoEsta(destaque.arquivo) ? '⏸' : '▶'}</span>
+                  <span className="mu-destaque__play" aria-hidden="true">{travaDe(destaque.arquivo) ? '🔒' : tocandoEsta(destaque.arquivo) ? '⏸' : '▶'}</span>
                 </button>
                 <div className="mu-destaque__info">
                   <span className="if-badge if-badge--amber">{destaque.ano}</span>
                   <h3>{destaque.titulo}</h3>
                   <small>{destaque.artista}</small>
+                  {travaDe(destaque.arquivo) && <Cadeado trava={travaDe(destaque.arquivo)} t={t} locale={locale} />}
                   <div className="mu-plataformas">
                     {destaque.plataformas.map(p => {
                       const Icon = platformIconMap[p.icone]
@@ -187,12 +204,12 @@ export default function Musicas() {
             </div>
             <div className="mu-estante if-stagger">
               {musicas.map((m, i) => (
-                <article key={m.id} className={`mu-card${eDaVez(m.arquivo) ? ' is-ativa' : ''}${m.arquivo ? '' : ' is-fora'}`} style={{ '--mu-cor': m.cor }}>
-                  <button type="button" className="mu-card__capa" onClick={() => (m.arquivo ? tocar(m.arquivo) : setAberta(i))} aria-label={m.arquivo ? `${t('pages.musicas.tocar')} ${m.titulo}` : t('pages.musicas.onde_ouvir')}>
+                <article key={m.id} className={`mu-card${eDaVez(m.arquivo) ? ' is-ativa' : ''}${m.arquivo ? '' : ' is-fora'}${travaDe(m.arquivo) ? ' is-travada' : ''}`} style={{ '--mu-cor': m.cor }}>
+                  <button type="button" className="mu-card__capa" onClick={() => (m.arquivo && !travaDe(m.arquivo) ? tocar(m.arquivo) : setAberta(i))} aria-label={m.arquivo ? `${t('pages.musicas.tocar')} ${m.titulo}` : t('pages.musicas.onde_ouvir')}>
                     <img src={capaDe(i)} alt="" width="300" height="300" loading="lazy" decoding="async" />
                     <span className="mu-card__indice">{num(i)}</span>
                     {m.arquivo
-                      ? <span className="mu-card__play" aria-hidden="true">{tocandoEsta(m.arquivo) ? <Equalizador ativo /> : '▶'}</span>
+                      ? <span className="mu-card__play" aria-hidden="true">{travaDe(m.arquivo) ? '🔒' : tocandoEsta(m.arquivo) ? <Equalizador ativo /> : '▶'}</span>
                       : <span className="mu-card__fora">{t('pages.musicas.so_plataformas')}</span>}
                   </button>
                   <button type="button" className="mu-card__info" onClick={() => setAberta(i)}>
@@ -236,6 +253,8 @@ export default function Musicas() {
           capa={capaDe(aberta)}
           tocando={tocandoEsta(musicas[aberta].arquivo)}
           onTocar={() => tocar(musicas[aberta].arquivo)}
+          trava={travaDe(musicas[aberta].arquivo)}
+          locale={locale}
           onFechar={() => setAberta(null)}
           t={t}
         />

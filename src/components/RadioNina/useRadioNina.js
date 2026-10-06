@@ -86,6 +86,7 @@ export function useRadioNina() {
     return Number.isFinite(v) ? v : 0.8
   })
   const [pool, setPool] = useState([])
+  const [travadas, setTravadas] = useState([]) // faixas que existem mas essa pessoa ainda não pode ouvir
   const [playlistSalva, setPlaylistSalva] = useState([])
 
   const audioRef = useRef(null)
@@ -121,6 +122,7 @@ export function useRadioNina() {
     if (!poolTodoRef.current.length) return
     poolRef.current = poolTodoRef.current.filter((t) => filtroRef.current(t.key))
     setPool(poolRef.current)
+    setTravadas(poolTodoRef.current.filter((t) => !filtroRef.current(t.key)))
   }, [nivel, admin])
 
   const garantirPool = useCallback(async () => {
@@ -131,6 +133,7 @@ export function useRadioNina() {
       poolTodoRef.current = p
       poolRef.current = p.filter((t) => filtroRef.current(t.key))
       setPool(poolRef.current)
+      setTravadas(p.filter((t) => !filtroRef.current(t.key)))
     } catch (err) {
       console.warn(err)
     } finally {
@@ -561,9 +564,17 @@ export function useRadioNina() {
     return () => window.removeEventListener('beforeunload', bloquear)
   }, [tocando])
 
+  // Trava de calendário pra mostrar o cadeado: null se a pessoa pode ouvir
+  // (sempre null antes de `fecha_em`), senão a data em que libera pra ela.
+  const travaDe = useCallback((key) => {
+    const b = key && BLOQUEIOS.find((x) => x.arquivos.includes(key))
+    if (!b || podeOuvir(key, nivel, admin)) return null
+    return { liberaEm: nivel === 'conta' ? b.conta : b.publico }
+  }, [nivel, admin])
+
   return {
     estado, setEstado, tocando, faixaAtual, tempo, duracao, cor, setCor, volume, setVolume,
-    pool, playlistSalva, logado: Boolean(user?.id),
-    garantirPool, ligar, alternar, pular, fechar, tocarKey, tocarMinhaPlaylist, seek, salvar,
+    pool, travadas, playlistSalva, logado: Boolean(user?.id),
+    garantirPool, ligar, alternar, pular, fechar, tocarKey, tocarMinhaPlaylist, seek, salvar, travaDe,
   }
 }

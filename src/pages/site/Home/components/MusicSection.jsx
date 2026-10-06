@@ -13,7 +13,7 @@ const capas = Object.values(import.meta.glob('../../../../assets/images/music/*.
  *  e o botão de ligar a rádio. Sem "em breve": só o que já saiu. */
 export default function MusicSection() {
   const { t } = useLanguage()
-  const { estado, tocando, faixaAtual, ligar, alternar, tocarKey } = useRadio()
+  const { estado, tocando, faixaAtual, ligar, alternar, tocarKey, travaDe } = useRadio()
 
   const lista = useMemo(() => {
     const comCapa = musicas.map((m, i) => ({ ...m, _img: capas[i % capas.length] }))
@@ -32,7 +32,12 @@ export default function MusicSection() {
           <div className="music-carousel__track">
             {lista.map((m, i) => (
               <div key={`${m.id}-${i}`} className="music-item">
-                {m.arquivo ? (
+                {m.arquivo && travaDe(m.arquivo) ? (
+                  <Link to="/musicas" className="music-circle is-travada" aria-label={`🔒 ${m.titulo}`}>
+                    <img src={m._img} alt="" width="300" height="300" loading="lazy" decoding="async" />
+                    <span className="music-circle__play" aria-hidden="true">🔒</span>
+                  </Link>
+                ) : m.arquivo ? (
                   <button type="button" className={`music-circle${faixaAtual?.key === m.arquivo ? ' is-ativa' : ''}`} onClick={() => tocar(m)} aria-label={`${t('pages.musicas.tocar')} ${m.titulo}`}>
                     <img src={m._img} alt="" width="300" height="300" loading="lazy" decoding="async" />
                     <span className="music-circle__play" aria-hidden="true">{tocandoEsta(m.arquivo) ? '⏸' : '▶'}</span>
