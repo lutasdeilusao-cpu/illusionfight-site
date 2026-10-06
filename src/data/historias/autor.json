@@ -28,6 +28,23 @@
         "conta": "2099-01-01",
         "publico": "2099-01-01"
       }
+    },
+    {
+      "id": "02",
+      "numero": 2,
+      "titulo": "O mundo ficou cinza",
+      "titulo_en": "The World Went Gray",
+      "titulo_es": "El mundo se volvió gris",
+      "resumo_pt": "Uma festa no meio do mato, um dono de festa que passou do limite e cem pessoas contra um. A maior surra da minha vida. E uma história feliz.",
+      "resumo_en": "A party in the middle of the woods, a host who crossed the line and a hundred people against one. The worst beating of my life. And a happy story.",
+      "resumo_es": "Una fiesta en medio del monte, un anfitrión que cruzó la línea y cien personas contra uno. La peor paliza de mi vida. Y una historia feliz.",
+      "creator": true,
+      "liberacao": {
+        "primordial": "2099-01-01",
+        "elite": "2099-01-01",
+        "conta": "2099-01-01",
+        "publico": "2099-01-01"
+      }
     }
   ]
 }
