@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791246386.0540187,
-    "ast_hash": "d2503aa7ab8d4b223603c96eed090933",
+    "mtime": 1791247964.0832787,
+    "ast_hash": "a46545a684a60d210d153794f2904564",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791246386.094539,
-    "ast_hash": "e45a905623d3b3256540a5ac356fcc79",
+    "mtime": 1791247964.1388144,
+    "ast_hash": "86bba8a4b62557e45a763343f16a06be",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7195,63 +7195,63 @@
     "semantic_hash": ""
   },
   "src/data/historias/autor/en/01.md": {
-    "mtime": 1791244962.487969,
-    "ast_hash": "9bc6efb5ca68779b08679c23202dfdbc",
+    "mtime": 1791247951.5964663,
+    "ast_hash": "7e05b54c28662e6d641f605b72658cf7",
     "semantic_hash": ""
   },
   "src/data/historias/autor/es/01.md": {
-    "mtime": 1791244962.489178,
-    "ast_hash": "72d0207bb76c1c5dcb6b9640bfe2a9b9",
+    "mtime": 1791247951.600473,
+    "ast_hash": "fb2c91ce893737b0beeade7e56a08968",
     "semantic_hash": ""
   },
   "src/data/historias/autor/pt/01.md": {
-    "mtime": 1791244962.4865963,
-    "ast_hash": "17521b101134df34f8590182eae6ca1c",
+    "mtime": 1791247901.159785,
+    "ast_hash": "c73eddcac761fae0f4ea06eaeceeb3b8",
     "semantic_hash": ""
   },
   "src/data/historias/autor/en/02.md": {
-    "mtime": 1791244962.487969,
-    "ast_hash": "d3db01f075aa4ab352cf5b6eb849079b",
+    "mtime": 1791247951.5934603,
+    "ast_hash": "d322cc7fad29b22dd9fe025c4ffb21c8",
     "semantic_hash": ""
   },
   "src/data/historias/autor/es/02.md": {
-    "mtime": 1791244962.489178,
-    "ast_hash": "6acaa8324925712c18f761157f4c5871",
+    "mtime": 1791247951.5964663,
+    "ast_hash": "690df6c1f5074401129f3d03b551faec",
     "semantic_hash": ""
   },
   "src/data/historias/autor/pt/02.md": {
-    "mtime": 1791244962.487969,
-    "ast_hash": "88cb72998a622ed9f8108899f4d75d65",
+    "mtime": 1791247901.157865,
+    "ast_hash": "955f4a548a9b4f18e665d94ec8b58893",
     "semantic_hash": ""
   },
   "src/data/historias/autor/en/03.md": {
-    "mtime": 1791246279.937653,
-    "ast_hash": "c0e467ea9b018063eb82e751d92f945f",
+    "mtime": 1791247951.5954747,
+    "ast_hash": "546b228b1bba6794ad67f47adb429f35",
     "semantic_hash": ""
   },
   "src/data/historias/autor/en/04.md": {
-    "mtime": 1791246282.0264332,
-    "ast_hash": "f6348ead1be29e22e5346035429d2a7b",
+    "mtime": 1791247963.9121974,
+    "ast_hash": "7e917d7c4fbe325530acaa12a8d4a0b0",
     "semantic_hash": ""
   },
   "src/data/historias/autor/es/03.md": {
-    "mtime": 1791246280.9844954,
-    "ast_hash": "5729ec68fbbbed8b9f5dd4e31f13671b",
+    "mtime": 1791247951.59848,
+    "ast_hash": "4032f7b774ab746fb9043f915ebb8ffd",
     "semantic_hash": ""
   },
   "src/data/historias/autor/es/04.md": {
-    "mtime": 1791246302.4455037,
-    "ast_hash": "9ef0a0b21ef7a504896f149c0f388670",
+    "mtime": 1791247963.9472113,
+    "ast_hash": "021b6d2d02ae2af6ce769fc2b3c9baf7",
     "semantic_hash": ""
   },
   "src/data/historias/autor/pt/03.md": {
-    "mtime": 1791246156.8145008,
-    "ast_hash": "608e3d52aec3a6ccd252538a5dc3264d",
+    "mtime": 1791247901.1588056,
+    "ast_hash": "7dca80ac60b5507ef6b9195b1ebb5bcb",
     "semantic_hash": ""
   },
   "src/data/historias/autor/pt/04.md": {
-    "mtime": 1791246190.68839,
-    "ast_hash": "cbda5305fae82d215e80d4013322f436",
+    "mtime": 1791247901.159785,
+    "ast_hash": "dc30f20ee957389444eacd6214cde3e6",
     "semantic_hash": ""
   }
 }
