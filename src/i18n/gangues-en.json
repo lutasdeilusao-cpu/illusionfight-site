@@ -6882,6 +6882,25 @@
         "criticos": "crits",
         "vitoria": "Victory",
         "derrota": "Defeat"
+      },
+      "escalacao": {
+        "botao": "Lineup",
+        "eyebrow": "Who's going to the fight",
+        "titulo": "Lineup",
+        "explica": "Only crew in the lineup fights and earns XP. Put the rookies in to level them up, and use the arrows to change the order.",
+        "no_time": "In the lineup · {n}/{max}",
+        "banco": "On the bench",
+        "banco_vazio": "Nobody on the bench: the whole gang is in the lineup.",
+        "por": "Put in",
+        "tirar": "Bench",
+        "subir": "Move up",
+        "descer": "Move down",
+        "nivel": "Level {n}",
+        "minimo": "The lineup needs at least {n}.",
+        "cheio": "Lineup's full. Bench someone to open a spot.",
+        "pronto": "Done",
+        "tutorial": "New blood just showed up and they're already in the lineup. In LINEUP you put in, bench and reorder who fights. Only the lineup earns XP, so throw the rookies in to level up. On the street it's the 👥 button up top.",
+        "tutorial_abrir": "Open lineup"
       }
     }
   }

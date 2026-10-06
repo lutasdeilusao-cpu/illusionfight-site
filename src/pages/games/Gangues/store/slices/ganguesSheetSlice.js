@@ -2,7 +2,7 @@
 // batalha (roster/activeParty). Extraído de store/useGanguesStore.js
 // (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
 import { supabase } from '../../../../../lib/supabase'
-import { defaultGanguesProgression, normalizeGanguesLoadout, getGanguesRosterLimit } from '../../data/ganguesLoadout.js'
+import { defaultGanguesProgression, normalizeGanguesLoadout, getGanguesRosterLimit, GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE } from '../../data/ganguesLoadout.js'
 import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet } from '../../data/ganguesCharacters.js'
 
 /** Retorna o limite máximo de fichas de personagem por tier. */
@@ -62,7 +62,19 @@ export default function createGanguesSheetSlice(set, get) {
       return { roster, activeParty: state.activeParty.filter(item => ids.has(item.id)) }
     }),
 
-    setActiveParty: (activeParty) => set({ activeParty }),
+    // O time (quem briga e em que ordem) fica no save como lista de ids em
+    // storyProgress.__time; restaurarTime() remonta ao abrir o save.
+    setActiveParty: (activeParty) => {
+      set(state => ({ activeParty, storyProgress: { ...state.storyProgress, __time: activeParty.map(m => m.id) } }))
+      get()._persistStory?.()
+    },
+    restaurarTime: () => {
+      const { roster, storyProgress } = get()
+      const porId = new Map(roster.map(m => [m.id, m]))
+      const salvo = (storyProgress.__time || []).map(id => porId.get(id)).filter(Boolean)
+      const time = (salvo.length >= Math.min(GANGUES_INITIAL_PARTY_SIZE, roster.length) ? salvo : roster).slice(0, GANGUES_MAX_PARTY_SIZE)
+      set({ activeParty: time })
+    },
     addLocalSheet: (sheet) => {
       const saved = { ...sheet, id: sheet.id || `local-${sheet.character_template_id || 'legacy'}-${Date.now()}` }
       set(state => ({ sheet: saved, roster: [...state.roster, saved] }))

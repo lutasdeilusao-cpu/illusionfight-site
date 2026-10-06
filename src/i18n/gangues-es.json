@@ -6882,6 +6882,25 @@
         "criticos": "críticos",
         "vitoria": "Victoria",
         "derrota": "Derrota"
+      },
+      "escalacao": {
+        "botao": "Alineación",
+        "eyebrow": "Quién va a la pelea",
+        "titulo": "Alineación",
+        "explica": "Solo los que están en la alineación pelean y ganan XP. Mete a los novatos para que suban de nivel y usa las flechas para cambiar el orden.",
+        "no_time": "En la alineación · {n}/{max}",
+        "banco": "En la banca",
+        "banco_vazio": "Nadie en la banca: toda la pandilla está en la alineación.",
+        "por": "Meter",
+        "tirar": "Sacar",
+        "subir": "Subir en el orden",
+        "descer": "Bajar en el orden",
+        "nivel": "Nivel {n}",
+        "minimo": "La alineación necesita al menos {n}.",
+        "cheio": "Alineación llena. Saca a alguien para abrir lugar.",
+        "pronto": "Listo",
+        "tutorial": "Llegó sangre nueva y ya entró en la alineación. En ALINEACIÓN metes, sacas y cambias el orden de quién pelea. Solo la alineación gana XP, así que mete a los novatos para que suban. En la calle es el botón 👥 de arriba.",
+        "tutorial_abrir": "Abrir alineación"
       }
     }
   }

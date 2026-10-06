@@ -16,6 +16,7 @@ import logoEn from '../assets/logos/logo-en.png'
 import logoEs from '../assets/logos/logo-es.png'
 import GanguesRetratoImg from '../components/GanguesRetratoImg'
 import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
+import GanguesEscalacao, { GanguesEscalacaoTutorial } from '../components/GanguesEscalacao'
 
 const LOGOS = { pt: logoPt, en: logoEn, es: logoEs }
 
@@ -54,6 +55,7 @@ export default function GanguesLobby({ onNavigate }) {
   const [avisoPoderes, setAvisoPoderes] = useState(null) // { nomes } — poderes por equipar
   const [renomeando, setRenomeando] = useState(false)
   const [rosterIndex, setRosterIndex] = useState(0)
+  const [escalacao, setEscalacao] = useState(false)
   const roster = store.roster
   const party = store.activeParty
   // Cresce por tier pago OU por território dominado na história — vale o maior.
@@ -85,9 +87,7 @@ export default function GanguesLobby({ onNavigate }) {
   // preenche sozinho quando ninguém nunca escolheu nada (não briga com quem
   // já desmarcou alguém de propósito).
   useEffect(() => {
-    if (party.length === 0 && roster.length > 0) {
-      store.setActiveParty(roster.slice(0, partyLimit))
-    }
+    if (party.length === 0 && roster.length > 0) store.restaurarTime()
   }, [roster.length, partyLimit])
 
   const startRecruitment = () => {
@@ -215,10 +215,15 @@ export default function GanguesLobby({ onNavigate }) {
             t={t}
           />
 
-          <p className="gang-party-counter">{t('games.gangues.party_size_atual', { n: party.length, max: partyLimit })}</p>
+          <button type="button" className="gang-escalacao-abrir" onClick={() => { sfx.click(); setEscalacao(true) }}>
+            <span>{t('games.gangues.escalacao.botao')}</span>
+            <b>{party.length}/{partyLimit}</b>
+          </button>
           {avisoParty && <p className="gang-err">{avisoParty}</p>}
         </>
       )}
+      {escalacao && <GanguesEscalacao t={t} onFechar={() => setEscalacao(false)} />}
+      {!escalacao && roster.length > GANGUES_INITIAL_PARTY_SIZE && <GanguesEscalacaoTutorial t={t} onAbrir={() => setEscalacao(true)} />}
       {avisoPoderes && (
         <div className="gang-progression-prompt" role="dialog" aria-modal="true" aria-labelledby="gang-poderes-prompt-title">
           <div className="gang-progression-prompt__card">

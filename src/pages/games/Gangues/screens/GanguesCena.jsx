@@ -19,6 +19,7 @@ import { useTutorialProgress } from '../../../../context/TutorialProgressContext
 import CenaCenario from '../components/cena/CenaCenario'
 import CenaInterior from '../components/cena/CenaInterior'
 import GanguesCenaBagSheet from '../components/cena/GanguesCenaBagSheet'
+import GanguesEscalacao from '../components/GanguesEscalacao'
 import GanguesCenaFichaCard from '../components/cena/GanguesCenaFichaCard'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 import { GangMarker, PinoAlvo, ZonaChao, WorldControls, BrigaAutoAviso, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
@@ -82,6 +83,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const [fade, setFade] = useState(false)
   const [fichaIndex, setFichaIndex] = useState(null)
   const [bagAberta, setBagAberta] = useState(false)
+  const [escalacao, setEscalacao] = useState(false)
   // Vaga de recrutamento liberada por território dominado — a ficha do
   // personagem (aberta daqui, na rua) é onde o Isaias esperava ver isso, não
   // só um toast que passa (pedido do Isaias, 2026-09-14: "deveria aparecer
@@ -484,7 +486,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   return <main className={`gang-cena-worldpage${local ? ' is-interior' : ''}`} style={{ '--terr-cor': cena.cor }}>
     <AnimatePresence>{intro && <GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} retrato={getGanguesNpcPortrait(cena.falanteSlug)} onFinish={fecharIntro} onSkip={fecharIntro} />}</AnimatePresence>
     <AnimatePresence>{aleatorio.aviso && <GangDialog key="aleatorio" lines={t(`games.gangues.cena.aleatorio.${aleatorio.aviso}.aviso`)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} retrato={getGanguesNpcPortrait(cena.falanteSlug)} onFinish={aleatorio.confirmarAviso} onSkip={aleatorio.confirmarAviso} />}</AnimatePresence>
-    <header className="gang-cena-worldhud"><button onClick={() => { local ? sair() : (guardarPosicao(), (onVoltar || (() => onNavigate('story')))()) }}>← {local ? t('games.gangues.cena.acao.sair') : t('games.gangues.cena.acao.voltar')}</button><strong>{breadcrumb}{!local && (prog.boss ? <i className="gang-cena-dominado-selo">⚑ {t('games.gangues.cena.dominada')}</i> : <button className="gang-cena-meta-btn" onClick={() => setChecklist(v => !v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={() => setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length > 0 && <button className="gang-cena-ficha-btn" onClick={() => setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={() => { guardarPosicao(); onNavigate('album') }} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
+    <header className="gang-cena-worldhud"><button onClick={() => { local ? sair() : (guardarPosicao(), (onVoltar || (() => onNavigate('story')))()) }}>← {local ? t('games.gangues.cena.acao.sair') : t('games.gangues.cena.acao.voltar')}</button><strong>{breadcrumb}{!local && (prog.boss ? <i className="gang-cena-dominado-selo">⚑ {t('games.gangues.cena.dominada')}</i> : <button className="gang-cena-meta-btn" onClick={() => setChecklist(v => !v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={() => setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button><button className="gang-cena-ficha-btn" onClick={() => setEscalacao(true)} aria-label={t('games.gangues.escalacao.titulo')}>👥</button>{store.activeParty.length > 0 && <button className="gang-cena-ficha-btn" onClick={() => setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={() => { guardarPosicao(); onNavigate('album') }} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
     <AnimatePresence>{checklist && !local && <motion.div className="gang-cena-checklist" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
       <b>{t('games.gangues.cena.checklist_titulo')}</b>
       <ul>{metas.map(m => <li key={m.id} className={m.feito ? 'is-feito' : ''}><span>{m.feito ? '✓' : '○'}</span>{m.nome}</li>)}</ul>
@@ -544,6 +546,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
         </div>
       )}
       <GanguesCenaFichaCard member={store.activeParty[fichaIndex]} t={t} onToggleEspecial={store.toggleEspecial} /></motion.div></motion.div>}</AnimatePresence>
+    {escalacao && <GanguesEscalacao t={t} onFechar={() => setEscalacao(false)} />}
     <AnimatePresence>{bagAberta && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setBagAberta(false)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><GanguesCenaBagSheet store={store} t={t} onClose={() => setBagAberta(false)} /></motion.div></motion.div>}</AnimatePresence>
   </main>
 }

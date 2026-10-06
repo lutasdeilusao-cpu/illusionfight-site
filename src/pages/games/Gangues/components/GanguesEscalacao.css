@@ -1,0 +1,77 @@
+/* Escalação — painel ancorado embaixo (alcance do dedão), mesma linguagem
+   do menu de ação: canto chanfrado, âmbar pra ação, ciano pra quem luta. */
+.gang-esc-overlay {
+  position: fixed; top: 0; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 9990;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overscroll-behavior: none;
+}
+.gang-esc-bg { position: absolute; inset: 0; background: rgba(2, 3, 4, .72); backdrop-filter: blur(3px); }
+.gang-esc {
+  position: relative;
+  display: grid; gap: 8px;
+  max-height: 88dvh; overflow-y: auto; overscroll-behavior: contain;
+  margin: 0 8px calc(8px + env(safe-area-inset-bottom));
+  padding: 14px 12px 12px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 45%, transparent);
+  background: linear-gradient(165deg, var(--gang-noite-850), var(--gang-noite-950) 85%);
+  box-shadow: 0 -14px 40px -10px var(--gang-preto);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+.gang-esc__eyebrow, .gang-esc__secao {
+  margin: 0;
+  font: 700 0.54rem var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.gang-esc__secao { margin-top: 6px; color: var(--if-cyan); }
+.gang-esc__titulo { margin: 0; font: 900 1.15rem/1.1 var(--font-title); letter-spacing: 0.04em; text-transform: uppercase; color: var(--if-amber); }
+.gang-esc__explica { margin: 0; font: 500 0.74rem/1.45 var(--font-body); color: var(--text-primary); }
+
+.gang-esc__lista { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.gang-esc__item {
+  display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 8px;
+  min-height: 52px; padding: 6px 8px;
+  border: 1px solid var(--if-hair); border-left: 2px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.03);
+}
+.gang-esc__item.is-time { grid-template-columns: 18px 40px 1fr auto; border-left-color: var(--if-cyan); }
+.gang-esc__n { font: 900 0.9rem var(--font-mono); color: var(--if-cyan); text-align: center; }
+.gang-esc__foto {
+  width: 40px; height: 40px; display: grid; place-items: center; overflow: hidden;
+  border: 1px solid var(--if-hair-strong); background: var(--gang-noite-950);
+}
+.gang-esc__foto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.gang-esc__foto i { font: 900 1rem var(--font-title); font-style: normal; color: var(--text-secondary); }
+.gang-esc__nome { display: grid; gap: 2px; min-width: 0; }
+.gang-esc__nome strong { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font: 800 0.78rem var(--font-mono); color: var(--gang-branco); }
+.gang-esc__nome small { font: 600 0.6rem var(--font-mono); letter-spacing: 0.08em; color: var(--text-secondary); text-transform: uppercase; }
+
+.gang-esc__acoes { display: flex; gap: 4px; }
+.gang-esc__seta, .gang-esc__tirar, .gang-esc__por {
+  min-width: 40px; min-height: 40px; padding: 0 8px; cursor: pointer;
+  border: 1px solid var(--if-hair-strong); background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary); font: 800 0.62rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase;
+}
+.gang-esc__tirar { color: var(--if-danger); border-color: color-mix(in srgb, var(--if-danger) 45%, transparent); }
+.gang-esc__por { color: var(--gang-preto); background: var(--if-amber); border-color: var(--if-amber); padding: 0 12px; }
+.gang-esc__seta:disabled, .gang-esc__tirar:disabled, .gang-esc__por:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.gang-esc__aviso, .gang-esc__vazio { margin: 0; font: 600 0.64rem/1.4 var(--font-mono); color: var(--text-secondary); }
+.gang-esc__aviso { color: var(--if-amber); }
+
+.gang-esc__fechar {
+  min-height: 50px; margin-top: 6px; border: 0; cursor: pointer;
+  font: 900 0.95rem var(--font-title); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gang-preto);
+  background: linear-gradient(135deg, var(--if-amber), color-mix(in srgb, var(--if-amber) 70%, var(--if-danger)));
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+
+/* Botão de abrir no lobby: rótulo + contagem do time. */
+.gang-escalacao-abrir {
+  width: 100%; min-height: 44px; margin-top: 8px; padding: 0 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  border: 1px solid color-mix(in srgb, var(--if-cyan) 45%, transparent); background: rgba(4, 10, 14, .85); color: var(--if-cyan);
+  font: 800 .72rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
+.gang-escalacao-abrir b { font-size: .64rem; color: var(--text-secondary); }

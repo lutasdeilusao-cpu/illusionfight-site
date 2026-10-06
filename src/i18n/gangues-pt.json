@@ -3779,6 +3779,25 @@
         "criticos": "críticos",
         "vitoria": "Vitória",
         "derrota": "Derrota"
+      },
+      "escalacao": {
+        "botao": "Escalação",
+        "eyebrow": "Quem vai pra briga",
+        "titulo": "Escalação",
+        "explica": "Só quem está no time briga e ganha XP. Põe os novatos pra subir de nível e usa as setas pra mudar a ordem.",
+        "no_time": "No time · {n}/{max}",
+        "banco": "No banco",
+        "banco_vazio": "Ninguém no banco: todo mundo da gangue tá no time.",
+        "por": "Pôr no time",
+        "tirar": "Tirar",
+        "subir": "Subir na ordem",
+        "descer": "Descer na ordem",
+        "nivel": "Nível {n}",
+        "minimo": "O time precisa de pelo menos {n}.",
+        "cheio": "Time cheio. Tira alguém pra abrir vaga.",
+        "pronto": "Fechou",
+        "tutorial": "Chegou sangue novo e ele já entrou no time. Em ESCALAÇÃO tu põe, tira e muda a ordem de quem briga. Só quem tá no time ganha XP, então bota os novatos pra subir. Na rua é o botão 👥 lá em cima.",
+        "tutorial_abrir": "Abrir escalação"
       }
     }
   }

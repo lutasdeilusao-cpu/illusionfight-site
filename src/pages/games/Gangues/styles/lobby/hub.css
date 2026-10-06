@@ -124,7 +124,6 @@
 /* Espaçamento default de <p> (1em de margem, ~16px cada lado) mais o
    margin-top:18px do botão de sair (GanguesStory.css) somavam sozinhos uns
    50px de vão — parte do mesmo aperto geral pedido pelo Isaias. */
-.gang-lobby .gang-party-counter { margin: 6px 0; }
 .gang-lobby .gang-lobby-quit { margin-top: 10px; }
 .gang-lobby .gang-lobby-voltar.gang-lobby-voltar { margin: 10px auto 0; }
 

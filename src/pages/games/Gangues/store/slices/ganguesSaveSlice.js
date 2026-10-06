@@ -34,6 +34,7 @@ export default function createGanguesSaveSlice(set, get) {
     selecionarSave: async (saveId) => {
       set({ _saveId: saveId, roster: [], activeParty: [], gangName: '', storyProgress: {}, cenaProgresso: {}, grana: 0, rep: 0, inventario: {}, equipamentos: [] })
       await Promise.all([get().loadStoryProgress(saveId), get().loadSheets(saveId)])
+      get().restaurarTime()
     },
   }
 }
