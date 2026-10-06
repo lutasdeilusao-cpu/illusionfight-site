@@ -1,0 +1,205 @@
+var e=`# CAPÍTULO 4 — O último degrau
+
+> ⚠️ **CONTEÚDO SENSÍVEL.** Este capítulo fala de bullying, violência física na infância e uma faca dentro de uma escola. Se esse tema te faz mal, pode parar aqui.
+
+---
+
+Eu tinha acabado de sair do prezinho.
+
+Na nossa época era prezinho, não pré-escola. Meus pais conseguiram pagar. Era baratinho, e várias crianças da igreja iam. Meus pais eram da igreja. Ainda são.
+
+Eu sempre fui acelerado. Comecei a ler muito cedo, com uns 5 anos. Leitura de verdade.
+
+Aí fui pra primeira série, numa escola pública do lado da comunidade, a Jorge Andrade.
+
+Não prestou. Desde o primeiro dia.
+
+---
+
+Eu era muito nerd. Muito CDF, como a gente chamava.
+
+E comecei a sofrer bullying. Muito.
+
+A molecada de lá tinha mais malícia. Mais maldade. Mais vida. Mesma idade, mas outra experiência.
+
+Eu sofria pra caralho, porque eu não imaginava que a vida era assim.
+
+---
+
+Aí veio a minha primeira surra.
+
+Eu já tinha levado uns tapas antes. Mas essa ficou marcada. Essa mudou a minha vida.
+
+Depois dela eu comecei a apanhar. E fui apanhando muito.
+
+Até a quarta série eu era o capacho. O CDF do bullying completo. Aquele que hoje você vê em série coreana.
+
+Só que na minha época ninguém falava que bullying era tão pesado assim. Era só o bagulho. O bagulho é louco: você é fraco, você sofre.
+
+E depois eu descobri que não era uma questão de força.
+
+---
+
+Na quarta série eu levei a última surra.
+
+Eu lembro dela claramente.
+
+A gente subiu uma escada, os moleques me zoando, me levando. Quando chegou lá em cima, no último degrau, um deles me deu um socão no meio da cara.
+
+E eu desci rodando.
+
+Eles queriam ver aquilo. Eu me machucando. Me quebrando inteiro.
+
+E alguma coisa quebrou dentro de mim também.
+
+Quebrou fundo.
+
+Enquanto eu rolava a escada, eu falei pra mim mesmo:
+
+Isso não vai mais acontecer. Comigo, nunca mais. Eu sou inteligente o suficiente pra mudar essa situação. E eu vou mudar.
+
+Quarta série.
+
+---
+
+Deu comoção geral. Os moleques ficaram suspensos um bom tempo, quase até o fim do ano.
+
+Naquela época a escola ia da primeira à quarta série. No ano seguinte, todo mundo mudava. Eu fui pra outra escola, a Carolina.
+
+E eu já tinha entendido: escola pública da região é tudo o mesmo corre.
+
+Então eu passei as férias inteiras treinando. Treinamento físico intenso.
+
+Eu lia muito, lembra? Um dos livros que eu li foi um livro de treinamento do Bruce Lee. Muito antes do Ip Man e de todo esse sucesso. Eu li bastante coisa sobre treinamento físico.
+
+Eu nunca fui bombado. Nunca fui alto.
+
+E eu só enfrentei cara alto. Cara alto se acha. Me dá uma raiva. Hoje eu tenho vários amigos altos, sem preconceito. Mas eu tive muito problema com cara alto.
+
+---
+
+Alguns moleques do grupinho que me zoava foram pra Carolina também.
+
+E eles acharam que a brincadeira ia continuar na quinta série.
+
+A gente não era da mesma sala. Mas no intervalo eles vieram me abordar. Eu fui saindo fora, sem dar atenção, deixando claro: não mexe comigo.
+
+Só que eles não iam perder o capacho deles.
+
+O líder antigo tinha ido pra outra escola. Agora tinha um moleque novo querendo assumir o grupo.
+
+Na terceira semana de aula eu sabia que a coisa tava crescendo. Que eles queriam colocar aquilo de volta na minha vida.
+
+---
+
+> ⚠️ **CONTEÚDO SENSÍVEL A PARTIR DAQUI.** Faca e ameaça dentro de uma escola.
+
+Então eu levei uma faca pra escola.
+
+Pois é.
+
+---
+
+Eu tava indo pra biblioteca pegar um livro.
+
+Caralho, como eu era nerd. Até me dá raiva lembrar. Não que eu não goste de mim nessa fase. Mas eu era muito vacilão.
+
+Eles me viram.
+
+— E aí, Isaias, firmeza? Cola aqui.
+
+Eu olhei com muita calma.
+
+E foi a primeira vez que o mundo ficou cinza.
+
+Eu pensei: pronto. Toma o volante. Você tava se preparando pra isso. Quero ver você em ação.
+
+Eu não mando nele. Ele aparece quando a situação aparece. Mas naquela primeira vez eu ainda não entendia direito. Acabei até sendo educado. Deixei ele assumir.
+
+Nesses momentos eu tô lá. Não é que não sou eu. Sou eu, caralho. Mas eu tô no banco do passageiro. Nem tudo eu vejo. Nem tudo eu lembro em ordem. Muita coisa eu reconstruo depois, pelo que as pessoas me contam.
+
+---
+
+Eu peguei o moleque pela camiseta.
+
+Camiseta firme o suficiente: você dá um nó, dá um giro com o pulso, ela pega e já começa a sufocar. A primeira reação do cara é levar a mão no pescoço. E aí a cara dele fica livre.
+
+A escola parecia uma prisão, cheia de grade. Eu grudei ele contra uma grade.
+
+E coloquei a faca no pescoço dele.
+
+— Que porra é essa? O que você tá fazendo?
+
+— Eu falei pra você não mexer comigo. Pelo que você fez comigo, você sabe o que merecia. Mas eu não vou fazer isso. Não hoje. Hoje é só um aviso. Porque se eu começar, eu não paro mais. Eu vou bater o recorde de facadas num ser humano.
+
+Aí eu olhei pros outros moleques.
+
+É sempre assim: tem um liderzinho vagabundo e uns moleques que andam com ele. Você pega o líder, e os outros começam a pensar na própria segurança.
+
+— Ouve bem. Você e todo mundo aqui. Se algum de vocês mexer comigo de novo, da próxima vez vocês nem vão saber. Eu não vou aparecer na hora da treta. Eu vou pegar um por um. No caminho pra casa. Quando você for tomar uma água. Eu vou derrubar com calma, com prazer e com precisão.
+
+Larguei ele.
+
+Ele ficou sem saber o que dizer.
+
+Eu virei, coloquei a faca na cintura e fui pra biblioteca pegar o meu livro.
+
+Os moleques nunca mais mexeram comigo.
+
+Nunca mais.
+
+---
+
+Foi ali que eu descobri uma coisa sobre bullying.
+
+Eu já tinha chegado nessa conclusão. Mas foi bom colocar em prática.
+
+Todo mundo pode ser vítima. Mas eles querem as fáceis.
+
+Se você é uma vítima que dá trabalho, eles te deixam em paz.
+
+Porque quem faz bullying é fraco. É preguiçoso. Não tem a resiliência que precisa.
+
+Naquele dia eu entendi isso.
+
+---
+
+"Mas você levou uma faca pra escola. Você é um perigo."
+
+Não.
+
+Pra mim, uma faca é ferramenta de defesa de quem é mais fraco. Ela me iguala. Os caras são mais fortes, eu preciso me igualar.
+
+Essa é a minha regra da briga de rua. A primeira coisa que eu olho: o cara é grande? Tem uma pedra ali? Um pedaço de pau? Um ferro? Uma corrente? O que tiver, eu vou.
+
+Briga de rua não tem regra.
+
+Eu vou dar vantagem pro cara só pra ser honrado? Foda-se a honra. Eu quero descer porrada.
+
+E, se for pra apanhar, que seja apanhando direito. Bater, cair, levantar. Cair, levantar. Até o cara cansar.
+
+É assim que eu gosto das brigas.
+
+---
+
+Esse grupo nunca mais mexeu comigo. Mas outras coisas aconteceram. Eu descobri um outro lado meu na Carolina e explorei bastante ele.
+
+Aprontei tanto que fui expulso. A primeira escola de onde eu fui expulso. Fui levado pra Miguel, e aí começa outra fase da minha vida. Outra história.
+
+E sabe o mais engraçado?
+
+Anos depois, eu virei inspetor de alunos na Carolina. Concursado. Fiquei quase 12 anos lá.
+
+A mesma escola que me expulsou.
+
+A vida é um autorama.
+
+---
+
+**Na ficção, virou**
+
+A primeira vez que o mundo ficou cinza foi naquele corredor, na quinta série. É de lá que vem o mundo cinza do Kim.
+
+E a regra da pedra, do pau, do ferro e da corrente é a mesma de [*A Única Regra*](/historias/lutas-de-ilusao/capitulo-03): briga de rua não tem regra.
+`;export{e as default};
+//# sourceMappingURL=04-FtFqWjH6.js.map

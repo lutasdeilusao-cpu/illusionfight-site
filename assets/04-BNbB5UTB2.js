@@ -1,0 +1,103 @@
+var e=`# CAPÍTULO 4 — La Puerta
+
+Jack miró el club. Después me miró a mí.
+
+— Entonces va. Estoy contigo. Para lo que venga.
+
+Sabía que podía contar con él. Siempre lo supe. Es un lazo que no necesita explicación.
+
+---
+
+Fuimos hasta la puerta.
+
+El club normalmente estaba abierto. La banda tomaba afuera, hacía show con las motos, ruido toda la noche.
+
+Esa noche, no. Puerta cerrada. Nadie en la acera.
+
+Había un tipo en la puerta. Grande.
+
+— No, hermano. Menores no entran. Aquí la cosa es pesada. Vuelve cuando dejes los pañales.
+
+— Tranquilo, hermano. Solo quiero hablar con la mujer del pelo morado.
+
+— ¿Y para qué quieres hablar con ella?
+
+— No es asunto tuyo. Lo que es asunto tuyo es que la vas a traer aquí.
+
+---
+
+No se movió.
+
+— Hoy estamos cerrados por un evento privado. Vuelve otro día. Tranquilo, que yo le aviso a la del pelo morado que pasaste.
+
+— No, hermano. No entendiste.
+
+Lo dije en serio. Muy en serio.
+
+— Es así. O entras ahora mismo y traes a la mujer del pelo morado hasta aquí, o entro yo. Y cuando termine, el único que va a quedar de pie ahí adentro voy a ser yo.
+
+Se rio.
+
+Jack me miró. Sabía que no estaba jugando.
+
+---
+
+**JACK**
+
+Ahí fue cuando me metí. Alguien tenía que intentar la diplomacia.
+
+**KIM**
+
+Él le dice diplomacia.
+
+**JACK**
+
+— Hermano, hablemos rapidito. Mi amigo está medio loco, ya sé. Pero solo está preocupado por su mamá.
+
+— ¿Su mamá?
+
+— Sí, hermano. La del pelo morado es su mamá.
+
+El portero se rascó la barba.
+
+— Entró con el jefe. Y solo sale cuando el jefe termine. Tiene una deuda y vino a pagarla. Por eso fuimos a buscarla a su casa.
+
+**KIM**
+
+Miré a Jack. Jack me miró a mí.
+
+**JACK**
+
+— ¿Qué deuda es esa? — preguntó Jack.
+
+— Pidió un préstamo pesado. Jugó toda la noche con nosotros, perdió todo el dinero y no pagó. Ahora va a tener que trabajar un buen rato aquí en la casa hasta saldarla.
+
+**KIM**
+
+— ¿Cuánto es? — pregunté yo.
+
+— Eso ya no sé. Yo solo cuido la puerta. El trato es entre ella y el jefe.
+
+---
+
+**JACK**
+
+Lo intenté, gente. Que conste que lo intenté.
+
+**KIM**
+
+Para mí fue suficiente.
+
+— Dile al jefe que venga ahora mismo. Dile que yo pago la deuda de ella.
+
+Le cambió la cara.
+
+— Mira. Hasta ahora he sido buena onda porque es tu mamá. Pero te estás pasando de listo, niño. Demasiado. Mejor lárgate antes de que se ponga feo para ti. Y cuando se pone feo, ya no se compone.
+
+Se acercó más.
+
+— Agarra tu camino. Tu mamá solo va a hacer unos trabajitos ahí. Te garantizo que vuelve a casa. No vuelve entera. Pero vuelve.
+
+Y se rio otra vez.
+`;export{e as default};
+//# sourceMappingURL=04-BNbB5UTB2.js.map
