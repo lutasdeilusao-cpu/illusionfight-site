@@ -24,7 +24,8 @@ export default function Game() {
   const [pronto, setPronto] = useState(false)
   const [diario, setDiario] = useState(false)
   const [puzzle, setPuzzle] = useState(null)
-  const [luta, setLuta] = useState(null) // { escolha, tentativa }
+  const [luta, setLuta] = useState(null) // { escolha, tentativa, abertura }
+  const [vencidaEm, setVencidaEm] = useState(null) // cena cuja luta de abertura já foi vencida
   const [capitulo, setCapitulo] = useState(null)
   const [capsVistos] = useState(() => new Set())
 
@@ -37,6 +38,16 @@ export default function Game() {
     if (cena?.capitulo && !capsVistos.has(cena.id)) { capsVistos.add(cena.id); setCapitulo(cena) }
     window.scrollTo(0, 0)
   }, [cena, capsVistos])
+
+  // Cena de briga (com `luta` no topo e uma escolha só, que leva o inimigo):
+  // a batalha abre ANTES da narração. Vencida, o texto conta como foi e a
+  // escolha só segue a história.
+  const lutaDaCena = cena?.luta && escolhas.length === 1 && escolhas[0].luta ? escolhas[0] : null
+  useEffect(() => {
+    if (!lutaDaCena || vencidaEm === cena.id) return
+    ligarSom()
+    setLuta({ escolha: lutaDaCena, tentativa: 0, abertura: true })
+  }, [cena?.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!aprendeu) return
@@ -52,12 +63,13 @@ export default function Game() {
   // Escolha com `luta` (id do inimigo da campanha) abre a batalha do pentagrama
   // por cima da cena. Venceu, segue; perdeu, vai pro `next_falha` ou tenta de novo.
   const onEscolher = ch => {
-    if (ch.luta) { ligarSom(); setLuta({ escolha: ch, tentativa: 0 }); return }
+    if (ch.luta && vencidaEm !== cena.id) { ligarSom(); setLuta({ escolha: ch, tentativa: 0 }); return }
     if (ch.isPuzzle) setPuzzle(ch); else escolher(ch)
   }
   const fimLuta = resultado => {
     const ch = luta.escolha
-    if (resultado === 'vitoria') { setLuta(null); escolher(ch) }
+    if (resultado === 'vitoria' && luta.abertura) { setLuta(null); setVencidaEm(cena.id) }
+    else if (resultado === 'vitoria') { setLuta(null); escolher(ch) }
     else if (ch.next_falha) { setLuta(null); escolher(ch, true) }
     else setLuta(l => ({ ...l, tentativa: l.tentativa + 1 }))
   }
@@ -114,7 +126,7 @@ export default function Game() {
       {luta && (
         <div className="ld-luta">
           <Luta key={luta.tentativa} t={t} ficha={INIMIGOS.find(i => i.id === luta.escolha.luta)} batida={VELOCIDADES.normal}
-            verOrigem={save.habilidades.includes(23)} onSair={() => setLuta(null)} onResultado={fimLuta} />
+            verOrigem={save.habilidades.includes(23)} onSair={() => (luta.abertura ? navigate('/games/ldi') : setLuta(null))} onResultado={fimLuta} />
         </div>
       )}
       {puzzle && (
