@@ -3,9 +3,10 @@
 // exatamente o que o site libera, sem lista paralela pra manter.
 //
 // Cronograma: a temporada anda em ciclos de 4 meses — 3 meses lançando e 1 de
-// hiato. Histórias: 1 capítulo público a cada 15 dias (dias 15 e 30), o
-// assinante sempre 1 à frente, a conta grátis no meio. WEB SHARD: 1 capítulo
-// por mês nos meses de lançamento. No hiato sai O Mundo das Sombras (o
+// hiato. Histórias: 1 capítulo a cada 15 dias (dias 15 e 30) pro assinante,
+// que começa cada ciclo com 2; a conta grátis recebe 15 dias depois e o
+// público mais 15 (1 mês atrás). WEB SHARD: 1 capítulo por mês nos meses de
+// lançamento, mesma defasagem. No hiato sai O Mundo das Sombras (o
 // assinante recebe 2, o público 1) e Mar de Cinzas fica em avaliação.
 import livro from './historias/lutas-de-ilusao.json'
 import obras from './historias/obras.json'

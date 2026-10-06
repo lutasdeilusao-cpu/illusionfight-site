@@ -7,12 +7,12 @@ import { resolveAccessLevel } from '../../../lib/releaseAccess'
 import { SEASON_ONE_COMPLETION, SEASON_ONE_DROPS, SEASONS_OVERVIEW, GAMES_ROADMAP } from '../../../data/season-one-schedule'
 import './Calendario.css'
 
-// Defasagem em dias até o capítulo abrir (o assinante lê 1 à frente) e quantos
-// capítulos cada nível tem no dia do lançamento.
+// Defasagem em dias até o capítulo abrir e quantos capítulos cada nível tem
+// no dia do lançamento (o assinante começa com 2).
 const levelRows = [
   { id: 'subscriber', access: ['elite', 'primordial'], delay: 0, launch: 2, tales: 5 },
-  { id: 'account', access: ['conta'], delay: 8, launch: 1, tales: 0 },
-  { id: 'public', access: ['publico'], delay: 15, launch: 1, tales: 0 },
+  { id: 'account', access: ['conta'], delay: 15, launch: 0, tales: 0 },
+  { id: 'public', access: ['publico'], delay: 30, launch: 0, tales: 0 },
 ]
 const NIVEIS_DROP = ['subscriber', 'account', 'public']
 const channels = ['chapters', 'webtoon', 'games', 'music', 'partners']
