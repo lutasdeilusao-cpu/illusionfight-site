@@ -60,16 +60,16 @@ button.calendar-day { padding: 0; cursor: pointer; font: inherit; color: inherit
 .calendar-dica { margin: 0 0 14px; font: 600 .7rem var(--font-body); color: var(--text-secondary); }
 .calendar-dia { display: grid; gap: 8px; margin-top: 8px; padding: 12px; border: 1px solid var(--if-cyan-45); background: var(--if-panel); }
 .calendar-dia time { font: 800 .82rem var(--font-display); text-transform: uppercase; color: var(--if-ink); }
-.calendar-dia__marco { display: flex; align-items: center; gap: 6px; margin: 0; font: 800 .66rem var(--font-mono); text-transform: uppercase; color: var(--if-violet); }
 .calendar-dia__linha { display: grid; gap: 4px; padding: 8px; background: rgba(255,255,255,.03); }
 .calendar-dia__linha.is-you { background: var(--if-cyan-08); box-shadow: inset 2px 0 0 var(--if-cyan); }
 .calendar-dia__linha b { display: flex; align-items: center; gap: 6px; font: 800 .62rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); }
 .calendar-dia__linha ul { margin: 0; padding-left: 13px; display: grid; gap: 2px; }
 .calendar-dia__linha li { font: 600 .82rem/1.35 var(--font-body); color: var(--if-ink); }
 .calendar-day-dot.is-hiato { background: var(--if-violet); }
-/* Hiato: o mês de descanso aparece como marco no topo do drop. */
-.calendar-drop.is-hiato { border-color: color-mix(in srgb, var(--if-violet) 45%, transparent); }
-.calendar-drop-marco { margin: 0 0 6px; padding: 6px 8px; font: 800 .66rem/1.35 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--if-violet); background: color-mix(in srgb, var(--if-violet) 10%, transparent); }
+/* Hiato: faixa no topo do mês de descanso (não é dia de lançamento). */
+.calendar-hiato { display: grid; gap: 3px; margin: 0 0 10px; padding: 8px 10px; border-left: 2px solid var(--if-violet); background: color-mix(in srgb, var(--if-violet) 10%, transparent); }
+.calendar-hiato b { font: 800 .7rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--if-violet); }
+.calendar-hiato span { font: 600 .74rem/1.35 var(--font-body); color: var(--text-secondary); }
 /* Canal Games: uma coluna por fase de lançamento. */
 .calendar-games { display: grid; gap: 12px; }
 .calendar-game-fase { padding: 16px; border-left: 2px solid var(--if-amber); background: var(--if-panel); }

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { resolveAccessLevel } from '../../../lib/releaseAccess'
-import { SEASON_ONE_COMPLETION, SEASON_ONE_DROPS, SEASONS_OVERVIEW, GAMES_ROADMAP } from '../../../data/season-one-schedule'
+import { SEASON_ONE_COMPLETION, SEASON_ONE_DROPS, SEASONS_OVERVIEW, GAMES_ROADMAP, HIATOS } from '../../../data/season-one-schedule'
 import './Calendario.css'
 
 // Defasagem em dias até o capítulo abrir e quantos capítulos cada nível tem
@@ -75,7 +75,6 @@ function DiaDetalhe({ t, locale, drop, access }) {
   return (
     <div className="calendar-dia" aria-live="polite">
       <time>{formatDate(drop.date, locale)}</time>
-      {drop.marcos.map((m, i) => <p key={i} className="calendar-dia__marco"><span className="calendar-day-dot is-hiato" />{textoItem(t, m)}</p>)}
       {NIVEIS_DROP.map(nivel => drop[nivel].length > 0 && (
         <div key={nivel} className={`calendar-dia__linha${souEu[nivel] ? ' is-you' : ''}`}>
           <b><span className={`calendar-day-dot is-${nivel}`} />{t(`calendar.level_${nivel}`)}{souEu[nivel] ? ` · ${t('calendar.voce_curto')}` : ''}</b>
@@ -192,9 +191,17 @@ export default function Calendario() {
         <div className="calendar-months">
           {months.map(({ year, month }) => {
             const cells = buildMonthCells(year, month)
+            const hiato = HIATOS.find(h => h.mes === `${year}-${pad2(month + 1)}`)
             return (
               <div className="calendar-month" key={`${year}-${month}`}>
                 <h3 className="calendar-month-head">{monthLabel(year, month, locale)}</h3>
+                {hiato && (
+                  <div className="calendar-hiato">
+                    <b>{t('calendar.item_hiato', { n: hiato.n })}</b>
+                    {channel === 'chapters' && <span>{t('calendar.hiato_sombras')}</span>}
+                    {channel === 'chapters' && <span>{t('calendar.item_cinzas')}</span>}
+                  </div>
+                )}
                 <div className="calendar-weekdays">
                   {weekdays.map((w, i) => <span key={i}>{w}</span>)}
                 </div>
@@ -213,7 +220,6 @@ export default function Calendario() {
                             {NIVEIS_DROP.map(nivel => event[nivel].length > 0 && (
                               <span key={nivel} className={`calendar-day-dot is-${nivel}`} title={`${t(`calendar.level_${nivel}`)}: ${textoLista(t, event[nivel])}`} />
                             ))}
-                            {event.marcos.some(m => m.tipo === 'hiato') && <span className="calendar-day-dot is-hiato" title={textoLista(t, event.marcos)} />}
                           </div>
                         )}
                       </button>
@@ -232,10 +238,9 @@ export default function Calendario() {
           {drops.map((drop, index) => {
             const state = index === currentIndex ? 'current' : index === nextIndex ? 'next' : index < currentIndex ? 'past' : 'future'
             const souEu = { subscriber: access === 'primordial' || access === 'elite', account: access === 'conta', public: access === 'publico' }
-            return <article className={`calendar-drop is-${state}${drop.marcos.length ? ' is-hiato' : ''}`} key={drop.date}>
+            return <article className={`calendar-drop is-${state}`} key={drop.date}>
               <div className="calendar-drop-date"><span>DROP {String(drop.number).padStart(2, '0')}</span><time>{formatDate(drop.date, locale)}</time></div>
               {(state === 'current' || state === 'next') && <span className="calendar-drop-state">{t(`calendar.${state}`)}</span>}
-              {drop.marcos.map((m, i) => <p key={i} className="calendar-drop-marco">{textoItem(t, m)}</p>)}
               {NIVEIS_DROP.map(nivel => drop[nivel].length > 0 && (
                 <div key={nivel} className={`calendar-drop-line${souEu[nivel] ? ' is-you' : ''}`}><b>{t(`calendar.level_${nivel}`)}</b><span>{textoLista(t, drop[nivel])}</span></div>
               ))}

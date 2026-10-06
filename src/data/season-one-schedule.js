@@ -14,32 +14,28 @@ import obras from './historias/obras.json'
 import episodios from './episodios.json'
 
 export const T1 = { inicio: '2026-11-15', fim: '2027-10-31' }
+// Mês de hiato (YYYY-MM): aparece como faixa no topo do mês, nunca como dia.
 export const HIATOS = [
-  { n: 1, inicio: '2027-02-01' },
-  { n: 2, inicio: '2027-06-01' },
-  { n: 3, inicio: '2027-10-01' },
+  { n: 1, mes: '2027-02' },
+  { n: 2, mes: '2027-06' },
+  { n: 3, mes: '2027-10' },
 ]
 const NIVEIS = [['subscriber', 'primordial'], ['account', 'conta'], ['public', 'publico']]
 const naT1 = data => data >= T1.inicio && data <= T1.fim
 
-function linhasDoTempo(itens, marcos = []) {
+function linhasDoTempo(itens) {
   const porData = {}
-  const linha = data => (porData[data] ||= { date: data, subscriber: [], account: [], public: [], marcos: [] })
+  const linha = data => (porData[data] ||= { date: data, subscriber: [], account: [], public: [] })
   for (const { item, liberacao } of itens) {
     for (const [nivel, campo] of NIVEIS) {
       const data = liberacao?.[campo]
       if (data && naT1(data)) linha(data)[nivel].push(item)
     }
   }
-  for (const m of marcos) linha(m.date).marcos.push(m.item)
   return Object.values(porData).sort((a, b) => a.date.localeCompare(b.date)).map((row, i) => ({ number: i + 1, ...row }))
 }
 
 const sombras = obras.find(o => o.id === 'mundo-das-sombras')?.capitulos || []
-const marcosHiato = HIATOS.flatMap(h => [
-  { date: h.inicio, item: { tipo: 'hiato', n: h.n } },
-  { date: h.inicio, item: { tipo: 'cinzas' } },
-])
 
 const itensHistorias = [
   ...livro.map(c => ({ item: { tipo: 'livro', n: c.numero }, liberacao: c.liberacao })),
@@ -50,8 +46,8 @@ const itensWebshard = episodios
   .map(e => ({ item: e.especial ? { tipo: 'especial' } : { tipo: 'webshard', n: e.numero }, liberacao: e.liberacao }))
 
 export const SEASON_ONE_DROPS = {
-  chapters: linhasDoTempo(itensHistorias, marcosHiato),
-  webtoon: linhasDoTempo(itensWebshard, marcosHiato.filter(m => m.item.tipo === 'hiato')),
+  chapters: linhasDoTempo(itensHistorias),
+  webtoon: linhasDoTempo(itensWebshard),
 }
 
 // Quando cada obra fecha na T1, por nível. `null` = só na Temporada 2.

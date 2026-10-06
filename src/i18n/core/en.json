@@ -1377,7 +1377,8 @@
     "legenda": "Color key",
     "legenda_hiato": "Hiatus",
     "toque_dia": "Tap a marked day to see what comes out and for whom.",
-    "voce_curto": "you"
+    "voce_curto": "you",
+    "hiato_sombras": "The Shadow World comes out for subscribers and free accounts; everyone else waits for the cycle to come back."
   },
   "home": {
     "section_latest": "New releases",
