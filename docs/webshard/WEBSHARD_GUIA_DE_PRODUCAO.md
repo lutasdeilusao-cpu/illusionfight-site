@@ -166,6 +166,8 @@ Não recolorir automaticamente a fala quando muda o domínio da cena. A página 
 
 **Cores de fala:** Kim `#1E6FE0`; Jack `#22C55E`; Helena `#9B4DCA`; Pajé Yawanari `#E8730C`; Brock `#8B1E1E`; Fred/Freddy `#C9A227`; Osvaldo `#5B7A9E`; Professor Máquina `#3A3A3A` (handoff). **Nina: rosa framboesa `#B82E69`**, definido nesta tarefa por delegação de Isaias. O tom aproxima os rosas das fichas sem exigir amostragem perfeita; contraste calculado de aproximadamente **5,78:1 sobre branco puro**, antes dos efeitos de rasterização/glow. Aplicar ao texto e contorno do balão; não trocar a letra pelo rosa claro do brilho.
 
+**Professor Máquina:** balão invertido, fundo grafite `#3A3A3A`, texto e contorno prata-gelo `#D9DEE3`, formato retangular chanfrado, fonte monoespaçada de terminal (oficial: **Share Tech Mono**). Cursor "▌" opcional ao fim de falas marcantes. É o único personagem com balão escuro.
+
 | Neon LDI | Núcleo / glow | Uso registrado no handoff |
 |---|---|---|
 | Azul | `#3B82F6` / `#1E6FE0` | Kim no controle. |
