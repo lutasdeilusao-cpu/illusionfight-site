@@ -69,6 +69,23 @@ function weekdayLabels(locale) {
   return Array.from({ length: 7 }, (_, i) => fmt.format(new Date(Date.UTC(2023, 0, 1 + i))))
 }
 
+// O que sai no dia tocado, nível por nível, com a cor da bolinha.
+function DiaDetalhe({ t, locale, drop, access }) {
+  const souEu = { subscriber: access === 'primordial' || access === 'elite', account: access === 'conta', public: access === 'publico' }
+  return (
+    <div className="calendar-dia" aria-live="polite">
+      <time>{formatDate(drop.date, locale)}</time>
+      {drop.marcos.map((m, i) => <p key={i} className="calendar-dia__marco"><span className="calendar-day-dot is-hiato" />{textoItem(t, m)}</p>)}
+      {NIVEIS_DROP.map(nivel => drop[nivel].length > 0 && (
+        <div key={nivel} className={`calendar-dia__linha${souEu[nivel] ? ' is-you' : ''}`}>
+          <b><span className={`calendar-day-dot is-${nivel}`} />{t(`calendar.level_${nivel}`)}{souEu[nivel] ? ` · ${t('calendar.voce_curto')}` : ''}</b>
+          <ul>{drop[nivel].map((item, i) => <li key={i}>{textoItem(t, item)}</li>)}</ul>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export default function Calendario() {
   const { t, locale } = useLanguage()
   const { user, perfil } = useAuth()
@@ -79,6 +96,9 @@ export default function Calendario() {
   const currentIndex = drops.findLastIndex(drop => drop.date <= today)
   const nextIndex = drops.findIndex(drop => drop.date > today)
   const eventsByDate = Object.fromEntries(drops.map(d => [d.date, d]))
+  // Dia aberto na grade: começa no próximo lançamento (ou no último, se a temporada já passou).
+  const [diaSel, setDiaSel] = useState(null)
+  const diaAberto = diaSel && eventsByDate[diaSel] ? diaSel : (drops[nextIndex] || drops[currentIndex])?.date
   const months = buildMonths(CALENDAR_START, CALENDAR_END)
   const weekdays = weekdayLabels(locale)
 
@@ -163,6 +183,12 @@ export default function Calendario() {
       <section className="calendar-section" aria-labelledby="drops-title">
         <div className="calendar-section-heading"><span>03</span><h2 id="drops-title">{t('calendar.drops_title')}</h2></div>
 
+        <ul className="calendar-legenda" aria-label={t('calendar.legenda')}>
+          {NIVEIS_DROP.map(nivel => <li key={nivel}><span className={`calendar-day-dot is-${nivel}`} />{t(`calendar.level_${nivel}`)}</li>)}
+          {channel === 'chapters' || channel === 'webtoon' ? <li><span className="calendar-day-dot is-hiato" />{t('calendar.legenda_hiato')}</li> : null}
+        </ul>
+        <p className="calendar-dica">{t('calendar.toque_dia')}</p>
+
         <div className="calendar-months">
           {months.map(({ year, month }) => {
             const cells = buildMonthCells(year, month)
@@ -177,8 +203,10 @@ export default function Calendario() {
                     if (!d) return <div className="calendar-day is-empty" key={i} />
                     const dateStr = `${year}-${pad2(month + 1)}-${pad2(d)}`
                     const event = eventsByDate[dateStr]
+                    const classe = `calendar-day${event ? ' has-event' : ''}${dateStr === today ? ' is-today' : ''}${dateStr === diaAberto ? ' is-sel' : ''}`
+                    if (!event) return <div className={classe} key={i}><span className="calendar-day-num">{d}</span></div>
                     return (
-                      <div className={`calendar-day${event ? ' has-event' : ''}${dateStr === today ? ' is-today' : ''}`} key={i}>
+                      <button type="button" className={classe} key={i} aria-pressed={dateStr === diaAberto} onClick={() => setDiaSel(dateStr)}>
                         <span className="calendar-day-num">{d}</span>
                         {event && (
                           <div className="calendar-day-dots">
@@ -188,10 +216,13 @@ export default function Calendario() {
                             {event.marcos.some(m => m.tipo === 'hiato') && <span className="calendar-day-dot is-hiato" title={textoLista(t, event.marcos)} />}
                           </div>
                         )}
-                      </div>
+                      </button>
                     )
                   })}
                 </div>
+                {diaAberto?.startsWith(`${year}-${pad2(month + 1)}-`) && (
+                  <DiaDetalhe t={t} locale={locale} drop={eventsByDate[diaAberto]} access={access} />
+                )}
               </div>
             )
           })}

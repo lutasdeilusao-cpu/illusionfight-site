@@ -1373,7 +1373,11 @@
     "game_duelo": "LDI Duel",
     "game_duelo_desc": "Card duels on a board.",
     "game_rpg": "LDI 32-bit RPG",
-    "game_rpg_desc": "The whole of Season 1, playable. Subscriber-only DLC with an extra slice of Season 2."
+    "game_rpg_desc": "The whole of Season 1, playable. Subscriber-only DLC with an extra slice of Season 2.",
+    "legenda": "Color key",
+    "legenda_hiato": "Hiatus",
+    "toque_dia": "Tap a marked day to see what comes out and for whom.",
+    "voce_curto": "you"
   },
   "home": {
     "section_latest": "New releases",

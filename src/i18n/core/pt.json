@@ -1373,7 +1373,11 @@
     "game_duelo": "LDI Duelo",
     "game_duelo_desc": "Duelo de cartas num tabuleiro.",
     "game_rpg": "LDI RPG 32 bits",
-    "game_rpg_desc": "A Temporada 1 inteira jogável. DLC exclusiva de assinante com um pedaço a mais da Temporada 2."
+    "game_rpg_desc": "A Temporada 1 inteira jogável. DLC exclusiva de assinante com um pedaço a mais da Temporada 2.",
+    "legenda": "Legenda das cores",
+    "legenda_hiato": "Hiato",
+    "toque_dia": "Toque num dia marcado pra ver o que sai e pra quem.",
+    "voce_curto": "você"
   },
   "home": {
     "section_latest": "Lançamentos",
