@@ -8,11 +8,11 @@ import { SEASON_ONE_COMPLETION, SEASON_ONE_DROPS, SEASONS_OVERVIEW, GAMES_ROADMA
 import './Calendario.css'
 
 // Defasagem em dias até o capítulo abrir e quantos capítulos cada nível tem
-// no dia do lançamento (o assinante começa com 2).
+// no dia do lançamento, por aba (nas histórias o assinante começa com 2).
 const levelRows = [
-  { id: 'subscriber', access: ['elite', 'primordial'], delay: 0, launch: 2, tales: 5 },
-  { id: 'account', access: ['conta'], delay: 15, launch: 0, tales: 0 },
-  { id: 'public', access: ['publico'], delay: 30, launch: 0, tales: 0 },
+  { id: 'subscriber', access: ['elite', 'primordial'], delay: 0, launch: { chapters: 2, webtoon: 1 }, tales: 5 },
+  { id: 'account', access: ['conta'], delay: 15, launch: { chapters: 0, webtoon: 0 }, tales: 0 },
+  { id: 'public', access: ['publico'], delay: 30, launch: { chapters: 0, webtoon: 0 }, tales: 0 },
 ]
 const NIVEIS_DROP = ['subscriber', 'account', 'public']
 const channels = ['chapters', 'webtoon', 'games', 'music', 'partners']
@@ -138,7 +138,7 @@ export default function Calendario() {
               <strong>{t(`calendar.cost_${row.id}`)}</strong>
               <dl>
                 <div><dt>{t('calendar.delay')}</dt><dd>{row.delay} {t('calendar.days')}</dd></div>
-                <div><dt>{t('calendar.launch')}</dt><dd>{row.launch}</dd></div>
+                <div><dt>{t('calendar.launch')}</dt><dd>{row.launch[channel]}</dd></div>
                 <div><dt>{t('calendar.tales')}</dt><dd>{row.tales}</dd></div>
               </dl>
             </article>

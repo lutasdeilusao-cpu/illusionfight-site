@@ -51,12 +51,12 @@
     "idiomas": [
       "pt"
     ],
-    "data_publicacao": "2026-12-15",
+    "data_publicacao": "2027-01-15",
     "liberacao": {
-      "primordial": "2026-11-15",
-      "elite": "2026-11-15",
-      "conta": "2026-11-30",
-      "publico": "2026-12-15"
+      "primordial": "2026-12-15",
+      "elite": "2026-12-15",
+      "conta": "2026-12-30",
+      "publico": "2027-01-15"
     }
   },
   {
@@ -69,12 +69,12 @@
     "idiomas": [
       "pt"
     ],
-    "data_publicacao": "2027-01-15",
+    "data_publicacao": "2027-02-15",
     "liberacao": {
-      "primordial": "2026-12-15",
-      "elite": "2026-12-15",
-      "conta": "2026-12-30",
-      "publico": "2027-01-15"
+      "primordial": "2027-01-15",
+      "elite": "2027-01-15",
+      "conta": "2027-01-30",
+      "publico": "2027-02-15"
     }
   },
   {
@@ -105,12 +105,12 @@
     "idiomas": [
       "pt"
     ],
-    "data_publicacao": "2027-04-15",
+    "data_publicacao": "2027-05-15",
     "liberacao": {
-      "primordial": "2027-03-15",
-      "elite": "2027-03-15",
-      "conta": "2027-03-30",
-      "publico": "2027-04-15"
+      "primordial": "2027-04-15",
+      "elite": "2027-04-15",
+      "conta": "2027-04-30",
+      "publico": "2027-05-15"
     }
   },
   {
@@ -120,12 +120,12 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "publicado": false,
-    "data_publicacao": "2027-05-15",
+    "data_publicacao": "2027-06-15",
     "liberacao": {
-      "primordial": "2027-04-15",
-      "elite": "2027-04-15",
-      "conta": "2027-04-30",
-      "publico": "2027-05-15"
+      "primordial": "2027-05-15",
+      "elite": "2027-05-15",
+      "conta": "2027-05-30",
+      "publico": "2027-06-15"
     }
   },
   {
@@ -150,12 +150,12 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "publicado": false,
-    "data_publicacao": "2027-08-15",
+    "data_publicacao": "2027-09-15",
     "liberacao": {
-      "primordial": "2027-07-15",
-      "elite": "2027-07-15",
-      "conta": "2027-07-30",
-      "publico": "2027-08-15"
+      "primordial": "2027-08-15",
+      "elite": "2027-08-15",
+      "conta": "2027-08-30",
+      "publico": "2027-09-15"
     }
   },
   {
@@ -165,12 +165,12 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "publicado": false,
-    "data_publicacao": "2027-09-15",
+    "data_publicacao": "2027-10-15",
     "liberacao": {
-      "primordial": "2027-08-15",
-      "elite": "2027-08-15",
-      "conta": "2027-08-30",
-      "publico": "2027-09-15"
+      "primordial": "2027-09-15",
+      "elite": "2027-09-15",
+      "conta": "2027-09-30",
+      "publico": "2027-10-15"
     }
   },
   {
