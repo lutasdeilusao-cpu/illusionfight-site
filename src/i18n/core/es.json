@@ -800,7 +800,8 @@
       "tema_opressao": "Opresión",
       "tema_horror_cosmico": "Horror cósmico",
       "tema_resistencia": "Resistencia",
-      "farol_vazio": "Ninguna historia con ese filtro. Prueba otro peso."
+      "farol_vazio": "Ninguna historia con ese filtro. Prueba otro peso.",
+      "aviso_fechamento": "Aprovecha: los cuentos quedan abiertos hasta el 31 de octubre. El 1 de noviembre el portal cierra para preparar el lanzamiento del 15 de noviembre, y vuelven poco a poco, primero para quien está suscrito."
     },
     "webtoon": {
       "titulo": "WEB SHARD",

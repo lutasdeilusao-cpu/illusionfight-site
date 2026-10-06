@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useHistoriasAcesso } from '../../../hooks/useHistoriasAcesso'
+import { antesDoFechamento } from '../../../config/trial'
 import { localizado } from '../../../lib/webshard/catalogo'
 import {
   capaContos, linhaPrincipal, listarHistorias, miniaturaCapHistoria, numeroCapHistoria, progressoHistoria, soCreator,
@@ -100,6 +101,9 @@ export default function HistoriasHub({ tipo = null }) {
               texto={t('pages.contos.descricao')}
               selos={[t('pages.historias.contos_qtd', { n: historias.length })]}
             />
+          )}
+          {tipo === 'conto' && antesDoFechamento() && (
+            <p className="hist-aviso-fechamento">{t('pages.contos.aviso_fechamento')}</p>
           )}
 
           {destaque && (

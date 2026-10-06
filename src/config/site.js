@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
 }
 
 import { isReleased, resolveAccessLevel } from '../lib/releaseAccess'
-import { BETA_CONTOS_PUBLICO } from './trial'
+import { BETA_CONTOS_PUBLICO, antesDoFechamento } from './trial'
 import { creatorAtivo } from '../lib/creator'
 
 /** Verifica se um item (capítulo/episódio) está disponível com base na data de publicação.
@@ -18,10 +18,10 @@ export function estaDisponivel(item, isAdmin = false, auth = {}) {
   return isReleased(item, resolveAccessLevel(auth.user, auth.perfil))
 }
 
-/** Liberação dos Contos de Ilusão. Durante a fase de feedback (flag
- *  BETA_CONTOS_PUBLICO), todos os capítulos ficam abertos, com ou sem
- *  conta. Fora da beta, cai na regra normal de data. */
+/** Liberação dos Contos de Ilusão. Durante a beta (BETA_CONTOS_PUBLICO) e
+ *  até o fechamento de 1º de novembro, todos os capítulos ficam abertos, com
+ *  ou sem conta. Depois, cai na regra normal de data. */
 export function contoLiberado(item, isAdmin = false, auth = {}) {
-  if (BETA_CONTOS_PUBLICO) return true
+  if (BETA_CONTOS_PUBLICO && antesDoFechamento()) return true
   return estaDisponivel(item, isAdmin, auth)
 }
