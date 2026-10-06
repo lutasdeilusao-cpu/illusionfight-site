@@ -8,13 +8,11 @@ export default defineConfig({
     name: 'webshard-docs',
     apply: 'build',
     generateBundle() {
-      for (const name of ['WEBSHARD_GUIA_DE_PRODUCAO.md', 'WEBSHARD_REFERENCIAS_E_PROCESSO.md']) {
-        this.emitFile({
-          type: 'asset',
-          fileName: `docs/webshard/${name}`,
-          source: readFileSync(new URL(`./docs/LDI/${name}`, import.meta.url), 'utf8'),
-        })
-      }
+      this.emitFile({
+        type: 'asset',
+        fileName: 'docs/webshard/WEBSHARD_GUIA_DE_PRODUCAO.md',
+        source: readFileSync(new URL('./docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md', import.meta.url), 'utf8'),
+      })
     },
   }],
   build: {
