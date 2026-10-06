@@ -4,7 +4,7 @@
 //
 // Cronograma: a temporada anda em ciclos de 4 meses — 3 meses lançando e 1 de
 // hiato. Histórias: 1 capítulo a cada 15 dias (dias 15 e 30) pro assinante,
-// que começa cada ciclo com 2; a conta grátis recebe 15 dias depois e o
+// que só no lançamento da temporada começa com 2; a conta grátis recebe 15 dias depois e o
 // público mais 15 (1 mês atrás). WEB SHARD: 1 capítulo por mês nos meses de
 // lançamento, mesma defasagem. No hiato sai O Mundo das Sombras (dia 15 e 30
 // pro assinante, 1 por hiato pra conta no dia 30; o público não vê); o público fica parado — o que cairia pra ele no mês de

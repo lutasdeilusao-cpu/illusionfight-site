@@ -137,10 +137,10 @@
     "tagline_en": "The crowd roars. The ring trembles.",
     "tagline_es": "La multitud grita. El ring tiembla.",
     "liberacao": {
-      "primordial": "2027-03-15",
-      "elite": "2027-03-15",
-      "conta": "2027-03-30",
-      "publico": "2027-04-15"
+      "primordial": "2027-03-30",
+      "elite": "2027-03-30",
+      "conta": "2027-04-15",
+      "publico": "2027-04-30"
     },
     "creator": true
   },
@@ -154,10 +154,10 @@
     "tagline_en": "Three liters of sweat. An afternoon of choices.",
     "tagline_es": "Tres litros de sudor. Una tarde de decisiones.",
     "liberacao": {
-      "primordial": "2027-03-30",
-      "elite": "2027-03-30",
-      "conta": "2027-04-15",
-      "publico": "2027-04-30"
+      "primordial": "2027-04-15",
+      "elite": "2027-04-15",
+      "conta": "2027-04-30",
+      "publico": "2027-05-15"
     },
     "creator": true
   },
@@ -171,10 +171,10 @@
     "tagline_en": "At twelve, she already knew what no one teaches.",
     "tagline_es": "A los doce, ya sabía lo que nadie enseña.",
     "liberacao": {
-      "primordial": "2027-04-15",
-      "elite": "2027-04-15",
-      "conta": "2027-04-30",
-      "publico": "2027-05-15"
+      "primordial": "2027-04-30",
+      "elite": "2027-04-30",
+      "conta": "2027-05-15",
+      "publico": "2027-05-30"
     },
     "creator": true
   },
@@ -188,10 +188,10 @@
     "tagline_en": "Some mornings should come with a warning.",
     "tagline_es": "Algunas mañanas deberían venir con advertencia.",
     "liberacao": {
-      "primordial": "2027-04-30",
-      "elite": "2027-04-30",
-      "conta": "2027-05-15",
-      "publico": "2027-05-30"
+      "primordial": "2027-05-15",
+      "elite": "2027-05-15",
+      "conta": "2027-05-30",
+      "publico": "2027-07-15"
     },
     "creator": true
   },
@@ -205,10 +205,10 @@
     "tagline_en": "In the back seat, destiny accelerates.",
     "tagline_es": "En el asiento trasero, el destino acelera.",
     "liberacao": {
-      "primordial": "2027-05-15",
-      "elite": "2027-05-15",
-      "conta": "2027-05-30",
-      "publico": "2027-07-15"
+      "primordial": "2027-05-30",
+      "elite": "2027-05-30",
+      "conta": "2027-06-15",
+      "publico": "2027-07-30"
     },
     "creator": true
   },
@@ -238,10 +238,10 @@
     "tagline_en": "The door closed. The air changed.",
     "tagline_es": "La puerta se cerró. El aire cambió.",
     "liberacao": {
-      "primordial": "2027-07-15",
-      "elite": "2027-07-15",
-      "conta": "2027-07-30",
-      "publico": "2027-08-15"
+      "primordial": "2027-07-30",
+      "elite": "2027-07-30",
+      "conta": "2027-08-15",
+      "publico": "2027-08-30"
     }
   },
   {
@@ -254,10 +254,10 @@
     "tagline_en": "Ryan opened the box. The perfect mistake.",
     "tagline_es": "Ryan abrió la caja. El error perfecto.",
     "liberacao": {
-      "primordial": "2027-07-30",
-      "elite": "2027-07-30",
-      "conta": "2027-08-15",
-      "publico": "2027-08-30"
+      "primordial": "2027-08-15",
+      "elite": "2027-08-15",
+      "conta": "2027-08-30",
+      "publico": "2027-09-15"
     }
   },
   {
@@ -270,10 +270,10 @@
     "tagline_en": "The level will be checked. Kim didn't study.",
     "tagline_es": "El nivel será verificado. Kim no estudió.",
     "liberacao": {
-      "primordial": "2027-08-15",
-      "elite": "2027-08-15",
-      "conta": "2027-08-30",
-      "publico": "2027-09-15"
+      "primordial": "2027-08-30",
+      "elite": "2027-08-30",
+      "conta": "2027-09-15",
+      "publico": "2027-09-30"
     }
   },
   {
@@ -283,10 +283,10 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "liberacao": {
-      "primordial": "2027-08-30",
-      "elite": "2027-08-30",
-      "conta": "2027-09-15",
-      "publico": "2027-09-30"
+      "primordial": "2027-09-15",
+      "elite": "2027-09-15",
+      "conta": "2027-09-30",
+      "publico": "2027-11-15"
     }
   },
   {
@@ -296,10 +296,10 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "liberacao": {
-      "primordial": "2027-09-15",
-      "elite": "2027-09-15",
-      "conta": "2027-09-30",
-      "publico": "2027-11-15"
+      "primordial": "2027-09-30",
+      "elite": "2027-09-30",
+      "conta": "2027-10-15",
+      "publico": "2027-11-30"
     }
   }
 ]
