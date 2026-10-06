@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { validateRelease } from '../src/lib/releaseAccess.js'
-import { IDIOMAS, HTML_LANG, OG_LOCALE, FIXAS, JOGOS_EXTRA, HOME, UI, preencher } from './seo-textos.js'
+import { IDIOMAS, HTML_LANG, OG_LOCALE, FIXAS, HOME, UI, preencher } from './seo-textos.js'
 
 // Páginas estáticas de SEO — uma por rota E POR IDIOMA (01/10/2026, Isaias:
 // "fazer a sugestão 1"): inglês na raiz, português em /pt/..., espanhol em
@@ -80,10 +80,6 @@ function rotasDoIdioma(L) {
     const [title, description, heading, content] = t[L]
     const [priority, changefreq, indexable = true] = t.meta
     R.push({ path: p, title, description, heading, content, priority, changefreq, indexable })
-  }
-  for (const [p, t] of Object.entries(JOGOS_EXTRA)) {
-    const [title, description, heading, content] = t[L]
-    R.push({ path: p, title, description, heading, content, priority: '0.6', changefreq: 'monthly', indexable: true, schemaType: 'game', parent: { name: U.jogos, path: '/games/' } })
   }
 
   personagens.forEach(personagem => {
@@ -229,7 +225,7 @@ function rotasDoIdioma(L) {
       { name: U.personagens, path: '/personagens/' },
     ],
     '/historias/contos': contos.map(c => ({ name: titulo(c, L), path: `/historias/contos/${c.id}/` })),
-    '/games': ['/games/ldi-gangues', '/games/toptrumps', '/games/ldi', '/games/ldi-tatics', '/games/minigames'].map(p => ({ name: FIXAS[p][L][2], path: `${p}/` })),
+    '/games': ['/games/ldi-gangues', '/games/toptrumps', '/games/ldi'].map(p => ({ name: FIXAS[p][L][2], path: `${p}/` })),
     '/universos': ['/universos/lutas-de-ilusao', '/universos/mundo-das-sombras', '/universos/mar-de-cinzas'].map(p => ({ name: FIXAS[p][L][2], path: `${p}/` })),
     '/webtoon': [
       { name: U.todosEps, path: '/webtoon/lutas-de-ilusao/' },

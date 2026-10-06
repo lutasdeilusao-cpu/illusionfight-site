@@ -8,7 +8,7 @@
  */
 
 /** Data de lançamento oficial do site */
-export const LAUNCH_DATE = '2026-11-30'
+export const LAUNCH_DATE = '2026-11-15'
 
 /** E-mails de administradores que sempre têm acesso completo */
 export const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']

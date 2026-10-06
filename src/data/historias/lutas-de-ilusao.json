@@ -12,10 +12,10 @@
     "resumo_en": "Kim wakes up early, negotiates sixty reais with Helena and heads to school with Jack. In the hallway, something feels off — and by third period, it becomes clear what.",
     "resumo_es": "Kim se despierta temprano, negocia sesenta reales con Helena y va a la escuela con Jack. En el pasillo, algo está mal — y en la tercera hora, queda claro qué era.",
     "liberacao": {
-      "primordial": "2026-11-30",
-      "elite": "2026-11-30",
-      "conta": "2026-11-30",
-      "publico": "2026-11-30"
+      "primordial": "2026-11-15",
+      "elite": "2026-11-15",
+      "conta": "2026-11-15",
+      "publico": "2026-11-15"
     },
     "creator": true
   },
@@ -32,10 +32,10 @@
     "resumo_en": "Nina walks into class mid-lesson and dismantles Jack in thirty seconds. The Machine keeps writing. The door is about to open again.",
     "resumo_es": "Nina entra al salón a mitad de clase y desmonta a Jack en treinta segundos. La Máquina sigue escribiendo. La puerta está a punto de abrirse de nuevo.",
     "liberacao": {
-      "primordial": "2026-11-30",
-      "elite": "2026-11-30",
-      "conta": "2026-11-30",
-      "publico": "2026-12-14"
+      "primordial": "2026-11-15",
+      "elite": "2026-11-15",
+      "conta": "2026-11-23",
+      "publico": "2026-11-30"
     },
     "creator": true
   },
@@ -54,8 +54,8 @@
     "liberacao": {
       "primordial": "2026-11-30",
       "elite": "2026-11-30",
-      "conta": "2026-12-14",
-      "publico": "2026-12-28"
+      "conta": "2026-12-08",
+      "publico": "2026-12-15"
     },
     "creator": true
   },
@@ -69,10 +69,10 @@
     "tagline_en": "The first time hurts for real.",
     "tagline_es": "La primera vez duele de verdad.",
     "liberacao": {
-      "primordial": "2026-12-14",
-      "elite": "2026-12-14",
-      "conta": "2026-12-28",
-      "publico": "2027-01-11"
+      "primordial": "2026-12-15",
+      "elite": "2026-12-15",
+      "conta": "2026-12-23",
+      "publico": "2026-12-30"
     },
     "creator": true
   },
@@ -86,10 +86,10 @@
     "tagline_en": "She fought for the last time at 12. She never stopped.",
     "tagline_es": "Luchó por última vez a los 12. Nunca se detuvo.",
     "liberacao": {
-      "primordial": "2026-12-28",
-      "elite": "2026-12-28",
-      "conta": "2027-01-11",
-      "publico": "2027-01-25"
+      "primordial": "2026-12-30",
+      "elite": "2026-12-30",
+      "conta": "2027-01-08",
+      "publico": "2027-01-15"
     },
     "creator": true
   },
@@ -103,10 +103,10 @@
     "tagline_en": "The old man speaks in slang. Power doesn't.",
     "tagline_es": "El viejo habla en jerga. El poder no.",
     "liberacao": {
-      "primordial": "2027-01-11",
-      "elite": "2027-01-11",
-      "conta": "2027-01-25",
-      "publico": "2027-02-08"
+      "primordial": "2027-01-15",
+      "elite": "2027-01-15",
+      "conta": "2027-01-23",
+      "publico": "2027-01-30"
     },
     "creator": true
   },
@@ -120,10 +120,10 @@
     "tagline_en": "Three billion watched. Kim doesn't know.",
     "tagline_es": "Tres mil millones miraron. Kim no lo sabe.",
     "liberacao": {
-      "primordial": "2027-03-08",
-      "elite": "2027-03-08",
-      "conta": "2027-03-22",
-      "publico": "2027-04-05"
+      "primordial": "2027-03-15",
+      "elite": "2027-03-15",
+      "conta": "2027-03-15",
+      "publico": "2027-03-15"
     },
     "creator": true
   },
@@ -137,10 +137,10 @@
     "tagline_en": "The crowd roars. The ring trembles.",
     "tagline_es": "La multitud grita. El ring tiembla.",
     "liberacao": {
-      "primordial": "2027-03-22",
-      "elite": "2027-03-22",
-      "conta": "2027-04-05",
-      "publico": "2027-04-19"
+      "primordial": "2027-03-15",
+      "elite": "2027-03-15",
+      "conta": "2027-03-23",
+      "publico": "2027-03-30"
     },
     "creator": true
   },
@@ -154,10 +154,10 @@
     "tagline_en": "Three liters of sweat. An afternoon of choices.",
     "tagline_es": "Tres litros de sudor. Una tarde de decisiones.",
     "liberacao": {
-      "primordial": "2027-04-05",
-      "elite": "2027-04-05",
-      "conta": "2027-04-19",
-      "publico": "2027-05-03"
+      "primordial": "2027-03-30",
+      "elite": "2027-03-30",
+      "conta": "2027-04-08",
+      "publico": "2027-04-15"
     },
     "creator": true
   },
@@ -171,10 +171,10 @@
     "tagline_en": "At twelve, she already knew what no one teaches.",
     "tagline_es": "A los doce, ya sabía lo que nadie enseña.",
     "liberacao": {
-      "primordial": "2027-04-19",
-      "elite": "2027-04-19",
-      "conta": "2027-05-03",
-      "publico": "2027-05-17"
+      "primordial": "2027-04-15",
+      "elite": "2027-04-15",
+      "conta": "2027-04-23",
+      "publico": "2027-04-30"
     },
     "creator": true
   },
@@ -188,10 +188,10 @@
     "tagline_en": "Some mornings should come with a warning.",
     "tagline_es": "Algunas mañanas deberían venir con advertencia.",
     "liberacao": {
-      "primordial": "2027-05-03",
-      "elite": "2027-05-03",
-      "conta": "2027-05-17",
-      "publico": "2027-05-31"
+      "primordial": "2027-04-30",
+      "elite": "2027-04-30",
+      "conta": "2027-05-08",
+      "publico": "2027-05-15"
     },
     "creator": true
   },
@@ -205,10 +205,10 @@
     "tagline_en": "In the back seat, destiny accelerates.",
     "tagline_es": "En el asiento trasero, el destino acelera.",
     "liberacao": {
-      "primordial": "2027-05-17",
-      "elite": "2027-05-17",
-      "conta": "2027-05-31",
-      "publico": "2027-06-14"
+      "primordial": "2027-05-15",
+      "elite": "2027-05-15",
+      "conta": "2027-05-23",
+      "publico": "2027-05-30"
     },
     "creator": true
   },
@@ -222,10 +222,10 @@
     "tagline_en": "Walter is not a name. It's a warning.",
     "tagline_es": "Walter no es un nombre. Es una advertencia.",
     "liberacao": {
-      "primordial": "2027-07-12",
-      "elite": "2027-07-12",
-      "conta": "2027-07-26",
-      "publico": "2027-08-09"
+      "primordial": "2027-07-15",
+      "elite": "2027-07-15",
+      "conta": "2027-07-15",
+      "publico": "2027-07-15"
     }
   },
   {
@@ -238,10 +238,10 @@
     "tagline_en": "The door closed. The air changed.",
     "tagline_es": "La puerta se cerró. El aire cambió.",
     "liberacao": {
-      "primordial": "2027-07-26",
-      "elite": "2027-07-26",
-      "conta": "2027-08-09",
-      "publico": "2027-08-23"
+      "primordial": "2027-07-15",
+      "elite": "2027-07-15",
+      "conta": "2027-07-23",
+      "publico": "2027-07-30"
     }
   },
   {
@@ -254,10 +254,10 @@
     "tagline_en": "Ryan opened the box. The perfect mistake.",
     "tagline_es": "Ryan abrió la caja. El error perfecto.",
     "liberacao": {
-      "primordial": "2027-08-09",
-      "elite": "2027-08-09",
-      "conta": "2027-08-23",
-      "publico": "2027-09-06"
+      "primordial": "2027-07-30",
+      "elite": "2027-07-30",
+      "conta": "2027-08-08",
+      "publico": "2027-08-15"
     }
   },
   {
@@ -270,10 +270,10 @@
     "tagline_en": "The level will be checked. Kim didn't study.",
     "tagline_es": "El nivel será verificado. Kim no estudió.",
     "liberacao": {
-      "primordial": "2027-08-23",
-      "elite": "2027-08-23",
-      "conta": "2027-09-06",
-      "publico": "2027-09-20"
+      "primordial": "2027-08-15",
+      "elite": "2027-08-15",
+      "conta": "2027-08-23",
+      "publico": "2027-08-30"
     }
   }
 ]

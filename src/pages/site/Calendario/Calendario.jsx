@@ -4,14 +4,17 @@ import { Helmet } from 'react-helmet-async'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { resolveAccessLevel } from '../../../lib/releaseAccess'
-import { SEASON_ONE_COMPLETION, SEASON_ONE_DROPS, SEASONS_OVERVIEW } from '../../../data/season-one-schedule'
+import { SEASON_ONE_COMPLETION, SEASON_ONE_DROPS, SEASONS_OVERVIEW, GAMES_ROADMAP } from '../../../data/season-one-schedule'
 import './Calendario.css'
 
+// Defasagem em dias até o capítulo abrir (o assinante lê 1 à frente) e quantos
+// capítulos cada nível tem no dia do lançamento.
 const levelRows = [
-  { id: 'subscriber', access: ['elite', 'primordial'], delay: 0, launch: 3, tales: 5 },
-  { id: 'account', access: ['conta'], delay: 15, launch: 2, tales: 0 },
-  { id: 'public', access: ['publico'], delay: 30, launch: 1, tales: 0 },
+  { id: 'subscriber', access: ['elite', 'primordial'], delay: 0, launch: 2, tales: 5 },
+  { id: 'account', access: ['conta'], delay: 8, launch: 1, tales: 0 },
+  { id: 'public', access: ['publico'], delay: 15, launch: 1, tales: 0 },
 ]
+const NIVEIS_DROP = ['subscriber', 'account', 'public']
 const channels = ['chapters', 'webtoon', 'games', 'music', 'partners']
 
 function formatDate(date, locale) {
@@ -26,9 +29,15 @@ function intlLocale(locale) {
 
 function pad2(n) { return String(n).padStart(2, '0') }
 
-// Cobre todo o intervalo real da Temporada 1: nov/2026 até jan/2028 (inclui o ano inteiro de 2027).
+// A Temporada 1 inteira: nov/2026 até out/2027.
 const CALENDAR_START = { year: 2026, month: 10 }
-const CALENDAR_END = { year: 2028, month: 0 }
+const CALENDAR_END = { year: 2027, month: 9 }
+
+// Texto de um item do calendário (capítulo, hiato...) no idioma da tela.
+function textoItem(t, item) {
+  return t(`calendar.item_${item.tipo}`, { n: item.n })
+}
+const textoLista = (t, itens) => (itens.length ? itens.map(i => textoItem(t, i)).join(' + ') : '—')
 
 function buildMonths(start, end) {
   const months = []
@@ -66,18 +75,10 @@ export default function Calendario() {
   const [channel, setChannel] = useState('chapters')
   const access = resolveAccessLevel(user, perfil)
   const today = new Date().toISOString().slice(0, 10)
-  const currentIndex = SEASON_ONE_DROPS.findLastIndex(drop => drop.date <= today)
-  const nextIndex = SEASON_ONE_DROPS.findIndex(drop => drop.date > today)
-  // Um dia pode ter mais de um drop (ex.: 15/10/2027 = Cap. 9 público +
-  // Especial de fim de temporada) — junta os textos por nível em vez de o
-  // último sobrescrever o anterior na grade.
-  const eventsByDate = SEASON_ONE_DROPS.reduce((acc, d) => {
-    const prev = acc[d.date]
-    if (!prev) { acc[d.date] = d; return acc }
-    const juntar = campo => [prev[campo], d[campo]].filter(v => v && v !== '—').join(' + ') || '—'
-    acc[d.date] = { ...prev, subscriber: juntar('subscriber'), account: juntar('account'), public: juntar('public'), outras: juntar('outras') }
-    return acc
-  }, {})
+  const drops = SEASON_ONE_DROPS[channel] || []
+  const currentIndex = drops.findLastIndex(drop => drop.date <= today)
+  const nextIndex = drops.findIndex(drop => drop.date > today)
+  const eventsByDate = Object.fromEntries(drops.map(d => [d.date, d]))
   const months = buildMonths(CALENDAR_START, CALENDAR_END)
   const weekdays = weekdayLabels(locale)
 
@@ -101,7 +102,23 @@ export default function Calendario() {
         ))}
       </nav>
 
-      {channel !== 'chapters' && channel !== 'webtoon' && (
+      {channel === 'games' && (
+        <section className="calendar-section" aria-labelledby="games-title">
+          <div className="calendar-section-heading"><span>01</span><h2 id="games-title">{t('calendar.games_title')}</h2></div>
+          <p className="calendar-seasons-disclaimer">{t('calendar.games_intro')}</p>
+          <div className="calendar-games">
+            {GAMES_ROADMAP.map(f => (
+              <article key={f.fase} className={`calendar-game-fase is-${f.fase}`}>
+                <span className="calendar-season-badge">{f.data ? formatDate(f.data, locale) : t('calendar.games_sem_data')}</span>
+                <h3>{t(`calendar.games_fase_${f.fase}`)}</h3>
+                <ul>{f.jogos.map(j => <li key={j}><b>{t(`calendar.game_${j}`)}</b><small>{t(`calendar.game_${j}_desc`)}</small></li>)}</ul>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {channel !== 'chapters' && channel !== 'webtoon' && channel !== 'games' && (
         <motion.section className="calendar-channel-empty" key={channel} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
           <span>{t('calendar.signal_pending')}</span>
           <h2>{t(`calendar.channel_${channel}`)}</h2>
@@ -132,12 +149,12 @@ export default function Calendario() {
       <section className="calendar-section" aria-labelledby="completion-title">
         <div className="calendar-section-heading"><span>02</span><h2 id="completion-title">{t('calendar.completion_title')}</h2></div>
         <div className="calendar-completion">
-          {SEASON_ONE_COMPLETION.map(([id, subscriberDate, accountDate, publicDate]) => (
-            <article key={id}>
-              <h3>{t(`calendar.work_${id}`)}</h3>
-              <div><span>{t('calendar.level_subscriber')}</span><time>{formatDate(subscriberDate, locale)}</time></div>
-              <div><span>{t('calendar.level_account')}</span><time>{formatDate(accountDate, locale)}</time></div>
-              <div><span>{t('calendar.level_public')}</span><time>{formatDate(publicDate, locale)}</time></div>
+          {SEASON_ONE_COMPLETION[channel].map(obra => (
+            <article key={obra.id}>
+              <h3>{t(`calendar.work_${obra.id}`)}</h3>
+              {NIVEIS_DROP.map(nivel => (
+                <div key={nivel}><span>{t(`calendar.level_${nivel}`)}</span><time>{obra[nivel] ? formatDate(obra[nivel], locale) : t('calendar.na_t2')}</time></div>
+              ))}
             </article>
           ))}
         </div>
@@ -165,10 +182,10 @@ export default function Calendario() {
                         <span className="calendar-day-num">{d}</span>
                         {event && (
                           <div className="calendar-day-dots">
-                            {event.subscriber !== '—' && <span className="calendar-day-dot is-subscriber" title={`${t('calendar.level_subscriber')}: ${event.subscriber}`} />}
-                            {event.account !== '—' && <span className="calendar-day-dot is-account" title={`${t('calendar.level_account')}: ${event.account}`} />}
-                            {event.public !== '—' && <span className="calendar-day-dot is-public" title={`${t('calendar.level_public')}: ${event.public}`} />}
-                            {event.outras !== '—' && <span className="calendar-day-dot is-outras" title={`${t('calendar.level_outras')}: ${event.outras}`} />}
+                            {NIVEIS_DROP.map(nivel => event[nivel].length > 0 && (
+                              <span key={nivel} className={`calendar-day-dot is-${nivel}`} title={`${t(`calendar.level_${nivel}`)}: ${textoLista(t, event[nivel])}`} />
+                            ))}
+                            {event.marcos.some(m => m.tipo === 'hiato') && <span className="calendar-day-dot is-hiato" title={textoLista(t, event.marcos)} />}
                           </div>
                         )}
                       </div>
@@ -181,19 +198,20 @@ export default function Calendario() {
         </div>
 
         <div className="calendar-drops">
-          {SEASON_ONE_DROPS.map((drop, index) => {
+          {drops.map((drop, index) => {
             const state = index === currentIndex ? 'current' : index === nextIndex ? 'next' : index < currentIndex ? 'past' : 'future'
-            return <article className={`calendar-drop is-${state}`} key={drop.date}>
+            const souEu = { subscriber: access === 'primordial' || access === 'elite', account: access === 'conta', public: access === 'publico' }
+            return <article className={`calendar-drop is-${state}${drop.marcos.length ? ' is-hiato' : ''}`} key={drop.date}>
               <div className="calendar-drop-date"><span>DROP {String(drop.number).padStart(2, '0')}</span><time>{formatDate(drop.date, locale)}</time></div>
               {(state === 'current' || state === 'next') && <span className="calendar-drop-state">{t(`calendar.${state}`)}</span>}
-              <div className={`calendar-drop-line${access === 'primordial' || access === 'elite' ? ' is-you' : ''}`}><b>{t('calendar.level_subscriber')}</b><span>{drop.subscriber}</span></div>
-              <div className={`calendar-drop-line${access === 'conta' ? ' is-you' : ''}`}><b>{t('calendar.level_account')}</b><span>{drop.account}</span></div>
-              <div className={`calendar-drop-line${access === 'publico' ? ' is-you' : ''}`}><b>{t('calendar.level_public')}</b><span>{drop.public}</span></div>
-              <div className="calendar-drop-line"><b>{t('calendar.level_outras')}</b><span>{drop.outras}</span></div>
+              {drop.marcos.map((m, i) => <p key={i} className="calendar-drop-marco">{textoItem(t, m)}</p>)}
+              {NIVEIS_DROP.map(nivel => drop[nivel].length > 0 && (
+                <div key={nivel} className={`calendar-drop-line${souEu[nivel] ? ' is-you' : ''}`}><b>{t(`calendar.level_${nivel}`)}</b><span>{textoLista(t, drop[nivel])}</span></div>
+              ))}
             </article>
           })}
         </div>
-        <div className="calendar-finale"><span>{formatDate('2027-12-15', locale)}</span><strong>{t('calendar.finale')}</strong></div>
+        <div className="calendar-finale"><span>{formatDate(SEASONS_OVERVIEW[1].start, locale)}</span><strong>{t('calendar.finale')}</strong></div>
       </section>
 
       <section className="calendar-section" aria-labelledby="seasons-title">

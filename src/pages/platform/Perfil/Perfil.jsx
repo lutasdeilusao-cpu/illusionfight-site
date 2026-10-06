@@ -22,7 +22,7 @@ const TIER_CONFIG = {
 
 const SECOES = [
   { id: 'colecao',    icone: '🃏', labelKey: 'site.perfil.abas_colecao' },
-  { id: 'tamagoshi',  icone: '🥚', labelKey: 'site.perfil.abas_tamagoshi' },
+  { id: 'tamagoshi',  icone: '🥚', labelKey: 'site.perfil.abas_tamagoshi', soAdmin: true }, // jogo fora da leva atual
   { id: 'gangues',    icone: '🥊', labelKey: 'site.perfil.abas_gangues' },
   { id: 'conquistas', icone: '🏆', labelKey: 'site.perfil.abas_conquistas' },
   { id: 'recompensas',icone: '🎰', labelKey: 'site.perfil.abas_recompensas' },
@@ -106,7 +106,7 @@ export default function Perfil() {
 
       {/* Seções colapsáveis */}
       <div className="perfil-secoes">
-        {SECOES.map((secao) => {
+        {SECOES.filter(secao => !secao.soAdmin || isAdmin).map((secao) => {
           const aberta = abertos[secao.id]
           const isRecompensas = secao.id === 'recompensas'
           return (

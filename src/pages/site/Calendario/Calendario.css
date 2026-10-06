@@ -50,7 +50,20 @@
 .calendar-day-dot.is-subscriber { background: var(--if-cyan); box-shadow: 0 0 4px var(--if-cyan); }
 .calendar-day-dot.is-account { background: var(--if-amber); }
 .calendar-day-dot.is-public { background: #765cff; }
-.calendar-day-dot.is-outras { background: #6be07a; }
+.calendar-day-dot.is-hiato { background: var(--if-violet); }
+/* Hiato: o mês de descanso aparece como marco no topo do drop. */
+.calendar-drop.is-hiato { border-color: color-mix(in srgb, var(--if-violet) 45%, transparent); }
+.calendar-drop-marco { margin: 0 0 6px; padding: 6px 8px; font: 800 .66rem/1.35 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--if-violet); background: color-mix(in srgb, var(--if-violet) 10%, transparent); }
+/* Canal Games: uma coluna por fase de lançamento. */
+.calendar-games { display: grid; gap: 12px; }
+.calendar-game-fase { padding: 16px; border-left: 2px solid var(--if-amber); background: var(--if-panel); }
+.calendar-game-fase.is-t1 { border-left-color: var(--if-ok); }
+.calendar-game-fase.is-depois { border-left-color: var(--text-secondary); }
+.calendar-game-fase h3 { margin: 8px 0 10px; font: 800 1rem var(--font-display); }
+.calendar-game-fase ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.calendar-game-fase li { display: grid; gap: 2px; }
+.calendar-game-fase li b { font: 800 .8rem var(--font-mono); color: var(--text-primary); text-transform: uppercase; letter-spacing: .04em; }
+.calendar-game-fase li small { font: 500 .74rem/1.4 var(--font-body); color: var(--text-secondary); }
 .calendar-drop { position: relative; padding: 16px; border: 1px solid #142b34; background: rgba(5,13,17,.9); overflow: hidden; }
 .calendar-drop::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: #24424d; }
 .calendar-drop.is-current { border-color: var(--if-cyan); box-shadow: 0 0 32px rgba(24,218,251,.12); }

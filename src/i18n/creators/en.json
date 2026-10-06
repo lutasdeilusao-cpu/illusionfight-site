@@ -207,10 +207,6 @@
           "nome": "LDI Top Trumps",
           "desc": "Collect fighters, beat the AI and play online against other people."
         },
-        "minigames": {
-          "nome": "MiniGames",
-          "desc": "Quick matches for when you have five minutes."
-        },
         "steam": {
           "nome": "Steam demo",
           "desc": "Illusion Fight — Season 1 Demo. We're in Steam Next Fest, October 19–26."
@@ -296,7 +292,7 @@
       "eyebrow": "FACT SHEET",
       "copiar_tudo": "Copy the full sheet",
       "descricao_titulo": "SHORT DESCRIPTION",
-      "descricao": "Illusion Fight is a free action universe created by Isaias Leal: books, a webtoon, games and an original soundtrack, all connected at illusionfight.com, in English, Portuguese and Spanish. The demo is on Steam and the universe is part of Steam Next Fest, October 19–26. Season 1 launches November 30, 2026.",
+      "descricao": "Illusion Fight is a free action universe created by Isaias Leal: books, a webtoon, games and an original soundtrack, all connected at illusionfight.com, in English, Portuguese and Spanish. The demo is on Steam and the universe is part of Steam Next Fest, October 19–26. Season 1 launches November 15, 2026.",
       "itens": {
         "nome": {
           "rotulo": "Name",
@@ -328,7 +324,7 @@
         },
         "lancamento": {
           "rotulo": "Launch",
-          "valor": "Season 1 on November 30, 2026"
+          "valor": "Season 1 on November 15, 2026"
         },
         "site": {
           "rotulo": "Website",
@@ -377,7 +373,7 @@
         },
         "lancamento": {
           "p": "When does it launch?",
-          "r": "Season 1 launches November 30, 2026. Before that, the universe is in Steam Next Fest, October 19–26."
+          "r": "Season 1 launches November 15, 2026. Before that, the universe is in Steam Next Fest, October 19–26."
         },
         "steam": {
           "p": "What's on Steam?",
@@ -415,7 +411,7 @@
         },
         "temporada": {
           "nome": "Season 1 and the schedule",
-          "fala": "Season 1 starts November 30, 2026, with chapters releasing in sequence. After every three months of releases there's a one-month hiatus, the rest month. That month brings extra content from the same author: The Shadow World and Sea of Ashes. That's why they live next to the main line: there's always a new story, and you have something to cover all year."
+          "fala": "Season 1 starts November 15, 2026, with chapters releasing in sequence. After every three months of releases there's a one-month hiatus, the rest month. That month brings extra content from the same author: The Shadow World and Sea of Ashes. That's why they live next to the main line: there's always a new story, and you have something to cover all year."
         },
         "games": {
           "nome": "Games",

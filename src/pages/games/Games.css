@@ -1,11 +1,7 @@
 /* ══════════════════════════════════════════════════════════════
-   GAMES — catálogo
-   Segue a linguagem da navbar (src/styles/design-system.css).
-   O visual arcade anos 90 (scanlines, glitch, cursor piscando)
-   foi aposentado: o portal tem uma linguagem só.
-
-   Cada jogo mantém um --cor-neon próprio, mas só como fio de
-   identidade na borda e no selo — a moldura é sempre a mesma.
+   GAMES — área de jogos. Segue a linguagem da navbar
+   (src/styles/design-system.css): canto chanfrado, tokens de cor.
+   As classes extras-* também servem à página dos MiniGames.
    ══════════════════════════════════════════════════════════════ */
 
 .extras-page {
@@ -17,27 +13,6 @@
 }
 
 /* ── Cabeçalho ── */
-.extras-header {
-  padding: 1.75rem 0 1.25rem;
-}
-
-.extras-titulo {
-  margin: 0.35rem 0 0;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.8rem, calc(9 * var(--app-vw) / 100), 2.4rem);
-  line-height: 1;
-  letter-spacing: 0.04em;
-  color: #fff;
-  text-shadow: 0 0 22px rgba(24, 218, 251, 0.28);
-}
-
-.extras-subtitulo {
-  margin: 0.5rem 0 0;
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  line-height: 1.5;
-}
 
 /* Parágrafo real com os nomes dos jogos por extenso — pedido de SEO
    (18/09/2026): o catálogo só tinha H1 + 1 linha antes disso, pouquíssimo
@@ -50,42 +25,9 @@
 }
 
 /* ── Abas LDI / Kernel ── */
-.kp-toggle {
-  display: flex;
-  gap: 0.4rem;
-  margin-bottom: 1.5rem;
-}
-
-.kp-toggle-btn {
-  flex: 1;
-  min-height: 42px;
-  padding: 0.5rem 0.6rem;
-  border: 1px solid var(--if-hair-strong);
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--text-secondary);
-  font: 700 0.68rem var(--font-mono);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-}
-
-.kp-toggle-btn:hover {
-  color: var(--if-cyan);
-  border-color: var(--if-cyan-45);
-}
-
-.kp-toggle-btn--ativa {
-  color: #04141a;
-  background: var(--if-cyan);
-  border-color: var(--if-cyan);
-  box-shadow: 0 0 20px rgba(24, 218, 251, 0.28);
-}
 
 /* ── Seção ── */
-.extras-secao,
-.kp-secao {
+.extras-secao {
   position: relative;
   margin-bottom: 2.25rem;
 }
@@ -110,152 +52,8 @@
 
 /* ── Lista de jogos ──
    Coluna única: o portal é mobile only, não existe grade de desktop. */
-.extras-jogos-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  counter-reset: jogo;
-}
-
-.extras-jogo-card {
-  --cor-neon: var(--if-teal);
-  position: relative;
-  cursor: pointer;
-  border: 1px solid var(--if-edge);
-  background: var(--if-glow-corner), var(--if-panel);
-  transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s;
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-}
-
-.extras-jogo-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 2px;
-  background: var(--cor-neon);
-  opacity: 0.7;
-}
 
 /* Varredura de luz no hover — o mesmo gesto dos links do drawer. */
-.extras-jogo-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--if-cyan-13), transparent 72%);
-  transform: translateX(-102%);
-  transition: transform 0.3s ease;
-  pointer-events: none;
-}
-
-.extras-jogo-card:hover::after { transform: translateX(0); }
-
-.extras-jogo-card:hover {
-  border-color: var(--if-cyan-45);
-  box-shadow: 0 0 26px rgba(24, 218, 251, 0.14);
-  transform: translateY(-2px);
-}
-
-.extras-jogo-card--bloqueado {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.extras-jogo-card--bloqueado:hover {
-  transform: none;
-  border-color: var(--if-edge);
-  box-shadow: none;
-}
-
-.extras-jogo-card--bloqueado:hover::after { transform: translateX(-102%); }
-
-.extras-jogo-card-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 46px 1fr auto;
-  grid-template-areas:
-    'emoji nome  badge'
-    'emoji tag   cta';
-  align-items: center;
-  gap: 0.15rem 0.8rem;
-  padding: 0.8rem 0.9rem 0.8rem 0.85rem;
-}
-
-.extras-jogo-emoji {
-  grid-area: emoji;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  border: 1px solid color-mix(in srgb, var(--cor-neon) 45%, transparent);
-  background: color-mix(in srgb, var(--cor-neon) 10%, transparent);
-  font-size: 1.4rem;
-  line-height: 1;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
-}
-
-.extras-jogo-nome {
-  grid-area: nome;
-  margin: 0;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.03em;
-  color: var(--text-primary);
-}
-
-.extras-jogo-tagline {
-  grid-area: tag;
-  margin: 0;
-  font-size: 0.76rem;
-  line-height: 1.35;
-  color: var(--text-secondary);
-}
-
-.extras-jogo-badge {
-  grid-area: badge;
-  justify-self: end;
-  padding: 0.15rem 0.45rem;
-  border: 1px solid color-mix(in srgb, var(--cor-badge, var(--if-teal)) 60%, transparent);
-  background: color-mix(in srgb, var(--cor-badge, var(--if-teal)) 14%, transparent);
-  color: var(--cor-badge, var(--if-teal));
-  font: 700 0.54rem var(--font-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.extras-jogo-badge--embreve {
-  border-color: var(--if-hair-strong);
-  background: none;
-  color: var(--text-muted);
-}
-
-.extras-jogo-cta {
-  grid-area: cta;
-  justify-self: end;
-  color: var(--if-cyan);
-  font: 700 0.58rem var(--font-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.extras-jogo-cta::after {
-  content: ' →';
-  transition: margin-left 0.2s ease;
-}
-
-.extras-jogo-card:hover .extras-jogo-cta::after { margin-left: 3px; }
-
-.extras-jogo-cta--bloqueado {
-  color: var(--text-muted);
-}
-
-.extras-jogo-cta--bloqueado::after { content: ''; }
 
 /* ── Cards de conteúdo (quiz, ranking) ── */
 .extras-conteudo-grid {
@@ -315,15 +113,74 @@
 }
 
 /* ── Rodapé ── */
-.extras-footer-arcade {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--if-hair);
-  text-align: center;
-}
 
-.extras-footer-credits {
-  color: var(--text-muted);
-  font: 600 0.6rem var(--font-mono);
-  letter-spacing: 0.1em;
+/* ── Vitrine da Temporada 1: os três jogos do lançamento, um cartão grande
+   com arte própria cada (Gangues na parede, Lendas no pentagrama, Super Trunfo
+   em leque). Tudo em coluna, CTA embaixo de cada cartão. ── */
+.games-vitrine { display: grid; gap: 16px; align-content: start; }
+.games-hero { padding: 28px 0 4px; text-align: center; }
+.games-hero__titulo { margin: 4px 0 6px; font: 900 2.8rem/1 var(--font-title); letter-spacing: .06em; text-transform: uppercase; color: var(--if-ink); text-shadow: 0 0 28px color-mix(in srgb, var(--if-cyan) 40%, transparent); }
+.games-hero__sub { margin: 0 0 8px; font: 700 .7rem var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--if-cyan); }
+
+.games-card {
+  position: relative; display: grid; overflow: hidden; color: var(--text-primary); text-decoration: none;
+  border: 1px solid var(--if-hair-strong); background: var(--bg-secondary);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+.games-card__info { position: relative; z-index: 2; display: grid; justify-items: center; gap: 10px; padding: 20px 18px 22px; text-align: center; }
+.games-card__info p { margin: 0; font-size: .9rem; line-height: 1.5; color: var(--text-secondary); }
+.games-card__nome { font: 900 1.6rem/1.05 var(--font-title); text-transform: uppercase; letter-spacing: .04em; }
+.games-card__cta { justify-content: center; min-width: 64%; padding: 13px 18px; }
+.games-card__tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.games-card__tags li { padding: 3px 9px; font: 700 .56rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--if-amber); border: 1px solid color-mix(in srgb, var(--if-amber) 45%, transparent); }
+
+/* Gangues: parede oficial, três lutadores de corpo inteiro, logo por idioma. */
+.games-card--gangues { min-height: 540px; align-items: end; }
+.games-card__fundo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.9) brightness(.55); }
+.games-card__lutadores { position: absolute; inset: 0 0 auto; height: 58%; display: flex; justify-content: center; align-items: flex-end; }
+.games-card__lutadores img { height: 100%; width: auto; margin: 0 -9%; image-rendering: pixelated; filter: drop-shadow(0 10px 18px rgb(0 0 0 / .6)); transition: transform .3s ease; }
+.games-card__lutadores img:nth-child(2) { position: relative; z-index: 1; height: 108%; }
+.games-card--gangues:hover .games-card__lutadores img:nth-child(2) { transform: translateY(-6px); }
+.games-card--gangues .games-card__info { margin-top: 50%; padding-top: 70px; background: linear-gradient(to top, var(--bg-primary) 62%, color-mix(in srgb, var(--bg-primary) 85%, transparent) 78%, transparent); }
+.games-card__logo { width: min(88%, 340px); height: auto; filter: drop-shadow(0 4px 12px rgb(0 0 0 / .7)); }
+
+/* Lendas: o pentagrama da luta aceso, ponto a ponto, e as cinco Veias. */
+.games-card--lendas { background: radial-gradient(90% 60% at 50% 30%, color-mix(in srgb, var(--if-danger) 18%, transparent), transparent 70%), var(--bg-secondary); }
+.games-card--lendas .games-card__nome { color: var(--if-danger); text-shadow: 0 0 18px color-mix(in srgb, var(--if-danger) 50%, transparent); }
+.games-card__pentagrama { width: 78%; margin: 22px auto 0; display: block; overflow: visible; }
+.games-card__pentagrama polyline { fill: none; stroke: color-mix(in srgb, var(--if-danger) 60%, transparent); stroke-width: 2; filter: drop-shadow(0 0 6px var(--if-danger)); }
+.games-card__pentagrama circle { fill: var(--bg-primary); stroke: var(--if-cyan); stroke-width: 2.5; animation: games-ponto 2.4s ease-in-out infinite; animation-delay: calc(var(--i) * .22s); }
+.games-card__pentagrama .games-card__centro { stroke: var(--if-ok); animation: none; }
+.games-card__veias { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.games-card__veias li { display: flex; align-items: center; gap: 4px; padding: 3px 8px; font: 700 .56rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--veia-cor); border: 1px solid color-mix(in srgb, var(--veia-cor) 50%, transparent); }
+.games-card__veias b { font-size: .8rem; }
+@keyframes games-ponto { 0%, 70%, 100% { fill: var(--bg-primary); } 80% { fill: var(--if-cyan); filter: drop-shadow(0 0 8px var(--if-cyan)); } }
+
+/* Super Trunfo: três cartas do elenco em leque, que abrem no toque. */
+.games-card--trunfo { background: radial-gradient(120% 80% at 50% 0%, var(--if-cyan-08), transparent 70%), var(--bg-secondary); }
+.games-card--trunfo .games-card__nome { color: var(--if-cyan); }
+.games-card__leque { position: relative; height: 230px; margin-top: 18px; }
+.games-card__leque img { position: absolute; left: 50%; bottom: 0; width: 40%; aspect-ratio: 3 / 4; object-fit: cover; border: 2px solid var(--if-cyan-45); box-shadow: 0 8px 18px rgb(0 0 0 / .55); transform-origin: 50% 110%; transition: transform .3s ease; }
+.games-card__leque img:nth-child(1) { transform: translateX(-50%) rotate(-12deg) translateX(-30%); }
+.games-card__leque img:nth-child(2) { transform: translateX(-50%); z-index: 1; }
+.games-card__leque img:nth-child(3) { transform: translateX(-50%) rotate(12deg) translateX(30%); }
+.games-card--trunfo:hover .games-card__leque img:nth-child(1) { transform: translateX(-50%) rotate(-17deg) translateX(-40%); }
+.games-card--trunfo:hover .games-card__leque img:nth-child(3) { transform: translateX(-50%) rotate(17deg) translateX(40%); }
+
+/* Próximos lançamentos: um aviso curto que leva pro calendário. */
+.games-proximos { padding: 16px; border-left: 2px solid var(--if-amber); background: var(--if-panel); }
+.games-proximos h2 { margin: 4px 0 10px; font: 800 1.05rem var(--font-display); text-transform: uppercase; }
+.games-proximos ul { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
+.games-proximos li { padding: 4px 9px; font: 700 .6rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); border: 1px dashed var(--if-hair-strong); }
+.games-proximos__link { font: 800 .66rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--if-amber); text-decoration: none; }
+
+/* Só admin: os jogos fora do catálogo, pra seguir testando. */
+.games-admin { padding: 14px; border: 1px dashed var(--if-hair-strong); }
+.games-admin__texto { margin: 4px 0 10px; font-size: .78rem; color: var(--text-secondary); }
+.games-admin__lista { display: flex; flex-wrap: wrap; gap: 6px; }
+.games-admin__lista a { padding: 6px 10px; font: 700 .6rem var(--font-mono); text-transform: uppercase; color: var(--text-primary); text-decoration: none; border: 1px solid var(--if-hair-strong); }
+
+@media (prefers-reduced-motion: reduce) {
+  .games-card__lutadores img, .games-card__leque img { transition: none; }
+  .games-card__pentagrama circle { animation: none; }
 }

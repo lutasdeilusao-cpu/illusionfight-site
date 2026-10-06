@@ -44,7 +44,6 @@ export const ASSUNTOS = [
       { id: 'gangues', rota: '/games/ldi-gangues', icone: '🥊', selo: 'completo' },
       { id: 'lendas', rota: '/games/ldi', icone: '⚔️', selo: 'completo' },
       { id: 'trunfo', rota: '/games/toptrumps', icone: '🃏', selo: 'online' },
-      { id: 'minigames', rota: '/games/minigames', icone: '🕹️', selo: 'aberto' },
       { id: 'steam', href: STEAM_DEMO, icone: '🚂', selo: 'steam' },
     ],
     pautas: 4,

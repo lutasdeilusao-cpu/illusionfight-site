@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.361.0**.
+> `SITE_VERSION` **10.362.0**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -100,7 +100,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/quiz` | Quiz | `src/pages/site/Quiz.jsx` |
 | `/custos` | Custos da plataforma | `src/pages/site/Custos.jsx` |
 | `/web-shard` | Explicação do termo próprio "WEB SHARD" (SEO) — linkado a partir de `/webtoon` | `src/pages/site/WebShard.jsx` |
-| `/calendario` | Hub público de lançamentos (capítulos, webtoon, games, músicas e parceiros) | `src/pages/site/Calendario/Calendario.jsx` |
+| `/calendario` | Hub público de lançamentos; capítulos e WEB SHARD gerados das datas `liberacao` dos índices (`data/season-one-schedule.js`), games por fase | `src/pages/site/Calendario/Calendario.jsx` |
 
 ### 3.2 Plataforma e conta
 
@@ -118,7 +118,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 
 | Rota | Jogo/função | Arquivo principal | Acesso |
 |---|---|---|---|
-| `/games` | Catálogo de jogos | `src/pages/games/Games.jsx` | Público |
+| `/games` | Vitrine dos 3 jogos da Temporada 1 (Gangues, Lendas, Super Trunfo); admin vê a lista dos fora do catálogo | `src/pages/games/Games.jsx` | Público |
 | `/games/toptrumps` | Top Trumps single-player | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | Público |
 | `/games/toptrumps/v2` | Alias ativo do single-player | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | Público |
 | `/games/toptrumps/lobby` | Redirect legado para o lobby compartilhado | `Navigate` em `src/App.jsx` | Redirect |
@@ -127,28 +127,28 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/games/ldi` | Lobby Lendas do LDI | `src/pages/games/LDI/Lobby.jsx` | 🔒 gratuito |
 | `/games/ldi/game` | História LDI (cenas, escolhas, diário, minijogos e fim) | `src/pages/games/LDI/Game.jsx` | 🔒 gratuito |
 | `/games/ldi/pentagrama` | Laboratório da batalha do pentagrama | `src/pages/games/LDI/batalha/BatalhaLab.jsx` | 🔒 admin |
-| `/games/jackcandy` | Jack Dream Beer | `src/pages/games/JackCandy/JackCandy.jsx` | 🔒 |
-| `/games/minigames` | Coleção MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | 🔒 gratuito |
+| `/games/jackcandy` | Jack Dream Beer | `src/pages/games/JackCandy/JackCandy.jsx` | 🔒 só admin (fora do catálogo) |
+| `/games/minigames` | Coleção MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | 🔒 só admin (fora do catálogo) |
 | `/games/ldi-gangues` | LDI Gangues | `src/pages/games/Gangues/GanguesRoute.jsx` | 🔒 |
 | `/games/ldi-arena` | Redirect legado para LDI Gangues | `Navigate` em `src/App.jsx` | Redirect |
-| `/games/ldi-tatics` | Arena LDI Tatics | `src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx` | 🔒 |
-| `/games/pesadelo` | Pesadelo Particular | `src/pages/games/PesadeloParticular/PP.jsx` | 🔒 |
-| `/games/duelo` | Duelo LDI | `src/pages/games/Duelo/DueloRoute.jsx` | 🔒 |
-| `/games/tamagoshi` | Tamagoshi LDI | `src/pages/games/Tamagoshi/Tamagoshi.jsx` | 🔒 gratuito |
+| `/games/ldi-tatics` | Arena LDI Tatics | `src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx` | 🔒 só admin (fora do catálogo) |
+| `/games/pesadelo` | Pesadelo Particular | `src/pages/games/PesadeloParticular/PP.jsx` | 🔒 só admin (fora do catálogo) |
+| `/games/duelo` | Duelo LDI | `src/pages/games/Duelo/DueloRoute.jsx` | 🔒 só admin (fora do catálogo) |
+| `/games/tamagoshi` | Tamagoshi LDI | `src/pages/games/Tamagoshi/Tamagoshi.jsx` | 🔒 só admin (fora do catálogo) |
 
 ### 3.4 Kernel Games
 
 Os Kernel Games usam layout portrait compartilhado em `src/pages/games/KernelGames/KernelGame.css` e i18n comum em `KernelGames/_shared/`.
 
-| Rota | Jogo | Diretório |
-|---|---|---|
-| `/games/kernel-panic` | Kernel Panic | `src/pages/games/KernelGames/KernelPanic/` |
-| `/games/sliding-rafael` | Sliding Rafael | `src/pages/games/KernelGames/SlidingRafael/` |
-| `/games/codigo-perdido` | Código Perdido | `src/pages/games/KernelGames/CodigoPerdido/` |
-| `/games/maze-rafael` | Maze Rafael | `src/pages/games/KernelGames/MazeRafael/` |
-| `/games/glitch-rafael` | Glitch Rafael | `src/pages/games/KernelGames/GlitchRafael/` |
-| `/games/bullet-hell-rafael` | Bullet Hell Rafael | `src/pages/games/KernelGames/BulletHellRafael/` |
-| `/games/stabilizer-rafael` | Stabilizer Rafael | `src/pages/games/KernelGames/StabilizerRafael/` |
+| Rota | Jogo | Diretório | Acesso |
+|---|---|---|---|
+| `/games/kernel-panic` | Kernel Panic | `src/pages/games/KernelGames/KernelPanic/` | 🔒 só admin |
+| `/games/sliding-rafael` | Sliding Rafael | `src/pages/games/KernelGames/SlidingRafael/` | 🔒 só admin |
+| `/games/codigo-perdido` | Código Perdido | `src/pages/games/KernelGames/CodigoPerdido/` | 🔒 só admin |
+| `/games/maze-rafael` | Maze Rafael | `src/pages/games/KernelGames/MazeRafael/` | 🔒 só admin |
+| `/games/glitch-rafael` | Glitch Rafael | `src/pages/games/KernelGames/GlitchRafael/` | 🔒 só admin |
+| `/games/bullet-hell-rafael` | Bullet Hell Rafael | `src/pages/games/KernelGames/BulletHellRafael/` | 🔒 só admin |
+| `/games/stabilizer-rafael` | Stabilizer Rafael | `src/pages/games/KernelGames/StabilizerRafael/` | 🔒 só admin |
 
 ### 3.5 Laboratório e fallback
 
@@ -395,7 +395,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.361.0** |
+| `SITE_VERSION` | Site global | **10.362.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.13.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |

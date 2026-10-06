@@ -171,86 +171,11 @@ export const FIXAS = {
     pt: ['LDI Gangues — jogo de gangue grátis no navegador | Lutas de Ilusão', 'Monte sua tropa, tome as ruas de Marélia e encare os chefões em LDI Gangues, RPG de gangue grátis direto no navegador.', 'LDI Gangues', 'Funde sua gangue, recrute lutadores e tome cada território de Marélia, da Pista até a Laje.'],
     es: ['LDI Gangues — juego de pandillas gratis en el navegador | Luchas de Ilusión', 'Arma tu banda, toma las calles de Marélia y enfrenta a los jefes en LDI Gangues, RPG de pandillas gratis directo en el navegador.', 'LDI Gangues', 'Funda tu pandilla, recluta luchadores y toma cada territorio de Marélia, de la Pista a la Azotea.'],
   },
-  '/games/ldi-tatics': {
-    meta: ['0.6', 'monthly'],
-    en: ['LDI Tactics — Free Turn-Based Tactics Game | Illusion Fight', 'Play free turn-based tactical battles in the Illusion Fight universe, right in your browser.', 'LDI Tactics', 'Plan your moves and take on tactical battles in the arena.'],
-    pt: ['LDI Tatics — jogo tático por turnos grátis | Lutas de Ilusão', 'Jogue grátis batalhas táticas por turnos no universo de Lutas de Ilusão, direto no navegador.', 'LDI Tatics', 'Planeje seus movimentos e encare batalhas táticas na arena.'],
-    es: ['LDI Tatics — juego táctico por turnos gratis | Luchas de Ilusión', 'Juega gratis batallas tácticas por turnos en el universo de Luchas de Ilusión, directo en el navegador.', 'LDI Tatics', 'Planea tus movimientos y enfrenta batallas tácticas en la arena.'],
-  },
-  '/games/jackcandy': {
-    meta: ['0.6', 'monthly'],
-    en: ['Jack Dream Beer — Free Noir Game | Illusion Fight', 'Investigate cases in Jack Dream Beer, the free noir game of the Illusion Fight universe.', 'Jack Dream Beer', 'Investigate mysteries in the noir game of the LDI universe.'],
-    pt: ['Jack Dream Beer — jogo noir grátis | Lutas de Ilusão', 'Investigue casos em Jack Dream Beer, o jogo noir grátis do universo de Lutas de Ilusão.', 'Jack Dream Beer', 'Investigue mistérios no jogo noir do universo LDI.'],
-    es: ['Jack Dream Beer — juego noir gratis | Luchas de Ilusión', 'Investiga casos en Jack Dream Beer, el juego noir gratis del universo de Luchas de Ilusión.', 'Jack Dream Beer', 'Investiga misterios en el juego noir del universo LDI.'],
-  },
-  '/games/pesadelo': {
-    meta: ['0.6', 'monthly'],
-    en: ['Particular Nightmare — Free Mystery Game | Illusion Fight', 'Face cases, puzzles and fights in Particular Nightmare, a free mystery game.', 'Particular Nightmare', 'Investigate cases and solve challenges in the Illusion Fight universe.'],
-    pt: ['Pesadelo Particular — jogo de mistério grátis | Lutas de Ilusão', 'Encare casos, enigmas e lutas em Pesadelo Particular, jogo de mistério grátis.', 'Pesadelo Particular', 'Investigue casos e resolva desafios no universo de Lutas de Ilusão.'],
-    es: ['Pesadilla Particular — juego de misterio gratis | Luchas de Ilusión', 'Enfrenta casos, acertijos y peleas en Pesadilla Particular, juego de misterio gratis.', 'Pesadilla Particular', 'Investiga casos y resuelve desafíos en el universo de Luchas de Ilusión.'],
-  },
-  '/games/tamagoshi': {
-    meta: ['0.6', 'monthly'],
-    en: ['LDI Tama — Free Virtual Pet Game | Illusion Fight', 'Take care of your creature in LDI Tama, the free virtual pet game of the Illusion Fight universe.', 'LDI Tama', 'Adopt, care for and raise your creature in the LDI universe.'],
-    pt: ['LDI Tama — bichinho virtual grátis | Lutas de Ilusão', 'Cuide da sua criatura em LDI Tama, o bichinho virtual grátis do universo de Lutas de Ilusão.', 'LDI Tama', 'Adote, cuide e crie sua criatura no universo LDI.'],
-    es: ['LDI Tama — mascota virtual gratis | Luchas de Ilusión', 'Cuida a tu criatura en LDI Tama, la mascota virtual gratis del universo de Luchas de Ilusión.', 'LDI Tama', 'Adopta, cuida y cría a tu criatura en el universo LDI.'],
-  },
   '/games/toptrumps': {
     meta: ['0.6', 'monthly'],
     en: ['LDI Trumps — Free Online Top Trumps Card Game | Illusion Fight', 'Play a free online Top Trumps card game with the fighters of Illusion Fight: solo or against other players.', 'LDI Trumps', 'Build your deck and play matches with characters from the LDI universe.'],
     pt: ['LDI Super Trunfo — Super Trunfo online grátis | Lutas de Ilusão', 'Jogue Super Trunfo online grátis com os lutadores de Lutas de Ilusão: sozinho ou contra outros jogadores.', 'LDI Super Trunfo', 'Monte seu baralho e jogue partidas com os personagens do universo LDI.'],
     es: ['LDI Trumps — juego de cartas Top Trumps online gratis | Luchas de Ilusión', 'Juega Top Trumps online gratis con los luchadores de Luchas de Ilusión: solo o contra otros jugadores.', 'LDI Trumps', 'Arma tu mazo y juega partidas con los personajes del universo LDI.'],
-  },
-  '/games/minigames': {
-    meta: ['0.6', 'monthly'],
-    en: ['LDI Mini Games — Free Puzzle and Arcade Games | Illusion Fight', 'Play free puzzles and quick arcade challenges in the Illusion Fight universe.', 'LDI Mini Games', 'Find challenges, puzzles and quick games from the arena.'],
-    pt: ['LDI Mini Games — quebra-cabeças e jogos rápidos grátis | Lutas de Ilusão', 'Jogue quebra-cabeças e desafios rápidos grátis no universo de Lutas de Ilusão.', 'LDI Mini Games', 'Desafios, quebra-cabeças e jogos rápidos da arena.'],
-    es: ['LDI Mini Juegos — rompecabezas y juegos rápidos gratis | Luchas de Ilusión', 'Juega rompecabezas y desafíos rápidos gratis en el universo de Luchas de Ilusión.', 'LDI Mini Juegos', 'Desafíos, rompecabezas y juegos rápidos de la arena.'],
-  },
-  '/games/duelo': {
-    meta: ['0.5', 'monthly'],
-    en: ['LDI Duel — One-on-One Card Game | Illusion Fight', 'Meet LDI Duel, the one-on-one card game of Illusion Fight.', 'LDI Duel', 'Get your cards ready for duels in the LDI universe.'],
-    pt: ['Duelo LDI — jogo de cartas um contra um | Lutas de Ilusão', 'Conheça o Duelo LDI, o jogo de cartas um contra um de Lutas de Ilusão.', 'Duelo LDI', 'Prepare suas cartas pros duelos do universo LDI.'],
-    es: ['Duelo LDI — juego de cartas uno contra uno | Luchas de Ilusión', 'Conoce Duelo LDI, el juego de cartas uno contra uno de Luchas de Ilusión.', 'Duelo LDI', 'Prepara tus cartas para los duelos del universo LDI.'],
-  },
-}
-
-// Minigames soltos: [caminho, { en, pt, es: [título, descrição, h1, parágrafo] }]
-export const JOGOS_EXTRA = {
-  '/games/kernel-panic': {
-    en: ['Kernel Panic — Free Hacker Puzzle Game', 'Play Kernel Panic, a free hacker puzzle of deduction, commands and digital survival on Illusion Fight.', 'Kernel Panic', 'Solve terminal challenges and survive a system about to crash.'],
-    pt: ['Kernel Panic — jogo de hacker grátis', 'Jogue Kernel Panic, um quebra-cabeça hacker grátis de dedução, comandos e sobrevivência digital.', 'Kernel Panic', 'Resolva desafios de terminal e sobreviva a um sistema prestes a travar.'],
-    es: ['Kernel Panic — juego de hacker gratis', 'Juega Kernel Panic, un rompecabezas hacker gratis de deducción, comandos y supervivencia digital.', 'Kernel Panic', 'Resuelve desafíos de terminal y sobrevive a un sistema a punto de colapsar.'],
-  },
-  '/games/sliding-rafael': {
-    en: ['Sliding Puzzle — Free Sliding Puzzle Game', 'Play Sliding Puzzle, a free sliding puzzle full of logic challenges on Illusion Fight.', 'Sliding Puzzle', 'Arrange the board, solve the puzzle and complete every level.'],
-    pt: ['Quebra-cabeça deslizante — jogo grátis', 'Jogue o quebra-cabeça deslizante grátis, cheio de desafios de lógica.', 'Quebra-cabeça deslizante', 'Organize o tabuleiro, resolva o enigma e complete cada fase.'],
-    es: ['Rompecabezas deslizante — juego gratis', 'Juega el rompecabezas deslizante gratis, lleno de desafíos de lógica.', 'Rompecabezas deslizante', 'Ordena el tablero, resuelve el acertijo y completa cada nivel.'],
-  },
-  '/games/codigo-perdido': {
-    en: ['Lost Code — Free Word Game', 'Play Lost Code, a free puzzle of words, clues and deduction inspired by corrupted systems.', 'Lost Code', 'Find the hidden word using clues and reasoning.'],
-    pt: ['Código Perdido — jogo de palavras grátis', 'Jogue Código Perdido, um enigma grátis de palavras, pistas e dedução inspirado em sistemas corrompidos.', 'Código Perdido', 'Descubra a palavra escondida com pistas e raciocínio.'],
-    es: ['Código Perdido — juego de palabras gratis', 'Juega Código Perdido, un acertijo gratis de palabras, pistas y deducción inspirado en sistemas corruptos.', 'Código Perdido', 'Descubre la palabra oculta con pistas y razonamiento.'],
-  },
-  '/games/maze-rafael': {
-    en: ['Maze Runner — Free Maze Game', 'Find the way out in Maze Runner, a free maze game with progressive challenges on Illusion Fight.', 'Maze Runner', 'Cross the mazes, find the right path and beat every stage.'],
-    pt: ['Labirinto — jogo de labirinto grátis', 'Ache a saída no jogo de labirinto grátis, com desafios que ficam mais difíceis a cada fase.', 'Labirinto', 'Atravesse os labirintos, ache o caminho certo e vença cada fase.'],
-    es: ['Laberinto — juego de laberinto gratis', 'Encuentra la salida en el juego de laberinto gratis, con desafíos cada vez más difíciles.', 'Laberinto', 'Cruza los laberintos, encuentra el camino correcto y supera cada nivel.'],
-  },
-  '/games/glitch-rafael': {
-    en: ['Find the Glitch — Free Memory Game', 'Play Find the Glitch, a free memory and sequence challenge on Illusion Fight.', 'Find the Glitch', 'Memorize the system signals, repeat the sequences and resist the glitches.'],
-    pt: ['Ache o Glitch — jogo da memória grátis', 'Jogue Ache o Glitch, um desafio grátis de memória e sequência.', 'Ache o Glitch', 'Memorize os sinais do sistema, repita as sequências e resista aos glitches.'],
-    es: ['Encuentra el Glitch — juego de memoria gratis', 'Juega Encuentra el Glitch, un desafío gratis de memoria y secuencias.', 'Encuentra el Glitch', 'Memoriza las señales del sistema, repite las secuencias y resiste los glitches.'],
-  },
-  '/games/bullet-hell-rafael': {
-    en: ['Bullet Hell — Free Dodge Game', 'Survive Bullet Hell, a free bullet hell game of reflexes, movement and dodging projectiles.', 'Bullet Hell', 'Dodge the projectiles and survive to the end.'],
-    pt: ['Bullet Hell — jogo de desviar grátis', 'Sobreviva ao Bullet Hell, jogo grátis de reflexo, movimento e desvio de projéteis.', 'Bullet Hell', 'Desvie dos projéteis e sobreviva até o fim.'],
-    es: ['Bullet Hell — juego de esquivar gratis', 'Sobrevive al Bullet Hell, juego gratis de reflejos, movimiento y esquivar proyectiles.', 'Bullet Hell', 'Esquiva los proyectiles y sobrevive hasta el final.'],
-  },
-  '/games/stabilizer-rafael': {
-    en: ['Signal Stabilizer — Free Precision Game', 'Play Signal Stabilizer, a free challenge of precision, timing and control on Illusion Fight.', 'Signal Stabilizer', 'Keep the system stable, control the meter and hold on as long as you can.'],
-    pt: ['Estabilizador de Sinal — jogo de precisão grátis', 'Jogue Estabilizador de Sinal, um desafio grátis de precisão, tempo e controle.', 'Estabilizador de Sinal', 'Mantenha o sistema estável, controle o medidor e aguente o máximo que puder.'],
-    es: ['Estabilizador de Señal — juego de precisión gratis', 'Juega Estabilizador de Señal, un desafío gratis de precisión, tiempo y control.', 'Estabilizador de Señal', 'Mantén el sistema estable, controla el medidor y aguanta lo más que puedas.'],
   },
 }
 

@@ -1,102 +1,84 @@
-// Calendário oficial da Temporada 1 — pedido do Isaias, 22/09/2026.
+// Calendário da Temporada 1, montado a partir das datas reais de liberação
+// (`liberacao` de cada capítulo nos índices editoriais) — o que aparece aqui é
+// exatamente o que o site libera, sem lista paralela pra manter.
 //
-// Modelo final (depois de 2 idas e vindas na mesma conversa):
-// 1) Chegou uma tabela nova com 2 colunas (Portal / "Canvas") — decidiu não
-//    citar Webtoon Canvas por nome ("usa como Outras Plataformas... vai que
-//    eu lanço em outra também né").
-// 2) Primeiro pediu pra tirar as linhas de assinante/conta da lista de
-//    drops (só a data do Portal apareceria).
-// 3) Mudou de ideia na sequência: "pra assinante vai sair 15 de novembro...
-//    conta grátis 30 de novembro... free só vai ver 15 de dezembro... e
-//    assim vai por todo o calendário, sempre dando prioridade aos
-//    assinantes" — ou seja, o sistema de 3 níveis VOLTA pra lista de drops,
-//    só que com uma regra nova e uniforme: cada data "Portal" da tabela
-//    nova é a data de CONTA GRÁTIS; assinante = 15 dias antes; público =
-//    15 dias depois. Mesmo capítulo, 3 momentos de acesso.
-//
-// Cada evento de Portal (capítulo LDI, hiato+Mundo das Sombras, ou T2 Cap.1)
-// vira 3 linhas na timeline (assinante/conta/público), casando com o dia
-// exato em que aquele nível libera aquele conteúdo. "Outras Plataformas"
-// segue com as próprias datas, sem relação com os 3 níveis (não tem
-// assinatura por lá, é ritmo próprio de tradução/postagem).
-//
-// Datas de HIATO sem dia exato na tabela original (só "fev/27", "jun/27",
-// "out+nov/27") ganharam um dia de referência (meio do período) só pra virar
-// a data de CONTA GRÁTIS âncora — não são datas oficiais anunciadas.
-export const SEASON_ONE_DROPS = [
-  // Especiais de fim de temporada (pedido do Isaias, 25/09/2026 — fecham o
-  // ano de 2027): história à
-  // parte, fora da linha principal — estilo os especiais de hiato de One Piece,
-  // os personagens levados pra outro mundo. Mesma cascata dos capítulos
-  // (assinante → conta +15 → público +30).
-  { date: '2026-11-15', subscriber: 'LDI Cap. 1 (WEB SHARD)', account: '—', public: '—', outras: '—' },
-  { date: '2026-11-30', subscriber: '—', account: 'LDI Cap. 1 (WEB SHARD)', public: '—', outras: '—' },
-  { date: '2026-12-15', subscriber: 'LDI Cap. 2 (WEB SHARD)', account: '—', public: 'LDI Cap. 1 (WEB SHARD)', outras: 'Parte 1 (Cap.1/2)' },
-  { date: '2026-12-30', subscriber: '—', account: 'LDI Cap. 2 (WEB SHARD)', public: '—', outras: 'Parte 2 (Cap.1/2) — fecha Cap.1' },
-  { date: '2027-01-14', subscriber: '—', account: '—', public: 'LDI Cap. 2 (WEB SHARD)', outras: 'Parte 3 (Cap.2/2)' },
-  { date: '2027-01-15', subscriber: 'LDI Cap. 3 (WEB SHARD)', account: '—', public: '—', outras: '—' },
-  { date: '2027-01-29', subscriber: '—', account: '—', public: '—', outras: 'Parte 4 (Cap.2/2) — fecha Cap.2' },
-  { date: '2027-01-30', subscriber: '—', account: 'LDI Cap. 3 (WEB SHARD)', public: '—', outras: '—' },
-  { date: '2027-01-31', subscriber: 'HIATO LDI — Mundo das Sombras Cap. 1 (WEB SHARD) + Heróis da Cidade (4 tirinhas semanais)', account: '—', public: '—', outras: '—' },
-  { date: '2027-02-13', subscriber: '—', account: '—', public: '—', outras: 'Parte 5 (Cap.3/2)' },
-  { date: '2027-02-14', subscriber: '—', account: '—', public: 'LDI Cap. 3 (WEB SHARD)', outras: '—' },
-  { date: '2027-02-15', subscriber: '—', account: 'HIATO LDI — Mundo das Sombras Cap. 1 (WEB SHARD) + Heróis da Cidade (4 tirinhas semanais)', public: '—', outras: 'Parte 6 (28/2) — fecha Cap.3' },
-  { date: '2027-03-02', subscriber: '—', account: '—', public: 'HIATO LDI — Mundo das Sombras Cap. 1 (WEB SHARD) + Heróis da Cidade (4 tirinhas semanais)', outras: '—' },
-  { date: '2027-03-15', subscriber: 'LDI Cap. 4 (WEB SHARD)', account: '—', public: '—', outras: '—' },
-  { date: '2027-03-30', subscriber: '—', account: 'LDI Cap. 4 (WEB SHARD)', public: '—', outras: 'Parte 7 (Cap.4/2) — fecha junto com o lançamento do portal' },
-  { date: '2027-04-14', subscriber: '—', account: '—', public: 'LDI Cap. 4 (WEB SHARD)', outras: 'Parte 8 (Cap.4/2) — fecha Cap.4' },
-  { date: '2027-04-15', subscriber: 'LDI Cap. 5 (WEB SHARD)', account: '—', public: '—', outras: '—' },
-  { date: '2027-04-30', subscriber: '—', account: 'LDI Cap. 5 (WEB SHARD)', public: '—', outras: 'Parte 9 (Cap.5/2)' },
-  { date: '2027-05-15', subscriber: 'LDI Cap. 6 (WEB SHARD)', account: '—', public: 'LDI Cap. 5 (WEB SHARD)', outras: 'Parte 10 (Cap.5/2) — fecha Cap.5' },
-  { date: '2027-05-30', subscriber: '—', account: 'LDI Cap. 6 (WEB SHARD)', public: '—', outras: 'Parte 11 (Cap.6/2)' },
-  { date: '2027-06-05', subscriber: 'HIATO LDI — Mundo das Sombras Cap. 2 (WEB SHARD) + Heróis da Cidade (4 tirinhas semanais)', account: '—', public: '—', outras: '—' },
-  { date: '2027-06-14', subscriber: '—', account: '—', public: 'LDI Cap. 6 (WEB SHARD)', outras: 'Parte 12 (Cap.6/2) — fecha Cap.6' },
-  { date: '2027-06-20', subscriber: '—', account: 'HIATO LDI — Mundo das Sombras Cap. 2 (WEB SHARD) + Heróis da Cidade (4 tirinhas semanais)', public: '—', outras: '—' },
-  { date: '2027-07-05', subscriber: '—', account: '—', public: 'HIATO LDI — Mundo das Sombras Cap. 2 (WEB SHARD) + Heróis da Cidade (4 tirinhas semanais)', outras: '—' },
-  { date: '2027-07-15', subscriber: 'LDI Cap. 7 (WEB SHARD)', account: '—', public: '—', outras: '—' },
-  { date: '2027-07-30', subscriber: '—', account: 'LDI Cap. 7 (WEB SHARD)', public: '—', outras: 'Parte 13 (Cap.7/2) — fecha junto com o portal' },
-  { date: '2027-08-14', subscriber: '—', account: '—', public: 'LDI Cap. 7 (WEB SHARD)', outras: 'Parte 14 (Cap.7/2) — fecha Cap.7' },
-  { date: '2027-08-15', subscriber: 'LDI Cap. 8 (WEB SHARD)', account: '—', public: '—', outras: '—' },
-  { date: '2027-08-30', subscriber: '—', account: 'LDI Cap. 8 (WEB SHARD)', public: '—', outras: 'Parte 15 (Cap.8/2) — fecha junto com o portal' },
-  { date: '2027-09-14', subscriber: '—', account: '—', public: 'LDI Cap. 8 (WEB SHARD)', outras: 'Parte 16 (Cap.8/2) — fecha Cap.8' },
-  { date: '2027-09-15', subscriber: 'LDI Cap. 9 (WEB SHARD)', account: '—', public: '—', outras: '—' },
-  { date: '2027-09-30', subscriber: '—', account: 'LDI Cap. 9 (WEB SHARD)', public: '—', outras: 'Parte 17 (Cap.9/2) — fecha junto com o portal' },
-  { date: '2027-10-05', subscriber: 'HIATO LDI (duplo) — Mundo das Sombras Cap. 3 (WEB SHARD) + Heróis da Cidade (8 tirinhas semanais)', account: '—', public: '—', outras: '—' },
-  { date: '2027-10-15', subscriber: 'Especial de Fim de Temporada — Parte 1 (WEB SHARD, fora da linha principal)', account: '—', public: '—', outras: '—' },
-  { date: '2027-10-15', subscriber: '—', account: '—', public: 'LDI Cap. 9 (WEB SHARD)', outras: 'Parte 18 (Cap.9/2) — fecha Cap.9' },
-  { date: '2027-10-20', subscriber: '—', account: 'HIATO LDI (duplo) — Mundo das Sombras Cap. 3 (WEB SHARD) + Heróis da Cidade (8 tirinhas semanais)', public: '—', outras: 'Outras plataformas paradas — sem material novo até a T2' },
-  { date: '2027-10-30', subscriber: '—', account: 'Especial de Fim de Temporada — Parte 1 (WEB SHARD, fora da linha principal)', public: '—', outras: '—' },
-  { date: '2027-11-04', subscriber: '—', account: '—', public: 'HIATO LDI (duplo) — Mundo das Sombras Cap. 3 (WEB SHARD) + Heróis da Cidade (8 tirinhas semanais)', outras: '—' },
-  { date: '2027-11-14', subscriber: '—', account: '—', public: 'Especial de Fim de Temporada — Parte 1 (WEB SHARD, fora da linha principal)', outras: '—' },
-  { date: '2027-11-15', subscriber: 'Especial de Fim de Temporada — Parte 2 (WEB SHARD, fora da linha principal)', account: '—', public: '—', outras: '—' },
-  { date: '2027-11-30', subscriber: '—', account: 'Especial de Fim de Temporada — Parte 2 (WEB SHARD, fora da linha principal)', public: '—', outras: '—' },
-  { date: '2027-12-15', subscriber: '—', account: '—', public: 'Especial de Fim de Temporada — Parte 2 (WEB SHARD, fora da linha principal)', outras: '—' },
-  { date: '2027-12-15', subscriber: 'Temporada 2, Cap. 1 (WEB SHARD)', account: '—', public: '—', outras: '—' },
-  { date: '2027-12-30', subscriber: '—', account: 'Temporada 2, Cap. 1 (WEB SHARD)', public: '—', outras: 'Parte 19 (Cap.10/2) — retoma junto com o portal' },
-  { date: '2028-01-14', subscriber: '—', account: '—', public: 'Temporada 2, Cap. 1 (WEB SHARD)', outras: 'Parte 20 (Cap.10/2) — fecha Cap.10' },
-].map((row, index) => ({ number: index + 1, ...row }))
+// Cronograma: a temporada anda em ciclos de 4 meses — 3 meses lançando e 1 de
+// hiato. Histórias: 1 capítulo público a cada 15 dias (dias 15 e 30), o
+// assinante sempre 1 à frente, a conta grátis no meio. WEB SHARD: 1 capítulo
+// por mês nos meses de lançamento. No hiato sai O Mundo das Sombras (o
+// assinante recebe 2, o público 1) e Mar de Cinzas fica em avaliação.
+import livro from './historias/lutas-de-ilusao.json'
+import obras from './historias/obras.json'
+import episodios from './episodios.json'
 
-// Data de conclusão de cada obra DENTRO da Temporada 1, por nível de acesso
-// (assinante / conta grátis / público — mesma regra -15/0/+15 dias). Mar de
-// Cinzas/Contos avulsos saíram da T1 nesta reformulação (não aparecem mais
-// no calendário oficial) — ficam de fora daqui até voltarem a ter data.
-export const SEASON_ONE_COMPLETION = [
-  ['ldi', '2027-09-15', '2027-09-30', '2027-10-15'],
-  ['shadows', '2027-10-05', '2027-10-20', '2027-11-04'],
+export const T1 = { inicio: '2026-11-15', fim: '2027-10-31' }
+export const HIATOS = [
+  { n: 1, inicio: '2027-02-01' },
+  { n: 2, inicio: '2027-06-01' },
+  { n: 3, inicio: '2027-10-01' },
+]
+const NIVEIS = [['subscriber', 'primordial'], ['account', 'conta'], ['public', 'publico']]
+const naT1 = data => data >= T1.inicio && data <= T1.fim
+
+function linhasDoTempo(itens, marcos = []) {
+  const porData = {}
+  const linha = data => (porData[data] ||= { date: data, subscriber: [], account: [], public: [], marcos: [] })
+  for (const { item, liberacao } of itens) {
+    for (const [nivel, campo] of NIVEIS) {
+      const data = liberacao?.[campo]
+      if (data && naT1(data)) linha(data)[nivel].push(item)
+    }
+  }
+  for (const m of marcos) linha(m.date).marcos.push(m.item)
+  return Object.values(porData).sort((a, b) => a.date.localeCompare(b.date)).map((row, i) => ({ number: i + 1, ...row }))
+}
+
+const sombras = obras.find(o => o.id === 'mundo-das-sombras')?.capitulos || []
+const marcosHiato = HIATOS.flatMap(h => [
+  { date: h.inicio, item: { tipo: 'hiato', n: h.n } },
+  { date: h.inicio, item: { tipo: 'cinzas' } },
+])
+
+const itensHistorias = [
+  ...livro.map(c => ({ item: { tipo: 'livro', n: c.numero }, liberacao: c.liberacao })),
+  ...sombras.map((c, i) => ({ item: { tipo: 'sombras', n: i + 1 }, liberacao: c.liberacao })),
+]
+const itensWebshard = episodios
+  .filter(e => e.liberacao)
+  .map(e => ({ item: e.especial ? { tipo: 'especial' } : { tipo: 'webshard', n: e.numero }, liberacao: e.liberacao }))
+
+export const SEASON_ONE_DROPS = {
+  chapters: linhasDoTempo(itensHistorias, marcosHiato),
+  webtoon: linhasDoTempo(itensWebshard, marcosHiato.filter(m => m.item.tipo === 'hiato')),
+}
+
+// Quando cada obra fecha na T1, por nível. `null` = só na Temporada 2.
+const ultimo = (lista, campo) => {
+  const datas = lista.map(c => c.liberacao?.[campo]).filter(Boolean).sort()
+  const fim = datas.at(-1)
+  return fim && naT1(fim) ? fim : null
+}
+const conclusao = (id, lista) => ({ id, subscriber: ultimo(lista, 'primordial'), account: ultimo(lista, 'conta'), public: ultimo(lista, 'publico') })
+const capsWebshard = episodios.filter(e => !e.especial && e.liberacao)
+export const SEASON_ONE_COMPLETION = {
+  chapters: [conclusao('ldi', livro), conclusao('shadows', sombras)],
+  webtoon: [conclusao('webshard', capsWebshard)],
+}
+
+// Jogos por fase. Os da T1 já estão no ar no lançamento; os outros entram no
+// 2º ciclo ou depois, sem data fechada.
+export const GAMES_ROADMAP = [
+  { fase: 't1', data: '2026-11-15', jogos: ['trumps', 'ldi', 'gangues'] },
+  { fase: 'ciclo2', data: '2027-03-15', jogos: ['jack', 'tatics', 'tama', 'kernel'] },
+  { fase: 'depois', data: null, jogos: ['duelo', 'rpg'] },
 ]
 
-// Panorama de temporadas — pedido do Isaias, 22/09/2026: "temos que deixar
-// bem explícito: SE tivermos segunda temporada — e não sabemos se teremos
-// ela — será lançada em tal data, e assim vale pras outras. A única coisa
-// que garantimos é a T1." Datas de T2 em diante são a MESMA cadência
-// aplicada pra frente (projeção), nunca uma promessa — por isso `confirmada`
-// só é `true` na T1; o componente é quem decide como deixar isso visível
-// (badge/aviso), não confiar só no texto do rodapé.
+// Panorama: só a T1 é garantida; as próximas são a mesma cadência projetada.
 export const SEASONS_OVERVIEW = [
-  { season: 'T1', start: '2026-11-30', end: '2027-09-30', note: 'note_t1', confirmada: true },
-  { season: 'T2', start: '2027-12-30', end: '2028-10-30', confirmada: false },
-  { season: 'T3', start: '2028-12-30', end: '2029-10-30', confirmada: false },
-  { season: 'T4', start: '2029-12-30', end: '2030-10-30', confirmada: false },
-  { season: 'T5', start: '2030-12-30', end: '2031-10-30', confirmada: false },
-  { season: 'T6', start: '2031-12-30', end: '2032-10-30', confirmada: false },
+  { season: 'T1', start: '2026-11-15', end: '2027-10-30', note: 'note_t1', confirmada: true },
+  { season: 'T2', start: '2027-11-15', end: '2028-10-30', confirmada: false },
+  { season: 'T3', start: '2028-11-15', end: '2029-10-30', confirmada: false },
+  { season: 'T4', start: '2029-11-15', end: '2030-10-30', confirmada: false },
+  { season: 'T5', start: '2030-11-15', end: '2031-10-30', confirmada: false },
+  { season: 'T6', start: '2031-11-15', end: '2032-10-30', confirmada: false },
 ]

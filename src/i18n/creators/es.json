@@ -207,10 +207,6 @@
           "nome": "LDI Top Trumps",
           "desc": "Junta peleadores, vence a la IA y juega en línea contra otras personas."
         },
-        "minigames": {
-          "nome": "MiniGames",
-          "desc": "Partidas rápidas para cuando tienes cinco minutos."
-        },
         "steam": {
           "nome": "Demo en Steam",
           "desc": "Illusion Fight — Season 1 Demo. Estamos en el Steam Next Fest, del 19 al 26 de octubre."
@@ -296,7 +292,7 @@
       "eyebrow": "FICHA TÉCNICA",
       "copiar_tudo": "Copiar la ficha completa",
       "descricao_titulo": "DESCRIPCIÓN CORTA",
-      "descricao": "Illusion Fight es un universo de acción gratuito creado por Isaias Leal: libros, webtoon, juegos y banda sonora original, todo conectado en illusionfight.com, en español, inglés y portugués. La demo está en Steam y el universo participa en el Steam Next Fest, del 19 al 26 de octubre. La Season 1 sale el 30 de noviembre de 2026.",
+      "descricao": "Illusion Fight es un universo de acción gratuito creado por Isaias Leal: libros, webtoon, juegos y banda sonora original, todo conectado en illusionfight.com, en español, inglés y portugués. La demo está en Steam y el universo participa en el Steam Next Fest, del 19 al 26 de octubre. La Season 1 sale el 15 de noviembre de 2026.",
       "itens": {
         "nome": {
           "rotulo": "Nombre",
@@ -328,7 +324,7 @@
         },
         "lancamento": {
           "rotulo": "Lanzamiento",
-          "valor": "Season 1 el 30 de noviembre de 2026"
+          "valor": "Season 1 el 15 de noviembre de 2026"
         },
         "site": {
           "rotulo": "Sitio",
@@ -377,7 +373,7 @@
         },
         "lancamento": {
           "p": "¿Cuándo es el lanzamiento?",
-          "r": "La Season 1 sale el 30 de noviembre de 2026. Antes, el universo está en el Steam Next Fest, del 19 al 26 de octubre."
+          "r": "La Season 1 sale el 15 de noviembre de 2026. Antes, el universo está en el Steam Next Fest, del 19 al 26 de octubre."
         },
         "steam": {
           "p": "¿Qué hay en Steam?",
@@ -415,7 +411,7 @@
         },
         "temporada": {
           "nome": "La Temporada 1 y la agenda",
-          "fala": "La Season 1 empieza el 30 de noviembre de 2026, con capítulos saliendo en secuencia. Cada tres meses de lanzamientos hay un mes de pausa, el mes de descanso. En ese mes llega contenido extra del mismo autor: El Mundo de las Sombras y Mar de Cenizas. Por eso existen junto a la línea principal: siempre hay una historia nueva y tienes de qué hablar todo el año."
+          "fala": "La Season 1 empieza el 15 de noviembre de 2026, con capítulos saliendo en secuencia. Cada tres meses de lanzamientos hay un mes de pausa, el mes de descanso. En ese mes llega contenido extra del mismo autor: El Mundo de las Sombras y Mar de Cenizas. Por eso existen junto a la línea principal: siempre hay una historia nueva y tienes de qué hablar todo el año."
         },
         "games": {
           "nome": "Juegos",

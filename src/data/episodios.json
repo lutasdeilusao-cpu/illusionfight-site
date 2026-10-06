@@ -12,7 +12,7 @@
     "frase_en": "The invitation to the dream.",
     "frase_es": "La invitación al sueño.",
     "publicado": true,
-    "data_publicacao": "2026-12-15",
+    "data_publicacao": "2026-11-15",
     "paginas": 53,
     "idiomas": [
       "pt",
@@ -36,8 +36,8 @@
     "liberacao": {
       "primordial": "2026-11-15",
       "elite": "2026-11-15",
-      "conta": "2026-11-30",
-      "publico": "2026-12-15"
+      "conta": "2026-11-15",
+      "publico": "2026-11-15"
     },
     "beta_ate": "2026-11-09"
   },
@@ -51,12 +51,12 @@
     "idiomas": [
       "pt"
     ],
-    "data_publicacao": "2027-01-14",
+    "data_publicacao": "2026-12-15",
     "liberacao": {
-      "primordial": "2026-12-15",
-      "elite": "2026-12-15",
-      "conta": "2026-12-30",
-      "publico": "2027-01-14"
+      "primordial": "2026-11-15",
+      "elite": "2026-11-15",
+      "conta": "2026-12-08",
+      "publico": "2026-12-15"
     }
   },
   {
@@ -69,12 +69,12 @@
     "idiomas": [
       "pt"
     ],
-    "data_publicacao": "2027-02-14",
+    "data_publicacao": "2027-01-15",
     "liberacao": {
-      "primordial": "2027-01-15",
-      "elite": "2027-01-15",
-      "conta": "2027-01-30",
-      "publico": "2027-02-14"
+      "primordial": "2026-12-15",
+      "elite": "2026-12-15",
+      "conta": "2027-01-08",
+      "publico": "2027-01-15"
     }
   },
   {
@@ -87,12 +87,12 @@
     "idiomas": [
       "pt"
     ],
-    "data_publicacao": "2027-04-14",
+    "data_publicacao": "2027-03-15",
     "liberacao": {
       "primordial": "2027-03-15",
       "elite": "2027-03-15",
-      "conta": "2027-03-30",
-      "publico": "2027-04-14"
+      "conta": "2027-03-15",
+      "publico": "2027-03-15"
     }
   },
   {
@@ -105,12 +105,12 @@
     "idiomas": [
       "pt"
     ],
-    "data_publicacao": "2027-05-15",
+    "data_publicacao": "2027-04-15",
     "liberacao": {
-      "primordial": "2027-04-15",
-      "elite": "2027-04-15",
-      "conta": "2027-04-30",
-      "publico": "2027-05-15"
+      "primordial": "2027-03-15",
+      "elite": "2027-03-15",
+      "conta": "2027-04-08",
+      "publico": "2027-04-15"
     }
   },
   {
@@ -120,12 +120,12 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "publicado": false,
-    "data_publicacao": "2027-06-14",
+    "data_publicacao": "2027-05-15",
     "liberacao": {
-      "primordial": "2027-05-15",
-      "elite": "2027-05-15",
-      "conta": "2027-05-30",
-      "publico": "2027-06-14"
+      "primordial": "2027-04-15",
+      "elite": "2027-04-15",
+      "conta": "2027-05-08",
+      "publico": "2027-05-15"
     }
   },
   {
@@ -135,12 +135,12 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "publicado": false,
-    "data_publicacao": "2027-08-14",
+    "data_publicacao": "2027-07-15",
     "liberacao": {
       "primordial": "2027-07-15",
       "elite": "2027-07-15",
-      "conta": "2027-07-30",
-      "publico": "2027-08-14"
+      "conta": "2027-07-15",
+      "publico": "2027-07-15"
     }
   },
   {
@@ -150,12 +150,12 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "publicado": false,
-    "data_publicacao": "2027-09-14",
+    "data_publicacao": "2027-08-15",
     "liberacao": {
-      "primordial": "2027-08-15",
-      "elite": "2027-08-15",
-      "conta": "2027-08-30",
-      "publico": "2027-09-14"
+      "primordial": "2027-07-15",
+      "elite": "2027-07-15",
+      "conta": "2027-08-08",
+      "publico": "2027-08-15"
     }
   },
   {
@@ -165,44 +165,28 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "publicado": false,
-    "data_publicacao": "2027-10-15",
+    "data_publicacao": "2027-09-15",
     "liberacao": {
-      "primordial": "2027-09-15",
-      "elite": "2027-09-15",
-      "conta": "2027-09-30",
-      "publico": "2027-10-15"
+      "primordial": "2027-08-15",
+      "elite": "2027-08-15",
+      "conta": "2027-09-08",
+      "publico": "2027-09-15"
     }
   },
   {
     "id": "especial-1",
     "numero": 1,
     "especial": true,
-    "titulo_pt": "Especial de Fim de Temporada — Parte 1",
-    "titulo_en": "Season Finale Special — Part 1",
-    "titulo_es": "Especial de Fin de Temporada — Parte 1",
+    "titulo_pt": "Especial de Halloween",
+    "titulo_en": "Halloween Special",
+    "titulo_es": "Especial de Halloween",
     "publicado": false,
-    "data_publicacao": "2027-11-14",
+    "data_publicacao": "2027-10-30",
     "liberacao": {
-      "primordial": "2027-10-15",
-      "elite": "2027-10-15",
-      "conta": "2027-10-30",
-      "publico": "2027-11-14"
-    }
-  },
-  {
-    "id": "especial-2",
-    "numero": 2,
-    "especial": true,
-    "titulo_pt": "Especial de Fim de Temporada — Parte 2",
-    "titulo_en": "Season Finale Special — Part 2",
-    "titulo_es": "Especial de Fin de Temporada — Parte 2",
-    "publicado": false,
-    "data_publicacao": "2027-12-15",
-    "liberacao": {
-      "primordial": "2027-11-15",
-      "elite": "2027-11-15",
-      "conta": "2027-11-30",
-      "publico": "2027-12-15"
+      "primordial": "2027-09-15",
+      "elite": "2027-09-15",
+      "conta": "2027-10-15",
+      "publico": "2027-10-30"
     }
   }
 ]
