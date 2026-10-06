@@ -1387,7 +1387,10 @@
     "games_nivel_account": "Plays everything and progress is saved to your account.",
     "games_nivel_public": "Plays everything, but without an account progress is lost when you leave.",
     "game_isometrico": "LDI Isometric",
-    "game_isometrico_desc": "LDI in isometric view."
+    "game_isometrico_desc": "LDI in isometric view.",
+    "item_musica": "Song {n} of S1 · Radio Nina",
+    "work_musicas": "S1 soundtrack · 9 songs",
+    "launch_music": "Songs at launch"
   },
   "home": {
     "section_latest": "New releases",

@@ -26,7 +26,7 @@
 .calendar-you { position: absolute; top: 10px; right: 12px; color: var(--if-cyan); font: 700 .6rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
 .calendar-level h3 { margin: 0 0 5px; font: 800 1.15rem var(--font-display); text-transform: uppercase; }
 .calendar-level > strong { color: var(--if-amber); font: 700 .75rem var(--font-mono); }
-.calendar-level dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 16px 0 0; }
+.calendar-level dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 8px; margin: 16px 0 0; }
 .calendar-level dl div { padding: 9px 6px; background: rgba(255,255,255,.035); text-align: center; }
 .calendar-level dt { min-height: 25px; color: #718994; font: 600 .57rem/1.25 var(--font-mono); text-transform: uppercase; }
 .calendar-level dd { margin: 5px 0 0; color: #eafaff; font: 800 .9rem var(--font-display); }

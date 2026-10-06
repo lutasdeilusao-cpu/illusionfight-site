@@ -8,11 +8,12 @@ import { SEASON_ONE_COMPLETION, SEASON_ONE_DROPS, SEASONS_OVERVIEW, GAMES_ROADMA
 import './Calendario.css'
 
 // Defasagem em dias até o capítulo abrir e quantos capítulos cada nível tem
-// no dia do lançamento, por aba (nas histórias o assinante começa com 2).
+// no dia do lançamento, por aba (nas histórias o assinante começa com 2;
+// música: conta 1 mês e público 2 meses depois do assinante).
 const levelRows = [
-  { id: 'subscriber', access: ['elite', 'primordial'], delay: 0, launch: { chapters: 2, webtoon: 1 }, tales: 5 },
-  { id: 'account', access: ['conta'], delay: 15, launch: { chapters: 0, webtoon: 0 }, tales: 0 },
-  { id: 'public', access: ['publico'], delay: 30, launch: { chapters: 0, webtoon: 0 }, tales: 0 },
+  { id: 'subscriber', access: ['elite', 'primordial'], delay: { chapters: 0, webtoon: 0, music: 0 }, launch: { chapters: 2, webtoon: 1, music: 1 }, tales: 5 },
+  { id: 'account', access: ['conta'], delay: { chapters: 15, webtoon: 15, music: 30 }, launch: { chapters: 0, webtoon: 0, music: 0 }, tales: 0 },
+  { id: 'public', access: ['publico'], delay: { chapters: 30, webtoon: 30, music: 60 }, launch: { chapters: 0, webtoon: 0, music: 0 }, tales: 0 },
 ]
 const NIVEIS_DROP = ['subscriber', 'account', 'public']
 const channels = ['chapters', 'webtoon', 'games', 'music', 'partners']
@@ -182,7 +183,7 @@ export default function Calendario() {
 
       {channel === 'games' && <JogosCalendario t={t} locale={locale} access={access} today={today} />}
 
-      {channel !== 'chapters' && channel !== 'webtoon' && channel !== 'games' && (
+      {channel === 'partners' && (
         <motion.section className="calendar-channel-empty" key={channel} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
           <span>{t('calendar.signal_pending')}</span>
           <h2>{t(`calendar.channel_${channel}`)}</h2>
@@ -190,7 +191,7 @@ export default function Calendario() {
         </motion.section>
       )}
 
-      {(channel === 'chapters' || channel === 'webtoon') && <>
+      {(channel === 'chapters' || channel === 'webtoon' || channel === 'music') && <>
 
       <section className="calendar-section" aria-labelledby="levels-title">
         <div className="calendar-section-heading"><span>01</span><h2 id="levels-title">{t('calendar.levels_title')}</h2></div>
@@ -201,9 +202,9 @@ export default function Calendario() {
               <h3>{t(`calendar.level_${row.id}`)}</h3>
               <strong>{t(`calendar.cost_${row.id}`)}</strong>
               <dl>
-                <div><dt>{t('calendar.delay')}</dt><dd>{row.delay} {t('calendar.days')}</dd></div>
-                <div><dt>{t('calendar.launch')}</dt><dd>{row.launch[channel]}</dd></div>
-                <div><dt>{t('calendar.tales')}</dt><dd>{row.tales}</dd></div>
+                <div><dt>{t('calendar.delay')}</dt><dd>{row.delay[channel]} {t('calendar.days')}</dd></div>
+                <div><dt>{t(channel === 'music' ? 'calendar.launch_music' : 'calendar.launch')}</dt><dd>{row.launch[channel]}</dd></div>
+                {channel === 'chapters' && <div><dt>{t('calendar.tales')}</dt><dd>{row.tales}</dd></div>}
               </dl>
             </article>
           ))}
@@ -229,7 +230,7 @@ export default function Calendario() {
 
         <ul className="calendar-legenda" aria-label={t('calendar.legenda')}>
           {NIVEIS_DROP.map(nivel => <li key={nivel}><span className={`calendar-day-dot is-${nivel}`} />{t(`calendar.level_${nivel}`)}</li>)}
-          {channel === 'chapters' || channel === 'webtoon' ? <li><span className="calendar-day-dot is-hiato" />{t('calendar.legenda_hiato')}</li> : null}
+          {channel !== 'games' ? <li><span className="calendar-day-dot is-hiato" />{t('calendar.legenda_hiato')}</li> : null}
         </ul>
         <p className="calendar-dica">{t('calendar.toque_dia')}</p>
 

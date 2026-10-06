@@ -1387,7 +1387,10 @@
     "games_nivel_account": "Juega todo y el progreso queda guardado en tu cuenta.",
     "games_nivel_public": "Juega todo, pero sin cuenta el progreso se pierde al salir.",
     "game_isometrico": "LDI Isométrico",
-    "game_isometrico_desc": "El LDI en vista isométrica."
+    "game_isometrico_desc": "El LDI en vista isométrica.",
+    "item_musica": "Canción {n} de la T1 · Radio Nina",
+    "work_musicas": "Banda sonora de la T1 · 9 canciones",
+    "launch_music": "Canciones en el lanzamiento"
   },
   "home": {
     "section_latest": "Lanzamientos",

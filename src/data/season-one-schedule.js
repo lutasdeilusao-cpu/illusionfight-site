@@ -51,9 +51,23 @@ const itensWebshard = episodios
   .filter(e => e.liberacao)
   .map(e => ({ item: e.especial ? { tipo: 'especial', titulo: { pt: e.titulo_pt, en: e.titulo_en, es: e.titulo_es } } : { tipo: 'webshard', n: e.numero }, liberacao: e.liberacao }))
 
+// Músicas: 1 por mês nos meses de lançamento (9 na T1), exclusiva da Rádio
+// Nina pro assinante no dia 15; conta grátis 1 mês depois, público 2 meses depois.
+const MESES_LANCAMENTO = ['2026-11', '2026-12', '2027-01', '2027-03', '2027-04', '2027-05', '2027-07', '2027-08', '2027-09']
+const maisMeses = (mes, n) => {
+  const [a, m] = mes.split('-').map(Number)
+  const total = a * 12 + (m - 1) + n
+  return `${Math.floor(total / 12)}-${String((total % 12) + 1).padStart(2, '0')}-15`
+}
+export const MUSICAS_T1 = MESES_LANCAMENTO.map((mes, i) => ({
+  n: i + 1,
+  liberacao: { primordial: `${mes}-15`, elite: `${mes}-15`, conta: maisMeses(mes, 1), publico: maisMeses(mes, 2) },
+}))
+
 export const SEASON_ONE_DROPS = {
   chapters: linhasDoTempo(itensHistorias),
   webtoon: linhasDoTempo(itensWebshard),
+  music: linhasDoTempo(MUSICAS_T1.map(m => ({ item: { tipo: 'musica', n: m.n }, liberacao: m.liberacao }))),
 }
 
 // Quando cada obra fecha na T1, por nível. `null` = só na Temporada 2.
@@ -67,6 +81,7 @@ const capsWebshard = episodios.filter(e => !e.especial && e.liberacao)
 export const SEASON_ONE_COMPLETION = {
   chapters: [conclusao('ldi', livro), conclusao('shadows', sombras)],
   webtoon: [conclusao('webshard', capsWebshard)],
+  music: [conclusao('musicas', MUSICAS_T1)],
 }
 
 // Jogos por quadrimestre: cada um entra no começo do ciclo dele.
