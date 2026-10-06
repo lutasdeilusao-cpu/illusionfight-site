@@ -69,12 +69,11 @@ export const SEASON_ONE_COMPLETION = {
   webtoon: [conclusao('webshard', capsWebshard)],
 }
 
-// Jogos por fase. Os da T1 já estão no ar no lançamento; os outros entram no
-// 2º ciclo ou depois, sem data fechada.
+// Jogos por quadrimestre: cada um entra no começo do ciclo dele.
 export const GAMES_ROADMAP = [
-  { fase: 't1', data: '2026-11-15', jogos: ['trumps', 'ldi', 'gangues'] },
-  { fase: 'ciclo2', data: '2027-03-15', jogos: ['jack', 'tatics', 'tama', 'kernel'] },
-  { fase: 'depois', data: null, jogos: ['duelo', 'rpg'] },
+  { fase: 'q1', data: '2026-11-15', jogos: ['trumps', 'gangues', 'ldi'] },
+  { fase: 'q2', data: '2027-03-15', jogos: ['tama', 'jack', 'tatics'] },
+  { fase: 'q3', data: '2027-07-15', jogos: ['duelo', 'rpg', 'isometrico'] },
 ]
 
 // Panorama: só a T1 é garantida; as próximas são a mesma cadência projetada.

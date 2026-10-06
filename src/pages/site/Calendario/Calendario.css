@@ -70,16 +70,12 @@ button.calendar-day { padding: 0; cursor: pointer; font: inherit; color: inherit
 .calendar-hiato { display: grid; gap: 3px; margin: 0 0 10px; padding: 8px 10px; border-left: 2px solid var(--if-violet); background: color-mix(in srgb, var(--if-violet) 10%, transparent); }
 .calendar-hiato b { font: 800 .7rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--if-violet); }
 .calendar-hiato span { font: 600 .74rem/1.35 var(--font-body); color: var(--text-secondary); }
-/* Canal Games: uma coluna por fase de lançamento. */
-.calendar-games { display: grid; gap: 12px; }
-.calendar-game-fase { padding: 16px; border-left: 2px solid var(--if-amber); background: var(--if-panel); }
-.calendar-game-fase.is-t1 { border-left-color: var(--if-ok); }
-.calendar-game-fase.is-depois { border-left-color: var(--text-secondary); }
-.calendar-game-fase h3 { margin: 8px 0 10px; font: 800 1rem var(--font-display); }
-.calendar-game-fase ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-.calendar-game-fase li { display: grid; gap: 2px; }
-.calendar-game-fase li b { font: 800 .8rem var(--font-mono); color: var(--text-primary); text-transform: uppercase; letter-spacing: .04em; }
-.calendar-game-fase li small { font: 500 .74rem/1.4 var(--font-body); color: var(--text-secondary); }
+/* Canal Games: cartões de quadrimestre no padrão dos cartões de nível. */
+.calendar-game-lista { display: grid; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
+.calendar-game-lista li { display: grid; gap: 2px; padding: 9px 10px; background: rgba(255,255,255,.035); }
+.calendar-game-lista b { font: 800 .82rem var(--font-display); text-transform: uppercase; color: #eafaff; }
+.calendar-game-lista small { font: 500 .74rem/1.4 var(--font-body); color: #81959d; }
+.calendar-game-nivel { margin: 12px 0 0; font: 500 .84rem/1.5 var(--font-body); color: #b9cbd1; }
 .calendar-drop { position: relative; padding: 16px; border: 1px solid #142b34; background: rgba(5,13,17,.9); overflow: hidden; }
 .calendar-drop::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: #24424d; }
 .calendar-drop.is-current { border-color: var(--if-cyan); box-shadow: 0 0 32px rgba(24,218,251,.12); }

@@ -86,6 +86,64 @@ function DiaDetalhe({ t, locale, drop, access }) {
   )
 }
 
+// Aba Jogos, no mesmo padrão das outras: fases (quadrimestres), linha do
+// tempo de drops e como cada nível joga.
+function JogosCalendario({ t, locale, access, today }) {
+  const proxima = GAMES_ROADMAP.findIndex(f => f.data > today)
+  const estado = (f, i) => (f.data <= today ? 'current' : i === proxima ? 'next' : 'future')
+  const nivelDe = { subscriber: ['elite', 'primordial'], account: ['conta'], public: ['publico'] }
+  return (
+    <>
+      <section className="calendar-section" aria-labelledby="games-fases-title">
+        <div className="calendar-section-heading"><span>01</span><h2 id="games-fases-title">{t('calendar.games_title')}</h2></div>
+        <div className="calendar-levels">
+          {GAMES_ROADMAP.map((f, i) => (
+            <article key={f.fase} className={`calendar-level${estado(f, i) === 'current' ? ' is-you' : ''}`}>
+              {estado(f, i) !== 'future' && <span className="calendar-you">{t(`calendar.games_estado_${estado(f, i)}`)}</span>}
+              <h3>{t(`calendar.games_fase_${f.fase}`)}</h3>
+              <strong>{formatDate(f.data, locale)}</strong>
+              <ul className="calendar-game-lista">
+                {f.jogos.map(j => <li key={j}><b>{t(`calendar.game_${j}`)}</b><small>{t(`calendar.game_${j}_desc`)}</small></li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="calendar-section" aria-labelledby="games-linha-title">
+        <div className="calendar-section-heading"><span>02</span><h2 id="games-linha-title">{t('calendar.games_linha')}</h2></div>
+        <div className="calendar-drops">
+          {GAMES_ROADMAP.map((f, i) => (
+            <article key={f.fase} className={`calendar-drop is-${estado(f, i)}`}>
+              <div className="calendar-drop-date"><span>DROP {String(i + 1).padStart(2, '0')}</span><time>{formatDate(f.data, locale)}</time></div>
+              {estado(f, i) === 'next' && <span className="calendar-drop-state">{t('calendar.next')}</span>}
+              {f.jogos.map(j => <div key={j} className="calendar-drop-line"><b>{t('calendar.games_entra')}</b><span>{t(`calendar.game_${j}`)}</span></div>)}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="calendar-section" aria-labelledby="games-niveis-title">
+        <div className="calendar-section-heading"><span>03</span><h2 id="games-niveis-title">{t('calendar.games_niveis')}</h2></div>
+        <p className="calendar-seasons-disclaimer">{t('calendar.games_intro')}</p>
+        <div className="calendar-levels">
+          {NIVEIS_DROP.map(nivel => {
+            const voce = nivelDe[nivel].includes(access)
+            return (
+              <article key={nivel} className={`calendar-level${voce ? ' is-you' : ''}`}>
+                {voce && <span className="calendar-you">{t('calendar.you')}</span>}
+                <h3>{t(`calendar.level_${nivel}`)}</h3>
+                <strong>{t(`calendar.cost_${nivel}`)}</strong>
+                <p className="calendar-game-nivel">{t(`calendar.games_nivel_${nivel}`)}</p>
+              </article>
+            )
+          })}
+        </div>
+      </section>
+    </>
+  )
+}
+
 export default function Calendario() {
   const { t, locale } = useLanguage()
   const { user, perfil } = useAuth()
@@ -122,21 +180,7 @@ export default function Calendario() {
         ))}
       </nav>
 
-      {channel === 'games' && (
-        <section className="calendar-section" aria-labelledby="games-title">
-          <div className="calendar-section-heading"><span>01</span><h2 id="games-title">{t('calendar.games_title')}</h2></div>
-          <p className="calendar-seasons-disclaimer">{t('calendar.games_intro')}</p>
-          <div className="calendar-games">
-            {GAMES_ROADMAP.map(f => (
-              <article key={f.fase} className={`calendar-game-fase is-${f.fase}`}>
-                <span className="calendar-season-badge">{f.data ? formatDate(f.data, locale) : t('calendar.games_sem_data')}</span>
-                <h3>{t(`calendar.games_fase_${f.fase}`)}</h3>
-                <ul>{f.jogos.map(j => <li key={j}><b>{t(`calendar.game_${j}`)}</b><small>{t(`calendar.game_${j}_desc`)}</small></li>)}</ul>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
+      {channel === 'games' && <JogosCalendario t={t} locale={locale} access={access} today={today} />}
 
       {channel !== 'chapters' && channel !== 'webtoon' && channel !== 'games' && (
         <motion.section className="calendar-channel-empty" key={channel} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>

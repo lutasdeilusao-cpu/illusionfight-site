@@ -51,7 +51,7 @@ const FORA = [
   { id: 'stabilizer_rafael', nomeKey: 'site.games.nomes.stabilizer_rafael', rota: '/games/stabilizer-rafael' },
 ]
 
-const PROXIMOS = ['jack', 'tatics', 'tama', 'kernel']
+const PROXIMOS = ['tama', 'jack', 'tatics']
 
 const CONTEUDO = [
   { id: 'quiz', nomeKey: 'site.games.nomes.quiz', tagKey: 'site.games.taglines.quiz', emoji: '🎯', cor: 'var(--if-ok)', rota: '/quiz', badgeKey: 'site.games.badges.free' },
