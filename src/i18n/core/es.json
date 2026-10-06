@@ -1320,7 +1320,7 @@
     "tales": "Cuentos exclusivos",
     "completion_title": "Cuándo se completa cada obra",
     "work_ldi": "Lutas de Ilusão T1 · 18 caps",
-    "work_shadows": "El Mundo de las Sombras · 6 caps",
+    "work_shadows": "El Mundo de las Sombras · 4 caps (T1)",
     "drops_title": "Línea temporal",
     "current": "Estás aquí",
     "next": "Próxima señal",
@@ -1379,7 +1379,7 @@
     "legenda_hiato": "Pausa",
     "toque_dia": "Toca un día marcado para ver qué sale y para quién.",
     "voce_curto": "tú",
-    "hiato_sombras": "El Mundo de las Sombras sale para suscriptores (días 15 y 30) y un capítulo para cuentas gratis el día 30; el público espera la vuelta del ciclo.",
+    "hiato_sombras": "En la pausa el suscriptor recibe El Mundo de las Sombras y un cuento completo; la cuenta gratis, 1 capítulo del Mundo de las Sombras el día 30; el público espera la vuelta del ciclo.",
     "item_conto": "Cuento: {titulo} (completo)"
   },
   "home": {

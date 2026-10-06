@@ -29,9 +29,10 @@ function intlLocale(locale) {
 
 function pad2(n) { return String(n).padStart(2, '0') }
 
-// A Temporada 1 inteira: nov/2026 até out/2027.
+// A Temporada 1 inteira: nov/2026 até dez/2027 (conta e público terminam o
+// livro em novembro; o assinante fecha os contos em dezembro).
 const CALENDAR_START = { year: 2026, month: 10 }
-const CALENDAR_END = { year: 2027, month: 9 }
+const CALENDAR_END = { year: 2027, month: 11 }
 
 // Texto de um item do calendário (capítulo, hiato...) no idioma da tela.
 function textoItem(t, item, locale) {

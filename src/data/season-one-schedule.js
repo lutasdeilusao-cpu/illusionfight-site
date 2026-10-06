@@ -6,15 +6,17 @@
 // hiato. Histórias: 1 capítulo a cada 15 dias (dias 15 e 30) pro assinante,
 // que só no lançamento da temporada começa com 2; a conta grátis recebe 15 dias depois e o
 // público mais 15 (1 mês atrás). WEB SHARD: 1 capítulo por mês nos meses de
-// lançamento, mesma defasagem. No hiato sai O Mundo das Sombras (dia 15 e 30
-// pro assinante, 1 por hiato pra conta no dia 30; o público não vê); o público fica parado — o que cairia pra ele no mês de
+// lançamento, mesma defasagem. No hiato sai O Mundo das Sombras pro assinante
+// no dia 15 (no 1º hiato, 15 e 30) e um conto inteiro no dia 30; a conta
+// recebe 1 Mundo das Sombras por hiato no dia 30; o público não vê. Depois
+// do último hiato o assinante recebe os contos restantes de 15 em 15 dias; o público fica parado — o que cairia pra ele no mês de
 // hiato sai na volta do ciclo — e Mar de Cinzas fica em avaliação.
 import livro from './historias/lutas-de-ilusao.json'
 import obras from './historias/obras.json'
 import contos from './historias/contos.json'
 import episodios from './episodios.json'
 
-export const T1 = { inicio: '2026-11-15', fim: '2027-10-31' }
+export const T1 = { inicio: '2026-11-15', fim: '2027-12-31' }
 // Mês de hiato (YYYY-MM): aparece como faixa no topo do mês, nunca como dia.
 export const HIATOS = [
   { n: 1, mes: '2027-02' },
