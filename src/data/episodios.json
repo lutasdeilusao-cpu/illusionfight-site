@@ -177,16 +177,80 @@
     "id": "especial-1",
     "numero": 1,
     "especial": true,
-    "titulo_pt": "Especial de Halloween",
-    "titulo_en": "Halloween Special",
-    "titulo_es": "Especial de Halloween",
+    "titulo_pt": "WEB SHARD Especial — Hiato 1",
+    "titulo_en": "WEB SHARD Special — Hiatus 1",
+    "titulo_es": "WEB SHARD Especial — Pausa 1",
     "publicado": false,
-    "data_publicacao": "2027-10-30",
+    "data_publicacao": "2027-02-15",
     "liberacao": {
-      "primordial": "2027-09-15",
-      "elite": "2027-09-15",
-      "conta": "2027-10-15",
-      "publico": "2027-10-30"
+      "primordial": "2027-02-15",
+      "elite": "2027-02-15",
+      "conta": "2099-01-01",
+      "publico": "2099-01-01"
+    }
+  },
+  {
+    "id": "especial-2",
+    "numero": 2,
+    "especial": true,
+    "titulo_pt": "WEB SHARD Especial — Hiato 2",
+    "titulo_en": "WEB SHARD Special — Hiatus 2",
+    "titulo_es": "WEB SHARD Especial — Pausa 2",
+    "publicado": false,
+    "data_publicacao": "2027-06-15",
+    "liberacao": {
+      "primordial": "2027-06-15",
+      "elite": "2027-06-15",
+      "conta": "2099-01-01",
+      "publico": "2099-01-01"
+    }
+  },
+  {
+    "id": "especial-3",
+    "numero": 3,
+    "especial": true,
+    "titulo_pt": "WEB SHARD Especial — Hiato 3",
+    "titulo_en": "WEB SHARD Special — Hiatus 3",
+    "titulo_es": "WEB SHARD Especial — Pausa 3",
+    "publicado": false,
+    "data_publicacao": "2027-10-15",
+    "liberacao": {
+      "primordial": "2027-10-15",
+      "elite": "2027-10-15",
+      "conta": "2099-01-01",
+      "publico": "2099-01-01"
+    }
+  },
+  {
+    "id": "especial-4",
+    "numero": 4,
+    "especial": true,
+    "titulo_pt": "Especial de Terror — Parte 1",
+    "titulo_en": "Horror Special — Part 1",
+    "titulo_es": "Especial de Terror — Parte 1",
+    "publicado": false,
+    "data_publicacao": "2027-12-30",
+    "liberacao": {
+      "primordial": "2027-11-15",
+      "elite": "2027-11-15",
+      "conta": "2027-12-15",
+      "publico": "2027-12-30"
+    }
+  },
+  {
+    "id": "especial-5",
+    "numero": 5,
+    "especial": true,
+    "titulo_pt": "Especial de Terror — Parte 2",
+    "titulo_en": "Horror Special — Part 2",
+    "titulo_es": "Especial de Terror — Parte 2",
+    "publicado": false,
+    "data_publicacao": "2028-01-30",
+    "liberacao": {
+      "primordial": "2027-12-15",
+      "elite": "2027-12-15",
+      "conta": "2028-01-15",
+      "publico": "2028-01-30"
     }
   }
 ]

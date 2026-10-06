@@ -6,7 +6,8 @@
 // hiato. Histórias: 1 capítulo a cada 15 dias (dias 15 e 30) pro assinante,
 // que só no lançamento da temporada começa com 2; a conta grátis recebe 15 dias depois e o
 // público mais 15 (1 mês atrás). WEB SHARD: 1 capítulo por mês nos meses de
-// lançamento, mesma defasagem. No hiato sai O Mundo das Sombras pro assinante
+// lançamento, mesma defasagem; no mês de hiato o assinante recebe um WEB SHARD
+// especial no dia 15, no lugar do capítulo. No hiato sai O Mundo das Sombras pro assinante
 // no dia 15 (no 1º hiato, 15 e 30) e um conto inteiro no dia 30; a conta
 // recebe 1 Mundo das Sombras por hiato no dia 30; o público não vê. Depois
 // do último hiato o assinante recebe os contos restantes de 15 em 15 dias; o público fica parado — o que cairia pra ele no mês de
@@ -16,7 +17,7 @@ import obras from './historias/obras.json'
 import contos from './historias/contos.json'
 import episodios from './episodios.json'
 
-export const T1 = { inicio: '2026-11-15', fim: '2027-12-31' }
+export const T1 = { inicio: '2026-11-15', fim: '2028-01-31' }
 // Mês de hiato (YYYY-MM): aparece como faixa no topo do mês, nunca como dia.
 export const HIATOS = [
   { n: 1, mes: '2027-02' },
@@ -48,7 +49,7 @@ const itensHistorias = [
 ]
 const itensWebshard = episodios
   .filter(e => e.liberacao)
-  .map(e => ({ item: e.especial ? { tipo: 'especial' } : { tipo: 'webshard', n: e.numero }, liberacao: e.liberacao }))
+  .map(e => ({ item: e.especial ? { tipo: 'especial', titulo: { pt: e.titulo_pt, en: e.titulo_en, es: e.titulo_es } } : { tipo: 'webshard', n: e.numero }, liberacao: e.liberacao }))
 
 export const SEASON_ONE_DROPS = {
   chapters: linhasDoTempo(itensHistorias),
