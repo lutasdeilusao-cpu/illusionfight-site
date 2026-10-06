@@ -58,8 +58,8 @@
         "liberacao": {
           "primordial": "2027-01-30",
           "elite": "2027-01-30",
-          "conta": "2027-02-08",
-          "publico": "2027-02-15"
+          "conta": "2027-02-15",
+          "publico": "2099-01-01"
         },
         "creator": true
       },
@@ -75,8 +75,8 @@
         "liberacao": {
           "primordial": "2027-02-15",
           "elite": "2027-02-15",
-          "conta": "2027-06-08",
-          "publico": "2027-06-15"
+          "conta": "2027-02-28",
+          "publico": "2099-01-01"
         },
         "creator": true
       },
@@ -92,8 +92,8 @@
         "liberacao": {
           "primordial": "2027-05-30",
           "elite": "2027-05-30",
-          "conta": "2027-10-08",
-          "publico": "2027-10-15"
+          "conta": "2027-06-15",
+          "publico": "2099-01-01"
         },
         "creator": true
       },
@@ -109,8 +109,8 @@
         "liberacao": {
           "primordial": "2027-06-15",
           "elite": "2027-06-15",
-          "conta": "2028-02-08",
-          "publico": "2028-02-15"
+          "conta": "2027-06-30",
+          "publico": "2099-01-01"
         }
       },
       {
@@ -125,8 +125,8 @@
         "liberacao": {
           "primordial": "2027-09-30",
           "elite": "2027-09-30",
-          "conta": "2028-06-08",
-          "publico": "2028-06-15"
+          "conta": "2027-10-15",
+          "publico": "2099-01-01"
         }
       },
       {
@@ -141,8 +141,8 @@
         "liberacao": {
           "primordial": "2027-10-15",
           "elite": "2027-10-15",
-          "conta": "2028-10-08",
-          "publico": "2028-10-15"
+          "conta": "2027-10-30",
+          "publico": "2099-01-01"
         }
       }
     ]

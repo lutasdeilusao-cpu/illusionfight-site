@@ -6,8 +6,9 @@
 // hiato. Histórias: 1 capítulo a cada 15 dias (dias 15 e 30) pro assinante,
 // que começa cada ciclo com 2; a conta grátis recebe 15 dias depois e o
 // público mais 15 (1 mês atrás). WEB SHARD: 1 capítulo por mês nos meses de
-// lançamento, mesma defasagem. No hiato sai O Mundo das Sombras (o
-// assinante recebe 2, o público 1) e Mar de Cinzas fica em avaliação.
+// lançamento, mesma defasagem. No hiato sai O Mundo das Sombras pro assinante
+// e pra conta (+15); o público fica parado — o que cairia pra ele no mês de
+// hiato sai na volta do ciclo — e Mar de Cinzas fica em avaliação.
 import livro from './historias/lutas-de-ilusao.json'
 import obras from './historias/obras.json'
 import episodios from './episodios.json'
