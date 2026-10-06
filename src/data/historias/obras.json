@@ -75,7 +75,7 @@
         "liberacao": {
           "primordial": "2027-02-28",
           "elite": "2027-02-28",
-          "conta": "2027-03-15",
+          "conta": "2027-06-30",
           "publico": "2099-01-01"
         },
         "creator": true
@@ -92,7 +92,7 @@
         "liberacao": {
           "primordial": "2027-06-15",
           "elite": "2027-06-15",
-          "conta": "2027-06-30",
+          "conta": "2027-10-30",
           "publico": "2099-01-01"
         },
         "creator": true
@@ -109,7 +109,7 @@
         "liberacao": {
           "primordial": "2027-06-30",
           "elite": "2027-06-30",
-          "conta": "2027-07-15",
+          "conta": "2099-01-01",
           "publico": "2099-01-01"
         }
       },
@@ -125,7 +125,7 @@
         "liberacao": {
           "primordial": "2027-10-15",
           "elite": "2027-10-15",
-          "conta": "2027-10-30",
+          "conta": "2099-01-01",
           "publico": "2099-01-01"
         }
       },
@@ -141,7 +141,7 @@
         "liberacao": {
           "primordial": "2027-10-30",
           "elite": "2027-10-30",
-          "conta": "2027-11-15",
+          "conta": "2099-01-01",
           "publico": "2099-01-01"
         }
       }
