@@ -8,7 +8,7 @@
 
 Leia primeiro o manifesto e as regras essenciais (§2–3). Para produzir uma página, use composição (§4), texto (§5), cores e vozes (§6), área segura (§7) e referências e processo (§11–22). A revisão final está no §23.
 
-As seções 11 a 22 trazem evolução do acervo, fichas, posicionamento na Sala A-304, coreografia, HIT COMBO, biblioteca de referências, localização, fluxo de produção e modelos de prompt. Os registros distinguem:
+As seções 11 a 22 trazem evolução do acervo, fichas, posicionamento na Sala A-304, coreografia, HIT COMBO, referências e estilo de arte, localização, fluxo de produção e modelos de prompt. Os registros distinguem:
 
 | Nível | Significado |
 |---|---|
@@ -190,7 +190,7 @@ Personagem novo com fala precisa de cor definida antes da página. Escolher um t
 | Azul-escuro | `#1E3A8A` / `#1E40AF` | Madrugada, quarto, mundo real. |
 | Vermelho | `#F43F5E` / `#DC2626` | Queda livre no abismo. |
 | Dourado | `#FCD34D` / `#F59E0B` | Divulgação do Pajé; Freddy dominando a cena, quando a gangue entra e ele aponta os alvos (cap. 03, p. 11). |
-| Cinza-escuro | `#6B7280` / `#374151` | Anderson dominando a cena: ameaça fria, sem grito (cap. 03, p. 13). O núcleo é mais claro que o nome sugere, porque cinza escuro de verdade não brilha. |
+| Cinza-escuro | `#6B7280` / `#374151` | Anderson dominando a cena, inclusive quando está apanhando: ameaça fria, sem grito (cap. 03, p. 13). O núcleo é mais claro que o nome sugere, porque cinza escuro de verdade não brilha. |
 | Rosa Nina | `#F472B6` / `#DB2777` | Par de neon definido nesta consolidação para cenas conduzidas por Nina; não altera seu texto `#B82E69`. |
 
 Fala e neon continuam independentes: na página 11 do capítulo 03, o Brock fala em marrom-vinho dentro de bordas douradas, porque quem domina a cena é o Freddy.
@@ -460,7 +460,7 @@ A inspeção combinou inventário completo dessas pastas com amostras visuais de
 | Tradução EN | Handoff parou no bloco 16–24 | O repo já tem 53 EN; isso não prova revisão linguística integral, mas supera aquele inventário de andamento. |
 | Capítulo 1 | Handoff reúne descrição de rotina e sonho | O portal atual publica o sonho como introdução 01; há rotina no acervo externo 02. Não importar a numeração antiga ao catálogo. |
 | Calendário | Agenda de trabalho antiga | Dados atuais de `episodios.json` e calendário do portal prevalecem. Não substituir datas com o handoff. |
-| Ferramenta | Limite de 5 imagens por prompt no fluxo usado | As fichas agora ficam na biblioteca do ChatGPT e entram no prompt por link (§16.1), sem ocupar anexo. O limite segue valendo para imagens anexadas direto no chat. |
+| Ferramenta | Limite de 5 imagens por prompt no fluxo usado | As referências são anexadas no chat e chamadas pelo nome do arquivo (§16.1). Conferir o limite de anexos da ferramenta usada e anexar só o que a página precisa. |
 
 O handoff contém relatos de recusas de ferramentas e tentativas de reformulação. Aqui, a regra operacional é descrever fielmente a cena e o personagem, manter as restrições visuais aprovadas e respeitar os limites da ferramenta. Não disfarçar uma pessoa como máquina nem tratar mudanças de vocabulário como garantia de aceitação.
 
@@ -470,7 +470,7 @@ O handoff contém relatos de recusas de ferramentas e tentativas de reformulaç�
 
 A pasta `Personagens/WEBTOON/` reúne cópias de trabalho de `KimCasualDanoSheet.png`, `KimCasualSheet.png`, fichas escolares de Kim e Jack, `JackExpressionSheet.png`, `JackCasualSheet.png`, `NinaBaseSheet.png`, `NinaCasualSheet.png`, `VoidBaseSheet.png`, `VoidV2BaseSheet.png`, `VoidV2CromadoSheet.png`, `FreddySheet.png`, `BrockSheet.png`, `AMaquinaSheet.png`, `HITCOMBO.png`, `Ambiente2.png`, `Ambiente.png` e `QuartoKim.png`.
 
-Também existem cópias em subpastas de personagens e cenários. Não presumir que duplicatas sejam idênticas ou que a mais recente por data de disco seja a aprovada. No briefing, declarar o caminho e a revisão usada. As fichas já subidas para a biblioteca do ChatGPT têm código próprio e entram no prompt por link (§16.1).
+Também existem cópias em subpastas de personagens e cenários. Não presumir que duplicatas sejam idênticas ou que a mais recente por data de disco seja a aprovada. No briefing, declarar o caminho e a revisão usada. A lista de arquivos de referência atuais e como citá-los no prompt estão no §16.1.
 
 Diferenças de nome verificadas: o arquivo da casa é **`Casa Kim2.png`**, com espaço, em `Personagens/WEBTOON/` e `Personagens/Cenarios/`; o handoff escreve `Casa_Kim2.png`. A ficha escolar de Jack sem uniforme aparece como **`JackEscolarNouniformeSheet.png`**. A ficha do autor existe em `Personagens/Autor/IsaiasSheet.png`.
 
@@ -478,15 +478,16 @@ Diferenças de nome verificadas: o arquivo da casa é **`Casa Kim2.png`**, com e
 
 | Personagem/estado | Regras registradas no handoff |
 |---|---|
-| Kim escolar | **Sempre de boné azul-petróleo** nas cenas escolares atuais, cabelo preto ondulado saindo por baixo, pele marrom, **descendência indígena brasileira**, relógio azul, mochila laranja (`REF-KIM-UNIFORME`). |
+| Kim escolar | **Sempre de boné azul-petróleo** nas cenas escolares atuais, cabelo preto ondulado saindo por baixo, pele marrom, **descendência indígena brasileira**, relógio azul, mochila laranja (`KimEscolarUniformizadoSheet.png`; rosto em `Generated_Image_May_29__2026_-_12_38AM.png`). |
 | Kim casual | Camiseta preta, plaquinha no colar, pulseira azul, jeans rasgado, tênis preto/branco. Ficha prevalece em aparência; pose deve seguir a ação. |
 | Kim danificado | Supercílio direito cortado; olho esquerdo roxo; bochecha esquerda ralada; canto esquerdo do lábio cortado; marcas na nuca; rasgo grande nas costas. Preservar lados entre todas as vistas. |
-| Jack | Negro brasileiro, pele **negra escura**, dreads **verdes** curtas e definidas em quantidade moderada, **nunca de boné**, relógio preto. Para o rosto, usar a ficha de expressões (`REF-JACK-ROSTO` / `JackExpressionSheet.png`) só pelos rostos, ignorando a jaqueta verde e as legendas em inglês; evitar descaracterização. Ao zoar: meio sorriso fechado e sobrancelha erguida, não gargalhada automática. Celular em uma mão, outra livre. |
+| Jack | Negro brasileiro, pele **negra escura**, dreads **verdes** curtas e definidas em quantidade moderada, **laterais e nuca raspadas**, **nunca de boné**, relógio preto. Para o rosto, usar a ficha de expressões (`JackExpressionSheet.png`) só pelos rostos, ignorando a jaqueta verde e as legendas em inglês; evitar descaracterização. Ao zoar: meio sorriso fechado e sobrancelha erguida, não gargalhada automática. Celular em uma mão, outra livre. |
 | Nina | Cabelo rosa em rabo de cavalo alto e longo; na escola, luvas táticas pretas de dedos inteiros com detalhe amarelo; casual com jaqueta rosa aberta, cropped preto, jeans rasgado, luvas sem dedos e tênis rosa de cano alto. Voz **rosa framboesa `#B82E69`**. Conferir ficha da cena. |
 | Helena | Nome com E, cabelo roxo; referência de ressaca mencionada no handoff como `HelenaRessaca.png`. |
 | Freddy | Terno completo, olho roxo permanente na referência registrada. |
 | Brock | Jaqueta preta de couro; não é aluno. |
-| Capangas do Brock | Jason, Michael, Anderson e André, os quatro na mesma ficha (`REF-CAPANGAS`). Dizer no prompt qual figura usar e mandar ignorar as outras: o **Anderson é a terceira da esquerda para a direita**. |
+| Capangas do Brock | Jason, Michael, Anderson e André, os quatro na mesma ficha (`CapangasBrockSheet.png`). Dizer no prompt qual figura usar e mandar ignorar as outras: o **Anderson é a terceira da esquerda para a direita**. |
+| Anderson | Baixo, magro, franja preta cobrindo o olho esquerdo, moletom preto, calça cargo preta com corrente. |
 | Pajé Yawanari | Visual exuberante de drag queen moderna: cocar, chapéu preto, óculos redondos, barba branca com tranças, ouro, cajado, manto geométrico e tênis branco. Debochado. |
 | Isaias no diário | Boné com caveira, moletom roxo, calça preta, meias e tênis rosa; usar `IsaiasSheet.png`. |
 | Kim Primordial | Handoff descreve cabelo branco, pele cinza-escura, olhos brancos, marcas tribais, preto e padrões turquesa. Não havia ficha própria confirmada naquele documento; não inventar uma referência aprovada. |
@@ -495,7 +496,7 @@ Diferenças de nome verificadas: o arquivo da casa é **`Casa Kim2.png`**, com e
 
 **Regra curta para repetir em todo prompt: dreads verdes = Jack; boné = Kim; cabelo rosa = Nina.** Cada personagem é chamado pelo código ou nome de arquivo da referência, sempre junto desses traços, para a ferramenta não trocar ninguém.
 
-A ficha escolar do Jack (`REF-JACK-UNIFORME`) tem o título "KIM" escrito por engano. Enquanto ela não for corrigida, todo prompt que a usa avisa que o arquivo é o Jack e manda ignorar o texto.
+A ficha escolar do Jack (`JackEscolarSemMoicanoUniformizadoSheet.png`) tem o título "KIM" escrito por engano. Enquanto ela não for corrigida, todo prompt que a usa avisa que o arquivo é o Jack e manda ignorar o texto.
 
 Void está na introdução onírica, mas o handoff o mantém **fora do cânone oficial** até decisão do autor e proíbe usá-lo em capa/material promocional oficial. Sua presença no capítulo não resolve essa pendência automaticamente.
 
@@ -511,7 +512,7 @@ Void está na introdução onírica, mas o handoff o mantém **fora do cânone o
 
 ### 13.4 Sala A-304: posicionamento obrigatório
 
-A sala e as posições **nunca mudam** de uma página para outra. O prompt tem que dizer o que fica à esquerda, à direita, na frente e atrás **na imagem**. Quando isso fica implícito, a ferramenta inventa. Referências: `REF-SALA-FUNDO` (ambiente) e `REF-SALA-PLANTA` (vista de cima com as posições).
+A sala e as posições **nunca mudam** de uma página para outra. O prompt tem que dizer o que fica à esquerda, à direita, na frente e atrás **na imagem**. Quando isso fica implícito, a ferramenta inventa. Referências: `SalaDeAulaKimJackNina.png` (ambiente, acabamento e luz) e `SalaDeAulaKimJackNinaVistaTop.png` (vista de cima com as posições).
 
 **Planta**
 
@@ -586,50 +587,44 @@ Vocabulário registrado: FSSH, ZIIIP, BIP, GLUP, FRUP, MISS, FWOOSH, CRACK, KRAK
 
 ## 16. Processo de referência e correção
 
-### 16.1 Referências pela biblioteca do ChatGPT
+### 16.1 Referências: sempre por nome de arquivo
 
-**Regra autoral:** as imagens de referência ficam na biblioteca do ChatGPT e entram nos prompts por link. Não é preciso reenviar as fichas a cada conversa nem a cada página. Teste confirmado: a ferramenta abriu os 7 links abaixo e descreveu corretamente cada um antes de gerar a página 13 do capítulo 03.
+**Regra autoral:** as imagens de referência são **anexadas ao chat** a cada geração e chamadas no prompt **pelo nome do arquivo**, nunca pela ordem de envio ("imagem 1", "a segunda").
 
-| Código | Conteúdo | Link |
+- Listar no começo do prompt cada arquivo anexado e o que ele governa.
+- Chamar o arquivo pelo nome toda vez que o personagem ou o elemento aparecer.
+- Repetir junto do nome os traços que identificam o personagem (§13.2).
+- Fichas com mais de um personagem: dizer qual figura usar e mandar ignorar as outras.
+- Mandar ignorar todo texto das referências: títulos, legendas, etiquetas da planta e placas.
+- As fichas governam a **aparência**. O acabamento do desenho segue o bloco de estilo (§16.2), mesmo quando a ficha estiver desenhada num estilo mais simples.
+
+**Nunca passar referência por link** (biblioteca do ChatGPT ou qualquer outro endereço). Foi testado: a ferramenta não abre a imagem de verdade, inventa o que ela mostraria e gera personagens e cenários errados, mesmo quando diz que conseguiu abrir. Referência só vale anexada no chat.
+
+**Arquivos de referência atuais**
+
+| Arquivo | Conteúdo | Observação |
 |---|---|---|
-| `REF-KIM-ROSTO` | Rosto e expressões do Kim | https://chatgpt.com/api/library/files/libfile_3fce33967c008191bfb25d6c48cf4d44/content |
-| `REF-KIM-UNIFORME` | Kim de uniforme escolar (frente, costas, perfil, boné, relógio azul, mochila laranja) | https://chatgpt.com/api/library/files/libfile_5e5a0daa0ff0819197329ae95d593192/content |
-| `REF-JACK-ROSTO` | Rosto e expressões do Jack | https://chatgpt.com/api/library/files/libfile_728c3bb15024819192817a23be79fd95/content |
-| `REF-JACK-UNIFORME` | Jack de uniforme escolar (dreads verdes, relógio preto, mochila laranja) | https://chatgpt.com/api/library/files/libfile_dabce7a2da108191a2136f78f91fc416/content |
-| `REF-CAPANGAS` | Capangas do Brock: Jason, Michael, Anderson, André (quatro figuras na mesma ficha) | https://chatgpt.com/api/library/files/libfile_e6fd512f84e0819190d26847f2a6f5b1/content |
-| `REF-SALA-FUNDO` | Sala A-304 vista do fundo (visual do ambiente) | https://chatgpt.com/api/library/files/libfile_93de8834afc881918d4cccb9d022b289/content |
-| `REF-SALA-PLANTA` | Sala A-304 vista de cima, com as posições de Kim, Jack e Nina | https://chatgpt.com/api/library/files/libfile_7f0d676ad6ec81919d7c7e8209075895/content |
-
-**Link oficial e link temporário:** os links no formato `chatgpt.com/api/library/files/<libfile>/content` são **temporários**. O link **oficial** é o de compartilhamento: `https://chatgpt.com/library/share/<libfile>?account_id=personal`. Os sete links da tabela acima ainda estão no formato temporário; substituir cada um pelo link de compartilhamento assim que for gerado. Referência nova já entra com o link oficial.
-
-**Páginas prontas também entram na biblioteca**, para servir de continuidade na página seguinte. Código `REF-PAG-<número>`:
-
-| Código | Conteúdo | Link oficial |
-|---|---|---|
-| `REF-PAG-17` | Capítulo 03, página 17: Anderson cobra Kim e Jack, troca de olhares | https://chatgpt.com/library/share/libfile_d4b6aff891b881918a182876e90490c0?account_id=personal |
-
-**Ainda não estão na biblioteca:** `NinaBaseSheet.png`, `AMaquinaSheet.png`, `FreddySheet.png`, `BrockSheet.png` e `OculosSaladeAula.png`. Ao subir cada uma, acrescentar uma linha nesta tabela com o código (`REF-NINA`, `REF-MAQUINA`, `REF-FREDDY`, `REF-BROCK`, `REF-OCULOS`) e o link.
-
-Como usar no prompt:
-
-1. Abrir o prompt com o bloco de referências, listando **só os códigos que a página usa**, cada um seguido do link (modelo no §22.2).
-2. Logo depois do bloco, pedir a checagem: *"ANTES DE GERAR: abra os links e descreva em uma linha o que cada um mostra. Se algum não abrir, avise e NÃO gere a imagem."* Assim, link quebrado ou trocado aparece antes de gastar uma geração.
-3. No corpo do prompt, chamar cada imagem **pelo código**, nunca por "imagem 1" ou pela ordem.
-4. Repetir os traços que identificam cada personagem junto do código (§13.2).
-5. Fichas com mais de um personagem: dizer qual figura usar e mandar ignorar as outras.
-6. Mandar ignorar todo texto das referências: títulos, legendas, etiquetas da planta e placas.
-
-A página anterior, quando já está na biblioteca, entra pelo código `REF-PAG-<número>`. Imagens de uso único, como a marcação de uma correção pontual, continuam sendo anexadas direto no chat, com nome de arquivo.
+| `KimEscolarUniformizadoSheet.png` | Kim de uniforme escolar, com boné | |
+| `Generated_Image_May_29__2026_-_12_38AM.png` | Rosto e expressões do Kim, com boné | Sugestão: renomear para `KimExpressionSheet.png`. Usar só os rostos; ignorar a camisa escura e as legendas. |
+| `JackEscolarSemMoicanoUniformizadoSheet.png` | Jack de uniforme escolar | O título dentro da ficha diz "KIM" por engano. Todo prompt avisa que é o Jack, até a ficha ser corrigida. |
+| `JackExpressionSheet.png` | Rosto e expressões do Jack | Usar só os rostos; ignorar a jaqueta verde e as legendas. |
+| `CapangasBrockSheet.png` | Jason, Michael, Anderson e André | Anderson é a **terceira figura da esquerda para a direita**. |
+| `NinaBaseSheet.png` | Nina de uniforme | |
+| `AMaquinaSheet.png` | Professor A Máquina | |
+| `FreddySheet.png` | Freddy | Olho roxo permanente. |
+| `BrockSheet.png` | Brock | Não é aluno. |
+| `OculosSaladeAula.png` | Óculos de realidade aumentada da escola | |
+| `SalaDeAulaKimJackNinaVistaTop.png` | Planta da Sala A-304 vista de cima, com posições | Governa posições; ignorar etiquetas. |
+| `SalaDeAulaKimJackNina.png` | Sala A-304 vista da porta | Referência de ambiente e de acabamento/luz. |
 
 ### 16.2 Estilo de arte: bloco obrigatório em todo prompt
 
 **Regra autoral:** todo prompt reforça o estilo de arte do WEBSHARD LDI. Sem esse bloco, a ferramenta deriva para outro estilo, como anime chapado, entre uma página e outra.
 
-Usar uma página aprovada como **âncora de estilo**, por link da biblioteca, e colar este bloco logo depois das referências:
+Colar este bloco logo depois da lista de arquivos. Quando houver uma página aprovada, anexá-la e citá-la pelo nome do arquivo como âncora de estilo.
 
 ```text
-═══ ESTILO DE ARTE WEBSHARD LDI (OBRIGATÓRIO, IGUAL À PÁGINA ÂNCORA) ═══
-Copiar o estilo de desenho da [REF-PAG-ÂNCORA]: mesmo traço, mesma pintura, mesma luz.
+═══ ESTILO DE ARTE WEBSHARD LDI (OBRIGATÓRIO) ═══
 - Ilustração de quadrinho SEMI-REALISTA DETALHADA. Proporções realistas de adolescentes; rostos com estrutura óssea, nariz e boca desenhados com volume.
 - Olhos de tamanho REALISTA. Nada de olhos grandes de anime.
 - Linha de contorno fina a média, com variação de espessura, discreta.
@@ -638,10 +633,12 @@ Copiar o estilo de desenho da [REF-PAG-ÂNCORA]: mesmo traço, mesma pintura, me
 - Iluminação dramática e cinematográfica: sol dourado da manhã de um lado e brilho azul dos tampos e telas do outro, com luz de recorte nas bordas dos personagens. Alto contraste.
 - Vidro e superfícies com reflexos brilhantes. Fundo com profundidade de campo e desfoque suave.
 - Cores ricas e saturadas, sem aspecto lavado.
+- Acabamento e luz no nível da SalaDeAulaKimJackNina.png [e da página aprovada anexada, se houver].
+- As fichas de personagem servem só para a APARÊNCIA; o acabamento segue este bloco.
 NÃO USAR: anime/mangá chapado, chibi, screentone de mangá, contorno grosso uniforme, render 3D, fotografia, aquarela.
 ```
 
-A página âncora atual é a `REF-PAG-17`. Quando uma página nova for aprovada com o estilo certo, ela pode virar a âncora. A linha da iluminação descreve a Sala A-304 de manhã; fora dela, trocar pela luz da cena, mantendo o alto contraste e a luz de recorte.
+A linha da iluminação descreve a Sala A-304 de manhã; fora dela, trocar pela luz da cena, mantendo o alto contraste e a luz de recorte.
 
 ### 16.3 Regras gerais
 
@@ -790,25 +787,21 @@ Pendências e responsável pela decisão:
 ### 22.2 Briefing de arte ou geração assistida
 
 ```text
-═══ REFERÊNCIAS DA BIBLIOTECA (abrir cada link) ═══
-[REF-...] [o que a ficha mostra]:
-[link da biblioteca]
-(... só os códigos usados na página, §16.1 ...)
+═══ ARQUIVOS ANEXADOS ═══
+[NomeDoArquivo.png]: [o que governa: aparência de quem, posições, ambiente/luz]
+(... só os arquivos usados na página, §16.1 ...)
 
-ANTES DE GERAR: abra os links e descreva em uma linha o que cada um mostra.
-Se algum não abrir, avise e NÃO gere a imagem.
-
-[bloco ESTILO DE ARTE WEBSHARD LDI do §16.2, com a página âncora]
+[bloco ESTILO DE ARTE WEBSHARD LDI do §16.2]
 
 Criar uma página WEBSHARD de Lutas de Ilusão, vertical, conforme
-as referências acima e o roteiro abaixo.
+os arquivos anexados e o roteiro abaixo.
 
 Composição: [um ou dois painéis grandes], com [detalhes necessários]
 em estilhaços sobrepostos. Diagonais conduzem o olhar por [percurso].
 A imagem dominante mostra [ação]. Os estilhaços mostram [funções].
 Preservar clareza e pouca informação na escala do celular.
 
-Personagens e continuidade: [código da ficha + traços: dreads verdes = Jack;
+Personagens e continuidade: [nome do arquivo + traços: dreads verdes = Jack;
 boné = Kim; cabelo rosa = Nina; roupa, estado físico].
 Posições na imagem: [quem fica à esquerda/direita; na mesma fileira, mesma
 distância, mesmo tamanho; para que lado da imagem cada um olha].
@@ -837,7 +830,7 @@ Campos pendentes não devem ser preenchidos com valores apresentados como oficia
 
 ### Linguagem e narrativa
 
-- [ ] O estilo bate com a página âncora: semi-realista, sombreamento suave, olhos realistas, sem anime chapado.
+- [ ] O estilo segue o bloco do §16.2 e a âncora anexada: semi-realista, sombreamento suave, olhos realistas, sem anime chapado.
 - [ ] A página tem uma batida principal compreensível.
 - [ ] Há no máximo dois painéis grandes, ou justificativa expressa para a exceção de três.
 - [ ] Cada estilhaço tem função e permanece subordinado à cena.
@@ -887,7 +880,7 @@ Campos pendentes não devem ser preenchidos com valores apresentados como oficia
 | Fonte | O que fundamenta |
 |---|---|
 | Orientação direta de Isaias, 05/10/2026, nesta tarefa | Linguagem própria, celular, estilhaços, máximo usual de dois painéis, exceção de três, texto curto/grande, safe area nos quatro lados, voz por cor e neon de domínio/emoção. |
-| Orientação de Isaias, 06/10/2026, na produção do capítulo 03 (páginas 2–13) | Fonte única do elenco, cores de Brock, Freddy e Anderson, balão da Máquina, neons dourado e cinza-escuro, biblioteca de referências e posicionamento na Sala A-304. |
+| Orientação de Isaias, 06/10/2026, na produção do capítulo 03 (páginas 2–13) | Fonte única do elenco, cores de Brock, Freddy e Anderson, balão da Máquina, neons dourado e cinza-escuro, referências por nome de arquivo, bloco de estilo de arte e posicionamento na Sala A-304. |
 | Handoff WEB SHARD v2 fornecido nesta conversa | Medidas, cores, regras operacionais, fichas, assets, localização e histórico; consolidação nas seções 11–22. |
 | Pasta local da marca, inventariada em 05/10/2026 | Versões anteriores, arquivos editáveis, PNGs atuais, capítulo 02 em produção externa e fichas. Ver inventário no §11.2. |
 | [`src/i18n/core/pt.json`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/src/i18n/core/pt.json), namespace `webShard` | Manifesto público, composição, diagonais, invasão de quadro, FAQ e aviso do autor. |
