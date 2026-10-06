@@ -1,23 +1,23 @@
 # WEBSHARD — Manifesto e guia de produção de Lutas de Ilusão
 
-> Consolidação editorial de 05/10/2026. Escopo: a linguagem WEBSHARD aplicada a **Lutas de Ilusão / Illusion Fight**.
+> Consolidação editorial de 05/10/2026, atualizada em 06/10/2026 com o que a produção do capítulo 03 ensinou. Escopo: a linguagem WEBSHARD aplicada a **Lutas de Ilusão / Illusion Fight**.
 > Base: orientação direta de Isaias nesta data, handoff WEB SHARD v2 fornecido pelo autor, pasta da marca, manifesto do portal, imagens, catálogo, leitor e histórico do repositório.
 > Este documento organiza a produção futura. Não altera retroativamente as artes, o texto público do manifesto ou o cânone das histórias.
 
 ## 1. Como usar este guia
 
-Leia primeiro o manifesto e as regras essenciais (§2–3). Para produzir uma página, use composição (§4), texto (§5), cores (§6), área segura (§7) e o documento complementar de processo (§11). A revisão final está no §13.
+Leia primeiro o manifesto e as regras essenciais (§2–3). Para produzir uma página, use composição (§4), texto (§5), cores e vozes (§6), área segura (§7) e o documento complementar de processo (§11). A revisão final está no §12.
 
-Consulte também [Referências, evolução e processo de produção](WEBSHARD_REFERENCIAS_E_PROCESSO.md), com fichas, coreografia, HIT COMBO, localização e prompts. Os registros distinguem:
+Consulte também [Referências, evolução e processo de produção](WEBSHARD_REFERENCIAS_E_PROCESSO.md), com a biblioteca de referências, fichas, posicionamento na Sala A-304, coreografia, HIT COMBO, localização e prompts. Os registros distinguem:
 
 | Nível | Significado |
 |---|---|
-| **Regra autoral** | Orientação expressa de Isaias em 05/10/2026. Prevalece sobre exemplos antigos e descrições promocionais divergentes. |
+| **Regra autoral** | Orientação expressa de Isaias (05 e 06/10/2026). Prevalece sobre exemplos antigos e descrições promocionais divergentes. |
 | **Handoff v2** | Regras de produção fornecidas pelo autor durante esta pesquisa; incorporadas quando compatíveis com sua orientação atual. Numeração de páginas, agenda e status são históricos. |
 | **Evidência do acervo/repositório** | Característica observada em imagens ou comportamento comprovado no código. Uma ocorrência não cria automaticamente uma regra universal. |
 | **Recomendação de produção** | Procedimento proposto neste guia para executar e revisar a linguagem. Não deve ser apresentado como decisão histórica do autor. |
 
-O handoff fecha dimensão, margens aproximadas, estilo tipográfico e paletas. Isaias confirmou a fala rosa da Nina e delegou a escolha de um tom próximo das fichas: **rosa framboesa `#B82E69`**, definido nesta consolidação. Permanecem pendentes fonte exata/tamanho mínimo. Não confundir parâmetro aproximado com medição uniforme das exportações.
+O handoff fecha dimensão, margens aproximadas, estilo tipográfico e paletas. Isaias confirmou a fala rosa da Nina e delegou a escolha de um tom próximo das fichas: **rosa framboesa `#B82E69`**, definido nesta consolidação. A fonte está definida (§5.2): uma só para todo o elenco, com a Máquina como única exceção. Continua pendente o tamanho mínimo da letra. Não confundir parâmetro aproximado com medição uniforme das exportações.
 
 ## 2. Manifesto consolidado
 
@@ -121,7 +121,7 @@ O capítulo atual usa predominantemente letras de exibição inclinadas e em cai
 
 O handoff fixa estilo **impacto/comic bold condensado, caixa alta**, padrão único da obra, e fundo **branco puro** nos balões. Fala: oval/cauda reta; pensamento: nuvem/bolinhas; sussurro: contorno tracejado; grito: bordas pontiagudas. Quase todo balão destaca uma palavra muito maior, mantendo cor e fonte. No prompt, marcar `[ÊNFASE]` e avisar que os colchetes não aparecem. Gritos podem ultrapassar o painel, respeitando a área segura da página.
 
-A família tipográfica e o tamanho mínimo não estão fixados. `Fonts/animeace2_bld.ttf` existe na pasta da marca, mas sua presença não prova uso no letreiramento atual. Balões só existem quando há diálogo exato fornecido: corrigir erros de ditado antes de travar o texto, depois copiar palavra por palavra, sem inventar fala. “NÃO HÁ REGRAS!!!” é texto gráfico de impacto, nunca balão.
+**Regra autoral:** a fonte é a mesma para todos os personagens, impacto/comic bold condensada, caixa alta, balão branco puro, com uma palavra de ênfase maior. A única exceção é o Professor Máquina, com balão invertido e Share Tech Mono (§6.2). O nome exato da família comic e o tamanho mínimo ainda não estão fixados; `Fonts/animeace2_bld.ttf` existe na pasta da marca, mas sua presença não prova uso no letreiramento atual. Balões só existem quando há diálogo exato fornecido: corrigir erros de ditado antes de travar o texto, depois copiar palavra por palavra, sem inventar fala. “NÃO HÁ REGRAS!!!” é texto gráfico de impacto, nunca balão.
 
 Recomendações:
 
@@ -164,11 +164,24 @@ Não recolorir automaticamente a fala quando muda o domínio da cena. A página 
 | Retomada azul | 34–36 | Exemplo de mudança cromática acompanhando a virada da ação. |
 | Presença verde de Jack | Recortes de 09–10; sequência 37 e 39 | Exemplo de identidade incidindo na moldura e na condução da cena. |
 
-**Cores de fala:** Kim `#1E6FE0`; Jack `#22C55E`; Helena `#9B4DCA`; Pajé Yawanari `#E8730C`; Brock `#8B1E1E`; Fred/Freddy `#C9A227`; Osvaldo `#5B7A9E`; Professor Máquina `#3A3A3A` (handoff). **Nina: rosa framboesa `#B82E69`**, definido nesta tarefa por delegação de Isaias. O tom aproxima os rosas das fichas sem exigir amostragem perfeita; contraste calculado de aproximadamente **5,78:1 sobre branco puro**, antes dos efeitos de rasterização/glow. Aplicar ao texto e contorno do balão; não trocar a letra pelo rosa claro do brilho.
+#### Cores de fala
 
-**Professor Máquina:** balão invertido, fundo grafite `#3A3A3A`, texto e contorno prata-gelo `#D9DEE3`, formato retangular chanfrado, fonte monoespaçada de terminal (oficial: **Share Tech Mono**). Cursor "▌" opcional ao fim de falas marcantes. É o único personagem com balão escuro.
+| Personagem | Cor da fala | Como aplicar |
+|---|---|---|
+| Kim | Azul `#1E6FE0` | Texto colorido em balão branco. |
+| Jack | Verde `#22C55E` | Texto colorido em balão branco. |
+| Nina | Rosa framboesa `#B82E69` | Texto e contorno do balão em rosa. Contraste de ~5,78:1 sobre branco puro, antes de rasterização e glow. Não trocar a letra pelo rosa claro do brilho. |
+| Helena | Violeta `#9B4DCA` | Texto colorido em balão branco. |
+| Pajé Yawanari | Laranja `#E8730C` | Texto colorido em balão branco. |
+| Brock | Marrom-vinho `#8B1E1E` | Texto **e contorno do balão** em marrom-vinho (cap. 03, p. 11). |
+| Fred/Freddy | Dourado `#C9A227` | Sempre com **contorno fino escuro na letra**: dourado puro sobre branco tem pouco contraste e some no celular (cap. 03, p. 11). |
+| Anderson | Cinza-chumbo `#4B5563` | Balão branco comum, para não confundir com o balão escuro da Máquina (cap. 03, p. 13). |
+| Osvaldo | `#5B7A9E` | Texto colorido em balão branco. |
+| Professor Máquina | Prata-gelo `#D9DEE3` em balão grafite `#3A3A3A` | Único balão invertido: fundo grafite, texto e contorno prata-gelo, formato retangular chanfrado, fonte monoespaçada de terminal **Share Tech Mono**. Cursor "▌" opcional no fim de falas marcantes. |
 
-| Neon LDI | Núcleo / glow | Uso registrado no handoff |
+Personagem novo com fala precisa de cor definida antes da página. Escolher um tom que não se confunda com os da tabela, testar contraste sobre branco e registrar aqui.
+
+| Neon LDI | Núcleo / glow | Uso registrado |
 |---|---|---|
 | Azul | `#3B82F6` / `#1E6FE0` | Kim no controle. |
 | Negro | `#0A0612` / `#2A0B3D` | Void dominando, brutalidade; halo violeta-abissal. |
@@ -176,8 +189,11 @@ Não recolorir automaticamente a fala quando muda o domínio da cena. A página 
 | Laranja | `#FB923C` / `#F97316` | Void fase 2 dominando. |
 | Azul-escuro | `#1E3A8A` / `#1E40AF` | Madrugada, quarto, mundo real. |
 | Vermelho | `#F43F5E` / `#DC2626` | Queda livre no abismo. |
-| Dourado | `#FCD34D` / `#F59E0B` | Divulgação do Pajé. |
+| Dourado | `#FCD34D` / `#F59E0B` | Divulgação do Pajé; Freddy dominando a cena, quando a gangue entra e ele aponta os alvos (cap. 03, p. 11). |
+| Cinza-escuro | `#6B7280` / `#374151` | Anderson dominando a cena: ameaça fria, sem grito (cap. 03, p. 13). O núcleo é mais claro que o nome sugere, porque cinza escuro de verdade não brilha. |
 | Rosa Nina | `#F472B6` / `#DB2777` | Par de neon definido nesta consolidação para cenas conduzidas por Nina; não altera seu texto `#B82E69`. |
+
+Fala e neon continuam independentes: na página 11 do capítulo 03, o Brock fala em marrom-vinho dentro de bordas douradas, porque quem domina a cena é o Freddy.
 
 Borda fina de aproximadamente **3 px**, glow externo suave de **10–14 px**, núcleo mais claro, aspecto de tubo neon. Preto puro não brilha em fundo escuro. São referências de produção, não medições exatas dos WebP. O neon é recurso adotado no LDI, não obrigação universal para outras marcas. A interface usa seus próprios tokens; o vermelho `#ff2a3d` do catálogo não substitui esta paleta da arte.
 
@@ -398,7 +414,7 @@ Artes finais precisam estar em fontes persistentes do build, como `public/`. Nun
 
 Ver [Referências e processo](WEBSHARD_REFERENCIAS_E_PROCESSO.md) para evolução, fluxo de trabalho, fichas, coreografia, HIT COMBO, prompts e localização.
 
-## 13. Revisão de qualidade
+## 12. Revisão de qualidade
 
 ### Linguagem e narrativa
 
@@ -413,7 +429,8 @@ Ver [Referências e processo](WEBSHARD_REFERENCIAS_E_PROCESSO.md) para evoluçã
 
 - [ ] Falas curtas, grandes e legíveis no arquivo exportado à largura do celular.
 - [ ] Não foi necessário zoom para entender a história.
-- [ ] A cor de voz permanece consistente por personagem.
+- [ ] A cor de voz permanece consistente por personagem, conforme a tabela do §6.2.
+- [ ] Dourado (Freddy) tem contorno escuro na letra; só a Máquina tem balão escuro.
 - [ ] O neon comunica domínio ou emoção deliberados.
 - [ ] Mudança de moldura não recolore automaticamente todas as falas.
 - [ ] Contraste, ponteiros e posição ajudam a identificar o falante.
@@ -430,25 +447,27 @@ Ver [Referências e processo](WEBSHARD_REFERENCIAS_E_PROCESSO.md) para evoluçã
 - [ ] Ausências conhecidas estão documentadas, sem falsa declaração de tradução completa.
 - [ ] Build, commit, push, deploy e verificação online seguiram `AGENTS.md` quando houver publicação.
 
-## 14. Decisões ainda necessárias
+## 13. Decisões ainda necessárias
 
 | Parâmetro | Estado | Como fechar sem inventar regra |
 |---|---|---|
 | Safe area E/D/T/B | Confirmada no handoff: ~100/100/80/80 px | Manter guias e verificar conteúdo essencial. |
 | Formato da página | Confirmado no handoff: 960 × 1637 px | Diferenciar de assets wide e vídeo. |
-| Fonte e tamanho mínimo | Não localizados | Identificar fonte do letreiramento e aprovar teste em largura de celular. |
-| Códigos de cor das vozes | Oito hex do handoff; Nina `#B82E69` definida nesta tarefa | Usar as referências; novos personagens precisam de definição. |
+| Fonte | Estilo único definido (comic bold condensada; Máquina em Share Tech Mono) | Fixar o nome exato da família comic usada no letreiramento. |
+| Tamanho mínimo da letra | Não localizado | Aprovar teste em largura de celular. |
+| Códigos de cor das vozes | Dez personagens definidos (§6.2) | Personagem novo com fala ganha cor antes da página. |
 | Tom da voz de Nina | **Resolvido:** rosa framboesa `#B82E69` | Manter o tom entre páginas/idiomas; neon tem núcleo/glow próprios. |
 | Significados das cores emocionais | Usos de referência definidos no §6 | Registrar intenção específica e mudanças por cena. |
 | Limites de palavras, balões e estilhaços | Sem número oficial | Manter economia e legibilidade como critérios; não inventar teto histórico. |
 | Revisão da definição pública | Há divergência com a direção autoral atual | Alinhar manifesto/FAQ/SEO em tarefa editorial própria. |
 | ES, página 37 | Fallback explícito para PT | Produzir/revisar a versão ES antes de declarar o capítulo integralmente traduzido. |
 
-## 15. Fontes e rastreabilidade
+## 14. Fontes e rastreabilidade
 
 | Fonte | O que fundamenta |
 |---|---|
 | Orientação direta de Isaias, 05/10/2026, nesta tarefa | Linguagem própria, celular, estilhaços, máximo usual de dois painéis, exceção de três, texto curto/grande, safe area nos quatro lados, voz por cor e neon de domínio/emoção. |
+| Orientação de Isaias, 06/10/2026, na produção do capítulo 03 (páginas 2–13) | Fonte única do elenco, cores de Brock, Freddy e Anderson, balão da Máquina, neons dourado e cinza-escuro, biblioteca de referências e posicionamento na Sala A-304. |
 | Handoff WEB SHARD v2 fornecido nesta conversa | Medidas, cores, regras operacionais, fichas, assets, localização e histórico; consolidação complementar no segundo documento. |
 | Pasta local da marca, inventariada em 05/10/2026 | Versões anteriores, arquivos editáveis, PNGs atuais, capítulo 02 em produção externa e fichas. Ver inventário no segundo documento. |
 | [`src/i18n/core/pt.json`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/src/i18n/core/pt.json), namespace `webShard` | Manifesto público, composição, diagonais, invasão de quadro, FAQ e aviso do autor. |
