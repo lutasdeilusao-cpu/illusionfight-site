@@ -1,0 +1,2 @@
+var e=[{id:1,slug:`fio-solto`,cor:`var(--if-cyan)`,icone:`⌁`},{id:2,slug:`lona`,cor:`var(--if-danger)`,icone:`✊`},{id:3,slug:`faro`,cor:`var(--if-amber)`,icone:`◉`},{id:4,slug:`cao`,cor:`var(--if-ok)`,icone:`❝`},{id:5,slug:`estatica`,cor:`var(--if-violet)`,icone:`≋`}],t=t=>e.find(e=>e.id===t)||null,n=e=>[``,`I`,`II`,`III`,`IV`,`V`][e]||``;export{n,t as r,e as t};
+//# sourceMappingURL=veias-WqWqrMX6.js.map
