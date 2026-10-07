@@ -1,19 +1,20 @@
 /* ══════════════════════════════════════════════════════════════
-   FARM DA RINHA — o idle do Gangues (Isaias, 28/09/2026).
+   FARM DA RINHA — o idle do Gangues.
    O farm calculado com o app no fundo existe SÓ na Rinha infinita (POI com
-   `rinhaInfinita` — a Rinha da Pista e a Rinha de Apostas da Feira): "o cara
-   tem que ir até a rinha e deixar o personagem lá jogando". Em qualquer
+   `rinhaInfinita`, uma em cada bairro): o jogador vai até a Rinha e deixa a
+   tropa lá brigando. Em qualquer
    outro lugar o jogo segue AO VIVO no fundo, sem cálculo nenhum, até o
    celular deixar (ver components/cena/GanguesFarmAusente.jsx).
 
    Na Rinha, com o app no fundo, a tela é desmontada e na volta o que teria
    acontecido é CALCULADO: 1 luta a cada 5 minutos fora (GANGUES_RINHA_S_POR_LUTA),
-   seja ela qual for — 20 minutos, 4 lutas. Cada luta sorteia um adversário
-   novo pelo mesmo gerador da Rinha ao vivo (nível em volta da tropa, de 5
-   abaixo a 2 acima do mais forte — niveisDaRinha) e é SIMULADA de verdade, rodada
+   seja ela qual for — 20 minutos, 4 lutas. Cada luta sorteia um bando novo
+   pelo mesmo gerador da Rinha ao vivo (na ponta fraca da faixa da Rinha —
+   niveisDaRinha —, completado até o mínimo do bairro) e é SIMULADA de verdade, rodada
    a rodada, no motor da Briga em Multidão (engine/ganguesBrigaMultidao.js):
    dá pra perder, o dano fica. Fora da tela é sempre ATAQUE NORMAL (sem
-   talento, sem PM); só a poção de PV, se ligada, entra.
+   talento, sem PM); só a poção de PV, se ligada, entra como item da tática.
+   Só vale no celular: no PC, trocar de aba não tira a Rinha do ao vivo.
    • o ponto de saída mora no SAVE (storyProgress.__farmAusente): aba
      descartada pelo celular não perde a conta;
    • a luta que estava na tela quando o app foi pro fundo é a 1ª — segue do
@@ -24,7 +25,7 @@
      jogador voltou — NÃO CONTA (sem dano, poção nem prêmio);
    • no máximo +5 níveis por ausência (GANGUES_FARM_TETO_NIVEIS);
    • perdeu uma luta COM grana pra recuperação do bairro (30 na Pista) = a
-     casa desconta, remenda a tropa e a roda segue (30/09/2026);
+     casa desconta, remenda a tropa e a roda segue;
    • perdeu SEM grana = para ali, sem XP dessa luta, a tropa acorda na
      birosca DAQUELE bairro e TODO automático desliga.
    ══════════════════════════════════════════════════════════════ */
@@ -36,13 +37,11 @@ import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
 import { desligarAutomaticos } from '../hooks/useGanguesBrigaAutomatica.js'
-import { lerAutoConfig, melhorPocao, POCAO_LIMIAR_PV } from '../hooks/useGanguesModoAuto.js'
+import { lerAutoConfig, melhorPocao } from '../hooks/useGanguesModoAuto.js'
 
-/** 1 luta a cada 5 minutos fora, na Rinha (Isaias, 28/09/2026: "a cada
- *  cinco minutos rola uma batalha, seja ela qual for... se o cara ficar 20
- *  minutos, ele teve quatro batalhas"). */
+/** 1 luta a cada 5 minutos fora, na Rinha: 20 minutos fora, 4 lutas. */
 export const GANGUES_RINHA_S_POR_LUTA = 5 * 60
-/** Teto de níveis por ausência — "no máximo 5 levels" (Isaias). */
+/** Teto de níveis por ausência. */
 export const GANGUES_FARM_TETO_NIVEIS = 5
 /** Rede de segurança de processamento (~8h fora) — o teto de nível
  *  costuma parar bem antes. */
@@ -54,41 +53,21 @@ const nivelDe = m => getGanguesLevelFromXp(m?.xp_total ?? 0)
 /** A sessão de Rinha infinita desse storyTarget (null se não for). */
 export const rinhaDoAlvo = alvo => (alvo?.rinha && alvo.cenaId && alvo.revezamento?.pool?.length ? alvo : null)
 
-// Poção de PV DENTRO da luta calculada, rodada a rodada — a mesma regra do
-// automático ao vivo (escolherAcaoAuto): alguém com PV ≤ 50% → o MAIS
-// INTEIRO da tropa gasta a vez dele dando a poção de PV (1 por rodada). Quem
-// usa item abre mão do ataque naquela rodada (personagensUsandoItem). A bolsa
-// NÃO é tocada aqui: as poções ficam anotadas em `usos` e só saem da bolsa se
-// a luta contar (terminou dentro do tempo fora — ver simularFarmAusente).
-function pocaoDaRodada(estado, { store, config, usos }) {
-  const usandoItem = {}
-  if (!config.pocao) return { estado, usandoItem }
-  const lista = estado.combatants.map(c => ({ ...c }))
-  const vivos = lista.filter(c => c.side === 'player' && c.pv > 0 && c.pvMax > 0)
-  const inv = store().inventario
-  const itens = GANGUES_ITENS_LISTA.map(i => ({ ...i, quantidade: (inv[i.id] || 0) - (usos[i.id] || 0) }))
-  const ferido = vivos.filter(c => c.pv / c.pvMax <= POCAO_LIMIAR_PV).sort((a, b) => a.pv / a.pvMax - b.pv / b.pvMax)[0]
-  const maisInteiro = [...vivos].sort((a, b) => (b.pv - a.pv) || (b.pv / b.pvMax - a.pv / a.pvMax))[0]
-  const pocao = ferido && maisInteiro && melhorPocao(itens, 'cura_pv', ferido.pvMax - ferido.pv)
-  if (pocao) {
-    usos[pocao.id] = (usos[pocao.id] || 0) + 1
-    ferido.pv = Math.min(ferido.pvMax, ferido.pv + pocao.valor)
-    usandoItem[maisInteiro.id] = true
-  }
-  return { estado: { ...estado, combatants: lista }, usandoItem }
-}
-
 // Simula a luta de verdade, rodada a rodada, até o fim — o MESMO motor de
 // combate da Briga em Multidão (dá pra perder; o dano fica). No segundo
-// plano é sempre ATAQUE NORMAL: nenhum talento, nenhum PM gasto (Isaias,
-// 28/09/2026); só a poção de PV, se ligada. Devolve também as poções que
-// usou (`usos`, ainda não tiradas da bolsa).
+// plano é sempre ATAQUE NORMAL, sem talento nem PM gasto; só a poção de PV,
+// se ligada, como item da tática de cada um. A bolsa NÃO é tocada aqui: as
+// poções ficam anotadas em `usos` e só saem se a luta contar (gastarPocoes).
 function rodarLuta(estadoInicial, { store, config }) {
   let estado = estadoInicial
   const usos = {}
+  const inv = store().inventario
   for (let i = 0; i < GANGUES_FARM_MAX_RODADAS && !estado.terminado; i++) {
-    const r = pocaoDaRodada(estado, { store, config, usos })
-    estado = avancarRodadaMultidao(r.estado, {}, {}, r.usandoItem)
+    const estoque = Object.fromEntries(GANGUES_ITENS_LISTA.map(it => [it.id, (inv[it.id] || 0) - (usos[it.id] || 0)]))
+    const pocao = config.pocao && melhorPocao(GANGUES_ITENS_LISTA.map(it => ({ ...it, quantidade: estoque[it.id] })), 'cura_pv', Infinity)
+    const itens = pocao ? Object.fromEntries(estado.combatants.filter(c => c.side === 'player').map(c => [c.id, pocao.id])) : {}
+    estado = avancarRodadaMultidao(estado, { itens, estoque })
+    for (const ev of estado.eventosRodada) if (ev.type === 'item') usos[ev.itemId] = (usos[ev.itemId] || 0) + 1
   }
   return { outcome: estado.outcome || 'defeat', combatants: estado.combatants, usos }
 }
@@ -158,8 +137,8 @@ export function simularFarmRinha({ store, cena, segundos, enemiesData, alvo, lut
       inicio = iniciarBrigaMultidaoDeCombatentes(emAndamento.combatants, emAndamento.round || 1)
       emAndamento = null
     } else {
-      // luta calculada (1 a cada 5 min no fundo) vem sempre na ponta fraca, −8
-      // (Isaias, 03/10/2026); a conta da Rinha avança igual
+      // luta calculada (1 a cada 5 min no fundo) vem sempre na ponta fraca da
+      // faixa da Rinha; a conta da Rinha avança igual
       alvo = avancarRinha(alvo)
       const bando = completarBandoMinimo(gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId, party, true), enemiesData, modo, playerTeam: party }), { territorioId: alvo.territorioId, pool: cena.poolCapangas, enemiesData })
       if (!bando?.length) break

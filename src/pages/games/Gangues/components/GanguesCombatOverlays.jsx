@@ -29,14 +29,12 @@ function KoAvatar({ retrato }) {
 }
 
 // Todos os overlays mutuamente exclusivos do combate: aviso curto, callout
-// grande de dano, cartão de KO, dado dramático, revelação de rodada da
-// Multidão, modal de ficha, fala final de quem perdeu, e a tela de
-// resultado. Ficam juntos num arquivo só (em vez de 1 componente por
-// overlay) porque compartilham muito estado e são exclusivos entre si — ver
-// PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6.
+// grande de dano, cartão de KO, dado dramático, modal de ficha, fala final de
+// quem perdeu, e a tela de resultado. Ficam juntos porque compartilham muito
+// estado e são exclusivos entre si.
 export default function GanguesCombatOverlays({
   t, aviso, danoCena, koCena, dispararProximoKo, machine, modoMultidaoAtivo,
-  revelandoRodada, fichaAberta, setFichaAberta, falaFinal, result, showResultBtn,
+  fichaAberta, setFichaAberta, falaFinal, result, showResultBtn,
   openBattleReport, enemy, velocidade = 1,
 }) {
   // Teclado (Steam): o aviso por cima da luta passa com Enter/Espaço; Esc fecha a ficha.
@@ -118,14 +116,6 @@ export default function GanguesCombatOverlays({
             velocidade={velocidade}
             onComplete={machine.completePending}
           />
-        )}
-        {revelandoRodada && (
-          <div className="gang-multidao-revela gang-multidao-revela--overlay">
-            <div className="gang-multidao-dados">
-              {Array.from({ length: 6 }, (_, i) => <span key={i} className="gang-multidao-dado" style={{ '--delay': `${i * 0.07}s` }}>🎲</span>)}
-            </div>
-            <p className="gang-multidao-revela-texto">{t('games.gangues.multidao.resolvendo')}</p>
-          </div>
         )}
         {fichaAberta && (
           <motion.div className="gang-ficha-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setFichaAberta(null)}>

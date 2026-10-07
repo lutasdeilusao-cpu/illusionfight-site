@@ -770,12 +770,18 @@
         "prompt_sim": "SIM, MULTIDÃO",
         "prompt_nao": "NÃO, GOLPE A GOLPE",
         "prompt_lembra": "Sua escolha vale pras próximas lutas. Dá pra trocar no interruptor lá em cima.",
-        "poderes_titulo": "Talentos da rodada",
         "avancar_rodada": "AVANÇAR RODADA",
-        "resolvendo": "Rolando os dados da rodada...",
-        "usar_item": "Usar item nesta rodada (abre mão do ataque)",
-        "vai_usar_item": "Vai usar item",
-        "auto_switch_titulo": "Liga o automático — avança as rodadas sozinho, respeitando os talentos/itens já marcados. Desliga a qualquer momento."
+        "auto_switch_titulo": "Liga o automático — avança as rodadas sozinho, respeitando os talentos/itens já marcados. Desliga a qualquer momento.",
+        "foco": "Foco",
+        "foco_tirar": "Tirar o foco",
+        "foco_dica": "Toca num inimigo pra todo mundo cair em cima dele",
+        "tatica": "Tática",
+        "rodando": "Rolando...",
+        "tatica_sub": "Vale pra toda rodada até tu mudar. O item só entra quando faz sentido: poção com alguém na metade da vida, remédio em quem tá com o status. Sem item que sirva, bate normal.",
+        "tatica_talento": "Talento",
+        "tatica_item": "Item",
+        "tatica_sem_item": "Nenhum",
+        "tatica_pronto": "Fechou"
       },
       "recrutar_banner": {
         "titulo": "Recrutamento liberado!",
@@ -783,9 +789,10 @@
         "cta": "Escolher novo membro →"
       },
       "multidao_tutorial": {
-        "interruptor": "Esse interruptor liga o modo Multidão: em vez de golpe a golpe, cada rodada resolve todo mundo de uma vez.",
-        "alvo_automatico": "No automático, sua tropa sempre foca o inimigo mais perto de cair — bom pra limpar um bando grande rápido.",
-        "avancar": "Toca em AVANÇAR RODADA quando tiver pronto. Dá pra trocar talento ou marcar item antes, e o interruptor liga/desliga quando cê quiser."
+        "interruptor": "Briga em Multidão: em vez de golpe a golpe, cada rodada mostra todo mundo brigando, um golpe atrás do outro. Esse interruptor desliga se tu quiser.",
+        "foco": "Toca num inimigo pra marcar o FOCO: o bonde inteiro cai em cima dele até ele apagar. Sem foco, a tropa vai no que tá mais perto de cair.",
+        "tatica": "Em TÁTICA tu escolhe o talento e o item de cada um. Vale pra toda rodada, e o item só entra quando faz sentido.",
+        "avancar": "Toca em AVANÇAR RODADA quando tiver pronto. Com o automático ligado, as rodadas vão saindo sozinhas."
       },
       "attr_labels": {
         "H": "Pique",

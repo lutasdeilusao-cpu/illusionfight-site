@@ -1,14 +1,12 @@
 // Funções puras de apresentação de combate — nome de combatente, trash talk,
 // transformação de evento bruto em entrada de log, e os pequenos helpers de
 // localStorage/constantes do modo automático e do blink da Multidão.
-// Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import { getGanguesItem, textoEfeitoItem } from '../data/ganguesItens.js'
 
-// Retrato do combatente pro log — mesma lógica de GanguesCombatRoster.jsx
-// (pedido do Isaias, 15/09/2026: "no resultado de cada golpe podia mostrar
-// a imagem da cabeça de quem deu o ataque também"). `member.side` só existe
+// Retrato do combatente pro log (cabeça de quem deu o golpe) — mesma lógica
+// de GanguesCombatRoster.jsx. `member.side` só existe
 // nos combatentes de verdade vindos do motor; o `actor` "de mentira" que
 // transformarEvento cria pra evento sem side explícito (`{ side: event.side }`)
 // não tem `character_template_id`/`id` de personagem, então cai no fallback
@@ -89,7 +87,10 @@ export function pickTrash(t, enemy, category) {
 // Um evento de combate (do motor normal OU do avanço de rodada da Briga em
 // Multidão — mesmo formato) vira 1-2 entradas de log. Reusado nos dois
 // modos pra não duplicar a lógica de nome/trash-talk/onomatopeia.
-export function transformarEvento(t, event, combatants) {
+/** Evento do motor → linhas do registro. `compacto` (Briga em Multidão):
+ *  golpe vira uma linha curta e a provocação aparece menos, pra rodada com
+ *  muita gente não virar um muro. */
+export function transformarEvento(t, event, combatants, { compacto = false } = {}) {
   if (event.type === 'battle_start') return [{ id: event.id, kind: 'system', text: t('games.gangues.log_batalha_inicio') }]
   if (event.type === 'item') {
     const actor = combatants.find(m => m.key === event.actorKey)
@@ -115,7 +116,12 @@ export function transformarEvento(t, event, combatants) {
   const actor = combatants.find(m => m.key === event.actorKey) || { side: event.side }
   const target = combatants.find(m => m.key === event.targetKey)
   const isPlayer = event.side === 'player'
-  const entries = [{
+  const entries = compacto ? [{
+    id: event.id, kind: 'golpe', side: event.side,
+    actorName: fighterName(t, actor), targetName: fighterName(t, target),
+    dmg: event.result.damage, critical: event.result.critical, shieldConsumed: event.result.shieldConsumed || 0,
+    activeSpecialId: event.result.activeSpecialId || null,
+  }] : [{
     id: event.id, kind: 'attack_card', side: event.side,
     actorName: fighterName(t, actor), actorRetrato: retratoDoCombatente(actor), targetName: fighterName(t, target), round: event.round,
     fa: event.result.fa, fd: event.result.fd, dice: event.result.rolls.fa, defenseDice: event.result.rolls.fd,
@@ -125,8 +131,8 @@ export function transformarEvento(t, event, combatants) {
     activeSpecialId: event.result.activeSpecialId || null,
     statusAplicado: event.result.statusAplicado || null,
   }]
-  // Passiva que entrou nesta jogada e status que pegou — linha própria no
-  // registro, pra passiva e status serem SENTIDOS (Isaias, 28/09/2026).
+  // Passiva que entrou nesta jogada e status que pegou ganham linha própria
+  // no registro, pra serem sentidos.
   const passivos = [...(event.result.passivosGatilho?.attacker || []).map(id => [actor, id]), ...(event.result.passivosGatilho?.defender || []).map(id => [target, id])]
   passivos.forEach(([quem, id], i) => entries.push({ id: `${event.id}-passiva-${i}`, kind: 'system', text: t('games.gangues.log_passiva', { nome: fighterName(t, quem), talento: t(`games.gangues.progression.skills.${id}`) }) }))
   if (event.confuso) entries.push({ id: `${event.id}-grogue`, kind: 'system', text: t('games.gangues.log_grogue', { nome: fighterName(t, actor), alvo: fighterName(t, target) }) })
@@ -134,7 +140,7 @@ export function transformarEvento(t, event, combatants) {
   const enemyCombatant = isPlayer ? target : actor
   if (enemyCombatant?.trash_talk) {
     const category = event.result.critical ? 'take_critical' : isPlayer ? 'take_damage' : 'attack_hit'
-    if (Math.random() < 0.6) {
+    if (Math.random() < (compacto ? 0.15 : 0.6)) {
       const line = pickTrash(t, enemyCombatant, category)
       if (line) entries.push({ id: `${event.id}-trash`, kind: 'trash', sender: fighterName(t, enemyCombatant), senderRetrato: retratoDoCombatente(enemyCombatant), text: line })
     }

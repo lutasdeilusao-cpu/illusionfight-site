@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791397642.2811534,
-    "ast_hash": "762a6a30f671659bcda4854beb746089",
+    "mtime": 1791398398.7058134,
+    "ast_hash": "62dd98c166a9b9f7e2321f5c2371e4db",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791397642.3163495,
-    "ast_hash": "02bc16abe6490beca416871c6366b3f5",
+    "mtime": 1791398398.7471888,
+    "ast_hash": "868bdbc371f3fb67bb387213795d5b5a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3155,8 +3155,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesRoute.jsx": {
-    "mtime": 1791387532.6264145,
-    "ast_hash": "db004163c91d3ad7e42cb09685e69126",
+    "mtime": 1791398195.5845501,
+    "ast_hash": "d1796d076b33e068b96df21570c5aec0",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/gangues-enemies.json": {
@@ -3745,8 +3745,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesEncontros.js": {
-    "mtime": 1791043490.2698617,
-    "ast_hash": "928b72aaa19b3418f93abd4facd7b54e",
+    "mtime": 1791398356.8792863,
+    "ast_hash": "fccae7ea36aa4cc9b040898ac1a91015",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesCharacters.js": {
@@ -3940,8 +3940,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/index.js": {
-    "mtime": 1791363812.4408243,
-    "ast_hash": "229abd6693585bd43dce480cadc5af84",
+    "mtime": 1791398176.2169,
+    "ast_hash": "9cc633db9f0fe587e6f6a302afdc9d77",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/interiores.js": {
@@ -4920,8 +4920,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/feira/index.js": {
-    "mtime": 1791088292.17203,
-    "ast_hash": "517e929b5326250fb9345077f134f4a0",
+    "mtime": 1791398176.2179005,
+    "ast_hash": "b1905b6101c0a427b7b81bd9ccc89e1b",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/feira/interiores.js": {
@@ -4955,8 +4955,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesFarmAusente.js": {
-    "mtime": 1791385844.2576737,
-    "ast_hash": "ad1be0f741eba6f82fbab0c63c554d47",
+    "mtime": 1791398195.5845501,
+    "ast_hash": "5d51bf5ba10bf95fed78842b1d07009a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js": {
@@ -4985,8 +4985,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/baixada/index.js": {
-    "mtime": 1791088292.17203,
-    "ast_hash": "80ead929c50512dbfebca5808efa6d10",
+    "mtime": 1791398176.2179005,
+    "ast_hash": "72138a16cb50f1a7857d190bf2ebe011",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/baixada/interiores.js": {
@@ -6550,8 +6550,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/vila/index.js": {
-    "mtime": 1791088292.17403,
-    "ast_hash": "61f7ef0db58c6c5e0a925f00aeeb7d18",
+    "mtime": 1791398176.2189083,
+    "ast_hash": "d7fc65c853cf43d98de3411caa4655ed",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/vila/interiores.js": {
@@ -6615,8 +6615,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/morro/index.js": {
-    "mtime": 1791088292.173029,
-    "ast_hash": "a05aa54e812a01e12c5e2be7d2d3710f",
+    "mtime": 1791398176.2189083,
+    "ast_hash": "ff5c4ed099a363443d87fccf122ff35e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/morro/interiores.js": {
@@ -6660,8 +6660,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/alto/index.js": {
-    "mtime": 1791088292.171029,
-    "ast_hash": "aed85f5c92bc7c7933c4bfbe2878c254",
+    "mtime": 1791398176.2199004,
+    "ast_hash": "b4e67cb7b35b71de118f09843711c35f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/alto/interiores.js": {
@@ -6690,8 +6690,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/laje/index.js": {
-    "mtime": 1791088292.173029,
-    "ast_hash": "449b4325fa6a3b4d64865120ee58332d",
+    "mtime": 1791398176.2199004,
+    "ast_hash": "8d8e8e1174a010adf7ecbf2789fb72df",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/laje/interiores.js": {

@@ -198,3 +198,17 @@
 .gang-attack-card-damage-val { font-size: 18px; }
 .gang-msg-wrap { gap: 6px; }
 .gang-msg-avatar { width: 24px; height: 24px; font-size: 10px; }
+
+/* Golpe da Briga em Multidão: uma linha por golpe (ganguesCombatPresentation, compacto). */
+.gang-golpe {
+  display: flex; align-items: baseline; gap: 6px; margin: 0 10px; padding: 4px 8px;
+  font: 700 0.62rem var(--font-mono); color: var(--text-secondary);
+  border-left: 2px solid var(--if-cyan-45); background: rgba(255, 255, 255, 0.02);
+}
+.gang-golpe--enemy { border-left-color: color-mix(in srgb, var(--if-danger) 60%, transparent); }
+.gang-golpe strong { font-weight: 800; color: var(--gang-branco); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 30%; }
+.gang-golpe em { font-style: normal; font-size: 0.54rem; color: var(--if-cyan); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gang-golpe b { margin-left: auto; flex-shrink: 0; font-weight: 900; color: var(--if-amber); }
+.gang-golpe--enemy b { color: var(--if-danger); }
+.gang-golpe.is-crit { background: color-mix(in srgb, var(--if-amber) 10%, transparent); }
+.gang-golpe.is-crit b { font-size: 0.72rem; }

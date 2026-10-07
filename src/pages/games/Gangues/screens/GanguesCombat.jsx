@@ -7,7 +7,6 @@ import { useGanguesStore } from '../store/useGanguesStore'
 import useGanguesTurnMachine from '../hooks/useGanguesTurnMachine'
 import useGanguesCombatFx from '../hooks/useGanguesCombatFx.js'
 import useGanguesModoAuto, { useGanguesAutoConfig, escolherAcaoAuto } from '../hooks/useGanguesModoAuto.js'
-import useGanguesModoAutoMultidao from '../hooks/useGanguesModoAutoMultidao.js'
 import useGanguesVelocidadeAuto, { useGanguesAutoLembrado, useEscolhaMultidao } from '../hooks/useGanguesVelocidadeAuto.js'
 import useGanguesModoMultidao from '../hooks/useGanguesModoMultidao.js'
 import useGanguesBattleOutcome from '../hooks/useGanguesBattleOutcome.js'
@@ -27,6 +26,8 @@ import GanguesCombatLogList from '../components/GanguesCombatLogList'
 import GanguesAutoBolinhas from '../components/GanguesAutoBolinhas'
 import GanguesCombatOverlays from '../components/GanguesCombatOverlays'
 import GanguesMultidaoActionBar from '../components/GanguesMultidaoActionBar'
+import GanguesMultidaoTatica from '../components/GanguesMultidaoTatica'
+import { regraMultidao } from '../engine/ganguesBrigaMultidao.js'
 import GanguesActionOrb from '../components/GanguesActionOrb'
 import GanguesCombatSairConfirm from '../components/GanguesCombatSairConfirm'
 import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS, useBrigaDeRua } from '../hooks/useGanguesBrigaAutomatica.js'
@@ -34,10 +35,9 @@ import { lutaAoVivo } from '../engine/ganguesFarmAusente.js'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesCombat.css'
 
-// Orquestrador do combate — a resolução de log/FX, os modos automático e
-// Multidão, e o desfecho de batalha viraram hooks próprios; os overlays e o
-// roster viraram componentes de apresentação. Ver
-// PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6.
+// Orquestrador do combate: junta o motor golpe a golpe, a Briga em
+// Multidão, o automático, o registro/FX e o desfecho (cada um num hook) e
+// desenha a tela com os componentes de apresentação.
 export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   const { t } = useLanguage()
   const { perfil } = useAuth()
@@ -46,29 +46,18 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   const [selectedActor, setSelectedActor] = useState(null)
   const [selectedTarget, setSelectedTarget] = useState(null)
   const [selectedSpecialId, setSelectedSpecialId] = useState(null)
-  // "Mete o Pé" (pedido do Isaias, 18/09/2026) não sai mais na hora — abre
-  // essa confirmação; os dois botões de fugir (barra normal e barra da
-  // Briga em Multidão) só chamam `setPedindoSair(true)`, quem decide de
-  // verdade é o modal (GanguesCombatSairConfirm.jsx). Confirmar volta pro
-  // lobby (a tela inicial de quem já tem gangue montada), não mais
-  // pro território — sair da luta agora é sair do JOGO, não só recuar um
-  // passo no mapa.
+  // "Mete o Pé" abre a confirmação (GanguesCombatSairConfirm.jsx); confirmar
+  // sai da luta e volta pro lobby.
   const [pedindoSair, setPedindoSair] = useState(false)
   const [log, setLog] = useState([])
   const [trashOptions, setTrashOptions] = useState([])
   const [trashAberto, setTrashAberto] = useState(false)
   const [fichaAberta, setFichaAberta] = useState(null) // combatant ou null — popup de status completo
   const logEndRef = useRef(null)
-  // Botão de sair do automático: a ÚNICA coisa que dá pra monitorar em modo
-  // automático é o PV dos próprios lutadores (pedido do Isaias, 13/09/2026,
-  // depois de ver o botão tampando a barra de PV do roster do jogador) — por
-  // isso a posição dele NUNCA pode ser um número de "top" chutado, tem que
-  // sempre respeitar a altura de verdade do roster do jogador (que muda com o
-  // tamanho do time e pode quebrar linha). Medido de verdade via
-  // ResizeObserver, com fallback pro valor antigo enquanto não mediu ainda.
-  // 27/09/2026 (Isaias, print): a barra desceu pra logo ACIMA do roster
-  // inimigo (embaixo), liberando o topo pra pista do Pique — `autoSairTop` é
-  // a borda de cima do roster inimigo; o CSS sobe a barra pela própria altura.
+  // Barra do automático: fica logo ACIMA do roster inimigo, sem tampar PV de
+  // ninguém. `autoSairTop` é a borda de cima do roster inimigo, medida de
+  // verdade (ResizeObserver: a altura muda com o tamanho do bando); o CSS
+  // sobe a barra pela própria altura.
   const enemyRosterRef = useRef(null)
   const [autoSairTop, setAutoSairTop] = useState(null)
   useLayoutEffect(() => {
@@ -93,67 +82,44 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   const battleOutcome = useGanguesBattleOutcome({ store, t, registrarEvento, onNavigate })
   const { result, falaFinal, showResultBtn, finish, openBattleReport } = battleOutcome
 
-  // O switch da Briga em Multidão precisa ser conhecido ANTES de construir o
-  // motor normal (useGanguesTurnMachine) — ele usa isso pra PAUSAR o próprio
-  // efeito de IA enquanto a Multidão estiver no controle. Sem isso, o motor
-  // normal continuava rodando escondido atrás da UI da Multidão e resolvia o
-  // ataque do inimigo em segredo (bug reportado pelo Isaias, 2026-09-14: "só
-  // de apertar o botãozinho já para os inimigos de atacar" — na real o
-  // ataque acontecia sim, só que invisível). Por isso o estado mora aqui
-  // (não mais dentro de useGanguesModoMultidao) e é passado pros dois lados.
-  const multidaoDisponivelPreMachine = ((store.match.playerTeam?.length || 0) + (store.match.enemyTeam?.length || 0)) >= 5
-  // A pergunta de Multidão só aparece na 1ª luta elegível do save; dali em
-  // diante a escolha guardada vale sozinha (o switch troca e regrava).
+  // A Multidão precisa ser conhecida ANTES de montar o motor normal: ele fica
+  // pausado enquanto ela está no controle (senão o inimigo da vez atacava
+  // escondido atrás da tela da Multidão). Quando ela pode ligar e quando já
+  // começa ligada: regraMultidao (da Feira em diante toda luta começa nela).
+  const bairroDaLuta = store.storyTarget?.clube ? store.storyTarget?.voltar?.territorioId : store.storyTarget?.territorioId
+  const { disponivel: multidaoDisponivel, padrao: multidaoPadrao } = regraMultidao(store.match, bairroDaLuta)
+  // Na Pista a pergunta "começar em Multidão?" aparece só na 1ª luta elegível
+  // do save; a escolha guardada vale sozinha depois (o switch troca e regrava).
   const [escolhaMultidao, gravarEscolhaMultidao] = useEscolhaMultidao()
-  const [modoMultidaoOn, setModoMultidaoOnState] = useState(() => multidaoDisponivelPreMachine && escolhaMultidao === 'sim')
+  const [modoMultidaoOn, setModoMultidaoOnState] = useState(() => multidaoDisponivel && (multidaoPadrao || escolhaMultidao === 'sim'))
   const setModoMultidaoOn = useCallback((valor) => {
     setModoMultidaoOnState(valor)
-    gravarEscolhaMultidao(valor ? 'sim' : 'nao')
-  }, [gravarEscolhaMultidao])
-  const modoMultidaoAtivoPreMachine = multidaoDisponivelPreMachine && modoMultidaoOn
-  // Pergunta de início de luta (pedido do Isaias, 2026-09-14): toda luta
-  // elegível pra Multidão (5+ combatentes) PARA TUDO antes do 1º ataque e
-  // pergunta Sim/Não. Sim = já começa a rodada 1 em Multidão (contínua até o
-  // jogador desligar no switch); Não = combate normal, jogador liga o switch
-  // manualmente depois se quiser (respeitando a trava de "só na sua vez").
-  // Só combates SEM elegibilidade (menos de 5 combatentes) pulam a pergunta
-  // direto (`respondida` já nasce true).
-  const [multidaoPromptRespondida, setMultidaoPromptRespondida] = useState(!multidaoDisponivelPreMachine || escolhaMultidao != null)
-  const perguntaMultidaoAtiva = multidaoDisponivelPreMachine && !multidaoPromptRespondida
+    if (!multidaoPadrao) gravarEscolhaMultidao(valor ? 'sim' : 'nao')
+  }, [gravarEscolhaMultidao, multidaoPadrao])
+  const modoMultidaoAtivoPreMachine = multidaoDisponivel && modoMultidaoOn
+  const [multidaoPromptRespondida, setMultidaoPromptRespondida] = useState(!multidaoDisponivel || multidaoPadrao || escolhaMultidao != null)
+  const perguntaMultidaoAtiva = multidaoDisponivel && !multidaoPromptRespondida
+  const [taticaAberta, setTaticaAberta] = useState(false)
 
-  // Velocidade 1x/2x/3x (pedido do Isaias, 26/09/2026: "automático mais rápido
-  // pro cara poder ir upando"). Só com o AUTOMÁTICO ligado — o da luta normal
-  // ou o da Briga em Multidão. Manual (inclusive a Multidão manual) roda sempre
-  // em 1x: acelerar é benefício do automático, que vai ser de assinante.
-  // O "auto ligado" mora aqui (não nos hooks) porque o motor
-  // e a Multidão precisam da velocidade já na construção.
-  // Lembrados entre lutas: quem terminou no automático já começa a próxima
-  // com ele ligado (ver useGanguesAutoLembrado).
+  // Automático (um só pra luta normal e Multidão), lembrado entre lutas.
+  // Velocidade 1x/2x/3x só vale com ele ligado.
   const [modoAutoOn, setModoAutoOn] = useGanguesAutoLembrado('ldi-gangues-auto')
-  // Um automático só: vale pra luta normal e pra Briga em Multidão.
-  const [modoAutoMultidaoOn, setModoAutoMultidaoOn] = [modoAutoOn, setModoAutoOn]
   const { velocidade, ciclarVelocidade } = useGanguesVelocidadeAuto()
-  const velocidadeEfetiva = ((modoAutoOn && !modoMultidaoAtivoPreMachine) || (modoAutoMultidaoOn && modoMultidaoAtivoPreMachine)) ? velocidade : 1
+  const velocidadeEfetiva = modoAutoOn ? velocidade : 1
 
   const machine = useGanguesTurnMachine({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam, onFinish: finish, pausado: modoMultidaoAtivoPreMachine || perguntaMultidaoAtiva, enemyDelay: 2200 / velocidadeEfetiva })
 
-  // Pré-carrega a animação (sprite + sons) de cada personagem do time do
-  // jogador assim que a luta começa — pedido do Isaias: "durante a batalha
-  // já deixa carregada... não precisa ficar baixando toda hora". Cache é
-  // em nível de módulo (ganguesCombatAnimations.js), então isso só baixa de
-  // verdade na 1ª luta de cada personagem por sessão.
+  // Pré-carrega a animação (sprite + sons) de cada personagem do time assim
+  // que a luta começa. O cache é do módulo (ganguesCombatAnimations.js): só
+  // baixa de verdade na 1ª luta de cada personagem por sessão.
   useEffect(() => {
     for (const member of store.match.playerTeam || []) {
       precarregarAnimacaoCombate(member.character_template_id)
     }
   }, [store.match.playerTeam])
 
-  const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, modoMultidaoOn, setModoMultidaoOn, velocidade: velocidadeEfetiva })
-  const { modoMultidaoAtivo, estadoMultidao, multidaoDisponivel, alternarMultidao, multidaoBlinkVisto, poderesMultidao, itensMultidao, cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada } = multidao
-  const modoAutoMultidao = useGanguesModoAutoMultidao({
-    modoAutoMultidaoOn, setModoAutoMultidaoOn, velocidade: velocidadeEfetiva,
-    modoMultidaoAtivo, estadoMultidao, revelandoRodada, result, koCena: fx.koCena, avancarRodada,
-  })
+  const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, multidaoDisponivel, modoMultidaoOn, setModoMultidaoOn, velocidade: velocidadeEfetiva, fx, autoOn: modoAutoOn })
+  const { modoMultidaoAtivo, estadoMultidao, alternarMultidao, podeLigar, multidaoBlinkVisto, avancarRodada, revelandoRodada, golpeAtual, foco, marcarFoco } = multidao
 
   // PV/PM gravado durante a luta (sair/recarregar não devolve a vida).
   useGanguesDanoAoVivo({ store, combatants: modoMultidaoAtivo ? (estadoMultidao?.combatants || []) : machine.combatants })
@@ -308,7 +274,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   const lutaDaCena = Boolean(store.storyTarget?.cenaId) && !store.storyTarget?.torre && !store.storyTarget?.clube
   const [brigaRua, setBrigaRua] = useBrigaDeRua()
   const naRinha = Boolean(store.storyTarget?.rinha)
-  const autoLigado = modoMultidaoAtivo ? modoAutoMultidao.modoAutoMultidaoOn : modoAuto.modoAutoOn
+  const autoLigado = modoAutoOn
   const brigaRuaAqui = lutaDaCena && !naRinha && brigaRua
   useGanguesAvancoAutomatico({ ativo: lutaDaCena && (result === 'victory' || (naRinha && result)) && !falaFinal, ms: GANGUES_AVANCO_AUTO_MS.resultado, acao: abrirRelatorio, forcar: naRinha })
 
@@ -316,7 +282,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // normal, conforme a config do automático — ver escolherAcaoAuto.
   // Farm ausente: leitor do estado vivo desta luta, pra o app em 2º plano
   // terminar a MESMA luta por cálculo (ver lutaAoVivo / GanguesFarmAusente).
-  lutaAoVivo.ler = () => ({ combatants: modoMultidaoAtivo ? estadoMultidao?.combatants : machine.combatants, round: modoMultidaoAtivo ? estadoMultidao?.round : machine.round, auto: modoMultidaoAtivo ? modoAutoMultidao.modoAutoMultidaoOn : modoAuto.modoAutoOn, terminou: Boolean(result) })
+  lutaAoVivo.ler = () => ({ combatants: modoMultidaoAtivo ? estadoMultidao?.combatants : machine.combatants, round: modoMultidaoAtivo ? estadoMultidao?.round : machine.round, auto: modoAutoOn, terminou: Boolean(result) })
   useEffect(() => () => { lutaAoVivo.ler = null }, [])
   function agirAuto() {
     const acao = escolherAcaoAuto({ ator: actingMember, aliados: aliadosOrb, especiais: equippedSpecials, pagavel: canAffordSpecial, itens: itensDisponiveis, config: autoConfig.config })
@@ -327,24 +293,16 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
 
   if (!store.match.playerTeam?.length) return null
 
-  // Vinheta de PV baixo — o farol de cada quadradinho no roster
-  // (GanguesCombat.css .gang-mini-wrap--baixo/--critico) some fácil
-  // no meio da luta, coberto pelo modal de dado, ficha aberta, toast etc. O
-  // Isaias pediu "sobre tudo, em tempo real" E a régua certa de farol: <=50%
-  // PV já começa um aviso leve, <=25% já é o efeito pesado/vermelho de "tá
-  // perto de morrer" (não só nos últimos 10%). Duas vinhetas, a mais forte
-  // tem prioridade; atualiza sozinha a cada render (`players` = estado vivo).
+  // Vinheta de PV baixo por cima de tudo: alguém do time com até 50% do PV
+  // acende o aviso leve; com até 25%, o vermelho pesado. A mais forte vale.
   const menorPvPctJogador = players.reduce((min, p) => p.pv > 0 ? Math.min(min, (p.pv / (p.pvMax || 1)) * 100) : min, 100)
   const algumJogadorCritico = menorPvPctJogador <= 25
   const algumJogadorAviso = !algumJogadorCritico && menorPvPctJogador <= 50
 
   return (
     <div className="gang-combat gang-container">
-      {/* Pergunta de início de luta (pedido do Isaias, 2026-09-14): toda luta
-          elegível pra Multidão para tudo (motor normal pausado — ver
-          `pausado` em useGanguesTurnMachine — e nada de roster/orb clicável
-          aqui embaixo) até o jogador escolher Sim/Não. Backdrop sólido de
-          propósito: nenhum ataque pode acontecer atrás dela. */}
+      {/* Pergunta "começar em Multidão?" (só na Pista, 1ª luta elegível do
+          save): o motor fica pausado e nada embaixo é clicável até responder. */}
       {perguntaMultidaoAtiva && (
         <div className="gang-multidao-prompt-overlay">
           <div className="gang-multidao-prompt-box">
@@ -376,13 +334,12 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
           (dado/KO/resultado usam 9999). Aparece sempre que o auto está
           ligado; um toque volta pro manual (a ação em andamento resolve
           sozinha, o efeito de auto-ataque para de enfileirar). */}
-      {/* "Parar briga de rua" (Isaias, 30/09/2026): voltar em cima do
-          adversário e brigar de novo é o farm contínuo da briga automática —
-          é aqui, dentro da luta, que o jogador desliga pra parar o ciclo. */}
+      {/* "Parar briga de rua": desliga, de dentro da luta, o ciclo da briga
+          automática da cena (voltar em cima do adversário e brigar de novo). */}
       {!result && (autoLigado || brigaRuaAqui) && (
         <GanguesAutoBolinhas
           t={t} autoLigado={autoLigado} brigaRuaAqui={brigaRuaAqui} velocidade={velocidade} top={autoSairTop}
-          onSairAuto={() => (modoMultidaoAtivo ? modoAutoMultidao.setModoAutoMultidaoOn(false) : modoAuto.setModoAutoOn(false))}
+          onSairAuto={() => setModoAutoOn(false)}
           onPararBrigaRua={() => setBrigaRua(false)}
           onVelocidade={ciclarVelocidade}
         />
@@ -391,7 +348,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
       <GanguesCombatOverlays
         t={t} aviso={aviso} danoCena={fx.danoCena} koCena={fx.koCena}
         dispararProximoKo={fx.dispararProximoKo} machine={machine} modoMultidaoAtivo={modoMultidaoAtivo}
-        revelandoRodada={revelandoRodada} fichaAberta={fichaAberta} setFichaAberta={setFichaAberta}
+        fichaAberta={fichaAberta} setFichaAberta={setFichaAberta}
         falaFinal={falaFinal} result={result} showResultBtn={showResultBtn}
         openBattleReport={abrirRelatorio}
         enemy={store.match.enemy} velocidade={velocidadeEfetiva}
@@ -401,7 +358,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
       <GanguesCombatTopBar
         t={t} onPedirSair={() => setPedindoSair(true)} machine={machine} modoMultidaoAtivo={modoMultidaoAtivo}
         estadoMultidao={estadoMultidao} result={result} revelandoRodada={revelandoRodada}
-        multidaoDisponivel={multidaoDisponivel} modoMultidaoOn={modoMultidaoOn} alternarMultidao={alternarMultidao}
+        multidaoDisponivel={multidaoDisponivel} modoMultidaoOn={modoMultidaoOn} alternarMultidao={alternarMultidao} podeLigar={podeLigar}
         multidaoBlinkVisto={multidaoBlinkVisto}
         trashOptions={trashOptions} trashAberto={trashAberto} setTrashAberto={setTrashAberto} sendPlayerTrash={sendPlayerTrash}
       />
@@ -410,14 +367,14 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
         t={t}
         tempo={modoMultidaoAtivo ? estadoMultidao?.tempo : machine.tempo}
         combatants={modoMultidaoAtivo ? estadoMultidao?.combatants : machine.combatants}
-        vezKey={modoMultidaoAtivo ? null : machine.currentActor?.key}
+        vezKey={modoMultidaoAtivo ? golpeAtual?.actorKey : machine.currentActor?.key}
       />
 
       <GanguesCombatRoster
         members={players} side="player"
         selectable={!modoMultidaoAtivo && !perguntaMultidaoAtiva && machine.phase === 'player'}
         selectedKey={selectedActor} onSelect={modoMultidaoAtivo ? undefined : setSelectedActor}
-        actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key}
+        actingKey={modoMultidaoAtivo ? golpeAtual?.actorKey : machine.currentActor?.key} alvoKey={modoMultidaoAtivo ? golpeAtual?.targetKey : null}
         onAbrirFicha={setFichaAberta} dmgPops={fx.dmgPops} t={t}
       />
 
@@ -426,20 +383,26 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
       <GanguesCombatRoster
         ref={enemyRosterRef}
         members={enemies} side="enemy"
-        selectable={!modoMultidaoAtivo && !perguntaMultidaoAtiva && machine.phase === 'player'}
-        selectedKey={selectedTarget} onSelect={modoMultidaoAtivo ? undefined : setSelectedTarget}
-        actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key}
+        selectable={modoMultidaoAtivo ? !result : !perguntaMultidaoAtiva && machine.phase === 'player'}
+        selectedKey={modoMultidaoAtivo ? foco : selectedTarget} onSelect={modoMultidaoAtivo ? marcarFoco : setSelectedTarget}
+        actingKey={modoMultidaoAtivo ? golpeAtual?.actorKey : machine.currentActor?.key} alvoKey={modoMultidaoAtivo ? golpeAtual?.targetKey : null}
         onAbrirFicha={setFichaAberta} dmgPops={fx.dmgPops} t={t}
       />
 
-      {/* ── Modo Briga em Multidão: poderes configuráveis por toque + avançar rodada ── */}
       {modoMultidaoAtivo && !result && (
         <GanguesMultidaoActionBar
-          t={t} playerTeam={store.match.playerTeam}
-          poderesMultidao={poderesMultidao} itensMultidao={itensMultidao}
-          cicloPoderMultidao={cicloPoderMultidao} toggleItemMultidao={toggleItemMultidao}
-          avancarRodada={avancarRodada} revelandoRodada={revelandoRodada} estadoMultidao={estadoMultidao}
-          autoOn={modoAutoMultidao.modoAutoMultidaoOn} onToggleAuto={modoAutoMultidao.toggleModoAutoMultidao}
+          t={t} focoNome={foco ? fighterName(t, enemies.find(e => e.key === foco)) : null} onLimparFoco={() => marcarFoco(foco)}
+          onAbrirTatica={() => setTaticaAberta(true)}
+          taticasAtivas={store.match.playerTeam.filter(m => multidao.poderes[m.id] || multidao.itens[m.id]).length}
+          avancarRodada={avancarRodada} revelandoRodada={revelandoRodada} prontoPraAvancar={Boolean(estadoMultidao)}
+          autoOn={modoAutoOn} onToggleAuto={modoAuto.toggleModoAuto}
+        />
+      )}
+      {taticaAberta && modoMultidaoAtivo && (
+        <GanguesMultidaoTatica
+          t={t} time={store.match.playerTeam} inventario={store.inventario}
+          poderes={multidao.poderes} escolherPoder={multidao.escolherPoder} itens={multidao.itens} escolherItem={multidao.escolherItem}
+          onClose={() => setTaticaAberta(false)}
         />
       )}
 

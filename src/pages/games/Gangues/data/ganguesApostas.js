@@ -1,17 +1,16 @@
 /* ══════════════════════════════════════════════════════════════
-   APOSTAS (29/09/2026, pedido do Isaias) — a fonte de grana do farm, fora
-   da porrada. Três jeitos:
+   APOSTAS — a fonte de grana do farm, fora da porrada. Dois jeitos, só na
+   Banca da birosca:
    1. DESAFIO DE MÃO: aposta, joga um puzzle sorteado, paga pela dificuldade.
    2. RINHA DE APOSTA: duas fichas NPC brigam sozinhas (motor da Multidão),
       o jogador aposta num lado; a cotação sai da chance real, com margem
       da casa.
-   (Até 30/09/2026 existia a 3ª, APOSTA EM VOCÊ antes de qualquer treta —
-   removida: aposta é só na Banca e no Clube da Luta de quem entra sem dívida.)
+   Fora daqui, só o Clube da Luta de quem entra sem dívida aceita aposta.
    O teto de aposta sobe com a reputação, pra não virar máquina infinita
    logo no começo. Lógica pura — as telas só chamam estas funções.
    ══════════════════════════════════════════════════════════════ */
 import { iniciarBrigaMultidaoDeCombatentes, avancarRodadaMultidao } from '../engine/ganguesBrigaMultidao.js'
-import { prepare } from '../hooks/useGanguesTurnMachine.js'
+import { prepare } from '../engine/ganguesRegrasCombate.js'
 import { escalarInimigo } from './ganguesEncontros.js'
 
 export const APOSTA_VALORES = [10, 25, 50, 100, 200]

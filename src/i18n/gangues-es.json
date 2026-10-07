@@ -770,12 +770,18 @@
         "prompt_sim": "SÍ, MULTITUDINARIA",
         "prompt_nao": "NO, GOLPE A GOLPE",
         "prompt_lembra": "Tu elección vale para las próximas peleas. Puedes cambiarla con el interruptor de arriba.",
-        "poderes_titulo": "Talentos de la ronda",
         "avancar_rodada": "SIGUIENTE RONDA",
-        "resolvendo": "Tirando los dados de la ronda...",
-        "usar_item": "Usar objeto esta ronda (renuncia al ataque)",
-        "vai_usar_item": "Va a usar objeto",
-        "auto_switch_titulo": "Activa el automático — las rondas avanzan solas, respetando los talentos/objetos ya marcados. Desactívalo cuando quieras."
+        "auto_switch_titulo": "Activa el automático — las rondas avanzan solas, respetando los talentos/objetos ya marcados. Desactívalo cuando quieras.",
+        "foco": "Foco",
+        "foco_tirar": "Quitar el foco",
+        "foco_dica": "Toca a un enemigo para que todos le caigan encima",
+        "tatica": "Táctica",
+        "rodando": "Tirando...",
+        "tatica_sub": "Vale para cada ronda hasta que la cambies. El objeto solo entra cuando tiene sentido: poción con alguien a media vida, remedio para quien tiene el estado. Si ningún objeto sirve, pega normal.",
+        "tatica_talento": "Talento",
+        "tatica_item": "Objeto",
+        "tatica_sem_item": "Ninguno",
+        "tatica_pronto": "Listo"
       },
       "recrutar_banner": {
         "titulo": "¡Reclutamiento liberado!",
@@ -783,9 +789,10 @@
         "cta": "Elegir nuevo miembro →"
       },
       "multidao_tutorial": {
-        "interruptor": "Este interruptor activa el modo Pelea Multitudinaria: en vez de golpe a golpe, cada ronda resuelve a todos de una vez.",
-        "alvo_automatico": "En automático, tu banda siempre enfoca al enemigo más cerca de caer — bueno para limpiar una bandita grande rápido.",
-        "avancar": "Toca SIGUIENTE RONDA cuando estés listo. Puedes cambiar de talento o marcar un objeto antes, y el interruptor se prende y apaga cuando quieras."
+        "interruptor": "Pelea Multitudinaria: en vez de golpe a golpe, cada ronda muestra a todos peleando, un golpe tras otro. Este interruptor la apaga si quieres.",
+        "foco": "Toca a un enemigo para marcar el FOCO: toda la banda le cae encima hasta que caiga. Sin foco, la banda va por el que está más cerca de caer.",
+        "tatica": "En TÁCTICA eliges el talento y el objeto de cada uno. Vale para cada ronda, y el objeto solo entra cuando tiene sentido.",
+        "avancar": "Toca SIGUIENTE RONDA cuando estés listo. Con el automático encendido, las rondas salen solas."
       },
       "attr_labels": {
         "H": "Pique",

@@ -14,8 +14,7 @@ import { GANGUES_STATUS } from '../engine/ganguesStatus.js'
 // nada de novo (já tá selecionado, ou não dá pra selecionar agora — morto,
 // já agiu, ou fora da sua vez) — sem precisar de botãozinho separado
 // pequeno demais pra tocar no celular.
-// Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
-const GanguesCombatRoster = forwardRef(function GanguesCombatRoster({ members, side, selectable, selectedKey, onSelect, actingKey, onAbrirFicha, dmgPops, t }, ref) {
+const GanguesCombatRoster = forwardRef(function GanguesCombatRoster({ members, side, selectable, selectedKey, onSelect, actingKey, alvoKey, onAbrirFicha, dmgPops, t }, ref) {
   // Toque no ícone do status mostra o que ele faz (celular não tem hover).
   const [statusAberto, setStatusAberto] = useState(null)
   return (
@@ -24,10 +23,8 @@ const GanguesCombatRoster = forwardRef(function GanguesCombatRoster({ members, s
         const dead = member.pv <= 0
         const acted = side === 'player' && member.actedThisRound
         const acting = member.key === actingKey && !dead
-        // ── Destaque de dano: barrinha "de sangue" drenando + número flutuante
-        // + farol de vida baixa (o Isaias reclamou que morria sem ver, depois
-        // pediu a régua certa: <=50% já começa aviso leve, <=25% já é efeito
-        // pesado/vermelho de "tá perto de morrer" — não só nos últimos 10%).
+        // Destaque de dano: barrinha "de sangue" drenando, número flutuante e
+        // farol de vida baixa (até 50% aviso leve, até 25% vermelho pesado).
         const pvPct = Math.max(0, Math.min(100, (member.pv || 0) / (member.pvMax || 1) * 100))
         const pops = (dmgPops || []).filter(p => p.targetKey === member.key)
         const baixo = !dead && pvPct <= 50 ? (pvPct <= 25 ? 'gang-mini-wrap--critico' : 'gang-mini-wrap--baixo') : ''
@@ -63,7 +60,7 @@ const GanguesCombatRoster = forwardRef(function GanguesCombatRoster({ members, s
             <button
               type="button"
               title={nome}
-              className={`gang-mini ${pathClass} ${!podeSelecionar ? 'gang-mini--indisponivel' : ''} ${dead ? 'gang-mini--dead' : ''} ${jaSelecionado ? 'gang-mini--selected' : ''} ${acting ? 'gang-mini--acting' : ''}`}
+              className={`gang-mini ${pathClass} ${!podeSelecionar ? 'gang-mini--indisponivel' : ''} ${dead ? 'gang-mini--dead' : ''} ${jaSelecionado ? 'gang-mini--selected' : ''} ${acting ? 'gang-mini--acting' : ''} ${member.key === alvoKey && !dead ? 'gang-mini--alvo' : ''}`}
               onClick={tocar}
             >
               <span className={`gang-mini-avatar${foto ? ' gang-mini-avatar--foto' : ''}`}><GanguesRetratoImg src={foto} fallback={nome[0]} /></span>

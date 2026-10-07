@@ -2,35 +2,39 @@ import { resolveGanguesAction, resolveGanguesCura } from './ganguesCombatResolve
 import { decidirAcaoInimigo } from './ganguesPersonas.js'
 import { statusImpedeAcao, alvoComTontura } from './ganguesStatus.js'
 import { iniciarLinhaDoTempo, proximaVez, consumirVez, marcarAgiu, ordemDeVelocidade } from './ganguesLinhaDoTempo.js'
-import { prepararTimes } from '../hooks/useGanguesTurnMachine.js'
+import { prepararTimes, podePagarCusto, aplicarAtaque, aplicarCura, aplicarItem, deltaDoItem, motivoItemNaoServe, curaRealDoItem, POCAO_LIMIAR_PV } from './ganguesRegrasCombate.js'
+import { getGanguesItem } from '../data/ganguesItens.js'
 
 /* ══════════════════════════════════════════════════════════════
-   BRIGA EM MULTIDÃO — RODADA a rodada, não a luta inteira de um clique.
+   BRIGA EM MULTIDÃO — a luta anda RODADA a rodada.
 
-   O jogo é por turno: cada clique em "avançar rodada" resolve UMA rodada
-   completa (todo mundo vivo age pelo menos uma vez, na ordem da linha do
-   tempo do Pique — o mais rápido pode agir 2-3 vezes — jogador
-   focando o inimigo mais fraco, inimigo com a IA de sempre) e PARA. O
-   jogador vê o resultado daquela rodada e decide se continua. Só o alvo
-   automático (em vez de escolher manualmente) e o dano em lote (em vez de
-   um painel de golpe por ataque) são "rápidos" — o ritmo de jogo (uma decisão
-   por rodada) continua igual ao combate normal.
-
-   Usa exatamente as mesmas contas do combate normal (mesmo
-   resolveGanguesAction, mesmo prepararTimes da
-   useGanguesTurnMachine, mesma IA de personas).
+   Cada "avançar rodada" resolve uma rodada completa (todo mundo vivo age
+   pelo menos uma vez, na ordem da linha do tempo do Pique; o mais rápido
+   pode agir 2-3 vezes) e para. A tática do jogador vale pra rodada inteira:
+   - FOCO: o inimigo marcado apanha de todo o time até cair; sem foco, o
+     time bate no inimigo mais perto de cair;
+   - TALENTO por personagem (o chip);
+   - ITEM por personagem: usa quando faz sentido (poção com o aliado na
+     metade da vida, remédio em quem tem o status...) e enquanto tiver no
+     estoque; quando não faz sentido, ataca normal.
+   Cada evento da rodada leva o estado de PV/PM/status logo depois dele
+   (`depois`), pra tela mostrar a rodada golpe a golpe.
+   As contas são as mesmas da luta normal (ganguesRegrasCombate.js).
    ══════════════════════════════════════════════════════════════ */
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
 
-function podePagarCusto(actor, special) {
-  if (!special) return true
-  const cost = special.effect?.cost
-  if (!cost) return true
-  const value = cost.values[special.level - 1]
-  if (cost.kind === 'pm') return (actor.pm || 0) >= value
-  if (cost.kind === 'pv') return (actor.pv || 0) > 1
-  return true
+/** Lutadores somados a partir dos quais a luta da Pista pode virar Multidão. */
+export const GANGUES_MULTIDAO_PISO = 5
+
+/** Quando a luta pode ser Briga em Multidão e quando ela já começa ligada:
+ *  na Pista, com GANGUES_MULTIDAO_PISO lutadores somados, o jogador escolhe;
+ *  da Feira em diante toda luta é em bando e começa em Multidão (o switch
+ *  continua desligando). */
+export function regraMultidao(match, territorioId) {
+  const total = (match?.playerTeam?.length || 0) + (match?.enemyTeam?.length || 0)
+  const bairroDeBando = Boolean(territorioId) && territorioId !== 'pista'
+  return { disponivel: bairroDeBando || total >= GANGUES_MULTIDAO_PISO, padrao: bairroDeBando }
 }
 
 function montar(combatants, round, eventosIniciais) {
@@ -41,20 +45,21 @@ function montar(combatants, round, eventosIniciais) {
     terminado: false, outcome: null,
     eventosIniciais: eventosIniciais || [],
     seq: 0,
+    // Marca desta briga nos ids dos eventos: ligar a Multidão de novo na mesma
+    // luta não repete id no registro.
+    marca: Math.random().toString(36).slice(2, 7),
   }
 }
 
-/** Monta o estado inicial da briga (times preparados + linha do tempo). Nenhuma rodada resolvida ainda. */
+/** Estado inicial da briga (times preparados + linha do tempo). */
 export function iniciarBrigaMultidao({ playerTeam, enemyTeam }) {
   const combatants = prepararTimes(playerTeam, enemyTeam)
   return montar(combatants, 1, [{ type: 'battle_start', id: 'bm-start' }])
 }
 
-/** Como iniciarBrigaMultidao, mas a partir de combatentes JÁ preparados (com
- *  pv/pm/status atuais) — usado ao LIGAR o switch no meio da luta. Recebe a
- *  linha do tempo viva do motor normal (`tempo`) pra continuar de onde ele
- *  parou — quem já agiu nessa rodada continua marcado (`actedThisRound`), sem
- *  ação extra de graça (exploit de 14/09/2026). */
+/** Como iniciarBrigaMultidao, a partir de combatentes JÁ preparados (ligar o
+ *  switch no meio da luta). Recebe a linha do tempo viva do motor normal pra
+ *  continuar de onde ele parou: quem já agiu nessa rodada continua marcado. */
 export function iniciarBrigaMultidaoDeCombatentes(combatants, roundAtual = 1, tempo = null) {
   const clone = combatants.map(c => ({ ...c }))
   const estado = montar(clone, roundAtual, null)
@@ -62,23 +67,63 @@ export function iniciarBrigaMultidaoDeCombatentes(combatants, roundAtual = 1, te
   return estado
 }
 
-/** Resolve UMA rodada a partir do estado atual — roda a linha do tempo até
- *  todo vivo ter agido (a rodada fechar) ou a luta acabar. Retorna o novo
- *  estado + os eventos só dessa rodada.
- *  poderesPorPersonagem/especiaisPorPersonagem são lidos a cada chamada — o jogador pode trocar o poder entre uma rodada e outra.
- *  personagensUsandoItem: { [memberId]: true } — quem marcou "usar item" abre mão do ataque (gasta a vez). */
-export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especiaisPorPersonagem = {}, personagensUsandoItem = {}) {
+/** PV/PM/status de cada um, pra tela repassar a rodada golpe a golpe. */
+const fotografar = lista => lista.map(c => ({ key: c.key, pv: c.pv, pm: c.pm, statuses: c.statuses }))
+
+/** Em quem o item vai agora (null = não faz sentido usar nesta vez). */
+function alvoDoItem(item, actor, lista) {
+  const aliados = lista.filter(c => c.side === 'player' && c.pv > 0)
+  const porFracao = campo => [...aliados].sort((a, b) => a[campo] / (a[`${campo}Max`] || 1) - b[campo] / (b[`${campo}Max`] || 1))[0]
+  if (item.tipo === 'cura_pv') { const a = porFracao('pv'); return a && a.pv / a.pvMax <= POCAO_LIMIAR_PV ? a : null }
+  if (item.tipo === 'cura_pm') { const a = porFracao('pm'); return a && a.pmMax > 0 && a.pm / a.pmMax <= POCAO_LIMIAR_PV ? a : null }
+  if (item.tipo === 'cura_status') return aliados.find(a => !motivoItemNaoServe(item, a)) || null
+  // Efeito de item fica no status sem `id`: não repete enquanto ainda vale.
+  const temEfeito = c => (c.statuses || []).some(s => s.id == null && (item.status || []).some(b => b.attr === s.attr && b.valor === s.valor))
+  if (item.tipo === 'debuff_inimigos') return lista.some(c => c.side === 'enemy' && c.pv > 0 && !temEfeito(c)) ? actor : null
+  if (item.tipo === 'buff') return temEfeito(actor) ? null : actor
+  return null
+}
+
+/** Inimigo que o jogador vai bater: o foco, se vivo; senão o mais perto de cair. */
+function alvoDoJogador(lista, focoKey) {
+  const vivos = lista.filter(c => c.side === 'enemy' && c.pv > 0)
+  return vivos.find(c => c.key === focoKey) || [...vivos].sort((a, b) => a.pv - b.pv)[0] || null
+}
+
+/** Resolve UMA rodada a partir do estado atual. A tática (`tatica`) é lida a
+ *  cada chamada — o jogador pode trocar entre uma rodada e outra:
+ *  { foco, poderes: {memberId: specialId}, especiais: {memberId: [special]},
+ *    itens: {memberId: itemId}, estoque: {itemId: qtd} }.
+ *  Retorna o novo estado + os eventos só dessa rodada. */
+export function avancarRodadaMultidao(estado, tatica = {}) {
+  const { foco = null, poderes = {}, especiais = {}, itens = {} } = tatica
+  const estoque = { ...(tatica.estoque || {}) }
   let lista = estado.combatants.map(c => ({ ...c }))
   let { tempo, round, lastEnemyTargetKey, seq } = estado
+  const marca = estado.marca || 'bm'
   const rodadaAlvo = round
   const eventosRodada = []
   const get = key => lista.find(c => c.key === key)
+  const registrar = evento => { seq += 1; eventosRodada.push({ ...evento, id: `${marca}-${seq}`, round: rodadaAlvo, depois: fotografar(lista) }) }
 
   const checarFim = () => {
     const playersAlive = lista.some(c => c.side === 'player' && c.pv > 0)
     const enemiesAlive = lista.some(c => c.side === 'enemy' && c.pv > 0)
     if (playersAlive && enemiesAlive) return null
     return enemiesAlive ? 'defeat' : 'victory'
+  }
+
+  const atacar = (actor, alvo, activeSpecialId, forcedSpecial = null) => {
+    const original = alvo
+    const target = alvoComTontura(actor, alvo, lista, Math.random)
+    const result = resolveGanguesAction({
+      attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
+      rolls: { fa: d3(), fd: d3() },
+      activeSpecialId, forcedSpecial,
+    })
+    lista = aplicarAtaque(lista, actor.key, target.key, result)
+    registrar({ type: 'attack', side: actor.side, actorKey: actor.key, targetKey: target.key, result, confuso: target.key !== original.key })
+    return Boolean(result.activeSpecialId)
   }
 
   let outcome = checarFim()
@@ -92,62 +137,53 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
 
     const motivoPerde = actor.pv > 0 ? statusImpedeAcao(actor) : null
     if (motivoPerde) {
-      seq += 1
-      eventosRodada.push({ type: 'perdeu_vez', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, motivo: motivoPerde, round: rodadaAlvo })
-    } else if (actor.side === 'player' && personagensUsandoItem[actor.id]) {
-      seq += 1
-      eventosRodada.push({ type: 'item', id: `bm-${seq}`, actorKey: actor.key, round: rodadaAlvo })
-    } else {
-      let target = null
-      let activeSpecialId = null
-      let cura = null // { alvo, special } — talento de cura do Mandingueiro
-      if (actor.side === 'player') {
-        // Foca sempre o inimigo mais perto de cair — eficiente pra limpar um bando grande.
-        target = lista.filter(c => c.side === 'enemy' && c.pv > 0).sort((a, b) => a.pv - b.pv)[0] || null
-        const especiais = especiaisPorPersonagem[actor.id] || []
-        const escolhaId = poderesPorPersonagem[actor.id] || null
-        const especial = escolhaId ? especiais.find(s => s.id === escolhaId) : null
+      registrar({ type: 'perdeu_vez', side: actor.side, actorKey: actor.key, motivo: motivoPerde })
+    } else if (actor.side === 'player') {
+      const item = itens[actor.id] && (estoque[itens[actor.id]] || 0) > 0 ? getGanguesItem(itens[actor.id]) : null
+      const alvoItem = item && item.tipo !== 'poder_unico' ? alvoDoItem(item, actor, lista) : null
+      const alvoGolpe = alvoDoJogador(lista, foco)
+      if (alvoItem) {
+        // Item que faz sentido agora: gasta 1 do estoque e a vez.
+        const delta = deltaDoItem(item)
+        const curado = curaRealDoItem(alvoItem, delta)
+        lista = aplicarItem(lista, actor.key, alvoItem.key, delta)
+        estoque[item.id] -= 1
+        registrar({ type: 'item', side: 'player', actorKey: actor.key, targetKey: alvoItem.key, itemId: item.id, delta, curado })
+      } else if (item?.tipo === 'poder_unico' && alvoGolpe) {
+        // Chip: golpe com o poder emprestado, no alvo da rodada.
+        estoque[item.id] -= 1
+        usouTalento = atacar(actor, alvoGolpe, item.poderId, { id: item.poderId, level: item.poderNivel || 1 })
+        eventosRodada[eventosRodada.length - 1].itemId = item.id
+      } else {
+        const escolhaId = poderes[actor.id] || null
+        const especial = escolhaId ? (especiais[actor.id] || []).find(s => s.id === escolhaId) : null
         const pode = especial && podePagarCusto(actor, especial)
         if (pode && especial.effect?.type === 'heal') {
           const aliados = lista.filter(c => c.side === 'player' && c.pv > 0)
-          cura = { alvo: [...aliados].sort((a, b) => a.pv / a.pvMax - b.pv / b.pvMax)[0], special: especial }
-        } else activeSpecialId = pode ? escolhaId : null
-      } else {
-        // Persona decide alvo e talento (ganguesPersonas.js), igual o motor normal.
-        const acao = decidirAcaoInimigo(actor, lista, { lastTargetKey: lastEnemyTargetKey }, Math.random)
-        target = acao?.alvo || null
-        lastEnemyTargetKey = target?.key || null
-        if (acao?.tipo === 'cura') cura = { alvo: acao.alvo, special: acao.special }
-        else activeSpecialId = acao?.specialId || null
+          const alvo = [...aliados].sort((a, b) => a.pv / a.pvMax - b.pv / b.pvMax)[0]
+          const res = resolveGanguesCura({ ator: actor, alvo, special: especial })
+          if (res) {
+            lista = aplicarCura(lista, actor.key, alvo.key, res)
+            usouTalento = true
+            registrar({ type: 'cura', side: 'player', actorKey: actor.key, targetKey: alvo.key, specialId: res.specialId, curado: res.cura })
+          }
+        } else if (alvoGolpe) {
+          usouTalento = atacar(actor, alvoGolpe, pode ? escolhaId : null)
+        }
       }
-      const resCura = cura ? resolveGanguesCura({ ator: actor, alvo: cura.alvo, special: cura.special }) : null
-      if (resCura) {
-        lista = lista.map(c => {
-          let novo = c
-          if (c.key === actor.key) novo = { ...novo, pm: Math.max(0, novo.pm - resCura.pmCost) }
-          if (c.key === cura.alvo.key) novo = { ...novo, pv: Math.min(novo.pvMax, novo.pv + resCura.cura) }
-          return novo
-        })
-        usouTalento = true
-        seq += 1
-        eventosRodada.push({ type: 'cura', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, targetKey: cura.alvo.key, specialId: resCura.specialId, curado: resCura.cura, round: rodadaAlvo })
-      } else if (target) {
-        const alvoOriginal = target
-        target = alvoComTontura(actor, target, lista, Math.random)
-        const confuso = target.key !== alvoOriginal.key
-        const result = resolveGanguesAction({
-          attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
-          rolls: { fa: d3(), fd: d3() },
-          activeSpecialId,
-        })
-        usouTalento = Boolean(result.activeSpecialId)
-        lista = lista.map(c => {
-          if (c.key === actor.key) return { ...c, statuses: c.key === target.key ? result.defenderStatuses : result.attackerStatuses, pm: Math.max(0, c.pm - result.pmCost), pv: Math.min(c.pvMax, Math.max(0, c.pv - (result.pvCost || 0) - (c.key === target.key ? result.damage : 0)) + (result.cartaCura || 0)), specialState: result.attackerSpecialState }
-          if (c.key === target.key) return { ...c, statuses: result.defenderStatuses, pv: Math.max(0, c.pv - result.damage), specialState: result.defenderSpecialState }
-          return c
-        })
-        seq += 1
-        eventosRodada.push({ type: 'attack', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, targetKey: target.key, result, round: rodadaAlvo, confuso })
+    } else {
+      // Persona decide alvo e talento (ganguesPersonas.js), igual a luta normal.
+      const acao = decidirAcaoInimigo(actor, lista, { lastTargetKey: lastEnemyTargetKey }, Math.random)
+      lastEnemyTargetKey = acao?.alvo?.key || null
+      if (acao?.tipo === 'cura') {
+        const res = resolveGanguesCura({ ator: actor, alvo: acao.alvo, special: acao.special })
+        if (res) {
+          lista = aplicarCura(lista, actor.key, acao.alvo.key, res)
+          usouTalento = true
+          registrar({ type: 'cura', side: 'enemy', actorKey: actor.key, targetKey: acao.alvo.key, specialId: res.specialId, curado: res.cura })
+        }
+      } else if (acao?.alvo) {
+        usouTalento = atacar(actor, acao.alvo, acao.specialId || null)
       }
     }
 
@@ -161,7 +197,7 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
 
   if (!outcome) outcome = checarFim()
   return {
-    combatants: lista, tempo, initiative: ordemDeVelocidade(lista, tempo), round, lastEnemyTargetKey, seq,
+    combatants: lista, tempo, initiative: ordemDeVelocidade(lista, tempo), round, lastEnemyTargetKey, seq, marca,
     terminado: Boolean(outcome), outcome: outcome || null,
     eventosRodada,
   }

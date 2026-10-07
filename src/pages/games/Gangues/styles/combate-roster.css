@@ -64,6 +64,9 @@
   50% { box-shadow: 0 0 0 1px var(--gang-vermelho-600), 0 0 16px rgba(220, 20, 20, 0.7); }
 }
 
+/* Briga em Multidão: quem está apanhando no golpe que está na tela. */
+.gang-mini--alvo { transform: scale(1.08); outline: 2px solid var(--if-amber); outline-offset: 1px; transition: transform 0.12s; }
+
 /* Identidade visual por caminho — atacante vermelho, defensor azul, místico roxo. */
 .gang-mini.gang-path--atacante { border-left: 3px solid #e05252; }
 .gang-mini.gang-path--atacante .gang-mini-avatar { color: var(--gang-vermelho-400); }

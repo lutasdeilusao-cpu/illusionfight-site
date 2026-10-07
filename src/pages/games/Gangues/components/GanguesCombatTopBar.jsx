@@ -3,21 +3,16 @@ import GanguesMultidaoTutorial from './GanguesMultidaoTutorial'
 
 // Barra superior do combate: botão de sair, rodada/vez, switch da Briga em
 // Multidão, e o toggle de provocação (trash talk do jogador).
-// Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
 export default function GanguesCombatTopBar({
   t, onPedirSair, machine, modoMultidaoAtivo, estadoMultidao, result, revelandoRodada,
-  multidaoDisponivel, modoMultidaoOn, alternarMultidao,
+  multidaoDisponivel, modoMultidaoOn, alternarMultidao, podeLigar,
   multidaoBlinkVisto,
   trashOptions, trashAberto, setTrashAberto, sendPlayerTrash,
 }) {
   return (
     <div className="gang-vs-bar">
-      {/* Sair do combate no meio da luta = fugir (nenhuma recompensa, volta
-          direto pro menu) — usa o rótulo METE O PÉ (não SAIR/FUGIR), giria
-          de rua, já traduzido nos 3 idiomas. Pedido do Isaias (18/09/2026):
-          antes saía na hora sem perguntar nada — agora só abre a
-          confirmação (`onPedirSair`, ver GanguesCombatSairConfirm.jsx em
-          GanguesCombat.jsx); quem decide de fato é o modal. */}
+      {/* METE O PÉ = fugir da luta, sem recompensa. Só abre a confirmação
+          (`onPedirSair`); quem decide é o modal GanguesCombatSairConfirm. */}
       <button className="gang-vs-bar-back" onClick={onPedirSair}>{t('games.gangues.btn_fugir')}</button>
       <div className="gang-vs-bar-line" />
       <span className={`gang-vs-bar-turn ${machine.phase === 'player' ? 'gang-vs-bar-turn--player' : machine.phase === 'enemy' ? 'gang-vs-bar-turn--enemy' : ''}`}>
@@ -27,28 +22,20 @@ export default function GanguesCombatTopBar({
         )}
       </span>
       <div className="gang-vs-bar-line" />
-      {multidaoDisponivel && (() => {
-        // Só dá pra LIGAR na sua vez, sem nada pendente (ver nota em
-        // useGanguesModoMultidao.js/alternarMultidao) — desligar continua
-        // liberado a qualquer momento, então essa trava só entra quando o
-        // switch ainda está desligado.
-        const bloqueadoPraLigar = !modoMultidaoOn && (machine.phase !== 'player' || Boolean(machine.pending))
-        return (
-          <button
-            type="button"
-            className={`gang-multidao-switch ${modoMultidaoOn ? 'gang-multidao-switch--on' : ''} ${!multidaoBlinkVisto && !modoMultidaoOn ? 'gang-multidao-switch--blink' : ''}`}
-            disabled={revelandoRodada || Boolean(result) || bloqueadoPraLigar}
-            title={bloqueadoPraLigar ? t('games.gangues.multidao.switch_titulo_bloqueado') : t('games.gangues.multidao.switch_titulo')}
-            onClick={alternarMultidao}
-          >
-            <span className="gang-multidao-switch-track"><span className="gang-multidao-switch-bolinha" /></span>
-            <small>{t('games.gangues.multidao.switch_label')}</small>
-          </button>
-        )
-      })()}
+      {multidaoDisponivel && (
+        // Ligar só na sua vez, sem golpe pendente (podeLigar); desligar a qualquer momento.
+        <button
+          type="button"
+          className={`gang-multidao-switch ${modoMultidaoOn ? 'gang-multidao-switch--on' : ''} ${!multidaoBlinkVisto && !modoMultidaoOn ? 'gang-multidao-switch--blink' : ''}`}
+          disabled={revelandoRodada || Boolean(result) || (!modoMultidaoOn && !podeLigar)}
+          title={!modoMultidaoOn && !podeLigar ? t('games.gangues.multidao.switch_titulo_bloqueado') : t('games.gangues.multidao.switch_titulo')}
+          onClick={alternarMultidao}
+        >
+          <span className="gang-multidao-switch-track"><span className="gang-multidao-switch-bolinha" /></span>
+          <small>{t('games.gangues.multidao.switch_label')}</small>
+        </button>
+      )}
       {multidaoDisponivel && <GanguesMultidaoTutorial />}
-      {/* Modo automático saiu da barra do topo pro menu da bolinha de ação
-          (pedido do Isaias) — ver <GanguesActionOrb autoOn ... />. */}
       {!modoMultidaoAtivo && machine.phase === 'player' && !result && trashOptions.length >= 3 && (
         <div className="gang-trash-toggle-wrap">
           <button type="button" className="gang-trash-toggle" onClick={() => setTrashAberto(v => !v)} aria-label={t('games.gangues.combat_specials.provocar')}>💬</button>

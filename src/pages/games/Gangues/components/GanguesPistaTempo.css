@@ -25,6 +25,7 @@
 .gang-pista__corredor--raia3 { top: calc(var(--raia) * 3); }
 .gang-pista__corredor--raia4 { top: calc(var(--raia) * 4); }
 .gang-pista__corredor--raia5 { top: calc(var(--raia) * 5); }
+.gang-pista__corredor--dividida { width: 12px; height: 12px; margin: 5px 0 0 -6px; font-size: 7px; opacity: 0.9; }
 .gang-pista__corredor--player { left: calc(4% + var(--p) * 46%); background: var(--if-cyan); }
 .gang-pista__corredor--enemy { left: calc(96% - var(--p) * 46%); background: var(--if-danger); }
 .gang-pista__corredor.is-vez { box-shadow: 0 0 0 2px var(--if-amber), 0 0 10px var(--if-amber); z-index: 1; }

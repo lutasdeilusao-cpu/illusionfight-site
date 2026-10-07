@@ -1,9 +1,10 @@
-// Pista da linha do tempo (sistema do Pique, 26/09/2026 — estilo Medabots):
+// Pista da linha do tempo (sistema do Pique, estilo Medabots):
 // cada lutador corre da borda até o centro; chegou no centro, é a vez dele.
 // Jogador vem da esquerda, inimigo da direita. Quem agiu volta pra largada.
 // Cada raia leva um aliado (vem da esquerda) e um inimigo (vem da direita);
-// só aparecem as raias necessárias, até 6 — passou disso, dividem
-// (pedido do Isaias, 27/09/2026). Lê o `tempo` do motor ativo (normal ou
+// só aparecem as raias necessárias, até 6 — passou disso, dividem; quem
+// divide corre menor e mais embaixo
+// na faixa, pra não esconder o outro. Lê o `tempo` do motor ativo (normal ou
 // Briga em Multidão) — ver engine/ganguesLinhaDoTempo.js.
 import { useEffect, useState } from 'react'
 import { progressoNaPista } from '../engine/ganguesLinhaDoTempo.js'
@@ -35,13 +36,13 @@ export default function GanguesPistaTempo({ t, tempo, combatants, vezKey }) {
         return (
           <span
             key={c.key}
-            className={`gang-pista__corredor gang-pista__corredor--${c.side} gang-pista__corredor--raia${raiaDe.get(c.key) % raias}${c.key === vezKey ? ' is-vez' : ''}`}
+            className={`gang-pista__corredor gang-pista__corredor--${c.side} gang-pista__corredor--raia${raiaDe.get(c.key) % raias}${raiaDe.get(c.key) >= raias ? ' gang-pista__corredor--dividida' : ''}${c.key === vezKey ? ' is-vez' : ''}`}
             style={{ '--p': largou ? (prog[c.key] || 0) : 0 }}
             title={nome}
           >
             {(nome || '?')[0]}
-            {/* Pique sorteado das peças nesta luta (faixa, 27/09/2026) —
-                "hoje o tênis tá ligeiro". Só aparece se a peça somou algo. */}
+            {/* Pique sorteado das peças nesta luta ("hoje o tênis tá
+                ligeiro"). Só aparece se a peça somou algo. */}
             {c.equipPique > 0 && <i className="gang-pista__pique">+{c.equipPique}</i>}
           </span>
         )

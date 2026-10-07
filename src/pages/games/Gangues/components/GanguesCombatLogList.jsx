@@ -4,8 +4,8 @@ import { getGanguesEffectTheme } from '../data/ganguesEffectThemes.js'
 import GanguesRetratoImg from './GanguesRetratoImg'
 
 // Lista de log do combate — mensagens de sistema, trash talk, ordem de
-// iniciativa e o card de ataque (FA/FD/dado/crítico/bônus/dano).
-// Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
+// iniciativa, o card de ataque (FA/FD/dado/crítico/bônus/dano) e a linha
+// curta de golpe da Briga em Multidão.
 const GanguesCombatLogList = forwardRef(function GanguesCombatLogList({ log, t }, logEndRef) {
   return (
     <div className="gang-log-area">
@@ -14,6 +14,18 @@ const GanguesCombatLogList = forwardRef(function GanguesCombatLogList({ log, t }
           return (
             <motion.div key={entry.id} className="gang-msg-wrap gang-msg-wrap--system" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <span className="gang-bubble gang-bubble--system">{entry.text}</span>
+            </motion.div>
+          )
+        }
+        if (entry.kind === 'golpe') {
+          // Golpe da Briga em Multidão: uma linha — quem → em quem, talento, dano.
+          return (
+            <motion.div key={entry.id} className={`gang-golpe gang-golpe--${entry.side}${entry.critical ? ' is-crit' : ''}`} initial={{ opacity: 0, x: entry.side === 'player' ? -10 : 10 }} animate={{ opacity: 1, x: 0 }}>
+              <strong>{entry.actorName}</strong>
+              <span aria-hidden="true">→</span>
+              <strong>{entry.targetName}</strong>
+              {entry.activeSpecialId && <em>{t(`games.gangues.progression.skills.${entry.activeSpecialId}`)}</em>}
+              <b>{entry.dmg > 0 ? `−${entry.dmg}${entry.critical ? '!' : ''}` : entry.shieldConsumed > 0 ? '🛡' : '0'}</b>
             </motion.div>
           )
         }

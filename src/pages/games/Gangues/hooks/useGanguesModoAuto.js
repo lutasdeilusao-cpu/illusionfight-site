@@ -15,12 +15,12 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MODO_AUTO_EXIGE_ASSINATURA, TIERS_COM_MODO_AUTO } from '../engine/ganguesCombatPresentation.js'
 import { chaveDoSave } from './useGanguesVelocidadeAuto.js'
+import { POCAO_LIMIAR_PV } from '../engine/ganguesRegrasCombate.js'
 
 // Configuração do automático (por navegador e por save, igual o liga/desliga
 // — gangue nova começa do zero; ver chaveDoSave).
 const CONFIG_CHAVE = 'ldi-gangues-auto-config'
 const CONFIG_PADRAO = { talentos: {}, pocao: false, pocaoPm: false }
-export const POCAO_LIMIAR_PV = 0.5
 
 export function lerAutoConfig() {
   try {

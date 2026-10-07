@@ -770,12 +770,18 @@
         "prompt_sim": "YES, MOB BRAWL",
         "prompt_nao": "NO, ONE BY ONE",
         "prompt_lembra": "Your choice sticks for the next fights. Flip it anytime with the switch up top.",
-        "poderes_titulo": "This round's talents",
         "avancar_rodada": "NEXT ROUND",
-        "resolvendo": "Rolling this round's dice...",
-        "usar_item": "Use item this round (gives up the attack)",
-        "vai_usar_item": "Will use item",
-        "auto_switch_titulo": "Turn on auto — rounds advance by themselves, respecting the skills/items you've already picked. Turn it off anytime."
+        "auto_switch_titulo": "Turn on auto — rounds advance by themselves, respecting the skills/items you've already picked. Turn it off anytime.",
+        "foco": "Focus",
+        "foco_tirar": "Clear focus",
+        "foco_dica": "Tap an enemy so the whole crew piles on them",
+        "tatica": "Tactics",
+        "rodando": "Rolling...",
+        "tatica_sub": "Holds for every round until you change it. Items only kick in when they make sense: a potion when someone is at half health, a remedy for whoever has the status. If no item fits, they just hit.",
+        "tatica_talento": "Talent",
+        "tatica_item": "Item",
+        "tatica_sem_item": "None",
+        "tatica_pronto": "Done"
       },
       "recrutar_banner": {
         "titulo": "Recruitment unlocked!",
@@ -783,9 +789,10 @@
         "cta": "Choose new member →"
       },
       "multidao_tutorial": {
-        "interruptor": "This switch turns on Mob Brawl mode: instead of one hit at a time, each round resolves everyone at once.",
-        "alvo_automatico": "On auto, your crew always focuses whoever's closest to falling — good for clearing a big mob fast.",
-        "avancar": "Tap NEXT ROUND whenever you're ready. You can swap a talent or flag an item first, and the switch flips on and off whenever you want."
+        "interruptor": "Mob Brawl: instead of blow by blow, each round shows everyone fighting, one hit after another. This switch turns it off if you want.",
+        "foco": "Tap an enemy to set the FOCUS: the whole crew piles on them until they drop. With no focus, the crew goes for whoever is closest to falling.",
+        "tatica": "In TACTICS you pick each fighter's talent and item. It holds for every round, and items only kick in when they make sense.",
+        "avancar": "Tap NEXT ROUND when you're ready. With auto on, rounds keep rolling on their own."
       },
       "attr_labels": {
         "H": "Pace",
