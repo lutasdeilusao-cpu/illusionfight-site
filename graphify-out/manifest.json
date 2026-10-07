@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791385956.1817243,
-    "ast_hash": "379ff68777a177647d6d577252db417d",
+    "mtime": 1791386473.102414,
+    "ast_hash": "378bfe6c948e1c85d8462e5fb6a1c877",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791385956.2253883,
-    "ast_hash": "bf6736ab194d48ef1bcd511dc7c4359f",
+    "mtime": 1791386473.1475017,
+    "ast_hash": "c05c67f927e6036a36d2c9171b72080d",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3935,8 +3935,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/cenaHelpers.js": {
-    "mtime": 1791363812.5698302,
-    "ast_hash": "13a133b27d78f00f6ace2fa1dc24b366",
+    "mtime": 1791386444.3424354,
+    "ast_hash": "f36325219f3b64fa767a841a06c80fc4",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/index.js": {

@@ -65,10 +65,6 @@ export const GANGUES_TERRITORIOS = [
       { id: 'pista-3', gangue: 'bonde_sinal' },
     ],
     chefe: { id: 'pista-chefe', gangue: 'rato_pista', enemy: 1500, boss: 'fumaca' },
-    // Teto de nível (escada do GDD §9.7, 29/09/2026: Pista 20, ~13 por bairro
-    // até 99). Na simulação, dupla no nível 20 com o conjunto comum vence o
-    // Carvão ~60%; sem item ~30%.
-    nivelTeto: 20,
   },
   {
     id: 'feira',
@@ -90,7 +86,6 @@ export const GANGUES_TERRITORIOS = [
       { id: 'feira-3', gangue: 'os_gato' },
     ],
     chefe: { id: 'feira-chefe', gangue: 'cobranca_turco', enemy: 1501, boss: 'turco' },
-    nivelTeto: 33,
   },
   {
     id: 'baixada',
@@ -107,7 +102,6 @@ export const GANGUES_TERRITORIOS = [
       { id: 'baixada-3', gangue: 'os_restos', enemy: 1405, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'baixada-chefe', gangue: 'sombra_fria', enemy: 1502, boss: 'espeto' },
-    nivelTeto: 46,
   },
   {
     id: 'vila',
@@ -124,7 +118,6 @@ export const GANGUES_TERRITORIOS = [
       { id: 'vila-3', gangue: 'os_andar_de_cima', enemy: 1407, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'vila-chefe', gangue: 'bonde_predio', enemy: 1503, boss: 'sala' },
-    nivelTeto: 59,
   },
   {
     id: 'morro',
@@ -141,7 +134,6 @@ export const GANGUES_TERRITORIOS = [
       { id: 'morro-3', gangue: 'os_fogueteiro', enemy: 1409, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'morro-chefe', gangue: 'frente_escada', enemy: 1504, boss: 'zefa' },
-    nivelTeto: 72,
   },
   {
     id: 'alto',
@@ -158,7 +150,6 @@ export const GANGUES_TERRITORIOS = [
       { id: 'alto-3', gangue: 'a_roda', enemy: 1318, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'alto-chefe', gangue: 'os_cinco', enemy: 1505, boss: 'doutor' },
-    nivelTeto: 85,
   },
   {
     id: 'laje',
@@ -175,7 +166,6 @@ export const GANGUES_TERRITORIOS = [
       { id: 'laje-3', gangue: 'bonde_costura', enemy: 1463, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'laje-chefe', gangue: 'bonde_costura', enemy: 1600, boss: 'costura', ehFinal: true },
-    nivelTeto: 99,
   },
 ]
 
@@ -238,10 +228,11 @@ export function precisaVoltarNoInformante(territorio, storyProgress = {}) {
 }
 
 
-/** Teto de nível da Rinha de um bairro: o `nivelTeto` dele (Pista = 20),
- *  ou o nível do chefe quando o bairro não tem `nivelTeto`. */
+/** A Rinha te sobe até 9 níveis abaixo do chefe do bairro (Carvão 29 → 20). */
+export const GANGUES_RINHA_FOLGA_CHEFE = 9
+/** Teto de nível da Rinha de um bairro: nível do chefe − GANGUES_RINHA_FOLGA_CHEFE. */
 export function tetoDaRinha(territorioId, tetoJogo = 99) {
   const terr = GANGUES_TERRITORIOS.find(t => t.id === territorioId)
-  const n = Number(terr?.nivelTeto) || Number(enemiesData.find(e => e.id === terr?.chefe?.enemy)?.nivel) || tetoJogo
-  return Math.min(n, tetoJogo)
+  const chefe = Number(enemiesData.find(e => e.id === terr?.chefe?.enemy)?.nivel)
+  return chefe ? Math.min(Math.max(1, chefe - GANGUES_RINHA_FOLGA_CHEFE), tetoJogo) : tetoJogo
 }
