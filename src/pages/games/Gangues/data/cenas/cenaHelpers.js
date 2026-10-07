@@ -16,6 +16,8 @@ import { CENA_MORRO } from './morro/index.js'
 import { CENA_ALTO } from './alto/index.js'
 import { CENA_LAJE } from './laje/index.js'
 import { tetoDoTerritorio } from '../ganguesChefes.js'
+import { tetoDaRinha } from '../ganguesTerritorios.js'
+import catalogo from '../ldi_gangues_30_personagens_v1.json'
 
 export const CENAS_POR_ID = {
   [CENA_PISTA.id]: CENA_PISTA,
@@ -154,8 +156,18 @@ export const GANGUES_RINHA_MARCADA = -8
 export const GANGUES_RINHA_FORTE_A_CADA = [5, 8]
 const pontosFicha = m => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(m?.attributes?.[k]) || 0), 0)
 export const fichaMaisForte = playerTeam => Math.max(0, ...(playerTeam || []).map(pontosFicha))
-export function niveisDaRinha(playerTeam, forte = false) {
-  const maisForte = fichaMaisForte(playerTeam)
+/** Maior ficha que um personagem do catálogo tem no nível `nivel`. */
+const fichaNoNivel = nivel => Math.max(0, ...(catalogo.personagens || catalogo.characters || catalogo)
+  .map(p => p.levels?.find(l => l.level === nivel)?.stats).filter(Boolean).map(st => pontosFicha({ attributes: st })))
+/** Ficha de referência da Rinha: a do teu mais forte, mas nunca acima de um
+ *  personagem no teto de nível da Rinha do bairro (Pista: nível 20 = 27). */
+export const fichaDaRinha = (playerTeam, territorioId) => {
+  const forte = fichaMaisForte(playerTeam)
+  const teto = territorioId ? fichaNoNivel(tetoDaRinha(territorioId)) : 0
+  return teto ? Math.min(forte, teto) : forte
+}
+export function niveisDaRinha(playerTeam, forte = false, territorioId = null) {
+  const maisForte = fichaDaRinha(playerTeam, territorioId)
   if (!maisForte) return []
   return forte ? [Math.max(2, maisForte + GANGUES_RINHA_MARCADA)] : GANGUES_RINHA_FAIXA.map(d => Math.max(2, maisForte + d))
 }
@@ -179,9 +191,9 @@ export function revezamentoNoTerritorio(revezamento, territorioId, playerTeam, f
   return {
     ...revezamento,
     tetoTerritorio: tetoDoTerritorio(territorioId) ? territorioId : undefined,
-    niveisSorteio: revezamento.nivelDaTropa ? niveisDaRinha(playerTeam, forte) : undefined,
+    niveisSorteio: revezamento.nivelDaTropa ? niveisDaRinha(playerTeam, forte, territorioId) : undefined,
     // teto duro: 4 abaixo da tua ficha, em qualquer luta (nem o arredondamento passa)
-    tetoPontos: revezamento.nivelDaTropa && fichaMaisForte(playerTeam) ? Math.max(2, fichaMaisForte(playerTeam) + GANGUES_RINHA_TETO) : revezamento.tetoPontos,
+    tetoPontos: revezamento.nivelDaTropa && fichaMaisForte(playerTeam) ? Math.max(2, fichaDaRinha(playerTeam, territorioId) + GANGUES_RINHA_TETO) : revezamento.tetoPontos,
   }
 }
 

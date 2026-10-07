@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791381357.9055426,
-    "ast_hash": "2d9a3665c4c5e9da0b94aa5b6f0c358e",
+    "mtime": 1791385956.1817243,
+    "ast_hash": "379ff68777a177647d6d577252db417d",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791381357.9380734,
-    "ast_hash": "d290ebe07b56c311c5217cbb9b9657d2",
+    "mtime": 1791385956.2253883,
+    "ast_hash": "bf6736ab194d48ef1bcd511dc7c4359f",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3155,8 +3155,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesRoute.jsx": {
-    "mtime": 1791090120.2968123,
-    "ast_hash": "db23a473c31cae0188ad24a360db7c50",
+    "mtime": 1791385802.23869,
+    "ast_hash": "bf9c86e7271a813050089976208e7979",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/gangues-enemies.json": {
@@ -3165,8 +3165,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesLoadout.js": {
-    "mtime": 1790691694.7993248,
-    "ast_hash": "de3424ee5056bfc0fab76afa94bf2c76",
+    "mtime": 1791385852.3646326,
+    "ast_hash": "2a92eec96fffb5d044a1201233af7a63",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesCombatResolver.js": {
@@ -3700,8 +3700,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesTerritorios.js": {
-    "mtime": 1790815913.6861794,
-    "ast_hash": "e73c01d85706f940d6287c5a4e529d23",
+    "mtime": 1791385864.8748093,
+    "ast_hash": "7cd2dcf19093c44884fe00a744036238",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GangDialog.jsx": {
@@ -3880,8 +3880,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesVictoryResolution.js": {
-    "mtime": 1791363494.651119,
-    "ast_hash": "8bfdca7a14d7adb1d454eba0d3d8b56b",
+    "mtime": 1791385844.2576737,
+    "ast_hash": "94855651824c5c4121ee243878d4a463",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesBiroscaSlice.js": {
@@ -3915,8 +3915,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesProgressionSlice.js": {
-    "mtime": 1791379223.9548075,
-    "ast_hash": "f225b9f995b5765d746a972eee0c7415",
+    "mtime": 1791385934.774937,
+    "ast_hash": "62ab98fae00fe26267047972fd350bab",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesSaveSlice.js": {
@@ -4955,8 +4955,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesFarmAusente.js": {
-    "mtime": 1791363494.6861186,
-    "ast_hash": "69dcc8396e2220722faa94cb364a7ead",
+    "mtime": 1791385844.2576737,
+    "ast_hash": "ad1be0f741eba6f82fbab0c63c554d47",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js": {
