@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-10-07)
 
 ## Corpus Check
-- 1242 files · ~2,150,727 words
+- 1242 files · ~2,150,742 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 5704 nodes · 8826 edges · 727 communities (390 shown, 337 thin omitted)
+- 5704 nodes · 8834 edges · 729 communities (391 shown, 338 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 82 edges (avg confidence: 0.62)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8271415a`
+- Built from commit: `086853a4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -624,11 +624,13 @@
 - 02.md
 - 02.md
 - Vila.jsx
+- PerfilColecao.jsx
 - resolveAttack
 - launch.js
 - TypewriterPhrase.jsx
 - podeEquiparGangues
 - useGanguesI18n.js
+- interiores.js
 - 9. Acervo auditado e exemplos
 - PP.jsx
 - versaoNova.js
@@ -660,7 +662,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (727 total, 337 thin omitted)
+## Communities (729 total, 338 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -860,7 +862,7 @@ Nodes (24): For /graphify add and --watch, For /graphify query, For the commit h
 
 ### Community 53 - "TopTrumpsCard.jsx"
 Cohesion: 0.06
-Nodes (27): ALTO_CINCO, cinco(), flagComprou(), POIS_ALTO, CENA_BAIXADA, BAIXADA_RESPEITO, POIS_BAIXADA, CENA_FEIRA (+19 more)
+Nodes (25): ALTO_CINCO, cinco(), flagComprou(), POIS_ALTO, CENA_BAIXADA, BAIXADA_RESPEITO, POIS_BAIXADA, CENA_FEIRA (+17 more)
 
 ### Community 54 - "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL"
 Cohesion: 0.50
@@ -1496,7 +1498,7 @@ Nodes (25): PuzzleWrapper(), CASOS, getInimigo(), INIMIGOS_I18N, PISTAS, casosDi
 
 ### Community 403 - "ganguesStatus.js"
 Cohesion: 0.14
-Nodes (14): alertaDaCena(), avancarRinha(), CENAS_POR_ID, custoRecuperacaoRinha(), destinoSocorroDerrota(), fichaMaisForte(), GANGUES_RINHA_FAIXA, GANGUES_RINHA_FORTE_A_CADA (+6 more)
+Nodes (20): alertaDaCena(), avancarRinha(), CENAS_POR_ID, contarCena(), custoRecuperacaoRinha(), destinoSocorroDerrota(), fichaMaisForte(), GANGUES_RINHA_FAIXA (+12 more)
 
 ### Community 404 - "drawCombatBoard"
 Cohesion: 0.60
@@ -1599,8 +1601,8 @@ Cohesion: 0.60
 Nodes (4): ler(), lerProgresso(), salvarProgresso(), ultimoProgresso()
 
 ### Community 480 - "TopTrumpsMP.jsx"
-Cohesion: 0.14
-Nodes (19): carregarDeck(), registrarMovimento(), subscribeToMatchPresence(), subscribeToMovimentos(), DECKS, getDeck(), cardModules, getTopTrumpsCardImage() (+11 more)
+Cohesion: 0.21
+Nodes (13): registrarMovimento(), subscribeToMatchPresence(), subscribeToMovimentos(), getTopTrumpsCardImage(), initialState, reduce(), useMultiplayerTurnMachine(), attrNomeKey() (+5 more)
 
 ### Community 484 - "ganguesPersonas.js"
 Cohesion: 0.43
@@ -1683,8 +1685,8 @@ Cohesion: 0.20
 Nodes (9): GanguesCombatRoster, alvoComTontura(), GANGUES_STATUS, LEGADO, modAtaqueStatus(), modDefesaStatus(), ST, statusImpedeAcao() (+1 more)
 
 ### Community 654 - "GanguesLobby.jsx"
-Cohesion: 0.22
-Nodes (9): GanguesEscalacao(), GanguesEscalacaoTutorial(), cenaIntroTutorialId(), EMPTY_ALVOS, GanguesCena(), GanguesLobby(), LOGOS, lutadoresComPoderPraEquipar() (+1 more)
+Cohesion: 0.31
+Nodes (6): GanguesEscalacao(), GanguesEscalacaoTutorial(), GanguesLobby(), LOGOS, lutadoresComPoderPraEquipar(), PATH_MARKS
 
 ### Community 658 - "useGanguesManterVivo.js"
 Cohesion: 0.30
@@ -1754,6 +1756,10 @@ Nodes (18): 10. Direção aprovada (**planejado**), 11.1 Campanha do pentagrama,
 Cohesion: 0.19
 Nodes (11): registrarPartida(), registrarPontuacaoRanking(), usePresence(), GameOverScreen(), ONOMATOPEIAS, useGameEffects(), getTierInicial(), useTopTrumpsRewards() (+3 more)
 
+### Community 718 - "PerfilColecao.jsx"
+Cohesion: 0.31
+Nodes (6): carregarDeck(), DECKS, getDeck(), cardModules, TOP_TRUMPS_CARD_IMAGES, PerfilColecao()
+
 ### Community 719 - "resolveAttack"
 Cohesion: 0.31
 Nodes (14): applyCounterAttack(), applyDamage(), atkBonus(), calcRawDmg(), calcRawDmgWithArrow(), defBonus(), getActiveArrow(), getActiveArrowName() (+6 more)
@@ -1785,15 +1791,15 @@ Nodes (7): buildDaPagina(), buildNoAr(), conferir(), emJogo(), iniciarConferenci
 ## Knowledge Gaps
 - **2249 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2244 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **337 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **338 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `AuthContext.jsx` to `Community 0`, `Community 1`, `powersData.js`, `Community 8`, `Community 10`, `classTree.js`, `Community 20`, `Lobby.jsx`, `Community 22`, `Historias.jsx`, `criaturas.js`, `PuzzleStealthGrid.jsx`, `3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS`, `DixContext.jsx`, `UniversosHub.jsx`, `react`, `Phase2Customize.jsx`, `TopTrumpsSP.jsx`, `TypewriterPhrase.jsx`, `AnalyticsTracker.jsx`, `Vila.jsx`, `PuzzleStealthGrid`, `useGameStore.js`, `Number`, `TopTrumpsMP.jsx`, `PerfilProgresso.jsx`, `Community 125`, `useRadioNina.js`?**
-  _High betweenness centrality (0.034) - this node is a cross-community bridge._
+- **Why does `useLanguage()` connect `AuthContext.jsx` to `Community 0`, `Community 1`, `powersData.js`, `Community 8`, `Community 10`, `classTree.js`, `Community 20`, `Lobby.jsx`, `Community 22`, `Historias.jsx`, `criaturas.js`, `PuzzleStealthGrid.jsx`, `3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS`, `DixContext.jsx`, `UniversosHub.jsx`, `react`, `Phase2Customize.jsx`, `TopTrumpsSP.jsx`, `TypewriterPhrase.jsx`, `AnalyticsTracker.jsx`, `Vila.jsx`, `PerfilColecao.jsx`, `PuzzleStealthGrid`, `useGameStore.js`, `Number`, `TopTrumpsMP.jsx`, `PerfilProgresso.jsx`, `Community 125`, `useRadioNina.js`?**
+  _High betweenness centrality (0.032) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `criaturas.js` to `Community 0`, `3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS`, `TopTrumpsMP.jsx`, `DixContext.jsx`, `Vila.jsx`, `Community 20`, `Community 22`, `AuthContext.jsx`, `Community 125`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **Why does `SFX` connect `Community 7` to `TopTrumpsMP.jsx`, `powersData.js`, `Vila.jsx`, `criaturas.js`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**

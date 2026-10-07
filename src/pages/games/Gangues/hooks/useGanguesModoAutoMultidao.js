@@ -13,11 +13,6 @@ export default function useGanguesModoAutoMultidao({ modoAutoMultidaoOn, setModo
   const toggleModoAutoMultidao = () => setModoAutoMultidaoOn(v => !v)
   const autoQueuedRef = useRef(false)
 
-  // Saiu da Multidão (ou a luta virou pro motor normal) — desarma o automático
-  // daqui. Sem isso ele ficaria "escondido" ligado e voltaria a avançar
-  // rodada sozinho se o jogador reentrar na Multidão sem querer.
-  useEffect(() => { if (!modoMultidaoAtivo) setModoAutoMultidaoOn(false) }, [modoMultidaoAtivo])
-
   useEffect(() => {
     // koCena: mesmo motivo do modo automático normal — para enquanto o
     // cartão de KO está na tela, senão a próxima rodada já sai e o momento

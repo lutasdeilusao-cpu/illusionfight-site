@@ -47,7 +47,7 @@ import { farolDe } from '../components/cena/GanguesCenaAtores.jsx'
 const GANGUES_BRIGA_AUTO_CHAVE = 'ldi-gangues-briga-auto'
 // Os automáticos lembrados (useGanguesAutoLembrado): briga automática da
 // cena + automático do combate normal e da Multidão (GanguesCombat.jsx).
-const GANGUES_AUTOMATICOS = [GANGUES_BRIGA_AUTO_CHAVE, 'ldi-gangues-auto', 'ldi-gangues-auto-multidao']
+const GANGUES_AUTOMATICOS = [GANGUES_BRIGA_AUTO_CHAVE, 'ldi-gangues-auto']
 
 /** O switch da briga de rua, lido/gravado de qualquer tela (a luta usa pra
  *  deixar o jogador desligar sem voltar pra rua — ver o cabeçalho). */

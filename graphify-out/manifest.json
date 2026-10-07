@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791363501.3736553,
-    "ast_hash": "2c5e5ad2edafe8065d146e7b4c2f978f",
+    "mtime": 1791363820.6530528,
+    "ast_hash": "d353131860ceb63e727bcf1e578ecb51",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791363506.416192,
-    "ast_hash": "a3b5b6e3670cc7e3919f540c25a65834",
+    "mtime": 1791363820.6930535,
+    "ast_hash": "a53e73b00f8ea2171a896fd982614fe5",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3935,13 +3935,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/cenaHelpers.js": {
-    "mtime": 1791043480.4686654,
-    "ast_hash": "dcb21fdee8b811f6c388f825b9f029b8",
+    "mtime": 1791363812.5698302,
+    "ast_hash": "13a133b27d78f00f6ace2fa1dc24b366",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/index.js": {
-    "mtime": 1791088292.17403,
-    "ast_hash": "d9ee2e8e755d4b70f7446f9b5253527f",
+    "mtime": 1791363812.4408243,
+    "ast_hash": "229abd6693585bd43dce480cadc5af84",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/interiores.js": {
@@ -4145,8 +4145,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCena.jsx": {
-    "mtime": 1791294472.1139376,
-    "ast_hash": "d11f206fe2075891c93e341e0280696e",
+    "mtime": 1791363812.5168247,
+    "ast_hash": "7e52987d3177162fd748d502a15ead14",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCombat.jsx": {

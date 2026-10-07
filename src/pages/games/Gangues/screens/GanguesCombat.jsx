@@ -125,12 +125,13 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // pro cara poder ir upando"). Só com o AUTOMÁTICO ligado — o da luta normal
   // ou o da Briga em Multidão. Manual (inclusive a Multidão manual) roda sempre
   // em 1x: acelerar é benefício do automático, que vai ser de assinante.
-  // Os dois estados de "auto ligado" moram aqui (não nos hooks) porque o motor
+  // O "auto ligado" mora aqui (não nos hooks) porque o motor
   // e a Multidão precisam da velocidade já na construção.
   // Lembrados entre lutas: quem terminou no automático já começa a próxima
   // com ele ligado (ver useGanguesAutoLembrado).
   const [modoAutoOn, setModoAutoOn] = useGanguesAutoLembrado('ldi-gangues-auto')
-  const [modoAutoMultidaoOn, setModoAutoMultidaoOn] = useGanguesAutoLembrado('ldi-gangues-auto-multidao')
+  // Um automático só: vale pra luta normal e pra Briga em Multidão.
+  const [modoAutoMultidaoOn, setModoAutoMultidaoOn] = [modoAutoOn, setModoAutoOn]
   const { velocidade, ciclarVelocidade } = useGanguesVelocidadeAuto()
   const velocidadeEfetiva = ((modoAutoOn && !modoMultidaoAtivoPreMachine) || (modoAutoMultidaoOn && modoMultidaoAtivoPreMachine)) ? velocidade : 1
 
