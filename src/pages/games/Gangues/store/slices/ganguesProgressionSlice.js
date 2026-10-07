@@ -39,7 +39,13 @@ export default function createGanguesProgressionSlice(set, get) {
     // menor que o número de gente (time gigante contra 1 inimigo fraco) é que
     // não dá pra garantir pra todo mundo — aí cai pra divisão só por peso.
     gainApForParticipants: (totalAp, pesosPorId = {}, nivelPorId = {}, naRinha = false) => {
-      const ids = Object.keys(pesosPorId)
+      const todos = Object.keys(pesosPorId)
+      // Teto da área só na Rinha; no resto do jogo sobe até o teto do jogo.
+      const tetoNivel = naRinha ? nivelTetoDaHistoria(get().storyProgress, GANGUES_LEVEL_CAP) : GANGUES_LEVEL_CAP
+      // Quem já está no teto não recebe: o pote inteiro vai pra quem ainda sobe.
+      const nivelDe = id => Number(nivelPorId[id] ?? get().roster.find(m => String(m.id) === String(id))?.level) || 1
+      const abaixoDoTeto = todos.filter(id => nivelDe(id) < tetoNivel)
+      const ids = abaixoDoTeto.length ? abaixoDoTeto : todos
       const somaPesos = ids.reduce((s, id) => s + (Number(pesosPorId[id]) || 0), 0) || 1
       const apTotalInteiro = Math.round(Math.max(0, Number(totalAp) || 0))
       const podeGarantirTodoMundo = ids.length > 0 && apTotalInteiro >= ids.length
@@ -55,7 +61,7 @@ export default function createGanguesProgressionSlice(set, get) {
       // de verdade agora: o que aparece é exatamente o que é concedido.
       const fracoesExatas = {}
       ids.forEach(id => { fracoesExatas[id] = (Number(pesosPorId[id]) || 0) / somaPesos * poteRestante })
-      const apPorMembro = {}
+      const apPorMembro = Object.fromEntries(todos.map(id => [id, 0]))
       let somaPisos = 0
       ids.forEach(id => { const piso = Math.floor(fracoesExatas[id]); apPorMembro[id] = baseGarantida + piso; somaPisos += piso })
       const sobra = poteRestante - somaPisos
@@ -77,8 +83,6 @@ export default function createGanguesProgressionSlice(set, get) {
 
       const levelUps = []
       let totalXp = 0
-      // Teto da área só na Rinha; no resto do jogo sobe até o teto do jogo.
-      const tetoNivel = naRinha ? nivelTetoDaHistoria(get().storyProgress, GANGUES_LEVEL_CAP) : GANGUES_LEVEL_CAP
       set(state => {
         const advance = member => {
           if (!(member.id in pesosPorId)) return member

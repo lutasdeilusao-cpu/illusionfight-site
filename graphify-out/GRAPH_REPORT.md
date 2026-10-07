@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-10-07)
 
 ## Corpus Check
-- 1242 files · ~2,150,707 words
+- 1242 files · ~2,150,726 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 5704 nodes · 8834 edges · 729 communities (391 shown, 338 thin omitted)
+- 5704 nodes · 8822 edges · 730 communities (392 shown, 338 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 82 edges (avg confidence: 0.62)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8d7ec551`
+- Built from commit: `8eaad938`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -633,6 +633,7 @@
 - interiores.js
 - 9. Acervo auditado e exemplos
 - PP.jsx
+- GanguesCena.jsx
 - versaoNova.js
 
 ## God Nodes (most connected - your core abstractions)
@@ -662,7 +663,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (729 total, 338 thin omitted)
+## Communities (730 total, 338 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -1497,8 +1498,8 @@ Cohesion: 0.13
 Nodes (25): PuzzleWrapper(), CASOS, getInimigo(), INIMIGOS_I18N, PISTAS, casosDisponiveis(), getCaso(), getLocaisParaCaso() (+17 more)
 
 ### Community 403 - "ganguesStatus.js"
-Cohesion: 0.14
-Nodes (20): alertaDaCena(), avancarRinha(), CENAS_POR_ID, contarCena(), custoRecuperacaoRinha(), destinoSocorroDerrota(), fichaMaisForte(), GANGUES_RINHA_FAIXA (+12 more)
+Cohesion: 0.13
+Nodes (15): alertaDaCena(), avancarRinha(), CENAS_POR_ID, custoRecuperacaoRinha(), destinoSocorroDerrota(), fichaMaisForte(), GANGUES_RINHA_FAIXA, GANGUES_RINHA_FORTE_A_CADA (+7 more)
 
 ### Community 404 - "drawCombatBoard"
 Cohesion: 0.60
@@ -1784,12 +1785,16 @@ Nodes (3): 22.1 Ficha de página, 22.2 Briefing de arte ou geração assistida, 
 Cohesion: 0.14
 Nodes (7): AVATARES, BatalhaView(), getInimigo(), getJackStats(), INIMIGOS_NIVEL, PUZZLE_EMOJI, rolar()
 
+### Community 728 - "GanguesCena.jsx"
+Cohesion: 0.67
+Nodes (3): cenaIntroTutorialId(), EMPTY_ALVOS, GanguesCena()
+
 ### Community 730 - "versaoNova.js"
 Cohesion: 0.42
 Nodes (7): buildDaPagina(), buildNoAr(), conferir(), emJogo(), iniciarConferenciaDeVersao(), pontoSeguro(), recarregar()
 
 ## Knowledge Gaps
-- **2248 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2243 more)
+- **2249 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2244 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **338 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1803,7 +1808,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `trackEvent()` connect `useRadioNina.js` to `Community 8`?**
   _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
-  _2248 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2249 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
