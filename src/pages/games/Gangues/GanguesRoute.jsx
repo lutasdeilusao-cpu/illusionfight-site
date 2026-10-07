@@ -115,6 +115,8 @@ export default function GanguesRoute() {
     if (atual === 'territorio' && anterior === 'save-select') { setFase('story'); return }
     if (anterior) setFase(anterior)
   }
+  // Sair de um bairro (voltar ou a saída da rua) leva sempre pro mapa.
+  const irProMapa = () => setFase('story')
 
   // "Mete o pé" (fugir da luta): luta de bairro volta pro TERRITÓRIO, no ponto
   // da briga (Isaias, 28/09/2026: "onde já se viu voltar pro menu inicial...
@@ -376,8 +378,8 @@ export default function GanguesRoute() {
       )}
       {fase === 'territorio' && (
         temCena(store.storyTarget?.territorioId)
-          ? <GanguesFarmAusente aoContinuarRinha={continuarRinha}><GanguesCena onNavigate={navegar} onVoltar={voltar} /></GanguesFarmAusente>
-          : <GanguesTerritorio onNavigate={navegar} onVoltar={voltar} />
+          ? <GanguesFarmAusente aoContinuarRinha={continuarRinha}><GanguesCena onNavigate={navegar} onVoltar={irProMapa} /></GanguesFarmAusente>
+          : <GanguesTerritorio onNavigate={navegar} onVoltar={irProMapa} />
       )}
       {/* "Mete o pé" (fugir da luta, com confirmação): ver meterOPe — luta de
           bairro volta pro território; Clube e Torre, pros Modos. Nunca pro lobby. */}

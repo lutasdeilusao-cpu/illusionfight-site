@@ -5708,6 +5708,7 @@
           "subir": "CLIMB",
           "entrar": "GO IN",
           "sair": "BOUNCE",
+          "sair_bairro": "LEAVE THE HOOD",
           "voltar": "BACK",
           "avancar": "PUSH IN",
           "desafiar": "STEP UP",

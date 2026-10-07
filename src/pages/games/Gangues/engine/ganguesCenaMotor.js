@@ -107,6 +107,12 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto, flags =
     // Vila): o pino de chefe da RUA some (a luta é lá dentro)
     const temGalpaoInterno = Object.values(cena.interiores || {}).some(inter => (inter.comodos || []).some(com => (com.pois || []).some(pd => pd.ref === '__chefe')))
     const alvos = [...pois, ...portas]
+    // Saída do bairro: logo abaixo de onde o jogador nasce, leva pro mapa.
+    const nasce = cena.mundo?.spawn
+    if (nasce) {
+      const sy = nasce.y + 70
+      alvos.push({ id: '__saida_bairro', ehSaidaBairro: true, world: { x: nasce.x, y: sy }, zona: { x: nasce.x - 40, y: sy - 26, w: 80, h: 60 }, estado: 'disponivel' })
+    }
     if (!temGalpaoInterno) {
       alvos.push({
         ...cena.chefe, world: POS.boss, zona: ENTRY_ZONES.boss, ehChefe: true,

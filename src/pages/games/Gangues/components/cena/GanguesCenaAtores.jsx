@@ -40,7 +40,7 @@ export function GangMarker({ player, facing, gangName, retrato: retratoUrl }) {
 // ganguesCenaMotor.js); é o `farmCompleto` que sinaliza "já venceu, mas pode
 // repetir", e por isso conta como "feito" (verde) aqui também.
 export function farolDe(p) {
-  if (p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem || p.ehChefe) return ''
+  if (p.ehPorta || p.ehSaida || p.ehSaidaBairro || p.ehVolta || p.ehPassagem || p.ehChefe) return ''
   // Oferta pendente (ex: o corre do Nato, dentro do Descanso) força verde —
   // pedido do Isaias, 20/09/2026 ("tem que ficar verde, óbvio, pro cara
   // saber que tem uma missão ali") — exceção deliberada ao farol normal
@@ -239,10 +239,11 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado, longeDe }) {
     return () => { clearInterval(id); onColidir?.(p.id, false) }
   }, [p.id, p.revezamento, p.npcSlug, p.liderFixo, p.enemy, p.retratoEnemyId, onColidir])
   if (p.estado === 'trancado' && !(p.ehPassagem || p.ehChefe)) return null
-  const icone = p.ehChefe ? '★' : p.ehPorta ? '🚪' : p.ehSaida ? '↩' : p.ehVolta ? '↩' : p.ehPassagem ? (p.label === 'subir' ? '▲' : '▶') : (ICONE[p.tipo] || '•')
+  const icone = p.ehChefe ? '★' : p.ehPorta ? '🚪' : p.ehSaida ? '↩' : p.ehSaidaBairro ? '🗺' : p.ehVolta ? '↩' : p.ehPassagem ? (p.label === 'subir' ? '▲' : '▶') : (ICONE[p.tipo] || '•')
   const nome = p.ehChefe ? t(`games.gangues.story.bosses.${p.boss}.nome`)
     : p.ehPorta ? t('games.gangues.cena.acao.entrar')
     : p.ehSaida ? t('games.gangues.cena.acao.sair')
+    : p.ehSaidaBairro ? t('games.gangues.cena.acao.sair_bairro')
     : p.ehVolta ? t('games.gangues.cena.acao.voltar')
     : p.ehPassagem ? (p.estado === 'trancado' ? t('games.gangues.cena.acao.trancado') : t(`games.gangues.cena.acao.${p.label || 'avancar'}`))
     : (p.i18n ? t(`${p.i18n}.nome`) : '')
@@ -271,7 +272,7 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado, longeDe }) {
     '--gp-resp': `${3.2 + (h % 5) * 0.3}s`,
   } : undefined
   const movClasse = movimento ? `mov-${movimento}${anda ? ' mov-anda' : ''}` : ''
-  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.fuga ? 'is-fuga' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo && !ignorado ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${movClasse}`} style={{ left: p.world.x, top: p.world.y }}>
+  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.fuga ? 'is-fuga' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo && !ignorado ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehSaidaBairro || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${movClasse}`} style={{ left: p.world.x, top: p.world.y }}>
     <span ref={spanRef} style={movStyle}>
       <span className={personagem ? 'gang-world-npc-passo' : undefined}>
         {retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : icone}
@@ -288,6 +289,7 @@ export function interactionLabel(p, t) {
   if (p.ehChefe) return t('games.gangues.cena.acao.desafiar')
   if (p.ehPorta) return t('games.gangues.cena.acao.entrar')
   if (p.ehSaida) return t('games.gangues.cena.acao.sair')
+  if (p.ehSaidaBairro) return t('games.gangues.cena.acao.sair_bairro')
   if (p.ehVolta) return t('games.gangues.cena.acao.voltar')
   if (p.ehPassagem) return t(`games.gangues.cena.acao.${p.label || 'avancar'}`)
   return t(`games.gangues.cena.acao.${TIPOS_COM_VERBO.has(p.tipo) ? p.tipo : 'interagir'}`)

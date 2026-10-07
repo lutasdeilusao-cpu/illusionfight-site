@@ -245,6 +245,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   }
   const abrir = poi => {
     if (!poi || poi.estado === 'trancado') return
+    if (poi.ehSaidaBairro) { guardarPosicao({ ...(cena.mundo?.spawn || SPAWN), local: null }); (onVoltar || (() => onNavigate('story')))(); return }
     if (poi.ehPorta) { entrar(poi.interId, poi.comodo || 0, poi.spawn); return }
     if (poi.ehSaida) { sair(poi.paraPredio); return }
     if (poi.ehVolta) { irComodo(poi.para); return }

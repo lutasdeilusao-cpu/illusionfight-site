@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791386473.102414,
-    "ast_hash": "378bfe6c948e1c85d8462e5fb6a1c877",
+    "mtime": 1791386840.309015,
+    "ast_hash": "ccd66fc93f56b4cb0c601a4605a9a7bd",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791386473.1475017,
-    "ast_hash": "c05c67f927e6036a36d2c9171b72080d",
+    "mtime": 1791386840.337535,
+    "ast_hash": "f9b2029d486e589e80c4517b56993eb8",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3700,8 +3700,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesTerritorios.js": {
-    "mtime": 1791385864.8748093,
-    "ast_hash": "7cd2dcf19093c44884fe00a744036238",
+    "mtime": 1791386824.1715693,
+    "ast_hash": "afa7943fb8e9740d7d60fedb76d48ca1",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GangDialog.jsx": {

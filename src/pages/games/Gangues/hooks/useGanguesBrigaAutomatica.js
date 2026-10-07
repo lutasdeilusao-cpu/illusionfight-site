@@ -66,7 +66,7 @@ export function desligarAutomaticos() {
 // Como a briga começa sozinha nesse alvo: opções pro iniciarTreta da cena,
 // ou null se ele não é de briga automática.
 function brigaDoAlvo(alvo) {
-  if (!alvo || alvo.ehPorta || alvo.ehSaida || alvo.ehVolta || alvo.ehPassagem || alvo.ehChefe) return null
+  if (!alvo || alvo.ehPorta || alvo.ehSaida || alvo.ehSaidaBairro || alvo.ehVolta || alvo.ehPassagem || alvo.ehChefe) return null
   if (farolDe(alvo) === 'is-obrigatorio') return null
   // A Rinha (luta infinita) é escolha do jogador, só no toque — senão quem
   // só anda pela rua fica preso num farm sem fim.
