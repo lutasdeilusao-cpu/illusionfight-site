@@ -8,7 +8,7 @@
 
 Leia primeiro o manifesto e as regras essenciais (§2–3). Para produzir uma página, use composição (§4), texto (§5), cores e vozes (§6), área segura (§7) e referências e processo (§11–22). A revisão final está no §23.
 
-As seções 11 a 22 trazem evolução do acervo, fichas, posicionamento na Sala A-304, coreografia, HIT COMBO, referências e estilo de arte, localização, fluxo de produção e modelos de prompt. Os registros distinguem:
+As seções 11 a 22 trazem evolução do acervo, fichas, posicionamento na Sala A-304, coreografia, HIT COMBO, referências e estilo de arte, localização, fluxo de produção e modelos de prompt. A §26 reúne a tradução do capítulo 01 para inglês e espanhol: fluxo, prompts, voz, armadilhas e decisões já tomadas. Os registros distinguem:
 
 | Nível | Significado |
 |---|---|
@@ -677,7 +677,7 @@ Preservar fonte, peso, cor de personagem, glow, inclinação, perspectiva e ênf
 | JÁ QUE É UM SONHO, ENTÃO EU ACHO QUE NÃO PRECISO PEGAR LEVE. | SINCE IT'S JUST A DREAM, GUESS I DON'T HAVE TO HOLD BACK. |
 | MAS EU ACHO QUE TÁ NA HORA DE LIBERTAR UMA DAS CORRENTES. | BUT I THINK IT'S TIME TO BREAK ONE OF THE CHAINS. |
 
-Glossário: Lutas de Ilusão → **Illusion Fight**; Sangue Primordial → **Primordial Blood**; LDI continua LDI. Manter nomes próprios, Bravara, Marélia, Elite Academy, Yohu e Yohualticit. Logos e palavras já em inglês, como HIT COMBO, permanecem. Tradução ES precisa de revisão própria; o handoff não fornece uma tabela espanhola equivalente.
+Glossário: Lutas de Ilusão → **Illusion Fight**; Sangue Primordial → **Primordial Blood**; LDI continua LDI. Manter nomes próprios, Bravara, Marélia, Elite Academy, Yohu e Yohualticit. Logos e palavras já em inglês, como HIT COMBO, permanecem. O processo completo da tradução do capítulo 01, os prompts base EN e ES, as decisões de adaptação dos dois idiomas, as armadilhas e as pendências estão na §26.
 
 ## 18. Vídeo e outras obras: limites de reaproveitamento
 
@@ -896,3 +896,248 @@ Campos pendentes não devem ser preenchidos com valores apresentados como oficia
 | [`SITE_MAP.md`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/SITE_MAP.md) e [`AGENTS.md`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/AGENTS.md) | Mapa, estrutura, coluna mobile e regras de manutenção/publicação. |
 
 Esta documentação cobre o repositório, o histórico indicado pelo projeto, o handoff fornecido pelo autor e o acervo local inventariado. A inspeção externa foi por amostragem visual e inventário de arquivos; não constitui aprovação de cada arte nem revisão linguística integral. Não presume acesso a conversas ou materiais não fornecidos.
+
+## 26. Tradução do capítulo 01 (EN e ES)
+
+Registro de Isaias sobre a tradução do capítulo 01 de Lutas de Ilusão / Illusion Fight. Complementa §10.3, §17 e §20; quando houver diferença, vale esta seção, que é a mais recente. O glossário e a lore completos estão no site (illusionfight.com, com busca).
+
+### 26.1 Situação
+
+- **Formato:** WEBSHARD, termo próprio do projeto. Não se traduz.
+- **Capítulo 01:** cerca de 53 páginas, finais e aprovadas. A tradução troca só o texto, nunca a arte.
+- **Idiomas:** PT é o original; EN e ES são adaptações.
+- **Status:** inglês concluído. Espanhol feito até a página 53, exceto a 41 (em produção) e a 52 (confirmar se tem texto).
+
+### 26.2 Fluxo de trabalho, página por página
+
+1. Analisar a página e listar **todo** o texto: balões, legendas, SFX, placas, telas de celular, calendários e rodapés.
+2. Decidir o que **não** se traduz: o que já está em inglês, nomes, logos e termos de game.
+3. Montar uma tabela: **Onde | Original | Tradução | Observação** (adaptação cultural).
+4. Gerar o bloco "THIS PAGE" (§26.5) e colar no fim do prompt base (§26.3 ou §26.4).
+5. Uma página por conversa no gerador; mais de uma na mesma conversa mistura os estilos.
+6. Página só com SFX em inglês não passa pelo gerador: copia direto pra pasta do idioma.
+7. Texto novo (como um rodapé), texto longo manuscrito ou muitos acentos: considerar fazer no PSD.
+8. Ferramenta atual: ChatGPT no modo *thinking*. Ele revisa sozinho a arte (dedos, braços, anatomia) e **não** muda o texto traduzido.
+9. **Regra do Isaias:** a cada ajuste pedido, entregar o trabalho **completo** atualizado (bloco ou prompt inteiro), nunca só o pedaço alterado.
+
+### 26.3 Prompt base — inglês
+
+```
+You are editing a FINAL, APPROVED webtoon page. Your only job is to replace Portuguese text with English text. This is a text-replacement task, NOT a redesign.
+
+STRICT RULES — ARTWORK:
+- Keep the artwork 100% identical: same characters, poses, faces, colors, lighting, effects, composition, framing, aspect ratio and resolution.
+- Do not redraw, restyle, crop, extend, add or remove anything outside the text areas.
+- Only touch the pixels where Portuguese text currently is.
+
+STRICT RULES — TEXT STYLE:
+- Each translated text must match the original exactly in font style, weight, color, glow, outline, texture, damage/crack effects, perspective, rotation and position.
+- Speech bubbles and caption boxes keep the same shape and size. Fit the English text inside them, adjusting line breaks if needed.
+- Sound effects (SFX) keep the same hand-drawn/impact style and energy.
+
+WHAT NOT TO TRANSLATE (analyze first):
+- Before editing, identify every piece of text on the page and decide whether it is already in English or is a proper noun.
+- Leave untouched: anything already in English (e.g. HIT, COMBO, K.O., FIGHT, ROUND, PERFECT, GAME OVER, LEVEL UP), logos, the "ILLUSION FIGHT" logo, the "IF" emblem, character names, place names and brand names.
+- Only translate what is actually Portuguese.
+
+OFFICIAL GLOSSARY (always use these):
+- Lutas de Ilusão → Illusion Fight
+- Contos de Ilusão → Illusion Tales
+- Alan, o Campeão → Alan, the Champion
+- Bravara, Marélia, Elite Academy, Yohu, Yohualticit → keep as is
+- Kim, Jack, Nina, Helena, David Kronos, Pajé Yawanari, Alan → keep as is
+- Sangue Primordial → Primordial Blood
+- LDI → keep as LDI
+- PowWow (in-universe social network) → keep as PowWow
+- Povos originários → Indigenous peoples
+- Cabeça de Musgo (Kim's nickname for Jack) → Snot Top
+- Velho Rabugento (Jack's nickname for Kim) → Old Grump
+- Sonhe / Treine / Evolua → Dream / Train / Evolve
+- A única regra da briga de rua → The only rule of a street fight
+- Não há regras → There are no rules
+- Game terms already in English (HIT, MISS, COMBO, K.O., etc.) → keep as is
+
+TRANSLATION TONE:
+- Natural, punchy English that fits a fighting/action webtoon — not literal word-for-word.
+- Keep the character's personality, slang level and attitude. Short and impactful, similar length to the original so it fits the same space.
+
+THIS PAGE:
+[colar o bloco da página aqui]
+```
+
+### 26.4 Prompt base — espanhol
+
+```
+You are editing a FINAL, APPROVED webtoon page. Your only job is to replace Portuguese text with Spanish text. This is a text-replacement task, NOT a redesign.
+
+STRICT RULES — ARTWORK:
+- Keep the artwork 100% identical: same characters, poses, faces, colors, lighting, effects, composition, framing, aspect ratio and resolution.
+- Do not redraw, restyle, crop, extend, add or remove anything outside the text areas.
+- Only touch the pixels where Portuguese text currently is.
+
+STRICT RULES — TEXT STYLE:
+- Each translated text must match the original exactly in font style, weight, color, glow, outline, texture, damage/crack effects, perspective, rotation and position.
+- Speech bubbles and caption boxes keep the same shape and size. Fit the Spanish text inside them, adjusting line breaks if needed.
+- Sound effects (SFX) keep the same hand-drawn/impact style and energy.
+- Use Spanish punctuation: opening "¡" and "¿" at the start of exclamations and questions.
+
+WHAT NOT TO TRANSLATE (analyze first):
+- Before editing, identify every piece of text on the page and decide whether it is already in English/Spanish or is a proper noun.
+- Leave untouched: English sound effects and game terms (HIT, MISS, COMBO, K.O., BAM, CRACK, FWOOSH, CLICK, etc.), logos, the "ILLUSION FIGHT" logo, the "IF" emblem, character names, place names and brand names.
+- Only translate what is actually Portuguese.
+
+OFFICIAL GLOSSARY (always use these):
+- Lutas de Ilusão → Illusion Fight
+- Contos de Ilusão → Cuentos de Ilusión
+- Bravara, Marélia, Elite Academy, Yohu, Yohualticit → keep as is
+- Kim, Jack, Nina, Helena, David Kronos, Pajé Yawanari, Alan → keep as is
+- Sangue Primordial → Sangre Primordial
+- LDI → keep as LDI
+- PowWow (in-universe social network) → keep as PowWow
+- Povos originários → pueblos originarios
+- Cabeça de Musgo (Kim's nickname for Jack) → Cabeza de Moco
+- Velho Rabugento (Jack's nickname for Kim) → Viejo Gruñón
+- Irmão / mano (Jack talking to Kim) → hermano
+- Sonhe / Treine / Evolua → Sueña / Entrena / Evoluciona
+- A única regra da briga de rua → La única regla de la pelea callejera
+- Não há regras → No hay reglas
+
+TRANSLATION TONE:
+- Natural Latin American Spanish with a light Mexican street flavor (e.g. "¿qué onda?"), punchy and fitting a fighting/action webtoon — not literal word-for-word.
+- Keep each character's personality, slang level and attitude. Keep profanity at the same intensity as the Portuguese.
+- Short and impactful, similar length to the original so it fits the same space.
+
+THIS PAGE:
+[colar o bloco da página aqui]
+```
+
+### 26.5 Modelo do bloco "THIS PAGE"
+
+```
+THIS PAGE:
+- Page: Ep. 01 – Page XX (descrição curta da cena)
+- Text to translate:
+  1. [Onde + estilo: ex. "Top-right speech bubble (white fill, blue outline, blue comic font)"]: "ORIGINAL / COM / QUEBRAS" → "TRADUÇÃO / COM / QUEBRAS" (palavra-chave maior e em negrito, igual ao original)
+  2. ...
+- Do not change: [SFX que ficam, personagens, painéis, bordas neon, cenário, iluminação — listar tudo]
+- Speech bubbles keep the same shape, size and tail direction
+- (ES) Accents and special letters must be spelled exactly: [lista de palavras com acento/Ñ]
+```
+
+### 26.6 Estilo e voz
+
+- **Adaptar, não traduzir literalmente.** A piada e a atitude valem mais que a letra.
+- **Palavrão:** manter a **mesma** intensidade do PT. Decisões tomadas: porra → *fuck*; fudido → *fucked*; filho da puta → *son of a bitch*; esse merda → *that little shit*.
+- **Destaque:** nos balões, a palavra-chave (normalmente a última) é maior e em negrito. Sempre dizer isso no bloco, senão o gerador deixa tudo igual.
+- **Cores de voz:** Kim = balão branco com contorno **azul**; Jack = contorno **verde**; Helena = **roxo**. O monólogo interno do Kim às vezes é texto azul flutuante, **sem** balão: descrever isso explicitamente, pro gerador não inventar balão.
+- **Kim:** seco, econômico, sarcástico. Frases curtas.
+- **Jack:** teatral, influencer, vive de rede social (EN: *so fire*; ES: *hermano*).
+- **Pajé Yawanari:** influencer debochado e carinhoso, gíria de internet (ES: *mis amores*, *¡qué fail!*, *la vibra*, *la banda*).
+- **Palavras do Autor (páginas 43–50):** voz pessoal do Isaias. Espanhol neutro e caloroso, sem gíria regional forte.
+- **Espanhol:** "LDI" sem artigo (*escribir LDI*, *LDI continúa*).
+- **Inglês:** *16 AND OLDER* (não *over 16*, que é ambíguo).
+
+### 26.7 Onomatopeias (SFX)
+
+- **Já em inglês, não mexe:** FWOOOSH, VWOOOSH, BLOP, DRIP, VRRM, BAM, CRACK, KRRK, SHRAK, MISS, CLICK, GRRT, SPLAAT etc.
+- **Adaptar as "brasileiras":**
+  - TUM-TUM → THUMP-THUMP
+  - TAK (soco) → WHAK
+  - GLUP → GULP
+  - TSC → TSK (se for o Jack); CLICK (se for a câmera)
+  - Polimento opcional: TWAK → THWAK; SCHRAAACK → SHRAAACK
+- O leitor brasileiro e o latino aceitam SFX em inglês, então uma página só com SFX serve pros três idiomas.
+
+### 26.8 Armadilhas (falsos amigos e erros comuns)
+
+**Espanhol**
+
+- "Bala" é munição. Doce é **DULCES**.
+- "Boleto" é ingresso ou passagem. Conta é **CUENTA**.
+- "Vale" é "ok". Pra "vale a pena", usar **VALE LA PENA**.
+- "Ya valió" (MX) é "deu ruim". Usar a frase completa: **VALIÓ LA PENA**.
+- Carimbo de pago é **PAGADO** (não "PAGO").
+- "Sulfite" não existe: **HOJAS BLANCAS**. "Busão" é **BUS**/**BUSES** ("camión", em outros países, é caminhão).
+- "El arte" é masculino: *el arte es generado*, *arte generado*.
+- Sem acento em espanhol: MANGA, COPIA, INTELIGENCIA, GUION, HISTORIA, ESENCIA, POSIBILIDADES, SOLO.
+- "AÑO" sem o Ñ vira outra palavra. Sempre listar os acentos no bloco.
+- "Jornada do herói" → **VIAJE DEL HÉROE**; "tática de escrita" → **TÉCNICA DE ESCRITURA**.
+- "Legal" → **INCREÍBLE** (evitar *chido* e *bacán*, que são regionais).
+
+**Inglês**
+
+- "Sulfite" → **PRINTER PAPER**; "bala" → **CANDY**.
+- Interface de celular também se traduz: VÍDEO/FOTO/RETRATO → VIDEO/PHOTO/PORTRAIT.
+- Calendários: traduzir dias e meses (ES: LUN MAR MIÉ JUE VIE SÁB DOM / ENE FEB MAR ABR MAY JUN JUL AGO SEP OCT NOV DIC).
+
+**Sensíveis**
+
+- **PowWow:** em inglês, é termo de cerimônia dos povos nativos norte-americanos. Mantido de propósito: tem fundamento na lore, explicado no site.
+- **"Indiozinho"** (o Alan chama o Kim assim nos Contos): a tradução direta em EN/ES soa como ofensa racial. Quando aparecer, pensar com calma.
+
+### 26.9 Decisões de adaptação já tomadas
+
+**Inglês**
+
+| Página | PT | EN |
+|---|---|---|
+| 00 (capa) | O SONHO DE ILUSÃO | THE ILLUSION DREAM |
+| 01 | REALIDADE TAMBÉM É UMA LUTA | REALITY IS A FIGHT TOO |
+| 02 | MAIS QUE UM WEBSHARD | manter WEBSHARD (confirmar, §26.12); OST, LORE |
+| 03 | QUE PORRA É ESSA? | WHAT THE FUCK / IS THIS? |
+| 04 | AQUIETA, CORAÇÃO / ...É UM SONHO | EASY, HEART / NO DOUBT ABOUT IT... THIS IS A DREAM |
+| 05 | CABEÇA DE MUSGO | SNOT TOP |
+| 06 | ME ZUAR / ESSE MERDA | CLOWN ON ME / THAT LITTLE SHIT |
+| 08 | DEMAIS | SO FIRE (página da PowWow\*) |
+| 09 | — | BLACK GOLD... STRIKE IT RICH? / NOPE. NOT BLACK GOLD. JUST THE USUAL SIGN THAT I'M FUCKED!!! |
+| 10 | — | I'VE GOT A BAD FEELING... / ABOUT THIS SHIT RIGHT HERE!!! (eco de Star Wars) |
+| 11 | OU GOSMA!!! | OR SLIME!!! |
+| 12–13 | — | YOU KNOW THE ONLY RULE OF A STREET FIGHT? / THERE ARE NO RULES!!!\* |
+| 14 | — | HOPE YOU'VE GOT A GOOD DENTAL PLAN!!! |
+| 42 | — | I CAN'T TAKE THIS SHIT ANYMORE!!! / GO TO SLEEP, YOU DEVIL'S SPAWN!!! |
+
+**Espanhol**
+
+| Página | PT | ES |
+|---|---|---|
+| 42 | — | ¡YA NO AGUANTO MÁS ESTA MIERDA! / ¡VETE A DORMIR, ENGENDRO DEL DIABLO!!! |
+| 43 | — | VENDIENDO DULCES EN EL BUS; HOJAS BLANCAS; LAS PÁGINAS VOLARON |
+| 44 | — | SE ESFUMABA (combina com a cena do mágico) |
+| 45 | SAIR DO PAPEL | DIRECTO A LA VENA; COBRAR VIDA |
+| 46 | — | SE ESFUMÓ; VIAJE DEL HÉROE |
+| 47 | DO MEU JEITO / POUCO ME FODENDO | A MI MANERA / ME IMPORTA UNA MIERDA (alternativa: ME VALE MADRE) |
+| 48 | TÁ FODA | YA PAGÓ UNA CUENTA; MANO, VALE LA PENA; PAGADO; DE PUTA MADRE |
+| 49 | AGRADAR O ISAÍAS DE 17 ANOS | HACER FELIZ AL ISAÍAS DE 17 AÑOS |
+| 50 | TAMO JUNTO / VOCÊ QUE SE FODA | ¡SOMOS EQUIPO! / PUES, JÓDETE. |
+| 51 (Pajé) | — | ¿CÓMO ANDAN, MIS AMORES?; ¡QUÉ FAIL, MANO!; ¡ESTÉN PENDIENTES, EH!; BESOS DEL PAJÉ |
+| 53 | O REAL TAMBÉM É UMA LUTA | LO REAL TAMBIÉN ES UNA LUCHA |
+
+### 26.10 Rodapé da página 13
+
+Nas três versões, com a mesma fonte do rodapé da PowWow na página 08:
+
+- **PT:** \*Quer saber onde o Kim aprendeu essa regra? Acesse illusionfight.com e procure por Contos de Ilusão.
+- **EN:** \*Want to know where Kim learned this rule? Visit illusionfight.com and search for Illusion Tales.
+- **ES:** \*¿Quieres saber dónde aprendió Kim esta regla? Visita illusionfight.com y busca Cuentos de Ilusión.
+
+O asterisco vem depois de "REGRAS!!!" / "NO RULES!!!" / "REGLAS!!!". Na lore, quem diz a frase primeiro é o **Alan** ("Alan, o Campeão", cap. 16); o Kim aprendeu com ele. Os nomes da seção no site batem com o rodapé: **Illusion Tales** em inglês e **Cuentos de Ilusión** em espanhol.
+
+### 26.11 Selo "BRUUUTAAALLL!!!"
+
+Gag recorrente, no espírito do "Toasty!" do Mortal Kombat.
+
+- **Texto:** igual nos três idiomas, B-R-U-U-U-T-A-A-A-L-L-L-!-!-! (três U, três A, três L, três !). Não usar "Toasty" nem "Brutality", que são da franquia.
+- **Arte:** Pajé Yawanari de olhos saltados (cartoon), boca aberta, mão com anéis (cinco dedos), balão explosivo branco com contorno turquesa, letras amarelo-ouro com contorno preto, contorno branco de adesivo, fundo transparente. Arquivo: `Brutal.png`.
+- **Uso:** no **máximo um** por capítulo, no golpe mais espetacular do **meio** da luta. Nunca no clímax emocional nem no golpe final.
+- **Capítulo 01:** página 27 (Kim arranca o braço + chute de ponte). Canto inferior direito, sobre o bokeh escuro, espelhado na horizontal pro Pajé olhar **pra dentro** da página (o texto e o "$" continuam legíveis), inclinado 8–10° no sentido anti-horário, cerca de 35% da largura, sombra suave.
+- **Sugestão:** gerar uma versão já virada pra esquerda (`Brutal_esquerda.png`), pra evitar texto espelhado.
+
+### 26.12 Pendências
+
+- **Página 02 (EN):** confirmar se ficou WEBSHARD (termo do projeto) ou WEBTOON.
+- **Página 07:** o "TSC." é do Jack (TSK) ou da câmera (CLICK)?
+- **Página 01 (ES):** conferir como ficou "REALIDADE TAMBÉM É UMA LUTA", pra ecoar certinho na página 53.
+- **Página 43 (EN):** conferir se ficou "CANDY" e "PRINTER PAPER".
+- **Página 41 (ES):** em produção. **Página 52:** confirmar se tem texto.
+- **Tom do espanhol:** o prompt base (§26.4) pede um leve tempero de rua mexicano ("¿qué onda?"), e a alternativa da página 47 é "ME VALE MADRE". A regra geral do projeto (`AGENTS.md`) é espanhol **neutro latino-americano**, sem regionalismo marcado de um país só. Decidir qual vale pro WEBSHARD.
+- **Erros no original em PT** (corrigir no PSD, se quiser): página 10, "UMA MAU" → "UM MAU"; página 49, "LUTA DE ILUSÕES" → "LUTAS DE ILUSÃO"; página 49, "ISAIAS" × "ISAÍAS" (padronizar); página 48, placa "LD1" (é LDI?).
