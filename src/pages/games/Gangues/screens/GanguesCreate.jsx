@@ -6,7 +6,12 @@ import { useGanguesStore } from '../store/useGanguesStore'
 import { GANGUES_CHARACTER_CATALOG, getGanguesAvailableCharacterIds } from '../data/ganguesCharacters.js'
 import { getGanguesPortrait, getGanguesCorpo } from '../data/ganguesPortraits.js'
 import GanguesRetratoCorpo from '../components/GanguesRetratoCorpo'
-import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE } from '../data/ganguesLoadout.js'
+import { GANGUES_MAX_PARTY_SIZE } from '../data/ganguesLoadout.js'
+import { tetoDaRinha } from '../data/ganguesTerritorios.js'
+import { GANGUES_LEVEL_CAP } from '../data/ganguesCharacters.js'
+
+/** Quantos níveis abaixo do teto da Rinha do bairro o recruta novo chega. */
+const GANGUES_RECRUTA_ABAIXO_DA_RINHA = 5
 import { sfx } from '../../../../lib/sfx'
 import GanguesFichaCard from '../components/GanguesFichaCard'
 import GanguesFichaBio from '../components/GanguesFichaBio'
@@ -85,18 +90,14 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
     setDetailId(null)
   }
 
-  // A DUPLA FUNDADORA (initialRecruitment) nasce no nível 1, do jeito clássico.
-  // Todo recruta DEPOIS disso vem já ADIANTADO — pedido do Isaias: chegar no
-  // nível 1 numa gangue que já rodou o bairro faz o novato virar peso morto
-  // por um tempão. Cada recrutamento pós-fundação sobe +5: o 1º recruta vem
-  // L5, o 2º L10, o 3º L15... `N` conta pelo tamanho do elenco JÁ formado
-  // (não precisa de contador novo salvo em lugar nenhum).
+  // A dupla fundadora nasce no nível 1. Todo recruta depois dela vem
+  // GANGUES_RECRUTA_ABAIXO_DA_RINHA níveis abaixo do teto da Rinha do bairro
+  // onde a gangue está (Pista: 20 − 5 = 15): sobe o resto rápido na Rinha.
   const nivelDoProximoRecruta = () => {
     if (initialRecruitment) return 1
-    // .getState() (não o `store` do render) pra pegar o elenco ATUALIZADO,
-    // caso essa função rode mais de uma vez no mesmo confirmRecruitment.
-    const n = Math.max(1, useGanguesStore.getState().roster.length - GANGUES_INITIAL_PARTY_SIZE + 1)
-    return 5 * n
+    const st = useGanguesStore.getState()
+    const bairro = st.storyTarget?.territorioId || st.storyProgress?.__ultimoTerritorio || 'pista'
+    return Math.max(1, tetoDaRinha(bairro, GANGUES_LEVEL_CAP) - GANGUES_RECRUTA_ABAIXO_DA_RINHA)
   }
 
   const confirmRecruitment = async () => {
