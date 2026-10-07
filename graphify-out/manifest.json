@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791363820.6530528,
-    "ast_hash": "d353131860ceb63e727bcf1e578ecb51",
+    "mtime": 1791376615.8151448,
+    "ast_hash": "ca58422bdc33dae993828f9971508f23",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791363820.6930535,
-    "ast_hash": "a53e73b00f8ea2171a896fd982614fe5",
+    "mtime": 1791376615.8536882,
+    "ast_hash": "ebf01e796580497cfe710f3d769f5d18",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4130,8 +4130,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesModoAutoMultidao.js": {
-    "mtime": 1790469633.9283507,
-    "ast_hash": "82cf6205b36137ecb0fb67c732fd359a",
+    "mtime": 1791376608.3957343,
+    "ast_hash": "38d38697fd0bbe6bfeba8e19eed15385",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesAlbum.jsx": {
@@ -4150,8 +4150,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCombat.jsx": {
-    "mtime": 1791293915.653194,
-    "ast_hash": "c95e14624e90749a6c871fa5605e72ef",
+    "mtime": 1791376592.8971765,
+    "ast_hash": "b1b9988db7f0daa6138499b8037e4471",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCreate.jsx": {
@@ -4960,8 +4960,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js": {
-    "mtime": 1791032223.5409784,
-    "ast_hash": "95cf9262377b586037657a94b443af2c",
+    "mtime": 1791376592.9565282,
+    "ast_hash": "085debc38b0865b5760e8774f2a4f9e6",
     "semantic_hash": ""
   },
   "docs/Games/Gangues/PLANO_FEIRA.md": {

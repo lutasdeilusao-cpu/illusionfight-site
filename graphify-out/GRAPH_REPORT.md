@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-10-07)
 
 ## Corpus Check
-- 1242 files · ~2,150,742 words
+- 1242 files · ~2,150,707 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `086853a4`
+- Built from commit: `8d7ec551`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -945,8 +945,8 @@ Cohesion: 0.11
 Nodes (18): AGENTS.md — Illusion Fight Site, Architecture notes, Conduct rules, 🤖 Custom Agents, Decisões e Hurdles Documentados, Deploy commands (must run in this order), Environment, Este documento é trabalho em progresso (+10 more)
 
 ### Community 76 - "PuzzleStealthGrid.jsx"
-Cohesion: 0.29
-Nodes (6): brigaDoAlvo(), desligarAutomaticos(), entraSozinho(), GANGUES_AUTOMATICOS, GANGUES_AVANCO_AUTO_MS, useGanguesBrigaAutomatica()
+Cohesion: 0.26
+Nodes (10): brigaDoAlvo(), desligarAutomaticos(), entraSozinho(), GANGUES_AUTOMATICOS, GANGUES_AVANCO_AUTO_MS, useBrigaDeRua(), useGanguesAvancoAutomatico(), useGanguesBrigaAutomatica() (+2 more)
 
 ### Community 77 - "Community 77"
 Cohesion: 0.12
@@ -1477,8 +1477,8 @@ Cohesion: 0.36
 Nodes (8): fighterName(), ONOMATOPEIAS, pickTrash(), randomOnoma(), retratoDoCombatente(), TIERS_COM_MODO_AUTO, transformarEvento(), useGanguesCombatLog()
 
 ### Community 379 - "Create"
-Cohesion: 0.42
-Nodes (8): GanguesMultidaoActionBar(), chaveDoSave(), ler(), OPCOES, useEscolhaMultidao(), useGanguesAutoLembrado(), useGanguesVelocidadeAuto(), GanguesCombat()
+Cohesion: 0.57
+Nodes (6): chaveDoSave(), ler(), OPCOES, useEscolhaMultidao(), useGanguesAutoLembrado(), useGanguesVelocidadeAuto()
 
 ### Community 395 - "renderSkillPanel"
 Cohesion: 0.25
@@ -1789,7 +1789,7 @@ Cohesion: 0.42
 Nodes (7): buildDaPagina(), buildNoAr(), conferir(), emJogo(), iniciarConferenciaDeVersao(), pontoSeguro(), recarregar()
 
 ## Knowledge Gaps
-- **2249 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2244 more)
+- **2248 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2243 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **338 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1797,13 +1797,13 @@ Nodes (7): buildDaPagina(), buildNoAr(), conferir(), emJogo(), iniciarConferenci
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `AuthContext.jsx` to `Community 0`, `Community 1`, `powersData.js`, `Community 8`, `Community 10`, `classTree.js`, `Community 20`, `Lobby.jsx`, `Community 22`, `Historias.jsx`, `criaturas.js`, `PuzzleStealthGrid.jsx`, `3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS`, `DixContext.jsx`, `UniversosHub.jsx`, `react`, `Phase2Customize.jsx`, `TopTrumpsSP.jsx`, `TypewriterPhrase.jsx`, `AnalyticsTracker.jsx`, `Vila.jsx`, `PerfilColecao.jsx`, `PuzzleStealthGrid`, `useGameStore.js`, `Number`, `TopTrumpsMP.jsx`, `PerfilProgresso.jsx`, `Community 125`, `useRadioNina.js`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+  _High betweenness centrality (0.035) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `criaturas.js` to `Community 0`, `3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS`, `TopTrumpsMP.jsx`, `DixContext.jsx`, `Vila.jsx`, `Community 20`, `Community 22`, `AuthContext.jsx`, `Community 125`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
-- **Why does `SFX` connect `Community 7` to `TopTrumpsMP.jsx`, `powersData.js`, `Vila.jsx`, `criaturas.js`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Why does `trackEvent()` connect `useRadioNina.js` to `Community 8`?**
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
-  _2249 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2248 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
