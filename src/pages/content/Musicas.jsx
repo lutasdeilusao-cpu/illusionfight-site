@@ -90,13 +90,14 @@ function OndeOuvir({ musica, capa, tocando, onTocar, onFechar, t, trava, locale 
 
 export default function Musicas() {
   const { t, locale } = useLanguage()
-  const { estado, tocando, faixaAtual, tempo, duracao, pool, garantirPool, ligar, alternar, pular, tocarKey, seek, travaDe } = useRadio()
+  const { estado, tocando, faixaAtual, tempo, duracao, pool, garantirPool, ligar, alternar, pular, tocarKey, seek, travaDe, travadas } = useRadio()
   const [aberta, setAberta] = useState(null) // índice da música na folha "onde ouvir"
 
   useEffect(() => { garantirPool() }, [garantirPool])
 
   const arquivos = useMemo(() => new Set(musicas.map(m => m.arquivo).filter(Boolean)), [])
   const soNaRadio = useMemo(() => pool.filter(f => !arquivos.has(f.key)), [pool, arquivos])
+  const soNaRadioTravadas = useMemo(() => travadas.filter(f => !arquivos.has(f.key)), [travadas, arquivos])
   const destaque = musicas[0]
 
   const noAr = estado !== 'oculto' && Boolean(faixaAtual)
@@ -222,7 +223,7 @@ export default function Musicas() {
           </section>
 
           {/* ── 4. Só na Rádio Nina ── */}
-          {soNaRadio.length > 0 && (
+          {(soNaRadio.length > 0 || soNaRadioTravadas.length > 0) && (
             <section className="mu__secao">
               <div className="mu__secao-cabeca">
                 <span className="if-eyebrow">{t('pages.musicas.exclusivas_eyebrow')}</span>
@@ -237,6 +238,14 @@ export default function Musicas() {
                       <span className="mu-exclusiva__nome">{f.titulo}</span>
                       <span className="mu-exclusiva__acao" aria-hidden="true">{tocandoEsta(f.key) ? <Equalizador ativo /> : '▶'}</span>
                     </button>
+                  </li>
+                ))}
+                {soNaRadioTravadas.map(f => (
+                  <li key={f.key}>
+                    <Link to="/assinar" className="if-item mu-exclusiva is-travada">
+                      <span className="if-item__index">🔒</span>
+                      <span className="mu-exclusiva__nome">{f.titulo}<small>{t('pages.musicas.trava_libera', { data: dataCurta(travaDe(f.key)?.liberaEm || '2099-01-01', locale) })}</small></span>
+                    </Link>
                   </li>
                 ))}
               </ol>

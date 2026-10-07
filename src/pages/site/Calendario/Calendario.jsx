@@ -253,6 +253,7 @@ export default function Calendario() {
                   <div className="calendar-hiato">
                     <b>{t('calendar.item_hiato', { n: hiato.n })}</b>
                     {channel === 'chapters' && <span>{t('calendar.hiato_sombras')}</span>}
+                    {channel === 'music' && <span>{t('calendar.hiato_clipe')}</span>}
                     {channel === 'chapters' && <span>{t('calendar.item_cinzas')}</span>}
                   </div>
                 )}

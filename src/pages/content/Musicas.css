@@ -185,3 +185,6 @@
 .mu-cadeado span { font: 500 .82rem/1.4 var(--font-body); color: var(--if-ink); }
 .mu-cadeado .if-btn { justify-self: start; }
 .mu-card.is-travada .mu-card__capa img, .mu-destaque.is-travada .mu-destaque__capa img, .music-circle.is-travada img { filter: grayscale(.6) brightness(.6); }
+.mu-exclusiva.is-travada { opacity: .85; text-decoration: none; }
+.mu-exclusiva.is-travada .mu-exclusiva__nome { display: grid; gap: 2px; }
+.mu-exclusiva.is-travada small { font: 500 .72rem var(--font-body); color: var(--if-amber); }

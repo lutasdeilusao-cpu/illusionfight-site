@@ -1400,7 +1400,9 @@
     "musica_canon_1": "Se menciona y se toca en los capítulos: lees la escena y escuchas la canción de verdad.",
     "musica_canon_2": "El suscriptor la escucha primero, exclusiva en Radio Nina.",
     "musica_canon_3": "Después llega a la cuenta gratis, al público y a las plataformas.",
-    "item_musica_titulo": "Canción {n} de la T1: {titulo} · Radio Nina"
+    "item_musica_titulo": "Canción {n} de la T1: {titulo} · Radio Nina",
+    "item_clipe": "Videoclip de la pausa {n} · enlace exclusivo",
+    "hiato_clipe": "Sale el videoclip de una de las canciones más escuchadas por los suscriptores: enlace exclusivo para quien está suscrito y, después, público en YouTube."
   },
   "home": {
     "section_latest": "Lanzamientos",

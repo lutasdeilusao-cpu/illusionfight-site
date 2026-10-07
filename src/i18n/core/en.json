@@ -1400,7 +1400,9 @@
     "musica_canon_1": "It is mentioned and played in the chapters: you read the scene and hear the actual song.",
     "musica_canon_2": "Subscribers hear it first, exclusively on Radio Nina.",
     "musica_canon_3": "Only later does it reach free accounts, everyone else and the streaming platforms.",
-    "item_musica_titulo": "Song {n} of S1: {titulo} · Radio Nina"
+    "item_musica_titulo": "Song {n} of S1: {titulo} · Radio Nina",
+    "item_clipe": "Hiatus {n} music video · exclusive link",
+    "hiato_clipe": "A music video for one of the songs subscribers played the most: an exclusive link for subscribers first, then public on YouTube."
   },
   "home": {
     "section_latest": "New releases",

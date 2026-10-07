@@ -59,19 +59,33 @@ const maisMeses = (mes, n) => {
   const total = a * 12 + (m - 1) + n
   return `${Math.floor(total / 12)}-${String((total % 12) + 1).padStart(2, '0')}-15`
 }
-// Nome das que já têm (a 1ª é a abertura nos 3 idiomas, travada na Rádio Nina
-// pelo `bloqueios` de components/RadioNina/radio-nina.config.json).
-const TITULOS_MUSICA = { 1: { pt: 'Lutas de Ilusão (abertura, PT/EN/ES)', en: 'Illusion Fight (opening, PT/EN/ES)', es: 'Luchas de Ilusión (apertura, PT/EN/ES)' } }
+// Nome das que já têm (travadas na Rádio Nina pelo `bloqueios` de
+// components/RadioNina/radio-nina.config.json, com as mesmas datas).
+const TITULOS_MUSICA = {
+  1: { pt: 'Lutas de Ilusão (abertura, PT/EN/ES)', en: 'Illusion Fight (opening, PT/EN/ES)', es: 'Luchas de Ilusión (apertura, PT/EN/ES)' },
+  2: { pt: 'O Dia Depois do Julgamento', en: 'O Dia Depois do Julgamento', es: 'O Dia Depois do Julgamento' },
+}
 export const MUSICAS_T1 = MESES_LANCAMENTO.map((mes, i) => ({
   n: i + 1,
   titulo: TITULOS_MUSICA[i + 1],
   liberacao: { primordial: `${mes}-15`, elite: `${mes}-15`, conta: maisMeses(mes, 1), publico: maisMeses(mes, 2) },
 }))
 
+// Videoclipes: em cada hiato, o clipe de uma das músicas mais ouvidas pelos
+// assinantes — link exclusivo pro assinante no dia 15, depois público no
+// YouTube (data ainda a definir).
+export const CLIPES_T1 = HIATOS.map(h => ({
+  n: h.n,
+  liberacao: { primordial: `${h.mes}-15`, elite: `${h.mes}-15`, conta: '2099-01-01', publico: '2099-01-01' },
+}))
+
 export const SEASON_ONE_DROPS = {
   chapters: linhasDoTempo(itensHistorias),
   webtoon: linhasDoTempo(itensWebshard),
-  music: linhasDoTempo(MUSICAS_T1.map(m => ({ item: m.titulo ? { tipo: 'musica_titulo', n: m.n, titulo: m.titulo } : { tipo: 'musica', n: m.n }, liberacao: m.liberacao }))),
+  music: linhasDoTempo([
+    ...MUSICAS_T1.map(m => ({ item: m.titulo ? { tipo: 'musica_titulo', n: m.n, titulo: m.titulo } : { tipo: 'musica', n: m.n }, liberacao: m.liberacao })),
+    ...CLIPES_T1.map(c => ({ item: { tipo: 'clipe', n: c.n }, liberacao: c.liberacao })),
+  ]),
 }
 
 // Quando cada obra fecha na T1, por nível. `null` = só na Temporada 2.

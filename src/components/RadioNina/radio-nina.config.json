@@ -33,7 +33,8 @@
     "Asilo Star(Pop).mp3": "Asilo Star (Pop)",
     "Asilo Star (ROCK).mp3": "Asilo Star (Rock)",
     "Deixa essa night rolar v2.mp3": "Deixa Essa Night Rolar (v2)",
-    "Deixa essa night rolar.mp3": "Deixa Essa Night Rolar"
+    "Deixa essa night rolar.mp3": "Deixa Essa Night Rolar",
+    "O Dia Depois Do Julgamento - Isaias Leal Music.mp3": "O Dia Depois do Julgamento"
   },
   "bloqueios": [
     {
@@ -46,6 +47,15 @@
       "fecha_em": "2026-11-01",
       "conta": "2026-12-15",
       "publico": "2027-01-15"
+    },
+    {
+      "musica_t1": 2,
+      "arquivos": [
+        "O Dia Depois Do Julgamento - Isaias Leal Music.mp3"
+      ],
+      "fecha_em": "2026-11-01",
+      "conta": "2027-01-15",
+      "publico": "2027-02-15"
     }
   ]
 }
