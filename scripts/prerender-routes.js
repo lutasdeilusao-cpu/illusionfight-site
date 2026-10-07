@@ -79,7 +79,7 @@ function rotasDoIdioma(L) {
   for (const [p, t] of Object.entries(FIXAS)) {
     const [title, description, heading, content] = t[L]
     const [priority, changefreq, indexable = true] = t.meta
-    R.push({ path: p, title, description, heading, content, priority, changefreq, indexable })
+    R.push({ path: p, title, description, heading, content, priority, changefreq, indexable, ...(t.og ? { ogImage: t.og } : {}) })
   }
 
   personagens.forEach(personagem => {

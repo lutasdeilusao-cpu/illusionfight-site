@@ -21,6 +21,13 @@ export const FIXAS = {
     pt: ['Entrar — Lutas de Ilusão | Illusion Fight', 'Entre na sua conta do Illusion Fight e continue suas histórias, jogos e progresso.', 'Entrar no Illusion Fight', 'Acesse sua conta pra continuar de onde parou.'],
     es: ['Iniciar sesión — Illusion Fight', 'Entra a tu cuenta de Illusion Fight y sigue tus historias, juegos y progreso.', 'Iniciar sesión en Illusion Fight', 'Accede a tu cuenta para seguir donde te quedaste.'],
   },
+  '/creators': {
+    meta: ['0.0', 'yearly', false],
+    og: '/og/creators.jpg',
+    en: ['Creators — Illusion Fight', 'The creators and press area of Illusion Fight: art, press kit, topics and the stories behind Lutas de Ilusão.', 'Illusion Fight Creators', 'Art, press kit and the stories behind the universe, for creators and press.'],
+    pt: ['Creators — Lutas de Ilusão | Illusion Fight', 'A área de creators e imprensa do Illusion Fight: artes, kit de imprensa, pautas e as histórias por trás de Lutas de Ilusão.', 'Área Creator do Illusion Fight', 'Artes, kit de imprensa e as histórias por trás do universo, pra creators e imprensa.'],
+    es: ['Creators — Illusion Fight', 'El área de creators y prensa de Illusion Fight: arte, kit de prensa, temas y las historias detrás de Lutas de Ilusão.', 'Área Creator de Illusion Fight', 'Arte, kit de prensa y las historias detrás del universo, para creators y prensa.'],
+  },
   '/cadastro': {
     meta: ['0.0', 'yearly', false],
     en: ['Create a free account — Illusion Fight', 'Create your free account to read every chapter in full and save your games and achievements on any device.', 'Create a free account', 'Read every chapter in full and save your progress on any device.'],
