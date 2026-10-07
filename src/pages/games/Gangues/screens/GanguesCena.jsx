@@ -19,7 +19,7 @@ import { useTutorialProgress } from '../../../../context/TutorialProgressContext
 import CenaCenario from '../components/cena/CenaCenario'
 import CenaInterior from '../components/cena/CenaInterior'
 import GanguesCenaBagSheet from '../components/cena/GanguesCenaBagSheet'
-import GanguesEscalacao from '../components/GanguesEscalacao'
+import GanguesEscalacao, { GanguesEscalacaoTutorial } from '../components/GanguesEscalacao'
 import GanguesCenaFichaCard from '../components/cena/GanguesCenaFichaCard'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 import { GangMarker, PinoAlvo, ZonaChao, WorldControls, BrigaAutoAviso, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
@@ -28,7 +28,7 @@ import { CENAS_POR_ID, portaoAberto, contarCena, naAreaDoChefe, alertaDaCena, po
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
-import { getGanguesRosterLimitComHistoria } from '../data/ganguesLoadout.js'
+import { getGanguesRosterLimitComHistoria, GANGUES_INITIAL_PARTY_SIZE } from '../data/ganguesLoadout.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { getGanguesAttributesWithEquip, getGanguesEquip } from '../data/ganguesEquip.js'
 import useGanguesBrigaAutomatica from '../hooks/useGanguesBrigaAutomatica.js'
@@ -547,6 +547,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
       )}
       <GanguesCenaFichaCard member={store.activeParty[fichaIndex]} t={t} onToggleEspecial={store.toggleEspecial} /></motion.div></motion.div>}</AnimatePresence>
     {escalacao && <GanguesEscalacao t={t} onFechar={() => setEscalacao(false)} />}
+    {!escalacao && store.roster.length > GANGUES_INITIAL_PARTY_SIZE && <GanguesEscalacaoTutorial t={t} onAbrir={() => setEscalacao(true)} />}
     <AnimatePresence>{bagAberta && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setBagAberta(false)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><GanguesCenaBagSheet store={store} t={t} onClose={() => setBagAberta(false)} /></motion.div></motion.div>}</AnimatePresence>
   </main>
 }
