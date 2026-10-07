@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { validateRelease } from '../src/lib/releaseAccess.js'
 import { IDIOMAS, HTML_LANG, OG_LOCALE, FIXAS, HOME, UI, preencher } from './seo-textos.js'
+import { BETA_CONTOS_PUBLICO, FECHAMENTO_PRE_LANCAMENTO } from '../src/config/trial.js'
 
 // Páginas estáticas de SEO — uma por rota E POR IDIOMA (01/10/2026, Isaias:
 // "fazer a sugestão 1"): inglês na raiz, português em /pt/..., espanhol em
@@ -26,6 +27,7 @@ const existe = file => fs.existsSync(path.resolve(process.cwd(), file))
 const capitulos = readJson('src/data/historias/lutas-de-ilusao.json')
 const contos = readJson('src/data/historias/contos.json')
 const obras = readJson('src/data/historias/obras.json')
+const autor = readJson('src/data/historias/autor.json')
 const episodios = readJson('src/data/episodios.json')
 
 const releaseItems = [
@@ -67,6 +69,8 @@ function trechoLivre(arquivo, L) {
   return `${html}<p><a href="${px(L, '/cadastro/')}">${UI[L].resto}</a></p>`
 }
 const liberadoAte = cap => Boolean(cap.liberacao?.publico && cap.liberacao.publico <= BUILD_DATE)
+// Conto: a mesma regra do site (contoLiberado) — na beta, aberto pra todos até o fechamento.
+const contoAberto = cap => liberadoAte(cap) || (BETA_CONTOS_PUBLICO && BUILD_DATE < FECHAMENTO_PRE_LANCAMENTO)
 // arquivo do capítulo no idioma (cai pro inglês se a tradução não existir)
 const arquivoNoIdioma = (pasta, nome, L) => [L, 'en', 'pt'].map(l => `${pasta}/${l}/${nome}.md`).find(existe)
 
@@ -120,16 +124,18 @@ function rotasDoIdioma(L) {
       ].filter(Boolean),
       body: liberadoAte(capitulo) ? trechoLivre(arquivoNoIdioma('src/data/historias/lutas-de-ilusao', capitulo.id, L), L) : null,
       lastmod: pastOr(capitulo.liberacao.publico),
-      priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'chapter', datePublished: capitulo.liberacao.publico,
+      // Capítulo que o visitante ainda não lê fica fora do Google (noindex, fora
+      // do sitemap) até liberar: página só com título e resumo é recusada.
+      priority: '0.9', changefreq: 'monthly', indexable: liberadoAte(capitulo), schemaType: 'chapter', datePublished: capitulo.liberacao.publico,
       parent: { name: U.livro, path: '/historias/lutas-de-ilusao/' },
     })
   })
 
   // Contos de Ilusão e as obras de fora (Mundo das Sombras, Mar de Cinzas):
-  // página estática pro hub de cada história e pra cada capítulo. Sem isso o
-  // GitHub Pages responde 404 nesses endereços e o WhatsApp/Twitter/Google não
-  // veem título nem miniatura (pedido do Isaias, 29/09/2026). Capítulo ainda
-  // não liberado ganha página (a prévia do link funciona), só sem o texto.
+  // página estática pro hub de cada história e pra cada capítulo (sem ela o
+  // GitHub Pages responde 404 e o WhatsApp/Google não veem título nem
+  // miniatura). Capítulo que o visitante ainda não lê ganha página (a prévia
+  // do link funciona), sem o texto e fora do Google até liberar.
   contos.forEach(conto => {
     const nome = titulo(conto, L)
     const hub = `/historias/contos/${conto.id}`
@@ -142,7 +148,7 @@ function rotasDoIdioma(L) {
       content: campo(conto, 'resumo', L),
       extra: [campo(conto, 'tagline', L), U.gratis].filter(Boolean),
       related: [
-        ...conto.capitulos.filter(liberadoAte).map(cap => ({ name: nomeCap(cap), path: `${hub}/${cap.id}/` })),
+        ...conto.capitulos.filter(contoAberto).map(cap => ({ name: nomeCap(cap), path: `${hub}/${cap.id}/` })),
         { name: U.todosContos, path: '/historias/contos/' },
       ],
       priority: '0.7', changefreq: 'monthly', indexable: true, schemaType: 'book', book: { name: nome, path: `${hub}/` },
@@ -165,9 +171,9 @@ function rotasDoIdioma(L) {
           proximo && { name: nomeCap(proximo), path: `${hub}/${proximo.id}/` },
           { name: nome, path: `${hub}/` },
         ].filter(Boolean),
-        body: liberadoAte(cap) ? trechoLivre(arquivoNoIdioma(`src/data/historias/contos/${conto.id}`, cap.id, L), L) : null,
+        body: contoAberto(cap) ? trechoLivre(arquivoNoIdioma(`src/data/historias/contos/${conto.id}`, cap.id, L), L) : null,
         lastmod: pastOr(cap.liberacao?.publico),
-        priority: '0.6', changefreq: 'monthly', indexable: true, schemaType: 'chapter', datePublished: cap.liberacao?.publico, book: { name: nome, path: `${hub}/` },
+        priority: '0.6', changefreq: 'monthly', indexable: contoAberto(cap), schemaType: 'chapter', datePublished: cap.liberacao?.publico, book: { name: nome, path: `${hub}/` },
         parent: { name: nome, path: `${hub}/` },
         ogImage: `/og/contos/${conto.id}.jpg`,
       })
@@ -188,6 +194,35 @@ function rotasDoIdioma(L) {
       parent: { name: nome, path: `/historias/${obra.id}/` },
     }))
   })
+
+  // Histórias do Autor: hub e capítulos. Ficam fora do Google enquanto
+  // nenhum capítulo abre pro público; a página existe pro link compartilhado.
+  {
+    const nome = titulo(autor, L)
+    const hub = '/historias/autor'
+    const nomeCap = c => `${U.cap} ${c.numero} — ${titulo(c, L)}`
+    R.push({
+      path: hub,
+      title: preencher(U.obraCap, { nome, titulo: 'Isaias Leal' }),
+      description: campo(autor, 'tagline', L) || campo(autor, 'resumo', L),
+      heading: nome,
+      content: campo(autor, 'resumo', L),
+      related: autor.capitulos.filter(liberadoAte).map(cap => ({ name: nomeCap(cap), path: `${hub}/${cap.id}/` })),
+      priority: '0.5', changefreq: 'monthly', indexable: autor.capitulos.some(liberadoAte),
+    })
+    autor.capitulos.forEach(cap => R.push({
+      path: `${hub}/${cap.id}`,
+      title: preencher(U.obraCap, { nome, titulo: titulo(cap, L) }),
+      description: campo(cap, 'resumo', L) || campo(autor, 'tagline', L),
+      heading: `${nome} — ${nomeCap(cap)}`,
+      content: campo(cap, 'resumo', L) || campo(autor, 'resumo', L),
+      related: [{ name: nome, path: `${hub}/` }],
+      body: liberadoAte(cap) ? trechoLivre(arquivoNoIdioma('src/data/historias/autor', cap.id, L), L) : null,
+      lastmod: pastOr(cap.liberacao?.publico),
+      priority: '0.5', changefreq: 'monthly', indexable: liberadoAte(cap), schemaType: 'chapter', datePublished: cap.liberacao?.publico,
+      parent: { name: nome, path: `${hub}/` },
+    }))
+  }
 
   episodios.filter(episodio => episodio.paginas).forEach(episodio => {
     const nomeEp = titulo(episodio, L)
@@ -251,6 +286,12 @@ const REDIRECTS = [
   { path: '/creator', target: '/creators' },
   { path: '/livro/contos', target: '/historias/contos' },
   { path: '/webtoon/00', target: '/webtoon/01' },
+  // Endereços antigos dos capítulos (/livro/...), que o Google ainda conhece.
+  ...capitulos.map(c => ({ path: `/livro/${c.id}`, target: `/historias/lutas-de-ilusao/${c.id}` })),
+  ...contos.flatMap(conto => [
+    { path: `/livro/contos/${conto.id}`, target: `/historias/contos/${conto.id}` },
+    ...conto.capitulos.map(cap => ({ path: `/livro/contos/${conto.id}/${cap.id}`, target: `/historias/contos/${conto.id}/${cap.id}` })),
+  ]),
 ]
 
 const escapeHtml = value => String(value ?? '').replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char])
@@ -351,7 +392,8 @@ function writeRoute(caminho, html) {
 }
 
 function redirectHtml(target) {
-  const url = `${SITE_URL}${target}`
+  // Com a barra no fim (sem query): o GitHub Pages não precisa redirecionar de novo.
+  const url = `${SITE_URL}${target.includes('?') || target.endsWith('/') ? target : `${target}/`}`
   return `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0; url=${url}"><meta name="robots" content="noindex, follow"><link rel="canonical" href="${url}"><title>Redirecting — Illusion Fight</title></head><body><p>Redirecting to <a href="${url}">Illusion Fight</a>.</p></body></html>`
 }
 

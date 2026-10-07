@@ -137,7 +137,7 @@ export const FIXAS = {
     es: ['Tienda — Luchas de Ilusión', 'Encuentra DIX y objetos digitales del universo de Luchas de Ilusión.', 'Tienda de Luchas de Ilusión', 'Objetos digitales y formas de apoyar el universo de Luchas de Ilusión.'],
   },
   '/quiz': {
-    meta: ['0.5', 'monthly'],
+    meta: ['0.5', 'monthly', false],
     en: ['Illusion Fight Quiz — How Well Do You Know the LDI?', 'Test your knowledge of Illusion Fight and the LDI universe.', 'Illusion Fight quiz', 'Answer questions and find out how well you know the LDI arena.'],
     pt: ['Quiz de Lutas de Ilusão — quanto você sabe do LDI?', 'Teste seus conhecimentos sobre Lutas de Ilusão e o universo LDI.', 'Quiz de Lutas de Ilusão', 'Responda as perguntas e descubra quanto você conhece da arena LDI.'],
     es: ['Quiz de Luchas de Ilusión — ¿cuánto sabes del LDI?', 'Pon a prueba lo que sabes de Luchas de Ilusión y el universo LDI.', 'Quiz de Luchas de Ilusión', 'Responde las preguntas y descubre cuánto conoces la arena LDI.'],
@@ -161,7 +161,7 @@ export const FIXAS = {
     es: ['Calendario de lanzamientos — Temporada 1 | Luchas de Ilusión', 'Sigue los lanzamientos de capítulos, WEB SHARD, juegos, música y socios de Luchas de Ilusión.', 'Calendario de lanzamientos', 'Mira el calendario público de la Temporada 1 y sigue cada lanzamiento del universo de Luchas de Ilusión.'],
   },
   '/leaderboard': {
-    meta: ['0.5', 'weekly'],
+    meta: ['0.5', 'weekly', false],
     en: ['Leaderboard — Illusion Fight', 'Follow the player rankings of the Illusion Fight universe.', 'Illusion Fight leaderboard', 'See the arena player standings.'],
     pt: ['Ranking — Lutas de Ilusão', 'Acompanhe o ranking dos jogadores do universo de Lutas de Ilusão.', 'Ranking de Lutas de Ilusão', 'Veja a classificação dos jogadores da arena.'],
     es: ['Ranking — Luchas de Ilusión', 'Sigue el ranking de jugadores del universo de Luchas de Ilusión.', 'Ranking de Luchas de Ilusión', 'Mira la clasificación de los jugadores de la arena.'],
