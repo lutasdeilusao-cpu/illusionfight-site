@@ -181,7 +181,7 @@ export function revezamentoNoTerritorio(revezamento, territorioId, playerTeam, f
     tetoTerritorio: tetoDoTerritorio(territorioId) ? territorioId : undefined,
     niveisSorteio: revezamento.nivelDaTropa ? niveisDaRinha(playerTeam, forte) : undefined,
     // teto duro: 4 abaixo da tua ficha, em qualquer luta (nem o arredondamento passa)
-    tetoPontos: revezamento.nivelDaTropa && fichaMaisForte(playerTeam) ? Math.max(2, fichaMaisForte(playerTeam) + GANGUES_RINHA_TETO) : undefined,
+    tetoPontos: revezamento.nivelDaTropa && fichaMaisForte(playerTeam) ? Math.max(2, fichaMaisForte(playerTeam) + GANGUES_RINHA_TETO) : revezamento.tetoPontos,
   }
 }
 

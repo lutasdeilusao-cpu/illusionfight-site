@@ -65,6 +65,8 @@ export const CENA_PISTA = {
 
 
   // O chefe — só aparece quando o portão abre.
+  // Ficha máxima de cada corpo do encontro aleatório (polícia, moto...) neste bairro.
+  tetoAleatorio: 15,
   chefe: {
     id: 'boss',
     poiNo: 'pista-chefe', // nó real em ganguesTerritorios.js (marcarNoDominado)

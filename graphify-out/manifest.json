@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791342507.7680497,
-    "ast_hash": "b457c119d15e7b0667e905f804741c77",
+    "mtime": 1791363501.3736553,
+    "ast_hash": "2c5e5ad2edafe8065d146e7b4c2f978f",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791342507.8161786,
-    "ast_hash": "6d43752fb5fbfc5b94d65c3c52b0cf7e",
+    "mtime": 1791363506.416192,
+    "ast_hash": "a3b5b6e3670cc7e3919f540c25a65834",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3880,8 +3880,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesVictoryResolution.js": {
-    "mtime": 1791097145.559981,
-    "ast_hash": "65918405da126821b46e70313d80be4e",
+    "mtime": 1791363494.651119,
+    "ast_hash": "8bfdca7a14d7adb1d454eba0d3d8b56b",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesBiroscaSlice.js": {
@@ -3915,8 +3915,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesProgressionSlice.js": {
-    "mtime": 1790644832.7052374,
-    "ast_hash": "a1c4b24c0b06571b278b8a381b440bf1",
+    "mtime": 1791363494.5513604,
+    "ast_hash": "8c62e7ca73fe0d2eebc9af5df8e48604",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesSaveSlice.js": {
@@ -4955,8 +4955,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesFarmAusente.js": {
-    "mtime": 1791088313.1608357,
-    "ast_hash": "e3bac91e6f56a336ec2e788debcdb82d",
+    "mtime": 1791363494.6861186,
+    "ast_hash": "69dcc8396e2220722faa94cb364a7ead",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js": {

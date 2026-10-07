@@ -322,7 +322,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
       aleatorioTipo: tipo,
       territorioId: terr.id, cenaId: cena.id, cenaPoiId: '__aleatorio',
       cenaRevela: [], cenaRecompensa: null, pontoIds: terr.pontos.map(p => p.id),
-      revezamento: def.revezamento,
+      revezamento: cena.tetoAleatorio ? { ...def.revezamento, tetoPontos: cena.tetoAleatorio } : def.revezamento,
     })
     onNavigate('story-combat')
     return true
