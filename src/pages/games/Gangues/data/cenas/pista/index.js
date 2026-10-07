@@ -34,9 +34,12 @@ import { POIS_PISTA } from './pois.js'
 import { INTERIORES_PISTA } from './interiores.js'
 import { POS_PISTA, ENTRY_ZONES_PISTA } from './posicoes.js'
 
+import { PISTA_POOL_RUA } from './pools.js'
 export const CENA_PISTA = {
   id: 'pista',
   territorioId: 'pista',
+  // Capangas que completam o bando até o mínimo do bairro (GANGUES_MIN_INIMIGOS).
+  poolCapangas: PISTA_POOL_RUA,
   cor: '#3ddc97',
   mundo: MUNDO_PISTA,
   ruas: RUAS_PISTA,

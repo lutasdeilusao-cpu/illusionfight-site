@@ -17,9 +17,12 @@ import { POS_LAJE, ENTRY_ZONES_LAJE } from './posicoes.js'
 
 const linhaCortada = (l, cenaProgresso) => Boolean(cenaProgresso?.[l.cena]?.resolvidos?.[l.id])
 
+import { LAJE_POOL_RUA } from './pools.js'
 export const CENA_LAJE = {
   id: 'laje',
   territorioId: 'laje',
+  // Capangas que completam o bando até o mínimo do bairro (GANGUES_MIN_INIMIGOS).
+  poolCapangas: LAJE_POOL_RUA,
   cor: '#a855f7',
   mundo: MUNDO_LAJE,
   ruas: RUAS_LAJE,

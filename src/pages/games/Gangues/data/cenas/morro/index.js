@@ -16,9 +16,12 @@ import { POIS_MORRO } from './pois.js'
 import { INTERIORES_MORRO } from './interiores.js'
 import { POS_MORRO, ENTRY_ZONES_MORRO } from './posicoes.js'
 
+import { MORRO_POOL_RUA } from './pools.js'
 export const CENA_MORRO = {
   id: 'morro',
   territorioId: 'morro',
+  // Capangas que completam o bando até o mínimo do bairro (GANGUES_MIN_INIMIGOS).
+  poolCapangas: MORRO_POOL_RUA,
   cor: '#ff8f3c',
   mundo: MUNDO_MORRO,
   ruas: RUAS_MORRO,

@@ -19,9 +19,12 @@ function estadoCinco(id, prog, flags) {
   return prog.resolvidos?.[id] ? 'batido' : null
 }
 
+import { ALTO_POOL_RUA } from './pools.js'
 export const CENA_ALTO = {
   id: 'alto',
   territorioId: 'alto',
+  // Capangas que completam o bando até o mínimo do bairro (GANGUES_MIN_INIMIGOS).
+  poolCapangas: ALTO_POOL_RUA,
   cor: '#ff6b6b',
   mundo: MUNDO_ALTO,
   ruas: RUAS_ALTO,

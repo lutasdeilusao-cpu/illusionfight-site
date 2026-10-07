@@ -24,9 +24,9 @@ import GanguesClube from './clube/GanguesClube'
 import GanguesClubeSala from './clube/GanguesClubeSala'
 import GanguesClubeResultado from './clube/GanguesClubeResultado'
 import { gerarBandoClube } from './clube/ganguesClubeRegras.js'
-import { temCena, revezamentoNoTerritorio, avancarRinha, lutaForteDaRinha } from './data/cenas/cenaHelpers.js'
+import { temCena, revezamentoNoTerritorio, avancarRinha, lutaForteDaRinha, CENAS_POR_ID } from './data/cenas/cenaHelpers.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
-import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, suavizarPrimeiraLuta, suavizarPorFrustracao, escalarInimigo } from './data/ganguesEncontros.js'
+import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, suavizarPrimeiraLuta, suavizarPorFrustracao, escalarInimigo, completarBandoMinimo } from './data/ganguesEncontros.js'
 import { ajustarPontosFixo, GANGUES_FRUSTRACAO_LIMIAR } from './data/ganguesDificuldade.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
@@ -311,6 +311,10 @@ export default function GanguesRoute() {
       if (!enemyTeam?.length) { setFase('story'); return }
       if (suavizarFn) enemyTeam = suavizarFn(enemyTeam)
     }
+    // Mínimo de inimigos do bairro (GANGUES_MIN_INIMIGOS): vale pra toda luta,
+    // inclusive Rinha e Clube; os que faltam entram como capangas mais fracos.
+    const bairroDaLuta = alvo.clube ? alvo.voltar?.territorioId : alvo.territorioId
+    enemyTeam = completarBandoMinimo(enemyTeam, { territorioId: bairroDaLuta, pool: CENAS_POR_ID[bairroDaLuta]?.poolCapangas, enemiesData })
     // Ajuste na ficha do LÍDER desta luta (vem da cena — ver iniciarTreta em
     // GanguesCena.jsx): o ponto fraco do chefe (Feira: −2 Couro com as 3
     // páginas da caderneta) ou o inimigo mais forte contra devedor (+1 Pique).

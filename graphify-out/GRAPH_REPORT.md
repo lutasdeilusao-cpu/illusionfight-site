@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-10-07)
 
 ## Corpus Check
-- 1243 files · ~2,155,118 words
+- 1243 files · ~2,155,032 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 5716 nodes · 8854 edges · 723 communities (384 shown, 339 thin omitted)
+- 5716 nodes · 8852 edges · 719 communities (381 shown, 338 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 81 edges (avg confidence: 0.62)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `81b5d55e`
+- Built from commit: `cdde7857`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -174,13 +174,11 @@
 - Relationship Arcs — Lutas de Ilusão
 - CHAPTER 10: "O preço do sucesso"
 - UnifiedNotification.jsx
-- Marketing-MAP.md
 - Primordial Power (Sangue Primordial)
 - CHAPTER 8: "Meu bebê? Que história é essa?"
 - CHAPTER 12: "Cuidado a gatinha tem garras"
 - ISA UNIVERSE — WRITING STYLE GUIDE
 - 02.md
-- 6. A PLATAFORMA TECNOLÓGICA
 - 🃏 Top Trumps — LDI: Todas as Cartas
 - 🟡 Lendário (6 cartas)
 - Bravara
@@ -328,7 +326,6 @@
 - ContoHistoria.jsx
 - Brincadeira.jsx
 - RestaurarSaude.jsx
-- PuzzleAnagrama.jsx
 - Tamagoshi.jsx
 - 01.md
 - 02.md
@@ -350,7 +347,6 @@
 - 09.md
 - criaturas.js
 - mundo.js
-- ganguesInimigos.js
 - drawCombatBoard
 - RestaurarSaude.jsx
 - Create
@@ -645,19 +641,19 @@
 ## Surprising Connections (you probably didn't know these)
 - `TeamSelect()` --indirect_call--> `eq()`  [INFERRED]
   src/pages/games/ArenaTatics/screens/TeamSelect.jsx → tests/paridade-exata.mjs
-- `carregarProgressoHistoria()` --calls--> `getGanguesEquip()`  [EXTRACTED]
-  src/pages/games/Gangues/store/ganguesStoryProgress.js → src/pages/games/Gangues/data/ganguesEquip.js
 - `Batalha()` --indirect_call--> `path()`  [INFERRED]
   src/pages/games/ArenaTatics/screens/Batalha.jsx → src/pages/games/Gangues/data/ganguesSpecials.js
 - `DesktopShellBar()` --calls--> `useLanguage()`  [EXTRACTED]
   src/components/DesktopShellBar/DesktopShellBar.jsx → src/context/LanguageContext.jsx
 - `HpBarDelta()` --calls--> `useLanguage()`  [EXTRACTED]
   src/pages/games/ArenaTatics/components/CombatResultModal.jsx → src/context/LanguageContext.jsx
+- `DicePP()` --calls--> `useLanguage()`  [EXTRACTED]
+  src/pages/games/PesadeloParticular/screens/Confronto.jsx → src/context/LanguageContext.jsx
 
 ## Import Cycles
 - None detected.
 
-## Communities (723 total, 339 thin omitted)
+## Communities (719 total, 338 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -688,8 +684,8 @@ Cohesion: 0.06
 Nodes (23): SFX, GangDialog(), ANCHORS, AUTO_TUTORIAL_PASSOS, GanguesActionOrb(), pct(), posSalva(), salvarPos() (+15 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.08
-Nodes (36): GuestNotice(), LoginGate(), UnifiedNotification(), AchievementsContext, AchievementsProvider(), useAchievements(), AuthContext, useAuth() (+28 more)
+Cohesion: 0.05
+Nodes (56): DesktopShellBar(), GuestNotice(), LoginGate(), badgeCorClass(), ProdutoDigitalCard(), ShopSection(), UnifiedNotification(), AchievementsContext (+48 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.36
@@ -716,8 +712,8 @@ Cohesion: 0.06
 Nodes (41): attack, fast, lucky, addGanguesAp(), contarTerritoriosDominados(), defaultGanguesProgression(), GANGUES_CLUBE_PREMIO, GANGUES_PATHS (+33 more)
 
 ### Community 15 - "sfx.js"
-Cohesion: 0.13
-Nodes (28): GanguesFerreiro(), GanguesLojaVenda(), GanguesEquipPanel(), applyGanguesEquipResources(), aprimTeto(), cartasVazias(), CATALOGO, createGanguesEquipInstance() (+20 more)
+Cohesion: 0.09
+Nodes (36): GanguesFerreiro(), GanguesEquipPanel(), applyGanguesEquipResources(), aprimTeto(), atributoPrincipal(), caminhoAceitaGangues(), cartasVazias(), CATALOGO (+28 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.10
@@ -732,12 +728,12 @@ Cohesion: 0.07
 Nodes (28): Abilities / Skills, Abilities / Skills, Abilities / Skills, Abilities / Skills, Background Summary, Background Summary, Background Summary, Background Summary (+20 more)
 
 ### Community 19 - "Community 19"
-Cohesion: 0.22
-Nodes (6): GanguesPapo(), CATALOGO, GANGUES_ITENS, GANGUES_ITENS_LISTA, GANGUES_TIPOS_USO_COMBATE, getGanguesItem()
+Cohesion: 0.15
+Nodes (22): ATTRS_TROCA, Candidato(), GanguesBagEquip(), resumoTroca(), SLOTS, GanguesCenaBagSheet(), categoriaDo(), CATEGORIAS (+14 more)
 
 ### Community 20 - "Community 20"
 Cohesion: 0.06
-Nodes (50): calculateAllVision(), gerarCameras(), getVisionCone(), PuzzleStealthGrid(), temCaminhoLivre(), FRASES, getFrase(), PALETTES (+42 more)
+Nodes (49): calculateAllVision(), gerarCameras(), getVisionCone(), PuzzleStealthGrid(), temCaminhoLivre(), FRASES, getFrase(), PALETTES (+41 more)
 
 ### Community 21 - "Lobby.jsx"
 Cohesion: 0.14
@@ -1244,12 +1240,8 @@ Cohesion: 0.22
 Nodes (8): BEAT 10.1 — Floating Observer, BEAT 10.2 — The Argument, BEAT 10.3 — The Cuba de Pobre, BEAT 10.4 — Mental Energy, BEAT 10.5 — Weapon and Power Systems, BEAT 10.6 — The Prejudice Argument, BEAT 10.7 — Synthesis, CHAPTER 10: "O preço do sucesso"
 
 ### Community 188 - "UnifiedNotification.jsx"
-Cohesion: 0.07
-Nodes (40): ReaderContext, useReader(), path(), BulletHellRafael(), CFG, hexAlpha(), PuzzleBulletHellRafael(), CodigoPerdido() (+32 more)
-
-### Community 189 - "Marketing-MAP.md"
-Cohesion: 0.11
-Nodes (20): DesktopShellBar(), badgeCorClass(), ProdutoDigitalCard(), ShopSection(), useScrollReveal(), assertExternalPurchasesAllowed(), params, requestedClient (+12 more)
+Cohesion: 0.06
+Nodes (41): ReaderContext, useReader(), path(), JackCandy(), BulletHellRafael(), CFG, hexAlpha(), PuzzleBulletHellRafael() (+33 more)
 
 ### Community 190 - "Primordial Power (Sangue Primordial)"
 Cohesion: 0.25
@@ -1270,10 +1262,6 @@ Nodes (7): Action Scenes, Cultural Notes, Dialogue Rules, ISA UNIVERSE — WRITI
 ### Community 194 - "02.md"
 Cohesion: 0.15
 Nodes (12): CAPÍTULO 1 — LA MARCA, EL AMANECER, EL ESCUDO SE QUIEBRA, EL ILUMINADO, ESCONDIDO, LA MASACRE, MIS 9 AÑOS., MIS 9 AÑOS (TRES SEMANAS ATRÁS) (+4 more)
-
-### Community 195 - "6. A PLATAFORMA TECNOLÓGICA"
-Cohesion: 0.25
-Nodes (14): abaDoItem(), ABAS, ATTR_ORDER, DetalheItem(), GanguesLoja(), LinhaComparacao(), atributoPrincipal(), caminhoAceitaGangues() (+6 more)
 
 ### Community 196 - "🃏 Top Trumps — LDI: Todas as Cartas"
 Cohesion: 0.29
@@ -1446,10 +1434,6 @@ Nodes (3): PISTA_POOL_GALPAO, PISTA_POOL_RUA, PISTA_POOL_TUNEL
 ### Community 349 - "Brincadeira.jsx"
 Cohesion: 0.31
 Nodes (9): ACESSORIOS, ARMADURAS, ARMES, calcularBonus(), getAllEquipamentos(), getEquipamento(), ELEM_COR, EMOJI (+1 more)
-
-### Community 351 - "PuzzleAnagrama.jsx"
-Cohesion: 0.28
-Nodes (6): ATTRS_TROCA, Candidato(), GanguesBagEquip(), resumoTroca(), SLOTS, ABA_DO_TIPO
 
 ### Community 353 - "Tamagoshi.jsx"
 Cohesion: 0.24
@@ -1760,21 +1744,21 @@ Cohesion: 0.67
 Nodes (3): 22.1 Ficha de página, 22.2 Briefing de arte ou geração assistida, 22. Modelos reutilizáveis
 
 ## Knowledge Gaps
-- **2256 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2251 more)
+- **2253 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2248 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **339 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **338 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `criaturas.js` to `Community 0`, `Community 1`, `powersData.js`, `Community 8`, `Community 10`, `Community 20`, `Lobby.jsx`, `Community 22`, `AuthContext.jsx`, `Historias.jsx`, `PuzzleStealthGrid.jsx`, `3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS`, `DixContext.jsx`, `UniversosHub.jsx`, `react`, `Phase2Customize.jsx`, `TopTrumpsSP.jsx`, `TypewriterPhrase.jsx`, `UnifiedNotification.jsx`, `Marketing-MAP.md`, `Vila.jsx`, `PuzzleStealthGrid`, `useGameStore.js`, `Number`, `04.md`, `criaturas.js`, `Community 125`, `useRadioNina.js`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+- **Why does `useLanguage()` connect `criaturas.js` to `Community 0`, `Community 1`, `powersData.js`, `Community 8`, `Community 10`, `Community 20`, `Lobby.jsx`, `Community 22`, `AuthContext.jsx`, `Historias.jsx`, `PuzzleStealthGrid.jsx`, `3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS`, `DixContext.jsx`, `UniversosHub.jsx`, `react`, `Phase2Customize.jsx`, `TopTrumpsSP.jsx`, `TypewriterPhrase.jsx`, `UnifiedNotification.jsx`, `Vila.jsx`, `PuzzleStealthGrid`, `useGameStore.js`, `Number`, `04.md`, `criaturas.js`, `Community 125`, `useRadioNina.js`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `UnifiedNotification.jsx` to `Community 0`, `3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS`, `DixContext.jsx`, `Community 3`, `Phase2Customize.jsx`, `Vila.jsx`, `Community 20`, `Community 22`, `criaturas.js`, `Community 125`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
-- **Why does `trackEvent()` connect `useRadioNina.js` to `Marketing-MAP.md`?**
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
+- **Why does `trackEvent()` connect `useRadioNina.js` to `Community 8`?**
   _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
-  _2256 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2253 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

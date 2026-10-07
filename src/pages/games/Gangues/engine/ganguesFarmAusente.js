@@ -30,7 +30,7 @@
    ══════════════════════════════════════════════════════════════ */
 import { iniciarBrigaMultidao, iniciarBrigaMultidaoDeCombatentes, avancarRodadaMultidao } from './ganguesBrigaMultidao.js'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from './ganguesVictoryResolver.js'
-import { gerarBandoRevezamento } from '../data/ganguesEncontros.js'
+import { gerarBandoRevezamento, completarBandoMinimo } from '../data/ganguesEncontros.js'
 import { revezamentoNoTerritorio, destinoSocorroDerrota, custoRecuperacaoRinha, avancarRinha } from '../data/cenas/cenaHelpers.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
@@ -161,7 +161,7 @@ export function simularFarmRinha({ store, cena, segundos, enemiesData, alvo, lut
       // luta calculada (1 a cada 5 min no fundo) vem sempre na ponta fraca, −8
       // (Isaias, 03/10/2026); a conta da Rinha avança igual
       alvo = avancarRinha(alvo)
-      const bando = gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId, party, true), enemiesData, modo, playerTeam: party })
+      const bando = completarBandoMinimo(gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId, party, true), enemiesData, modo, playerTeam: party }), { territorioId: alvo.territorioId, pool: cena.poolCapangas, enemiesData })
       if (!bando?.length) break
       // A vida passa de uma luta pra outra (igual à Rinha ao vivo).
       inicio = iniciarBrigaMultidao({ playerTeam: party, enemyTeam: bando })

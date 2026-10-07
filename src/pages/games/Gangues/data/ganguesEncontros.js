@@ -442,3 +442,39 @@ export function gerarBandoChefe({ territorioId, playerTeam, enemiesData, modo = 
 }
 
 // O bando do CLUBE DA LUTA mora no módulo do Clube: clube/ganguesClubeRegras.js.
+
+/** Mínimo de inimigos por luta em cada bairro: a partir da Feira toda briga
+ *  é em bando, e o bando cresce bairro a bairro. */
+export const GANGUES_MIN_INIMIGOS = { pista: 1, feira: 2, baixada: 3, vila: 4, morro: 5, alto: 6, laje: 7 }
+
+/** Completa o bando até o mínimo do bairro. Quem entra é capanga do `pool`
+ *  da rua do bairro, 2–3 pontos abaixo do inimigo principal da luta (a mesma
+ *  regra do 2º corpo de uma dupla); sem repetir molde enquanto der. */
+const pontosDoCorpo = e => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(e?.stats?.[k]) || 0), 0)
+export function completarBandoMinimo(bando, { territorioId, pool, enemiesData }) {
+  const minimo = GANGUES_MIN_INIMIGOS[territorioId] || 1
+  if (!bando?.length || bando.length >= minimo || !pool?.length) return bando
+  const lider = bando[0]
+  const pontosLider = pontosDoCorpo(lider)
+  const usados = new Set(bando.map(e => e.id))
+  const bag = []
+  const sortear = () => {
+    if (!bag.length) { const livres = pool.filter(id => !usados.has(id)); bag.push(...(livres.length ? livres : pool)) }
+    const id = bag.splice(Math.floor(Math.random() * bag.length), 1)[0]
+    usados.add(id)
+    return id
+  }
+  const extras = []
+  for (let tentativas = 0; bando.length + extras.length < minimo && tentativas < minimo * pool.length * 2; tentativas++) {
+    const idSorteado = sortear()
+    const molde = enemiesData.find(e => e.id === idSorteado)
+    if (!molde) continue
+    const deducao = GANGUES_DUPLA_DEDUCAO_MIN + Math.floor(Math.random() * (GANGUES_DUPLA_DEDUCAO_MAX - GANGUES_DUPLA_DEDUCAO_MIN + 1))
+    // O arredondamento da escala pode estourar: desce o alvo até caber.
+    const alvo = Math.max(2, pontosLider - deducao)
+    let corpo = escalarInimigo(molde, alvo)
+    for (let p = alvo - 1; p >= 2 && pontosDoCorpo(corpo) > alvo; p--) corpo = escalarInimigo(molde, p)
+    extras.push(corpo)
+  }
+  return [...bando, ...extras]
+}

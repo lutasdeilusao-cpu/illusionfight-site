@@ -15,11 +15,13 @@ import { MUNDO_VILA, RUAS_VILA, POSTES_VILA, QUARTEIROES_VILA, PREDIOS_VILA, OBS
 import { POIS_VILA } from './pois.js'
 import { INTERIORES_VILA } from './interiores.js'
 import { POS_VILA, ENTRY_ZONES_VILA } from './posicoes.js'
-import { VILA_POOL_ELEVADOR } from './pools.js'
+import { VILA_POOL_ELEVADOR, VILA_POOL_TERREO } from './pools.js'
 
 export const CENA_VILA = {
   id: 'vila',
   territorioId: 'vila',
+  // Capangas que completam o bando até o mínimo do bairro (GANGUES_MIN_INIMIGOS).
+  poolCapangas: VILA_POOL_TERREO,
   cor: '#ffae32',
   mundo: MUNDO_VILA,
   ruas: RUAS_VILA,

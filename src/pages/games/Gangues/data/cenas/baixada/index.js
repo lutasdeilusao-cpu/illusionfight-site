@@ -15,9 +15,12 @@ import { POIS_BAIXADA, BAIXADA_RESPEITO } from './pois.js'
 import { INTERIORES_BAIXADA } from './interiores.js'
 import { POS_BAIXADA, ENTRY_ZONES_BAIXADA } from './posicoes.js'
 
+import { BAIXADA_POOL_RUA } from './pools.js'
 export const CENA_BAIXADA = {
   id: 'baixada',
   territorioId: 'baixada',
+  // Capangas que completam o bando até o mínimo do bairro (GANGUES_MIN_INIMIGOS).
+  poolCapangas: BAIXADA_POOL_RUA,
   cor: '#18dafb',
   mundo: MUNDO_BAIXADA,
   ruas: RUAS_BAIXADA,

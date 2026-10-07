@@ -15,9 +15,12 @@ import { POIS_FEIRA } from './pois.js'
 import { INTERIORES_FEIRA } from './interiores.js'
 import { POS_FEIRA, ENTRY_ZONES_FEIRA } from './posicoes.js'
 
+import { FEIRA_POOL_RUA } from './pools.js'
 export const CENA_FEIRA = {
   id: 'feira',
   territorioId: 'feira',
+  // Capangas que completam o bando até o mínimo do bairro (GANGUES_MIN_INIMIGOS).
+  poolCapangas: FEIRA_POOL_RUA,
   cor: '#7ee787',
   mundo: MUNDO_FEIRA,
   ruas: RUAS_FEIRA,
