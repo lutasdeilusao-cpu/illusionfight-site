@@ -602,6 +602,9 @@
         "loja_sem_encaixe": "Shop version: no card slot, can be upgraded at the smith. The slotted version only drops from enemies."
       },
       "bag": {
+        "todos": "All",
+        "slot_vazio": "Nothing in this spot now",
+        "quem_usa": "Who wears it?",
         "abas": {"cura": "Healing", "luta": "Fight", "material": "Materials", "equip": "Gear", "cartas": "Cards"},
         "eyebrow": "Bag",
         "titulo": "Gang Bag",
@@ -611,10 +614,8 @@
         "usar": "Use",
         "usar_em": "Use {item} on who?",
         "ja_cheio": "{nome} is already maxed. Save the potion.",
-        "equipar_em": "Put {item} ({slot}) on who?",
         "equipou": "{nome} equipped {item} ({slot}).",
         "ja_equipado": "already has it",
-        "usa_agora": "Now: {bonus}",
         "sem_mudanca": "No change to the sheet",
         "status_curado": "{nome} is clear of the status.",
         "sem_status": "{nome} doesn't have that status.",

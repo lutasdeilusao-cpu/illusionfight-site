@@ -4,6 +4,7 @@
    computado das telas (Playwright). */
 @import './../styles/cena/encontros.css';
 @import './../styles/cena/loja-bolsa.css';
+@import './../styles/cena/bolsa-equip.css';
 @import './../styles/cena/banca.css';
 @import './../styles/cena/mundo.css';
 @import './../styles/cena/cenario.css';

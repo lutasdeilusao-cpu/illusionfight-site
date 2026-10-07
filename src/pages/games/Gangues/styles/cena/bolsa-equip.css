@@ -1,0 +1,63 @@
+/* ── Bolsa: aba Equipamento (GanguesBagEquip.jsx) ── */
+
+/* Filtro por lugar do corpo */
+.gang-bagq-slots { width: 100%; display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px; }
+.gang-bagq-slot {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 9px;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  font: 800 0.54rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase;
+  cursor: pointer;
+}
+.gang-bagq-slot b { color: var(--gang-cinza-azul-400); font-weight: 800; }
+.gang-bagq-slot.is-ativa {
+  border-color: var(--terr-cor);
+  background: color-mix(in srgb, var(--terr-cor) 16%, transparent);
+  color: var(--gang-branco);
+}
+.gang-bagq-slot.is-ativa b { color: var(--if-amber); }
+
+/* Peça: uma linha; tocar abre o detalhe */
+.gang-bagq-peca {
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.03);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-bagq-peca.is-aberta { border-color: color-mix(in srgb, var(--terr-cor) 60%, transparent); }
+.gang-bagq-peca__linha {
+  width: 100%; display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px; border: 0; background: none; text-align: left; cursor: pointer;
+}
+.gang-bagq-peca__icone { font-size: 1.25rem; flex-shrink: 0; }
+.gang-bagq-peca__nome { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.gang-bagq-peca__nome strong { font: 800 0.72rem var(--font-display); text-transform: uppercase; color: var(--gang-branco); }
+.gang-bagq-peca__nome small { font: 700 0.58rem var(--font-mono); color: var(--terr-cor); }
+.gang-bagq-peca__qtd { flex-shrink: 0; font: 800 0.72rem var(--font-mono); color: var(--if-amber); }
+.gang-bagq-peca__seta { flex-shrink: 0; font-size: 0.7rem; color: var(--gang-cinza-azul-400); }
+
+/* Detalhe da peça + "quem veste?" */
+.gang-bagq-det { display: flex; flex-direction: column; gap: 6px; padding: 0 10px 10px; }
+.gang-bagq-det__tags { margin: 0; font: 700 0.54rem var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-secondary); }
+.gang-bagq-det__quem { margin-top: 2px; font: 800 0.52rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gang-cinza-azul-500); }
+
+.gang-bagq-cand {
+  display: flex; align-items: center; gap: 9px;
+  padding: 8px;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(0, 0, 0, 0.25);
+}
+.gang-bagq-cand.is-off { opacity: 0.55; }
+.gang-bagq-cand__foto {
+  width: 34px; height: 34px; flex-shrink: 0; object-fit: cover; image-rendering: pixelated;
+  display: grid; place-items: center;
+  border: 1px solid var(--if-hair-strong); background: #0b1114;
+  font: 800 0.8rem var(--font-display); color: var(--gang-branco);
+}
+.gang-bagq-cand__info { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 3px; text-align: left; }
+.gang-bagq-cand__info strong { font: 800 0.7rem var(--font-display); text-transform: uppercase; color: var(--gang-branco); }
+.gang-bagq-cand__info strong small { font: 700 0.54rem var(--font-mono); color: var(--if-amber); }
+.gang-bagq-cand__agora { font: 600 0.56rem var(--font-mono); color: var(--gang-cinza-azul-400); }
+.gang-bagq-cand .gang-loja-cmp__deltas { order: 0; }
+.gang-bagq-cand__motivo { flex-shrink: 0; font-style: normal; font: 700 0.54rem var(--font-mono); text-transform: uppercase; color: var(--if-amber); }
