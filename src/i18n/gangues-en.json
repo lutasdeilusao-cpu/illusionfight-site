@@ -602,11 +602,10 @@
         "loja_sem_encaixe": "Shop version: no card slot, can be upgraded at the smith. The slotted version only drops from enemies."
       },
       "bag": {
+        "abas": {"cura": "Healing", "luta": "Fight", "material": "Materials", "equip": "Gear", "cartas": "Cards"},
         "eyebrow": "Bag",
         "titulo": "Gang Bag",
         "vazio": "The bag is empty. Buy something at the shop.",
-        "consumiveis": "Combat items",
-        "equip_bolso": "Stashed gear",
         "nota_combate": "They also show up under the 🎒 button during a fight.",
         "nota_equip": "Equip here or via 👤 → character sheet.",
         "usar": "Use",

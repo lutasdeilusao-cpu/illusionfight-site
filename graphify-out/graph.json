@@ -304,14 +304,44 @@
       "norm_label": "version.js"
     },
     {
+      "label": "GanguesCreate.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/screens/GanguesCreate.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_screens_ganguescreate",
+      "community": 452,
+      "norm_label": "ganguescreate.jsx"
+    },
+    {
+      "label": "PATH_MARKS",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/screens/GanguesCreate.jsx",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_screens_ganguescreate_path_marks",
+      "community": 452,
+      "norm_label": "path_marks"
+    },
+    {
+      "label": "GanguesCreate()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/screens/GanguesCreate.jsx",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_screens_ganguescreate_ganguescreate",
+      "community": 452,
+      "norm_label": "ganguescreate()"
+    },
+    {
       "label": "GanguesRoute.jsx",
       "file_type": "code",
       "source_file": "src/pages/games/Gangues/GanguesRoute.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_ganguesroute",
       "community": 375,
-      "norm_label": "ganguesroute.jsx"
+      "norm_label": "ganguesroute.jsx",
+      "id": "src_pages_games_gangues_ganguesroute"
     },
     {
       "label": "GANGUES_FASES_TRANSITORIAS",
@@ -319,9 +349,9 @@
       "source_file": "src/pages/games/Gangues/GanguesRoute.jsx",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_ganguesroute_gangues_fases_transitorias",
       "community": 375,
-      "norm_label": "gangues_fases_transitorias"
+      "norm_label": "gangues_fases_transitorias",
+      "id": "src_pages_games_gangues_ganguesroute_gangues_fases_transitorias"
     },
     {
       "label": "GanguesRoute()",
@@ -329,9 +359,9 @@
       "source_file": "src/pages/games/Gangues/GanguesRoute.jsx",
       "source_location": "L44",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_ganguesroute_ganguesroute",
       "community": 375,
-      "norm_label": "ganguesroute()"
+      "norm_label": "ganguesroute()",
+      "id": "src_pages_games_gangues_ganguesroute_ganguesroute"
     },
     {
       "label": "GanguesCenaAtores.jsx",
@@ -339,9 +369,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores",
       "community": 375,
-      "norm_label": "ganguescenaatores.jsx"
+      "norm_label": "ganguescenaatores.jsx",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores"
     },
     {
       "label": "GangMarker()",
@@ -349,9 +379,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_gangmarker",
       "community": 375,
-      "norm_label": "gangmarker()"
+      "norm_label": "gangmarker()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_gangmarker"
     },
     {
       "label": "farolDe()",
@@ -359,9 +389,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde",
       "community": 375,
-      "norm_label": "farolde()"
+      "norm_label": "farolde()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde"
     },
     {
       "label": "ZonaChao()",
@@ -369,9 +399,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L61",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_zonachao",
       "community": 375,
-      "norm_label": "zonachao()"
+      "norm_label": "zonachao()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_zonachao"
     },
     {
       "label": "ICONE",
@@ -379,9 +409,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L69",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_icone",
       "community": 375,
-      "norm_label": "icone"
+      "norm_label": "icone",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_icone"
     },
     {
       "label": "hashEstavel()",
@@ -389,9 +419,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L75",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel",
       "community": 375,
-      "norm_label": "hashestavel()"
+      "norm_label": "hashestavel()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel"
     },
     {
       "label": "retratoDoPino()",
@@ -399,9 +429,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L92",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino",
       "community": 375,
-      "norm_label": "retratodopino()"
+      "norm_label": "retratodopino()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino"
     },
     {
       "label": "ehPersonagem()",
@@ -409,9 +439,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L113",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem",
       "community": 375,
-      "norm_label": "ehpersonagem()"
+      "norm_label": "ehpersonagem()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem"
     },
     {
       "label": "MOVIMENTOS_TRETA",
@@ -419,9 +449,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L132",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentos_treta",
       "community": 375,
-      "norm_label": "movimentos_treta"
+      "norm_label": "movimentos_treta",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentos_treta"
     },
     {
       "label": "duracaoMovimentoS()",
@@ -429,9 +459,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L133",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_duracaomovimentos",
       "community": 375,
-      "norm_label": "duracaomovimentos()"
+      "norm_label": "duracaomovimentos()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_duracaomovimentos"
     },
     {
       "label": "faseLongeDe()",
@@ -439,9 +469,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L143",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_faselongede",
       "community": 375,
-      "norm_label": "faselongede()"
+      "norm_label": "faselongede()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_faselongede"
     },
     {
       "label": "larguraDoCaminho()",
@@ -449,9 +479,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L154",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_larguradocaminho",
       "community": 375,
-      "norm_label": "larguradocaminho()"
+      "norm_label": "larguradocaminho()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_larguradocaminho"
     },
     {
       "label": "movimentoDoPino()",
@@ -459,9 +489,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L157",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentodopino",
       "community": 375,
-      "norm_label": "movimentodopino()"
+      "norm_label": "movimentodopino()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentodopino"
     },
     {
       "label": "PinoAlvo()",
@@ -469,9 +499,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L188",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
       "community": 375,
-      "norm_label": "pinoalvo()"
+      "norm_label": "pinoalvo()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo"
     },
     {
       "label": "TIPOS_COM_VERBO",
@@ -479,9 +509,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L287",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_tipos_com_verbo",
       "community": 375,
-      "norm_label": "tipos_com_verbo"
+      "norm_label": "tipos_com_verbo",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_tipos_com_verbo"
     },
     {
       "label": "interactionLabel()",
@@ -489,9 +519,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L288",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_interactionlabel",
       "community": 375,
-      "norm_label": "interactionlabel()"
+      "norm_label": "interactionlabel()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_interactionlabel"
     },
     {
       "label": "BrigaAutoAviso()",
@@ -499,9 +529,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L304",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_brigaautoaviso",
       "community": 375,
-      "norm_label": "brigaautoaviso()"
+      "norm_label": "brigaautoaviso()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_brigaautoaviso"
     },
     {
       "label": "WorldControls()",
@@ -509,9 +539,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L319",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_worldcontrols",
       "community": 375,
-      "norm_label": "worldcontrols()"
+      "norm_label": "worldcontrols()",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_worldcontrols"
     },
     {
       "label": "ganguesCenaMotor.js",
@@ -519,9 +549,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor",
       "community": 375,
-      "norm_label": "ganguescenamotor.js"
+      "norm_label": "ganguescenamotor.js",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor"
     },
     {
       "label": "WORLD",
@@ -529,9 +559,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_world",
       "community": 375,
-      "norm_label": "world"
+      "norm_label": "world",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_world"
     },
     {
       "label": "SPAWN",
@@ -539,9 +569,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_spawn",
       "community": 375,
-      "norm_label": "spawn"
+      "norm_label": "spawn",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_spawn"
     },
     {
       "label": "obstRect()",
@@ -549,9 +579,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_obstrect",
       "community": 375,
-      "norm_label": "obstrect()"
+      "norm_label": "obstrect()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_obstrect"
     },
     {
       "label": "collidersDaCena()",
@@ -559,9 +589,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_collidersdacena",
       "community": 375,
-      "norm_label": "collidersdacena()"
+      "norm_label": "collidersdacena()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_collidersdacena"
     },
     {
       "label": "resolverRefPoi()",
@@ -569,9 +599,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_resolverrefpoi",
       "community": 375,
-      "norm_label": "resolverrefpoi()"
+      "norm_label": "resolverrefpoi()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_resolverrefpoi"
     },
     {
       "label": "estadoInternoPoi()",
@@ -579,9 +609,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L34",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_estadointernopoi",
       "community": 375,
-      "norm_label": "estadointernopoi()"
+      "norm_label": "estadointernopoi()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_estadointernopoi"
     },
     {
       "label": "ofertaPendente()",
@@ -589,9 +619,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_ofertapendente",
       "community": 375,
-      "norm_label": "ofertapendente()"
+      "norm_label": "ofertapendente()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_ofertapendente"
     },
     {
       "label": "estadoPoi()",
@@ -599,9 +629,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L46",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_estadopoi",
       "community": 375,
-      "norm_label": "estadopoi()"
+      "norm_label": "estadopoi()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_estadopoi"
     },
     {
       "label": "refsInternos()",
@@ -609,9 +639,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_refsinternos",
       "community": 375,
-      "norm_label": "refsinternos()"
+      "norm_label": "refsinternos()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_refsinternos"
     },
     {
       "label": "posNoMapa()",
@@ -619,9 +649,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L58",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_posnomapa",
       "community": 375,
-      "norm_label": "posnomapa()"
+      "norm_label": "posnomapa()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_posnomapa"
     },
     {
       "label": "montarAmbiente()",
@@ -629,9 +659,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L66",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente",
       "community": 375,
-      "norm_label": "montarambiente()"
+      "norm_label": "montarambiente()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente"
     },
     {
       "label": "validPosition()",
@@ -639,9 +669,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L169",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_validposition",
       "community": 375,
-      "norm_label": "validposition()"
+      "norm_label": "validposition()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_validposition"
     },
     {
       "label": "validPos()",
@@ -649,9 +679,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L170",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_validpos",
       "community": 375,
-      "norm_label": "validpos()"
+      "norm_label": "validpos()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_validpos"
     },
     {
       "label": "insideZone()",
@@ -659,9 +689,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L176",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_insidezone",
       "community": 375,
-      "norm_label": "insidezone()"
+      "norm_label": "insidezone()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_insidezone"
     },
     {
       "label": "hitsSolid()",
@@ -669,9 +699,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L177",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_hitssolid",
       "community": 375,
-      "norm_label": "hitssolid()"
+      "norm_label": "hitssolid()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_hitssolid"
     },
     {
       "label": "stepPlayer()",
@@ -679,9 +709,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L185",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguescenamotor_stepplayer",
       "community": 375,
-      "norm_label": "stepplayer()"
+      "norm_label": "stepplayer()",
+      "id": "src_pages_games_gangues_engine_ganguescenamotor_stepplayer"
     },
     {
       "label": "useGanguesBrigaAutomatica.js",
@@ -689,9 +719,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
       "community": 375,
-      "norm_label": "useganguesbrigaautomatica.js"
+      "norm_label": "useganguesbrigaautomatica.js",
+      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica"
     },
     {
       "label": "GANGUES_AUTOMATICOS",
@@ -699,9 +729,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L50",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_gangues_automaticos",
       "community": 375,
-      "norm_label": "gangues_automaticos"
+      "norm_label": "gangues_automaticos",
+      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_gangues_automaticos"
     },
     {
       "label": "useBrigaDeRua()",
@@ -709,9 +739,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L54",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_usebrigaderua",
       "community": 375,
-      "norm_label": "usebrigaderua()"
+      "norm_label": "usebrigaderua()",
+      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_usebrigaderua"
     },
     {
       "label": "brigaAutoLigada()",
@@ -719,9 +749,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L56",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigaautoligada",
       "community": 375,
-      "norm_label": "brigaautoligada()"
+      "norm_label": "brigaautoligada()",
+      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigaautoligada"
     },
     {
       "label": "desligarAutomaticos()",
@@ -729,9 +759,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L62",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_desligarautomaticos",
       "community": 375,
-      "norm_label": "desligarautomaticos()"
+      "norm_label": "desligarautomaticos()",
+      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_desligarautomaticos"
     },
     {
       "label": "brigaDoAlvo()",
@@ -739,9 +769,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L68",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigadoalvo",
       "community": 375,
-      "norm_label": "brigadoalvo()"
+      "norm_label": "brigadoalvo()",
+      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigadoalvo"
     },
     {
       "label": "entraSozinho()",
@@ -749,9 +779,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L79",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_entrasozinho",
       "community": 375,
-      "norm_label": "entrasozinho()"
+      "norm_label": "entrasozinho()",
+      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_entrasozinho"
     },
     {
       "label": "useGanguesBrigaAutomatica()",
@@ -759,9 +789,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L95",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesbrigaautomatica",
       "community": 375,
-      "norm_label": "useganguesbrigaautomatica()"
+      "norm_label": "useganguesbrigaautomatica()",
+      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesbrigaautomatica"
     },
     {
       "label": "GANGUES_AVANCO_AUTO_MS",
@@ -769,9 +799,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L156",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_gangues_avanco_auto_ms",
       "community": 375,
-      "norm_label": "gangues_avanco_auto_ms"
+      "norm_label": "gangues_avanco_auto_ms",
+      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_gangues_avanco_auto_ms"
     },
     {
       "label": "useGanguesAvancoAutomatico()",
@@ -779,9 +809,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L160",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesavancoautomatico",
       "community": 375,
-      "norm_label": "useganguesavancoautomatico()"
+      "norm_label": "useganguesavancoautomatico()",
+      "id": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesavancoautomatico"
     },
     {
       "label": "GanguesCena.jsx",
@@ -789,9 +819,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_screens_ganguescena",
       "community": 375,
-      "norm_label": "ganguescena.jsx"
+      "norm_label": "ganguescena.jsx",
+      "id": "src_pages_games_gangues_screens_ganguescena"
     },
     {
       "label": "cenaIntroTutorialId()",
@@ -799,9 +829,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid",
       "community": 375,
-      "norm_label": "cenaintrotutorialid()"
+      "norm_label": "cenaintrotutorialid()",
+      "id": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid"
     },
     {
       "label": "EMPTY_ALVOS",
@@ -809,9 +839,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L51",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_screens_ganguescena_empty_alvos",
       "community": 375,
-      "norm_label": "empty_alvos"
+      "norm_label": "empty_alvos",
+      "id": "src_pages_games_gangues_screens_ganguescena_empty_alvos"
     },
     {
       "label": "GanguesCena()",
@@ -819,9 +849,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L53",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_screens_ganguescena_ganguescena",
       "community": 375,
-      "norm_label": "ganguescena()"
+      "norm_label": "ganguescena()",
+      "id": "src_pages_games_gangues_screens_ganguescena_ganguescena"
     },
     {
       "label": "ganguesTerritorios.js",
@@ -28572,36 +28602,6 @@
       "community": 99,
       "norm_label": "createganguescenaprogressoslice()",
       "id": "src_pages_games_gangues_store_slices_ganguescenaprogressoslice_createganguescenaprogressoslice"
-    },
-    {
-      "label": "GanguesCreate.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/screens/GanguesCreate.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 452,
-      "norm_label": "ganguescreate.jsx",
-      "id": "src_pages_games_gangues_screens_ganguescreate"
-    },
-    {
-      "label": "PATH_MARKS",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/screens/GanguesCreate.jsx",
-      "source_location": "L21",
-      "_origin": "ast",
-      "community": 452,
-      "norm_label": "path_marks",
-      "id": "src_pages_games_gangues_screens_ganguescreate_path_marks"
-    },
-    {
-      "label": "GanguesCreate()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/screens/GanguesCreate.jsx",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 452,
-      "norm_label": "ganguescreate()",
-      "id": "src_pages_games_gangues_screens_ganguescreate_ganguescreate"
     },
     {
       "label": "GanguesModes.jsx",
@@ -57437,9 +57437,9 @@
       "source_file": "src/pages/games/Gangues/GanguesRoute.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_ganguesroute",
-      "target": "src_config_version",
-      "confidence_score": 1.0
+      "target": "src_config_version"
     },
     {
       "relation": "imports_from",
@@ -57543,12 +57543,32 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/screens/GanguesCreate.jsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_screens_ganguescreate",
+      "target": "src_pages_games_gangues_screens_ganguescreate_ganguescreate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/screens/GanguesCreate.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_screens_ganguescreate",
+      "target": "src_pages_games_gangues_screens_ganguescreate_path_marks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/GanguesRoute.jsx",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_ganguesroute",
-      "target": "src_pages_games_gangues_ganguesroute_gangues_fases_transitorias",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_ganguesroute_gangues_fases_transitorias"
     },
     {
       "relation": "contains",
@@ -57556,9 +57576,9 @@
       "source_file": "src/pages/games/Gangues/GanguesRoute.jsx",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_ganguesroute",
-      "target": "src_pages_games_gangues_ganguesroute_ganguesroute",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_ganguesroute_ganguesroute"
     },
     {
       "relation": "imports_from",
@@ -57567,9 +57587,9 @@
       "source_file": "src/pages/games/Gangues/GanguesRoute.jsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_ganguesroute",
-      "target": "src_pages_games_gangues_screens_ganguescena",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_screens_ganguescena"
     },
     {
       "relation": "imports",
@@ -57578,9 +57598,9 @@
       "source_file": "src/pages/games/Gangues/GanguesRoute.jsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_ganguesroute",
-      "target": "src_pages_games_gangues_screens_ganguescena_ganguescena",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_screens_ganguescena_ganguescena"
     },
     {
       "relation": "references",
@@ -57599,9 +57619,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L304",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_brigaautoaviso",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_brigaautoaviso"
     },
     {
       "relation": "contains",
@@ -57609,9 +57629,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_duracaomovimentos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_duracaomovimentos"
     },
     {
       "relation": "contains",
@@ -57619,9 +57639,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem"
     },
     {
       "relation": "contains",
@@ -57629,9 +57649,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde"
     },
     {
       "relation": "contains",
@@ -57639,9 +57659,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L143",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_faselongede",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_faselongede"
     },
     {
       "relation": "contains",
@@ -57649,9 +57669,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_gangmarker",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_gangmarker"
     },
     {
       "relation": "contains",
@@ -57659,9 +57679,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel"
     },
     {
       "relation": "contains",
@@ -57669,9 +57689,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_icone",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_icone"
     },
     {
       "relation": "contains",
@@ -57679,9 +57699,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L288",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_interactionlabel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_interactionlabel"
     },
     {
       "relation": "contains",
@@ -57689,9 +57709,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L154",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_larguradocaminho",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_larguradocaminho"
     },
     {
       "relation": "contains",
@@ -57699,9 +57719,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L157",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentodopino",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentodopino"
     },
     {
       "relation": "contains",
@@ -57709,9 +57729,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentos_treta",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentos_treta"
     },
     {
       "relation": "contains",
@@ -57719,9 +57739,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L188",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo"
     },
     {
       "relation": "contains",
@@ -57729,9 +57749,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino"
     },
     {
       "relation": "contains",
@@ -57739,9 +57759,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L287",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_tipos_com_verbo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_tipos_com_verbo"
     },
     {
       "relation": "contains",
@@ -57749,9 +57769,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L319",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_worldcontrols",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_worldcontrols"
     },
     {
       "relation": "contains",
@@ -57759,9 +57779,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_zonachao",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_zonachao"
     },
     {
       "relation": "imports_from",
@@ -57770,9 +57790,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor"
     },
     {
       "relation": "imports_from",
@@ -57781,9 +57801,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores"
     },
     {
       "relation": "imports_from",
@@ -57792,9 +57812,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores"
     },
     {
       "relation": "imports",
@@ -57803,9 +57823,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_gangmarker",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_gangmarker"
     },
     {
       "relation": "calls",
@@ -57814,9 +57834,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L275",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde"
     },
     {
       "relation": "calls",
@@ -57825,9 +57845,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_zonachao",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde"
     },
     {
       "relation": "imports",
@@ -57836,9 +57856,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde"
     },
     {
       "relation": "calls",
@@ -57847,9 +57867,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigadoalvo",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde"
     },
     {
       "relation": "calls",
@@ -57858,9 +57878,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_zonachao",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem"
     },
     {
       "relation": "imports",
@@ -57869,9 +57889,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_zonachao",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_zonachao"
     },
     {
       "relation": "calls",
@@ -57880,9 +57900,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L159",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentodopino",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel"
     },
     {
       "relation": "calls",
@@ -57891,9 +57911,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L265",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel"
     },
     {
       "relation": "calls",
@@ -57902,9 +57922,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel"
     },
     {
       "relation": "calls",
@@ -57913,9 +57933,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino"
     },
     {
       "relation": "calls",
@@ -57924,9 +57944,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L250",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino"
     },
     {
       "relation": "imports",
@@ -57935,9 +57955,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem"
     },
     {
       "relation": "calls",
@@ -57957,9 +57977,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L267",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_duracaomovimentos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_duracaomovimentos"
     },
     {
       "relation": "calls",
@@ -57968,9 +57988,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_faselongede",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentodopino",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentodopino"
     },
     {
       "relation": "calls",
@@ -57979,9 +57999,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L195",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_faselongede",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_faselongede"
     },
     {
       "relation": "calls",
@@ -57990,9 +58010,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L269",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_larguradocaminho",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_larguradocaminho"
     },
     {
       "relation": "calls",
@@ -58001,9 +58021,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L264",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentodopino",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_movimentodopino"
     },
     {
       "relation": "imports",
@@ -58012,9 +58032,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo"
     },
     {
       "relation": "references",
@@ -58034,9 +58054,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_interactionlabel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_interactionlabel"
     },
     {
       "relation": "calls",
@@ -58056,9 +58076,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_brigaautoaviso",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_brigaautoaviso"
     },
     {
       "relation": "imports",
@@ -58067,9 +58087,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_worldcontrols",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_worldcontrols"
     },
     {
       "relation": "contains",
@@ -58077,9 +58097,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_collidersdacena",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_collidersdacena"
     },
     {
       "relation": "contains",
@@ -58087,9 +58107,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_estadointernopoi",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_estadointernopoi"
     },
     {
       "relation": "contains",
@@ -58097,9 +58117,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_estadopoi",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_estadopoi"
     },
     {
       "relation": "contains",
@@ -58107,9 +58127,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L177",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_hitssolid",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_hitssolid"
     },
     {
       "relation": "contains",
@@ -58117,9 +58137,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L176",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_insidezone",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_insidezone"
     },
     {
       "relation": "contains",
@@ -58127,9 +58147,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente"
     },
     {
       "relation": "contains",
@@ -58137,9 +58157,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_obstrect",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_obstrect"
     },
     {
       "relation": "contains",
@@ -58147,9 +58167,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_ofertapendente",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_ofertapendente"
     },
     {
       "relation": "contains",
@@ -58157,9 +58177,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_posnomapa",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_posnomapa"
     },
     {
       "relation": "contains",
@@ -58167,9 +58187,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_refsinternos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_refsinternos"
     },
     {
       "relation": "contains",
@@ -58177,9 +58197,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_resolverrefpoi",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_resolverrefpoi"
     },
     {
       "relation": "contains",
@@ -58187,9 +58207,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_spawn",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_spawn"
     },
     {
       "relation": "contains",
@@ -58197,9 +58217,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L185",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_stepplayer",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_stepplayer"
     },
     {
       "relation": "contains",
@@ -58207,9 +58227,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L170",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_validpos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_validpos"
     },
     {
       "relation": "contains",
@@ -58217,9 +58237,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L169",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_validposition",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_validposition"
     },
     {
       "relation": "contains",
@@ -58227,9 +58247,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_world",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_world"
     },
     {
       "relation": "imports_from",
@@ -58249,9 +58269,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor"
     },
     {
       "relation": "imports",
@@ -58260,9 +58280,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_world",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_world"
     },
     {
       "relation": "imports",
@@ -58271,9 +58291,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_spawn",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_spawn"
     },
     {
       "relation": "indirect_call",
@@ -58282,9 +58302,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 0.5,
       "source": "src_pages_games_gangues_engine_ganguescenamotor_collidersdacena",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_obstrect",
-      "confidence_score": 0.5
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_obstrect"
     },
     {
       "relation": "calls",
@@ -58293,9 +58313,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_collidersdacena",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_collidersdacena"
     },
     {
       "relation": "calls",
@@ -58304,9 +58324,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L139",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_resolverrefpoi",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_resolverrefpoi"
     },
     {
       "relation": "calls",
@@ -58315,9 +58335,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L143",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_estadointernopoi",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_estadointernopoi"
     },
     {
       "relation": "calls",
@@ -58326,9 +58346,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_ofertapendente",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_ofertapendente"
     },
     {
       "relation": "calls",
@@ -58337,9 +58357,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_estadopoi",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_estadopoi"
     },
     {
       "relation": "calls",
@@ -58348,9 +58368,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_refsinternos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_refsinternos"
     },
     {
       "relation": "imports",
@@ -58359,9 +58379,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_posnomapa",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_posnomapa"
     },
     {
       "relation": "calls",
@@ -58381,9 +58401,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_montarambiente"
     },
     {
       "relation": "calls",
@@ -58403,9 +58423,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_validposition",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_validposition"
     },
     {
       "relation": "calls",
@@ -58425,9 +58445,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_validpos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_validpos"
     },
     {
       "relation": "calls",
@@ -58447,9 +58467,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_insidezone",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_insidezone"
     },
     {
       "relation": "calls",
@@ -58469,9 +58489,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCenaMotor.js",
       "source_location": "L188",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguescenamotor_stepplayer",
-      "target": "src_pages_games_gangues_engine_ganguescenamotor_hitssolid",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguescenamotor_hitssolid"
     },
     {
       "relation": "contains",
@@ -58479,9 +58499,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigaautoligada",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigaautoligada"
     },
     {
       "relation": "contains",
@@ -58489,9 +58509,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigadoalvo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigadoalvo"
     },
     {
       "relation": "contains",
@@ -58499,9 +58519,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_desligarautomaticos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_desligarautomaticos"
     },
     {
       "relation": "contains",
@@ -58509,9 +58529,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_entrasozinho",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_entrasozinho"
     },
     {
       "relation": "contains",
@@ -58519,9 +58539,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_gangues_automaticos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_gangues_automaticos"
     },
     {
       "relation": "contains",
@@ -58529,9 +58549,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L156",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_gangues_avanco_auto_ms",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_gangues_avanco_auto_ms"
     },
     {
       "relation": "contains",
@@ -58539,9 +58559,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_usebrigaderua",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_usebrigaderua"
     },
     {
       "relation": "contains",
@@ -58549,9 +58569,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesavancoautomatico",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesavancoautomatico"
     },
     {
       "relation": "contains",
@@ -58559,9 +58579,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesbrigaautomatica",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesbrigaautomatica"
     },
     {
       "relation": "imports_from",
@@ -58570,9 +58590,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica"
     },
     {
       "relation": "imports_from",
@@ -58625,9 +58645,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_entrasozinho",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigadoalvo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigadoalvo"
     },
     {
       "relation": "calls",
@@ -58636,9 +58656,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigadoalvo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_brigadoalvo"
     },
     {
       "relation": "calls",
@@ -58647,9 +58667,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesbrigaautomatica",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_entrasozinho",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_entrasozinho"
     },
     {
       "relation": "imports",
@@ -58658,9 +58678,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesbrigaautomatica",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesbrigaautomatica_useganguesbrigaautomatica"
     },
     {
       "relation": "calls",
@@ -58712,9 +58732,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid"
     },
     {
       "relation": "contains",
@@ -58722,9 +58742,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_screens_ganguescena_empty_alvos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_screens_ganguescena_empty_alvos"
     },
     {
       "relation": "contains",
@@ -58732,9 +58752,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_screens_ganguescena_ganguescena",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_screens_ganguescena_ganguescena"
     },
     {
       "relation": "calls",
@@ -58743,9 +58763,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena_ganguescena",
-      "target": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid"
     },
     {
       "relation": "contains",
@@ -94916,26 +94936,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_games_gangues_store_slices_ganguescenaprogressoslice",
       "target": "src_pages_games_gangues_store_slices_ganguescenaprogressoslice_createganguescenaprogressoslice"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/screens/GanguesCreate.jsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_screens_ganguescreate",
-      "target": "src_pages_games_gangues_screens_ganguescreate_ganguescreate"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/screens/GanguesCreate.jsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_screens_ganguescreate",
-      "target": "src_pages_games_gangues_screens_ganguescreate_path_marks"
     },
     {
       "relation": "contains",
@@ -150043,5 +150043,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5d4ae62bfcef4c056a7c3caa238bd0428accd05f"
+  "built_at_commit": "0589a81ce455b3c860f7940b78222a4c6b8a30cf"
 }

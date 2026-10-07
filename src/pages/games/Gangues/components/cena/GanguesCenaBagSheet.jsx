@@ -11,6 +11,8 @@ import { GANGUES_CARTAS_LISTA, nomeCarta, textoCarta } from '../../data/ganguesC
 // guardado). É a MESMA fonte que a loja abastece e que o combate lê pra usar
 // poção (store.inventario / store.equipamentos) — um sistema só.
 // A escolha de quem usa/equipa abre logo abaixo do item tocado.
+const ABA_DO_TIPO = { cura_pv: 'cura', cura_pm: 'cura', cura_status: 'cura', material: 'material' }
+
 export default function GanguesCenaBagSheet({ store, t, onClose }) {
   const [usando, setUsando] = useState(null)     // consumível escolhido pra usar (mostra o picker de personagem)
   const [equipando, setEquipando] = useState(null) // { def } — peça escolhida pra equipar da bolsa
@@ -23,6 +25,17 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
   }, {}))
   const cartas = GANGUES_CARTAS_LISTA.filter(c => (store.inventario[c.id] || 0) > 0)
   const vazio = consumiveis.length === 0 && pecas.length === 0 && cartas.length === 0
+  // Abas por tipo de item; só aparece aba que tem alguma coisa.
+  const grupoDe = it => (ABA_DO_TIPO[it.tipo] || 'luta')
+  const doGrupo = g => consumiveis.filter(it => grupoDe(it) === g)
+  const abas = [
+    ...['cura', 'luta', 'material'].filter(g => doGrupo(g).length),
+    ...(pecas.length ? ['equip'] : []),
+    ...(cartas.length ? ['cartas'] : []),
+  ]
+  const [abaEscolhida, setAba] = useState(null)
+  const aba = abas.includes(abaEscolhida) ? abaEscolhida : abas[0]
+  const listaConsumiveis = ['cura', 'luta', 'material'].includes(aba) ? doGrupo(aba) : []
   // PV/PM atuais de cada ficha do time — pro picker de "usar poção".
   const time = (store.activeParty.length ? store.activeParty : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX).map(m => {
     const attrs = getGanguesAttributesWithEquip(m.attributes)
@@ -67,9 +80,11 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
     <p className="gang-cena-enc-sub"><b>💵 {store.grana}　⚑ {store.rep}</b></p>
     {feito && <p className="gang-bag-feito">{feito}</p>}
     {vazio && <p className="gang-cena-enc-sub">{t('games.gangues.bag.vazio')}</p>}
-    {consumiveis.length > 0 && <>
-      <small className="gang-bag-sec">{t('games.gangues.bag.consumiveis')}</small>
-      <div className="gang-bag-lista">{consumiveis.map(it => (
+    {abas.length > 1 && <div className="gang-loja-abas" role="tablist">{abas.map(a => (
+      <button key={a} role="tab" aria-selected={a === aba} className={`gang-loja-aba${a === aba ? " is-ativa" : ""}`} onClick={() => { sfx.select?.(); setAba(a); setUsando(null); setEquipando(null) }}>{t(`games.gangues.bag.abas.${a}`)}</button>
+    ))}</div>}
+    {listaConsumiveis.length > 0 && <>
+      <div className="gang-bag-lista">{listaConsumiveis.map(it => (
         <Fragment key={it.id}>
         <div className="gang-bag-row">
           <span>{it.icone}</span><strong>{t(it.nome)}<small className="gang-bag-efeito">{textoEfeitoItem(t, it)}</small></strong>
@@ -89,10 +104,9 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
         </div>}
         </Fragment>
       ))}</div>
-      <p className="gang-bag-nota">{t('games.gangues.bag.nota_combate')}</p>
+      {aba !== 'material' && <p className="gang-bag-nota">{t('games.gangues.bag.nota_combate')}</p>}
     </>}
-    {pecas.length > 0 && <>
-      <small className="gang-bag-sec">{t('games.gangues.bag.equip_bolso')}</small>
+    {aba === 'equip' && <>
       <div className="gang-bag-lista">{pecas.map(({ chave, def, peca, qtd }) => (
         <Fragment key={chave}>
         <div className="gang-bag-row">
@@ -118,8 +132,7 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
       ))}</div>
       <p className="gang-bag-nota">{t('games.gangues.bag.nota_equip')}</p>
     </>}
-    {cartas.length > 0 && <>
-      <small className="gang-bag-sec">{t('games.gangues.bag.cartas')}</small>
+    {aba === 'cartas' && <>
       <div className="gang-bag-lista">{cartas.map(c => (
         <div key={c.id} className="gang-bag-row">
           <span>🃏</span>

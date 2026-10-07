@@ -602,11 +602,10 @@
         "loja_sem_encaixe": "Versión de la tienda: sin ranura de carta, se mejora en el herrero. La versión con ranura solo la sueltan los enemigos."
       },
       "bag": {
+        "abas": {"cura": "Curación", "luta": "Pelea", "material": "Material", "equip": "Equipo", "cartas": "Cartas"},
         "eyebrow": "Bolso",
         "titulo": "Bolso de la Banda",
         "vazio": "El bolso está vacío. Compra algo en la tienda.",
-        "consumiveis": "Ítems de combate",
-        "equip_bolso": "Equipo guardado",
         "nota_combate": "También aparecen en el botón 🎒 durante la pelea.",
         "nota_equip": "Equipa acá o con 👤 → ficha del personaje.",
         "usar": "Usar",

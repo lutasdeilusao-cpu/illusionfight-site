@@ -602,11 +602,10 @@
         "loja_sem_encaixe": "Versão da loja: sem encaixe de carta, aprimora no ferreiro. A versão com encaixe só cai de inimigo."
       },
       "bag": {
+        "abas": {"cura": "Cura", "luta": "Luta", "material": "Material", "equip": "Equipamento", "cartas": "Cartas"},
         "eyebrow": "Bolsa",
         "titulo": "Bolsa da Gangue",
         "vazio": "A bolsa tá vazia. Compra alguma coisa na loja.",
-        "consumiveis": "Itens de combate",
-        "equip_bolso": "Equipamento guardado",
         "nota_combate": "Também aparecem no botão 🎒 durante a luta.",
         "nota_equip": "Equipa aqui ou pelo 👤 → ficha do personagem.",
         "usar": "Usar",

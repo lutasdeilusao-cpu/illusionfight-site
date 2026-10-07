@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-10-07)
 
 ## Corpus Check
-- 1242 files · ~2,150,913 words
+- 1242 files · ~2,150,879 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5d4ae62b`
+- Built from commit: `0589a81c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1789,7 +1789,7 @@ Nodes (3): 22.1 Ficha de página, 22.2 Briefing de arte ou geração assistida, 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `criaturas.js` to `Community 0`, `Community 1`, `powersData.js`, `Community 8`, `Community 10`, `Community 20`, `Lobby.jsx`, `Community 22`, `AuthContext.jsx`, `Historias.jsx`, `criaturas.js`, `PuzzleStealthGrid.jsx`, `3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS`, `DixContext.jsx`, `UniversosHub.jsx`, `react`, `TopTrumpsSP.jsx`, `TypewriterPhrase.jsx`, `UnifiedNotification.jsx`, `useGanguesTurnMachine.js`, `Vila.jsx`, `NowLive.jsx`, `useGameStore.js`, `Number`, `04.md`, `mecanicasPoder.js`, `PerfilProgresso.jsx`, `LDINotification.jsx`, `painelColeta.js`, `Community 125`, `useRadioNina.js`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+  _High betweenness centrality (0.030) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `criaturas.js` to `Community 0`, `3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS`, `DixContext.jsx`, `Community 1`, `LDINotification.jsx`, `Community 3`, `Vila.jsx`, `Community 20`, `Community 22`, `AuthContext.jsx`, `Community 125`, `PuzzleStealthGrid.jsx`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **Why does `trackEvent()` connect `useRadioNina.js` to `Community 8`?**

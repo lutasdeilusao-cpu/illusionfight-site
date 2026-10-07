@@ -157,7 +157,6 @@
 .gang-loja-det__so--buy { border-color: var(--terr-cor); color: var(--terr-cor); background: color-mix(in srgb, var(--terr-cor) 14%, transparent); }
 
 /* ── Bolsa da gangue (botão 🎒 do HUD) ── */
-.gang-bag-sec { width: 100%; margin-top: 10px; text-align: left; font: 700 0.52rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gang-cinza-azul-500); }
 .gang-bag-lista { width: 100%; display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
 .gang-bag-row {
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
