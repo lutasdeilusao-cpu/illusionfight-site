@@ -402,28 +402,37 @@
         "16": "The Old Man's Coffee"
       },
       "loja": {
-        "sub": "Buy with the gang's cash — usable in any fight.",
-        "custo": "{n} 💵",
         "comprar": "Buy",
         "sem_grana": "Not enough cash",
-        "no_inventario": "You have: {n}",
-        "compra_feita": "Bought!",
+        "compra_feita": "Bought {item}!",
         "abas": {
           "pocao": "Potion",
           "arma": "Weapon",
           "protecao": "Armor",
-          "amuleto": "Charm",
-          "vender": "Sell"
+          "amuleto": "Charm"
         },
         "pechincha_botao": "Haggle (−{n}% if you nail it)",
         "pechincha_ok": "Deal! Everything {n}% off this visit.",
         "pechincha_falha": "Blew the pitch — full price, no crying.",
-        "vender": "Sell",
         "vender_todos": "All ×{n}",
-        "venda_feita": "+{n} 💵",
-        "venda_sub": "The shop pays a quarter of the price. Gear someone is wearing doesn't count — take it off first.",
+        "venda_feita": "+{n} 💵 · sold {item}",
         "nada_vender": "Nothing stashed the shop will buy.",
-        "material": "Material"
+        "material": "Material",
+        "modo": {
+          "comprar": "Buy",
+          "vender": "Sell"
+        },
+        "compra_equipou": "Bought and equipped {item}!",
+        "comprar_equipar": "Buy and wear",
+        "falta_grana": "{n} 💵 short",
+        "tens": "You have {n}",
+        "nao_tens": "You have none",
+        "toque_detalhe": "Tap an item to see its story, what it gives and who wears it.",
+        "venda_regra": "The shop pays ¼ of the price.",
+        "vale_tudo": "All of it: {n} 💵",
+        "paga_cada": "pays {n} each",
+        "vender_1": "Sell 1",
+        "venda_equipado": "Gear being worn is not listed: take it off on the sheet first."
       },
       "equip": {
         "titulo": "Gear",
@@ -434,10 +443,7 @@
         "sem_itens": "Nothing in the gang's pockets for this slot.",
         "sem_carta": "No socket",
         "o_que_da": "What it gives",
-        "equipar_em": "Buy and equip on",
         "so_comprar": "Just buy (stash)",
-        "sem_elenco": "Recruit a character first.",
-        "ver_detalhe": "Details ›",
         "slots": {
           "cabeca": "Head",
           "corpo": "Body",
@@ -593,12 +599,10 @@
           "317": "Rope Sandal",
           "318": "Patuá Pouch"
         },
-        "sem_caminho": "Nobody in your crew walks this path.",
         "qualquer_caminho": "Any path",
         "so_caminho": "{caminho} only",
         "faixa_explica": "The bonus is a range and rolls on the spot: Wallop every hit, Hide every block, Pace once at the start of the fight. The comparison below uses the average.",
         "nivel_min": "Min. level {n}",
-        "falta_nivel": "Nobody in the crew has hit level {n} to use this yet.",
         "loja_sem_encaixe": "Shop version: no card slot, can be upgraded at the smith. The slotted version only drops from enemies."
       },
       "bag": {
@@ -5720,7 +5724,7 @@
           "parada": "CHECK",
           "corre": "FOLLOW",
           "descanso": "REST",
-          "loja": "BUY",
+          "loja": "TRADE",
           "achado": "GRAB",
           "agiota": "LOAN SHARK",
           "ferreiro": "UPGRADE",

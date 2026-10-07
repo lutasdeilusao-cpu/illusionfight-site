@@ -402,28 +402,37 @@
         "16": "Café do Véio"
       },
       "loja": {
-        "sub": "Compra com a grana da gangue — dá pra usar em qualquer luta.",
-        "custo": "{n} 💵",
         "comprar": "Comprar",
         "sem_grana": "Grana insuficiente",
-        "no_inventario": "Você tem: {n}",
-        "compra_feita": "Comprado!",
+        "compra_feita": "{item} comprado!",
         "abas": {
           "pocao": "Poção",
           "arma": "Arma",
           "protecao": "Proteção",
-          "amuleto": "Amuleto",
-          "vender": "Vender"
+          "amuleto": "Amuleto"
         },
         "pechincha_botao": "Pechinchar (−{n}% se acertar)",
         "pechincha_ok": "Fechou! Tudo com {n}% de desconto nesta visita.",
         "pechincha_falha": "Errou a conversa — preço cheio, sem choro.",
-        "vender": "Vender",
         "vender_todos": "Todos ×{n}",
-        "venda_feita": "+{n} 💵",
-        "venda_sub": "A loja paga um quarto do preço. Equipado no corpo não entra — tira antes.",
+        "venda_feita": "+{n} 💵 · vendeu {item}",
         "nada_vender": "Nada guardado que a loja compre.",
-        "material": "Material"
+        "material": "Material",
+        "modo": {
+          "comprar": "Comprar",
+          "vender": "Vender"
+        },
+        "compra_equipou": "{item} comprado e equipado!",
+        "comprar_equipar": "Comprar e vestir",
+        "falta_grana": "Falta {n} 💵",
+        "tens": "Tens {n}",
+        "nao_tens": "Não tens",
+        "toque_detalhe": "Toca no item pra ver a história, o que dá e quem veste.",
+        "venda_regra": "A loja paga ¼ do preço.",
+        "vale_tudo": "Tudo vale {n} 💵",
+        "paga_cada": "paga {n} cada",
+        "vender_1": "Vender 1",
+        "venda_equipado": "Peça vestida não aparece aqui: tira na ficha antes de vender."
       },
       "equip": {
         "titulo": "Equipamento",
@@ -434,10 +443,7 @@
         "sem_itens": "Nada no bolso da gangue pra esse espaço.",
         "sem_carta": "Sem slot",
         "o_que_da": "O que dá",
-        "equipar_em": "Comprar e equipar em",
         "so_comprar": "Só comprar (guardar)",
-        "sem_elenco": "Recrute um personagem primeiro.",
-        "ver_detalhe": "Ver detalhe ›",
         "slots": {
           "cabeca": "Cabeça",
           "corpo": "Corpo",
@@ -593,12 +599,10 @@
           "317": "Sandália de Corda",
           "318": "Patuá"
         },
-        "sem_caminho": "Ninguém do teu elenco é desse caminho.",
         "qualquer_caminho": "Qualquer caminho",
         "so_caminho": "Só {caminho}",
         "faixa_explica": "O bônus é uma faixa e rola na hora: Porrada a cada golpe, Couro a cada defesa, Pique uma vez no começo da luta. A comparação abaixo usa a média.",
         "nivel_min": "Nível mín. {n}",
-        "falta_nivel": "Ninguém da tropa chegou no nível {n} pra usar isso ainda.",
         "loja_sem_encaixe": "Versão da loja: sem encaixe de carta, aprimora no ferreiro. A versão com encaixe só cai de inimigo."
       },
       "bag": {
@@ -2617,7 +2621,7 @@
           "parada": "INVESTIGAR",
           "corre": "SEGUIR",
           "descanso": "DESCANSAR",
-          "loja": "COMPRAR",
+          "loja": "NEGOCIAR",
           "achado": "PEGAR",
           "agiota": "AGIOTA",
           "ferreiro": "APRIMORAR",

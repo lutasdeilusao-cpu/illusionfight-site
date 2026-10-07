@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1791395081.08496,
-    "ast_hash": "c9a0d2963195f567eda1fe59e4b2c5ce",
+    "mtime": 1791395315.2643576,
+    "ast_hash": "40334fedc82f1297933a04d9ea6491c9",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791395081.1551979,
-    "ast_hash": "731bbb5d39b627e3409d5cdcfcf3285a",
+    "mtime": 1791395333.118067,
+    "ast_hash": "590d0b86e94c651784a885f2bb4334b2",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791395081.1975477,
-    "ast_hash": "174d1ed71bee11518d10dc0436d5758a",
+    "mtime": 1791395333.1582541,
+    "ast_hash": "5d59613c2b3c2fdfb7a35726f78d75b7",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -6800,8 +6800,8 @@
     "semantic_hash": ""
   },
   "scripts/seo-textos.js": {
-    "mtime": 1791321437.7850535,
-    "ast_hash": "f50deb9287a89198735ddece9a180e29",
+    "mtime": 1791395315.2633574,
+    "ast_hash": "8765d55f4e13a725809537eadc62ea1d",
     "semantic_hash": ""
   },
   "src/lib/idiomaUrl.js": {
@@ -7232,6 +7232,11 @@
   "src/pages/games/Gangues/components/cena/GanguesBagEquip.jsx": {
     "mtime": 1791392029.1211052,
     "ast_hash": "b5bcc74bbf537147d05445e78d155e30",
+    "semantic_hash": ""
+  },
+  "public/og/creators.jpg": {
+    "mtime": 1791395303.7575083,
+    "ast_hash": "69e997811bc265b0fd7f55f50f601583",
     "semantic_hash": ""
   }
 }

@@ -59,5 +59,18 @@
 .gang-bagq-cand__info strong { font: 800 0.7rem var(--font-display); text-transform: uppercase; color: var(--gang-branco); }
 .gang-bagq-cand__info strong small { font: 700 0.54rem var(--font-mono); color: var(--if-amber); }
 .gang-bagq-cand__agora { font: 600 0.56rem var(--font-mono); color: var(--gang-cinza-azul-400); }
-.gang-bagq-cand .gang-loja-cmp__deltas { order: 0; }
+/* O que muda na ficha: antes → depois (verde sobe, vermelho desce) */
+.gang-troca-deltas { display: flex; flex-wrap: wrap; gap: 3px 10px; }
+.gang-troca-deltas span { font: 700 0.6rem var(--font-mono); color: var(--gang-gelo-300); }
+.gang-troca-deltas b { color: var(--gang-cinza-azul-400); }
+.gang-troca-deltas b.is-up { color: var(--gang-pista); }
+.gang-troca-deltas b.is-down { color: var(--if-danger); }
+.gang-bagq-cand__btn {
+  flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 7px 11px; cursor: pointer;
+  border: 1px solid var(--terr-cor); background: color-mix(in srgb, var(--terr-cor) 14%, transparent);
+  color: var(--terr-cor); font: 800 0.56rem var(--font-mono); letter-spacing: 0.05em; text-transform: uppercase;
+}
+.gang-bagq-cand__btn b { font-size: 0.62rem; color: var(--gang-branco); }
+.gang-bagq-cand__btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .gang-bagq-cand__motivo { flex-shrink: 0; font-style: normal; font: 700 0.54rem var(--font-mono); text-transform: uppercase; color: var(--if-amber); }

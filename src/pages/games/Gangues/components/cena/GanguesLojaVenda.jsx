@@ -1,72 +1,75 @@
-import { getGanguesItem, precoVendaItem, textoEfeitoItem } from '../../data/ganguesItens.js'
-import { getGanguesEquip, precoVendaEquip, nomePeca } from '../../data/ganguesEquip.js'
+import { useState } from 'react'
+import { getGanguesItem, precoVendaItem, textoEfeitoItem, grupoDoItem, GANGUES_GRUPOS_ITEM } from '../../data/ganguesItens.js'
+import { getGanguesEquip, precoVendaEquip, nomePeca, textoBonusEquip } from '../../data/ganguesEquip.js'
 import { sfx } from '../../../../../lib/sfx'
 
-/* Aba VENDER da loja: tudo que a gangue tem guardado e a loja compra, a 25%
-   do preço (precoVendaItem / precoVendaEquip). Consumível vende 1 ou todos;
-   equipamento vende só o que está no bolso, peça por peça. */
-export default function GanguesLojaVenda({ store, t, aviso, notificar }) {
+/* VENDER da loja: o que a gangue tem guardado e a loja compra, a 25% do
+   preço (precoVendaItem / precoVendaEquip). Separado como a bolsa (cura,
+   luta, material, equipamento); peças iguais ficam numa linha só. Vende 1
+   ou todos. Peça equipada não aparece: tira antes na ficha. */
+export default function GanguesLojaVenda({ store, t, avisar }) {
+  const [grupo, setGrupo] = useState(null)
+
   const consumiveis = Object.entries(store.inventario)
     .map(([id, qtd]) => ({ item: getGanguesItem(id), qtd }))
     .filter(({ item, qtd }) => item && qtd > 0 && precoVendaItem(item) > 0)
-    .sort((a, b) => a.item.id - b.item.id)
-  const pecas = store.equipamentos
-    .map(eq => ({ eq, def: getGanguesEquip(eq.itemId) }))
-    .filter(({ def }) => def)
-    .sort((a, b) => a.def.id - b.def.id)
+    .map(({ item, qtd }) => ({ chave: `i${item.id}`, icone: item.icone, nome: t(item.nome), da: textoEfeitoItem(t, item) || t('games.gangues.loja.material'), qtd, preco: precoVendaItem(item), grupo: grupoDoItem(item), item }))
+  const pecas = Object.values(store.equipamentos.reduce((acc, eq) => {
+    const def = getGanguesEquip(eq.itemId); if (!def) return acc
+    const chave = `e${eq.itemId}-${eq.encaixe ? 1 : 0}-${eq.aprim || 0}`
+    acc[chave] = acc[chave] || { chave, icone: def.icone, nome: nomePeca(t, def, eq), da: `${t(`games.gangues.equip.slots.${def.slot}`)} · ${textoBonusEquip(t, def, eq.aprim || 0) || '—'}`, qtd: 0, preco: precoVendaEquip(def, eq.aprim), grupo: 'equip', uids: [] }
+    acc[chave].qtd++; acc[chave].uids.push(eq.uid); return acc
+  }, {}))
+  const todos = [...consumiveis, ...pecas].sort((a, b) => b.preco - a.preco)
+  const grupos = [...GANGUES_GRUPOS_ITEM, 'equip'].filter(g => todos.some(x => x.grupo === g))
+  const ativo = grupos.includes(grupo) ? grupo : grupos[0]
+  const lista = todos.filter(x => x.grupo === ativo)
+  const valeTudo = todos.reduce((s, x) => s + x.preco * x.qtd, 0)
 
-  const venderItem = (item, qtd) => {
-    const preco = precoVendaItem(item)
-    const n = store.venderItem(item.id, preco, qtd)
-    if (n > 0) { sfx.reward?.(); notificar(item.id, t('games.gangues.loja.venda_feita', { n: preco * n })) }
+  const vender = (linha, qtd) => {
+    let n = 0
+    if (linha.item) n = store.venderItem(linha.item.id, linha.preco, qtd)
+    else for (const uid of linha.uids.slice(0, qtd)) if (store.venderEquip(uid, linha.preco)) n++
+    if (n > 0) { sfx.reward?.(); avisar(t('games.gangues.loja.venda_feita', { n: linha.preco * n, item: linha.nome })) }
   }
-  const venderPeca = (eq, def) => {
-    const preco = precoVendaEquip(def, eq.aprim)
-    if (store.venderEquip(eq.uid, preco)) { sfx.reward?.(); notificar(eq.uid, t('games.gangues.loja.venda_feita', { n: preco })) }
-  }
 
-  if (!consumiveis.length && !pecas.length) return <p className="gang-cena-enc-sub">{t('games.gangues.loja.nada_vender')}</p>
+  if (!todos.length) return <p className="gloja__vazio">{t('games.gangues.loja.nada_vender')}</p>
 
-  return (
-    <div className="gang-loja-cena-lista">
-      <p className="gang-loja-venda-nota">{t('games.gangues.loja.venda_sub')}</p>
-      {consumiveis.map(({ item, qtd }) => {
-        const preco = precoVendaItem(item)
-        return (
-          <div key={item.id} className="gang-loja-cena-item">
-            <span className="gang-loja-cena-item__icone">{item.icone}</span>
-            <span className="gang-loja-cena-item__info">
-              <strong>{t(item.nome)}</strong>
-              <small>{textoEfeitoItem(t, item) || t('games.gangues.loja.material')}</small>
-              <small>{t('games.gangues.loja.no_inventario', { n: qtd })}</small>
+  return <>
+    <div className="gloja__resumo">
+      <span>{t('games.gangues.loja.venda_regra')}</span>
+      <b>{t('games.gangues.loja.vale_tudo', { n: valeTudo })}</b>
+    </div>
+    {grupos.length > 1 && <div className="gloja__cats" role="tablist">
+      {grupos.map(g => (
+        <button key={g} role="tab" aria-selected={g === ativo} className={`gang-bagq-slot${g === ativo ? ' is-ativa' : ''}`}
+          onClick={() => { sfx.select?.(); setGrupo(g) }}>
+          {t(`games.gangues.bag.abas.${g}`)}<b>{todos.filter(x => x.grupo === g).reduce((s, x) => s + x.qtd, 0)}</b>
+        </button>
+      ))}
+    </div>}
+    <div className="gloja__lista">
+      {lista.map(linha => (
+        <div key={linha.chave} className="gloja-item gloja-item--venda">
+          <span className="gloja-item__info">
+            <span className="gloja-item__icone">{linha.icone}</span>
+            <span className="gloja-item__texto">
+              <strong>{linha.nome}</strong>
+              <small className="gloja-item__da">{linha.da}</small>
+              <small className="gloja-item__meta">{t('games.gangues.loja.tens', { n: linha.qtd })} · {t('games.gangues.loja.paga_cada', { n: linha.preco })}</small>
             </span>
-            <span className="gang-loja-venda-botoes">
-              <button className="gang-loja-cena-item__comprar" onClick={() => venderItem(item, 1)}>
-                {t('games.gangues.loja.vender')}<b>{t('games.gangues.loja.custo', { n: preco })}</b>
-              </button>
-              {qtd > 1 && (
-                <button className="gang-loja-cena-item__comprar" onClick={() => venderItem(item, qtd)}>
-                  {t('games.gangues.loja.vender_todos', { n: qtd })}<b>{t('games.gangues.loja.custo', { n: preco * qtd })}</b>
-                </button>
-              )}
-            </span>
-            {aviso?.itemId === item.id && <span className="gang-loja-cena-item__aviso">{aviso.texto}</span>}
-          </div>
-        )
-      })}
-      {pecas.map(({ eq, def }) => (
-        <div key={eq.uid} className="gang-loja-cena-item">
-          <span className="gang-loja-cena-item__icone">{def.icone}</span>
-          <span className="gang-loja-cena-item__info">
-            <strong>{nomePeca(t, def, eq)}</strong>
-            <small>{t(`games.gangues.equip.slots.${def.slot}`)} · {t(`games.gangues.equip.raridade.${def.raridade}`)}</small>
           </span>
-          <button className="gang-loja-cena-item__comprar" onClick={() => venderPeca(eq, def)}>
-            {t('games.gangues.loja.vender')}<b>{t('games.gangues.loja.custo', { n: precoVendaEquip(def, eq.aprim) })}</b>
-          </button>
-          {aviso?.itemId === eq.uid && <span className="gang-loja-cena-item__aviso">{aviso.texto}</span>}
+          <span className="gloja-venda__botoes">
+            <button className="gloja-preco gloja-preco--venda" onClick={() => vender(linha, 1)}>
+              <b>+💵 {linha.preco}</b><small>{t('games.gangues.loja.vender_1')}</small>
+            </button>
+            {linha.qtd > 1 && <button className="gloja-preco gloja-preco--venda" onClick={() => vender(linha, linha.qtd)}>
+              <b>+💵 {linha.preco * linha.qtd}</b><small>{t('games.gangues.loja.vender_todos', { n: linha.qtd })}</small>
+            </button>}
+          </span>
         </div>
       ))}
     </div>
-  )
+    <p className="gloja__nota">{t('games.gangues.loja.venda_equipado')}</p>
+  </>
 }

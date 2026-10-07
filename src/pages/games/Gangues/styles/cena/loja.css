@@ -1,0 +1,123 @@
+/* ── Loja da cena (GanguesLoja.jsx / GanguesLojaVenda.jsx) ──
+   Coluna de altura fixa: quem atende e a grana em cima, aviso, o conteúdo
+   rolando no meio e a barra Comprar · Vender · Sair embaixo (dedão). */
+
+.gang-cena-enc.gloja {
+  display: flex; flex-direction: column; align-items: stretch; gap: 8px;
+  width: 100%; height: min(86dvh, 720px);
+  padding: 14px 12px 12px; text-align: left;
+}
+
+/* Topo: retrato, nome, grana */
+.gloja__topo { flex: 0 0 auto; display: flex; align-items: center; gap: 10px; }
+.gloja__retrato {
+  flex: 0 0 46px; width: 46px; height: 46px; display: grid; place-items: center; overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 60%, transparent); background: #0b1114;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gloja__retrato img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.gloja__retrato b { font-size: 1.4rem; }
+.gloja__quem { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.gloja__quem small { font: 700 0.52rem var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--terr-cor); }
+.gloja__quem strong { font: 800 1rem var(--font-display); color: var(--gang-branco); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gloja__grana {
+  flex-shrink: 0; padding: 6px 10px;
+  font: 800 0.8rem var(--font-mono); color: var(--if-amber);
+  border: 1px solid color-mix(in srgb, var(--if-amber) 45%, transparent); background: color-mix(in srgb, var(--if-amber) 8%, transparent);
+}
+
+/* Aviso de compra/venda: aparece por cima do topo, não ocupa lugar na lista */
+.gang-cena-enc.gloja { position: relative; }
+.gloja__aviso {
+  position: absolute; left: 10px; right: 10px; top: 10px; z-index: 2;
+  display: flex; align-items: center; min-height: 56px;
+  margin: 0; padding: 0 12px; pointer-events: none;
+  font: 800 0.66rem var(--font-mono); letter-spacing: 0.04em;
+  background: var(--gang-noite-950); border: 1px solid transparent;
+  opacity: 0; transform: translateY(-4px); transition: opacity 0.15s, transform 0.15s;
+}
+.gloja__aviso.is-on { opacity: 1; transform: none; color: var(--gang-verde-feito); border-color: rgba(107, 224, 122, 0.55); box-shadow: inset 0 0 0 999px rgba(107, 224, 122, 0.1); }
+.gloja__aviso.is-ruim { color: var(--if-danger); border-color: color-mix(in srgb, var(--if-danger) 55%, transparent); box-shadow: inset 0 0 0 999px color-mix(in srgb, var(--if-danger) 10%, transparent); }
+
+/* Meio: o que rola */
+.gloja__corpo {
+  flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.gloja__cats { display: flex; flex-wrap: wrap; gap: 5px; }
+.gloja__lista { display: flex; flex-direction: column; gap: 6px; }
+.gloja__nota, .gloja__vazio { margin: 0; font: 700 0.54rem var(--font-mono); letter-spacing: 0.03em; color: var(--gang-cinza-azul-500); }
+.gloja__vazio { padding: 24px 0; text-align: center; font-size: 0.66rem; }
+
+/* Pechincha */
+.gloja__pechincha {
+  align-self: stretch; padding: 9px; cursor: pointer;
+  border: 1px dashed var(--if-amber); background: color-mix(in srgb, var(--if-amber) 8%, transparent);
+  color: var(--if-amber); font: 800 0.6rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase;
+}
+.gloja__pechincha-res { margin: 0; font: 700 0.62rem var(--font-mono); color: var(--text-secondary); }
+.gloja__pechincha-res.is-ok { color: var(--if-amber); }
+
+/* Venda: regra + quanto vale tudo */
+.gloja__resumo {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 8px 10px; border: 1px solid var(--if-hair-strong); background: rgba(255, 255, 255, 0.03);
+  font: 700 0.56rem var(--font-mono); color: var(--text-secondary);
+}
+.gloja__resumo b { flex-shrink: 0; color: var(--if-amber); font-size: 0.64rem; }
+
+/* Item: info tocável + botão de preço */
+.gloja-item {
+  display: flex; align-items: stretch; gap: 8px;
+  padding: 8px; border: 1px solid var(--if-hair-strong); background: rgba(255, 255, 255, 0.03);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gloja-item__info {
+  flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 10px;
+  padding: 0; border: 0; background: none; text-align: left; color: inherit; cursor: pointer;
+}
+.gloja-item--venda .gloja-item__info { cursor: default; }
+.gloja-item__icone { flex-shrink: 0; width: 34px; font-size: 1.45rem; text-align: center; }
+.gloja-item__texto { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.gloja-item__texto strong { font: 800 0.74rem var(--font-display); text-transform: uppercase; color: var(--gang-branco); }
+.gloja-item__da { font: 700 0.6rem var(--font-mono); color: var(--terr-cor); }
+.gloja-item__meta { font: 700 0.52rem var(--font-mono); letter-spacing: 0.03em; color: var(--gang-cinza-azul-500); }
+
+.gloja-preco {
+  flex: 0 0 auto; min-width: 74px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  padding: 6px 8px; cursor: pointer;
+  border: 1px solid var(--terr-cor); background: color-mix(in srgb, var(--terr-cor) 14%, transparent);
+}
+.gloja-preco b { font: 800 0.74rem var(--font-mono); color: var(--gang-branco); white-space: nowrap; }
+.gloja-preco small { font: 800 0.5rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--terr-cor); }
+.gloja-preco:disabled { cursor: not-allowed; border-color: var(--if-hair-strong); background: none; }
+.gloja-preco:disabled b { color: var(--if-danger); }
+.gloja-preco:disabled small { color: var(--gang-cinza-azul-500); }
+.gloja-preco--venda { border-color: color-mix(in srgb, var(--if-amber) 60%, transparent); background: color-mix(in srgb, var(--if-amber) 9%, transparent); }
+.gloja-preco--venda small { color: var(--if-amber); }
+.gloja-venda__botoes { flex: 0 0 auto; display: flex; flex-direction: column; gap: 4px; }
+
+/* Barra de baixo: Comprar · Vender · Sair */
+.gloja__barra { flex: 0 0 auto; display: grid; grid-template-columns: 1fr 1fr auto; gap: 6px; }
+.gloja__modo, .gloja__sair {
+  min-height: 46px; padding: 0 12px; cursor: pointer;
+  font: 800 0.66rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+  border: 1px solid var(--if-hair-strong); background: rgba(255, 255, 255, 0.03); color: var(--text-secondary);
+}
+.gloja__modo.is-ativo {
+  border-color: var(--terr-cor); color: var(--gang-branco);
+  background: color-mix(in srgb, var(--terr-cor) 22%, transparent);
+  box-shadow: inset 0 -2px 0 var(--terr-cor);
+}
+
+/* Ficha do item: quem veste + comprar */
+.gloja-ficha__quem { width: 100%; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; text-align: left; }
+.gloja-ficha__comprar {
+  width: 100%; min-height: 46px; margin-top: 10px; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 14px;
+  border: 1px solid var(--terr-cor); background: color-mix(in srgb, var(--terr-cor) 16%, transparent);
+  color: var(--terr-cor); font: 800 0.66rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase;
+}
+.gloja-ficha__comprar b { color: var(--gang-branco); font-size: 0.78rem; }
+.gloja-ficha__comprar:disabled { opacity: 0.45; cursor: not-allowed; }
+.gloja-ficha__falta { margin: 4px 0 0; font: 700 0.58rem var(--font-mono); color: var(--if-danger); }

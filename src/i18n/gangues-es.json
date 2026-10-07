@@ -402,28 +402,37 @@
         "16": "Café del Viejo"
       },
       "loja": {
-        "sub": "Compra con la plata de la banda — se puede usar en cualquier pelea.",
-        "custo": "{n} 💵",
         "comprar": "Comprar",
         "sem_grana": "Plata insuficiente",
-        "no_inventario": "Tienes: {n}",
-        "compra_feita": "¡Comprado!",
+        "compra_feita": "¡{item} comprado!",
         "abas": {
           "pocao": "Poción",
           "arma": "Arma",
           "protecao": "Protección",
-          "amuleto": "Amuleto",
-          "vender": "Vender"
+          "amuleto": "Amuleto"
         },
         "pechincha_botao": "Regatear (−{n}% si aciertas)",
         "pechincha_ok": "¡Trato hecho! Todo con {n}% de descuento en esta visita.",
         "pechincha_falha": "Te equivocaste — precio completo, sin llorar.",
-        "vender": "Vender",
         "vender_todos": "Todos ×{n}",
-        "venda_feita": "+{n} 💵",
-        "venda_sub": "La tienda paga una cuarta parte del precio. Lo que alguien lleva puesto no cuenta — quítalo antes.",
+        "venda_feita": "+{n} 💵 · vendiste {item}",
         "nada_vender": "No tienes nada guardado que la tienda compre.",
-        "material": "Material"
+        "material": "Material",
+        "modo": {
+          "comprar": "Comprar",
+          "vender": "Vender"
+        },
+        "compra_equipou": "¡{item} comprado y equipado!",
+        "comprar_equipar": "Comprar y poner",
+        "falta_grana": "Faltan {n} 💵",
+        "tens": "Tienes {n}",
+        "nao_tens": "No tienes",
+        "toque_detalhe": "Toca un objeto para ver su historia, lo que da y quién lo usa.",
+        "venda_regra": "La tienda paga ¼ del precio.",
+        "vale_tudo": "Todo vale {n} 💵",
+        "paga_cada": "paga {n} c/u",
+        "vender_1": "Vender 1",
+        "venda_equipado": "Lo que llevas puesto no aparece: quítatelo en la ficha antes de vender."
       },
       "equip": {
         "titulo": "Equipo",
@@ -434,10 +443,7 @@
         "sem_itens": "Nada en los bolsillos de la banda para esta ranura.",
         "sem_carta": "Sin ranura",
         "o_que_da": "Qué da",
-        "equipar_em": "Comprar y equipar en",
         "so_comprar": "Solo comprar (guardar)",
-        "sem_elenco": "Recluta a un personaje primero.",
-        "ver_detalhe": "Ver detalle ›",
         "slots": {
           "cabeca": "Cabeza",
           "corpo": "Cuerpo",
@@ -593,12 +599,10 @@
           "317": "Sandalia de Soga",
           "318": "Patuá"
         },
-        "sem_caminho": "Nadie de tu banda es de este camino.",
         "qualquer_caminho": "Cualquier camino",
         "so_caminho": "Solo {caminho}",
         "faixa_explica": "El bono es un rango y se tira en el momento: Trompada en cada golpe, Cuero en cada defensa, Pique una vez al empezar la pelea. La comparación de abajo usa el promedio.",
         "nivel_min": "Nivel mín. {n}",
-        "falta_nivel": "Nadie de la tropa llegó al nivel {n} para usar esto todavía.",
         "loja_sem_encaixe": "Versión de la tienda: sin ranura de carta, se mejora en el herrero. La versión con ranura solo la sueltan los enemigos."
       },
       "bag": {
@@ -5720,7 +5724,7 @@
           "parada": "INVESTIGAR",
           "corre": "SEGUIR",
           "descanso": "DESCANSAR",
-          "loja": "COMPRAR",
+          "loja": "NEGOCIAR",
           "achado": "AGARRAR",
           "agiota": "USURERO",
           "ferreiro": "MEJORAR",

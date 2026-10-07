@@ -88,6 +88,11 @@ export function getGanguesItem(itemId) {
 
 // Venda na loja: 25% do preço base, mínimo 1. `venda` no item fixa o valor
 // (a sucata vale 1). Sem preço (item de missão) ou chip de poder = não vende.
+/** Grupo do item na bolsa e na venda da loja: cura, luta ou material. */
+const GRUPO_DO_TIPO = { cura_pv: 'cura', cura_pm: 'cura', cura_status: 'cura', material: 'material' }
+export const GANGUES_GRUPOS_ITEM = ['cura', 'luta', 'material']
+export const grupoDoItem = item => GRUPO_DO_TIPO[item?.tipo] || 'luta'
+
 export const GANGUES_VENDA_FRAC = 0.25
 export function precoVendaItem(item) {
   if (!item || item.tipo === 'poder_unico') return 0

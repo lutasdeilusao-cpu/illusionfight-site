@@ -1,95 +1,44 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
-import { getGanguesItem, textoEfeitoItem } from '../../data/ganguesItens.js'
-import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, applyGanguesEquipResources, withGanguesEquip, normalizeGanguesEquipment, textoBonusEquip, atributoPrincipal, podeEquiparGangues, caminhoAceitaGangues, nivelMinEquip } from '../../data/ganguesEquip.js'
-import { getGanguesResources } from '../../data/ganguesLoadout.js'
-import { getGanguesCharacter, getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
-import { getGanguesPortraitByTemplateId } from '../../data/ganguesPortraits.js'
+import { getGanguesItem, grupoDoItem, textoEfeitoItem } from '../../data/ganguesItens.js'
+import { getGanguesEquip, textoBonusEquip, atributoPrincipal, nivelMinEquip } from '../../data/ganguesEquip.js'
+import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../../data/ganguesLoadout.js'
 import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
 import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
 import GanguesRetratoImg from '../GanguesRetratoImg'
 import { sfx } from '../../../../../lib/sfx'
 import GanguesLojaVenda from './GanguesLojaVenda'
+import { Candidato } from './GanguesBagEquip'
 import PuzzleAnagrama from '../../../../../components/Puzzles/PuzzleAnagrama'
 import '../../../../../components/Puzzles/Puzzles.css'
 
-/* Encontro LOJA — vende os itens do próprio POI (`poi.itens`, ids de
-   consumível e de equipamento) e compra o que a gangue tem (aba Vender,
-   GanguesLojaVenda). Tocar no item abre uma folha de detalhe com o que ele dá
-   e como cada personagem ficaria equipando — comprar já equipa no escolhido
-   (o item anterior do slot volta pro inventário da gangue).
-   `poi.precoMultiplicador` (opcional, default 1) multiplica o preço base só
-   nesta loja. `poi.npcSlug`/`poi.retratoEnemyId` (opcionais) — cara de quem
-   atende o balcão (o retrato de inimigo é só a imagem). `poi.pechincha`
-   (opcional, { desconto }) — acertou o anagrama, a vitrine inteira sai com
-   desconto nesta visita; errou, preço cheio, uma tentativa só. */
+// Loja da cena. Duas portas no topo: COMPRAR e VENDER. Comprar separa o
+// catálogo por categoria; tocar num item abre a ficha dele com o "quem
+// veste?" (o mesmo cartão da bolsa). Vender mora em GanguesLojaVenda.
 
-const ATTR_ORDER = ['A', 'H', 'D', 'PM']
-
-// Abas da loja — tipo de item. Ordem fixa; só aparecem as que têm item.
-const ABAS = ['pocao', 'arma', 'protecao', 'amuleto']
-const abaDoItem = (item) => {
+const CATEGORIAS = ['pocao', 'arma', 'protecao', 'amuleto']
+const categoriaDo = item => {
   if (!item._equip) return 'pocao'
-  if (item.slot === 'arma') return 'arma'
-  if (item.slot === 'amuleto') return 'amuleto'
+  if (item.slot === 'arma' || item.slot === 'amuleto') return item.slot
   return 'protecao' // cabeca / corpo / bracos / pes
 }
 
-
-/** Uma linha de comparação: como a ficha do `member` fica com este equipamento. */
-function LinhaComparacao({ t, member, item, onEquipar, podePagar }) {
-  const character = getGanguesCharacter(member.character_template_id)
-  if (!character) return null
-  const atual = getGanguesAttributesWithEquip(member.attributes)
-  const novo = previewGanguesAttributesWithEquip(member.attributes, item.id)
-  const eqNovo = withGanguesEquip(member.attributes?.equipment, item.id)
-  const resAtual = applyGanguesEquipResources(getGanguesResources(character.combat_path, atual.PV, atual.PM), member.attributes?.equipment)
-  const resNovo = applyGanguesEquipResources(getGanguesResources(character.combat_path, novo.PV, novo.PM), eqNovo)
-  const nivel = getGanguesLevelFromXp(member.xp_total)
-
-  const deltas = []
-  for (const attr of ATTR_ORDER) if (novo[attr] !== atual[attr]) deltas.push([t(`games.gangues.attr_labels.${attr}`), atual[attr], novo[attr]])
-  if (resNovo.pvMax !== resAtual.pvMax) deltas.push(['PV', resAtual.pvMax, resNovo.pvMax])
-  if (resNovo.pmMax !== resAtual.pmMax) deltas.push(['PM', resAtual.pmMax, resNovo.pmMax])
-
-  const noSlot = normalizeGanguesEquipment(member.attributes?.equipment)[item.slot]
-  const trocaDef = noSlot && getGanguesEquip(noSlot.itemId)
-  const foto = getGanguesPortraitByTemplateId(member.character_template_id)
-
-  return (
-    <div className="gang-loja-cmp">
-      {foto && <img className="gang-loja-cmp__foto" src={foto} alt="" />}
-      <div className="gang-loja-cmp__quem">
-        <strong>{character.name}</strong>
-        <small>{t(`games.gangues.loadout.paths.${character.combat_path}.name`)} · NV {nivel}</small>
-      </div>
-      <div className="gang-loja-cmp__deltas">
-        {deltas.map(([label, de, para]) => (
-          <span key={label}>{label} <b>{de}</b>→<b className="is-up">{para}</b></span>
-        ))}
-        {trocaDef && <span className="gang-loja-cmp__troca">↺ {t(trocaDef.nome)}</span>}
-      </div>
-      <button className="gang-loja-cmp__btn" disabled={!podePagar} onClick={() => onEquipar(member.id)}>
-        {t('games.gangues.equip.equipar')}<b>{t('games.gangues.loja.custo', { n: item.custo })}</b>
-      </button>
-    </div>
-  )
-}
-
-function DetalheItem({ item, store, t, onClose, notificar }) {
+/** Ficha do item: história, o que dá, requisitos e quem veste. */
+function FichaItem({ item, store, t, onClose, avisar }) {
   const podePagar = store.grana >= item.custo
-  const elenco = store.roster.filter(m => m.character_type === 'template')
+  const time = (store.activeParty.length ? store.activeParty : store.roster)
+    .filter(m => m.character_type === 'template').slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
 
-  const equiparEm = (memberId) => {
-    if (store.comprarEEquipar(item.id, item.custo, memberId)) { sfx.reward?.(); notificar(t('games.gangues.loja.compra_feita')); onClose() }
-    else { sfx.cancel(); notificar(t('games.gangues.loja.sem_grana')) }
+  const comprarEEquipar = memberId => {
+    if (store.comprarEEquipar(item.id, item.custo, memberId)) { sfx.reward?.(); avisar(t('games.gangues.loja.compra_equipou', { item: t(item.nome) })); onClose() }
+    else { sfx.cancel(); avisar(t('games.gangues.loja.sem_grana'), true) }
   }
   const soComprar = () => {
     const ok = item._equip ? store.comprarEquip(item.id, item.custo) : store.comprarItem(item.id, item.custo)
-    if (ok) { sfx.reward?.(); notificar(t('games.gangues.loja.compra_feita')); onClose() }
-    else { sfx.cancel(); notificar(t('games.gangues.loja.sem_grana')) }
+    if (ok) { sfx.reward?.(); avisar(t('games.gangues.loja.compra_feita', { item: t(item.nome) })); onClose() }
+    else { sfx.cancel(); avisar(t('games.gangues.loja.sem_grana'), true) }
   }
 
   return createPortal((
@@ -99,46 +48,32 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
         <button className="gang-loja-det__x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>×</button>
         <span className="gang-loja-det__icone">{item.icone}</span>
         <h4 className="gang-loja-det__nome">{t(item.nome)}</h4>
-        {item._equip
-          ? <p className="gang-loja-det__tag">{t(`games.gangues.equip.slots.${item.slot}`)} · {t(`games.gangues.equip.raridade.${item.raridade}`)} · {item.caminho === 'livre' ? t('games.gangues.equip.qualquer_caminho') : t('games.gangues.equip.so_caminho', { caminho: t(`games.gangues.loadout.paths.${item.caminho}.name`) })} · {t('games.gangues.equip.nivel_min', { n: nivelMinEquip(item) })}</p>
-          : <p className="gang-loja-det__tag">{t('games.gangues.cena.tipo.loja')}</p>}
-
-        {/* Historinha do item, estilo carta (Isaias, 29/09/2026) — games.gangues.lore.<id>. */}
+        <p className="gang-loja-det__tag">
+          {item._equip
+            ? <>{t(`games.gangues.equip.slots.${item.slot}`)} · {t(`games.gangues.equip.raridade.${item.raridade}`)} · {item.caminho === 'livre' ? t('games.gangues.equip.qualquer_caminho') : t('games.gangues.equip.so_caminho', { caminho: t(`games.gangues.loadout.paths.${item.caminho}.name`) })} · {t('games.gangues.equip.nivel_min', { n: nivelMinEquip(item) })}</>
+            : t(`games.gangues.bag.abas.${grupoDoItem(item)}`)}
+        </p>
         <p className="gang-loja-det__lore">{t(`games.gangues.lore.${item.id}`)}</p>
-
         <div className="gang-loja-det__da">
           <small>{t('games.gangues.equip.o_que_da')}</small>
-          {item._equip
-            ? <strong>{textoBonusEquip(t, item) || '—'}</strong>
-            : <strong>{textoEfeitoItem(t, item) || '—'}</strong>}
+          <strong>{(item._equip ? textoBonusEquip(t, item) : textoEfeitoItem(t, item)) || '—'}</strong>
         </div>
-        {/* Faixa (range): explica que o bônus rola na hora e que a comparação
-            abaixo é pela MÉDIA — nunca promete o máximo. */}
         {item._equip && atributoPrincipal(item) && <p className="gang-loja-det__faixa">{t('games.gangues.equip.faixa_explica')}</p>}
+        {item._equip && <p className="gang-loja-det__cards">{t('games.gangues.equip.loja_sem_encaixe')}</p>}
 
-        {item._equip && (
-          <p className="gang-loja-det__cards">
-            {t('games.gangues.equip.loja_sem_encaixe')}
-          </p>
-        )}
+        {item._equip && time.length > 0 && <div className="gloja-ficha__quem">
+          <small className="gang-bagq-det__quem">{t('games.gangues.bag.quem_usa')}</small>
+          {time.map(m => (
+            <Candidato key={m.id} t={t} member={m} def={item} peca={{ aprim: 0 }}
+              acao={{ label: t('games.gangues.loja.comprar_equipar'), preco: item.custo, semGrana: !podePagar, onClick: comprarEEquipar }} />
+          ))}
+        </div>}
 
-        {item._equip ? (
-          <>
-            <small className="gang-loja-det__titulo">{t('games.gangues.equip.equipar_em')}</small>
-            {elenco.filter(m => podeEquiparGangues(item, m)).length === 0
-              ? <p className="gang-loja-det__vazio">{t(elenco.some(m => caminhoAceitaGangues(item, m)) ? 'games.gangues.equip.falta_nivel' : 'games.gangues.equip.sem_caminho', { n: nivelMinEquip(item) })}</p>
-              : elenco.filter(m => podeEquiparGangues(item, m)).map(member => (
-                <LinhaComparacao key={member.id} t={t} member={member} item={item} podePagar={podePagar} onEquipar={equiparEm} />
-              ))}
-            <button className="gang-loja-det__so" disabled={!podePagar} onClick={soComprar}>
-              {t('games.gangues.equip.so_comprar')}<b>{t('games.gangues.loja.custo', { n: item.custo })}</b>
-            </button>
-          </>
-        ) : (
-          <button className="gang-loja-det__so gang-loja-det__so--buy" disabled={!podePagar} onClick={soComprar}>
-            {t('games.gangues.loja.comprar')}<b>{t('games.gangues.loja.custo', { n: item.custo })}</b>
-          </button>
-        )}
+        <button className="gloja-ficha__comprar" disabled={!podePagar} onClick={soComprar}>
+          <span>{item._equip ? t('games.gangues.equip.so_comprar') : t('games.gangues.loja.comprar')}</span>
+          <b>💵 {item.custo}</b>
+        </button>
+        {!podePagar && <p className="gloja-ficha__falta">{t('games.gangues.loja.falta_grana', { n: item.custo - store.grana })}</p>}
       </div>
     </div>
   ), document.body)
@@ -147,113 +82,127 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
 export default function GanguesLoja({ poi, onClose }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
-  const [aviso, setAviso] = useState(null) // { itemId, texto }
-  const [detalhe, setDetalhe] = useState(null)
-  const [aba, setAba] = useState('pocao')
+  const [modo, setModo] = useState('comprar') // comprar | vender
+  const [categoria, setCategoria] = useState(null)
+  const [ficha, setFicha] = useState(null)
+  const [aviso, setAviso] = useState(null) // { texto, ruim }
+  const timerAviso = useRef(null)
   const [pechincha, setPechincha] = useState('nao') // nao | jogando | ganhou | perdeu
+
+  const avisar = (texto, ruim = false) => {
+    clearTimeout(timerAviso.current)
+    setAviso({ texto, ruim })
+    timerAviso.current = setTimeout(() => setAviso(null), 1800)
+  }
 
   const desconto = pechincha === 'ganhou' ? (poi.pechincha?.desconto || 0) : 0
   const multiplicador = (poi.precoMultiplicador || 1) * (1 - desconto)
   const catalogo = (poi.itens || []).map(id => {
     const equip = getGanguesEquip(id)
     const base = equip ? { ...equip, _equip: true } : getGanguesItem(id)
-    if (!base) return null
-    return multiplicador === 1 || !Number.isFinite(base.custo) ? base : { ...base, custo: Math.max(1, Math.round(base.custo * multiplicador)) }
-  }).filter(Boolean).filter(item => Number.isFinite(item.custo)) // sem preço = fora da loja (rede pra não mostrar "UNDEFINED")
+    if (!base || !Number.isFinite(base.custo)) return null
+    return multiplicador === 1 ? base : { ...base, custo: Math.max(1, Math.round(base.custo * multiplicador)) }
+  }).filter(Boolean)
 
+  const categorias = CATEGORIAS.filter(c => catalogo.some(item => categoriaDo(item) === c))
+  const catAtiva = categorias.includes(categoria) ? categoria : categorias[0]
+  const visiveis = catalogo.filter(item => categoriaDo(item) === catAtiva)
   const retrato = poi.npcSlug ? getGanguesNpcPortrait(poi.npcSlug) : poi.retratoEnemyId ? getGanguesEnemyPortraitById(poi.retratoEnemyId) : null
+  const nome = t(`${poi.i18n}.nome`)
 
-  const abasComItem = [...ABAS.filter(a => catalogo.some(item => abaDoItem(item) === a)), 'vender']
-  const abaAtiva = abasComItem.includes(aba) ? aba : (abasComItem[0] || 'pocao')
-  const visiveis = catalogo.filter(item => abaDoItem(item) === abaAtiva)
-
-  const contarNoInventario = (item) => item._equip
+  const tens = item => item._equip
     ? store.equipamentos.filter(eq => eq.itemId === item.id).length
     : (store.inventario[item.id] || 0)
 
-  const comprar = (item) => {
+  const comprarRapido = item => {
     const ok = item._equip ? store.comprarEquip(item.id, item.custo) : store.comprarItem(item.id, item.custo)
-    if (ok) { sfx.reward?.(); setAviso({ itemId: item.id, texto: t('games.gangues.loja.compra_feita') }) }
-    else { sfx.cancel(); setAviso({ itemId: item.id, texto: t('games.gangues.loja.sem_grana') }) }
-    setTimeout(() => setAviso(null), 1400)
+    if (ok) { sfx.reward?.(); avisar(t('games.gangues.loja.compra_feita', { item: t(item.nome) })) }
+    else { sfx.cancel(); avisar(t('games.gangues.loja.sem_grana'), true) }
   }
 
-  const notificar = (texto, itemId = '_global') => { setAviso({ itemId, texto }); setTimeout(() => setAviso(null), 1400) }
-
   return (
-    <div className="gang-cena-enc gang-cena-enc--loja">
-      <button className="gang-cena-enc-x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>✕</button>
-      {retrato && (
-        <span className="gdlg-portrait gang-loja-retrato">
-          <span className="gdlg-portrait-face">
-            <GanguesRetratoImg src={retrato} alt="" fallback={<b aria-hidden="true">{t(`${poi.i18n}.nome`)[0]}</b>} />
-          </span>
+    <div className="gang-cena-enc gloja">
+      <header className="gloja__topo">
+        <span className="gloja__retrato">
+          <GanguesRetratoImg src={retrato} alt="" fallback={<b aria-hidden="true">🛒</b>} />
         </span>
-      )}
-      <span className="gang-cena-eyebrow">{t('games.gangues.cena.tipo.loja')}</span>
-      <h3 className="gang-cena-enc-titulo">{t(`${poi.i18n}.nome`)}</h3>
-      <p className="gang-cena-enc-sub">{t('games.gangues.loja.sub')}</p>
-      <p className="gang-cena-enc-sub"><b>💵 {store.grana}</b>{aviso?.itemId === '_global' && <span className="gang-loja-cena-item__aviso"> {aviso.texto}</span>}</p>
+        <span className="gloja__quem">
+          <small>{t('games.gangues.cena.tipo.loja')}</small>
+          <strong>{nome}</strong>
+        </span>
+        <span className="gloja__grana">💵 {store.grana}</span>
+      </header>
 
-      {poi.pechincha && pechincha === 'nao' && (
-        <button className="gang-cena-btn gang-loja-pechincha" onClick={() => { sfx.select?.(); setPechincha('jogando') }}>
-          {t('games.gangues.loja.pechincha_botao', { n: Math.round(poi.pechincha.desconto * 100) })}
-        </button>
-      )}
-      {pechincha === 'ganhou' && <p className="gang-loja-pechincha-res is-ok">{t('games.gangues.loja.pechincha_ok', { n: Math.round(poi.pechincha.desconto * 100) })}</p>}
-      {pechincha === 'perdeu' && <p className="gang-loja-pechincha-res">{t('games.gangues.loja.pechincha_falha')}</p>}
-      {pechincha === 'jogando' && (
-        <div className="gang-cena-puzzle-wrap">
-          <PuzzleAnagrama config={{ difficulty: 'easy' }} onSolve={() => { sfx.reward?.(); setPechincha('ganhou') }} onFail={() => { sfx.lose?.(); setPechincha('perdeu') }} />
-        </div>
-      )}
+      <p className={`gloja__aviso${aviso ? ' is-on' : ''}${aviso?.ruim ? ' is-ruim' : ''}`} aria-live="polite">{aviso?.texto}</p>
 
-      {pechincha !== 'jogando' && <>
-      <div className="gang-loja-abas" role="tablist">
-        {abasComItem.map(a => (
-          <button
-            key={a}
-            role="tab"
-            aria-selected={a === abaAtiva}
-            className={`gang-loja-aba${a === abaAtiva ? ' is-ativa' : ''}`}
-            onClick={() => { sfx.click?.(); setAba(a) }}
-          >
-            {t(`games.gangues.loja.abas.${a}`)}
+      <div className="gloja__corpo">
+      {modo === 'comprar' && <>
+        {poi.pechincha && pechincha === 'nao' && (
+          <button className="gloja__pechincha" onClick={() => { sfx.select?.(); setPechincha('jogando') }}>
+            {t('games.gangues.loja.pechincha_botao', { n: Math.round(poi.pechincha.desconto * 100) })}
           </button>
-        ))}
-      </div>
+        )}
+        {pechincha === 'ganhou' && <p className="gloja__pechincha-res is-ok">{t('games.gangues.loja.pechincha_ok', { n: Math.round(poi.pechincha.desconto * 100) })}</p>}
+        {pechincha === 'perdeu' && <p className="gloja__pechincha-res">{t('games.gangues.loja.pechincha_falha')}</p>}
+        {pechincha === 'jogando' && (
+          <div className="gang-cena-puzzle-wrap">
+            <PuzzleAnagrama config={{ difficulty: 'easy' }} onSolve={() => { sfx.reward?.(); setPechincha('ganhou') }} onFail={() => { sfx.lose?.(); setPechincha('perdeu') }} />
+          </div>
+        )}
 
-      {abaAtiva === 'vender'
-        ? <GanguesLojaVenda store={store} t={t} aviso={aviso} notificar={(itemId, texto) => notificar(texto, itemId)} />
-        : <div className="gang-loja-cena-lista">
-        {visiveis.map(item => {
-          const quantidade = contarNoInventario(item)
-          return (
-            <div key={item.id} className="gang-loja-cena-item">
-              <button className="gang-loja-cena-item__abrir" onClick={() => { sfx.click?.(); setDetalhe(item) }}>
-                <span className="gang-loja-cena-item__icone">{item.icone}</span>
-                <span className="gang-loja-cena-item__info">
-                  <strong>{t(item.nome)}</strong>
-                  <small>{item._equip ? `${t(`games.gangues.equip.slots.${item.slot}`)} · ${item.caminho === 'livre' ? t('games.gangues.equip.qualquer_caminho') : t(`games.gangues.loadout.paths.${item.caminho}.name`)}` : textoEfeitoItem(t, item)}</small>
-                  <small>{t('games.gangues.loja.no_inventario', { n: quantidade })}</small>
-                  <em className="gang-loja-cena-item__ver">{t('games.gangues.equip.ver_detalhe')}</em>
-                </span>
+        {pechincha !== 'jogando' && <>
+          {categorias.length > 1 && <div className="gloja__cats" role="tablist">
+            {categorias.map(c => (
+              <button key={c} role="tab" aria-selected={c === catAtiva} className={`gang-bagq-slot${c === catAtiva ? ' is-ativa' : ''}`}
+                onClick={() => { sfx.select?.(); setCategoria(c) }}>
+                {t(`games.gangues.loja.abas.${c}`)}<b>{catalogo.filter(item => categoriaDo(item) === c).length}</b>
               </button>
-              <button className="gang-loja-cena-item__comprar" onClick={() => comprar(item)}>
-                {t('games.gangues.loja.comprar')}<b>{t('games.gangues.loja.custo', { n: item.custo })}</b>
-              </button>
-              {aviso?.itemId === item.id && <span className="gang-loja-cena-item__aviso">{aviso.texto}</span>}
-            </div>
-          )
-        })}
-      </div>}
+            ))}
+          </div>}
+          <div className="gloja__lista">
+            {visiveis.map(item => {
+              const n = tens(item)
+              const podePagar = store.grana >= item.custo
+              return (
+                <div key={item.id} className="gloja-item">
+                  <button className="gloja-item__info" onClick={() => { sfx.click?.(); setFicha(item) }}>
+                    <span className="gloja-item__icone">{item.icone}</span>
+                    <span className="gloja-item__texto">
+                      <strong>{t(item.nome)}</strong>
+                      <small className="gloja-item__da">{(item._equip ? textoBonusEquip(t, item) : textoEfeitoItem(t, item)) || '—'}</small>
+                      <small className="gloja-item__meta">
+                        {item._equip && <>{t(`games.gangues.equip.slots.${item.slot}`)} · {t('games.gangues.equip.nivel_min', { n: nivelMinEquip(item) })} · </>}
+                        {n > 0 ? t('games.gangues.loja.tens', { n }) : t('games.gangues.loja.nao_tens')}
+                      </small>
+                    </span>
+                  </button>
+                  <button className="gloja-preco" disabled={!podePagar} onClick={() => comprarRapido(item)}>
+                    <b>💵 {item.custo}</b>
+                    <small>{t('games.gangues.loja.comprar')}</small>
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+          <p className="gloja__nota">{t('games.gangues.loja.toque_detalhe')}</p>
+        </>}
       </>}
 
-      <div className="gang-cena-enc-acoes">
-        <button className="gang-cena-btn" onClick={onClose}>{t('games.gangues.cena.fechar')}</button>
+      {modo === 'vender' && <GanguesLojaVenda store={store} t={t} avisar={avisar} />}
       </div>
 
-      {detalhe && <DetalheItem item={detalhe} store={store} t={t} notificar={notificar} onClose={() => setDetalhe(null)} />}
+
+      <nav className="gloja__barra" role="tablist">
+        {['comprar', 'vender'].map(m => (
+          <button key={m} role="tab" aria-selected={modo === m} className={`gloja__modo${modo === m ? ' is-ativo' : ''}`}
+            onClick={() => { sfx.select?.(); setModo(m) }}>
+            {t(`games.gangues.loja.modo.${m}`)}
+          </button>
+        ))}
+        <button className="gloja__sair" onClick={onClose}>{t('games.gangues.cena.fechar')}</button>
+      </nav>
+
+      {ficha && <FichaItem item={ficha} store={store} t={t} avisar={avisar} onClose={() => setFicha(null)} />}
     </div>
   )
 }

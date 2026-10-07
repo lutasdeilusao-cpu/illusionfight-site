@@ -4,7 +4,7 @@ import { Fragment, useState } from 'react'
 import { sfx } from '../../../../../lib/sfx'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources } from '../../data/ganguesLoadout.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip } from '../../data/ganguesEquip.js'
-import { GANGUES_ITENS_LISTA, textoEfeitoItem } from '../../data/ganguesItens.js'
+import { GANGUES_ITENS_LISTA, GANGUES_GRUPOS_ITEM, grupoDoItem, textoEfeitoItem } from '../../data/ganguesItens.js'
 import GanguesBagEquip from './GanguesBagEquip'
 import { GANGUES_CARTAS_LISTA, nomeCarta, textoCarta } from '../../data/ganguesCartas.js'
 
@@ -12,8 +12,6 @@ import { GANGUES_CARTAS_LISTA, nomeCarta, textoCarta } from '../../data/ganguesC
 // guardado). É a MESMA fonte que a loja abastece e que o combate lê pra usar
 // poção (store.inventario / store.equipamentos) — um sistema só.
 // A escolha de quem usa/equipa abre logo abaixo do item tocado.
-const ABA_DO_TIPO = { cura_pv: 'cura', cura_pm: 'cura', cura_status: 'cura', material: 'material' }
-
 export default function GanguesCenaBagSheet({ store, t, onClose }) {
   const [usando, setUsando] = useState(null)     // consumível escolhido pra usar (mostra o picker de personagem)
   const [feito, setFeito] = useState(null)       // feedback
@@ -26,16 +24,15 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
   const cartas = GANGUES_CARTAS_LISTA.filter(c => (store.inventario[c.id] || 0) > 0)
   const vazio = consumiveis.length === 0 && pecas.length === 0 && cartas.length === 0
   // Abas por tipo de item; só aparece aba que tem alguma coisa.
-  const grupoDe = it => (ABA_DO_TIPO[it.tipo] || 'luta')
-  const doGrupo = g => consumiveis.filter(it => grupoDe(it) === g)
+  const doGrupo = g => consumiveis.filter(it => grupoDoItem(it) === g)
   const abas = [
-    ...['cura', 'luta', 'material'].filter(g => doGrupo(g).length),
+    ...GANGUES_GRUPOS_ITEM.filter(g => doGrupo(g).length),
     ...(pecas.length ? ['equip'] : []),
     ...(cartas.length ? ['cartas'] : []),
   ]
   const [abaEscolhida, setAba] = useState(null)
   const aba = abas.includes(abaEscolhida) ? abaEscolhida : abas[0]
-  const listaConsumiveis = ['cura', 'luta', 'material'].includes(aba) ? doGrupo(aba) : []
+  const listaConsumiveis = GANGUES_GRUPOS_ITEM.includes(aba) ? doGrupo(aba) : []
   // PV/PM atuais de cada ficha do time — pro picker de "usar poção".
   const time = (store.activeParty.length ? store.activeParty : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX).map(m => {
     const attrs = getGanguesAttributesWithEquip(m.attributes)

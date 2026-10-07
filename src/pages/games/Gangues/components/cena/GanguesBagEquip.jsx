@@ -35,8 +35,9 @@ function resumoTroca(t, member, def, peca) {
   return { deltas, noSlot, defAtual }
 }
 
-/** Um personagem no "em quem?": quem é, o que usa hoje, o que muda e o botão. */
-function Candidato({ t, member, def, peca, onEquipar }) {
+/** Um personagem no "quem veste?" (bolsa e loja): quem é, o que usa hoje, o
+ *  que muda na ficha e o botão. `acao` = { label, preco?, semGrana?, onClick }. */
+export function Candidato({ t, member, def, peca, acao }) {
   const nivel = getGanguesLevelFromXp(member.xp_total)
   const pode = podeEquiparGangues(def, member)
   const { deltas, noSlot, defAtual } = resumoTroca(t, member, def, peca)
@@ -54,7 +55,7 @@ function Candidato({ t, member, def, peca, onEquipar }) {
         <small className="gang-bagq-cand__agora">
           {defAtual ? <>{defAtual.icone} {nomePeca(t, defAtual, noSlot)} · {textoBonusEquip(t, defAtual, noSlot.aprim || 0) || '—'}</> : t('games.gangues.bag.slot_vazio')}
         </small>
-        {!motivo && <span className="gang-loja-cmp__deltas">
+        {!motivo && <span className="gang-troca-deltas">
           {deltas.length ? deltas.map(([label, de, para]) => (
             <span key={label}>{label} <b>{de}</b>→<b className={para > de ? 'is-up' : 'is-down'}>{para}</b></span>
           )) : <span>{t('games.gangues.bag.sem_mudanca')}</span>}
@@ -62,7 +63,9 @@ function Candidato({ t, member, def, peca, onEquipar }) {
       </div>
       {motivo
         ? <em className="gang-bagq-cand__motivo">{motivo}</em>
-        : <button className="gang-bag-usar" onClick={() => onEquipar(member.id)}>{t('games.gangues.equip.equipar')}</button>}
+        : <button className="gang-bagq-cand__btn" disabled={acao.semGrana} onClick={() => acao.onClick(member.id)}>
+          {acao.label}{acao.preco != null && <b>💵 {acao.preco}</b>}
+        </button>}
     </div>
   )
 }
@@ -117,7 +120,7 @@ export default function GanguesBagEquip({ store, t, onFeito }) {
             {t(`games.gangues.equip.slots.${def.slot}`)} · {t(`games.gangues.equip.raridade.${def.raridade}`)} · {def.caminho === 'livre' ? t('games.gangues.equip.qualquer_caminho') : t('games.gangues.equip.so_caminho', { caminho: t(`games.gangues.loadout.paths.${def.caminho}.name`) })} · {t('games.gangues.equip.nivel_min', { n: nivelMinEquip(def) })}
           </p>
           <small className="gang-bagq-det__quem">{t('games.gangues.bag.quem_usa')}</small>
-          {time.map(m => <Candidato key={m.id} t={t} member={m} def={def} peca={peca} onEquipar={id => equiparEm(item, id)} />)}
+          {time.map(m => <Candidato key={m.id} t={t} member={m} def={def} peca={peca} acao={{ label: t('games.gangues.equip.equipar'), onClick: id => equiparEm(item, id) }} />)}
         </div>}
       </div>
     })}</div>
