@@ -38,7 +38,7 @@ export default function createGanguesProgressionSlice(set, get) {
     // "empurrão" que dava AP extra além do total real). Só quando o pote é
     // menor que o número de gente (time gigante contra 1 inimigo fraco) é que
     // não dá pra garantir pra todo mundo — aí cai pra divisão só por peso.
-    gainApForParticipants: (totalAp, pesosPorId = {}, nivelPorId = {}) => {
+    gainApForParticipants: (totalAp, pesosPorId = {}, nivelPorId = {}, naRinha = false) => {
       const ids = Object.keys(pesosPorId)
       const somaPesos = ids.reduce((s, id) => s + (Number(pesosPorId[id]) || 0), 0) || 1
       const apTotalInteiro = Math.round(Math.max(0, Number(totalAp) || 0))
@@ -77,7 +77,8 @@ export default function createGanguesProgressionSlice(set, get) {
 
       const levelUps = []
       let totalXp = 0
-      const tetoNivel = nivelTetoDaHistoria(get().storyProgress, GANGUES_LEVEL_CAP)
+      // Teto da área só na Rinha; no resto do jogo sobe até o teto do jogo.
+      const tetoNivel = naRinha ? nivelTetoDaHistoria(get().storyProgress, GANGUES_LEVEL_CAP) : GANGUES_LEVEL_CAP
       set(state => {
         const advance = member => {
           if (!(member.id in pesosPorId)) return member
