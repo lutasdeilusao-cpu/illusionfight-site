@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791401397.2821188,
-    "ast_hash": "0ab48a4694bdc722d4d30fc2d5994d6b",
+    "mtime": 1791405877.7703292,
+    "ast_hash": "fd36cd605ffa7334fe87e54f1eee11f4",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791400390.6879666,
-    "ast_hash": "c19413a274f3d8a4db839cad59619c08",
+    "mtime": 1791401538.9526813,
+    "ast_hash": "e4a2a5759856071cda7a83dc5473f9a7",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791401397.315956,
-    "ast_hash": "590087c0bc087a08b4105705780e1d4f",
+    "mtime": 1791405877.800383,
+    "ast_hash": "425bfd118fcbe6d3302b44fff4e8a9df",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -6330,7 +6330,7 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-03.md": {
-    "mtime": 1789854984.4964871,
+    "mtime": 1791405877.6171322,
     "ast_hash": "469bf06b13c37004b709b792cf384391",
     "semantic_hash": ""
   },
@@ -7220,8 +7220,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1791308498.0987463,
-    "ast_hash": "98d36d6288f1ba2e55213ebdc7476706",
+    "mtime": 1791405865.2699862,
+    "ast_hash": "12557574fb4a3ab357760baf84cea420",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesBagEquip.jsx": {

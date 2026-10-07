@@ -34,7 +34,7 @@ function KoAvatar({ retrato }) {
 // estado e são exclusivos entre si.
 export default function GanguesCombatOverlays({
   t, aviso, danoCena, koCena, dispararProximoKo, machine, modoMultidaoAtivo,
-  fichaAberta, setFichaAberta, falaFinal, result, showResultBtn,
+  golpeMultidao, fichaAberta, setFichaAberta, falaFinal, result, showResultBtn,
   openBattleReport, enemy, velocidade = 1,
 }) {
   // Teclado (Steam): o aviso por cima da luta passa com Enter/Espaço; Esc fecha a ficha.
@@ -115,6 +115,17 @@ export default function GanguesCombatOverlays({
             side={machine.pending.side}
             velocidade={velocidade}
             onComplete={machine.completePending}
+          />
+        )}
+        {golpeMultidao && modoMultidaoAtivo && (
+          <GanguesGolpe
+            key={golpeMultidao.evento.id}
+            result={golpeMultidao.evento.result}
+            atacante={golpeMultidao.combatants.find(item => item.key === golpeMultidao.evento.actorKey)}
+            alvo={golpeMultidao.combatants.find(item => item.key === golpeMultidao.evento.targetKey)}
+            side={golpeMultidao.evento.side}
+            velocidade={velocidade}
+            onComplete={golpeMultidao.onComplete}
           />
         )}
         {fichaAberta && (

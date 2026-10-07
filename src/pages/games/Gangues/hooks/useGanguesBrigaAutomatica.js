@@ -145,21 +145,21 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, b
   return { ligado, alternar, bloqueado: Boolean(bloqueado), ignorados: ignoradosIds, anuncio, anunciar }
 }
 
-/* Saída automática do pós-luta (pedido do Isaias, 27/09/2026): quem liga a
-   briga automática quer upar — "entrar e sair de batalha". Com o switch
-   ligado e a luta vinda da cena, as telas depois da luta se clicam sozinhas:
-   o "NÓIS É CRIA" (botão de próximo) em 2s e o relatório ("Segue na
-   quebrada") em 3s — no máximo 5s até voltar pra rua. Só na VITÓRIA: a
-   derrota desliga os automáticos e espera o clique (v3.72.0).
-   Clique manual continua valendo (e qualquer toque na tela reinicia a
-   contagem, pra não arrancar o jogador que parou pra ler). */
+/* Saída automática do pós-luta: com a briga automática da rua ou o
+   automático do combate ligado, e a luta vinda da cena, as telas depois da
+   luta se clicam sozinhas: o "NÓIS É CRIA" em 2s e o relatório em 3s. Só na
+   VITÓRIA: a derrota desliga os automáticos e espera o clique. Clique manual
+   continua valendo, e qualquer toque reinicia a contagem (pra não arrancar
+   quem parou pra ler). */
 export const GANGUES_AVANCO_AUTO_MS = { resultado: 2000, relatorio: 3000 }
 
-// `forcar`: avança mesmo com a briga automática desligada (a Rinha infinita
-// emenda uma luta na outra sozinha — é o que ela é).
+// Liga com a briga automática da rua OU com o automático do combate (quem
+// luta no automático não precisa clicar o fim da luta). `forcar`: avança
+// mesmo com os dois desligados (a Rinha infinita emenda uma luta na outra).
 export function useGanguesAvancoAutomatico({ ativo, ms, acao, forcar = false }) {
-  const [salvo] = useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
-  const ligado = salvo || forcar
+  const [brigaRua] = useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
+  const [autoCombate] = useGanguesAutoLembrado('ldi-gangues-auto')
+  const ligado = brigaRua || autoCombate || forcar
   const acaoRef = useRef(acao)
   acaoRef.current = acao
   useEffect(() => {

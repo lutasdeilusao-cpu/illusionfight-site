@@ -119,7 +119,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   }, [store.match.playerTeam])
 
   const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, multidaoDisponivel, modoMultidaoOn, setModoMultidaoOn, velocidade: velocidadeEfetiva, fx, autoOn: modoAutoOn })
-  const { modoMultidaoAtivo, estadoMultidao, alternarMultidao, podeLigar, multidaoBlinkVisto, avancarRodada, revelandoRodada, golpeAtual, foco, marcarFoco } = multidao
+  const { modoMultidaoAtivo, estadoMultidao, alternarMultidao, podeLigar, multidaoBlinkVisto, avancarRodada, revelandoRodada, golpeAtual, golpeNaTela, fecharGolpe, foco, marcarFoco } = multidao
 
   // PV/PM gravado durante a luta (sair/recarregar não devolve a vida).
   useGanguesDanoAoVivo({ store, combatants: modoMultidaoAtivo ? (estadoMultidao?.combatants || []) : machine.combatants })
@@ -348,6 +348,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
       <GanguesCombatOverlays
         t={t} aviso={aviso} danoCena={fx.danoCena} koCena={fx.koCena}
         dispararProximoKo={fx.dispararProximoKo} machine={machine} modoMultidaoAtivo={modoMultidaoAtivo}
+        golpeMultidao={golpeNaTela && estadoMultidao ? { evento: golpeNaTela, combatants: estadoMultidao.combatants, onComplete: fecharGolpe } : null}
         fichaAberta={fichaAberta} setFichaAberta={setFichaAberta}
         falaFinal={falaFinal} result={result} showResultBtn={showResultBtn}
         openBattleReport={abrirRelatorio}
