@@ -1,3 +1,4 @@
+import './Puzzles.css'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import { sfxMinigames } from './sfx-minigames'

@@ -44,6 +44,7 @@ function bfsPath(maze, start, goal, rows, cols) {
   return []
 }
 
+import './Puzzles.css'
 import { useState, useEffect, useLayoutEffect, useCallback, useRef } from 'react'
 import { useSwipe } from '../../hooks/useSwipe'
 import { useLanguage } from '../../context/LanguageContext'

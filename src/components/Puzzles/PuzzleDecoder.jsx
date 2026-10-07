@@ -1,41 +1,37 @@
+import './Puzzles.css'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import { sfxMinigames } from './sfx-minigames'
 
+// Decodificador de Frequência: cada canal tem um alvo; o jogador ajusta a
+// sintonia até ficar dentro da tolerância e aperta decodificar. O alvo de cada
+// canal fica à mostra; o canal acende "travado" quando acerta. Errar gasta
+// uma tentativa e mostra pra que lado ajustar.
 const CONFIGS = {
   easy:    { bars: 1, timer: 45,  attempts: 5, tolerance: 8  },
   medium:  { bars: 2, timer: 45,  attempts: 4, tolerance: 6  },
   hard:    { bars: 3, timer: 30,  attempts: 3, tolerance: 5  },
   extreme: { bars: 4, timer: 20,  attempts: 3, tolerance: 4  },
 }
+const CORES = ['#00B4D8', '#A855F4', '#FF6B6B', '#22C55E'] // canal 1–4 (traço do gráfico)
 
 function gerarAlvo() {
   return 20 + Math.floor(Math.random() * 61)
 }
 
-function Waveform({ sliders, targets, tolerance, solved, heartbeat }) {
+function Waveform({ sliders, travados, solved, heartbeat }) {
   const width = 280, height = 70
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} width="100%" height={height}
-      style={{ background: 'rgba(0,0,0,0.4)', border: '1px solid #1a1a1a', borderRadius: 4, display: 'block' }}>
-      <path d={`M0,${height/2} L${width*0.3},${height/2} L${width*0.35},${height/2-8} L${width*0.38},${height/2+12} L${width*0.41},${height/2-20} L${width*0.44},${height/2+8} L${width*0.47},${height/2} L${width},${height/2}`}
-        fill="none" stroke={heartbeat ? '#DC143C' : '#1a0000'} strokeWidth={heartbeat ? 1.5 : 0.8}
-        style={{ transition: 'stroke 0.2s, stroke-width 0.2s' }} opacity={heartbeat ? 0.8 : 0.3} />
-      <line x1="0" y1={height/2} x2={width} y2={height/2} stroke="#222" strokeWidth="0.5" strokeDasharray="4,4" />
+    <svg className="puzzle-decoder-onda" viewBox={`0 0 ${width} ${height}`} width="100%" height={height}>
+      <path className={`puzzle-decoder-pulso${heartbeat ? ' is-on' : ''}`} d={`M0,${height/2} L${width*0.3},${height/2} L${width*0.35},${height/2-8} L${width*0.38},${height/2+12} L${width*0.41},${height/2-20} L${width*0.44},${height/2+8} L${width*0.47},${height/2} L${width},${height/2}`} />
+      <line className="puzzle-decoder-eixo" x1="0" y1={height/2} x2={width} y2={height/2} />
       {sliders.map((sl, idx) => {
-        const target = targets[idx]
-        const color = solved ? '#22C55E' : ['#00B4D8','#A855F4','#FF6B6B','#22C55E'][idx]
         const amp = 20 * (sl / 100)
         const freq = 0.04 + (sl / 100) * 0.12
-        const points = Array.from({ length: width }, (_, x) => {
-          const y = height/2 + amp * Math.sin(x * freq + idx * 0.8)
-          return `${x === 0 ? 'M' : 'L'}${x},${y}`
-        }).join(' ')
-        return (<path key={idx} d={points} fill="none" stroke={color} strokeWidth={solved ? 2 : 1.2} opacity={solved ? 1 : 0.5 + idx * 0.1} />)
+        const points = Array.from({ length: width }, (_, x) => `${x === 0 ? 'M' : 'L'}${x},${height/2 + amp * Math.sin(x * freq + idx * 0.8)}`).join(' ')
+        const cor = solved || travados[idx] ? '#22C55E' : CORES[idx]
+        return <path key={idx} d={points} fill="none" stroke={cor} strokeWidth={solved || travados[idx] ? 2 : 1.3} />
       })}
-      <text x={width/2} y={height - 4} textAnchor="middle" fill="#444" fontSize="7" fontFamily="monospace">
-        {sliders.map((s, i) => `${s}MHz`).join(' · ')} — alvo: {targets.map(t => `${t}±${tolerance}`).join(' ')}
-      </text>
     </svg>
   )
 }
@@ -72,8 +68,9 @@ export default function PuzzleDecoder({ onSolve, onFail, config = {} }) {
     return () => clearInterval(beatInt)
   }, [done])
 
-  // SFX: tocar revelar quando todos os canais alinharem
-  const allAligned = sliders.every((sl, i) => Math.abs(sl - targets[i]) <= cfg.tolerance)
+  const travados = sliders.map((sl, i) => Math.abs(sl - targets[i]) <= cfg.tolerance)
+  const allAligned = travados.every(Boolean)
+  // SFX: revelar quando todos os canais alinham
   useEffect(() => {
     if (allAligned && !done && !alignedPlayed.current) {
       alignedPlayed.current = true
@@ -92,58 +89,49 @@ export default function PuzzleDecoder({ onSolve, onFail, config = {} }) {
     }
     const next = attempts + 1
     setAttempts(next)
-    const newHints = sliders.map((sl, i) => {
-      const diff = Math.abs(sl - targets[i])
-      if (diff <= cfg.tolerance) return '✓'
-      return sl < targets[i] ? '↑ aumentar' : '↓ diminuir'
-    })
-    setHints(newHints)
+    setHints(sliders.map((sl, i) => (Math.abs(sl - targets[i]) <= cfg.tolerance ? 'ok' : sl < targets[i] ? 'subir' : 'descer')))
     if (next >= cfg.attempts) { setDone(true); setTimeout(() => onFail?.(), 800) }
   }, [sliders, targets, done, attempts, allAligned, cfg])
 
   const updateSlider = (idx, val) => {
-    setSliders(prev => prev.map((s, i) => i === idx ? val : s))
-    // SFX: slide com throttle 100ms
+    setSliders(prev => prev.map((s, i) => (i === idx ? val : s)))
+    setHints(prev => prev.map((h, i) => (i === idx ? null : h)))
     const agora = Date.now()
-    if (agora - lastSlideSfx.current > 100) {
-      lastSlideSfx.current = agora
-      sfxMinigames.slide()
-    }
+    if (agora - lastSlideSfx.current > 100) { lastSlideSfx.current = agora; sfxMinigames.slide() }
   }
 
+  const urgencia = timeLeft <= 10 ? ' is-urgente' : timeLeft <= 20 ? ' is-aviso' : ''
   return (
     <div className="puzzle-container">
       <div className="puzzle-title">{t('games.minigames.decoder.titulo_jogo')}</div>
       <p className="puzzle-desc">{cfg.bars > 1 ? t('games.minigames.decoder.instrucao_n') : t('games.minigames.decoder.instrucao_1')}</p>
-      <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 0.5rem', marginBottom: '0.3rem' }}>
-        <span style={{
-          fontFamily: "'Share Tech Mono',monospace",
-          fontSize: timeLeft <= 10 ? '1.1rem' : timeLeft <= 20 ? '0.9rem' : '0.75rem',
-          color: timeLeft <= 10 ? '#DC143C' : timeLeft <= 20 ? '#F5A623' : '#888',
-          fontWeight: timeLeft <= 20 ? 'bold' : 'normal',
-          animation: timeLeft <= 10 ? 'timer-urgent 0.5s ease-in-out infinite' : timeLeft <= 20 ? 'timer-warn 1s ease-in-out infinite' : 'none',
-          transition: 'font-size 0.3s, color 0.3s',
-          letterSpacing: '0.1em',
-        }}>⏱ {timeLeft}s</span>
-        <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.65rem', color: '#555' }}>{t('games.minigames.tentativas', { a: attempts, b: cfg.attempts })}</span>
+      <div className="puzzle-decoder-topo">
+        <span className={`puzzle-decoder-tempo${urgencia}`}>⏱ {timeLeft}s</span>
+        <span className="puzzle-decoder-tentativas">{t('games.minigames.tentativas', { a: attempts, b: cfg.attempts })}</span>
       </div>
-      <Waveform sliders={sliders} targets={targets} tolerance={cfg.tolerance} solved={solved} heartbeat={heartbeat} />
-      <div style={{ marginTop: '0.8rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-        {sliders.map((sl, idx) => {
-          const barColor = solved ? '#22C55E' : ['#00B4D8','#A855F4','#FF6B6B','#22C55E'][idx]
-          return (
-            <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              {cfg.bars > 1 && <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.6rem', color: solved ? '#22C55E' : barColor, minWidth: 12 }}>{solved ? '✓' : `${idx+1}`}</span>}
-              <input type="range" min="0" max="100" value={sl} onChange={e => updateSlider(idx, Number(e.target.value))} disabled={done} style={{ flex: 1, accentColor: solved ? '#22C55E' : barColor }} />
-              <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.65rem', color: solved ? '#22C55E' : '#666', minWidth: 36 }}>{sl}%</span>
-              {hints[idx] && <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.6rem', color: hints[idx] === '✓' ? '#22C55E' : '#F5A623', minWidth: 70 }}>{hints[idx]}</span>}
+      <Waveform sliders={sliders} travados={travados} solved={solved} heartbeat={heartbeat} />
+      <div className="puzzle-decoder-canais">
+        {sliders.map((sl, idx) => (
+          <div key={idx} className={`puzzle-decoder-canal${travados[idx] ? ' is-travado' : ''}`} style={{ '--canal': CORES[idx] }}>
+            <div className="puzzle-decoder-linha">
+              {cfg.bars > 1 && <span className="puzzle-decoder-num">{idx + 1}</span>}
+              <span className="puzzle-decoder-alvo">{t('games.minigames.decoder.alvo')} <b>{targets[idx]}</b> <small>±{cfg.tolerance}</small></span>
+              <span className="puzzle-decoder-valor">{sl}</span>
+              <span className="puzzle-decoder-estado">
+                {travados[idx] ? t('games.minigames.decoder.travado')
+                  : hints[idx] === 'subir' ? t('games.minigames.decoder.subir')
+                    : hints[idx] === 'descer' ? t('games.minigames.decoder.descer') : ''}
+              </span>
             </div>
-          )
-        })}
+            <input className="puzzle-decoder-range" type="range" min="0" max="100" value={sl} onChange={e => updateSlider(idx, Number(e.target.value))} disabled={done} aria-label={`${t('games.minigames.decoder.alvo')} ${targets[idx]}`} />
+          </div>
+        ))}
       </div>
-      {solved && <p style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.85rem', color: '#22C55E', textAlign: 'center', marginTop: '0.5rem' }}>{t('games.minigames.decoder.decifrado')}</p>}
-      <div className="puzzle-buttons" style={{ marginTop: '0.6rem' }}>
-        <button className="jack-btn jack-btn--amber" onClick={handleDecode} disabled={done}>{t('games.minigames.decoder.decodificar', { n: attempts, total: cfg.attempts })}</button>
+      {solved
+        ? <p className="puzzle-decoder-msg is-ok">{t('games.minigames.decoder.decifrado')}</p>
+        : allAligned && <p className="puzzle-decoder-msg">{t('games.minigames.decoder.alinhado')}</p>}
+      <div className="puzzle-buttons">
+        <button className="puzzle-btn puzzle-btn--amber" onClick={handleDecode} disabled={done}>{t('games.minigames.decoder.decodificar', { n: attempts, total: cfg.attempts })}</button>
       </div>
     </div>
   )

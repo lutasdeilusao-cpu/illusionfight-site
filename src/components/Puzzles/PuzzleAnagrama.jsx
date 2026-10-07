@@ -1,3 +1,4 @@
+import './Puzzles.css'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
@@ -132,8 +133,8 @@ export default function PuzzleAnagrama({ onSolve, onFail, config = {} }) {
       <div className="puzzle-anagrama-preview"><span className="puzzle-anagrama-preview-label">{t('games.minigames.anagrama.formado')}</span><span className="puzzle-anagrama-preview-text">{selected.length > 0 ? selected.map(i => unidades[i]).join('') : '...'}</span></div>
       {msg && <p className="puzzle-hint" style={{ color: msg.startsWith('✓') ? '#22C55E' : msg.startsWith('✗') ? '#8B0000' : '#F5A623' }}>{msg}</p>}
       <div className="puzzle-buttons">
-        <button className="jack-btn" onClick={() => setSelected([])} disabled={done}>{t('games.minigames.anagrama.limpar')}</button>
-        <button className="jack-btn jack-btn--amber" onClick={handleSubmit} disabled={done || selected.length === 0}>{t('games.minigames.confirmar')}</button>
+        <button className="puzzle-btn" onClick={() => setSelected([])} disabled={done}>{t('games.minigames.anagrama.limpar')}</button>
+        <button className="puzzle-btn puzzle-btn--amber" onClick={handleSubmit} disabled={done || selected.length === 0}>{t('games.minigames.confirmar')}</button>
       </div>
     </div>
   )

@@ -177,7 +177,11 @@
         "instrucao_n": "tune all frequencies to decipher the message.",
         "alinhado": "✓ frequencies aligned — confirm",
         "decifrado": "✓ signal deciphered.",
-        "decodificar": "[ decode ({n}/{total}) ]"
+        "decodificar": "[ decode ({n}/{total}) ]",
+        "alvo": "target",
+        "travado": "✓ locked",
+        "subir": "↑ raise",
+        "descer": "↓ lower"
       },
       "sliding": {
         "titulo_jogo": "🧩 Torn Document",

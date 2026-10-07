@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791405877.7703292,
-    "ast_hash": "fd36cd605ffa7334fe87e54f1eee11f4",
+    "mtime": 1791409484.1825495,
+    "ast_hash": "152daa7e38c062355b3280ed579a2a49",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791405877.800383,
-    "ast_hash": "425bfd118fcbe6d3302b44fff4e8a9df",
+    "mtime": 1791409484.2168024,
+    "ast_hash": "9c3baa038fb1995efbabdc1e431369c4",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4005,8 +4005,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesCombatOverlays.jsx": {
-    "mtime": 1791400318.7921596,
-    "ast_hash": "56da20c4be09da803e4d17d368e145f7",
+    "mtime": 1791409372.6191638,
+    "ast_hash": "0ecd1c6cd37ac8c3ef97cf6f7779820e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesCombatRoster.jsx": {
@@ -4050,8 +4050,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesModoMultidao.js": {
-    "mtime": 1791399511.4828022,
-    "ast_hash": "ca07c686daa26aecdc43e1b84fbe8353",
+    "mtime": 1791409360.3314757,
+    "ast_hash": "5545c2f2eb8001bca6d868f1a138df44",
     "semantic_hash": ""
   },
   "src/components/GameSessionRoute/GameSessionRoute.jsx": {
@@ -4145,8 +4145,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCombat.jsx": {
-    "mtime": 1791400280.77323,
-    "ast_hash": "76ce51da771d6a3840a5cbdcc47bdebe",
+    "mtime": 1791409372.6201637,
+    "ast_hash": "cd735e4145a240d5877d2b91cdfa8777",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCreate.jsx": {
@@ -4955,8 +4955,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js": {
-    "mtime": 1791387610.4739642,
-    "ast_hash": "d5b4c23019b45544551f19a7b392f60a",
+    "mtime": 1791409331.1647146,
+    "ast_hash": "d64af8fc1fc824694e84b0f446da8ab2",
     "semantic_hash": ""
   },
   "docs/Games/Gangues/PLANO_FEIRA.md": {
@@ -6330,7 +6330,7 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-03.md": {
-    "mtime": 1791405877.6171322,
+    "mtime": 1791409484.1538358,
     "ast_hash": "469bf06b13c37004b709b792cf384391",
     "semantic_hash": ""
   },

@@ -177,7 +177,11 @@
         "instrucao_n": "sintonize todas as frequências para decifrar a mensagem.",
         "alinhado": "✓ frequências alinhadas — confirme",
         "decifrado": "✓ sinal decifrado.",
-        "decodificar": "[ decodificar ({n}/{total}) ]"
+        "decodificar": "[ decodificar ({n}/{total}) ]",
+        "alvo": "alvo",
+        "travado": "✓ travado",
+        "subir": "↑ sobe",
+        "descer": "↓ desce"
       },
       "sliding": {
         "titulo_jogo": "🧩 Documento Rasgado",

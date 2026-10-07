@@ -1,3 +1,4 @@
+import './Puzzles.css'
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'

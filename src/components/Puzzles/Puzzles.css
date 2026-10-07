@@ -56,37 +56,48 @@
   margin-top: 0.75rem;
 }
 
+/* === Botão dos puzzles (não depende do CSS de nenhum jogo) === */
+
+.puzzle-btn {
+  min-height: 44px; padding: 0.6rem 1.1rem; cursor: pointer;
+  font: 700 0.8rem 'Share Tech Mono', monospace; letter-spacing: 0.04em; text-transform: lowercase;
+  color: var(--gang-branco, #e8eef0); background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.puzzle-btn--amber { color: #111; background: var(--if-amber); border-color: var(--if-amber); font-weight: 800; }
+.puzzle-btn--discreto { min-height: 36px; margin-top: 0.6rem; font-size: 0.7rem; color: #888; border-color: rgba(139, 0, 0, 0.4); background: none; }
+.puzzle-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
 /* === Decoder === */
 
-.puzzle-decoder-wave {
-  margin: 0.5rem 0;
-}
+.puzzle-decoder-topo { display: flex; justify-content: space-between; align-items: baseline; padding: 0 0.25rem; margin-bottom: 0.3rem; }
+.puzzle-decoder-tempo { font: 0.8rem 'Share Tech Mono', monospace; letter-spacing: 0.1em; color: #9aa; transition: font-size 0.3s, color 0.3s; }
+.puzzle-decoder-tempo.is-aviso { font-size: 0.9rem; font-weight: bold; color: var(--if-amber); animation: timer-warn 1s ease-in-out infinite; }
+.puzzle-decoder-tempo.is-urgente { font-size: 1.1rem; font-weight: bold; color: #DC143C; animation: timer-urgent 0.5s ease-in-out infinite; }
+.puzzle-decoder-tentativas { font: 0.7rem 'Share Tech Mono', monospace; color: #9aa; }
 
-.puzzle-decoder-wave svg {
-  background: rgba(0,0,0,0.3);
-  border: 1px solid #1a1a1a;
-  border-radius: 4px;
-}
+.puzzle-decoder-onda { display: block; background: rgba(0, 0, 0, 0.4); border: 1px solid #1f2a2e; }
+.puzzle-decoder-eixo { stroke: #2a3438; stroke-width: 0.5; stroke-dasharray: 4 4; }
+.puzzle-decoder-pulso { fill: none; stroke: #3a0a10; stroke-width: 0.8; opacity: 0.4; transition: stroke 0.2s, stroke-width 0.2s; }
+.puzzle-decoder-pulso.is-on { stroke: #DC143C; stroke-width: 1.5; opacity: 0.8; }
 
-.puzzle-decoder-slider {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  justify-content: center;
-  margin: 0.5rem 0;
-}
-
-.puzzle-decoder-slider input[type="range"] {
-  width: 200px;
-  accent-color: var(--if-amber);
-}
-
-.puzzle-decoder-value {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.8rem;
-  color: var(--if-amber);
-  min-width: 40px;
-}
+.puzzle-decoder-canais { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.75rem; text-align: left; }
+.puzzle-decoder-canal { padding: 0.5rem 0.6rem; border: 1px solid #1f2a2e; border-left: 3px solid var(--canal); background: rgba(255, 255, 255, 0.02); }
+.puzzle-decoder-canal.is-travado { border-color: #22C55E; background: rgba(34, 197, 94, 0.08); }
+.puzzle-decoder-linha { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.35rem; font-family: 'Share Tech Mono', monospace; }
+.puzzle-decoder-num { font-size: 0.7rem; color: var(--canal); }
+.puzzle-decoder-alvo { font-size: 0.75rem; color: #9aa; }
+.puzzle-decoder-alvo b { font-size: 1.05rem; color: var(--gang-branco, #e8eef0); }
+.puzzle-decoder-alvo small { font-size: 0.7rem; color: #9aa; }
+.puzzle-decoder-valor { margin-left: auto; font-size: 1.05rem; font-weight: bold; color: var(--canal); }
+.puzzle-decoder-canal.is-travado .puzzle-decoder-valor { color: #22C55E; }
+.puzzle-decoder-estado { min-width: 64px; text-align: right; font-size: 0.7rem; color: var(--if-amber); }
+.puzzle-decoder-canal.is-travado .puzzle-decoder-estado { color: #22C55E; }
+.puzzle-decoder-range { width: 100%; height: 28px; accent-color: var(--canal); }
+.puzzle-decoder-canal.is-travado .puzzle-decoder-range { accent-color: #22C55E; }
+.puzzle-decoder-msg { margin: 0.5rem 0 0; font: 0.8rem 'Share Tech Mono', monospace; color: var(--if-amber); }
+.puzzle-decoder-msg.is-ok { color: #22C55E; }
 
 /* === Stealth Grid === */
 

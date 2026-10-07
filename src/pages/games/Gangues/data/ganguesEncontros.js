@@ -446,13 +446,19 @@ export function gerarBandoChefe({ territorioId, playerTeam, enemiesData, modo = 
 /** Mínimo de inimigos por luta em cada bairro: a partir da Feira toda briga
  *  é em bando, e o bando cresce bairro a bairro. */
 export const GANGUES_MIN_INIMIGOS = { pista: 1, feira: 2, baixada: 3, vila: 4, morro: 5, alto: 6, laje: 7 }
+/** Quantos a mais o bando pode vir além do mínimo (da Feira em diante).
+ *  Sorteio: o mínimo é o mais comum, o mínimo + 2 o mais raro. */
+const GANGUES_FOLGA_BANDO = [0, 0, 1, 1, 2]
 
-/** Completa o bando até o mínimo do bairro. Quem entra é capanga do `pool`
- *  da rua do bairro, 2–3 pontos abaixo do inimigo principal da luta (a mesma
- *  regra do 2º corpo de uma dupla); sem repetir molde enquanto der. */
 const pontosDoCorpo = e => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(e?.stats?.[k]) || 0), 0)
+/** Completa o bando do bairro: sorteia o tamanho entre o mínimo e o mínimo
+ *  + 2 (a Pista fica no tamanho que a luta gerou) e completa com capangas do
+ *  `pool` da rua, 2–3 pontos abaixo do inimigo principal da luta (a mesma
+ *  regra do 2º corpo de uma dupla), sem repetir molde enquanto der. Bando
+ *  que já veio maior fica como está. */
 export function completarBandoMinimo(bando, { territorioId, pool, enemiesData }) {
-  const minimo = GANGUES_MIN_INIMIGOS[territorioId] || 1
+  const piso = GANGUES_MIN_INIMIGOS[territorioId] || 1
+  const minimo = piso > 1 ? piso + GANGUES_FOLGA_BANDO[Math.floor(Math.random() * GANGUES_FOLGA_BANDO.length)] : piso
   if (!bando?.length || bando.length >= minimo || !pool?.length) return bando
   const lider = bando[0]
   const pontosLider = pontosDoCorpo(lider)

@@ -1,3 +1,4 @@
+import './Puzzles.css'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
@@ -115,7 +116,7 @@ export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
       </div>
 
       <p className="puzzle-hint">{t('games.minigames.sliding.objetivo', { n: total - 1 })}</p>
-      <button className="jack-btn" onClick={() => onFail?.()} style={{ fontSize: '0.7rem', borderColor: '#8B000033', color: '#666' }}>
+      <button className="puzzle-btn puzzle-btn--discreto" onClick={() => onFail?.()}>
         {t('games.minigames.sliding.desistir')}
       </button>
     </div>

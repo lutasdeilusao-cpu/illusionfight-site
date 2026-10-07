@@ -1,3 +1,4 @@
+import './Puzzles.css'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useSwipe } from '../../hooks/useSwipe'
 import { useZoom } from '../../hooks/useZoom'
