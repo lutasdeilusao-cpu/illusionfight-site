@@ -614,6 +614,8 @@
         "equipar_em": "Put {item} ({slot}) on who?",
         "equipou": "{nome} equipped {item} ({slot}).",
         "ja_equipado": "already has it",
+        "usa_agora": "Now: {bonus}",
+        "sem_mudanca": "No change to the sheet",
         "status_curado": "{nome} is clear of the status.",
         "sem_status": "{nome} doesn't have that status.",
         "cartas": "Cards",

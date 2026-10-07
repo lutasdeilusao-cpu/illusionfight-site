@@ -3,7 +3,8 @@ import { GANGUES_STATUS } from '../../engine/ganguesStatus.js'
 import { Fragment, useState } from 'react'
 import { sfx } from '../../../../../lib/sfx'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources } from '../../data/ganguesLoadout.js'
-import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip, podeEquiparGangues, nomePeca } from '../../data/ganguesEquip.js'
+import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip, podeEquiparGangues, caminhoAceitaGangues, nivelMinEquip, nomePeca, normalizeGanguesEquipment, textoBonusEquip } from '../../data/ganguesEquip.js'
+import { getGanguesCharacter } from '../../data/ganguesCharacters.js'
 import { GANGUES_ITENS_LISTA, textoEfeitoItem } from '../../data/ganguesItens.js'
 import { GANGUES_CARTAS_LISTA, nomeCarta, textoCarta } from '../../data/ganguesCartas.js'
 
@@ -11,6 +12,27 @@ import { GANGUES_CARTAS_LISTA, nomeCarta, textoCarta } from '../../data/ganguesC
 // guardado). É a MESMA fonte que a loja abastece e que o combate lê pra usar
 // poção (store.inventario / store.equipamentos) — um sistema só.
 // A escolha de quem usa/equipa abre logo abaixo do item tocado.
+const ATTRS_TROCA = ['A', 'H', 'D', 'PM']
+
+/** Como a ficha de `member` fica se ele vestir esta peça (com o aprimoramento
+ *  dela): o que ele usa agora no lugar e cada número que muda. */
+function resumoTroca(t, member, def, peca) {
+  const ch = getGanguesCharacter(member.character_template_id)
+  const eqAtual = normalizeGanguesEquipment(member.attributes?.equipment)
+  const noSlot = eqAtual[def.slot]
+  const defAtual = noSlot && getGanguesEquip(noSlot.itemId)
+  if (!ch) return { deltas: [], noSlot, defAtual }
+  const eqNovo = { ...eqAtual, [def.slot]: { itemId: def.id, encaixe: Boolean(peca?.encaixe), cards: [], aprim: peca?.aprim || 0 } }
+  const atual = getGanguesAttributesWithEquip(member.attributes)
+  const novo = getGanguesAttributesWithEquip({ ...member.attributes, equipment: eqNovo })
+  const rA = applyGanguesEquipResources(getGanguesResources(ch.combat_path, atual.PV, atual.PM), eqAtual)
+  const rN = applyGanguesEquipResources(getGanguesResources(ch.combat_path, novo.PV, novo.PM), eqNovo)
+  const deltas = ATTRS_TROCA.filter(a => novo[a] !== atual[a]).map(a => [t(`games.gangues.attr_labels.${a}`), atual[a], novo[a]])
+  if (rN.pvMax !== rA.pvMax) deltas.push(['PV', rA.pvMax, rN.pvMax])
+  if (rN.pmMax !== rA.pmMax) deltas.push(['PM', rA.pmMax, rN.pmMax])
+  return { deltas, noSlot, defAtual }
+}
+
 const ABA_DO_TIPO = { cura_pv: 'cura', cura_pm: 'cura', cura_status: 'cura', material: 'material' }
 
 export default function GanguesCenaBagSheet({ store, t, onClose }) {
@@ -111,20 +133,32 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
         <Fragment key={chave}>
         <div className="gang-bag-row">
           <span>{def.icone}</span>
-          <strong>{nomePeca(t, def, peca)}</strong>
+          <strong>{nomePeca(t, def, peca)}<small className="gang-bag-efeito">{textoBonusEquip(t, def, peca?.aprim || 0)}</small></strong>
           <small>{t(`games.gangues.equip.slots.${def.slot}`)}</small>
           {timeEquip.length > 0 && <button className="gang-bag-usar" onClick={() => setEquipando(e => e?.chave === chave ? null : { chave, def, peca })}>{t('games.gangues.equip.equipar')}</button>}
           <b>×{qtd}</b>
         </div>
         {equipando?.chave === chave && <div className="gang-bag-alvos">
         <small>{t('games.gangues.bag.equipar_em', { item: nomePeca(t, equipando.def, equipando.peca), slot: t(`games.gangues.equip.slots.${equipando.def.slot}`) })}</small>
-        {timeEquip.filter(m => podeEquiparGangues(equipando.def, m)).map(m => {
-          const noSlot = m.attributes?.equipment?.[equipando.def.slot]
-          const defAtual = noSlot && getGanguesEquip(noSlot.itemId)
-          const jaEssa = noSlot && noSlot.itemId === equipando.def.id
+        {timeEquip.map(m => {
+          // Quem não pode usar aparece apagado, com o motivo.
+          if (!podeEquiparGangues(equipando.def, m)) {
+            const motivo = caminhoAceitaGangues(equipando.def, m)
+              ? t('games.gangues.equip.nivel_min', { n: nivelMinEquip(equipando.def) })
+              : t('games.gangues.equip.so_caminho', { caminho: t(`games.gangues.loadout.paths.${equipando.def.caminho}.name`) })
+            return <button key={m.id} className="gang-bag-alvo" disabled><strong>{m.sheet_name || '?'}</strong><em>{motivo}</em></button>
+          }
+          const { deltas, noSlot, defAtual } = resumoTroca(t, m, equipando.def, equipando.peca)
+          const jaEssa = noSlot && noSlot.itemId === equipando.def.id && (noSlot.aprim || 0) === (equipando.peca?.aprim || 0)
           return <button key={m.id} className="gang-bag-alvo" disabled={jaEssa} onClick={() => equiparEm(equipando.def, m.id, equipando.peca)}>
             <strong>{m.sheet_name || '?'}</strong>
-            <em>{jaEssa ? t('games.gangues.bag.ja_equipado') : defAtual ? `↺ ${t(defAtual.nome)}` : t('games.gangues.equip.vazio')}</em>
+            <em>{jaEssa ? t('games.gangues.bag.ja_equipado') : defAtual ? `↺ ${nomePeca(t, defAtual, noSlot)}` : t('games.gangues.equip.vazio')}</em>
+            {defAtual && !jaEssa && <small className="gang-bag-alvo__agora">{t('games.gangues.bag.usa_agora', { bonus: textoBonusEquip(t, defAtual, noSlot.aprim || 0) || '—' })}</small>}
+            {!jaEssa && <span className="gang-loja-cmp__deltas">
+              {deltas.length ? deltas.map(([label, de, para]) => (
+                <span key={label}>{label} <b>{de}</b>→<b className={para > de ? 'is-up' : 'is-down'}>{para}</b></span>
+              )) : <span>{t('games.gangues.bag.sem_mudanca')}</span>}
+            </span>}
           </button>
         })}
         </div>}

@@ -206,6 +206,7 @@
 }
 .gang-bag-alvo {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: 8px;
@@ -216,6 +217,8 @@
 }
 .gang-bag-alvo strong { font: 800 0.72rem var(--font-display); color: var(--gang-branco); text-transform: uppercase; }
 .gang-bag-alvo em { font-style: normal; font: 700 0.6rem var(--font-mono); color: var(--if-amber); }
+.gang-bag-alvo__agora { flex: 1 1 100%; text-align: left; font: 700 0.56rem var(--font-mono); color: var(--gang-cinza-azul-400); }
+.gang-loja-cmp__deltas b.is-down { color: var(--if-danger); }
 .gang-bag-alvo:disabled { opacity: 0.4; cursor: default; }
 .gang-bag-feito {
   width: 100%;

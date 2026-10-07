@@ -614,6 +614,8 @@
         "equipar_em": "¿Ponerle {item} ({slot}) a quién?",
         "equipou": "{nome} equipó {item} ({slot}).",
         "ja_equipado": "ya la tiene",
+        "usa_agora": "Ahora: {bonus}",
+        "sem_mudanca": "No cambia nada en la ficha",
         "status_curado": "{nome} quedó limpio del estado.",
         "sem_status": "{nome} no tiene ese estado.",
         "cartas": "Cartas",
