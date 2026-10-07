@@ -86,6 +86,12 @@ const mudouAlgo = r => Boolean(r.lutas > 0 || r.grana || r.rep || r.pocoes || r.
 
 const sinal = n => (n < 0 ? `${n}` : `+${n}`)
 
+/** Computador (mouse/touchpad): trocar de aba não é "ir pro fundo" como no
+ *  celular. Lá a Rinha segue ao vivo, sem o modo calculado. */
+const ehComputador = () => {
+  try { return window.matchMedia('(hover: hover) and (pointer: fine)').matches } catch { return false }
+}
+
 export default function GanguesFarmAusente({ children, luta = false, vitoria = false, aoVoltar, aoContinuarRinha }) {
   const { t } = useLanguage()
   const tRef = useRef(t); tRef.current = t
@@ -166,6 +172,7 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
     }
     const aoMudar = () => {
       if (!document.hidden) { processar(); return }
+      if (ehComputador()) return // no PC a luta segue ao vivo com a aba escondida
       sair()
       armar()
     }
@@ -174,7 +181,7 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
     // anota e segue a mesma contagem. Montou com o app na frente e uma marca
     // no save (página recarregada depois de a aba ser descartada, ou a volta
     // caiu numa tela fora do embrulho): relatório.
-    if (document.hidden) { montouNoFundo(); armar() }
+    if (document.hidden && !ehComputador()) { montouNoFundo(); armar() }
     else if (marcaAtual()) processar()
     return () => { clearTimeout(espera); clearTimeout(timer); document.removeEventListener('visibilitychange', aoMudar) }
   }, [luta, vitoria])
