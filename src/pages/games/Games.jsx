@@ -53,11 +53,6 @@ const FORA = [
 
 const PROXIMOS = ['tama', 'jack', 'tatics']
 
-const CONTEUDO = [
-  { id: 'quiz', nomeKey: 'site.games.nomes.quiz', tagKey: 'site.games.taglines.quiz', emoji: '🎯', cor: 'var(--if-ok)', rota: '/quiz', badgeKey: 'site.games.badges.free' },
-  { id: 'leaderboard', nomeKey: 'site.games.nomes.leaderboard', tagKey: 'site.games.taglines.leaderboard', emoji: '🏆', cor: 'var(--if-amber)', rota: '/leaderboard', badgeKey: 'site.games.badges.free' },
-]
-
 export default function Games() {
   const { t, locale } = useLanguage()
   const navigate = useNavigate()
@@ -142,23 +137,6 @@ export default function Games() {
           <ul>{PROXIMOS.map(id => <li key={id}>{t(`calendar.game_${id}`)}</li>)}</ul>
           <Link to="/calendario" className="games-proximos__link">{t('site.games.vitrine.ver_calendario')} →</Link>
         </section>
-
-        <section className="extras-secao">
-          <div className="extras-secao-label">
-            <span>{t('site.games.secao_conteudo')}</span>
-            <div className="extras-secao-linha" />
-          </div>
-          <div className="extras-conteudo-grid">
-            {CONTEUDO.map(item => (
-              <div key={item.id} className="extras-conteudo-card" style={{ '--cor-neon': item.cor }} onClick={() => navigate(item.rota)}>
-                <span className="extras-conteudo-emoji">{item.emoji}</span>
-                <div><p className="extras-conteudo-nome">{t(item.nomeKey)}</p><p className="extras-conteudo-tagline">{t(item.tagKey)}</p></div>
-                <span className="extras-conteudo-badge">{t(item.badgeKey)}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {isAdmin && (
           <section className="games-admin">
             <p className="if-eyebrow">{t('site.games.vitrine.admin_eyebrow')}</p>
