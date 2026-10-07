@@ -228,6 +228,7 @@ export default function App() {
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/creators" element={<Creators />} />
+        <Route path="/creator" element={<Navigate to="/creators" replace />} />
         {/* painel de administrador: rota escondida, sem link no site (ver pages/painel) */}
         <Route path={ROTA_PAINEL} element={<Painel />} />
         <Route path="/prototype" element={<Prototype />} />

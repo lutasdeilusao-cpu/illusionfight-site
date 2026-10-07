@@ -248,6 +248,7 @@ const REDIRECTS = [
   { path: '/games/toptrumps/lobby', target: '/games/multiplayer/lobby?game=toptrumps&mode=free' },
   { path: '/mundo', target: '/universos' },
   { path: '/livro', target: '/historias' },
+  { path: '/creator', target: '/creators' },
   { path: '/livro/contos', target: '/historias/contos' },
   { path: '/webtoon/00', target: '/webtoon/01' },
 ]
