@@ -237,18 +237,11 @@ export function precisaVoltarNoInformante(territorio, storyProgress = {}) {
   return pontosFeitos && !storyProgress.__flags?.[territorio.id]
 }
 
-/** Teto de nível da área atual da história (pedido do Isaias, 28/09/2026:
- *  "você só pode upar até o level recomendado pro chefe daquela área").
- *  Área atual = 1º território (na ordem) cujo chefe ainda não caiu. O teto é
- *  `nivelTeto` do território (Pista = 20) ou, sem ele, o nível do chefe
- *  (`nivel` em gangues-enemies.json), sem nunca baixar entre áreas. Campanha zerada =
- *  teto do jogo (99). */
-export function nivelTetoDaHistoria(storyProgress = {}, tetoJogo = 99) {
-  let teto = 1
-  for (const terr of [...GANGUES_TERRITORIOS].sort((a, b) => a.ordem - b.ordem)) {
-    const nivelChefe = Number(terr.nivelTeto) || Number(enemiesData.find(e => e.id === terr.chefe?.enemy)?.nivel) || 0
-    teto = Math.max(teto, nivelChefe)
-    if (!storyProgress?.[terr.id]?.chefe) return Math.min(teto, tetoJogo)
-  }
-  return tetoJogo
+
+/** Teto de nível da Rinha de um bairro: o `nivelTeto` dele (Pista = 20),
+ *  ou o nível do chefe quando o bairro não tem `nivelTeto`. */
+export function tetoDaRinha(territorioId, tetoJogo = 99) {
+  const terr = GANGUES_TERRITORIOS.find(t => t.id === territorioId)
+  const n = Number(terr?.nivelTeto) || Number(enemiesData.find(e => e.id === terr?.chefe?.enemy)?.nivel) || tetoJogo
+  return Math.min(n, tetoJogo)
 }

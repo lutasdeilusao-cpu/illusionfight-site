@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 import { registrarPontuacaoArenaRanking } from '../../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../../lib/sfx'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from '../engine/ganguesVictoryResolver.js'
-import { nivelTetoDaHistoria } from '../data/ganguesTerritorios.js'
+import { tetoDaRinha } from '../data/ganguesTerritorios.js'
 import { GANGUES_LEVEL_CAP } from '../data/ganguesCharacters.js'
 import { CENAS_POR_ID, destinoSocorroDerrota, custoRecuperacaoRinha } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
@@ -77,14 +77,14 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
     // aplicarDanoPersistente reescrevia por cima com o PV/PM que sobrou da
     // luta, apagando a cura do level-up.
     store.aplicarDanoPersistente(report.combatants)
-    const { levelUps: newLevelUps, apPorMembro } = store.gainApForParticipants(ap, pesosPorId, nivelPorId, Boolean(storyAlvo?.rinha))
+    const { levelUps: newLevelUps, apPorMembro } = store.gainApForParticipants(ap, pesosPorId, nivelPorId, storyAlvo?.rinha ? storyAlvo.territorioId : null)
     setLevelUps(newLevelUps)
 
     // Mostra TODOS os escalados na tela de vitória (inclusive quem caiu, com
     // 0 e a marca de KO) — o rateio já ignorou os mortos acima.
-    // Teto de nível da área (nivelTetoDaHistoria) vale só na Rinha: quem já está nele não sobe
+    // Teto de nível da Rinha (o do bairro dela, tetoDaRinha): quem já está nele não sobe
     // mais até o chefe da área cair — a tela avisa em vez de mostrar AP.
-    const tetoNivel = storyAlvo?.rinha ? nivelTetoDaHistoria(store.storyProgress, GANGUES_LEVEL_CAP) : GANGUES_LEVEL_CAP
+    const tetoNivel = storyAlvo?.rinha ? tetoDaRinha(storyAlvo.territorioId, GANGUES_LEVEL_CAP) : GANGUES_LEVEL_CAP
     const apLista = escaladosIds.map(id => {
       const noTeto = Number(nivelPorId[id] ?? match.playerTeam.find(member => member.id === id)?.level) >= tetoNivel
       return {

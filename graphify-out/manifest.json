@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791379232.4536903,
-    "ast_hash": "9bc85f97ec8fe325c7eba5dcb6c99a9a",
+    "mtime": 1791381357.9055426,
+    "ast_hash": "2d9a3665c4c5e9da0b94aa5b6f0c358e",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791379232.4832816,
-    "ast_hash": "f1df8f7b86f79acc2f87abecb5ca6b1b",
+    "mtime": 1791381357.9380734,
+    "ast_hash": "d290ebe07b56c311c5217cbb9b9657d2",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4910,8 +4910,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesFarmAusente.jsx": {
-    "mtime": 1791088322.2826314,
-    "ast_hash": "617f5bf6dc9a08a6be61e8792e11768f",
+    "mtime": 1791381348.6623983,
+    "ast_hash": "9b6974663fa3217ac4df013cfa8049df",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesFerreiro.jsx": {

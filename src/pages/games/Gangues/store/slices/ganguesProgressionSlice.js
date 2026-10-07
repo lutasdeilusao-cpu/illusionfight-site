@@ -7,7 +7,7 @@ import { addGanguesAp, normalizeGanguesLoadout, getGanguesResources } from '../.
 import { hydrateGanguesTemplateSheet, getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../../data/ganguesEquip.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../../data/ganguesLoadout.js'
-import { nivelTetoDaHistoria } from '../../data/ganguesTerritorios.js'
+import { tetoDaRinha } from '../../data/ganguesTerritorios.js'
 import { GANGUES_LEVEL_CAP } from '../../data/ganguesCharacters.js'
 
 export default function createGanguesProgressionSlice(set, get) {
@@ -38,14 +38,14 @@ export default function createGanguesProgressionSlice(set, get) {
     // "empurrão" que dava AP extra além do total real). Só quando o pote é
     // menor que o número de gente (time gigante contra 1 inimigo fraco) é que
     // não dá pra garantir pra todo mundo — aí cai pra divisão só por peso.
-    gainApForParticipants: (totalAp, pesosPorId = {}, nivelPorId = {}, naRinha = false) => {
+    gainApForParticipants: (totalAp, pesosPorId = {}, nivelPorId = {}, rinhaTerritorioId = null) => {
       const todos = Object.keys(pesosPorId)
-      // Teto da área só na Rinha; no resto do jogo sobe até o teto do jogo.
-      const tetoNivel = naRinha ? nivelTetoDaHistoria(get().storyProgress, GANGUES_LEVEL_CAP) : GANGUES_LEVEL_CAP
+      // Teto só na Rinha (o do bairro dela); no resto do jogo sobe até o teto do jogo.
+      const tetoNivel = rinhaTerritorioId ? tetoDaRinha(rinhaTerritorioId, GANGUES_LEVEL_CAP) : GANGUES_LEVEL_CAP
       // Quem já está no teto não recebe: o pote inteiro vai pra quem ainda sobe.
       const nivelDe = id => Number(nivelPorId[id] ?? get().roster.find(m => String(m.id) === String(id))?.level) || 1
       const abaixoDoTeto = todos.filter(id => nivelDe(id) < tetoNivel)
-      const ids = abaixoDoTeto.length ? abaixoDoTeto : todos
+      const ids = abaixoDoTeto
       const somaPesos = ids.reduce((s, id) => s + (Number(pesosPorId[id]) || 0), 0) || 1
       const apTotalInteiro = Math.round(Math.max(0, Number(totalAp) || 0))
       const podeGarantirTodoMundo = ids.length > 0 && apTotalInteiro >= ids.length

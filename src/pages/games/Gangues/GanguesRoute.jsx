@@ -131,8 +131,8 @@ export default function GanguesRoute() {
   }
 
   // Volta da tela "Enquanto você tava fora" (GanguesFarmAusente): pra rua do
-  // bairro, ou de volta pra Rinha — a próxima luta da sessão, com a tropa
-  // remendada (vale até com a página recarregada: o alvo vem da marca).
+  // bairro, ou de volta pra Rinha — a próxima luta da sessão (vale até com a
+  // página recarregada: o alvo vem da marca).
   const voltarPraRua = () => { store.setStoryTarget({ territorioId: useGanguesStore.getState().storyTarget?.territorioId }); setFase('territorio') }
   const continuarRinha = alvo => { store.setStoryTarget(avancarRinha(alvo)); setFase('story-combat') }
 
@@ -235,12 +235,9 @@ export default function GanguesRoute() {
     if (fase !== 'story-combat') return
     const alvo = store.storyTarget
     const selected = store.activeParty.filter(member => store.roster.some(item => item.id === member.id))
-    // Rinha infinita, da 2ª luta da sessão em diante: a casa remenda a tropa
-    // (PV/PM cheios) — ganhou ou perdeu a anterior, a próxima começa inteira.
-    // A 1ª usa a vida de verdade (a Rinha não é posto de cura de graça).
-    const remendar = m => ({ ...m, attributes: { ...m.attributes, pv_atual: null, pm_atual: null } })
-    const escalada = (selected.length ? selected : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
-    const party = alvo?.rinha && (alvo.rinhaLuta || 1) > 1 ? escalada.map(remendar) : escalada
+    // A vida passa de uma luta pra outra, na Rinha também: só volta cheia
+    // pagando a recuperação (derrota com grana) ou subindo de nível.
+    const party = (selected.length ? selected : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
     const temRevezamento = alvo?.revezamento?.pool?.length
     if ((!alvo?.enemyId && !temRevezamento && !alvo?.clube) || party.length < 1) { setFase('story'); return }
     // Tropa inteira no chão (todos PV 0) — não entra em luta até se recuperar

@@ -148,7 +148,7 @@ export function ganguesXpMaxForSheet(sheet = {}) {
   return ganguesApCostForLevel(getGanguesLevelFromXp(sheet.xp_total))
 }
 
-// `levelCap`: teto de nível da área atual da história (nivelTetoDaHistoria em
+// `levelCap`: teto de nível da Rinha do bairro (tetoDaRinha em
 // ganguesTerritorios.js). No teto o personagem para de subir e o AP não
 // acumula — senão o grind guardava um banco de níveis pra despejar depois.
 export function addGanguesAp(sheet, amount, levelCap = Infinity) {

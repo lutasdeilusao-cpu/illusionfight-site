@@ -50,7 +50,6 @@ const GANGUES_FARM_MAX_LUTAS = 100
 const GANGUES_FARM_MAX_RODADAS = 80
 
 const nivelDe = m => getGanguesLevelFromXp(m?.xp_total ?? 0)
-const remendar = m => ({ ...m, attributes: { ...m.attributes, pv_atual: null, pm_atual: null } })
 
 /** A sessão de Rinha infinita desse storyTarget (null se não for). */
 export const rinhaDoAlvo = alvo => (alvo?.rinha && alvo.cenaId && alvo.revezamento?.pool?.length ? alvo : null)
@@ -120,7 +119,7 @@ function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo }) 
   const pontosMaisForte = Math.max(1, ...party.map(m => ['A', 'H', 'D', 'PV', 'PM'].reduce((t, k) => t + (Number(m.attributes?.[k]) || 0), 0)))
   const apBruto = calcularApTotal({ victory: true, enemyCount: inimigos.length, cenaChefe: false, torre: false, inimigosAttrs: inimigos.map(c => c.attributes), pontosMaisForte, tamanhoTime: party.length, territorioId: alvo.territorioId })
   const { pesosPorId, nivelPorId } = calcularPesosEParticipantes({ victory: true, report: { combatants, contribuicoes: {} }, match: { playerTeam: party } })
-  s.gainApForParticipants(Math.max(party.length, apBruto), pesosPorId, nivelPorId, true)
+  s.gainApForParticipants(Math.max(party.length, apBruto), pesosPorId, nivelPorId, alvo.territorioId)
   s.registrarNoAlbum(inimigos.map(c => c.id))
   s.marcarPoiResolvido(cena.id, alvo.cenaPoiId, [])
   const { grana, rep, itens } = calcularRecompensaCena({ emCena: true, storyAlvo: alvo, enemyCount: inimigos.length })
@@ -164,8 +163,8 @@ export function simularFarmRinha({ store, cena, segundos, enemiesData, alvo, lut
       alvo = avancarRinha(alvo)
       const bando = gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId, party, true), enemiesData, modo, playerTeam: party })
       if (!bando?.length) break
-      // Luta nova da sessão: a casa remenda a tropa (igual à Rinha ao vivo).
-      inicio = iniciarBrigaMultidao({ playerTeam: party.map(remendar), enemyTeam: bando })
+      // A vida passa de uma luta pra outra (igual à Rinha ao vivo).
+      inicio = iniciarBrigaMultidao({ playerTeam: party, enemyTeam: bando })
     }
     const { outcome, combatants, usos } = rodarLuta(inicio, { store, config: autoConfig })
     lutas--
