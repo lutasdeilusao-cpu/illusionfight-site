@@ -44,14 +44,28 @@
   {
     "id": "02",
     "numero": 2,
-    "titulo_pt": "Em Breve",
-    "titulo_en": "Coming Soon",
-    "titulo_es": "Próximamente",
-    "publicado": false,
-    "idiomas": [
-      "pt"
-    ],
+    "titulo_pt": "O Script de Ilusão",
+    "titulo_en": "The Illusion Script",
+    "titulo_es": "El Guion de Ilusión",
+    "descricao_pt": "O sonho acabou, a terça-feira não. Kim acorda sem lembrar do sonho, encara a Medusa, divide a manhã com o Jack e chega na Elite Academy, onde alguém novo vai bagunçar o roteiro.",
+    "descricao_en": "The dream is over, Tuesday isn't. Kim wakes up without remembering the dream, faces Medusa, shares the morning with Jack and gets to Elite Academy, where someone new is about to mess up the script.",
+    "descricao_es": "El sueño terminó, el martes no. Kim despierta sin recordar el sueño, enfrenta a Medusa, comparte la mañana con Jack y llega a la Elite Academy, donde alguien nuevo va a desordenar el guion.",
+    "frase_pt": "Mesmo script, toda manhã.",
+    "frase_en": "Same script, every morning.",
+    "frase_es": "El mismo guion, todas las mañanas.",
+    "publicado": true,
     "data_publicacao": "2027-01-15",
+    "paginas": 65,
+    "idiomas": [
+      "pt",
+      "en",
+      "es"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      961,
+      1637
+    ],
     "liberacao": {
       "primordial": "2026-12-15",
       "elite": "2026-12-15",
