@@ -306,7 +306,7 @@ Ordem de uso pra texto: **1º NVIDIA, 2º Google, 3º DeepSeek** (a DeepSeek é 
 
 Tradução de qualquer modelo é rascunho: o agente principal revisa gíria, peso de palavrão e quem fala (todos já erraram isso no teste).
 
-**Página traduzida (WEB SHARD) continua no Codex.** Nenhuma API grátis edita uma imagem nossa: o FLUX Kontext da NVIDIA só aceita as imagens de exemplo, e o Gemini de imagem ("Nano Banana") tem cota grátis zero pela API (só no app, à mão).
+**Página traduzida (WEB SHARD): 1º Nano Banana 2, 2º Codex.** `gemini-3.1-flash-image` pela chave `GEMINI_API_KEY_PANORAMA` (a única das contas Google com cota de imagem; nas outras a cota grátis de imagem pela API é zero), pedindo `imageConfig.imageSize: "2K"` e redimensionando pro tamanho exato do PT. Mesmo prompt de LOCALIZAÇÃO do Codex. Script: `LAB-NVIDIA/traduz_gemini.py <cap> <EN|ES> <pasta dos prompts> NN…` → salva `<L>/NN_gemini.png`; conferir e renomear pra `NN.png` igual ao fluxo do Codex. Nos testes: arte idêntica, texto certo até em página com 6 balões e palavrão. Quando trava ou erra, o Codex (`codex exec -m gpt-5.6-terra`) é o reserva. Não servem: FLUX Kontext da NVIDIA (só imagens de exemplo) e os modelos grátis do Pollinations (`POLLINATIONS_API_KEY`) — o MAI Image 2.6 acertou página leve, mas o filtro de conteúdo barra briga e palavrão.
 
 ## Regra Anti-Over-Engineering
 
