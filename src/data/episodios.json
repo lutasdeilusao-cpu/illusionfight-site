@@ -78,14 +78,27 @@
     "id": "03",
     "numero": 3,
     "so_admin": true,
-    "titulo_pt": "Em Breve",
-    "titulo_en": "Coming Soon",
-    "titulo_es": "Próximamente",
-    "publicado": false,
-    "idiomas": [
-      "pt"
-    ],
+    "titulo_pt": "Maus Hábitos de Ilusão",
+    "titulo_en": "Bad Habits of Illusion",
+    "titulo_es": "Malos Hábitos de Ilusión",
+    "descricao_pt": "Primeiro dia da novata, e o Kim e o Jack já arrumam encrenca: uma gangue contratada chama os dois pra briga no complexo abandonado atrás da Elite Academy. E o Jack só pensa numa música.",
+    "descricao_en": "The new girl's first day, and Kim and Jack are already in trouble: a hired gang calls them out to the abandoned complex behind Elite Academy. And all Jack can think about is a song.",
+    "descricao_es": "Primer día de la nueva, y Kim y Jack ya están en problemas: una pandilla contratada los reta a pelear en el complejo abandonado detrás de la Elite Academy. Y Jack solo piensa en una canción.",
+    "frase_pt": "Toda briga tem trilha sonora.",
+    "frase_en": "Every fight has a soundtrack.",
+    "frase_es": "Toda pelea tiene banda sonora.",
+    "publicado": true,
     "data_publicacao": "2027-03-15",
+    "paginas": 63,
+    "idiomas": [
+      "pt",
+      "en"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
     "liberacao": {
       "primordial": "2027-01-15",
       "elite": "2027-01-15",
