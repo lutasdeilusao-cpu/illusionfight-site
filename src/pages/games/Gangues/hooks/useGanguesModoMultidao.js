@@ -13,8 +13,15 @@ import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffect
 import { iniciarBrigaMultidao, iniciarBrigaMultidaoDeCombatentes, avancarRodadaMultidao } from '../engine/ganguesBrigaMultidao.js'
 import { transformarEvento, fighterName } from '../engine/ganguesCombatPresentation.js'
 import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
+import { chaveDoSave } from './useGanguesVelocidadeAuto.js'
 
 const MULTIDAO_BLINK_ID = 'multidao_blink'
+/** Tática (talento e item de cada um) lembrada entre lutas, por save. */
+const TATICA_CHAVE = 'ldi-gangues-tatica'
+const lerTatica = () => {
+  try { const v = JSON.parse(localStorage.getItem(chaveDoSave(TATICA_CHAVE)) || 'null'); return { poderes: v?.poderes || {}, itens: v?.itens || {} } } catch { return { poderes: {}, itens: {} } }
+}
+const gravarTatica = tatica => { try { localStorage.setItem(chaveDoSave(TATICA_CHAVE), JSON.stringify(tatica)) } catch { /* sem storage: vale só nesta luta */ } }
 /** Pausa entre um evento e o próximo da fila, em 1x (ms). */
 const PAUSA_EVENTO_MS = 450
 /** Pausa entre uma rodada e a próxima no automático, em 1x (ms). */
@@ -27,8 +34,8 @@ export default function useGanguesModoMultidao({ store, machine, t, setLog, even
 
   // Tática: vale até o jogador mudar (não zera por rodada).
   const [foco, setFoco] = useState(null)        // key do inimigo marcado
-  const [poderes, setPoderes] = useState({})    // memberId -> specialId | null
-  const [itens, setItens] = useState({})        // memberId -> itemId | null
+  const [tatica, setTatica] = useState(lerTatica) // { poderes: memberId -> specialId, itens: memberId -> itemId }
+  const { poderes, itens } = tatica
   const [estadoMultidao, setEstadoMultidao] = useState(null)
   const [revelandoRodada, setRevelandoRodada] = useState(false)
   const [golpeAtual, setGolpeAtual] = useState(null) // { actorKey, targetKey } do golpe na tela
@@ -41,8 +48,13 @@ export default function useGanguesModoMultidao({ store, machine, t, setLog, even
   const focoVivo = foco && estadoMultidao?.combatants.some(c => c.key === foco && c.pv > 0) ? foco : null
 
   const marcarFoco = key => { sfx.select?.(); setFoco(atual => (atual === key ? null : key)) }
-  const escolherPoder = (memberId, specialId) => setPoderes(prev => ({ ...prev, [memberId]: specialId || null }))
-  const escolherItem = (memberId, itemId) => setItens(prev => ({ ...prev, [memberId]: itemId || null }))
+  const mudarTatica = (campo, memberId, valor) => setTatica(prev => {
+    const prox = { ...prev, [campo]: { ...prev[campo], [memberId]: valor || null } }
+    gravarTatica(prox)
+    return prox
+  })
+  const escolherPoder = (memberId, specialId) => mudarTatica('poderes', memberId, specialId)
+  const escolherItem = (memberId, itemId) => mudarTatica('itens', memberId, itemId)
 
   // No modo multidão o motor golpe a golpe fica parado; fora dele, entra na luta.
   useEffect(() => { if (!modoMultidaoAtivo && machine.phase === 'select') machine.enterCombat() }, [modoMultidaoAtivo, machine.phase, machine.enterCombat])

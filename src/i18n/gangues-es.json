@@ -777,7 +777,7 @@
         "foco_dica": "Toca a un enemigo para que todos le caigan encima",
         "tatica": "Táctica",
         "rodando": "Tirando...",
-        "tatica_sub": "Vale para cada ronda hasta que la cambies. El objeto solo entra cuando tiene sentido: poción con alguien a media vida, remedio para quien tiene el estado. Si ningún objeto sirve, pega normal.",
+        "tatica_sub": "Queda guardada de una pelea a otra hasta que la cambies. La poción solo entra cuando tiene sentido: la de PV con alguien a media vida, la de PM con alguien a media maná. Si ninguna sirve, pega normal.",
         "tatica_talento": "Talento",
         "tatica_item": "Objeto",
         "tatica_sem_item": "Ninguno",

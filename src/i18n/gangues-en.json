@@ -777,7 +777,7 @@
         "foco_dica": "Tap an enemy so the whole crew piles on them",
         "tatica": "Tactics",
         "rodando": "Rolling...",
-        "tatica_sub": "Holds for every round until you change it. Items only kick in when they make sense: a potion when someone is at half health, a remedy for whoever has the status. If no item fits, they just hit.",
+        "tatica_sub": "Stays saved from one fight to the next until you change it. A potion only kicks in when it makes sense: health with someone at half health, mana with someone at half mana. If none fits, they just hit.",
         "tatica_talento": "Talent",
         "tatica_item": "Item",
         "tatica_sem_item": "None",

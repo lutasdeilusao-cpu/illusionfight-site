@@ -777,7 +777,7 @@
         "foco_dica": "Toca num inimigo pra todo mundo cair em cima dele",
         "tatica": "Tática",
         "rodando": "Rolando...",
-        "tatica_sub": "Vale pra toda rodada até tu mudar. O item só entra quando faz sentido: poção com alguém na metade da vida, remédio em quem tá com o status. Sem item que sirva, bate normal.",
+        "tatica_sub": "Fica salva de uma luta pra outra até tu mudar. A poção só entra quando faz sentido: a de PV com alguém na metade da vida, a de PM com alguém na metade da mana. Sem poção que sirva, bate normal.",
         "tatica_talento": "Talento",
         "tatica_item": "Item",
         "tatica_sem_item": "Nenhum",

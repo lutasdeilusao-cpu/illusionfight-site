@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791413130.5804398,
-    "ast_hash": "b9457c66663676e8a702b2776a785e54",
+    "mtime": 1791420816.3217654,
+    "ast_hash": "fd7af4e515ed8a6cb26ab63ad906ca58",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791413130.6248603,
-    "ast_hash": "d35ec48105a56876a0fa50444a274aa7",
+    "mtime": 1791420816.376359,
+    "ast_hash": "89fdc5cee17310aad7b7e832ef083cfc",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4140,8 +4140,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCena.jsx": {
-    "mtime": 1791387603.3961632,
-    "ast_hash": "9348d6c3dfe7eba25deecb37b6905948",
+    "mtime": 1791420733.452857,
+    "ast_hash": "1fd474899ef69b06f77dc4c56711f90e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCombat.jsx": {
@@ -6330,7 +6330,7 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-03.md": {
-    "mtime": 1791413130.5520277,
+    "mtime": 1791420816.2896223,
     "ast_hash": "469bf06b13c37004b709b792cf384391",
     "semantic_hash": ""
   },

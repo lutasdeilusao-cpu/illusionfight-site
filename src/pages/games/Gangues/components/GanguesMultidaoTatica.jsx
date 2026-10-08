@@ -1,13 +1,16 @@
 import { createPortal } from 'react-dom'
 import { sfx } from '../../../../lib/sfx'
 import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffects.js'
-import { GANGUES_ITENS_LISTA, GANGUES_TIPOS_USO_COMBATE, textoEfeitoItem } from '../data/ganguesItens.js'
+import { GANGUES_ITENS_LISTA, textoEfeitoItem } from '../data/ganguesItens.js'
 
-// Tática da Briga em Multidão: pra cada lutador, o talento que ele usa e o
-// item que ele gasta quando fizer sentido. Vale pra todas as rodadas até o
-// jogador mudar. Portal no <body>: a luta tem elementos animados por cima.
+const TIPOS_DA_TATICA = new Set(['cura_pv', 'cura_pm'])
+
+// Tática da Briga em Multidão: pra cada lutador, o talento que ele usa e a
+// poção (PV ou PM) que ele toma quando fizer sentido. Vale pra todas as
+// rodadas e lutas até o jogador mudar. Portal no <body>: a luta tem elementos animados por cima.
 export default function GanguesMultidaoTatica({ t, time, poderes, escolherPoder, itens, escolherItem, inventario, onClose }) {
-  const itensDeLuta = GANGUES_ITENS_LISTA.filter(it => GANGUES_TIPOS_USO_COMBATE.has(it.tipo) && (inventario[it.id] || 0) > 0)
+  // Na tática só entram as poções de PV e de PM; o resto da bolsa não serve aqui.
+  const itensDeLuta = GANGUES_ITENS_LISTA.filter(it => TIPOS_DA_TATICA.has(it.tipo) && (inventario[it.id] || 0) > 0)
   const tocar = fn => { sfx.select?.(); fn() }
   return createPortal((
     <div className="gang-tatica" role="dialog" aria-modal="true">
