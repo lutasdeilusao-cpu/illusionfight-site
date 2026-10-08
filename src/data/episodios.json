@@ -13,7 +13,7 @@
     "frase_es": "La invitación al sueño.",
     "publicado": true,
     "data_publicacao": "2026-12-15",
-    "paginas": 53,
+    "paginas": 54,
     "idiomas": [
       "pt",
       "en",
@@ -26,11 +26,6 @@
       960,
       1637
     ],
-    "paginas_faltando": {
-      "es": [
-        37
-      ]
-    },
     "conquista_ao_terminar": "episodio_zero",
     "aviso_autor": "introducao",
     "liberacao": {
