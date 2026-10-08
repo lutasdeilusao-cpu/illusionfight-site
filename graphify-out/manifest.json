@@ -245,38 +245,38 @@
     "semantic_hash": "4a9a47d78bf99868c53b301d28c62a7e"
   },
   "src/components/Puzzles/PuzzleAnagrama.jsx": {
-    "mtime": 1788408770.966827,
-    "ast_hash": "cc704f9b99e5ce4c860f832e5c6d0b2d",
-    "semantic_hash": "cc704f9b99e5ce4c860f832e5c6d0b2d"
+    "mtime": 1791412805.7807612,
+    "ast_hash": "ad488d38cdc3502166dbdd878160974f",
+    "semantic_hash": ""
   },
   "src/components/Puzzles/PuzzleDecoder.jsx": {
-    "mtime": 1788408770.9678323,
-    "ast_hash": "7259a5fd4bc475dd0ec89496d77e3133",
-    "semantic_hash": "7259a5fd4bc475dd0ec89496d77e3133"
+    "mtime": 1791412805.8374462,
+    "ast_hash": "13f9f5ba8493d0302fa757e8579e1e46",
+    "semantic_hash": ""
   },
   "src/components/Puzzles/PuzzleFor\u00e7a.jsx": {
-    "mtime": 1788408770.9678323,
-    "ast_hash": "c5543d8449a4497d436d774cfd61c07d",
-    "semantic_hash": "c5543d8449a4497d436d774cfd61c07d"
+    "mtime": 1791412805.898005,
+    "ast_hash": "5ef4ad2fe48762c0445cb9af975430c3",
+    "semantic_hash": ""
   },
   "src/components/Puzzles/PuzzleLabirinto.jsx": {
-    "mtime": 1790690488.2204428,
-    "ast_hash": "d6f26c760765e02d12bf29941fa25163",
+    "mtime": 1791412805.9557698,
+    "ast_hash": "e1235a5cc547c08a50024f6c0ebd6e17",
     "semantic_hash": ""
   },
   "src/components/Puzzles/PuzzleSimonSays.jsx": {
-    "mtime": 1788408770.9700432,
-    "ast_hash": "2463aaf56f6965971b03a55c34f6e9f6",
-    "semantic_hash": "2463aaf56f6965971b03a55c34f6e9f6"
+    "mtime": 1791412806.0142791,
+    "ast_hash": "2199d69a03d3cd5ab855b7e240cf5689",
+    "semantic_hash": ""
   },
   "src/components/Puzzles/PuzzleSlidingTiles.jsx": {
-    "mtime": 1788408770.9700432,
-    "ast_hash": "12a0f042e767ac7175bd8170ea959e4b",
-    "semantic_hash": "12a0f042e767ac7175bd8170ea959e4b"
+    "mtime": 1791412806.065095,
+    "ast_hash": "5f9174dc6d4dd8a3a9d227ec1f53808c",
+    "semantic_hash": ""
   },
   "src/components/Puzzles/PuzzleStealthGrid.jsx": {
-    "mtime": 1788995111.1330974,
-    "ast_hash": "26df7baa5a7dac7a7944972878d2ad6b",
+    "mtime": 1791412806.1186366,
+    "ast_hash": "e1274e1d48b7c6f733055d0ab7c390b9",
     "semantic_hash": ""
   },
   "src/components/Puzzles/index.js": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791409484.1825495,
-    "ast_hash": "152daa7e38c062355b3280ed579a2a49",
+    "mtime": 1791413130.5804398,
+    "ast_hash": "b9457c66663676e8a702b2776a785e54",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2565,8 +2565,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791409484.2168024,
-    "ast_hash": "9c3baa038fb1995efbabdc1e431369c4",
+    "mtime": 1791413130.6248603,
+    "ast_hash": "d35ec48105a56876a0fa50444a274aa7",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3660,18 +3660,18 @@
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
-    "mtime": 1791318117.5433576,
-    "ast_hash": "0d1b1ba630a7984778cc390ab5f4b050",
+    "mtime": 1791412843.0010853,
+    "ast_hash": "30167334fd9c4b06751dda67385377a9",
     "semantic_hash": ""
   },
   "src/i18n/games/es.json": {
-    "mtime": 1791318117.5454993,
-    "ast_hash": "b7098ea2bcfd68de0f9f362b77153676",
+    "mtime": 1791412843.0020955,
+    "ast_hash": "b53cfcbeaf5cc5171f5411cfae035f63",
     "semantic_hash": ""
   },
   "src/i18n/games/pt.json": {
-    "mtime": 1791318117.5400972,
-    "ast_hash": "732bd530c9c65a42a328ba5b53ee3e0d",
+    "mtime": 1791412833.2519321,
+    "ast_hash": "354c46dfd8264b7b724254540e6b93ec",
     "semantic_hash": ""
   },
   "src/i18n/prototype/en.json": {
@@ -3745,8 +3745,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesEncontros.js": {
-    "mtime": 1791398356.8792863,
-    "ast_hash": "fccae7ea36aa4cc9b040898ac1a91015",
+    "mtime": 1791412893.0161169,
+    "ast_hash": "61481a1a88895dde65b919db3d527ef9",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesCharacters.js": {
@@ -6330,7 +6330,7 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-03.md": {
-    "mtime": 1791409484.1538358,
+    "mtime": 1791413130.5520277,
     "ast_hash": "469bf06b13c37004b709b792cf384391",
     "semantic_hash": ""
   },

@@ -50,6 +50,9 @@ function cenaIntroTutorialId(cenaId) { return `cena_intro:${cenaId}` }
 // Referência estável pra lista vazia (a briga automática observa `alvos`).
 const EMPTY_ALVOS = []
 
+/** Altura da barra do topo da cena (com a margem), em px. */
+const CAM_TOPO_LIVRE = 66
+
 export default function GanguesCena({ onNavigate, onVoltar }) {
   const { perfil } = useAuth()
   const { t } = useLanguage(), store = useGanguesStore(), territorioId = store.storyTarget?.territorioId
@@ -451,7 +454,10 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const W = amb?.world || WORLD
   const vw = viewportRef.current?.clientWidth || 390, vh = viewportRef.current?.clientHeight || 620, lookX = facing === 'right' ? 52 : facing === 'left' ? -52 : 0, lookY = facing === 'down' ? 60 : facing === 'up' ? -60 : 0
   const camX = W.w <= vw ? (W.w - vw) / 2 : Math.max(0, Math.min(W.w - vw, player.x - vw / 2 + lookX))
-  const camY = W.h <= vh ? (W.h - vh) / 2 : Math.max(0, Math.min(W.h - vh, player.y - vh / 2 + lookY))
+  // A barra do topo cobre os primeiros CAM_TOPO_LIVRE px da tela: a câmera
+  // pode descer o mapa até essa folga, senão o que mora na beirada de cima
+  // (passagem, porta, ponto) fica escondido atrás dela.
+  const camY = W.h <= vh - CAM_TOPO_LIVRE ? (W.h - vh - CAM_TOPO_LIVRE) / 2 : Math.max(-CAM_TOPO_LIVRE, Math.min(W.h - vh, player.y - vh / 2 + lookY))
   const breadcrumb = local
     ? `${t(amb.nomeLugar)}${amb.nomeComodo ? ` · ${t(amb.nomeComodo)}` : amb.andares ? ` · ${amb.comodoIdx ? t('games.gangues.cena.andar', { n: amb.comodoIdx }) : t('games.gangues.cena.andar_terreo')}` : amb.comodoTotal > 1 ? ` · ${t('games.gangues.cena.comodo', { n: amb.comodoIdx + 1, de: amb.comodoTotal })}` : ''}`
     : `${t(`games.gangues.story.territorios.${terr.id}.nome`)} `
