@@ -224,7 +224,7 @@ function rotasDoIdioma(L) {
     }))
   }
 
-  episodios.filter(episodio => episodio.paginas).forEach(episodio => {
+  episodios.filter(episodio => episodio.paginas && !episodio.so_admin).forEach(episodio => {
     const nomeEp = titulo(episodio, L)
     // 1ª página do capítulo no idioma: miniatura no compartilhamento e imagem pro Google
     const pag1 = [L, 'en'].map(l => `/webtoon/${episodio.id}/${l}/01.webp`).find(p => existe(`public${p}`))
@@ -264,7 +264,7 @@ function rotasDoIdioma(L) {
     '/universos': ['/universos/lutas-de-ilusao', '/universos/mundo-das-sombras', '/universos/mar-de-cinzas'].map(p => ({ name: FIXAS[p][L][2], path: `${p}/` })),
     '/webtoon': [
       { name: U.todosEps, path: '/webtoon/lutas-de-ilusao/' },
-      ...episodios.filter(e => e.paginas).map(e => ({ name: `${U.cap} ${e.numero} — ${titulo(e, L)}`, path: `/webtoon/${e.id}/` })),
+      ...episodios.filter(e => e.paginas && !e.so_admin).map(e => ({ name: `${U.cap} ${e.numero} — ${titulo(e, L)}`, path: `/webtoon/${e.id}/` })),
       { name: U.oQueEWebshard, path: '/web-shard/' },
       { name: U.personagens, path: '/personagens/' },
     ],
