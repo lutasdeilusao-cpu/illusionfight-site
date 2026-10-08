@@ -294,6 +294,20 @@ Histórico de mudanças não existe no produto, de maneira alguma (Isaias, 03/10
 - **Músicas da T1: 9, uma por mês nos meses de lançamento** — músicas próprias do universo (cantadas pela banda do Kim, do Jack, da Nina e dos próximos integrantes). Sai exclusiva na Rádio Nina pro assinante no dia 15; conta grátis 1 mês depois; público 2 meses depois; só depois vai pras plataformas. Datas em `MUSICAS_T1` (`data/season-one-schedule.js`). A Rádio Nina respeita o calendário pelo `bloqueios` de `radio-nina.config.json` (`podeOuvir` em `useRadioNina.js`): a 1ª música, a abertura "Lutas de Ilusão" nos 3 idiomas, toca pra todos até 31/10/2026, só pra assinante a partir de 01/11, pra conta em 15/12 e pro público em 15/01/2027; a 2ª, "O Dia Depois do Julgamento", do mesmo jeito com conta em 15/01 e público em 15/02/2027. Música nova da T1 que já existir no servidor entra ali com as datas dela. Nos hiatos sai o **videoclipe** de uma das músicas mais ouvidas pelos assinantes (dia 15, link exclusivo de assinante, depois público no YouTube — `CLIPES_T1`). As músicas são canônicas: citadas e tocadas na história (a aba Músicas do calendário diz isso). Música travada mostra **cadeado** (só depois de `fecha_em`, nunca antes): página /musicas, seção da Home e app da Rádio Nina, com a data em que libera e o convite pra assinar (`travaDe`/`travadas` do `useRadio()`).
 - **Jogos da T1: só Gangues, Lendas e Super Trunfo no catálogo** — os outros (Jack Dream Beer, Tactics, Tama, Duelo, Pesadelo, MiniGames, Kernel) saem do catálogo, do SEO/sitemap e dos links do site, e a rota é embrulhada em `<SoAdmin>` (App.jsx): quem não é admin volta pra `/games`. Jogo novo entra de volta tirando o `<SoAdmin>`, pondo na vitrine e no `FIXAS` do SEO. Ordem de lançamento no `GAMES_ROADMAP`, por quadrimestre: 1º (15/11/2026) Super Trunfo, Gangues, Lendas; 2º (15/03/2027) Tama, Jack Dream Beer, LDI Arena (hexagonal, ainda não isométrico); 3º (15/07/2027) Duelo, RPG 32 bits, LDI Isométrico. Kernel Games ficam fora até o sócio mandar o calendário deles.
 
+## Trabalho braçal vai pros modelos de fora (economia de token)
+
+A decisão, a edição de código, a revisão e tudo que vai pro ar continuam com o agente principal. O trabalho braçal (varrer e resumir código, ler log grande, extrair lista de chaves/arquivos, transcrever balão de página, rascunhar tradução) vai pra uma API de modelo externo, e o agente principal confere o resultado antes de usar.
+
+Ordem de uso pra texto: **1º NVIDIA, 2º Google, 3º DeepSeek** (a DeepSeek é crédito pago, fica por último). Chaves em `.env.local` (fora do git): `NVIDIA_NIM_API_KEY`, `GEMINI_API_KEY_GAMEDEV`/`_LDI`/`_EMAIL2`, `DEEPSEEK_API_KEY`. Clientes e testes prontos em `Lutas de Ilusão/LAB-NVIDIA/` (`nim.py`, `gemini.py`, `chaves.py`; avaliação em `RESULTADOS.md`).
+
+- **NVIDIA** (`https://integrate.api.nvidia.com/v1`, formato OpenAI): `moonshotai/kimi-k3` pra transcrever balão, rascunhar tradução e ler código com cuidado; `openai/gpt-oss-20b` pra extração rápida de código. Da lista pública, a maioria dá 404; os que respondem estão em `LAB-NVIDIA/02_todos.json`.
+- **Google** (`generativelanguage.googleapis.com`): `gemini-3-flash-preview` — o mais rápido e certeiro em código, tradução boa. Três contas, uma chave cada: estourou uma, passa pra próxima.
+- **DeepSeek** (`https://api.deepseek.com`): `deepseek-flash`. Pensa antes de responder: `max_tokens` alto, senão volta vazio. Fraca em gíria.
+
+Tradução de qualquer modelo é rascunho: o agente principal revisa gíria, peso de palavrão e quem fala (todos já erraram isso no teste).
+
+**Página traduzida (WEB SHARD) continua no Codex.** Nenhuma API grátis edita uma imagem nossa: o FLUX Kontext da NVIDIA só aceita as imagens de exemplo, e o Gemini de imagem ("Nano Banana") tem cota grátis zero pela API (só no app, à mão).
+
 ## Regra Anti-Over-Engineering
 
 Antes de criar **mais de 2 arquivos novos** para resolver qualquer problema, o agente deve apresentar a proposta e aguardar aprovação explícita.
