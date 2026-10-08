@@ -20,7 +20,7 @@ import { farolDe } from '../components/cena/GanguesCenaAtores.jsx'
    jogador ERRAR o puzzle, não é uma escolha.
    Também de fora (v3.72.0 — "pro cara ter um pouco de interação, senão ele
    larga o jogo"): personagem VERMELHO (obrigatório ainda não feito — o
-   jogador tem que clicar), o CHEFE, e tudo na ÁREA DO CHEFE (`bloqueado`,
+   jogador tem que clicar), o CHEFE, e a SALA DO CHEFE (`bloqueado`,
    ver naAreaDoChefe em cenaHelpers.js — o switch fica apagado lá). E
    perder uma luta DESLIGA todo automático (desligarAutomaticos, chamado
    pela derrota da cena e pelo farm ausente).
