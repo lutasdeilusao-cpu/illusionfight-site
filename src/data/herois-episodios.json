@@ -106,5 +106,32 @@
       "publico": "2099-02-15"
     },
     "data_publicacao": "2099-02-15"
+  },
+  {
+    "id": "05",
+    "numero": 5,
+    "so_admin": true,
+    "titulo_pt": "Volver-Rindo",
+    "titulo_en": "Volver-Rindo",
+    "titulo_es": "Volver-Rindo",
+    "frase_pt": "O herói mais sorridente da cidade dá uma entrevista ao vivo. E conta o que faz quando não está salvando ninguém.",
+    "publicado": true,
+    "paginas": 10,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "herois-da-cidade/05",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15"
   }
 ]
