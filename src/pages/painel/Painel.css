@@ -227,3 +227,5 @@
 .painel-convite__acessos ul { display: grid; gap: 4px; margin: 4px 0 0; padding: 0; list-style: none; }
 .painel-convite__acessos li { display: grid; gap: 1px; padding: 4px 0; border-bottom: 1px dashed var(--if-hair-strong); }
 .painel-convite__acessos small { color: var(--text-secondary); }
+.painel-envio__link { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .72rem; color: var(--if-cyan); }
+.painel-form__check { display: flex; gap: 8px; align-items: center; font: 600 .62rem var(--font-mono); color: var(--text-secondary); }

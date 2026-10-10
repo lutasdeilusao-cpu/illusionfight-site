@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
 import { trackEvent } from '../../../lib/analytics'
 import holo from '../../../assets/images/creators/neoguide-holo.webp'
@@ -8,6 +9,13 @@ import { CreatorsArtes, CreatorsDuvidas, CreatorsFicha } from './CreatorsServico
 import CreatorsTemas from './CreatorsTemas'
 import { ASSUNTOS, SERVICOS } from '../data/creatorsCardapio'
 import './CreatorsSalao.css'
+
+// O que só o creator lê/joga antes do público (a regra mora nos dados e nas rotas).
+const EXCLUSIVOS = [
+  ['webshard', '/webtoon/'], ['herois', '/webtoon/herois-da-cidade/'], ['livro', '/historias/'],
+  ['contos', '/historias/'], ['games', '/games/'],
+]
+const CONTATO = 'lutasdeilusao@gmail.com'
 
 // Interesse da primeira visita → assunto do cardápio que sobe pro topo.
 const ASSUNTO_DO_INTERESSE = { livros: 'livros', quadrinhos: 'webtoon', games: 'games', musica: 'universo', lore: 'universo' }
@@ -54,6 +62,27 @@ export default function CreatorsSalao({ nome, dias, interesses }) {
 
       {!vista && (
         <>
+          <section className="cr-boasvindas if-panel">
+            <span className="if-eyebrow">{t('creators.boasvindas.eyebrow')}</span>
+            <h2>{t('creators.boasvindas.titulo')}</h2>
+            <p>{t('creators.boasvindas.texto')}</p>
+            <p className="cr-boasvindas__aviso">{t('creators.boasvindas.aviso')}</p>
+            <ul className="cr-boasvindas__lista">
+              {EXCLUSIVOS.map(([id, rota]) => (
+                <li key={id}>
+                  <Link to={rota} onClick={() => trackEvent('ui_click', { component: 'creators', element_id: `exclusivo_${id}` })}>
+                    <strong>{t(`creators.boasvindas.itens.${id}.titulo`)}</strong>
+                    <small>{t(`creators.boasvindas.itens.${id}.texto`)}</small>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p>{t('creators.boasvindas.feedback')}</p>
+            <div className="cr-boasvindas__acoes">
+              <a className="if-btn if-btn--ghost" href={`mailto:${CONTATO}?subject=Feedback%20creator`}>{t('creators.boasvindas.mandar_feedback')}</a>
+              <Link className="if-btn if-btn--amber" to="/creators/destaques/">{t('creators.boasvindas.enviar_conteudo')}</Link>
+            </div>
+          </section>
           <div className="cr-salao__menu if-stagger">
             {assuntos.map((a, i) => (
               <button key={a.id} type="button" className="cr-salao__assunto" onClick={() => escolher(a.id)}>

@@ -1,0 +1,37 @@
+/* Destaques dos creators: envio no topo, vitrine embaixo. */
+.crd-page { display: grid; gap: 20px; padding: 3.5rem 16px 48px; }
+
+.crd-hero { display: grid; gap: 6px; }
+.crd-hero h1 { margin: 0; font-family: var(--font-display); font-size: 2.2rem; line-height: 1; letter-spacing: .02em; }
+.crd-hero p { margin: 0; color: var(--text-secondary); font-size: .9rem; line-height: 1.5; }
+
+.crd-form { display: grid; gap: 8px; padding: 16px; }
+.crd-form__sub { margin: 0 0 4px; color: var(--text-secondary); font-size: .82rem; line-height: 1.5; }
+.crd-form__linha { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.crd-form__linha > span { display: grid; gap: 8px; }
+.crd-form__aviso { margin: 0; font-size: .8rem; color: var(--if-danger); }
+.crd-form__aviso.is-ok { color: var(--if-teal); }
+.crd-topo-vazio { height: 160px; }
+
+.crd-meus ul { display: grid; gap: 6px; margin: 8px 0 0; padding: 0; list-style: none; }
+.crd-meus li { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--if-hair-strong); }
+.crd-meus__link { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .78rem; color: var(--text-secondary); }
+.crd-status--aprovado { color: var(--if-teal); }
+.crd-status--recusado { color: var(--if-danger); }
+.crd-status--pendente { color: var(--if-amber); }
+
+.crd-vitrine { display: grid; gap: 10px; }
+.crd-vazio { margin: 0; color: var(--text-secondary); font-size: .85rem; }
+.crd-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.crd-card a { display: grid; height: 100%; color: inherit; text-decoration: none; background: var(--bg-secondary); border: 1px solid var(--if-hair-strong); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%); }
+.crd-card a:hover { border-color: var(--if-cyan); }
+.crd-card.is-destaque { grid-column: 1 / -1; }
+.crd-card__capa { position: relative; display: grid; place-items: center; aspect-ratio: 4 / 3; overflow: hidden; background: linear-gradient(135deg, var(--if-cyan-13), var(--if-amber-16)); }
+.crd-card.is-destaque .crd-card__capa { aspect-ratio: 16 / 9; }
+.crd-card__capa img { width: 100%; height: 100%; object-fit: cover; }
+.crd-card__capa b { font-family: var(--font-display); font-size: 2rem; color: var(--text-primary); }
+.crd-card__selo { position: absolute; top: 8px; left: 8px; }
+.crd-card__info { display: grid; gap: 2px; padding: 10px; }
+.crd-card__info strong { font-size: .88rem; }
+.crd-card__info small { color: var(--text-secondary); font-size: .7rem; }
+.crd-card__ver { margin-top: 4px; font: 700 .62rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--if-cyan); }

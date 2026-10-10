@@ -167,3 +167,15 @@
 @media (prefers-reduced-motion: reduce) {
   .cr-salao__holo { animation: none; }
 }
+
+/* Boas-vindas: o que é exclusivo do creator antes do público. */
+.cr-boasvindas { display: grid; gap: 10px; margin: 0 16px 20px; padding: 16px; }
+.cr-boasvindas h2 { margin: 0; font-family: var(--font-display); font-size: 1.5rem; line-height: 1.1; }
+.cr-boasvindas p { margin: 0; font-size: .86rem; line-height: 1.55; color: var(--text-secondary); }
+.cr-boasvindas .cr-boasvindas__aviso { padding: 8px 10px; border-left: 2px solid var(--if-amber); background: var(--if-amber-16); color: var(--text-primary); }
+.cr-boasvindas__lista { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.cr-boasvindas__lista a { display: grid; gap: 2px; padding: 10px 12px; color: inherit; text-decoration: none; border: 1px solid var(--if-hair-strong); background: var(--bg-secondary); }
+.cr-boasvindas__lista a:hover { border-color: var(--if-cyan); }
+.cr-boasvindas__lista strong { font-size: .86rem; color: var(--if-cyan); }
+.cr-boasvindas__lista small { font-size: .74rem; color: var(--text-secondary); line-height: 1.4; }
+.cr-boasvindas__acoes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }

@@ -10,6 +10,7 @@
       "loja": "TIENDA",
       "mundo": "Universos",
       "autor": "AUTOR",
+      "creators": "CREATORS",
       "calendario": "CALENDARIO",
       "assinar": "APOYAR"
     },
@@ -1845,7 +1846,23 @@
       "vazio": "No hay logs en este período.",
       "falta_migration": "Falta ejecutar la migration 046_debug_logs.sql en Supabase."
     },
+    "envios": {
+      "titulo": "Contenido enviado ({n} esperando)",
+      "vazio": "Todavía no hay contenido enviado.",
+      "aprovar": "Aprobar",
+      "destacar": "Aprobar destacado",
+      "recusar": "Rechazar",
+      "destaque": "destacado",
+      "status_pendente": "esperando",
+      "status_aprovado": "aprobado",
+      "status_recusado": "rechazado",
+      "falta_migration": "Falta ejecutar la migration 054 (contenido de los creators)."
+    },
     "convites": {
+      "multiplo": "Enlace general: sirve para varios creators",
+      "tipo_multiplo": "enlace general",
+      "tipo_unico": "enlace de una cuenta",
+      "contas": "{n} cuenta(s) entraron · enlace abierto {aberturas}×",
       "titulo": "Invitaciones ({n})",
       "canal": "Nombre o canal del creator",
       "gerar": "Generar enlace de invitación",

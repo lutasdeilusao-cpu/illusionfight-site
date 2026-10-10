@@ -10,6 +10,7 @@
       "loja": "SHOP",
       "mundo": "Universes",
       "autor": "AUTHOR",
+      "creators": "CREATORS",
       "calendario": "CALENDAR",
       "assinar": "SUPPORT"
     },
@@ -1845,7 +1846,23 @@
       "vazio": "No logs in this period.",
       "falta_migration": "Migration 046_debug_logs.sql has not been run on Supabase yet."
     },
+    "envios": {
+      "titulo": "Submitted content ({n} waiting)",
+      "vazio": "No content submitted yet.",
+      "aprovar": "Approve",
+      "destacar": "Approve as featured",
+      "recusar": "Reject",
+      "destaque": "featured",
+      "status_pendente": "waiting",
+      "status_aprovado": "approved",
+      "status_recusado": "rejected",
+      "falta_migration": "Migration 054 (creator content) has not been run."
+    },
     "convites": {
+      "multiplo": "Shared link: works for many creators",
+      "tipo_multiplo": "shared link",
+      "tipo_unico": "single-account link",
+      "contas": "{n} account(s) joined · link opened {aberturas}×",
       "titulo": "Invites ({n})",
       "canal": "Creator name or channel",
       "gerar": "Generate invite link",

@@ -1,5 +1,5 @@
-// Convites de creator (migration 053): gera o link, acompanha se foi aberto,
-// quem criou a conta com ele e o que essa conta acessou.
+// Convites de creator (migrations 053 e 055): gera o link (de uma conta ou de
+// várias), acompanha se foi aberto, quem entrou por ele e o que cada conta acessou.
 import { useEffect, useState } from 'react'
 import { Cartao } from './PainelBlocos'
 import { rpc } from './painelUtil'
@@ -17,6 +17,7 @@ export default function PainelConvites({ t, locale }) {
   const [erro, setErro] = useState(null)
   const [canal, setCanal] = useState('')
   const [meses, setMeses] = useState('3')
+  const [multiplo, setMultiplo] = useState(true)
   const [copiado, setCopiado] = useState(null)
   const [recarga, setRecarga] = useState(0)
 
@@ -30,7 +31,7 @@ export default function PainelConvites({ t, locale }) {
   async function criar(e) {
     e.preventDefault()
     try {
-      const codigo = await rpc('admin_criar_convite', { p_canal: canal, p_meses: meses === 'sem' ? null : Number(meses) })
+      const codigo = await rpc('admin_criar_convite', { p_canal: canal, p_meses: meses === 'sem' ? null : Number(meses), p_multiplo: multiplo })
       setCanal('')
       copiar(codigo)
       setRecarga(x => x + 1)
@@ -52,7 +53,7 @@ export default function PainelConvites({ t, locale }) {
   const quando = d => (d ? new Date(d).toLocaleString(locale, { dateStyle: 'short', timeStyle: 'short' }) : '')
 
   function situacao(c) {
-    if (c.usado_em) return t('painel.convites.conta', { email: c.email || '', data: quando(c.usado_em) })
+    if (c.contas?.length) return t('painel.convites.contas', { n: c.contas.length, aberturas: c.aberturas })
     if (c.aberto_em) return t('painel.convites.aberto', { n: c.aberturas, data: quando(c.aberto_em) })
     return t('painel.convites.nao_aberto')
   }
@@ -65,6 +66,10 @@ export default function PainelConvites({ t, locale }) {
           {MESES.map(m => <option key={m} value={m}>{t('painel.creators.meses', { n: m })}</option>)}
           <option value="sem">{t('painel.creators.sem_prazo')}</option>
         </select>
+        <label className="painel-form__check is-largo">
+          <input type="checkbox" checked={multiplo} onChange={e => setMultiplo(e.target.checked)} />
+          {t('painel.convites.multiplo')}
+        </label>
         <span className="painel-form__acoes">
           <button type="submit" className="painel-btn">{t('painel.convites.gerar')}</button>
         </span>
@@ -77,20 +82,20 @@ export default function PainelConvites({ t, locale }) {
             <ul className="painel-tabela">
               {lista.map(c => (
                 <li key={c.codigo}>
-                  <strong>{c.nome || c.canal || c.codigo}</strong>
-                  <small>{[c.canal, c.meses ? t('painel.creators.meses', { n: c.meses }) : t('painel.creators.sem_prazo'), t('painel.convites.criado', { data: quando(c.criado_em) })].filter(Boolean).join(' · ')}</small>
-                  <small className={c.usado_em ? 'painel-convite--ok' : ''}>{situacao(c)}</small>
-                  {c.visto_em && <small>{t('painel.convites.visto', { data: quando(c.visto_em) })}</small>}
+                  <strong>{c.canal || c.codigo}</strong>
+                  <small>{[c.multiplo ? t('painel.convites.tipo_multiplo') : t('painel.convites.tipo_unico'), c.meses ? t('painel.creators.meses', { n: c.meses }) : t('painel.creators.sem_prazo'), t('painel.convites.criado', { data: quando(c.criado_em) })].filter(Boolean).join(' · ')}</small>
+                  <small className={c.contas?.length ? 'painel-convite--ok' : ''}>{situacao(c)}</small>
                   <span className="painel-filtros">
                     <button type="button" className="painel-chip" onClick={() => copiar(c.codigo)}>
                       {copiado === c.codigo ? t('painel.convites.copiado') : t('painel.convites.copiar')}
                     </button>
                   </span>
-                  {c.acessos?.length > 0 && (
-                    <details className="painel-convite__acessos">
-                      <summary>{t('painel.convites.acessos', { n: c.acessos.length })}</summary>
+                  {c.contas?.map(conta => (
+                    <details key={conta.email} className="painel-convite__acessos">
+                      <summary>{t('painel.convites.conta', { email: conta.email || conta.nome || '', data: quando(conta.usado_em) })} · {t('painel.convites.acessos', { n: conta.acessos.length })}</summary>
+                      {conta.visto_em && <small>{t('painel.convites.visto', { data: quando(conta.visto_em) })}</small>}
                       <ul>
-                        {c.acessos.map(a => (
+                        {conta.acessos.map(a => (
                           <li key={a.rota}>
                             <span>{a.titulo || a.rota}</span>
                             <small>{[a.rota, `${a.vezes}×`, tempo(a.segundos), quando(a.ultimo)].filter(Boolean).join(' · ')}</small>
@@ -98,7 +103,7 @@ export default function PainelConvites({ t, locale }) {
                         ))}
                       </ul>
                     </details>
-                  )}
+                  ))}
                 </li>
               ))}
             </ul>

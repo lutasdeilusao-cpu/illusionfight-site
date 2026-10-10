@@ -451,6 +451,72 @@
         "universos": "Os universos e suas regras",
         "historias_autor": "Histórias do Autor — os capítulos da vida real"
       }
+    },
+    "destaques": {
+      "meta_titulo": "Creators — Lutas de Ilusão | Illusion Fight",
+      "meta_desc": "Vídeos, posts e análises de creators sobre Lutas de Ilusão: livro, webtoon, músicas e jogos.",
+      "eyebrow": "Creators",
+      "titulo": "Feito pelos creators",
+      "sub": "Quem cria conteúdo sobre Lutas de Ilusão aparece aqui, com nome, @ e o link do que fez.",
+      "form_titulo": "Envie o seu conteúdo",
+      "form_sub": "Fez vídeo, post ou live sobre o projeto? Mande o link. Eu assisto e, aprovado, ele entra aqui em destaque.",
+      "link": "Link do conteúdo",
+      "nome": "Seu nome",
+      "arroba": "Seu @",
+      "rede": "Rede",
+      "outra": "Outra",
+      "enviar": "Enviar link",
+      "enviando": "Enviando…",
+      "enviado": "Recebido! Assim que eu assistir, ele aparece aqui.",
+      "erro_link_invalido": "Esse link não parece válido. Copie o endereço completo, começando com https://.",
+      "erro_repetido": "Esse link já foi enviado.",
+      "erro_muitos_pendentes": "Você já tem muitos links esperando. Assim que eu assistir, libera.",
+      "erro_sem_nome": "Coloque o seu nome.",
+      "erro_sem_permissao": "Só creators podem enviar conteúdo.",
+      "erro_generico": "Não deu pra enviar agora. Tente de novo.",
+      "entrar_texto": "O envio é só pra creators do projeto. Entre com a sua conta de creator.",
+      "entrar": "Entrar na área Creator",
+      "so_creator": "O envio é só pra creators do projeto. Quer participar? Fale com a gente pela área Creator.",
+      "quero_ser": "Quero ser creator",
+      "meus": "Seus envios",
+      "status_pendente": "Em análise",
+      "status_aprovado": "Aprovado",
+      "status_recusado": "Não aprovado",
+      "vitrine": "Destaques",
+      "vazio": "Os primeiros conteúdos dos creators aparecem aqui em breve.",
+      "selo": "Destaque",
+      "ver": "Ver conteúdo"
+    },
+    "boasvindas": {
+      "eyebrow": "Bem-vindo",
+      "titulo": "Este espaço é seu",
+      "texto": "Seja muito bem-vindo! Esta área é exclusiva de quem cria conteúdo. Ela está em melhoria constante, então o seu feedback vale muito: o que funciona, o que falta, o que você gostaria de ver aqui.",
+      "aviso": "O público ainda não tem acesso a nada desta lista. Você tem. Fique à vontade pra ler, jogar e criar conteúdo com isso.",
+      "itens": {
+        "webshard": {
+          "titulo": "WEB SHARD: capítulos 2, 3 e 4",
+          "texto": "O webtoon de Lutas de Ilusão. O público só lê o capítulo 1."
+        },
+        "herois": {
+          "titulo": "Heróis da Cidade",
+          "texto": "A série de humor do universo, ainda inédita pro público."
+        },
+        "livro": {
+          "titulo": "Livro: até o capítulo 6",
+          "texto": "A linha principal de Lutas de Ilusão. O público só lê o capítulo 1."
+        },
+        "contos": {
+          "titulo": "Contos de Ilusão: todos",
+          "texto": "Os 7 contos. Pro público eles fecham em 1º de novembro; pra você continuam abertos."
+        },
+        "games": {
+          "titulo": "Jogos em andamento",
+          "texto": "Além dos 3 jogos do lançamento, todos os que ainda estão em desenvolvimento."
+        }
+      },
+      "feedback": "Se já tem algo que você quer comentar, fique à vontade. E se fizer conteúdo sobre o projeto, mande o link: ele aparece em destaque no portal.",
+      "mandar_feedback": "Mandar feedback",
+      "enviar_conteudo": "Enviar meu conteúdo"
     }
   }
 }

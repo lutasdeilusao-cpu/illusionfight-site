@@ -451,6 +451,72 @@
         "universos": "The universes and their rules",
         "historias_autor": "The Author's Stories — the real-life chapters"
       }
+    },
+    "destaques": {
+      "meta_titulo": "Creators — Illusion Fight",
+      "meta_desc": "Videos, posts and reviews by creators about Lutas de Ilusão: novel, webtoon, music and games.",
+      "eyebrow": "Creators",
+      "titulo": "Made by creators",
+      "sub": "Creators who make content about Lutas de Ilusão show up here, with name, handle and a link to what they made.",
+      "form_titulo": "Submit your content",
+      "form_sub": "Made a video, post or stream about the project? Send the link. I'll watch it and, once approved, it gets featured here.",
+      "link": "Content link",
+      "nome": "Your name",
+      "arroba": "Your handle",
+      "rede": "Platform",
+      "outra": "Other",
+      "enviar": "Send link",
+      "enviando": "Sending…",
+      "enviado": "Got it! As soon as I watch it, it shows up here.",
+      "erro_link_invalido": "That link doesn't look valid. Copy the full address, starting with https://.",
+      "erro_repetido": "That link was already sent.",
+      "erro_muitos_pendentes": "You already have a lot of links waiting. Once I watch them, you can send more.",
+      "erro_sem_nome": "Add your name.",
+      "erro_sem_permissao": "Only creators can submit content.",
+      "erro_generico": "Couldn't send it right now. Try again.",
+      "entrar_texto": "Submissions are for project creators only. Sign in with your creator account.",
+      "entrar": "Go to the Creator area",
+      "so_creator": "Submissions are for project creators only. Want in? Reach us through the Creator area.",
+      "quero_ser": "I want to be a creator",
+      "meus": "Your submissions",
+      "status_pendente": "In review",
+      "status_aprovado": "Approved",
+      "status_recusado": "Not approved",
+      "vitrine": "Featured",
+      "vazio": "The first creator content shows up here soon.",
+      "selo": "Featured",
+      "ver": "Watch"
+    },
+    "boasvindas": {
+      "eyebrow": "Welcome",
+      "titulo": "This space is yours",
+      "texto": "Welcome! This area is exclusive to people who create content. It's always being improved, so your feedback means a lot: what works, what's missing, what you'd like to see here.",
+      "aviso": "The public doesn't have access to anything on this list yet. You do. Feel free to read, play and create content with it.",
+      "itens": {
+        "webshard": {
+          "titulo": "WEB SHARD: chapters 2, 3 and 4",
+          "texto": "The Lutas de Ilusão webtoon. The public only reads chapter 1."
+        },
+        "herois": {
+          "titulo": "Heróis da Cidade",
+          "texto": "The universe's comedy series, still unreleased to the public."
+        },
+        "livro": {
+          "titulo": "Novel: up to chapter 6",
+          "texto": "The main Lutas de Ilusão storyline. The public only reads chapter 1."
+        },
+        "contos": {
+          "titulo": "Illusion Tales: all of them",
+          "texto": "All 7 short stories. They close to the public on November 1; for you they stay open."
+        },
+        "games": {
+          "titulo": "Games in progress",
+          "texto": "Besides the 3 launch games, every game still in development."
+        }
+      },
+      "feedback": "If there's already something you want to say, go ahead. And if you make content about the project, send the link: it gets featured on the portal.",
+      "mandar_feedback": "Send feedback",
+      "enviar_conteudo": "Submit my content"
     }
   }
 }
