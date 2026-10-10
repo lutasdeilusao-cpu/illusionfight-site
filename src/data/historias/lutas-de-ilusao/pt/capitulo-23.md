@@ -44,7 +44,7 @@ Ela chegou pelo mato com o cigarro na boca.
 
 — E aí, Nina. — Jack. — Tudo bem? Sossegada? Nenhum machucado? Nada quebrado? Qual a situação?
 
-— Ótima. Como vocês tão vendo. Sossegada, nada quebrado, nenhum machucado. Só sujei a minha saia. Era de grife. Depois eu mando lavar. — Ela olhou os dois. — E vocês, pelo jeito, tudo certo também.
+— Ótima. Como vocês tão vendo. Sossegada, nada quebrado, nenhum machucado. Só sujei a minha saia. Da Dolce e Gabbana. Depois eu mando lavar. — Ela olhou os dois. — E vocês, pelo jeito, tudo certo também.
 
 O Kim olhou ela de cima a baixo.
 
@@ -74,7 +74,7 @@ O Jack estava com um sorriso que o Kim conhecia.
 
 O Kim lembrou que, no grupo do Jack, tinham ido pelo menos três garotas.
 
-— O que você aprontou? — Kim, com a mão na testa. — Você é uma carniça quando o assunto é mulher. E eu sei que foram pelo menos três atrás de você.
+— O que você aprontou? — Kim, com a mão na testa. — Citando o grande e poderoso coxinha: seu desgraçado! Você é uma carniça quando o assunto é mulher. E eu sei que foram pelo menos três atrás de você.
 
 O Jack cruzou os braços, o sorriso safado na cara.
 
@@ -96,15 +96,15 @@ Ela nunca tinha se conectado com ninguém do jeito que estava começando a se co
 
 ---
 
-— Kim. — Jack, olhando o celular. — Bora pra casa. Tá chegando a hora. Quero descansar um pouco. Oito horas na frente da sua casa. O dono da balada vai deixar a gente na segurança. Duzentos pra cada. Pega o terninho, limpinho, sem cecê. Pra gente chegar apresentável. Vai até umas duas. Pode esticar até as três.
+— Kim. — Jack, olhando o celular. — Bora pra casa. Tá chegando a hora. Quero descansar um pouco. Nove horas na frente da sua casa. O dono da balada vai deixar a gente na segurança. Duzentos pra cada. Pega o terninho, limpinho, sem cecê. Pra gente chegar apresentável. Vai até umas duas. Pode esticar até as três.
 
 — Eu sei como é, Jack. Não é a primeira vez que eu trabalho com você. Eu sei muito bem os lugares que você arruma. Aposto que vai ter briga a cada cinco minutos. Porque só aceitam a gente quando a casa é muito ruim e ninguém mais quer.
 
 — Claro que a casa é ruim! — Jack rindo. — É péssima! Se não fosse, não tinha trabalho pra gente. Se a casa fosse boa, tinha fila de gente querendo. O importante é que no fim da noite tem duzentos no bolso de cada um. Tá dentro ou tá fora?
 
-— Tô dentro. Você sabe que eu tô dentro.
+— Tô dentro. Você sabe que eu tô dentro. Bora pra casa. A gente se encontra umas oito, beleza?
 
-— Então oito horas. Combinado. Eu vou sair pelo outro lado do parque. Tenho que pegar umas coisas pro meu pai. Vocês vão por aí. A gente se vê de noite.
+— Beleza. Oito horas, combinado. Eu vou sair pelo outro lado do parque. Tenho que pegar umas coisas pro meu pai. Vocês vão por aí. A gente se vê de noite.
 
 E o Jack foi embora.
 
@@ -128,6 +128,8 @@ No portão do parque, o Kim fez um aceno com a cabeça.
 
 — Nina. Vou pegar um Duber ali e vou pra casa. Tchau.
 
+Ou será que não?
+
 E foi.
 
 A Nina ficou parada no portão com a boca meio aberta.
@@ -137,3 +139,11 @@ Era como se ele tivesse duas pessoas dentro. A outra não era tão diferente des
 E ela ia pedir um Duber também. Eles podiam ter esperado juntos.
 
 Ela marcou na cabeça: amanhã, quando estivesse sozinha com o Jack, ia perguntar quem era o Kim de verdade.
+
+---
+
+Do outro lado da rua, esperando o carro, o Kim pensava.
+
+*Nossa. Eu não conversei nada com ela depois que o Jack foi embora. Parece até que a gente é estranho. Ela deve ter me achado meio esquisito.*
+
+*Mas que se dane. Não me importa.*

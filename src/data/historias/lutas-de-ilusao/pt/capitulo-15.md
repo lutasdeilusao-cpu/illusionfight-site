@@ -1,6 +1,8 @@
 # CAPÍTULO 15 — Anjo e Vitória
 
-Jack e Nina saltaram pra trás ao mesmo tempo, cada um pra um lado, abrindo distância e ângulo. Kim saltou também, meio segundo atrasado, e manteve a mesma distância.
+O Jack e a Nina nunca tinham lutado juntos no LDI.
+
+Trocaram um olhar e saltaram pra trás ao mesmo tempo, cada um pra um lado, abrindo distância e ângulo. Kim saltou também, meio segundo atrasado, e manteve a mesma distância.
 
 — Kim. — Jack levantou a mão. — Agora é o seguinte. A gente vai com tudo. Você faz o que der pra se defender. Esse jogo é pra sentir. Eu não sei te explicar como você vai achar o seu poder. Mas eu sei que você vai achar.
 
@@ -102,7 +104,9 @@ A luz era tanta que ele não enxergava o que segurava.
 
 E no meio da luz, começou a escurecer.
 
-Ele conhecia aquilo.
+Ele conhecia aquilo. Já tinha estado ali.
+
+Foi ali que o Guardião tinha falado com ele daquele jeito desconexo. *Não, não, não... não, sim, sim, sim, sim.*
 
 O escuro sem chão. O som de água pingando num ritmo que não era aleatório mas também não era música. Kim continuava com os braços levantados, na mesma posição de defesa, e virou a cabeça devagar.
 
@@ -124,11 +128,9 @@ O Pajé virou o rosto pro lado e começou a falar com alguém que não estava l�
 
 Virou de volta pra Kim.
 
-— Então, maluco. Agora não é o momento de falar do teu papis, beleza? Vai chegar a hora e o lugar. Eu vim te dar um papo. O bagulho tá ficando doido. Tão atrás de ti. E quando eles chegarem, vão querer levar isso aí que tu chama de corpo. Então cuida da responsa do Sangue Primordial, senão tu vai se foder. — Bateu na própria perna, como quem encerra uma reunião. — Era só isso.
+— Então, maluco. Agora não é o momento de falar do teu papis, beleza? Vai chegar a hora e o lugar. Eu vim aqui foi pra te alertar. O bagulho tá ficando doido. Tão atrás de ti. E quando eles chegarem, vão querer levar isso aí que tu chama de corpo. Então cuida da responsa do Sangue Primordial, senão tu vai se foder. — Bateu na própria perna, como quem encerra uma reunião. — É só por isso que eu te chamei aqui.
 
-— Espera. Quem tá atrás de mim?
-
-A luz começou a voltar pelas bordas.
+O Kim estava cada vez mais fraco. A luz começou a voltar pelas bordas.
 
 O Pajé foi sumindo com ela, e antes de sumir de vez, apontou com o queixo pras mãos de Kim.
 
@@ -152,7 +154,7 @@ Ela passou.
 
 E continuou passando, pelo caminho que agora estava livre, direto na direção do Jack, que não tinha corrido longe o suficiente. Jack meteu a bengala na frente em defesa. Desviou o grosso do golpe. A ponta da luz pegou a cartola.
 
-Metade da cartola caiu no chão, o binóculo junto.
+Um pedaço da cartola caiu no chão.
 
 Kim soltou o ar. Antes que ele dissesse qualquer coisa, Jack gritou.
 
@@ -173,6 +175,8 @@ Kim percebeu que os dois estavam falando dele. Deu um passo na direção deles.
 Os dois olharam pra ele ao mesmo tempo. E saltaram pra trás, abrindo distância de novo.
 
 *A luta não acabou.* Kim achou aquilo muito injusto. Eles podiam ficar batendo papo e ele não. Depois lembrou: numa briga de rua, a única regra era que não tinha regra.
+
+Ele estava doido pra contar o que tinha acabado de acontecer. Mas não tinha tempo, e não ia atrapalhar a luta.
 
 Aproveitou o tempo e olhou de verdade pra arma.
 

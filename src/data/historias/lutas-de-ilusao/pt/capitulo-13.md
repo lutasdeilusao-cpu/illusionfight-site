@@ -1,348 +1,343 @@
-﻿# CAPÍTULO 13 — Walter
+# CAPÍTULO 13 — Meu Bebê
 
-Os olhares começaram no segundo corredor.
+O Kim acordou, escovou os dentes, tomou banho, se vestiu.
 
-Não era incomum que pessoas olhassem pra Kim e Jack na escola. Era incomum o volume. Kim percebeu primeiro porque percebia desconforto antes de entender por quê. Havia algo diferente na qualidade da atenção. Não era a atenção de quem conhecia a reputação dos dois e ficava um pouco mais quieto quando passavam. Era outra coisa. Mais intensa. Mais específica.
+Quando abriu a porta do quarto, parou.
 
-Vários celulares abaixados rápido demais quando ele virou.
+Tinha um cheiro na casa.
 
-— Você tá vendo isso. — Kim baixo, pro Jack.
+Ele farejou o ar igual cachorro, procurando de onde vinha. Cheiro bom. Cheiro de comida. Foi andando pela casa atrás dele e reparou outra coisa no caminho: a casa estava arrumada. Limpa.
 
-— Tô vendo.
+Chegou na porta da cozinha.
 
-— Sabe o que é.
+A Helena estava no fogão. A música alta, tocando de verdade, não em fone: *Man! I Feel Like A Woman*, da Shena Twuin, o country que ela amava. E ela dançava. Mexia o quadril, cantava junto, virava os ovos na frigideira. Café com leite na mesa. Suco. Fruta cortada. A louça lavada.
 
-— Tenho uma teoria.
+O Kim ficou parado na porta, sorrindo, só olhando.
 
-— Me conta depois.
+A música acabou. A Helena virou e deu de cara com ele.
 
-Nina estava um passo atrás dos dois observando os observadores com o método específico de quem foi nova em escola suficiente vezes pra saber ler corredor. Não disse nada.
+— Que que cê tá fazendo aí parado, seu doido? Quase me mata do coração!
 
-Dobraram o corredor central.
+O Kim baixou a cabeça, sorrindo.
 
-Walter estava no meio do caminho com os braços cruzados e o pé batendo no chão no ritmo de quem contou até dez e parou no sete.
+— É que foi uma cena tão inusitada que eu resolvi não atrapalhar.
 
----
+Ela sorriu também.
 
-Walter era o tipo de diretor que havia chegado na profissão acreditando genuinamente que era possível fazer diferença e havia ficado no caminho por tempo suficiente pra ter a convicção corroída sem ter encontrado outra coisa pra colocar no lugar. O resultado era um homem que administrava por intimidação porque havia esquecido como administrar por autoridade, e que confundia as duas coisas com regularidade suficiente pra que ninguém ao redor conseguisse mais distinguir uma da outra.
+— Tá, chega de papinho e vem logo comer, senão você vai se atrasar pra escola, meu bebê.
 
-Ele olhou pros dois com a expressão de quem estava guardando aquilo há tempo.
+*Meu bebê.*
 
-— Alguém pode me explicar o que aconteceu ontem depois da escola?
+O Kim sentou. Ela pôs um prato na frente dele e um café com leite bem quente. Sentou do outro lado. E os dois tomaram café da manhã juntos, conversando.
 
-Kim e Jack trocaram um olhar de um quarto de segundo.
+No meio do café, o Kim ficou sério.
 
-— Ontem depois da escola? — Jack abrindo os braços.
+— Mãe. Você não precisa fazer isso toda manhã só porque a gente teve aquela conversa...
 
-— Não me façam perder a paciência. Sei que vocês sabem do que estou falando.
+Ela olhou pra ele, confusa.
 
-— O senhor vai ter que ser mais específico. Depois da escola acontecem muitas coisas.
+— Você acha que eu tô fazendo isso por causa da nossa conversa? Que agora eu quero ser uma boa mãe? Deixa de ser besta, garoto! Eu faço o que eu quero, quando eu quero! Ninguém vai me dizer o que eu tenho que fazer.
 
-Walter respirou pelo nariz.
+Quem fala o que quer ouve o que não quer. O Kim ficou quieto e terminou o café.
 
-— Um aluno foi agredido. Ele e os amigos dele. Por vocês.
+Pegou o material. E aí veio outra coisa inusitada.
 
-— Um aluno. Agredido. Por nós. — Jack franzindo o cenho com o esforço de quem está tentando ajudar.
+A mãe chegou perto, abraçou ele e deu um beijo no rosto dele.
 
-— Qual aluno, senhor? — Kim.
+— Tenha um bom dia, filho. Vê se não arruma problema na escola. E volta em segurança pra casa.
 
-— Samuel. E os amigos que estavam com ele.
+O Kim ficou meio sem graça.
 
-Kim ficou em silêncio por um segundo com a expressão de quem está vasculhando uma memória genuinamente grande.
-
-— Samuel. — Pausa. — Ele é meio gordo?
-
-Walter enrijeceu.
-
-— Nós não usamos essa terminologia aqui, Kim, mas sim, Samuel tem uma constituição mais robusta.
-
-— Então estamos falando do garoto que estava batendo num colega no pátio dos fundos só pelo prazer de bater.
-
-— Sobre o que estava acontecendo antes eu não tenho informação. O que eu tenho é Samuel e cinco outros vindo ao meu escritório dizer que foram agredidos por vocês.
-
-Jack abriu a boca. Kim levantou a mão dois centímetros, o gesto mínimo que bastava entre os dois.
-
-— A questão é simples. A gente bateu nele dentro da escola?
-
-— Não foi dentro da escola, mas—
-
-— O senhor mesmo acabou de confirmar que não foi dentro da escola. O que acontece fora da escola é resolvido com a polícia. O senhor não é a polícia. — Pausa de meio segundo. — Tem mais alguma coisa?
-
-Walter ficou parado com aquilo por um segundo que era um segundo a mais do que ele precisaria se tivesse resposta.
-
-— Tomem muito cuidado, vocês dois. — A voz subindo um registro. — As bolsas de vocês aqui dependem de comportamento adequado e eu estou chegando no limite da minha tolerância. Posso garantir que todos os alunos desta escola vão estar seguros, não importa o que for necessário fazer pra isso.
-
-Kim e Jack ouviram aquilo com as expressões de quem está ouvindo uma previsão do tempo.
-
-Walter olhou de um pro outro. Não encontrou o que estava procurando em nenhum dos dois rostos.
-
-Saiu pelo corredor com os passos de quem precisa que os passos pareçam decisivos.
+— Obrigado, mãe. Eu vou tentar. Mas não prometo nada.
 
 ---
 
-Nina ficou olhando pro corredor vazio onde Walter havia estado. Depois olhou pros dois.
+O Jack estava na escada, do lado de fora.
 
-— Vocês fizeram isso antes.
+E estava com uma cara confusa. Ele estava acostumado a ouvir a gritaria de toda manhã naquela casa. O que tinha acabado de ouvir pela porta era outra coisa.
 
-Não era pergunta.
+— E aí, cara, firmeza? Que que tá pegando?
 
-— Umas quatro, cinco vezes. — Jack ajustando a mochila.
+— Ué. Como assim? Não tô ligado do que você tá falando.
 
-— Sempre funciona?
+— Tô falando desse papinho de "tenha um bom dia, não arruma problema, volta em segurança". Quem é que tá lá dentro? A voz era da tua mãe. A atitude, não.
 
-— Ele sempre tem razão e a gente sempre sabe que ele tem razão e ele sempre sabe que a gente sabe. Ninguém precisa falar isso em voz alta. — Kim.
+O Kim olhou pra baixo. Depois pra cima. Meio envergonhado.
 
-— É um acordo tácito de produtividade mútua. — Jack.
-
-Nina tomou um gole do café e ficou com aquilo.
-
-— E as bolsas.
-
-— Nossas notas sustentam as bolsas. Walter sabe disso. A ameaça é pra parecer que ele tem poder sobre isso, não porque ele tem. — Kim.
-
-— Ele parece cansado. — Nina olhando pro corredor que Walter havia tomado.
-
-— É um cara que escolheu a profissão errada há muito tempo e não tem como voltar atrás.
-
-Nina ficou com aquilo também.
-
-Os três retomaram o caminho em direção à sala.
+— Ah, cara, é uma história tão longa... Mas a gente tem que começar a trampar. Bora, eu vou te contando no caminho.
 
 ---
 
-A professora da primeira aula ainda não havia chegado quando entraram.
+E contou.
 
-A sala era o tipo de barulho controlado de vinte e poucos adolescentes em estado de espera. Kim, Jack e Nina foram pros lugares de sempre. Kim encostou a mochila na cadeira e começou a abrir o tablet.
+Entre um ônibus e outro, entre um saquinho de bala e outro, o Kim contou tudo. A noite. A briga. A garrafa. A história inteira que a mãe tinha contado.
 
-Levou trinta segundos pra perceber que o barulho havia diminuído.
+Na cara do Jack ele viu o mesmo ódio que tinha sentido naquela noite. O mesmo que ainda sentia toda vez que pensava naquilo.
 
-Não parado. Diminuído. O tipo específico de diminuição que acontece quando uma parte do ambiente começa a prestar atenção em algo sem que o resto saiba ainda.
+Os dois eram assim. O sofrimento de um era o sofrimento do outro. Um laço do tamanho de irmão.
 
-Olhou pra frente. A professora não havia chegado. Olhou pros lados.
+— Cara. — O Jack, no último ônibus, a voz baixa. — Sendo o mais sincero possível, eu não sei o que falar. Só que eu tô com raiva. Com mais raiva do que eu já senti na vida. O cara mais podre que a gente já enfrentou não chega perto. O que eu sinto é ódio desses filhos da puta que fizeram isso com você e com a tua mãe. — Ele olhou pela janela. — E eu me sinto um inútil. Porque eu sei que não tem nada que eu possa fazer pra mudar isso.
 
-Quatro celulares sendo guardados rápido demais em quatro direções diferentes.
+O Kim entendia. Era exatamente o que ele estava sentindo.
 
-Kim virou pro tablet.
-
-Do lado, Jack estava com o celular na mão embaixo da mesa, a tela virada pra baixo, os olhos na frente. A expressão de quem havia visto alguma coisa e estava decidindo quando era a hora certa de falar.
-
-Kim não perguntou.
-
-Jack não falou.
-
-A professora entrou. A aula começou.
+E era, quase palavra por palavra, o que ele tinha falado pra mãe.
 
 ---
 
-Ryan os encontrou na saída com a postura de quem havia ensaiado o que ia dizer e estava confiante no ensaio.
+Quando desceram perto da escola, a Nina estava no portão.
 
-— Senhores. E senhora. Quero agradecer mais uma vez pelo que fizeram por mim.
+Esperando por eles.
 
-Kim parou.
+Era engraçado. Um dia. Ela tinha um dia ali e já parecia amiga de anos. Os três foram andando pelo corredor, contando o que cada um tinha feito depois de ir embora na noite anterior.
 
-— Você não precisa agradecer nada.
+— Caras. — O Jack foi o primeiro. — Depois que eu saí, eu fui pra casa. E juro, parecia que a cada passo a distância ficava maior. Quando eu cheguei, meu pai tava na porta me esperando. Ele tinha que me deixar a chave, porque eu perdi a minha. Ele olhou pra mim e já mandou: "Você tá bêbado, né?". Eu enrolei, enrolei, e no fim ele riu e falou: "Você não tem nada pra fazer amanhã, não?". Eu falei que não, que tinha arrumado uma grana e tava de folga. Aí ele: "Vai tomar um banho pra tirar essa cara de doido, deixei comida pronta". Tomei banho, bati aquela xepa, vi um filme e apaguei.
 
-— Eu sei que você vai dizer isso, mas—
+O Kim e a Nina riram do jeito que ele contava.
 
-— Ryan. Você não me deve nada. Não foi por você que a gente fez aquilo. Foi porque não dava pra continuar andando e fingir que não estava acontecendo. Qualquer pessoa teria feito.
-
-— Qualquer pessoa não fez. Você fez.
-
-Kim ficou com aquilo por um segundo, sem resposta imediata.
-
-Ryan aproveitou a abertura.
-
-— Por isso eu trouxe uma coisa.
-
-— Ryan—
-
-— É que eu já tenho um igual ao que comprei pra você, então se você não aceitar eu vou ficar com dois e não tenho o que fazer com dois.
-
-Jack estava ao lado de Kim com a expressão de alguém prestando atenção muito cuidadosa.
-
-— O que seria esse igual? — Jack.
-
-Ryan abaixou, abriu a mochila, e tirou uma caixa fechada com papel de presente. A caixa tinha o tamanho e o peso específico de algo que custava mais do que Kim ganhava num mês de ônibus.
-
-Kim abriu a boca.
-
-Jack pegou a caixa antes que Kim terminasse de abrir.
-
-— Kim— — Kim.
-
-— Meu senhor, muito obrigado por esse gesto generoso. — Jack abraçando Ryan com o braço livre, a caixa segura firme no outro. — Muito obrigado mesmo. Vai ser aproveitado com todo o cuidado e respeito que merece.
-
-— Devolve. — Kim.
-
-— Pode ir tranquilo, tá em boas mãos. — Jack pra Ryan, ignorando Kim completamente.
-
-Ryan olhou de um pro outro com a expressão de quem não tem certeza se deve rir ou se preocupar. Optou por sorrir.
-
-— É um SBI de edição limitada. Você pode levar em qualquer loja da CLI e personalizar de graça. Espero que continue lutando. Suas lutas são muito boas.
-
-Saiu antes que Kim conseguisse articular uma objeção completa.
+— O meu pai surtou. — A Nina. — Cheguei tarde e ainda bêbada, no primeiro dia de aula. Ele é superprotetor, então já dá pra imaginar a bronca. Mas eu tava tão bêbada que mal ouvi o sermão. Fui direto pro banho e apaguei. Só acordei no meio da noite pra comer alguma coisa. De manhã ele pediu pra eu não fazer isso de novo. — Ela deu de ombros. — Mas... sei lá.
 
 ---
 
-Os três ficaram na calçada. Jack com a caixa. Kim olhando pra caixa com a expressão de quem está calculando como recuperar o controle da situação.
+Os olhares do corredor estavam todos neles.
 
-Nina colocou o celular na frente de Kim.
+E no meio do corredor, parado, tinha o diretor. Walter. Braços cruzados. O pé batendo no chão. Cara de quem não tinha dormido de raiva.
 
-— Antes de vocês dois resolverem esse impasse. Você precisa ver uma coisa.
+— Será que um de vocês pode me explicar o que aconteceu ontem na frente da escola?
 
-Era o PowWow. A tela mostrava a página de trending com uma miniatura que Kim reconheceu antes de querer reconhecer: a arena, as chamas negras, o rosto dele com o cabelo branco que não era o rosto dele mas era o rosto dele.
+O Jack coçou o queixo e sorriu.
 
-Ela deslizou pra baixo.
+— Na frente da escola? Não faço ideia do que o senhor tá falando, diretor.
 
-Mais miniaturas. Cortes diferentes da mesma luta. Análises em texto com o nick *Briguento 142536* em letras maiúsculas. Um post em japonês com três mil compartilhamentos. Uma thread em inglês onde ele viu o próprio rosto aparecer em três imagens diferentes extraídas do vídeo.
+— É verdade. — O Kim. — Se o senhor der uma pista, talvez a gente lembre. Mas agora não vem nada.
 
-Kim ficou olhando por um tempo que não era confortável.
+— Não brinquem com a minha paciência! Eu sei que vocês sabem o que aconteceu, porque vocês foram os autores do incidente.
 
-— Isso tudo é de ontem.
+O Jack abriu os braços.
 
-— De ontem pra hoje de manhã. Agora tá maior. — Nina.
+— Autores? Incidente?
 
-— Quanto maior.
+— O senhor vai ter que ser mais específico. — Kim, com a mesma cara.
 
-Nina abriu outra aba. O contador do vídeo principal.
+O Walter passou a mão no rosto.
 
-Kim olhou pro número. Olhou de novo.
+— Ontem, depois da saída, vocês agrediram um colega da escola. E eu quero saber por quê.
 
-— Você disse que eu ia poder ficar anônimo. — Para Jack, com uma voz específica.
+— Antes de mais nada, define "colega". — Jack.
 
-— Cara, você vai poder. A partir da próxima luta com o SBI próprio você personaliza tudo, ninguém vai saber quem—
+— Não me faça perder mais a paciência. Um aluno foi agredido por vocês ontem e eu quero saber por quê. Não é possível que vocês não lembrem de alguém que vocês atacaram.
 
-— Você disse isso ontem.
+O Jack ia responder. O Kim foi antes.
 
-— E é verdade, só que ontem a gente ainda não tinha o SBI e—
+— Fala o nome do aluno primeiro. Pra não ter confusão.
 
-Kim pegou Jack pelo pescoço com a mão livre.
+— Samuel. Ele e os amigos dele foram agredidos por vocês.
 
-— Então, seu filho da puta, explica pra mim por que o meu rosto tá em trending em não sei quantos países com o meu rosto de verdade, não o avatar, o meu rosto, que é o mesmo rosto que eu uso pra trabalhar no ônibus, pra entrar nessa escola—
+— Samuel, Samuel... — O Kim. — Ele é meio gordo?
 
-— Cara, calma, o avatar ficou igual a você porque era a primeira luta e a gente não tinha personalizado ainda, mas agora com o SBI a gente muda tudo, prometo— — Jack com a voz de quem está sendo moderadamente estrangulado.
+O Walter piscou.
 
-— E por que você não me avisou que podia ficar igual a mim?
+— Aqui a gente não usa essa palavra, Kim. Mas sim, o Samuel é um pouco forte.
 
-— Eu achei que era óbvio—
+A cara do Kim fechou.
 
-— Óbvio.
+— Então o senhor tá falando do garoto que tava batendo em outro só pelo prazer de bater?
 
-— Tecnicamente era uma inferência razoável a partir das informações disponíveis na época—
+— Sobre o que acontecia antes, eu não sei. — O Walter tirando o corpo fora. — O que eu sei é que o Samuel e os outros vieram até mim dizendo que foram agredidos por vocês.
 
-Nina colocou a mão no ombro de Kim com a calma de quem está acostumada a mediar situações físicas.
+O Jack abriu a boca de novo. O Kim levantou a mão e ele fechou.
 
-— Kim. Solta ele.
+— A questão é mais simples do que parece. A gente bateu nele dentro da escola?
 
-Kim soltou. Jack ajustou o pescoço com dignidade.
+— Não, não foi dentro da escola, mas...
 
-— O problema do anonimato é real mas tem solução. — Nina. — Com o SBI você cria um nick novo, um avatar completamente diferente, e a conexão com o Briguento 142536 fica só entre quem já te conhece pessoalmente. Que por enquanto são quantas pessoas?
+— Como o senhor mesmo começou essa conversa, não foi dentro da escola. Problema que acontece lá fora, eles resolvem com a polícia. O senhor não é a polícia. — O Kim olhou o relógio do corredor. — Agora a gente tá começando a se atrasar. O senhor tem mais alguma coisa pra falar?
 
-— Ryan. E agora eu tô preocupado com quantos alunos dessa escola.
+O Walter ficou vermelho.
 
-— Uns vinte, calculando pelos celulares no corredor. — Jack.
+— Tomem cuidado, vocês dois. Muito cuidado pra não perder as bolsas de vocês. Eu vou garantir que todo aluno dessa escola esteja sempre seguro. Não importa as consequências.
 
-— Ótimo.
+E saiu pisando duro.
 
-— Universo controlável. O problema maior seria se a identidade vazasse pra fora desse universo. Enquanto não vazar, você personaliza o SBI, cria uma identidade nova no LDI, e segue em frente. — Nina.
+A Nina olhou pros dois. Os dois continuavam sérios. Aí, devagar, o sorriso foi brotando na cara de um e depois do outro.
 
-Kim olhou pra caixa na mão de Jack.
+Ela entendeu. Pra eles, aquilo era só mais um dia normal.
 
-— Eu devolvia pra Ryan mas ele já foi embora.
-
-— Tragicamente. — Jack.
-
-— Kim. Fica com o SBI. — Nina.
-
-— Tá bom, tá bom. — Pegando a caixa com mau humor. — Fazer o quê.
-
-— Obrigado. — Jack pra Nina. — Eu ia ficar a tarde toda nessa negociação.
-
-— Sério, vocês dois parecem duas crianças.
-
-— Tá bom, mãe. A gente promete se comportar. — Jack com voz de criança arrependida.
-
-Nina deu risada antes de conseguir evitar.
+Os três seguiram pelo corredor conversando, sem perceber que a escola inteira estava olhando pro Kim de celular na mão. Todo mundo ali sabia que o famoso Briguento das Lutas de Ilusão era ele.
 
 ---
 
-Os três seguiram pela calçada, Kim abrindo a caixa enquanto andava.
+Mais um dia de aula passou. A dupla tinha virado trio.
 
-O SBI era diferente do de Jack em tamanho e em peso, mais fino, com um acabamento que sugeria que o material havia custado mais do que o processo de fabricação. Na parte interna da caixa estava gravado em relevo: *Xakaxi Edition — Série Limitada 01/30*.
+Mas aquele não ia ser um dia comum. O Jack tinha planos pro Kim. E sabia que não ia ser fácil convencer. Só que, se tinha alguém no mundo que convencia o Kim a fazer o que ele não queria, era o Jack.
 
-Kim olhou pra aquilo.
+Na saída, o Ryan passou por eles. E voltou.
 
-— Quanto custa um desses.
+— Então, senhores. Quero agradecer mais uma vez pelo que vocês fizeram por mim ontem. — Olhou pra Nina. — E agradecer a senhorita também.
 
-— O meu custou uns quatro mil. O meu é dos mais baratos. — Jack.
+Os três se olharam com o mesmo sorriso.
 
-— E esse.
+— Aqui está, senhor Kim. — O Jack, todo polido, estendendo uma garrafa invisível. — O vinho de 1944, safra de Levu.
 
-Jack e Nina trocaram um olhar.
+— Obrigado, meu caro companheiro. — O Kim, todo formal. — Aproveitarei esse caríssimo momento com a bela dama ao meu lado.
 
-— Entre sessenta e setenta mil. — Nina.
+— Oh, é um grande prazer. — A Nina, a mão na frente da boca, a voz fininha. — Será uma honra saborear esta bebida ao lado de dois senhores tão refinados.
 
-Kim colocou a mão no coração.
+Os três caíram na gargalhada.
 
-— Não. Para. A gente tem que devolver. Não tem como ficar com isso. Isso é absurdo, isso é seis meses de conta—
+O Ryan não entendeu direito. Mas sabia que estava sendo zoado. E não ligou. Aqueles três tinham salvado a pele dele.
 
-— Ryan tem dois iguais e disse que não sabe o que fazer com dois. — Jack.
+Ele se despediu. Deu dois passos. E voltou.
 
-— Não me importa se ele tem cinquenta, eu não posso aceitar—
+— Ah, é verdade. Isso aqui é pra você, Kim. Só um momento.
 
-— Kim. — Nina pausando. — Pra ele provavelmente foi o troco do almoço. Se ele não quisesse que você ficasse com isso não teria comprado.
+Ajoelhou no chão e abriu a bolsa. Lá dentro, uma caixa embrulhada em papel de presente.
 
-— Isso não é argumento lógico, Nina, o valor objetivo do objeto não muda com a—
+O Kim olhou de lado pra ele.
 
-— Kim. — Jack.
+— Cara. Pode parar aí mesmo. Nem pensa em continuar.
 
-— O quê.
+O tom fez o Ryan travar. Ajoelhado, as mãos na caixa, paralisado.
 
-— Fica com o SBI.
+— Eu não sei o que você acha que aconteceu ontem. Mas o que eu sei é que você não me deve nada. Muito menos presente.
 
-Kim olhou pra caixa. Olhou pro Jack. Olhou pra Nina.
+O Jack e a Nina caíram na risada da cara do Kim, que não sabia o que fazer com aquilo.
 
-— Tô ficando contra a minha vontade. Quero que isso fique registrado.
+— Ah, mas se você não aceitar vai ser uma pena. — O Ryan. — Porque eu já tenho um igual. Não vou ter o que fazer com esse.
 
-— Registrado. — Jack.
+— E o que seria esse presente? — Jack.
 
-Andaram mais um quarteirão em silêncio.
+— Um SBI. Eu comprei um SBI pro Kim depois que eu vi um vídeo dele na internet.
 
-— Então. Treino hoje. — Jack.
+— Que vídeo? — Nina. — Do que você tá falando?
 
-— Tenho que trabalhar.
+O Ryan sentiu os três em cima dele ao mesmo tempo.
 
-— Não tem.
+— Acho melhor eu começar do começo. Pode ser?
 
-— Tenho sim, Jack, eu tenho contas—
+Os três fizeram que sim.
 
-— Tem um trampo hoje à noite que vai duzentos pra cada. Eu já confirmei pra gente.
+— Ontem, depois que vocês me ajudaram, eu fui pra casa e fui dar uma olhada no PowWow. Um dos vídeos mais assistidos era o do Kim lutando contra o Thunderbolt. A luta foi impressionante e eu queria ver mais. Só que... desculpa falar isso... eu nunca vi você com um SBI. Imaginei que você não jogava. Ou que talvez não tivesse condição de comprar um. Mas a tua luta foi tão sensacional que seria um desperdício a gente não poder ver mais. Então eu comprei um pra você. Como agradecimento. — — Mas não é caridade. É investimento. Você é novato e desconhecido no jogo. Se você lutar de novo, eu vou ser avisado. E vou fazer uma aposta grande em você. Porque, se você ganhar, o retorno é muito alto.
 
-Kim parou de andar por meio segundo.
+O Kim coçou a cabeça.
 
-— Quando você confirmou.
+— Como você sabe que era eu? Não tinha o meu nome lá.
 
-— Hoje cedo quando ainda estava na sua escada de casa.
+— Cara. — O Jack, sorrindo. — O teu avatar é igualzinho a você. Então essa ideia de ficar anônimo, pra quem já te conhece, já era.
 
-— Você confirmou um trampo enquanto estava esperando eu descer.
+E virou pro Ryan.
 
-— Multitarefa.
+— Mas peraí. Você falou de SBI de graça? Tipo, na faixa? Free?
 
-Kim ficou com aquilo.
+O Ryan fez que sim.
 
-— Tá bom. — Depois de um segundo.
+O Jack juntou as mãos em gratidão e abraçou o garoto.
 
-Nina estava sorrindo com a expressão de quem acabou de confirmar uma hipótese que estava testando há dois dias. Não disse nada.
+— Então, meu senhor, muito obrigado por esse gesto gentil. Será que eu posso pegar o presente agora?
 
-— Então o treino é agora. — Jack. — No anexo. Duas horas de sala privada antes do trampo.
-
-Kim olhou pra caixa embaixo do braço.
-
-— Agora.
-
-— Agora.
-
-Os três deram meia-volta em direção aos fundos da escola, onde o anexo esperava, com os SBIs e a tarde ainda pela frente.
+O Ryan levantou do chão com a caixa. E o Jack pegou antes que o Kim tivesse tempo de recusar.
 
 ---
 
+A Nina já estava com o celular na mão, no PowWow.
+
+Lá estava o vídeo. O que ela tinha visto ao vivo. Entre os dez mais assistidos do mundo.
+
+Ninguém tinha olhado antes. Na véspera os três tinham ido beber e voltado pra casa bêbados. A Nina não tinha aberto o PowWow. O Jack tinha apagado. E o Kim nem sabia que o PowWow existia.
+
+Ela foi mostrando. Os cortes. Os vídeos curtos. Não era um vídeo só. Eram dezenas.
+
+O Kim viu a própria cara do lado de um número de visualização enorme.
+
+O Jack abriu o sorriso mais largo do mundo. O amigo dele tinha estourado. Agora todo mundo ia ver o que ele sempre tinha visto.
+
+O Kim agarrou o pescoço do Jack.
+
+— Então, seu filho da puta, você não disse que eu ia poder ficar anônimo nessa porra?
+
+— Calma, cara. — O Jack, com a voz de quem está sufocando. — Você vai poder a partir da próxima luta. Como é que eu ia saber que você ia estourar logo na primeira? A gente dá um jeito, relaxa.
+
+O Ryan ficou olhando aquilo sem entender. Talvez estivesse enganado, mas parecia que o Kim não estava nada feliz de ficar famoso.
+
+Bom. Não era problema dele. Ele não podia se atrasar pro cursinho.
+
+— Gente, desculpa, mas eu preciso ir. Espero que vocês gostem do presente. E que o Kim continue lutando. As tuas lutas são muito boas. Até mais.
+
+Saiu apressado pra um carro que esperava por ele.
+
+Os três ficaram ali. O Jack ainda preso no braço do Kim.
+
+— Kim. — A Nina, depois de um tempo. — Solta ele.
+
+O Kim revirou os olhos e soltou. O Jack puxou a gola da camiseta, conferindo a garganta.
+
+— Cara. Você quase me matou dessa vez. Fiquei vendo estrela.
+
+— Para de ser besta, seu cuzão. Eu nem apertei direito.
+
+---
+
+O Jack deu de ombros e rasgou o papel de presente inteiro.
+
+Edição limitada. E tinha uma coisa especial: dava pra levar numa loja da Corporação Lutas de Ilusão e personalizar do jeito que quisesse. Nome, iluminação, as cores.
+
+— Cara. — O Jack, maravilhado. — Esse SBI é incrível! Muito melhor que o meu. E muito melhor do que o que a gente ia conseguir com o meu plano.
+
+— Que plano?
+
+— Eu ia te levar hoje depois da aula numas lojas, pra ver se alguém topava trocar PUBLI contigo por um SBI. Só que, mesmo se desse certo, eles iam te dar um baratinho ou algum zuado que tivessem lá. Esse aqui foi um achado, velho.
+
+A Nina pegou o SBI da mão dele e olhou com cuidado.
+
+— O Jack tem razão. Edição limitada. Dá pra fazer alteração autorizada pela CLI. E você pode levar em qualquer loja que sai de graça. Parabéns.
+
+O Jack olhou pro Kim, todo feliz.
+
+— Você não quer trocar o teu pelo meu?
+
+O Kim coçou o queixo.
+
+— Tá beleza. Eu fico com o teu. Você fica com esse negócio aí.
+
+— Não. — A Nina, balançando a cabeça. — Você não pode aceitar uma coisa dessa. Você acabou de ganhar de presente e vai dar pro Jack? Deixa de ser besta, Kim.
+
+O Kim respirou pra responder. No meio da respiração, desistiu. Baixou a cabeça e, de muito mau humor, pegou a caixa da mão do Jack.
+
+— Tá bom. Tá bom. Você quer que eu fique com isso? Eu fico, né. Fazer o quê.
+
+— Sério? Tem hora que vocês dois parecem duas crianças.
+
+— Tá bom, mãe. — O Jack. — Tá bom, mãe. A gente promete se comportar.
+
+A Nina riu.
+
+---
+
+Foram andando. O Kim olhando o SBI de perto pela primeira vez. Na única luta dele, quem tinha posto o aparelho na cara dele foi o Jack, e ele estava mais preocupado com o adversário.
+
+— Que foi? — O Jack. — Tá impressionado?
+
+— Isso aqui parece caro. Quanto será que custa um bagulho desse?
+
+— Ah, cara, o meu eu paguei uns quatro mil. E o meu é dos mais baratos.
+
+— Eita porra, maluco. E quanto será que custa esse aqui?
+
+— O teu deve tá na faixa de sessenta, setenta mil. — A Nina.
+
+O Kim pôs a mão no peito como se fosse ter um infarto e se segurou no Jack.
+
+— Não. Sério, gente. Para. A gente tem que devolver isso aqui. Não dá pra ficar. Sério mesmo! Mano, olha o valor disso! Não dá, não dá, não dá! A gente tem que resolver isso hoje. Vai dar rolo. Vai dar rolo!
+
+O Jack e a Nina riram gostoso.
+
+— Calma, cara! — A Nina. — Pra que esse drama? Pra eles isso deve ser tipo o troco do pão. Ele falou que já tinha um igual. Se ele não quisesse que você ficasse, não tinha te dado.
+
+— Mas, mano, isso é caro demais! Ninguém em sã consciência dá isso de graça. Não existe! Com certeza ele vai querer alguma coisa em troca. E eu não tenho paciência pra quid pro quo quando eu não sei os termos do acordo antes.
+
+O Jack conhecia o amigo. Sabia que ele não ia ficar em paz com aquilo.
+
+— Cara, tudo bem. Tudo bem. Hoje você usa esse aparelho, e amanhã a gente devolve pro cara. Pode ser?
+
+O Kim fez que sim.
+
+Saíram da escola e foram pra uma praça ali perto.

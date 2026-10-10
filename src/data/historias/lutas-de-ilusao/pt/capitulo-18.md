@@ -1,6 +1,6 @@
 # CAPÍTULO 18 — Fogo
 
-Nina tomou um gole grande antes de começar, e os três ainda estavam no primeiro copo, o que era um bom sinal pra um dia em que ninguém podia acabar no chão.
+A Nina parou no meio das palavras e tomou um gole grande. Os três ainda estavam no primeiro copo, o que era um bom sinal pra um dia em que ninguém podia acabar no chão.
 
 — Então—
 
@@ -54,8 +54,6 @@ Nina puxou o SBI da mão do Jack e aproximou o holograma do rosto.
 
 Estava lá. Elemental principal: Fogo.
 
-— Os fóruns falaram isso. — Nina, baixo. — Que no cadastro tava Fogo. Eu achei que era gente inventando.
-
 — Gente. — Kim. — Dá pra alguém me explicar.
 
 — O que saiu de você na primeira luta era Trevas. — Nina. — Foi o que todo mundo viu. Chama negra. Mas aqui, no seu SBI, o seu elemental principal é Fogo.
@@ -76,47 +74,13 @@ Ele estava cansado de tentar entender. Fez um sinal com a mão pro Jack seguir e
 
 Jack ficou um tempo olhando.
 
-— O segundo eu nunca vi.
-
-— Como assim nunca viu.
-
-— Os ataques são meio personalizados. É raro repetir. Não é que nunca repete, mas é raro. Esse aqui tem nome. — Ele virou o holograma pro Kim. — Só que eu não consigo ler.
-
-Kim olhou.
-
-O nome do segundo poder estava lá, na coluna, do lado da bola de fogo. Mas as letras não eram letras que ele conhecia. Não eram nem letras que pareciam de algum alfabeto. Eram uns riscos. Uns traços curtos e retos, em pares, como marcas feitas a faca num pedaço de madeira.
-
-Kim ficou olhando aquilo mais tempo do que fazia sentido.
-
-Ele não sabia ler aquilo.
-
-Mas aquilo parecia com alguma coisa. Com as linhas que tinham subido pelo pescoço dele na arena. Com o que estava gravado no cabo da Xakixi.
-
-Ele não falou nada.
+— O segundo eu nunca vi. — Jack. — Esses ataques costumam ser personalizados. É difícil repetir. Não é que nunca repete, mas é raro.
 
 ---
 
-— Agora o modo de poder. — Nina, que estava esperando aquela hora desde o primeiro gole. — Esse é o meu preferido.
+A Nina cortou o Jack.
 
-Os olhos dela tinham mudado. Era a primeira vez naquele dia que a Nina parecia ter a idade dela.
-
-— Se você é que nem eu, que cresceu vendo desenho, anime, filme de gente com superpoder... Essa é a minha teoria de por que o LDI é o que é. Ele deu superpoder pra qualquer pessoa. Em qualquer lugar do mundo. Qualquer um.
-
-Kim estava inteiro prestando atenção.
-
-— Quando você cria o avatar, o sistema te classifica num elemental. Primário ou secundário. E não tem diferença de força entre eles, porque como o Jack falou, tudo vem da sua energia. A força do poder é quanto de energia ele tira de você e põe nele. Igual a arma. Você junta energia no poder e solta.
-
-— E tem tipos.
-
-— Três. — Ela contando nos dedos. — Instantâneo. Média duração. Longa duração. Quanto mais tempo pra carregar, mais estrago costuma fazer. Só que mais tempo você fica aberto no meio da luta. E dependendo do poder, se você tomar um golpe no meio do carregamento, perde tudo. O poder e a energia que você já tinha posto nele. Por isso é muito arriscado usar poder de longa duração em luta de verdade.
-
-— Igual o Jack hoje.
-
-— Igual o Jack hoje. — Nina olhando pro Jack com um sorriso torto.
-
-— Eu ganhei. — Jack. — Só quero lembrar isso.
-
-— E tem limite. — Nina ignorando ele. — Em luta oficial você só pode levar quatro poderes ativos. Você escolhe antes da luta quais vão. Pode trocar sempre que quiser, mas trocar a lista tem custo.
+— E tem limite. Em luta oficial você só pode levar quatro poderes ativos. Você escolhe antes da luta quais vão. Pode trocar sempre que quiser, mas trocar a lista tem custo.
 
 — E se eu descobrir um poder novo no meio da luta?
 
@@ -134,7 +98,7 @@ Kim já sabia.
 
 Sabia desde a saída da escola. Desde o segundo quarteirão, quando dois caras com boné da mesma cor atravessaram a rua atrás deles e continuaram atravessando. Desde o mercado, quando a mesma moto passou duas vezes devagar. Desde que eles chegaram no estacionamento e as sombras atrás do muro do fundo começaram a se mexer de vez em quando, quando o vento não estava se mexendo.
 
-Ele também tinha visto que, quando o Jack se levantou pela primeira vez pra explicar o mãos livres, o grupo lá atrás parou. Tinham planejado entrar naquela hora. O Jack de pé fez eles esperarem. E deu tempo da aula terminar.
+Ele também tinha visto que, quando o Jack ficou de pé pra explicar os modos de combate, o grupo lá atrás parou. Tinham planejado entrar naquela hora. O Jack de pé fez eles esperarem. E deu tempo da aula terminar.
 
 A única que não tinha percebido era a Nina.
 
@@ -154,9 +118,11 @@ Durante um segundo nada se mexeu.
 
 Depois as cabeças começaram a aparecer.
 
-De trás do Fusca sem rodas. De trás da caminhonete. Do alto do muro. Da entrada do estacionamento. Uma, duas, cinco, dez. Vinte. Vinte e poucas. Pedaços de madeira na mão. Correntes. Uma ou outra faca.
+De trás dos carros. De trás das árvores. De trás das paredes da delegacia velha. Uma, duas, cinco, dez. Vinte. Vinte e duas, vinte e quatro. Pedaços de madeira na mão. Correntes. Uma ou outra faca.
 
-Nina parou de se alongar no meio do movimento.
+A Nina entendeu.
+
+E se alongou mais ainda. Agachou, garantindo as pernas quentes.
 
 Olhou pros dois.
 

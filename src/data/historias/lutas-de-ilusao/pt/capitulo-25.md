@@ -112,7 +112,7 @@ O Jack ficou na porta. Lista de nome, revista, quem entra, quem não entra. Uma 
 
 O Jack era bom naquilo. Falava com todo mundo. Resolvia problema antes de virar problema. Fazia piada com quem estava nervoso. E toda vez que chegava uma mulher sozinha, ele dava um jeito de flertar.
 
-No fim da noite, ele tinha três números de telefone no celular.
+No fim da noite, ele tinha alguns números de telefone no celular.
 
 Um deles ia trazer muito mais problema do que solução. Mas isso é assunto pra depois.
 
@@ -136,7 +136,7 @@ O Jack parou de revistar um cara no meio da revista.
 
 — Qual?
 
-— A Casa do Dinheiro.
+— La Casa do Dinheiro.
 
 O Jack largou o cara da revista e ficou olhando o amigo com a boca aberta.
 
@@ -280,7 +280,7 @@ O Kim ficou acordado, o dinheiro no bolso, a cidade passando.
 
 O fim de semana foi tranquilo.
 
-O trio não se encontrou. Era a primeira vez que nada acontecia desde que a Nina tinha aparecido na janela do anexo.
+O trio não se encontrou. Era a primeira semana calma desde que os três tinham se conhecido.
 
 O Kim vendeu bala. O Jack arrumou um bico novo, depois outro. A Nina mandava mensagem no grupo de vez em quando, uma foto, um áudio reclamando do pai, uma pergunta sobre o machado que ninguém sabia responder.
 
@@ -288,4 +288,6 @@ Tudo parecia calmo.
 
 Calmo demais, o Kim pensou no domingo à noite, deitado olhando o teto, ouvindo a Helena rir sozinha de alguma coisa na televisão lá embaixo.
 
-Ele não sabia que era a última semana calma que ia ter.
+Tudo parecia tranquilo.
+
+Até uma segunda-feira.

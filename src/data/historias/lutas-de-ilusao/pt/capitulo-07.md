@@ -1,132 +1,195 @@
-﻿# CAPÍTULO 7 — O Mundo Viu
+# CAPÍTULO 7 — O Mundo Viu
 
-Enquanto Kim recebia a lista de Thunderbolt item por item no centro de uma arena que não sabia que estava prestes a mudar, o mundo já havia começado a pegar fogo.
+Enquanto o Kim ainda estava de joelhos no concreto do anexo, o mundo já tinha começado a pegar fogo.
 
-Não em todos os lugares ao mesmo tempo. Em ondas. Como sempre.
-
----
-
-Em Nortalis, Dax pausou o vídeo no frame das chamas negras e ficou em silêncio por tempo suficiente para o chat explodir.
-
-Seis anos analisando LDI. Três milhões de seguidores. Uma reputação construída sobre uma coisa simples: ele nunca errava nos números.
-
-Havia quatro minutos que estava olhando para o mesmo frame.
-
-— Isso não é elemental Fogo. — Sem olhar para a câmera.
-
-O chat parou de rolar.
-
-— A temperatura de renderização de Fogo no LDI tem um valor fixo desde o primeiro dia. O que está nessa tela não tem temperatura de renderização. O sistema não registrou valor nenhum. Não é zero. Não é negativo. É ausência de dado onde deveria haver dado.
-
-Ele finalmente olhou para a câmera.
-
-— Em seis anos fazendo isso, eu nunca vi o sistema não registrar um valor. O LDI registra tudo. É o que ele faz.
-
-Salvou o frame e fechou a live antes de terminar.
-
-Pela primeira vez em seis anos, não tinha nada mais a dizer.
+Não em todo lugar ao mesmo tempo. Em ondas. Como sempre.
 
 ---
 
-Em Eisenstadt, Gregor assistiu o vídeo uma vez. Só uma.
+A torre da Yohualticit tinha noventa andares.
 
-Quarenta e um anos. Posição no ranking: 6.203. Trabalhava em obra durante o dia, jogava LDI de madrugada. Havia chegado ao top dez mil fazendo o que a maioria dos analistas chamava de impossível para alguém sem tempo de treino estruturado: lia oponentes como texto.
+Yohu, pra quem tinha menos de trinta anos. A empresa que tinha inventado o Lutas de Ilusão e, com ele, virado a corporação mais poderosa do planeta. Holograma flutuando no corredor de mármore negro. Passarela de vidro sobre trinta metros de vazio. Gente de terno andando rápido, sem barulho.
 
-O problema não era a potência. Ele havia visto potência.
+Até que todos os alarmes de todos os departamentos dispararam juntos.
 
-O problema era o que acontecia com os poderes do Thunderbolt quando tocavam aquelas chamas. No LDI, elementais interagiam entre si seguindo uma tabela de compatibilidade que a Yohu havia publicado no primeiro dia e nunca havia precisado atualizar. Os poderes do Thunderbolt, quando chegavam às chamas negras, não eram cancelados. Não eram bloqueados.
+Luz vermelha pulsando no prédio inteiro. Cientista largando experimento no meio. Programador tirando a mão do teclado. Assistente correndo com tablet nos andares de tapete persa.
 
-Eram absorvidos. Como se as chamas tivessem fome e os poderes fossem comida.
+Num escritório regional, longe dali, um engenheiro grisalho ajeitou os óculos de realidade aumentada e leu o que estava subindo na frente dele.
 
-Isso não existia na tabela. Não existia em nenhuma tabela.
+— Código Vermelho Global. — A voz baixa. — O sistema detectou uma anomalia.
 
-Gregor pediu mais uma caneca e começou a assistir de novo, frame por frame, com a expressão de quem está lendo algo num idioma que não domina mas reconhece o suficiente para saber que é importante.
+Ele leu de novo, pra ter certeza.
 
----
+— Sangue Primordial.
 
-Em Kailash, Mestre Viran mandou todos os alunos embora.
-
-Não havia explicado o motivo. Os alunos recolheram os equipamentos e saíram sem fazer perguntas, que era exatamente a relação que Viran cultivava com as pessoas há vinte e três anos de carreira no LDI.
-
-Posição no ranking: 312. Um dos dez lutadores mais velhos ainda ativos no top quinhentos.
-
-Estava sentado no centro do dojô vazio com o tablet na mão, o vídeo pausado no frame das criaturas de fogo negro, e uma sensação no peito que não conseguia nomear direito.
-
-Não era medo. Viran havia feito as pazes com o medo décadas atrás.
-
-Era reconhecimento.
-
-Havia algo no que aquele garoto havia feito que ele conhecia de uma outra forma, de um lugar que não era o sistema do LDI. Era como ouvir uma música num idioma desconhecido e reconhecer a emoção antes de entender a letra.
-
-Ficou sentado quarenta minutos sem se mover.
-
-Depois foi até o painel de comunicação no canto do dojô e abriu um canal que não usava há três anos. A pessoa do outro lado atendeu na primeira chamada. Como se estivesse esperando.
-
-— Você viu. — Não era pergunta.
-
-— Vi.
-
-— Então você sabe o que é.
-
-Uma pausa longa.
-
-— Eu tenho uma teoria.
+Ninguém na sala sabia direito o que aquilo queria dizer. Todo mundo entendeu a gravidade mesmo assim.
 
 ---
 
-Em Erendale, Isabella havia dormido três horas.
+Na sede central, no Distrito de Zairan, o alerta varreu o andar setenta e cinco.
 
-Não porque estava exausta, embora estivesse. Porque às 03h47 havia recebido uma mensagem do agente com cinco palavras: *Você viu o vídeo?*
+*ALERTA CRÍTICO — CÓDIGO PRIMORDIAL DETECTADO.*
 
-Isabella havia visto. Frame por frame. Havia feito o que fazia com todo adversário potencial: catalogado postura, tempo de reação, padrões de esquiva. Havia tentado encontrar a fraqueza que todo jogador tinha.
+O engenheiro-chefe Nakamura ficou olhando os dados com os dedos parados em cima do controle.
 
-Não havia encontrado nada.
+— Isso é impossível. Sangue Primordial. Eu nunca achei que ia ver esse código na vida.
 
-O que havia no vídeo não era um jogador. Era alguma coisa que usava o jogador como roupa e, quando a roupa ficou pequena, mudou de forma.
+Três andares abaixo, no setor de realidade virtual de Valloria, os operadores saíam das cápsulas de imersão tirando os visores. A supervisora Chen Liu olhava a parede inteira de telas. Os gráficos neurais dos jogadores conectados ao LDI no mundo todo tinham picos em vermelho.
 
-Às 06h44, estava sentada na beira da cama com o SBI nas mãos, os olhos fixos numa parede sem nada. Digitou uma resposta ao agente.
-
-*Marque a luta.*
+— Todos os monitores neurais em sobrecarga. — Um técnico, suando. — Os jogadores tão reagindo a uma coisa que eles nem deviam conseguir sentir.
 
 ---
 
-Na ilha privada de Kronos, no Pacífico Sul, a taça de vinho estava vazia há tempo.
+No centro de comando de Marelia, o gerente de operações Martinez afrouxou a gravata.
 
-Ele havia pedido para não ser incomodado. O que significava que o assunto era sério o suficiente para dispensar o protocolo que normalmente mediava cada momento de sua existência.
+Na mesa de vidro, um mapa do mundo digital. Pontos vermelhos piscando em quatro continentes, como ferida aberta.
 
-Na tela à sua frente, a foto do garoto. Histórico escolar. Registros de trabalho informal. Endereço, uma casa num bairro de Marelia que o sistema havia demorado dezoito segundos para localizar, o que era dezoito segundos a mais do que qualquer outro endereço havia demorado desde que o sistema existia. Registro de saúde. Ausência de registro familiar paterno.
+— Alguém me explica como um código Lendário tá ativo em quatro continentes ao mesmo tempo. — Ele olhou cada rosto da mesa. — E por que todos os nossos sistemas de segurança tão gritando como se fosse o fim do mundo.
 
-Esse último detalhe havia feito Kronos ficar imóvel por um momento.
+Uma analista jovem levantou a mão.
 
-Depois havia sorrido de um jeito que não tinha nada de agradável.
+— Senhor... os padrões de energia tão convergindo pra um ponto só. É como se alguma coisa tivesse chamando o Sangue Primordial.
 
-Do outro lado da sala, um assessor aguardava de pé junto à parede com a postura de quem aprendeu a ocupar o mínimo de espaço possível na presença daquele homem. Havia aguardado por quarenta minutos.
+A sala ficou em silêncio. Até as máquinas pareceram baixar o volume.
 
-— Quantas equipes temos operacionais em Bravara agora. — Kronos não virou.
+O Sangue Primordial era lenda. Coisa que se falava baixo, só nos círculos mais fechados da empresa.
 
-— Três, senhor. Duas em Marelia, uma em Auranis.
-
-— Redireciona as duas de Marelia. Observação apenas. Quero saber onde ele dorme, onde trabalha, quem são as pessoas ao redor. Nada de contato. Nada que ele note.
-
-— Entendido.
-
-O assessor saiu sem fazer barulho, com o cuidado de quem fecha uma porta quando há algo deitado do outro lado que não deve acordar.
-
-Kronos ficou sozinho com a tela.
-
-Havia esperado por aquilo durante um tempo que a maioria das pessoas chamaria de impossível. Havia construído um império sobre a paciência de saber que o momento certo chegaria.
-
-O posicionamento estava correto agora.
-
-O garoto era jovem, sem memória do que havia ativado, sem contexto para entender o que possuía. Estava em Marelia, que era território conhecido. Estava cercado de pessoas, dois amigos, uma escola, uma mãe adotiva que o sistema havia identificado em menos de um segundo, e pessoas eram a melhor ferramenta que existia quando usadas corretamente.
-
-Kronos se levantou pelo movimento fluido de quem nunca perdeu a condição física, caminhou até a janela e olhou para o oceano que não tinha ondas naquela hora da noite.
-
-— Ele será meu. — Muito baixo, para si mesmo. — Independentemente do preço.
-
-O oceano estava completamente sereno.
-
-Em Marelia, num anexo abandonado nos fundos de uma escola, Kim estava de joelhos no concreto frio sem memória nenhuma do que havia feito.
+— Equipe Alpha, análise de todos os epicentros. — Martinez. — Equipe Beta, isola os códigos suspeitos. Ninguém sai daqui até ter resposta.
 
 ---
 
+Numa ilha particular no Pacífico Sul, David Kronos assistia tudo.
+
+Telas holográficas flutuando na sala de controle. Parede de mármore negro, vidro do chão ao teto, o oceano lá fora. Ele estava reclinado numa poltrona de couro que parecia trono, terno branco impecável, o cabelo preto comprido preso num rabo de cavalo baixo. Pele queimada de sol. Olhos azul-aço.
+
+Na mão direita, uma taça de vinho tinto, girando devagar.
+
+Numa das telas apareceu a foto de um garoto. Os dados dele piscando em vermelho.
+
+E embaixo da foto, em letra escarlate:
+
+*SANGUE PRIMORDIAL.*
+
+O David sorriu. Um sorriso de triunfo e de obsessão.
+
+— Finalmente. — Quase um sussurro. — Como eu esperei por esse momento. O Sangue Primordial ao meu alcance. E dessa vez nada nem ninguém vai me impedir de tomar.
+
+Ergueu a taça pra tela, como quem brinda com o destino. Bebeu o vermelho devagar.
+
+— Eu sou o único digno dele. O único que merece.
+
+Por um instante, alguma coisa antiga brilhou nos olhos dele. Como se um espírito muito velho morasse naquele corpo moderno.
+
+— Ele vai ser meu. Independentemente do preço.
+
+O oceano em volta da ilha estava completamente sereno.
+
+---
+
+E o vídeo correu o mundo.
+
+Fórum fervendo. Rede social explodindo. Corte da luta sendo dissecado frame por frame por milhões de olhos. Live brotando a cada minuto, todo influencer querendo um pedaço.
+
+Uns juravam que era bug. Outros, que era prodígio. Todo mundo queria saber a mesma coisa.
+
+Quem era Briguento 142536?
+
+---
+
+Em Arenia, a Sarah levantou devagar da poltrona de veludo azul. O chá de maçã ainda quente na mesa. As pulseiras de prata tremendo um pouco no pulso.
+
+Pausou o vídeo no golpe final. O véu de seda escorregou quando ela se inclinou pra frente.
+
+Não era admiração. Era fome de confronto.
+
+— Ele não é invencível. — Na língua dela, pra ninguém.
+
+Lá fora, o chamado pra oração ecoava pela cidade antiga. Ela já estava montando a estratégia.
+
+---
+
+Em Draymoor, o Alex saiu de perto do computador e foi até a janela embaçada.
+
+A chuva de sempre batendo no vidro. O chá esfriando na mesa. As chaminés das fábricas velhas desenhando sombra no céu cinza.
+
+Nunca tinha visto ninguém lutar com aquela precisão. Era como ver um artista pintando com violência controlada.
+
+O coração dele batia no ritmo da chuva. Rápido.
+
+---
+
+Em Thessor, a pequena Mia pulou do sofá.
+
+Nove anos. Ainda não tinha idade pra lutar no LDI oficial. A avó fazendo o jantar na cozinha, o cheiro chegando até a sala.
+
+Ela correu pro quarto, pegou o papel e começou a desenhar o Kim. Do lado dele, ela mesma. Uma guerreira moderna conquistando o mundo digital.
+
+---
+
+Em Wendor, o Jaret ajeitou os óculos na poltrona de couro.
+
+Veterano aposentado. Quinze graus negativos lá fora, o aquecedor ronronando. Camisa xadrez vermelha e preta. Barba grisalha. O jogo de hóquei passando sem som na TV.
+
+Por décadas ele tinha achado que os dias de glória estavam enterrados embaixo da neve.
+
+Viu a luta duas vezes.
+
+*Talvez ainda tenha briga nesse urso velho.*
+
+---
+
+Em Zylvaron, no quadragésimo sétimo andar de uma torre de vidro, o Mikael parou a apresentação de investimentos no meio.
+
+Ar-condicionado em vinte e três graus. Lá embaixo, trinta e cinco. Camisa branca, gravata de seda, orquídea branca na mesa.
+
+O vídeo tinha chegado pelo chat da empresa. Número do SDR, análise, gráfico de performance. Tudo virou borrão.
+
+Só sobrou uma certeza.
+
+Ele precisava enfrentar aquele garoto.
+
+---
+
+Em Erendale, a Isabella parou no meio da rotina de skincare de dez passos.
+
+Os dedos de unha decorada fecharam até marcar a palma. O uniforme da escola pendurado do lado dos cosméticos. O setup gamer com teclado mecânico personalizado.
+
+Três anos de cursinho especializado em gaming. Centenas de vitórias. E aquele garoto fazia ela parecer uma noob.
+
+A inveja queimava.
+
+— Eu vou destruir ele. — Entre os dentes.
+
+Já estava imaginando a vingança viralizando.
+
+---
+
+Em Valetis, a Tira secou as mãos no avental.
+
+As almôndegas esfriando no fogão. A neve começando a cobrir os pinheiros lá fora. Oito graus negativos no termômetro da janela.
+
+Dona de casa. Mãe de dois. E, nas tardes em que as crianças estavam na creche, uma das melhores estrategistas de LDI que ninguém conhecia.
+
+Ela abriu uma planilha e começou a separar os movimentos do Kim. Os de antes da virada numa coluna. Os de depois, na outra.
+
+A segunda coluna ficou quase vazia. Nada do que ele fez depois cabia em categoria nenhuma.
+
+Ela escreveu uma linha só, embaixo da tabela.
+
+*Se não é o jogador que está controlando o poder, então quem está?*
+
+---
+
+O perfil Briguento 142536 virou o olho do furacão.
+
+Seguidor novo aos milhares, depois às dezenas de milhares, a cada minuto. O contador de visualização girando como roleta descontrolada.
+
+Nos dojôs de elite, espalhados pelos quatro cantos do mundo, mestres velhos pararam o treino no meio. O silêncio das salas foi quebrado por cochicho em dezenas de idiomas.
+
+Um fantasma tinha saído do anonimato e quebrado, com meia dúzia de golpes, tudo que se sabia sobre aquele jogo.
+
+Em poucas horas, o Kim tinha atravessado a distância entre ninguém e o centro das atenções do planeta.
+
+E ele não fazia a menor ideia.
+
+Estava num anexo abandonado nos fundos de uma escola em Marelia, do lado do melhor amigo, oferecendo cigarro pra uma garota de cabelo rosa.

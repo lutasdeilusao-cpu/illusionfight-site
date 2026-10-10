@@ -1,373 +1,229 @@
-# CAPÍTULO 11 — O Que Uma Garota de Doze Anos Faz
+# CAPÍTULO 11 — O Pulo do Gato
 
-A casa estava do jeito que ele havia deixado de manhã.
+O Kim encheu os copos de novo e sentou numa caixa de papelão.
 
-De manhã havia pressa. À noite havia o sofá com as marcas de sempre, o cinzeiro no limite, as latinhas de ontem ainda no chão porque Helena havia saído antes de acordar completamente e não havia voltado ainda.
+— Agora sim. — Olhou pros dois. — Me explica essa porra direito. LDI, SBI, SDR, SDA, sei lá o quê. Tudo.
 
-Kim jogou a mochila atrás da porta e começou.
+O Jack fez a cara de quem ia ter muito trabalho. Olhou pra Nina pedindo socorro. Ela fez que sim com o olho.
 
-A pia cheia primeiro. Depois o chão. Depois as roupas espalhadas pela sala. O cinzeiro esvaziado com cuidado de quem faz isso muitas vezes e sabe que cinza espalha se não tiver cuidado. Era assim toda noite. O apartamento voltava ao estado que ele havia deixado de manhã e na manhã seguinte Helena acordava e desfazia tudo de novo sem perceber que havia sido refeito.
+Os dois pegaram os copos.
 
-Kim nunca havia comentado isso. Não havia motivo.
+— Vamo do começo. — Jack. — Em 2022, um cara misterioso chamado David funda uma empresa aqui em Bravara. A Yohu. E a Yohu inventa um sistema de luta em realidade virtual. O LDI. Lutas de Ilusão.
 
-Estava varrendo o corredor quando ouviu a chave na fechadura.
+Ele bebeu. A Nina continuou de onde ele parou.
 
----
+— Em três meses o LDI tava em todo lugar. No primeiro ano vendeu mais que qualquer videogame da história. Virou tão comum quanto celular. Aí a Yohu começou a entrar em tudo. Realidade aumentada, produto novo pro SBI...
 
-Helena entrou com a bolsa no ombro e o batom gasto de um dia longo.
+Dessa vez foi ela que virou o copo.
 
-Os olhos varreram o ambiente como sempre, calibrando o que havia mudado. Encontraram Kim parado no corredor com a vassoura na mão.
+— SBI é Simulador de Batalhas de Ilusão. — Jack. — O aparelho. A Yohu pegou a tecnologia e enfiou em tudo que existe. Educação, medicina, pesquisa. Virou a empresa bravariana mais poderosa do mundo. — Levantou o dedo. — Mas vamo ao que importa. Nina, explica o SDR pra ele. Eu vou preparar outro copo.
 
-Pararam.
+A Nina sorriu.
 
-Havia algo no rosto dele que ela leu antes de ele dizer qualquer coisa. Não era a expressão de quem espera pra pedir dinheiro. Não era raiva. Era outra coisa que ela não conseguia nomear mas que fez algum músculo nas costas ficar tenso sem motivo aparente.
-
-— Café tem? — Indo pra cozinha.
-
-— Fiz agora pouco. Tá quente.
-
-Ela voltou com a lata de cerveja. Sentou na poltrona. Olhou pra ele ainda parado no corredor.
-
-— Para com isso e senta. Tá me deixando nervosa.
-
-Kim encostou a vassoura na parede. Sentou no sofá em frente a ela.
-
-O apartamento ficou quieto com o tipo de silêncio que não é ausência de som mas presença de algo que ainda não foi dito.
-
-Helena tomou um gole. Esperou.
-
-— Eu quero saber sobre o meu pai.
-
-A lata parou no meio do caminho de volta pra mão dela.
-
-Ficou assim por um segundo. Depois Helena colocou devagar na mesa e olhou pro lado, pra janela, pra qualquer lugar que não fosse o rosto de Kim.
-
-— Por que agora.
-
-— Porque eu nunca perguntei e hoje tem motivo.
-
-— Que motivo.
-
-— Uma coisa que alguém disse que não fecha se eu não souber.
-
-Helena ficou olhando pra janela. Do lado de fora Marelia fazia o barulho de sempre.
-
-Silêncio longo.
-
-— Helena.
-
-— Sabe o que é o seu problema? — A voz subindo de uma vez. — Você acha que pode chegar aqui depois de um dia qualquer e me cobrar alguma coisa. Me cobrar. A mim.
-
-— Não tô cobrando nada, só quero—
-
-— Você quer. Você quer, você precisa, você tem direito. — Levantou do sofá. — Todo mundo nessa vida sempre quer alguma coisa de mim, Kim. E você acha que é diferente porque é meu filho?
-
-— Eu só quero saber quem—
-
-— CALA A BOCA.
-
-O grito preencheu o apartamento inteiro. Helena estava de pé com a respiração acelerada, a lata ainda na mão, os olhos com aquele brilho específico que Kim havia aprendido a reconhecer antes de aprender a ler.
-
-— Você não vai saber nada. Nunca. Tá ouvindo? Nunca na sua vida miserável você vai saber quem é seu pai, porque se depender de mim essa informação vai pro túmulo comigo e eu vou sorrir quando estiver indo. Agora me dá a grana e some da minha frente.
-
-— Não vou te dar nada hoje se você não me contar.
-
-O que veio depois não foi fala.
-
-Foi a lata voando.
-
-Kim desviou sem nem se mover completamente, o reflexo automático de quem treinou isso sem querer durante anos. A lata bateu na parede e caiu no chão pingando o que restava.
-
-Helena foi pra cozinha. O som de copos quebrando começou antes que ela chegasse completamente lá, ela pegando o primeiro que encontrou e arremessando contra a pia, depois outro contra a parede, os estilhaços espalhando pelo chão que Kim havia varrido há vinte minutos.
-
-— FILHO DA PUTA! INGRATO! VOCÊ NÃO FAZ IDEIA DO QUE EU PASSEI PRA TE MANTER VIVO—
-
-Mais um copo.
-
-— VOCÊ É UM LIXO, KIM. SEMPRE FOI. IGUAL AO SEU PAI QUE TAMBÉM ERA UM LIXO, IGUAL A TODO HOMEM QUE JÁ PASSOU PELA MINHA VIDA—
-
-Kim ficou parado no meio da sala ouvindo. Não era novidade. Era o script de sempre, o mesmo que havia começado quando ele tinha oito anos e não havia mudado de estrutura desde então, só ficado mais alto com o passar do tempo.
-
-O que era novidade era ele não estar se movendo em direção à porta.
-
-— Você quer saber do seu pai? Quer mesmo? Então sai dessa casa, some da minha vida, vai procurar ele na rua porque eu não sei onde ele tá e não me importo, e quando você encontrar esse merda você vai entender por que eu nunca falei nada, porque vai ser a decepção mais—
-
-— Senta.
-
-A voz não subiu. Não precisou.
-
-Helena ficou parada no meio da sala com os pulmões ainda trabalhando rápido, os olhos procurando onde colocar o que estava sentindo.
-
-Kim esperou.
-
-Ela foi até o sofá. Sentou. Não porque quis. Porque as pernas cederam um pouco.
-
-— Eu vou tomar banho. Quando eu descer, se você quiser me contar, eu tô aqui. Se não quiser, tudo bem. Mas eu vou continuar perguntando até você me contar.
-
-Helena ficou olhando pro chão enquanto ele subia as escadas.
+Os dois falavam com ela como se ela sempre tivesse estado ali. Ela nunca tinha tido isso.
 
 ---
 
-O chuveiro ficou no frio.
+— SDR é o sistema de rank. — Ela. — Ele te põe numa fila com todo mundo que joga LDI no mundo. Cada luta te dá ponto. Ninguém sabe direito quanto vale uma vitória. A Yohu diz que depende da energia gasta na luta e da força mental de quem tá lutando. Em teoria, luta equilibrada dá mais ponto. Só que o LDI não tem level. Então você nunca sabe se tá lutando contra alguém mais forte, igual ou mais fraco.
 
-Kim ficou parado debaixo da água com as mãos abertas na parede, a cabeça baixa, a água descendo pelo pescoço e pelos ombros e indo embora.
+O Jack voltou com o copo cheio e um sorriso enorme.
 
-Não estava com raiva. Era o mais estranho. Havia esperado sentir raiva e o que estava sentindo não era isso.
+— E é aqui que a gente dá o pulo do gato. Pra entrar no rank, você tem que estar pelo menos na posição um milhão. Tem mais de oito bilhões de pessoas no mundo. Pelo menos três bilhões jogando LDI. Entrar no top um milhão já não é fácil. Mas se você entra, já tem alguma relevância. Pequena. Mas tem.
 
-Era o medo de saber misturado com o medo de não saber, os dois juntos, impossível distinguir um do outro.
+— E o rank é separado em faixa. — Nina, montando outra rodada. — De um milhão até quinhentos mil, são os menos relevantes. Os menos dos menos. De quinhentos mil a cem mil, pouca relevância. De cem mil a cinquenta mil, se trabalhar um pouquinho, já consegue alguma coisa. De cinquenta mil a dez mil é a galera mais acompanhada. Eles não podem fechar as lutas, então o mundo inteiro gosta de assistir. São os quarenta mil free. — Ela parou. — Já falei demais. Continua, Jack.
 
-O Pajé havia dito *como seu avô*. Não como seu pai. Como seu avô.
+O Jack fez a cara de *fazer o quê*.
 
-Havia uma linhagem. Havia algo antes de Kim que Kim não sabia nada sobre.
+— Então, cara. Daí pra cima é que fica interessante. De dez mil até mil, a galera já começa a faturar com o LDI...
 
-A água ficou fria de verdade. Ele fechou o chuveiro.
+A mão do Kim fechou no braço do Jack.
+
+Com força.
+
+— Você tá falando que dá pra ganhar dinheiro com essa porra?
+
+O Jack riu. Fez que sim com a cabeça, devagar, de cima pra baixo.
+
+— Dá, cara. Dá pra ganhar dinheiro com essa porra. E não é pouco. A gente tá falando de muita grana.
+
+O Kim soltou o braço dele. Bebeu. Pela primeira vez a tarde inteira, estava prestando atenção de verdade.
 
 ---
 
-Ela estava no sofá quando ele desceu.
+— Os que estão entre mil e dez mil são os dez mil specials. — Jack. — E eles têm os recursos de SDM. Monetização. Presta atenção na minha lista, hein.
 
-Não havia ouvido a porta abrir ou fechar. Helena simplesmente estava lá, ainda de roupa de sair, a bolsa no chão ao lado dos pés. Nenhuma lata nova. Os cacos de copo continuavam na cozinha onde haviam caído.
+Ele contou nos dedos.
 
-Kim parou na entrada da sala.
+— SDA. Sistema de apostas. Quem assiste aposta os pontos na luta. Dependendo de quanta gente aposta e em quem, você pode receber até dez por cento dos pontos do vencedor.
 
-Ela não estava do jeito que ele esperava. Não estava com raiva. Não estava no pós-crise. Estava quieta. Os olhos abertos olhando pra frente sem olhar pra nada específico.
+— SDD. Doação. Alguém da plateia te manda uma doação pequena em troca de nada, ou uma grande em troca de você falar o nome dele, fazer um movimento, agradecer. Os pedidos já vêm escolhidos pelo LDI, então ninguém pede coisa que atrapalhe a luta.
 
-Havia algo no rosto dela que Kim não reconhecia porque nunca havia visto antes.
+— SAL. Acesso limitado. Você fecha a sua luta, sem plateia. Ou cobra pra entrar. Ou cria um grupo exclusivo e cobra um absurdo pra pouca gente ver.
 
-Ele foi pra cadeira em frente ao sofá e sentou.
+— STE. Treinamento exclusivo. Você dá aula pra aluno pagante. Ensina golpe, vira mentor, mestre. Ou faz sessão mostrando os seus poderes.
 
-Helena não se moveu.
+— SDP. Parceria. Ou você corre atrás de marca do jeito tradicional, ou se põe à disposição e a Yohu te liga com marca famosa. Ela cuida de tudo e você só recebe. Teu avatar e a arena mudam pra atender o parceiro em cada luta.
 
-O apartamento ficou quieto de novo mas com um silêncio diferente do anterior. Esse tinha peso. Tinha a qualidade de algo prestes a acontecer e os dois sabem mas nenhum tem pressa de chegar lá.
+— E SVN. Venda de NFT. A cada seis meses, você e um designer da Yohu criam de dez a trinta itens exclusivos pra vender. Dá recompensa pra quem compra, e quem compra pode revender.
 
-Kim esperou.
+Ele abriu as mãos.
 
-Helena olhou pra mão como se não soubesse o que estava fazendo com ela. Colocou no colo.
+— Fora isso, como o LDI tá no mundo inteiro, você fica famosinho quase na hora. Empresa te chama pra evento, mídia, essas coisas. Ajuda o lado financeiro.
 
-Quando levantou o rosto, os olhos tinham uma expressão que Kim não conseguia ler, o que era incomum porque ele lia o rosto de Helena desde que tinha memória de ler rostos.
+O Kim tinha ido de interessado pra confuso no meio da lista. No fim, estava com a cara fechada.
 
-— Eu não sei quem é o teu pai, Kim. — Com uma voz que não era nenhum dos tons que ele conhecia.
+— Então eu vou ficar famoso se eu jogar essa porra? Achei que dava pra ser anônimo, sei lá. Você sabe muito bem que eu aceito ficar rico numa boa. Mas eu quero comer na praça de alimentação em paz.
 
-Parou.
+A Nina sorriu.
 
-— Não é que eu escondi. É que genuinamente não sei. Nunca soube.
+Ele falava sério. Não era pose. Pouca gente que ela conhecia queria de verdade uma vida tranquila, sem ostentação.
 
-Kim ficou parado.
+O Jack pôs a mão na cara.
 
-— Não tenho memória de antes de um certo ponto. É mais como se eu tivesse nascido dentro de um lugar. Sem antes. Sem fora. Um quarto. Lâmpada quase apagando. Balde no canto. Colchão no chão. É a memória mais antiga que tenho. Não sei quantos anos eu tinha. Não sei como cheguei lá.
+— Tá. Depois a gente conversa sobre essa sua percepção da realidade. — Bebeu. — Continuando. No fim da tua primeira luta, você chegou na posição mil duzentos e um do ranking mundial. Quer dizer que, de todo mundo que joga no planeta, você tá chegando no top mil. Com uma luta. Eu, por outro lado, fui o único que apostou em você. Com isso, mais os meus pontos, eu fui pra dez mil setecentos e setenta e seis. Ou seja, eu ganhei...
 
-A mão dela no colo não se movia.
+— E eu também apostei no Kim. — A Nina baixou o copo, já meio tonta. — Só pela graça de apostar no azarão. Tô na oito mil setecentos e vinte e quatro. Um viva pra mim. Ippee ki yay!
 
-— De noite eles me tiravam de lá. Me arrumavam. Me levavam pra outros lugares. Eu era vendida. Usada. Devolvida. Toda noite. Durante um tempo que eu não consigo medir porque criança não mede tempo igual adulto.
+O Jack olhou pra ela surpreso. Respirou fundo. Tomou mais um gole.
 
-A palavra *criança* caiu no meio da sala e ficou lá.
+— Reformulando. Você tá na mil duzentos e um. Eu, que apostei, tô na dez mil setecentos e setenta e seis. E a Nina, que pelo jeito assistiu escondida e também apostou, tá na oito mil setecentos e vinte e quatro.
 
-Kim não disse nada. Havia só ficar ali e deixar que ela chegasse até onde ia chegar.
+A Nina estava radiante. O Jack viu que ela estava ficando alta e riu. Os dois brindaram. O Kim, sem entender direito a felicidade dos dois, brindou também.
 
-— Em algum momento apareceu um bebê no meu quarto. Você. Recém-nascido ou quase isso. E eu entendi o que ia acontecer com você porque eu sabia o que acontecia com todo mundo que chegava naquele lugar.
+— Com isso, eu e a Nina viramos top mundial de relevância média. — Jack. — Você, cara, virou top mundial de relevância alta. Se trabalhar duro uns dois ou três anos, talvez chegue no torneio mundial. Os cento e vinte e oito melhores lutadores de LDI do mundo. Eles se enfrentam na ilha particular do David, Davoss. A cada quatro anos.
 
-Os punhos de Kim estavam fechados.
+— E com isso uns sistemas de monetização já liberam pra gente. — A Nina, a voz já meio mole. — E pra você, Kim: é a partir do top um milhão que você começa a ser rastreado. Todo mundo consegue te achar, ver quem você é. Então é bom você traçar uma estratégia. Uma meta. Do que você quer fazer com o LDI pra mudar a sua vida. — Pausa. — Sendo bem sincera, só depende de você.
 
-Ele não havia percebido quando tinha fechado.
+O Jack, já alto também, fez que sim com a cabeça pra tudo.
 
-— Naquela noite eu fugi. Peguei você e corri. Pulei de um carro em movimento. Não sei pra onde, só corri. E de repente éramos só nós dois no mundo. Eu com uns doze anos. Você com não sei quantos dias de vida. Sem adulto. Sem dinheiro. Sem nada.
+— Então, cara. Agora um dos recursos que liberaram pra você é trocar o nick e o avatar. Igual o grande campeão do LDI. Dá pra manter a tua identidade em segredo.
 
-O apartamento estava absolutamente quieto.
+O Kim levantou o copo, feliz da vida pela primeira vez na conversa.
 
-— Então quando você me pergunta quem é seu pai, a resposta honesta é que pode ser qualquer um dos homens que me usaram naquele lugar. Eu não sei. Nunca vou saber. E mesmo que soubesse não sei se seria algo que você ia querer saber.
+— Ah, agora eu gostei. Quer dizer que eu fico no modo stealth? Agora ficou interessante. Só que vocês vão ter que me ensinar.
 
-Ficou com os olhos baixos.
+O Jack abraçou ele, o álcool já subindo, a voz de bêbado bom.
 
-— Qualquer um deles pode ter te colocado no mundo. E qualquer um deles era um animal. Então não sei se pai é a palavra certa pra nenhum deles.
+— Claro, meu amigo! É lógico que eu te ajudo a personalizar o teu avatar e o teu nick. Mas pra isso você precisa de um SBI teu. Hoje a gente não esquenta com isso. Amanhã, depois da escola, eu dou um jeito. Mais alguma dúvida?
 
-Kim ficou com aquilo por um tempo que não mediu.
+O Kim conhecia o amigo. Sabia que aquilo ia dar em encrenca. Sorriu, abraçou de volta, e aceitou o destino.
 
-Depois disse a única coisa que havia pra dizer.
+Como sempre. No melhor e no pior, os dois entravam juntos de cabeça.
 
-— Você tinha doze anos.
+---
 
-— Mais ou menos. Eu acho.
+— Ohhh. — A Nina. — Como vocês são fofos juntos. Na escola vocês parecem os maiores arruaceiros. Sozinhos, parecem duas crianças brincando. É muito estranho andar com vocês.
 
-— E me tirou de lá.
+O Kim e o Jack começaram a fazer carinho na cabeça um do outro. *Ohhh.* Rindo. Trocaram até um beijinho no rosto.
 
-Ela levantou os olhos. Havia algo nas bordas da voz quando respondeu.
+A Nina se acabou de rir.
 
-— Não foi heroísmo. Foi instinto. Ou loucura. Naquela hora eu não conseguia pensar direito.
+— Ai, ai. Se vocês dois não fossem tão gays, talvez eu pegasse um de vocês. Ou os dois.
 
-Kim se levantou do sofá. Foi até a poltrona. Sentou no braço ao lado dela.
+O Jack se interessou na hora. Chegou bem perto do rosto dela.
 
-Era um gesto que nenhum dos dois havia feito antes na direção do outro. Helena ficou parada sem saber o que fazer com aquilo.
+— Sabe, linda, eu não gosto de dividir. Eu e o Kim nunca fizemos isso. Mas talvez, por você, a gente faça.
 
-Kim ficou ali.
+— Não. — O Kim protestando com o corpo inteiro.
 
-O silêncio que veio agora era diferente de todos os outros silêncios daquela noite. Era o silêncio de depois. O tipo que só existe quando alguma coisa pesada que estava sendo carregada foi finalmente posta no chão.
+O Jack fez um gesto com a mão pra ele calar a boca.
 
-— Tem mais. — Helena depois de um tempo longo, a voz diferente.
+A Nina passou a mão no rosto do Jack, devagar, com um sorriso malicioso.
 
-— Pode contar quando quiser.
+— Sabe, lindo, eu tô sendo sincera quando digo que pegaria vocês dois. Mas eu fico com medo de vocês ainda não serem homens o suficiente pra dar conta do recado. Eu sou mulher demais pra vocês.
 
-— Não. Tem que ser agora. Se eu parar agora eu não falo nunca mais.
+— EEEEEEEEITAAAAAAA PORRAAAAAAAA!
 
-Ela pegou o maço de cigarro na mesinha. Acendeu um. Kim estendeu a mão e ela passou o maço sem olhar, e ele acendeu o dele também.
+O grito do Kim ecoou pela garagem.
 
-— Sabe o que uma garota de doze anos faz pra sobreviver com um bebê no colo, sem adulto, sem documento, sem nada? — Soltando a fumaça pro teto. — Pergunta de verdade, Kim. Você sabe?
+O Jack baixou a cabeça, derrotado. E o Kim, que também devia ter se ofendido, começou a rir. Talvez da resposta dela. Talvez da vodka. Mas não parava.
 
-Kim não respondeu.
+O Jack se afastou resmungando.
 
-— Faz a única coisa que aprendeu a fazer. — Seca. — Dos doze aos dezoito eu fiz o que eles me ensinaram naquele quarto. Só que agora era eu que escolhia. Era pra comprar leite. Era pra pagar o quartinho. Era pra você não dormir na rua. A lei não deixa criança trabalhar, e a lei também não perguntou nada pra mim.
+— Nossa. A gente tava se dando tão bem. Pra que toda essa ignorância? Muita falta de amor nesse coração.
 
-O cigarro tremia um pouco entre os dedos dela.
+A Nina, rindo, tentava chegar perto pra fazer carinho no pobre animal ferido. E ele continuava se afastando. Muito, muito ofendido.
 
-— Com dezoito eu arrumei o primeiro emprego de verdade. E os patrões... — Uma risada curta, sem graça nenhuma. — Os homens sempre percebiam alguma coisa em mim. Não sei o que é. Um cheiro. Um jeito de olhar pro chão. E usavam isso. Pra manter emprego eu fui de muitos, Kim. Mais seis anos assim.
+---
 
-Ela bateu a cinza no chão, do lado do cinzeiro.
+O resto da tarde foi bobagem.
 
-— Quando você fez doze eu tava acabada. Cansada dessa merda de vida, cansada de tudo que eu tinha feito por você, cansada de tentar ser alguma coisa. Eu nunca tive nada. Nunca tive alegria. Nunca tive prazer nenhum. Então eu decidi que agora era a sua vez. Que você ia me devolver pelo menos os doze anos que eu te dei.
+O Jack contando briga antiga e história que ia lembrando. A Nina contando que tinha passado os últimos anos em Azuma, por causa do trabalho do pai, que ela chamou de consultoria, com uma pausa antes da palavra que o Kim registrou e não comentou. A garrafa esvaziando.
 
-Olhou pra ele pela primeira vez desde que tinha começado.
+Quando a luz da rua começou a ficar laranja e depois sumiu, os três levantaram. Meio tortos.
 
-— Você tá no quinto. Faltam sete. Quando acabar a gente tá quite e você faz o que quiser da vida, e eu juro que não te peço mais um centavo. Até lá você tem uma dívida comigo. E se for homem você paga.
+— Pois é, rapeize. — Kim. — O papo tá bom, mas eu tenho que tomar meu rumo.
 
-O silêncio ficou na sala com a fumaça dos dois cigarros.
+— É. — O Jack, zonzo. — O Kim tem razão. Eu já devia tá em casa. Ainda vou puxar um trampo hoje à noite. Preciso de um banho.
 
-Kim ficou olhando pra ela por um tempo.
+A Nina se apoiou no Jack.
 
-Quando falou, a voz saiu mais baixa do que ele esperava.
+— Olha, gente. Essa tarde foi das mais divertidas que eu lembro. Mas eu tenho que ir mesmo. Meu pai já tá me mandando mensagem.
 
-— Eu não sei o que dizer.
+Recolheram o próprio lixo. Chamaram um carro pra ela e esperaram junto na calçada até ele chegar.
 
-Ela não respondeu.
+Ela entrou. Baixou o vidro.
 
-— Tô com uma raiva que eu não sei onde colocar. Mais raiva do que eu já senti na vida. Não de você. Deles. E me sinto inútil, porque essa raiva não serve pra nada. Ela não volta no tempo. Ela não tira você daquele quarto.
+— Amanhã você tem um SBI pra arrumar e um nick pra escolher. — Pro Kim. — Pensa bem no nick.
 
-Helena desviou o rosto.
+— Vai ficar Briguento mesmo.
 
-— Mas você tem razão. — Kim. — Eu te devo sete anos. Vou pagar cada um. E mais. Se precisar, até o último dia da sua vida não vai faltar nada pra você. Isso não é dívida. É outra coisa.
+— E vocês me mandem a próxima música. — Ela. — Com a cifra.
 
-Helena riu pelo nariz, o tipo de riso de quem não acredita.
+O carro foi embora.
 
-— Agora que você sabe que eu não sou sua mãe as coisas vão ser diferentes. — Olhando pra janela. — Só não fica achando que eu te sequestrei. Ou que eu inventei essa história pra você ter pena. Eu não me importo com o que você pensa. Eu só te tirei de lá. Nem sei por quê. Teria sido mais fácil ficar parada.
+---
 
-Kim colocou o cigarro no cinzeiro.
+O Kim e o Jack sentaram no meio-fio da rua triste, olhando a esquina vazia.
 
-Depois pegou a mão dela.
+O Jack ainda estava sorrindo. Do nada, ficou sério.
 
-Foi a coisa mais estranha que ele fez naquela noite. Ele não lembrava da última vez que havia tocado na mão da mãe. Talvez nunca tivesse. A mão era fria e menor do que ele imaginava, e não fugiu.
+— Cara. Eu não quis perguntar com a Nina aqui, porque eu não sabia como você ia reagir. Mas antes, outra pergunta. O que você achou dela agora?
 
-— Dona Helena. Não importa o que digam. Não importa como a gente se encontrou, nem o que você fez, nem o que eu fiz. Você sempre foi minha mãe. É assim que eu te vejo e é assim que eu vou te ver. Vou te respeitar como minha mãe. Vou cuidar de você como minha mãe.
+O Kim coçou o queixo.
 
-Ela não chorou de imediato.
+— Sendo sincero, ela meio que mudou a minha primeira opinião. Mas tá em avaliação. — Pausa. — Eu nunca esperei fazer amizade com mais ninguém na vida, além de você e o Alan. Mas não vou fechar o coração.
 
-Ficou parada com a mão na mão dele, o rosto virado pra janela, o maxilar trabalhando. Depois o rosto dela fez uma coisa que Kim nunca tinha visto, como uma represa cedendo de dentro pra fora, e o choro veio de um lugar tão fundo que não fazia barulho no começo.
+Um meio sorriso, quase invisível, apareceu no rosto do Jack.
 
-Não era o choro de depois da crise. Esse ele conhecia. Esse era de outro tipo.
+Ele estava feliz de ver o amigo se abrindo pra coisa nova. O LDI. A Nina. E ele mesmo se sentia bem do lado dela. Como se conhecesse ela fazia anos.
 
-Kim ficou ali. Não falou nada. Deixou ela ir até onde precisava ir.
+Aí a cara séria voltou.
 
-Demorou.
+— Cara. Eu sei que a gente zoou muito aquele velho moderninho. A gente riu pra caramba. Mas teve uma coisa que ele falou que eu tô ligado que mexeu com você. — Olhou pro Kim. — Ele falou alguma coisa da tua família, não foi?
 
-Quando ela conseguiu falar de novo, a voz estava inteira de um jeito que ele não reconhecia.
+O Kim olhou pro Jack, sorrindo. Era inacreditável o quanto aquele cara conhecia ele. Não dava pra esconder nada.
 
-— Eu sempre tive medo de te contar. Medo de você achar que eu era mentirosa. Eu não consigo mais, Kim. Não consigo trabalhar. Não consigo deixar homem nenhum chegar perto. Eu só sinto raiva e medo e um buraco. A única hora que eu fico feliz é bêbada. Por isso eu fico bêbada todo dia.
+— Você é foda, velho. Beleza. Mexeu, sim. Ele disse que, igual o meu avô, eu sou fodinha. Neto do fodão. — Olhou pra rua. — Meu avô, Jack. Se ele sabe do meu avô, ele sabe do meu pai. Me deu vontade de perguntar pra Helena.
 
-— Eu sei. — Kim apertando a mão dela. — Você tem o direito de fazer o que quiser pra ficar bem. Só uma coisa.
+O Jack coçou a cabeça. Ele sempre soube que aquilo era assunto sensível.
 
-Ela esperou.
+— Cara, eu sei que você não gosta de falar disso. Então eu não vou insistir em nada, como eu nunca insisti. Só vou te dizer uma coisa. Qualquer decisão que você tomar, conversar com a tua mãe ou não, saber quem é o teu pai ou não... você sabe que eu tô aqui, né?
 
-— Eu não lembro de ter visto você sorrir. Nenhuma vez. Então faz o que você precisar. Só não sai quebrando a propriedade dos outros.
+O Kim sorriu. Mais uma vez, feliz por ter aquele amigo.
 
-Helena olhou pra ele.
+— Pois é, cara. Pois é. Pra mim é estranho falar desse cara. Eu nem sei quem ele é, nem o que aconteceu entre ele e a Helena. E é isso. Só isso. Por isso eu não gosto que fiquem me perguntando de uma coisa que eu nem tenho por onde começar a responder.
 
-E riu.
+---
 
-Não alto. Uma risada curta, molhada, que escapou antes que ela pudesse segurar. Kim ficou paralisado olhando pra aquilo como quem vê neve pela primeira vez. Era a primeira vez que ele ouvia a mãe rir.
+— Você vai tentar hoje. — O Jack, sem olhar pra ele.
 
-— Você é um idiota. — Ela limpando o rosto com as costas da mão, ainda rindo, ainda chorando. — Foi bom ouvir você me chamar de mãe. Faz muito tempo. E eu já sorri pra você, tá? Você que não lembra.
+— Vou.
 
-— Você era um bebezinho muito lindo, sabe. Quando eu te peguei naquela noite. Muito lindo e muito gordo. Parecia uma bolinha.
+— Tá. Me manda mensagem se precisar.
 
-Kim não esperava aquilo.
+— Não vou precisar.
 
-— Uma bolinha.
+— Eu sei. Manda assim mesmo.
 
-— Uma bolinha com cara de zangado. Igual você hoje, mas menor e mais fofo.
+O Jack levantou, bateu a poeira da calça e desceu a rua até a casa dele com as baquetas no bolso de trás.
 
-— Eu não tenho cara de zangado.
+— Chega vivo amanhã a tempo da aula. — O Kim, alto.
 
-— Você tem cara de zangado desde que eu te conheço.
+O Jack levantou a mão sem virar.
 
-— Eu tenho cara de concentrado. São coisas diferentes.
+O Kim fechou o portão da garagem.
 
-— São exatamente a mesma coisa. — Com alguma coisa que era quase sorriso.
+Ficou um segundo com a mão no ferro frio. Lá dentro, no escuro, a guitarra pendurada no prego, o baixo encostado na parede, a bateria com o buraco onde faltava um tom.
 
-Kim ficou parado com aquilo. O primeiro sorriso da noite saiu sem ele perceber antes que já tivesse saído.
-
-Helena olhou pra cozinha destruída atrás dele. Olhou pros cacos no chão. Olhou pro cinzeiro cheio.
-
-— Tá uma zona aqui.
-
-— É. Alguém quebrou uns copos.
-
-— Cala a boca e vem me ajudar. — Indo pra cozinha sem olhar pra ele.
-
-Kim se levantou. Foi atrás dela.
-
-Eram quase onze da noite. A cozinha estava com cacos espalhados pelo chão que ela havia varrido duas horas antes. Helena pegou a vassoura sem cerimônia e começou, os cacos maiores primeiro, depois os menores, a vassoura raspando no chão com o som específico de vidro sendo empurrado.
-
-Kim ficou na porta da cozinha por um segundo observando aquilo.
-
-Depois foi pegar o pá.
-
-Limparam em silêncio. Helena varrendo, Kim recolhendo, os dois se movendo na cozinha pequena com a precisão de quem está aprendendo ao mesmo tempo como ocupar o mesmo espaço.
-
-— Você vai continuar perguntando sobre o pai. — Helena sem parar de varrer.
-
-— Provavelmente.
-
-— Não vai encontrar nada de bom.
-
-— Eu sei.
-
-— Eu não sei mais nada além do que te contei. Não tenho nome. Não tenho rosto. Não tenho nada.
-
-— Tudo bem.
-
-Helena voltou a varrer. Kim recolheu o último monte de cacos e jogou fora.
-
-A cozinha ficou limpa.
-
-Os dois ficaram parados por um segundo olhando pro resultado.
-
-— Vou sair. — Helena pegando a mochila da cadeira.
-
-— Tá.
-
-— Não vai fazer tarde.
-
-— Dona Helena.
-
-— Que foi.
-
-— Toma cuidado.
-
-Ela parou na porta. Não virou.
-
-Depois saiu.
-
-Kim ficou parado na cozinha por um tempo depois que o som da porta fechou. Depois apagou a luz. Subiu as escadas. Entrou no quarto.
-
-Deitou na cama sem tirar o tênis, olhando pro teto.
-
-O celular vibrou. Jack. Uma mensagem.
-
-*e aí*
-
-Kim ficou olhando por um segundo. Respondeu com um emoji de joinha. Jack mandou de volta um coração torto e sumiu.
-
-Era suficiente.
-
-Kim tirou o tênis sem se levantar, jogou pro canto, e fechou os olhos.
-
-Do lado de fora, Marelia continuava fazendo o barulho de sempre.
-
-Dentro, pela primeira vez em muito tempo, havia apenas silêncio.
+Pela primeira vez, a garagem parecia pequena demais.

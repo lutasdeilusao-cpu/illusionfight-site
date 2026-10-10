@@ -40,13 +40,13 @@ Na trilha da esquerda, a Nina estava pulando no lugar.
 
 Quicando, leve, como se fosse um ringue e não um caminho de terra cheio de gente desmaiada. Pela primeira vez ela estava entendendo por que tinha gente que gostava tanto de brigar.
 
-Com um sorriso confiante, passou o dedão no nariz, encarando os três que sobravam.
+Com um sorriso confiante, fez uma firula à Bruce Lee, passando o dedão no nariz, encarando os três que sobravam.
 
 Os três não queriam mais.
 
 Ela via isso na cara deles. Mas também via que o orgulho deles não ia deixar eles saírem sem tentar. E que eles tinham mais medo da chefe do que dela.
 
-O primeiro veio com um pedaço de madeira. Era um dos dois do começo, o que tinha tomado o chute no queixo. Nina segurou o pulso dele bem na base, travou o braço, e começou a usar ele como saco de pancada. Socos de direita, rápidos, curtos, um em cima do outro, sem parar, sem dar tempo de nada. O rosto dele foi ficando sem reação. Os joelhos foram cedendo. Mesmo depois que ele chegou no chão, apagado, ela ainda deu mais três antes de parar.
+O primeiro veio com um pedaço de madeira. Era um dos dois do começo, o que tinha tomado o chute no queixo. Nina segurou o pulso dele bem na base, travou o braço, e começou a usar ele como saco de pancada. Socos de direita, rápidos igual os do mestre Ip Man, curtos, um em cima do outro, sem parar, sem dar tempo de nada. O rosto dele foi ficando sem reação. Os joelhos foram cedendo. Mesmo depois que ele chegou no chão, apagado, ela ainda deu mais três antes de parar.
 
 Ela olhou pro cara da corrente. Sorriu.
 
@@ -128,13 +128,15 @@ Aquele garoto na frente dela não era normal.
 
 Com o sangue descendo pelo meio da cara, terminando um homem com a mão aberta no chão. Aquilo era uma força da natureza. Uma coisa que se respeita.
 
-Ela já tinha ouvido falar. Na rua todo mundo sabia que dava pra contar nos dedos as brigas que o Kim e o Jack tinham perdido. E que quase todas tinham um nome só. Um nome que a rua falava baixo. O Campeão.
+Ela já tinha ouvido falar. Na rua todo mundo sabia que dava pra contar nos dedos as brigas que o Kim e o Jack tinham perdido. E que oitenta por cento delas tinham um nome só.
 
-Foi por causa dele, diziam, que aqueles dois tinham virado amigos. Foi apanhando dele que viraram irmãos. E nem juntos tinham conseguido.
+Alan.
+
+O único rival de verdade dos dois. O nome que tinha juntado o Kim e o Jack. O único que já tinha vencido os dois.
 
 Roxy olhou pro Kim.
 
-*Se aquele cara apanhou do Campeão, como é o Campeão?*
+*Se esse cara apanhou do Alan, como é o Alan?*
 
 ---
 

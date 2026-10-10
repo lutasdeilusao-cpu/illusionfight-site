@@ -6,7 +6,7 @@ Era um brilho negro. Jack e Nina viram aquilo do outro lado da sala, uma coisa q
 
 Estava um machado.
 
-Duas lâminas, uma de cada lado, o cabo um pouco mais comprido que o braço dele. Nada gigante. Um metro e pouco. Leve o bastante pra ele segurar com uma mão só.
+Duas lâminas, uma de cada lado. Nada gigante. Entre um metro e dez e um metro e vinte. Leve o bastante pra ele segurar com uma mão só.
 
 Kim passou o machado pra mão direita. A roldana desceu pelo cabo e encaixou embaixo dos dedos, com o fio de aço preso no fim do cabo, exatamente como nas machadinhas.
 
@@ -54,8 +54,6 @@ Quando ela entendeu, já tinha entendido tarde.
 
 — NÃAAAO—
 
-Kim fechou a mão e puxou.
-
 ---
 
 Nina sentiu um impacto nas costas.
@@ -64,7 +62,7 @@ Depois sentiu que estava leve.
 
 Depois estava olhando de cima.
 
-Flutuava em cima da sala, sem peso, sem corpo, e lá embaixo, no piso cinza, estava ela. Duas metades dela. Separadas pela cintura, o sangue espalhado num raio que ia longe, o que tinha dentro dela pra fora, tudo com um realismo que ela tinha esquecido que o LDI tinha.
+Flutuava em cima da sala, sem peso, sem corpo, e lá embaixo, no chão da arena, estava ela. Duas metades dela. Separadas pela cintura, o sangue espalhado num raio que ia longe, o que tinha dentro dela pra fora, tudo com um realismo que ela tinha esquecido que o LDI tinha.
 
 O machado voltou girando pelo fio e encaixou na mão de Kim como cachorro voltando pro dono.
 
@@ -84,15 +82,11 @@ Jack recuou devagar pra longe do corpo da Nina, como quem se afasta de uma bomba
 
 — Ela volta, né? — Kim. — É sala de treino. Ela volta daqui a pouco.
 
-— Não volta, não.
-
-— Como assim não volta.
-
-— Morreu numa sala de treino, ficou de fora. Só volta quando abrir uma sala nova. Agora ela só assiste.
+— Não volta, não. Morreu numa sala de treino, ficou de fora. Só volta quando abrir uma sala nova. Agora ela só assiste.
 
 — Eu achei que era tipo respawn. Morre, volta, morre, volta.
 
-— Devia ser. Mas não é. Treino é pra ser leve, ninguém matando ninguém, senão ninguém treina. — Jack apontou pra cima com a bengala. — E nas salas públicas, pra voltar, tem cooldown de cinco horas. É por isso que tem uns grupos que entram numa sala pública e matam todo mundo que tá lá. Cinco horas de sala vazia. É assim que a galera arruma sala privada sem pagar.
+— Devia ser. Mas não é. Treino é pra ser leve, ninguém matando ninguém, senão ninguém treina. — Jack apontou pra cima com a bengala. — E nas salas públicas, pra voltar, tem cooldown de cinco horas. É por isso que tem uns grupos que entram numa sala pública e matam todo mundo que tá lá. Cinco horas de sala vazia. É assim que a galera limpa uma sala pública pra ter uma sala meio privada só pra ela.
 
 A voz da Nina veio de algum lugar da sala, do mesmo jeito que a NeoGuide falava com eles.
 
@@ -128,7 +122,7 @@ Jack segurou a Vitória com as duas mãos e cruzou os braços com ela na frente 
 
 Pedras começaram a subir do chão em volta dele.
 
-Pequenas. Dezenas. Depois centenas. Saindo do piso da arena sem barulho e ficando paradas no ar, girando devagar em volta dele como se ele fosse um planeta.
+Pequenas. Milhares. Saindo do chão da arena sem barulho e ficando paradas no ar, girando devagar em volta dele como se ele fosse um planeta.
 
 Kim não sabia o que aquilo ia fazer. Sabia que o amigo não estava brincando. Começou a andar pra trás, abrindo distância, garantindo espaço pra fazer alguma coisa antes que aquilo terminasse.
 
@@ -162,7 +156,7 @@ Lá em cima, Jack levantou os braços.
 
 Kim abriu os olhos e estava em cima.
 
-Flutuando sobre a arena, sem corpo. Lá embaixo, o próprio corpo, estirado no piso cinza, cheio de furos, o sangue fazendo poça. E do lado do corpo, o Jack. Dançando.
+Flutuando sobre a arena, sem corpo. Lá embaixo, o próprio corpo, estirado no chão, cheio de furos, o sangue fazendo poça. E do lado do corpo, o Jack. Dançando.
 
 Uma dança ridícula, com os cotovelos pra fora e o quadril indo pra um lado e pro outro, girando em volta do cadáver dele.
 
@@ -186,68 +180,74 @@ Kim olhou pra baixo.
 
 — Fala olhando pra mim e para com essa palhaçada!
 
-— Primeiro: deixa eu terminar que isso aqui vai virar um short pro PowWow. Segundo: eu não sei onde você tá. Quem morre some. Eu só vejo o seu corpo aqui, todo esburacado, com as tripa pra fora, sabe.
+— Primeiro: deixa eu terminar a minha dancinha, que isso aqui vai virar um short pro PowWow, pra ver se viraliza. Segundo: eu não sei onde você tá. Quem morre some. Eu só vejo o seu corpo aqui, todo esburacado, com as tripa pra fora, sabe.
 
 Kim estava horrorizado. Era o corpo dele. Parecido demais com o de verdade. E o melhor amigo dele estava rebolando em cima.
 
-— Calma. — Nina. — Vídeo no PowWow tem no máximo um minuto. Ele já tá acabando.
+— Calma. — Nina. — Ele já vai acabar. Vídeo no PowWow tem no máximo um minuto. Espera mais um pouquinho que ele chama a NeoGuide.
 
-— Por que ele não encerra logo.
+Esperaram.
 
-— Porque quem decide é quem ganha. Quando você perde, você não sai da sala até o vencedor encerrar a partida, ou até o sistema encerrar sozinho. Não dá pra desconectar no meio. Começou, vai até o fim. — Ela olhou pra ele. — Por isso ninguém começa partida em lugar aberto, sozinho, sem amigo do lado olhando o seu corpo lá fora.
-
-Kim ficou com aquilo.
-
-— Você joga algum jogo, Kim?
-
-— Claro. Jogo muito. Sempre que sobra tempo entre cuidar da casa, cuidar da minha mãe, trabalhar no ônibus e estudar de bolsista, eu jogo direto. Gamer de verdade. Pode ter certeza.
-
-— Não precisa ser irônico. — Nina emburrada. — Já entendi.
-
----
-
-Ficaram em silêncio um tempo, os dois flutuando, o Jack lá embaixo fazendo a pose final pro vídeo.
-
-— Pra ficar bom o suficiente pra não morrer rápido numa sessão de treino. — Kim. — Quanto tempo você acha que leva.
-
-Nina ficou quieta um segundo. O segundo de alguém sendo honesta com ela mesma antes de ser com outra pessoa.
-
-— Umas seis semanas pra começar a sobreviver uma sessão inteira. Uns três meses pra começar a ganhar de quem tá no seu nível. Uns seis meses pra ter consistência de verdade.
-
-Kim olhou pro teto digital.
-
-Seis meses era um número que cabia na cabeça. Mas custava alguma coisa quando chegava.
-
-— Tudo bem.
-
-— É o processo.
-
-— Eu sei.
-
-Lá embaixo, Jack olhou pra cima, pra lugar nenhum.
+Lá embaixo, o Jack fez a pose final pro vídeo. Olhou pra cima, pra lugar nenhum.
 
 — NeoGuide. Encerrar partida.
 
 ---
 
-O escuro veio, e depois o anexo.
+O escuro veio de novo, como se os olhos fechassem sozinhos. E depois a praça.
 
-O concreto. A luz da tarde. O cheiro de mofo.
+O banco de cimento. A luz da tarde. O pombo.
 
-Kim tirou o SBI da cabeça e ficou um segundo parado, as mãos no peito procurando os furos que não estavam lá. Do lado, Jack tirou o dele com a cara satisfeita de quem ganhou duas vezes seguidas e ainda tinha energia sobrando. Nina tirou o dela com o cuidado de quem está guardando alguma coisa pra depois.
+Kim tirou o SBI da cabeça e ficou um segundo parado, as mãos no peito procurando os furos que não estavam lá. Do lado, o Jack tirou o dele com a cara satisfeita de quem ganhou. A Nina tirou o dela devagar.
 
-— Maluco. — Kim. — Que ataque foi aquele, cara? Eu tenho mil perguntas pra fazer pra vocês. Mas que ataque.
+— Maluco. — Kim. — Que ataque foi aquele, cara? Eu tenho mil perguntas pra fazer pra vocês. Mas que ataque. Espero conseguir fazer umas coisas assim um dia.
 
-— Não foi tudo isso. — Nina. — O Jack se aproveitou de você não saber nada.
+— Não foi tudo isso. — Nina. — O Jack se aproveitou de você não saber nada do jogo. Numa luta de verdade ele não conseguia usar aquilo.
 
-— Você não pode dizer isso. — Jack ofendido. — Você nunca me viu lutando de verdade.
+— Você não pode dizer isso. — Jack ofendido. — Você nunca me viu lutando.
 
-— Três etapas de carregamento parado no meio da arena? Ninguém fica esperando você carregar aquilo, Jack. Só o Kim, que não sabia que podia te atacar enquanto você carregava. Ele se afastou e ficou olhando.
+— Três etapas de carregamento parado no meio da arena? Ninguém ia ficar esperando, Jack. Qualquer um percebe no primeiro movimento que você tem que ficar parado esperando carregar. Só o Kim, que não sabia dessa regra. Ele se afastou e ficou olhando você terminar tudo.
 
-Kim olhou de um pro outro.
+— Carregando? — Kim. — Como assim carregando? Tô perdido.
 
-— Carregando? Como assim carregando?
+O Jack sorriu.
 
-Jack e Nina se olharam.
+— Cara, tem vários tipos de ataque no LDI. Uns são instantâneos. Outros precisam de tempo pra carregar. Esse que eu usei em você tem um carregamento muito longo. Você viu: três etapas. Eu tenho que esperar cada uma ficar pronta antes da próxima, e só na terceira eu solto o ataque. Normalmente isso me deixa todo aberto. — Coçou a cabeça. — Sendo sincero, a Nina tem razão. Eu me aproveitei de você não saber como funciona. Mas eu te ensino com o tempo. Relaxa.
 
-— Cara. — Jack se levantando e batendo a poeira da calça. — Isso aqui vai precisar de bebida.
+— Tá. Essa parte eu meio que entendi. — Kim. — Agora, por que eu fiquei flutuando no céu depois que você me matou?
+
+— Quando você perde no LDI, você só sai da sala quando o vencedor encerra a partida, ou quando o sistema encerra sozinho. — Nina. — Não dá pra desconectar no meio. Começou, vai até o fim. Por isso ninguém começa partida em lugar aberto, ou sem amigo do lado olhando o teu corpo aqui fora. Quando a gente morre lá dentro, vira observador. Dá pra assistir. Mas não dá pra interagir com nada nem com ninguém. Só esperar. — Ela olhou pra ele. — Você joga algum jogo, Kim?
+
+— Claro. Jogo muito. Sempre que sobra tempo entre cuidar da casa, cuidar da minha mãe, trabalhar e estudar de bolsista, eu jogo direto. Gamer de verdade. Muito, muito gamer. Pode ter certeza.
+
+O Jack riu da ironia.
+
+— Não precisa ser sarcástico. — Nina emburrada. — Já entendi.
+
+---
+
+O Kim sorriu da cara dela. Mas estava feliz. Tinha gostado do jogo. Muita coisa ali parecia real.
+
+Agora era a vez dele de responder.
+
+— O que eu quero saber — Nina — é como você manifestou uma arma de tipo único no meio de uma partida. Mesmo sendo treino.
+
+O Kim abriu as mãos, igual o meme do John Travolta.
+
+— Eu não sei o que aconteceu. Só não queria morrer naquela hora. Aquela tua arma maluca tava quase me partindo no meio, eu pus as mãos na frente e do nada aquilo apareceu.
+
+— Isso não é possível. É contra as regras do jogo. Ninguém manifesta arma no meio de uma partida que já começou. Nem em treino.
+
+O Kim cruzou os braços.
+
+— Olha, Nina. Eu tô começando a gostar muito de você. Você parece uma pessoa legal. Mas quando eu digo que não sei, é porque eu não sei. Não faço a menor ideia. E sinceramente, não me importa. O importante é que pelo menos eu não morri pra você.
+
+O clima esquentou.
+
+Os dois eram meio agressivos. E a Nina era competitiva demais pra perder de boa. Ela tinha certeza de que aquela era a chance da revanche. E tinha perdido pra ele de novo. A segunda vez.
+
+Ela estava revoltada.
+
+O Jack viu o tempo fechando e fez o que ele sempre fazia.
+
+— Gente. Vamos se acalmar, respirar fundo e achar alguma coisa pra beber, que eu tô com a garganta seca. — Já se levantando. — Eu ainda tenho um trocadinho, e só vou trabalhar à noite. Hoje a gente acha uma lojinha, pega uma vodkinha, e bebe com calma. Apreciando cada gole.

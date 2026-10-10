@@ -1,319 +1,307 @@
-# CAPÍTULO 12 — A Manhã Errada
+# CAPÍTULO 12 — O Que Uma Garota de Doze Anos Faz
 
-Kim acordou sabendo o que ia encontrar.
+O quintal estava do jeito de sempre. Destruído.
 
-Não era pessimismo. Era estatística. Dezessete anos de manhãs na mesma casa produziam um banco de dados suficientemente consistente para que a previsão fosse confiável. As latinhas no chão. O cinzeiro transbordando. Helena no sofá ou não voltando ainda, dependendo de quanto havia bebido depois que saiu.
+A casa era simples, e piorava todo ano, porque nunca sobrava dinheiro nem pro conserto mais básico. Mas era um teto. E tinha cama quente.
 
-Desceu as escadas calçando o tênis no segundo degrau como fazia todo dia.
+O Kim abriu a porta.
 
-Parou no último degrau.
+A bagunça era a mesma da manhã. A Helena não tinha mexido um dedo. Nem pra jogar no lixo as coisas do chão.
 
-O cheiro estava errado.
+Ele tirou a mochila, deixou atrás da porta e começou.
 
-Não era o cheiro de errado de coisa podre ou de acidente. Era o cheiro de errado de café e de ovos e de algo cítrico que ele demorou um segundo pra identificar como laranja. Kim ficou parado no último degrau com o cadarço ainda solto olhando pro corredor que levava pra cozinha.
-
-A sala estava arrumada.
-
-Não arrumada do jeito que ele deixava de noite, que era um arrumada funcional de quem tinha padrões mas não tempo. Arrumada do jeito que alguém arruma quando quer que pareça arrumada. Os coxins do sofá na posição certa. A mesinha de centro sem nada em cima. As latinhas de ontem sumidas.
-
-Kim olhou pro chão. Nenhuma latinha.
-
-Olhou pro cinzeiro na estante. Limpo.
-
-Ficou com isso por um segundo. Depois amarrou o cadarço e foi em direção ao cheiro.
+Devagar, mas começou. O que ele fazia toda noite em que estava em casa. Recolher o que estava no chão. Lavar a louça inteira. Varrer. Arrumar os móveis, juntar as roupas, pôr pra lavar. Toda noite. Menos quando ele ou o Jack arrumavam algum bico.
 
 ---
 
-Helena estava de costas pra ele na frente do fogão com fones de ouvido no pescoço e o volume alto o suficiente pra vazar pelo apartamento.
+A Helena desceu a escada.
 
-*Man! I Feel Like A Woman* saía dos fones numa qualidade que o celular dela não merecia e ela estava dançando com o tipo de entrega que as pessoas têm quando acham que estão sozinhas, os quadris, os ombros, a mão esquerda batendo no ar no tempo certo enquanto a direita mexia os ovos.
+Arrumada. Mais uma noitada com as amigas. O cabelo roxo preso, a maquiagem feita.
 
-Na bancada: café com leite numa jarra. Frutas cortadas numa tigela. Pão na tábua.
+Ela olhou pro Kim com uma cara meio envergonhada, foi pra cozinha, pegou uma cerveja e voltou pra sala. Era sempre assim. Antes de sair, ela passava por ele e dava tchau. O único momento do dia em que os dois se cruzavam. E era sempre a hora de pedir dinheiro.
 
-Kim ficou parado na porta da cozinha.
+O Kim estava com o saco de lixo na mão, pegando as últimas coisas do chão.
 
-Ele não sabia quanto tempo ficou lá. Tempo suficiente pra ela terminar de mexer os ovos e virar pra pegar o sal e encontrar o filho parado na entrada com uma expressão que ele próprio não saberia descrever.
+— E aí, seu bosta. Espero que tenha trazido grana. Faz um DIX pra mim que eu já tô saindo pro rolê.
 
-Helena levou um susto que fez os ovos quase irem pro chão.
+Desde pequeno o Kim sabia: se não tivesse nada pra dar, a coisa podia ficar feia. Quando era criança, podia dar até surra.
 
-— Seu IDIOTA! Você quase me matou do coração! O que você tá fazendo aí parado igual um poste?
+Todo dia ele fazia uma cara emburrada, pegava o dinheiro e entregava.
 
-— Eu não queria te atrapalhar.
+Hoje ele sorriu.
 
-— Me atrapalhar! Você tá me encarando faz não sei quanto tempo igual fantasma e fala que não quer atrapalhar. Senta logo antes que eu jogue esses ovos em você.
+— Ter, eu até tenho. Mas não vou te dar antes de você me responder uma pergunta. — Pausa. — E quero deixar claro: eu nunca te perguntei isso. Nunca nem me importei. Mas hoje aconteceu um bagulho. E agora eu preciso saber.
 
-Kim sentou.
+A Helena acendeu um cigarro. Impaciente.
 
----
+— O que você quer saber, desgraça? Pra onde eu vou? Com quem? O que eu vou fazer? Você sabe muito bem que isso não é da sua conta. Eu não me meto nos teus assuntos e não aceito você se metendo nos meus.
 
-Eles comeram juntos pela primeira vez que ele conseguia lembrar.
+O sorriso do Kim cresceu. Depois sumiu.
 
-Talvez não fosse a primeira vez de verdade. Talvez quando ele era pequeno demais pra ter memória disso. Mas na memória acessível, que começava por volta dos seis anos, não havia nenhuma manhã assim catalogada.
-
-Os ovos estavam bons. Ele não disse isso.
-
-Helena comeu olhando pro celular por metade da refeição, o que era normal, e olhando pra janela pela outra metade, o que era menos normal mas que Kim interpretou como ela também não saber o protocolo disso.
-
-O café com leite estava quente e com açúcar, que era do jeito que ele gostava e que ela sabia porque havia feito vezes suficientes quando ele era criança mesmo que nenhum dos dois fosse mencionar isso agora.
-
-Em algum ponto do meio da refeição Kim abriu a boca.
-
-— Mãe—
-
-— Não precisa. — Sem levantar os olhos do celular.
-
-— Eu só ia—
-
-— Não precisa, Kim. Eu fiz porque quis. Não é por causa de nada, não tô virando uma nova pessoa, não tô pedindo desculpa por nada. Faço o que quero quando quero e hoje quis fazer café da manhã. Para de procurar significado nas coisas.
-
-Kim fechou a boca.
-
-Ficou em silêncio por um segundo.
-
-— Tá bom.
-
-— Tá bom.
-
-Continuaram comendo.
-
-Depois de um tempo Helena colocou o celular virado pra baixo na mesa, que era um gesto que Kim não havia visto ela fazer antes, e comeu o resto olhando pra frente.
-
-Não era exatamente confortável. Era o tipo de silêncio de duas pessoas que estão aprendendo ao mesmo tempo como estar no mesmo lugar sem que seja uma negociação constante.
-
-Era suficiente.
+— Não é isso, dona Helena. Eu quero saber do meu pai.
 
 ---
 
-Kim estava de pé com a mochila quando ela chegou.
+Ela travou.
 
-Não foi anunciado. Ela simplesmente estava na cozinha guardando o resto da fruta e no segundo seguinte estava no corredor e o braço dela foi em volta dos ombros dele com a naturalidade de alguém que fez isso mil vezes, o que era tecnicamente falso mas que o corpo dela havia decidido fingir que não era.
+Quase dezessete anos. Em quase dezessete anos o Kim nunca tinha perguntado do pai. Ela sempre tinha achado aquilo estranho. Mas, como preferia não tocar no assunto, era confortável.
 
-Kim ficou absolutamente imóvel.
+O Kim tirou o cigarro da mão dela. Levou à boca. Deu uma tragada funda. Olhou no olho dela.
 
-O abraço durou talvez três segundos. Ela se afastou antes que ele processasse completamente o que estava acontecendo, ajeitou a alça da mochila dele com as duas mãos, o que era um gesto sem nenhuma necessidade funcional porque a alça estava perfeitamente no lugar.
+— Eu sei que eu nunca me interessei pelo sujeito. Mas hoje aconteceu uma coisa estranha. Alguém, por algum motivo, parecia saber quem ele era. Não sei se foi sonho, ou alguma vontade que eu nunca encarei. Mas agora eu quero que você me fale alguma coisa do desgraçado que me pôs no mundo e sumiu. Qualquer coisa.
 
-— Tenha um bom dia. Não arruma problema na escola.
+A Helena sentou no sofá.
 
-— Eu vou tentar. — Com a voz levemente diferente do normal.
+A bolsa caiu no chão. Ela baixou a cabeça uns segundos. Respirou fundo. Quando levantou, a cara estava vazia.
 
-— Volta em segurança.
+— Eu não entendi direito o que você tá falando, moleque. E nem me importo. Se depender de mim, você nunca vai saber nada do merda do teu pai. A tua única obrigação aqui é trabalhar e me trazer a grana todo dia. Você tem uma dívida comigo, por eu ter te criado. Agora me dá a grana pra eu sair.
 
-— Vou.
+O Kim ficou surpreso.
 
-Ela já estava voltando pra cozinha. Kim ficou parado no corredor por um segundo, a porta na frente dele, com alguma coisa no peito que ele não ia nomear porque nomear tornava real e real tornava algo que ele precisaria saber o que fazer com.
+Ela tinha falado com uma certeza, com uma sinceridade... Que tipo de coisa esse cara tinha feito pra ela sentir tanto ódio?
 
-Abriu a porta e saiu.
+Mas o Kim não era de desistir.
 
----
+Sentou numa cadeira na frente do sofá. Juntou as mãos na frente da boca, os dedos formando um triângulo. Baixou a cabeça pra respirar. Levantou.
 
-Jack estava no segundo degrau da escada de fora.
-
-Não no jeito de sempre, que era encostado no corrimão com o celular na mão. Estava sentado com os cotovelos nos joelhos e a expressão de quem acabou de ouvir alguma coisa através de uma porta e está processando as implicações disso.
-
-Olhou pra Kim.
-
-Kim passou por ele sem parar.
-
-— Cara— — Jack levantando rápido, descendo os degraus.
-
-— Não.
-
-— Eu só ia—
-
-— Jack.
-
-— Mas—
-
-— Vamos trabalhar.
-
-Jack correu dois passos pra alcançar o ritmo de Kim que já estava na calçada. Ficou ao lado dele em silêncio por um tempo que era claramente custoso pra ele.
-
-A rua de Marelia abria na frente dos dois como sempre. Ônibus, motos, o cheiro de padaria da esquina, o céu de manhã cedo com aquele cinza específico que precedia o sol de Marelia.
-
-— Cara, ela te chamou de filho. — Jack não conseguindo mais.
-
-— Eu ouvi.
-
-— Ela fez café da manhã.
-
-— Eu sei, eu estava lá.
-
-— E te abraçou.
-
-Kim virou o rosto pra ele com a expressão de quem foi longe demais.
-
-Jack abriu o sorriso largo de quem estava esperando exatamente essa expressão.
-
-Kim virou de volta pra frente e continuou andando.
-
-— Tô feliz por você, cara. — Jack andando ao lado, o sorriso ainda lá.
-
-— Para.
-
-— Tô só dizendo—
-
-— Jack.
-
-— Tá bom, tá bom.
-
-Foram andando. O primeiro ônibus apareceu na esquina. Kim pegou os saquinhos de bala da mochila antes de subir.
+— Dona Helena. Eu não imagino que tipo de desgraçado esse cara foi. Mas eu tenho o direito de saber. Eu quero saber. Eu preciso que você me conte. Você não vai sair dessa casa hoje. E eu nunca mais te dou um centavo se você não me falar quem ele é.
 
 ---
 
-O primeiro ônibus Jack ficou quieto.
+A raiva subiu no rosto dela.
 
-Isso era suficientemente incomum para que Kim registrasse, mas não tão incomum para que precisasse comentar. Jack tinha silêncios específicos para situações específicas e Kim havia aprendido a catalogá-los ao longo de cinco anos. Havia o silêncio de Jack quando estava planejando alguma coisa. O silêncio de Jack quando estava ofendido mas não queria parecer que estava. O silêncio de Jack quando havia visto alguma coisa que queria processar antes de transformar em piada.
+— Garoto, é melhor você não me testar. Quando eu falo uma coisa, você faz. Você não vai ser igual aos outros homens filhos da puta que eu encontrei nessa vida. Eu falo, você ouve e você obedece. E não me faz repetir. — A voz subindo. — NO QUE DEPENDER DE MIM, VOCÊ NUNCA VAI SABER QUEM É O TEU PAI!
 
-Esse não era nenhum desses.
+Ela levantou bufando.
 
-Kim trabalhou o corredor do primeiro ônibus com o ritmo de sempre, os saquinhos saindo antes do veículo retomar velocidade, os olhos lendo passageiros. Onze saquinhos. Sete reais e cinquenta centavos.
+O Kim continuou sentado. As mãos ainda em triângulo.
 
-Jack ficou no banco do fundo observando sem comentar os acertos e sem apontar os erros, o que era outro sinal de que o silêncio era diferente.
+Ele conhecia a mãe. Naquela hora a razão não morava mais nela. Ela virava bicho. Não conversava. Se defendia com tudo que tinha.
 
-Desceram. Esperaram o segundo ônibus na calçada. Jack com as mãos nos bolsos, Kim com a mochila ajustada, os dois olhando pra rua.
+— Seu pedaço de lixo! Filho de satanás! Você não faz ideia do que eu passei pra te manter vivo, pra te dar de comer, pra um dia você ter a ousadia de vir me questionar! Você é um lixo e não tem direito de me perguntar nada, seu desgraçado!
 
-— Quando você quiser. — Jack sem virar.
+E começou.
 
-Kim não respondeu.
+Quando a Helena entrava em fúria, o alvo não era só o Kim. Era tudo em volta. Se não tinha coisa perto, ela ia até a coisa. Andou pela casa pegando, jogando, quebrando. Os copos da cozinha estourando contra a parede. Ela gritando e xingando.
 
-O segundo ônibus chegou.
+O Kim estava acostumado.
 
----
+O único arrependimento era ter arrumado a casa antes.
 
-Kim começou a contar no meio do segundo corredor, entre o executivo que havia comprado dois saquinhos e a senhora do fundo que ele ainda não havia abordado.
+Ele sabia o nome daquilo. Uma das muitas doenças que a mãe carregava sem tratar. O transtorno bipolar jogava ela nesses picos. E ele, que já não era mais criança, sabia o que fazer: ficar calmo e esperar a tempestade passar.
 
-Não foi uma decisão. Foi que o peso de carregar aquilo ao lado de alguém que sabia que existia havia ficado pesado demais pra continuar sendo carregado em silêncio.
+Levantou. Foi até a porta da cozinha. Ficou olhando, esperando uma pausa. Desviou de umas coisas que vieram na direção dele. A vida inteira desviando de coisa voando tinha deixado os reflexos dele afiados.
 
-Começou pelo quarto.
+Veio a pausa.
 
-— Ela não tem memória de antes de um certo ponto. — Baixo, de costas pra Jack, caminhando em direção à senhora do fundo. — O lugar mais antigo que ela lembra é um quarto. Lâmpada quase apagando. Sem janela.
+— Eu cheguei cansado. Vou te deixar aí com os teus... — Um copo passou rente ao rosto dele. — Opa, esse quase. ...afazeres. E vou tomar um banho. Quando você acalmar, a gente conversa. Mas eu já disse e vou repetir: hoje você vai me contar. Ou vai continuar dando esse show e eu vou continuar esperando a resposta. Até daqui a pouco, dona Helena.
 
-Jack estava dois passos atrás. Kim não virou pra ver a expressão dele.
-
-Abordou a senhora. Dois saquinhos. Três reais. Começou a voltar pelo corredor.
-
-— De noite eles tiravam ela de lá. Arrumavam ela. Levavam pra outros lugares.
-
-Pausa. O ônibus balançou numa lombada.
-
-— Ela não sabe quantos anos tinha quando começou. Sabe a idade que tinha quando eu apareci porque dependendo da idade havia um preço diferente.
-
-Jack não disse nada.
-
-Kim chegou na frente do ônibus, conferiu o troco, guardou. Ficou parado segurando no suporte do teto com o ônibus se movendo.
-
-— Ela tinha doze anos quando colocaram um bebê no quarto dela.
-
-O ônibus fez uma curva.
-
-— Ela fugiu naquela noite. Com o bebê. Pulou de um carro em movimento.
-
-Ficou em silêncio por um tempo. A senhora do fundo estava olhando pela janela.
-
-— Dos doze aos dezoito ela fez o que aprendeu a fazer pra nos manter vivos. Depois tentou emprego. Os empregos nunca ficavam completamente diferentes do que tinha sido antes porque os homens percebiam alguma coisa nela e usavam isso.
-
-Pausa.
-
-— Quando eu completei doze anos ela estava destruída e decidiu que era minha vez de carregar.
-
-O ônibus parou num sinal. Kim olhou pro trânsito pela janela do motorista.
-
-— Ela não é minha mãe biológica. Não sabe quem eu sou. Só sabe que aquela noite ela não conseguiu ficar parada.
-
-Ficou quieto.
-
-O sinal abriu. O ônibus andou.
+Mais uns copos. Ele desviou de todos e subiu a escada.
 
 ---
 
-Jack não disse nada por tempo suficiente pra Kim virar e verificar se ele ainda estava lá.
+No banho, ele relaxou.
 
-Estava. No banco do meio, os cotovelos nos joelhos, as mãos juntas na frente do rosto. Olhando pro chão do ônibus com uma expressão que Kim conhecia mas raramente via porque Jack não deixava essa expressão aparecer se tinha como evitar.
+Esperava que, quando saísse, ela estivesse mais calma. Ele sempre achava impressionante o quanto ela mudava rápido. Às vezes bastava uma palavra. Ele sabia que, em parte, aquilo não era culpa dela. Ela não conseguia se controlar. E era impossível convencer ela a procurar ajuda.
 
-Não era tristeza. Isso Kim havia visto antes, era uma coisa diferente, mais mole, mais pra dentro.
+Saiu do banho. Pôs um short. E ouviu o choro.
 
-Isso era outra coisa. Era a raiva específica de quem recebeu uma informação que não tem pra onde direcionar, que não resolve nada ser sentida, que vai ficar lá fermentando porque não existe ação correspondente que a esvazie.
+Era sempre assim. Primeiro a fúria. Depois a tristeza. Um extremo ao outro, igual trem desgovernado.
 
-Kim foi sentar no banco ao lado.
+Desceu a escada devagar, pensando em como ia puxar o assunto. A cada degrau, os xingamentos de sempre lá de baixo. *Garoto ingrato.* Era o jeito de carinho que ele conhecia.
 
-Ficaram em silêncio pelos dois quarteirões seguintes.
+A Helena estava no sofá.
 
-— Eu não sei o que dizer. — Jack sem levantar os olhos do chão.
+Balançando o corpo pra frente e pra trás, a mão no rosto, murmurando alguma coisa que não dava pra entender. Parecia à beira de enlouquecer.
 
-— Não precisa dizer nada.
+O Kim sentou na cadeira e ficou quieto.
 
-— Eu sei que não precisa. Mas eu quero dizer alguma coisa e não tenho o que dizer que não seja inútil.
+Ela percebeu ele ali. Tirou a mão do rosto.
 
-Pausa.
+E abriu um sorriso. Um sorriso que deixou o Kim desconfortável, por mais que ele tentasse esconder.
 
-— Tô com uma raiva que eu não sei onde colocar. Com mais raiva do que eu me lembro de ter sentido na vida. Não do mais vil dos caras que a gente já enfrentou. Uma raiva diferente. E me sinto inútil por saber que ela não serve pra nada.
+— Então você quer saber? Tudo, né? Você quer saber tudo. Desde o começo. Desde o comecinho. Desde quando você era um bebê?
 
-Kim ficou com aquilo por um segundo.
+— Eu queria saber um pouco antes disso, né. — O Kim, confuso, preocupado. — Como você conheceu o meu pai. O que aconteceu antes de eu nascer. Ou se ele fugiu depois que eu nasci.
 
-— É exatamente o que eu disse pra ela ontem.
+A Helena riu. Uma risada descontrolada. O olhar quase louco.
 
-Jack levantou os olhos.
-
-Kim estava olhando pra frente.
-
-— Palavra por palavra. Que não sabia o que dizer e que estava com mais raiva do que jamais havia sentido e que se sentia inútil porque não servia pra nada.
-
-Jack ficou com aquilo.
-
-Os dois ficaram com aquilo.
-
-O ônibus balançou numa lombada e nenhum dos dois se moveu pra se segurar.
-
-— Ela tá bem? — Depois de um tempo longo, com a voz que usava quando não estava performando nada.
-
-— Não sei. Acho que um pouco menos mal do que estava ontem.
-
-— E você.
-
-— Pergunta difícil.
-
-— Não precisa responder.
-
-— Eu sei.
-
-Ficaram em silêncio até o próximo ponto. Três passageiros desceram. Dois subiram. O ônibus retomou velocidade.
-
-— Você falou pra ela que era sua mãe. — Não era pergunta. Jack havia processado tudo e chegado lá sozinho.
-
-— Falei.
-
-— E ela.
-
-— Chorou. Do tipo diferente.
-
-Jack assentiu devagar com a cabeça, os olhos voltando pro chão.
-
-— Bem.
-
-— É.
-
-O ônibus dobrou na esquina da Elite Academy.
+— EU NÃO CONHECI O TEU PAI! — Gritou na cara dele. — Eu nunca conheci ele! Eu não sei nem se ele tá vivo ou morto! Não sei se era gente boa ou gente ruim! Eu nunca vi a cara dele!
 
 ---
 
-Nina estava na porta.
+O Kim ficou sem chão.
 
-Não havia combinado. Não havia mensagem. Estava simplesmente lá com a mochila no ombro e o café numa xícara de plástico, olhando pro celular com a expressão de quem está esperando mas não quer parecer que está esperando.
+Não sabia se ela estava brincando com ele ou se aquilo mexia tanto com ela assim. Ele já tinha visto muitas caras da mãe. Nunca aquela.
 
-Levantou os olhos quando os dois se aproximaram.
+— Eu não tô entendendo. — Baixo. — Você sofreu algum tipo de abuso? Me desculpa perguntar, mãe. Mas fizeram alguma coisa com você? Você não sabe o que aconteceu? Eu preciso entender o que tá acontecendo.
 
-Olhou pra Kim. Olhou pra Jack. Leu alguma coisa nos dois que fez ela guardar o celular sem comentar.
+Do lado da perna dela tinha uma garrafa. Ela levantou a garrafa.
 
-— Tudo bem? — Para Kim, simplesmente.
+O Kim, por instinto, deu um passo pra trás.
 
-— Mais ou menos.
+Ela só bebeu. Um gole longo. Limpou a boca com a mão.
 
-Nina assentiu. Não perguntou mais nada.
+— Sim, moleque. Eu fui abusada. Pode falar. Mais de uma vez. Mais de um dia, mais de um mês, mais de um ano. Por mais de um homem. Por mais de um animal. Que me tocou, me usou e me destruiu.
 
-Os três entraram juntos.
+O Kim baixou a cabeça. O peito apertou.
 
-O corredor da Elite Academy estava com o barulho de sempre, vozes e passos e o sino distante da primeira chamada. Em algum lugar atrás deles Osvaldo acenou com o chaveiro sem precisar abrir a boca.
+No fundo ele sempre soube que alguma coisa terrível tinha acontecido com ela. Uma coisa que tinha destruído ela por dentro. Olhando pra ela agora, percebeu que, desde que se entendia por gente, nunca tinha visto a mãe sorrir de verdade.
 
-Kim, Jack e Nina dobraram o corredor em direção à sala.
+Uma lágrima desceu no rosto dela.
 
-O dia começou.
+— Eu não sei. Eu não sei. Talvez o teu pai tenha me abusado também. Eu só não sei. Eu só sei uma coisa. Quando eu era muito pequena, pequena demais pra lembrar, eu devo ter sido sequestrada. E me levaram pra um lugar. Tudo que eu lembro é como se eu tivesse nascido dentro daquele quarto fedido. Sem janela. Uma lâmpada quase apagando. Um balde pra fazer as necessidades. Um colchão no chão. E toda noite eles vinham. Me davam banho. Me arrumavam. E me levavam pra lugares diferentes. Pra ser vendida.
+
+Bebeu de novo. A voz quase sumindo.
+
+O Kim não sabia o que falar. Uma raiva e uma tristeza subindo juntas.
+
+---
+
+— Aí, em algum momento, quando eu tinha doze anos... — Ela riu sem graça nenhuma. — E eu só sabia a minha idade porque lá dentro o preço mudava conforme a idade. Com doze anos, eles botaram você no meu quarto.
+
+O Kim levantou o olho.
+
+— Você era só um bebê. Parecia que tinha acabado de nascer. Foi aí que eu pensei que talvez tivessem feito a mesma coisa comigo. Me roubado num hospital. Ou eu era filha de alguma outra que eles tinham lá dentro. Era assim que eles mantinham o negócio? Eu não sei. Eu nunca soube.
+
+Ela apertou a garrafa.
+
+— Eu já tinha visto menino lá dentro. Eu sabia o que ia acontecer com você. Era o que acontecia comigo e com todo mundo ali. E eu tava cansada. Naquela noite eles me arrumaram. E arrumaram você. Você era só um bebê, e alguém já tinha pagado por você. A noite inteira. Muitas vezes nem era outra coisa que eles queriam. Só queriam ouvir criança chorar enquanto batiam.
+
+Virou o rosto. Bebeu. Respirou. Bebeu mais. Quando voltou, estava mordendo os lábios, as mãos apertadas uma na outra como numa reza. As lágrimas descendo sem controle, os olhos vermelhos, inchados.
+
+— Você não queria a verdade? Sempre achou que eu era uma mãe horrível, não é? Pois fica sabendo. Eu não sou tua mãe.
+
+O silêncio caiu na sala.
+
+— Eu nem sei quem é o teu pai. Eu nem sei quem é você. Mas naquela noite alguma coisa mexeu comigo. Eu olhei pra você e soube que não ia deixar fazerem com você o que fizeram comigo. Eu não ia dar esse prazer pra eles. Então naquela noite eu fugi. Pulei do carro e corri. E consegui. Mas era só nós dois no mundo. Uma menina de doze anos e um bebê recém-nascido.
+
+Ela olhou pra ele.
+
+— Você sabe, Kim, o que uma criança de doze anos faz pra sobreviver num lugar como esse, com um bebê pra criar?
+
+---
+
+Ela levantou. A raiva voltando, misturada com o choro.
+
+— É uma pergunta, garoto! Você não ouviu? Você sabe o que uma criança de doze anos faz pra sobreviver com um bebê e sem nenhum adulto do lado?
+
+O Kim levantou um pouco a cabeça. Os olhos vermelhos. As lágrimas descendo. Os punhos fechados na frente da boca.
+
+Fez que não.
+
+Na cara dele, o nojo. Não dela. Do mundo que tinha feito aquilo.
+
+A Helena riu. Mostrou o dedo do meio pra ele. Xingou. Bebeu.
+
+— Hoje você deve entender por que eu te pus pra trabalhar com doze anos. Pra uma garota como eu, que não sabia nada do mundo, a única coisa que eu tinha aprendido era servir gente desprezível. E mesmo sendo proibido, eu fiz o que precisava pra sobreviver. Pra te dar de comer. Pra comprar leite. Pra gente não morar na rua. Sabe o que eu fiz? Eu me prostituí até você fazer seis anos. Dos meus doze aos meus dezoito. Pelo menos aí era escolha minha. Pra garantir que você sobrevivesse. Só com dezoito o governo me deixou trabalhar.
+
+O Kim ouvia consumido. Raiva. Lágrima. Pensando na vida que ela tinha vivido, e no caos que era a vida dele.
+
+Tinha motivo de sobra pra tudo que ela era. O que mais doía nele era a impotência. Não ter como chegar em quem destruiu a vida dela.
+
+A garrafa já estava na metade. Ela virou o resto até não sobrar nada. Sentou. Dava pra ver o álcool subindo. Acendeu um cigarro. O Kim acendeu o dele.
+
+— Eu sei que essa história tá ficando chata. Então vou resumir o fim. Com dezoito eu arrumei o primeiro emprego. E os patrões sempre foram uns filhos da puta. Eu nunca dei sorte com nada. Acho que eu sempre fui uma grande puta, e eles percebiam. Então, pra manter os empregos, por mais seis anos eu fui amante de muito homem. — Ela soltou a fumaça. — Quando você fez doze, eu tava cansada. Dessa merda de vida. De tudo que eu tinha feito por você. De tentar ser alguma coisa. Eu nunca tive nada. Nunca tive felicidade. Nunca tive prazer. Então eu decidi que agora você ia me devolver pelo menos os doze anos que eu te criei.
+
+Olhou pra ele.
+
+— Eu sempre te falei até os dezoito. A conta é outra. Doze por doze. Você tá no quinto. Daqui a sete anos a gente tá quite. Aí você faz o que quiser. Eu te juro que não peço mais nenhum centavo. Mas até lá você tem uma dívida comigo. E se você for homem o suficiente, você vai pagar.
+
+---
+
+O Kim foi levantando a cabeça devagar.
+
+— Eu entendo. Você tem razão. Eu ainda te devo sete anos. Não precisa se preocupar. Eu vou pagar cada um deles. E muito mais. Se precisar, até o último dia da tua vida eu vou garantir que não te falte nada. Não importa o que aconteça.
+
+Ele nunca tinha se sentido daquele jeito. Nem sabia que podia.
+
+A Helena pôs a garrafa vazia no chão. Se jogou pra trás no sofá, as lágrimas descendo, as mãos tremendo.
+
+— Eu sei que agora que você sabe que eu não sou tua mãe, as coisas vão mudar. Só espero que você não me veja como alguém que te sequestrou. Nem que me ache capaz de inventar uma história dessa. Mas, sendo bem sincera, eu não ligo pro que você pensa. Eu só te salvei. Nem sei por quê. Só sei que era mais fácil não fazer nada.
+
+O Kim chegou perto devagar e tocou a mão dela.
+
+Leve.
+
+Percebeu que não lembrava da última vez que tinha tocado a mãe. Que tinha abraçado, dado um beijo. Talvez nunca. Mas por algum motivo ele sabia que precisava. Segurou a mão dela.
+
+— Dona Helena. Não importa o que falem. Não importa o que eu faça. Não importa o teu passado, como a gente se encontrou ou tudo que a gente já passou. Você sempre foi e sempre vai ser a minha mãe. É assim que eu te vejo e sempre vou te ver. Eu sempre vou te respeitar como minha mãe. Sempre vou te amar como minha mãe. E vou fazer o meu melhor pra você ficar bem. Como a minha mãe.
+
+---
+
+Ela desabou.
+
+Um choro enorme, sem fim. O Kim ficou do lado, olhando cada lágrima descer, até ela parecer vazia.
+
+— Kim. Eu sempre tive medo de te contar. Medo de você não acreditar. De me achar uma mentirosa por tudo que eu fiz. Eu não consigo mais viver assim. Não consigo mais arrumar emprego. Não consigo mais me envolver com homem. Por isso eu precisava de você. Desculpa jogar uma responsabilidade desse tamanho nas tuas costas. Mas eu não consigo mais. É a verdade. Eu só sinto dor, medo, desespero. Raiva, ódio, agonia. A única hora que eu sou feliz é bêbada. E é por isso que eu faço de tudo pra ficar assim todo dia.
+
+O Kim sorriu.
+
+E abraçou a mãe. Forte. Como nunca tinha abraçado.
+
+Ela chorou de novo no ombro dele. Ele passou a mão na cabeça dela. E falou baixinho, no ouvido dela.
+
+— Mãe. — Ele riu de si mesmo. — Tá tudo bem. Não se preocupa. Você tem o direito de fazer o que quiser da tua vida. Mas eu sinto falta de uma coisa. Na verdade, nem sei se sinto falta, porque eu não lembro de ter visto um sorriso teu. De ver a tua boca levantar uma vez que seja. Não lembro de olhar no teu olho e ver brilho de felicidade. Você tem todo o direito de fazer o que precisa pra ser feliz. — Pausa. — Mas, claro, sem sair destruindo a propriedade dos outros.
+
+A Helena riu.
+
+O Kim ficou parado. Era a primeira vez que ele ouvia uma risada sair da boca da mãe.
+
+Ela continuou rindo, agora com outra lágrima. Uma lágrima que ela nunca tinha chorado.
+
+— Eu tô péssima, na verdade. Sou uma péssima mãe, uma péssima mulher, um ser humano horrível em tudo que eu faço. Mas foi muito bom... foi muito bom ouvir você me chamar de mãe de novo. Depois de tanto tempo. — Fungou. — E sim, seu besta, eu já sorri pra você. Na época você era um bebezinho lindo e fofo. Não esse brutamontes briguento que você virou.
+
+Foi a vez do Kim sorrir. Ele nunca imaginou que ia rir de um xingamento da mãe.
+
+---
+
+— Hel... err... mãe. — Ele. — Não sei se você reparou, mas eu vou ter que arrumar a casa de novo, né? Tá tudo meio bagunçado. Eu queria deixar tudo em ordem antes de dormir e antes de você sair pra balada. Porque eu sei que, quando você voltar, vai voltar com aquelas tuas amigas, daquele jeito. E eu gosto de dormir com a casa arrumada. — Pausa. — Obrigado por tudo que você me contou. Pela sinceridade. Sou grato por você ter cuidado de mim, por ter me salvado, por não ter desistido de mim. E por ser a minha mãe. Mas eu preciso arrumar a casa.
+
+A Helena soltou ele. O rosto inchado de chorar. O dele também. Os dois sorrindo um pro outro.
+
+E aí ela disse uma coisa que o Kim nunca tinha ouvido sair da boca dela.
+
+— Vamos, seu pequeno fodido. Eu te ajudo a arrumar. Afinal, eu sou um pouquinho culpada por essa bagunça.
+
+E riu gostoso, olhando pro filho.
+
+O Kim tentou manter a cara séria.
+
+— Olha, dona Helena. Não é por nada, não. Mas com certeza você é a única e total responsável por essa bagunça. E tenho dito.
+
+Ela empurrou ele, rindo. E começou a juntar a bagunça com ele.
+
+*É tão estranho.* O Kim, catando caco de copo. *Parece que ela precisava falar isso de algum jeito. Ela parece outra pessoa.*
+
+---
+
+Quando terminaram, já estava tarde.
+
+— Vou subir, que eu tenho lição de casa. — Kim. — Quando você voltar com as tuas amigas, como eu sempre peço, se puder, não façam muito barulho. Não liguem o som alto. Pra eu dormir um pouco e aguentar a aula amanhã.
+
+— Tá bom, filho. Pode descansar. A gente não vai fazer barulho.
+
+— Boa noite, mãe. — Com um sorriso. — Vê se toma cuidado na rua.
+
+— Vou tentar. Mas não prometo nada.
+
+— Eu vou transferir a grana pra você.
+
+O Kim riu e subiu a escada.
+
+A Helena ficou olhando o filho subir. Ouviu a porta do quarto fechar. E ficou pensando em como, apesar de tudo, aquele menino tinha virado um homem. Não era perfeito. Ela não era a mãe dele de sangue. E nunca tinha sido uma grande mãe.
+
+Mesmo assim, ele era o melhor filho que alguém podia ter.
+
+---
+
+O Kim tirou a roupa e deitou.
+
+O corpo cansado. A respiração leve.
+
+Uma parede enorme, que sempre tinha existido entre ele e a mãe, tinha caído.
+
+Ele não sabia se as coisas iam continuar iguais ou se iam mudar.
+
+Mas sabia que naquela noite ia dormir bem.

@@ -44,7 +44,7 @@ Os outros cinco ficaram um segundo sem reação.
 
 Depois o maior deles passou pra frente. Era bem maior que os outros. Alto, largo, o tipo de cara que resolve as coisas só por estar presente. Bateu o punho fechado na palma da outra mão.
 
-— Agora você se ferrou. A gente não vai ter dó. E a chefe vai adorar ver o que a gente vai fazer com você.
+— Agora você se ferrou. A gente não vai ter dó. E a chefe vai adorar ver o que a gente vai fazer com você. Ela não vai ficar nada feliz com o que você fez.
 
 Nina ficou olhando pras pernas dele.
 
@@ -78,7 +78,7 @@ Mas ela conhecia aqueles dois fazia dois dias e já sabia de uma coisa. Se ela p
 
 Por orgulho, puro e simples, ela não ia gritar.
 
-Preferia correr o risco.
+Preferia correr o risco. Até de morrer.
 
 Olhou o chão em volta. Olhou o terreno. Tentou pensar como o Kim e o Jack pensariam.
 
@@ -96,7 +96,7 @@ Os grãos entraram direto nos olhos.
 
 Era o tempo que ela precisava.
 
-Tinha uma pedra no chão. Grande. Ela deu um chute nela com uma precisão de jogador de futebol, e a pedra foi voando direto no meio da cara do das duas facas. Acertou o nariz. O nariz quebrou com um barulho molhado e o sangue espirrou.
+Tinha uma pedra no chão. Grande. Ela deu um chute nela com uma precisão de fazer o Ronaldinho sentir inveja, e a pedra foi voando direto no meio da cara do das duas facas. Acertou o nariz. O nariz quebrou com um barulho molhado e o sangue espirrou.
 
 Os outros três hesitaram um segundo, olhando o amigo gritar.
 
@@ -132,7 +132,7 @@ Ela levantou num salto curto pra frente, chutou de costas o ajoelhado, que já e
 
 O golpe levantou ele do chão.
 
-Enquanto ele caía, devagar, os que sobravam viram a Nina parada no meio do caminho com o cano de ferro na mão como se fosse uma espada chinesa. A mão esquerda espalmada pra frente. A direita segurando o cano acima da cabeça. Uma postura que não era de briga de rua. Era de alguém que tinha estudado mais de uma arte com alguém muito bom.
+Enquanto ele caía, devagar, os que sobravam viram a Nina parada no meio do caminho com o cano de ferro na mão como se fosse uma espada chinesa. A mão esquerda espalmada pra frente. A direita segurando o cano acima da cabeça. Uma postura de kung-fu. Não era de briga de rua. Era de alguém que tinha estudado mais de uma arte com alguém muito bom.
 
 Ela girou o cano em volta do corpo.
 

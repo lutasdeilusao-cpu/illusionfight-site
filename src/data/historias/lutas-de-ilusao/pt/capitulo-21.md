@@ -8,7 +8,7 @@ Tinha entrado fundo demais. Era culpa dele. Ninguém achava ele.
 
 Finalmente apareceram. Sete. Quatro mulheres e três homens. Jack sorriu, se levantou do tronco onde estava sentado e deu uns socos no ar pra aquecer.
 
-— Sete, hein? Aposto que a maioria foi atrás do Kim. Que chato. Vocês não deviam me subestimar assim. E o pior é que depois a fama dessa briga vai ficar toda pro Kim. Isso me deixa mais puto ainda.
+— Sete, hein? Aposto que a maioria foi atrás do Kim. Que chato. Vocês não deviam me subestimar assim. E o pior é que essa briga vai pra conta do Kim. Isso me deixa mais puto ainda.
 
 Uma garota de visual punk veio na frente. Moicano, alfinete na orelha, coturno. Mediu o Jack de cima a baixo.
 
@@ -30,7 +30,7 @@ Jack não se mexeu.
 
 O Jack sorriu.
 
-— Já dizia o filme: o que você tem é uma faca e a esperança de conseguir usar. Se não conseguir... é a minha vez.
+— Citando V de Vingança: o que você tem é uma faca e a esperança de conseguir usar. Se não conseguir... é a minha vez.
 
 Ela apertou a faca.
 

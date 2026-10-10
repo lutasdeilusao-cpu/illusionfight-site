@@ -160,42 +160,6 @@ O Kim, lá no fundo da arena, ficou parado com aquilo.
 
 Era informação demais. Informação que dava vantagem. Ninguém fazia isso numa luta.
 
-A não ser que ele não precisasse de vantagem.
+Aquilo, com toda a certeza, deixava o Kim em vantagem.
 
----
-
-O Kim se levantou.
-
-Devagar.
-
-O machado na mão direita. O fio de aço brilhando quando a luz pegava. O corte da testa de ontem aberto de novo. O pescoço marcado do fio do ioiô. Sangue no queixo, no peito, nos braços.
-
-Ele não percebeu.
-
-Mas a Nina, na arquibancada, percebeu. E o Jack percebeu.
-
-Nos pulsos do Kim, umas linhas. Riscos curtos e retos, em pares. Os mesmos riscos do nome do poder que ninguém conseguia ler. Subindo devagar pelo antebraço. Dessa vez sem sumir.
-
-E nos ombros, quase nada. Uma fumaça. Uma fumaça escura que não era fumaça.
-
-O Kim olhou pro Shuntaro do outro lado da arena.
-
-E sorriu.
-
----
-
-Numa ilha no Pacífico Sul, um homem de terno se inclinou pra frente na cadeira, o rosto a dez centímetros da tela.
-
-Num dojô vazio em Kailash, um velho que não se mexia havia quarenta minutos se mexeu.
-
-Num quarto em Erendale, uma garota que tinha dormido três horas desligou a luz pra ver melhor.
-
-E num escuro sem chão confirmado, um velho de bombeta preta e óculos juliet espelhados tirou o berimbau do ar, segurou ele pela primeira vez como quem vai tocar, e falou pro parceiro que ninguém mais via:
-
-— Agora sim, molecote.
-
----
-
-Na arena, o Kim girou o machado na mão uma vez.
-
-— Segundo round.
+Mas…

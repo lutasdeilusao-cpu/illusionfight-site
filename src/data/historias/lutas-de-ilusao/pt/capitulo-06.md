@@ -1,213 +1,387 @@
-﻿# CAPÍTULO 6 — O Primordial
+# CAPÍTULO 6 — O Primordial
 
-As chamas começaram pequenas.
+Não ficaram só nas costas.
 
-Dois pontos de ignição nas costas de Kim, onde os dedos de Yawanari haviam pousado por último. Negras, sem calor visível, se movendo com uma lentidão que não combinava com fogo. Mais pareciam fumaça que decidiu ter forma.
+Kim fechou o punho e socou o chão da arena.
 
-Thunderbolt recuou o segundo passo.
+O impacto soou como trovão embaixo da terra. A pedra se despedaçou, abriu uma cratera torta e cuspiu lasca de rocha pra todo lado. Ele usou o próprio caos pra se jogar pra cima e caiu de pé, em guarda.
 
-A plateia que havia ficado quieta ficou de outro tipo de quieto.
+A arena ficou muda.
 
-As chamas subiram pelos ombros de Kim. Onde tocavam a pele, linhas geométricas acordavam, subindo pelo pescoço e descendo pelos braços como rios encontrando o próprio leito pela primeira vez. O cabelo foi o último a mudar, fio por fio alongando, preto virando branco pela raiz.
-
-Kim se levantou.
-
-O joelho que havia estourado sustentou o peso sem protestar. Os dedos fraturados fecharam e abriram devagar, testando. Kim olhou para as próprias mãos com a expressão de quem está verificando um inventário.
-
-— Faz tempo. — Baixo, para si mesmo.
-
-As palavras saíam com a voz de Kim, mas carregavam outra frequência por baixo, algo mais antigo habitando as cordas vocais como inquilino que chegou antes da construção.
-
-Thunderbolt materializou sua lança, mas foi um ato impensado, o instinto de sobrevivência aflorando.
-
-— Isso não muda nada. — Mais para si do que para Kim, precisava acreditar nisso.
-
-O raio saiu. Kim Ancestral não desviou. Levantou a mão aberta e o raio se dissipou no contato com as chamas negras como água encontrando brasa. As chamas cresceram um pouco.
-
-Como se tivessem comido.
-
-Thunderbolt olhou para a lança na própria mão.
+Depois veio o murmúrio. Arquibancada inteira, baixinho, como onda chegando.
 
 ---
 
-Nas arquibancadas, Jack estava de pé com as mãos na grade. A expressão havia mudado mais uma vez, passando por terror e chegando a algo que não tinha nome direto. Ele conhecia Kim desde os doze anos. Havia visto Kim bater, apanhar, rir, chorar uma vez só e fingir — ele jamais admitiria, mas aconteceu uma vez sim. Conhecia cada variação de postura, cada microexpressão.
+Thunderbolt sentiu o sangue gelar.
 
-A coisa que estava de pé no centro da arena usava o rosto de Kim, talvez o corpo. Mas aquilo não era Kim.
+O cabelo do Kim estava branco. Um branco prateado que flutuava em volta do rosto como fio de prata líquida. O peito nu, a musculatura de um jeito que corpo humano não fica. E em volta dele, dançando, chamas negras como a noite. Sibilando. Serpenteando. Igual cobra venenosa, a língua escura lambendo o ar.
 
----
+As chamas pareciam farejar o Thunderbolt.
 
-Kim Ancestral caminhou até Thunderbolt com passos que não tinham pressa nenhuma.
+Não era medo comum. Era mais antigo. Era o que a presa sente quando entende que tem um predador na frente dela. Ele tentou recuar e o corpo se mexeu lento, como se estivesse andando dentro de melado.
 
-Thunderbolt ativou seu poder especial "XAMÃ" e disse rapidamente.
+Aquilo não era mais um garoto.
 
-Sua lança iniciou a transformação, virando pura energia elétrica azul. Ele saltou sobre essa energia e foi envolvido por ela, se dissolveu em velocidade muito superior à do primeiro ataque, o borrão azul que havia destruído Kim quarenta minutos atrás. Golpes chegando de ângulos impossíveis, a eletricidade faiscando entre os impactos, a arena inteira iluminada em pulsos de azul elétrico. Era o movimento que havia rendido mil duzentas vitórias. Era tudo que Thunderbolt tinha.
+O Kim apoiou o joelho no chão.
 
-Kim Ancestral ficou parado no centro de tudo.
+Ficou ali um instante. A arena inteira segurando o ar.
 
-Cada golpe chegava. Cada golpe era absorvido pelas chamas, que cresciam com cada contato. O borrão azul aumentava a velocidade, mais golpes por segundo, mais eletricidade descarregando, e as chamas correspondiam, ficando maiores, mais densas, as bordas começando a ganhar forma que não era forma de fogo.
+E desceu o pé contra o solo.
 
-Thunderbolt desacelerou, aparentemente esgotado, a eletricidade ao redor do seu corpo fraca, como se tivesse sido consumida.
+As fissuras correram pelo chão em todas as direções, feito raio. Uma nuvem de poeira dourada subiu e engoliu o Kim.
 
-Pela primeira vez em mil duzentas batalhas havia usado tudo e o oponente continuava de pé. As chamas tinham dobrado de tamanho. E nas bordas delas, por um segundo que Thunderbolt não quis acreditar que viu, algo se movia com propósito próprio. Uma forma que tinha pescoço. Que tinha mandíbula.
+Quando a poeira baixou, ele estava de pé. Os braços abertos. As mãos curvadas em garra, os dedos duros como lâmina. E os olhos.
 
-— O que é isso. — A voz pequena.
+A íris tinha sumido. No lugar, duas fogueiras negras pequenas, vivas.
 
-Kim Ancestral inclinou a cabeça para o lado.
-
-— O seu sabor é horrível. É uma humilhação pra mim ter que me alimentar de você.
-
-Thunderbolt sacou dois discos de energia dos ombros da armadura, recursos de emergência guardados para finais de torneio. Os lançou em trajetórias que se cruzavam no ponto onde Kim Ancestral estava.
-
-As chamas os engolfaram antes do impacto.
+A plateia explodiu. Grito, aplauso, gente de pé. Todo mundo sentindo que estava vendo uma lenda nascer.
 
 ---
 
-No impacto, uma fumaça densa emergiu, não dos poderes de Thunderbolt, mas emanando de Kim Ancestral. Algo antigo, sombrio, esquecido estava nascendo.
+Na arquibancada, o Jack olhava com fascínio e horror na mesma cara pálida.
 
-Não foi gradual como a primeira transformação. Foi ruptura.
-
-A pele de Kim Ancestral escureceu pelas marcações que transbordaram do interior, os padrões geométricos tribais tomando o corpo inteiro até não restar superfície sem símbolo. O casaco de couro negro materializou sobre os ombros, penas e ossos nas bordas, o tecido absorvendo a luz ao redor. Os olhos perderam o que restava de íris, virando esferas brancas que não refletiam nada.
-
-E as chamas tomaram forma.
-
-Não eram mais chamas. Eram criaturas feitas de fogo negro, serpentes de escuridão enroladas nos braços de Kim Primordial com a familiaridade de animais reconhecendo o dono. Nas bordas da maior delas, uma mandíbula se abria e fechava devagar. Na segunda maior, a silhueta de um pescoço longo. Na terceira, asas que não existiam mas a sombra delas existia.
-
-Famintas. Com a paciência de algo que vai comer de qualquer jeito.
-
-A arena ficou quieta de um jeito diferente dos outros silêncios daquele dia. Era o silêncio de quem viu algo que não sabe nomear e sabe que não vai esquecer.
+O amigo que ele conhecia tinha sumido. No lugar tinha uma coisa selvagem, que se mexia com a fluidez de um predador nato.
 
 ---
 
-Thunderbolt não se moveu quando Kim Primordial chegou até ele.
+O Kim desceu as palmas no chão.
 
-Não por bravura. Por aquele segundo de paralisia que antecede o entendimento de que não há movimento possível.
+De quatro. Os dedos curvados, as unhas raspando a terra. A respiração funda, controlada. Os lábios abriram e mostraram os dentes cerrados.
 
-Kim Primordial agarrou o capacete de Thunderbolt e arrancou. O metal que havia resistido a centenas de batalhas cedeu como papel molhado.
+Era o sorriso de quem já escolheu a presa.
 
-Por baixo não havia rosto humano.
+E ele explodiu.
 
-Era pedra. Um rosto talhado em granito escuro, cada feição esculpida com precisão, olhos que eram fendas profundas, boca uma linha reta.
+Um borrão. O Thunderbolt, veterano de batalha que não acabava mais, não conseguiu nem piscar. O Kim já não estava onde devia estar.
 
-Exceto que agora as fendas estavam abertas mais do que o granito permitia, forçadas por algo que vinha de dentro. O que estava dentro do avatar de pedra de Thunderbolt estava muito, muito assustado.
+Estava agachado embaixo dele.
 
-— Então é assim que você vive dentro dessa casca nojenta. — Kim Primordial examinou o rosto de pedra com curiosidade antiquária.
+Uma mão na nuca do Thunderbolt. A outra na têmpora. Um toque quase gentil. E o gigante não conseguia se mexer, como marionete que alguém achou os fios.
 
-O primeiro soco acertou o zigomático com precisão que não era raiva. Era metodologia. O mesmo jeito que Thunderbolt havia trabalhado o rosto de Kim quarenta minutos atrás, mapeando o dano, calculando o próximo ponto.
+O joelho subiu.
 
-Thunderbolt tentou ativar sua lança. Kim Primordial pegou o pulso antes que a descarga saísse e torceu devagar, os ossos do avatar protestando em sequência como notas de uma escala descendente até a lança cair.
+Osso contra osso. O som correu a arena como trovão seco. A mandíbula do Thunderbolt estourou.
 
-— Não, não. O alimento deve se comportar na hora da refeição.
+Um batimento de silêncio.
 
-Soco na lateral do queixo. O granito deslocou, Thunderbolt cuspiu sangue e um fragmento de pedra. Soco no nariz, cartilagem de pedra cedendo com um estalo seco. Soco na sobrancelha, a superfície abrindo, o sangue descendo pelo rosto numa cortina vermelha.
-
-Thunderbolt tentou se defender. Os braços subiram por instinto. Kim Primordial pegou um, torceu para trás até o ombro sair do lugar com o mesmo som definitivo que Rock havia feito no anexo. Thunderbolt desabou de joelhos.
-
-— Olhe pra mim, verme. Seja o inferior que você é e implore por sua vida. — Kim Primordial se abaixou para falar no nível do rosto destruído de Thunderbolt.
-
-Thunderbolt ergueu o rosto em lágrimas, sangrando e segurando o ombro deslocado.
-
-— Piedade. Eu imploro. Chega, eu desisto. Você venceu. Pode ficar com o dinheiro, com a vitória, com tudo. Só vamos acabar essa partida. Eu imploro.
-
-Kim Primordial abriu os braços. Um rugido animalesco e ancestral saiu de sua garganta como o de um antigo imperador das feras. A plateia inteira congelou, sem entender, mas algo dentro de cada um temeu — os fez temer como nunca haviam temido nada em suas vidas.
-
-Kim Primordial batia no peito e rugia, uma fera em comemoração, em demonstração de sua superioridade.
-
-Ergueu Thunderbolt pelo pescoço com uma mão. Com a outra, encaixou um cruzado no estômago que dobrou o ar todo de uma vez. Depois uma joelhada ascendente no queixo já partido. O impacto dessa vez não era cirúrgico, era encerramento.
-
-Thunderbolt pendurado no ar pela garganta, sem mais movimento útil, os pés balançando.
-
-Kim Primordial o examinou por um segundo com a expressão de um cozinheiro avaliando o ponto.
-
-— A carne foi amaciada como devido. Isso deve melhorar o seu gosto de inferior.
-
-As criaturas de chama negra desceram pelos braços como líquido inteligente, avançando para Thunderbolt com a lentidão de quem não tem pressa porque a presa não vai a lugar nenhum.
-
-O grito de Thunderbolt não era de dor física. Era anterior a isso. Era o grito de quem sente algo sendo retirado de um lugar que não tem nome anatômico.
-
-As criaturas devoraram devagar. É como funcionam. Não queimam, não carbonizam. Consomem, com a precisão de algo que foi privado de comer por muito tempo e finalmente tem a refeição na frente.
-
-— Não resista. Dura mais quando você resiste.
-
-Thunderbolt resistiu.
-
-Durou mais.
-
-A plateia que havia pedido sangue durante todo o capítulo anterior estava imóvel. Alguns haviam desviado o olhar. Outros não conseguiam desviar. Jack tinha os olhos fechados com os punhos na grade.
-
-O Narrador, pela primeira vez desde que existia, não disse nada.
+Depois a arena inteira gritou junto.
 
 ---
 
-Quando terminou, o espaço onde Thunderbolt havia estado tinha uma textura diferente do vazio normal.
+Do outro lado, o Jack via cada detalhe.
 
-O Narrador se aproximou com os passos de quem está recalculando tudo que sabia sobre o trabalho que faz.
+As tatuagens tribais subindo pelo pescoço do Kim, vivas. Linhas pretas pulsando e se espalhando como veia de tinta, descendo dos ombros. O cabelo virando prata fio por fio.
 
-— Aquele que julgávamos ser um estreante revelou-se uma força incontestável. — A voz não completamente firme. — Como deseja ser aclamado, campeão?
+Mas era o rosto.
 
-Kim Primordial olhou para o espaço onde Thunderbolt havia estado. Depois para a arena. Depois para o microfone estendido.
+O Jack conhecia a língua da violência. Já tinha lido sede de sangue no olho de adversário que não acabava mais. Já tinha visto fúria pura.
+
+Nunca, jamais, tinha visto aquela fome na cara do amigo dele.
+
+Era como se uma fera antiga tivesse acordado atrás dos olhos do Kim.
+
+---
+
+O Kim afrouxou a mão da cabeça do Thunderbolt. Desceu até o pescoço. E ergueu o gigante do chão como quem levanta uma folha.
+
+Com a ponta do indicador, tocou o queixo destruído dele. Quase com carinho. O sangue grudou no dedo.
+
+— Faz tanto tempo. — A voz era do Kim. Mas carregava outra coisa por baixo. — Tanto tempo desde que eu senti sangue humano fresco. Esse calor. Essa vida. É tão gostoso. Toda existência depende disso... e é tão ridículo de fácil arrancar de vocês, mortais insignificantes.
+
+O Thunderbolt tentou falar. Da mandíbula estilhaçada só saiu som de garganta.
+
+O Kim levou o dedo à boca. Lambeu o sangue devagar, sorrindo.
+
+E se ergueu.
+
+Das solas dos pés dele, chamas negras começaram a subir. Serpenteando em volta do corpo como entidade. O som do fogo era agudo, cortante. E quem tinha ouvido bom conseguia escutar, no meio da crepitação, outra coisa.
+
+Grito. Lamento. Sussurro de sofrimento que não acabava.
+
+— O Sangue Primordial é realmente muito poderoso. — Os olhos dele correram a arena, agora com um brilho âmbar. — É quase impossível acreditar que exista um recipiente mortal capaz de conter tanto poder sem ser consumido por ele.
+
+---
+
+Ele ergueu a mão direita pro céu.
+
+Um silêncio de antes da tragédia.
+
+Aí ele rugiu.
+
+Um rugido que veio do fundo de alguma coisa muito mais velha que ele. A onda de choque saiu do corpo dele em círculos que dava pra ver, rasgando o ar.
+
+A arena, construída pras lutas mais pesadas, gemeu. Os pilares de mármore estouraram como vidro. As arquibancadas, lotadas um segundo antes, foram varridas como folha seca. Pedra e metal voando pra todo lado.
+
+As câmeras dos SBIs tremeram e perderam o sinal.
+
+Milhões de pessoas assistindo pelo PowWow ficaram olhando pra uma tela de estática.
+
+---
+
+Quando a transmissão voltou, a poeira estava baixando.
+
+E no meio das ruínas tinha outra coisa.
+
+O cabelo agora era feito de filamento branco, como fibra ótica, liso até os ombros, cada fio pulsando um brilho negro-elétrico. As tatuagens tinham virado canais rituais fundos tomando o corpo inteiro, subindo pelo pescoço em geometria e descendo pelos braços como rio. Os símbolos Xikaxi, mais selvagens, pulsando embaixo da pele.
+
+Um casaco de couro negro até os joelhos, cortado torto, aberto no peito, cheio de pena de corvo, osso de bicho e garra. Calça de couro com placa de osso nas laterais, símbolo gravado a fogo. Bota que parecia engolir a luz, atravessada por veia azul.
+
+Pintura de guerra preta viva no rosto. Os olhos, duas esferas brancas sem íris. Pedaço de osso furando a pele em alguns pontos, como se tivesse nascido de dentro pra fora. Colar de osso, dente e garra, e cada peça era uma chama vermelha presa. No lugar de cocar, filamentos de energia azul saindo da cabeça, ondulando, sumindo e voltando. Veia verde pulsando em volta dos olhos. E duas marcas vermelhas em forma de raio cortando as bochechas.
+
+O Kim Primordial.
+
+*Ainda é o Briguento 142536?*
+
+A pergunta correu o chat do mundo inteiro. A regra era clara: trocar de avatar no meio de uma partida é proibido. Banimento na hora. E ali estava a prova de que aquilo tinha acontecido.
+
+Uns se afastaram da tela, como se o perigo pudesse atravessar. Outros ficaram travados. E uns poucos ficaram com uma cara estranha, concentrada, como se uma lembrança muito antiga estivesse tentando subir.
+
+---
+
+— Assim é melhor.
+
+O Kim Primordial olhou o próprio corpo de cima a baixo.
+
+— Que trajes ridículos. — Puxou o casaco com desprezo. — Os controles dessa simulação devem ter alguma coisa a ver com isso.
+
+Voltou o olho pro Thunderbolt, ainda pendurado no punho dele.
+
+— Eu me preocupo com isso depois. É hora da minha refeição milenar.
+
+Ergueu o braço. Uma explosão abafada, e chamas negras brotaram da palma como flor venenosa abrindo.
+
+O Thunderbolt tentou recuar. Balbuciava. Sacudia a cabeça. Não, não, não.
+
+---
+
+A poucos metros, o Jack olhava aquilo com horror.
+
+Desde que a partida tinha tomado aquele rumo, um pavor tinha se instalado no peito dele. Agora ele tinha certeza.
+
+Aquela criatura não era o Kim.
+
+---
+
+— Essas pequenas criaturas têm uma fome que nunca se sacia. — O Kim Primordial, as chamas dançando entre os dedos. — Você mal vai servir pra abrir o apetite delas. Mas serve de aperitivo.
+
+Riu. Um riso de garganta, primitivo.
+
+Os dedos fecharam no pescoço do Thunderbolt. A pressão foi subindo devagar. Metódica. O ar virou luxo. O Thunderbolt agarrou o punho dele com as duas mãos, e cada tentativa de respirar saía como um chiado.
+
+— A agonia que você vai sentir vai atravessar a fronteira entre esse plano e a realidade. Vai morar em cada fibra sua. E eu te garanto: se você sobreviver, nunca vai esquecer o que aconteceu hoje.
+
+Pausa.
+
+— Considere-se privilegiado. Pouca gente tem a honra de alimentar criaturas tão... especiais.
+
+---
+
+Ele soltou as chamas.
+
+Elas escorreram pro chão como líquido vivo. Não eram fogo. Eram bicho. Predador acordado de um sono de mil anos.
+
+E começaram pelos pés.
+
+Devagar. Saboreando.
+
+O grito do Thunderbolt rasgou a arena. Não era só dor. Era o desespero de quem sente a própria existência sendo comida pedaço por pedaço.
+
+As chamas não queimavam. Devoravam. A pele não carbonizava. Sumia, absorvida, como se nunca tivesse existido. Ele sentia os ossos virando um pó que nem o vento ia querer carregar.
+
+Até que não sobrou nada.
+
+Nem cinza. Nem escuridão. Uma ausência tão funda que o espaço parecia ter esquecido que ali tinha existido alguém.
+
+As chamas voltaram pras mãos do Kim Primordial como bicho manso voltando pro dono.
+
+— A escuridão é o início e o fim de tudo. — Pro vazio. — Nunca se esqueça disso, pequena refeição.
+
+Inclinou a cabeça. Coçou a têmpora com o dedo, distraído. Pôs as mãos na cintura e olhou pro chão, procurando migalha.
+
+— Realmente. Não foi uma boa refeição.
+
+---
+
+A arena não sabia o que fazer.
+
+Guerreiro de músculo de bronze franzindo a testa. Mago de capuz cochichando. Criatura de asa pairando inquieta no ar.
+
+Um autômato de engrenagem foi o primeiro. Levantou os braços de metal e comemorou.
+
+Aí estourou. Uns gritando, uns de boca aberta, ainda tentando entender.
+
+E no meio de tudo, sozinho, o Jack aplaudia.
+
+Batendo palma no ritmo, um sorriso orgulhoso na cara. Ele tinha apostado todas as fichas no amigo.
+
+---
+
+O Narrador veio deslizando pela arena. Uma figura elegante e grotesca, membros compridos demais, se mexendo igual aranha. Pegou o pulso do Kim Primordial e ergueu pro céu.
+
+— Seres e seres! Testemunhamos algo extraordinário! Aquele que julgávamos ser apenas um garoto comum revelou-se uma força primordial incontestável! Quando tudo parecia perdido, ele emergiu como o temível Gostosão Nevado, dominando o campo de batalha! — Estendeu o microfone. — E agora, grande campeão, como deseja ser aclamado?
+
+O Kim Primordial olhou o microfone com uma curiosidade muito antiga.
 
 — Eu sou O Primordial.
 
-A arena cantou o nome.
+Como se fosse a coisa mais óbvia do mundo.
 
-*O Primordial. O Primordial. O Primordial.*
+— O Primordial! — O Narrador, em êxtase. — O Primordial! O Primordial!
 
-A ovação tomou a arena inteira.
+A arena inteira cantou junto.
+
+---
+
+No meio da glória, alguma coisa deu errado.
+
+Um espasmo atravessou o corpo do Kim Primordial. As mãos contraíram sozinhas. O brilho dos olhos vacilou, igual chama no vento.
+
+— Não... não, não, não!
+
+A voz que era de poder agora era de desespero.
+
+— Aquele alimento mirrado... maldito! Só me deu uns míseros minutos. Eu preciso... — Os dentes cerrados. — Eu vou voltar!
+
+A volta foi dor. Os músculos encolhendo. O cabelo escurecendo, perdendo o brilho, encurtando. A pele voltando pro tom de um adolescente qualquer.
+
+Ele caiu de joelhos com as mãos no peito. Era como se cada célula estivesse sendo reescrita.
+
+A plateia foi ficando quieta.
+
+O corpo desabou no chão da arena.
+
+Uns segundos só de respiração ofegante.
+
+Depois, uma figura bem menor começou a se mexer no meio dos destroços.
 
 ---
 
-O primeiro espasmo veio enquanto a plateia ainda gritava.
+O Kim abriu os olhos.
 
-As criaturas de chama negra recuaram, inquietas, como animais sentindo a maré virar. O brilho branco dos olhos vacilou, apagou, voltou mais fraco. As marcações tribais começaram a apagar de dentro para fora, os padrões mais complexos sumindo primeiro.
+O Kim de sempre. Humano. As pupilas perdidas, como quem acorda de um sonho fundo e confuso. Levantou cambaleando, as pernas tremendo. O boné azul tinha caído em algum momento. A camiseta escura estava rasgada.
 
-— Não. — A voz diferente, algo de Kim escapando pelas bordas. — Aquela refeição foi insuficiente. Só me deu minutos.
+Olhou pras próprias mãos. Pequenas. Comuns. Depois pra multidão olhando pra ele.
 
-A fase Primordial reverteu. O casaco sumiu. As criaturas de fogo negro desfizeram em fumaça. A fase Ancestral reverteu depois. O cabelo escureceu fio por fio. As tatuagens apagaram pelo percurso inverso. Os olhos brancos ganharam íris de volta, depois pupila.
+— O que... o que tá acontecendo?
 
-Kim caiu de joelhos.
+Quase sem som.
+
+Número e informação dançando no canto da visão. Os gritos de "O Primordial" ainda ecoando na cabeça. Tudo um borrão de cor e barulho que o cérebro não conseguia organizar.
+
+Ele não lembrava de nada.
+
+Nem do deus que tinha sido uns minutos antes.
 
 ---
+
+*Sua partida acaba de terminar. Sua pontuação foi atualizada. Você pode retirar o SBI em segurança.*
+
+A voz da NeoGuide, de longe.
 
 O anexo da escola voltou de uma vez.
 
 Concreto frio embaixo dos joelhos. O vento pela janela sem vidro. O cheiro de mofo e cigarro velho.
 
-Kim estava de joelhos no centro do anexo com o SBI ainda na cabeça, o corpo drenado de uma forma que não tinha a ver com os danos do LDI. Era esgotamento de outro tipo, como se algo tivesse usado o corpo físico como combustível sem pedir licença.
+Kim tirou o SBI da cabeça. As pernas balançaram como bambu. O corpo estava drenado de um jeito que não tinha nada a ver com os danos do LDI. Era outro tipo de esgotamento. Como se alguma coisa tivesse usado o corpo dele de combustível sem pedir licença.
 
-Freddy estava no chão a três metros, apagado, o SBI ainda no rosto.
+Procurou o Jack com o olho.
 
-Jack chegou em Kim exatamente quando as pernas cederam, amparou antes que o chão decidisse o destino.
+E o que viu o deixou sem chão.
 
-Os dois ficaram no chão juntos por um segundo que não precisou de palavras.
+O Jack estava branco feito papel. Os olhos arregalados. As duas mãos erguidas na frente do corpo, como quem se defende de uma coisa que não dá pra ver. A boca soltando umas palavras que não formavam frase.
 
-Kim tentou levantar o braço direito com intenção clara.
+Kim tentou perguntar o que tinha acontecido. Da garganta só saiu um ruído rouco.
 
-— Você não tem força pra me socar agora, cara.
+---
 
-— Eu sei. Mas assim que tiver—
+Então ele lembrou da aposta.
 
-— Já sei. Já sei.
+Mesmo daquele jeito, a primeira coisa que o olho procurou foi o dinheiro.
 
-Kim ficou encostado no amigo por mais um segundo. Depois se afastou, ficou de joelhos, procurou o maço no bolso. Os dedos encontraram o cigarro. Buscou o isqueiro.
+E o olho achou o Freddy.
 
-Passos sobre os destroços do chão do anexo. Leves, calculados, chegando bem no ponto cego do olhar.
+No chão, a três metros. Apagado. O SBI ainda no rosto. Tão parado quanto o Thunderbolt tinha ficado na arena.
 
-Nina apareceu pela janela sem vidro com a facilidade de quem conhece o caminho, olhou para a cena, para Freddy apagado, para os cinco capangas que continuavam onde haviam ficado, para Kim de joelhos com o cigarro entre os lábios esperando o isqueiro.
+Um frio subiu pela espinha do Kim.
 
-Chegou até ele, tirou o cigarro da boca de Kim antes que a chama acendesse, colocou nos próprios lábios, acendeu com o isqueiro dela.
+*Será que eu...*
 
-Tragou.
+Ele ficou olhando o peito do garoto. Um segundo. Dois. Uma eternidade.
 
-Devolveu.
+O peito subiu.
 
-Olhou para Kim por um segundo longo, para o espaço de memória do que havia visto na arena pelo próprio SBI.
+Desceu.
 
-— Boa luta.
+O ar saiu do Kim de uma vez. Ele procurou um lugar pra sentar antes que as pernas decidissem por ele, achou um pedaço de parede e escorregou até o chão.
+
+Do outro lado do anexo, o Jack não tinha se mexido. Continuava olhando pro Kim. Cauteloso. Como quem olha um bicho que acabou de acordar.
+
+— Kim. — Baixo. — É você mesmo aí?
+
+O Kim puxou um cigarro amassado do bolso. Os dedos tremiam um pouco.
+
+— E quem mais seria, Jack? Puta que pariu.
+
+— Sei lá. Talvez o demônio do caralho que tava possuindo teu corpo lá dentro do jogo.
+
+O Kim soltou um riso sem graça. Passou a mão na testa.
+
+Desde a luz que tinha explodido na frente dos olhos dele, era como se uma cortina tivesse descido sobre tudo. Uns pedaços soltos dançavam na borda da cabeça. Som distorcido. A sensação de não estar mandando no próprio corpo.
+
+Nada que desse pra chamar de lembrança.
+
+---
+
+O SBI largado no chão, o do Jack, apitou.
+
+Uns bipes ritmados, quase uma música. A luz azul pulsando nas paredes do anexo.
+
+O Jack levantou devagar. Olhou o aparelho como se ele pudesse contar uma coisa que ele não tinha certeza se queria saber.
+
+— NeoGuide. Apresentar a mensagem.
+
+*Atualização de posição no Sistema de Rankeamento Dinâmico. Parabéns, Briguento 142536. Sua posição atual é 1.201. O outro usuário deste dispositivo, Jack Cachorrão 987654321, mantém a posição 10.776.*
+
+O Kim e o Jack se olharam.
+
+O Kim, perdido. As sobrancelhas apertadas, procurando resposta na cara do amigo.
+
+O Jack, segurando um sorriso que não cabia na boca.
+
+*Novos recursos liberados: personalização de nickname, acesso à área de treinamento avançado e ativação do sistema de monetização.*
+
+— Porra! — O Jack explodiu. — Estouramo! Foda demais, Kim! Foda demais!
+
+— Cara. Para com a porra do show e explica que merda tá acontecendo. — Kim. — Começa me contando como eu virei aquela luta.
+
+O Jack abriu a boca pra responder.
+
+E fechou. Tinha passos no anexo.
+
+---
+
+Passos leves, em cima do entulho. Calculados.
+
+Uma garota saiu da sombra. No caminho, pisou em cima de um dos capangas desmaiados no chão como quem pisa num tapete. Andava solta, quase felina.
+
+Cabelo rosa.
+
+A Nina.
+
+Ela olhou pra cena. Pro Freddy apagado. Pros cinco capangas que continuavam onde tinham caído. Pro Kim sentado na parede com um cigarro apagado entre os dedos.
+
+— Boa luta. — Com cara de tédio ensaiado. — Parabéns.
+
+Foi chegando, passo medido.
+
+— Me dá um cigarro?
 
 Pausa.
 
-— Você é o Kim, certo?
+— Você é o Kim, certo? Ou prefere que eu te chame de O Primordial?
 
-Outra pausa, menor.
+O Kim e o Jack se olharam. A mesma pergunta nos dois: como diabos essa garota chegou aqui?
 
-— Ou prefere O Primordial?
+A Nina tamborilou os dedos na coxa, impaciente.
+
+— Se vocês tão se perguntando como eu cheguei aqui, é simples. Eu segui vocês dois. Tô assistindo desde o primeiro soco. — Inclinou a cabeça. — E aí? Vai me oferecer o cigarro ou eu vou ter que implorar?

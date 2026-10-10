@@ -90,13 +90,13 @@ O Jack ficou visivelmente arrasado.
 
 — Eu queria terminar. Tudo bem. Fazer o quê. Cada um com a sua educação. Educação vem de casa. Vem do berço. Não gostei. Não foi legal, não. Não foi legal.
 
-Nina riu do jeito criança que ele estava levando aquilo. E por um segundo os três estavam rindo com vinte e quatro pessoas armadas vindo na direção deles.
+Nina riu do jeito criança que ele estava levando aquilo. E por um segundo os três estavam rindo com vinte e tantas pessoas armadas vindo na direção deles.
 
 Depois pararam.
 
 O grupo se aproximava.
 
-Kim e Jack olharam em volta ao mesmo tempo. Olharam pro hatch vermelho. Pros copos no chão. Pra placa da delegacia meio pintada. Pro estacionamento sem nome que era deles desde os quinze anos.
+Kim e Jack olharam em volta ao mesmo tempo. Olharam pro hatch vermelho. Pros copos no chão. Pra placa da delegacia meio pintada. Pro estacionamento que era o refúgio deles.
 
 Se olharam.
 
@@ -114,7 +114,7 @@ Por um segundo inteiro ela ficou parada no meio do estacionamento, olhando os do
 
 Kim e Jack olharam pra trás e riram.
 
-O grupo também não tinha entendido. Ficou um segundo parado, os pedaços de madeira no ar. Depois alguém gritou alguma coisa e os vinte e quatro saíram correndo atrás dos três.
+O grupo também não tinha entendido. Ficou um segundo parado, os pedaços de madeira no ar. Depois alguém gritou alguma coisa e os vinte e tantos saíram correndo atrás dos três.
 
 E os três correndo na frente, conversando, como se não tivesse ninguém atrás.
 
@@ -128,7 +128,7 @@ Nina correu um tempo calada, entendendo.
 
 O Jack parecia saber de tudo isso desde o primeiro segundo. Ela se perguntou se os dois tinham combinado aquilo um dia, sentados no hatch, ou se era aquela coisa de quase telepatia que ela via entre eles o tempo todo. Pra ela era um mistério. Ela nunca tinha tido isso com ninguém.
 
-— Tem um parque aqui perto. — Kim. — Perfeito. Tem árvore, tem mato, tem caminho. Dá pra separar eles e pegar um grupo de cada vez. A gente também vai se separar, pra ninguém ter que brigar com os vinte e quatro junto, que cansa. — Ele olhou pra Nina. — Tô falando pra você porque o Jack já sabe. Cuidado. Mesmo separada, fica perto. Se precisar, grita. A entrada é na direita. Vamos.
+— Tem um parque aqui perto. — Kim. — Perfeito. Tem árvore, tem mato, tem caminho. Dá pra separar eles e pegar um grupo de cada vez. A gente também vai se separar, pra ninguém ter que brigar com todo mundo junto, que cansa. — Ele olhou pra Nina. — Tô falando pra você porque o Jack já sabe. Cuidado. Mesmo separada, fica perto. Se precisar, grita. A entrada é na direita. Vamos.
 
 ---
 
@@ -158,7 +158,7 @@ Não demorou.
 
 O grupo chegou pelo caminho de terra, ofegante, e parou quando viu ele ali parado, fumando, como se estivesse esperando um ônibus. A moça dos óculos veio na frente.
 
-— Nossa. Me falaram que vocês eram bons de briga. Tô decepcionada. Não achei que iam fugir. — Ela tirou os óculos. — Só pra você saber o nome de quem vai acabar contigo. Roxy.
+— Nossa. Me falaram que vocês eram bons de briga. Tô decepcionada. Não achei que iam fugir. Só pra você saber o nome de quem vai acabar contigo. Roxy.
 
 — Não foi fuga. — Kim soltando a fumaça. — Foi mudança estratégica de local. Vocês iam estragar o nosso refúgio. Aquele lugar é nosso.
 

@@ -24,13 +24,13 @@ Tinha um vídeo dele rodando em rede social que ele nem sabia direito como funci
 
 E pela primeira vez na vida, ele tinha perguntado pra mãe sobre o passado. E descoberto muito mais do que queria.
 
-De algum jeito, ele sentia que tudo aquilo estava ligado. O quarto da Helena. O velho do berimbau. O Sangue Primordial. Alguém atrás dele. Alguém pagando pra tirar foto.
+De algum jeito, ele sentia que tudo aquilo estava ligado ao tal homem misterioso. O quarto da Helena. O velho do berimbau. O Sangue Primordial. Alguém atrás dele. Alguém pagando pra tirar foto.
 
 E tinha mais uma coisa. Uma coisa lá no fundo, que ele sentia toda vez que fechava os olhos e lembrava da arena. Uma coisa forte. Escura. Com fome.
 
 Ele não queria pensar naquilo.
 
-Ainda não.
+Aquilo ia atormentar ele muito em breve.
 
 ---
 
@@ -58,7 +58,7 @@ Kim ficou parado na porta.
 
 Ele nunca tinha sentado pra assistir nada com a mãe. Nunca. Nem quando era pequeno. Na lembrança dele, a televisão daquela casa era uma coisa que ficava ligada enquanto a Helena dormia no sofá.
 
-— Eu aceito. — Ouviu a própria voz dizer. — Se você esquentar a comida, vai ser ótimo. Depois do banho a gente assiste essa tal de Casa do Dinheiro.
+— Eu aceito. — Ouviu a própria voz dizer. — Se você esquentar a comida, vai ser ótimo. Depois do banho a gente assiste essa tal de La Casa do Dinheiro.
 
 A Helena deu um sorriso pequeno.
 

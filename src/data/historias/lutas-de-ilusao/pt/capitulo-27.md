@@ -6,19 +6,23 @@ As arquibancadas subiam em camadas que o Kim não lembrava de ter visto, avatare
 
 O barulho era outro.
 
-Na primeira luta a plateia gritava pelo Thunderbolt porque gritava por qualquer coisa. Agora gritava por um nome.
+Ninguém ali estava por causa do Kim. A plateia, ainda maior que a da primeira vez, gritava um nome só.
 
 *SHUN-TA-RO. SHUN-TA-RO.*
 
+O queridinho novo das Lutas de Ilusão.
+
 O Kim estava caindo. E dessa vez ele não estava pensando no chão.
 
-O chão chegou.
+Caiu na arena como herói de desenho. Pousou de joelho, um punho no chão, e levantou devagar numa pose que fez metade da arquibancada calar a boca.
 
-Ele pousou de pé. Os joelhos dobrados, as mãos no bolso, sem tocar o piso.
+E dessa vez o visual era outro. O ranking dele tinha liberado personalização, e ele tinha usado. Sem camisa. Um colar no peito. Os olhos com um toque azulado. Contas grossas nos pulsos. Calça jeans rasgada. Tênis branco. E na cabeça um boné com duas palavras bordadas na frente.
 
-Uma parte da plateia riu. Tinha gente ali que tinha visto o vídeo da primeira luta, o garoto de boné caindo de cara. Outra parte não riu. Ficou olhando.
+*Ae katu.*
 
-Na arquibancada, numa ilhazinha de cor diferente no meio do mar azul, um lobisomem de dreads verdes levantou os dois braços.
+Numa língua ancestral, queria dizer poder.
+
+Na arquibancada, numa ilhazinha de cor diferente, um lobisomem de dreads verdes levantou os dois braços.
 
 — ISSO, CARALHO!
 
@@ -28,17 +32,11 @@ Do lado do lobisomem, uma garota de capa curta e cabelo de fogo não levantou na
 
 O Shuntaro não caiu do céu.
 
-Do outro lado da arena, uma comporta gigante se abriu com um estrondo, e ele saiu andando por ela. Entrada personalizada. Coisa que só se libera no ranking alto. A plateia veio abaixo.
+Do outro lado da arena, uma comporta gigante se abriu com um estrondo, e ele saiu andando por ela. Entrada personalizada. Coisa que só se libera pra quem está entre os mil melhores do mundo. A plateia veio abaixo.
 
-O avatar dele era quase ele mesmo. Só que mais.
+O avatar dele lembrava um samurai antigo. O semblante focado. As mãos nos bolsos.
 
-Sem camisa, o peito largo e seco. Um colar de contas grossas. Os olhos com um brilho azulado que não existia lá fora. Nos pulsos, mais contas. Calça jeans rasgada. Tênis branco. E na cabeça um boné com duas palavras bordadas na frente.
-
-*Ae katu.*
-
-O Kim não sabia o que significava. Mas alguma coisa nas letras parecia com alguma coisa.
-
-O Shuntaro chegou no centro da arena, tirou as mãos do bolso e estalou os dedos. Um ioiô apareceu na mão dele. Ele jogou, e o ioiô desceu e subiu, e quando subiu veio junto um fio fino de água, girando com ele, brilhando.
+Chegou no centro da arena, tirou as mãos do bolso e estalou os dedos. Um ioiô apareceu na mão dele. Ele jogou, e o ioiô desceu e subiu, e quando subiu veio junto um fio fino de água, girando com ele, brilhando.
 
 O Kim deu de ombros. Esperou.
 
@@ -58,9 +56,7 @@ A arena explodiu.
 
 A arquibancada virou azul. Quase toda. Um mar de azul pra lado do Shuntaro.
 
-E uma ilha pequena de outra cor no meio dele. O lobisomem. A garota de capa. E, numa ponta da ilha, um avatar de terno impecável, com a cara séria de quem tinha acabado de pôr na mesa uma quantia que ele não ia contar pra ninguém.
-
-O Ryan.
+E uma ilha pequena de outra cor no meio dele. O lobisomem. A garota de capa.
 
 ---
 
@@ -98,7 +94,7 @@ O Kim andou também. Devagar. Abriu a mão rápido, e uma machadinha apareceu ne
 
 O Kim olhava o ioiô.
 
-Parecia brinquedo. Uma bola de metal num fio. Mas ele sabia, de uma semana morrendo pra Vitória e pra Angel, que ninguém devia subestimar arma no LDI.
+Parecia brinquedo. Uma bola de metal num fio. Mas ele sabia, do treino com a Vitória e a Angel, que ninguém devia subestimar arma no LDI.
 
 Talvez tenha sido isso. Talvez ele tenha olhado demais pro ioiô.
 
