@@ -182,12 +182,21 @@ livro, webtoon, jogos e trilha — feito de forma independente.
 ======================================================================
 10. O QUE TEM NESTE KIT
 ======================================================================
-01-logos ........ Logo oficial em português, inglês e espanhol (PNG)
+01-logos ........ Logo oficial em português, inglês e espanhol + símbolo LDI (PNG)
 02-banners ...... Artes de divulgação (livro, WEB SHARD, games, música, loja)
 03-capas ........ Capas: Lutas de Ilusão, WEB SHARD, Contos, O Mundo das
                   Sombras, Mar de Cinzas
 04-contos ....... Capa de cada um dos Contos de Ilusão
 05-personagens .. Folhas de personagem (Kim, Jack, Nina, Ryan)
+06-artes-de-divulgacao  Artes prontas pra post: LDI Gangues, LDI Lendas, LDI Super
+                        Trunfo, WEB SHARD e o universo, em 16:9 (thumbnail do
+                        YouTube), 4:5 (feed) e 9:16 (stories/TikTok/Reels), nos
+                        três idiomas (final -pt, -en, -es no nome do arquivo)
+07-ldi-gangues ........ Logo do jogo nos 3 idiomas, a parede oficial e os 12
+                        lutadores de corpo inteiro (fundo transparente)
+08-ldi-super-trunfo ... As 30 cartas do jogo
+09-web-shard .......... Capas dos capítulos 1 a 3 nos 3 idiomas e 3 páginas do
+                        capítulo 1 em cada idioma
 
 Precisa de uma arte específica, entrevista ou mais informação?
 Escreva pra lutasdeilusao@gmail.com

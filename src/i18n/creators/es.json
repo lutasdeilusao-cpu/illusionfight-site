@@ -521,8 +521,8 @@
     "presskit": {
       "eyebrow": "PRESS KIT",
       "titulo": "Descarga el press kit completo",
-      "texto": "Un solo archivo con logos, banners, portadas de todas las obras y cuentos, hojas de personaje y los textos listos: resumen del universo, de las obras, de los juegos, de los personajes y del autor, ficha técnica y reglas de uso, en español, portugués e inglés.",
-      "baixar": "Descargar press kit (.zip, 5 MB)"
+      "texto": "Un solo archivo con logos, banners, portadas de todas las obras y cuentos, hojas de personaje, artes listas para publicar de cada juego y del WEB SHARD (16:9, 4:5 y 9:16, en 3 idiomas), los luchadores de LDI Gangues, las cartas de Top Trumps, páginas del WEB SHARD y los textos listos: resumen del universo, de las obras, de los juegos, de los personajes y del autor, ficha técnica y reglas de uso, en español, portugués e inglés.",
+      "baixar": "Descargar press kit (.zip, 30 MB)"
     }
   }
 }

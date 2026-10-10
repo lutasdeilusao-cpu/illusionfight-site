@@ -521,8 +521,8 @@
     "presskit": {
       "eyebrow": "PRESS KIT",
       "titulo": "Baixe o press kit completo",
-      "texto": "Um arquivo só com logos, banners, capas de todas as obras e contos, folhas de personagem e os textos prontos: resumo do universo, das obras, dos jogos, dos personagens e do autor, ficha técnica e regras de uso, em português, inglês e espanhol.",
-      "baixar": "Baixar press kit (.zip, 5 MB)"
+      "texto": "Um arquivo só com logos, banners, capas de todas as obras e contos, folhas de personagem, artes prontas pra post de cada jogo e do WEB SHARD (16:9, 4:5 e 9:16, nos 3 idiomas), os lutadores do LDI Gangues, as cartas do Super Trunfo, páginas do WEB SHARD e os textos prontos: resumo do universo, das obras, dos jogos, dos personagens e do autor, ficha técnica e regras de uso, em português, inglês e espanhol.",
+      "baixar": "Baixar press kit (.zip, 30 MB)"
     }
   }
 }

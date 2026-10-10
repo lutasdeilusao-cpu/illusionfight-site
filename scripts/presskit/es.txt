@@ -189,12 +189,21 @@ juegos y banda sonora, hecho de forma independiente.
 ======================================================================
 10. QUÉ HAY EN ESTE KIT
 ======================================================================
-01-logos ........ Logo oficial en español, portugués e inglés (PNG)
+01-logos ........ Logo oficial en español, portugués e inglés + símbolo LDI (PNG)
 02-banners ...... Artes de difusión (libro, WEB SHARD, juegos, música, tienda)
 03-capas ........ Portadas: Lutas de Ilusión, WEB SHARD, Cuentos de
                   Ilusión, El Mundo de las Sombras, Mar de Cenizas
 04-contos ....... Portada de cada Cuento de Ilusión
 05-personagens .. Hojas de personaje (Kim, Jack, Nina, Ryan)
+06-artes-de-divulgacao  Artes listas para publicar: LDI Gangues, LDI Leyendas, LDI
+                        Top Trumps, WEB SHARD y el universo, en 16:9 (miniatura
+                        de YouTube), 4:5 (feed) y 9:16 (stories/TikTok/Reels), en
+                        los tres idiomas (el archivo termina en -pt, -en, -es)
+07-ldi-gangues ........ Logo del juego en 3 idiomas, la pared oficial y los 12
+                        luchadores de cuerpo entero (fondo transparente)
+08-ldi-super-trunfo ... Las 30 cartas del juego
+09-web-shard .......... Portadas de los capítulos 1 a 3 en 3 idiomas y 3 páginas
+                        del capítulo 1 en cada idioma
 
 ¿Necesitas un arte específico, una entrevista o más información?
 Escribe a lutasdeilusao@gmail.com

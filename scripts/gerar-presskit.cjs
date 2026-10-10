@@ -13,6 +13,16 @@ const A = (p) => path.join(RAIZ, 'src/assets', p)
 const PASTA = 'illusion-fight-presskit/'
 
 const CONTOS = fs.readdirSync(A('images/contos/capas')).filter(f => f.endsWith('.webp')).sort()
+const ARTES = fs.readdirSync(path.join(__dirname, 'presskit/artes')).filter(f => f.endsWith('.jpg')).sort()
+const GANGUES = path.join(RAIZ, 'src/pages/games/Gangues/assets')
+const LUTADORES = fs.readdirSync(path.join(GANGUES, 'personagens')).sort()
+const slug = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+const CARTAS = JSON.parse(fs.readFileSync(path.join(RAIZ, 'src/data/supertrunfo-pt.json'), 'utf8')).cartas
+  .map(c => [String(c.id).padStart(2, '0'), slug(c.nome)])
+  .filter(([n]) => fs.existsSync(A(`images/cards/characters/card-${n}.png`)))
+// WEB SHARD: só os capítulos já abertos ao público nos 3 idiomas (capa + até 3 páginas do 1º).
+const CAPITULOS_WEBSHARD = ['01', '02', '03']
+const FORMATO_PASTA = { '16x9': '16x9-youtube', '4x5': '4x5-feed', '9x16': '9x16-stories' }
 
 const ARQUIVOS = [
   ['LEIA-ME-PT.txt', path.join(__dirname, 'presskit/pt.txt')],
@@ -33,6 +43,14 @@ const ARQUIVOS = [
   ['03-capas/mar-de-cinzas.webp', A('obras/mar-de-cinzas/capa.webp')],
   ...CONTOS.map(f => [`04-contos/conto-${f}`, A(`images/contos/capas/${f}`)]),
   ...['kim', 'jack', 'nina', 'ryan'].map(p => [`05-personagens/ficha-${p}.webp`, A(`images/creators/fichas/ficha-${p}.webp`)]),
+  ...ARTES.map(f => { const [, fmt] = f.split('-'); return [`06-artes-de-divulgacao/${FORMATO_PASTA[fmt]}/${f}`, path.join(__dirname, 'presskit/artes', f)] }),
+  ...['pt', 'en', 'es'].map(l => [`07-ldi-gangues/logo-${l}.png`, path.join(GANGUES, `logos/logo-${l}.png`)]),
+  ['07-ldi-gangues/parede-oficial.jpg', path.join(GANGUES, 'backgrounds/parede-oficial.jpg')],
+  ...LUTADORES.map(n => [`07-ldi-gangues/lutadores/${n}.webp`, path.join(GANGUES, `personagens/${n}/corpo-frente.webp`)]),
+  ...CARTAS.map(([n, nome]) => [`08-ldi-super-trunfo/cartas/${n}-${nome}.png`, A(`images/cards/characters/card-${n}.png`)]),
+  ...CAPITULOS_WEBSHARD.flatMap(c => ['pt', 'en', 'es'].map(l => [`09-web-shard/capas/capitulo-${c}-${l}.webp`, path.join(RAIZ, `public/webtoon/${c}/${l}/01.webp`)])),
+  ...['02', '03', '04'].flatMap(pg => ['pt', 'en', 'es'].map(l => [`09-web-shard/capitulo-01-paginas/${l}-pagina-${pg}.webp`, path.join(RAIZ, `public/webtoon/01/${l}/${pg}.webp`)])),
+  ...['pt-es', 'en'].map(l => [`01-logos/simbolo-ldi-${l}.png`, A(`images/logos/logo-mark-${l}.png`)]),
 ]
 
 function dosHora(d) {

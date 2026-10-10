@@ -184,12 +184,21 @@ books, webtoon, games and soundtrack, made independently.
 ======================================================================
 10. WHAT'S IN THIS KIT
 ======================================================================
-01-logos ........ Official logo in English, Portuguese and Spanish (PNG)
+01-logos ........ Official logo in English, Portuguese and Spanish + LDI symbol (PNG)
 02-banners ...... Promotional art (book, WEB SHARD, games, music, store)
 03-capas ........ Covers: Illusion Fight, WEB SHARD, Illusion Tales,
                   The Shadow World, Sea of Ashes
 04-contos ....... A cover for each Illusion Tale
 05-personagens .. Character sheets (Kim, Jack, Nina, Ryan)
+06-artes-de-divulgacao  Ready-to-post art: LDI Gangues, LDI Legends, LDI Top
+                        Trumps, WEB SHARD and the universe, in 16:9 (YouTube
+                        thumbnail), 4:5 (feed) and 9:16 (stories/TikTok/Reels),
+                        in all three languages (files end in -pt, -en, -es)
+07-ldi-gangues ........ Game logo in 3 languages, the official wall and the 12
+                        full-body fighters (transparent background)
+08-ldi-super-trunfo ... All 30 cards from the game
+09-web-shard .......... Covers of chapters 1 to 3 in 3 languages and 3 pages of
+                        chapter 1 in each language
 
 Need specific art, an interview or more information?
 Write to lutasdeilusao@gmail.com
