@@ -11,6 +11,16 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://illusionfight.com/creators/destaques/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/creators/destaques/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://illusionfight.com/pt/creators/destaques/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/es/creators/destaques/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://illusionfight.com/creators/destaques/"/>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://illusionfight.com/personagens/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/personagens/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://illusionfight.com/pt/personagens/"/>
@@ -1191,6 +1201,16 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://illusionfight.com/pt/creators/destaques/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/creators/destaques/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://illusionfight.com/pt/creators/destaques/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/es/creators/destaques/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://illusionfight.com/creators/destaques/"/>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://illusionfight.com/pt/personagens/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/personagens/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://illusionfight.com/pt/personagens/"/>
@@ -2369,6 +2389,16 @@
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/es/creators/destaques/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/creators/destaques/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://illusionfight.com/pt/creators/destaques/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/es/creators/destaques/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://illusionfight.com/creators/destaques/"/>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://illusionfight.com/es/personagens/</loc>
