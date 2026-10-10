@@ -102,7 +102,7 @@
       "desc": "você precisa de 1 ficha para jogar {nome}.",
       "sub": "fichas diárias resetam à meia-noite.",
       "coletar": "coletar fichas",
-      "assinar": "assinar elite — 10 fichas/dia",
+      "assinar": "assinar ancestral — 10 fichas/dia",
       "voltar": "voltar aos games"
     }
   },
@@ -205,7 +205,7 @@
     "doacao": {
       "title": "Prefere apoiar sem assinar?",
       "text": "Toda doação ajuda o projeto a continuar.",
-      "benefit1": "R$10 ou mais = 1 mês de ELITE grátis",
+      "benefit1": "R$10 ou mais = 1 mês de ANCESTRAL grátis",
       "benefit2": "R$50 ou mais = 1 mês de PRIMORDIAL grátis",
       "cta": "FAZER UMA DOAÇÃO"
     },
@@ -237,8 +237,8 @@
     "revisao_correta": "Correta:",
     "btn_reiniciar": "JOGAR NOVAMENTE",
     "btn_home": "VOLTAR À HOME",
-    "bloqueio_titulo": "Modo exclusivo ELITE / PRIMORDIAL",
-    "bloqueio_desc": "Assine para desbloquear os modos RECRUTA e ELITE, histórico de ranks e universitários ilimitados.",
+    "bloqueio_titulo": "Modo exclusivo ANCESTRAL / PRIMORDIAL",
+    "bloqueio_desc": "Assine para desbloquear os modos RECRUTA e ANCESTRAL, histórico de ranks e universitários ilimitados.",
     "bloqueio_btn": "VER PLANOS",
     "bloqueio_voltar": "Voltar",
     "modo_recruta_desc": "Básico — qualquer fã entra",
@@ -253,7 +253,7 @@
     "modo_desc_ranqueado": "5 fáceis + 5 médias",
     "modo_desc_elite": "7 fáceis + 7 médias + 6 difíceis",
     "modo_desc_primordial": "10 de cada dificuldade",
-    "rank_tier_elite": "ELITE",
+    "rank_tier_elite": "ANCESTRAL",
     "rank_tier_ranqueado": "RANQUEADO",
     "rank_tier_aspirante": "ASPIRANTE",
     "rank_tier_novato": "NOVATO",
@@ -447,7 +447,7 @@
       "abas_tamagoshi": "Tamagoshi",
       "coletar": "COLETAR",
       "tier_ranqueado": "RANQUEADO",
-      "tier_elite": "ELITE",
+      "tier_elite": "ANCESTRAL",
       "tier_primordial": "PRIMORDIAL",
       "conta_titulo": "INFORMAÇÕES DA CONTA",
       "conta_nome": "Nome",
@@ -556,7 +556,7 @@
       "recomp_acao_achievement": "Desbloquear achievement",
       "recomp_acao_indicar": "Indicar um amigo",
       "recomp_acao_compartilhar": "Compartilhar resultado",
-      "recomp_acao_elite": "Assinar Elite",
+      "recomp_acao_elite": "Assinar Ancestral",
       "recomp_acao_primordial": "Assinar Primordial",
       "recomp_acoes_fichas": "+{n} 🎰",
       "gangues_bairros": "Bairros",
@@ -864,7 +864,7 @@
     },
     "assinar": {
       "og_title": "Assinar — Lutas de Ilusão",
-      "og_desc": "Escolha seu tier: Ranqueado, Elite ou Primordial. Cada nível desbloqueia novos acessos ao universo Lutas de Ilusão."
+      "og_desc": "Escolha seu tier: Ranqueado, Ancestral ou Primordial. Cada nível desbloqueia novos acessos ao universo Lutas de Ilusão."
     },
     "leaderboard": {
       "quiz_sdr": "QUIZ SDR",

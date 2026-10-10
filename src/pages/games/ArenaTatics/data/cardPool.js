@@ -2,7 +2,7 @@
  * CARD POOL — Sistema de Sorteio de Cartas
  *
  * Pool fixo de 10 cartas liberáveis por jogador.
- * Cartas 11-20 do roster são exclusivas de tier ELITE/PRIMORDIAL.
+ * Cartas 11-20 do roster são exclusivas dos tiers Ancestral e Primordial.
  *
  * Regras:
  * - Carta 1: sempre KARUAK (sorteio entre os 6 KARUAKs do pool)

@@ -102,7 +102,7 @@
       "desc": "you need 1 token to play {nome}.",
       "sub": "daily tokens reset at midnight.",
       "coletar": "collect tokens",
-      "assinar": "subscribe elite — 10 tokens/day",
+      "assinar": "subscribe ancestral — 10 tokens/day",
       "voltar": "back to games"
     }
   },
@@ -205,7 +205,7 @@
     "doacao": {
       "title": "Prefer to support without subscribing?",
       "text": "Every donation helps the project continue.",
-      "benefit1": "$10 or more = 1 free month of ELITE",
+      "benefit1": "$10 or more = 1 free month of ANCESTRAL",
       "benefit2": "$50 or more = 1 free month of PRIMORDIAL",
       "cta": "MAKE A DONATION"
     },
@@ -237,8 +237,8 @@
     "revisao_correta": "Correct:",
     "btn_reiniciar": "PLAY AGAIN",
     "btn_home": "BACK TO HOME",
-    "bloqueio_titulo": "Exclusive ELITE / PRIMORDIAL mode",
-    "bloqueio_desc": "Subscribe to unlock RECRUTA and ELITE modes, rank history and unlimited university help.",
+    "bloqueio_titulo": "Exclusive ANCESTRAL / PRIMORDIAL mode",
+    "bloqueio_desc": "Subscribe to unlock RECRUTA and ANCESTRAL modes, rank history and unlimited university help.",
     "bloqueio_btn": "VIEW PLANS",
     "bloqueio_voltar": "Go back",
     "modo_recruta_desc": "Basic — any fan can join",
@@ -253,7 +253,7 @@
     "modo_desc_ranqueado": "5 easy + 5 medium",
     "modo_desc_elite": "7 easy + 7 medium + 6 hard",
     "modo_desc_primordial": "10 of each difficulty",
-    "rank_tier_elite": "ELITE",
+    "rank_tier_elite": "ANCESTRAL",
     "rank_tier_ranqueado": "RANKED",
     "rank_tier_aspirante": "ASPIRANT",
     "rank_tier_novato": "ROOKIE",
@@ -447,7 +447,7 @@
       "abas_tamagoshi": "Tamagoshi",
       "coletar": "CLAIM",
       "tier_ranqueado": "RANKED",
-      "tier_elite": "ELITE",
+      "tier_elite": "ANCESTRAL",
       "tier_primordial": "PRIMORDIAL",
       "conta_titulo": "ACCOUNT INFO",
       "conta_nome": "Name",
@@ -556,7 +556,7 @@
       "recomp_acao_achievement": "Unlock achievement",
       "recomp_acao_indicar": "Refer a friend",
       "recomp_acao_compartilhar": "Share result",
-      "recomp_acao_elite": "Subscribe Elite",
+      "recomp_acao_elite": "Subscribe Ancestral",
       "recomp_acao_primordial": "Subscribe Primordial",
       "recomp_acoes_fichas": "+{n} 🎰",
       "gangues_bairros": "Blocks",
@@ -864,7 +864,7 @@
     },
     "assinar": {
       "og_title": "Subscribe — Illusion Fight",
-      "og_desc": "Choose your tier: Ranked, Elite or Primordial. Each level unlocks new access to the Illusion Fight universe."
+      "og_desc": "Choose your tier: Ranked, Ancestral or Primordial. Each level unlocks new access to the Illusion Fight universe."
     },
     "leaderboard": {
       "quiz_sdr": "QUIZ SDR",

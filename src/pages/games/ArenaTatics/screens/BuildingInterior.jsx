@@ -305,7 +305,7 @@ function buildInterior(ctx, mapId) {
         ctx.fillStyle = '#ff88cc'
         ctx.font = 'bold 7px monospace'
         ctx.textAlign = 'center'
-        const styles = ['RANQUEADO', 'ELITE', 'PRIMORDIAL', 'LIMITADO']
+        const styles = ['RANQUEADO', 'ANCESTRAL', 'PRIMORDIAL', 'LIMITADO']
         ctx.fillText(styles[i], mx + 40, my + 180)
       }
       for (let i = 0; i < 4; i++) {

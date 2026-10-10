@@ -102,7 +102,7 @@
       "desc": "necesitas 1 ficha para jugar {nome}.",
       "sub": "fichas diarias se reinician a medianoche.",
       "coletar": "recoger fichas",
-      "assinar": "suscribirse elite — 10 fichas/día",
+      "assinar": "suscribirse ancestral — 10 fichas/día",
       "voltar": "volver a los juegos"
     }
   },
@@ -205,7 +205,7 @@
     "doacao": {
       "title": "¿Prefieres apoyar sin suscribirte?",
       "text": "Toda donación ayuda al proyecto a continuar.",
-      "benefit1": "€10 o más = 1 mes de ELITE gratis",
+      "benefit1": "€10 o más = 1 mes de ANCESTRAL gratis",
       "benefit2": "€50 o más = 1 mes de PRIMORDIAL gratis",
       "cta": "HACER UNA DONACIÓN"
     },
@@ -237,8 +237,8 @@
     "revisao_correta": "Correcta:",
     "btn_reiniciar": "JUGAR DE NUEVO",
     "btn_home": "VOLVER AL INICIO",
-    "bloqueio_titulo": "Modo exclusivo ELITE / PRIMORDIAL",
-    "bloqueio_desc": "Suscríbete para desbloquear los modos RECRUTA y ELITE, historial de rangos y universitarios ilimitados.",
+    "bloqueio_titulo": "Modo exclusivo ANCESTRAL / PRIMORDIAL",
+    "bloqueio_desc": "Suscríbete para desbloquear los modos RECRUTA y ANCESTRAL, historial de rangos y universitarios ilimitados.",
     "bloqueio_btn": "VER PLANES",
     "bloqueio_voltar": "Volver",
     "modo_recruta_desc": "Básico — cualquier fan entra",
@@ -253,7 +253,7 @@
     "modo_desc_ranqueado": "5 fáciles + 5 medias",
     "modo_desc_elite": "7 fáciles + 7 medias + 6 difíciles",
     "modo_desc_primordial": "10 de cada dificultad",
-    "rank_tier_elite": "ÉLITE",
+    "rank_tier_elite": "ANCESTRAL",
     "rank_tier_ranqueado": "RANQUEADO",
     "rank_tier_aspirante": "ASPIRANTE",
     "rank_tier_novato": "NOVATO",
@@ -447,7 +447,7 @@
       "abas_tamagoshi": "Tamagoshi",
       "coletar": "RECOGER",
       "tier_ranqueado": "RANQUEADO",
-      "tier_elite": "ÉLITE",
+      "tier_elite": "ANCESTRAL",
       "tier_primordial": "PRIMORDIAL",
       "conta_titulo": "INFORMACIÓN DE LA CUENTA",
       "conta_nome": "Nombre",
@@ -556,7 +556,7 @@
       "recomp_acao_achievement": "Desbloquear logro",
       "recomp_acao_indicar": "Recomendar un amigo",
       "recomp_acao_compartilhar": "Compartir resultado",
-      "recomp_acao_elite": "Suscribirse Elite",
+      "recomp_acao_elite": "Suscribirse Ancestral",
       "recomp_acao_primordial": "Suscribirse Primordial",
       "recomp_acoes_fichas": "+{n} 🎰",
       "gangues_bairros": "Barrios",
@@ -864,7 +864,7 @@
     },
     "assinar": {
       "og_title": "Suscríbete — Lutas de Ilusión",
-      "og_desc": "Elige tu tier: Ranqueado, Elite o Primordial. Cada nivel desbloquea nuevos accesos al universo Lutas de Ilusión."
+      "og_desc": "Elige tu tier: Ranqueado, Ancestral o Primordial. Cada nivel desbloquea nuevos accesos al universo Lutas de Ilusión."
     },
     "leaderboard": {
       "quiz_sdr": "QUIZ SDR",

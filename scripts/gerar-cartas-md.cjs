@@ -19,7 +19,7 @@ const tierNames = {
   sombra: '⬛ Sombra',
   primordial: '🔴 Primordial',
   lendario: '🟡 Lendário',
-  elite: '🟣 Elite',
+  elite: '🟣 Ancestral',
   free: '🟢 Free'
 };
 

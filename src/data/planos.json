@@ -46,9 +46,9 @@
   },
   {
     "id": "elite",
-    "nome": "ELITE",
-    "nome_en": "ELITE",
-    "nome_es": "ELITE",
+    "nome": "ANCESTRAL",
+    "nome_en": "ANCESTRAL",
+    "nome_es": "ANCESTRAL",
     "preco": 10,
     "preco_label": "R$10/mês",
     "preco_label_en": "$5/mo",
@@ -89,9 +89,9 @@
       "Newsletter con bastidores mensuales",
       "Nombre en los agradecimientos digitales"
     ],
-    "cta_pt": "ENTRAR NA ELITE",
-    "cta_en": "JOIN ELITE",
-    "cta_es": "UNIRSE A LA ELITE",
+    "cta_pt": "SER ANCESTRAL",
+    "cta_en": "GO ANCESTRAL",
+    "cta_es": "SER ANCESTRAL",
     "cta_url": "#",
     "cta_disabled": false
   },
@@ -110,7 +110,7 @@
     "badge_es": "MÁS POPULAR",
     "cor": "#F4A227",
     "beneficios_pt": [
-      "Tudo do Elite",
+      "Tudo do Ancestral",
       "Webtoon 2 semanas antes do público",
       "Universo expandido — lore completo, glossário e fichas secretas",
       "Fragmentos em desenvolvimento — rascunhos e cenas inéditas",
@@ -122,7 +122,7 @@
       "Recompensas exclusivas nos jogos"
     ],
     "beneficios_en": [
-      "Everything in Elite",
+      "Everything in Ancestral",
       "Webtoon 2 weeks before public",
       "Expanded universe — full lore, glossary & secret sheets",
       "Development fragments — drafts and unreleased scenes",
@@ -134,7 +134,7 @@
       "Exclusive in-game rewards"
     ],
     "beneficios_es": [
-      "Todo lo de Elite",
+      "Todo lo de Ancestral",
       "Webtoon 2 semanas antes del público",
       "Universo expandido — lore completo, glosario y fichas secretas",
       "Fragmentos en desarrollo — borradores y escenas inéditas",
