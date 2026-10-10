@@ -106,14 +106,22 @@
     "id": "04",
     "numero": 4,
     "so_admin": true,
-    "titulo_pt": "Em Breve",
-    "titulo_en": "Coming Soon",
-    "titulo_es": "Próximamente",
-    "publicado": false,
+    "titulo_pt": "A Dor é Real de Ilusão",
+    "titulo_en": "A Dor é Real de Ilusão",
+    "titulo_es": "A Dor é Real de Ilusão",
+    "descricao_pt": "No LDI pela primeira vez, Kim descobre na pele que a dor é real.",
+    "frase_pt": "A dor é real.",
+    "publicado": true,
+    "data_publicacao": "2027-04-15",
+    "paginas": 63,
     "idiomas": [
       "pt"
     ],
-    "data_publicacao": "2027-04-15",
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
     "liberacao": {
       "primordial": "2027-03-15",
       "elite": "2027-03-15",
