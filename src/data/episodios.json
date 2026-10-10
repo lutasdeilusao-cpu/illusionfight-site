@@ -1,6 +1,7 @@
 [
   {
     "id": "01",
+    "creator": true,
     "numero": 1,
     "titulo_pt": "O Sonho de Ilusão",
     "titulo_en": "The Illusion Dream",
@@ -38,6 +39,7 @@
   },
   {
     "id": "02",
+    "creator": true,
     "numero": 2,
     "so_admin": true,
     "titulo_pt": "O Script de Ilusão",
@@ -71,6 +73,7 @@
   },
   {
     "id": "03",
+    "creator": true,
     "numero": 3,
     "so_admin": true,
     "titulo_pt": "Maus Hábitos de Ilusão",
@@ -104,6 +107,7 @@
   },
   {
     "id": "04",
+    "creator": true,
     "numero": 4,
     "so_admin": true,
     "titulo_pt": "A Dor é Real de Ilusão",

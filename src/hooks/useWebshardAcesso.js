@@ -12,8 +12,8 @@ const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
  *  admin lê tudo, capítulo `sempre_livre` é de todo mundo, capítulo em
  *  Beta (`beta_ate`) é de todo mundo até a data, o resto
  *  segue a cascata de liberação por data (config/site.js). Creator ativo
- *  lê todo capítulo que já tem páginas, inclusive o marcado `so_admin`, que fora
- *  disso só admin lê. */
+ *  lê só o capítulo marcado `creator: true` no dado (inclusive `so_admin`, que
+ *  fora disso só admin lê). */
 export function useWebshardAcesso() {
   const { user, perfil } = useAuth()
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
@@ -22,8 +22,9 @@ export function useWebshardAcesso() {
   // Liberado pela regra normal, ignorando o passe de admin.
   const liberadoSemAdmin = useCallback(cap => {
     if (!capituloTemConteudo(cap)) return false
-    if (cap.so_admin) return creatorAtivo(perfil)
-    return Boolean(cap.sempre_livre) || emBeta(cap) || TRIAL_ACTIVE || creatorAtivo(perfil) || estaDisponivel(cap, false, { user, perfil })
+    const doCreator = Boolean(cap.creator) && creatorAtivo(perfil)
+    if (cap.so_admin) return doCreator
+    return Boolean(cap.sempre_livre) || emBeta(cap) || TRIAL_ACTIVE || doCreator || estaDisponivel(cap, false, { user, perfil })
   }, [user, perfil])
 
   const liberado = useCallback(cap => (

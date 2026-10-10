@@ -90,7 +90,8 @@
       "elite": "2026-12-30",
       "conta": "2027-01-30",
       "publico": "2027-03-15"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-06",
@@ -106,7 +107,8 @@
       "elite": "2027-01-15",
       "conta": "2027-03-15",
       "publico": "2027-03-30"
-    }
+    },
+    "creator": true
   },
   {
     "id": "capitulo-07",
