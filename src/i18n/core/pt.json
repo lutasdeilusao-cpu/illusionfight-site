@@ -376,7 +376,7 @@
         "quiz": "teste seu conhecimento do universo LDI.",
         "leaderboard": "ranking global de jogadores."
       },
-      "vitrine_eyebrow": "Lançamento da Temporada 1",
+      "vitrine_eyebrow": "Oficiais · Lançamento da Temporada 1",
       "vitrine": {
         "gangues": "Funde sua gangue, recrute lutadores e tome Marélia bairro por bairro, briga a briga.",
         "gangues_tag1": "RPG de gangue",
@@ -396,8 +396,8 @@
         "proximos_eyebrow": "Vem aí",
         "proximos_titulo": "Próximos jogos no segundo quadrimestre",
         "ver_calendario": "Ver o calendário",
-        "admin_eyebrow": "Só admin · fora do catálogo",
-        "admin_texto": "Estes jogos não aparecem pra ninguém; as rotas também barram quem não é admin."
+        "admin_eyebrow": "Em andamento · não oficiais",
+        "admin_texto": "Jogos ainda em desenvolvimento, abertos só pra creators e admins. Não fazem parte do lançamento e podem mudar ou sair. Os oficiais são os de cima."
       }
     },
     "leaderboard": {

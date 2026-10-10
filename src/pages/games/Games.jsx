@@ -7,6 +7,7 @@ import { useFichaGate } from '../../hooks/useFichaGate'
 import { trackEvent } from '../../lib/analytics'
 import { getTopTrumpsCardImage } from '../../lib/topTrumpsCardImages'
 import { ADMIN_EMAILS } from '../../config/launch'
+import { creatorAtivo } from '../../lib/creator'
 import ModalSemFichas from '../../components/ModalSemFichas/ModalSemFichas'
 import ModalConfirmacaoFicha from '../../components/ModalConfirmacaoFicha/ModalConfirmacaoFicha'
 import { VEIAS } from './LDI/data/veias'
@@ -34,7 +35,7 @@ const VITRINE = ['gangues', 'ldi', 'toptrumps']
 const ROTA = { gangues: '/games/ldi-gangues', ldi: '/games/ldi', toptrumps: '/games/toptrumps' }
 const NOME = { gangues: 'site.games.nomes.gangues', ldi: 'site.games.nomes.ldi', toptrumps: 'site.games.nomes.trumps' }
 
-// Fora do catálogo: só admin vê e abre (as rotas também barram quem não é).
+// Em andamento, fora do catálogo: só admin e creator veem e abrem (as rotas também barram o resto).
 const FORA = [
   { id: 'jackcandy', nomeKey: 'site.games.nomes.jack', rota: '/games/jackcandy' },
   { id: 'tatics', nomeKey: 'site.games.nomes.tatics', rota: '/games/ldi-tatics' },
@@ -58,6 +59,7 @@ export default function Games() {
   const navigate = useNavigate()
   const { user, perfil } = useAuth()
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
+  const veEmAndamento = isAdmin || creatorAtivo(perfil)
 
   const gates = {}
   for (const id of VITRINE) {
@@ -137,7 +139,7 @@ export default function Games() {
           <ul>{PROXIMOS.map(id => <li key={id}>{t(`calendar.game_${id}`)}</li>)}</ul>
           <Link to="/calendario" className="games-proximos__link">{t('site.games.vitrine.ver_calendario')} →</Link>
         </section>
-        {isAdmin && (
+        {veEmAndamento && (
           <section className="games-admin">
             <p className="if-eyebrow">{t('site.games.vitrine.admin_eyebrow')}</p>
             <p className="games-admin__texto">{t('site.games.vitrine.admin_texto')}</p>

@@ -20,8 +20,9 @@ export function estaDisponivel(item, isAdmin = false, auth = {}) {
 
 /** Liberação dos Contos de Ilusão. Durante a beta (BETA_CONTOS_PUBLICO) e
  *  até o fechamento de 1º de novembro, todos os capítulos ficam abertos, com
- *  ou sem conta. Depois, cai na regra normal de data. */
+ *  ou sem conta. Depois, cai na regra normal de data. Creator ativo lê todos. */
 export function contoLiberado(item, isAdmin = false, auth = {}) {
   if (BETA_CONTOS_PUBLICO && antesDoFechamento()) return true
+  if (creatorAtivo(auth.perfil)) return true
   return estaDisponivel(item, isAdmin, auth)
 }

@@ -82,15 +82,16 @@ const UnifiedNotification = lazyWithReload(() => import('./components/UnifiedNot
 import { trackPageView } from './lib/analytics'
 import { AfinidadeTracker } from './components/Recomendacoes/Recomendacoes'
 import { pontoSeguro } from './lib/versaoNova'
+import { creatorAtivo } from './lib/creator'
 import './pages/games/Duelo/version' // side-effect: console.log version
 
-// Jogo fora da leva atual do lançamento: só admin abre (pra seguir testando);
-// o resto volta pro catálogo de jogos.
+// Jogo fora da leva atual do lançamento: só admin e creator ativo abrem
+// (em andamento); o resto volta pro catálogo de jogos.
 function SoAdmin({ children }) {
   const { user, perfil, carregando } = useAuth()
   if (ADMIN_EMAILS.includes(user?.email || '')) return children
   if (carregando || (user && !perfil)) return null
-  return perfil?.is_admin === true ? children : <Navigate to="/games" replace />
+  return perfil?.is_admin === true || creatorAtivo(perfil) ? children : <Navigate to="/games" replace />
 }
 
 function LegacyLivroRedirect({ to }) {

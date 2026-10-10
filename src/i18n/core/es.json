@@ -376,7 +376,7 @@
         "quiz": "prueba tu conocimiento del universo LDI.",
         "leaderboard": "ranking global de jugadores."
       },
-      "vitrine_eyebrow": "Lanzamiento de la Temporada 1",
+      "vitrine_eyebrow": "Oficiales · Lanzamiento de la Temporada 1",
       "vitrine": {
         "gangues": "Funda tu pandilla, recluta luchadores y toma Marélia barrio por barrio, pelea a pelea.",
         "gangues_tag1": "RPG de pandillas",
@@ -396,8 +396,8 @@
         "proximos_eyebrow": "Ya vienen",
         "proximos_titulo": "Próximos juegos en el segundo cuatrimestre",
         "ver_calendario": "Ver el calendario",
-        "admin_eyebrow": "Solo admin · fuera del catálogo",
-        "admin_texto": "Nadie más ve estos juegos; las rutas también bloquean a quien no es admin."
+        "admin_eyebrow": "En desarrollo · no oficiales",
+        "admin_texto": "Juegos todavía en desarrollo, abiertos solo para creators y admins. No forman parte del lanzamiento y pueden cambiar o salir. Los oficiales son los de arriba."
       }
     },
     "leaderboard": {

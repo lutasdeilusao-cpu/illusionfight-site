@@ -376,7 +376,7 @@
         "quiz": "test your knowledge of the LDI universe.",
         "leaderboard": "global player ranking."
       },
-      "vitrine_eyebrow": "Season 1 launch",
+      "vitrine_eyebrow": "Official · Season 1 launch",
       "vitrine": {
         "gangues": "Found your gang, recruit fighters and take Marélia block by block, fight by fight.",
         "gangues_tag1": "Gang RPG",
@@ -396,8 +396,8 @@
         "proximos_eyebrow": "Coming up",
         "proximos_titulo": "Next games in the second cycle",
         "ver_calendario": "See the calendar",
-        "admin_eyebrow": "Admin only · off the catalog",
-        "admin_texto": "Nobody else sees these games; the routes also block anyone who isn’t an admin."
+        "admin_eyebrow": "In progress · not official",
+        "admin_texto": "Games still in development, open only to creators and admins. They are not part of the launch and may change or be removed. The official ones are above."
       }
     },
     "leaderboard": {
