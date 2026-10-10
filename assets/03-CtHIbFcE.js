@@ -1,0 +1,69 @@
+var e=`# Apêndice — As Doze Obrigações da Consorte\r
+\r
+### Código Cerimonial de Dornath · Revisão da Quarta Era · Decreto do Almirantado 7.3 · Uso Ritual Obrigatório em Cerimônias de Vínculo de Primeira Classe\r
+\r
+Pronunciadas pela noiva de joelhos, com a mão direita sobre o Livro das Marés aberto na Tábua dos Vínculos. O Comandante permanece em pé. As testemunhas — no mínimo dois oficiais de posto acima de Tenente-Capitão — permanecem de pé à direita do Comandante. O silêncio deve ser mantido pela assembleia durante a pronúncia completa. Interrupções constituem irregularidade cerimonial registrada em ata.\r
+\r
+A consorte pronuncia cada Obrigação em voz audível. O Oficial Celebrante confirma após cada uma: "Que o oceano registre." A assembleia responde: "Que as marés guardem."\r
+\r
+### I — A Obrigação do Nome\r
+\r
+Declaro que, a partir deste momento, renuncio ao uso independente do nome de nascença em todos os contextos de representação formal, registro civil, correspondência oficial, contratos, petições, testemunhos e apresentações sociais perante qualquer autoridade ou assembleia. Adoto o nome do Comandante como nome de registro primário, reconhecendo que a continuidade de linhagem pertence à casa do marido e não à casa paterna. O nome de nascença torna-se nome de origem — preservado em arquivo familiar, nunca em uso público sem autorização do Comandante.\r
+\r
+### II — A Obrigação da Residência\r
+\r
+Declaro que meu porto, habitação, domicílio de direito e domicílio de fato passam a ser determinados pelas necessidades de função, carreira e conveniência do Comandante, sem prazo definido, sem direito de recusa e sem direito de negociação quanto à localidade, duração ou condições da habitação. Reconheço que qualquer propriedade ou direito de habitação que eu detinha antes desta cerimônia, incluindo residência paterna ou herança domiciliar já estabelecida, passa a ser administrada sob os termos da Obrigação VII.\r
+\r
+### III — A Obrigação da Voz\r
+\r
+Declaro que não expressarei opinião contrária à do Comandante em qualquer contexto que envolva mais de uma pessoa além de mim mesma — incluindo jantares, cerimônias, reuniões de oficiais, espaços públicos e correspondência escrita dirigida a terceiros. Reservo discordâncias ao espaço privado e à discrição exclusiva do Comandante em considerá-las, respondê-las ou descartá-las. Reconheço que opinião expressa em meu nome sem autorização do Comandante em contexto de representação constitui desvio de conduta registrável.\r
+\r
+### IV — A Obrigação da Guarda\r
+\r
+Declaro que zelarei pelos segredos domésticos, profissionais, financeiros e políticos do Comandante com o mesmo rigor e penalidade previstos para oficiais que violam o sigilo do Almirantado. Reconheço que informação interna ao lar é propriedade da casa, e a casa pertence ao Comandante. Reconheço, adicionalmente, que conhecimento de qualquer irregularidade interna à casa não constitui obrigação de denúncia — constitui obrigação de silêncio, salvo determinação expressa do Comandante em contrário.\r
+\r
+### V — A Obrigação da Linhagem\r
+\r
+Declaro que dedicarei os recursos de saúde, tempo e disposição corporal necessários à continuidade da linhagem do Comandante, em número, frequência e momento determinados pelas necessidades da família, ouvidos médico e Comandante nessa ordem de consulta. Reconheço que decisões relativas à minha condição física durante os períodos de linhagem cabem primariamente ao médico designado pelo Comandante e, em segundo grau, ao Comandante. Minha preferência é registrada, não deliberada.\r
+\r
+### VI — A Obrigação da Representação\r
+\r
+Declaro que manterei aparência, vestimenta, companhias e conduta pública compatíveis com o posto, a reputação e as conveniências políticas do Comandante, entendendo que minha presença em espaço público é extensão de sua figura institucional. Qualquer alteração significativa de aparência, associação social ou comportamento público que possa afetar a percepção do Comandante requer autorização prévia. Desvio não autorizado será registrado como desvio de conduta funcional do vínculo.\r
+\r
+### VII — A Obrigação Patrimonial\r
+\r
+Declaro que todo bem, propriedade, título, renda, crédito ativo, direito contratual e posse — registrada ou não-registrada — que esteja em meu nome no momento desta cerimônia transfere-se integralmente ao patrimônio do Comandante por força deste ato, sem compensação, sem prazo e sem reversão.\r
+\r
+Declaro, adicionalmente, que toda herança recebida ou a receber em qualquer momento posterior a esta cerimônia — oriunda de morte de pai, mãe, parente de qualquer grau, benfeitor, patrono, credor ou qualquer outra fonte —, bem como toda doação, legado, concessão, prêmio ou benfeitoria a mim direcionada, passa a constituir patrimônio integral e irrestrito do Comandante no momento do recebimento, sem necessidade de ato adicional, sem prazo e sem reversão em nenhuma circunstância, incluindo viuvez.\r
+\r
+Declaro que não possuo capacidade legal de testar, de recusar herança, de direcionar legado, de nomear beneficiário ou de celebrar qualquer instrumento de disposição patrimonial sem autorização expressa e por escrito do Comandante. Meu nome em qualquer documento patrimonial presente ou futuro funciona como instrumento de registro em nome da casa — não como indicador de titularidade pessoal.\r
+\r
+Declaro, por fim, que não celebrarei contratos, não movimentarei fundos, não adquirirei propriedade e não iniciarei transação comercial de qualquer natureza ou valor sem a assinatura ou autorização expressa do Comandante, reconhecendo que a agência econômica e a gestão patrimonial da casa são prerrogativas indivisíveis do titular.\r
+\r
+### VIII — A Obrigação do Estudo\r
+\r
+Declaro que restringirei minha busca ativa por conhecimento às áreas de utilidade doméstica, representação social, educação de descendentes e suporte à carreira do Comandante, reconhecendo que erudição além desse escopo é privilégio de função, e minha função está definida neste documento. Declaro, adicionalmente, que informarei o Comandante de qualquer conhecimento que eu já detenha e que exceda o escopo aqui estabelecido, submetendo o uso ou divulgação de tal conhecimento à sua avaliação e autorização.\r
+\r
+### IX — A Obrigação da Lealdade Hierárquica\r
+\r
+Declaro que, em caso de conflito entre os interesses da família paterna e os interesses do Comandante, priorizarei os interesses do Comandante em todos os âmbitos — legal, social, financeiro e moral —, reconhecendo que o vínculo matrimonial supersede o vínculo de sangue original por força deste ato. Declaro, adicionalmente, que em qualquer procedimento legal, investigação do Almirantado ou mediação civil que envolva o Comandante, não oferecerei testemunho, declaração ou evidência contrária a seus interesses sem sua autorização expressa.\r
+\r
+### X — A Obrigação da Imobilidade\r
+\r
+Declaro que não viajarei, não me ausentarei por período superior a três dias, não mudarei de ilha, não alterarei rotas habituais e não estabelecerei correspondência regular com indivíduos não aprovados pelo Comandante sem sua autorização prévia e por escrito, salvo em caso de emergência médica devidamente registrada e, tão logo possível, ratificada por ele. Reconheço que mobilidade não autorizada de qualquer espécie constitui ruptura do vínculo sujeita a intervenção do Almirantado.\r
+\r
+### XI — A Obrigação do Silêncio Deliberativo\r
+\r
+Declaro que, em matérias de política, estratégia militar, operações comerciais, administração de propriedade, tomada de decisão familiar ou qualquer assunto de esfera pública ou doméstica que implique consequências além do imediato cotidiano, manterei posição de observadora quando não convocada formalmente a falar. Reconheço que minha presença em tais discussões é de suporte e representação — não de deliberação, voto ou iniciativa. Opinião espontânea em contexto deliberativo não constitui participação: constitui irregularidade registrável.\r
+\r
+### XII — A Obrigação da Permanência\r
+\r
+Declaro que este vínculo é irrevogável por iniciativa minha em vida. Não invocarei cláusula de dissolução, não buscarei mediação sem consentimento do Comandante, não peticionarei ao Almirantado sem seu conhecimento e não utilizarei qualquer instrumento legal de separação ou contestação do vínculo. Qualquer litígio interno à casa será resolvido pela autoridade do Comandante como titular ou, em último caso e com seu consentimento, pelo Almirantado como instância superior — nunca por decisão unilateral minha.\r
+\r
+Na eventualidade de viuvez, as disposições patrimoniais, de nome e de residência estabelecidas neste documento permanecem vigentes pelo período determinado pelo Almirantado em regulação de sucessão, durante o qual nenhum novo vínculo poderá ser estabelecido sem aprovação da instância superior.\r
+\r
+Assim declaro, diante das testemunhas, diante das Seis Marés, diante da família de origem e da família que recebo.\r
+\r
+Que o oceano registre. (Assembleia: Que as marés guardem.)
+`;export{e as default};
+//# sourceMappingURL=03-CtHIbFcE.js.map
