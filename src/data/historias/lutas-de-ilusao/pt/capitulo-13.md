@@ -178,7 +178,7 @@ Jack pegou a caixa antes que Kim terminasse de abrir.
 
 Ryan olhou de um pro outro com a expressão de quem não tem certeza se deve rir ou se preocupar. Optou por sorrir.
 
-— É um IDI de edição limitada. Você pode levar em qualquer loja da CLI e personalizar de graça. Espero que continue lutando. Suas lutas são muito boas.
+— É um SBI de edição limitada. Você pode levar em qualquer loja da CLI e personalizar de graça. Espero que continue lutando. Suas lutas são muito boas.
 
 Saiu antes que Kim conseguisse articular uma objeção completa.
 
@@ -210,17 +210,17 @@ Kim olhou pro número. Olhou de novo.
 
 — Você disse que eu ia poder ficar anônimo. — Para Jack, com uma voz específica.
 
-— Cara, você vai poder. A partir da próxima luta com o IDI próprio você personaliza tudo, ninguém vai saber quem—
+— Cara, você vai poder. A partir da próxima luta com o SBI próprio você personaliza tudo, ninguém vai saber quem—
 
 — Você disse isso ontem.
 
-— E é verdade, só que ontem a gente ainda não tinha o IDI e—
+— E é verdade, só que ontem a gente ainda não tinha o SBI e—
 
 Kim pegou Jack pelo pescoço com a mão livre.
 
 — Então, seu filho da puta, explica pra mim por que o meu rosto tá em trending em não sei quantos países com o meu rosto de verdade, não o avatar, o meu rosto, que é o mesmo rosto que eu uso pra trabalhar no ônibus, pra entrar nessa escola—
 
-— Cara, calma, o avatar ficou igual a você porque era a primeira luta e a gente não tinha personalizado ainda, mas agora com o IDI a gente muda tudo, prometo— — Jack com a voz de quem está sendo moderadamente estrangulado.
+— Cara, calma, o avatar ficou igual a você porque era a primeira luta e a gente não tinha personalizado ainda, mas agora com o SBI a gente muda tudo, prometo— — Jack com a voz de quem está sendo moderadamente estrangulado.
 
 — E por que você não me avisou que podia ficar igual a mim?
 
@@ -236,7 +236,7 @@ Nina colocou a mão no ombro de Kim com a calma de quem está acostumada a media
 
 Kim soltou. Jack ajustou o pescoço com dignidade.
 
-— O problema do anonimato é real mas tem solução. — Nina. — Com o IDI você cria um nick novo, um avatar completamente diferente, e a conexão com o Briguento 142536 fica só entre quem já te conhece pessoalmente. Que por enquanto são quantas pessoas?
+— O problema do anonimato é real mas tem solução. — Nina. — Com o SBI você cria um nick novo, um avatar completamente diferente, e a conexão com o Briguento 142536 fica só entre quem já te conhece pessoalmente. Que por enquanto são quantas pessoas?
 
 — Ryan. E agora eu tô preocupado com quantos alunos dessa escola.
 
@@ -244,7 +244,7 @@ Kim soltou. Jack ajustou o pescoço com dignidade.
 
 — Ótimo.
 
-— Universo controlável. O problema maior seria se a identidade vazasse pra fora desse universo. Enquanto não vazar, você personaliza o IDI, cria uma identidade nova no LDI, e segue em frente. — Nina.
+— Universo controlável. O problema maior seria se a identidade vazasse pra fora desse universo. Enquanto não vazar, você personaliza o SBI, cria uma identidade nova no LDI, e segue em frente. — Nina.
 
 Kim olhou pra caixa na mão de Jack.
 
@@ -252,7 +252,7 @@ Kim olhou pra caixa na mão de Jack.
 
 — Tragicamente. — Jack.
 
-— Kim. Fica com o IDI. — Nina.
+— Kim. Fica com o SBI. — Nina.
 
 — Tá bom, tá bom. — Pegando a caixa com mau humor. — Fazer o quê.
 
@@ -268,7 +268,7 @@ Nina deu risada antes de conseguir evitar.
 
 Os três seguiram pela calçada, Kim abrindo a caixa enquanto andava.
 
-O IDI era diferente do de Jack em tamanho e em peso, mais fino, com um acabamento que sugeria que o material havia custado mais do que o processo de fabricação. Na parte interna da caixa estava gravado em relevo: *Xakaxi Edition — Série Limitada 01/30*.
+O SBI era diferente do de Jack em tamanho e em peso, mais fino, com um acabamento que sugeria que o material havia custado mais do que o processo de fabricação. Na parte interna da caixa estava gravado em relevo: *Xakaxi Edition — Série Limitada 01/30*.
 
 Kim olhou pra aquilo.
 
@@ -298,7 +298,7 @@ Kim colocou a mão no coração.
 
 — O quê.
 
-— Fica com o IDI.
+— Fica com o SBI.
 
 Kim olhou pra caixa. Olhou pro Jack. Olhou pra Nina.
 
@@ -334,7 +334,15 @@ Kim ficou com aquilo.
 
 Nina estava sorrindo com a expressão de quem acabou de confirmar uma hipótese que estava testando há dois dias. Não disse nada.
 
-Os três viraram na esquina com os IDIs e o dia ainda pela frente.
+— Então o treino é agora. — Jack. — No anexo. Duas horas de sala privada antes do trampo.
+
+Kim olhou pra caixa embaixo do braço.
+
+— Agora.
+
+— Agora.
+
+Os três deram meia-volta em direção aos fundos da escola, onde o anexo esperava, com os SBIs e a tarde ainda pela frente.
 
 ---
 

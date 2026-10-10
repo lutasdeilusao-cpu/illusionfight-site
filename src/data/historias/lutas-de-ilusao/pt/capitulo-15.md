@@ -1,180 +1,195 @@
-﻿# CAPÍTULO 15 — Ryan e a Caixa
+# CAPÍTULO 15 — Anjo e Vitória
 
-O anexo do colégio voltou de uma vez.
+Jack e Nina saltaram pra trás ao mesmo tempo, cada um pra um lado, abrindo distância e ângulo. Kim saltou também, meio segundo atrasado, e manteve a mesma distância.
 
-Kim piscou duas vezes, retirou o IDI e ficou parado olhando pro espaço onde havia estado a arena. Jack fez o mesmo ao lado dele, com a expressão satisfeita de quem ganhou duas vezes seguidas e ainda tem energia sobrando. Nina retirou o dela com o cuidado de quem está guardando alguma coisa que vai precisar depois.
+— Kim. — Jack levantou a mão. — Agora é o seguinte. A gente vai com tudo. Você faz o que der pra se defender. Esse jogo é pra sentir. Eu não sei te explicar como você vai achar o seu poder. Mas eu sei que você vai achar.
 
-O silêncio do anexo era diferente do silêncio do LDI. Tinha textura. Tinha o cheiro de mofo e madeira antiga e a luz da tarde entrando pelas janelas sem vidro.
+— Podem vir com tudo. Eu não vou perder pra vocês.
 
-— Seis meses. — Kim pro ar.
+Jack pegou a bengala com a mão esquerda e deixou ela na horizontal na frente do corpo. A mão direita, a de metal, deslizou pelo comprimento dela de ponta a ponta.
 
-— Seis meses. — Jack confirmando sem ironia.
+— Vitória. — Jack. — Xamã.
 
-— Tá bom.
+A bengala se desfez em três partes ligadas por elos, um San Tien Kwan de metal, com o cabo curvo de bengala numa ponta e uma ponta de lança na outra. Uma energia marrom-dourada correu pelos elos.
 
-Nina olhou pra ele. Não disse nada.
+Do outro lado, Nina deitou a katana embainhada na palma da mão esquerda. Fechou a direita no cabo.
 
-Foram.
+— Anjo. Xamã.
 
----
+Puxou.
 
-No corredor, os olhares recomeçaram.
+A lâmina saiu em segmentos. Pequenas lâminas presas umas às outras por um fio, se esticando até quase dois metros, e ela chicoteou o ar com aquilo. O estalo ecoou pela sala vazia. A lâmina voltou pra dentro da bainha sozinha, inteira de novo. Ela deixou a espada do lado do rosto.
 
-Kim havia se acostumado com a qualidade diferente de atenção durante o dia, mas agora havia algo mais. Estudantes paravam a conversa no meio quando os três passavam. Alguém apontou discretamente pro celular antes de guardar rápido demais.
+Kim ficou um segundo olhando pros dois.
 
-— Teoria. — Kim pro Jack, andando.
+Nada daquilo era o que ele esperava.
 
-— Confirmada. — Jack.
+Jack andou primeiro.
 
-— Quantos.
+Devagar no começo. Depois mais rápido. A mão direita segurando a ponta de lança, a esquerda girando o cabo de bengala em trezentos e sessenta graus, o metal assobiando no ar cada vez mais alto. Kim se preparou pra média distância, que era onde aquela arma faria estrago.
 
-— Difícil dizer. Provavelmente metade da escola a essa altura.
+Na distância exata do golpe, Jack saltou pra trás.
 
-Kim respirou pelo nariz.
+Kim seguiu o salto com os olhos.
 
-— O IDI resolve.
+E não ouviu a Nina.
 
-— O IDI resolve. — Jack.
+Ela veio por trás como uma bala, a katana esticada direto no coração. Kim virou o ombro no último instante que existia. A lâmina rasgou a camisa e abriu a carne do peito até o ombro.
 
-Nina andava ao lado dos dois processando aquilo com a expressão de quem está calculando variáveis que os outros ainda não viram.
+O sangue veio quente. A dor veio inteira.
 
-Dobraram o corredor da saída e encontraram Ryan.
+Um segundo mais lento e teria sido o coração.
 
-Estava encostado na parede com a postura de quem havia chegado cedo pra não parecer que estava esperando, o que significava que estava esperando há tempo suficiente pra ter ensaiado o que ia dizer.
+Kim caiu num joelho com a mão no peito, apertando. *O assobio. O Jack girou aquilo pra cobrir os passos dela. O salto foi pra eu olhar pra ele.* Os dois tinham montado aquilo sem combinar em voz alta. A primeira jogada tinha sido perfeita.
 
-— Senhores. E senhora.
+Jack ainda estava no ar. Juntou a arma de volta em bengala e lançou ela de cima pra baixo como um dardo. Kim se jogou pra trás. A ponta cravou no chão onde ele estava e abriu um buraco largo, a poeira subindo.
 
-Kim parou.
+*Ufa.*
 
-Ryan começou o discurso de agradecimento. Kim ouviu até o ponto onde ficou claro que havia um objeto envolvido, então levantou a mão.
+Ele começou a levantar. Ouviu um passo atrás. Desviou pra direita por instinto e o chute de Jack passou raspando na orelha. Os dois se afastaram, ficaram em guarda, trocaram uns socos de leitura.
 
-— Você não me deve nada.
+— Tá se divertindo? — Jack sorrindo. — Não falei que era foda? A gente perdeu anos não fazendo isso.
 
-— Eu sei que você vai dizer isso—
+— Muito. — Kim com o sangue escorrendo pela barriga. — Inclusive, por que a dor nesse jogo é tão real?
 
-— Ryan. Não foi por você que a gente fez aquilo. Foi porque não dava pra continuar andando e fingir que não estava acontecendo.
+Ele avançou com uma joelhada no diafragma. Jack conhecia aquele joelho há anos. Bloqueou com o cotovelo e, com a mão aberta, bateu direto no corte do peito.
 
-— Qualquer pessoa teria feito. — Ryan.
+Kim viu branco.
 
-— Qualquer pessoa não fez.
+— Ninguém sabe como eles fazem isso. — Jack enquanto Kim cambaleava pra trás. — Mas a sensação aqui é quase igual à de lá. Perna quebrada é perna quebrada. Não sustenta, dói, te tira da luta. Leva isso em conta.
 
-Kim ficou com aquilo por um segundo sem resposta.
+O rosto do Jack ficou sério. As sobrancelhas subiram um pouco.
 
-Ryan abaixou, abriu a mochila, tirou a caixa.
+Não precisava falar. Kim já tinha ouvido. Os passos da Nina, quase sem som, atrás dele de novo.
 
-Jack pegou antes que Kim terminasse de abrir a boca.
+Ele saltou pro lado.
 
-— Meu senhor, muito obrigado por esse gesto generoso.
+Ela já sabia. Apontou a espada pra onde ele ia cair.
 
-— Devolve. — Kim.
+— Expandir!
 
-— Pode ir tranquilo, tá em boas mãos. — Jack pra Ryan, braço no ombro dele, a caixa firme na outra mão.
+A lâmina abriu desde a base em gomos, como uma cobra de metal, e veio serpenteando atrás dele.
 
-Ryan olhou de um pro outro. Optou por sorrir.
+*Eita porra. Eita porra. Eita porra.*
 
-— É um IDI de edição limitada. Xakaxi Edition. Você pode levar em qualquer loja da CLI e personalizar de graça. Espero que continue lutando. Suas lutas são muito boas.
+Kim se jogou pro lado de novo. Passou por pouco.
 
-Saiu antes que Kim conseguisse articular uma objeção completa.
+Nina sorriu de um jeito que não era nada simpático.
 
----
+— Enrijecer!
 
-Os três ficaram na calçada.
+Os gomos travaram. O chicote virou uma lâmina rígida e gigante, mais comprida que a sala parecia comportar.
 
-Jack segurou a caixa com a cerimônia de quem está entregando um documento importante.
+— Angel Luminus Blade!
 
-— Quanto custa. — Kim sem pegar a caixa.
+A lâmina acendeu.
 
-— O meu custou uns quatro mil. O meu é dos mais baratos.
+Uma luz branca tão forte que doía olhar. Nina girou o corpo no ar com a lâmina inteira descendo num arco que pegava Kim e metade da sala. Jack viu que estava dentro do raio e saiu correndo pro outro lado.
 
-— E esse.
+Kim não tinha pra onde ir.
 
-Jack e Nina trocaram um olhar.
+Levantou as duas mãos na frente do corpo. Era só o que restava.
 
-— Entre sessenta e setenta mil. — Nina.
-
-Kim colocou a mão no coração.
-
-— A gente tem que devolver. Não tem como ficar com isso. Isso é seis meses de conta, isso é—
-
-— Ryan tem dois iguais. — Jack.
-
-— Não me importa se ele tem cinquenta—
-
-— Kim. — Nina pausando. — Pra ele foi o troco do almoço. Se ele não quisesse que você ficasse não teria comprado.
-
-— Isso não é argumento lógico, o valor objetivo do objeto não muda com a—
-
-— Kim. — Jack.
-
-— O quê.
-
-— Fica com o IDI.
-
-Kim olhou pra caixa. Olhou pro Jack. Olhou pra Nina.
-
-— Tô ficando contra a minha vontade. Quero que isso fique registrado.
-
-— Registrado. — Jack.
-
-Kim pegou a caixa com mau humor. Abriu enquanto andavam. Na parte interna estava gravado em relevo: *Xakaxi Edition — Série Limitada 01/30*.
-
-Kim olhou pra aquilo.
-
-Ficou parado por um segundo.
-
-Depois continuou andando sem dizer nada.
+E alguma coisa apareceu nelas.
 
 ---
 
-O trabalho da noite foi no Risca a Faca.
+O choque foi tão grande que o ar tremeu.
 
-Jack havia confirmado enquanto estava sentado na escada de casa de manhã esperando Kim descer, o que era exatamente o tipo de multitarefa que deixava Kim com vontade de estrangulá-lo e ao mesmo tempo era impossível não respeitar.
+A lâmina de luz bateu em alguma coisa que Kim estava segurando, e as duas forças ficaram ali, uma empurrando a outra. Nina girava o corpo com todo o peso pra arrastar a lâmina pra frente, e Kim era arrastado pra trás, os pés abrindo dois sulcos no chão, mas não caía.
 
-Duzentos cada. Segurança num clube de reputação suficientemente ruim pra não conseguir contratar adultos legalmente, suficientemente movimentado pra ter trabalho real a noite toda.
+A luz era tanta que ele não enxergava o que segurava.
 
-Kim e Jack chegaram às oito no terno, o de Jack amarrotado como sempre, o de Kim sem uma dobra fora do lugar como sempre, e o dono os recebeu com o alívio específico de quem estava com medo que não aparecessem.
+E no meio da luz, começou a escurecer.
 
-A noite começou tranquila.
+Ele conhecia aquilo.
 
-Jack ficou na entrada, checando a lista, fazendo revistas, flertando com qualquer mulher que chegasse sozinha com um sucesso que Kim achava simultaneamente impressionante e exasperante. Kim ficou circulando por dentro, lendo o ambiente, identificando onde a tensão estava se acumulando antes de virar problema.
+O escuro sem chão. O som de água pingando num ritmo que não era aleatório mas também não era música. Kim continuava com os braços levantados, na mesma posição de defesa, e virou a cabeça devagar.
 
-Na primeira intervenção, Kim chegou no meio de seis homens bêbados com um ponto de desonra entre eles que nenhum conseguia nomear direito. Falou uma frase. Os seis olharam pra ele. Os seis foram pro seus lugares.
+Do lado dele, sentado em nada, um velho de barba branca comprida, óculos juliet espelhados e bombeta preta inclinada pra um lado. Um berimbau flutuando do lado dele sem ninguém segurar.
 
-Jack observou de longe e pensou: *é impossível aprender isso.*
+— Hello! — O Pajé Yawanari abriu os braços. — E aí, molecote, de boa? Suave na nave? Qualé que é?
 
-Na segunda intervenção, Jack resolveu sozinho com a paciência de quem sabe que às vezes a única coisa que funciona é parecer completamente indiferente às consequências, o que Jack era de forma genuína e não performática, o que fazia toda a diferença.
+— Meu Deus. — Kim. — Eu jurava que você era delírio. Que eu tinha inventado você porque tava apanhando.
 
-Às duas da manhã o dono apareceu com os duzentos cada e uma expressão de quem queria perguntar se podiam vir toda semana mas sabia que a resposta provavelmente era não.
+— Ô. Tu achou que eu não era real? — O Pajé colocou a mão no peito. — Tô ofendido. Me sinto oprimido, véi.
 
-Saíram na calçada com o frio da madrugada de Marelia batendo nas jaquetas.
+Os braços de Kim estavam tremendo. Ele sentia, mesmo dali, que a qualquer momento a lâmina ia passar e cortar ele ao meio.
 
-— Semana que vem tem outro. — Jack.
+— Fala rápido. O que você quer? Por que você tá aqui? E o que você sabe do meu pai?
 
-— Quanto.
+O Pajé virou o rosto pro lado e começou a falar com alguém que não estava lá.
 
-— Duzentos e cinquenta. O lugar é pior.
+— Não, pô, ele tá preocupado... Tá envolvido, tá ligado? É o sobrinho... Mas eu acho que não é a hora. Tá louco? Não é a hora de falar disso com ele. — Pausa. — Não. Não. Eu sei. Eu SEI.
 
-— Quando você confirmou.
+Virou de volta pra Kim.
 
-— Há uns três dias.
+— Então, maluco. Agora não é o momento de falar do teu papis, beleza? Vai chegar a hora e o lugar. Eu vim te dar um papo. O bagulho tá ficando doido. Tão atrás de ti. E quando eles chegarem, vão querer levar isso aí que tu chama de corpo. Então cuida da responsa do Sangue Primordial, senão tu vai se foder. — Bateu na própria perna, como quem encerra uma reunião. — Era só isso.
 
-Kim olhou pra ele.
+— Espera. Quem tá atrás de mim?
 
-Jack abriu o sorriso.
+A luz começou a voltar pelas bordas.
 
-— Tá bom. — Kim depois de um segundo.
+O Pajé foi sumindo com ela, e antes de sumir de vez, apontou com o queixo pras mãos de Kim.
 
-Foram andando. O ônibus da madrugada estava vazio. Jack adormeceu antes do segundo quarteirão, a cabeça encostada no vidro com a naturalidade de quem aprende a dormir em qualquer lugar quando a vida exige.
-
-Kim ficou acordado com o IDI na mochila e a cidade passando pela janela.
-
-*Seis meses.*
-
-Não era muito. Não era pouco. Era o que havia.
-
-Desceram na esquina de sempre. Aperto de mão curto na escada de Jack.
-
-Kim foi em direção à própria porta.
+— Pô. Essa arma que tu escolheu é top demais. Aproveita. Se aprender a usar direito, ela vai te servir muito.
 
 ---
 
+A luz voltou.
+
+O peso da lâmina voltou junto, e Kim viu o que estava segurando.
+
+Uma machadinha.
+
+Pequena, com o cabo envolto em alguma coisa que parecia tecnologia demais pra uma arma tão antiga no formato. A lâmina segurava a Luminus Blade da Nina, mas o fio da lâmina dele era fino, e a Luminus Blade era larga e pesada e estava ganhando.
+
+Kim decidiu arriscar.
+
+Dobrou o corpo pra trás numa ponte, as costas quase tocando o chão, e deixou a lâmina passar por cima dele.
+
+Ela passou.
+
+E continuou passando, pelo caminho que agora estava livre, direto na direção do Jack, que não tinha corrido longe o suficiente. Jack meteu a bengala na frente em defesa. Desviou o grosso do golpe. A ponta da luz pegou a cartola.
+
+Metade da cartola caiu no chão, o binóculo junto.
+
+Kim soltou o ar. Antes que ele dissesse qualquer coisa, Jack gritou.
+
+— PORRA, NINA. Você cortou a minha cartola. Sabe quanto LT eu vou gastar pra arrumar isso? Ou você esqueceu que a gente tá no mesmo time?
+
+— Foi mal. Eu te dou os LT. — Nina sem tirar os olhos de Kim. — Jack. Ele manifestou uma arma personalizada. No meio da luta.
+
+Jack parou de olhar pra cartola.
+
+— Ele o quê?
+
+— Essas armas são de lote único. Eu nunca consegui sacar uma. Gastei um absurdo em pacote até achar a Angel.
+
+— Sem gastar ponto? De primeira? — Jack coçando a barba que não era dele. — Ele tá alto no SDR... Talvez em sala de treino o sistema libere sozinho. Mas não é luta oficial, então... não sei. Eu não vi como foi.
+
+Kim percebeu que os dois estavam falando dele. Deu um passo na direção deles.
+
+Os dois olharam pra ele ao mesmo tempo. E saltaram pra trás, abrindo distância de novo.
+
+*A luta não acabou.* Kim achou aquilo muito injusto. Eles podiam ficar batendo papo e ele não. Depois lembrou: numa briga de rua, a única regra era que não tinha regra.
+
+Aproveitou o tempo e olhou de verdade pra arma.
+
+O formato era de machadinha antiga, daquelas de lâmina de pedra que ele tinha visto em livro de escola. Mas a lâmina não era de pedra. Era de um metal estranho, e o fio não era afiado. Não era feita pra cortar. Era feita pra bater. O cabo se moldava aos quatro dedos dele como se tivesse sido tirado da mão dele com uma forma. Logo abaixo da mão, uma roldana pequena com um fio de aço enrolado, preso no fim do cabo.
+
+No cinto, que ele não lembrava de ter, pendurada do lado esquerdo, outra machadinha igual.
+
+E no cabo da que estava na mão dele, gravada no metal, uma palavra.
+
+*Xakixi.*
+
+Kim lembrou do Jack deslizando a mão pela bengala. Da Nina puxando a espada da bainha. Do nome e da palavra que os dois tinham dito.
+
+Puxou a segunda machadinha do cinto. A roldana encaixou embaixo da mão sozinha.
+
+Estendeu o braço esquerdo pro lado. Ergueu o direito.
+
+Bateu uma lâmina na outra.
+
+— Xakixi. — Kim. — Xamã.

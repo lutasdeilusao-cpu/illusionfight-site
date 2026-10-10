@@ -1,262 +1,173 @@
-﻿# CAPÍTULO 14 — Sala Privada
+# CAPÍTULO 14 — Sala Privada
 
-O escuro não foi gradual.
+O anexo estava do jeito que eles tinham deixado.
 
-Foi como uma luz que apagou, igual da primeira vez, e Kim ficou sem referência de corpo por um segundo antes de lembrar que já havia passado por isso e que o chão vinha a seguir.
+O concreto rachado. O cheiro de mofo e de cigarro velho. A janela sem vidro deixando entrar a luz torta da tarde. No canto, a mancha escura no chão onde Freddy havia apagado na véspera, que ninguém tinha limpado porque ninguém limpava nada ali.
 
-O chão veio.
+Jack sentou no chão com as costas na parede e já estava com o SBI dele na mão antes de terminar de sentar. Nina fez o mesmo do outro lado, com o cuidado de quem não quer sujar a saia.
 
-Ele estava pensando em como pousar com elegância quando chegou, que era o problema, porque pensar em como pousar com elegância no LDI ocupava exatamente o tempo que seria necessário para fazer o ajuste que tornaria o pouso elegante. O impacto subiu pelos pés, pelos joelhos, pela coluna, e Kim ficou de quatro no chão da arena com o queixo latejando.
+Kim ficou em pé com a caixa.
 
-Ficou assim por um momento.
+— Abre logo. — Jack.
 
-— Mesma coisa. — Pro chão.
+— Tô abrindo.
 
-A NeoGuide chegou antes que ele se levantasse.
+— Você tá olhando pra caixa faz um minuto.
 
-— Há duas solicitações de entrada para sua sala privada. Ambos dizem ser seus amigos.
+— Tô abrindo com cuidado. Amanhã isso volta pro Ryan.
 
-— São. Pode deixar.
+Jack e Nina trocaram um olhar que dizia exatamente o que os dois achavam disso.
 
-Ficou de joelhos olhando pro espaço vazio da arena enquanto esperava. A sala privada era parecida com a arena da primeira luta mas menor e sem arquibancadas. Silêncio do tipo que não existia no mundo real, sem fundo, sem eco.
+Kim tirou o papel sem rasgar. Abriu a tampa. O SBI estava encaixado numa espuma preta, mais fino que o de Jack, mais leve, com uma linha de luz apagada correndo pela borda. Ele tirou o aparelho com as duas mãos, como se fosse uma coisa que podia quebrar só de olhar.
 
-O céu digital se abriu em dois pontos separados.
+— Você é o que tá mais alto no SDR. — Jack. — Então você abre a sala. Quero ver como é sala privada de quem tá no top dois mil.
 
----
+— Como eu abro.
 
-Jack caiu com estilo que só é possível depois de muita prática ou muita convicção, os joelhos dobrados, os braços abertos, a bengala na mão direita cortando o ar com o som de algo pesado em movimento controlado. Pousou, se levantou devagar, ergueu o peito.
+— Coloca. Depois fala: NeoGuide, acessar recursos.
 
-Kim ficou parado olhando.
-
-O sobretudo era marrom escuro e descia até os joelhos. O cachecol vermelho envolvia o pescoço e caía pelas costas. A cartola tinha binóculos fixados na frente, o metal dourado combinando com o braço direito inteiro que era mecânico, engrenagens visíveis nas articulações, os dedos metálicos fechando e abrindo com uma precisão que o braço de carne nunca teria.
-
-Jack olhou pro amigo com o sorriso de quem estava esperando exatamente essa expressão.
-
-— E aí, caiu de cara de novo?
-
-— Isso é o que você escolheu.
-
-— Três meses de desenvolvimento.
-
-— Três meses.
-
-— Cada detalhe tem uma razão funcional ou estética. A bengala não é só bengala, os binóculos têm função dentro do sistema, o braço—
-
-— Você escolheu isso.
-
-— Kim, que problema você tem com—
-
-O segundo ponto no céu abriu.
+Kim sentou no chão entre os dois. Encaixou o SBI. O mundo apagou.
 
 ---
 
-Nina não gritou durante a queda.
+— NeoGuide. Acessar recursos.
 
-Desceu em silêncio com os braços levemente abertos, os cabelos negros com listras de luz vermelha pulsando ao vento da descida, o capuz para trás, a capa curta batendo atrás dos ombros. Pousou com uma dobra dos joelhos que absorveu o impacto sem nenhum som além do contato com o chão, ficou de pé, a mão direita descansando na bainha da katana no lado esquerdo do quadril.
+— Olá, Kim. Bem-vindo de volta. — A voz calma de sempre, vindo de lugar nenhum. — Detectei que você está acessando de um novo SBI. Estou transferindo suas configurações para este dispositivo. Qual recurso deseja utilizar?
 
-A marca vermelha que atravessava o olho direito pulsava levemente no mesmo ritmo das listras do cabelo. As meias-luvas com espinhos metálicos desciam dos cotovelos até as mãos.
+— Uma tal de sala de treinamento privada.
 
-Ficou parada olhando pros dois.
+— Deseja alguma configuração específica, ou a sala padrão é suficiente?
 
-Kim olhou pra Jack. Olhou pra Nina. Olhou pra Jack de novo.
+— Sei lá. A padrão.
 
-— Os dois escolheram isso e não me contaram.
+— Sala configurada. Direcionando.
 
-— A gente não sabia que você ia entrar tão rápido. — Jack.
+O chão sumiu.
 
-— Você teria visto na hora certa. — Nina sem calor nem frieza.
+Kim estava caindo de novo.
 
-— Isso te incomoda? — Nina.
+Não havia arquibancada embaixo dessa vez. Não havia plateia, nem o céu carmesim, nem cidades flutuando. Havia uma arena menor, de piso cinza, e um céu digital azul e limpo que parecia o céu de um dia em que nada ia acontecer.
 
-— Não tá me incomodando. Tô só processando que vocês têm visuais completos desenvolvidos há meses e eu tô aqui com o meu rosto e a minha roupa de sempre.
+*Tem que ter um jeito de pousar sem bater a cara.*
 
-— Por isso que a gente vai trabalhar nisso depois. — Jack. — Por enquanto, explicações básicas. Você tá mal de recuperação ainda?
+— Kim. — A NeoGuide dentro da cabeça dele. — Há duas solicitações de entrada para sua sala privada. Ambos dizem ser seus amigos. Posso aprovar?
 
-Kim verificou. O corpo respondia mas com aquela lentidão específica de quando alguma coisa estava em déficit.
+— Pode. São meus amigos.
 
-— Tô pesado.
+O chão chegou enquanto ele respondia.
 
-— Normal. Você ainda tá pagando o custo da primeira luta. — Para cima. — NeoGuide, recuperação de treino pra sala.
+Bateu de cara.
 
-— Círculo de recuperação ativado. Aproximem-se.
+Ficou de quatro no piso cinza com o queixo latejando, a boca cheia de um gosto de poeira que não existia.
 
-Os círculos verdes apareceram no chão em três pontos, o brilho frio e constante de algo que processava. Jack e Nina caminharam pra cima deles com a naturalidade de quem havia feito aquilo muitas vezes. Kim seguiu.
-
-O contato foi imediato. Não era elétrico nem quente, era mais parecido com pressão distribuída por todo o corpo de uma vez, como estar num lugar com a temperatura certa depois de muito tempo num lugar com a temperatura errada. Onde passava, o peso que Kim havia sentido foi sendo retirado camada por camada até não restar.
-
-Trinta segundos. A luz apagou.
-
-Kim olhou pras próprias mãos. Fechou. Abriu. Saltou uma vez, duas, testando o teto do que o corpo respondia. Chutou o ar. Pulou mais alto do que devia conseguir e pousou sem esforço.
-
-— Ah. — Com uma voz diferente.
-
-— É isso. — Jack sorrindo.
-
-— É completamente diferente.
-
-— Bem-vindo ao LDI de verdade.
-
-— Pode começar.
+— De novo. — Pro chão.
 
 ---
 
-Jack ergueu uma mão.
+O grito veio de cima.
 
-— Antes. Três coisas rápidas. Uma: aqui tudo é força mental. O sistema responde ao que você acredita que consegue fazer. Se você acredita que consegue cair de duzentos metros sem se machucar, consegue. Se você hesita, não consegue. Dois: cada jogador tem um elemental. O seu manifestou como Trevas na primeira luta, que é primário. Não sabemos ainda como ativar conscientemente, mas vai aparecer quando aparecer. Três: tudo que você sabe fazer lá fora funciona aqui igual ou melhor. A diferença é que aqui os adversários também têm coisas que não existem lá fora.
+Kim levantou a cabeça e viu alguém despencando do céu com os braços abertos, comemorando a queda como quem desce de montanha-russa. O sobretudo marrom escuro batia no ar até os joelhos. O cachecol vermelho tremulava atrás. Na cabeça, uma cartola com binóculos presos na frente. O braço direito inteiro era de metal dourado, engrenagens aparentes nas juntas. Barba. Bigode. Uma bengala de metal na mão.
 
-Kim estava ouvindo mas com a expressão de quem estava ouvindo e querendo pular.
+O desconhecido pousou com os joelhos dobrados e os braços abertos, ficou de pé devagar, estufou o peito e fez um sinal com dois dedos na aba da cartola.
 
-— Tudo certo?
+— E aí. Caiu de cara de novo?
 
-— Tudo certo. Pode vir.
+Era a voz do Jack.
 
-Jack e Nina trocaram um olhar. Deram três passos cada um pra lados opostos, criando distância e ângulo.
+Kim ficou olhando.
 
-— Rápido no começo. — Nina pra Jack, baixo.
+— Na arquibancada você era um lobisomem.
 
-— Você abre. — Jack confirmando com a cabeça.
+— Skin de torcida. — Jack ajeitando o cachecol. — Pra assistir eu vou de lobo. Pra lutar, é esse aqui.
 
-Kim viu os dois se posicionarem e fez o que fazia sempre quando a geometria de uma situação mudava: leu os ângulos, calculou as linhas de ataque, identificou onde o espaço estava errado.
+— Você tem barba.
 
-O problema era que havia dois espaços errados ao mesmo tempo.
+— Eu tenho presença.
 
-Nina foi primeiro.
+— Você tem uma cartola com binóculo.
 
-O salto cobriu a distância mais rápido do que o tamanho dela sugeria, a katana saindo da bainha no ar, a lâmina descendo num arco que Kim desviou por meio passo pra direita. O meio passo era o que ela esperava. A lâmina mudou de trajetória no último instante, não horizontal mas diagonal, e rasgou do peito ao ombro com o som de tecido cedendo.
+— Kim. Cada detalhe tem função. Você vai entender quando—
 
-O sangue foi imediato. A dor também.
-
-Kim recuou dois passos, a mão no corte. Nina pousou atrás de onde ele havia estado, a katana já de volta em posição.
-
-Do outro lado Jack estava em movimento.
-
-A bengala girou num arco horizontal, o som cortando o ar, e Kim abaixou. O metal passou pelo topo da cabeça. Jack usou o momentum do giro pra criar distância, reposicionou, veio de novo.
-
-Kim bloqueou com o antebraço. O impacto foi mais pesado do que devia ser pro tamanho da bengala.
-
-— Esse braço é mecânico de verdade.
-
-— Funcionalmente sim. — Jack sorrindo enquanto vinha de novo.
-
-O segundo golpe Kim desviou. O terceiro ele tentou pegar e o fio de aço que ele não havia visto enrolou no pulso antes que ele entendesse o que estava acontecendo, a pressão subindo rápido.
-
-Ele não havia visto o fio.
-
-Não havia visto de onde veio.
-
-Olhou pras próprias mãos tentando entender a mecânica e no espaço entre olhar pras próprias mãos e levantar os olhos de volta alguma coisa havia mudado. As mãos estavam segurando alguma coisa.
-
-Eram machadinhas.
-
-Duas. Uma em cada mão. O cabo com uma aderência específica que se ajustava aos dedos como se soubesse onde os dedos iam estar. A lâmina não era fina, era larga, feita pra impacto e não pra corte. No cabo de cada uma, uma roldana pequena com fio de aço enrolado.
-
-Kim olhou pra elas por um segundo.
-
-Nina vinha pela lateral com a katana expandida em modo chicote, os segmentos da lâmina serpenteando no ar, e Kim jogou os ombros pra frente por instinto e as machadinhas foram.
-
-O fio de aço da machadinha direita atravessou o espaço entre ele e Nina antes que ela percebesse. Quando percebeu o fio estava no nível da cintura.
-
-A machadinha retornou.
-
-O som foi seco e definitivo.
-
-Nina ficou parada por um segundo com os olhos abertos processando o que havia acontecido. Depois olhou pra baixo.
-
-— Porra. — Do modo observador, claramente irritada.
+— Espera. — Jack apontou pra cima. — Vamos esperar ela.
 
 ---
 
-Jack parou.
+Nina caiu em silêncio.
 
-Olhou pro espaço onde Nina havia estado. Olhou pras machadinhas nas mãos de Kim. Ficou com aquilo por um segundo com a expressão de quem está recalculando.
+O capuz curto chiando no ar, a capa até o meio das costas, o cabelo preto com luzes vermelhas que pareciam fogo vivo. Uma marca vermelha atravessando o olho direito, como uma cicatriz que alguém desenhou com brasa. Um top de ombreiras, as mangas em arrastão descendo até meias-luvas pretas cheias de espinhos. O abdômen à mostra. Minissaia preta carregada de peças de metal na cintura, coturnos até quase o joelho. Uma katana embainhada no quadril esquerdo.
 
-— Fio de aço com retorno automático. — Baixo, pra si mesmo.
+Pousou do lado deles numa pose que ela com certeza tinha ensaiado em algum lugar.
 
-— Eu não sabia que tinha fio de aço.
+— Desculpa a demora, meninos. Tava escolhendo uns acessórios novos. Do que vocês estavam falando?
 
-— Eu sei. Eu também não sabia.
+Jack olhou pra um lado. Olhou pro outro.
 
-— EU ESTAVA DENTRO DO RAIO DE ATAQUE PORQUE NINGUÉM ME AVISOU QUE ELE TINHA FIO DE AÇO. — Nina de algum lugar na sala.
+— De nada. Tava esperando você pra explicar o LDI pro Kim. Agora de dentro do LDI.
 
-— Você tá calminha, hein Nina. Uma paz. — Jack sem olhar pra cima.
+— Como eu faço pra ter um visual assim. — Kim. Primeira pergunta.
 
-— Eu estou completamente calma. Continuem a luta.
+Jack e Nina sorriram ao mesmo tempo.
 
-Jack olhou de volta pra Kim com o sorriso de quem havia tomado uma decisão.
+— Avatar é coisa pessoal. — Jack. — Tem a sala Fashion, você entra quando quiser e troca o que quiser. Depois. A sala privada só libera duas horas por dia, então hoje é treino.
 
-Cruzou os braços com a bengala na frente. Dobrou levemente a coluna. As pernas na posição que distribuía o peso entre os dois pés de forma igual.
+— Segunda pergunta. O Thunderbolt tinha uma lança. Você tem uma bengala. Ela tem uma espada. Dá pra usar arma nesse jogo?
 
-— First move.
-
-As pedras começaram a se erguer do chão da arena. Não grandes, não dramáticas. Pequenas. Dezenas delas, saindo do terreno em silêncio, levitando ao redor de Jack em órbita lenta.
-
-Kim avaliou a distância. Calculou as linhas de ataque. Começou a recuar criando espaço.
-
-— Second move.
-
-As pedras começaram a se esmigalhar. Não em areia, em fragmentos triangulares, as pontas finas demais pra ver a partir da distância que Kim estava.
-
-Kim recuou mais rápido.
-
-— Third move. Vitória Finals.
-
-Os fragmentos foram todos de uma vez.
-
-Kim não tinha vocabulário pra descrever o que aconteceu nos segundos seguintes porque cada segundo tinha informação demais pra processar antes de o próximo chegar. Os fragmentos entrando, a sensação de cada um individualmente e de todos ao mesmo tempo, o sangue que não era o sangue de um corte mas de muitos, o corpo tentando se mover e descobrindo que o movimento custava mais do que o saldo disponível.
-
-Caiu.
-
-Não de forma dramática. De forma inevitável, os joelhos primeiro, as mãos no chão, a visão escurecendo pelas bordas com a calma de algo que já havia decidido.
-
-A arena foi embora.
+— Dá. — Nina. — A arma é uma extensão do seu poder. Cada jogador decide. Tem gente que nem usa. O Thunderbolt sacou a dele contra você porque achou que precisava. Ou porque ficou com medo.
 
 ---
 
-O modo observador era diferente do que Kim esperava.
+Jack ergueu a mão com três dedos.
 
-Não era escuro. Era a arena de cima, uma perspectiva que não tinha ponto de apoio físico mas que o cérebro processava como estar em algum lugar. Nina estava ao lado dele, ou a representação de Nina estava ao lado dele, os dois flutuando alguns metros acima do chão digital onde Jack estava comemorando com o tipo de energia que só emerge quando você derrota duas pessoas numa sessão de treino.
+— Três coisas. Uma: aqui tudo é cabeça. O LDI se agarra na força mental de quem joga. Se você acredita que cair de duzentos metros é normal, você cai e fica de pé. Se você hesita, cai igual saco de cimento. Por isso você bate a cara. Você pensa demais no chão.
 
-— HEYYYY! — Jack de baixo, os braços no ar.
+— Dois. — Nina continuou, como se os dois tivessem combinado. — Todo avatar tem um elemental. Primário ou secundário. Secundário não é mais fraco, só tem mais opção de combinação. O Thunderbolt usava eletricidade, que é secundário da Luz. O que saiu de você naquela luta parecia Trevas, que é primário.
 
-— Muito bem. — Nina pro Jack, seca.
+— Três. — Jack de novo. — Tudo que você sabe de briga lá fora funciona aqui. Só que você tem que acreditar que aqui você é tão forte quanto lá. Ou mais. Isso não tá escrito em lugar nenhum. Ninguém sabe direito como o LDI funciona. Mas é o que eu faço e funciona pra mim.
 
-— Obrigado, muito obrigado, foi realmente—
+— E a pontuação vem disso também. — Nina. — A corporação fala que a força mental de cada um decide quanto uma luta vale. É a explicação oficial. Eu sei que não explica nada.
 
-— Foi sorte com o Kim. Comigo foi um erro de configuração de sala.
+Kim estava com a cara de quem estava entendendo metade.
 
-— Absolutamente. Sorte total. Nenhuma habilidade envolvida.
+— Tipos de sala. — Jack, mudando de assunto antes que o amigo travasse. — Tem sala de obstáculo, sala com desvantagem elemental, sala com inimigo que você já enfrentou. Hoje é a simples, a que você escolheu. Eu e a Nina contra você.
 
-— Eu estou completamente calma. — Nina antes que Jack continuasse.
+— Dois contra um.
 
-— Você tá vendo que ela tá calminha, né? Tá calminha, um anjo, uma paz.
+— Luta não precisa ser um contra um. Pode ser dois contra um, dez contra um, dois contra dois. Qualquer formato, desde que todo mundo aceite. E não precisa ser só quem derruba quem. Tem luta por tempo, por resistência, por objetivo, battle royale. — Jack abriu os braços. — É por isso que esse jogo é o que é. Mas o seu negócio, a gente já sabe, é um contra um.
 
-Kim estava olhando pro próprio corpo no chão da arena com os fragmentos de pedra ainda visíveis, Jack dançando ao lado.
+---
 
-— Quanto tempo a gente fica aqui. — Para Nina.
+— Antes. — Kim. — Tem alguma coisa errada comigo.
 
-— Cinco horas de cooldown pra poder treinar de novo. Em batalha oficial é menos, mas em sala de treino o sistema é mais conservador.
+Os dois pararam.
 
-Kim ficou calculando.
+— Eu tô pesado. Dói o corpo inteiro. Como se eu tivesse apanhado ontem.
 
-— Pra ficar competente o suficiente pra não morrer rápido numa sessão de treino. Quanto tempo você acha que leva.
+Jack fez a cara exata de quem esqueceu de avisar uma coisa importante.
 
-Nina ficou em silêncio por um segundo que era um segundo de alguém sendo honesta consigo mesma antes de ser honesta com outra pessoa.
+— Tempo de recuperação.
 
-— Umas seis semanas pra começar a sobreviver sessões completas sem morrer. Uns três meses pra começar a ganhar de adversários do seu nível. Uns seis meses pra ter consistência real.
+— Tempo de quê.
 
-Kim ficou com aquilo olhando pro teto digital.
+— Depois de toda luta você precisa recuperar. Não importa o nível. — Nina, com a paciência de quem está explicando pela terceira vez a mesma coisa pra uma criança, mesmo sendo a primeira. — Você saiu daquela luta destruído. Pelo estrago, uns quatro dias. Noventa e seis horas.
 
-Seis meses era um número que cabia na cabeça mas que custava alguma coisa quando chegava.
+— E cada um desses dias você tem que logar e ficar pelo menos cinco minutos parado, que é quando o sistema cura o avatar. — Jack. — Se você entrar numa luta antes, entra com o que recuperou até ali. No seu caso, quase nada. É igual brigar depois de ter tomado um piau na véspera.
 
-— Tudo bem.
+— É exatamente assim que eu me sinto.
 
-— É o processo.
+— Calma. Tem um jeitinho. Só funciona em sala de treino. — Jack olhou pra cima. — NeoGuide. Recuperação instantânea pra sala.
 
-— Eu sei.
+— Círculos de recuperação ativados. Aproximem-se.
 
-De baixo, Jack havia parado de comemorar e estava fazendo alguma coisa com a bengala que produzia um som rítmico no chão da arena, os passos de alguém que não conseguia ficar parado mesmo quando não havia mais nada pra fazer.
+Círculos verdes acenderam no piso cinza. Jack e Nina andaram até eles com a naturalidade de quem já fez aquilo cem vezes. Kim ficou parado até Jack fazer um sinal com a cabeça.
 
-Kim ficou olhando pro teto por mais um tempo.
+Faixas de luz verde subiram do chão em volta dele, girando como chamas frias. Não era quente nem elétrico. Era como pressão distribuída no corpo inteiro de uma vez, e por onde passava, o peso ia saindo em camadas.
 
-Seis meses era seis meses. Tinha começado com zero.
+— Recuperação completa. Desligando.
 
+Kim olhou pras mãos. Fechou. Abriu. Saltou uma vez. Duas. Pulou mais alto do que devia e pousou sem esforço.
+
+— Eu me sinto ótimo.
+
+— Então vamos. — Nina.
+
+— Só se for agora.

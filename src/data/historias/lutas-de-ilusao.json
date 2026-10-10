@@ -228,9 +228,9 @@
     "titulo": "Sala Privada",
     "titulo_en": "Private Room",
     "titulo_es": "Sala Privada",
-    "tagline_pt": "A porta fechou. O ar mudou.",
-    "tagline_en": "The door closed. The air changed.",
-    "tagline_es": "La puerta se cerró. El aire cambió.",
+    "tagline_pt": "Duas horas por dia. Regras que ninguém tinha contado.",
+    "tagline_en": "Two hours a day. Rules nobody had mentioned.",
+    "tagline_es": "Dos horas al día. Reglas que nadie había contado.",
     "liberacao": {
       "primordial": "2027-07-30",
       "elite": "2027-07-30",
@@ -241,12 +241,12 @@
   {
     "id": "capitulo-15",
     "numero": 15,
-    "titulo": "Ryan e a Caixa",
-    "titulo_en": "Ryan and the Box",
-    "titulo_es": "Ryan y la Caja",
-    "tagline_pt": "Ryan abriu a caixa. O erro perfeito.",
-    "tagline_en": "Ryan opened the box. The perfect mistake.",
-    "tagline_es": "Ryan abrió la caja. El error perfecto.",
+    "titulo": "Anjo e Vitória",
+    "titulo_en": "Angel and Victory",
+    "titulo_es": "Ángel y Victoria",
+    "tagline_pt": "Duas armas acordaram. A terceira apareceu sozinha.",
+    "tagline_en": "Two weapons woke up. The third showed up on its own.",
+    "tagline_es": "Dos armas despertaron. La tercera apareció sola.",
     "liberacao": {
       "primordial": "2027-08-15",
       "elite": "2027-08-15",
@@ -257,12 +257,12 @@
   {
     "id": "capitulo-16",
     "numero": 16,
-    "titulo": "Verificação de Nível",
-    "titulo_en": "Level Check",
-    "titulo_es": "Verificación de Nivel",
-    "tagline_pt": "O nível vai ser verificado. Kim não estudou.",
-    "tagline_en": "The level will be checked. Kim didn't study.",
-    "tagline_es": "El nivel será verificado. Kim no estudió.",
+    "titulo": "Xakixi, Xamã",
+    "titulo_en": "Xakixi, Shaman",
+    "titulo_es": "Xakixi, Chamán",
+    "tagline_pt": "Um fio de aço que ninguém viu.",
+    "tagline_en": "A steel wire nobody saw.",
+    "tagline_es": "Un hilo de acero que nadie vio.",
     "liberacao": {
       "primordial": "2027-08-30",
       "elite": "2027-08-30",
@@ -273,9 +273,12 @@
   {
     "id": "capitulo-17",
     "numero": 17,
-    "titulo": "Em breve",
-    "titulo_en": "Coming Soon",
-    "titulo_es": "Próximamente",
+    "titulo": "Cuba de Pobre",
+    "titulo_en": "Poor Man's Cuba Libre",
+    "titulo_es": "Cuba Libre de Pobre",
+    "tagline_pt": "Vodka, limão e as regras do jogo.",
+    "tagline_en": "Vodka, lime and the rules of the game.",
+    "tagline_es": "Vodka, limón y las reglas del juego.",
     "liberacao": {
       "primordial": "2027-09-15",
       "elite": "2027-09-15",
@@ -286,14 +289,177 @@
   {
     "id": "capitulo-18",
     "numero": 18,
-    "titulo": "Em breve",
-    "titulo_en": "Coming Soon",
-    "titulo_es": "Próximamente",
+    "titulo": "Fogo",
+    "titulo_en": "Fire",
+    "titulo_es": "Fuego",
+    "tagline_pt": "O cadastro diz uma coisa. A arena disse outra.",
+    "tagline_en": "The record says one thing. The arena said another.",
+    "tagline_es": "El registro dice una cosa. La arena dijo otra.",
     "liberacao": {
       "primordial": "2027-09-30",
       "elite": "2027-09-30",
       "conta": "2027-11-15",
       "publico": "2027-11-30"
+    }
+  },
+  {
+    "id": "capitulo-19",
+    "numero": 19,
+    "titulo": "Sem Acordo",
+    "titulo_en": "No Deal",
+    "titulo_es": "Sin Trato",
+    "tagline_pt": "O Jack sempre oferece. Ninguém nunca aceitou.",
+    "tagline_en": "Jack always offers. Nobody has ever said yes.",
+    "tagline_es": "Jack siempre ofrece. Nadie ha aceptado nunca.",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    }
+  },
+  {
+    "id": "capitulo-20",
+    "numero": 20,
+    "titulo": "A Gatinha Tem Garras",
+    "titulo_en": "The Kitten Has Claws",
+    "titulo_es": "La Gatita Tiene Garras",
+    "tagline_pt": "Ela não ia gritar por ajuda.",
+    "tagline_en": "She was not going to call for help.",
+    "tagline_es": "Ella no iba a pedir ayuda.",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    }
+  },
+  {
+    "id": "capitulo-21",
+    "numero": 21,
+    "titulo": "Não É Que Eu Não Consiga",
+    "titulo_en": "It's Not That I Can't",
+    "titulo_es": "No Es Que No Pueda",
+    "tagline_pt": "O Jack também tranca alguma coisa lá dentro.",
+    "tagline_en": "Jack keeps something locked away too.",
+    "tagline_es": "Jack también guarda algo bajo llave.",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    }
+  },
+  {
+    "id": "capitulo-22",
+    "numero": 22,
+    "titulo": "Rei da Briga",
+    "titulo_en": "King of the Brawl",
+    "titulo_es": "Rey de la Pelea",
+    "tagline_pt": "Ela não valia nem um soco.",
+    "tagline_en": "She wasn't worth a single punch.",
+    "tagline_es": "Ella no valía ni un golpe.",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    }
+  },
+  {
+    "id": "capitulo-23",
+    "numero": 23,
+    "titulo": "Duas Pessoas",
+    "titulo_en": "Two People",
+    "titulo_es": "Dos Personas",
+    "tagline_pt": "Com o Jack ele fala. Sem o Jack, um muro.",
+    "tagline_en": "With Jack, he talks. Without Jack, a wall.",
+    "tagline_es": "Con Jack, habla. Sin Jack, un muro.",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    }
+  },
+  {
+    "id": "capitulo-24",
+    "numero": 24,
+    "titulo": "Uma Série Pela Primeira Vez",
+    "titulo_en": "A Show for the First Time",
+    "titulo_es": "Una Serie por Primera Vez",
+    "tagline_pt": "Ela só continua se for com ele.",
+    "tagline_en": "She'll only keep watching with him.",
+    "tagline_es": "Ella solo sigue si es con él.",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    }
+  },
+  {
+    "id": "capitulo-25",
+    "numero": 25,
+    "titulo": "Risca a Faca",
+    "titulo_en": "Risca a Faca",
+    "titulo_es": "Risca a Faca",
+    "tagline_pt": "Duzentos cada. A casa é péssima.",
+    "tagline_en": "Two hundred each. The place is awful.",
+    "tagline_es": "Doscientos cada uno. El lugar es pésimo.",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    }
+  },
+  {
+    "id": "capitulo-26",
+    "numero": 26,
+    "titulo": "Joaquim Leal Reis",
+    "titulo_en": "Joaquim Leal Reis",
+    "titulo_es": "Joaquim Leal Reis",
+    "tagline_pt": "O alto-falante chamou o nome que ninguém usa.",
+    "tagline_en": "The loudspeaker called the name nobody uses.",
+    "tagline_es": "El altavoz llamó el nombre que nadie usa.",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    }
+  },
+  {
+    "id": "capitulo-27",
+    "numero": 27,
+    "titulo": "Ae Katu",
+    "titulo_en": "Ae Katu",
+    "titulo_es": "Ae Katu",
+    "tagline_pt": "Ninguém subestima um ioiô duas vezes.",
+    "tagline_en": "Nobody underestimates a yo-yo twice.",
+    "tagline_es": "Nadie subestima un yoyó dos veces.",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    }
+  },
+  {
+    "id": "capitulo-28",
+    "numero": 28,
+    "titulo": "Rei Xamã",
+    "titulo_en": "King Shaman",
+    "titulo_es": "Rey Chamán",
+    "tagline_pt": "Segundo round.",
+    "tagline_en": "Round two.",
+    "tagline_es": "Segundo round.",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
     }
   }
 ]

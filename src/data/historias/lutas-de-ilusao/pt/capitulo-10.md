@@ -206,9 +206,83 @@ O silêncio que veio agora era diferente de todos os outros silêncios daquela n
 
 — Pode contar quando quiser.
 
-Ela ficou olhando pra frente. Kim ficou no braço da poltrona sem se mover.
+— Não. Tem que ser agora. Se eu parar agora eu não falo nunca mais.
 
-Nenhum dos dois com pressa de ir a lugar nenhum.
+Ela pegou o maço de cigarro na mesinha. Acendeu um. Kim estendeu a mão e ela passou o maço sem olhar, e ele acendeu o dele também.
+
+— Sabe o que uma garota de doze anos faz pra sobreviver com um bebê no colo, sem adulto, sem documento, sem nada? — Soltando a fumaça pro teto. — Pergunta de verdade, Kim. Você sabe?
+
+Kim não respondeu.
+
+— Faz a única coisa que aprendeu a fazer. — Seca. — Dos doze aos dezoito eu fiz o que eles me ensinaram naquele quarto. Só que agora era eu que escolhia. Era pra comprar leite. Era pra pagar o quartinho. Era pra você não dormir na rua. A lei não deixa criança trabalhar, e a lei também não perguntou nada pra mim.
+
+O cigarro tremia um pouco entre os dedos dela.
+
+— Com dezoito eu arrumei o primeiro emprego de verdade. E os patrões... — Uma risada curta, sem graça nenhuma. — Os homens sempre percebiam alguma coisa em mim. Não sei o que é. Um cheiro. Um jeito de olhar pro chão. E usavam isso. Pra manter emprego eu fui de muitos, Kim. Mais seis anos assim.
+
+Ela bateu a cinza no chão, do lado do cinzeiro.
+
+— Quando você fez doze eu tava acabada. Cansada dessa merda de vida, cansada de tudo que eu tinha feito por você, cansada de tentar ser alguma coisa. Eu nunca tive nada. Nunca tive alegria. Nunca tive prazer nenhum. Então eu decidi que agora era a sua vez. Que você ia me devolver pelo menos os doze anos que eu te dei.
+
+Olhou pra ele pela primeira vez desde que tinha começado.
+
+— Você tá no quinto. Faltam sete. Quando acabar a gente tá quite e você faz o que quiser da vida, e eu juro que não te peço mais um centavo. Até lá você tem uma dívida comigo. E se for homem você paga.
+
+O silêncio ficou na sala com a fumaça dos dois cigarros.
+
+Kim ficou olhando pra ela por um tempo.
+
+Quando falou, a voz saiu mais baixa do que ele esperava.
+
+— Eu não sei o que dizer.
+
+Ela não respondeu.
+
+— Tô com uma raiva que eu não sei onde colocar. Mais raiva do que eu já senti na vida. Não de você. Deles. E me sinto inútil, porque essa raiva não serve pra nada. Ela não volta no tempo. Ela não tira você daquele quarto.
+
+Helena desviou o rosto.
+
+— Mas você tem razão. — Kim. — Eu te devo sete anos. Vou pagar cada um. E mais. Se precisar, até o último dia da sua vida não vai faltar nada pra você. Isso não é dívida. É outra coisa.
+
+Helena riu pelo nariz, o tipo de riso de quem não acredita.
+
+— Agora que você sabe que eu não sou sua mãe as coisas vão ser diferentes. — Olhando pra janela. — Só não fica achando que eu te sequestrei. Ou que eu inventei essa história pra você ter pena. Eu não me importo com o que você pensa. Eu só te tirei de lá. Nem sei por quê. Teria sido mais fácil ficar parada.
+
+Kim colocou o cigarro no cinzeiro.
+
+Depois pegou a mão dela.
+
+Foi a coisa mais estranha que ele fez naquela noite. Ele não lembrava da última vez que havia tocado na mão da mãe. Talvez nunca tivesse. A mão era fria e menor do que ele imaginava, e não fugiu.
+
+— Dona Helena. Não importa o que digam. Não importa como a gente se encontrou, nem o que você fez, nem o que eu fiz. Você sempre foi minha mãe. É assim que eu te vejo e é assim que eu vou te ver. Vou te respeitar como minha mãe. Vou cuidar de você como minha mãe.
+
+Ela não chorou de imediato.
+
+Ficou parada com a mão na mão dele, o rosto virado pra janela, o maxilar trabalhando. Depois o rosto dela fez uma coisa que Kim nunca tinha visto, como uma represa cedendo de dentro pra fora, e o choro veio de um lugar tão fundo que não fazia barulho no começo.
+
+Não era o choro de depois da crise. Esse ele conhecia. Esse era de outro tipo.
+
+Kim ficou ali. Não falou nada. Deixou ela ir até onde precisava ir.
+
+Demorou.
+
+Quando ela conseguiu falar de novo, a voz estava inteira de um jeito que ele não reconhecia.
+
+— Eu sempre tive medo de te contar. Medo de você achar que eu era mentirosa. Eu não consigo mais, Kim. Não consigo trabalhar. Não consigo deixar homem nenhum chegar perto. Eu só sinto raiva e medo e um buraco. A única hora que eu fico feliz é bêbada. Por isso eu fico bêbada todo dia.
+
+— Eu sei. — Kim apertando a mão dela. — Você tem o direito de fazer o que quiser pra ficar bem. Só uma coisa.
+
+Ela esperou.
+
+— Eu não lembro de ter visto você sorrir. Nenhuma vez. Então faz o que você precisar. Só não sai quebrando a propriedade dos outros.
+
+Helena olhou pra ele.
+
+E riu.
+
+Não alto. Uma risada curta, molhada, que escapou antes que ela pudesse segurar. Kim ficou paralisado olhando pra aquilo como quem vê neve pela primeira vez. Era a primeira vez que ele ouvia a mãe rir.
+
+— Você é um idiota. — Ela limpando o rosto com as costas da mão, ainda rindo, ainda chorando. — Foi bom ouvir você me chamar de mãe. Faz muito tempo. E eu já sorri pra você, tá? Você que não lembra.
 
 — Você era um bebezinho muito lindo, sabe. Quando eu te peguei naquela noite. Muito lindo e muito gordo. Parecia uma bolinha.
 

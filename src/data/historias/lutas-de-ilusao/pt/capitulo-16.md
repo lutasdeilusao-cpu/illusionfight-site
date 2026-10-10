@@ -1,254 +1,253 @@
-﻿# CAPÍTULO 16 — Verificação de Nível
+# CAPÍTULO 16 — Xakixi, Xamã
 
-A semana seguinte foi a primeira semana normal desde que tudo havia começado.
+A luz que saiu das machadinhas não era luz.
 
-Normal no sentido de que ninguém tentou matar ninguém no anexo. Normal no sentido de que as aulas aconteceram e Kim foi a todas e prestou atenção em todas porque era o que Osvaldo havia apostado que ele faria e ele não ia dar a Osvaldo motivo pra se arrepender. Normal no sentido de que Jack arranjou dois trabalhos noturnos, Kim vendeu balas nos ônibus de manhã e pagou a conta de luz e o mercado com sobra, e Nina aparecia na porta da escola todo dia com café de plástico e a expressão de quem chegou cedo mas não quer parecer que chegou cedo.
+Era um brilho negro. Jack e Nina viram aquilo do outro lado da sala, uma coisa que brilhava sem iluminar, e quando acabou as duas machadinhas não estavam mais nas mãos de Kim.
 
-O trio havia se formado sem que nenhum dos três tivesse votado nisso. Era assim que as coisas reais funcionavam.
+Estava um machado.
 
-No LDI, Kim morreu quatorze vezes na primeira semana de treino.
+Duas lâminas, uma de cada lado, o cabo um pouco mais comprido que o braço dele. Nada gigante. Um metro e pouco. Leve o bastante pra ele segurar com uma mão só.
 
-Não com dramatismo. Com a regularidade de quem está aprendendo um idioma novo e erra a conjugação até parar de errar. Jack catalogava cada morte com a seriedade de um técnico: essa foi falta de leitura de ângulo, essa foi gasto excessivo de energia no início, essa foi reflexo correto mas timing errado. Nina assistia do modo observador com a expressão de quem está montando um arquivo.
+Kim passou o machado pra mão direita. A roldana desceu pelo cabo e encaixou embaixo dos dedos, com o fio de aço preso no fim do cabo, exatamente como nas machadinhas.
 
-Na décima quinta sessão, Kim não morreu.
+Ele apoiou o machado no ombro, atrás da cabeça.
 
-Não ganhou. Ficou de pé até o cooldown forçado, que era diferente mas contava.
+— É, galera. — Com um sorriso que Jack conhecia de briga de rua. — Parece que o pai tá on. Vamos começar?
 
-— Progresso. — Jack.
+Jack olhou pra Nina com a cara de quem acabou de ver o próprio carro sendo rebocado.
 
-— É o processo. — Nina.
+— Ele já sabe transformar. Ele nem começou e já sabe transformar.
 
-Kim estava olhando pras próprias mãos no modo observador, as marcações que apareciam quando o poder tentava aflorar e desapareciam antes de se formar completamente. Como chamas que não tinham combustível suficiente ainda.
+— Jack. — Nina, séria. — Se a gente não trabalhar junto direito, a gente perde aqui.
 
-*Ainda.*
+— Você acha que eu não sei, menina? Você viu o que o moleque acabou de fazer.
 
----
+— Então o quê.
 
-Foi numa sexta-feira que Shuntaro apareceu.
+— Investida rápida. — Jack ajustando o que sobrou da cartola. — Antes que ele se acostume com essa coisa.
 
-O corredor da Elite Academy estava no barulho de sempre quando os três dobraram a esquina da saída e encontraram uma pessoa que não pertencia àquele ambiente da mesma forma específica que Brock não havia pertencido, mas com uma energia completamente diferente.
+Nina assentiu.
 
-Traços asiáticos, olhos puxados, cabelos longos e loiros quase nos ombros. Blusa branca com capuz, calça jeans branca, a postura de quem está acostumado a ser o centro de atenção em qualquer lugar que entre e parou de se importar com isso há tempo.
-
-Um estudante apontou discretamente. Outro sussurrou. O corredor havia diminuído o ritmo sem perceber.
-
-O rapaz se moveu na direção dos três com passos medidos e parou a uma distância confortável. Fez uma reverência breve, natural, e estendeu a mão.
-
-— Você deve ser Kim. Sou Shuntaro Chirasu. Posição 998 no ranking mundial de Lutas de Ilusão. É um prazer conhecê-lo.
-
-Kim olhou pra mão. Apertou.
-
-— Vim de Azuma especificamente pra isso. Nove horas de viagem. — Shuntaro com o sorriso de quem não está exagerando e sabe que não precisa. — Gostaria de lutar com você.
-
-Jack estava ao lado de Kim com a expressão de quem está fazendo cálculos rápidos e não gostando dos resultados.
-
-Nina tinha o celular na mão, a tela virada discretamente na direção dela.
-
-Kim ficou com Shuntaro por um segundo. Leu o rosto, a postura, o jeito que ele segurava os ombros. Havia respeito genuíno ali, não provocação. Havia também a certeza calma de quem sabe que é mais forte e não precisa dizer isso.
-
-— Por que eu. — Kim.
-
-— Porque o que você fez na sua primeira luta não deveria ser possível. E coisas que não deveriam ser possíveis me interessam. — Shuntaro simplesmente. — Além disso, com todo o respeito, você caiu bastante no ranking desde então. 1.423 agora. Se pretende chegar a algum lugar nesse jogo, precisa lutar.
-
-— Ele tem razão. — Nina em voz baixa, só pro Kim.
-
-— Eu sei. — Kim também baixo.
-
-Jack passou a mão pelo cabelo, as dreads verdes captando a luz do corredor, a expressão de quem quer dizer várias coisas e está escolhendo nenhuma.
-
-Kim olhou pra Shuntaro.
-
-— Quando.
-
-— Agora, se você estiver disponível. — Shuntaro sem hesitar.
-
-— Estou.
+Os dois vieram juntos, quase lado a lado.
 
 ---
 
-Foram pro pátio dos fundos.
+Kim viu os dois vindo e fez a coisa mais óbvia que existia.
 
-Não o anexo. O pátio descoberto que ficava entre o prédio principal e o anexo, amplo o suficiente pra uma luta sem público indesejado, exposto o suficiente pra que ninguém pudesse dizer que não havia visto.
+Girou o braço e arremessou o machado.
 
-Shuntaro chamou o assistente que havia trazido de Azuma, um rapaz quieto que carregava dois IDIs numa bolsa acolchoada. Equipamentos de outro nível, era visível no peso e no acabamento.
+O machado foi girando no ar direto no meio dos dois. Jack e Nina se olharam com a cara de quem viu um amador fazer a jogada mais previsível do mundo, abriram espaço um pro outro, e o machado passou rasgando no vão entre os dois sem tocar ninguém.
 
-Jack ficou ao lado de Kim ajudando a colocar o IDI. Falou baixo enquanto ajustava a alça.
+Nina viu a abertura. Kim ainda estava com o corpo preso no fim do arremesso, o braço esticado, o peso todo pra frente.
 
-— As chances são pequenas.
+Ela puxou a Angel.
+
+— Expandir!
+
+A lâmina saiu em gomos, serpenteando rápido na direção dele.
+
+Nina não viu o fio.
+
+Não tinha como ver. Era um fio de aço fino como cabelo, saindo da mão de Kim, atravessando a sala na altura da cintura dela, indo até o machado que já estava atrás dos dois.
+
+Quando ela entendeu, já tinha entendido tarde.
+
+— NÃAAAO—
+
+Kim fechou a mão e puxou.
+
+---
+
+Nina sentiu um impacto nas costas.
+
+Depois sentiu que estava leve.
+
+Depois estava olhando de cima.
+
+Flutuava em cima da sala, sem peso, sem corpo, e lá embaixo, no piso cinza, estava ela. Duas metades dela. Separadas pela cintura, o sangue espalhado num raio que ia longe, o que tinha dentro dela pra fora, tudo com um realismo que ela tinha esquecido que o LDI tinha.
+
+O machado voltou girando pelo fio e encaixou na mão de Kim como cachorro voltando pro dono.
+
+Nina ficou olhando aquilo do alto.
+
+Ela não sabia que a arma fazia isso. Ninguém sabia. Nem o Kim, ela tinha certeza.
+
+Soltou meio sorriso.
+
+*Porra. Eu vou te pegar na próxima.*
+
+---
+
+Jack recuou devagar pra longe do corpo da Nina, como quem se afasta de uma bomba que já explodiu.
+
+— Porra, cara. Mancada. Partiu a menina no meio. Deu uma de Salomão. Ela vai ficar puta quando a gente voltar.
+
+— Ela volta, né? — Kim. — É sala de treino. Ela volta daqui a pouco.
+
+— Não volta, não.
+
+— Como assim não volta.
+
+— Morreu numa sala de treino, ficou de fora. Só volta quando abrir uma sala nova. Agora ela só assiste.
+
+— Eu achei que era tipo respawn. Morre, volta, morre, volta.
+
+— Devia ser. Mas não é. Treino é pra ser leve, ninguém matando ninguém, senão ninguém treina. — Jack apontou pra cima com a bengala. — E nas salas públicas, pra voltar, tem cooldown de cinco horas. É por isso que tem uns grupos que entram numa sala pública e matam todo mundo que tá lá. Cinco horas de sala vazia. É assim que a galera arruma sala privada sem pagar.
+
+A voz da Nina veio de algum lugar da sala, do mesmo jeito que a NeoGuide falava com eles.
+
+— Tudo bem. Tudo bem. Ninguém te explicou as regras da sala. Faz parte. — Uma pausa. — Mas porra, esse machado é irado. Sorte sua que eu não sabia daquele fio. Na próxima eu vou estar preparada. Você me aguarde.
+
+Jack riu alto.
+
+— Eu não falei que ela tava puta? Eu falei.
+
+— EU NÃO TÔ PUTA. — Nina. — Para de falar de mim e continua a luta.
+
+— Tá vendo? Calminha. — Jack pra Kim. — Um anjo. Uma paz. Uma monge no centro do Nirvana. Isso é a Nina agora.
+
+Kim não conseguiu segurar o riso.
+
+Jack ficou sério. Olhou pro machado na mão do amigo, pro fio de aço que só agora ele via direito, brilhando quando a luz pegava.
+
+— Foi mal, cara. Esse fiozinho aí eu demorei pra ver. Se você não tivesse escolhido ela, tinha sido eu. — Pausa. — É uma sacada muito boa pra uma arma. Gostei dela. Parabéns.
+
+— Valeu. — Kim olhando pro machado. — Eu nem sei como eu fiz isso. Só não queria morrer pra lâmina da Nina. E aí? Vamos continuar ou não?
+
+Os dois ficaram se olhando com o mesmo sorriso. O sorriso de cinco anos de briga do mesmo lado.
+
+— Agora que ficou só eu e você, vai ser pra valer. — Jack. — Você tá começando a pegar o jogo. Então eu vou terminar isso antes que as chances fiquem todas do seu lado. Depois disso tem cooldown pra treinar de novo. Beleza?
+
+— Beleza. Mostra o que você faz nesse joguinho.
+
+---
+
+Jack segurou a Vitória com as duas mãos e cruzou os braços com ela na frente do peito. Entortou um pouco a coluna. Abriu as pernas, o peso igual nos dois pés.
+
+— First move.
+
+Pedras começaram a subir do chão em volta dele.
+
+Pequenas. Dezenas. Depois centenas. Saindo do piso da arena sem barulho e ficando paradas no ar, girando devagar em volta dele como se ele fosse um planeta.
+
+Kim não sabia o que aquilo ia fazer. Sabia que o amigo não estava brincando. Começou a andar pra trás, abrindo distância, garantindo espaço pra fazer alguma coisa antes que aquilo terminasse.
+
+— Second move.
+
+As pedras começaram a se esfarelar no ar.
+
+Não viravam areia. Viravam lascas, cada pedra se partindo em pedaços menores e triangulares, as pontas finas e afiadas. Da distância em que Kim estava, ele não conseguia ver as pontas. Só via a nuvem de pedra mudando de forma.
+
+Ele continuou recuando.
+
+Jack sorriu do jeito que sorria quando já sabia como a história terminava.
+
+— Third move. Vitória Finals.
+
+As lascas vieram todas de uma vez.
+
+Como uma metralhadora. Kim sentiu a primeira entrar na coxa e não teve tempo de sentir a segunda porque a terceira e a quarta e a décima já estavam entrando. No braço. Na barriga. No peito. Perfurando, atravessando, achando os órgãos lá dentro. O sangue subiu pela garganta e saiu pela boca. As pernas falharam. O corpo era um alvo e não tinha onde se esconder.
+
+Ele não teve tempo de pensar. Não teve tempo de reagir.
+
+Era exatamente assim que ele imaginava que seria morrer. Cada furo abrindo, o sangue saindo, a visão escurecendo das bordas pro centro, devagar, com uma calma que não combinava com nada.
+
+Kim caiu.
+
+Lá em cima, Jack levantou os braços.
+
+— VENCI! HEYYYYYYYYY!
+
+---
+
+Kim abriu os olhos e estava em cima.
+
+Flutuando sobre a arena, sem corpo. Lá embaixo, o próprio corpo, estirado no piso cinza, cheio de furos, o sangue fazendo poça. E do lado do corpo, o Jack. Dançando.
+
+Uma dança ridícula, com os cotovelos pra fora e o quadril indo pra um lado e pro outro, girando em volta do cadáver dele.
+
+Do lado de Kim, no ar, a Nina. Ou o avatar da Nina, inteiro de novo.
+
+Ele fez um tchau pra ela com a cara de quem não estava entendendo nada.
+
+Ela riu.
+
+— Você não tá entendendo o que tá acontecendo, né.
+
+Kim balançou a cabeça.
+
+— Aquele desgraçado ali embaixo não encerrou a partida. Então a gente fica preso aqui assistindo ele fazer essa dancinha.
+
+Kim olhou pra baixo.
+
+— EI, DESGRAÇA! POR QUE VOCÊ TÁ DANÇANDO EM VOLTA DO MEU CORPO?
+
+— Porque é divertido demais, cara! — Jack sem parar. — Muito, muito divertido.
+
+— Fala olhando pra mim e para com essa palhaçada!
+
+— Primeiro: deixa eu terminar que isso aqui vai virar um short pro PowWow. Segundo: eu não sei onde você tá. Quem morre some. Eu só vejo o seu corpo aqui, todo esburacado, com as tripa pra fora, sabe.
+
+Kim estava horrorizado. Era o corpo dele. Parecido demais com o de verdade. E o melhor amigo dele estava rebolando em cima.
+
+— Calma. — Nina. — Vídeo no PowWow tem no máximo um minuto. Ele já tá acabando.
+
+— Por que ele não encerra logo.
+
+— Porque quem decide é quem ganha. Quando você perde, você não sai da sala até o vencedor encerrar a partida, ou até o sistema encerrar sozinho. Não dá pra desconectar no meio. Começou, vai até o fim. — Ela olhou pra ele. — Por isso ninguém começa partida em lugar aberto, sozinho, sem amigo do lado olhando o seu corpo lá fora.
+
+Kim ficou com aquilo.
+
+— Você joga algum jogo, Kim?
+
+— Claro. Jogo muito. Sempre que sobra tempo entre cuidar da casa, cuidar da minha mãe, trabalhar no ônibus e estudar de bolsista, eu jogo direto. Gamer de verdade. Pode ter certeza.
+
+— Não precisa ser irônico. — Nina emburrada. — Já entendi.
+
+---
+
+Ficaram em silêncio um tempo, os dois flutuando, o Jack lá embaixo fazendo a pose final pro vídeo.
+
+— Pra ficar bom o suficiente pra não morrer rápido numa sessão de treino. — Kim. — Quanto tempo você acha que leva.
+
+Nina ficou quieta um segundo. O segundo de alguém sendo honesta com ela mesma antes de ser com outra pessoa.
+
+— Umas seis semanas pra começar a sobreviver uma sessão inteira. Uns três meses pra começar a ganhar de quem tá no seu nível. Uns seis meses pra ter consistência de verdade.
+
+Kim olhou pro teto digital.
+
+Seis meses era um número que cabia na cabeça. Mas custava alguma coisa quando chegava.
+
+— Tudo bem.
+
+— É o processo.
 
 — Eu sei.
 
-— Ele sabe o que está fazendo.
+Lá embaixo, Jack olhou pra cima, pra lugar nenhum.
 
-— Eu sei.
-
-— Mas você vai lutar mesmo assim.
-
-— Claro.
-
-Jack assentiu. Apertou o ombro do amigo uma vez, rápido, o gesto mínimo que entre os dois significava tudo que precisava ser dito.
-
-Nina estava encostada na parede do prédio com os braços cruzados e o olhar dividido entre os dois lutadores que se preparavam.
-
-Shuntaro se posicionou com a elegância natural de quem não precisa de ritual pra encontrar o próprio centro. Nas mãos, dois ioiôs de metal que ele girava com uma calma que era ela própria uma ameaça.
-
-Kim ficou de frente pra ele com as mãos abertas ao lado do corpo.
-
-— Gostaria de ter uma boa luta. — Shuntaro. — Mas não vim de tão longe pra perder.
-
-— Eu não entro em brigas pra perder.
-
-Shuntaro abriu o sorriso. Não de arrogância. De satisfação genuína.
-
-— Então vamos começar.
+— NeoGuide. Encerrar partida.
 
 ---
 
-O raio de ação de Shuntaro era de dois metros pra cada lado.
+O escuro veio, e depois o anexo.
 
-Kim descobriu isso nos primeiros trinta segundos, recuando enquanto os ioiôs cortavam o ar em arcos que pareciam caóticos mas não eram. Havia padrão. Havia ritmo. Havia a construção calculada de alguém que usava a arma há tempo suficiente pra que ela fosse uma extensão do pensamento.
+O concreto. A luz da tarde. O cheiro de mofo.
 
-*Ele está me lendo enquanto ataca.*
+Kim tirou o SBI da cabeça e ficou um segundo parado, as mãos no peito procurando os furos que não estavam lá. Do lado, Jack tirou o dele com a cara satisfeita de quem ganhou duas vezes seguidas e ainda tinha energia sobrando. Nina tirou o dela com o cuidado de quem está guardando alguma coisa pra depois.
 
-Kim manteve distância e devolveu a leitura.
+— Maluco. — Kim. — Que ataque foi aquele, cara? Eu tenho mil perguntas pra fazer pra vocês. Mas que ataque.
 
-O ombro direito de Shuntaro baixava um centímetro antes do arco largo. O peso transferia pro pé esquerdo quando preparava o golpe cruzado. Havia uma fração de segundo depois do terceiro movimento de qualquer sequência onde os ioiôs precisavam de reposicionamento.
+— Não foi tudo isso. — Nina. — O Jack se aproveitou de você não saber nada.
 
-*Lá.*
+— Você não pode dizer isso. — Jack ofendido. — Você nunca me viu lutando de verdade.
 
-Kim fechou a distância em diagonal, passou pela faixa de alcance pelo lado cego de Shuntaro, e encaixou um jab direto no queixo.
+— Três etapas de carregamento parado no meio da arena? Ninguém fica esperando você carregar aquilo, Jack. Só o Kim, que não sabia que podia te atacar enquanto você carregava. Ele se afastou e ficou olhando.
 
-Shuntaro recuou um passo.
+Kim olhou de um pro outro.
 
-Não muito. Mas recuou.
+— Carregando? Como assim carregando?
 
-Os dois ficaram parados por um segundo se olhando com o tipo de reconhecimento mútuo que acontece quando dois lutadores de verdade se encontram pela primeira vez.
+Jack e Nina se olharam.
 
-— Bom. — Shuntaro simplesmente.
-
-Então mudou tudo.
-
-Os ioiôs saíram das mãos de Shuntaro ao mesmo tempo e o *Multiple Water Balls* veio em velocidade que não combinava com o tamanho das armas, a água se formando ao redor das lâminas em esferas azuis que brilhavam e giravam e chegavam de ângulos que Kim não havia calculado.
-
-O primeiro acertou o queixo antes que Kim terminasse de desviar. O segundo enrolou no pescoço com uma linha fina que apertou antes que ele localizasse a origem. A mão direita ficou presa junto.
-
-Shuntaro não pausou.
-
-Os golpes seguintes chegaram com a metodologia de quem sabe exatamente o que está fazendo e está fazendo pela última vez que vai precisar fazer.
-
-Kim absorveu o que não pôde desviar, buscou a linha do ioiô com os dedos livres, achou resistência onde não devia haver e sentiu o corte antes de ver o sangue.
-
-*Pensa.*
-
-A linha estava enrolada de uma forma específica. Se ele forçasse pro lado errado apertava mais. Se forçasse pro lado certo com força suficiente e no ângulo certo—
-
-Kim ergueu a perna, passou por cima da linha criando folga, abaixou o queixo junto com o movimento, e no segundo que o pescoço ficou livre usou tudo que tinha no braço esquerdo pra encaixar um headbutt direto no nariz de Shuntaro.
-
-O impacto fez os dois recuarem um passo cada.
-
-Shuntaro ficou parado com o nariz sangrando e os olhos avaliando a situação de uma forma que não era mais só técnica.
-
-— Interessante. — A voz diferente agora, com alguma coisa por baixo que não estava lá antes.
-
-No pátio, Jack havia parado de respirar no ritmo normal. Nina estava de pé sem se apoiar na parede.
-
-Kim estava de pé com o pescoço marcado pela linha e o ombro aberto onde a lâmina havia passado e os olhos fixos em Shuntaro com a expressão que Jack conhecia de um lugar muito fundo.
-
-Não era raiva.
-
-Era Kim encontrando o teto do que estava disponível e decidindo que o teto estava errado.
-
-As marcações começaram devagar.
-
-Não como na primeira luta, que havia sido ruptura. Desta vez era diferente. Era lento, controlado, como água encontrando as frestas de uma rocha. As linhas geométricas subindo pelo pescoço, descendo pelos braços, o cabelo mudando fio por fio.
-
-Shuntaro não recuou.
-
-Ficou parado observando com a expressão de alguém que veio nove horas de viagem pra ver exatamente isso e está vendo.
-
-— Então é real. — Baixo, pra si mesmo.
-
-As chamas começaram nas costas de Kim. Pequenas, negras, com aquela lentidão que não combinava com fogo.
-
-Kim virou os olhos brancos.
-
-E parou.
-
-A transformação travou na metade. As marcações pararam de subir. As chamas diminuíram mas não desapareceram. O cabelo ficou meio branco, meio preto, como um sistema que estava processando mais do que conseguia carregar de uma vez.
-
-Kim ficou parado no centro do pátio com a respiração acelerada e o olhar que era dos dois ao mesmo tempo, Kim e o que havia por baixo de Kim, ambos presentes mas nenhum completamente no comando.
-
-*Não tem combustível suficiente ainda.*
-
-As chamas apagaram.
-
-As marcações apagaram.
-
-O cabelo voltou ao preto.
-
-Kim ficou de pé. Apenas de pé, o que já era mais do que o corpo dizia que devia conseguir naquele momento.
-
-Shuntaro ficou olhando pra ele por um tempo longo.
-
-Depois abaixou os ioiôs.
-
-— Eu poderia continuar. — Com uma voz que era observação, não provocação. — Mas não seria uma luta. Seria outra coisa.
-
-Ficou em silêncio por um segundo.
-
-— Você ainda não tem acesso completo ao que você tem. Mas o que você tem, quando tiver acesso, vai mudar alguma coisa nesse jogo.
-
-Fez a reverência breve, natural. Guardou os ioiôs.
-
-— Foi uma honra. — Para Kim.
-
-Virou e foi em direção ao assistente, pegou a bolsa dos IDIs, e saiu do pátio com a mesma calma com que havia chegado.
-
----
-
-Os três ficaram no pátio com o silêncio da tarde de Marelia ao redor.
-
-Jack foi até Kim primeiro. Não disse nada. Ficou do lado.
-
-Nina chegou do outro lado. Também não disse nada.
-
-Os três ficaram assim por um tempo, Kim no meio, o pátio vazio à frente, a escola fazendo seu barulho de sempre atrás.
-
-— Seis semanas. — Kim eventualmente.
-
-— Seis semanas. — Jack.
-
-— Pra começar a sobreviver sessões completas.
-
-— É o processo. — Nina.
-
-— Eu sei.
-
-Kim olhou pra própria mão. As marcações não estavam mais lá. A pele de sempre. As cicatrizes de sempre.
-
-*Ainda.*
-
-Guardou o IDI na mochila.
-
-— Trampo amanhã tem? — Para Jack.
-
-— Amanhã não. Sexta tem.
-
-— Quanto.
-
-— Duzentos e cinquenta. O lugar é razoavelmente ruim.
-
-— Tá bom.
-
-Foram embora.
-
-A tarde de Marelia fechava sobre os três enquanto dobravam a esquina da escola, os dreads verdes de Jack à esquerda, o café de plástico vazio de Nina à direita, Kim no meio com a mochila no ombro e a cidade pela frente.
-
-Em algum lugar num servidor que ele não sabia localizar, as marcações do sistema registravam a posição 1.423 e aguardavam o que vinha a seguir.
-
-Em algum lugar numa ilha no Pacífico Sul, Kronos olhava pra mesma tela.
-
-E em algum lugar num escuro sem chão confirmado, um velho de bombeta preta e óculos juliet espelhados segurava um berimbau suspenso no ar e murmurava pra um parceiro que ninguém mais via:
-
-— Pouco a pouco, meu parceiro. Pouco a pouco.
-
+— Cara. — Jack se levantando e batendo a poeira da calça. — Isso aqui vai precisar de bebida.

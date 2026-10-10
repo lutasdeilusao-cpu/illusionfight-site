@@ -176,7 +176,7 @@ Nina estava olhando pra ele com uma expressão que ela não estava tentando cont
 
 — Isso é um problema real. — Nina. — Uma vez que sua identidade vaza no LDI não tem como desvazá-la.
 
-— Por isso precisa de um IDI próprio. Você personaliza o nick, personaliza o avatar, mantém tudo separado da sua identidade real. Ninguém vai saber que Briguento 142536 é o Kim de Marelia.
+— Por isso você precisa de um SBI próprio. Com o seu você personaliza o nick, personaliza o avatar, mantém tudo separado da sua identidade real. Ninguém vai saber que Briguento 142536 é o Kim de Marelia.
 
 — Quando.
 
@@ -228,7 +228,7 @@ Chamaram o transporte. Esperaram juntos na calçada até o carro de Nina aparece
 
 Nina entrou. Baixou o vidro.
 
-— Amanhã você tem um IDI pra comprar e um nick pra escolher. — Para Kim. — Pensa bem no nick.
+— Amanhã você tem um SBI pra arrumar e um nick pra escolher. — Para Kim. — Pensa bem no nick.
 
 — Vai ficar no Briguento mesmo.
 
