@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Cartao } from './PainelBlocos'
 import { rpc } from './painelUtil'
+import PainelConvites from './PainelConvites'
 
 const MESES = [1, 2, 3, 4, 5, 6]
 
@@ -45,6 +46,7 @@ export default function PainelCreators({ t, locale }) {
 
   return (
     <>
+      <PainelConvites t={t} locale={locale} />
       <form className="painel-form" onSubmit={enviar}>
         <input type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder={t('painel.creators.email')} aria-label={t('painel.creators.email')} />
         <input value={canal} onChange={e => setCanal(e.target.value)} placeholder={t('painel.creators.canal')} aria-label={t('painel.creators.canal')} />

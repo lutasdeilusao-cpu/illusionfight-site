@@ -5,6 +5,7 @@ import { supabase } from '../../lib/supabase'
 import { useLanguage } from '../../context/LanguageContext'
 import { trackEvent } from '../../lib/analytics'
 import './Login.css'
+import { destinoPosLogin } from '../../lib/creatorConvite'
 
 // Recuperação de senha (02/10/2026): o painel mostrou alguém errando a senha
 // 2x e indo embora — o site não tinha "esqueci minha senha". Três modos na
@@ -55,7 +56,7 @@ export default function Login() {
         return
       }
       trackEvent('login', { method: 'email' })
-      navigate('/perfil')
+      navigate(destinoPosLogin())
     } catch {
       // Timeout / erro de rede: o login pode ter dado certo mesmo assim — a
       // sessão é gravada ANTES da promise resolver. Confere antes de acusar erro.
@@ -63,7 +64,7 @@ export default function Login() {
         const { data: { session } } = await supabase.auth.getSession()
         if (session?.user) {
           trackEvent('login', { method: 'email' })
-          navigate('/perfil')
+          navigate(destinoPosLogin())
           return
         }
       } catch { /* segue pro erro */ }

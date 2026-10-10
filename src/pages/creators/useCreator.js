@@ -42,5 +42,6 @@ export function useCreator() {
     salvando,
     aceitarTermos,
     salvarInteresses,
+    carregarPerfil,
   }
 }

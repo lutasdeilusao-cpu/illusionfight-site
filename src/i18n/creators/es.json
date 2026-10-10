@@ -13,6 +13,9 @@
       "titulo": "Estás en tu casa.",
       "sub": "Acceso anticipado a todo el universo Lutas de Ilusión, servido como lo necesita tu contenido.",
       "fala": "Hola. Soy NeoGuide. Esta puerta solo se abre para quien crea contenido. Adentro sirvo libros, webtoon, juegos y arte antes que nadie. Muéstrame tu invitación y pasa.",
+      "fala_convite": "Hola. Soy NeoGuide. Tu invitación llegó antes que tú. Entra con tu cuenta o crea una ahora: la puerta ya está abierta para ti.",
+      "convite_sem_conta": "¿Todavía no tienes cuenta?",
+      "criar_conta": "Crear cuenta con la invitación",
       "fala_sem_convite": "Te reconocí, pero tu nombre todavía no está en la lista de creadores. Escríbenos y te abro la puerta.",
       "itens": {
         "livros": "12 capítulos de Lutas de Ilusión, 3 de El Mundo de las Sombras y el inédito Mar de Cenizas",

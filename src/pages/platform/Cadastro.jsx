@@ -5,6 +5,7 @@ import { supabase } from '../../lib/supabase'
 import { useLanguage } from '../../context/LanguageContext'
 import { trackEvent } from '../../lib/analytics'
 import './Login.css'
+import { destinoPosLogin } from '../../lib/creatorConvite'
 
 /* ══════════════════════════════════════════════════════════════
    CADASTRO — o mais simples possível
@@ -102,7 +103,7 @@ export default function Cadastro() {
       // Confirmação de email está OFF → a sessão vem junto. Segue direto.
       if (data?.session?.user) {
         trackEvent('signup_complete')
-        navigate('/perfil')
+        navigate(destinoPosLogin())
         return
       }
 
@@ -117,7 +118,7 @@ export default function Cadastro() {
 
       if (loginData?.session?.user) {
         trackEvent('signup_complete', { via: 'auto_login' })
-        navigate('/perfil')
+        navigate(destinoPosLogin())
         return
       }
 
@@ -136,7 +137,7 @@ export default function Cadastro() {
         const { data: { session } } = await supabase.auth.getSession()
         if (session?.user) {
           trackEvent('signup_complete', { via: 'timeout_recovery' })
-          navigate('/perfil')
+          navigate(destinoPosLogin())
           return
         }
       } catch { /* segue pro erro */ }

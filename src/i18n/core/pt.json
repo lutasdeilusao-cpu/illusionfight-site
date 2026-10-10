@@ -1845,6 +1845,22 @@
       "vazio": "Nenhum log nesse período.",
       "falta_migration": "Falta rodar a migration 046_debug_logs.sql no Supabase."
     },
+    "convites": {
+      "titulo": "Convites ({n})",
+      "canal": "Nome ou canal do creator",
+      "gerar": "Gerar link de convite",
+      "nota": "O link é copiado na hora. Quem abrir e criar conta (ou entrar) vira creator sozinho. Cada link vale pra uma conta.",
+      "vazio": "Nenhum convite ainda.",
+      "nao_aberto": "Link ainda não aberto",
+      "aberto": "Link aberto {n}× (1ª vez {data}) · ainda sem conta",
+      "conta": "Conta criada: {email} · {data}",
+      "visto": "Visto por último: {data}",
+      "criado": "criado {data}",
+      "copiar": "Copiar link",
+      "copiado": "Copiado!",
+      "acessos": "O que acessou ({n} páginas)",
+      "falta_migration": "Falta rodar a migration 053 (convites de creator)."
+    },
     "creators": {
       "titulo": "Creators ({n})",
       "email": "E-mail da conta",

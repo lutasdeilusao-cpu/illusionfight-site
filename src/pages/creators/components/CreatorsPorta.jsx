@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { supabase } from '../../../lib/supabase'
 import { useLanguage } from '../../../context/LanguageContext'
 import { trackEvent } from '../../../lib/analytics'
@@ -11,7 +12,7 @@ const ITENS = ['livros', 'webtoon', 'games', 'artes', 'neoguide']
 
 /** Entrada da área: quem não entrou vê a porta e o login;
  *  quem entrou sem a tag vê o aviso de convite (modo "sem_convite"). */
-export default function CreatorsPorta({ modo = 'login', email: emailLogado, onSair }) {
+export default function CreatorsPorta({ modo = 'login', email: emailLogado, onSair, convite = false }) {
   const { t } = useLanguage()
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
@@ -45,7 +46,7 @@ export default function CreatorsPorta({ modo = 'login', email: emailLogado, onSa
       </div>
 
       <div className="cr-porta__corpo">
-        <NeoGuideFala nome={t('creators.neoguide.nome')} texto={t(modo === 'login' ? 'creators.porta.fala' : 'creators.porta.fala_sem_convite')} />
+        <NeoGuideFala nome={t('creators.neoguide.nome')} texto={t(modo !== 'login' ? 'creators.porta.fala_sem_convite' : convite ? 'creators.porta.fala_convite' : 'creators.porta.fala')} />
 
         <ul className="cr-porta__lista if-stagger">
           {ITENS.map((id, i) => (
@@ -67,9 +68,15 @@ export default function CreatorsPorta({ modo = 'login', email: emailLogado, onSa
             <button type="submit" className="if-btn if-btn--primary cr-porta__entrar" disabled={enviando}>
               {enviando ? t('creators.porta.entrando') : t('creators.porta.entrar')}
             </button>
-            <p className="cr-porta__convite">
-              {t('creators.porta.sem_conta')} <a href={`mailto:${CONTATO}?subject=Creator%20access`}>{CONTATO}</a>
-            </p>
+            {convite ? (
+              <p className="cr-porta__convite">
+                {t('creators.porta.convite_sem_conta')} <Link to="/cadastro">{t('creators.porta.criar_conta')}</Link>
+              </p>
+            ) : (
+              <p className="cr-porta__convite">
+                {t('creators.porta.sem_conta')} <a href={`mailto:${CONTATO}?subject=Creator%20access`}>{CONTATO}</a>
+              </p>
+            )}
           </form>
         ) : (
           <div className="cr-porta__form if-panel">

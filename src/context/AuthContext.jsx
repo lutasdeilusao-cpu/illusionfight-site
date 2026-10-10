@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useRef, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { filterTopTrumpsInitialAccountPool } from '../lib/topTrumpsCardAccess'
 import { ensureUserProfile } from '../lib/profileProvisioning'
+import { conviteGuardado, resgatarConvite } from '../lib/creatorConvite'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://dvxfrzixtetdzmdrzkpx.supabase.co'
 
@@ -100,6 +101,9 @@ export function AuthProvider({ children }) {
         console.error('[Auth] provisionamento lançou:', e)
       }
       limparCadastroPendente()
+      if (conviteGuardado()) {
+        try { await resgatarConvite() } catch (e) { console.error('[Auth] convite de creator:', e) }
+      }
       if (!vivo) return
 
       try { await carregarPerfil(uid) } catch (e) { console.error('[Auth] carregarPerfil:', e) }

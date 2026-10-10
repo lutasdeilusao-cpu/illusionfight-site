@@ -13,6 +13,9 @@
       "titulo": "Make yourself at home.",
       "sub": "Early access to the whole Illusion Fight universe, served the way your content needs it.",
       "fala": "Hi. I'm NeoGuide. This door only opens for content creators. Inside, I serve books, webtoon, games and art before anyone else. Show me your invite and come in.",
+      "fala_convite": "Hi. I'm NeoGuide. Your invite got here before you did. Sign in or create an account now: the door is already open for you.",
+      "convite_sem_conta": "Don't have an account yet?",
+      "criar_conta": "Create an account with the invite",
       "fala_sem_convite": "I recognize you, but your name isn't on the creator list yet. Send us a message and I'll open the door.",
       "itens": {
         "livros": "12 chapters of Illusion Fight, 3 of The Shadow World and the unreleased Sea of Ashes",

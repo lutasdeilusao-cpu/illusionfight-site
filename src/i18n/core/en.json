@@ -1845,6 +1845,22 @@
       "vazio": "No logs in this period.",
       "falta_migration": "Migration 046_debug_logs.sql has not been run on Supabase yet."
     },
+    "convites": {
+      "titulo": "Invites ({n})",
+      "canal": "Creator name or channel",
+      "gerar": "Generate invite link",
+      "nota": "The link is copied right away. Whoever opens it and signs up (or signs in) becomes a creator automatically. Each link works for one account.",
+      "vazio": "No invites yet.",
+      "nao_aberto": "Link not opened yet",
+      "aberto": "Link opened {n}× (first {data}) · no account yet",
+      "conta": "Account created: {email} · {data}",
+      "visto": "Last seen: {data}",
+      "criado": "created {data}",
+      "copiar": "Copy link",
+      "copiado": "Copied!",
+      "acessos": "What they accessed ({n} pages)",
+      "falta_migration": "Migration 053 (creator invites) has not been run."
+    },
     "creators": {
       "titulo": "Creators ({n})",
       "email": "Account email",
