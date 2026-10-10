@@ -90,8 +90,7 @@
       "elite": "2026-12-30",
       "conta": "2027-01-30",
       "publico": "2027-03-15"
-    },
-    "creator": true
+    }
   },
   {
     "id": "capitulo-06",
@@ -107,8 +106,7 @@
       "elite": "2027-01-15",
       "conta": "2027-03-15",
       "publico": "2027-03-30"
-    },
-    "creator": true
+    }
   },
   {
     "id": "capitulo-07",
@@ -124,8 +122,7 @@
       "elite": "2027-03-15",
       "conta": "2027-03-30",
       "publico": "2027-04-15"
-    },
-    "creator": true
+    }
   },
   {
     "id": "capitulo-08",
@@ -141,8 +138,7 @@
       "elite": "2027-03-30",
       "conta": "2027-04-15",
       "publico": "2027-04-30"
-    },
-    "creator": true
+    }
   },
   {
     "id": "capitulo-09",
@@ -158,8 +154,7 @@
       "elite": "2027-04-15",
       "conta": "2027-04-30",
       "publico": "2027-05-15"
-    },
-    "creator": true
+    }
   },
   {
     "id": "capitulo-10",
@@ -175,8 +170,7 @@
       "elite": "2027-04-30",
       "conta": "2027-05-15",
       "publico": "2027-05-30"
-    },
-    "creator": true
+    }
   },
   {
     "id": "capitulo-11",
@@ -192,8 +186,7 @@
       "elite": "2027-05-15",
       "conta": "2027-05-30",
       "publico": "2027-07-15"
-    },
-    "creator": true
+    }
   },
   {
     "id": "capitulo-12",
@@ -209,8 +202,7 @@
       "elite": "2027-05-30",
       "conta": "2027-07-15",
       "publico": "2027-07-30"
-    },
-    "creator": true
+    }
   },
   {
     "id": "capitulo-13",
