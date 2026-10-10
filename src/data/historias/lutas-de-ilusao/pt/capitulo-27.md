@@ -22,11 +22,11 @@ E dessa vez o visual era outro. O ranking dele tinha liberado personalização, 
 
 Numa língua ancestral, queria dizer poder.
 
-Na arquibancada, numa ilhazinha de cor diferente, um lobisomem de dreads verdes levantou os dois braços.
+Na arquibancada, numa ilhazinha de cor diferente, um rei de coroa e dreads verdes levantou os dois braços, os fogos estourando nas costas.
 
 — ISSO, CARALHO!
 
-Do lado do lobisomem, uma garota de capa curta e cabelo de fogo não levantou nada. Só sorriu.
+Do lado do rei, uma garota de capa curta e cabelo de fogo não levantou nada. Só sorriu.
 
 ---
 
@@ -56,7 +56,7 @@ A arena explodiu.
 
 A arquibancada virou azul. Quase toda. Um mar de azul pra lado do Shuntaro.
 
-E uma ilha pequena de outra cor no meio dele. O lobisomem. A garota de capa.
+E uma ilha pequena de outra cor no meio dele. O rei de coroa. A garota de capa.
 
 ---
 

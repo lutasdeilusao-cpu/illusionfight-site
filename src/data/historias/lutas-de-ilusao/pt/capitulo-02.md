@@ -1,4 +1,4 @@
-﻿# CAPÍTULO 2 — A Máquina e a Rosa
+# CAPÍTULO 2 — A Máquina e a Rosa
 
 A sala da Elite Academy não parecia uma sala de aula.
 
@@ -46,7 +46,7 @@ Jack escreveu algo no canto do tablet e deslizou discretamente na direção de K
 
 Kim leu. Levantou o olhar de desprezo lentamente para Jack e, ainda olhando para ele, digitou.
 
-*Puta que pariu, toda semana essa merda Jack, foca na porra do exercício.*
+*Puta que pariu, toda semana essa merda, Jack. Foca na porra do exercício.*
 
 Jack digitou de volta imediatamente.
 
@@ -54,7 +54,11 @@ Jack digitou de volta imediatamente.
 
 A Máquina virou para a turma com uma pergunta direta sobre o problema no ar. Jack ergueu a mão antes mesmo de Kim terminar de calcular a resposta. Respondeu certo. A Máquina assentiu com a economia de quem confirma o óbvio e voltou para as equações.
 
-Jack se recostou com a satisfação de quem sabe que deixou sua marca.
+Jack se recostou com as mãos atrás da cabeça e a satisfação de quem sabe que deixou sua marca.
+
+*Será que ela percebeu? Além de lindo e maravilhoso, eu sou muito inteligente.*
+
+*Como esse filho da puta consegue ser tão rápido?*, pensou o Kim.
 
 Nina não havia olhado para ele nem uma vez.
 
@@ -68,13 +72,15 @@ A Máquina recolheu os materiais com a mesma precisão com que havia ensinado e 
 
 Nina não tirou os olhos do tablet.
 
-— Talvez sua mente pequena não tenha tido a capacidade de raciocinar, mas eu não me apresentei exatamente porque quero evitar o desprazer de conversas como essas.
+— Talvez sua mente pequena não tenha percebido... Eu não me apresentei justamente pra evitar conversas como esta.
 
 Kim ficou absolutamente estático. Já havia visto Jack ser rejeitado, mas tão ácido e tão rápido era um novo recorde.
 
 Jack abriu a boca. Fechou. Abriu de novo.
 
 — E, e, eu já te disse, meu nome é J... Jack. Prazer.
+
+— Se fodeu, otário — Kim cochichou, sem mexer a boca.
 
 — Eu sou N. i. n. a. — Cada letra separada. Pausa entre elas. — E quero ficar na minha.
 
@@ -84,13 +90,19 @@ O silêncio de Jack tinha textura. Era o silêncio de alguém que foi ao chão d
 
 Kim virou o rosto devagar na direção do amigo. Apontou para ele com um dedo, sem pressa, sem fazer barulho. Abriu o celular e começou a digitar algo com a solenidade de quem documenta um evento histórico.
 
+*DIÁRIO DE ZOEIRAS DO JACK*
+
+*#247 — Tomou um fora da novata.*
+
 Jack olhou para a tela. Olhou para Kim. A expressão fechou.
 
-— Não tá anotando isso não.
+— Não tá anotando isso, não...
 
 Kim não respondeu. Continuou digitando.
 
-— Kim.
+— Kim...
+
+*Salvo.*
 
 Guardou o celular no bolso.
 
@@ -102,24 +114,36 @@ Nina não levantou os olhos.
 
 Jack fechou a boca.
 
-*Tá de parabéns hein cara, mico épico e ainda na frente do Kim, ele nunca vai me deixar esquecer isso.*
+*Tá de parabéns, hein, cara. Mico épico, e ainda na frente do Kim. Ele nunca vai me deixar esquecer isso.*
 
 ---
 
 A porta da sala abriu.
 
-Não foi o jeito que portas abrem entre aulas. Foi o jeito que portas abrem quando quem entra não está pedindo licença.
+Não foi o jeito que porta abre entre uma aula e outra. Foi o jeito que porta abre quando quem entra não está pedindo licença.
 
-O cara da jaqueta de couro entrou primeiro. Ombros largos, o celular agora no bolso. Atrás dele, quatro homens com a mesma postura de quem chegou para trabalhar. E depois dos quatro, Freddy, com o olho roxo ainda latejando e a raiva de uma noite inteira finalmente chegando ao destino.
+Freddy primeiro. O olho roxo ainda latejando, o blazer da escola fechado até em cima, o dedo já apontado.
+
+— São aqueles dois ali!
+
+Atrás dele, o cara da jaqueta de couro. Careca, ombros largos, sem uniforme e sem pressa. Ele varreu a sala com os olhos e parou nas duas carteiras.
+
+— Boné azul e cabelo verde. Vocês dois, lá fora. Agora.
 
 A sala ficou quieta do tipo errado.
 
-O cara da jaqueta varreu o ambiente com os olhos, localizou Kim e Jack nas carteiras e parou.
+O Jack nem virou a cabeça.
 
-Para ele era a terceira aula.
+— Hoje é dia de ensaio da banda, porra! — Baixinho, só pro Kim, os olhos brilhando. — Vai ser foda!
 
-Nina tirou os óculos devagar e olhou para a cena. Para os cinco sem uniforme. Para os rostos dos outros alunos, sem surpresa. Seguiu o olhar do grandão e pela primeira vez observou Kim e Jack — os dois conversavam despreocupados entre si, claramente sendo o alvo daquele grupo.
+— Tira isso da cabeça. — Kim passou pro próximo exercício do tablet. — Eu tenho que trabalhar.
 
-*Finalmente um pouco de ação. Não era o que eu esperava numa escola de elite, mas despertou minha curiosidade.*
+Os dois continuaram ali. Sentados. Conversando.
+
+Nina levantou os olhos do tablet pela primeira vez desde que tinha sentado. Olhou a porta. Olhou os rostos dos outros alunos, que não tinham cara de surpresa nenhuma. Seguiu o olhar do careca até as duas carteiras.
+
+Os dois que conversavam como se não tivesse ninguém na porta.
+
+*Nossa. Ação logo no primeiro dia.*
 
 Guardou o tablet na mochila e esperou.

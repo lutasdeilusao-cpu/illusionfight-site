@@ -160,7 +160,7 @@ O Kim riu.
 
 Pra ele aquilo era piada. Fórum era lugar de gente sem nada pra fazer.
 
-Mas uma pontinha de alguma coisa passou pela cabeça dele. Ele estava vendo coisa estranha desde que entrou naquele jogo. Um velho de berimbau falando gíria. Um poder com nome em letra que ninguém lia. Alguém atrás dele.
+Mas uma pontinha de alguma coisa passou pela cabeça dele. Ele estava vendo coisa estranha desde que entrou naquele jogo. Um velho de chapéu de penas falando gíria. Um poder com nome em letra que ninguém lia. Alguém atrás dele.
 
 O índio era estranho. Mas não era bizarro igual às teorias do Jack.
 

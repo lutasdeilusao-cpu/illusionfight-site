@@ -58,7 +58,7 @@ Do lado, a Nina estava de cabeça baixa no tablet, fingindo anotar coisa sobre o
 
 O Kim era o único dos três prestando atenção na aula.
 
-Duas aulas de matemática com o Máquina. A de biologia com a professora Naturista, que eles tinham passado no anexo. E agora duas seguidas com a Romancista.
+Duas aulas de matemática com o Máquina. A de biologia com a professora Florista, que eles tinham passado no anexo. E agora duas seguidas com a Romancista.
 
 Depois disso, o dia acabava.
 
@@ -72,7 +72,7 @@ O Kim fechou o tablet. Levantou. Estalou o pescoço pro lado.
 
 — Cara. Cara cara cara. — Jack, o celular já na mão antes de terminar de levantar.
 
-— O que foi.
+— O que foi?
 
 O Jack virou a tela pra ele.
 
@@ -326,7 +326,7 @@ O Jack riu.
 
 — Eu tô ligado que faz tempo que você quer que eu jogue essa porra. E você se aproveitou da situação.
 
-A Nina olhava de um pro outro. Ela tinha assistido a luta inteira pelo SBI dela. E tinha ouvido, no anexo, que o Kim não lembrava de nada. Agora queria saber de onde tinha saído aquilo tudo.
+A Nina olhava de um pro outro. Ela tinha assistido à luta inteira pelo SBI dela. E tinha ouvido, no anexo, que o Kim não lembrava de nada. Agora queria saber de onde tinha saído aquilo tudo.
 
 O Jack tomou mais um gole e contou. Em ordem, tudo. O cabelo prata, o fogo preto, a voz que não era do Kim, o rugido que derrubou a arena, o outro cara que saiu da poeira, o Freddy sendo comido pelos pés.
 
@@ -342,11 +342,11 @@ O Kim pegou o copo e virou metade de uma vez.
 
 ---
 
-O Kim contou o Pajé.
+O Kim contou do Pajé.
 
 O escuro sem chão. O som de água pingando num ritmo que não era aleatório. O velho saindo das sombras devagar.
 
-— Cabelo branco. Barba comprida. Óculos juliet espelhado. Bombeta preta inclinada pra um lado. Segurando um berimbau como se nem percebesse que tava segurando.
+— Barba branca comprida. Chapéu de penas. Óculos escuros redondinhos. Corrente de ouro com um cifrão. Um cajado dourado com uma pedra azul na ponta. E, mano, de tênis.
 
 O Jack ficou parado.
 
@@ -366,7 +366,7 @@ A Nina segurou até a parte do parceiro imaginário. Depois dobrou ao meio, a m�
 
 — Cheguei pra divar! — Ela, sem ar. — Chavoso como sempre! Puta que pariu!
 
-O Kim segurou a cara séria o máximo que deu. Até lembrar do *vixi, tá na hora de soltar o monstro* com aquela barba, aqueles óculos, aquela bombeta torta. O riso saiu antes que ele pudesse fazer alguma coisa.
+O Kim segurou a cara séria o máximo que deu. Até lembrar do *vixi, tá na hora de soltar o monstro* com aquela barba, aqueles óculos, aquele cifrão no peito. O riso saiu antes que ele pudesse fazer alguma coisa.
 
 Mesmo lá, quase morrendo, ele já tinha pensado: se eu sair dessa vivo, vou rir muito do jeito que esse velho fala.
 

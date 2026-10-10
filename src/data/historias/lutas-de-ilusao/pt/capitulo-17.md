@@ -180,7 +180,7 @@ Os olhos dela tinham mudado. Era a primeira vez naquele dia que a Nina parecia t
 
 Kim estava inteiro prestando atenção.
 
-— Quando você cria o avatar, o sistema te classifica num elemental. Primário ou secundário. E não tem diferença de força entre eles, porque como o Jack falou, tudo vem da sua energia. A força do poder é quanto de energia ele tira de você e põe nele. Igual a arma. Você junta energia no poder e solta.
+— Quando você cria o avatar, o sistema te classifica num elemental. Primário ou secundário. E não tem diferença de força entre eles, porque, como o Jack falou, tudo vem da sua energia. A força do poder é quanto de energia ele tira de você e põe nele. Igual a arma. Você junta energia no poder e solta.
 
 — E tem tipos.
 

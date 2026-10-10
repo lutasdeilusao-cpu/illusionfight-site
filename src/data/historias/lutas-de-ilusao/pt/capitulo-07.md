@@ -48,7 +48,7 @@ Na mesa de vidro, um mapa do mundo digital. Pontos vermelhos piscando em quatro 
 
 Uma analista jovem levantou a mão.
 
-— Senhor... os padrões de energia tão convergindo pra um ponto só. É como se alguma coisa tivesse chamando o Sangue Primordial.
+— Senhor... os padrões de energia tão convergindo pra um ponto só. É como se alguma coisa estivesse chamando o Sangue Primordial.
 
 A sala ficou em silêncio. Até as máquinas pareceram baixar o volume.
 

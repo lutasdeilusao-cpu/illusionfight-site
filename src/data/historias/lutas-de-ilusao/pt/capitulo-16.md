@@ -22,7 +22,7 @@ Jack olhou pra Nina com a cara de quem acabou de ver o próprio carro sendo rebo
 
 — Você acha que eu não sei, menina? Você viu o que o moleque acabou de fazer.
 
-— Então o quê.
+— Então o quê?
 
 — Investida rápida. — Jack ajustando o que sobrou da cartola. — Antes que ele se acostume com essa coisa.
 
@@ -98,7 +98,7 @@ Jack riu alto.
 
 — EU NÃO TÔ PUTA. — Nina. — Para de falar de mim e continua a luta.
 
-— Tá vendo? Calminha. — Jack pra Kim. — Um anjo. Uma paz. Uma monge no centro do Nirvana. Isso é a Nina agora.
+— Tá vendo? Calminha. — Jack pra Kim. — Um anjo. Uma paz. Uma monja no centro do Nirvana. Isso é a Nina agora.
 
 Kim não conseguiu segurar o riso.
 

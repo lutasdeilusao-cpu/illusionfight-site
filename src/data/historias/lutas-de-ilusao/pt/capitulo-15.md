@@ -108,9 +108,9 @@ Ele conhecia aquilo. Já tinha estado ali.
 
 Foi ali que o Guardião tinha falado com ele daquele jeito desconexo. *Não, não, não... não, sim, sim, sim, sim.*
 
-O escuro sem chão. O som de água pingando num ritmo que não era aleatório mas também não era música. Kim continuava com os braços levantados, na mesma posição de defesa, e virou a cabeça devagar.
+O escuro sem chão. O som de água pingando num ritmo que não era aleatório, mas também não era música. Kim continuava com os braços levantados, na mesma posição de defesa, e virou a cabeça devagar.
 
-Do lado dele, sentado em nada, um velho de barba branca comprida, óculos juliet espelhados e bombeta preta inclinada pra um lado. Um berimbau flutuando do lado dele sem ninguém segurar.
+Do lado dele, sentado em nada, um velho de barba branca comprida, chapéu de penas e óculos escuros redondos. A corrente de cifrão no peito. O cajado dourado flutuando do lado dele sem ninguém segurar.
 
 — Hello! — O Pajé Yawanari abriu os braços. — E aí, molecote, de boa? Suave na nave? Qualé que é?
 

@@ -154,7 +154,7 @@ O Jack abriu a boca de novo. O Kim levantou a mão e ele fechou.
 
 O Walter ficou vermelho.
 
-— Tomem cuidado, vocês dois. Muito cuidado pra não perder as bolsas de vocês. Eu vou garantir que todo aluno dessa escola esteja sempre seguro. Não importa as consequências.
+— Tomem cuidado, vocês dois. Muito cuidado pra não perder as bolsas de vocês. Eu vou garantir que todo aluno dessa escola esteja sempre seguro. Não importam as consequências.
 
 E saiu pisando duro.
 
@@ -216,7 +216,7 @@ O Ryan sentiu os três em cima dele ao mesmo tempo.
 
 Os três fizeram que sim.
 
-— Ontem, depois que vocês me ajudaram, eu fui pra casa e fui dar uma olhada no PowWow. Um dos vídeos mais assistidos era o do Kim lutando contra o Thunderbolt. A luta foi impressionante e eu queria ver mais. Só que... desculpa falar isso... eu nunca vi você com um SBI. Imaginei que você não jogava. Ou que talvez não tivesse condição de comprar um. Mas a tua luta foi tão sensacional que seria um desperdício a gente não poder ver mais. Então eu comprei um pra você. Como agradecimento. — — Mas não é caridade. É investimento. Você é novato e desconhecido no jogo. Se você lutar de novo, eu vou ser avisado. E vou fazer uma aposta grande em você. Porque, se você ganhar, o retorno é muito alto.
+— Ontem, depois que vocês me ajudaram, eu fui pra casa e fui dar uma olhada no PowWow. Um dos vídeos mais assistidos era o do Kim lutando contra o Thunderbolt. A luta foi impressionante e eu queria ver mais. Só que... desculpa falar isso... eu nunca vi você com um SBI. Imaginei que você não jogava. Ou que talvez não tivesse condição de comprar um. Mas a tua luta foi tão sensacional que seria um desperdício a gente não poder ver mais. Então eu comprei um pra você. Como agradecimento. Mas não é caridade. É investimento. Você é novato e desconhecido no jogo. Se você lutar de novo, eu vou ser avisado. E vou fazer uma aposta grande em você. Porque, se você ganhar, o retorno é muito alto.
 
 O Kim coçou a cabeça.
 

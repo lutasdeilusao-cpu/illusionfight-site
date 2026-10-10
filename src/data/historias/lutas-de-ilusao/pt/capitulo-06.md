@@ -332,7 +332,7 @@ Nada que desse pra chamar de lembrança.
 
 ---
 
-O SBI largado no chão, o do Jack, apitou.
+O SBI largado no chão, o velho que o Freddy tinha emprestado, apitou.
 
 Uns bipes ritmados, quase uma música. A luz azul pulsando nas paredes do anexo.
 
@@ -340,7 +340,11 @@ O Jack levantou devagar. Olhou o aparelho como se ele pudesse contar uma coisa q
 
 — NeoGuide. Apresentar a mensagem.
 
-*Atualização de posição no Sistema de Rankeamento Dinâmico. Parabéns, Briguento 142536. Sua posição atual é 1.201. O outro usuário deste dispositivo, Jack Cachorrão 987654321, mantém a posição 10.776.*
+*Atualização de posição no Sistema de Rankeamento Dinâmico. Parabéns, Briguento 142536. Sua posição atual é 1.201.*
+
+O Jack puxou o próprio SBI do bolso, conferiu a tela e riu sozinho.
+
+— Jack Cachorrão 987654321. Posição 10.776. Tanto tempo ralando nessa porra, e tu passa na minha frente numa luta.
 
 O Kim e o Jack se olharam.
 

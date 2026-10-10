@@ -62,7 +62,7 @@ O Jack e a Nina colocaram os deles e ficaram de pé, prontos. O Kim foi copiando
 
 — Você é o que tá mais alto no SDR de nós três. — Jack. — Então você abre a sala. Eu tô louco pra ver como é a sala privada de quem tá lá em cima, quais recursos a gente vai ter. Eu te dou uma força pra criar, beleza?
 
-— Como eu abro.
+— Como eu abro?
 
 — Maluco, esse SBI é muito da hora. — O Jack olhando o aparelho na cara do Kim. — Agora fala: NeoGuide, acessar recursos.
 
@@ -118,9 +118,9 @@ Era a voz do Jack.
 
 Kim ficou olhando.
 
-— Na arquibancada você era um lobisomem.
+— Na arquibancada você tava de coroa. Soltando fogos pelas costas.
 
-— Skin de torcida. — Jack ajeitando o cachecol. — Pra assistir eu vou de lobo. Pra lutar, é esse aqui.
+— Skin de torcida. — Jack ajeitando o cachecol. — Pra assistir eu vou de rei. Pra lutar, é esse aqui.
 
 — Você tem barba.
 
@@ -146,15 +146,15 @@ Jack olhou pra um lado. Olhou pro outro.
 
 — De nada. Tava esperando você pra explicar o LDI pro Kim. Agora de dentro do LDI.
 
-— Como eu faço pra ter um visual assim. — Kim. Primeira pergunta.
+— Como eu faço pra ter um visual assim? — Kim. Primeira pergunta.
 
 Jack e Nina sorriram ao mesmo tempo.
 
 — Avatar é coisa muito pessoal. — Jack. — Eu te ensino, mas depois. Tem a sala Fashion, você entra quando quiser e troca quantas vezes quiser. Vai ser legal ver o que você vai montar. Agora não. A sala privada só libera duas horas por dia, então hoje é treino.
 
-— Segunda pergunta. Eu lembro que o Thunderbolt também tinha uma arma. Um bastão. Mas ele não usou contra mim. Você tem uma bengala. Ela tem uma espada. Dá pra usar arma nesse jogo?
+— Segunda pergunta. Eu lembro que o Thunderbolt também tinha uma arma. Uma lança. Mas ele não usou contra mim. Você tem uma bengala. Ela tem uma espada. Dá pra usar arma nesse jogo?
 
-— Dá. — Nina. — Depende de cada jogador. O Thunderbolt usa aquele bastão, mas naquela luta ele provavelmente achou que nem precisava, contra você. Arma no LDI é livre. É uma extensão do teu poder. Mas tem lutador por aí que prefere nem usar.
+— Dá. — Nina. — Depende de cada jogador. O Thunderbolt usa aquela lança, mas naquela luta ele provavelmente achou que nem precisava, contra você. Arma no LDI é livre. É uma extensão do teu poder. Mas tem lutador por aí que prefere nem usar.
 
 ---
 
@@ -196,7 +196,7 @@ Jack fez a cara exata de quem esqueceu de avisar uma coisa importante.
 
 A Nina riu.
 
-— Calma, Kim. Calma. Depois de toda luta você precisa recuperar. Não importa em que posição do SDR você esteja. — Você saiu daquela luta destruído. Pelo estrago, uns quatro dias. Noventa e seis horas.
+— Calma, Kim. Calma. Depois de toda luta você precisa recuperar. Não importa em que posição do SDR você esteja. Você saiu daquela luta destruído. Pelo estrago, uns quatro dias. Noventa e seis horas.
 
 — E cada um desses dias você tem que logar e ficar pelo menos cinco minutos parado, que é quando o sistema cura o avatar. — Jack. — Tem cura mais rápida e cura mais demorada, depende da luta. Se você entrar numa luta antes, entra com o que recuperou até ali. No seu caso, quase nada. Pouco poder, pouca velocidade, pouca força. É igual brigar depois de ter tomado um piau na véspera.
 

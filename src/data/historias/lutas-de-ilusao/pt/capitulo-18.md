@@ -54,7 +54,7 @@ Nina puxou o SBI da mão do Jack e aproximou o holograma do rosto.
 
 Estava lá. Elemental principal: Fogo.
 
-— Gente. — Kim. — Dá pra alguém me explicar.
+— Gente. — Kim. — Dá pra alguém me explicar?
 
 — O que saiu de você na primeira luta era Trevas. — Nina. — Foi o que todo mundo viu. Chama negra. Mas aqui, no seu SBI, o seu elemental principal é Fogo.
 
@@ -70,7 +70,7 @@ Ele estava cansado de tentar entender. Fez um sinal com a mão pro Jack seguir e
 
 — Tá. Direto ao ponto. — Jack voltando ao holograma. — Aqui diz que ataques você já pode usar. Dois. Os dois por comando de voz. Você só precisa entender como fazer sair. Os dois são instantâneos, gastam pouco, mas também não destroem muito. O primeiro é o básico do fogo. Uma bola de fogo.
 
-— E o segundo.
+— E o segundo?
 
 Jack ficou um tempo olhando.
 

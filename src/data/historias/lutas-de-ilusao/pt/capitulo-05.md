@@ -1,4 +1,4 @@
-﻿# CAPÍTULO 5 — A Lista
+# CAPÍTULO 5 — A Lista
 
 Thunderbolt olhou para a tela holográfica que flutuava ao lado dele.
 
@@ -14,7 +14,7 @@ Mas ainda olhava, firme.
 
 Thunderbolt inclinou a cabeça levemente para o lado, avaliando.
 
-— Eu admiro o espírito seu e do outro. Na escola essa postura pode funcionar, mas eu vou te mostrar que nesse lugar as coisas são bem diferentes.
+— Eu admiro o seu espírito. O seu e o do outro. Na escola, essa postura até funciona. Mas aqui dentro eu vou te mostrar que as coisas são bem diferentes.
 
 Não era admiração. Era curiosidade entomológica. O tipo que antecede o alfinete.
 
@@ -56,6 +56,8 @@ Kim não chorava. Mas o sangue misturado com o suor que escorria pela testa, pel
 
 Das arquibancadas, de longe, parecia choro.
 
+Lá em cima, longe do Jack, uma garota de cabelo rosa assistia sem piscar. Braços cruzados. Sem gritar nada.
+
 Thunderbolt olhou para a plateia.
 
 — NeoGuide.
@@ -68,7 +70,7 @@ O silêncio nas arquibancadas era agora o tipo que acontece quando uma multidão
 
 Thunderbolt se abaixou na frente de Kim.
 
-Kim estava de joelhos no concreto, o joelho direito inchado além do reconhecível, o rosto um mapa de dano estratificado, as mãos no chão sustentando o peso do que restava. A respiração vinha em intervalos irregulares, cada uma uma negociação.
+Kim estava de joelhos no concreto, o joelho direito inchado além do reconhecível, o rosto um mapa de dano estratificado, as mãos no chão sustentando o peso do que restava. A respiração vinha em intervalos irregulares, cada uma, uma negociação.
 
 — Último item. — Baixo, só para Kim.
 
@@ -84,7 +86,7 @@ Kim não respondeu.
 
 Nada.
 
-A frieza profissional de Thunderbolt rachou em algum lugar que não ficava visível mas ficava audível na borda das palavras seguintes.
+A frieza profissional de Thunderbolt rachou em algum lugar que não ficava visível, mas ficava audível na borda das palavras seguintes.
 
 — Eu quebrei seu joelho. Eu quebrei seus dedos. Eu posso continuar por quanto tempo for necessário. Implore e isso para.
 
@@ -102,134 +104,174 @@ Kim olhou para Thunderbolt com o que restava de foco nos olhos e disse a única 
 
 — Não.
 
-Uma palavra. Sem adorno, sem discurso, sem performance. Só a palavra.
+Uma palavra. Sem adorno, sem discurso, sem performance.
 
 Thunderbolt ficou parado com ela por um segundo que durou demais.
 
-Depois algo no rosto dele mudou. Não raiva. Algo anterior à raiva, mais primitivo, o tipo de coisa que emerge quando uma pessoa percebe que o mundo não vai se comportar da forma que ela precisava que se comportasse.
+Kim puxou o ar que restava.
 
-Ele ergueu o punho.
+— Eu nunca implorei e nunca vou implorar, cuzão.
+
+Algo no rosto do Thunderbolt mudou. Não era raiva. Era uma coisa anterior à raiva, mais primitiva. O que aparece quando o mundo não se comporta do jeito que a gente precisava.
+
+Ele pegou a mão direita do Kim de novo. O dedo anelar, desta vez. A mesma pegada do mindinho.
+
+Nas arquibancadas, Jack gritou alguma coisa que ninguém ouviu.
 
 ---
 
 A consciência de Kim soltou as bordas.
 
-Não foi de uma vez. Foi em pedaços, cada um indo embora separado dos outros como folhas que o vento leva uma por vez. A dor ficou, mas ficou longe, do outro lado de um vidro que ia engrossando.
+Não foi de uma vez. Foi em pedaços, cada um indo embora separado dos outros, como folha que o vento leva uma por vez. A dor ficou, mas ficou longe, do outro lado de um vidro que ia engrossando.
 
-Um pensamento atravessou o que restava de lucidez:
-
-*Eu nunca implorei e nunca vou implorar, cuzão.*
+*Eu vou socar a cara do Jack quando isso acabar.*
 
 Depois o vidro engrossou demais e a arena sumiu.
 
 ---
 
-O lugar não tinha chão confirmado.
+O lugar não tinha chão.
 
-Kim descobriu isso quando tentou sentir onde estava pisando e não chegou a uma conclusão. Havia escuridão densa, presente, com peso próprio. Havia ar úmido. E havia, em algum lugar distante, o som de água pingando em ritmo que não era aleatório, mas também não era música.
+Kim descobriu isso quando tentou sentir onde estava pisando e não chegou a conclusão nenhuma. Escuridão densa, com peso próprio. Ar úmido e gelado grudando na pele. E, em algum lugar distante, ou muito perto, o som de água pingando num ritmo que não era aleatório.
 
-*Morri!?*
+*Morri?*
 
-Uma forma humana apareceu.
+Uma forma humana saiu das sombras.
 
-Materializou das sombras devagar, como se o escuro fosse tecido se abrindo. Cabelos brancos caindo pelos ombros. Barba longa descendo pelo peito. Vestes de linho com símbolos dourados que pulsavam. Por cima das vestes, uma bombeta preta levemente inclinada para o lado. Nos olhos, óculos juliet espelhados que refletiam a própria escuridão ao redor. Na mão direita, um berimbau que ele segurava com a naturalidade de quem não percebe que está fazendo isso.
+Devagar, como se o escuro fosse um tecido se abrindo. Um velho. Barba branca descendo pelo peito. Um chapéu de penas. Óculos escuros e redondos, que não refletiam nada. Um manto todo ornamentado, cheio de símbolo dourado pulsando como se respirasse. Uma corrente de ouro no pescoço, com um cifrão pendurado. E, embaixo de tudo aquilo, um par de tênis.
 
-A mão esquerda se estendeu. Kim a pegou de forma instintiva e não planejada. O toque era quente e firme, humano demais para aquele lugar.
+Na mão, um cajado dourado com uma pedra azul na ponta.
 
-O homem abriu a boca.
+Tinha alguma coisa naquele velho que o Kim conhecia. Um sonho, talvez. Não conseguiu lembrar de onde.
 
-— Eis que o gavião pousa na pedra que o rio esqueceu. O silêncio entre os tambores é onde a cobra dança. Quando a chuva pergunta ao vento, a árvore já sabe a resposta que o peixe ainda não ouviu.
+O velho estendeu a mão. Kim pegou sem pensar. O toque era quente, firme. Humano demais pra aquele lugar.
 
-Kim ficou olhando para ele.
+E aí o velho falou. Numa língua que o Kim nunca tinha ouvido e que, de algum jeito, ele entendia.
 
-— O olho que vê a si mesmo não precisa de espelho. Mas o espelho que não reflete também é porta. Pequeno gafanhoto, o urso não pergunta ao mel porque ele é doce.
+— Você cheira a pão nos dias de chuva. A água cai quando o mundo se aquieta. Mas me responda: quando você se senta em contemplação, percebe que o olhar do cervo fica sempre às suas costas? No momento mais cristalino da escuridão, quando o surdo ouviu o que o cego enxergou, enquanto o paralítico caminhava distraído, prestando atenção no que o mudo sussurrava?
 
-*Estou morto. Mas sério, eu não esperava isso nem do inferno nem do céu. QUE PORRA É ESSA, CARALHO?*
+Kim ficou olhando pra ele.
 
-— Espera aí que eu tô tentando criar atmosfera. — O homem se virou bruscamente para o lado, gesticulando com o berimbau para o nada. — Deixa eu terminar. O cervo que—
+A dor na perna e na mão voltou de uma vez. Tentou se erguer e o corpo não deixou. Recuou como deu, arrastado, mesmo sabendo que ali não tinha pra onde fugir.
 
-Parou. Ficou ouvindo algo que Kim não ouvia.
+O velho bufou.
 
-— Eu sei que ele não entendeu nada, mas faz parte do processo. — Pausa. — Não, eu não vou pular direto. É tradição. — Outra pausa, mais longa. — Tá bom, tá bom, chavoso. Para de me encher.
+— Cheguei pra divar! — De repente a voz era outra. — Eita porra, tu tá zuado pra caralho, véi do céu. No limite, nos acréscimos do segundo tempo, é que você me aparece aqui?
 
-O homem suspirou com a resignação de alguém que perdeu um argumento para uma audiência invisível. Cruzou os braços, o berimbau balançando levemente na mão. Quando voltou a falar, a voz era completamente outra.
+Virou pro lado. Falou com o nada.
 
-— Cheguei pra divar! Eita porra, se tá mais zuado que carniça, véi! No limite, nos acréscimos do segundo tempo, é que você me aparece aqui, tá se achando a pica das galáxias né?
+— Será que ele ainda sai dessa?
 
-Kim abriu a boca e fechou. Não sabia como reagir àquilo.
+Kim abriu a boca e fechou.
 
-— Parça se acha que eu tô de 171? Tá na Disney, Heloooo?
+O velho cruzou os braços e arqueou uma sobrancelha por cima dos óculos.
 
-— Quem caralhos é você, maluco?
+— Maluco, tu acha mesmo que eu tô de 171? Tá na Disney?
 
-O homem franziu a testa com a expressão de quem está sendo injustamente subestimado. Bateu no peito com orgulho, ajustou a bombeta com o indicador.
+— Eu não sei quem você é — Kim conseguiu dizer. — Mas eu não tô com muita sorte pra conhecer gente nova ultimamente.
 
-— Certo, então chega de enrolação. O mito chegou. Sou Pajé da tribo Xakaxi, me chamo Pajé Yawanari. Fiquei na responsa de manter o selo sagrado de todos os poderes ancestrais.
+O velho suspirou. Os ombros subiram e desceram num teatro inteiro de paciência.
 
-Avaliou Kim de cima a baixo com olhos que continham algo que não cabia em olhos normais.
+— Certo. Então tá na hora de eu divar, chavoso como sempre. — Bateu no peito. — Cheguei pra mitar! Sou Pajé da tribo Xakaxi. Me chamo Pajé Yawanari. Sou o dez de dez que ficou na responsa de proteger todos os poderes sagrados desse mundão.
 
-— E vejo que, como seu avô, você é o fodinha. Neto do fodão. — Virou para o lado. — Ah, e não liga pro meu chavoso aqui, esse tá na Disney mesmo.
+Os olhos atrás dos óculos se estreitaram. Mediram o Kim de cima a baixo.
 
-Kim olhou para o lado. Não havia ninguém.
+— E vejo que, igual teu avô, tu é fodinha. Neto do fodão. — Apontou com o cajado pro vazio do lado. — Ah! E não liga pro meu amigo aqui do lado, não. Esse aí tá na Disney mesmo.
 
-*Definitivamente estou morto e louco.*
+Kim olhou pro lado. Não tinha ninguém.
 
-— Véi, você tem mais poder do que imagina, parça. Mas tem mais perigo à sua volta do que jamais poderia imaginar. Essa merda que você tá passando agora é só uma pulga no cu do macaco.
+*Avô? Esse velho conhece meu avô?*
 
-Passou a mão na barba grisalha, um sorriso travesso nos lábios.
+*Será que conhece meu pai?*
 
-— Se você quiser, eu dou um help pra soltar o Monstro, e tu vai ficar brabão. Tipo Super Saiyajin. — Virou para o lado. — O quê? Claro que sim, você não tá vendo que ele tá fudido? — Pausa. — Eu sei que o outro é embassado, o caralho a quatro, e outras porras mais, mas faze o quê. Sem isso, esse aqui tá cancelado.
+*Definitivamente eu tô morto. E louco.*
 
-Kim estava com a perna quebrada. Os dedos fraturados. O rosto desmontado. E um pajé imortal com bombeta preta e óculos juliet espelhados falando com amigos imaginários no escuro enquanto segurava um berimbau e citava Dragon Ball.
+— Véi. — O Pajé passou a mão na barba, um sorriso torto na boca. — Tu tem mais poder do que imagina. Mas tem mais perigo à tua volta do que jamais poderia imaginar. Essa merda que tu tá passando agora é só uma pulga no cu do macaco.
 
-Com o pouco de força que restava, reuniu o ar nos pulmões.
+Chegou mais perto.
 
-— Eu quero socar aquele filho da puta. E depois o Jack.
+— Se tu quiser, eu até dou um help pra soltar isso aí, e tu fica brabão. Tipo Super Saiyajin. Mas será que tu tem as bolas pra dar conta?
 
-O sorriso de Yawanari abriu devagar. Dentes amarelados pelo tempo. Os olhos acendendo com algo que não era exatamente luz mas funcionava como ela.
+Virou de repente pro lado, como se alguém tivesse cochichado no ouvido dele.
 
-— Pediu, tá pedido. Depois não me venha arrependido.
+— O quê? O quê? — Pausa. — Claro que sim, tu não tá vendo que ele tá fodido? — Outra pausa. — Eu sei, eu sei, o outro é embaçado. Mas fazer o quê? Sem isso, esse aqui tá cancelado!
 
-Depositou o berimbau no ar ao lado dele, onde ficou suspenso sem nada que o sustentasse. Os dedos calejados pousaram nas costas de Kim.
+Kim estava com o joelho quebrado. Os dedos quebrados. O rosto desmontado. E um pajé de chapéu de penas, óculos escuros e corrente de cifrão discutindo com ninguém no escuro.
 
-O que veio depois não foi suave. Uma corrente partiu do ponto de contato e desceu pelo corpo inteiro — não elétrica, não quente, algo anterior a esses dois conceitos, algo que o corpo de Kim reconhecia sem que Kim soubesse por quê. Os músculos contraíram todos de uma vez, depois relaxaram em espasmos. A dor se misturou com outra coisa sem nome.
+O coração dele martelou nas costelas.
 
-*Se eu sobreviver a isso vou estrangular esse desgraçado com as próprias mãos.*
+Mesmo no meio daquela confusão, uma coisa acendeu no peito. Desesperada.
 
-Yawanari se afastou. Pegou o berimbau do ar. Virou para o lado e murmurou para o parceiro invisível.
+Ele juntou o ar que tinha e gritou de dentro.
 
-— Espero que não dê ruim. — Para Kim. — Nem adianta pegar ranço de mim se der merda, rapaz. Viva com suas escolhas. Eu já tô vazando. Fuis. Ah, última coisa — deixa o like!
+— EU QUERO PODER!
 
-Fez uma cara de danadão, língua de fora, dedos em V. Ergueu a perna direita e estampou o pé no chão.
+O grito ecoou pelo escuro como o rugido de um bicho ferido.
 
-A onda de choque foi luminosa e total, branca e dourada se expandindo em camadas a partir do ponto de contato, varrendo tudo.
+O sorriso do Pajé abriu devagar. Dentes amarelados pelo tempo. Os olhos acendendo atrás dos óculos com uma luz que não era bem luz.
+
+— Vixi. Tá na hora de soltar o monstro. — Virou pro nada de novo, todo animado. — Sim, sim, é certeza que ele me entende. Não é assim que eles falam hoje em dia? Eu tô na sintonia da nova era, meu caro!
+
+Ajoelhou do lado do Kim com uma leveza que velho nenhum tem. Ergueu a mão.
+
+O ar começou a vibrar.
+
+Os dedos dele se acenderam, um por um, como estrelas pequenas. Uma chama vermelha no mindinho. Uma gota azul, cristalina, no anelar. E os outros, cada um de uma cor.
+
+Os dedos calejados pousaram nas costas do Kim.
+
+A corrente desceu pelo corpo inteiro. Não era elétrica. Não era quente. Era uma coisa anterior a essas duas, que o corpo do Kim reconheceu sem ele saber por quê. Saiu do coração em ondas. As veias latejaram. Era como se um rio corresse por dentro delas.
+
+Os músculos contraíram todos de uma vez. Depois soltaram em espasmos.
+
+A dor cortava como lâmina. Mas por baixo dela tinha outra coisa. Osso se refazendo. Força sendo forjada.
+
+*Se eu sobreviver a isso, vou estrangular esse desgraçado com as minhas próprias mãos.*
+
+O Pajé se afastou uns passos e cruzou os braços, olhando como quem assiste a um experimento.
+
+— Espero que não dê ruim... — cochichou pro amigo invisível. Depois virou pro Kim, o sorriso torto de volta. — Nem adianta pegar ranço de mim se der merda, rapaz. Vive com as tuas escolhas, que eu já tô vazando. Fui.
+
+Plantou os pés. Fechou os olhos por um instante.
+
+Ergueu a perna direita com a precisão de um dançarino e estampou o pé no chão.
+
+A onda de choque veio branca e dourada, em camadas, uma por cima da outra, varrendo tudo. Kim fechou os olhos e ergueu os braços por instinto.
+
+A luz pulsou como um coração gigante.
+
+E se apagou.
 
 ---
 
 Kim voltou.
 
-A arena se materializou ao redor com a brutalidade de sempre. O chão frio, o barulho da plateia, o cheiro de sangue e concreto. Thunderbolt estava exatamente onde havia ficado, a mão fechada, pronto para reiniciar.
+A arena se materializou em volta dele com a brutalidade de sempre. O chão frio. O barulho da plateia. O cheiro de sangue.
 
-O punho ia descer.
+Os dedos do Thunderbolt estavam fechados em volta da mão dele, no anelar. Prontos pra quebrar do mesmo jeito que tinham quebrado o mindinho.
 
-Kim ergueu a cabeça.
+Só que alguma coisa tinha mudado.
+
+Uma energia nova corria pelas veias do Kim. O tempo esticou. Cada segundo virou uma eternidade limpa, onde cada respiração e cada batida do coração ficavam nítidas e na mão dele.
+
+Kim ergueu a cabeça. Devagar.
 
 Thunderbolt parou.
 
-Não foi decisão consciente. Foi o instinto de mil duzentas batalhas dizendo que algo havia mudado sem que nada visível houvesse mudado ainda. Os olhos que olhavam de volta para ele não eram os mesmos olhos de um segundo atrás. Tinham a mesma face, o mesmo sangue descendo pela sobrancelha, a mesma perna dobrada no ângulo errado.
+Não foi decisão. Foi o instinto de mil e duzentas lutas dizendo que alguma coisa tinha mudado antes de qualquer coisa visível mudar. O mesmo rosto, o mesmo sangue descendo pela sobrancelha, a mesma perna dobrada no ângulo errado.
 
 Mas não eram os mesmos olhos.
 
-Thunderbolt recuou meio passo.
+Thunderbolt soltou a mão. Recuou meio passo.
 
 Não sabia por quê.
 
-Nas arquibancadas, Jack parou de respirar. Depois soltou o ar devagar, os nós dos dedos ainda brancos na grade.
+Nas arquibancadas, Jack parou de respirar.
 
-Havia algo naquela imagem — Kim de joelhos com o rosto destruído e os olhos que não pertenciam mais àquela situação — que Jack reconhecia de um lugar muito fundo. Não do LDI. Não das brigas de rua. De muito antes de tudo isso.
+Tinha alguma coisa naquela imagem que ele conhecia de um lugar muito fundo. Não do LDI. Não das brigas de rua. De muito antes disso.
 
 *Lá vem.*
 
-As chamas começaram nas costas de Kim.
+As chamas começaram nas costas do Kim.
 
 Negras.

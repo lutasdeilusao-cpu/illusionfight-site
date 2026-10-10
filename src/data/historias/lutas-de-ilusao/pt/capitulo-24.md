@@ -24,7 +24,7 @@ Tinha um vídeo dele rodando em rede social que ele nem sabia direito como funci
 
 E pela primeira vez na vida, ele tinha perguntado pra mãe sobre o passado. E descoberto muito mais do que queria.
 
-De algum jeito, ele sentia que tudo aquilo estava ligado ao tal homem misterioso. O quarto da Helena. O velho do berimbau. O Sangue Primordial. Alguém atrás dele. Alguém pagando pra tirar foto.
+De algum jeito, ele sentia que tudo aquilo estava ligado ao tal homem misterioso. O quarto da Helena. O velho do cajado. O Sangue Primordial. Alguém atrás dele. Alguém pagando pra tirar foto.
 
 E tinha mais uma coisa. Uma coisa lá no fundo, que ele sentia toda vez que fechava os olhos e lembrava da arena. Uma coisa forte. Escura. Com fome.
 

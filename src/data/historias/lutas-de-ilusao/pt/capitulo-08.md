@@ -358,7 +358,6 @@ O Jack bateu a poeira dos joelhos.
 
 Os dois pegaram as roupas, vestiram o uniforme de novo, e os três voltaram pro prédio principal.
 
-
 ---
 
 E, pelo jeito, a Nina estava entrando no grupo.
