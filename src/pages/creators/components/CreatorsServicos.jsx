@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useLanguage } from '../../../context/LanguageContext'
 import { trackEvent } from '../../../lib/analytics'
 import BotaoCopiar from './BotaoCopiar'
-import { ARTES, DUVIDAS, FICHA, PRESSKIT } from '../data/creatorsCardapio'
+import { ARTES, DUVIDAS, FICHA, PRESSKIT, PRESSKIT_DRIVE } from '../data/creatorsCardapio'
 import './CreatorsServicos.css'
 
 /** Press kit inteiro num toque: artes + textos de imprensa nos 3 idiomas
@@ -10,17 +10,28 @@ import './CreatorsServicos.css'
 export function CreatorsPressKit() {
   const { t } = useLanguage()
   return (
-    <a
-      className="cr-presskit if-panel"
-      href={PRESSKIT}
-      download
-      onClick={() => trackEvent('select_item', { component: 'creators_presskit', item_id: 'zip' })}
-    >
+    <div className="cr-presskit if-panel">
       <span className="if-eyebrow">{t('creators.presskit.eyebrow')}</span>
       <strong className="cr-presskit__titulo">{t('creators.presskit.titulo')}</strong>
       <span className="cr-presskit__texto">{t('creators.presskit.texto')}</span>
-      <span className="if-btn if-btn--amber cr-presskit__btn">{t('creators.presskit.baixar')} ↓</span>
-    </a>
+      <a
+        className="if-btn if-btn--amber cr-presskit__btn"
+        href={PRESSKIT}
+        download
+        onClick={() => trackEvent('select_item', { component: 'creators_presskit', item_id: 'zip' })}
+      >
+        {t('creators.presskit.baixar')} ↓
+      </a>
+      <a
+        className="if-btn if-btn--ghost cr-presskit__btn"
+        href={PRESSKIT_DRIVE}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackEvent('select_item', { component: 'creators_presskit', item_id: 'drive' })}
+      >
+        {t('creators.presskit.drive')} ↗
+      </a>
+    </div>
   )
 }
 

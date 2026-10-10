@@ -96,6 +96,9 @@ export const ARTES = [
 /** Press kit completo (artes + textos de imprensa), gerado no build. */
 export const PRESSKIT = '/presskit/illusion-fight-presskit.zip'
 
+/** Kit completo em alta resolução (todas as artes), no Google Drive. */
+export const PRESSKIT_DRIVE = 'https://drive.google.com/drive/folders/1y4u-eWtHDGlZWXeDKCZHaVaYthv8iYGx?usp=sharing'
+
 /** Perguntas que a NeoGuide responde. */
 export const DUVIDAS = ['o_que_e', 'ano_todo', 'hiato', 'gratis', 'posso_falar', 'republicar', 'prazo', 'idiomas', 'lancamento', 'steam', 'contato']
 
