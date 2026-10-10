@@ -6,20 +6,9 @@ import { useAuth } from '../../../../context/AuthContext'
 import { estaDisponivel } from '../../../../config/site'
 import { TRIAL_ACTIVE } from '../../../../config/trial'
 import episodios from '../../../../data/episodios.json'
-import { emBeta } from '../../../../lib/webshard/catalogo'
+import { emBeta, miniaturaCapitulo, tituloLegado } from '../../../../lib/webshard/catalogo'
 import HomeSectionHeading from './HomeSectionHeading'
 import './LatestEpisodes.css'
-
-const thumbnailModules = import.meta.glob('../../../../assets/images/episodes/*', {
-  eager: true,
-  import: 'default',
-  query: '?url',
-})
-const thumbnailMap = Object.fromEntries(Object.entries(thumbnailModules).map(([path, url]) => [
-  path.split('/').pop().replace(/\.[^.]+$/, ''),
-  url,
-]))
-const thumbnailFor = episode => thumbnailMap[episode.thumbnail?.replace(/\.[^.]+$/, '')]
 
 export default function LatestEpisodes() {
   const { t, locale } = useLanguage()
@@ -29,6 +18,7 @@ export default function LatestEpisodes() {
   const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
 
+  const thumbnailFor = ep => miniaturaCapitulo(tituloLegado(), ep, locale)
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
   const descKey = locale === 'en' ? 'descricao_en' : locale === 'es' ? 'descricao_es' : 'descricao_pt'
 

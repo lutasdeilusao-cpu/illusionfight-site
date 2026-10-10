@@ -134,3 +134,7 @@
 .episode-list-titulo { overflow: hidden; color: #eef2f5; font: 700 0.86rem 'Rajdhani', sans-serif; text-overflow: ellipsis; white-space: nowrap; }
 .episode-list-status { margin-top: 2px; }
 .episodes__footer { margin-top: 22px; text-align: center; }
+
+/* Capítulo pronto mas ainda fechado pra quem vê: capa em preto e branco. */
+.episode-list-item--locked .episode-list-thumb img,
+.episodes-featured-card--locked .episodes-featured-img { filter: grayscale(1) brightness(0.5); }

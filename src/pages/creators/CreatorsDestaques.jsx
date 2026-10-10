@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
 import { supabase } from '../../lib/supabase'
@@ -100,15 +99,6 @@ export default function CreatorsDestaques() {
   let topo
   if (carregando || (user && !perfil)) topo = <div className="cr-carregando crd-topo-vazio" aria-hidden="true" />
   else if (podeEnviar) topo = <FormEnvio t={t} onEnviado={carregarMeus} />
-  else {
-    topo = (
-      <div className="crd-form if-panel">
-        <span className="if-eyebrow">{t('creators.destaques.form_titulo')}</span>
-        <p className="crd-form__sub">{t(user ? 'creators.destaques.so_creator' : 'creators.destaques.entrar_texto')}</p>
-        <Link className="if-btn if-btn--amber" to="/creators">{t(user ? 'creators.destaques.quero_ser' : 'creators.destaques.entrar')}</Link>
-      </div>
-    )
-  }
 
   return (
     <div className="cr-page crd-page">

@@ -9,6 +9,9 @@ import { useAuth } from '../context/AuthContext'
 import SocialBar from './SocialBar'
 import ShareButton from './ShareButton/ShareButton'
 import { trackEvent } from '../lib/analytics'
+import { supabase } from '../lib/supabase'
+import { creatorAtivo } from '../lib/creator'
+import { ADMIN_EMAILS } from '../config/launch'
 import logoMarkEn from '../assets/images/logos/logo-mark-en.png'
 import logoMarkPtEs from '../assets/images/logos/logo-mark-pt-es.png'
 import './Navbar.css'
@@ -25,6 +28,20 @@ export default function Navbar({ hidden, onSearchOpen }) {
   const { t, locale, changeLocale } = useLanguage()
   const { user, perfil, logout } = useAuth()
   const { pathname } = useLocation()
+  // Botão Creators: creator e admin veem sempre; o público só quando já há
+  // conteúdo aprovado na vitrine.
+  const [temDestaques, setTemDestaques] = useState(() => {
+    try { return sessionStorage.getItem('ldi-tem-destaques') === '1' } catch { return false }
+  })
+  const veCreators = temDestaques || creatorAtivo(perfil) || perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
+
+  useEffect(() => {
+    supabase.rpc('creator_destaques').then(({ data }) => {
+      const tem = Array.isArray(data) && data.length > 0
+      setTemDestaques(tem)
+      try { sessionStorage.setItem('ldi-tem-destaques', tem ? '1' : '0') } catch { /* sem storage */ }
+    })
+  }, [])
 
   useEffect(() => {
     const handler = (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); onSearchOpen?.() } }
@@ -40,7 +57,8 @@ export default function Navbar({ hidden, onSearchOpen }) {
   const navLinks = [
     ['assinar', '/assinar/'], ['calendario', '/calendario/'], ['webtoon', '/webtoon/'],
     ['historias', '/historias/'], ['games', '/games/'], ['musicas', '/musicas/'],
-    ['mundo', '/universos/'], ['autor', '/autor/'], ['creators', '/creators/destaques/'],
+    ['mundo', '/universos/'], ['autor', '/autor/'],
+    ...(veCreators ? [['creators', '/creators/destaques/']] : []),
   ]
   const isActive = path => path !== '/' && pathname.startsWith(path.slice(0, -1))
 
