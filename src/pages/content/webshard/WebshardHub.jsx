@@ -20,13 +20,13 @@ import './WebshardHub.css'
    mesmo universo, um em destaque, a estante e os capítulos mais recentes. */
 export default function WebshardHub() {
   const { t, locale } = useLanguage()
-  const { isAdmin, nivel, liberado, previa, dataPara } = useWebshardAcesso()
+  const { isAdmin, veOculto, nivel, liberado, previa, dataPara } = useWebshardAcesso()
   const [progresso] = useState(() => ultimoProgresso())
 
-  const titulos = listarTitulos({ isAdmin })
+  const titulos = listarTitulos({ isAdmin: veOculto })
   const destaque = titulos.find(tt => tt.status !== 'em_breve') || titulos[0]
   const progressoDestaque = destaque ? lerProgresso(destaque.slug) : null
-  const tituloProgresso = progresso ? tituloPorSlug(progresso.slug, { isAdmin }) : null
+  const tituloProgresso = progresso ? tituloPorSlug(progresso.slug, { isAdmin: veOculto }) : null
 
   const recentes = useMemo(() => titulos
     .flatMap(titulo => capitulosDe(titulo).filter(capituloTemConteudo).map(cap => ({ titulo, cap })))

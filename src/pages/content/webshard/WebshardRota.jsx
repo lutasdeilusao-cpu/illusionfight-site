@@ -12,11 +12,11 @@ import WebshardLeitor from './WebshardLeitor'
                             URL canônica antiga. */
 export default function WebshardRota() {
   const { param, slug, cap } = useParams()
-  const { isAdmin } = useWebshardAcesso()
+  const { veOculto } = useWebshardAcesso()
   const legado = tituloLegado()
 
   if (param) {
-    const titulo = tituloPorSlug(param, { isAdmin })
+    const titulo = tituloPorSlug(param, { isAdmin: veOculto })
     if (titulo) return <WebshardTitulo titulo={titulo} />
     const novo = capituloMovido(legado, param)
     if (novo) return <Navigate to={`/webtoon/${novo}`} replace />
@@ -24,7 +24,7 @@ export default function WebshardRota() {
   }
 
   if (slug === legado.slug) return <Navigate to={`/webtoon/${cap}`} replace />
-  const titulo = tituloPorSlug(slug, { isAdmin })
+  const titulo = tituloPorSlug(slug, { isAdmin: veOculto })
   if (!titulo) return <Navigate to="/webtoon" replace />
   return <WebshardLeitor titulo={titulo} capId={cap} />
 }

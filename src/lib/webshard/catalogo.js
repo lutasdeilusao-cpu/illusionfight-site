@@ -1,5 +1,6 @@
 import titulos from '../../data/webshard-titulos.json'
 import episodios from '../../data/episodios.json'
+import heroisEpisodios from '../../data/herois-episodios.json'
 
 /* Catálogo WEB SHARD — única porta de entrada para "quais títulos existem,
    quais capítulos cada um tem e onde moram as páginas". A UI nunca lê
@@ -27,6 +28,7 @@ const imagemPorNome = Object.fromEntries(
 
 const FONTES = {
   episodios: () => episodios,
+  herois: () => heroisEpisodios,
   nenhuma: () => [],
 }
 
@@ -111,7 +113,8 @@ export function idiomaInicial(cap, locale) {
   return idiomas.includes(locale) ? locale : idiomas[0]
 }
 
-/** URLs das páginas no idioma pedido. Página que ainda não existe no idioma
+/** URLs das páginas no idioma pedido. Capítulo de outro título mora em
+ *  `cap.pasta` (ex.: herois-da-cidade/01), pra não colidir com o LDI. Página que ainda não existe no idioma
  *  (ex.: ES do cap. 01 sem a 37) cai no português, em vez de deixar buraco
  *  na leitura. */
 export function paginasDe(cap, idioma) {
@@ -122,7 +125,7 @@ export function paginasDe(cap, idioma) {
     const lingua = faltando.includes(numero) ? 'pt' : idioma
     return {
       numero,
-      src: `/webtoon/${cap.id}/${lingua}/${String(numero).padStart(2, '0')}.${formato}`,
+      src: `/webtoon/${cap.pasta || cap.id}/${lingua}/${String(numero).padStart(2, '0')}.${formato}`,
     }
   })
 }

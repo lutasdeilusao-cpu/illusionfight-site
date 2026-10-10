@@ -1,0 +1,110 @@
+[
+  {
+    "id": "01",
+    "numero": 1,
+    "so_admin": true,
+    "titulo_pt": "O Pagode Proibido",
+    "titulo_en": "O Pagode Proibido",
+    "titulo_es": "O Pagode Proibido",
+    "frase_pt": "Ele não conhece o medo. Ele só conhece o metal. E o pagode.",
+    "publicado": true,
+    "paginas": 12,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "herois-da-cidade/01",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15"
+  },
+  {
+    "id": "02",
+    "numero": 2,
+    "so_admin": true,
+    "titulo_pt": "O Zilionário",
+    "titulo_en": "O Zilionário",
+    "titulo_es": "O Zilionário",
+    "frase_pt": "O homem mais rico da cidade. Segundo ele mesmo.",
+    "publicado": true,
+    "paginas": 13,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "herois-da-cidade/02",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15"
+  },
+  {
+    "id": "03",
+    "numero": 3,
+    "so_admin": true,
+    "titulo_pt": "O Maior Cérebro da Cidade",
+    "titulo_en": "O Maior Cérebro da Cidade",
+    "titulo_es": "O Maior Cérebro da Cidade",
+    "frase_pt": "Quanto é 2 + 2? Deixe-me pensar.",
+    "publicado": true,
+    "paginas": 12,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "herois-da-cidade/03",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15"
+  },
+  {
+    "id": "04",
+    "numero": 4,
+    "so_admin": true,
+    "titulo_pt": "A Equipe Mega",
+    "titulo_en": "A Equipe Mega",
+    "titulo_es": "A Equipe Mega",
+    "frase_pt": "Pela primeira vez na história, os três juntos contra o vilão mais rápido do mundo.",
+    "publicado": true,
+    "paginas": 11,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "herois-da-cidade/04",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15"
+  }
+]

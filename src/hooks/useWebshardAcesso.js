@@ -37,5 +37,8 @@ export function useWebshardAcesso() {
    *  público do calendário oficial). */
   const dataPara = useCallback(cap => releaseDateFor(cap, resolveAccessLevel(user, perfil)), [user, perfil])
 
-  return { isAdmin, nivel, liberado, previa, dataPara }
+  /** Admin e creator ativo veem também os títulos marcados `visivel: "admin"`. */
+  const veOculto = isAdmin || creatorAtivo(perfil)
+
+  return { isAdmin, veOculto, nivel, liberado, previa, dataPara }
 }

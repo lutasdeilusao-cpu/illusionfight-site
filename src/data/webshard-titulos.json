@@ -35,7 +35,7 @@
     "tagline_pt": "Três idiotas. Uma cidade. Muita confusão.",
     "tagline_en": "Three idiots. One city. A whole lot of chaos.",
     "tagline_es": "Tres idiotas. Una ciudad. Mucho lío.",
-    "sinopse_pt": "Super Super, Mega Mente e um roqueiro que se acha herói tentam salvar a cidade — e mal conseguem pagar o boleto. Comédia no mesmo universo de Lutas de Ilusão.",
+    "sinopse_pt": "Mega Playboy, Mega Genius e Mega Metal se levam muito a sério. A cidade, nem tanto. Comédia no mesmo universo de Lutas de Ilusão.",
     "sinopse_en": "Super Super, Mega Mind and a rocker who thinks he is a hero try to save the city — and can barely pay their bills. A comedy set in the Illusion Fight universe.",
     "sinopse_es": "Super Super, Mega Mente y un rockero que se cree héroe intentan salvar la ciudad — y apenas pueden pagar las cuentas. Comedia en el mismo universo de Lutas de Ilusão.",
     "generos": [
@@ -45,8 +45,8 @@
     "classificacao": "10",
     "cor": "#ffc629",
     "capa": "capa-herois-da-cidade.webp",
-    "status": "em_breve",
+    "status": "em_andamento",
     "visivel": "admin",
-    "fonte_capitulos": "nenhuma"
+    "fonte_capitulos": "herois"
   }
 ]
