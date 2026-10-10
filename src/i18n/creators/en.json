@@ -272,7 +272,7 @@
     },
     "servicos": {
       "temas": "What can I talk about?",
-      "artes": "Art to download",
+      "artes": "Art and press kit",
       "ficha": "Ready-made fact sheet",
       "duvidas": "Ask NeoGuide a question"
     },
@@ -288,7 +288,11 @@
         "capa-sombras": "Cover · The Shadow World",
         "capa-cinzas": "Cover · Sea of Ashes",
         "capa-contos": "Cover · Illusion Tales",
-        "capa-webshard": "Cover · WEB SHARD"
+        "capa-webshard": "Cover · WEB SHARD",
+        "ficha-kim": "Character sheet · Kim",
+        "ficha-jack": "Character sheet · Jack",
+        "ficha-nina": "Character sheet · Nina",
+        "ficha-ryan": "Character sheet · Ryan"
       }
     },
     "ficha": {
@@ -513,6 +517,12 @@
       "feedback": "If there's already something you want to say, go ahead. And if you make content about the project, send the link: it gets featured on the portal.",
       "mandar_feedback": "Send feedback",
       "enviar_conteudo": "Submit my content"
+    },
+    "presskit": {
+      "eyebrow": "PRESS KIT",
+      "titulo": "Download the full press kit",
+      "texto": "One file with logos, banners, covers for every work and short story, character sheets and ready-made texts: summaries of the universe, the works, the games, the characters and the author, a fact sheet and usage rules, in English, Portuguese and Spanish.",
+      "baixar": "Download press kit (.zip, 5 MB)"
     }
   }
 }

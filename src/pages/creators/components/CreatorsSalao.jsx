@@ -5,7 +5,7 @@ import { trackEvent } from '../../../lib/analytics'
 import holo from '../../../assets/images/creators/neoguide-holo.webp'
 import NeoGuideFala from './NeoGuideFala'
 import CreatorsCardapio from './CreatorsCardapio'
-import { CreatorsArtes, CreatorsDuvidas, CreatorsFicha } from './CreatorsServicos'
+import { CreatorsArtes, CreatorsDuvidas, CreatorsFicha, CreatorsPressKit } from './CreatorsServicos'
 import CreatorsTemas from './CreatorsTemas'
 import { ASSUNTOS, SERVICOS } from '../data/creatorsCardapio'
 import './CreatorsSalao.css'
@@ -83,6 +83,9 @@ export default function CreatorsSalao({ nome, dias, interesses }) {
               <Link className="if-btn if-btn--amber" to="/creators/destaques/">{t('creators.boasvindas.enviar_conteudo')}</Link>
             </div>
           </section>
+          <div className="cr-salao__presskit">
+            <CreatorsPressKit />
+          </div>
           <div className="cr-salao__menu if-stagger">
             {assuntos.map((a, i) => (
               <button key={a.id} type="button" className="cr-salao__assunto" onClick={() => escolher(a.id)}>

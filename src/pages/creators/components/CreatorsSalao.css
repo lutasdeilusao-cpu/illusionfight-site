@@ -179,3 +179,4 @@
 .cr-boasvindas__lista strong { font-size: .86rem; color: var(--if-cyan); }
 .cr-boasvindas__lista small { font-size: .74rem; color: var(--text-secondary); line-height: 1.4; }
 .cr-boasvindas__acoes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cr-salao__presskit { margin: 0 16px 20px; }

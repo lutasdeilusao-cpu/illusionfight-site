@@ -9,6 +9,10 @@ import capaCinzas from '../../../assets/obras/mar-de-cinzas/capa.webp'
 import capaContos from '../../../assets/images/contos/capa-illusion-tales.webp'
 import capaWebshard from '../../../assets/webshard/capa-lutas-de-ilusao.webp'
 import capaLivro from '../../../assets/images/livro/capitulo-01.webp'
+import fichaKim from '../../../assets/images/creators/fichas/ficha-kim.webp'
+import fichaJack from '../../../assets/images/creators/fichas/ficha-jack.webp'
+import fichaNina from '../../../assets/images/creators/fichas/ficha-nina.webp'
+import fichaRyan from '../../../assets/images/creators/fichas/ficha-ryan.webp'
 
 export const STEAM_APP = 'https://store.steampowered.com/app/1876210'
 export const STEAM_DEMO = 'https://store.steampowered.com/app/5188520'
@@ -83,7 +87,14 @@ export const ARTES = [
   { id: 'capa-cinzas', arquivo: capaCinzas },
   { id: 'capa-contos', arquivo: capaContos },
   { id: 'capa-webshard', arquivo: capaWebshard },
+  { id: 'ficha-kim', arquivo: fichaKim, largo: true },
+  { id: 'ficha-jack', arquivo: fichaJack, largo: true },
+  { id: 'ficha-nina', arquivo: fichaNina, largo: true },
+  { id: 'ficha-ryan', arquivo: fichaRyan, largo: true },
 ]
+
+/** Press kit completo (artes + textos de imprensa), gerado no build. */
+export const PRESSKIT = '/presskit/illusion-fight-presskit.zip'
 
 /** Perguntas que a NeoGuide responde. */
 export const DUVIDAS = ['o_que_e', 'ano_todo', 'hiato', 'gratis', 'posso_falar', 'republicar', 'prazo', 'idiomas', 'lancamento', 'steam', 'contato']

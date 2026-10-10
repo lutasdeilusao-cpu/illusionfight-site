@@ -16,6 +16,34 @@
   margin-top: 10px;
 }
 
+/* Press kit: o atalho grande, primeiro da lista. */
+.cr-presskit {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  color: inherit;
+  text-decoration: none;
+  border-color: var(--if-amber-72);
+  box-shadow: inset 2px 0 var(--if-amber);
+}
+
+.cr-presskit__titulo {
+  font: 700 1.25rem/1.1 var(--font-display);
+  text-transform: uppercase;
+  color: var(--if-ink);
+}
+
+.cr-presskit__texto {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.cr-presskit__btn {
+  justify-self: stretch;
+  margin-top: 4px;
+}
+
 .cr-artes {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -30,6 +58,16 @@
   border: 1px solid var(--if-edge);
   clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
   text-decoration: none;
+}
+
+.cr-arte--largo {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
+  background: var(--if-ink);
+}
+
+.cr-arte.cr-arte--largo img {
+  object-fit: contain;
 }
 
 .cr-arte img {

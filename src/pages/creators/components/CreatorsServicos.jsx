@@ -2,21 +2,41 @@ import { useState } from 'react'
 import { useLanguage } from '../../../context/LanguageContext'
 import { trackEvent } from '../../../lib/analytics'
 import BotaoCopiar from './BotaoCopiar'
-import { ARTES, DUVIDAS, FICHA } from '../data/creatorsCardapio'
+import { ARTES, DUVIDAS, FICHA, PRESSKIT } from '../data/creatorsCardapio'
 import './CreatorsServicos.css'
+
+/** Press kit inteiro num toque: artes + textos de imprensa nos 3 idiomas
+ *  (o .zip é montado no build por scripts/gerar-presskit.cjs). */
+export function CreatorsPressKit() {
+  const { t } = useLanguage()
+  return (
+    <a
+      className="cr-presskit if-panel"
+      href={PRESSKIT}
+      download
+      onClick={() => trackEvent('select_item', { component: 'creators_presskit', item_id: 'zip' })}
+    >
+      <span className="if-eyebrow">{t('creators.presskit.eyebrow')}</span>
+      <strong className="cr-presskit__titulo">{t('creators.presskit.titulo')}</strong>
+      <span className="cr-presskit__texto">{t('creators.presskit.texto')}</span>
+      <span className="if-btn if-btn--amber cr-presskit__btn">{t('creators.presskit.baixar')} ↓</span>
+    </a>
+  )
+}
 
 /** Artes liberadas pro conteúdo do creator, com download direto. */
 export function CreatorsArtes() {
   const { t } = useLanguage()
   return (
     <div className="cr-serv">
-      <span className="if-eyebrow">{t('creators.artes.eyebrow')}</span>
+      <CreatorsPressKit />
+      <span className="if-eyebrow cr-serv__sub">{t('creators.artes.eyebrow')}</span>
       <p className="cr-serv__nota">{t('creators.artes.nota')}</p>
       <div className="cr-artes if-stagger">
         {ARTES.map(a => (
           <a
             key={a.id}
-            className="cr-arte"
+            className={`cr-arte${a.largo ? ' cr-arte--largo' : ''}`}
             href={a.arquivo}
             download={`illusion-fight-${a.id}.webp`}
             onClick={() => trackEvent('select_item', { component: 'creators_arte', item_id: a.id })}

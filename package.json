@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender-routes.js",
+    "build": "vite build && node scripts/prerender-routes.js && node scripts/gerar-presskit.cjs",
     "preview": "vite preview",
     "predeploy": "node scripts/gangues-css-audit.cjs && npm run build && node scripts/restaurar-preview-privado.cjs",
     "audit:gangues-css": "node scripts/gangues-css-audit.cjs",

@@ -272,7 +272,7 @@
     },
     "servicos": {
       "temas": "¿De qué puedo hablar?",
-      "artes": "Arte para descargar",
+      "artes": "Artes y press kit",
       "ficha": "Ficha técnica lista",
       "duvidas": "Preguntarle algo a NeoGuide"
     },
@@ -288,7 +288,11 @@
         "capa-sombras": "Portada · El Mundo de las Sombras",
         "capa-cinzas": "Portada · Mar de Cenizas",
         "capa-contos": "Portada · Cuentos de Ilusión",
-        "capa-webshard": "Portada · WEB SHARD"
+        "capa-webshard": "Portada · WEB SHARD",
+        "ficha-kim": "Hoja de personaje · Kim",
+        "ficha-jack": "Hoja de personaje · Jack",
+        "ficha-nina": "Hoja de personaje · Nina",
+        "ficha-ryan": "Hoja de personaje · Ryan"
       }
     },
     "ficha": {
@@ -513,6 +517,12 @@
       "feedback": "Si ya hay algo que quieras comentar, adelante. Y si haces contenido sobre el proyecto, manda el enlace: aparece destacado en el portal.",
       "mandar_feedback": "Mandar feedback",
       "enviar_conteudo": "Enviar mi contenido"
+    },
+    "presskit": {
+      "eyebrow": "PRESS KIT",
+      "titulo": "Descarga el press kit completo",
+      "texto": "Un solo archivo con logos, banners, portadas de todas las obras y cuentos, hojas de personaje y los textos listos: resumen del universo, de las obras, de los juegos, de los personajes y del autor, ficha técnica y reglas de uso, en español, portugués e inglés.",
+      "baixar": "Descargar press kit (.zip, 5 MB)"
     }
   }
 }
