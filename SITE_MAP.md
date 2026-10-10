@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.388.1**.
+> `SITE_VERSION` **10.388.2**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -111,8 +111,10 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/login` | Login | `src/pages/platform/Login.jsx` |
 | `/cadastro` | Cadastro | `src/pages/platform/Cadastro.jsx` |
 | `/perfil` | Perfil, progresso, coleção e conta | `src/pages/platform/Perfil/Perfil.jsx` |
-| `/creators` | Área Creator: porta com login, termos, NeoGuide servindo livros, webtoon, jogos, artes, press kit (`/presskit/illusion-fight-presskit.zip`, montado no build por `scripts/gerar-presskit.cjs` com as artes, as artes de divulgação geradas por `scripts/presskit/gerar-artes.cjs` e os textos de imprensa `scripts/presskit/<idioma>.txt`), ficha técnica e dúvidas. Acesso pela tag `is_creator` (migration 052), concedida na aba Creators do painel | `src/pages/creators/Creators.jsx` |
-| `/admin` (`ROTA_PAINEL`) | Painel de administrador: Visão, Agora, Sessões, Financeiro, Logs (escondido, só `is_admin`, `noindex`) | `src/pages/painel/Painel.jsx` |
+| `/creators` | Área Creator: porta com login, termos, NeoGuide servindo livros, webtoon, jogos, artes, press kit (`/presskit/illusion-fight-presskit.zip`, montado no build por `scripts/gerar-presskit.cjs` com as artes, as artes de divulgação geradas por `scripts/presskit/gerar-artes.cjs` e os textos de imprensa `scripts/presskit/<idioma>.txt`), ficha técnica e dúvidas. Acesso pela tag `is_creator` (migration 052), concedida na aba Creators do painel ou por link de convite (`/creators?convite=CODIGO`, migrations 053/055) | `src/pages/creators/Creators.jsx` |
+| `/creators/destaques` | Destaques dos creators: o creator envia o link do conteúdo que fez (YouTube, TikTok, Instagram, X, Twitch, Kwai) e embaixo fica a vitrine pública do que o admin aprovou (migration 054) | `src/pages/creators/CreatorsDestaques.jsx` |
+| `/creator` | Redirect para `/creators` | `Navigate` em `src/App.jsx` |
+| `/admin` (`ROTA_PAINEL`) | Painel de administrador: Visão, Agora, Sessões, Financeiro, Logs e Creators (tags de creator, envios para aprovar e convites — `PainelCreators`, `PainelEnvios`, `PainelConvites`). Escondido, só `is_admin`, `noindex` | `src/pages/painel/Painel.jsx` |
 
 ### 3.3 Catálogo e jogos
 
@@ -126,7 +128,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/games/toptrumps/multiplayer` | Partida Top Trumps multiplayer | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | 🔒 |
 | `/games/ldi` | Lobby Lendas do LDI | `src/pages/games/LDI/Lobby.jsx` | 🔒 gratuito |
 | `/games/ldi/game` | História LDI (cenas, escolhas, diário, minijogos e fim) | `src/pages/games/LDI/Game.jsx` | 🔒 gratuito |
-| `/games/ldi/pentagrama` | Laboratório da batalha do pentagrama | `src/pages/games/LDI/batalha/BatalhaLab.jsx` | 🔒 admin |
+| `/games/ldi/pentagrama` | Laboratório da batalha do pentagrama | `src/pages/games/LDI/batalha/BatalhaLab.jsx` | Só admin (a própria página confere; no dev abre para todos) |
 | `/games/jackcandy` | Jack Dream Beer | `src/pages/games/JackCandy/JackCandy.jsx` | 🔒 só admin (fora do catálogo) |
 | `/games/minigames` | Coleção MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | 🔒 só admin (fora do catálogo) |
 | `/games/ldi-gangues` | LDI Gangues | `src/pages/games/Gangues/GanguesRoute.jsx` | 🔒 |
@@ -227,18 +229,28 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | `src/lib/painelColeta.js` | Coleta própria de visitas do painel (`painel_registrar`) |
 | `src/lib/debugLog.js` | Log de depuração das contas admin (`debug_logs`) |
 | `src/lib/lazyWithReload.js` | `lazy()` que recarrega 1x se o chunk sumiu após deploy |
+| `src/lib/releaseAccess.js` | Nível de acesso do visitante (primordial, elite = Ancestral, conta, público) e a data de liberação de cada item para esse nível |
+| `src/lib/creator.js` / `src/lib/creatorConvite.js` | Tag de creator ativa e resgate do convite guardado no navegador (RPC `creator_resgatar_convite`) |
+| `src/lib/sessionAnalytics.js` | Tempo real de leitura e de jogo (só conta com a aba visível): `chapter_*`, `webtoon_*`, `game_*` |
+| `src/lib/versaoNova.js` | Atualização forçada: compara o build no ar com o da página e recarrega (fora de jogo na hora; dentro, no `pontoSeguro`) |
+| `src/lib/colunaApp.js` | Mede a largura útil sem a barra de rolagem e corrige `--app-gutter`/`--app-vw` |
+| `src/lib/runtimePlatform.js` | Detecta o cliente (web ou `steam-demo`) e bloqueia compra externa dentro da demo |
+| `src/lib/recomendacao/` | Afinidade por uso do portal (`perfil_afinidade`) e recomendados da Home |
 | `src/lib/webshard/` / `src/lib/historias/` | Catálogos, progresso e reações do WEB SHARD e das histórias |
 | `src/hooks/useFichaGate.js` | Gate reutilizável de fichas |
 | `src/hooks/useLeaderboardDB.js` | Consultas do leaderboard |
 | `src/hooks/usePresence.js` | Presença realtime |
 | `src/hooks/useTopTrumpsMP.js` | Operações multiplayer Top Trumps |
 | `src/hooks/useReadingCompletionGate.js` | Controle de conclusão de leitura |
+| `src/hooks/useHistoriasAcesso.js` / `src/hooks/useWebshardAcesso.js` | Quem pode abrir cada capítulo de texto / do WEB SHARD (cascata assinante → conta → público, beta, creator, admin) |
+| `src/hooks/useBarraAutoOculta.js` | Barra de leitura que some ao descer (leitor de texto e WEB SHARD) |
 
 ### 5.3 Componentes reutilizáveis
 
 - Navegação e shell: `Navbar`, `Footer`, `ScrollToTop`, `ScrollToTopOnNav`, `SearchModal`, `CookieBanner`, `TrialBanner`, `DeferredSection` (carga por proximidade).
 - Leitura: `Leitor/` (leitor único de texto), `GateLeitura`, `Reacoes` (reações anônimas, RPC `webshard_reagir`), `Recomendacoes`, `ShareButton`.
-- Acesso e economia: `LoginGate`, `FichaGateRoute`, `GuestNotice`, `ModalConfirmacaoFicha`, `ModalSemFichas`.
+- Acesso e economia: `LoginGate`, `FichaGateRoute`, `GameSessionRoute` (sessão dos Kernel Games), `SoAdmin` (rota só de admin, em `App.jsx`), `GuestNotice`, `ModalConfirmacaoFicha`, `ModalSemFichas`. O gate de fichas está desligado (`FICHAS_GATE_ATIVO = false` em `src/config/fichas.js`): `FichaGateRoute` só cuida de login e entrega o jogo direto.
+- Loja: `/loja` mostra os produtos físicos de `produtos.json` (todos "Em breve"). `ShopSection` + `ProdutoDigitalCard` (fichas, starter pack, skin, de `loja-digital.json`) existem, mas não estão montados em nenhuma página.
 - Notificações: `AchievementToast`, `LDINotification`, `UnifiedNotification`.
 - Home/conteúdo: `src/pages/site/Home/` em ordem: `HeroSlideshow` (banner rotativo de 5 artes, obrigatório), `PraVoce` (recomendados), `HomeGames`, `HomeHistorias`, `LatestEpisodes` (WEB SHARD), `MusicSection`, apoio, `NowLive`. A Home só mostra o que já dá para ler ou jogar; as vitrines consomem os catálogos oficiais.
 - Histórias: `HistoriaCapLinha` (`src/pages/content/historias/`) — linha de capítulo em texto sobre o `.ws-cap` do WEB SHARD.
@@ -292,6 +304,20 @@ Kernel Games mantém i18n próprio em `src/pages/games/KernelGames/_shared/i18n/
 
 Namespaces de conteúdo relevantes: `nav.links`, `pages.livro`, `pages.contos` (`peso_*`, `canon_*`, `tema_*`), `pages.historias`, `pages.obra`, `pages.mundoHub`, `pages.universo`.
 
+### 6.3 Inventário de conteúdo
+
+| Frente | O que existe | Calendário |
+|---|---|---|
+| Lutas de Ilusão (texto) | 28 capítulos escritos em pt/en/es | 18 com data na Temporada 1 (assinante de 15/11/2026 a 30/09/2027); 19–28 sem data (2099) |
+| WEB SHARD — Lutas de Ilusão | 9 capítulos + 5 especiais no índice; 01–04 com páginas prontas nos 3 idiomas (54, 65, 65, 64 páginas) | 1 por mês para o assinante a partir de 15/11/2026; só o 01 sai do `so_admin` hoje |
+| WEB SHARD — Heróis da Cidade | Título visível só para admin (`herois-episodios.json`) | Sem data |
+| Contos de Ilusão | 7 contos, 76 capítulos nos 3 idiomas | Abertos a todos até 31/10/2026; depois pelo calendário |
+| Obras | Mundo das Sombras (6 caps., à venda na Amazon) e Mar de Cinzas (4 caps., em avaliação) | Mundo das Sombras nos hiatos (assinante e conta) |
+| Histórias do Autor | Capítulos em `historias/autor.json` | Exclusivo de creator |
+| Músicas | 32 faixas no catálogo, Rádio Nina com bloqueio por data para as da T1 | 9 músicas da T1, 1 por mês de lançamento |
+| Jogos no catálogo | LDI Gangues (7 bairros), Lendas do LDI (5 Veias), Super Trunfo (30 cartas, SP e MP) | Lançamento 15/11/2026 |
+| Planos | Ranqueado (grátis), Ancestral (R$10 · $5 · €5) e Primordial (R$30 · $15 · €15), `src/data/planos.json` | Checkout Stripe, fora da demo Steam |
+
 ## 7. Multiplayer e persistência dos jogos
 
 - O lobby oficial compartilhado está em `/games/multiplayer/lobby` e usa `useSharedLobbyMachine` dentro de `src/pages/games/MultiplayerLobby/`.
@@ -304,8 +330,8 @@ Namespaces de conteúdo relevantes: `nav.links`, `pages.livro`, `pages.contos` (
 
 - Projeto Supabase: `dvxfrzixtetdzmdrzkpx`.
 - Cliente: `src/lib/supabase.js`.
-- Migrações locais: `supabase/migrations/004_*.sql` até `049_painel_sem_robo.sql`; alguns números se repetem.
-- Principais domínios persistidos: perfis, fichas, DIX, conquistas, saves de jogos, Tamagoshi, Arena, decks/ranking/partidas Top Trumps, submissões compartilhadas, playlist da Rádio Nina (`radio_nina_playlists`, 1 por usuário) e o LDI Gangues (`gangues_saves` = a gangue/save, N por usuário — teto por tier em `GANGUES_SAVE_SLOT_LIMITS`; `gangues_fichas` = os lutadores recrutados, cascade no save). Esquema do Gangues em `038_gangues_church_unified.sql`. Também: reações do WEB SHARD e dos leitores (`webshard_reacoes`, 042), painel (`painel_eventos`, `painel_pagamentos`, `painel_custos`, `painel_ips_excluidos`), `debug_logs` (046) e `perfil_afinidade` (047). Progresso de jogo só existe na conta — não há save local.
+- Migrações locais: `supabase/migrations/004_*.sql` até `055_creator_convite_multiplo.sql`; alguns números se repetem.
+- Principais domínios persistidos: perfis, fichas, DIX, conquistas, saves de jogos, Tamagoshi, Arena, decks/ranking/partidas Top Trumps, submissões compartilhadas, playlist da Rádio Nina (`radio_nina_playlists`, 1 por usuário) e o LDI Gangues (`gangues_saves` = a gangue/save, N por usuário — teto por tier em `GANGUES_SAVE_SLOT_LIMITS`; `gangues_fichas` = os lutadores recrutados, cascade no save). Esquema do Gangues em `038_gangues_church_unified.sql`. Também: reações do WEB SHARD e dos leitores (`webshard_reacoes`, 042), painel (`painel_eventos`, `painel_pagamentos`, `painel_custos`, `painel_ips_excluidos`), `debug_logs` (046), `perfil_afinidade` (047), saves e habilidades do Lendas do LDI (050, 051) e a área Creator (052 tag `is_creator`/`creator_ate`, 053 e 055 convites, 054 envios de conteúdo). Progresso de jogo só existe na conta — não há save local.
 - RLS usa o usuário autenticado como autoridade nos dados pessoais.
 
 | Edge Function | Função | JWT |
@@ -386,6 +412,7 @@ CSS de jogos é global após importação pelo Vite: seletores devem ser limitad
 - A demo Steam usa App ID `5188520`, Depot Windows `5188521`, identificador `com.illusionfight.steam.demo` e executável `IllusionFightDemo.exe`. A janela abre maximizada e com decorações do SO (`decorations: true`, `fullscreen: false`), garantindo o X nativo.
 - `src/lib/runtimePlatform.js` centraliza a detecção do cliente e preserva o contexto na sessão. No cliente Steam Demo, checkouts externos ficam indisponíveis; a experiência web permanece inalterada.
 - `DesktopShellBar` (`src/components/DesktopShellBar/`) renderiza só no runtime `steam-demo`: barra fixa no topo com "Voltar aos Games" e "Fechar" (fecha a janela via `window.__TAURI__.window`, capability `core:window:allow-close` em `src-tauri/capabilities/default.json`). É a saída de emergência do jogador — z-index máximo.
+- **Status:** a demo está publicada na Steam (página da demo `5188520`, ligada ao app principal `1876210`) para o Steam Next Fest de outubro/2026. Ela abre o portal online: o que o jogador vê é o site do dia, e todo deploy muda a demo junto.
 - `npm run desktop:dev` abre o shell, `npm run desktop:build` gera o instalador e `npm run desktop:steam` prepara `steam/content/` para SteamPipe.
 - Instruções e VDFs de exemplo ficam em `steam/`; nenhuma credencial ou SDK da Steam faz parte do repositório.
 
@@ -395,7 +422,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.388.1** |
+| `SITE_VERSION` | Site global | **10.388.2** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.13.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
