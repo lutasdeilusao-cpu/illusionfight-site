@@ -2,6 +2,8 @@
 
 O estacionamento sem nome estava vazio, do jeito que eles gostavam.
 
+Era a primeira vez da Nina ali. Ela olhou o lugar inteiro de uma vez e não fez cara nenhuma. Depois da garagem do Kim, ela tinha entendido que os lugares desses dois não eram feitos pra impressionar ninguém.
+
 O Fusca sem rodas. A caminhonete com a árvore crescendo no motor. A placa de delegacia meio pintada que ninguém nunca terminou de cobrir. O hatch vermelho com a porta de trás aberta pra sempre.
 
 — Hoje é com calma. — Jack tirando as coisas da sacola. — Eu e o Kim trabalhamos de noite. Hoje a gente bebe saboreando. Cada gole.

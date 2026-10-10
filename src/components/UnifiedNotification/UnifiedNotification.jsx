@@ -138,9 +138,13 @@ export default function UnifiedNotification() {
   }, [handleClose])
 
   // Expõe callback para a Rádio Nina se registrar
+  // e um atalho pra mostrar o convite na hora (o link da Rádio Nina no leitor).
+  const tryPullRef = useRef(tryPull)
+  tryPullRef.current = tryPull
   useEffect(() => {
     window.__ninaNotificationCb = (fn) => { ninaCbRef.current = fn }
-    return () => { window.__ninaNotificationCb = undefined }
+    window.__ninaMostrarAgora = () => tryPullRef.current()
+    return () => { window.__ninaNotificationCb = undefined; window.__ninaMostrarAgora = undefined }
   }, [])
 
   // ── Locale-aware data ──

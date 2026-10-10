@@ -6,7 +6,7 @@ Kim sentou atrás do motorista e encostou a cabeça no vidro. O corte da testa l
 
 Hoje ele não ia vender bala.
 
-Ia trabalhar de noite. Se fosse pros ônibus agora, chegava em casa tarde demais, e perdia o tempo de deitar, tomar banho e se arrumar. Pela primeira vez em muito tempo ele tinha pegado um carro. Por causa de mil moedas do Freddy e de duzentos que ainda nem tinha recebido.
+Ia trabalhar de noite. Se fosse pros ônibus agora, chegava em casa tarde demais, e perdia o tempo de deitar, tomar banho e se arrumar. Pela primeira vez em muito tempo ele tinha pegado um carro. Por causa dos mil DIX do Freddy e de duzentos que ainda nem tinha recebido.
 
 Aí ele lembrou que podia encontrar a mãe em casa.
 

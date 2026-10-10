@@ -287,7 +287,7 @@ Jack mal segurava a satisfação.
 
 Freddy se aproximou com a confiança artificial de quem tem cinco capangas no chão mas ainda não processou isso completamente.
 
-— Então, tem coragem? Se você vencer, te pago mil moedas. Se eu vencer, você e seu amigo não podem fazer nada comigo, não importa o que eu faça. Isso vale, é claro, se a sua palavra tiver algum valor real.
+— Então, tem coragem? Se você vencer, te pago dois mil DIX. Mil pra você, mil pro seu amigo. Se eu vencer, você e seu amigo não podem fazer nada comigo, não importa o que eu faça. Isso vale, é claro, se a sua palavra tiver algum valor real.
 
 Kim olhou para o SBI na mão de Jack.
 

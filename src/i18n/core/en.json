@@ -913,7 +913,12 @@
       "proximo": "Next chapter",
       "indice": "Index",
       "cap": "Ch.",
-      "minutos": "{n} min read"
+      "minutos": "{n} min read",
+      "radio_ouvir": "Listen on Nina Radio",
+      "radio_convite": "Want to hear \"{musica}\" while you read? I'll play it for you.",
+      "radio_sim": "Play",
+      "radio_nao": "Not now",
+      "radio_trava": "Unlocks on {data}"
     }
   },
   "pp": {

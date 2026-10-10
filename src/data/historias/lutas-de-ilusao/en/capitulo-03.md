@@ -288,7 +288,7 @@ Jack could barely hold back his satisfaction.
 
 Freddy approached with the artificial confidence of someone who has five hired fighters on the floor but hasn't completely processed that yet.
 
-— So, do you have the guts? If you win, I'll pay you a thousand coins. If I win, you and your friend can't do anything to me, no matter what I do. That's only valid, of course, if your word is worth anything.
+— So, do you have the guts? If you win, I'll pay you two thousand DIX. A thousand for you, a thousand for your friend. If I win, you and your friend can't do anything to me, no matter what I do. That's only valid, of course, if your word is worth anything.
 
 Kim looked at the SBI in Jack's hand.
 

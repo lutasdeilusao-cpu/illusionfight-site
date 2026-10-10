@@ -288,7 +288,7 @@ Jack apenas podía contener la satisfacción.
 
 Freddy se acercó con la confianza artificial de quien tiene cinco matones en el suelo pero todavía no ha procesado eso del todo.
 
-— Entonces, ¿tienes agallas? Si ganas, te pago mil monedas. Si yo gano, tú y tu amigo no pueden hacerme nada, sin importar lo que haga. Eso vale, claro, si tu palabra tiene algún valor real.
+— Entonces, ¿tienes agallas? Si ganas, te pago dos mil DIX. Mil para ti y mil para tu amigo. Si yo gano, tú y tu amigo no pueden hacerme nada, sin importar lo que haga. Eso vale, claro, si tu palabra tiene algún valor real.
 
 Kim miró el SBI en la mano de Jack.
 

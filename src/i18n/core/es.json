@@ -913,7 +913,12 @@
       "proximo": "Próximo capítulo",
       "indice": "Índice",
       "cap": "Cap.",
-      "minutos": "{n} min de lectura"
+      "minutos": "{n} min de lectura",
+      "radio_ouvir": "Escuchar en Radio Nina",
+      "radio_convite": "¿Quieres escuchar \"{musica}\" mientras lees? Yo te la pongo.",
+      "radio_sim": "Tocar",
+      "radio_nao": "Ahora no",
+      "radio_trava": "Se libera el {data}"
     }
   },
   "pp": {

@@ -1,5 +1,6 @@
 import { Children, isValidElement } from 'react'
 import { Link } from 'react-router-dom'
+import { LetraMusica, RadioNinaLink } from './LeitorMusica'
 
 /* Como o texto de um capítulo vira tela.
    • O "# CAPÍTULO N — Título" do topo do .md sai: o cabeçalho do leitor já
@@ -8,7 +9,9 @@ import { Link } from 'react-router-dom'
    • Parágrafo que é SÓ um nome em negrito maiúsculo (**KIM**, **JACK**) vira
      a marca de quem está falando — os contos narrados a dois usam isso.
    • Link interno ("/...") navega sem recarregar (citações entre contos e a
-     linha principal); externo abre em aba nova. */
+     linha principal); externo abre em aba nova.
+   • Bloco ```letra``` vira letra de música e link "/radio-nina/<id>" chama a
+     Rádio Nina (ver LeitorMusica.jsx). */
 
 /** Tira o primeiro título "# ..." do começo do markdown. */
 export function semTituloDoArquivo(md = '') {
@@ -41,7 +44,17 @@ export const leitorMarkdown = {
     }
     return <p>{children}</p>
   },
+  pre({ children }) {
+    const codigo = Children.toArray(children)[0]
+    if (isValidElement(codigo) && /language-letra/.test(codigo.props.className || '')) {
+      return <LetraMusica texto={textoDe(codigo.props.children)} />
+    }
+    return <pre>{children}</pre>
+  },
   a({ href = '', children }) {
+    if (href.startsWith('/radio-nina/')) {
+      return <RadioNinaLink id={href.slice('/radio-nina/'.length)}>{children}</RadioNinaLink>
+    }
     if (href.startsWith('/')) {
       return (
         <Link to={href} className="leitor-ref">

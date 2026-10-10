@@ -1,0 +1,96 @@
+/* Letra de música dentro do capítulo: cada verso na cor de quem canta. */
+.leitor-letra {
+  margin: 1.8em 0;
+  padding: 14px 14px 14px 16px;
+  border: 1px solid var(--if-hair-strong);
+  border-left: 2px solid var(--if-cyan-45);
+  background: linear-gradient(90deg, var(--if-cyan-005), transparent 70%);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut, 10px)) 0, 100% var(--if-cut, 10px), 100% 100%, 0 100%);
+}
+
+.leitor-letra__estrofe + .leitor-letra__estrofe {
+  margin-top: 1.1em;
+}
+
+.leitor-texto .leitor-letra p {
+  margin: 0 0 .35em;
+}
+
+.leitor-letra__verso {
+  display: grid;
+  gap: 1px;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+.leitor-letra__quem {
+  font: 700 .55rem var(--font-mono);
+  font-style: normal;
+  letter-spacing: .2em;
+  opacity: .85;
+}
+
+.leitor-letra__verso--kim { color: var(--if-cyan); }
+.leitor-letra__verso--jack { color: var(--if-ok); }
+.leitor-letra__verso--nina { color: var(--if-pink); }
+.leitor-letra__verso--todos { color: var(--if-amber); }
+.leitor-letra__verso--todos .leitor-letra__canto { font-weight: 700; }
+
+.leitor-letra__canto {
+  font-size: 1.02em;
+}
+
+.leitor-texto .leitor-letra__rubrica {
+  margin: .5em 0 .6em;
+  font: 600 .72rem var(--font-mono);
+  letter-spacing: .04em;
+  color: var(--text-secondary);
+}
+
+/* Link que chama a Rádio Nina */
+.leitor-radio {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  margin: 1.4em 0;
+  padding: 12px 14px;
+  text-align: left;
+  color: var(--text-primary);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--if-pink) 16%, transparent), transparent 80%);
+  border: 1px solid color-mix(in srgb, var(--if-pink) 45%, transparent);
+  box-shadow: inset 2px 0 var(--if-pink);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  cursor: pointer;
+}
+
+.leitor-radio:hover { border-color: var(--if-pink); }
+.leitor-radio:disabled, .leitor-radio.is-travada { cursor: default; opacity: .75; }
+
+.leitor-radio__icone {
+  display: grid;
+  place-items: center;
+  flex: 0 0 36px;
+  height: 36px;
+  font-size: .9rem;
+  color: var(--if-pink);
+  border: 1px solid color-mix(in srgb, var(--if-pink) 55%, transparent);
+  border-radius: 50%;
+}
+
+.leitor-radio__texto {
+  display: grid;
+  gap: 2px;
+}
+
+.leitor-radio__texto strong {
+  font-size: .9rem;
+}
+
+.leitor-radio__texto small {
+  font: 600 .6rem var(--font-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--if-pink);
+}
