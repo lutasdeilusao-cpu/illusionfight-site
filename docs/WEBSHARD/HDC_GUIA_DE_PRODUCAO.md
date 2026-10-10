@@ -22,7 +22,7 @@ Teste antes de gerar: lendo só os balões, alguém sente que o roteiro está "t
 
 - **De 6 a 8 páginas de história**, além das páginas fixas (aviso, divulgação, divulgação, créditos). Total típico: 10 a 12 páginas.
 - Se a piada aguenta 4 páginas, não estica para 8.
-- Ordem fixa: Aviso → Divulgação → história → Divulgação → Créditos.
+- Ordem fixa: Abertura → Divulgação → história → Divulgação → Créditos.
 
 ## 3. Menos informação por página
 
@@ -66,7 +66,7 @@ Fichas em `WEBSHARD/HeroisDaCidade/Personagens/`. A ficha sempre manda na aparê
 | **Mega Genius** (`MegaGeniusSheet.png`) | **Nerdo** (`NerdoSheet.png`) | É um gênio, mas não pensa sozinho: pergunta tudo ao Chat PTG. |
 | **Mega Metal** (`MegaMetalSheet.png`) | **Cabelo** (`CabeloPagodeiroSheet.png`) | Metaleiro de cara fechada. Ama pagode e samba e morre de vergonha. O cavanhaque é o "uniforme": sem ele, ninguém o reconhece. |
 
-- **Mega Bandido** (`MegaBandidoSheet.png`): o maior ladrão do universo, nunca é pego. Aparece em **todas** as páginas, pequeno, num canto, roubando alguma coisa. Ninguém percebe. Ele é o easter egg, nunca a piada principal.
+- **Mega Bandido** (`MegaBandidoSheet.png`): o maior ladrão do universo, nunca é pego. Aparece **uma única vez por episódio**, numa página só, roubando **uma única coisa**, pequeno, num canto. Ninguém percebe. Ele é o easter egg, nunca a piada principal. Nas outras páginas (inclusive divulgação e créditos) ele não aparece.
 - **O Golpista** (`OGolpistaSheet.png`): vilão de terno, máscara e maleta de dinheiro. Aplica golpes de "promoção".
 - **Chat PTG:** a IA do mundo do HDC. Nunca usar o nome ou o logo de uma IA real.
 
@@ -75,21 +75,21 @@ Fichas em `WEBSHARD/HeroisDaCidade/Personagens/`. A ficha sempre manda na aparê
 1. **Roteiro primeiro.** Tabela com página, cena e texto exato. O Isaias aprova o texto antes de gerar.
 2. **Gerar com o Nano Banana 2** (`gemini-3.1-flash-image`, chave `GEMINI_API_KEY_PANORAMA`): o estilo cartoon sai bem nele. Script: `LAB-NVIDIA/hdc.py` (função `gerar`); exemplo de episódio inteiro em `LAB-NVIDIA/hdc_ep01.py`.
 3. **Referências por nome de arquivo**, nunca pela ordem: as fichas dos personagens da página + uma página aprovada como `ESTILO_PAGINA.png`. Máximo de 5 imagens.
-4. **Conferir cada página:** texto exato, letras legíveis, personagem igual à ficha, nada inventado (balão, palavra, onomatopeia), Mega Bandido presente.
+4. **Conferir cada página:** texto exato, letras legíveis, personagem igual à ficha, nada inventado (balão, palavra, onomatopeia), Mega Bandido em uma página só.
 5. **Página errada não se apaga:** vai para `HeroisDaCidade/_descartadas/`.
 
 Prompt de personagem novo (ficha): 2048 × 1152 px, 4 vistas (frente, 3/4, perfil direito, costas), corpo inteiro, fundo neutro, sem texto. Para variar uma ficha existente: "mesmo personagem de `X.png`, com UMA única diferença".
 
 ## 8. Páginas fixas
 
-- **Aviso:** "TOME MUITO CUIDADO! ISTO AQUI É MUITO ENGRAÇADO, VOCÊ PODE PASSAR MAL. POR FAVOR, LEIA COM MODERAÇÃO." O Mega Bandido rouba o "O" de "AVISO".
-- **Divulgação:** "HERÓIS DA CIDADE — TRÊS IDIOTAS. UMA CIDADE. MUITA CONFUSÃO.", ILLUSIONFIGHT.COM em destaque, placa "LUTAS DE ILUSÃO", 6 cards do portal. O Mega Bandido rouba o controle do card GAMES. O HDC sempre chama para o LDI, que é o foco do projeto.
-- **Créditos:** palco de fim de show. "CRÉDITOS POR ISAIAS LEAL", "HISTÓRIA, DIREÇÃO E DESIGN: ISAIAS LEAL", "ARTE GERADA COM AJUDA DE IA". O Mega Bandido foge com o troféu.
+- **Abertura (cold open):** uma piada solta antes do episódio, sem relação com a história, no estilo das aberturas de *Rick and Morty*. Uma página, um painel, no máximo uma narração e uma fala. Não existe página de aviso.
+- **Divulgação:** "HERÓIS DA CIDADE — TRÊS IDIOTAS. UMA CIDADE. MUITA CONFUSÃO.", ILLUSIONFIGHT.COM em destaque, placa "LUTAS DE ILUSÃO", 6 cards do portal. O HDC sempre chama para o LDI, que é o foco do projeto.
+- **Créditos:** palco de fim de show. "CRÉDITOS POR ISAIAS LEAL", "HISTÓRIA, DIREÇÃO E DESIGN: ISAIAS LEAL", "ARTE GERADA COM AJUDA DE IA".
 
 ## 9. Episódios
 
 | Nº | Título | Herói | A piada |
 |---|---|---|---|
-| 01 | O Pagode Proibido | Mega Metal | O metaleiro épico do topo do prédio vira o Cabelo pagodeiro na roda de samba, e a cidade nem percebe que o herói sumiu. |
+| 01 | O Pagode Proibido | Mega Metal | Abertura: o tiozinho do bar, de gorro de Natal: "HOLIDAYS IS COMING." Episódio: o metaleiro épico vira o Cabelo pagodeiro na roda de samba. TV: "MEGA METAL DESAPARECE. A CIDADE NEM SENTIU SUA FALTA! PRÓXIMAS NOTÍCIAS..." O Mega Bandido aparece só na página 08, levando o colete e o cavanhaque. |
 
 Os dois episódios antigos (o Mega Playboy no ônibus e o Mega Genius com o Chat PTG) estão em `HeroisDaCidade/_descartadas/` e podem ser refeitos neste formato.
