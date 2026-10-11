@@ -6,9 +6,9 @@ Shell Windows da demo de `Illusion Fight — Season 1`. O aplicativo abre o port
 
 - Steam Demo App ID: `5188520`
 - App principal relacionado: `1876210`
-- Shell: `0.1.1`
+- Shell: `0.1.2`
 - Executável: `IllusionFightDemo.exe`
-- URL: `https://illusionfight.com/?client=steam-demo&shellVersion=0.1.1`
+- URL: `https://illusionfight.com/games/?client=steam-demo&shellVersion=0.1.2` (abre direto na área de jogos)
 - Depot Windows da demo: `5188521`
 - A janela abre maximizada com barra de título do SO (`decorations: true`, `fullscreen: false` em `src-tauri/tauri.conf.json`) — garante que o jogador sempre tenha o X nativo pra fechar.
 
