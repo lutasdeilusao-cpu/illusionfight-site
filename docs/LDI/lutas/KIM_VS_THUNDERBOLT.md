@@ -1,16 +1,18 @@
 # Kim × Thunderbolt — a luta com mais corpo
 
-Versão expandida da luta dos capítulos 4, 5 e 6 de *Lutas de Ilusão*, feita pra virar quadrinho no WEB SHARD. A base é o livro atual (caps. 4–6) e o RETCON (linhas 400–690). O que muda: o Thunderbolt luta de verdade nas três fases, com a lança, os choques e os Hyper Moments, em vez de só segurar o Kim e bater parado.
+Versão expandida da luta dos capítulos 5 e 6 de *Lutas de Ilusão*, feita pra virar quadrinho no WEB SHARD. A base é o livro atual e o RETCON (linhas 400–690).
 
-**As três fases**
+**Tudo até a volta do Pajé fica como está no livro** (cap. 4 e cap. 5 até o Pajé). Ali a luta é seca de propósito: o Thunderbolt mostra que está muito acima, e o Kim não consegue fazer nada.
 
-| Fase | Kim | O que o Thunderbolt faz |
+**A luta nova começa quando o Kim volta.** Daí em diante o Thunderbolt joga tudo o que tem — lança, choque, Hyper Moment atrás de Hyper Moment —, dá o sangue, e não consegue nada. O Kim Ancestral e depois o Primordial consomem tudo como quem come arroz com feijão.
+
+| Fase | Kim | Thunderbolt |
 |---|---|---|
-| 1 | Kim normal (Briguento 142536) | Domina: raio, lança, choques, 2 Hyper Moments, a Lista do NeoGuide |
-| 2 | Kim Ancestral (cabelo branco, chamas negras, depois do Pajé) | Reage com tudo: choque em série, Gaiola, Queda do Raio Celeste — e nada para o Kim |
-| 3 | Kim Primordial | Tentativa desesperada: Sobrecarga total. O Primordial come o raio, quebra a lança e devora o Thunderbolt |
+| 1 | Kim normal | **Igual ao livro.** Domina sem esforço. |
+| 2 | Kim Ancestral (cabelo branco, chamas negras) | Tudo: choque, lança, 4 Hyper Moments. Nada funciona. |
+| 3 | Kim Primordial | Mais desespero: 2 Hyper Moments e a Sobrecarga. O Primordial nem se mexe. Depois o devora. |
 
-Os nomes dos golpes (Passo do Relâmpago, Gaiola de Raios, etc.) são **proposta**: nas fontes só existem "o raio das mãos", "Hyper Moments" (citado pelo Narrador) e o sumiço "como fumaça". A lança é a arma do livro atual (no RETCON era bastão).
+Os nomes dos golpes são **proposta**: nas fontes só existem "o raio das mãos", os "Hyper Moments" (citados pelo Narrador) e o sumiço "como fumaça". A lança é a arma do livro atual (no RETCON era bastão).
 
 ---
 
@@ -18,217 +20,32 @@ Os nomes dos golpes (Passo do Relâmpago, Gaiola de Raios, etc.) são **proposta
 
 | Golpe | Tipo | O que faz | Como desenhar |
 |---|---|---|---|
-| **Raio de abertura** | Choque | Descarga das mãos, à distância. Abre a luta. | Serpente de luz azul atravessando a arena |
-| **Estocada Celeste** | Lança | Estocada reta com a ponta carregada. Fura e dá choque ao mesmo tempo. | Linha reta de luz, faísca no ponto de impacto |
-| **Varrida de Arco** | Lança | Giro largo na altura da canela. Derruba. | Arco azul em meia-lua rente ao chão |
-| **Mão de Bobina** | Choque | Agarra (pescoço, braço, cabeça) e descarrega pela mão. | Mão acesa, veias de luz subindo pelo corpo do Kim |
-| **Chão Vivo** | Choque | Finca a lança e eletrifica o chão num raio de metros. Quem pisa, trava. | Rachaduras do piso acendendo em teia |
-| **Hyper Moment 1 — Passo do Relâmpago** | Hyper Moment | Vira borrão azul e reaparece em outro ponto (o "sumiço como fumaça" do RETCON). | Rastro de faísca + silhueta apagando e acendendo |
-| **Hyper Moment 2 — Gaiola de Raios** | Hyper Moment | Corre em círculo tão rápido que o rastro vira grade elétrica em volta do alvo e fecha. | Anel de raios em volta do Kim, apertando |
-| **Hyper Moment 3 — Queda do Raio Celeste** | Hyper Moment | Salta alto, a lança vira um raio e ele desce com ela, como relâmpago caindo do céu. O golpe que dá o nome "Raio Celeste". | Página vertical: céu, raio, impacto, cratera |
-| **Sobrecarga** | Último recurso | Joga toda a carga da armadura de uma vez, pela lança. Queima o próprio corpo junto. | Armadura rachando de luz por dentro |
+| **Raio Celeste** | Choque | Descarga das mãos, à distância. O golpe que abriu a luta. | Serpente de luz azul |
+| **Estocada Celeste** | Lança | Estocada reta com a ponta carregada. | Linha reta de luz, faísca no impacto |
+| **Varrida de Arco** | Lança | Giro largo rente ao chão. Derruba. | Meia-lua azul no piso |
+| **Mão de Bobina** | Choque | Agarra e descarrega pela mão. | Mão acesa, veias de luz no alvo |
+| **Chão Vivo** | Choque | Finca a lança e eletrifica o piso em teia. | Rachaduras acendendo |
+| **Chuva de Agulhas** | Choque | Gira a lança acima da cabeça e solta dezenas de raios finos de uma vez. | Céu da arena cheio de risco azul |
+| **HM — Passo do Relâmpago** | Hyper Moment | Vira borrão e reaparece em outro ponto (o "sumiço como fumaça" do RETCON). | Rastro de faísca, silhueta apagando |
+| **HM — Mil Golpes** | Hyper Moment | Na velocidade máxima, uma rajada de estocadas e socos de todos os lados ao mesmo tempo. | Dez silhuetas azuis em volta do alvo |
+| **HM — Gaiola de Raios** | Hyper Moment | Corre em círculo até o rastro virar grade elétrica e fechar no alvo. | Anel de raios apertando |
+| **HM — Queda do Raio Celeste** | Hyper Moment | Salta alto, vira raio com a lança e desce como relâmpago. O golpe que dá o nome a ele. | Página vertical: céu, raio, cratera |
+| **HM — Tempestade** | Hyper Moment | Carrega a arena inteira: nuvem elétrica no teto, raios caindo sem parar. Sem alvo, em tudo. | Teto preto e azul, raios por toda parte |
+| **Sobrecarga** | Último recurso | Joga a própria vida pela lança, de uma vez. Não tem volta. | Armadura rachando de luz por dentro |
 
-Regra de leitura: **Hyper Moment custa carga.** Depois de cada um, a faixa elétrica do capacete pisca e fica mais fraca por um instante. É a brecha que o Kim normal nunca consegue usar e que o Kim Ancestral usa toda vez.
-
----
-
-## FASE 1 — O Destruidor
-
-*(cap. 4 e começo do 5)*
-
-— Apostas encerradas. Que a Luta de Ilusão comece.
-
-O Thunderbolt não esperou o eco.
-
-Abriu a mão.
-
-O raio saiu dela como cobra.
-
-Kim viu a luz. Não viu o resto.
-
-Foi arremessado de costas contra a barreira da arena. Cada músculo travou junto. Os dentes bateram. O cheiro de cabelo queimado chegou antes da dor.
-
-E a dor chegou.
-
-A DOR É REAL.
+**Hyper Moment custa carga.** Depois de cada um a faixa do capacete pisca e enfraquece. Na Fase 2 ela vai apagando; na Fase 3 ele já está queimando o próprio corpo pra continuar.
 
 ---
 
-Kim levantou pela barreira, a mão no metal frio.
+## FASE 1 — igual ao livro
 
-*Ele é de longe. Então eu vou de perto.*
-
-Correu.
-
-Baixo, em zigue-zague, do jeito que corria pra cima de grandão na escola. O primeiro raio passou por cima da cabeça. O segundo raspou o ombro e arrancou a manga.
-
-Faltavam três passos.
-
-O Thunderbolt girou a lança uma vez na mão. Sem pressa.
-
-**Varrida de Arco.**
-
-A haste pegou as duas canelas do Kim em meia-lua, com choque. As pernas sumiram de baixo dele. Ele caiu de lado, quicou, rolou.
-
-A plateia riu.
-
-— O famoso Rei das Brigas da escola tá com as pernas bambas.
-
----
-
-Kim levantou de novo. Mais devagar.
-
-Dessa vez não correu. Andou. De lado. Medindo.
-
-O Thunderbolt apontou a lança.
-
-**Estocada Celeste.**
-
-Kim jogou o corpo pra esquerda. A ponta passou a um palmo da costela, chiando, e o ar onde ela passou ficou com gosto de ferro.
-
-*Agora.*
-
-Ele entrou por dentro da lança, colado na haste, e soltou o soco que derrubou metade do colégio.
-
-No queixo.
-
-Acertou.
-
-A cabeça do Thunderbolt nem virou.
-
-— Acabou?
-
-A mão esquerda do Thunderbolt já estava no pescoço do Kim.
-
-**Mão de Bobina.**
-
-A descarga subiu pela garganta, desceu pela espinha, e o Kim sentiu o próprio corpo virar fio desencapado. Os pés saíram do chão. Ele chutou o vazio.
-
-O soco veio no estômago. Com força que não era de gente. O ar saiu todo. O sangue saiu junto.
-
-O Thunderbolt soltou. O chute ascendente pegou as costas antes do Kim chegar no chão.
-
-Pé nas costas dele. Rosto pra plateia.
-
-— Desculpa, você ia dizer alguma coisa? Isso aqui é LDI! É pra isso que vocês estão aqui, não é?
-
-A arena rugiu.
-
----
-
-— NeoGuide. Lista de tarefas.
-
-— Lista aberta.
-
-— Adicione: espancar, humilhar, ajoelhar, chorar e implorar.
-
-— Itens adicionados.
-
-Kim ouviu tudo com a cara no chão.
-
-E viu uma coisa.
-
-A lança tinha ficado fincada do lado dele, a meio metro. Zumbindo.
-
-*Se ele não tem ela, ele é só um cara grande.*
-
-Kim girou o corpo por baixo do pé, agarrou a haste com as duas mãos e puxou.
-
-O choque fechou as mãos dele na lança. Ele não conseguia soltar nem se quisesse. Gritou, de dente trincado, e puxou mesmo assim.
-
-A lança saiu do chão.
-
-A arquibancada inteira levantou.
-
-Kim girou com a lança, sem técnica nenhuma, pura raiva, e acertou a haste no capacete do Thunderbolt. Uma vez. Duas. Na terceira, o Thunderbolt sumiu.
-
----
-
-**Hyper Moment — Passo do Relâmpago.**
-
-Um borrão azul. Só isso. Um risco de faísca no ar onde ele estava.
-
-— Ali! — alguém gritou na plateia. Ninguém sabia onde era ali.
-
-A voz veio das costas do Kim.
-
-— Isso é meu.
-
-O Thunderbolt tirou a lança da mão dele como quem tira brinquedo de criança. E com a outra mão, deu o tapa.
-
-Com o dorso.
-
-O estalo atravessou a arena e calou ela.
-
-Não foi o golpe mais forte da luta. Foi o pior.
-
-— NeoGuide. Marque espancar e humilhar como concluídos.
-
-— Itens marcados. Próximo item: ajoelhar.
-
----
-
-Kim enrolou as pernas no braço do Thunderbolt, soltou o próprio pescoço, caiu mal, rolou.
-
-Ficou de pé.
-
-O Thunderbolt fincou a lança no chão.
-
-**Chão Vivo.**
-
-As rachaduras do piso acenderam em teia, saindo da ponta da lança até debaixo dos pés do Kim. Os pés colaram. As pernas tremeram sozinhas. Ele não conseguia nem dar um passo.
-
-O Thunderbolt veio andando por cima da teia, tranquilo. Pra ele ali era chão.
-
-O chute lateral acertou o joelho do Kim.
-
-O estalo foi antes do grito. E o grito não saiu, porque o Kim mordeu a língua até sangrar.
-
-O joelho dobrou pra dentro.
-
-Kim foi ao chão.
-
-De joelhos.
-
-— NeoGuide. Marque ajoelhar como concluído.
-
-— Item marcado. Próximo item: chorar.
-
----
-
-O que veio depois foi trabalho.
-
-Soco no zigomático.
-
-Soco na sobrancelha. A carne abriu.
-
-Soco aberto na têmpora, com choque. A visão branqueou.
-
-Entre um soco e outro, o Thunderbolt encostava dois dedos no peito do Kim e dava uma descarga curta. Só pra ele não apagar. Apagado não chora.
-
-O sangue descia pelo rosto em filetes e pingava do queixo.
-
-De longe, parecia choro.
-
-— NeoGuide. Marque chorar.
-
-— Item marcado. Próximo item: implorar.
-
-O Thunderbolt pegou a mão direita do Kim. O mindinho estalou.
-
-Lá em cima, o Jack não piscava.
-
-— Kim, aguenta. Meu mano, aguenta.
-
-O escuro foi chegando pelas bordas.
-
-*(Aqui entra o Pajé, como no capítulo 5. A luta volta quando o Thunderbolt pega o anelar.)*
+Capítulo 4 inteiro e capítulo 5 até o Pajé, sem mudança: o raio, o soco no estômago, o tapa com o dorso, a Lista do NeoGuide, o joelho, os socos, o mindinho. O Kim não consegue nada.
 
 ---
 
 ## FASE 2 — O Kim Ancestral
 
-*(fim do cap. 5 e primeira metade do 6)*
+*(do fim do cap. 5, quando o Kim volta, até o Sangue Primordial acordar no cap. 6)*
 
 Os dedos do Thunderbolt fecharam no anelar.
 
@@ -244,133 +61,207 @@ Negras.
 
 Kim socou o chão. A pedra estourou numa cratera e ele usou a explosão pra se jogar pra cima. Caiu de pé. Os dois pés.
 
-A perna que tava dobrada no ângulo errado estalou de volta pro lugar. Sozinha.
+O joelho que estava dobrado pro lado errado estalou de volta. Sozinho. O mindinho também.
 
-O cabelo branco. O peito nu. As chamas negras dançando em volta, sibilando igual cobra.
+Cabelo branco. Peito nu. Chamas negras dançando em volta, sibilando.
 
-A arena muda.
+O Kim olhou pra mão. Abriu. Fechou.
+
+Depois olhou pro Thunderbolt como quem olha a vitrine de uma padaria.
+
+---
 
 O Thunderbolt não esperou a plateia acordar. Veterano não espera.
 
-**Raio de abertura.** Os dois braços, carga cheia.
+**Raio Celeste.** Os dois braços, carga cheia.
 
-O raio atravessou a arena e bateu no Kim.
+O raio cruzou a arena e bateu no peito do Kim.
 
 E entrou nas chamas.
 
-As chamas negras abriram a boca e engoliram a luz azul. O raio sumiu dentro delas como água em areia. O Kim nem mexeu o cabelo.
+As chamas abriram a boca e engoliram a luz azul. O raio sumiu dentro delas como água em areia. O cabelo do Kim nem mexeu.
 
-— Ah, não — o Thunderbolt disse, baixinho. Ninguém ouviu.
+O Thunderbolt mandou outro. E outro. E outro.
+
+Quatro raios. Cinco. A arena piscando azul. O barulho de trovão um em cima do outro.
+
+O Kim ficou parado, e as chamas foram comendo, um por um, tranquilas, como quem belisca.
+
+Quando o Thunderbolt parou pra respirar, o Kim inclinou a cabeça.
+
+— Só?
 
 ---
 
 **Estocada Celeste.**
 
-O Kim deu um passo pro lado. Só um. A ponta passou pelo ar vazio.
+O Kim deu um passo pro lado. A ponta passou no vazio.
 
-**Estocada. Estocada. Estocada.**
+Estocada. Estocada. Estocada. Estocada.
 
-Três, rápidas, carregadas, uma no peito, uma na garganta, uma no olho. Era a sequência que tinha acabado com metade dos 1.201 adversários dele.
+No peito, na garganta, no olho, na barriga. A sequência que tinha acabado com metade dos 1.201 adversários dele.
 
-O Kim desviou das três sem tirar os pés do chão. Só o tronco, a cabeça, o ombro. Como quem desvia de mosquito.
+O Kim desviou de todas sem tirar os pés do chão. Tronco, cabeça, ombro. Como quem espanta mosquito.
 
-Na quarta, ele segurou a lança.
+Na quinta, ele segurou a lança.
 
 Pela ponta.
 
-O choque subiu pelo braço dele. As chamas comeram o choque no meio do caminho, na altura do cotovelo.
+O choque subiu pela mão dele. As chamas comeram o choque no pulso.
 
-O Kim sorriu.
+O Kim olhou a ponta da lança de perto, curioso. Cheirou.
 
-O Thunderbolt puxou a lança de volta com as duas mãos, e ela veio. O Kim deixou.
+E soltou.
 
 ---
 
-O Thunderbolt fincou a lança.
+**Varrida de Arco.**
+
+A haste veio em meia-lua, rente ao chão, nas canelas. O mesmo golpe que tinha derrubado o Kim antes. O Kim levantou um pé. A lança passou por baixo. Ele pôs o pé de volta.
+
+Nem olhou pra baixo.
+
+---
+
+**Hyper Moment — Passo do Relâmpago.**
+
+O Thunderbolt virou borrão.
+
+Sumiu. Apareceu nas costas do Kim. Socou.
+
+O Kim não estava mais lá.
+
+Sumiu de novo. Apareceu na esquerda. Estocada.
+
+Vazio.
+
+Direita. Em cima. Atrás. Na frente. O borrão azul pulando pela arena, cada vez mais rápido, a plateia virando a cabeça pra todo lado sem conseguir acompanhar.
+
+E toda vez que ele aparecia, o Kim já estava a um passo de onde o golpe ia cair.
+
+Não correndo.
+
+Andando.
+
+O Thunderbolt parou no meio da arena. A faixa do capacete piscou.
+
+---
 
 **Chão Vivo.** Carga total.
 
-A arena inteira acendeu. A teia de luz correu o piso de ponta a ponta e chegou na barreira. Na primeira fileira da arquibancada, gente pulou pra trás.
+Ele fincou a lança. A arena inteira acendeu. A teia de luz correu o piso de ponta a ponta e subiu na barreira. Na primeira fileira, gente pulou pra trás.
 
 O Kim desceu as palmas no chão.
 
-De quatro. Em cima da teia. Os dedos curvados, as unhas raspando o piso eletrificado.
+De quatro. Em cima da teia. As unhas raspando o piso eletrificado.
 
-As chamas desceram pelos braços dele e se espalharam pelo chão. Por onde passavam, a teia apagava. Linha por linha. Como alguém fechando as luzes de uma casa.
+As chamas desceram pelos braços dele e espalharam pelo chão. Por onde passavam, a teia apagava. Linha por linha. Como alguém fechando as luzes de uma casa, cômodo por cômodo.
 
 Em três segundos, o piso estava escuro.
 
-Só a lança ainda zumbia.
+O Kim, ainda de quatro, sorriu pra ele.
+
+---
+
+**Chuva de Agulhas.**
+
+O Thunderbolt girou a lança acima da cabeça. Do giro saiu uma chuva de raios finos, dezenas, centenas, caindo sobre o Kim de cima, como agulha.
+
+O Kim fechou os olhos.
+
+As chamas subiram em volta dele feito guarda-chuva. Cada agulha que batia, sumia.
+
+Quando a chuva acabou, o Kim abriu os olhos e passou a língua no lábio.
+
+— Tá salgadinho.
+
+---
+
+**Hyper Moment — Mil Golpes.**
+
+O Thunderbolt entrou na velocidade máxima.
+
+De repente eram dez dele. Dez silhuetas azuis em volta do Kim, todas batendo ao mesmo tempo. Estocada, soco, joelho, cotovelo, chute. De cima, de baixo, de todos os lados. A arena cheia de estalo de choque, um som contínuo, como máquina.
+
+A plateia acordou de vez. De pé.
+
+"THUNDERBOLT! THUNDERBOLT!"
+
+No meio do redemoinho, o Kim estava parado.
+
+Recebendo.
+
+Cada golpe que acertava, as chamas comiam a carga, e o que sobrava era só o punho de um homem batendo num corpo que não sentia. O Kim tinha as mãos soltas do lado do corpo.
+
+Bocejou.
+
+Quando as dez silhuetas viraram uma de novo, o Thunderbolt estava ofegante, curvado, a mão na lança pra não cair.
+
+O Kim não tinha um arranhão novo.
 
 ---
 
 **Hyper Moment — Gaiola de Raios.**
 
-O Thunderbolt correu.
+Ele correu de novo. Em volta do Kim, tão rápido que o rastro virou anel, o anel virou grade, e a grade foi fechando, fechando.
 
-Em volta do Kim. Tão rápido que virou rastro, e o rastro virou anel, e o anel virou grade. Uma gaiola de raios girando em volta do Kim e fechando, fechando, fechando.
+O Kim atravessou.
 
-A plateia acordou de vez. Gritando o nome dele.
+Não quebrou. Não pulou. Andou através da grade como quem passa por uma cortina de chuva. As chamas abriram um buraco do tamanho dele e fecharam atrás.
 
-"THUNDERBOLT! THUNDERBOLT!"
-
-A gaiola fechou.
-
-O Kim passou por ela.
-
-Não quebrou. Não pulou. Passou. Andando. Como quem atravessa uma cortina de chuva. As chamas abriram um buraco do tamanho dele na grade e fecharam atrás.
-
-E ele estava do lado de fora.
-
-E o Thunderbolt, no meio da corrida, deu de cara com ele.
+E o Thunderbolt, no meio da corrida, deu de cara com ele do lado de fora.
 
 O Kim só esticou o braço.
 
-O antebraço pegou o Thunderbolt no peito na velocidade do Hyper Moment dele mesmo. A armadura amassou pra dentro. O Thunderbolt voou de costas, quicou duas vezes e bateu na barreira, igual o Kim tinha batido no começo da luta.
+O antebraço pegou o Thunderbolt no peito na velocidade do Hyper Moment dele mesmo. A armadura amassou pra dentro. O Thunderbolt voou de costas, quicou duas vezes e bateu na barreira.
 
-Mesma barreira. Mesmo barulho.
+A mesma barreira onde o Kim tinha batido no começo.
+
+O mesmo barulho.
 
 ---
 
-O Thunderbolt levantou. A faixa do capacete piscava. A carga tinha caído pela metade.
+O Thunderbolt levantou. Sangue escorrendo do capacete. A faixa piscando fraca.
 
-Ele olhou pro alto.
+Ele olhou pra cima.
 
 *Uma. Só tenho mais uma.*
 
 **Hyper Moment — Queda do Raio Celeste.**
 
-Ele saltou.
-
-Alto. Mais alto que a arquibancada. Mais alto que as câmeras. A lança acima da cabeça, puxando toda a carga que sobrava da armadura, e quando ele chegou no topo do salto, deixou de ser homem.
+Ele saltou. Mais alto que a arquibancada. Mais alto que as câmeras. A lança acima da cabeça puxando toda a carga que sobrava, e no topo do salto ele deixou de ser homem.
 
 Virou raio.
 
-Um raio de verdade, caindo do céu da arena, com ele dentro, a ponta da lança na frente, mirando o topo da cabeça do Kim.
+Um raio de verdade, caindo do teto da arena com ele dentro, a ponta da lança mirando a cabeça do Kim.
 
 O Kim olhou pra cima.
 
-E esperou.
+Esperou.
 
-O raio desceu.
+No último metro, deu um passo pro lado.
 
-No último metro, o Kim deu um passo pro lado.
+A lança enterrou onde ele estava. A cratera abriu, a arena tremeu, uma coluna de poeira e faísca subiu até o teto.
 
-A lança enterrou no chão onde ele estava. O impacto abriu uma cratera, a arena tremeu inteira, uma coluna de poeira e faísca subiu até o teto.
-
-Quando a poeira baixou, o Thunderbolt estava de joelhos na cratera, as duas mãos ainda na lança, sem carga nenhuma.
+Quando a poeira baixou, o Thunderbolt estava de joelhos no fundo da cratera, as mãos na lança, sem carga nenhuma.
 
 De joelhos.
 
-O Kim estava agachado na frente dele.
+O Kim estava agachado na beira, olhando pra ele lá embaixo.
 
-Uma mão na nuca. A outra na têmpora.
+— Ajoelhar. — Disse baixinho. — Pode marcar.
+
+No canto da arena, a Lista do NeoGuide ainda flutuava esquecida no ar.
+
+---
+
+O Kim desceu na cratera.
+
+Uma mão na nuca do Thunderbolt. A outra na têmpora. Um toque quase gentil.
 
 O joelho subiu.
 
-Osso contra osso. A mandíbula do Thunderbolt estourou.
-
----
+Osso contra osso. A mandíbula estourou.
 
 O Kim ergueu o Thunderbolt pelo pescoço, como quem levanta folha. Tocou o queixo destruído com a ponta do indicador. O sangue grudou.
 
@@ -378,15 +269,13 @@ Levou o dedo à boca.
 
 — Faz tanto tempo.
 
-A voz era do Kim. Mas tinha outra coisa por baixo.
-
-*(Aqui o Sangue Primordial acorda, como no capítulo 6: chamas pelos pés, o rugido, a onda de choque, a arena destruída, a transmissão caindo.)*
+*(Aqui o Sangue Primordial acorda, como no cap. 6: chamas pelos pés, o rugido, a onda de choque, a arena destruída, a transmissão caindo.)*
 
 ---
 
 ## FASE 3 — O Primordial
 
-*(segunda metade do cap. 6)*
+*(segunda metade do cap. 6, até as chamas começarem a devorar)*
 
 — Assim é melhor.
 
@@ -394,37 +283,101 @@ O Primordial olhou o próprio corpo. O casaco de couro, os ossos, as penas.
 
 — Que trajes ridículos.
 
-O Thunderbolt estava pendurado no punho dele. A mandíbula pendurada. A armadura apagada.
+Abriu a mão.
 
-Mas a mão direita dele ainda segurava a lança.
+O Thunderbolt caiu do punho dele. Bateu no chão. Ficou de quatro, tossindo sangue pela mandíbula quebrada.
 
-Mil e duzentas lutas. Ele tinha aprendido uma coisa em todas elas: quem para de lutar, morre primeiro.
+E levantou.
+
+Mil e duzentas lutas. Uma coisa ele tinha aprendido em todas: quem para de lutar, morre primeiro.
+
+Pegou a lança.
+
+---
+
+O Primordial nem virou o rosto. Estava olhando a manga do casaco, tirando uma pena torta.
+
+**Estocada Celeste**, nas costas dele.
+
+A ponta bateu no couro do casaco e parou. Não furou. Não passou. Parou como se tivesse batido em montanha. A faísca morreu na ponta.
+
+O Primordial continuou arrumando a pena.
+
+---
+
+**Hyper Moment — Passo do Relâmpago.** E de novo. E de novo.
+
+O Thunderbolt apareceu na frente dele e socou a cara. Apareceu do lado e chutou a costela. Apareceu atrás e deu com a haste na nuca. Dez golpes, vinte, cada um com o que sobrava de choque.
+
+O Primordial não balançou.
+
+Não fechou os olhos. Não piscou.
+
+Num dos golpes, o soco do Thunderbolt acertou o rosto dele em cheio. O Primordial deixou o punho ali, encostado na bochecha, e olhou pro Thunderbolt de lado, de muito perto.
+
+Os olhos brancos, sem íris.
+
+O Thunderbolt tirou a mão como quem tira a mão do fogo.
+
+---
+
+**Hyper Moment — Tempestade.**
+
+Ele cravou a lança no chão e jogou a carga pra cima.
+
+O teto da arena escureceu. Uma nuvem de tempestade de verdade, preta e azul, nasceu lá em cima. E os raios começaram a cair.
+
+Sem alvo. Em tudo. No chão, nas ruínas, nos pilares que ainda estavam de pé, no Primordial. Dez, vinte, cem raios por segundo. O mundo inteiro da arena virou branco e trovão.
+
+Lá no meio, o Primordial ergueu o rosto pro céu.
+
+E abriu a boca.
+
+Os raios mudaram de caminho. Todos. Pararam de cair em tudo e começaram a cair nele, puxados, como água descendo pelo ralo. Entravam pela boca, pelos olhos, pelos canais das tatuagens. A nuvem foi encolhendo, encolhendo, até virar um fiapo, até sumir.
+
+O teto clareou.
+
+O Primordial fechou a boca. Mastigou duas vezes.
+
+— Fraco.
+
+---
+
+O Thunderbolt estava de joelhos de novo. Não lembrava de ter caído.
+
+O capacete rachado. A armadura sem luz nenhuma. Sangue saindo pela boca, pelo nariz, pelas fendas da armadura.
+
+Ele tinha uma última coisa.
+
+A que ninguém usa, porque não volta.
 
 ---
 
 **Sobrecarga.**
 
-Ele mandou tudo.
+Ele levantou gritando, um grito sem mandíbula, e mandou tudo. Não a carga da armadura. A dele. A de dentro. As placas racharam e luz saiu pelas rachaduras. A faixa do capacete virou um sol azul. A lança brilhou tanto que a câmera estourou de branco.
 
-Não a carga da armadura. A carga dele. A que vinha de dentro, a que ninguém usa porque não volta. As placas da armadura racharam e luz saiu pelas rachaduras. A faixa do capacete virou um sol azul. A lança brilhou tanto que a câmera estourou de branco.
+E ele correu e cravou a lança no peito do Primordial.
 
-E ele enfiou a lança no peito do Primordial.
+Com a vida dele inteira.
 
-Com tudo.
+A ponta entrou.
 
-O raio entrou.
+Pela primeira vez em toda a luta, alguma coisa entrou.
 
-O Primordial olhou pra baixo. Pra lança cravada no peito. Pra luz azul correndo pelos canais das tatuagens dele, subindo pelo pescoço, acendendo os olhos brancos.
+A arena inteira segurou o ar.
+
+O Primordial olhou pra baixo. Pra lança no peito dele. Pra luz azul correndo pelos canais das tatuagens, subindo pelo pescoço, acendendo os olhos brancos.
 
 E inspirou.
 
-A luz azul parou de correr.
+A luz parou de correr.
 
 Começou a ser puxada.
 
-Os canais das tatuagens beberam o raio igual raiz bebe água. A luz saiu da lança, saiu das rachaduras da armadura, saiu da faixa do capacete, saiu dos olhos do Thunderbolt, e foi toda pra dentro do Primordial. Em silêncio.
+As tatuagens beberam o raio igual raiz bebe água. A luz saiu da lança, saiu das rachaduras da armadura, saiu do capacete, saiu dos olhos do Thunderbolt, e foi toda pra dentro do Primordial. Em silêncio.
 
-Quando acabou, a armadura do Thunderbolt era só metal.
+Quando acabou, a armadura do Thunderbolt era só metal velho. E o Thunderbolt era só um homem segurando um pau.
 
 O Primordial estalou a língua, como quem prova um tempero fraco.
 
@@ -432,94 +385,97 @@ O Primordial estalou a língua, como quem prova um tempero fraco.
 
 ---
 
-Ele segurou a lança com dois dedos.
+Ele tirou a lança do próprio peito, devagar, como quem tira uma farpa. O buraco fechou atrás dela.
+
+Segurou a lança com dois dedos.
 
 E dobrou.
 
-A haste estalou no meio, como galho seco. Ele jogou as duas metades pro lado sem olhar. Elas quicaram no piso, ainda soltando uma última faísca cada uma, e apagaram.
+A haste estalou no meio como galho seco. Ele jogou as duas metades pro lado sem olhar. Elas quicaram no piso, soltaram uma última faísca cada uma, e apagaram.
 
-O Thunderbolt olhou as metades.
+O Thunderbolt olhou as metades no chão.
 
 Foi a primeira vez na luta que ele pareceu pequeno.
 
 ---
 
+Ainda tentou.
+
+Ergueu a mão, com o dedo tremendo, e soltou um choque. Uma faísca. Do tamanho de uma de isqueiro.
+
+Ela voou meio metro e morreu no ar.
+
+O Primordial pegou o Thunderbolt pelo pescoço.
+
 — Essas pequenas criaturas têm uma fome que nunca se sacia.
 
-Chamas negras brotaram da palma do Primordial como flor venenosa.
-
-O Thunderbolt balbuciou. Sacudiu a cabeça. Não, não, não.
-
-Ainda deu um último choque. Fraco. Da mão, no pulso que segurava o pescoço dele. Uma faísca só. Do tamanho de uma de isqueiro.
-
-A chama negra mais perto lambeu a faísca e engoliu.
+Chamas negras brotaram da palma dele como flor venenosa.
 
 — Considere-se privilegiado.
 
-E ele soltou as chamas.
-
-*(Daqui pra frente segue igual o capítulo 6: as chamas começam pelos pés, o Thunderbolt é devorado até não sobrar nem cinza, "A escuridão é o início e o fim de tudo", "Realmente, não foi uma boa refeição", "Eu sou O Primordial" e o corpo voltando a ser o Kim.)*
+*(Daqui pra frente segue o cap. 6: as chamas começam pelos pés, o Thunderbolt é devorado até não sobrar nem cinza, "A escuridão é o início e o fim de tudo", "Realmente, não foi uma boa refeição", "Eu sou O Primordial" e o corpo voltando a ser o Kim.)*
 
 ---
 
 ## Quadro a quadro (pro WEB SHARD)
 
-Lista de momentos que merecem quadro próprio. ⭐ = splash ou meia página.
+Só a parte nova, depois do Pajé. ⭐ = splash ou meia página.
 
-**Fase 1**
-1. ⭐ Thunderbolt de lança na mão, armadura acesa, plateia azul atrás.
-2. O raio de abertura atravessando a arena.
-3. Kim batendo de costas na barreira.
-4. Kim correndo em zigue-zague, raio raspando o ombro.
-5. Varrida de Arco: a haste em meia-lua nas canelas.
-6. Estocada passando a um palmo da costela do Kim.
-7. O soco do Kim no queixo. Cabeça do Thunderbolt parada.
-8. Mão de Bobina: Kim no ar pelo pescoço, veias de luz.
-9. Pé nas costas do Kim, Thunderbolt pra plateia.
-10. Lista do NeoGuide projetada no ar.
-11. ⭐ Kim arrancando a lança do chão, mãos travadas no choque, gritando.
-12. Kim batendo com a lança no capacete.
-13. Passo do Relâmpago: o borrão azul.
-14. "Isso é meu." Thunderbolt atrás do Kim.
-15. O tapa com o dorso. Plateia calada.
-16. Chão Vivo: teia de luz até os pés do Kim.
-17. Chute no joelho. "Ajoelhar" marcado.
-18. Sequência de socos (3 quadros pequenos em tira).
-19. Jack na arquibancada: "aguenta, meu mano".
+**Fase 2 — Kim Ancestral**
+1. Os dedos do Thunderbolt parando no anelar.
+2. As chamas negras nascendo nas costas do Kim.
+3. Joelho e mindinho estalando de volta.
+4. ⭐ O Kim Ancestral de pé, olhando o Thunderbolt "como vitrine de padaria".
+5. Raio em carga cheia sendo engolido pelas chamas.
+6. Tira de raios seguidos, o Kim parado.
+7. "Só?"
+8. Tira de estocadas, desvios mínimos.
+9. Kim segurando a lança pela ponta, cheirando.
+10. Varrida: o Kim só levanta o pé.
+11. ⭐ Passo do Relâmpago: borrões azuis pela arena inteira, o Kim andando no meio.
+12. Chão Vivo acendendo a arena.
+13. Kim de quatro, chamas apagando a teia linha por linha.
+14. Chuva de Agulhas caindo, chamas em guarda-chuva.
+15. "Tá salgadinho."
+16. ⭐ Mil Golpes: dez Thunderbolts em volta do Kim, plateia de pé.
+17. O Kim bocejando no meio do redemoinho.
+18. Thunderbolt ofegante, o Kim sem arranhão.
+19. Gaiola de Raios fechando.
+20. O Kim atravessando a gaiola andando.
+21. Antebraço no peito, armadura amassando.
+22. Thunderbolt batendo na barreira (espelho do começo).
+23. ⭐ (página vertical) Queda do Raio Celeste: salto, raio, o Kim olhando pra cima.
+24. O passo pro lado, cratera.
+25. Thunderbolt de joelhos na cratera. "Ajoelhar. Pode marcar."
+26. A Lista do NeoGuide esquecida no ar.
+27. Mão na nuca, mão na têmpora, o joelho subindo.
+28. O dedo com sangue na boca.
 
-**Fase 2**
-20. As chamas negras nascendo nas costas do Kim.
-21. Joelho do Kim estalando de volta pro lugar.
-22. ⭐ Raio em carga cheia sendo engolido pelas chamas.
-23. Três estocadas, três desvios (tira de 3).
-24. Kim segurando a lança pela ponta, sorrindo.
-25. Kim de quatro na teia elétrica, chamas apagando as linhas.
-26. ⭐ Gaiola de Raios fechando em volta do Kim, plateia gritando.
-27. Kim atravessando a gaiola andando.
-28. Antebraço no peito, armadura amassando.
-29. ⭐ (página vertical) Queda do Raio Celeste: o salto, o raio, o Kim olhando pra cima.
-30. O passo pro lado, a lança na cratera.
-31. Thunderbolt de joelhos na cratera.
-32. Mão na nuca, mão na têmpora, o joelho subindo.
-33. O dedo com sangue na boca.
-
-**Fase 3**
-34. ⭐ O Primordial (design completo do cap. 6).
-35. Sobrecarga: armadura rachando de luz.
-36. ⭐ A lança cravada no peito do Primordial, luz azul subindo pelas tatuagens.
-37. O Primordial inspirando, a luz sendo puxada pra dentro.
-38. "Doce. Quase nada."
-39. A lança dobrada com dois dedos.
-40. As duas metades no chão, apagando.
-41. A última faísca sendo engolida.
-42. Chamas soltas no chão. (Segue o capítulo 6.)
+**Fase 3 — Primordial**
+29. ⭐ O Primordial (design do cap. 6).
+30. Thunderbolt caindo do punho, levantando, pegando a lança.
+31. Estocada parando no casaco, o Primordial arrumando a pena.
+32. Tira de Passos do Relâmpago, socos e chutes, o Primordial imóvel.
+33. Soco encostado na bochecha, olho branco de lado.
+34. ⭐ Tempestade: nuvem no teto, raios por toda parte.
+35. Os raios mudando de caminho pra boca do Primordial.
+36. "Fraco."
+37. Thunderbolt de joelhos, armadura apagada, sangue pelas fendas.
+38. ⭐ Sobrecarga: armadura rachando de luz, a lança entrando no peito.
+39. A luz sendo puxada pelas tatuagens.
+40. "Doce. Quase nada."
+41. A lança tirada do peito como farpa, o buraco fechando.
+42. A lança dobrada com dois dedos; as metades apagando no chão.
+43. A última faísca morrendo no ar.
+44. Chamas na palma. (Segue o cap. 6.)
 
 ---
 
 ## Notas pro roteiro
 
-- **Ritmo:** na Fase 1 quem se mexe é o Thunderbolt (o Kim só tenta). Na Fase 2 quem se mexe é o Thunderbolt, e o Kim quase não se mexe (é isso que assusta). Na Fase 3 ninguém precisa se mexer: o Primordial só come.
-- **Espelhos:** a barreira (Kim bate nela na Fase 1, Thunderbolt na Fase 2); "de joelhos" (item da Lista na Fase 1, Thunderbolt na cratera na Fase 2); o raio de abertura (derruba o Kim na Fase 1, é engolido na Fase 2).
-- **Cor:** Fase 1 é azul dominando a página; Fase 2 o preto das chamas vai comendo o azul; Fase 3 o azul some de vez.
-- **Lança:** precisa aparecer em quase todo quadro da Fase 1 e 2, pra quebra dela na Fase 3 pesar.
-- **A Lista do NeoGuide** fica só na Fase 1. Na Fase 2 ela pode aparecer abandonada no ar, com "implorar" ainda pendente, num canto de quadro.
+- **Contraste:** a Fase 1 é seca e curta, só o Thunderbolt se mexe. Nas Fases 2 e 3 o Thunderbolt se mexe o tempo todo e quem não se mexe é o Kim. Quanto mais golpe e mais Hyper Moment, mais vazio fica o resultado.
+- **O Kim não ataca na Fase 2** até o joelho na mandíbula. Ele só desvia, come e comenta. Um golpe dele resolve.
+- **O Primordial não ataca nada.** Ele não desvia, não se defende. Tudo bate e ele come.
+- **Espelhos com a Fase 1:** a barreira, o "de joelhos" (agora é o Thunderbolt), a Lista do NeoGuide abandonada.
+- **Cor:** Fase 2, o preto das chamas vai comendo o azul. Fase 3, o azul some de vez, até a Sobrecarga ser o último azul da luta.
+- **A lança** aparece em quase todo quadro, pra quebra dela pesar no fim.
