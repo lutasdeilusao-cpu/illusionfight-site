@@ -1,3 +1,4 @@
+import { runtimePlatform } from '../../lib/runtimePlatform'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
@@ -63,7 +64,7 @@ export default function Cadastro() {
     // pessoa já estava usando (padrão inglês, ou o que ela trocou no
     // menu antes de decidir criar conta) — é o que passa a persistir daqui
     // pra frente, em vez do idioma resetar a cada nova visita sem login.
-    const dadosPerfil = { nome: form.nome.trim(), locale }
+    const dadosPerfil = { nome: form.nome.trim(), locale, origem: runtimePlatform.isSteamDemo ? 'steam' : 'web' }
     guardarPendente(dadosPerfil)
 
     try {

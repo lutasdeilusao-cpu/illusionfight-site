@@ -7,6 +7,7 @@
 // que dura (dá pra saber quem volta) e a região vem da ipwho.is; sem aceite,
 // o id vale só pra sessão e não tem região.
 import { supabase } from './supabase'
+import { runtimePlatform } from './runtimePlatform'
 
 const PING_MS = 15000
 const LOTE_MS = 5000
@@ -71,6 +72,8 @@ function sessao() {
 
 // De onde a pessoa veio: gclid/utm primeiro, depois o referrer.
 function origemDaEntrada() {
+  // A demo da Steam abre o portal numa janela própria: a origem é a Steam.
+  if (runtimePlatform.isSteamDemo) return { origem: 'steam', midia: 'demo', campanha: runtimePlatform.shellVersion || '' }
   const q = new URLSearchParams(location.search)
   if (q.get('gclid') || q.get('gbraid') || q.get('wbraid')) return { origem: 'google', midia: 'cpc', campanha: q.get('utm_campaign') }
   if (q.get('utm_source')) return { origem: q.get('utm_source'), midia: q.get('utm_medium') || 'utm', campanha: q.get('utm_campaign') }
@@ -160,6 +163,7 @@ async function montarContexto() {
 function empurrar(evento) {
   if (desligado()) return
   const origem = (() => { try { return JSON.parse(ler(sessionStorage, 'ldi-sessao-origem') || '{}') } catch { return {} } })()
+  if (runtimePlatform.isSteamDemo && origem.origem !== 'steam') Object.assign(origem, origemDaEntrada())
   // evento que fecha depois da troca de página (tempo de leitura) traz a
   // página dele em dados.page_path — senão caía na rota seguinte
   fila.push({ ...evento, sessao: sessao(), rota: evento.dados?.page_path || location.pathname, titulo: document.title?.slice(0, 200), ...origem, _t: Date.now() })

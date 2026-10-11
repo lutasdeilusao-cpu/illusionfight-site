@@ -1708,7 +1708,8 @@
       "sessoes": "Sesiones",
       "financeiro": "Finanzas",
       "logs": "Logs",
-      "creators": "Creators"
+      "creators": "Creators",
+      "steam": "Steam"
     },
     "periodo": {
       "hoje": "Hoy",
@@ -1907,6 +1908,21 @@
       "removido": "{email} ya no es creador.",
       "nao_achou": "No hay cuenta con {email}. Primero tiene que registrarse.",
       "falta_migration": "Falta ejecutar la migration 052_creators.sql en Supabase."
+    },
+    "steam": {
+      "sessoes": "Sesiones en la demo",
+      "visitantes": "Personas",
+      "minutos": "Minutos jugados",
+      "criadas": "Cuentas creadas en la demo",
+      "total": "{n} en total",
+      "acessaram": "Cuentas que entraron por la demo",
+      "rotas": "A dónde fueron en la demo",
+      "versoes": "Versión de la demo",
+      "contas": "Cuentas que usaron la demo",
+      "origem_steam": "registro por Steam",
+      "origem_web": "registro por el sitio",
+      "primeiro": "1.er acceso {data}",
+      "ultimo": "último {data}"
     }
   }
 }

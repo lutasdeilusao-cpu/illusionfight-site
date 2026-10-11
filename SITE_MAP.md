@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.392.0**.
+> `SITE_VERSION` **10.393.0**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -17,6 +17,8 @@
 - Fontes (Google Fonts, carregadas em `index.html`): IBM Plex Sans, Rajdhani, JetBrains Mono, Share Tech Mono, Orbitron, Bebas Neue, Bangers (base); **Cinzel** + **Cormorant Garamond** + **EB Garamond** + **Fira Code** (temas dos universos em `Universo.css`). Tokens em `src/index.css` (`--font-display`, `--font-body`, `--font-mono`, `--font-title`).
 - Versões: todas centralizadas em `src/config/version.js`.
 - Build: `npm run build` executa Vite e depois `scripts/prerender-routes.js`; sourcemaps estão habilitados.
+
+- **Demo da Steam no painel (migration 056):** a coleta marca a origem `steam` (versão do shell em `campanha`); `profiles.origem_cadastro` ('web'/'steam') vem do signUp, e `steam_primeiro_em`/`steam_visto_em` são gravados por `marcar_acesso_steam()` quando a conta entra pela demo. Aba **Steam** do painel (`PainelSteam.jsx`, RPC `painel_steam`).
 
 ## 2. Entradas e composição global
 
@@ -422,7 +424,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.392.0** |
+| `SITE_VERSION` | Site global | **10.393.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.13.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |

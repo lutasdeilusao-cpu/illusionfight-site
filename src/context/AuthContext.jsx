@@ -1,3 +1,4 @@
+import { runtimePlatform } from '../lib/runtimePlatform'
 import { createContext, useContext, useEffect, useRef, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { filterTopTrumpsInitialAccountPool } from '../lib/topTrumpsCardAccess'
@@ -179,6 +180,14 @@ export function AuthProvider({ children }) {
     })
     return () => { vivo = false; subscription.unsubscribe() }
   }, [])
+
+  // Conta logada dentro da demo da Steam: marca o acesso (uma vez por carga).
+  useEffect(() => {
+    if (!user || !runtimePlatform.isSteamDemo) return
+    supabase.rpc('marcar_acesso_steam').then(({ error }) => {
+      if (error) console.warn('[Steam] marcar acesso falhou:', error.message)
+    })
+  }, [user?.id])
 
   async function carregarPerfil(userId) {
     const { data } = await supabase

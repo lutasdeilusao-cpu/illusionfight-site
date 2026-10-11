@@ -10,12 +10,13 @@ import PainelVisao from './PainelVisao'
 import PainelFinanceiro from './PainelFinanceiro'
 import PainelLogs from './PainelLogs'
 import PainelCreators from './PainelCreators'
+import PainelSteam from './PainelSteam'
 import { PainelAgora, PainelSessoes } from './PainelSessoes'
 import { PERIODOS, intervalo, rpc, localeDe } from './painelUtil'
 import './Painel.css'
 
 const NotFound = lazy(() => import('../site/NotFound/NotFound'))
-const ABAS = ['visao', 'agora', 'sessoes', 'financeiro', 'logs', 'creators']
+const ABAS = ['visao', 'agora', 'sessoes', 'steam', 'financeiro', 'logs', 'creators']
 const FILTROS = ['origem', 'rota', 'dispositivo', 'idioma', 'pais', 'logado']
 
 export default function Painel() {
@@ -124,6 +125,7 @@ export default function Painel() {
       {aba === 'logs' && <PainelLogs t={t} locale={lc} inicio={inicio} />}
       {aba === 'financeiro' && <PainelFinanceiro t={t} locale={lc} inicio={inicio} fim={fim} />}
       {aba === 'creators' && <PainelCreators t={t} locale={lc} />}
+      {aba === 'steam' && <PainelSteam t={t} locale={lc} inicio={inicio} fim={fim} />}
     </main>
   )
 }
