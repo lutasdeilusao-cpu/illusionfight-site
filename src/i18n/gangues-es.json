@@ -609,7 +609,13 @@
         "todos": "Todo",
         "slot_vazio": "Nada en este lugar ahora",
         "quem_usa": "¿Quién se lo pone?",
-        "abas": {"cura": "Curación", "luta": "Pelea", "material": "Material", "equip": "Equipo", "cartas": "Cartas"},
+        "abas": {
+          "cura": "Curación",
+          "luta": "Pelea",
+          "material": "Material",
+          "equip": "Equipo",
+          "cartas": "Cartas"
+        },
         "eyebrow": "Bolso",
         "titulo": "Bolso de la Banda",
         "vazio": "El bolso está vacío. Compra algo en la tienda.",
@@ -6915,6 +6921,12 @@
         "pronto": "Listo",
         "tutorial": "Llegó sangre nueva y ya entró en la alineación. En ALINEACIÓN metes, sacas y cambias el orden de quién pelea. Solo la alineación gana XP, así que mete a los novatos para que suban. En la calle es el botón 👥 de arriba.",
         "tutorial_abrir": "Abrir alineación"
+      },
+      "aviso_conta": {
+        "titulo": "Jugando sin cuenta",
+        "texto": "Tu progreso se pierde cuando cierras o recargas la página. Si quieres guardar tu progreso, crea una cuenta: es gratis.",
+        "criar": "Crear cuenta",
+        "depois": "Ahora no"
       }
     }
   }

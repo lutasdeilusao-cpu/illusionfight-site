@@ -609,7 +609,13 @@
         "todos": "All",
         "slot_vazio": "Nothing in this spot now",
         "quem_usa": "Who wears it?",
-        "abas": {"cura": "Healing", "luta": "Fight", "material": "Materials", "equip": "Gear", "cartas": "Cards"},
+        "abas": {
+          "cura": "Healing",
+          "luta": "Fight",
+          "material": "Materials",
+          "equip": "Gear",
+          "cartas": "Cards"
+        },
         "eyebrow": "Bag",
         "titulo": "Gang Bag",
         "vazio": "The bag is empty. Buy something at the shop.",
@@ -6915,6 +6921,12 @@
         "pronto": "Done",
         "tutorial": "New blood just showed up and they're already in the lineup. In LINEUP you put in, bench and reorder who fights. Only the lineup earns XP, so throw the rookies in to level up. On the street it's the 👥 button up top.",
         "tutorial_abrir": "Open lineup"
+      },
+      "aviso_conta": {
+        "titulo": "Playing without an account",
+        "texto": "Your progress is lost when you close or reload the page. If you want to save your progress, create an account. It's free.",
+        "criar": "Create account",
+        "depois": "Not now"
       }
     }
   }

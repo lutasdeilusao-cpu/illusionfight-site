@@ -609,7 +609,13 @@
         "todos": "Tudo",
         "slot_vazio": "Nada nesse lugar hoje",
         "quem_usa": "Quem veste?",
-        "abas": {"cura": "Cura", "luta": "Luta", "material": "Material", "equip": "Equipamento", "cartas": "Cartas"},
+        "abas": {
+          "cura": "Cura",
+          "luta": "Luta",
+          "material": "Material",
+          "equip": "Equipamento",
+          "cartas": "Cartas"
+        },
         "eyebrow": "Bolsa",
         "titulo": "Bolsa da Gangue",
         "vazio": "A bolsa tá vazia. Compra alguma coisa na loja.",
@@ -3812,6 +3818,12 @@
         "pronto": "Fechou",
         "tutorial": "Chegou sangue novo e ele já entrou no time. Em ESCALAÇÃO tu põe, tira e muda a ordem de quem briga. Só quem tá no time ganha XP, então bota os novatos pra subir. Na rua é o botão 👥 lá em cima.",
         "tutorial_abrir": "Abrir escalação"
+      },
+      "aviso_conta": {
+        "titulo": "Jogando sem conta",
+        "texto": "Teu progresso some quando você fecha ou recarrega a página. Se quiser salvar o progresso, crie uma conta: é grátis.",
+        "criar": "Criar conta",
+        "depois": "Agora não"
       }
     }
   }

@@ -1,0 +1,38 @@
+.gang-aviso-conta {
+  position: fixed;
+  inset: 0 var(--app-gutter);
+  z-index: 9000;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+.gang-aviso-conta__card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 18px;
+}
+
+.gang-aviso-conta__texto {
+  margin: 0;
+  line-height: 1.45;
+  color: var(--if-ink);
+}
+
+.gang-aviso-conta__btn {
+  min-height: 48px;
+}
+
+.gang-aviso-conta__depois {
+  min-height: 44px;
+  background: none;
+  border: 0;
+  color: var(--if-cyan-72);
+  font: inherit;
+  cursor: pointer;
+}
