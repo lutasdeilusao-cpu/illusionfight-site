@@ -37,6 +37,11 @@ function lerManifesto(dir) {
   try { return JSON.parse(fs.readFileSync(path.join(dir, MANIFESTO), 'utf8')) } catch { return [] }
 }
 
+function arquivosDe(dir) {
+  if (!fs.existsSync(dir)) return []
+  return fs.readdirSync(dir, { withFileTypes: true }).filter(e => e.isFile()).map(e => e.name)
+}
+
 function git(args, cwd = ROOT) {
   return execFileSync('git', args, { cwd, stdio: 'inherit' })
 }
@@ -80,11 +85,11 @@ function main() {
   // CSS/JS antigo; sem eles a página abre sem estilo). Só a versão anterior
   // é mantida, pela lista que cada deploy grava em MANIFESTO.
   let anteriores = lerManifesto(WORKTREE)
-  if (!anteriores.length && fs.existsSync(path.join(WORKTREE, 'assets'))) anteriores = fs.readdirSync(path.join(WORKTREE, 'assets'))
+  if (!anteriores.length && fs.existsSync(path.join(WORKTREE, 'assets'))) anteriores = arquivosDe(path.join(WORKTREE, 'assets'))
   const guarda = fs.mkdtempSync(path.join(require('os').tmpdir(), 'ldi-assets-'))
   for (const f of anteriores) {
     const origem = path.join(WORKTREE, 'assets', f)
-    if (fs.existsSync(origem)) fs.copyFileSync(origem, path.join(guarda, f))
+    if (fs.existsSync(origem) && fs.statSync(origem).isFile()) fs.copyFileSync(origem, path.join(guarda, f))
   }
 
   // Remove TUDO que está versionado no worktree de uma vez só — 1 argumento
@@ -99,7 +104,7 @@ function main() {
     fs.cpSync(path.join(DIST, entry), path.join(WORKTREE, entry), { recursive: true })
   }
 
-  const novos = fs.existsSync(path.join(DIST, 'assets')) ? fs.readdirSync(path.join(DIST, 'assets')) : []
+  const novos = arquivosDe(path.join(DIST, 'assets'))
   let mantidos = 0
   for (const f of fs.readdirSync(guarda)) {
     const destino = path.join(WORKTREE, 'assets', f)
