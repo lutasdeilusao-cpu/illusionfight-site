@@ -49,18 +49,21 @@ export const FIXAS = {
   },
   '/historias': {
     meta: ['0.9', 'weekly'],
+    og: '/og/historias.jpg',
     en: ['Free Online Stories — Web Novel and Short Stories | Illusion Fight', 'Read free stories online: the Illusion Fight web novel, the Illusion Tales short stories and other dark fantasy worlds by Isaias Leal.', 'Illusion Fight stories', 'The whole Illusion Fight reading universe in one place: the main storyline, the tales and other stories.'],
     pt: ['Histórias para ler online grátis — livro e contos | Lutas de Ilusão', 'Leia histórias online grátis: o livro de Lutas de Ilusão, os Contos de Ilusão e outros mundos de fantasia sombria de Isaias Leal.', 'Histórias de Lutas de Ilusão', 'Todo o universo de leitura de Lutas de Ilusão num lugar só: a história principal, os contos e outras obras.'],
     es: ['Historias para leer online gratis — novela y cuentos | Luchas de Ilusión', 'Lee historias online gratis: la novela de Luchas de Ilusión, los Cuentos de Ilusión y otros mundos de fantasía oscura de Isaias Leal.', 'Historias de Luchas de Ilusión', 'Todo el universo de lectura de Luchas de Ilusión en un solo lugar: la historia principal, los cuentos y otras obras.'],
   },
   '/historias/lutas-de-ilusao': {
     meta: ['0.9', 'weekly'],
+    og: '/og/historias.jpg',
     en: ['Illusion Fight — Free Web Novel, Read Online by Chapter', 'Read the Illusion Fight web novel online for free, chapter by chapter: Kim, 17, in a virtual arena where the pain is 100% real.', 'The Illusion Fight novel', 'Follow the published chapters of the novel that expands the LDI universe.'],
     pt: ['Lutas de Ilusão — livro online grátis, capítulo por capítulo', 'Leia o livro Lutas de Ilusão online e grátis, capítulo por capítulo: Kim, 17 anos, numa arena virtual onde a dor é 100% real.', 'O livro Lutas de Ilusão', 'Acompanhe os capítulos publicados do livro que expande o universo LDI.'],
     es: ['Luchas de Ilusión — novela online gratis, capítulo a capítulo', 'Lee la novela Luchas de Ilusión online y gratis, capítulo a capítulo: Kim, 17 años, en una arena virtual donde el dolor es 100% real.', 'La novela Luchas de Ilusión', 'Sigue los capítulos publicados de la novela que expande el universo LDI.'],
   },
   '/historias/contos': {
     meta: ['0.7', 'weekly'],
+    og: '/og/historias.jpg',
     en: ['Illusion Tales — Free Short Stories Online | Illusion Fight', 'Free short stories from the Illusion Fight universe: Alan, Nina, Jack and the band — other characters, the same world. Read online.', 'Illusion Tales', 'Side stories from the Illusion Fight universe — characters and experiences that expand the LDI arena beyond the main storyline.'],
     pt: ['Contos de Ilusão — contos para ler online grátis | Lutas de Ilusão', 'Contos grátis do universo de Lutas de Ilusão: Alan, Nina, Jack e a banda — outros personagens, o mesmo mundo. Leia online.', 'Contos de Ilusão', 'Histórias paralelas do universo de Lutas de Ilusão — personagens e vivências que expandem a arena LDI além da linha principal.'],
     es: ['Cuentos de Ilusión — cuentos para leer online gratis | Luchas de Ilusión', 'Cuentos gratis del universo de Luchas de Ilusión: Alan, Nina, Jack y la banda — otros personajes, el mismo mundo. Lee online.', 'Cuentos de Ilusión', 'Historias paralelas del universo de Luchas de Ilusión — personajes y vivencias que expanden la arena LDI más allá de la línea principal.'],
@@ -79,18 +82,21 @@ export const FIXAS = {
   },
   '/webtoon': {
     meta: ['0.9', 'weekly'],
+    og: '/og/webshard.jpg',
     en: ['Brazilian Action Webtoon — Read Free Online | Illusion Fight WEB SHARD', 'Read Illusion Fight for free: a Brazilian action webtoon in vertical chapters, like manhwa and manga. Kim and the fighters of Bravara.', 'WEB SHARD — Illusion Fight', 'Illusion Fight is the first WEB SHARD series: a Brazilian vertical action comic published in free chapters right here on the site. If you like manga, manhwa or action webcomics, you will recognize the rhythm — with a 100% Brazilian universe and cast.'],
     pt: ['Webtoon brasileiro de ação — leia grátis online | Lutas de Ilusão', 'Leia Lutas de Ilusão grátis: webtoon brasileiro de ação em capítulos verticais, no ritmo de mangá e manhwa. Kim e os lutadores de Bravara.', 'WEB SHARD — Lutas de Ilusão', 'Lutas de Ilusão é a primeira série WEB SHARD: um quadrinho vertical brasileiro de ação, publicado em capítulos grátis aqui no site. Se você curte mangá, manhwa ou webtoon de ação, vai reconhecer o ritmo — com universo e elenco 100% brasileiros.'],
     es: ['Webtoon brasileño de acción — lee gratis online | Luchas de Ilusión', 'Lee Luchas de Ilusión gratis: webtoon brasileño de acción en capítulos verticales, al ritmo del manga y el manhwa. Kim y los luchadores de Bravara.', 'WEB SHARD — Luchas de Ilusión', 'Luchas de Ilusión es la primera serie WEB SHARD: un cómic vertical brasileño de acción, publicado en capítulos gratis aquí en el sitio. Si te gusta el manga, el manhwa o el webtoon de acción, vas a reconocer el ritmo — con un universo y un elenco 100% brasileños.'],
   },
   '/webtoon/lutas-de-ilusao': {
     meta: ['0.8', 'weekly'],
+    og: '/og/webshard.jpg',
     en: ['Illusion Fight Webtoon — All Chapters Free | WEB SHARD', 'Read Illusion Fight, the vertical action webtoon: Kim, 17, in a virtual arena where the pain is 100% real. Free, in English, Portuguese and Spanish.', 'Illusion Fight — WEB SHARD', 'Bravara, 2XXX. In the LDI, the pain is real and winning is everything. Kim, 17, sells candy on the bus and never cared about some rich-kid game. Until he lost a bet.'],
     pt: ['Lutas de Ilusão webtoon — todos os capítulos grátis | WEB SHARD', 'Leia Lutas de Ilusão, o webtoon vertical de ação: Kim, 17 anos, numa arena virtual onde a dor é 100% real. Grátis, em português, inglês e espanhol.', 'Lutas de Ilusão — WEB SHARD', 'Bravara, 2XXX. No LDI, a dor é real e vencer é tudo. Kim, 17 anos, vende bala no ônibus e nunca ligou pra jogo de playboy. Até perder uma aposta.'],
     es: ['Luchas de Ilusión webtoon — todos los capítulos gratis | WEB SHARD', 'Lee Luchas de Ilusión, el webtoon vertical de acción: Kim, 17 años, en una arena virtual donde el dolor es 100% real. Gratis, en español, portugués e inglés.', 'Luchas de Ilusión — WEB SHARD', 'Bravara, 2XXX. En el LDI, el dolor es real y ganar lo es todo. Kim, 17 años, vende dulces en el autobús y nunca le importó un juego de niños ricos. Hasta que perdió una apuesta.'],
   },
   '/musicas': {
     meta: ['0.8', 'monthly'],
+    og: '/og/musicas.jpg',
     en: ['Illusion Fight Soundtrack — Listen Free on Nina Radio', 'Listen to the original Illusion Fight soundtrack for free: the anime openings, the songs of Kim and Jack\'s band and Nina Radio exclusives.', 'Illusion Fight music', 'Discover and listen to the original songs of the LDI universe.'],
     pt: ['Trilha sonora de Lutas de Ilusão — ouça grátis na Rádio Nina', 'Ouça grátis a trilha original de Lutas de Ilusão: as aberturas do anime, as músicas da banda do Kim e do Jack e as exclusivas da Rádio Nina.', 'Músicas de Lutas de Ilusão', 'Descubra e ouça as músicas originais do universo LDI.'],
     es: ['Banda sonora de Luchas de Ilusión — escucha gratis en Radio Nina', 'Escucha gratis la banda sonora original de Luchas de Ilusión: las aperturas del anime, las canciones de la banda de Kim y Jack y las exclusivas de Radio Nina.', 'Música de Luchas de Ilusión', 'Descubre y escucha las canciones originales del universo LDI.'],
@@ -121,6 +127,7 @@ export const FIXAS = {
   },
   '/autor': {
     meta: ['0.7', 'monthly'],
+    og: '/og/autor.jpg',
     en: ['Isaias Leal — Creator of Illusion Fight', 'Meet Isaias Leal, the Brazilian creator of Illusion Fight: webtoon, web novel, games and a whole transmedia universe.', 'The author of Illusion Fight', 'Meet the creator and go behind the scenes of the Illusion Fight universe.'],
     pt: ['Isaias Leal — criador de Lutas de Ilusão', 'Conheça Isaias Leal, o autor brasileiro de Lutas de Ilusão: webtoon, livro, jogos e um universo transmídia inteiro.', 'O autor de Lutas de Ilusão', 'Conheça o criador e os bastidores do universo de Lutas de Ilusão.'],
     es: ['Isaias Leal — creador de Luchas de Ilusión', 'Conoce a Isaias Leal, el autor brasileño de Luchas de Ilusión: webtoon, novela, juegos y todo un universo transmedia.', 'El autor de Luchas de Ilusión', 'Conoce al creador y el detrás de escena del universo de Luchas de Ilusión.'],
@@ -133,6 +140,7 @@ export const FIXAS = {
   },
   '/games': {
     meta: ['0.8', 'weekly'],
+    og: '/og/games.jpg',
     en: ['Free Browser Games — RPG, Card Game and Minigames | Illusion Fight', 'Play free browser games, nothing to download: gang RPG, card game, puzzles, a virtual pet and more in the Illusion Fight universe.', 'Illusion Fight games', 'Play for free in the Illusion Fight universe: tactical RPG, card game, browser minigames, a virtual pet and more — right in your browser, nothing to download.'],
     pt: ['Jogos grátis no navegador — RPG, Super Trunfo e minigames | Lutas de Ilusão', 'Jogue grátis no navegador, sem baixar nada: RPG de gangue, Super Trunfo, quebra-cabeças, bichinho virtual e mais, no universo de Lutas de Ilusão.', 'Jogos de Lutas de Ilusão', 'Jogue grátis no universo de Lutas de Ilusão: RPG tático, Super Trunfo, minigames, bichinho virtual e mais — direto no navegador, sem baixar nada.'],
     es: ['Juegos gratis en el navegador — RPG, cartas y minijuegos | Luchas de Ilusión', 'Juega gratis en el navegador, sin descargar nada: RPG de pandillas, juego de cartas, rompecabezas, mascota virtual y más, en el universo de Luchas de Ilusión.', 'Juegos de Luchas de Ilusión', 'Juega gratis en el universo de Luchas de Ilusión: RPG táctico, juego de cartas, minijuegos, mascota virtual y más — directo en el navegador, sin descargar nada.'],
@@ -157,6 +165,7 @@ export const FIXAS = {
   },
   '/web-shard': {
     meta: ['0.6', 'monthly'],
+    og: '/og/webshard.jpg',
     en: ['WEB SHARD: Vertical Webcomic and Manga in Composed Pages — Illusion Fight', "WEB SHARD is Illusion Fight's own format: composed vertical pages built for scrolling on your phone. Learn what it is and read the debut series.", "WEB SHARD — Illusion Fight's own format", 'A reading format created by Illusion Fight: composed vertical pages designed for scrolling on your phone.'],
     pt: ['WEB SHARD: webtoon e mangá vertical em páginas compostas | Lutas de Ilusão', 'WEB SHARD é o formato próprio de Lutas de Ilusão: páginas verticais compostas pra rolar no celular. Entenda o que é e leia a série de estreia.', 'WEB SHARD — o formato de Lutas de Ilusão', 'Um formato de leitura criado por Lutas de Ilusão: páginas verticais compostas, pensadas pra rolar no celular.'],
     es: ['WEB SHARD: webtoon y manga vertical en páginas compuestas | Luchas de Ilusión', 'WEB SHARD es el formato propio de Luchas de Ilusión: páginas verticales compuestas para deslizar en el celular. Descubre qué es y lee la serie de estreno.', 'WEB SHARD — el formato de Luchas de Ilusión', 'Un formato de lectura creado por Luchas de Ilusión: páginas verticales compuestas, pensadas para deslizar en el celular.'],
@@ -181,12 +190,14 @@ export const FIXAS = {
   },
   '/games/ldi-gangues': {
     meta: ['0.6', 'monthly'],
+    og: '/og/gangues.jpg',
     en: ['LDI Gangs — Free Gang RPG in Your Browser | Illusion Fight', 'Build your crew, take over the streets of Marélia and fight bosses in LDI Gangs, a free gang RPG you play right in your browser.', 'LDI Gangs', 'Form your gang, recruit fighters and take every territory of Marélia, from the Track to the Rooftop.'],
     pt: ['LDI Gangues — jogo de gangue grátis no navegador | Lutas de Ilusão', 'Monte sua tropa, tome as ruas de Marélia e encare os chefões em LDI Gangues, RPG de gangue grátis direto no navegador.', 'LDI Gangues', 'Funde sua gangue, recrute lutadores e tome cada território de Marélia, da Pista até a Laje.'],
     es: ['LDI Gangues — juego de pandillas gratis en el navegador | Luchas de Ilusión', 'Arma tu banda, toma las calles de Marélia y enfrenta a los jefes en LDI Gangues, RPG de pandillas gratis directo en el navegador.', 'LDI Gangues', 'Funda tu pandilla, recluta luchadores y toma cada territorio de Marélia, de la Pista a la Azotea.'],
   },
   '/games/toptrumps': {
     meta: ['0.6', 'monthly'],
+    og: '/og/toptrumps.jpg',
     en: ['LDI Trumps — Free Online Top Trumps Card Game | Illusion Fight', 'Play a free online Top Trumps card game with the fighters of Illusion Fight: solo or against other players.', 'LDI Trumps', 'Build your deck and play matches with characters from the LDI universe.'],
     pt: ['LDI Super Trunfo — Super Trunfo online grátis | Lutas de Ilusão', 'Jogue Super Trunfo online grátis com os lutadores de Lutas de Ilusão: sozinho ou contra outros jogadores.', 'LDI Super Trunfo', 'Monte seu baralho e jogue partidas com os personagens do universo LDI.'],
     es: ['LDI Trumps — juego de cartas Top Trumps online gratis | Luchas de Ilusión', 'Juega Top Trumps online gratis con los luchadores de Luchas de Ilusión: solo o contra otros jugadores.', 'LDI Trumps', 'Arma tu mazo y juega partidas con los personajes del universo LDI.'],

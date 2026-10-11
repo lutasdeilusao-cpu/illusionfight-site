@@ -118,7 +118,7 @@ export default function UniversoLDI() {
         <meta property="og:title" content={t('pages.mundo.og_title')} />
         <meta property="og:description" content={t('pages.mundo.og_desc')} />
         <meta property="og:url" content="https://illusionfight.com/universos/lutas-de-ilusao" />
-        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og/home.jpg" />
         <meta property="og:type" content="website" />
       </Helmet>
 

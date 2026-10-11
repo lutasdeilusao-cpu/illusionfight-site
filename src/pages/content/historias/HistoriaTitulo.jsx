@@ -58,7 +58,7 @@ export default function HistoriaTitulo({ tipo }) {
         <meta property="og:title" content={t('pages.historias.meta_title', { nome })} />
         <meta property="og:description" content={localizado(historia, 'tagline', locale)} />
         <meta property="og:url" content={url} />
-        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og/historias.jpg" />
         <meta property="og:type" content="book" />
       </Helmet>
 

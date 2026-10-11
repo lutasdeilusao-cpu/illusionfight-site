@@ -115,7 +115,7 @@ export default function Musicas() {
         <meta property="og:title" content={t('pages.musicas.meta_title')} />
         <meta property="og:description" content={t('pages.musicas.meta_desc')} />
         <meta property="og:url" content="https://illusionfight.com/musicas" />
-        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og/musicas.jpg" />
         <meta property="og:type" content="website" />
         <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/musicas" />
         <link rel="alternate" hrefLang="en" href="https://illusionfight.com/musicas" />

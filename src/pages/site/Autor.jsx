@@ -25,7 +25,7 @@ export default function Autor() {
         <meta property="og:title" content={t('pages.autor.meta_titulo')} />
         <meta property="og:description" content={t('pages.autor.meta_desc')} />
         <meta property="og:url" content="https://illusionfight.com/autor" />
-        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og/autor.jpg" />
         <meta property="og:type" content="website" />
       </Helmet>
       <section className="autor">

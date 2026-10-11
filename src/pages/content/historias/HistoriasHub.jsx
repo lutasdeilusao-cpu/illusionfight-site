@@ -74,7 +74,7 @@ export default function HistoriasHub({ tipo = null }) {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.desc} />
         <meta property="og:url" content={meta.url} />
-        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og/historias.jpg" />
         <meta property="og:type" content="website" />
       </Helmet>
 
