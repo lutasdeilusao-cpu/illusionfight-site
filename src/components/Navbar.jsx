@@ -15,12 +15,18 @@ import { ADMIN_EMAILS } from '../config/launch'
 import logoMarkEn from '../assets/images/logos/logo-mark-en.png'
 import logoMarkPtEs from '../assets/images/logos/logo-mark-pt-es.png'
 import './Navbar.css'
+import './NavbarPerfil.css'
 
 const LOCALES = ['pt', 'es', 'en']
 // Marca curta do navbar — "LF" em inglês (Illusion Fight), "LDI" em
 // pt/es (Lutas de Ilusão/Luchas de Ilusión). Antes era o ícone genérico
 // (icon-192.png) igual pros 3 idiomas.
 const LOGO_MARK = { en: logoMarkEn, pt: logoMarkPtEs, es: logoMarkPtEs }
+
+const PLANOS = ['primordial', 'elite']
+function planoDe(perfil) { return PLANOS.includes(perfil?.tier) ? perfil.tier : 'free' }
+function primeiroNome(perfil) { return perfil?.nome?.trim().split(/\s+/)[0] || '' }
+function inicialDe(perfil) { return perfil?.nome?.trim()?.[0]?.toUpperCase() || '?' }
 
 export default function Navbar({ hidden, onSearchOpen }) {
   const scrolled = useScrollPosition(20)
@@ -126,16 +132,13 @@ export default function Navbar({ hidden, onSearchOpen }) {
           </div>
 
           {user ? (
-            <div className="navbar-usuario">
-              <Link to="/perfil" className="navbar-usuario-link">
-                <div className="navbar-avatar">{perfil?.nome?.trim()?.[0]?.toUpperCase()}</div>
-                {/* Só o primeiro nome na barra — o nome completo fica no perfil. */}
-                <span className="navbar-nome">{perfil?.nome?.trim().split(/\s+/)[0]}</span>
-              </Link>
-              <button className="navbar-sair" onClick={logout} aria-label={t('site.perfil.sair')}>
-                {t('site.perfil.sair')}
-              </button>
-            </div>
+            <Link to="/perfil" className={`navbar-perfil navbar-perfil--${planoDe(perfil)}`} aria-label={t('site.perfil.meu_perfil')}>
+              <span className="navbar-perfil__avatar">{inicialDe(perfil)}</span>
+              <span className="navbar-perfil__texto">
+                <span className="navbar-perfil__nome">{primeiroNome(perfil)}</span>
+                <span className="navbar-perfil__plano">{t(`nav.perfil.plano.${planoDe(perfil)}`)}</span>
+              </span>
+            </Link>
           ) : (
             <div className="navbar__auth-actions">
               <Link to="/login" className="navbar__login">{t('site.cadastro.entrar_link')}</Link>
@@ -149,6 +152,16 @@ export default function Navbar({ hidden, onSearchOpen }) {
       <div className={`drawer-overlay${menuOpen ? ' is-open' : ''}`} onClick={() => setMenuOpen(false)} />
       <aside className={`drawer${menuOpen ? ' is-open' : ''}`}>
         <button className="drawer__close" onClick={() => setMenuOpen(false)}>&times;</button>
+        {user && (
+          <Link to="/perfil" className={`drawer-perfil navbar-perfil--${planoDe(perfil)}`} onClick={() => setMenuOpen(false)}>
+            <span className="navbar-perfil__avatar drawer-perfil__avatar">{inicialDe(perfil)}</span>
+            <span className="navbar-perfil__texto">
+              <span className="navbar-perfil__nome drawer-perfil__nome">{perfil?.nome?.trim() || primeiroNome(perfil)}</span>
+              <span className="navbar-perfil__plano">{t(`nav.perfil.plano.${planoDe(perfil)}`)}</span>
+            </span>
+            <span className="drawer-perfil__ir">{t('site.perfil.meu_perfil')} →</span>
+          </Link>
+        )}
         <ShareButton variante="item" onFeito={() => setMenuOpen(false)} />
         <button className="drawer__search" onClick={() => { setMenuOpen(false); onSearchOpen?.() }}>
           🔍 {t('nav.aria.search')}
@@ -187,7 +200,6 @@ export default function Navbar({ hidden, onSearchOpen }) {
         </div>
         {user ? (
           <>
-            <Link to="/perfil" className="drawer__link" onClick={() => setMenuOpen(false)}>{t('site.perfil.meu_perfil')}</Link>
             <button className="drawer__cta" onClick={() => { logout(); setMenuOpen(false) }}>{t('site.perfil.sair')}</button>
           </>
         ) : (

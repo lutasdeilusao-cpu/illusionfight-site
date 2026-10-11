@@ -1,0 +1,114 @@
+/* Botão de perfil da navbar (logado) e cartão de perfil no topo do drawer. */
+.navbar-perfil,
+.drawer-perfil {
+  --perfil-cor: var(--if-cyan);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid var(--if-cyan-45);
+  background: linear-gradient(90deg, var(--if-cyan-13), rgba(5, 14, 19, 0.6));
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.navbar-perfil--elite { --perfil-cor: var(--if-amber); border-color: var(--if-amber-72); background: linear-gradient(90deg, var(--if-amber-16), rgba(5, 14, 19, 0.6)); }
+.navbar-perfil--primordial { --perfil-cor: var(--if-violet); border-color: var(--if-violet); background: linear-gradient(90deg, rgba(160, 90, 255, 0.2), rgba(5, 14, 19, 0.6)); }
+
+.navbar-perfil {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 3px 12px 3px 3px;
+  min-height: 38px;
+}
+
+.navbar-perfil:hover,
+.navbar-perfil:focus-visible {
+  box-shadow: 0 0 18px var(--perfil-cor);
+  transform: translateY(-1px);
+}
+
+.navbar-perfil__avatar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #04141a;
+  background: var(--perfil-cor);
+  box-shadow: 0 0 0 2px #05121a, 0 0 0 3px var(--perfil-cor), 0 0 12px var(--perfil-cor);
+}
+
+.navbar-perfil__avatar::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--if-ok);
+  box-shadow: 0 0 0 2px #05121a;
+}
+
+.navbar-perfil__texto {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.05;
+}
+
+.navbar-perfil__nome {
+  max-width: 96px;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navbar-perfil__plano {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--perfil-cor);
+}
+
+.drawer-perfil {
+  margin: 2.6rem 0 1rem;
+  padding: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.drawer-perfil__avatar {
+  width: 46px;
+  height: 46px;
+  font-size: 1.3rem;
+}
+
+.drawer-perfil__nome {
+  max-width: 190px;
+  font-size: 1.05rem;
+}
+
+.drawer-perfil__ir {
+  width: 100%;
+  margin-top: 0.55rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--if-hair);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--perfil-cor);
+}

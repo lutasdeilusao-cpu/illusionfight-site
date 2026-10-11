@@ -25,6 +25,13 @@
       "pt": "Português",
       "es": "Español",
       "en": "English"
+    },
+    "perfil": {
+      "plano": {
+        "free": "Cuenta gratis",
+        "elite": "Elite",
+        "primordial": "Primordial"
+      }
     }
   },
   "runtime": {
