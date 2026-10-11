@@ -25,6 +25,8 @@ function conviteDe(pathname, S) {
   return S.convite.default
 }
 
+const CONVITE_ATIVO = false
+
 export default function RadioNina() {
   const { locale } = useLanguage()
   const S = STRINGS[locale] || STRINGS.pt
@@ -67,9 +69,9 @@ export default function RadioNina() {
 
   useEffect(() => { localStorage.setItem(CANTO_STORAGE, canto) }, [canto])
 
-  // Convite da Nina após 30s (uma vez por sessão)
+  // Convite da Nina após 30s (uma vez por sessão). Desligado: CONVITE_ATIVO.
   useEffect(() => {
-    if (sessaoRespondida()) return
+    if (!CONVITE_ATIVO || sessaoRespondida()) return
     const timer = setTimeout(() => {
       if (sessaoRespondida()) return
       window.__ninaPendingNotification = {
