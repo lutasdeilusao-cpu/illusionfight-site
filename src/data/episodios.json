@@ -137,10 +137,10 @@
     "id": "05",
     "numero": 5,
     "so_admin": true,
-    "titulo_pt": "Em Breve",
-    "titulo_en": "Coming Soon",
-    "titulo_es": "Próximamente",
-    "publicado": false,
+    "titulo_pt": "O Primordial de Ilusão",
+    "titulo_en": "O Primordial de Ilusão",
+    "titulo_es": "O Primordial de Ilusão",
+    "publicado": true,
     "idiomas": [
       "pt"
     ],
@@ -150,7 +150,13 @@
       "elite": "2027-04-15",
       "conta": "2027-04-30",
       "publico": "2027-05-15"
-    }
+    },
+    "paginas": 60,
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1632
+    ]
   },
   {
     "id": "06",
