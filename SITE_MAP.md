@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.388.2**.
+> `SITE_VERSION` **10.388.3**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -249,7 +249,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 
 - Navegação e shell: `Navbar`, `Footer`, `ScrollToTop`, `ScrollToTopOnNav`, `SearchModal`, `CookieBanner`, `TrialBanner`, `DeferredSection` (carga por proximidade).
 - Leitura: `Leitor/` (leitor único de texto), `GateLeitura`, `Reacoes` (reações anônimas, RPC `webshard_reagir`), `Recomendacoes`, `ShareButton`.
-- Acesso e economia: `LoginGate`, `FichaGateRoute`, `GameSessionRoute` (sessão dos Kernel Games), `SoAdmin` (rota só de admin, em `App.jsx`), `GuestNotice`, `ModalConfirmacaoFicha`, `ModalSemFichas`. O gate de fichas está desligado (`FICHAS_GATE_ATIVO = false` em `src/config/fichas.js`): `FichaGateRoute` só cuida de login e entrega o jogo direto.
+- Acesso e economia: `LoginGate`, `FichaGateRoute`, `GameSessionRoute` (sessão dos Kernel Games), `SoAdmin` (rota só de admin, em `App.jsx`), `GuestNotice`, `ModalConfirmacaoFicha`, `ModalSemFichas`. O gate de fichas está desligado (`FICHAS_GATE_ATIVO = false` em `src/config/fichas.js`): `FichaGateRoute` entrega o jogo direto, sem pedir login nem ficha; sem conta, o progresso some ao recarregar ou fechar.
 - Loja: `/loja` mostra os produtos físicos de `produtos.json` (todos "Em breve"). `ShopSection` + `ProdutoDigitalCard` (fichas, starter pack, skin, de `loja-digital.json`) existem, mas não estão montados em nenhuma página.
 - Notificações: `AchievementToast`, `LDINotification`, `UnifiedNotification`.
 - Home/conteúdo: `src/pages/site/Home/` em ordem: `HeroSlideshow` (banner rotativo de 5 artes, obrigatório), `PraVoce` (recomendados), `HomeGames`, `HomeHistorias`, `LatestEpisodes` (WEB SHARD), `MusicSection`, apoio, `NowLive`. A Home só mostra o que já dá para ler ou jogar; as vitrines consomem os catálogos oficiais.
@@ -422,7 +422,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.388.2** |
+| `SITE_VERSION` | Site global | **10.388.3** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.13.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
