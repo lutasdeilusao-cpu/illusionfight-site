@@ -1,0 +1,29 @@
+[
+  {
+    "id": "01",
+    "numero": 1,
+    "titulo_pt": "Obrigado, MC Família",
+    "titulo_en": "Thank You, MC Family",
+    "titulo_es": "Gracias, Familia MC",
+    "frase_pt": "O canto que deixou o Lutas de Ilusão continuar.",
+    "publicado": true,
+    "sempre_livre": true,
+    "paginas": 6,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "agradecimentos/01",
+    "data_publicacao": "2026-10-11",
+    "liberacao": {
+      "primordial": "2026-10-11",
+      "elite": "2026-10-11",
+      "conta": "2026-10-11",
+      "publico": "2026-10-11"
+    }
+  }
+]

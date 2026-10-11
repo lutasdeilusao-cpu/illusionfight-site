@@ -1,6 +1,7 @@
 import titulos from '../../data/webshard-titulos.json'
 import episodios from '../../data/episodios.json'
 import heroisEpisodios from '../../data/herois-episodios.json'
+import agradecimentosEpisodios from '../../data/agradecimentos-episodios.json'
 
 /* Catálogo WEB SHARD — única porta de entrada para "quais títulos existem,
    quais capítulos cada um tem e onde moram as páginas". A UI nunca lê
@@ -29,6 +30,7 @@ const imagemPorNome = Object.fromEntries(
 const FONTES = {
   episodios: () => episodios,
   herois: () => heroisEpisodios,
+  agradecimentos: () => agradecimentosEpisodios,
   nenhuma: () => [],
 }
 

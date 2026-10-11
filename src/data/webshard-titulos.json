@@ -48,5 +48,27 @@
     "status": "em_andamento",
     "visivel": "admin",
     "fonte_capitulos": "herois"
+  },
+  {
+    "id": 3,
+    "slug": "agradecimentos",
+    "nome_pt": "Agradecimentos",
+    "nome_en": "Thank You",
+    "nome_es": "Agradecimientos",
+    "tagline_pt": "Pra quem ajudou o Lutas de Ilusão a existir.",
+    "tagline_en": "For those who helped Illusion Fight exist.",
+    "tagline_es": "Para quienes ayudaron a que Lutas de Ilusão exista.",
+    "sinopse_pt": "Fanzines do autor agradecendo a quem segurou a barra pra este projeto sair do papel. Ninguém pediu, ninguém pagou: é só um obrigado sincero.",
+    "sinopse_en": "Author fanzines thanking the people who had our back so this project could happen. Nobody asked, nobody paid: just a sincere thank you.",
+    "sinopse_es": "Fanzines del autor agradeciendo a quienes nos apoyaron para que este proyecto saliera adelante. Nadie lo pidió, nadie pagó: es solo un gracias sincero.",
+    "generos": [
+      "autor"
+    ],
+    "classificacao": "10",
+    "cor": "#ffc629",
+    "capa": "capa-agradecimentos.webp",
+    "status": "em_andamento",
+    "visivel": "publico",
+    "fonte_capitulos": "agradecimentos"
   }
 ]

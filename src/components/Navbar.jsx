@@ -57,7 +57,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
   const navLinks = [
     ['assinar', '/assinar/'], ['calendario', '/calendario/'], ['webtoon', '/webtoon/'],
     ['historias', '/historias/'], ['games', '/games/'], ['musicas', '/musicas/'],
-    ['mundo', '/universos/'], ['autor', '/autor/'],
+    ['mundo', '/universos/'], ['autor', '/autor/'], ['agradecimentos', '/webtoon/agradecimentos/01'],
     ...(veCreators ? [['creators', '/creators/destaques/']] : []),
   ]
   const isActive = path => path !== '/' && pathname.startsWith(path.slice(0, -1))

@@ -12,7 +12,8 @@
       "autor": "AUTHOR",
       "creators": "CREATORS",
       "calendario": "CALENDAR",
-      "assinar": "SUPPORT"
+      "assinar": "SUPPORT",
+      "agradecimentos": "Thank You"
     },
     "cta": "FREE ACCOUNT",
     "aria": {
@@ -1224,7 +1225,8 @@
       "luta": "Fighting",
       "drama": "Drama",
       "comedia": "Comedy",
-      "herois": "Superheroes"
+      "herois": "Superheroes",
+      "autor": "Author"
     },
     "continuar": {
       "eyebrow": "Keep reading",
