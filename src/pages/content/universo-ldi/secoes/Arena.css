@@ -1,0 +1,162 @@
+.arena { display: flex; flex-direction: column; }
+
+/* ── Como funciona ── */
+.arena-sistema { display: flex; flex-direction: column; gap: .6rem; }
+
+.arena-sistema__item {
+  padding: .9rem 1rem;
+  border-left: 2px solid var(--if-edge);
+  background: linear-gradient(90deg, var(--if-cyan-08), transparent 70%);
+}
+
+.arena-sistema__nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--if-cyan);
+  letter-spacing: .04em;
+}
+
+.arena-sistema__item p,
+.arena-economia__item p {
+  margin: .25rem 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .88rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.arena-sistema__item:last-child { border-left-color: var(--if-danger); background: linear-gradient(90deg, color-mix(in srgb, var(--if-danger) 10%, transparent), transparent 70%); }
+.arena-sistema__item:last-child .arena-sistema__nome { color: var(--if-danger); }
+
+/* ── Modos ── */
+.arena-modos { display: flex; flex-direction: column; gap: .75rem; }
+
+.arena-modos__abas { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+
+.arena-modos__aba {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .3rem;
+  min-height: 76px;
+  padding: .6rem .3rem;
+  border: 1px solid var(--if-hair-strong);
+  background: var(--if-panel-flat);
+  color: var(--text-muted);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: .85rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color .25s, border-color .25s, transform .25s, box-shadow .25s;
+}
+
+.arena-modos__icone { font-size: 1.5rem; filter: grayscale(.8); transition: filter .25s, transform .25s; }
+
+.arena-modos__aba.is-ativa {
+  color: var(--if-ink);
+  border-color: var(--if-cyan);
+  box-shadow: inset 0 0 18px var(--if-cyan-13);
+  transform: translateY(-2px);
+}
+
+.arena-modos__aba.is-ativa .arena-modos__icone { filter: none; transform: scale(1.15); }
+
+.arena-modos__desc {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--if-edge);
+  background: var(--if-panel-flat);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  animation: arena-surge .4s ease both;
+}
+
+@keyframes arena-surge { from { opacity: 0; transform: translateY(6px); } }
+
+/* ── Ranking ── */
+.rank { display: flex; flex-direction: column; gap: .9rem; }
+
+.rank__escada { display: flex; align-items: flex-end; gap: 4px; height: 56px; }
+
+.rank__degrau {
+  flex: 1;
+  background: var(--if-hair-strong);
+  transition: background .3s, box-shadow .3s;
+}
+
+.rank__degrau:nth-child(1) { height: 16%; } .rank__degrau:nth-child(2) { height: 30%; }
+.rank__degrau:nth-child(3) { height: 46%; } .rank__degrau:nth-child(4) { height: 62%; }
+.rank__degrau:nth-child(5) { height: 80%; } .rank__degrau:nth-child(6) { height: 100%; }
+
+.rank__degrau.is-cheio { background: var(--if-cyan-58); box-shadow: 0 0 10px var(--if-cyan-20); }
+.rank__degrau.is-cheio:last-child { background: var(--if-amber); box-shadow: 0 0 16px var(--if-amber-72); }
+
+.rank__cartao { padding: 1rem 1.1rem; animation: arena-surge .35s ease both; }
+.rank__cartao.is-topo { border-color: var(--if-amber-72); box-shadow: 0 0 30px var(--if-amber-16); }
+
+.rank__faixa {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .75rem;
+  letter-spacing: .14em;
+  color: var(--if-cyan-58);
+}
+
+.rank__cartao.is-topo .rank__faixa { color: var(--if-amber); }
+
+.rank__label {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--if-ink);
+  margin: .2rem 0 .35rem;
+}
+
+.rank__desc { margin: 0; font-family: 'IBM Plex Sans', sans-serif; font-size: .88rem; line-height: 1.6; color: var(--text-secondary); }
+
+.rank__controle {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.rank__controle input { width: 100%; height: 44px; accent-color: var(--if-cyan); cursor: pointer; }
+
+/* ── Economia ── */
+.arena-economia { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+
+.arena-economia__item {
+  padding: .85rem;
+  border: 1px solid var(--if-hair-strong);
+  background: var(--if-panel-flat);
+}
+
+.arena-economia__sigla {
+  display: block;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--if-amber);
+}
+
+.arena-economia__nome {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arena-modos__desc, .rank__cartao { animation: none; }
+}

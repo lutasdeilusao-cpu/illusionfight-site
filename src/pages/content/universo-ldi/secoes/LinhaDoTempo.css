@@ -1,0 +1,99 @@
+.tl {
+  --tl-luz: 0;
+  position: relative;
+  padding-left: 2.25rem;
+}
+
+.tl__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.tl__trilho {
+  position: absolute;
+  left: .55rem;
+  top: .4rem;
+  bottom: .4rem;
+  width: 2px;
+  background: var(--if-hair-strong);
+}
+
+.tl__luz {
+  position: absolute;
+  inset: 0;
+  transform-origin: top;
+  transform: scaleY(var(--tl-luz));
+  background: linear-gradient(var(--if-amber), var(--if-cyan));
+  box-shadow: 0 0 12px var(--if-cyan-45);
+}
+
+.tl-ponto {
+  position: relative;
+  opacity: .35;
+  transform: translateX(8px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.tl-ponto.is-aceso { opacity: 1; transform: none; }
+
+.tl-ponto__marca {
+  position: absolute;
+  left: -2.05rem;
+  top: .2rem;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--if-hair-strong);
+  background: var(--bg-primary);
+  transform: rotate(45deg);
+  transition: border-color .4s, background .4s, box-shadow .4s;
+}
+
+.tl-ponto.is-aceso .tl-ponto__marca {
+  border-color: var(--if-cyan);
+  background: var(--if-cyan-20);
+  box-shadow: 0 0 14px var(--if-cyan-45);
+}
+
+.tl-ponto__ano {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .8rem;
+  letter-spacing: .2em;
+  color: var(--if-amber);
+}
+
+.tl-ponto__titulo {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--if-ink);
+  margin: .15rem 0 .4rem;
+  line-height: 1.15;
+}
+
+.tl-ponto__texto {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.tl-ponto--agora .tl-ponto__ano { color: var(--if-cyan); }
+
+.tl-ponto--agora.is-aceso .tl-ponto__marca {
+  background: var(--if-cyan);
+  animation: tl-pulsa 1.6s ease-in-out infinite;
+}
+
+@keyframes tl-pulsa {
+  50% { box-shadow: 0 0 0 8px var(--if-cyan-13), 0 0 22px var(--if-cyan); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tl-ponto { opacity: 1; transform: none; transition: none; }
+  .tl-ponto--agora.is-aceso .tl-ponto__marca { animation: none; }
+}

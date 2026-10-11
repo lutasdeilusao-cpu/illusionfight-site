@@ -1,0 +1,151 @@
+.elem { display: flex; flex-direction: column; gap: 1rem; }
+
+/* Roda: seis nós num círculo e o botão da anomalia no meio. */
+.elem__roda {
+  position: relative;
+  width: 86%;
+  aspect-ratio: 1;
+  margin: .5rem auto;
+}
+
+.elem__aro {
+  position: absolute;
+  inset: 14%;
+  border-radius: 50%;
+  border: 1px dashed var(--if-edge);
+  animation: elem-gira 40s linear infinite;
+}
+
+.elem__aro::after {
+  content: '';
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  border: 1px solid var(--if-hair-strong);
+}
+
+@keyframes elem-gira { to { transform: rotate(360deg); } }
+
+.elem__no {
+  --c: var(--if-cyan);
+  position: absolute;
+  width: 30%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--c) 55%, transparent);
+  background: radial-gradient(circle, color-mix(in srgb, var(--c) 22%, transparent), var(--if-panel-flat) 70%);
+  color: var(--if-ink);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, opacity .3s, filter .3s;
+}
+
+.elem__no--fogo { --c: var(--if-cta-edge); }
+.elem__no--terra { --c: var(--if-amber); }
+.elem__no--ar { --c: var(--if-ink); }
+.elem__no--agua { --c: var(--if-teal); }
+.elem__no--luz { --c: var(--if-amber-soft); }
+.elem__no--trevas { --c: var(--if-violet); }
+
+.elem__no[data-pos="0"] { left: 50%; top: 13%; }
+.elem__no[data-pos="1"] { left: 82%; top: 31.5%; }
+.elem__no[data-pos="2"] { left: 82%; top: 68.5%; }
+.elem__no[data-pos="3"] { left: 50%; top: 87%; }
+.elem__no[data-pos="4"] { left: 18%; top: 68.5%; }
+.elem__no[data-pos="5"] { left: 18%; top: 31.5%; }
+
+.elem__roda.tem-sel .elem__no:not(.is-sel) { opacity: .45; filter: saturate(.4); }
+
+.elem__no.is-sel {
+  transform: translate(-50%, -50%) scale(1.14);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 18%, transparent), 0 0 26px color-mix(in srgb, var(--c) 60%, transparent);
+}
+
+.elem__centro {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 30%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid var(--if-hair-strong);
+  background: radial-gradient(circle, var(--bg-primary), var(--if-panel-flat));
+  color: var(--text-muted);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color .3s, box-shadow .3s;
+}
+
+.elem__roda.is-anomalia .elem__centro {
+  color: var(--if-ink);
+  box-shadow: 0 0 0 3px var(--if-hair-strong), 0 0 40px 6px var(--bg-primary), 0 0 30px var(--if-violet);
+  animation: elem-pulsa 1.2s ease-in-out infinite;
+}
+
+.elem__roda.is-anomalia .elem__no { filter: grayscale(1) brightness(.6); }
+.elem__roda.is-anomalia .elem__no--fogo { filter: none; animation: elem-mancha 2.2s ease-in-out infinite; }
+
+@keyframes elem-pulsa { 50% { transform: translate(-50%, -50%) scale(1.06); } }
+
+@keyframes elem-mancha {
+  0%, 100% { --c: var(--if-cta-edge); }
+  50% { --c: var(--if-violet); background: radial-gradient(circle, var(--bg-primary) 20%, var(--if-panel-flat) 75%); }
+}
+
+/* Painel de leitura */
+.elem__painel { padding: 1.1rem; min-height: 9.5rem; }
+
+.elem__info { animation: elem-surge .35s ease both; }
+
+@keyframes elem-surge { from { opacity: 0; transform: translateY(6px); } }
+
+.elem__info p {
+  margin: .3rem 0 .8rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.elem__nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--if-ink);
+}
+
+.elem__rotulo, .elem__dica {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+}
+
+.elem__secs { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .45rem; }
+
+.elem__sec {
+  padding: .35rem .7rem;
+  border: 1px solid var(--if-edge);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .82rem;
+  color: var(--if-ink);
+  background: var(--if-cyan-08);
+}
+
+.elem__info--anomalia p { color: var(--if-ink); }
+.elem__info--anomalia .if-eyebrow { color: var(--if-violet); }
+
+@media (prefers-reduced-motion: reduce) {
+  .elem__aro, .elem__roda.is-anomalia .elem__centro, .elem__roda.is-anomalia .elem__no--fogo, .elem__info { animation: none; }
+}

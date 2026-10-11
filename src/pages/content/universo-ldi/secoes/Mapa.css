@@ -1,0 +1,191 @@
+.mapa { display: flex; flex-direction: column; gap: 1rem; }
+
+.mapa__abas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--if-edge);
+}
+
+.mapa__aba {
+  min-height: 48px;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color .25s, background .25s, box-shadow .25s;
+}
+
+.mapa__aba.is-ativa {
+  color: var(--if-cyan);
+  background: var(--if-cyan-08);
+  box-shadow: inset 0 -2px 0 var(--if-cyan);
+}
+
+/* Radar: um disco com varredura girando e um ponto por lugar. */
+.mapa__radar {
+  position: relative;
+  aspect-ratio: 1;
+  width: 72%;
+  margin: .5rem auto 0;
+  border-radius: 50%;
+  border: 1px solid var(--if-edge);
+  background:
+    radial-gradient(circle, transparent 32%, var(--if-hair-strong) 32.5%, transparent 33%),
+    radial-gradient(circle, transparent 65%, var(--if-hair-strong) 65.5%, transparent 66%),
+    linear-gradient(var(--if-hair) 0 0) center / 1px 100% no-repeat,
+    linear-gradient(var(--if-hair) 0 0) center / 100% 1px no-repeat,
+    radial-gradient(circle, var(--if-cyan-08), transparent 70%);
+  overflow: hidden;
+}
+
+.mapa__varredura {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--if-cyan-45), transparent 22%);
+  animation: mapa-gira 4s linear infinite;
+}
+
+.mapa__radar--mundo .mapa__varredura { background: conic-gradient(from 0deg, var(--if-amber-72), transparent 22%); }
+
+@keyframes mapa-gira { to { transform: rotate(360deg); } }
+
+.mapa__ponto {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--if-cyan-58);
+  transform: translate(-50%, -50%);
+  transition: transform .3s, background .3s, box-shadow .3s;
+}
+
+.mapa__radar--mundo .mapa__ponto { background: var(--if-amber-72); }
+
+.mapa__ponto.is-aceso {
+  background: var(--if-ink);
+  box-shadow: 0 0 0 6px var(--if-cyan-20), 0 0 18px var(--if-cyan);
+  transform: translate(-50%, -50%) scale(1.6);
+}
+
+/* Posições espalhadas pelo disco (12 vagas). */
+.mapa__ponto[data-i="0"] { left: 50%; top: 50%; }
+.mapa__ponto[data-i="1"] { left: 30%; top: 34%; }
+.mapa__ponto[data-i="2"] { left: 68%; top: 28%; }
+.mapa__ponto[data-i="3"] { left: 74%; top: 62%; }
+.mapa__ponto[data-i="4"] { left: 38%; top: 72%; }
+.mapa__ponto[data-i="5"] { left: 20%; top: 56%; }
+.mapa__ponto[data-i="6"] { left: 56%; top: 16%; }
+.mapa__ponto[data-i="7"] { left: 84%; top: 44%; }
+.mapa__ponto[data-i="8"] { left: 58%; top: 82%; }
+.mapa__ponto[data-i="9"] { left: 16%; top: 38%; }
+.mapa__ponto[data-i="10"] { left: 44%; top: 26%; }
+.mapa__ponto[data-i="11"] { left: 64%; top: 48%; }
+
+.mapa__dica {
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.mapa__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.mapa__lugar {
+  border: 1px solid var(--if-hair-strong);
+  background: var(--if-panel-flat);
+  animation: mapa-entra .45s both;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+
+.mapa__lugar[data-i="1"] { --d: 50; } .mapa__lugar[data-i="2"] { --d: 100; } .mapa__lugar[data-i="3"] { --d: 150; }
+.mapa__lugar[data-i="4"] { --d: 200; } .mapa__lugar[data-i="5"] { --d: 250; } .mapa__lugar[data-i="6"] { --d: 300; }
+.mapa__lugar[data-i="7"] { --d: 350; } .mapa__lugar[data-i="8"] { --d: 400; } .mapa__lugar[data-i="9"] { --d: 450; }
+.mapa__lugar[data-i="10"] { --d: 500; } .mapa__lugar[data-i="11"] { --d: 550; }
+
+@keyframes mapa-entra { from { opacity: 0; transform: translateY(10px); } }
+
+.mapa__lugar.is-aberto { border-color: var(--if-edge); box-shadow: inset 2px 0 0 var(--if-cyan); }
+
+.mapa__lugar-btn {
+  width: 100%;
+  min-height: 52px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: .75rem;
+  padding: .6rem 1rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mapa__tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+  min-width: 4.5rem;
+}
+
+.mapa__nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--if-ink);
+}
+
+.mapa__seta {
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--if-cyan-58);
+  border-bottom: 2px solid var(--if-cyan-58);
+  transform: rotate(45deg);
+  transition: transform .3s;
+}
+
+.mapa__lugar.is-aberto .mapa__seta { transform: rotate(225deg); }
+
+.mapa__texto {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .35s ease;
+}
+
+.mapa__lugar.is-aberto .mapa__texto { grid-template-rows: 1fr; }
+
+.mapa__texto p {
+  overflow: hidden;
+  margin: 0;
+  padding: 0 1rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  transition: padding .35s;
+}
+
+.mapa__lugar.is-aberto .mapa__texto p { padding: 0 1rem 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mapa__varredura { animation: none; }
+  .mapa__lugar { animation: none; }
+}

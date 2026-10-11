@@ -7,9 +7,9 @@
     "titulo": "Lutas de Ilusão",
     "titulo_en": "Illusion Fight",
     "titulo_es": "Lutas de Ilusión",
-    "subtitulo_pt": "Bravara, a arena LDI, os Xakaxi, a lore que originou o projeto.",
-    "subtitulo_en": "Bravara, the LDI arena, the Xakaxi, the lore that started the project.",
-    "subtitulo_es": "Bravara, la arena LDI, los Xakaxi, la lore que originó el proyecto.",
+    "subtitulo_pt": "O mito do Caos, Bravara, a arena LDI e os Xakaxi. A lore que originou o projeto.",
+    "subtitulo_en": "The myth of Chaos, Bravara, the LDI arena, and the Xakaxi. The lore that started the project.",
+    "subtitulo_es": "El mito del Caos, Bravara, la arena LDI y los Xakaxi. La lore que originó el proyecto.",
     "destaque": true,
     "idiomas": [
       "pt",
@@ -24,10 +24,22 @@
         "titulo_es": "Personajes"
       },
       {
+        "id": "mitologia",
+        "titulo": "Mitologia",
+        "titulo_en": "Mythology",
+        "titulo_es": "Mitología"
+      },
+      {
+        "id": "mundos",
+        "titulo": "Dois mundos",
+        "titulo_en": "Two worlds",
+        "titulo_es": "Dos mundos"
+      },
+      {
         "id": "bravara",
-        "titulo": "Bravara",
-        "titulo_en": "Bravara",
-        "titulo_es": "Bravara"
+        "titulo": "O mapa",
+        "titulo_en": "The map",
+        "titulo_es": "El mapa"
       },
       {
         "id": "timeline",
@@ -37,21 +49,15 @@
       },
       {
         "id": "ldi",
-        "titulo": "Modos de Combate",
-        "titulo_en": "Combat Modes",
-        "titulo_es": "Modos de Combate"
-      },
-      {
-        "id": "ranking",
-        "titulo": "Ranking SDR",
-        "titulo_en": "SDR Ranking",
-        "titulo_es": "Ranking SDR"
+        "titulo": "A arena",
+        "titulo_en": "The arena",
+        "titulo_es": "La arena"
       },
       {
         "id": "xakaxi",
-        "titulo": "Xakaxi",
-        "titulo_en": "Xakaxi",
-        "titulo_es": "Xakaxi"
+        "titulo": "Os Xakaxi",
+        "titulo_en": "The Xakaxi",
+        "titulo_es": "Los Xakaxi"
       },
       {
         "id": "glossario",

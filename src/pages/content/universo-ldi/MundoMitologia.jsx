@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../context/AuthContext'
-import { useLanguage } from '../../context/LanguageContext'
-import { useHistoriasAcesso } from '../../hooks/useHistoriasAcesso'
-import { creatorAtivo } from '../../lib/creator'
+import { useAuth } from '../../../context/AuthContext'
+import { useLanguage } from '../../../context/LanguageContext'
+import { useHistoriasAcesso } from '../../../hooks/useHistoriasAcesso'
+import { creatorAtivo } from '../../../lib/creator'
+import { Secao } from './useRevela'
 import './MundoMitologia.css'
 
 /** A origem do mundo (o Caos, os sete deuses, a profecia dos Xakaxi).
  *  Aberta para assinante, creator ativo e admin; o resto vê o convite. */
-export default function MundoMitologia({ mitologia }) {
+export default function MundoMitologia({ mitologia, indice, titulo }) {
   const { t } = useLanguage()
   const { perfil } = useAuth()
   const { isAdmin, nivel } = useHistoriasAcesso()
@@ -16,9 +17,7 @@ export default function MundoMitologia({ mitologia }) {
   if (!mitologia) return null
 
   return (
-    <section className="mundo-section" id="mitologia">
-      <div className="container">
-        <h2 className="section-title">{t('pages.mundo.mitologia')}</h2>
+    <Secao id="mitologia" indice={indice} titulo={titulo || t('pages.mundo.mitologia')} alt>
 
         {!aberta ? (
           <div className="mito-trava if-panel">
@@ -34,7 +33,7 @@ export default function MundoMitologia({ mitologia }) {
               {mitologia.criacao.map((p, i) => <p key={i}>{p}</p>)}
             </div>
 
-            <h3 className="mundo-section-subtitle">{mitologia.deuses_titulo}</h3>
+            <h3 className="uldi-sub">{mitologia.deuses_titulo}</h3>
             <div className="mito__deuses">
               {mitologia.deuses.map(d => (
                 <div key={d.nome} className={`mito-deus if-panel mito-deus--${d.id}`}>
@@ -45,7 +44,7 @@ export default function MundoMitologia({ mitologia }) {
               ))}
             </div>
 
-            <h3 className="mundo-section-subtitle">{mitologia.profecia_titulo}</h3>
+            <h3 className="uldi-sub">{mitologia.profecia_titulo}</h3>
             <div className="mito__canto">
               {mitologia.profecia.map((p, i) => <p key={i}>{p}</p>)}
               <blockquote className="mito__verso">
@@ -57,7 +56,6 @@ export default function MundoMitologia({ mitologia }) {
             <p className="mito__fecho">{mitologia.fecho}</p>
           </div>
         )}
-      </div>
-    </section>
+    </Secao>
   )
 }

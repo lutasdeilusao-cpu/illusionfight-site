@@ -1,0 +1,128 @@
+.xk { display: flex; flex-direction: column; }
+
+.xk__dica {
+  margin: -.5rem 0 .75rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.xk__povo { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+
+/* Carta que vira: frente com o nome, verso com a história. */
+.xk-carta {
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  border: 0;
+  background: none;
+  perspective: 900px;
+  cursor: pointer;
+  color: inherit;
+  text-align: left;
+}
+
+.xk-carta__miolo {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .7s cubic-bezier(.2,.8,.2,1);
+}
+
+.xk-carta.is-virada .xk-carta__miolo { transform: rotateY(180deg); }
+
+.xk-carta__frente,
+.xk-carta__verso {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: .9rem;
+  backface-visibility: hidden;
+  border: 1px solid var(--if-amber-16);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+.xk-carta__frente {
+  justify-content: flex-end;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, var(--if-amber-16) 14px 15px),
+    radial-gradient(circle at 50% 30%, var(--if-amber-16), transparent 60%),
+    var(--if-panel-flat);
+}
+
+.xk-carta__sinal {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  width: 34%;
+  aspect-ratio: 1;
+  transform: translateX(-50%) rotate(45deg);
+  border: 2px solid var(--if-amber-72);
+  box-shadow: inset 0 0 0 6px var(--bg-primary), inset 0 0 0 8px var(--if-amber-16);
+}
+
+.xk-carta__verso {
+  transform: rotateY(180deg);
+  justify-content: flex-start;
+  gap: .4rem;
+  background: var(--if-glow-corner), var(--if-panel);
+  border-color: var(--if-edge);
+  overflow: hidden;
+}
+
+.xk-carta__nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.1;
+  color: var(--if-ink);
+}
+
+.xk-carta__nome--sm { font-size: 1rem; color: var(--if-amber); }
+
+.xk-carta__papel {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--if-amber-72);
+  margin-top: .2rem;
+}
+
+.xk-carta__texto {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .78rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.xk__tec { display: flex; flex-direction: column; gap: .5rem; }
+
+.xk__tec-item {
+  padding: .85rem 1rem;
+  border: 1px solid var(--if-hair-strong);
+  background: linear-gradient(90deg, var(--if-amber-16), transparent 45%), var(--if-panel-flat);
+}
+
+.xk__tec-nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--if-amber);
+}
+
+.xk__tec-item p {
+  margin: .2rem 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .86rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xk-carta__miolo { transition: none; }
+}

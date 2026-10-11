@@ -1,0 +1,109 @@
+.glo { display: flex; flex-direction: column; gap: .85rem; }
+
+.glo__busca {
+  position: relative;
+  display: block;
+}
+
+.glo__busca input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 1rem 0 2.6rem;
+  border: 1px solid var(--if-edge);
+  background: var(--if-panel-flat);
+  color: var(--if-ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .25s, box-shadow .25s;
+}
+
+.glo__busca input:focus { border-color: var(--if-cyan); box-shadow: 0 0 0 3px var(--if-cyan-13); }
+
+.glo__lupa {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--if-cyan-58);
+  border-radius: 50%;
+  transform: translateY(-60%);
+}
+
+.glo__lupa::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 6px;
+  height: 2px;
+  background: var(--if-cyan-58);
+  transform: rotate(45deg);
+}
+
+.glo__filtros { display: flex; gap: .5rem; }
+
+.glo__filtro {
+  flex: 1;
+  min-height: 44px;
+  border: 1px solid var(--if-hair-strong);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s;
+}
+
+.glo__filtro.is-ativo { color: var(--if-cyan); border-color: var(--if-cyan); background: var(--if-cyan-08); }
+
+.glo__lista { margin: 0; display: flex; flex-direction: column; gap: .5rem; }
+
+.glo__item {
+  padding: .85rem 1rem;
+  border: 1px solid var(--if-hair-strong);
+  background: var(--if-panel-flat);
+  animation: glo-entra .3s ease both;
+}
+
+@keyframes glo-entra { from { opacity: 0; transform: translateY(4px); } }
+
+.glo__item dt { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem; }
+
+.glo__sigla {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--if-cyan);
+}
+
+.glo__nome {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .66rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.glo__item dd {
+  margin: .3rem 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .88rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.glo__vazio {
+  text-align: center;
+  padding: 2rem 0;
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) { .glo__item { animation: none; } }

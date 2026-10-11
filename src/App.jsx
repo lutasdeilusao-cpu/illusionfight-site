@@ -36,7 +36,7 @@ const WebshardHub = lazyWithReload(() => import('./pages/content/webshard/Websha
 // este import + a <Route> abaixo quando a comparação acabar.
 const WebtoonCompare = lazyWithReload(() => import('./pages/preview/WebtoonCompare'))
 const WebshardRota = lazyWithReload(() => import('./pages/content/webshard/WebshardRota'))
-const Mundo = lazyWithReload(() => import('./pages/content/Mundo'))
+const UniversoLDI = lazyWithReload(() => import('./pages/content/universo-ldi/UniversoLDI'))
 const UniversosHub = lazyWithReload(() => import('./pages/content/UniversosHub/UniversosHub'))
 const Universo = lazyWithReload(() => import('./pages/content/Universo'))
 const Quiz = lazyWithReload(() => import('./pages/site/Quiz'))
@@ -189,7 +189,7 @@ export default function App() {
         <Route path="/autor" element={<Autor />} />
         <Route path="/musicas" element={<Musicas />} />
         <Route path="/universos" element={<UniversosHub />} />
-        <Route path="/universos/lutas-de-ilusao" element={<Mundo />} />
+        <Route path="/universos/lutas-de-ilusao" element={<UniversoLDI />} />
         <Route path="/universos/:universo" element={<Universo />} />
         {/* Mundo → Universos (migração v10.205.0): a rota antiga não morre. */}
         <Route path="/mundo" element={<LegacyLivroRedirect to="/universos" />} />

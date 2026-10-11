@@ -5,6 +5,7 @@ import { useLanguage } from '../../context/LanguageContext'
 import universos from '../../data/universo-index.json'
 import './Livro.css'
 import './Contos.css'
+import './UniversoTemas.css'
 import './Universo.css'
 
 const docs = import.meta.glob('../../data/universo/**/*.json', { eager: true, import: 'default' })

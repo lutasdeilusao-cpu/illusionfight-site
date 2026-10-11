@@ -3,58 +3,6 @@
    Tokens --u-* são redefinidos em [data-tema="..."].
    ══════════════════════════════════════════════════════════════ */
 
-.universo-page {
-  --u-accent: var(--accent-teal);
-  --u-blue: #7eb8d4;
-  --u-red: #d47070;
-  --u-rose: #d4a0a0;
-  --u-green: #a0d090;
-  --u-purple: #9b78c8;
-  --u-bg: #07090c;
-  --u-bg2: #0d1116;
-  --u-panel: #10151b;
-  --u-line: #232c34;
-  --u-ink: #dce3e8;
-  --u-ink-soft: #93a1ac;
-  --u-font-display: 'Rajdhani', sans-serif;
-  --u-font-body: var(--font-body);
-
-  min-height: 100vh;
-  background: radial-gradient(1100px 560px at 50% -10%, color-mix(in srgb, var(--u-accent) 8%, transparent), transparent 60%), var(--u-bg);
-  color: var(--u-ink);
-  padding-bottom: 6rem;
-}
-
-/* ── O Mundo das Sombras ── */
-.universo-page[data-tema="mundo-das-sombras"] {
-  --u-accent: #b98cff;
-  --u-bg: #08060d;
-  --u-bg2: #0e0a16;
-  --u-panel: #130f1d;
-  --u-line: #2c2440;
-  --u-ink: #e7e2f0;
-  --u-ink-soft: #9a90b4;
-  --u-font-display: 'Cinzel', 'Rajdhani', serif;
-}
-
-/* ── Mar de Cinzas — parchment / brass / naval ── */
-.universo-page[data-tema="mar-de-cinzas"] {
-  --u-accent: #c9872a;
-  --u-blue: #7eb8d4;
-  --u-red: #d47070;
-  --u-rose: #d4a0a0;
-  --u-green: #a0d090;
-  --u-purple: #9b78c8;
-  --u-bg: #0a0806;
-  --u-bg2: #110e0a;
-  --u-panel: #17130d;
-  --u-line: #322818;
-  --u-ink: #e8e0cc;
-  --u-ink-soft: #a89880;
-  --u-font-display: 'Cinzel', 'Rajdhani', serif;
-  --u-font-body: 'EB Garamond', Georgia, serif;
-}
-
 /* ══ Hero ══ */
 .universo-hero {
   position: relative;
@@ -73,7 +21,7 @@
 }
 
 .universo-page[data-tema="mundo-das-sombras"] .universo-hero__fx {
-  background: conic-gradient(from 0deg at 50% 40%, transparent 0deg, color-mix(in srgb, var(--u-accent) 30%, transparent) 60deg, transparent 120deg, color-mix(in srgb, #f2c14e 20%, transparent) 200deg, transparent 260deg, color-mix(in srgb, var(--u-accent) 24%, transparent) 320deg, transparent 360deg);
+  background: conic-gradient(from 0deg at 50% 40%, transparent 0deg, color-mix(in srgb, var(--u-accent) 30%, transparent) 60deg, transparent 120deg, color-mix(in srgb, var(--if-amber) 20%, transparent) 200deg, transparent 260deg, color-mix(in srgb, var(--u-accent) 24%, transparent) 320deg, transparent 360deg);
   filter: blur(52px);
   animation: u-spin 46s linear infinite;
 }
@@ -112,8 +60,8 @@
   font-size: clamp(2.4rem, calc(7 * var(--app-vw) / 100), 4.4rem);
   line-height: 1.03;
   letter-spacing: 0.03em;
-  color: #fff;
-  text-shadow: 0 0 1px color-mix(in srgb, var(--u-accent) 80%, #fff), 0 0 32px color-mix(in srgb, var(--u-accent) 50%, transparent), 0 0 64px color-mix(in srgb, var(--u-accent) 26%, transparent);
+  color: var(--if-ink);
+  text-shadow: 0 0 1px color-mix(in srgb, var(--u-accent) 80%, var(--if-ink)), 0 0 32px color-mix(in srgb, var(--u-accent) 50%, transparent), 0 0 64px color-mix(in srgb, var(--u-accent) 26%, transparent);
 }
 
 .universo-hero__sub {
@@ -383,7 +331,7 @@
   font-weight: 700;
   font-size: 1.9rem;
   letter-spacing: 0.04em;
-  color: #fff;
+  color: var(--if-ink);
 }
 .u-protag__papel {
   display: block;
