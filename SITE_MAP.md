@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.388.3**.
+> `SITE_VERSION` **10.389.0**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -91,7 +91,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/webtoon/:slug/:cap` | Leitor dos demais títulos (`lutas-de-ilusao` redireciona pra URL legada) | `src/pages/content/webshard/WebshardRota.jsx` → `WebshardLeitor.jsx` |
 | `/musicas` | Músicas | `src/pages/content/Musicas.jsx` |
 | `/universos` | Portal dos universos (entrada) | `src/pages/content/UniversosHub/UniversosHub.jsx` |
-| `/universos/lutas-de-ilusao` | Lore do universo LDI | `src/pages/content/Mundo.jsx` |
+| `/universos/lutas-de-ilusao` | Lore do universo LDI; a seção Mitologia (o Caos, os sete deuses, a profecia dos Xakaxi) abre só para assinante, creator e admin | `src/pages/content/Mundo.jsx` + `MundoMitologia.jsx` |
 | `/universos/:universo` | Worldbuilding (Mundo das Sombras, Mar de Cinzas) | `src/pages/content/Universo.jsx` |
 | `/mundo` → `/universos`, `/mundo/:universo` → `/universos/:universo` | Redirects 301 legados | `src/App.jsx` (`LegacyLivroRedirect`) + `public/_redirects` + `public/mundo/index.html` + prerender REDIRECTS |
 | `/autor` | Porta de entrada das Histórias do Autor (índice dos capítulos) + a versão curta da trajetória | `src/pages/site/Autor.jsx` |
@@ -266,7 +266,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | Área | Fonte |
 |---|---|
 | Personagens | `src/data/personagens-{pt,en,es}.json` |
-| Mundo/lore | `src/data/mundo-{pt,en,es}.json` |
+| Mundo/lore | `src/data/mundo-{pt,en,es}.json` (`mitologia` = texto da seção Mitologia); cosmologia completa e canon em `docs/LDI/MITOLOGIA.md` |
 | Livro (linha principal) | `src/data/historias/lutas-de-ilusao.json` (com `resumo_*` / `tagline_*` e `liberacao.{primordial,elite,conta,publico}` por capítulo; a chave `elite` é o tier Ancestral) e `src/data/historias/lutas-de-ilusao/{pt,en,es}/capitulo-NN.md` |
 | Calendário público | `src/data/season-one-schedule.js` reúne as 39 linhas da timeline da Temporada 1 (Portal: assinante/conta grátis/público, sempre -15/0/+15 dias entre si, + Outras Plataformas com ritmo próprio) + `SEASONS_OVERVIEW` (panorama T1-T6, só T1 marcada como confirmada, T2+ é projeção explícita). `Calendario.jsx` renderiza uma grade mês a mês real (nov/2026–jan/2028, ano de 2027 inteiro, todo mês aparece mesmo sem evento) com bolinhas por dia (assinante/conta/público/outras), igual nas abas Capítulos e WEB SHARD; as datas de acesso que alimentam o gate ficam nos três índices editoriais |
 | Contos de Ilusão | `src/data/historias/contos.json` (com `resumo_{pt,en,es}` por capítulo) e `src/data/historias/contos/<id>/{pt,en,es}/NN.md` |
@@ -422,7 +422,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.388.3** |
+| `SITE_VERSION` | Site global | **10.389.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.13.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |

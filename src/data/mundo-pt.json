@@ -1,4 +1,76 @@
 {
+  "mitologia": {
+    "intro": "Antes do LDI, antes de Bravara, antes de qualquer coisa ter nome, existia uma história que os Xakaxi contavam pras crianças. Quase ninguém lembra mais dela.",
+    "criacao": [
+      "No começo não tinha nada. Só o Caos. Ele não era bom nem mau: era o empurrão de tudo. Tudo o que existe, existe porque o Caos se mexeu. Por isso ele é o mais antigo de todos. Os Xakaxi o chamavam de Ypy, o Princípio. O mundo de hoje chama de outro jeito: o Primordial.",
+      "O Caos gostava de quebrar. Não por raiva: por ser o que era. Pra ele, tudo o que ficava de pé estava errado. No auge do poder, ele fez filhos pra quebrarem junto com ele. Os filhos eram os próprios elementos.",
+      "Mas os filhos olharam uns pros outros e, em vez de quebrar, construíram. O Fogo esquentou, a Água correu, a Terra segurou, o Ar soprou, a Luz mostrou e a Escuridão deixou descansar. O que eles fizeram juntos se chamou Ordem.",
+      "O pai não aceitou. Tudo o que os filhos erguiam, ele derrubava. Então os filhos fizeram o que nenhum filho quer fazer: juntaram tudo o que eram num selo só e prenderam o pai. O Primeiro Selo. Pra fechar, cada um deu uma parte de si, e a magia do mundo nunca mais foi tão forte.",
+      "Com o pai preso, a Ordem cresceu. Da Ordem nasceram a terra viva, os bichos e as pessoas.",
+      "No pacto que prendeu o pai, os seis prometeram que nada, nunca mais, ia crescer demais, porque o que cresce demais vira outro Caos. A promessa ganhou vida própria e virou o sétimo deus: o Equilíbrio."
+    ],
+    "deuses_titulo": "Os sete deuses",
+    "deuses": [
+      {
+        "id": "fogo",
+        "nome": "Tatarã",
+        "elemento": "Fogo",
+        "texto": "O primeiro a se mexer depois do pai. Esquenta, empurra e não sabe ficar parado."
+      },
+      {
+        "id": "agua",
+        "nome": "Ypuã",
+        "elemento": "Água",
+        "texto": "Corre por onde dá. Lava, cura e afoga, conforme o dia."
+      },
+      {
+        "id": "terra",
+        "nome": "Ybyaçu",
+        "elemento": "Terra",
+        "texto": "A que segura o chão. A mais paciente dos seis."
+      },
+      {
+        "id": "ar",
+        "nome": "Ybytuã",
+        "elemento": "Ar",
+        "texto": "Nunca encosta no chão. Leva tudo de um lado pro outro."
+      },
+      {
+        "id": "luz",
+        "nome": "Endyara",
+        "elemento": "Luz",
+        "texto": "A que mostra. Com ela, ninguém se esconde."
+      },
+      {
+        "id": "escuridao",
+        "nome": "Pytunã",
+        "elemento": "Escuridão",
+        "texto": "A que deixa descansar. Nas estátuas, está sempre de costas pros irmãos, vigiando alguma coisa."
+      },
+      {
+        "id": "equilibrio",
+        "nome": "Ajojá",
+        "elemento": "Equilíbrio · Neutro",
+        "texto": "Não é filho do Caos. É o pacto que virou deus. O fiel da balança: corta o que cresce demais, pro bem ou pro mal."
+      }
+    ],
+    "profecia_titulo": "A profecia dos Xakaxi",
+    "profecia": [
+      "De todos os povos que nasceram da Ordem, nenhum subiu tão alto quanto os Xakaxi, o povo originário de Bravara. Cidades no meio da floresta, metal que segurava energia, os seis elementos no mesmo sangue. E, mais do que tudo, paz com a Ordem.",
+      "Foi esse o problema. Prego torto é prego torto, não importa se subiu pro bem. Em nome do Equilíbrio, os Xakaxi também tinham que deixar de existir. Eles sabiam disso fazia mil anos. Estava na profecia que se contava pras crianças antes de dormir:"
+    ],
+    "verso": [
+      "Quando a lua sangrar na frente do sol,",
+      "o povo que subiu mais alto vai descer.",
+      "Vão chegar homens do mar.",
+      "E o que foi dado vai ser tomado."
+    ],
+    "depois": [
+      "Em 1450, a lua sangrou. Powa, filho do Pajé Yawanari, não aceitou o destino e fez um rito proibido. O Pajé deu a própria vida pra selar o poder sagrado, e o povo inteiro perdeu a memória. O Powa perdeu o poder, mas não a memória. Hoje usa outro nome: David Kronos.",
+      "No fim da vida, o Pajé desconfiou que o Equilíbrio tinha um motivo mais fundo pra apagar os Xakaxi. Nunca contou pra ninguém."
+    ],
+    "fecho": "No templo dos Xakaxi tinha seis estátuas. E, atrás da Escuridão, uma porta de pedra sem estátua nenhuma. Ninguém rezava pra ela. Os velhos diziam que era a porta do que veio antes."
+  },
   "localizacoes": [
     {
       "nome": "Bravara",
@@ -45,7 +117,7 @@
     {
       "ano": "1450",
       "titulo": "Apogeu Xakaxi",
-      "texto": "A tribo Xakaxi estava no auge: fibra de carbono, agricultura robótica, o metal Xakaxium, seis elementos dominados. Então o filho do pajé, Powa, realizou um ritual proibido. Pajé Yawanari sacrificou o próprio corpo para selar o Sangue Primordial. A memória tecnológica da tribo foi apagada."
+      "texto": "A tribo Xakaxi estava no auge: fibra de carbono, agricultura robótica, o metal Xakaxium, seis elementos dominados. Então o filho do pajé, Powa, realizou um ritual proibido. Pajé Yawanari sacrificou o próprio corpo para selar o poder sagrado. A memória tecnológica da tribo foi apagada."
     },
     {
       "ano": "1500",

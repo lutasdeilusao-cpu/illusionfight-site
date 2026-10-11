@@ -1,0 +1,123 @@
+.mito {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mito__intro {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.7;
+  text-align: center;
+  margin: 0;
+}
+
+.mito__canto {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-left: 2px solid var(--if-edge);
+  padding-left: 1rem;
+}
+
+.mito__canto p {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.mito__verso {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+  padding: 0.75rem 1rem;
+  background: var(--if-amber-16);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--if-amber-soft);
+}
+
+.mito__deuses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.mito-deus {
+  padding: 1rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.mito-deus--equilibrio {
+  grid-column: 1 / -1;
+}
+
+.mito-deus__elemento {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+}
+
+.mito-deus__nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--if-ink);
+  margin: 0;
+}
+
+.mito-deus__texto {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.mito-deus--fogo .mito-deus__elemento { color: var(--if-cta-edge); }
+.mito-deus--agua .mito-deus__elemento { color: var(--if-teal); }
+.mito-deus--terra .mito-deus__elemento { color: var(--if-amber); }
+.mito-deus--ar .mito-deus__elemento { color: var(--if-cyan); }
+.mito-deus--luz .mito-deus__elemento { color: var(--if-amber-soft); }
+.mito-deus--escuridao .mito-deus__elemento { color: var(--if-violet); }
+.mito-deus--equilibrio .mito-deus__elemento { color: var(--if-ink); }
+
+.mito__fecho {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.75;
+  text-align: center;
+  margin: 1rem 0 0;
+}
+
+.mito-trava {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+}
+
+.mito-trava__texto {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.mito-trava__cta {
+  text-decoration: none;
+}

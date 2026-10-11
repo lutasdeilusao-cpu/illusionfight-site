@@ -1,4 +1,76 @@
 {
+  "mitologia": {
+    "intro": "Before the LDI, before Bravara, before anything had a name, there was a story the Xakaxi told their children. Almost nobody remembers it anymore.",
+    "criacao": [
+      "In the beginning there was nothing. Only Chaos. He wasn't good or evil: he was the push behind everything. Everything that exists, exists because Chaos moved. That's why he is the oldest of all. The Xakaxi called him Ypy, the Beginning. Today's world calls him something else: the Primordial.",
+      "Chaos liked to break things. Not out of anger: because that's what he was. To him, anything left standing was wrong. At the height of his power, he made children to break things with him. The children were the elements themselves.",
+      "But the children looked at each other and, instead of breaking, they built. Fire warmed, Water flowed, Earth held, Air blew, Light showed, and Darkness let things rest. What they made together was called Order.",
+      "The father wouldn't have it. Everything the children raised, he tore down. So the children did what no child ever wants to do: they put everything they were into a single seal and locked their father away. The First Seal. To close it, each of them gave up a piece of themselves, and the world's magic was never that strong again.",
+      "With the father locked away, Order grew. From Order came living land, animals, and people.",
+      "In the pact that imprisoned the father, the six swore that nothing would ever grow too much again, because whatever grows too much becomes another Chaos. The promise came to life on its own and became the seventh god: Balance."
+    ],
+    "deuses_titulo": "The seven gods",
+    "deuses": [
+      {
+        "id": "fogo",
+        "nome": "Tatarã",
+        "elemento": "Fire",
+        "texto": "The first to move after the father. It warms, it pushes, and it can't sit still."
+      },
+      {
+        "id": "agua",
+        "nome": "Ypuã",
+        "elemento": "Water",
+        "texto": "It runs wherever it can. It washes, heals, and drowns, depending on the day."
+      },
+      {
+        "id": "terra",
+        "nome": "Ybyaçu",
+        "elemento": "Earth",
+        "texto": "The one who holds the ground. The most patient of the six."
+      },
+      {
+        "id": "ar",
+        "nome": "Ybytuã",
+        "elemento": "Air",
+        "texto": "Never touches the ground. Carries everything from one place to another."
+      },
+      {
+        "id": "luz",
+        "nome": "Endyara",
+        "elemento": "Light",
+        "texto": "The one who shows. Nobody hides from her."
+      },
+      {
+        "id": "escuridao",
+        "nome": "Pytunã",
+        "elemento": "Darkness",
+        "texto": "The one who lets things rest. In the statues, she always has her back to her siblings, watching something."
+      },
+      {
+        "id": "equilibrio",
+        "nome": "Ajojá",
+        "elemento": "Balance · Neutral",
+        "texto": "Not a child of Chaos. The pact that became a god. The keeper of the scale: it cuts down whatever grows too much, for good or for evil."
+      }
+    ],
+    "profecia_titulo": "The Xakaxi prophecy",
+    "profecia": [
+      "Of all the peoples born from Order, none rose as high as the Xakaxi, the native people of Bravara. Cities in the middle of the forest, metal that held energy, all six elements in a single bloodline. And, above all, peace with Order.",
+      "That was the problem. A nail that sticks out gets hammered down, even if it rose for good. In the name of Balance, the Xakaxi had to stop existing too. They had known it for a thousand years. It was in the prophecy they told their children at bedtime:"
+    ],
+    "verso": [
+      "When the moon bleeds in front of the sun,",
+      "the people who rose the highest will fall.",
+      "Men will come from the sea.",
+      "And what was given will be taken."
+    ],
+    "depois": [
+      "In 1450, the moon bled. Powa, son of Pajé Yawanari, refused that fate and performed a forbidden rite. The Pajé gave his own life to seal the sacred power, and the whole people lost their memory. Powa lost his power, but not his memory. Today he goes by another name: David Kronos.",
+      "At the end of his life, the Pajé came to suspect that Balance had a deeper reason for erasing the Xakaxi. He never told anyone."
+    ],
+    "fecho": "In the Xakaxi temple there were six statues. And, behind Darkness, a stone door with no statue at all. Nobody prayed to it. The elders said it was the door to what came before."
+  },
   "localizacoes": [
     {
       "nome": "Bravara",
@@ -45,7 +117,7 @@
     {
       "ano": "1450",
       "titulo": "Xakaxi at Peak",
-      "texto": "The Xakaxi tribe thrives: carbon fiber, robotic agriculture, Xakaxium metal, six elements mastered. Then Powa — the shaman's son — performs a forbidden ritual. Pajé Yawanari sacrifices his own body to seal the Sangue Primordial. The tribe's technological memory is erased."
+      "texto": "The Xakaxi tribe thrives: carbon fiber, robotic agriculture, Xakaxium metal, six elements mastered. Then Powa — the shaman's son — performs a forbidden ritual. Pajé Yawanari sacrifices his own body to seal the sacred power. The tribe's technological memory is erased."
     },
     {
       "ano": "1500",

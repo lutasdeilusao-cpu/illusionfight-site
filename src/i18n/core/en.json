@@ -829,6 +829,10 @@
       "ldi": "ILLUSION FIGHT",
       "ranking_sdr": "SDR Ranking",
       "xakaxi": "THE XAKAXI",
+      "mitologia": "MYTHOLOGY",
+      "mitologia_trava_eyebrow": "Subscribers only",
+      "mitologia_trava_texto": "The origin of the Illusion Fight world: Chaos, the seven gods, and the prophecy that erased the Xakaxi.",
+      "mitologia_trava_cta": "See plans",
       "glossario": "GLOSSARY",
       "personagens_titulo": "MEET THE CHARACTERS",
       "ver_todos": "VIEW ALL",
@@ -837,7 +841,7 @@
       "og_title": "World — Illusion Fight Universe",
       "og_desc": "Explore the Illusion Fight universe — Bravara, the LDI arena, the Xakaxi tribe, timeline, glossary, and the complete lore.",
       "premium": "PREMIUM",
-      "premium_ritual": "Detailed Sealing Ritual, Yawanari, Powa and Tawira sheets, and the Primordial Sagas"
+      "premium_ritual": "Detailed Sealing Ritual, Yawanari, Powa and Kawa sheets, and the Primordial Sagas"
     },
     "personagens": {
       "voltar": "← CHARACTERS",

@@ -6,6 +6,7 @@ import { TRIAL_ACTIVE } from '../../config/trial'
 import { usePersonagens } from '../../hooks/usePersonagens'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import CharacterCard from '../../components/CharacterCard'
+import MundoMitologia from './MundoMitologia'
 import dataPt from '../../data/mundo-pt.json'
 import dataEn from '../../data/mundo-en.json'
 import dataEs from '../../data/mundo-es.json'
@@ -69,7 +70,9 @@ export default function Mundo() {
         </div>
       </section>
 
-      <section className="mundo-section" id="bravara">
+      <MundoMitologia mitologia={data.mitologia} />
+
+      <section className="mundo-section mundo-section--alt" id="bravara">
         <div className="container">
           <h2 className="section-title">{t('pages.mundo.bravara')}</h2>
           <div className="mundo-locais-grid">
@@ -84,7 +87,7 @@ export default function Mundo() {
         </div>
       </section>
 
-      <section className="mundo-section mundo-section--alt" id="timeline">
+      <section className="mundo-section" id="timeline">
         <div className="container">
           <h2 className="section-title">{t('pages.mundo.timeline')}</h2>
           <div className="timeline-wrapper">
@@ -103,7 +106,7 @@ export default function Mundo() {
         </div>
       </section>
 
-      <section className="mundo-section" id="ldi">
+      <section className="mundo-section mundo-section--alt" id="ldi">
         <div className="container">
           <h2 className="section-title">{t('pages.mundo.ldi')}</h2>
 
@@ -152,7 +155,7 @@ export default function Mundo() {
         </div>
       </section>
 
-      <section className="mundo-section mundo-section--alt" id="xakaxi">
+      <section className="mundo-section" id="xakaxi">
         <div className="container">
           <h2 className="section-title">{t('pages.mundo.xakaxi')}</h2>
           <p className="mundo-text mundo-text--max mundo-text--center">
@@ -175,7 +178,7 @@ export default function Mundo() {
         </div>
       </section>
 
-      <section className="mundo-section" id="glossario">
+      <section className="mundo-section mundo-section--alt" id="glossario">
         <div className="container">
           <h2 className="section-title">{t('pages.mundo.glossario')}</h2>
           <div className="mundo-glossario-grid">
