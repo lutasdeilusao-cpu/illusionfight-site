@@ -111,15 +111,17 @@
     "numero": 4,
     "so_admin": true,
     "titulo_pt": "A Dor é Real de Ilusão",
-    "titulo_en": "A Dor é Real de Ilusão",
-    "titulo_es": "A Dor é Real de Ilusão",
+    "titulo_en": "The Real Pain of Illusion",
+    "titulo_es": "El Dolor Real de Ilusión",
     "descricao_pt": "No LDI pela primeira vez, Kim descobre na pele que a dor é real.",
     "frase_pt": "A dor é real.",
     "publicado": true,
     "data_publicacao": "2027-04-15",
     "paginas": 64,
     "idiomas": [
-      "pt"
+      "pt",
+      "en",
+      "es"
     ],
     "formato": "webp",
     "proporcao": [
@@ -138,8 +140,8 @@
     "numero": 5,
     "so_admin": true,
     "titulo_pt": "O Primordial de Ilusão",
-    "titulo_en": "O Primordial de Ilusão",
-    "titulo_es": "O Primordial de Ilusão",
+    "titulo_en": "The Primordial of Illusion",
+    "titulo_es": "El Primordial de Ilusión",
     "publicado": true,
     "idiomas": [
       "pt"
