@@ -31,6 +31,12 @@ const DIST = path.join(ROOT, 'dist')
 const BRANCH = 'gh-pages'
 const WORKTREE = path.join(ROOT, '.gh-pages-worktree')
 
+const MANIFESTO = 'assets-build.json'
+
+function lerManifesto(dir) {
+  try { return JSON.parse(fs.readFileSync(path.join(dir, MANIFESTO), 'utf8')) } catch { return [] }
+}
+
 function git(args, cwd = ROOT) {
   return execFileSync('git', args, { cwd, stdio: 'inherit' })
 }
@@ -69,6 +75,18 @@ function main() {
     git(['worktree', 'add', '--track', '-B', BRANCH, WORKTREE, `origin/${BRANCH}`])
   }
 
+  // Arquivos de assets/ da versão que está no ar: guardados pra quem ainda
+  // está com uma aba aberta na versão anterior (o HTML antigo em cache pede o
+  // CSS/JS antigo; sem eles a página abre sem estilo). Só a versão anterior
+  // é mantida, pela lista que cada deploy grava em MANIFESTO.
+  let anteriores = lerManifesto(WORKTREE)
+  if (!anteriores.length && fs.existsSync(path.join(WORKTREE, 'assets'))) anteriores = fs.readdirSync(path.join(WORKTREE, 'assets'))
+  const guarda = fs.mkdtempSync(path.join(require('os').tmpdir(), 'ldi-assets-'))
+  for (const f of anteriores) {
+    const origem = path.join(WORKTREE, 'assets', f)
+    if (fs.existsSync(origem)) fs.copyFileSync(origem, path.join(guarda, f))
+  }
+
   // Remove TUDO que está versionado no worktree de uma vez só — 1 argumento
   // pro processo do git ('.'), sem limite de linha de comando do SO, seja
   // qual for o tamanho real do build.
@@ -80,6 +98,16 @@ function main() {
   for (const entry of fs.readdirSync(DIST)) {
     fs.cpSync(path.join(DIST, entry), path.join(WORKTREE, entry), { recursive: true })
   }
+
+  const novos = fs.existsSync(path.join(DIST, 'assets')) ? fs.readdirSync(path.join(DIST, 'assets')) : []
+  let mantidos = 0
+  for (const f of fs.readdirSync(guarda)) {
+    const destino = path.join(WORKTREE, 'assets', f)
+    if (!fs.existsSync(destino)) { fs.copyFileSync(path.join(guarda, f), destino); mantidos++ }
+  }
+  fs.rmSync(guarda, { recursive: true, force: true })
+  fs.writeFileSync(path.join(WORKTREE, MANIFESTO), JSON.stringify(novos))
+  console.log(`[deploy] ${mantidos} arquivo(s) da versão anterior mantido(s) em assets/.`)
 
   git(['add', '-A'], WORKTREE)
 

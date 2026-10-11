@@ -162,11 +162,13 @@ async function montarContexto() {
 
 function empurrar(evento) {
   if (desligado()) return
+  // a sessão nasce aqui e é ela que grava a origem da entrada — vem antes da leitura
+  const idSessao = sessao()
   const origem = (() => { try { return JSON.parse(ler(sessionStorage, 'ldi-sessao-origem') || '{}') } catch { return {} } })()
   if (runtimePlatform.isSteamDemo && origem.origem !== 'steam') Object.assign(origem, origemDaEntrada())
   // evento que fecha depois da troca de página (tempo de leitura) traz a
   // página dele em dados.page_path — senão caía na rota seguinte
-  fila.push({ ...evento, sessao: sessao(), rota: evento.dados?.page_path || location.pathname, titulo: document.title?.slice(0, 200), ...origem, _t: Date.now() })
+  fila.push({ ...evento, sessao: idSessao, rota: evento.dados?.page_path || location.pathname, titulo: document.title?.slice(0, 200), ...origem, _t: Date.now() })
   if (!timerLote) timerLote = setTimeout(enviar, LOTE_MS)
 }
 
