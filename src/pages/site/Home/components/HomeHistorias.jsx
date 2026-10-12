@@ -15,8 +15,8 @@ const capas = import.meta.glob('../../../../assets/images/livro/capitulo-*', { e
 const capaDe = id => Object.entries(capas).find(([caminho]) => caminho.includes(`/${id}.`))?.[1] || null
 
 /** Histórias na Home: os Contos de Ilusão com a capa oficial e a lista dos
- *  contos que existem, e os capítulos da linha principal JÁ liberados (com
- *  capa). Nada de "Coming soon" repetido — só o que dá pra ler agora. */
+ *  contos que existem, e os capítulos da linha principal que já têm capa —
+ *  os liberados abrem; os outros aparecem em preto e branco, sem link. */
 export default function HomeHistorias() {
   const { t, locale } = useLanguage()
   const { user, perfil } = useAuth()
@@ -26,10 +26,13 @@ export default function HomeHistorias() {
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
 
   const contos = contosIndex.filter(c => (c.capitulos || []).some(cap => contoLiberado(cap, isAdmin, auth)))
+  // Todo capítulo que já tem capa aparece: o que ainda não libera fica em
+  // preto e branco, sem link, pra mostrar que a história já existe.
+  const livre = c => c.id === 'capitulo-01' || estaDisponivel(c, isAdmin, auth)
   const capitulos = livroIndex
-    .filter(c => (c.id === 'capitulo-01' || estaDisponivel(c, isAdmin, auth)) && capaDe(c.id))
+    .filter(c => capaDe(c.id))
     .sort((a, b) => a.numero - b.numero) // do 1 pro último: ainda não lançamos, quem chega começa do começo
-    .slice(0, 8)
+    .slice(0, 18)
 
   return (
     <section ref={ref} className="home-historias reveal">
@@ -60,12 +63,19 @@ export default function HomeHistorias() {
           <>
             <h3 className="home-historias__sub">{t('home.nova.livro_titulo')}</h3>
             <CarrosselLento trilhoClassName="home-historias__trilho">
-              {capitulos.map(c => (
+              {capitulos.map(c => livre(c) ? (
                 <Link key={c.id} to={`/historias/lutas-de-ilusao/${c.id}`} className="home-historias__cap">
                   <img src={capaDe(c.id)} alt="" loading="lazy" decoding="async" />
                   <span>{String(c.numero).padStart(2, '0')}</span>
                   <strong>{c[tituloKey]}</strong>
                 </Link>
+              ) : (
+                <div key={c.id} className="home-historias__cap home-historias__cap--bloqueado">
+                  <img src={capaDe(c.id)} alt="" loading="lazy" decoding="async" />
+                  <span>{String(c.numero).padStart(2, '0')}</span>
+                  <em className="home-historias__breve">{t('pages.webtoon.em_breve')}</em>
+                  <strong>{c[tituloKey]}</strong>
+                </div>
               ))}
             </CarrosselLento>
           </>

@@ -6,7 +6,7 @@ import './TituloCard.css'
 /** Capa vertical de um título na estante do hub. A cor do título entra só
  *  como fio/selo (--ws-cor), a moldura é a do portal. Histórias reaproveita
  *  passando `capa`/`to` já resolvidos e um `children` extra (farol de peso). */
-export default function TituloCard({ titulo, indice, oculto = false, capa: capaProp, to, children }) {
+export default function TituloCard({ titulo, indice, oculto = false, bloqueado = false, capa: capaProp, to, children }) {
   const { t, locale } = useLanguage()
   const capa = capaProp ?? imagemWebshard(titulo.capa)
   const nome = localizado(titulo, 'nome', locale)
@@ -14,7 +14,7 @@ export default function TituloCard({ titulo, indice, oculto = false, capa: capaP
   return (
     <Link
       to={to || rotaTitulo(titulo)}
-      className={`ws-titulo-card${titulo.status === 'em_breve' ? ' ws-titulo-card--breve' : ''}`}
+      className={`ws-titulo-card${titulo.status === 'em_breve' ? ' ws-titulo-card--breve' : ''}${bloqueado ? ' ws-titulo-card--bloqueado' : ''}`}
       style={{ '--ws-cor': titulo.cor }}
     >
       <div className="ws-titulo-card__capa">

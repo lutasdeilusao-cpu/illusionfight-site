@@ -153,3 +153,24 @@
   color: var(--if-cyan);
   text-decoration: none;
 }
+
+/* Capítulo que já existe mas ainda não libera: capa em preto e branco. */
+.home-historias__cap--bloqueado img {
+  filter: grayscale(1) brightness(0.55);
+}
+
+.home-historias__breve {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  padding: 3px 8px;
+  border: 1px solid var(--if-amber-72);
+  background: rgba(5, 9, 12, 0.85);
+  font: 700 .6rem var(--font-mono);
+  font-style: normal;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--if-amber);
+  white-space: nowrap;
+  transform: translateX(-50%);
+}

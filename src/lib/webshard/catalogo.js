@@ -52,8 +52,10 @@ export function miniaturaCapitulo(titulo, cap, locale = 'pt') {
     || imagemWebshard(titulo.capa)
 }
 
+/** `visivel`: 'publico' (todos leem), 'previa' (todos veem a capa, só lê
+ *  quem o capítulo libera) ou 'admin' (só admin e creator veem). */
 export function listarTitulos({ isAdmin = false } = {}) {
-  return titulos.filter(t => t.visivel === 'publico' || isAdmin)
+  return titulos.filter(t => t.visivel === 'publico' || t.visivel === 'previa' || isAdmin)
 }
 
 export function tituloPorSlug(slug, { isAdmin = false } = {}) {

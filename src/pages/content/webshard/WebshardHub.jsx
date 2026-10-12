@@ -89,7 +89,7 @@ export default function WebshardHub() {
             </div>
             <div className="ws-hub__estante if-stagger">
               {titulos.map((titulo, i) => (
-                <TituloCard key={titulo.id} titulo={titulo} indice={i + 1} oculto={titulo.visivel !== 'publico'} />
+                <TituloCard key={titulo.id} titulo={titulo} indice={i + 1} oculto={titulo.visivel === 'admin'} bloqueado={!capitulosDe(titulo).some(liberado)} />
               ))}
             </div>
           </section>

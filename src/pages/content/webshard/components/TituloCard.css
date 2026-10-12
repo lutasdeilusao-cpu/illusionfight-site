@@ -98,3 +98,8 @@
   font-size: 0.72rem;
   line-height: 1.35;
 }
+
+/* Título que já existe mas ninguém lê ainda: capa em preto e branco. */
+.ws-titulo-card--bloqueado .ws-titulo-card__capa img {
+  filter: grayscale(1) brightness(0.6);
+}
