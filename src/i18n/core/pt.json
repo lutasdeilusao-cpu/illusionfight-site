@@ -1936,5 +1936,9 @@
       "primeiro": "1º acesso {data}",
       "ultimo": "último {data}"
     }
+  },
+  "carrossel": {
+    "anterior": "Anterior",
+    "proximo": "Próximo"
   }
 }

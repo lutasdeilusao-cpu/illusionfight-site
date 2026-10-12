@@ -8,6 +8,7 @@ import { TRIAL_ACTIVE } from '../../../../config/trial'
 import episodios from '../../../../data/episodios.json'
 import { emBeta, miniaturaCapitulo, tituloLegado } from '../../../../lib/webshard/catalogo'
 import HomeSectionHeading from './HomeSectionHeading'
+import CarrosselLento from '../../../../components/CarrosselLento/CarrosselLento'
 import './LatestEpisodes.css'
 
 export default function LatestEpisodes() {
@@ -70,7 +71,7 @@ export default function LatestEpisodes() {
           </div>
         )}
 
-        {lista.length > 0 && <div className="episodes-list">
+        {lista.length > 0 && <CarrosselLento trilhoClassName="episodes-list">
           {lista.map(ep => {
             const liberado = ep.sempre_livre || emBeta(ep) || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE
             const thumbnail = thumbnailFor(ep)
@@ -95,7 +96,7 @@ export default function LatestEpisodes() {
               </div>
             )
           })}
-        </div>}
+        </CarrosselLento>}
 
         <div className="episodes__footer">
           <button className="btn btn--outline" onClick={() => navigate('/webtoon')}>{t('episodes.cta')}</button>

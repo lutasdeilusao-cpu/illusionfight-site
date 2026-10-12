@@ -1936,5 +1936,9 @@
       "primeiro": "first {data}",
       "ultimo": "last {data}"
     }
+  },
+  "carrossel": {
+    "anterior": "Previous",
+    "proximo": "Next"
   }
 }

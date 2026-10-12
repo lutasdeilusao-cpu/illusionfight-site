@@ -1,0 +1,49 @@
+.carrossel-lento {
+  position: relative;
+}
+
+.carrossel-lento__trilho.carrossel-lento__trilho {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carrossel-lento__trilho::-webkit-scrollbar {
+  display: none;
+}
+
+.carrossel-lento__seta {
+  position: absolute;
+  top: 38%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 52px;
+  padding: 0;
+  border: 1px solid var(--if-cyan-45);
+  background: rgba(5, 14, 19, 0.78);
+  backdrop-filter: blur(6px);
+  color: var(--if-cyan);
+  font: 700 1.9rem/1 var(--font-display);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.carrossel-lento__seta:hover,
+.carrossel-lento__seta:focus-visible {
+  background: var(--if-cyan);
+  color: #04141a;
+  box-shadow: 0 0 18px var(--if-cyan-45);
+}
+
+.carrossel-lento__seta--esq {
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.carrossel-lento__seta--dir {
+  right: 0;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}

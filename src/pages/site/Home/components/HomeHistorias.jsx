@@ -8,6 +8,7 @@ import livroIndex from '../../../../data/historias/lutas-de-ilusao.json'
 import contosIndex from '../../../../data/historias/contos.json'
 import capaContos from '../../../../assets/images/contos/capa-illusion-tales.webp'
 import HomeSectionHeading from './HomeSectionHeading'
+import CarrosselLento from '../../../../components/CarrosselLento/CarrosselLento'
 import './HomeHistorias.css'
 
 const capas = import.meta.glob('../../../../assets/images/livro/capitulo-*', { eager: true, import: 'default', query: '?url' })
@@ -58,7 +59,7 @@ export default function HomeHistorias() {
         {capitulos.length > 0 && (
           <>
             <h3 className="home-historias__sub">{t('home.nova.livro_titulo')}</h3>
-            <div className="home-historias__trilho">
+            <CarrosselLento trilhoClassName="home-historias__trilho">
               {capitulos.map(c => (
                 <Link key={c.id} to={`/historias/lutas-de-ilusao/${c.id}`} className="home-historias__cap">
                   <img src={capaDe(c.id)} alt="" loading="lazy" decoding="async" />
@@ -66,7 +67,7 @@ export default function HomeHistorias() {
                   <strong>{c[tituloKey]}</strong>
                 </Link>
               ))}
-            </div>
+            </CarrosselLento>
           </>
         )}
 
