@@ -148,8 +148,11 @@
   },
   "gate_leitura": {
     "eyebrow": "FREE ACCOUNT",
-    "titulo": "The other half is for account holders only.",
-    "texto": "Liking it so far? Create your free account in seconds and read to the end, no payment needed.",
+    "titulo": "Create your free account and read to the end.",
+    "texto": "It takes less than a minute and costs nothing.",
+    "item1": "Read the whole chapter, for free",
+    "item2": "Your progress is saved: pick up where you left off, on any device",
+    "item3": "Get notified when a new chapter comes out",
     "criar": "Create free account",
     "entrar": "I already have an account"
   },

@@ -35,6 +35,9 @@ export default function GateLeitura() {
       <div className="gate-leitura__card">
         <span className="gate-leitura__eyebrow">{t('gate_leitura.eyebrow')}</span>
         <p className="gate-leitura__titulo">{t('gate_leitura.titulo')}</p>
+        <ul className="gate-leitura__lista">
+          {['item1', 'item2', 'item3'].map(k => <li key={k}>{t(`gate_leitura.${k}`)}</li>)}
+        </ul>
         <p className="gate-leitura__texto">{t('gate_leitura.texto')}</p>
         <div className="gate-leitura__acoes">
           <Link to="/cadastro" className="if-btn if-btn--amber">{t('gate_leitura.criar')}</Link>

@@ -148,8 +148,11 @@
   },
   "gate_leitura": {
     "eyebrow": "CONTA GRÁTIS",
-    "titulo": "A outra metade é só pra quem tem conta.",
-    "texto": "Gostou até aqui? Cria tua conta grátis em segundos e lê até o fim, sem pagar nada.",
+    "titulo": "Crie sua conta grátis e leia até o fim.",
+    "texto": "Leva menos de um minuto e você não paga nada.",
+    "item1": "Leia o capítulo inteiro, de graça",
+    "item2": "Seu progresso fica salvo: continue de onde parou, em qualquer aparelho",
+    "item3": "Seja avisado quando sair capítulo novo",
     "criar": "Criar conta grátis",
     "entrar": "Já tenho conta"
   },
