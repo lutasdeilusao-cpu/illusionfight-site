@@ -164,17 +164,26 @@
     "id": "06",
     "numero": 6,
     "so_admin": true,
-    "titulo_pt": "Em Breve",
-    "titulo_en": "Coming Soon",
-    "titulo_es": "Próximamente",
-    "publicado": false,
+    "titulo_pt": "Em Produção",
+    "titulo_en": "In Production",
+    "titulo_es": "En Producción",
+    "publicado": true,
     "data_publicacao": "2027-07-15",
     "liberacao": {
       "primordial": "2027-05-15",
       "elite": "2027-05-15",
       "conta": "2027-05-30",
       "publico": "2027-07-15"
-    }
+    },
+    "idiomas": [
+      "pt"
+    ],
+    "paginas": 33,
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1632
+    ]
   },
   {
     "id": "07",
