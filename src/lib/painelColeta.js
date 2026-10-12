@@ -80,6 +80,8 @@ function origemDaEntrada() {
   let host = ''
   try { host = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : '' } catch { host = '' }
   if (!host || host === location.hostname) return { origem: '(direto)', midia: '', referrer: '' }
+  // Avaliador humano do Google (Raterhub/EWOQ) revisando anúncio ou página: não é público.
+  if (host.includes('ewoq') || host.includes('raterhub')) return { origem: 'google', midia: 'revisao', referrer: host }
   const busca = ['google', 'bing', 'yahoo', 'duckduckgo', 'yandex', 'ecosia'].find(b => host.includes(b))
   if (busca) return { origem: busca, midia: 'organico', referrer: host }
   const social = ['instagram', 'facebook', 'tiktok', 't.co', 'twitter', 'x.com', 'linkedin', 'lnkd', 'youtube', 'whatsapp', 'discord', 'reddit', 'steamcommunity']
