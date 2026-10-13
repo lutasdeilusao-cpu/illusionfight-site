@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida } from './som'
 import { PODERES, KIT } from './campanha'
+import Arena3D from './Arena3D'
 import './LutaRitmo.css'
 
 // Luta rítmica. Cada nota nasce pequena, longe, e vem crescendo até o ponto
@@ -96,6 +97,8 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
   const [, setQuadro] = useState(0)
   const [fim, setFim] = useState(null)
   const [mudo, setMudo] = useState(estaMudo())
+  const [sem3d, setSem3d] = useState(false)
+  const semTresD = useCallback(() => setSem3d(true), [])
   const estado = useRef(null)
   const id = useRef(0)
   const BATIDA = 60000 / ficha.bpm
@@ -166,7 +169,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
   // Tomou: para tudo um instante, tela vermelha, treme, POW.
   const apanhar = (s, n, agora) => {
     s.vida = Math.max(0, s.vida - TIPOS[n.tipo].dano)
-    s.pausaAte = agora + 280; s.tremor = agora + 420; s.flash = agora + 420
+    s.pausaAte = agora + 280; s.tremor = agora + 420; s.flash = agora + 420; s.apanhouEm = agora
     somGolpe('cabecada')
     avisar(t('games.ldi.batalha.ritmo.apanhou'), 'is-mal')
   }
@@ -210,7 +213,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     if (pd.atordoa && frac > 0) s.atordoadoAte = agora + APRESENTA + pd.atordoa * frac
     s.apresenta = { id: s.poder.id, frac, ate: agora + APRESENTA }
     s.pausaAte = agora + APRESENTA
-    if (frac > 0) { somPoder(); s.tremor = agora + 500 }
+    if (frac > 0) { somPoder(); s.tremor = agora + 500; s.golpeEm = agora }
     s.poder = null
   }
 
@@ -237,6 +240,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     else if (n.tipo === 'esquiva') somEsquiva()
     else {
       s.inimigo = Math.max(0, s.inimigo - Math.round(tp.dano * mult * (1 + Math.min(s.combo, 20) * 0.02)))
+      s.golpeEm = agora
       somGolpe(n.tipo)
     }
     if (n.tipo === 'super') { if (s.poder) s.poder.acertos++ }
@@ -273,7 +277,8 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
       </div>
 
       <div className="rt-arena">
-        <div className="rt-fundo" aria-hidden="true" />
+        {sem3d && <div className="rt-fundo" aria-hidden="true" />}
+        {!sem3d && <Arena3D estadoRef={estado} voo={VOO} onFalha={semTresD} />}
         {s.poder && (
           <div className="rt-carga" aria-hidden="true">
             <span>{PODERES[s.poder.id].icone} {t(`games.ldi.batalha.ritmo.poderes.${s.poder.id}.nome`)}</span>
@@ -293,14 +298,16 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
           // 0 = acabou de nascer, longe; 1 = hora de tocar.
           const p = Math.min(1.08, Math.max(0, 1 - (n.hora - agora) / VOO))
           const perto = n.estado === 'vindo' && Math.abs(n.hora - agora) <= JANELA.bom
-          const x = n.de.x + (n.alvo.x - n.de.x) * Math.min(1, p)
-          const y = n.de.y + (n.alvo.y - n.de.y) * Math.min(1, p)
+          // Com 3D, o botão de toque segue a bola (n.tela, gravado pela Arena3D).
+          const tres = !sem3d && n.tela
+          const x = tres ? n.tela.x : n.de.x + (n.alvo.x - n.de.x) * Math.min(1, p)
+          const y = tres ? n.tela.y : n.de.y + (n.alvo.y - n.de.y) * Math.min(1, p)
           return (
             <button
               key={n.id}
               type="button"
-              className={`rt-nota rt-nota--${n.tipo} is-${n.estado}${perto ? ' is-agora' : ''}${n.nota ? ` is-${n.nota}` : ''}`}
-              style={{ left: `${x}%`, top: `${y}%`, '--p': p, zIndex: Math.round(p * 100) }}
+              className={`rt-nota rt-nota--${n.tipo} is-${n.estado}${perto ? ' is-agora' : ''}${n.nota ? ` is-${n.nota}` : ''}${tres ? ' is-3d' : ''}`}
+              style={{ left: `${x}%`, top: `${y}%`, '--p': p, '--d': tres ? `${Math.max(30, n.tela.rpx * 2)}px` : undefined, zIndex: Math.round(p * 100) }}
               onPointerDown={e => tocar(n, e)}
             >
               <span className="rt-nota__anel" style={{ '--a': Math.max(1, 1 + (n.hora - agora) / VOO * 1.6) }} />
