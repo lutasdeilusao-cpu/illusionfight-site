@@ -86,8 +86,8 @@ const MODELO = { soco: punhoHumano, chute: peHumano, cabecada: cabecaHumana, blo
 
 // Lutadores prontos e o nome das animações de cada um (o modelo traz as dele).
 const LUTADORES = {
-  robo: { url: urlRobo, altura: 3.1, parado: 'Idle', ataque: ['Punch'], apanha: null, morte: 'Death' },
-  aventureiro: { url: urlAventureiro, altura: 3.1, parado: 'CharacterArmature|Idle', ataque: ['CharacterArmature|Punch_Right', 'CharacterArmature|Kick_Left', 'CharacterArmature|Punch_Left'], apanha: 'CharacterArmature|HitRecieve', morte: 'CharacterArmature|Death' },
+  robo: { url: urlRobo, altura: 3.1, parado: 'Idle', ataque: ['Punch', 'Punch', 'ThumbsUp', 'Yes'], apanha: ['No', 'Jump'], morte: 'Death' },
+  aventureiro: { url: urlAventureiro, altura: 3.1, parado: 'CharacterArmature|Idle', ataque: ['CharacterArmature|Punch_Right', 'CharacterArmature|Kick_Left', 'CharacterArmature|Punch_Left', 'CharacterArmature|Kick_Right'], apanha: ['CharacterArmature|HitRecieve', 'CharacterArmature|HitRecieve_2'], morte: 'CharacterArmature|Death' },
 }
 // Modelo pronto de cada golpe (quando carregou); `metal` pinta de metal de robô.
 // `vira` deita o modelo pra ponta do golpe apontar pra você (luva e mão: o punho; tênis e bota: a sola).
@@ -145,6 +145,8 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
     lutador.position.set(0, -1.4, FUNDO_Z)
     cena.add(lutador)
     const def = LUTADORES[qual] || LUTADORES.robo
+    // cada reação sorteia uma das animações do modelo, pra não repetir sempre igual
+    const sorteia = lista => lista[Math.floor(Math.random() * lista.length)]
     let mixer = null, acoes = {}, acaoAtual = null, robo = false
     const tocarAcao = (nome, umaVez) => {
       const nova = acoes[nome]; if (!nova || nova === acaoAtual && !umaVez) return
@@ -241,22 +243,24 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
         if (mixer) mixer.update(relogio.getDelta())
         // respira e balança em guarda (o robô já tem a animação de guarda dele)
         lutador.position.y = CHAO_Y + (robo ? 0 : Math.sin(t * 3.2) * 0.06)
-        lutador.rotation.y = Math.sin(t * 1.3) * 0.15
+        // anda de um lado pro outro no fundo do ringue (as notas continuam saindo do centro)
+        lutador.position.x = Math.sin(t * 0.55) * 1.9 + Math.sin(t * 1.7) * 0.35
+        lutador.rotation.y = Math.cos(t * 0.55) * 0.35
         // tomou golpe: recua e pisca vermelho
         const dg = agora - (s.golpeEm || 0)
-        if (s.golpeEm !== ultimoGolpe) { ultimoGolpe = s.golpeEm; if (robo) tocarAcao(s.inimigo <= 0 ? def.morte : def.apanha, true) }
+        if (s.golpeEm !== ultimoGolpe) { ultimoGolpe = s.golpeEm; if (robo) tocarAcao(s.inimigo <= 0 ? def.morte : sorteia(def.apanha), true) }
         const reac = dg < 260 ? Math.sin((dg / 260) * Math.PI) : 0
         lutador.rotation.x = -reac * 0.45
         lutador.position.z = FUNDO_Z - reac * 0.8
         for (const m of lutador.userData.mats) m.emissive?.setRGB(reac * 0.9, 0, 0)
         // acertou você: avança com os braços
         const da = agora - (s.apanhouEm || 0)
-        if (s.apanhouEm !== ultimoAtaque) { ultimoAtaque = s.apanhouEm; if (robo) tocarAcao(def.ataque[Math.floor(Math.random() * def.ataque.length)], true) }
+        if (s.apanhouEm !== ultimoAtaque) { ultimoAtaque = s.apanhouEm; if (robo) tocarAcao(sorteia(def.ataque), true) }
         const ataque = da < 300 ? Math.sin((da / 300) * Math.PI) : 0
         lutador.position.z += ataque * 2
         if (lutador.userData.bracoD) lutador.userData.bracoD.rotation.x = -1.1 - ataque * 0.6
 
-        peito.set(lutador.position.x, lutador.position.y + 2.1, lutador.position.z + 0.6)
+        peito.set(0, lutador.position.y + 2.1, FUNDO_Z + 0.6)
         const vivas = new Set()
         // no super (seu ou dele), só a PRÓXIMA nota acende; as outras ficam apagadas
         let proxima = null
