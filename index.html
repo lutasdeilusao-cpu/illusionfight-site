@@ -248,7 +248,10 @@
           var m = html.match(/<meta name="ldi-build" content="([^"]+)"/);
           if (!m || m[1] === meta.content) return;
           try { if (sessionStorage.getItem('ldi-recarregou-build') === m[1]) return; sessionStorage.setItem('ldi-recarregou-build', m[1]); } catch (e) {}
-          window.location.reload();
+          // renova a cópia guardada DESTA página antes de recarregar; senão a recarga
+          // pega o HTML velho do cache de novo (aponta pra um script que já saiu do ar)
+          var recarrega = function () { window.location.reload(); };
+          fetch(window.location.href, { cache: 'reload' }).then(recarrega, recarrega);
         }).catch(function () {});
       })();
       (function () {
