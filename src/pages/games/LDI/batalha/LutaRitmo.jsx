@@ -138,8 +138,12 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
           for (const n of s.notas) if (n.estado === 'vindo') n.hora += dt
         }
         const f = s.faixa
-        if (f && (f.ended || f.error)) s.faixa = null
-        else if (f && !s.sincronizado) {
+        if (f && f.error) s.faixa = null
+        else if (f && f.ended) {
+          // Acabou a música: ela recomeça e a luta espera a entrada da batida de novo.
+          f.currentTime = 0; f.play().catch(() => {})
+          s.sincronizado = false; s.criadoEm = agora
+        } else if (f && !s.sincronizado) {
           // A música começou. A luta espera a introdução: a 1ª nota cai na batida em
           // que o groove entra (`entrada`, medida no arquivo); dali o tempo é o dela.
           if (f.currentTime > 0.05 && !f.paused) {
@@ -150,6 +154,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
             s.proxFrase = s.inicio
             s.ancora = agora - f.currentTime * 1000
             s.sincronizado = true
+            if (s.recomecaAte) s.recomecaAte = s.inicio - VOO / 2
           } else if (agora > s.criadoEm + 2500) {
             // não tocou (bloqueada ou sem rede): segue na batida sintetizada
             s.faixa = null; s.sincronizado = true
@@ -166,7 +171,10 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
         if (agora < s.pausaAte && !s.faixa) empurra(agora - s.ultimo)
         s.ultimo = agora
         if (!s.sincronizado) { setQuadro(q => q + 1); raf = requestAnimationFrame(passo); return }
+        // Perto do fim da música não agenda mais nada: avisa que ela vai recomeçar.
+        const fimMusica = s.faixa && s.faixa.duration ? s.ancora + s.faixa.duration * 1000 : Infinity
         while (s.proxFrase < agora + VOO + 8 * BATIDA) {
+          if (s.proxFrase + 8 * BATIDA > fimMusica - 200) { s.recomecaAte = Infinity; break }
           const sd = ficha.superDele
           if (sd && !s.poder && s.nFrase >= 2 && s.nFrase % sd.cada === 0) { superDele(s, sd); continue }
           for (const n of frase(ficha, s.proxFrase, s.nFrase, BATIDA, s.vez)) {
@@ -354,6 +362,9 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
             <b>{s.apresenta.dele ? t('games.ldi.batalha.ritmo.super_dele_nome') : t(`games.ldi.batalha.ritmo.poderes.${s.apresenta.id}.nome`)}</b>
             <strong>{t(s.apresenta.dele ? 'games.ldi.batalha.ritmo.defendeu_pct' : 'games.ldi.batalha.ritmo.super_pct', { n: Math.round(s.apresenta.frac * 100) })}</strong>
           </div>
+        )}
+        {s.recomecaAte > agora && !s.notas.some(n => n.estado === 'vindo') && (
+          <div className="rt-recomeca" aria-live="polite">{t('games.ldi.batalha.ritmo.recomeca')}</div>
         )}
         {s.pulso && <div key={s.pulso.em} className={`rt-pulso${s.pulso.caixa ? ' is-caixa' : ''}`} aria-hidden="true" />}
         {!fim && s.notas.map(n => {

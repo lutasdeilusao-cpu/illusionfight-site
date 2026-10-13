@@ -169,3 +169,8 @@ div.rt-energia { display: grid; place-items: center; }
 .rt-carga.is-dele i::after { background: var(--if-danger); box-shadow: 0 0 12px var(--if-danger); }
 .rt-lanca.is-dele { background: radial-gradient(circle, color-mix(in srgb, var(--if-danger) 35%, transparent), rgba(0,0,0,.75) 70%); }
 .rt-lanca.is-dele b { color: var(--if-danger); }
+
+/* Fim da música: aviso de que ela recomeça (nenhuma nota até a batida entrar de novo). */
+.rt-recomeca { position: absolute; left: 50%; top: 22%; transform: translateX(-50%); z-index: 140; pointer-events: none; padding: 8px 14px;
+  font: 900 .85rem var(--font-display); text-transform: uppercase; letter-spacing: .08em; color: var(--if-amber); text-align: center;
+  background: rgba(0,0,0,.6); border: 1px solid var(--if-amber); animation: rt-pulso .5s ease-in-out infinite alternate; }

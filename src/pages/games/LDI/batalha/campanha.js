@@ -5,30 +5,31 @@
 //   e defesas (o que ELE manda pra você defender: bloqueio ✋ ou esquiva 💨, com
 //   peso; os grupos alternam: um seu, um dele, e às vezes `defesaPeso` dá dois dele seguidos).
 // O primeiro é o treino: lento e com pouca nota. Cada luta sobe um degrau.
-//   musica: a faixa da luta, uma por inimigo, cada uma mais rápida que a anterior.
-//   O bpm dele É o da música; `entrada` (s) é a batida em que o groove entra
-//   (depois da introdução): a 1ª nota cai ali. Medidos no próprio arquivo.
+//   musica: a faixa da luta (uma por inimigo, já cortada no começo). O bpm dele É o
+//   da música; `entrada` (s) é a batida em que o beat entra: a 1ª nota cai ali, e
+//   quando a música acaba ela recomeça e a luta espera de novo até a entrada.
+//   Medidos no próprio arquivo, batida por batida.
 //   superDele: a cada `cada` frases ele solta um super; você defende as `notas`
 //   (vermelhas) e toma `dano` × a fração que deixou passar.
 // Nomes e falas no i18n (games.ldi.batalha.inimigos.<id>).
-// Músicas: Kevin MacLeod (incompetech.com), CC BY 4.0 — créditos também na tela do laboratório.
-import fretless from './musica/fretless.mp3?url'
-import funkorama from './musica/funkorama.mp3?url'
-import cutAndRun from './musica/cut-and-run.mp3?url'
-import koolKats from './musica/kool-kats.mp3?url'
-import discoMedusae from './musica/disco-medusae.mp3?url'
-import hustle from './musica/hustle.mp3?url'
-import localForecast from './musica/local-forecast.mp3?url'
-import showYourMoves from './musica/show-your-moves.mp3?url'
+import luta01 from './musica/luta-01.mp3?url'
+import luta02 from './musica/luta-02.mp3?url'
+import luta03 from './musica/luta-03.mp3?url'
+import luta04 from './musica/luta-04.mp3?url'
+import luta05 from './musica/luta-05.mp3?url'
+import luta06 from './musica/luta-06.mp3?url'
+import luta07 from './musica/luta-07.mp3?url'
+import luta08 from './musica/luta-08.mp3?url'
+// (a 02 e a 04 batem em 154 e 141; a luta anda na metade, senão as notas grudam)
 const MUSICAS = {
-  1: { url: fretless, bpm: 100, entrada: 0.025 },
-  2: { url: funkorama, bpm: 101, entrada: 7.450 },
-  3: { url: cutAndRun, bpm: 107, entrada: 0.024 },
-  4: { url: koolKats, bpm: 113, entrada: 0.025 },
-  5: { url: discoMedusae, bpm: 115, entrada: 4.218 },
-  6: { url: hustle, bpm: 120, entrada: 0.278 },
-  7: { url: localForecast, bpm: 124, entrada: 0.033 },
-  8: { url: showYourMoves, bpm: 136, entrada: 13.701 },
+  1: { url: luta01, bpm: 99.983, entrada: 6.037 },
+  2: { url: luta02, bpm: 154.414 / 2, entrada: 2.855 },
+  3: { url: luta03, bpm: 97.996, entrada: 6.201 },
+  4: { url: luta04, bpm: 141.325 / 2, entrada: 9.201 },
+  5: { url: luta05, bpm: 119.895, entrada: 9.867 },
+  6: { url: luta06, bpm: 111.999, entrada: 10.166 },
+  7: { url: luta07, bpm: 110.65, entrada: 5.755 },
+  8: { url: luta08, bpm: 99.998, entrada: 8.598 },
 }
 
 export const INIMIGOS = [
