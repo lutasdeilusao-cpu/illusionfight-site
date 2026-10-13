@@ -3236,7 +3236,8 @@
           "deposito": {
             "nome": "Depósito do Seu Nono"
           }
-        }
+        },
+        "carregando": "Carregando"
       },
       "enemy_album": {
         "1701": "Pilota a moto do assalto. Não desce, só acelera — quem desce é a garupa.",

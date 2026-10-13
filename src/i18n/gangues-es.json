@@ -6339,7 +6339,8 @@
           "deposito": {
             "nome": "Depósito de Don Nono"
           }
-        }
+        },
+        "carregando": "Cargando"
       },
       "enemy_album": {
         "1701": "Maneja la moto del asalto. No se baja, solo acelera — el que se baja es el de atrás.",

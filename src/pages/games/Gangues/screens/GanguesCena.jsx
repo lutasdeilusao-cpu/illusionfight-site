@@ -19,6 +19,7 @@ import GanguesAvisoConta, { ehBirosca } from '../components/cena/GanguesAvisoCon
 import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
 import CenaCenario from '../components/cena/CenaCenario'
 import CenaInterior from '../components/cena/CenaInterior'
+import GanguesCarregando from '../components/cena/GanguesCarregando'
 import GanguesCenaBagSheet from '../components/cena/GanguesCenaBagSheet'
 import GanguesEscalacao, { GanguesEscalacaoTutorial } from '../components/GanguesEscalacao'
 import GanguesCenaFichaCard from '../components/cena/GanguesCenaFichaCard'
@@ -53,6 +54,9 @@ const EMPTY_ALVOS = []
 
 /** Altura da barra do topo da cena (com a margem), em px. */
 const CAM_TOPO_LIVRE = 66
+
+// Tempo da tela de carregamento entre ambientes (dá tempo das imagens chegarem).
+const CARREGANDO_MS = 2200
 
 export default function GanguesCena({ onNavigate, onVoltar }) {
   const { perfil } = useAuth()
@@ -218,14 +222,15 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // Saindo da cena (luta, app em 2º plano — farm ausente —, voltar) grava onde o jogador está, sem perder o adversário marcado.
   const saidaRef = useRef(null); saidaRef.current = () => cena && store.salvarPosicaoCena(cena.id, { ...player, local, adversario: useGanguesStore.getState().cenaProgresso[cena.id]?.posicao?.adversario })
   useEffect(() => () => saidaRef.current?.(), [])
-  // troca de ambiente com fade curto (rua↔interior, cômodo↔cômodo)
+  // troca de ambiente (rua↔interior, cômodo↔cômodo): tela de carregamento com a
+  // logo; o lugar novo monta logo atrás dela e os controles ficam travados até sumir.
   const trocarPara = (novoLocal, spawn) => {
-    sfx.select?.(); setFade(true)
+    sfx.select?.(); setFade(true); inputRef.current = { x: 0, y: 0 }
     setTimeout(() => {
       setLocal(novoLocal); if (spawn) setPlayer(spawn)
       guardarPosicao({ ...(spawn || player), local: novoLocal })
-      setFade(false)
-    }, 170)
+    }, 200)
+    setTimeout(() => setFade(false), CARREGANDO_MS)
   }
   const entrar = (interId, comodo = 0, spawnOver) => {
     const inter = cena.interiores?.[interId]; if (!inter?.comodos?.length) return
@@ -530,7 +535,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
           (sem animação) toda vez que entra/sai de um interior. */}
       {!local && aleatorio.perseguidor && <div className={`gang-world-perseguidor is-${ALEATORIO_TIPOS[aleatorio.perseguidor.tipo]?.cor}`} style={{ left: aleatorio.perseguidor.x, top: aleatorio.perseguidor.y }}><span /><small>{t(`games.gangues.cena.aleatorio.${aleatorio.perseguidor.tipo}.nome`)}</small></div>}
       <GangMarker key={local ? `${local.id}-${local.comodo}` : 'rua'} player={player} facing={facing} gangName={store.gangName} retrato={getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)} />
-    </div><div className="gang-cena-vignette" />{noEscuro && <div className="gang-cena-apagao" style={{ '--px': `${player.x - camX}px`, '--py': `${player.y - camY}px` }} aria-hidden="true" />}{!local && (aleatorio.perseguidor?.tipo === 'policia' || aleatorio.onomatopeia === 'policia') && <div className="gang-cena-sirene" aria-hidden="true" />}{!local && cena.respeito && !prog.boss && <BarraRespeito cena={cena} prog={prog} t={t} />}{!local && cena.linhas && !prog.boss && <BarraLinhas cena={cena} cenaProgresso={store.cenaProgresso} t={t} />}{!local && cena.caderno && !prog.boss && <BarraCaderno cena={cena} prog={prog} flags={store.storyProgress.__flags || {}} t={t} />}{cena.alerta && !prog.boss && <BarraAlerta cena={cena} n={alertaDaCena(cena, store.storyProgress)} t={t} />}{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && cena.muro && player.y < cena.muro.aviso && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? cena.textos.muroPassagem : cena.textos.bossTrancado)}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
+    </div><div className="gang-cena-vignette" />{noEscuro && <div className="gang-cena-apagao" style={{ '--px': `${player.x - camX}px`, '--py': `${player.y - camY}px` }} aria-hidden="true" />}{!local && (aleatorio.perseguidor?.tipo === 'policia' || aleatorio.onomatopeia === 'policia') && <div className="gang-cena-sirene" aria-hidden="true" />}{!local && cena.respeito && !prog.boss && <BarraRespeito cena={cena} prog={prog} t={t} />}{!local && cena.linhas && !prog.boss && <BarraLinhas cena={cena} cenaProgresso={store.cenaProgresso} t={t} />}{!local && cena.caderno && !prog.boss && <BarraCaderno cena={cena} prog={prog} flags={store.storyProgress.__flags || {}} t={t} />}{cena.alerta && !prog.boss && <BarraAlerta cena={cena} n={alertaDaCena(cena, store.storyProgress)} t={t} />}{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && cena.muro && player.y < cena.muro.aviso && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? cena.textos.muroPassagem : cena.textos.bossTrancado)}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <GanguesCarregando duracao={CARREGANDO_MS} />}</AnimatePresence></div>
     {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}
     {!local && !intro && !encontro && !fade && <GanguesAlvoTutorial alvos={amb?.alvos} />}
     <GanguesAvisoConta ativo={Boolean(local) && !intro && !encontro && !fade && ehBirosca(cena, local?.id)} />
