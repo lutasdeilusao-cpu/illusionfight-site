@@ -99,7 +99,7 @@ export default function Game() {
           ? <p className="ld-cena__luta"><span>{t('games.ldi.jogo.luta')}</span>{cena.luta}</p>
           : <p className="if-eyebrow">{cena.capitulo || t('games.ldi.jogo.ato', { n: romano(save.ato) })}</p>}
         <h1 className={`ld-cena__titulo${cena.destaque ? ' is-destaque' : ''}`}>{cena.title}</h1>
-        <Narrativa linhas={cena.text} veia={save.veia} habilidades={save.habilidades} nome={save.nome} onPronto={onPronto} />
+        <Narrativa cenaId={cena.id} linhas={cena.text} veia={save.veia} habilidades={save.habilidades} nome={save.nome} onPronto={onPronto} />
         {pronto
           ? <Escolhas t={t} escolhas={escolhas} veiaJogador={save.veia} onEscolher={onEscolher} />
           : <p className="ld-cena__toque">{t('games.ldi.jogo.continuar')}</p>}

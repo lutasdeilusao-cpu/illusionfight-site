@@ -143,6 +143,21 @@ aparecem depois do texto inteiro.
 
 ---
 
+## 4.2 Graphic novel interativa
+
+O Lendas é uma graphic novel interativa: cada trecho de cena (o texto entre dois `---`) é um **quadro**, com uma arte e as falas daquele momento embaixo. O jogador lê quadro a quadro (o próximo entra sozinho no tempo de leitura, ou com um toque) e escolhe no fim da cena.
+
+- **Arte:** `src/pages/games/LDI/arte/<id da cena>-<n>.webp` (n a partir de 1), 768 px de largura, formato 4:5. Trecho sem arte vira quadro só de texto, então dá pra subir a arte aos poucos.
+- **Estilo:** o Nano Banana 2 (`gemini-3.1-flash-image`), não o estilo do WEB SHARD. O Lendas é uma lenda, fora da linha principal, então a arte é própria do jogo. A bíblia de estilo vai na frente de todo prompt (`LAB-NVIDIA/lendas_estilo.txt`):
+  - Marelia com luz de poste laranja e o LDI em ciano holográfico.
+  - O protagonista ("você") nunca mostra o rosto: aparece de costas, por cima do ombro, em silhueta ou só as mãos.
+  - Ninguém olha pra câmera.
+  - Nenhum texto dentro da imagem.
+- **Personagens:** só a NeoGuide é oficial (folha em `Personagens/NEOGUIDE`). Kaeda, StormByte_91, o Engenheiro / NULL_ENTITY, GhostPulse, IronVeil, Sombra Digital e os outros são criação do jogo. Cada um ganha uma folha de personagem, que entra como referência em todo quadro dele, pra manter a mesma cara.
+- **Como gerar:**
+  1. `LAB-NVIDIA/planeja_lendas.py` rascunha o elenco, os lugares e o prompt de cada quadro a partir do roteiro (o agente revisa).
+  2. `LAB-NVIDIA/gera_lendas.py <lote.json>` gera as imagens. Ele pula as que já existem; pra refazer um quadro, é só apagar o arquivo.
+
 ## 5. A Temporada 1
 
 Personagens: NeoGuide · Kaeda (a guia, da Organização) · StormByte_91 ·
