@@ -89,19 +89,34 @@ export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome
   const dur = Math.round(tempo * Math.max(1, letrasAtual / LETRAS_POR_TEMPO))
   const avancar = () => { if (vistos < quadros.length) setVistos(v => v + 1); else setAcabou(true) }
   const ultimo = useRef(null)
+  // Quem rola a página pra cima quer reler no próprio ritmo: o relógio para e a
+  // página não rola mais sozinha (tocar ainda revela o próximo quadro).
+  const [manual, setManual] = useState(false)
+  useEffect(() => {
+    let antes = window.scrollY
+    const montou = Date.now()
+    const onScroll = () => {
+      // a volta pro topo ao virar a página não conta como leitor rolando
+      if (Date.now() - montou > 1000 && window.scrollY < antes - 40) setManual(true)
+      antes = window.scrollY
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   useEffect(() => {
     if (acabou) { onPronto?.(); return }
+    if (manual) return
     const t = setTimeout(avancar, dur)
     return () => clearTimeout(t)
-  }, [vistos, acabou, dur, onPronto]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [vistos, acabou, dur, onPronto, manual]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => { if (vistos > 1) ultimo.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }, [vistos])
+  useEffect(() => { if (vistos > 1 && !manual) ultimo.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }, [vistos]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="ld-narrativa" onClick={avancar}>
       {/* quanto falta pro próximo quadro: barrinha discreta, presa no pé da tela */}
-      {!acabou && <span key={vistos} className="ld-relogio" style={{ '--dur': `${dur}ms` }} aria-hidden="true" />}
+      {!acabou && !manual && <span key={vistos} className="ld-relogio" style={{ '--dur': `${dur}ms` }} aria-hidden="true" />}
       {quadros.slice(0, vistos).map((q, i) => (
         <motion.figure key={i} ref={i === vistos - 1 ? ultimo : null} className={`ld-quadro${q.arte ? ' tem-arte' : ''}`}
           initial={{ opacity: 0, y: 26, rotate: i % 2 ? 1.4 : -1.4, scale: 0.96 }} animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}

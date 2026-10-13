@@ -175,9 +175,12 @@ export default function Game() {
       </header>
 
       {save.veia && !luta && <Bolso t={t} bolso={bolsoDe(save)} onMudar={m => mudarBolso({ ...bolsoDe(save), ...m })} />}
-      <button type="button" className="ld-tempo" onClick={trocarTempo} aria-label={t('games.ldi.jogo.tempo_quadro', { s: tempoQuadro })}>
-        ⏱ {t('games.ldi.jogo.tempo_quadro', { s: tempoQuadro })}
-      </button>
+      {/* Zona de toque do dobro do botão: perto dele, o toque troca o tempo e nunca passa a página. */}
+      <div className="ld-tempo-zona" onClick={trocarTempo}>
+        <button type="button" className="ld-tempo" aria-label={t('games.ldi.jogo.tempo_quadro', { s: tempoQuadro })}>
+          ⏱ {t('games.ldi.jogo.tempo_quadro', { s: tempoQuadro })}
+        </button>
+      </div>
       {/* Cada cena é uma página: a anterior vira (dobra pela esquerda) e a nova aparece embaixo. */}
       <div className="ld-livro">
       <AnimatePresence mode="wait" initial={false}>

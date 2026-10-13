@@ -258,8 +258,9 @@ body:has(.ld-pagina) .scroll-top-btn { visibility: hidden; pointer-events: none;
 .ld-pagina > .if-eyebrow { font-size: 0.8rem; letter-spacing: 0.3em; color: var(--veia-cor); }
 
 /* Tempo de cada quadro: botão discreto no pé da tela (alcance do dedão) + barrinha enchendo. */
-.ld-tempo { position: fixed; bottom: 14px; left: calc(var(--app-gutter) + 12px); z-index: 30; min-height: 36px; padding: 6px 10px; cursor: pointer;
-  background: rgba(0, 0, 0, 0.7); border: 1px solid var(--if-hair-strong); color: var(--if-ink); font: 800 0.62rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+.ld-tempo-zona { position: fixed; bottom: 0; left: var(--app-gutter); z-index: 30; padding: 14px 28px 14px 12px; cursor: pointer; }
+.ld-tempo { display: block; min-height: 44px; padding: 10px 16px; cursor: pointer;
+  background: rgba(0, 0, 0, 0.7); border: 1px solid var(--if-hair-strong); color: var(--if-ink); font: 800 0.74rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%); }
 .ld-relogio { position: fixed; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 31; height: 4px; pointer-events: none;
   background: var(--veia-cor); transform-origin: left; animation: ld-relogio var(--dur) linear both; opacity: 0.85; }
