@@ -102,10 +102,11 @@ const CAIXA = [2, 6]
 export function somBatida(passo, quando = 0) {
   if (!ctx) return
   const t = ctx.currentTime + quando
-  if (BUMBO.includes(passo)) { tom(t, { f0: 140, f1: 45, dur: 0.18, vol: 0.9 }); sopro(t, { dur: 0.02, vol: 0.25, filtro: 'lowpass', f0: 900 }) }
+  if (BUMBO.includes(passo)) { tom(t, { f0: 150, f1: 42, dur: 0.24, vol: 1.2 }); sopro(t, { dur: 0.03, vol: 0.4, filtro: 'lowpass', f0: 900 }) }
   if (CAIXA.includes(passo)) {
-    sopro(t, { dur: 0.16, vol: 0.85, f0: 1800, f1: 1200, q: 0.8 })
-    tom(t, { f0: 230, f1: 170, dur: 0.09, vol: 0.45, tipo: 'triangle' })
+    sopro(t, { dur: 0.2, vol: 1.2, f0: 1900, f1: 1100, q: 0.7 })
+    sopro(t, { dur: 0.05, vol: 0.6, filtro: 'highpass', f0: 4000 })
+    tom(t, { f0: 240, f1: 170, dur: 0.11, vol: 0.6, tipo: 'triangle' })
   }
-  sopro(t, { dur: passo % 2 ? 0.025 : 0.04, vol: passo % 2 ? 0.12 : 0.2, filtro: 'highpass', f0: 7000 })
+  sopro(t, { dur: passo % 2 ? 0.02 : 0.035, vol: passo % 2 ? 0.07 : 0.13, filtro: 'highpass', f0: 7500 })
 }

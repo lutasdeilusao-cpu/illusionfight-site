@@ -4,24 +4,24 @@
 //   sequências, ver FRASES em LutaRitmo.jsx), golpes (o que VOCÊ ataca, com peso)
 //   e defesas (o que ELE manda pra você defender: bloqueio ✋ ou esquiva 💨, com
 //   peso; os grupos alternam: um seu, um dele, e às vezes `defesaPeso` dá dois dele seguidos).
-// O primeiro já briga de verdade (frases quebradas, um pouco mais lento); daí só piora.
+// O primeiro é o treino: lento e com pouca nota. Cada luta sobe um degrau.
 // Nomes e falas no i18n (games.ldi.batalha.inimigos.<id>).
 export const INIMIGOS = [
-  { id: 1, vida: 90, bpm: 100, niveis: [3], defesaPeso: 0.25,
-    golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 1 } },
-  { id: 2, vida: 120, bpm: 104, niveis: [3, 4], defesaPeso: 0.3,
-    golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 1 } },
-  { id: 3, vida: 140, bpm: 108, niveis: [3, 4], defesaPeso: 0.32,
+  { id: 1, vida: 60, bpm: 80, niveis: [1], defesaPeso: 0.2,
+    golpes: { soco: 1 }, defesas: { bloqueio: 1 } },
+  { id: 2, vida: 120, bpm: 84, niveis: [1, 2], defesaPeso: 0.25,
+    golpes: { soco: 2, chute: 1 }, defesas: { bloqueio: 1 } },
+  { id: 3, vida: 140, bpm: 88, niveis: [1, 2], defesaPeso: 0.28,
     golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 2 } },
-  { id: 4, vida: 160, bpm: 112, niveis: [4], defesaPeso: 0.35,
+  { id: 4, vida: 160, bpm: 92, niveis: [2], defesaPeso: 0.3,
     golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 1 } },
-  { id: 5, vida: 180, bpm: 116, niveis: [4, 5], defesaPeso: 0.38,
+  { id: 5, vida: 180, bpm: 96, niveis: [2, 3], defesaPeso: 0.32,
     golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 2 } },
-  { id: 6, vida: 220, bpm: 120, niveis: [4, 5], defesaPeso: 0.42,
+  { id: 6, vida: 220, bpm: 100, niveis: [2, 3], defesaPeso: 0.35,
     golpes: { soco: 1, chute: 2, cabecada: 2 }, defesas: { bloqueio: 3, esquiva: 1 } },
-  { id: 7, vida: 220, bpm: 126, niveis: [5], defesaPeso: 0.42,
+  { id: 7, vida: 220, bpm: 106, niveis: [3, 4], defesaPeso: 0.38,
     golpes: { soco: 2, chute: 1, cabecada: 2 }, defesas: { bloqueio: 1, esquiva: 3 } },
-  { id: 8, vida: 260, bpm: 132, niveis: [5], defesaPeso: 0.45,
+  { id: 8, vida: 260, bpm: 112, niveis: [3, 4], defesaPeso: 0.4,
     golpes: { soco: 2, chute: 2, cabecada: 2 }, defesas: { bloqueio: 2, esquiva: 2 } },
 ]
 
