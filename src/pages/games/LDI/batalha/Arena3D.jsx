@@ -6,6 +6,8 @@ import urlLuva from './modelos/luva.glb?url'
 import urlTenis from './modelos/tenis.glb?url'
 import urlBracoRobo from './modelos/bracorobo.glb?url'
 import urlBota from './modelos/bota.glb?url'
+import urlAventureiro from './modelos/aventureiro.glb?url'
+import urlRingue from './modelos/ringue.glb?url'
 
 // Arena em 3D da luta rítmica. Lá no fundo, no centro, o lutador inimigo (modelo
 // pronto, animado); toda nota NASCE DELE e voa até o ponto dela, perto da tela. Acertou
@@ -17,13 +19,15 @@ import urlBota from './modelos/bota.glb?url'
 // Modelos 3D (licenças livres, créditos também na tela do laboratório):
 //   RobotExpressive — Tomás Laulhé (CC0) · Boxing Glove — J-Toastie (CC-BY 3.0)
 //   Sneakers — Poly by Google (CC-BY 3.0) · Robot Arm — Yali Izzo (CC-BY 3.0)
-//   Boots — Isa Lousberg (CC0). Todos via poly.pizza / three.js examples.
+//   Boots — Isa Lousberg (CC0) · Adventurer — Quaternius (CC0)
+//   Boxing Ring — Ian MacGillivray (CC-BY 3.0). Todos via poly.pizza / three.js examples.
 
 // Seu golpe = anel AZUL e partes humanas; golpe dele = anel VERMELHO e partes de robô.
 const AZUL = 0x18dafb, VERMELHO = 0xff3b4e, OURO = 0xffd166
-const DELE = { bloqueio: true, esquiva: true }
+const DELE = { bloqueio: true, esquiva: true, superDele: true }
 const RAIO = 0.55
-const FUNDO_Z = -11
+const FUNDO_Z = -9
+const CHAO_Y = -1.4
 
 // Modelos de cada golpe, todos em 3D e montados de peças simples (cabem num raio ~0.45).
 const PELE = () => new THREE.MeshStandardMaterial({ color: 0xc68a5e, roughness: 0.6 })
@@ -78,7 +82,13 @@ function raio() { // super
   add(g, new THREE.ExtrudeGeometry(f, { depth: 0.12, bevelEnabled: true, bevelSize: 0.02, bevelThickness: 0.02 }), mat, 0, 0, -0.06)
   return g
 }
-const MODELO = { soco: punhoHumano, chute: peHumano, cabecada: cabecaHumana, bloqueio: maoRobo, esquiva: peRobo, super: raio }
+const MODELO = { soco: punhoHumano, chute: peHumano, cabecada: cabecaHumana, bloqueio: maoRobo, esquiva: peRobo, super: raio, superDele: raio }
+
+// Lutadores prontos e o nome das animações de cada um (o modelo traz as dele).
+const LUTADORES = {
+  robo: { url: urlRobo, altura: 3.1, parado: 'Idle', ataque: ['Punch'], apanha: null, morte: 'Death' },
+  aventureiro: { url: urlAventureiro, altura: 3.1, parado: 'CharacterArmature|Idle', ataque: ['CharacterArmature|Punch_Right', 'CharacterArmature|Kick_Left', 'CharacterArmature|Punch_Left'], apanha: 'CharacterArmature|HitRecieve', morte: 'CharacterArmature|Death' },
+}
 // Modelo pronto de cada golpe (quando carregou); `metal` pinta de metal de robô.
 const ARQUIVO = { soco: { url: urlLuva }, chute: { url: urlTenis }, cabecada: { url: urlLuva }, bloqueio: { url: urlBracoRobo }, esquiva: { url: urlBota, metal: true } }
 
@@ -109,7 +119,7 @@ function montarLutador(cor) {
   return g
 }
 
-export default function Arena3D({ estadoRef, voo, corInimigo = 0x7a3b3b, onFalha }) {
+export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 'robo', corInimigo = 0x7a3b3b, onFalha }) {
   const caixa = useRef(null)
 
   useEffect(() => {
@@ -122,8 +132,9 @@ export default function Arena3D({ estadoRef, voo, corInimigo = 0x7a3b3b, onFalha
     el.appendChild(renderer.domElement)
     const cena = new THREE.Scene()
     const cam = new THREE.PerspectiveCamera(45, 1, 0.1, 100)
-    cam.position.set(0, 1.6, 10); cam.lookAt(0, -0.4, 0)
-    cena.fog = new THREE.Fog(0x07090b, 14, 30)
+    // câmera mirando o meio do lutador, que fica no centro da tela, lá no fundo do ringue
+    cam.position.set(0, 1.8, 10); cam.lookAt(0, CHAO_Y + 1.6, FUNDO_Z)
+    cena.fog = new THREE.Fog(0x07090b, 22, 46)
     cena.add(new THREE.AmbientLight(0xffffff, 0.55))
     const luz = new THREE.DirectionalLight(0xffffff, 1.4); luz.position.set(3, 6, 8); cena.add(luz)
     const contra = new THREE.DirectionalLight(0xffae32, 1.2); contra.position.set(-4, 3, -10); cena.add(contra)
@@ -132,6 +143,7 @@ export default function Arena3D({ estadoRef, voo, corInimigo = 0x7a3b3b, onFalha
     let lutador = montarLutador(corInimigo)
     lutador.position.set(0, -1.4, FUNDO_Z)
     cena.add(lutador)
+    const def = LUTADORES[qual] || LUTADORES.robo
     let mixer = null, acoes = {}, acaoAtual = null, robo = false
     const tocarAcao = (nome, umaVez) => {
       const nova = acoes[nome]; if (!nova || nova === acaoAtual && !umaVez) return
@@ -142,19 +154,20 @@ export default function Arena3D({ estadoRef, voo, corInimigo = 0x7a3b3b, onFalha
     const modelos = {}
     const loader = new GLTFLoader()
     let vivo = true
-    loader.load(urlRobo, g => {
+    loader.load(def.url, g => {
       if (!vivo) return
       const r = g.scene
-      r.traverse(o => { if (o.isMesh) { o.material = o.material.clone(); o.material.emissive = new THREE.Color(0); } })
-      r.scale.setScalar(0.85); r.position.set(0, -1.4, FUNDO_Z)
+      r.traverse(o => { if (o.isMesh) { o.material = o.material.clone(); o.material.emissive = new THREE.Color(0) } })
+      const alto = new THREE.Box3().setFromObject(r).getSize(new THREE.Vector3()).y
+      r.scale.setScalar(def.altura / alto); r.position.set(0, CHAO_Y, FUNDO_Z)
       cena.remove(lutador); lutador.traverse(o => { o.geometry?.dispose() }); lutador.userData.mats.forEach(m => m.dispose())
       lutador = r; lutador.userData = { mats: [] }
       r.traverse(o => { if (o.isMesh) lutador.userData.mats.push(o.material) })
       cena.add(r); robo = true
       mixer = new THREE.AnimationMixer(r)
       for (const clip of g.animations) acoes[clip.name] = mixer.clipAction(clip)
-      tocarAcao('Idle')
-      mixer.addEventListener('finished', () => tocarAcao('Idle'))
+      tocarAcao(def.parado)
+      mixer.addEventListener('finished', () => { if (acaoAtual !== acoes[def.morte]) tocarAcao(def.parado) })
     })
     for (const [tipo, def] of Object.entries(ARQUIVO)) {
       loader.load(def.url, g => {
@@ -165,12 +178,35 @@ export default function Arena3D({ estadoRef, voo, corInimigo = 0x7a3b3b, onFalha
       })
     }
     const relogio = new THREE.Clock()
-    // chão em perspectiva (grade sumindo no fundo) e um anel âmbar debaixo dele
-    const grade = new THREE.GridHelper(40, 40, 0xffae32, 0x3a2a14)
-    grade.position.set(0, -1.4, -6); grade.material.transparent = true; grade.material.opacity = 0.45; cena.add(grade)
-    const chao = new THREE.Mesh(new THREE.RingGeometry(1.3, 1.7, 48), new THREE.MeshBasicMaterial({ color: 0xffae32, transparent: true, opacity: 0.6, side: THREE.DoubleSide }))
-    chao.rotation.x = -Math.PI / 2; chao.position.set(0, -1.38, FUNDO_Z); cena.add(chao)
-    lutador.scale.setScalar(1.25)
+    // O ambiente: o ringue (modelo pronto) com o lutador no meio, o chão do galpão
+    // em volta e dois refletores de cima.
+    const extras = []
+    const chao = new THREE.Mesh(new THREE.PlaneGeometry(80, 80), new THREE.MeshStandardMaterial({ color: 0x15171b, roughness: 0.95 }))
+    chao.rotation.x = -Math.PI / 2; chao.position.set(0, CHAO_Y - 0.9, FUNDO_Z); cena.add(chao); extras.push(chao)
+    for (const x of [-5, 5]) {
+      const foco = new THREE.SpotLight(0xffe2b0, 28, 30, 0.45, 0.7, 1.4)
+      foco.position.set(x, 9, FUNDO_Z + 3); foco.target.position.set(0, CHAO_Y, FUNDO_Z); cena.add(foco, foco.target)
+    }
+    loader.load(urlRingue, g => {
+      if (!vivo) return
+      const ringue = g.scene
+      // Você está DENTRO do ringue: ele é esticado até as cordas da frente ficarem
+      // atrás da câmera e as do fundo logo atrás do lutador. A altura das cordas
+      // fica na escala do lutador (por isso a escala em y é separada).
+      ringue.traverse(m => { if (m.isMesh) { m.material = m.material.clone(); m.material.color?.multiplyScalar(0.42) } })
+      ringue.updateMatrixWorld(true)
+      const cx = new THREE.Box3().setFromObject(ringue), tam = cx.getSize(new THREE.Vector3()), meio = cx.getCenter(new THREE.Vector3())
+      const hit = new THREE.Raycaster(new THREE.Vector3(meio.x, cx.max.y + 1, meio.z), new THREE.Vector3(0, -1, 0)).intersectObject(ringue, true)[0]
+      const lona = hit ? hit.point.y : cx.min.y + tam.y * 0.35
+      if (hit) hit.object.material.color.set(0x1c2633) // lona azul-escura
+      const fundo = FUNDO_Z - 2, frente = cam.position.z + 1.5
+      const sz = (frente - fundo) / tam.z, sx = sz * 1.0, sy = 2.6 / (cx.max.y - lona)
+      ringue.scale.set(sx, sy, sz)
+      ringue.position.set(-meio.x * sx, CHAO_Y - lona * sy, (fundo + frente) / 2 - meio.z * sz)
+      chao.position.y = CHAO_Y - (lona - cx.min.y) * sy
+      cena.add(ringue); extras.push(ringue)
+    })
+    lutador.scale.setScalar(0.9)
 
     const geoAnel = new THREE.TorusGeometry(RAIO, 0.06, 10, 40)
     const bolas = new Map()
@@ -202,24 +238,27 @@ export default function Arena3D({ estadoRef, voo, corInimigo = 0x7a3b3b, onFalha
         const t = agora / 1000
         if (mixer) mixer.update(relogio.getDelta())
         // respira e balança em guarda (o robô já tem a animação de guarda dele)
-        lutador.position.y = -1.4 + (robo ? 0 : Math.sin(t * 3.2) * 0.06)
+        lutador.position.y = CHAO_Y + (robo ? 0 : Math.sin(t * 3.2) * 0.06)
         lutador.rotation.y = Math.sin(t * 1.3) * 0.15
         // tomou golpe: recua e pisca vermelho
         const dg = agora - (s.golpeEm || 0)
-        if (s.golpeEm !== ultimoGolpe) { ultimoGolpe = s.golpeEm; if (robo && s.inimigo <= 0) tocarAcao('Death', true) }
+        if (s.golpeEm !== ultimoGolpe) { ultimoGolpe = s.golpeEm; if (robo) tocarAcao(s.inimigo <= 0 ? def.morte : def.apanha, true) }
         const reac = dg < 260 ? Math.sin((dg / 260) * Math.PI) : 0
         lutador.rotation.x = -reac * 0.45
-        lutador.position.z = FUNDO_Z - reac * 1.2
+        lutador.position.z = FUNDO_Z - reac * 0.8
         for (const m of lutador.userData.mats) m.emissive?.setRGB(reac * 0.9, 0, 0)
         // acertou você: avança com os braços
         const da = agora - (s.apanhouEm || 0)
-        if (s.apanhouEm !== ultimoAtaque) { ultimoAtaque = s.apanhouEm; if (robo) tocarAcao('Punch', true) }
+        if (s.apanhouEm !== ultimoAtaque) { ultimoAtaque = s.apanhouEm; if (robo) tocarAcao(def.ataque[Math.floor(Math.random() * def.ataque.length)], true) }
         const ataque = da < 300 ? Math.sin((da / 300) * Math.PI) : 0
-        lutador.position.z += ataque * 3
+        lutador.position.z += ataque * 2
         if (lutador.userData.bracoD) lutador.userData.bracoD.rotation.x = -1.1 - ataque * 0.6
 
         peito.set(lutador.position.x, lutador.position.y + 2.1, lutador.position.z + 0.6)
         const vivas = new Set()
+        // no super (seu ou dele), só a PRÓXIMA nota acende; as outras ficam apagadas
+        let proxima = null
+        for (const n of s.notas) if ((n.tipo === 'super' || n.tipo === 'superDele') && n.estado === 'vindo' && (!proxima || n.hora < proxima.hora)) proxima = n
         for (const n of s.notas) {
           vivas.add(n.id)
           let b = bolas.get(n.id)
@@ -231,13 +270,23 @@ export default function Arena3D({ estadoRef, voo, corInimigo = 0x7a3b3b, onFalha
             bola.add(new THREE.Mesh(geoAnel, anelMat))
             const modelo = modelos[n.tipo] ? modelos[n.tipo].clone(true) : MODELO[n.tipo](); if (!modelos[n.tipo]) modelo.scale.setScalar(0.95); bola.add(modelo)
             b = { bola, mat: anelMat, modelo, glb: Boolean(modelos[n.tipo]), alvo: noPlano(n.alvo.x, n.alvo.y) }
+            // a nota é desenhada sempre por cima do ringue (a lona passa por baixo da câmera)
+            bola.traverse(m => { if (m.isMesh) { m.renderOrder = 10; m.material.depthTest = false } })
             bolas.set(n.id, b); cena.add(bola)
           }
           const p = Math.min(1.08, Math.max(0, 1 - (n.hora - agora) / voo))
           const pos = peito.clone().lerp(b.alvo, Math.min(1, p))
           if (n.estado === 'acertou') { const k = (agora - n.fimEm) / 380; b.bola.scale.setScalar(1 + k * 1.2); b.mat.opacity = 1 - k; b.bola.visible = k < 1 }
           else if (n.estado === 'errou') { const k = (agora - n.fimEm) / 380; pos.y -= k * 2; b.mat.opacity = 1 - k; b.bola.visible = k < 1 }
-          else { b.bola.scale.setScalar(1); b.mat.opacity = Math.min(1, 0.3 + p); b.mat.emissiveIntensity = Math.abs(n.hora - agora) < 150 ? 1.6 : 0.7 }
+          else {
+            const falta = Math.abs(n.hora - agora)
+            const ehSuper = n.tipo === 'super' || n.tipo === 'superDele'
+            // Super: a nota da vez cresce e estoura de luz bem na hora do toque.
+            const pico = ehSuper && n === proxima && falta < janela ? 1 - falta / janela : 0
+            b.bola.scale.setScalar(1 + pico * 0.6)
+            b.mat.opacity = ehSuper && proxima && n !== proxima ? 0.25 : Math.min(1, 0.3 + p)
+            b.mat.emissiveIntensity = ehSuper ? 0.7 + pico * 4 : falta < janela ? 1.6 : 0.7
+          }
           b.bola.position.copy(pos)
           b.modelo.rotation.y = Math.sin(t * 2 + n.id) * 0.6
           b.modelo.rotation.x = Math.sin(t * 1.5 + n.id) * 0.25
@@ -258,10 +307,10 @@ export default function Arena3D({ estadoRef, voo, corInimigo = 0x7a3b3b, onFalha
       geoAnel.dispose()
       lutador.traverse(o => { o.geometry?.dispose() })
       lutador.userData.mats.forEach(m => m.dispose())
-      Object.values(modelos).forEach(m => m.traverse(o => { if (o.isMesh) { o.geometry.dispose(); o.material.dispose() } }))
+      Object.values(modelos).concat(extras).forEach(m => m.traverse(o => { if (o.isMesh) { o.geometry.dispose(); o.material.dispose() } }))
       renderer.dispose(); el.removeChild(renderer.domElement)
     }
-  }, [estadoRef, voo, corInimigo, onFalha])
+  }, [estadoRef, voo, janela, qual, corInimigo, onFalha])
 
   return <div ref={caixa} className="rt-3d" aria-hidden="true" />
 }

@@ -110,9 +110,8 @@
 /* Energia cheia: os poderes do seu kit, um botão cada, embaixo no alcance do dedão.
    As bolinhas mostram quantas notas a virada tem (mais nota = mais difícil e mais forte). */
 .rt-poderes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
-.rt-poder { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: center; text-align: left; min-height: 56px; padding: 6px 8px; cursor: pointer;
+.rt-poder { display: grid; grid-template-columns: 1fr; align-items: center; text-align: left; min-height: 56px; padding: 6px 8px; cursor: pointer;
   border: 1px solid var(--rt-super); background: color-mix(in srgb, var(--rt-super) 14%, var(--ldi-bg)); color: var(--if-ink); animation: rt-pulso .5s ease-in-out infinite alternate; }
-.rt-poder__icone { grid-row: span 3; font-size: 1.5rem; }
 .rt-poder b { font: 900 .78rem var(--font-display); text-transform: uppercase; letter-spacing: .04em; }
 .rt-poder small { color: var(--text-secondary); font-size: .6rem; line-height: 1.25; }
 .rt-poder__notas { font-style: normal; color: var(--rt-super); font-size: .55rem; letter-spacing: .1em; }
@@ -134,13 +133,12 @@ div.rt-energia { display: grid; place-items: center; }
 .rt-carga i::after { content: ''; position: absolute; inset: 0; transform-origin: left; transform: scaleX(var(--v)); background: var(--rt-super); box-shadow: 0 0 12px var(--rt-super); transition: transform .15s; }
 .rt-lanca { position: absolute; inset: 0; z-index: 160; display: grid; place-content: center; justify-items: center; gap: 6px; pointer-events: none; text-align: center;
   background: radial-gradient(circle, color-mix(in srgb, var(--rt-super) 35%, transparent), rgba(0,0,0,.75) 70%); animation: rt-lanca 1.7s ease-out forwards; }
-.rt-lanca__icone { font-size: 5rem; animation: rt-lanca-icone 1.7s ease-out forwards; filter: drop-shadow(0 0 20px var(--rt-super)); }
-.rt-lanca b { font: 900 1.8rem var(--font-display); text-transform: uppercase; color: var(--rt-super); letter-spacing: .04em; text-shadow: 0 3px 0 rgba(0,0,0,.6); }
+.rt-lanca b { font: 900 2.2rem var(--font-display); animation: rt-lanca-nome 1.7s ease-out forwards; text-transform: uppercase; color: var(--rt-super); letter-spacing: .04em; text-shadow: 0 3px 0 rgba(0,0,0,.6); }
 .rt-lanca strong { font: 900 1rem var(--font-mono); color: var(--if-ink); }
 .rt-lanca.is-falhou { background: rgba(0,0,0,.7); }
-.rt-lanca.is-falhou b, .rt-lanca.is-falhou .rt-lanca__icone { color: var(--text-secondary); filter: grayscale(1); }
+.rt-lanca.is-falhou b { color: var(--text-secondary); }
 @keyframes rt-lanca { 0% { opacity: 0; } 10% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes rt-lanca-icone { 0% { transform: scale(.3) rotate(-20deg); } 25% { transform: scale(1.3) rotate(6deg); } 40% { transform: scale(1); } 100% { transform: scale(1.1); } }
+@keyframes rt-lanca-nome { 0% { transform: scale(.3) rotate(-8deg); } 25% { transform: scale(1.25) rotate(2deg); } 40% { transform: scale(1); } 100% { transform: scale(1.06); } }
 
 /* Arena 3D: o canvas ocupa a arena inteira, atrás dos botões de toque. Com 3D a
    bola é desenhada pelo canvas; o botão vira só a área de toque e o anel do tempo. */
@@ -159,3 +157,15 @@ div.rt-energia { display: grid; place-items: center; }
 /* no 3D o anel do DOM some; quem mostra o tempo é o anel 3D da nota (e o brilho na hora certa) */
 .rt-nota.is-3d .rt-nota__anel { display: none; }
 .rt-menu__creditos { margin: 0; color: var(--text-secondary); font: 600 .58rem var(--font-mono); line-height: 1.5; }
+.rt-nota.is-3d.rt-nota--superDele { --cor: var(--if-danger); }
+/* Super (seu ou dele): na hora exata do toque o alvo estoura em luz e anel grosso. */
+.rt-nota.is-3d.rt-nota--super.is-agora, .rt-nota.is-3d.rt-nota--superDele.is-agora {
+  box-shadow: 0 0 0 5px var(--if-ink), 0 0 0 10px var(--cor), 0 0 48px 12px var(--cor); animation: rt-agora-super .15s ease-out infinite alternate; }
+@keyframes rt-agora-super { to { transform: translate(-50%, -50%) scale(1.15); } }
+.rt-nota--superDele { --cor: var(--if-danger); }
+
+/* Super DELE: barra e apresentação em vermelho (a barra é o quanto você defendeu). */
+.rt-carga.is-dele span, .rt-carga.is-dele b { color: var(--if-danger); }
+.rt-carga.is-dele i::after { background: var(--if-danger); box-shadow: 0 0 12px var(--if-danger); }
+.rt-lanca.is-dele { background: radial-gradient(circle, color-mix(in srgb, var(--if-danger) 35%, transparent), rgba(0,0,0,.75) 70%); }
+.rt-lanca.is-dele b { color: var(--if-danger); }

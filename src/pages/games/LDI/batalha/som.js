@@ -1,5 +1,5 @@
-// Som da luta rítmica, sintetizado na hora (Web Audio, sem arquivo): a batida
-// (bumbo no tempo forte, chimbal nos outros) e a cara sonora de cada golpe.
+// Som da luta rítmica: a música da luta (arquivo) e, sintetizado na hora (Web
+// Audio), a batida de reserva (quando a música não toca) e a cara sonora de cada golpe.
 const CHAVE_MUDO = 'ldi-luta-mudo'
 let ctx = null
 let master = null
@@ -23,7 +23,24 @@ export function alternarMudo() {
   mudo = !mudo
   try { localStorage.setItem(CHAVE_MUDO, mudo ? '1' : '0') } catch { /* sem storage */ }
   if (master) master.gain.value = mudo ? 0 : 0.7
+  if (faixa) faixa.muted = mudo
   return mudo
+}
+
+// Música da luta (arquivo). Mudo só cala: ela continua andando, porque é ela que
+// marca o tempo das notas.
+let faixa = null
+export function tocarMusica(url) {
+  pararMusica()
+  faixa = new Audio(url)
+  faixa.volume = 0.6
+  faixa.muted = mudo
+  faixa.play().catch(() => {})
+  return faixa
+}
+export function pararMusica() {
+  if (!faixa) return
+  faixa.pause(); faixa.removeAttribute('src'); faixa.load(); faixa = null
 }
 
 let ruidoCache = null

@@ -1052,7 +1052,11 @@
             }
           },
           "super_pct": "Super {n}%",
-          "creditos3d": "3D models: RobotExpressive by Tomás Laulhé (CC0), Boxing Glove by J-Toastie, Sneakers by Poly by Google, Robot Arm by Yali Izzo (CC-BY 3.0), Boots by Isa Lousberg (CC0)."
+          "creditos3d": "3D models: RobotExpressive by Tomás Laulhé (CC0), Boxing Glove by J-Toastie, Sneakers by Poly by Google, Robot Arm by Yali Izzo (CC-BY 3.0), Boots by Isa Lousberg (CC0). · Ring: Boxing Ring by Ian MacGillivray (CC BY 3.0) · Adventurer by Quaternius (CC0).",
+          "super_dele": "His super! Defend",
+          "super_dele_nome": "His super",
+          "defendeu_pct": "Blocked {n}%",
+          "creditos_musica": "Music: \"Fretless\", \"Funkorama\", \"Cut and Run\", \"Kool Kats\", \"Disco Medusae\", \"Hustle\", \"Local Forecast\" and \"Show Your Moves\" by Kevin MacLeod (incompetech.com), licensed CC BY 4.0."
         }
       }
     },
