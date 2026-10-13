@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida, tocarMusica, pararMusica, latenciaSom, somApanhou, somNocaute, somSuperSolta } from './som'
+import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida, tocarMusica, pararMusica, somApanhou, somNocaute, somSuperSolta } from './som'
 import { PODERES, KIT, TETO_SUPER } from './campanha'
 import Arena3D from './Arena3D'
 import './LutaRitmo.css'
@@ -82,7 +82,7 @@ const FRASES = {
 // `vez` guarda de quem foi o último grupo entre uma frase e outra.
 function frase(ficha, inicio, n, batida, vez) {
   const nivel = n < 2 ? ficha.niveis[0] : ficha.niveis[Math.floor(Math.random() * ficha.niveis.length)]
-  const lista = FRASES[nivel]
+  const lista = ficha.frases || FRASES[nivel]
   const passos = lista[Math.floor(Math.random() * lista.length)]
   const notas = []
   let tipo = null, anterior = -9
@@ -147,10 +147,10 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
         } else if (f && !s.sincronizado) {
           // A música começou. A luta espera a introdução: a 1ª nota cai na batida em
           // que o groove entra (`entrada`, medida no arquivo); dali o tempo é o dela.
-          // (tempo do arquivo / velocidade = tempo real; + o atraso do som até o ouvido)
+          // (tempo do arquivo / velocidade = tempo real; o currentTime do navegador já desconta o atraso de saída do som)
           const vel = ficha.musica.velocidade || 1
           if (f.currentTime > 0.05 && !f.paused) {
-            const zero = agora - f.currentTime * 1000 / vel + ficha.musica.entrada * 1000 / vel + latenciaSom()
+            const zero = agora - f.currentTime * 1000 / vel + ficha.musica.entrada * 1000 / vel
             const compasso = 8 * BATIDA
             s.inicio = zero + Math.max(0, Math.ceil((agora + VOO - zero) / compasso)) * compasso
             s.proxBatida = s.inicio

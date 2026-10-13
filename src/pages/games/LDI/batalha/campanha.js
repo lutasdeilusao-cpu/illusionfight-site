@@ -24,7 +24,8 @@ import luta08 from './musica/luta-08.mp3?url'
 // Toda música toca um pouco acelerada (VELOCIDADE); o bpm da luta acompanha.
 const VELOCIDADE = 1.08
 const MUSICAS = {
-  1: { url: luta01, bpm: 99.983, entrada: 6.037 },
+  // a 01 bate a 100, mas o golpe segue o pulso de 50 (um a cada 1,2 s), marcado pelo Isaias no arquivo
+  1: { url: luta01, bpm: 99.983 / 2, entrada: 6.017 },
   2: { url: luta02, bpm: 154.414 / 2, entrada: 2.855 },
   3: { url: luta03, bpm: 97.996, entrada: 6.201 },
   4: { url: luta04, bpm: 141.325 / 2, entrada: 9.201 },
@@ -36,6 +37,8 @@ const MUSICAS = {
 
 export const INIMIGOS = [
   { id: 1, vida: 120, musica: { ...MUSICAS[1], velocidade: VELOCIDADE }, bpm: MUSICAS[1].bpm * VELOCIDADE, niveis: [1], defesaPeso: 0.2,
+    // 2 golpes no beat, 2 de descanso, 2 golpes (beats 1-2 e 5-6 de cada frase)
+    frases: [[2, 4, 10, 12]],
     golpes: { soco: 2, chute: 1, cabecada: 1 }, defesas: { bloqueio: 1 } },
   { id: 2, vida: 240, musica: { ...MUSICAS[2], velocidade: VELOCIDADE }, bpm: MUSICAS[2].bpm * VELOCIDADE, niveis: [1, 2], defesaPeso: 0.25,
     golpes: { soco: 2, chute: 1, cabecada: 1 }, defesas: { bloqueio: 1 } },

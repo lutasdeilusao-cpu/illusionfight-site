@@ -22,8 +22,6 @@ export function ligarSom() {
 }
 
 export const estaMudo = () => mudo
-// Atraso entre o áudio sair do código e chegar no ouvido (alto-falante, fone), em ms.
-export const latenciaSom = () => ((ctx && (ctx.outputLatency || ctx.baseLatency)) || 0) * 1000
 export function alternarMudo() {
   mudo = !mudo
   try { localStorage.setItem(CHAVE_MUDO, mudo ? '1' : '0') } catch { /* sem storage */ }
