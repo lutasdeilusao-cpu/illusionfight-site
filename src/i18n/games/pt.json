@@ -800,7 +800,10 @@
         "requer": "Requer {hab}",
         "carregando": "Carregando a história...",
         "aprendeu": "Você aprendeu",
-        "requer_outra": "Só quem segue {veia} sabe isso."
+        "requer_outra": "Só quem segue {veia} sabe isso.",
+        "abrir_escolha": "Fazer a escolha",
+        "reler": "Reler a página",
+        "vs_grito": "LUTA!"
       },
       "decisao": {
         "eyebrow": "Decisão",

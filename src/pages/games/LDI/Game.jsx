@@ -24,7 +24,8 @@ export default function Game() {
   const [pronto, setPronto] = useState(false)
   const [diario, setDiario] = useState(false)
   const [puzzle, setPuzzle] = useState(null)
-  const [luta, setLuta] = useState(null) // { escolha, tentativa, abertura }
+  const [luta, setLuta] = useState(null) // { escolha, tentativa, abertura, vs }
+  const [escolhaAberta, setEscolhaAberta] = useState(false)
   const [vencidaEm, setVencidaEm] = useState(null) // cena cuja luta de abertura já foi vencida
   const [capitulo, setCapitulo] = useState(null)
   const [capsVistos] = useState(() => new Set())
@@ -43,6 +44,7 @@ export default function Game() {
   useEffect(() => {
     somPagina() // virou a página (antes do 1º toque não toca: o som ainda não nasceu)
     setPronto(false)
+    setEscolhaAberta(false)
     if (cena?.capitulo && !capsVistos.has(cena.id)) { capsVistos.add(cena.id); setCapitulo(cena) }
     window.scrollTo(0, 0)
   }, [cena, capsVistos])
@@ -54,7 +56,7 @@ export default function Game() {
   useEffect(() => {
     if (!lutaDaCena || vencidaEm === cena.id) return
     ligarSom()
-    setLuta({ escolha: lutaDaCena, tentativa: 0, abertura: true })
+    setLuta({ escolha: lutaDaCena, tentativa: 0, abertura: true, vs: true })
   }, [cena?.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -67,11 +69,12 @@ export default function Game() {
     if (save.status === 'vitoria') registrarEvento('lendas_act', 'Completou o Act 1 em Lendas do LDI', 1)
   }, [save.status]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const onPronto = useCallback(() => setPronto(true), [])
+  // Acabou de contar a página: as escolhas abrem no centro da tela.
+  const onPronto = useCallback(() => { setPronto(true); setEscolhaAberta(true) }, [])
   // Escolha com `luta` (id do inimigo da campanha) abre a luta rítmica
   // por cima da cena. Venceu, segue; perdeu, vai pro `next_falha` ou tenta de novo.
   const onEscolher = ch => {
-    if (ch.luta && vencidaEm !== cena.id) { ligarSom(); setLuta({ escolha: ch, tentativa: 0 }); return }
+    if (ch.luta && vencidaEm !== cena.id) { ligarSom(); setEscolhaAberta(false); setLuta({ escolha: ch, tentativa: 0, vs: true }); return }
     if (ch.isPuzzle) setPuzzle(ch); else escolher(ch)
   }
   const fimLuta = resultado => {
@@ -114,7 +117,7 @@ export default function Game() {
         <h1 className={`ld-cena__titulo${cena.destaque ? ' is-destaque' : ''}`}>{cena.title}</h1>
         <Narrativa cenaId={cena.id} linhas={cena.text} veia={save.veia} habilidades={save.habilidades} nome={save.nome} onPronto={onPronto} />
         {pronto
-          ? <Escolhas t={t} escolhas={escolhas} veiaJogador={save.veia} onEscolher={onEscolher} />
+          ? <button type="button" className="if-btn if-btn--primary ld-abrir-escolha" onClick={() => setEscolhaAberta(true)}>{t('games.ldi.jogo.abrir_escolha')}</button>
           : <p className="ld-cena__toque">{t('games.ldi.jogo.continuar')}</p>}
       </motion.main>
       </AnimatePresence>
@@ -139,6 +142,26 @@ export default function Game() {
           </motion.div>
         )}
         {diario && <Diario key="diario" t={t} save={save} onFechar={() => setDiario(false)} />}
+        {/* A história da página acabou: a escolha sobe pro centro da tela, por cima do quadrinho. */}
+        {pronto && escolhaAberta && !luta && !capitulo && escolhas.length > 0 && (
+          <motion.div key={`escolha-${cena.id}`} className="ld-escolha-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <motion.div className="ld-escolha-overlay__caixa" initial={{ scale: 0.8, rotate: -2, y: 30 }} animate={{ scale: 1, rotate: 0, y: 0 }}
+              transition={{ type: 'spring', stiffness: 240, damping: 18 }}>
+              <Escolhas t={t} escolhas={escolhas} veiaJogador={save.veia} onEscolher={onEscolher} />
+              <button type="button" className="ld-reler" onClick={() => setEscolhaAberta(false)}>{t('games.ldi.jogo.reler')}</button>
+            </motion.div>
+          </motion.div>
+        )}
+        {/* Antes da luta: splash page de quadrinho, você contra ele. A luta carrega por baixo. */}
+        {luta?.vs && (
+          <motion.div key="vs" className="ld-vs" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, scale: 1.15 }}
+            onAnimationComplete={() => setTimeout(() => setLuta(l => (l ? { ...l, vs: false } : l)), 1900)}>
+            <motion.span className="ld-vs__voce" initial={{ x: -200 }} animate={{ x: 0 }} transition={{ type: 'spring', stiffness: 260, damping: 20 }}>{save.nome}</motion.span>
+            <motion.b className="ld-vs__x" initial={{ scale: 3, rotate: -30, opacity: 0 }} animate={{ scale: 1, rotate: -8, opacity: 1 }} transition={{ delay: 0.25, type: 'spring', stiffness: 300, damping: 12 }}>VS</motion.b>
+            <motion.span className="ld-vs__ele" initial={{ x: 200 }} animate={{ x: 0 }} transition={{ type: 'spring', stiffness: 260, damping: 20 }}>{t(`games.ldi.batalha.inimigos.${luta.escolha.luta}.nome`)}</motion.span>
+            <motion.strong className="ld-vs__grito" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.7, type: 'spring', stiffness: 320, damping: 10 }}>{t('games.ldi.jogo.vs_grito')}</motion.strong>
+          </motion.div>
+        )}
       </AnimatePresence>
 
       {luta && (

@@ -800,7 +800,10 @@
         "requer": "Requires {hab}",
         "carregando": "Loading the story...",
         "aprendeu": "You learned",
-        "requer_outra": "Only those who follow {veia} know this."
+        "requer_outra": "Only those who follow {veia} know this.",
+        "abrir_escolha": "Make your choice",
+        "reler": "Reread the page",
+        "vs_grito": "FIGHT!"
       },
       "decisao": {
         "eyebrow": "Decision",

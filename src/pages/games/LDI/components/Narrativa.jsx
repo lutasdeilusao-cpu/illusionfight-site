@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import ONOMATOPEIAS from '../data/onomatopeias.json'
 
 // Graphic novel: cada trecho da cena (entre dois ---) é um QUADRO — a arte dele
 // (arte/<id da cena>-<n>.webp, n a partir de 1) com as falas daquele momento embaixo.
@@ -8,6 +9,7 @@ import { motion } from 'framer-motion'
 //   narração              → texto corrido
 //   [NOME] "fala"         → balão com o nome de quem fala
 //   [SISTEMA] "mensagem"  → linha de terminal do LDI
+//   *linha inteira*       → pensamento (balão de nuvem)
 //   ---                   → corte pro próximo quadro
 // Linha que começa com {veia:N} só aparece pra quem segue a Veia N;
 // com {hab:ID}, só pra quem já sabe aquela habilidade.
@@ -30,7 +32,14 @@ export function lerLinha(linha) {
       : { tipo: 'fala', nome: nomeDe(m[1]), texto: semAspas(m[2]) }
   }
   if (/^["“]/.test(linha)) return { tipo: 'fala', texto: semAspas(linha) }
+  if (/^\*[^*]+\*$/.test(linha.trim())) return { tipo: 'pensa', texto: linha.trim().slice(1, -1) }
   return { tipo: 'narra', texto: linha }
+}
+
+// Fala gritada (termina em "!" e vem quase toda em maiúscula, ou com "!!") vira balão estourado.
+function gritada(texto) {
+  const letras = texto.replace(/[^A-Za-zÀ-ÿ]/g, '')
+  return /!\s*$/.test(texto) && (/!!/.test(texto) || (letras.length > 3 && letras === letras.toUpperCase()))
 }
 
 function prepararLinhas(linhas, { veia, habilidades, nome }) {
@@ -60,7 +69,13 @@ export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome
     const trechos = [[]]
     for (const l of linhas) { if (l.trim() === '---') trechos.push([]); else trechos[trechos.length - 1].push(l) }
     return trechos
-      .map((t, i) => ({ arte: arteDe(`${cenaId}-${i + 1}`), blocos: prepararLinhas(t, { veia, habilidades, nome }).map(lerLinha) }))
+      .map((t, i) => ({
+        arte: arteDe(`${cenaId}-${i + 1}`),
+        // trecho longo tem uma 2ª arte no meio do texto (arte/<cena>-<n>b.webp)
+        arte2: arteDe(`${cenaId}-${i + 1}b`),
+        onoma: ONOMATOPEIAS[`${cenaId}-${i + 1}`] || null,
+        blocos: prepararLinhas(t, { veia, habilidades, nome }).map(lerLinha),
+      }))
       .filter(q => q.arte || q.blocos.length)
   }, [cenaId, linhas, veia, chaveHabs, nome]) // eslint-disable-line react-hooks/exhaustive-deps
   const [vistos, setVistos] = useState(1)
@@ -84,13 +99,24 @@ export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome
         <motion.figure key={i} ref={i === vistos - 1 ? ultimo : null} className={`ld-quadro${q.arte ? ' tem-arte' : ''}`}
           initial={{ opacity: 0, y: 26, rotate: i % 2 ? 1.4 : -1.4, scale: 0.96 }} animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
           transition={{ type: 'spring', stiffness: 260, damping: 22 }}>
-          {q.arte && <div className="ld-quadro__moldura"><img className="ld-quadro__arte" src={q.arte} alt="" /></div>}
+          {q.arte && (
+            <div className="ld-quadro__moldura">
+              <img className="ld-quadro__arte" src={q.arte} alt="" />
+              {q.onoma && <motion.span className="ld-onoma" initial={{ scale: 0, rotate: -25 }} animate={{ scale: 1, rotate: -10 }}
+                transition={{ delay: 0.5, type: 'spring', stiffness: 380, damping: 11 }}>{q.onoma}</motion.span>}
+            </div>
+          )}
           {q.blocos.map((b, j) => (
-            <motion.div key={j} className={`ld-bloco ld-bloco--${b.tipo}`}
-              initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: 0.25 + j * 0.22 }}>
-              {b.nome && <span className="ld-bloco__nome">{b.nome}</span>}
-              <p>{comItalico(b.texto)}</p>
-            </motion.div>
+            <Fragment key={j}>
+              {q.arte2 && j === Math.ceil(q.blocos.length / 2) && (
+                <div className="ld-quadro__moldura is-segunda"><img className="ld-quadro__arte" src={q.arte2} alt="" /></div>
+              )}
+              <motion.div className={`ld-bloco ld-bloco--${b.tipo}${b.tipo === 'fala' && gritada(b.texto) ? ' is-grito' : ''}`}
+                initial={{ opacity: 0, y: 6, scale: 0.92 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.3, delay: 0.25 + j * 0.22 }}>
+                {b.nome && <span className="ld-bloco__nome">{b.nome}</span>}
+                <p>{comItalico(b.texto)}</p>
+              </motion.div>
+            </Fragment>
           ))}
         </motion.figure>
       ))}

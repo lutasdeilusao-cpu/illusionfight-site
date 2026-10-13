@@ -170,13 +170,39 @@
 .ld-quadro .ld-bloco--narra p { font: 600 0.95rem/1.45 var(--font-body); color: var(--ldi-bg); }
 .ld-quadro .ld-bloco--narra em { color: var(--ldi-bg); font-weight: 800; }
 
-/* Fala = balão branco com rabinho apontando pra cima, pra arte (sem borda redonda). */
-.ld-quadro .ld-bloco--fala { justify-self: center; width: 92%; margin-top: 16px; padding: 9px 12px; background: var(--if-ink);
-  border: 2px solid var(--ldi-bg); box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6); }
-.ld-quadro .ld-bloco--fala::before { content: ''; position: absolute; top: -14px; left: 20%; border: 7px solid transparent; border-bottom-color: var(--if-ink); }
-.ld-quadro .ld-bloco--fala:nth-child(even)::before { left: auto; right: 20%; }
+/* BALÕES DE QUADRINHO. Balão é redondo (a exceção do portal ao canto chanfrado: no
+   gibi, fala é oval). Fala = balão branco com rabinho apontando pra arte; grito = balão
+   estourado em pontas; pensamento = nuvem com bolinhas. */
+.ld-quadro .ld-bloco--fala { justify-self: center; width: 90%; margin-top: 18px; padding: 12px 18px; text-align: center;
+  background: var(--if-ink); border: 2.5px solid var(--ldi-bg); border-radius: 50% / 46%; box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.55); }
+.ld-quadro .ld-bloco--fala::before { content: ''; position: absolute; top: -15px; left: 26%; width: 22px; height: 22px;
+  background: var(--if-ink); border-left: 2.5px solid var(--ldi-bg); clip-path: polygon(0 0, 100% 100%, 0 100%); }
+.ld-quadro .ld-bloco--fala:nth-child(even)::before { left: auto; right: 26%; transform: scaleX(-1); }
 .ld-quadro .ld-bloco--fala p { font: 700 0.98rem/1.4 var(--font-body); color: var(--ldi-bg); }
 .ld-quadro .ld-bloco--fala .ld-bloco__nome { color: color-mix(in srgb, var(--veia-cor) 60%, var(--ldi-bg)); }
+
+.ld-quadro .ld-bloco--fala.is-grito { width: 96%; padding: 26px 30px; border: 0; border-radius: 0; background: var(--if-ink);
+  clip-path: polygon(0 18%, 9% 12%, 6% 0, 20% 9%, 30% 0, 38% 10%, 50% 0, 58% 10%, 70% 0, 76% 11%, 92% 2%, 90% 16%, 100% 22%, 93% 36%, 100% 50%, 93% 62%, 100% 80%, 88% 82%, 92% 100%, 76% 90%, 64% 100%, 54% 89%, 40% 100%, 32% 89%, 16% 100%, 14% 86%, 0 90%, 6% 72%, 0 56%, 7% 44%, 0 30%);
+  filter: drop-shadow(3px 4px 0 rgba(0, 0, 0, 0.6)); animation: ld-grito 0.4s ease-out both; }
+.ld-quadro .ld-bloco--fala.is-grito::before { display: none; }
+.ld-quadro .ld-bloco--fala.is-grito p { font: 900 1.12rem/1.25 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; }
+@keyframes ld-grito { 0% { transform: scale(0.6) rotate(-3deg); } 60% { transform: scale(1.08) rotate(1deg); } 100% { transform: scale(1) rotate(0); } }
+
+.ld-quadro .ld-bloco--pensa { justify-self: center; width: 84%; margin-top: 22px; padding: 14px 20px; text-align: center;
+  background: color-mix(in srgb, var(--if-ink) 92%, var(--veia-cor)); border: 2px dashed var(--ldi-bg); border-radius: 40px; box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.5); }
+.ld-quadro .ld-bloco--pensa::before, .ld-quadro .ld-bloco--pensa::after { content: ''; position: absolute; border-radius: 50%; background: inherit; border: 2px solid var(--ldi-bg); }
+.ld-quadro .ld-bloco--pensa::before { width: 16px; height: 16px; top: -14px; left: 30%; }
+.ld-quadro .ld-bloco--pensa::after { width: 9px; height: 9px; top: -26px; left: 26%; }
+.ld-quadro .ld-bloco--pensa p { font: italic 700 0.96rem/1.4 var(--font-body); color: var(--ldi-bg); }
+.ld-quadro .ld-bloco--pensa em { color: var(--ldi-bg); }
+
+/* Onomatopeia: estoura por cima da arte, letra grossa com contorno e sombra dura. */
+.ld-onoma { position: absolute; top: 9%; left: 6%; z-index: 2; font: 900 2.6rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.02em;
+  color: var(--if-amber); -webkit-text-stroke: 2px var(--ldi-bg); paint-order: stroke fill; text-shadow: 4px 4px 0 var(--if-danger), 7px 7px 0 rgba(0, 0, 0, 0.7); pointer-events: none; }
+.ld-page.is-luta .ld-onoma { color: var(--if-ink); font-size: 3.1rem; }
+
+/* 2ª arte do trecho longo: entra no meio das falas. */
+.ld-quadro__moldura.is-segunda { margin: 14px 0 4px; aspect-ratio: 4 / 5; }
 
 /* Sistema do LDI = janela de terminal colada no quadro. */
 .ld-quadro .ld-bloco--sistema { justify-self: stretch; box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6); background: rgba(2, 10, 14, 0.92); }
@@ -206,3 +232,22 @@ body:has(.ld-pagina) .scroll-top-btn { visibility: hidden; pointer-events: none;
 .ld-page.is-luta .ld-quadro__moldura { border-color: var(--if-danger); animation: ld-tranco 0.35s ease-out both; }
 @keyframes ld-tranco { 0% { transform: translateX(-6px) rotate(-1deg); } 40% { transform: translateX(5px) rotate(0.6deg); } 100% { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .ld-page.is-luta .ld-quadro__moldura { animation: none; } }
+
+/* A escolha sobe pro centro da tela quando a página termina de contar. */
+.ld-escolha-overlay { position: fixed; inset: 0 var(--app-gutter); z-index: 1120; display: grid; place-items: center; padding: 16px;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.88)); overscroll-behavior: none; touch-action: none; }
+.ld-escolha-overlay__caixa { width: 100%; max-height: 100%; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: 8px; }
+.ld-escolha-overlay .ld-escolhas-painel { margin: 0; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); }
+.ld-reler { align-self: center; padding: 8px 12px; cursor: pointer; background: none; border: 0; color: var(--text-secondary); font: 700 0.62rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; }
+.ld-abrir-escolha { width: 100%; margin-top: 8px; }
+
+/* Splash page antes da luta: você (esquerda) contra ele (direita), VS estourando no meio. */
+.ld-vs { position: fixed; inset: 0 var(--app-gutter); z-index: 1300; display: grid; grid-template-rows: 1fr auto 1fr auto; place-items: center; gap: 6px; padding: 40px 16px; overflow: hidden; overscroll-behavior: none;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--veia-cor) 55%, var(--ldi-bg)) 0 49.6%, var(--ldi-bg) 49.6% 50.4%, color-mix(in srgb, var(--if-danger) 55%, var(--ldi-bg)) 50.4% 100%); }
+.ld-vs::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.25; background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 1px, transparent 1.6px) 0 0 / 6px 6px; }
+.ld-vs__voce, .ld-vs__ele { position: relative; z-index: 1; font: 900 2rem/1 var(--font-display); text-transform: uppercase; color: var(--if-ink); text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8); text-align: center; }
+.ld-vs__voce { align-self: end; justify-self: start; }
+.ld-vs__ele { align-self: start; justify-self: end; }
+.ld-vs__x { position: relative; z-index: 1; font: 900 5.5rem/1 var(--font-display); color: var(--if-amber); -webkit-text-stroke: 3px var(--ldi-bg); paint-order: stroke fill; text-shadow: 6px 6px 0 var(--if-danger); }
+.ld-vs__grito { position: relative; z-index: 1; font: 900 1.4rem/1 var(--font-display); letter-spacing: 0.3em; color: var(--if-ink); text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8); }
+@media (prefers-reduced-motion: reduce) { .ld-quadro .ld-bloco--fala.is-grito { animation: none; } }
