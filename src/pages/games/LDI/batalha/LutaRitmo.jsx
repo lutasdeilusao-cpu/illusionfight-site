@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida } from './som'
+import { PODERES, KIT } from './campanha'
 import './LutaRitmo.css'
 
 // Luta rítmica. Cada nota nasce pequena, longe, e vem crescendo até o ponto
@@ -26,7 +27,7 @@ const TIPOS = {
   cabecada: { icone: '💥', dano: 13, energia: 16, dele: false },
   bloqueio: { icone: '✋', dano: 12, energia: 8, dele: true },
   esquiva: { icone: '💨', dano: 14, energia: 10, dele: true },
-  super: { icone: '⚡', dano: 8, energia: 0, dele: false },
+  super: { icone: '⚡', dano: 0, energia: 0, dele: false },
 }
 
 const entre = (a, b) => a + Math.random() * (b - a)
@@ -57,9 +58,11 @@ const FRASES = {
   2: [[2, 6, 10, 14], [2, 6, 12, 13, 14], [6, 10, 11, 12], [2, 10, 12, 14], [2, 3, 4, 10]],
   3: [[2, 6, 12, 13, 14], [2, 3, 4, 10, 14], [6, 7, 8, 12, 13, 14], [2, 6, 10, 11, 12, 14], [0, 2, 6, 8, 10, 14]],
   4: [[2, 4, 6, 10, 12, 13, 14], [0, 2, 3, 4, 8, 10, 11, 12], [2, 3, 4, 6, 10, 11, 12, 14], [2, 6, 7, 8, 10, 12, 13, 14]],
+  5: [[0, 2, 3, 4, 6, 8, 10, 11, 12, 14], [2, 3, 4, 5, 6, 10, 12, 13, 14], [0, 1, 2, 6, 8, 9, 10, 12, 13, 14], [2, 4, 5, 6, 8, 10, 11, 12, 13, 14]],
 }
-function frase(ficha, inicio, n, batida) {
-  // as 2 primeiras frases da luta são sempre do nível mais leve dele, pra entrar no ritmo
+// Os grupos revezam: um seu, um dele (às vezes, `defesaPeso`, dois dele seguidos).
+// `vez` guarda de quem foi o último grupo entre uma frase e outra.
+function frase(ficha, inicio, n, batida, vez) {
   const nivel = n < 2 ? ficha.niveis[0] : ficha.niveis[Math.floor(Math.random() * ficha.niveis.length)]
   const lista = FRASES[nivel]
   const passos = lista[Math.floor(Math.random() * lista.length)]
@@ -67,7 +70,10 @@ function frase(ficha, inicio, n, batida) {
   let tipo = null, anterior = -9
   for (const p of passos) {
     // começa grupo novo quando não é a colcheia seguida da anterior
-    if (p !== anterior + 1) tipo = Math.random() < ficha.defesaPeso ? sorteiaPeso(ficha.defesas) : sorteiaPeso(ficha.golpes)
+    if (p !== anterior + 1) {
+      vez.dele = vez.dele == null ? false : vez.dele ? Math.random() < ficha.defesaPeso * 0.5 : true
+      tipo = vez.dele ? sorteiaPeso(ficha.defesas) : sorteiaPeso(ficha.golpes)
+    }
     notas.push({ tipo, hora: inicio + p * batida / 2 })
     anterior = p
   }
@@ -87,7 +93,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     estado.current = {
       inicio: agora, notas: [], proxFrase: agora + Math.ceil(VOO / (8 * BATIDA)) * 8 * BATIDA, nFrase: 0, proxBatida: agora,
       vida: VIDA, inimigo: ficha.vida, energia: 0, combo: 0, melhorCombo: 0,
-      aviso: null, tremor: 0, superFalhou: false,
+      aviso: null, tremor: 0, poder: null, atordoadoAte: 0, vez: { dele: null }, pausaAte: 0, ultimo: agora, flash: 0,
     }
     setFim(null)
   }, [ficha, BATIDA])
@@ -104,8 +110,18 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
       const s = estado.current
       const agora = performance.now()
       if (s) {
+        // Tomou golpe: o tempo para um instante (tudo é empurrado pra frente junto).
+        if (agora < s.pausaAte) {
+          const dt = agora - s.ultimo
+          s.inicio += dt; s.proxFrase += dt; s.proxBatida += dt
+          for (const n of s.notas) if (n.estado === 'vindo') n.hora += dt
+        }
+        s.ultimo = agora
         while (s.proxFrase < agora + VOO + 8 * BATIDA) {
-          for (const n of frase(ficha, s.proxFrase, s.nFrase, BATIDA)) s.notas.push({ ...n, ...trajeto(n.tipo), id: ++id.current, estado: 'vindo' })
+          for (const n of frase(ficha, s.proxFrase, s.nFrase, BATIDA, s.vez)) {
+            if (TIPOS[n.tipo].dele && n.hora < s.atordoadoAte) continue // atordoado: ele não ataca
+            s.notas.push({ ...n, ...trajeto(n.tipo), id: ++id.current, estado: 'vindo' })
+          }
           s.proxFrase += 8 * BATIDA; s.nFrase++
         }
         while (s.proxBatida <= agora) {
@@ -116,10 +132,10 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
           if (n.estado !== 'vindo' || agora - n.hora <= SOME) continue
           n.estado = 'errou'; n.fimEm = agora
           s.combo = 0
-          if (TIPOS[n.tipo].dele) { s.vida = Math.max(0, s.vida - TIPOS[n.tipo].dano); s.tremor = agora + 260; avisar(t('games.ldi.batalha.ritmo.apanhou'), 'is-mal') }
-          else if (n.tipo === 'super') s.superFalhou = true
+          if (TIPOS[n.tipo].dele) apanhar(s, n, agora)
           else avisar(t('games.ldi.batalha.ritmo.errou'), 'is-raspou')
         }
+        fecharSuper(s, agora)
         s.notas = s.notas.filter(n => n.estado === 'vindo' || agora - n.fimEm < 380)
         if (s.inimigo <= 0) setFim('vitoria')
         else if (s.vida <= 0) setFim('derrota')
@@ -131,23 +147,52 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     return () => cancelAnimationFrame(raf)
   }, [fim, t, ficha, BATIDA])
 
-  const dispararSuper = () => {
+  // Tomou: para tudo um instante, tela vermelha, treme, POW.
+  const apanhar = (s, n, agora) => {
+    s.vida = Math.max(0, s.vida - TIPOS[n.tipo].dano)
+    s.pausaAte = agora + 280; s.tremor = agora + 420; s.flash = agora + 420
+    somGolpe('cabecada')
+    avisar(t('games.ldi.batalha.ritmo.apanhou'), 'is-mal')
+  }
+
+  // SUPER: a virada do poder escolhido, notas douradas varrendo a arena de um lado
+  // pro outro. Cada nota acertada vale uma fatia igual do poder.
+  const dispararSuper = id_ => {
     const s = estado.current
+    if (s.poder) return
+    const pd = PODERES[id_]
     const agora = performance.now()
     s.energia = 0
     somPoder()
-    avisar(t('games.ldi.batalha.ritmo.super'), 'is-super')
-    // Abre espaço: tira o que ainda está longe e solta 4 notas douradas, meia batida entre elas.
+    avisar(t(`games.ldi.batalha.ritmo.poderes.${id_}.nome`), 'is-super')
+    // Abre espaço: tira o que ainda está longe; a virada começa numa batida cheia.
     s.notas = s.notas.filter(n => n.estado !== 'vindo' || n.hora - agora < 500)
-    const meia = BATIDA / 2
-    const base = Math.ceil((agora + VOO - s.inicio) / meia) * meia + s.inicio
-    const cx = entre(30, 70), cy = entre(35, 60)
-    for (let i = 0; i < 4; i++) {
-      const alvo = { x: cx + (i - 1.5) * 13, y: cy + (i % 2 ? 9 : -9) }
-      s.notas.push({ tipo: 'super', hora: base + i * meia, de: { x: 50, y: 50 }, alvo, id: ++id.current, estado: 'vindo' })
+    const semi = BATIDA / 4
+    const base = Math.ceil((agora + VOO - s.inicio) / BATIDA) * BATIDA + s.inicio
+    const total = pd.virada.length
+    const lado = Math.random() < 0.5
+    pd.virada.forEach((q, i) => {
+      const f = total === 1 ? 0.5 : i / (total - 1)
+      const alvo = { x: lado ? 16 + f * 68 : 84 - f * 68, y: 50 + Math.sin(f * Math.PI) * -18 + (i % 2 ? 6 : -6) }
+      s.notas.push({ tipo: 'super', hora: base + q * semi, de: { x: 50, y: 50 }, alvo, id: ++id.current, estado: 'vindo' })
+    })
+    s.poder = { id: id_, total, acertos: 0 }
+    s.proxFrase = Math.max(s.proxFrase, base + (pd.virada[total - 1] + 1) * semi + BATIDA * 2)
+  }
+
+  // Quando a última nota da virada se resolve, aplica o poder na proporção certa.
+  const fecharSuper = (s, agora) => {
+    if (!s.poder || s.notas.some(n => n.tipo === 'super' && n.estado === 'vindo')) return
+    const pd = PODERES[s.poder.id]
+    const frac = s.poder.acertos / s.poder.total
+    if (pd.dano) s.inimigo = Math.max(0, s.inimigo - Math.round(pd.dano * frac))
+    if (pd.cura) s.vida = Math.min(VIDA, s.vida + Math.round(pd.cura * frac))
+    if (pd.atordoa && frac > 0) {
+      s.atordoadoAte = agora + pd.atordoa * frac
+      for (const n of s.notas) if (n.estado === 'vindo' && TIPOS[n.tipo].dele && n.hora < s.atordoadoAte) { n.estado = 'errou'; n.fimEm = agora }
     }
-    s.superFalhou = false
-    s.proxFrase = Math.max(s.proxFrase, base + 4 * meia + BATIDA * 2)
+    avisar(t('games.ldi.batalha.ritmo.super_pct', { n: Math.round(frac * 100) }), frac === 1 ? 'is-super' : frac >= 0.5 ? 'is-bom' : 'is-mal')
+    s.poder = null
   }
 
   const tocar = (n, e) => {
@@ -156,7 +201,14 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     if (!s || n.estado !== 'vindo') return
     const agora = performance.now()
     const dif = Math.abs(agora - n.hora)
-    if (dif > JANELA.bom * 1.6) return // cedo demais: a nota segue vindo
+    if (dif > JANELA.bom * 1.6) {
+      // Fora da hora: perdeu a chance. A nota some, a tela treme e fica vermelha;
+      // se era golpe dele, você toma.
+      n.estado = 'errou'; n.fimEm = agora; s.combo = 0
+      if (TIPOS[n.tipo].dele) apanhar(s, n, agora)
+      else { s.tremor = agora + 260; s.flash = agora + 260; avisar(t('games.ldi.batalha.ritmo.fora_da_hora'), 'is-mal') }
+      return
+    }
     const nota = dif <= JANELA.perfeito ? 'perfeito' : dif <= JANELA.bom ? 'bom' : 'raspou'
     const mult = nota === 'perfeito' ? 1.5 : nota === 'bom' ? 1 : 0.5
     const tp = TIPOS[n.tipo]
@@ -168,12 +220,9 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
       s.inimigo = Math.max(0, s.inimigo - Math.round(tp.dano * mult * (1 + Math.min(s.combo, 20) * 0.02)))
       somGolpe(n.tipo)
     }
-    if (n.tipo !== 'super') s.energia = Math.min(ENERGIA_MAX, s.energia + tp.energia * mult)
+    if (n.tipo === 'super') { if (s.poder) s.poder.acertos++ }
+    else s.energia = Math.min(ENERGIA_MAX, s.energia + tp.energia * mult)
     avisar(t(`games.ldi.batalha.ritmo.${n.tipo === 'esquiva' ? 'desviou' : nota}`), `is-${nota}`)
-    if (n.tipo === 'super' && !s.notas.some(o => o.tipo === 'super' && o.estado === 'vindo') && !s.superFalhou) {
-      s.inimigo = Math.max(0, s.inimigo - 30)
-      avisar(t('games.ldi.batalha.ritmo.super_acertou'), 'is-super')
-    }
   }
 
   const s = estado.current
@@ -183,6 +232,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
 
   return (
     <div className={`rt-page${s.tremor > agora ? ' is-tremendo' : ''}`}>
+      {s.flash > agora && <div key={s.flash} className="rt-flash" aria-hidden="true">{s.pausaAte > agora - 400 && s.vida >= 0 ? t('games.ldi.batalha.ritmo.pow') : ''}</div>}
       <header className="rt-topo">
         <button type="button" className="rt-sair" onClick={onSair}>{t('games.ldi.batalha.sair')}</button>
         <div className="rt-barras">
@@ -227,16 +277,23 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
       </div>
 
       <footer className="rt-base">
-        <button
-          type="button"
-          className={`rt-energia${s.energia >= ENERGIA_MAX ? ' is-cheia' : ''}`}
-          disabled={s.energia < ENERGIA_MAX}
-          onClick={dispararSuper}
-          style={{ '--v': s.energia / ENERGIA_MAX }}
-        >
-          <i />
-          <span>{s.energia >= ENERGIA_MAX ? t('games.ldi.batalha.ritmo.super_pronto') : t('games.ldi.batalha.energia', { n: Math.floor(s.energia) })}</span>
-        </button>
+        {s.energia >= ENERGIA_MAX && !s.poder ? (
+          <div className="rt-poderes">
+            {(KIT[ficha.id] || ['rajada']).map(pid => (
+              <button key={pid} type="button" className="rt-poder" onClick={() => dispararSuper(pid)}>
+                <span className="rt-poder__icone">{PODERES[pid].icone}</span>
+                <b>{t(`games.ldi.batalha.ritmo.poderes.${pid}.nome`)}</b>
+                <small>{t(`games.ldi.batalha.ritmo.poderes.${pid}.desc`)}</small>
+                <i className="rt-poder__notas">{'●'.repeat(PODERES[pid].virada.length)}</i>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className={`rt-energia${s.poder ? ' is-cheia' : ''}`} style={{ '--v': s.poder ? 1 : s.energia / ENERGIA_MAX }}>
+            <i />
+            <span>{s.poder ? t(`games.ldi.batalha.ritmo.poderes.${s.poder.id}.nome`) : t('games.ldi.batalha.energia', { n: Math.floor(s.energia) })}</span>
+          </div>
+        )}
         <p className="rt-legenda">{t('games.ldi.batalha.ritmo.legenda')}</p>
       </footer>
 

@@ -1021,15 +1021,37 @@
           "errou": "Errou",
           "apanhou": "Apanhou!",
           "combo": "{n} de combo",
-          "super": "SUPER!",
-          "super_pronto": "Super pronto: toca!",
-          "super_acertou": "Rajada certeira!",
           "melhor_combo": "Melhor combo: {n}",
           "legenda": "👊 lados · 🦶 embaixo · 💥 centro pra cima · ✋ defende · 💨 desvia no centro",
           "titulo": "Luta rítmica",
           "como": "As notas vêm de longe, crescendo. Toca quando o anel encostar nela. Soco vem pelos lados, chute vem de baixo, cabeçada sai do centro pra cima. ✋ e 💨 são golpes dele: toca na hora pra defender ou desviar, senão você apanha.",
           "desviou": "Desviou!",
-          "continuar": "Continuar"
+          "continuar": "Continuar",
+          "pow": "POW!",
+          "fora_da_hora": "Fora da hora!",
+          "poderes": {
+            "rajada": {
+              "nome": "Rajada",
+              "desc": "4 golpes seguidos no tempo. Dano."
+            },
+            "folego": {
+              "nome": "Fôlego",
+              "desc": "Respira e volta. Recupera vida."
+            },
+            "geloNegro": {
+              "nome": "Gelo Negro",
+              "desc": "Congela ele: um tempo sem atacar, e dano."
+            },
+            "choque": {
+              "nome": "Choque",
+              "desc": "Virada de 6. Dano pesado."
+            },
+            "furia": {
+              "nome": "Fúria",
+              "desc": "Virada de 7, a mais difícil. Dano brutal."
+            }
+          },
+          "super_pct": "Super {n}%"
         }
       }
     },

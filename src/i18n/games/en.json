@@ -1021,15 +1021,37 @@
           "errou": "Miss",
           "apanhou": "Got hit!",
           "combo": "{n} combo",
-          "super": "SUPER!",
-          "super_pronto": "Super ready: tap!",
-          "super_acertou": "Flawless barrage!",
           "melhor_combo": "Best combo: {n}",
           "legenda": "👊 sides · 🦶 below · 💥 center up · ✋ block · 💨 dodge at the center",
           "titulo": "Rhythm fight",
           "como": "Notes come from far away, growing. Tap when the ring touches them. Punches come from the sides, kicks from below, headbutts rise from the center. ✋ and 💨 are his hits: tap on time to block or dodge, or you take the hit.",
           "desviou": "Dodged!",
-          "continuar": "Continue"
+          "continuar": "Continue",
+          "pow": "POW!",
+          "fora_da_hora": "Off beat!",
+          "poderes": {
+            "rajada": {
+              "nome": "Barrage",
+              "desc": "4 hits on the beat. Damage."
+            },
+            "folego": {
+              "nome": "Second Wind",
+              "desc": "Breathe and come back. Heals."
+            },
+            "geloNegro": {
+              "nome": "Black Ice",
+              "desc": "Freezes him: no attacks for a while, plus damage."
+            },
+            "choque": {
+              "nome": "Shock",
+              "desc": "6-note fill. Heavy damage."
+            },
+            "furia": {
+              "nome": "Fury",
+              "desc": "7-note fill, the hardest. Brutal damage."
+            }
+          },
+          "super_pct": "Super {n}%"
         }
       }
     },

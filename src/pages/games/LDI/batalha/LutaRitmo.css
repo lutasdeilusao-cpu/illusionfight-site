@@ -98,3 +98,22 @@
 .rt-degrau small { color: var(--text-secondary); font-size: .7rem; }
 .rt-degrau.is-on { border-color: var(--if-amber); box-shadow: inset 3px 0 0 var(--if-amber); }
 .rt-menu__lutar { position: sticky; bottom: 12px; width: 100%; }
+
+/* Tomou golpe ou tocou fora da hora: tela vermelha piscando e o POW no meio. */
+.rt-flash { position: fixed; inset: 0 var(--app-gutter); z-index: 250; pointer-events: none; display: grid; place-items: center;
+  background: radial-gradient(circle, color-mix(in srgb, var(--if-danger) 25%, transparent), color-mix(in srgb, var(--if-danger) 55%, transparent));
+  color: var(--if-ink); font: 900 4rem var(--font-display); letter-spacing: .04em; text-shadow: 0 4px 0 var(--if-danger), 0 0 30px var(--if-danger);
+  animation: rt-flash .42s ease-out forwards; }
+@keyframes rt-flash { 0% { opacity: 1; transform: scale(1.15); } 60% { opacity: .9; } 100% { opacity: 0; transform: scale(1); } }
+.rt-page.is-tremendo { animation: rt-treme .32s linear; }
+
+/* Energia cheia: os poderes do seu kit, um botão cada, embaixo no alcance do dedão.
+   As bolinhas mostram quantas notas a virada tem (mais nota = mais difícil e mais forte). */
+.rt-poderes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+.rt-poder { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: center; text-align: left; min-height: 56px; padding: 6px 8px; cursor: pointer;
+  border: 1px solid var(--rt-super); background: color-mix(in srgb, var(--rt-super) 14%, var(--ldi-bg)); color: var(--if-ink); animation: rt-pulso .5s ease-in-out infinite alternate; }
+.rt-poder__icone { grid-row: span 3; font-size: 1.5rem; }
+.rt-poder b { font: 900 .78rem var(--font-display); text-transform: uppercase; letter-spacing: .04em; }
+.rt-poder small { color: var(--text-secondary); font-size: .6rem; line-height: 1.25; }
+.rt-poder__notas { font-style: normal; color: var(--rt-super); font-size: .55rem; letter-spacing: .1em; }
+div.rt-energia { display: grid; place-items: center; }

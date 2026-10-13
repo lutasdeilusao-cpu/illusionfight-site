@@ -1021,15 +1021,37 @@
           "errou": "Fallaste",
           "apanhou": "¡Te dieron!",
           "combo": "{n} de combo",
-          "super": "¡SÚPER!",
-          "super_pronto": "Súper listo: ¡toca!",
-          "super_acertou": "¡Ráfaga perfecta!",
           "melhor_combo": "Mejor combo: {n}",
           "legenda": "👊 lados · 🦶 abajo · 💥 centro arriba · ✋ bloquea · 💨 esquiva en el centro",
           "titulo": "Pelea rítmica",
           "como": "Las notas vienen de lejos, creciendo. Toca cuando el anillo las toque. El puñetazo viene por los lados, la patada desde abajo, el cabezazo sale del centro hacia arriba. ✋ y 💨 son golpes de él: toca a tiempo para bloquear o esquivar, si no, te pegan.",
           "desviou": "¡Esquivaste!",
-          "continuar": "Continuar"
+          "continuar": "Continuar",
+          "pow": "¡PUM!",
+          "fora_da_hora": "¡Fuera de tiempo!",
+          "poderes": {
+            "rajada": {
+              "nome": "Ráfaga",
+              "desc": "4 golpes a tiempo. Daño."
+            },
+            "folego": {
+              "nome": "Aliento",
+              "desc": "Respira y vuelve. Recupera vida."
+            },
+            "geloNegro": {
+              "nome": "Hielo Negro",
+              "desc": "Lo congela: un rato sin atacar, y daño."
+            },
+            "choque": {
+              "nome": "Choque",
+              "desc": "Redoble de 6. Daño fuerte."
+            },
+            "furia": {
+              "nome": "Furia",
+              "desc": "Redoble de 7, el más difícil. Daño brutal."
+            }
+          },
+          "super_pct": "Súper {n}%"
         }
       }
     },
