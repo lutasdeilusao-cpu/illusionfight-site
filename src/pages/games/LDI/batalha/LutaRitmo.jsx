@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida, tocarMusica, pararMusica, latenciaSom } from './som'
+import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida, tocarMusica, pararMusica, latenciaSom, somApanhou, somNocaute, somSuperSolta } from './som'
 import { PODERES, KIT, TETO_SUPER } from './campanha'
 import Arena3D from './Arena3D'
 import './LutaRitmo.css'
@@ -205,7 +205,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
         s.notas = s.notas.filter(n => n.estado === 'vindo' || agora - n.fimEm < 380)
         if (s.apresenta && agora > s.apresenta.ate) s.apresenta = null
         if (s.apresenta) { /* espera a apresentação acabar */ }
-        else if (s.inimigo <= 0) setFim('vitoria')
+        else if (s.inimigo <= 0) { if (!s.ko) { s.ko = true; somNocaute() } setFim('vitoria') }
         else if (s.vida <= 0) setFim('derrota')
       }
       setQuadro(q => q + 1)
@@ -219,7 +219,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
   const apanhar = (s, n, agora) => {
     s.vida = Math.max(0, s.vida - TIPOS[n.tipo].dano)
     s.pausaAte = agora + 280; s.tremor = agora + 420; s.flash = agora + 420; s.apanhouEm = agora
-    somGolpe('cabecada')
+    somApanhou()
     avisar(t('games.ldi.batalha.ritmo.apanhou'), 'is-mal')
   }
 
@@ -276,7 +276,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
       const dano = Math.round(Math.min(s.poder.dano, VIDA * TETO_SUPER) * (1 - frac))
       s.vida = Math.max(0, s.vida - dano)
       s.apresenta = { dele: true, frac, ate: agora + APRESENTA }
-      if (dano > 0) { somGolpe('cabecada'); s.tremor = agora + 500; s.flash = agora + 500; s.apanhouEm = agora }
+      if (dano > 0) { somApanhou(); s.tremor = agora + 500; s.flash = agora + 500; s.apanhouEm = agora }
       else somBloqueio(true)
       s.pausaAte = agora + APRESENTA
       s.poder = null
@@ -288,7 +288,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     if (pd.atordoa && frac > 0) s.atordoadoAte = agora + APRESENTA + pd.atordoa * frac
     s.apresenta = { id: s.poder.id, frac, ate: agora + APRESENTA }
     s.pausaAte = agora + APRESENTA
-    if (frac > 0) { somPoder(); s.tremor = agora + 500; s.golpeEm = agora }
+    if (frac > 0) { somSuperSolta(frac); s.tremor = agora + 500; s.golpeEm = agora }
     s.poder = null
   }
 

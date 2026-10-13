@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
+import { somPasso } from './som'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import urlRobo from './modelos/RobotExpressive.glb?url'
 import urlLuva from './modelos/luva.glb?url'
@@ -86,8 +87,8 @@ const MODELO = { soco: punhoHumano, chute: peHumano, cabecada: cabecaHumana, blo
 
 // Lutadores prontos e o nome das animações de cada um (o modelo traz as dele).
 const LUTADORES = {
-  robo: { url: urlRobo, altura: 3.1, parado: 'Idle', ataque: ['Punch', 'Punch', 'ThumbsUp', 'Yes'], apanha: ['No', 'Jump'], morte: 'Death' },
-  aventureiro: { url: urlAventureiro, altura: 3.1, parado: 'CharacterArmature|Idle', ataque: ['CharacterArmature|Punch_Right', 'CharacterArmature|Kick_Left', 'CharacterArmature|Punch_Left', 'CharacterArmature|Kick_Right'], apanha: ['CharacterArmature|HitRecieve', 'CharacterArmature|HitRecieve_2'], morte: 'CharacterArmature|Death' },
+  robo: { url: urlRobo, altura: 3.1, parado: 'Idle', anda: 'Walking', viraAoAndar: true, pulo: 'Jump', ataque: ['Punch', 'Punch', 'ThumbsUp', 'Yes'], apanha: ['No', 'Jump'], morte: 'Death' },
+  aventureiro: { url: urlAventureiro, altura: 3.1, parado: 'CharacterArmature|Idle', andaDir: 'CharacterArmature|Run_Right', andaEsq: 'CharacterArmature|Run_Left', pulo: 'CharacterArmature|Roll', ataque: ['CharacterArmature|Punch_Right', 'CharacterArmature|Kick_Left', 'CharacterArmature|Punch_Left', 'CharacterArmature|Kick_Right'], apanha: ['CharacterArmature|HitRecieve', 'CharacterArmature|HitRecieve_2'], morte: 'CharacterArmature|Death' },
 }
 // Modelo pronto de cada golpe (quando carregou); `metal` pinta de metal de robô.
 // `vira` deita o modelo pra ponta do golpe apontar pra você (luva e mão: o punho; tênis e bota: a sola).
@@ -148,12 +149,18 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
     // cada reação sorteia uma das animações do modelo, pra não repetir sempre igual
     const sorteia = lista => lista[Math.floor(Math.random() * lista.length)]
     let mixer = null, acoes = {}, acaoAtual = null, robo = false
+    // `base` é a animação contínua do momento (guarda ou andando); golpe, reação
+    // e pulo tocam uma vez por cima e, quando acabam, voltam pra base.
+    let base = def.parado, umaVezAtiva = false
     const tocarAcao = (nome, umaVez) => {
       const nova = acoes[nome]; if (!nova || nova === acaoAtual && !umaVez) return
       nova.reset(); nova.setLoop(umaVez ? THREE.LoopOnce : THREE.LoopRepeat); nova.clampWhenFinished = true
-      if (acaoAtual && acaoAtual !== nova) acaoAtual.crossFadeTo(nova, 0.12, false)
-      nova.play(); acaoAtual = nova
+      if (acaoAtual && acaoAtual !== nova) acaoAtual.crossFadeTo(nova, 0.15, false)
+      nova.play(); acaoAtual = nova; umaVezAtiva = Boolean(umaVez)
     }
+    const trocarBase = nome => { if (!nome || nome === base) return; base = nome; if (!umaVezAtiva) tocarAcao(nome) }
+    // O passeio no fundo do ringue: escolhe um ponto, anda (ou pula/rola) até ele, para em guarda.
+    const passeio = { x: 0, alvo: 0, ate: 1.5, modo: 'parado', proxPasso: 0 }
     const modelos = {}
     const loader = new GLTFLoader()
     let vivo = true
@@ -170,7 +177,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
       mixer = new THREE.AnimationMixer(r)
       for (const clip of g.animations) acoes[clip.name] = mixer.clipAction(clip)
       tocarAcao(def.parado)
-      mixer.addEventListener('finished', () => { if (acaoAtual !== acoes[def.morte]) tocarAcao(def.parado) })
+      mixer.addEventListener('finished', () => { umaVezAtiva = false; if (acaoAtual !== acoes[def.morte]) tocarAcao(base) })
     })
     for (const [tipo, def] of Object.entries(ARQUIVO)) {
       loader.load(def.url, g => {
@@ -240,12 +247,30 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
       const agora = performance.now()
       if (s) {
         const t = agora / 1000
-        if (mixer) mixer.update(relogio.getDelta())
+        const dt = Math.min(0.1, relogio.getDelta())
+        if (mixer) mixer.update(dt)
         // respira e balança em guarda (o robô já tem a animação de guarda dele)
         lutador.position.y = CHAO_Y + (robo ? 0 : Math.sin(t * 3.2) * 0.06)
         // anda de um lado pro outro no fundo do ringue (as notas continuam saindo do centro)
-        lutador.position.x = Math.sin(t * 0.55) * 1.9 + Math.sin(t * 1.7) * 0.35
-        lutador.rotation.y = Math.cos(t * 0.55) * 0.35
+        const pz = passeio
+        if (s.inimigo > 0) {
+          if (pz.modo === 'parado' && t > pz.ate) {
+            do pz.alvo = (Math.random() * 2 - 1) * 2.2; while (Math.abs(pz.alvo - pz.x) < 1.2)
+            pz.modo = Math.random() < 0.2 && def.pulo ? 'pulo' : 'anda'
+            if (pz.modo === 'pulo' && robo) tocarAcao(def.pulo, true)
+          }
+          if (pz.modo !== 'parado') {
+            const dir = Math.sign(pz.alvo - pz.x), passo = (pz.modo === 'pulo' ? 2.6 : 1.5) * dt
+            if (pz.modo === 'anda') trocarBase(def.anda || (dir > 0 ? def.andaDir : def.andaEsq))
+            if (pz.modo === 'anda' && t > pz.proxPasso) { somPasso(); pz.proxPasso = t + 0.36 }
+            if (Math.abs(pz.alvo - pz.x) <= passo) { pz.x = pz.alvo; pz.modo = 'parado'; pz.ate = t + 0.8 + Math.random() * 1.8; trocarBase(def.parado) }
+            else pz.x += dir * passo
+          }
+        }
+        lutador.position.x = pz.x
+        // o robô anda virando o corpo pro lado que vai; parado, olha pra você
+        const viraPara = pz.modo === 'anda' && def.viraAoAndar ? Math.sign(pz.alvo - pz.x) * 1.1 : 0
+        lutador.rotation.y += (viraPara + Math.sin(t * 1.3) * 0.08 - lutador.rotation.y) * Math.min(1, dt * 8)
         // tomou golpe: recua e pisca vermelho
         const dg = agora - (s.golpeEm || 0)
         if (s.golpeEm !== ultimoGolpe) { ultimoGolpe = s.golpeEm; if (robo) tocarAcao(s.inimigo <= 0 ? def.morte : sorteia(def.apanha), true) }

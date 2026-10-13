@@ -1,5 +1,7 @@
-// Som da luta rítmica: a música da luta (arquivo) e, sintetizado na hora (Web
-// Audio), a batida de reserva (quando a música não toca) e a cara sonora de cada golpe.
+// Som da luta rítmica: a música da luta (arquivo), os efeitos gravados (impacto,
+// metal, explosão, passos — Kenney, CC0, em ./sfx) e, sintetizado na hora (Web
+// Audio), a batida de reserva (quando a música não toca) e o peso grave por baixo
+// de cada golpe. Efeito gravado que não carregou: fica só o sintetizado.
 const CHAVE_MUDO = 'ldi-luta-mudo'
 let ctx = null
 let master = null
@@ -14,6 +16,7 @@ export function ligarSom() {
     master = ctx.createGain()
     master.gain.value = mudo ? 0 : 0.7
     master.connect(ctx.destination)
+    carregarAmostras()
   }
   if (ctx.state === 'suspended') ctx.resume()
 }
@@ -45,6 +48,29 @@ export function tocarMusica(url, velocidade = 1) {
 export function pararMusica() {
   if (!faixa) return
   faixa.pause(); faixa.removeAttribute('src'); faixa.load(); faixa = null
+}
+
+// Efeitos gravados: cada nome tem algumas variações (soco-1, soco-2...) e cada
+// toque sorteia uma, pra não soar repetido.
+const ARQUIVOS_SFX = import.meta.glob('./sfx/*.mp3', { eager: true, query: '?url', import: 'default' })
+const amostras = {}
+function carregarAmostras() {
+  for (const [caminho, url] of Object.entries(ARQUIVOS_SFX)) {
+    const nome = caminho.match(/([a-z]+)-\d+\.mp3$/)[1]
+    fetch(url).then(r => r.arrayBuffer()).then(b => ctx.decodeAudioData(b)).then(buf => { (amostras[nome] ||= []).push(buf) }).catch(() => {})
+  }
+}
+// toca uma variação do efeito; devolve false se ainda não tem (aí entra o sintetizado)
+function amostra(nome, { vol = 1, quando = 0, tom: velocidade = 1 } = {}) {
+  const lista = amostras[nome]
+  if (!ctx || !lista?.length) return false
+  const s = ctx.createBufferSource(), g = ctx.createGain()
+  s.buffer = lista[Math.floor(Math.random() * lista.length)]
+  s.playbackRate.value = velocidade * (0.95 + Math.random() * 0.1)
+  g.gain.value = vol
+  s.connect(g).connect(master)
+  s.start(ctx.currentTime + quando)
+  return true
 }
 
 let ruidoCache = null
@@ -89,13 +115,40 @@ const TIMBRES = {
   cabeca: t => { tom(t, { f0: 260, f1: 140, dur: 0.18, vol: 0.6, tipo: 'triangle' }); tom(t, { f0: 175, f1: 90, dur: 0.22, vol: 0.6 }); sopro(t, { dur: 0.04, vol: 0.5, f0: 900 }) },
 }
 
+// O golpe: o efeito gravado + o grave sintetizado por baixo (dá o peso).
+const GRAVADO = { soco: ['soco', 1], chute: ['pesado', 1], cabecada: ['pesado', 0.85], super: ['laser', 0.8] }
 export function somGolpe(tipo, quando = 0) {
   if (!ctx) return
-  TIMBRES[{ soco: 'soco', chute: 'chute', cabecada: 'cabeca', super: 'joelho' }[tipo] || 'soco'](ctx.currentTime + quando)
+  const [nome, velocidade] = GRAVADO[tipo] || GRAVADO.soco
+  const tocou = amostra(nome, { vol: 1.1, quando, tom: velocidade })
+  if (tipo === 'cabecada') amostra('macio', { vol: 0.8, quando })
+  if (tocou) tom(ctx.currentTime + quando, { f0: 120, f1: 45, dur: 0.18, vol: 0.55 })
+  else TIMBRES[{ soco: 'soco', chute: 'chute', cabecada: 'cabeca', super: 'joelho' }[tipo] || 'soco'](ctx.currentTime + quando)
 }
+
+// Você tomou: soco pesado + chapa de metal (o robô) + grave.
+export function somApanhou() {
+  if (!ctx) return
+  const t = ctx.currentTime
+  if (!amostra('pesado', { vol: 1.2, tom: 0.8 })) TIMBRES.joelho(t)
+  amostra('placa', { vol: 0.6 })
+  tom(t, { f0: 90, f1: 35, dur: 0.3, vol: 0.8 })
+}
+
+// Nocaute: explosão grave.
+export function somNocaute() {
+  if (!ctx) return
+  amostra('explosao', { vol: 1.3 }); amostra('estalo', { vol: 0.8, quando: 0.05 })
+  tom(ctx.currentTime, { f0: 70, f1: 25, dur: 1.2, vol: 1 })
+}
+
+// Passo do lutador andando no ringue (baixinho, de fundo).
+export function somPasso() { if (ctx) amostra('passo', { vol: 0.22, tom: 0.8 }) }
 
 export function somBloqueio(duro, quando = 0) {
   if (!ctx) return
+  // a mão de metal do robô batendo na sua guarda
+  if (amostra('metal', { vol: duro ? 1.1 : 0.8, quando })) return
   const t = ctx.currentTime + quando
   tom(t, { f0: 950, f1: 700, dur: 0.07, vol: 0.35, tipo: 'square' })
   sopro(t, { dur: 0.06, vol: 0.7, filtro: 'highpass', f0: 3000 })
@@ -107,12 +160,23 @@ export function somEsquiva(quando = 0) {
   sopro(ctx.currentTime + quando, { dur: 0.22, vol: 0.5, f0: 2500, f1: 600, q: 3 })
 }
 
+// Super carregando (a luta para): campo de força + raio subindo.
 export function somPoder() {
   if (!ctx) return
   const t = ctx.currentTime
+  if (amostra('carga', { vol: 1 })) { amostra('raio', { vol: 0.7, quando: 0.15, tom: 0.8 }); return }
   for (let i = 0; i < 5; i++) tom(t + i * 0.05, { f0: 1200 + i * 380, f1: 2400 + i * 300, dur: 0.25, vol: 0.18, tipo: 'triangle' })
   tom(t + 0.2, { f0: 80, f1: 30, dur: 0.7, vol: 1 })
   sopro(t + 0.2, { dur: 0.6, vol: 0.6, filtro: 'lowpass', f0: 900, f1: 200 })
+}
+
+// Super solto (a apresentação): explosão grave, mais forte quanto mais carga.
+export function somSuperSolta(carga) {
+  if (!ctx) return
+  const t = ctx.currentTime
+  if (!amostra('explosao', { vol: 0.6 + carga * 0.8 })) sopro(t, { dur: 0.6, vol: 0.6, filtro: 'lowpass', f0: 900, f1: 200 })
+  amostra('raio', { vol: 0.5 * carga })
+  tom(t, { f0: 80, f1: 30, dur: 0.8, vol: 0.6 + carga * 0.4 })
 }
 
 // Batida de break (boom bap de b-boy/popping): bumbo no 1 e no "e" do 3,
