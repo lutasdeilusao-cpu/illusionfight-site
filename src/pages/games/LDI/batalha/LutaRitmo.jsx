@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida, tocarMusica, pararMusica } from './som'
+import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida, tocarMusica, pararMusica, latenciaSom } from './som'
 import { PODERES, KIT, TETO_SUPER } from './campanha'
 import Arena3D from './Arena3D'
 import './LutaRitmo.css'
@@ -68,10 +68,11 @@ function trajeto(tipo, vindo) {
 }
 
 // Frases rítmicas de 2 compassos, em colcheias (0 a 15). A caixa cai em 2, 6,
-// 10 e 14: é nela que as notas moram. Colcheias seguidas viram um grupo rápido
+// 10 e 14: é nela que as notas moram. Notas sem pausa entre elas (até 1 tempo) viram um grupo
 // ("tá-tá-tá") do mesmo golpe. Nível 1 é o treino; 4, o chefão.
 const FRASES = {
-  1: [[2, 10], [6, 14], [2], [10], [6], [2, 14]],
+  // nível 1: golpes no tempo, em grupos de 3 ou 4 com descanso no meio (pra pegar o desatento)
+  1: [[0, 2, 4, 8, 10, 12], [0, 2, 4, 6, 10, 12, 14], [2, 4, 6, 10, 12, 14], [0, 2, 4, 6, 12, 14], [0, 2, 4, 10, 12, 14]],
   2: [[2, 6, 10, 14], [2, 6, 12, 13, 14], [6, 10, 11, 12], [2, 10, 12, 14], [2, 3, 4, 10]],
   3: [[2, 6, 12, 13, 14], [2, 3, 4, 10, 14], [6, 7, 8, 12, 13, 14], [2, 6, 10, 11, 12, 14], [0, 2, 6, 8, 10, 14]],
   4: [[2, 4, 6, 10, 12, 13, 14], [0, 2, 3, 4, 8, 10, 11, 12], [2, 3, 4, 6, 10, 11, 12, 14], [2, 6, 7, 8, 10, 12, 13, 14]],
@@ -86,8 +87,8 @@ function frase(ficha, inicio, n, batida, vez) {
   const notas = []
   let tipo = null, anterior = -9
   for (const p of passos) {
-    // começa grupo novo quando não é a colcheia seguida da anterior
-    if (p !== anterior + 1) {
+    // começa grupo novo depois de uma pausa (mais de 1 tempo sem nota)
+    if (p - anterior > 2) {
       vez.dele = vez.dele == null ? false : vez.dele ? Math.random() < ficha.defesaPeso * 0.5 : true
       tipo = vez.dele ? sorteiaPeso(ficha.defesas) : sorteiaPeso(ficha.golpes)
     }
@@ -114,7 +115,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
       vida: VIDA, inimigo: ficha.vida, energia: 0, combo: 0, melhorCombo: 0,
       aviso: null, tremor: 0, poder: null, atordoadoAte: 0, vez: { dele: null }, pausaAte: 0, ultimo: agora, flash: 0,
       // com música: nada é agendado até ela começar a tocar (aí o tempo da luta casa com o dela)
-      faixa: ficha.musica ? tocarMusica(ficha.musica.url) : null, sincronizado: !ficha.musica, ancora: 0, criadoEm: agora,
+      faixa: ficha.musica ? tocarMusica(ficha.musica.url, ficha.musica.velocidade) : null, sincronizado: !ficha.musica, ancora: 0, criadoEm: agora,
     }
     setFim(null)
   }, [ficha, BATIDA])
@@ -138,7 +139,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
           for (const n of s.notas) if (n.estado === 'vindo') n.hora += dt
         }
         const f = s.faixa
-        if (f && f.error) s.faixa = null
+        if (f && f.error) { pararMusica(); s.faixa = null; s.sincronizado = true; s.inicio = agora; s.proxBatida = agora; s.proxFrase = Math.max(s.proxFrase, agora + VOO) }
         else if (f && f.ended) {
           // Acabou a música: ela recomeça e a luta espera a entrada da batida de novo.
           f.currentTime = 0; f.play().catch(() => {})
@@ -146,24 +147,27 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
         } else if (f && !s.sincronizado) {
           // A música começou. A luta espera a introdução: a 1ª nota cai na batida em
           // que o groove entra (`entrada`, medida no arquivo); dali o tempo é o dela.
+          // (tempo do arquivo / velocidade = tempo real; + o atraso do som até o ouvido)
+          const vel = ficha.musica.velocidade || 1
           if (f.currentTime > 0.05 && !f.paused) {
-            const zero = agora - f.currentTime * 1000 + ficha.musica.entrada * 1000
+            const zero = agora - f.currentTime * 1000 / vel + ficha.musica.entrada * 1000 / vel + latenciaSom()
             const compasso = 8 * BATIDA
             s.inicio = zero + Math.max(0, Math.ceil((agora + VOO - zero) / compasso)) * compasso
             s.proxBatida = s.inicio
             s.proxFrase = s.inicio
-            s.ancora = agora - f.currentTime * 1000
+            s.ancora = agora - f.currentTime * 1000 / vel
             s.sincronizado = true
             if (s.recomecaAte) s.recomecaAte = s.inicio - VOO / 2
-          } else if (agora > s.criadoEm + 2500) {
-            // não tocou (bloqueada ou sem rede): segue na batida sintetizada
-            s.faixa = null; s.sincronizado = true
+          } else if (agora > s.criadoEm + 20000) {
+            // a música não tocou de jeito nenhum: cala ela e segue na batida sintetizada
+            // (nunca as duas juntas — a música carregando devagar só atrasa o começo)
+            pararMusica(); s.faixa = null; s.sincronizado = true
             s.inicio = agora; s.proxBatida = agora
             s.proxFrase = agora + Math.ceil(VOO / (8 * BATIDA)) * 8 * BATIDA
           }
         } else if (f) {
           // Corrige o desvio do relógio contra a música (o áudio manda).
-          const desvio = (agora - f.currentTime * 1000) - s.ancora
+          const desvio = (agora - f.currentTime * 1000 / (ficha.musica.velocidade || 1)) - s.ancora
           if (Math.abs(desvio) > 30 && !f.paused) { empurra(desvio); s.ancora += desvio }
         }
         // Tomou golpe: sem música, o tempo para um instante (tudo é empurrado junto).
@@ -172,7 +176,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
         s.ultimo = agora
         if (!s.sincronizado) { setQuadro(q => q + 1); raf = requestAnimationFrame(passo); return }
         // Perto do fim da música não agenda mais nada: avisa que ela vai recomeçar.
-        const fimMusica = s.faixa && s.faixa.duration ? s.ancora + s.faixa.duration * 1000 : Infinity
+        const fimMusica = s.faixa && s.faixa.duration ? s.ancora + s.faixa.duration * 1000 / (ficha.musica.velocidade || 1) : Infinity
         while (s.proxFrase < agora + VOO + 8 * BATIDA) {
           if (s.proxFrase + 8 * BATIDA > fimMusica - 200) { s.recomecaAte = Infinity; break }
           const sd = ficha.superDele
@@ -370,7 +374,8 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
         {!fim && s.notas.map(n => {
           // 0 = acabou de nascer, longe; 1 = hora de tocar.
           const p = Math.min(1.08, Math.max(0, 1 - (n.hora - agora) / VOO))
-          const perto = n.estado === 'vindo' && Math.abs(n.hora - agora) <= JANELA.bom
+          // acende um pouco ANTES do beat e segura um pouco DEPOIS (a janela do toque)
+          const perto = n.estado === 'vindo' && agora >= n.hora - JANELA.perfeito && agora <= n.hora + JANELA.bom
           // Com 3D, o botão de toque segue a bola (n.tela, gravado pela Arena3D).
           const tres = !sem3d && n.tela
           const x = tres ? n.tela.x : n.de.x + (n.alvo.x - n.de.x) * Math.min(1, p)

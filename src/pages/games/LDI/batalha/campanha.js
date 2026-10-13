@@ -21,6 +21,8 @@ import luta06 from './musica/luta-06.mp3?url'
 import luta07 from './musica/luta-07.mp3?url'
 import luta08 from './musica/luta-08.mp3?url'
 // (a 02 e a 04 batem em 154 e 141; a luta anda na metade, senão as notas grudam)
+// Toda música toca um pouco acelerada (VELOCIDADE); o bpm da luta acompanha.
+const VELOCIDADE = 1.08
 const MUSICAS = {
   1: { url: luta01, bpm: 99.983, entrada: 6.037 },
   2: { url: luta02, bpm: 154.414 / 2, entrada: 2.855 },
@@ -33,21 +35,21 @@ const MUSICAS = {
 }
 
 export const INIMIGOS = [
-  { id: 1, vida: 60, musica: MUSICAS[1], bpm: MUSICAS[1].bpm, niveis: [1], defesaPeso: 0.2,
+  { id: 1, vida: 60, musica: { ...MUSICAS[1], velocidade: VELOCIDADE }, bpm: MUSICAS[1].bpm * VELOCIDADE, niveis: [1], defesaPeso: 0.2,
     golpes: { soco: 1 }, defesas: { bloqueio: 1 } },
-  { id: 2, vida: 120, musica: MUSICAS[2], bpm: MUSICAS[2].bpm, niveis: [1, 2], defesaPeso: 0.25,
+  { id: 2, vida: 120, musica: { ...MUSICAS[2], velocidade: VELOCIDADE }, bpm: MUSICAS[2].bpm * VELOCIDADE, niveis: [1, 2], defesaPeso: 0.25,
     golpes: { soco: 2, chute: 1 }, defesas: { bloqueio: 1 } },
-  { id: 3, vida: 140, musica: MUSICAS[3], bpm: MUSICAS[3].bpm, niveis: [1, 2], defesaPeso: 0.28,
+  { id: 3, vida: 140, musica: { ...MUSICAS[3], velocidade: VELOCIDADE }, bpm: MUSICAS[3].bpm * VELOCIDADE, niveis: [1, 2], defesaPeso: 0.28,
     golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 2 } },
-  { id: 4, vida: 160, musica: MUSICAS[4], bpm: MUSICAS[4].bpm, niveis: [2], defesaPeso: 0.3,
+  { id: 4, vida: 160, musica: { ...MUSICAS[4], velocidade: VELOCIDADE }, bpm: MUSICAS[4].bpm * VELOCIDADE, niveis: [2], defesaPeso: 0.3,
     golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 1 } },
-  { id: 5, vida: 180, musica: MUSICAS[5], bpm: MUSICAS[5].bpm, superDele: { cada: 6, notas: [0, 2, 4, 6], dano: 22 }, niveis: [2, 3], defesaPeso: 0.32,
+  { id: 5, vida: 180, musica: { ...MUSICAS[5], velocidade: VELOCIDADE }, bpm: MUSICAS[5].bpm * VELOCIDADE, superDele: { cada: 6, notas: [0, 2, 4, 6], dano: 22 }, niveis: [2, 3], defesaPeso: 0.32,
     golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 2 } },
-  { id: 6, vida: 220, musica: MUSICAS[6], bpm: MUSICAS[6].bpm, superDele: { cada: 5, notas: [0, 2, 4, 5, 6], dano: 26 }, niveis: [2, 3], defesaPeso: 0.35,
+  { id: 6, vida: 220, musica: { ...MUSICAS[6], velocidade: VELOCIDADE }, bpm: MUSICAS[6].bpm * VELOCIDADE, superDele: { cada: 5, notas: [0, 2, 4, 5, 6], dano: 26 }, niveis: [2, 3], defesaPeso: 0.35,
     golpes: { soco: 1, chute: 2, cabecada: 2 }, defesas: { bloqueio: 3, esquiva: 1 } },
-  { id: 7, vida: 220, musica: MUSICAS[7], bpm: MUSICAS[7].bpm, superDele: { cada: 5, notas: [0, 2, 3, 4, 6], dano: 30 }, niveis: [3, 4], defesaPeso: 0.38,
+  { id: 7, vida: 220, musica: { ...MUSICAS[7], velocidade: VELOCIDADE }, bpm: MUSICAS[7].bpm * VELOCIDADE, superDele: { cada: 5, notas: [0, 2, 3, 4, 6], dano: 30 }, niveis: [3, 4], defesaPeso: 0.38,
     golpes: { soco: 2, chute: 1, cabecada: 2 }, defesas: { bloqueio: 1, esquiva: 3 } },
-  { id: 8, vida: 260, musica: MUSICAS[8], bpm: MUSICAS[8].bpm, superDele: { cada: 4, notas: [0, 1, 2, 4, 5, 6], dano: 34 }, niveis: [3, 4], defesaPeso: 0.4,
+  { id: 8, vida: 260, musica: { ...MUSICAS[8], velocidade: VELOCIDADE }, bpm: MUSICAS[8].bpm * VELOCIDADE, superDele: { cada: 4, notas: [0, 1, 2, 4, 5, 6], dano: 34 }, niveis: [3, 4], defesaPeso: 0.4,
     golpes: { soco: 2, chute: 2, cabecada: 2 }, defesas: { bloqueio: 2, esquiva: 2 } },
 ]
 

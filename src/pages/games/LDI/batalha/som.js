@@ -19,6 +19,8 @@ export function ligarSom() {
 }
 
 export const estaMudo = () => mudo
+// Atraso entre o áudio sair do código e chegar no ouvido (alto-falante, fone), em ms.
+export const latenciaSom = () => ((ctx && (ctx.outputLatency || ctx.baseLatency)) || 0) * 1000
 export function alternarMudo() {
   mudo = !mudo
   try { localStorage.setItem(CHAVE_MUDO, mudo ? '1' : '0') } catch { /* sem storage */ }
@@ -30,9 +32,11 @@ export function alternarMudo() {
 // Música da luta (arquivo). Mudo só cala: ela continua andando, porque é ela que
 // marca o tempo das notas.
 let faixa = null
-export function tocarMusica(url) {
+export function tocarMusica(url, velocidade = 1) {
   pararMusica()
   faixa = new Audio(url)
+  faixa.preload = 'auto'
+  faixa.playbackRate = velocidade
   faixa.volume = 0.6
   faixa.muted = mudo
   faixa.play().catch(() => {})
