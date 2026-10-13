@@ -264,3 +264,15 @@ body:has(.ld-pagina) .scroll-top-btn { visibility: hidden; pointer-events: none;
 .ld-relogio { position: fixed; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 31; height: 4px; pointer-events: none;
   background: var(--veia-cor); transform-origin: left; animation: ld-relogio var(--dur) linear both; opacity: 0.85; }
 @keyframes ld-relogio { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Bolso: PV, grana e poções no pé da tela (alcance do dedão) + ponto de recuperação. */
+.ld-bolso { position: fixed; bottom: 14px; right: calc(var(--app-gutter) + 12px); z-index: 30; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 10px; cursor: pointer;
+  background: rgba(0, 0, 0, 0.7); border: 1px solid var(--if-hair-strong); color: var(--if-ink); font: 800 0.66rem var(--font-mono);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%); }
+.ld-bolso b { font-weight: 800; white-space: nowrap; }
+.ld-bolso__pv { width: 40px; height: 6px; background: var(--if-hair); }
+.ld-bolso__pv i { display: block; height: 100%; width: calc(var(--v) * 100%); background: var(--if-danger); }
+.ld-bolso-overlay { position: fixed; inset: 0 var(--app-gutter); z-index: 60; display: flex; align-items: flex-end; padding: 16px; background: rgba(0, 0, 0, 0.6); overscroll-behavior: none; }
+.ld-bolso-painel { width: 100%; display: flex; flex-direction: column; gap: 10px; padding: 16px; }
+.ld-bolso-painel__linha { margin: 0; font: 800 0.9rem var(--font-mono); color: var(--if-ink); }
+.ld-bolso-painel .if-btn:disabled { opacity: 0.4; cursor: default; }

@@ -64,6 +64,12 @@ export const useLendasStore = create((set, get) => ({
 
   limparAprendeu: () => set({ aprendeu: null }),
 
+  // Bolso (PV, grana, poções) vive em flags.bolso.
+  mudarBolso(bolso) {
+    set(s => ({ save: { ...s.save, flags: { ...s.save.flags, bolso } } }))
+    get().salvar()
+  },
+
   // Os saves entram em fila: o 1º insert precisa devolver o id antes do
   // próximo virar update, senão a mesma jornada vira duas linhas.
   salvar() {

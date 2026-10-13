@@ -11,6 +11,8 @@ import Escolhas from './components/Escolhas'
 import Diario from './components/Diario'
 import PuzzleRouter from './components/PuzzleRouter'
 import LutaRitmo from './batalha/LutaRitmo'
+import Bolso from './components/Bolso'
+import { bolsoDe, sortearPremio, PV_MAX, PV_DERROTA } from './batalha/bolso'
 import { INIMIGOS, TUTORIAL } from './batalha/campanha'
 import { ligarSom, somPagina } from './batalha/som'
 import './Lendas.css'
@@ -36,7 +38,7 @@ export default function Game() {
   const navigate = useNavigate()
   const { setReaderMode } = useReader()
   const { registrarEvento } = useEventos()
-  const { save, cena, escolhas, aprendeu, iniciar, escolher, addPista, limparAprendeu } = useLendasStore()
+  const { save, cena, escolhas, aprendeu, iniciar, escolher, addPista, limparAprendeu, mudarBolso } = useLendasStore()
   const [pronto, setPronto] = useState(false)
   const [diario, setDiario] = useState(false)
   const [puzzle, setPuzzle] = useState(null)
@@ -44,6 +46,7 @@ export default function Game() {
   const [escolhaAberta, setEscolhaAberta] = useState(false)
   const [bonusEnergia, setBonusEnergia] = useState(0)
   const [avisoEncontro, setAvisoEncontro] = useState(null)
+  const [avisoPremio, setAvisoPremio] = useState(null)
   const cenasSemEncontro = useRef(0)
   // Tempo de leitura de cada quadro (escolha do leitor, lembrada neste aparelho).
   const [tempoQuadro, setTempoQuadro] = useState(() => { try { return Number(localStorage.getItem(CHAVE_TEMPO)) || 5 } catch { return 5 } })
@@ -86,6 +89,12 @@ export default function Game() {
   }, [cena?.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
+    if (!avisoPremio) return
+    const tm = setTimeout(() => setAvisoPremio(null), 3000)
+    return () => clearTimeout(tm)
+  }, [avisoPremio])
+
+  useEffect(() => {
     if (!avisoEncontro) return
     const tm = setTimeout(() => setAvisoEncontro(null), 3600)
     return () => clearTimeout(tm)
@@ -118,7 +127,18 @@ export default function Game() {
     }
     escolher(ch)
   }
-  const fimLuta = resultado => {
+  // O PV que sobrou passa pra frente (perdeu: sai com pouco); vencer às vezes dá grana ou poção.
+  const fecharBolso = (resultado, vida) => {
+    const b = bolsoDe(save)
+    const tutorial = luta.escolha.luta === TUTORIAL.id
+    const pv = tutorial ? b.pv : resultado === 'vitoria' ? Math.max(1, vida) : Math.round(PV_MAX * PV_DERROTA)
+    const premio = resultado === 'vitoria' && !tutorial ? sortearPremio(luta.escolha.luta) : {}
+    mudarBolso({ ...b, pv, grana: b.grana + (premio.grana || 0), pocoes: b.pocoes + (premio.pocoes || 0) })
+    if (premio.grana) setAvisoPremio(t('games.ldi.bolso.ganhou_grana', { n: premio.grana }))
+    else if (premio.pocoes) setAvisoPremio(t('games.ldi.bolso.ganhou_pocao'))
+  }
+  const fimLuta = (resultado, vida) => {
+    fecharBolso(resultado, vida)
     if (luta.encontro) {
       setLuta(null)
       if (resultado === 'vitoria') setBonusEnergia(BONUS_ENCONTRO)
@@ -154,6 +174,7 @@ export default function Game() {
         </button>
       </header>
 
+      {save.veia && !luta && <Bolso t={t} bolso={bolsoDe(save)} onMudar={m => mudarBolso({ ...bolsoDe(save), ...m })} />}
       <button type="button" className="ld-tempo" onClick={trocarTempo} aria-label={t('games.ldi.jogo.tempo_quadro', { s: tempoQuadro })}>
         ⏱ {t('games.ldi.jogo.tempo_quadro', { s: tempoQuadro })}
       </button>
@@ -184,6 +205,12 @@ export default function Game() {
               initial={{ scale: 1.15 }} animate={{ scale: 1 }} transition={{ duration: 2.6, ease: 'easeOut' }} />}
             <motion.span initial={{ y: 12, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>{t('games.ldi.jogo.ato', { n: romano(save.ato) })}</motion.span>
             <motion.strong initial={{ scale: 1.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.35, type: 'spring', stiffness: 220, damping: 14 }}>{capitulo.capitulo}</motion.strong>
+          </motion.div>
+        )}
+        {avisoPremio && !avisoEncontro && (
+          <motion.div key="premio" className="ld-aprendeu" initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setAvisoPremio(null)}>
+            <small>{t('games.ldi.bolso.premio')}</small>
+            <b>{avisoPremio}</b>
           </motion.div>
         )}
         {avisoEncontro && (
@@ -224,7 +251,7 @@ export default function Game() {
 
       {luta && (
         <div className="ld-luta">
-          <LutaRitmo key={luta.tentativa} t={t} ficha={fichaDe(luta.escolha.luta, luta.encontro)} energiaInicial={luta.encontro ? 0 : bonusEnergia}
+          <LutaRitmo key={luta.tentativa} t={t} ficha={fichaDe(luta.escolha.luta, luta.encontro)} energiaInicial={luta.encontro ? 0 : bonusEnergia} vidaInicial={luta.escolha.luta === TUTORIAL.id ? PV_MAX : bolsoDe(save).pv}
             onSair={() => (luta.abertura ? navigate('/games/ldi') : setLuta(null))} onResultado={fimLuta} />
         </div>
       )}

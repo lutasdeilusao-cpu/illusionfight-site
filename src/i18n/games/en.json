@@ -1079,6 +1079,16 @@
             "virada": "The super is a drum fill: tap every golden note on the beat. More hits, stronger blow."
           }
         }
+      },
+      "bolso": {
+        "titulo": "Recovery point",
+        "recuperar": "Full recovery · 💰 {n}",
+        "usar": "Use potion · +{n} HP",
+        "comprar": "Buy potion · 💰 {n}",
+        "fechar": "Close",
+        "premio": "Fight loot",
+        "ganhou_grana": "+{n} cash in your pocket",
+        "ganhou_pocao": "Found a potion"
       }
     },
     "toptrumps": {

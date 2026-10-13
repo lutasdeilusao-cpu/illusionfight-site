@@ -112,7 +112,7 @@ function frase(ficha, inicio, n, batida, vez) {
   return notas
 }
 
-export default function LutaRitmo({ t, ficha, onSair, onResultado, energiaInicial = 0 }) {
+export default function LutaRitmo({ t, ficha, onSair, onResultado, energiaInicial = 0, vidaInicial = VIDA }) {
   const [, setQuadro] = useState(0)
   const [fim, setFim] = useState(null)
   const [mudo, setMudo] = useState(estaMudo())
@@ -129,14 +129,14 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado, energiaInicia
     const agora = performance.now() + 900
     estado.current = {
       inicio: agora, notas: [], proxFrase: agora + Math.ceil(VOO / (8 * BATIDA)) * 8 * BATIDA, nFrase: 0, proxBatida: agora,
-      vida: VIDA, inimigo: ficha.vida, energia: energiaInicial, combo: 0, melhorCombo: 0,
+      vida: vidaInicial, inimigo: ficha.vida, energia: energiaInicial, combo: 0, melhorCombo: 0,
       aviso: null, tremor: 0, poder: null, atordoadoAte: 0, vez: { dele: null }, pausaAte: 0, ultimo: agora, flash: 0,
       // com música: nada é agendado até ela começar a tocar (aí o tempo da luta casa com o dela)
       faixa: ficha.musica ? tocarMusica(ficha.musica.url, ficha.musica.velocidade, true) : null, sincronizado: !ficha.musica, ancora: 0, criadoEm: agora,
       carregando: true,
     }
     setFim(null)
-  }, [ficha, BATIDA, energiaInicial])
+  }, [ficha, BATIDA, energiaInicial, vidaInicial])
 
   useEffect(() => { ligarSom(); novaLuta() }, [novaLuta])
   useEffect(() => pararMusica, [])
@@ -458,7 +458,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado, energiaInicia
           {s.tempoAcabou && <p className="rt-fim__motivo">{t('games.ldi.batalha.ritmo.tempo_acabou')}</p>}
           <p>{t('games.ldi.batalha.ritmo.melhor_combo', { n: s.melhorCombo })}</p>
           {onResultado ? (
-            <button type="button" className="rt-btn" onClick={() => onResultado(fim)}>{t(fim === 'vitoria' ? 'games.ldi.batalha.ritmo.continuar' : 'games.ldi.batalha.de_novo')}</button>
+            <button type="button" className="rt-btn" onClick={() => onResultado(fim, s.vida)}>{t(fim === 'vitoria' ? 'games.ldi.batalha.ritmo.continuar' : 'games.ldi.batalha.de_novo')}</button>
           ) : (
             <>
               <button type="button" className="rt-btn" onClick={novaLuta}>{t('games.ldi.batalha.de_novo')}</button>

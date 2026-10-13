@@ -1079,6 +1079,16 @@
             "virada": "O super é uma virada: toque cada nota dourada no tempo. Mais acertos, golpe mais forte."
           }
         }
+      },
+      "bolso": {
+        "titulo": "Ponto de recuperação",
+        "recuperar": "Recuperar tudo · 💰 {n}",
+        "usar": "Usar poção · +{n} PV",
+        "comprar": "Comprar poção · 💰 {n}",
+        "fechar": "Fechar",
+        "premio": "Espólio da luta",
+        "ganhou_grana": "+{n} de grana no bolso",
+        "ganhou_pocao": "Achou uma poção"
       }
     },
     "toptrumps": {

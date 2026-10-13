@@ -1079,6 +1079,16 @@
             "virada": "El súper es un redoble: toca cada nota dorada a tiempo. Más aciertos, golpe más fuerte."
           }
         }
+      },
+      "bolso": {
+        "titulo": "Punto de recuperación",
+        "recuperar": "Recuperar todo · 💰 {n}",
+        "usar": "Usar poción · +{n} PV",
+        "comprar": "Comprar poción · 💰 {n}",
+        "fechar": "Cerrar",
+        "premio": "Botín de la pelea",
+        "ganhou_grana": "+{n} de dinero en el bolsillo",
+        "ganhou_pocao": "Encontraste una poción"
       }
     },
     "toptrumps": {
