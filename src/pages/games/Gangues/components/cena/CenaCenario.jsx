@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
 
 /* ══════════════════════════════════════════════════════════════
@@ -56,10 +57,36 @@ function ItemCenario({ c, t }) {
   return <i className={`gang-deco gang-deco--${c.tipo}`} style={base} aria-hidden="true" />
 }
 
-export default function CenaCenario({ cena, bossAberto, muroAberto }) {
+// Mapa em pixel art (`cena.fundo`): o mundo é cortado em faixas de `blocoH`
+// de altura e só as faixas perto do jogador entram no DOM — a que já
+// apareceu fica montada. Se uma imagem falhar, a cena volta pro desenho em CSS.
+function FundoEmBlocos({ fundo, W, focoY }) {
+  const [vistos, setVistos] = useState(() => new Set())
+  const perto = fundo.blocos.map((_, i) => Math.abs((i + 0.5) * fundo.blocoH - focoY) < fundo.blocoH * 1.6)
+  const novos = perto.map((p, i) => p && !vistos.has(i) ? i : -1).filter(i => i >= 0)
+  if (novos.length) setVistos(v => new Set([...v, ...novos]))
+  return fundo.blocos.map((src, i) => (perto[i] || vistos.has(i)) && (
+    <img
+      key={i} className="gang-cena-fundo" src={src} alt="" aria-hidden="true" draggable="false"
+      style={{ top: i * fundo.blocoH, width: W, height: fundo.blocoH }} onError={fundo.onErro}
+    />
+  ))
+}
+
+export default function CenaCenario({ cena, bossAberto, muroAberto, focoY = 0 }) {
   const { t } = useLanguage()
+  const [fundoFalhou, setFundoFalhou] = useState(false)
   const W = cena.mundo.w
   const H = cena.mundo.h
+
+  if (cena.fundo && !fundoFalhou) {
+    return (
+      <>
+        <FundoEmBlocos fundo={{ ...cena.fundo, onErro: () => setFundoFalhou(true) }} W={W} focoY={focoY} />
+        {cena.muro && <div className={`gang-world-gate ${muroAberto ? 'is-open' : ''}`} style={{ top: cena.muro.y1 }} aria-hidden="true" />}
+      </>
+    )
+  }
 
   return (
     <>

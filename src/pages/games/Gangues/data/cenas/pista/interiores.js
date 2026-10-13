@@ -20,23 +20,15 @@ export const INTERIORES_PISTA = {
     comodos: [{
       id: 'sala',
       world: { w: 460, h: 320 }, spawn: { x: 230, y: 236 },
-      // Porta larga (janela de passagem ~124px, ~7 colunas de grade) — antes
-      // o vão tinha só 70px, sobrando uma janela de 34px (2 colunas exatas)
-      // pro raio do jogador passar sem trombar na parede. Isaias reportou
-      // "ficar travado, só passa numa posição certinha" (2026-09-12).
       saida: { x: 150, y: 300, w: 160, h: 20 },
-      // Os dois cantos de baixo (fora do vão da porta) NÃO precisam de um
-      // colisor tão alto quanto a parede visual: o próprio limite do mundo
-      // (stepPlayer clampa em h-24) já impede sair do cômodo por ali. Um
-      // colisor até y:292 SOMA seu raio (18px) e travava o jogador ~40px
-      // acima do fundo real da sala — um "chão fantasma" que parecia andável
-      // mas não era (Isaias reportou e marcou print, 2026-09-13). O colisor
-      // agora só cobre a franja mínima pra não abrir espaço extra além do
-      // limite natural do mundo.
+      // Colisão casada com a ilustração (fundos.js): parede do fundo alta,
+      // balcão em L no meio e parede de baixo com o vão da porta. O vão da
+      // colisão (x170–290) é mais largo que a porta desenhada pra o jogador
+      // (raio 18, passo de 20px) atravessar sem precisar mirar.
       colliders: [
-        { x: 0, y: 0, w: 460, h: 30 }, { x: 0, y: 0, w: 14, h: 320 }, { x: 446, y: 0, w: 14, h: 320 },
-        { x: 0, y: 314, w: 150, h: 10 }, { x: 310, y: 314, w: 150, h: 10 },
-        { x: 108, y: 66, w: 244, h: 40 }, // balcão
+        { x: 0, y: 0, w: 460, h: 96 }, { x: 0, y: 0, w: 14, h: 320 }, { x: 446, y: 0, w: 14, h: 320 },
+        { x: 0, y: 252, w: 170, h: 70 }, { x: 290, y: 252, w: 170, h: 70 },
+        { x: 160, y: 78, w: 180, h: 72 }, // balcão
       ],
       cenario: [
         { tipo: 'balcao', x: 230, y: 86, w: 240 },
@@ -49,11 +41,12 @@ export const INTERIORES_PISTA = {
       // pino ficaria mudo (referência morta) sem essa função dentro do
       // mesmo cômodo, já resolvida pelo `descanso` logo abaixo.
       pois: [
-        { ref: 'informante', pos: { x: 400, y: 200 } },
+        { ref: 'informante', pos: { x: 370, y: 205 } },
         { ref: 'descanso', pos: { x: 74, y: 210 } },
       ],
       // Agiota e Banca do Tio Dado moram na sala dos fundos (ver salaDosFundos.js).
-      passagem: portaFundos(460),
+      // A porta dos fundos fica no pé da parede alta da ilustração.
+      passagem: { ...portaFundos(460), x: 362, y: 88, w: 56, h: 34 },
     }, salaDosFundos(['agiota', 'banca', { ref: 'aval_morro_pista', precisaFlag: 'morro' }, { ref: 'linha_pista', precisaFlag: 'laje' }])],
   },
   // ── A BIROSCA DO PRIMO (pós-muro) — dentro do barraco pm1 ──

@@ -54,3 +54,5 @@
   background:repeating-linear-gradient(90deg,var(--lona,var(--gang-lona)) 0 10px,var(--gang-lona-listra) 10px 20px);box-shadow:0 4px 5px rgba(0,0,0,.4);}
 .gang-int-obj--barraca::after{content:'';position:absolute;left:8px;right:8px;top:16px;height:14px;
   background:radial-gradient(circle,var(--gang-fruta-laranja) 4px,transparent 4.5px) 0 0/12px 12px,radial-gradient(circle,var(--gang-fruta-verde) 4px,transparent 4.5px) 6px 2px/12px 12px;}
+/* cômodo ilustrado em pixel art (amb.fundo) */
+.gang-int-fundo{position:absolute;left:0;top:0;z-index:1;display:block;image-rendering:pixelated;pointer-events:none;user-select:none;}

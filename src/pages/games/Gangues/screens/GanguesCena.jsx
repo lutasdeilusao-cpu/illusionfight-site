@@ -516,7 +516,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
         anterior pra transicionar (elemento novo já nasce no transform
         final), sem tocar a suavização do passo a passo normal. */}
     <div key={local ? `${local.id}-${local.comodo}` : 'rua'} className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
-      {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
+      {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} focoY={player.y} />}
       {!local && cena.trem && <TremFaixa trem={cena.trem} fase={trem.fase} t={t} />}
       {!local && (amb?.barreiras || []).map(b => <BarreiraFaixa key={b.id} b={b} t={t} />)}
       {(amb?.alvos || []).map(p => <ZonaChao key={`z-${p.id}`} p={p} active={perto?.id === p.id} />)}

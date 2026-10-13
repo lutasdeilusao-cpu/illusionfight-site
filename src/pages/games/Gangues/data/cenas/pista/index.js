@@ -32,6 +32,7 @@
 import { MUNDO_PISTA, RUAS_PISTA, MURO_PISTA, POSTES_PISTA, QUARTEIROES_PISTA, PREDIOS_PISTA, OBSTACULOS_PISTA, CENARIO_PISTA, FIACAO_PISTA } from './mundo.js'
 import { POIS_PISTA } from './pois.js'
 import { INTERIORES_PISTA } from './interiores.js'
+import { FUNDO_PISTA, FUNDO_INT_PISTA, comFundos } from './fundos.js'
 import { POS_PISTA, ENTRY_ZONES_PISTA } from './posicoes.js'
 
 import { PISTA_POOL_RUA } from './pools.js'
@@ -42,6 +43,7 @@ export const CENA_PISTA = {
   poolCapangas: PISTA_POOL_RUA,
   cor: '#3ddc97',
   mundo: MUNDO_PISTA,
+  fundo: FUNDO_PISTA,
   ruas: RUAS_PISTA,
   muro: MURO_PISTA,
   postes: POSTES_PISTA,
@@ -64,7 +66,7 @@ export const CENA_PISTA = {
   entryZones: ENTRY_ZONES_PISTA,
 
   // ── INTERIORES navegáveis (fase 2) ──────────────────────────
-  interiores: INTERIORES_PISTA,
+  interiores: comFundos(INTERIORES_PISTA, FUNDO_INT_PISTA),
 
 
   // O chefe — só aparece quando o portão abre.
