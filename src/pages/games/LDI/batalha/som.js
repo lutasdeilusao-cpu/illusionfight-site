@@ -94,9 +94,18 @@ export function somPoder() {
   sopro(t + 0.2, { dur: 0.6, vol: 0.6, filtro: 'lowpass', f0: 900, f1: 200 })
 }
 
-export function somBatida(forte, quando = 0) {
+// Batida de break (boom bap de b-boy/popping): bumbo no 1 e no "e" do 3,
+// CAIXA forte no 2 e no 4, chimbal em colcheia. `passo` = colcheia dentro do
+// compasso (0 a 7). As notas da luta caem na caixa.
+const BUMBO = [0, 5]
+const CAIXA = [2, 6]
+export function somBatida(passo, quando = 0) {
   if (!ctx) return
   const t = ctx.currentTime + quando
-  if (forte) tom(t, { f0: 150, f1: 50, dur: 0.12, vol: 0.55 })
-  else sopro(t, { dur: 0.03, vol: 0.18, filtro: 'highpass', f0: 6000 })
+  if (BUMBO.includes(passo)) { tom(t, { f0: 140, f1: 45, dur: 0.18, vol: 0.9 }); sopro(t, { dur: 0.02, vol: 0.25, filtro: 'lowpass', f0: 900 }) }
+  if (CAIXA.includes(passo)) {
+    sopro(t, { dur: 0.16, vol: 0.85, f0: 1800, f1: 1200, q: 0.8 })
+    tom(t, { f0: 230, f1: 170, dur: 0.09, vol: 0.45, tipo: 'triangle' })
+  }
+  sopro(t, { dur: passo % 2 ? 0.025 : 0.04, vol: passo % 2 ? 0.12 : 0.2, filtro: 'highpass', f0: 7000 })
 }

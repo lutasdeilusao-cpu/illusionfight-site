@@ -49,13 +49,17 @@ function trajeto(tipo) {
   return { de: { x: 50, y: 50 }, alvo: { x: entre(26, 74), y: entre(32, 64) } }
 }
 
-// Uma frase de 8 batidas. Nunca duas notas na mesma batida; a última fica
-// livre pra respirar. Fica mais densa conforme a luta anda (até o teto).
+// Uma frase de 8 batidas (2 compassos). As notas caem na CAIXA (batidas 2 e 4
+// de cada compasso: 1, 3, 5, 7 aqui); quem é mais difícil também usa o bumbo
+// (0 e 4). Fica mais densa conforme a luta anda (até o teto).
+const NA_CAIXA = [1, 3, 5, 7]
+const NO_BUMBO = [0, 4]
 function frase(ficha, inicio, n, batida) {
   const notas = []
   const dens = Math.min(ficha.teto, ficha.densidade + n * ficha.sobe)
-  for (let b = 0; b < 7; b++) {
-    if (Math.random() > dens) continue
+  for (let b = 0; b < 8; b++) {
+    const chance = NA_CAIXA.includes(b) ? dens * 1.8 : NO_BUMBO.includes(b) && ficha.teto >= 0.46 ? dens * 0.5 : 0
+    if (Math.random() > chance) continue
     const dele = Math.random() < ficha.defesaPeso
     notas.push({ tipo: dele ? sorteiaPeso(ficha.defesas) : sorteiaPeso(ficha.golpes), hora: inicio + b * batida })
   }
@@ -73,12 +77,12 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
   const novaLuta = useCallback(() => {
     const agora = performance.now() + 900
     estado.current = {
-      inicio: agora, notas: [], proxFrase: agora + VOO, nFrase: 0, proxBatida: agora,
+      inicio: agora, notas: [], proxFrase: agora + Math.ceil(VOO / (8 * BATIDA)) * 8 * BATIDA, nFrase: 0, proxBatida: agora,
       vida: VIDA, inimigo: ficha.vida, energia: 0, combo: 0, melhorCombo: 0,
       aviso: null, tremor: 0, superFalhou: false,
     }
     setFim(null)
-  }, [ficha])
+  }, [ficha, BATIDA])
 
   useEffect(() => { ligarSom(); novaLuta() }, [novaLuta])
 
@@ -97,8 +101,8 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
           s.proxFrase += 8 * BATIDA; s.nFrase++
         }
         while (s.proxBatida <= agora) {
-          somBatida(Math.round((s.proxBatida - s.inicio) / BATIDA) % 4 === 0)
-          s.proxBatida += BATIDA
+          somBatida(Math.round((s.proxBatida - s.inicio) / (BATIDA / 2)) % 8)
+          s.proxBatida += BATIDA / 2
         }
         for (const n of s.notas) {
           if (n.estado !== 'vindo' || agora - n.hora <= SOME) continue
