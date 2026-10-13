@@ -104,8 +104,12 @@ export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Avisa que a página acabou UMA vez só. Durante a virada da página, esta Narrativa
+  // ainda está montada recebendo o texto da cena nova; sem a trava, ela avisava de novo
+  // e a escolha da página nova abria antes de qualquer quadro.
+  const avisou = useRef(false)
   useEffect(() => {
-    if (acabou) { onPronto?.(); return }
+    if (acabou) { if (!avisou.current) { avisou.current = true; onPronto?.() } return }
     if (manual) return
     const t = setTimeout(avancar, dur)
     return () => clearTimeout(t)
