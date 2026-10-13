@@ -1,0 +1,29 @@
+[
+  {
+    "id": "01",
+    "numero": 1,
+    "so_admin": true,
+    "titulo_pt": "As Doze Obrigações",
+    "titulo_en": "The Twelve Obligations",
+    "titulo_es": "Las Doce Obligaciones",
+    "frase_pt": "Dezessete anos. Vestido branco.",
+    "publicado": true,
+    "paginas": 36,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "mar-de-cinzas/01",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15"
+  }
+]

@@ -2,6 +2,8 @@ import titulos from '../../data/webshard-titulos.json'
 import episodios from '../../data/episodios.json'
 import heroisEpisodios from '../../data/herois-episodios.json'
 import agradecimentosEpisodios from '../../data/agradecimentos-episodios.json'
+import marDeCinzasEpisodios from '../../data/mar-de-cinzas-episodios.json'
+import mundoDasSombrasEpisodios from '../../data/mundo-das-sombras-episodios.json'
 
 /* Catálogo WEB SHARD — única porta de entrada para "quais títulos existem,
    quais capítulos cada um tem e onde moram as páginas". A UI nunca lê
@@ -31,6 +33,8 @@ const FONTES = {
   episodios: () => episodios,
   herois: () => heroisEpisodios,
   agradecimentos: () => agradecimentosEpisodios,
+  'mar-de-cinzas': () => marDeCinzasEpisodios,
+  'mundo-das-sombras': () => mundoDasSombrasEpisodios,
   nenhuma: () => [],
 }
 
@@ -49,23 +53,43 @@ export function miniaturaCapitulo(titulo, cap, locale = 'pt') {
   return imagemWebshard(`cap-${titulo.slug}-${cap.id}-${locale}.webp`)
     || imagemWebshard(`cap-${titulo.slug}-${cap.id}-pt.webp`)
     || imagemWebshard(`cap-${titulo.slug}-${cap.id}.webp`)
+    || imagemWebshard(`cap-${titulo.slug}-${cap.base}.webp`)
     || imagemWebshard(titulo.capa)
 }
 
 /** `visivel`: 'publico' (todos leem), 'previa' (todos veem a capa, só lê
- *  quem o capítulo libera) ou 'admin' (só admin e creator veem). */
-export function listarTitulos({ isAdmin = false } = {}) {
-  return titulos.filter(t => t.visivel === 'publico' || t.visivel === 'previa' || isAdmin)
+ *  quem o capítulo libera), 'admin' (só admin e creator veem) ou 'so_admin'
+ *  (só o administrador vê; creator não). */
+export function listarTitulos({ isAdmin = false, soAdmin = false } = {}) {
+  return titulos.filter(t => t.visivel === 'so_admin' ? soAdmin : (t.visivel === 'publico' || t.visivel === 'previa' || isAdmin))
 }
 
-export function tituloPorSlug(slug, { isAdmin = false } = {}) {
-  return listarTitulos({ isAdmin }).find(t => t.slug === slug) || null
+export function tituloPorSlug(slug, { isAdmin = false, soAdmin = false } = {}) {
+  return listarTitulos({ isAdmin, soAdmin }).find(t => t.slug === slug) || null
+}
+
+/** Capítulo com `versoes` (o mesmo capítulo desenhado de jeitos diferentes)
+ *  vira uma leitura por versão: id `01-codex`, páginas em `<pasta>/<versão>`,
+ *  título com o nome da versão. Cada versão diz quantas páginas tem. */
+function abrirVersoes(cap) {
+  if (!cap.versoes) return [cap]
+  return cap.versoes.map(v => ({
+    ...cap,
+    id: `${cap.id}-${v.id}`,
+    base: cap.id,
+    versao: v.id,
+    paginas: v.paginas,
+    pasta: `${cap.pasta}/${v.id}`,
+    titulo_pt: `${cap.titulo_pt} · ${v.nome_pt}`,
+    titulo_en: `${cap.titulo_en} · ${v.nome_en}`,
+    titulo_es: `${cap.titulo_es} · ${v.nome_es}`,
+  }))
 }
 
 export function capitulosDe(titulo) {
   if (!titulo) return []
   const fonte = FONTES[titulo.fonte_capitulos] || FONTES.nenhuma
-  return fonte()
+  return fonte().flatMap(abrirVersoes)
 }
 
 export function capituloPorId(titulo, id) {

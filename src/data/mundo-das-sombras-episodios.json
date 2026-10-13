@@ -1,0 +1,109 @@
+[
+  {
+    "id": "01",
+    "numero": 1,
+    "so_admin": true,
+    "titulo_pt": "A Marca",
+    "titulo_en": "The Mark",
+    "titulo_es": "La Marca",
+    "frase_pt": "Toda vez que as sombras vêm, alguém morre.",
+    "publicado": true,
+    "paginas": 53,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "mundo-das-sombras/01",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15",
+    "versoes": [
+      {
+        "id": "base",
+        "nome_pt": "Original",
+        "nome_en": "Original",
+        "nome_es": "Original",
+        "paginas": 53
+      },
+      {
+        "id": "codex",
+        "nome_pt": "Codex",
+        "nome_en": "Codex",
+        "nome_es": "Codex",
+        "paginas": 53
+      },
+      {
+        "id": "arkham-codex",
+        "nome_pt": "Arkham · Codex",
+        "nome_en": "Arkham · Codex",
+        "nome_es": "Arkham · Codex",
+        "paginas": 53
+      },
+      {
+        "id": "arkham-gemini",
+        "nome_pt": "Arkham · Gemini",
+        "nome_en": "Arkham · Gemini",
+        "nome_es": "Arkham · Gemini",
+        "paginas": 53
+      }
+    ]
+  },
+  {
+    "id": "02",
+    "numero": 2,
+    "so_admin": true,
+    "titulo_pt": "O Limiar",
+    "titulo_en": "The Threshold",
+    "titulo_es": "El Umbral",
+    "frase_pt": "Do outro lado da película.",
+    "publicado": true,
+    "paginas": 55,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "mundo-das-sombras/02",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15",
+    "versoes": [
+      {
+        "id": "base",
+        "nome_pt": "Original",
+        "nome_en": "Original",
+        "nome_es": "Original",
+        "paginas": 55
+      },
+      {
+        "id": "codex",
+        "nome_pt": "Codex",
+        "nome_en": "Codex",
+        "nome_es": "Codex",
+        "paginas": 47
+      },
+      {
+        "id": "arkham-gemini",
+        "nome_pt": "Arkham · Gemini",
+        "nome_en": "Arkham · Gemini",
+        "nome_es": "Arkham · Gemini",
+        "paginas": 55
+      }
+    ]
+  }
+]

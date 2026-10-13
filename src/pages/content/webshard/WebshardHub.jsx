@@ -23,10 +23,10 @@ export default function WebshardHub() {
   const { isAdmin, veOculto, nivel, liberado, previa, dataPara } = useWebshardAcesso()
   const [progresso] = useState(() => ultimoProgresso())
 
-  const titulos = listarTitulos({ isAdmin: veOculto })
+  const titulos = listarTitulos({ isAdmin: veOculto, soAdmin: isAdmin })
   const destaque = titulos.find(tt => tt.status !== 'em_breve') || titulos[0]
   const progressoDestaque = destaque ? lerProgresso(destaque.slug) : null
-  const tituloProgresso = progresso ? tituloPorSlug(progresso.slug, { isAdmin: veOculto }) : null
+  const tituloProgresso = progresso ? tituloPorSlug(progresso.slug, { isAdmin: veOculto, soAdmin: isAdmin }) : null
 
   const recentes = useMemo(() => titulos
     .flatMap(titulo => capitulosDe(titulo).filter(capituloTemConteudo).map(cap => ({ titulo, cap })))
@@ -89,7 +89,7 @@ export default function WebshardHub() {
             </div>
             <div className="ws-hub__estante if-stagger">
               {titulos.map((titulo, i) => (
-                <TituloCard key={titulo.id} titulo={titulo} indice={i + 1} oculto={titulo.visivel === 'admin'} bloqueado={!capitulosDe(titulo).some(liberado)} />
+                <TituloCard key={titulo.id} titulo={titulo} indice={i + 1} oculto={titulo.visivel === 'admin' || titulo.visivel === 'so_admin'} bloqueado={!capitulosDe(titulo).some(liberado)} />
               ))}
             </div>
           </section>
