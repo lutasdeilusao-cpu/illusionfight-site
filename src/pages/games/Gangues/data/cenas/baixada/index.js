@@ -13,6 +13,7 @@
 import { MUNDO_BAIXADA, RUAS_BAIXADA, POSTES_BAIXADA, QUARTEIROES_BAIXADA, PREDIOS_BAIXADA, OBSTACULOS_BAIXADA, CENARIO_BAIXADA, FIACAO_BAIXADA, TREM_BAIXADA } from './mundo.js'
 import { POIS_BAIXADA, BAIXADA_RESPEITO } from './pois.js'
 import { INTERIORES_BAIXADA } from './interiores.js'
+import { FUNDO_BAIXADA, FUNDO_INT_BAIXADA, comFundos } from './fundos.js'
 import { POS_BAIXADA, ENTRY_ZONES_BAIXADA } from './posicoes.js'
 
 import { BAIXADA_POOL_RUA } from './pools.js'
@@ -23,6 +24,7 @@ export const CENA_BAIXADA = {
   poolCapangas: BAIXADA_POOL_RUA,
   cor: '#18dafb',
   mundo: MUNDO_BAIXADA,
+  fundo: FUNDO_BAIXADA,
   ruas: RUAS_BAIXADA,
   postes: POSTES_BAIXADA,
   quarteiroes: QUARTEIROES_BAIXADA,
@@ -40,7 +42,7 @@ export const CENA_BAIXADA = {
   pois: POIS_BAIXADA,
   pos: POS_BAIXADA,
   entryZones: ENTRY_ZONES_BAIXADA,
-  interiores: INTERIORES_BAIXADA,
+  interiores: comFundos(INTERIORES_BAIXADA, FUNDO_INT_BAIXADA),
 
   // Barra de Respeito: cada treta da cadeia do folgado enche um pedaço.
   respeito: { pois: BAIXADA_RESPEITO },

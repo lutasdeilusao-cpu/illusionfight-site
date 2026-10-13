@@ -13,6 +13,7 @@
 import { MUNDO_LAJE, RUAS_LAJE, POSTES_LAJE, QUARTEIROES_LAJE, PREDIOS_LAJE, OBSTACULOS_LAJE, CENARIO_LAJE, FIACAO_LAJE } from './mundo.js'
 import { POIS_LAJE, LAJE_LINHAS } from './pois.js'
 import { INTERIORES_LAJE } from './interiores.js'
+import { FUNDO_LAJE, FUNDO_INT_LAJE, comFundos } from './fundos.js'
 import { POS_LAJE, ENTRY_ZONES_LAJE } from './posicoes.js'
 
 const linhaCortada = (l, cenaProgresso) => Boolean(cenaProgresso?.[l.cena]?.resolvidos?.[l.id])
@@ -25,6 +26,7 @@ export const CENA_LAJE = {
   poolCapangas: LAJE_POOL_RUA,
   cor: '#a855f7',
   mundo: MUNDO_LAJE,
+  fundo: FUNDO_LAJE,
   ruas: RUAS_LAJE,
   postes: POSTES_LAJE,
   quarteiroes: QUARTEIROES_LAJE,
@@ -40,7 +42,7 @@ export const CENA_LAJE = {
   pois: POIS_LAJE,
   pos: POS_LAJE,
   entryZones: ENTRY_ZONES_LAJE,
-  interiores: INTERIORES_LAJE,
+  interiores: comFundos(INTERIORES_LAJE, FUNDO_INT_LAJE),
 
   // A barra das linhas (GanguesBaixadaHud → BarraLinhas).
   linhas: { lista: LAJE_LINHAS, cortada: linhaCortada },

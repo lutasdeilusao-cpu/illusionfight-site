@@ -11,6 +11,7 @@
 import { MUNDO_ALTO, RUAS_ALTO, POSTES_ALTO, QUARTEIROES_ALTO, PREDIOS_ALTO, OBSTACULOS_ALTO, CENARIO_ALTO, FIACAO_ALTO } from './mundo.js'
 import { POIS_ALTO, ALTO_CINCO, flagComprou } from './pois.js'
 import { INTERIORES_ALTO } from './interiores.js'
+import { FUNDO_ALTO, FUNDO_INT_ALTO, comFundos } from './fundos.js'
 import { POS_ALTO, ENTRY_ZONES_ALTO } from './posicoes.js'
 
 // Estado de cada um dos Cinco no caderno: 'comprado' | 'batido' | null (pendente).
@@ -27,6 +28,7 @@ export const CENA_ALTO = {
   poolCapangas: ALTO_POOL_RUA,
   cor: '#ff6b6b',
   mundo: MUNDO_ALTO,
+  fundo: FUNDO_ALTO,
   ruas: RUAS_ALTO,
   postes: POSTES_ALTO,
   quarteiroes: QUARTEIROES_ALTO,
@@ -42,7 +44,7 @@ export const CENA_ALTO = {
   pois: POIS_ALTO,
   pos: POS_ALTO,
   entryZones: ENTRY_ZONES_ALTO,
-  interiores: INTERIORES_ALTO,
+  interiores: comFundos(INTERIORES_ALTO, FUNDO_INT_ALTO),
 
   // O Caderno do Contador: a barra do topo (GanguesBaixadaHud → BarraCaderno).
   caderno: {

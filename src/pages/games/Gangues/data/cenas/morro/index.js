@@ -14,6 +14,7 @@
 import { MUNDO_MORRO, RUAS_MORRO, POSTES_MORRO, QUARTEIROES_MORRO, PREDIOS_MORRO, OBSTACULOS_MORRO, CENARIO_MORRO, FIACAO_MORRO, BARREIRAS_MORRO } from './mundo.js'
 import { POIS_MORRO } from './pois.js'
 import { INTERIORES_MORRO } from './interiores.js'
+import { FUNDO_MORRO, FUNDO_INT_MORRO, comFundos } from './fundos.js'
 import { POS_MORRO, ENTRY_ZONES_MORRO } from './posicoes.js'
 
 import { MORRO_POOL_RUA } from './pools.js'
@@ -24,6 +25,7 @@ export const CENA_MORRO = {
   poolCapangas: MORRO_POOL_RUA,
   cor: '#ff8f3c',
   mundo: MUNDO_MORRO,
+  fundo: FUNDO_MORRO,
   ruas: RUAS_MORRO,
   postes: POSTES_MORRO,
   quarteiroes: QUARTEIROES_MORRO,
@@ -40,7 +42,7 @@ export const CENA_MORRO = {
   pois: POIS_MORRO,
   pos: POS_MORRO,
   entryZones: ENTRY_ZONES_MORRO,
-  interiores: INTERIORES_MORRO,
+  interiores: comFundos(INTERIORES_MORRO, FUNDO_INT_MORRO),
 
   chefe: {
     id: 'boss',

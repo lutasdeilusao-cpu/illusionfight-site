@@ -14,6 +14,7 @@
 import { MUNDO_VILA, RUAS_VILA, POSTES_VILA, QUARTEIROES_VILA, PREDIOS_VILA, OBSTACULOS_VILA, CENARIO_VILA, FIACAO_VILA } from './mundo.js'
 import { POIS_VILA } from './pois.js'
 import { INTERIORES_VILA } from './interiores.js'
+import { FUNDO_VILA, FUNDO_INT_VILA, comFundos } from './fundos.js'
 import { POS_VILA, ENTRY_ZONES_VILA } from './posicoes.js'
 import { VILA_POOL_ELEVADOR, VILA_POOL_TERREO } from './pools.js'
 
@@ -24,6 +25,7 @@ export const CENA_VILA = {
   poolCapangas: VILA_POOL_TERREO,
   cor: '#ffae32',
   mundo: MUNDO_VILA,
+  fundo: FUNDO_VILA,
   ruas: RUAS_VILA,
   postes: POSTES_VILA,
   quarteiroes: QUARTEIROES_VILA,
@@ -39,7 +41,7 @@ export const CENA_VILA = {
   pois: POIS_VILA,
   pos: POS_VILA,
   entryZones: ENTRY_ZONES_VILA,
-  interiores: INTERIORES_VILA,
+  interiores: comFundos(INTERIORES_VILA, FUNDO_INT_VILA),
 
   // Barra de Alerta (`mexerAlerta` em store/slices/ganguesStorySlice.js): o
   // Portaria corre avisando o bonde. Sobe +1 ao perder uma luta aqui ou o
