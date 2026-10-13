@@ -131,11 +131,11 @@ div.rt-energia { display: grid; place-items: center; }
 .rt-carga b { font: 900 .9rem var(--font-mono); color: var(--rt-super); }
 .rt-carga i { grid-column: 1 / -1; display: block; height: 10px; background: rgba(255,255,255,.08); position: relative; overflow: hidden; }
 .rt-carga i::after { content: ''; position: absolute; inset: 0; transform-origin: left; transform: scaleX(var(--v)); background: var(--rt-super); box-shadow: 0 0 12px var(--rt-super); transition: transform .15s; }
-.rt-lanca { position: absolute; inset: 0; z-index: 160; display: grid; place-content: center; justify-items: center; gap: 6px; pointer-events: none; text-align: center;
-  background: radial-gradient(circle, color-mix(in srgb, var(--rt-super) 35%, transparent), rgba(0,0,0,.75) 70%); animation: rt-lanca 1.7s ease-out forwards; }
+.rt-lanca { position: absolute; inset: 0; z-index: 160; display: grid; align-content: start; justify-items: center; gap: 6px; padding-top: 14%; pointer-events: none; text-align: center;
+  animation: rt-lanca 1.7s ease-out forwards; }
 .rt-lanca b { font: 900 2.2rem var(--font-display); animation: rt-lanca-nome 1.7s ease-out forwards; text-transform: uppercase; color: var(--rt-super); letter-spacing: .04em; text-shadow: 0 3px 0 rgba(0,0,0,.6); }
 .rt-lanca strong { font: 900 1rem var(--font-mono); color: var(--if-ink); }
-.rt-lanca.is-falhou { background: rgba(0,0,0,.7); }
+.rt-lanca.is-falhou { background: rgba(0,0,0,.5); }
 .rt-lanca.is-falhou b { color: var(--text-secondary); }
 @keyframes rt-lanca { 0% { opacity: 0; } 10% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes rt-lanca-nome { 0% { transform: scale(.3) rotate(-8deg); } 25% { transform: scale(1.25) rotate(2deg); } 40% { transform: scale(1); } 100% { transform: scale(1.06); } }
@@ -167,10 +167,14 @@ div.rt-energia { display: grid; place-items: center; }
 /* Super DELE: barra e apresentação em vermelho (a barra é o quanto você defendeu). */
 .rt-carga.is-dele span, .rt-carga.is-dele b { color: var(--if-danger); }
 .rt-carga.is-dele i::after { background: var(--if-danger); box-shadow: 0 0 12px var(--if-danger); }
-.rt-lanca.is-dele { background: radial-gradient(circle, color-mix(in srgb, var(--if-danger) 35%, transparent), rgba(0,0,0,.75) 70%); }
 .rt-lanca.is-dele b { color: var(--if-danger); }
 
-/* Fim da música: aviso de que ela recomeça (nenhuma nota até a batida entrar de novo). */
-.rt-recomeca { position: absolute; left: 50%; top: 22%; transform: translateX(-50%); z-index: 140; pointer-events: none; padding: 8px 14px;
-  font: 900 .85rem var(--font-display); text-transform: uppercase; letter-spacing: .08em; color: var(--if-amber); text-align: center;
-  background: rgba(0,0,0,.6); border: 1px solid var(--if-amber); animation: rt-pulso .5s ease-in-out infinite alternate; }
+/* Game over por tempo: a música acabou antes do nocaute. */
+.rt-fim__motivo { margin: 0; color: var(--if-danger); font: 900 .9rem var(--font-display); text-transform: uppercase; letter-spacing: .06em; }
+
+/* Carregando a luta: cobre tudo até o lutador, os sons e a música estarem prontos. */
+.rt-carregando { position: absolute; inset: 0; z-index: 300; display: grid; place-content: center; justify-items: center; gap: 14px; background: var(--ldi-bg); overscroll-behavior: none; }
+.rt-carregando b { font: 900 1rem var(--font-display); text-transform: uppercase; letter-spacing: .1em; color: var(--if-amber); }
+.rt-carregando i { display: block; width: 160px; height: 4px; background: rgba(255,255,255,.08); position: relative; overflow: hidden; }
+.rt-carregando i::after { content: ''; position: absolute; inset: 0; width: 40%; background: var(--if-amber); animation: rt-carrega 1s ease-in-out infinite; }
+@keyframes rt-carrega { from { transform: translateX(-100%); } to { transform: translateX(250%); } }

@@ -33,14 +33,16 @@ export function alternarMudo() {
 // Música da luta (arquivo). Mudo só cala: ela continua andando, porque é ela que
 // marca o tempo das notas.
 let faixa = null
-export function tocarMusica(url, velocidade = 1) {
+// `adiado`: só carrega; quem chama dá o play quando a luta estiver pronta.
+export function tocarMusica(url, velocidade = 1, adiado = false) {
   pararMusica()
   faixa = new Audio(url)
   faixa.preload = 'auto'
   faixa.playbackRate = velocidade
   faixa.volume = 0.6
   faixa.muted = mudo
-  faixa.play().catch(() => {})
+  if (adiado) faixa.load()
+  else faixa.play().catch(() => {})
   return faixa
 }
 export function pararMusica() {
@@ -52,10 +54,13 @@ export function pararMusica() {
 // toque sorteia uma, pra não soar repetido.
 const ARQUIVOS_SFX = import.meta.glob('./sfx/*.mp3', { eager: true, query: '?url', import: 'default' })
 const amostras = {}
+let sonsCarregados = 0
+// todos os efeitos já baixados e decodificados (ou desistiu de algum)?
+export const sonsProntos = () => sonsCarregados >= Object.keys(ARQUIVOS_SFX).length
 function carregarAmostras() {
   for (const [caminho, url] of Object.entries(ARQUIVOS_SFX)) {
     const nome = caminho.match(/([a-z]+)-\d+\.mp3$/)[1]
-    fetch(url).then(r => r.arrayBuffer()).then(b => ctx.decodeAudioData(b)).then(buf => { (amostras[nome] ||= []).push(buf) }).catch(() => {})
+    fetch(url).then(r => r.arrayBuffer()).then(b => ctx.decodeAudioData(b)).then(buf => { (amostras[nome] ||= []).push(buf) }).catch(() => {}).finally(() => { sonsCarregados++ })
   }
 }
 // toca uma variação do efeito; devolve false se ainda não tem (aí entra o sintetizado)

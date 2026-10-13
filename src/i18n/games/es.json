@@ -1056,7 +1056,8 @@
           "super_dele": "¡Súper de él! Defiende",
           "super_dele_nome": "Súper de él",
           "defendeu_pct": "Defendiste {n}%",
-          "recomeca": "La música va a empezar de nuevo. ¡Prepárate!"
+          "tempo_acabou": "¡La música terminó — se acabó el tiempo!",
+          "carregando": "Preparando la pelea..."
         }
       }
     },

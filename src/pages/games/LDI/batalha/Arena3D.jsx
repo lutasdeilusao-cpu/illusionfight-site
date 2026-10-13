@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { somPasso } from './som'
+import { criarParticulas } from './particulas'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import urlRobo from './modelos/RobotExpressive.glb?url'
 import urlLuva from './modelos/luva.glb?url'
@@ -121,21 +122,28 @@ function montarLutador(cor) {
   return g
 }
 
-export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 'robo', corInimigo = 0x7a3b3b, onFalha }) {
+export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 'robo', corInimigo = 0x7a3b3b, onFalha, onPronto }) {
   const caixa = useRef(null)
+  const avisaPronto = useRef(onPronto)
+  avisaPronto.current = onPronto
 
   useEffect(() => {
     const el = caixa.current
     let renderer
     try {
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
-    } catch { onFalha?.(); return }
+    } catch { onFalha?.(); avisaPronto.current?.(); return }
     renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1))
     el.appendChild(renderer.domElement)
     const cena = new THREE.Scene()
     const cam = new THREE.PerspectiveCamera(45, 1, 0.1, 100)
     // câmera mirando o meio do lutador, que fica no centro da tela, lá no fundo do ringue
-    cam.position.set(0, 1.8, 10); cam.lookAt(0, CHAO_Y + 1.6, FUNDO_Z)
+    const CAM_BASE = new THREE.Vector3(0, 1.8, 10), OLHAR_BASE = new THREE.Vector3(0, CHAO_Y + 1.6, FUNDO_Z)
+    cam.position.copy(CAM_BASE); cam.lookAt(OLHAR_BASE)
+    // a câmera parada de sempre: é por ela que o ponto de toque de cada nota é calculado,
+    // mesmo quando a câmera de verdade está dando zoom na apresentação do super
+    const camFixa = cam.clone()
+    const olhar = OLHAR_BASE.clone()
     cena.fog = new THREE.Fog(0x07090b, 22, 46)
     cena.add(new THREE.AmbientLight(0xffffff, 0.55))
     const luz = new THREE.DirectionalLight(0xffffff, 1.4); luz.position.set(3, 6, 8); cena.add(luz)
@@ -162,8 +170,11 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
     // O passeio no fundo do ringue: escolhe um ponto, anda (ou pula/rola) até ele, para em guarda.
     const passeio = { x: 0, alvo: 0, ate: 1.5, modo: 'parado', proxPasso: 0 }
     const modelos = {}
-    const loader = new GLTFLoader()
+    // Tudo que a luta precisa carregar passa por aqui; quando acaba, avisa (tela de carregamento).
     let vivo = true
+    const gerente = new THREE.LoadingManager(() => { if (vivo) avisaPronto.current?.() }, undefined, () => {})
+    const loader = new GLTFLoader(gerente)
+    const particulas = criarParticulas(cena, gerente)
     loader.load(def.url, g => {
       if (!vivo) return
       const r = g.scene
@@ -225,23 +236,24 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
 
     const ajustar = () => {
       const w = el.clientWidth, h = el.clientHeight
-      renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix()
+      renderer.setSize(w, h, false); cam.aspect = camFixa.aspect = w / h; cam.updateProjectionMatrix(); camFixa.updateProjectionMatrix()
     }
     ajustar()
     const ro = new ResizeObserver(ajustar); ro.observe(el)
 
     // ponto da tela (em % da arena) -> ponto no plano z=0, onde a nota é tocada
     const noPlano = (xp, yp) => {
-      const v = new THREE.Vector3((xp / 100) * 2 - 1, -((yp / 100) * 2 - 1), 0.5).unproject(cam)
-      const dir = v.sub(cam.position).normalize()
-      return cam.position.clone().add(dir.multiplyScalar(-cam.position.z / dir.z))
+      const v = new THREE.Vector3((xp / 100) * 2 - 1, -((yp / 100) * 2 - 1), 0.5).unproject(camFixa)
+      const dir = v.sub(camFixa.position).normalize()
+      return camFixa.position.clone().add(dir.multiplyScalar(-camFixa.position.z / dir.z))
     }
     const naTela = v3 => { const p = v3.clone().project(cam); return { x: (p.x + 1) * 50, y: (1 - p.y) * 50 } }
 
     // libera geometria e material de um golpe que saiu de cena (o anel é compartilhado)
     // (o modelo pronto é um clone que divide geometria e material com o original: esse fica)
     const liberar = b => { b.mat.dispose(); if (!b.glb) b.modelo.traverse(o => { if (o.isMesh) { o.geometry.dispose(); o.material.dispose() } }) }
-    let raf, ultimoGolpe = 0, ultimoAtaque = 0
+    let raf, ultimoGolpe = 0, ultimoAtaque = 0, show = null, tremeAte = 0
+    const projetil = new THREE.Vector3(), alvoCam = new THREE.Vector3(), alvoOlhar = new THREE.Vector3()
     const quadro = () => {
       const s = estadoRef.current
       const agora = performance.now()
@@ -249,6 +261,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
         const t = agora / 1000
         const dt = Math.min(0.1, relogio.getDelta())
         if (mixer) mixer.update(dt)
+        particulas.atualizar(dt)
         // respira e balança em guarda (o robô já tem a animação de guarda dele)
         lutador.position.y = CHAO_Y + (robo ? 0 : Math.sin(t * 3.2) * 0.06)
         // anda de um lado pro outro no fundo do ringue (as notas continuam saindo do centro)
@@ -273,19 +286,53 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
         lutador.rotation.y += (viraPara + Math.sin(t * 1.3) * 0.08 - lutador.rotation.y) * Math.min(1, dt * 8)
         // tomou golpe: recua e pisca vermelho
         const dg = agora - (s.golpeEm || 0)
-        if (s.golpeEm !== ultimoGolpe) { ultimoGolpe = s.golpeEm; if (robo) tocarAcao(s.inimigo <= 0 ? def.morte : sorteia(def.apanha), true) }
+        const peitoDele = new THREE.Vector3(lutador.position.x, CHAO_Y + 1.8, FUNDO_Z + 0.5)
+        if (s.golpeEm !== ultimoGolpe) { ultimoGolpe = s.golpeEm; if (robo) tocarAcao(s.inimigo <= 0 ? def.morte : sorteia(def.apanha), true); particulas.explodir(peitoDele, 'acerto') }
         const reac = dg < 260 ? Math.sin((dg / 260) * Math.PI) : 0
         lutador.rotation.x = -reac * 0.45
         lutador.position.z = FUNDO_Z - reac * 0.8
         for (const m of lutador.userData.mats) m.emissive?.setRGB(reac * 0.9, 0, 0)
         // acertou você: avança com os braços
         const da = agora - (s.apanhouEm || 0)
-        if (s.apanhouEm !== ultimoAtaque) { ultimoAtaque = s.apanhouEm; if (robo) tocarAcao(sorteia(def.ataque), true) }
+        if (s.apanhouEm !== ultimoAtaque) { ultimoAtaque = s.apanhouEm; if (robo) tocarAcao(sorteia(def.ataque), true); if (!s.apresenta) particulas.explodir(new THREE.Vector3(0, 0.6, 5), 'apanhou') }
         const ataque = da < 300 ? Math.sin((da / 300) * Math.PI) : 0
         lutador.position.z += ataque * 2
         if (lutador.userData.bracoD) lutador.userData.bracoD.rotation.x = -1.1 - ataque * 0.6
 
         peito.set(0, lutador.position.y + 2.1, FUNDO_Z + 0.6)
+
+        // APRESENTAÇÃO DO SUPER: o golpe sai como projétil de partículas, a câmera vai
+        // atrás dele, mostra o impacto de perto (explosão, ele apanhando) e volta.
+        if (s.apresenta && (!show || show.ate !== s.apresenta.ate)) {
+          const ap = s.apresenta
+          show = { ...ap, t0: agora, estilo: ap.dele ? 'dele' : ap.id, impactou: false, voa: ap.frac > 0 && (ap.dele || ap.id !== 'folego') }
+          if (!ap.dele && ap.id === 'folego' && ap.frac > 0) particulas.explodir(new THREE.Vector3(0, -0.8, 5.5), 'folego')
+        }
+        alvoCam.copy(CAM_BASE); alvoOlhar.copy(OLHAR_BASE)
+        if (show) {
+          const dur = show.ate - show.t0, u = (agora - show.t0) / dur
+          const de = show.dele ? peitoDele.clone() : new THREE.Vector3(0, -0.6, 6)
+          const ate = show.dele ? new THREE.Vector3(0, 0.8, 6.5) : peitoDele
+          if (show.voa && u < 0.5) {
+            const k = Math.max(0, (u - 0.06) / 0.44), suave = k * k * (3 - 2 * k)
+            projetil.copy(de).lerp(ate, suave)
+            projetil.y += Math.sin(suave * Math.PI) * 0.8
+            particulas.rastro(projetil, show.estilo)
+            if (!show.dele) { alvoCam.set(projetil.x * 0.4, 1.3, Math.max(FUNDO_Z + 5, projetil.z + 6)); alvoOlhar.copy(projetil) }
+            else alvoOlhar.lerpVectors(OLHAR_BASE, projetil, 0.6)
+          } else if (show.voa && !show.impactou) {
+            show.impactou = true
+            particulas.explodir(ate, show.estilo)
+            tremeAte = agora + 380
+            if (!show.dele && robo) tocarAcao(s.inimigo <= 0 ? def.morte : sorteia(def.apanha), true)
+          }
+          if (show.voa && !show.dele && u >= 0.5 && u < 0.85) { alvoCam.set(lutador.position.x * 0.6, 1.2, FUNDO_Z + 5.4); alvoOlhar.copy(peitoDele) }
+          if (u >= 1) show = null
+        }
+        const suaviza = 1 - Math.exp(-dt * 7)
+        cam.position.lerp(alvoCam, suaviza); olhar.lerp(alvoOlhar, suaviza)
+        if (agora < tremeAte) { const f = (tremeAte - agora) / 380 * 0.25; cam.position.x += (Math.random() - 0.5) * f; cam.position.y += (Math.random() - 0.5) * f }
+        cam.lookAt(olhar)
         const vivas = new Set()
         // no super (seu ou dele), só a PRÓXIMA nota acende; as outras ficam apagadas
         let proxima = null
@@ -307,6 +354,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
           }
           const p = Math.min(1.08, Math.max(0, 1 - (n.hora - agora) / voo))
           const pos = peito.clone().lerp(b.alvo, Math.min(1, p))
+          if (n.estado === 'acertou' && !b.estourou) { b.estourou = true; if (!DELE[n.tipo]) particulas.explodir(pos, 'nota') }
           if (n.estado === 'acertou') { const k = (agora - n.fimEm) / 380; b.bola.scale.setScalar(1 + k * 1.2); b.mat.opacity = 1 - k; b.bola.visible = k < 1 }
           else if (n.estado === 'errou') { const k = (agora - n.fimEm) / 380; pos.y -= k * 2; b.mat.opacity = 1 - k; b.bola.visible = k < 1 }
           else {
@@ -337,6 +385,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
       vivo = false; cancelAnimationFrame(raf); ro.disconnect(); mixer?.stopAllAction()
       for (const b of bolas.values()) liberar(b)
       geoAnel.dispose()
+      particulas.liberar()
       lutador.traverse(o => { o.geometry?.dispose() })
       lutador.userData.mats.forEach(m => m.dispose())
       Object.values(modelos).concat(extras).forEach(m => m.traverse(o => { if (o.isMesh) { o.geometry.dispose(); o.material.dispose() } }))

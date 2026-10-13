@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida, tocarMusica, pararMusica, somApanhou, somNocaute, somSuperSolta } from './som'
+import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida, tocarMusica, pararMusica, somApanhou, somNocaute, somSuperSolta, sonsProntos } from './som'
 import { PODERES, KIT, TETO_SUPER } from './campanha'
 import Arena3D from './Arena3D'
 import './LutaRitmo.css'
@@ -22,7 +22,7 @@ import './LutaRitmo.css'
 const VOO = 1500 // ms que a nota leva crescendo até a hora certa
 const JANELA = { perfeito: 70, bom: 150 }
 const SOME = 190 // passou disso depois da hora, conta como erro
-const VIDA = 200
+const VIDA = 400
 const ENERGIA_MAX = 100
 
 const TIPOS = {
@@ -104,6 +104,9 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
   const [mudo, setMudo] = useState(estaMudo())
   const [sem3d, setSem3d] = useState(false)
   const semTresD = useCallback(() => setSem3d(true), [])
+  // Tela de carregamento: a luta só começa com o 3D, os sons e a música prontos.
+  const pronto3d = useRef(false)
+  const marcar3d = useCallback(() => { pronto3d.current = true }, [])
   const estado = useRef(null)
   const id = useRef(0)
   const BATIDA = 60000 / ficha.bpm
@@ -115,7 +118,8 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
       vida: VIDA, inimigo: ficha.vida, energia: 0, combo: 0, melhorCombo: 0,
       aviso: null, tremor: 0, poder: null, atordoadoAte: 0, vez: { dele: null }, pausaAte: 0, ultimo: agora, flash: 0,
       // com música: nada é agendado até ela começar a tocar (aí o tempo da luta casa com o dela)
-      faixa: ficha.musica ? tocarMusica(ficha.musica.url, ficha.musica.velocidade) : null, sincronizado: !ficha.musica, ancora: 0, criadoEm: agora,
+      faixa: ficha.musica ? tocarMusica(ficha.musica.url, ficha.musica.velocidade, true) : null, sincronizado: !ficha.musica, ancora: 0, criadoEm: agora,
+      carregando: true,
     }
     setFim(null)
   }, [ficha, BATIDA])
@@ -134,6 +138,16 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
       const s = estado.current
       const agora = performance.now()
       if (s) {
+        if (s.carregando) {
+          const musicaPronta = !s.faixa || s.faixa.readyState >= 4
+          if ((pronto3d.current && musicaPronta && sonsProntos()) || agora > s.criadoEm + 20000) {
+            s.carregando = false; s.criadoEm = agora
+            s.inicio = s.proxBatida = agora + 900; s.proxFrase = s.inicio + Math.ceil(VOO / (8 * BATIDA)) * 8 * BATIDA
+            s.faixa?.play().catch(() => {})
+          }
+          s.ultimo = agora
+          setQuadro(q => q + 1); raf = requestAnimationFrame(passo); return
+        }
         const empurra = dt => {
           s.inicio += dt; s.proxFrase += dt; s.proxBatida += dt
           for (const n of s.notas) if (n.estado === 'vindo') n.hora += dt
@@ -141,9 +155,8 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
         const f = s.faixa
         if (f && f.error) { pararMusica(); s.faixa = null; s.sincronizado = true; s.inicio = agora; s.proxBatida = agora; s.proxFrase = Math.max(s.proxFrase, agora + VOO) }
         else if (f && f.ended) {
-          // Acabou a música: ela recomeça e a luta espera a entrada da batida de novo.
-          f.currentTime = 0; f.play().catch(() => {})
-          s.sincronizado = false; s.criadoEm = agora
+          // Acabou a música sem nocaute: game over (a luta dura o que dura a música).
+          s.tempoAcabou = true
         } else if (f && !s.sincronizado) {
           // A música começou. A luta espera a introdução: a 1ª nota cai na batida em
           // que o groove entra (`entrada`, medida no arquivo); dali o tempo é o dela.
@@ -157,7 +170,6 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
             s.proxFrase = s.inicio
             s.ancora = agora - f.currentTime * 1000 / vel
             s.sincronizado = true
-            if (s.recomecaAte) s.recomecaAte = s.inicio - VOO / 2
           } else if (agora > s.criadoEm + 20000) {
             // a música não tocou de jeito nenhum: cala ela e segue na batida sintetizada
             // (nunca as duas juntas — a música carregando devagar só atrasa o começo)
@@ -175,10 +187,10 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
         if (agora < s.pausaAte && !s.faixa) empurra(agora - s.ultimo)
         s.ultimo = agora
         if (!s.sincronizado) { setQuadro(q => q + 1); raf = requestAnimationFrame(passo); return }
-        // Perto do fim da música não agenda mais nada: avisa que ela vai recomeçar.
+        // Perto do fim da música não agenda mais nada.
         const fimMusica = s.faixa && s.faixa.duration ? s.ancora + s.faixa.duration * 1000 / (ficha.musica.velocidade || 1) : Infinity
         while (s.proxFrase < agora + VOO + 8 * BATIDA) {
-          if (s.proxFrase + 8 * BATIDA > fimMusica - 200) { s.recomecaAte = Infinity; break }
+          if (s.proxFrase + 8 * BATIDA > fimMusica - 200) break
           const sd = ficha.superDele
           if (sd && !s.poder && s.nFrase >= 2 && s.nFrase % sd.cada === 0) { superDele(s, sd); continue }
           for (const n of frase(ficha, s.proxFrase, s.nFrase, BATIDA, s.vez)) {
@@ -206,7 +218,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
         if (s.apresenta && agora > s.apresenta.ate) s.apresenta = null
         if (s.apresenta) { /* espera a apresentação acabar */ }
         else if (s.inimigo <= 0) { if (!s.ko) { s.ko = true; somNocaute() } setFim('vitoria') }
-        else if (s.vida <= 0) setFim('derrota')
+        else if (s.vida <= 0 || s.tempoAcabou) setFim('derrota')
       }
       setQuadro(q => q + 1)
       raf = requestAnimationFrame(passo)
@@ -288,7 +300,8 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     if (pd.atordoa && frac > 0) s.atordoadoAte = agora + APRESENTA + pd.atordoa * frac
     s.apresenta = { id: s.poder.id, frac, ate: agora + APRESENTA }
     s.pausaAte = agora + APRESENTA
-    if (frac > 0) { somSuperSolta(frac); s.tremor = agora + 500; s.golpeEm = agora }
+    // ele apanha na hora do impacto do projétil, que a Arena3D desenha (sem 3D, na hora)
+    if (frac > 0) { somSuperSolta(frac); s.tremor = agora + 500; if (sem3d) s.golpeEm = agora }
     s.poder = null
   }
 
@@ -330,6 +343,9 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
 
   return (
     <div className={`rt-page${s.tremor > agora ? ' is-tremendo' : ''}`}>
+      {s.carregando && (
+        <div className="rt-carregando" aria-live="polite"><b>{t('games.ldi.batalha.ritmo.carregando')}</b><i /></div>
+      )}
       {s.flash > agora && <div key={s.flash} className="rt-flash" aria-hidden="true">{s.pausaAte > agora - 400 && s.vida >= 0 ? t('games.ldi.batalha.ritmo.pow') : ''}</div>}
       <header className="rt-topo">
         <button type="button" className="rt-sair" onClick={onSair}>{t('games.ldi.batalha.sair')}</button>
@@ -353,7 +369,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
 
       <div className="rt-arena">
         {sem3d && <div className="rt-fundo" aria-hidden="true" />}
-        {!sem3d && <Arena3D estadoRef={estado} voo={VOO} janela={JANELA.bom} lutador={ficha.id <= 2 ? 'robo' : 'aventureiro'} onFalha={semTresD} />}
+        {!sem3d && <Arena3D estadoRef={estado} voo={VOO} janela={JANELA.bom} onPronto={marcar3d} lutador={ficha.id <= 2 ? 'robo' : 'aventureiro'} onFalha={semTresD} />}
         {s.poder && agora >= s.poder.mostraEm && (
           <div className={`rt-carga${s.poder.dele ? ' is-dele' : ''}`} aria-hidden="true">
             <span>{s.poder.dele ? t('games.ldi.batalha.ritmo.super_dele') : t(`games.ldi.batalha.ritmo.poderes.${s.poder.id}.nome`)}</span>
@@ -366,9 +382,6 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
             <b>{s.apresenta.dele ? t('games.ldi.batalha.ritmo.super_dele_nome') : t(`games.ldi.batalha.ritmo.poderes.${s.apresenta.id}.nome`)}</b>
             <strong>{t(s.apresenta.dele ? 'games.ldi.batalha.ritmo.defendeu_pct' : 'games.ldi.batalha.ritmo.super_pct', { n: Math.round(s.apresenta.frac * 100) })}</strong>
           </div>
-        )}
-        {s.recomecaAte > agora && !s.notas.some(n => n.estado === 'vindo') && (
-          <div className="rt-recomeca" aria-live="polite">{t('games.ldi.batalha.ritmo.recomeca')}</div>
         )}
         {s.pulso && <div key={s.pulso.em} className={`rt-pulso${s.pulso.caixa ? ' is-caixa' : ''}`} aria-hidden="true" />}
         {!fim && s.notas.map(n => {
@@ -418,6 +431,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
       {fim && (
         <div className="rt-fim">
           <h2 className={`rt-fim__titulo is-${fim}`}>{t(`games.ldi.batalha.${fim}`)}</h2>
+          {s.tempoAcabou && <p className="rt-fim__motivo">{t('games.ldi.batalha.ritmo.tempo_acabou')}</p>}
           <p>{t('games.ldi.batalha.ritmo.melhor_combo', { n: s.melhorCombo })}</p>
           {onResultado ? (
             <button type="button" className="rt-btn" onClick={() => onResultado(fim)}>{t(fim === 'vitoria' ? 'games.ldi.batalha.ritmo.continuar' : 'games.ldi.batalha.de_novo')}</button>

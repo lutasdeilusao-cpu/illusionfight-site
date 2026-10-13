@@ -1056,7 +1056,8 @@
           "super_dele": "His super! Defend",
           "super_dele_nome": "His super",
           "defendeu_pct": "Blocked {n}%",
-          "recomeca": "The song is starting over. Get ready!"
+          "tempo_acabou": "The song is over — time's up!",
+          "carregando": "Getting the fight ready..."
         }
       }
     },

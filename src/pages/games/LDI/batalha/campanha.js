@@ -7,7 +7,7 @@
 // O primeiro é o treino: lento e com pouca nota. Cada luta sobe um degrau.
 //   musica: a faixa da luta (uma por inimigo, já cortada no começo). O bpm dele É o
 //   da música; `entrada` (s) é a batida em que o beat entra: a 1ª nota cai ali, e
-//   quando a música acaba ela recomeça e a luta espera de novo até a entrada.
+//   se a música acaba antes do nocaute, é game over.
 //   Medidos no próprio arquivo, batida por batida.
 //   superDele: a cada `cada` frases ele solta um super; você defende as `notas`
 //   (vermelhas) e toma `dano` × a fração que deixou passar.
@@ -36,23 +36,23 @@ const MUSICAS = {
 }
 
 export const INIMIGOS = [
-  { id: 1, vida: 120, musica: { ...MUSICAS[1], velocidade: VELOCIDADE }, bpm: MUSICAS[1].bpm * VELOCIDADE, niveis: [1], defesaPeso: 0.2,
+  { id: 1, vida: 240, musica: { ...MUSICAS[1], velocidade: VELOCIDADE }, bpm: MUSICAS[1].bpm * VELOCIDADE, niveis: [1], defesaPeso: 0.2,
     // 2 golpes no beat, 2 de descanso, 2 golpes (beats 1-2 e 5-6 de cada frase)
     frases: [[2, 4, 10, 12]],
     golpes: { soco: 2, chute: 1, cabecada: 1 }, defesas: { bloqueio: 1 } },
-  { id: 2, vida: 240, musica: { ...MUSICAS[2], velocidade: VELOCIDADE }, bpm: MUSICAS[2].bpm * VELOCIDADE, niveis: [1, 2], defesaPeso: 0.25,
+  { id: 2, vida: 480, musica: { ...MUSICAS[2], velocidade: VELOCIDADE }, bpm: MUSICAS[2].bpm * VELOCIDADE, niveis: [1, 2], defesaPeso: 0.25,
     golpes: { soco: 2, chute: 1, cabecada: 1 }, defesas: { bloqueio: 1 } },
-  { id: 3, vida: 280, musica: { ...MUSICAS[3], velocidade: VELOCIDADE }, bpm: MUSICAS[3].bpm * VELOCIDADE, niveis: [1, 2], defesaPeso: 0.28,
+  { id: 3, vida: 560, musica: { ...MUSICAS[3], velocidade: VELOCIDADE }, bpm: MUSICAS[3].bpm * VELOCIDADE, niveis: [1, 2], defesaPeso: 0.28,
     golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 2 } },
-  { id: 4, vida: 320, musica: { ...MUSICAS[4], velocidade: VELOCIDADE }, bpm: MUSICAS[4].bpm * VELOCIDADE, niveis: [2], defesaPeso: 0.3,
+  { id: 4, vida: 640, musica: { ...MUSICAS[4], velocidade: VELOCIDADE }, bpm: MUSICAS[4].bpm * VELOCIDADE, niveis: [2], defesaPeso: 0.3,
     golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 1 } },
-  { id: 5, vida: 360, musica: { ...MUSICAS[5], velocidade: VELOCIDADE }, bpm: MUSICAS[5].bpm * VELOCIDADE, superDele: { cada: 6, notas: [0, 2, 4, 6], dano: 22 }, niveis: [2, 3], defesaPeso: 0.32,
+  { id: 5, vida: 720, musica: { ...MUSICAS[5], velocidade: VELOCIDADE }, bpm: MUSICAS[5].bpm * VELOCIDADE, superDele: { cada: 6, notas: [0, 2, 4, 6], dano: 22 }, niveis: [2, 3], defesaPeso: 0.32,
     golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 2 } },
-  { id: 6, vida: 440, musica: { ...MUSICAS[6], velocidade: VELOCIDADE }, bpm: MUSICAS[6].bpm * VELOCIDADE, superDele: { cada: 5, notas: [0, 2, 4, 5, 6], dano: 26 }, niveis: [2, 3], defesaPeso: 0.35,
+  { id: 6, vida: 880, musica: { ...MUSICAS[6], velocidade: VELOCIDADE }, bpm: MUSICAS[6].bpm * VELOCIDADE, superDele: { cada: 5, notas: [0, 2, 4, 5, 6], dano: 26 }, niveis: [2, 3], defesaPeso: 0.35,
     golpes: { soco: 1, chute: 2, cabecada: 2 }, defesas: { bloqueio: 3, esquiva: 1 } },
-  { id: 7, vida: 440, musica: { ...MUSICAS[7], velocidade: VELOCIDADE }, bpm: MUSICAS[7].bpm * VELOCIDADE, superDele: { cada: 5, notas: [0, 2, 3, 4, 6], dano: 30 }, niveis: [3, 4], defesaPeso: 0.38,
+  { id: 7, vida: 880, musica: { ...MUSICAS[7], velocidade: VELOCIDADE }, bpm: MUSICAS[7].bpm * VELOCIDADE, superDele: { cada: 5, notas: [0, 2, 3, 4, 6], dano: 30 }, niveis: [3, 4], defesaPeso: 0.38,
     golpes: { soco: 2, chute: 1, cabecada: 2 }, defesas: { bloqueio: 1, esquiva: 3 } },
-  { id: 8, vida: 520, musica: { ...MUSICAS[8], velocidade: VELOCIDADE }, bpm: MUSICAS[8].bpm * VELOCIDADE, superDele: { cada: 4, notas: [0, 1, 2, 4, 5, 6], dano: 34 }, niveis: [3, 4], defesaPeso: 0.4,
+  { id: 8, vida: 1040, musica: { ...MUSICAS[8], velocidade: VELOCIDADE }, bpm: MUSICAS[8].bpm * VELOCIDADE, superDele: { cada: 4, notas: [0, 1, 2, 4, 5, 6], dano: 34 }, niveis: [3, 4], defesaPeso: 0.4,
     golpes: { soco: 2, chute: 2, cabecada: 2 }, defesas: { bloqueio: 2, esquiva: 2 } },
 ]
 
