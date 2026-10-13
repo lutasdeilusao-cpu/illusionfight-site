@@ -188,3 +188,15 @@ div.rt-energia { display: grid; place-items: center; }
 @keyframes rt-dica-entra { from { transform: translateY(-12px); opacity: 0; } }
 .rt-nota.is-dica { animation: rt-dica-pulsa 0.6s ease-in-out infinite alternate; box-shadow: 0 0 0 6px var(--if-amber), 0 0 40px 10px var(--if-amber); }
 @keyframes rt-dica-pulsa { to { transform: translate(-50%, -50%) scale(1.15); } }
+
+/* Tutorial: caixa com título e explicação; cartões do começo com botão. */
+.rt-dica b { display: block; margin-bottom: 4px; font: 900 1.15rem/1.1 var(--font-display); text-transform: uppercase; letter-spacing: 0.04em; }
+.rt-dica span { display: block; font: 700 0.92rem/1.35 var(--font-body); }
+.rt-dica.is-forte { background: var(--if-cyan); animation: rt-dica-entra 0.3s ease-out both, rt-dica-pulsa-caixa 0.5s ease-in-out infinite alternate; }
+.rt-dica.is-leve { opacity: 0.85; padding: 8px 12px; }
+@keyframes rt-dica-pulsa-caixa { to { transform: scale(1.03); } }
+.rt-tut-cartao { position: absolute; inset: 0; z-index: 180; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; padding: 24px 20px 40px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.92) 40%); color: var(--if-ink); text-align: center; }
+.rt-tut-cartao small { font: 800 0.7rem var(--font-mono); letter-spacing: 0.2em; color: var(--if-amber); }
+.rt-tut-cartao b { font: 900 1.8rem/1.05 var(--font-display); text-transform: uppercase; color: var(--if-amber); }
+.rt-tut-cartao p { margin: 0; font: 600 1.05rem/1.45 var(--font-body); }

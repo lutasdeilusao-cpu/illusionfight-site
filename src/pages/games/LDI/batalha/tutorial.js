@@ -15,6 +15,9 @@ export const ROTEIRO_TUTORIAL = [
   { tipo: 'bloqueio' },
   { tipo: 'chute' },
 ]
+// Cartões do começo (tempo parado, o jogador toca em "Entendi" pra seguir): textos em
+// games.ldi.batalha.ritmo.tutorial.cartoes.
+export const CARTOES_TUTORIAL = 4
 const DEPOIS = ['soco', 'bloqueio', 'chute', 'soco', 'cabecada', 'bloqueio']
 
 // Notas da próxima frase (8 tempos): duas, nos tempos 2 e 6, uma de cada vez.

@@ -7,6 +7,7 @@
 
    • core      → navegação, home, histórias, conta, loja. Sempre.
    • games     → strings de dentro dos jogos (inclui pp e toptrumps).
+   • lendas    → Lendas do LDI (/games/ldi), JSON só dele: lendas/<lang>.json.
    • creators  → área Creator (/creators).
    • prototype → laboratório.
 
@@ -25,6 +26,11 @@ const AREAS = {
     pt: () => import('./games/pt.json'),
     es: () => import('./games/es.json'),
     en: () => import('./games/en.json'),
+  },
+  lendas: {
+    pt: () => import('./lendas/pt.json'),
+    es: () => import('./lendas/es.json'),
+    en: () => import('./lendas/en.json'),
   },
   creators: {
     pt: () => import('./creators/pt.json'),
@@ -58,6 +64,7 @@ export async function carregarArea(area, locale) {
  *  O catálogo /games usa site.games.*, que mora no núcleo; só as
  *  telas de dentro (/games/algum-jogo) precisam do pedaço pesado. */
 export function areaDaRota(pathname) {
+  if (/^\/games\/ldi(\/|$)/.test(pathname)) return 'lendas'
   if (/^\/games\/./.test(pathname)) return 'games'
   if (pathname.startsWith('/lab')) return 'prototype'
   if (pathname.startsWith('/creators')) return 'creators'

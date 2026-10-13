@@ -2,7 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida, tocarMusica, pararMusica, somApanhou, somNocaute, somSuperSolta, sonsProntos } from './som'
 import { PODERES, KIT, TETO_SUPER } from './campanha'
 import Arena3D from './Arena3D'
-import { fraseTutorial, ROTEIRO_TUTORIAL } from './tutorial'
+import DicaTutorial from './DicaTutorial'
+import { fraseTutorial, ROTEIRO_TUTORIAL, CARTOES_TUTORIAL } from './tutorial'
 import './LutaRitmo.css'
 
 // Luta rítmica. Cada nota nasce pequena, longe, e vem crescendo até o ponto
@@ -199,7 +200,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado, energiaInicia
         // Tomou golpe: sem música, o tempo para um instante (tudo é empurrado junto).
         // Com música, não: ela não para, então a luta também não.
         // No tutorial, o tempo também para esperando o toque guiado ou a escolha do super.
-        if ((agora < s.pausaAte || s.esperaToque || s.esperaSuper) && !s.faixa) empurra(agora - s.ultimo)
+        if ((agora < s.pausaAte || s.esperaToque || s.esperaSuper || (ficha.tutorial && (s.cartao ?? 0) < CARTOES_TUTORIAL)) && !s.faixa) empurra(agora - s.ultimo)
         s.ultimo = agora
         if (!s.sincronizado) { setQuadro(q => q + 1); raf = requestAnimationFrame(passo); return }
         // Perto do fim da música não agenda mais nada.
@@ -337,7 +338,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado, energiaInicia
     const dif = Math.abs(agora - n.hora)
     // A nota só aceita toque dentro da janela; antes disso ela nem é tocável (toque ignorado,
     // sem castigo). Errar golpe SEU não dói: só dói deixar passar o golpe DELE.
-    if (dif > JANELA.bom) return
+    if (dif > JANELA.bom) { if (ficha.tutorial && agora < n.hora) avisar(t('games.ldi.batalha.ritmo.tutorial.cedo'), 'is-raspou'); return }
     const nota = dif <= JANELA.perfeito ? 'perfeito' : 'bom'
     const mult = nota === 'perfeito' ? 1.5 : 1
     const tp = TIPOS[n.tipo]
@@ -404,9 +405,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado, energiaInicia
             <strong>{t(s.apresenta.dele ? 'games.ldi.batalha.ritmo.defendeu_pct' : 'games.ldi.batalha.ritmo.super_pct', { n: Math.round(s.apresenta.frac * 100) })}</strong>
           </div>
         )}
-        {(s.esperaToque || s.esperaSuper) && (
-          <p className={`rt-dica${s.esperaSuper ? ' is-super' : ''}`}>{t(`games.ldi.batalha.ritmo.tutorial.${s.esperaSuper ? 'super' : s.esperaToque.dica}`)}</p>
-        )}
+        {ficha.tutorial && <DicaTutorial t={t} s={s} agora={agora} />}
         {s.pulso && <div key={s.pulso.em} className={`rt-pulso${s.pulso.caixa ? ' is-caixa' : ''}`} aria-hidden="true" />}
         {!fim && s.notas.map(n => {
           // 0 = acabou de nascer, longe; 1 = hora de tocar.
