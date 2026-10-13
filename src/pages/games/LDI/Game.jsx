@@ -15,6 +15,10 @@ import { INIMIGOS } from './batalha/campanha'
 import { ligarSom, somPagina } from './batalha/som'
 import './Lendas.css'
 
+// Segundos que cada quadro fica na tela (o leitor alterna no botão do canto).
+const TEMPOS = [3, 5, 8]
+const CHAVE_TEMPO = 'ldi-lendas-tempo-quadro'
+
 export default function Game() {
   const { t, locale } = useLanguage()
   const navigate = useNavigate()
@@ -26,6 +30,13 @@ export default function Game() {
   const [puzzle, setPuzzle] = useState(null)
   const [luta, setLuta] = useState(null) // { escolha, tentativa, abertura, vs }
   const [escolhaAberta, setEscolhaAberta] = useState(false)
+  // Tempo de leitura de cada quadro (escolha do leitor, lembrada neste aparelho).
+  const [tempoQuadro, setTempoQuadro] = useState(() => { try { return Number(localStorage.getItem(CHAVE_TEMPO)) || 5 } catch { return 5 } })
+  const trocarTempo = () => setTempoQuadro(s => {
+    const novo = TEMPOS[(TEMPOS.indexOf(s) + 1) % TEMPOS.length]
+    try { localStorage.setItem(CHAVE_TEMPO, String(novo)) } catch { /* sem storage */ }
+    return novo
+  })
   const [vencidaEm, setVencidaEm] = useState(null) // cena cuja luta de abertura já foi vencida
   const [capitulo, setCapitulo] = useState(null)
   const [capsVistos] = useState(() => new Set())
@@ -105,6 +116,9 @@ export default function Game() {
         </button>
       </header>
 
+      <button type="button" className="ld-tempo" onClick={trocarTempo} aria-label={t('games.ldi.jogo.tempo_quadro', { s: tempoQuadro })}>
+        ⏱ {t('games.ldi.jogo.tempo_quadro', { s: tempoQuadro })}
+      </button>
       {/* Cada cena é uma página: a anterior vira (dobra pela esquerda) e a nova aparece embaixo. */}
       <div className="ld-livro">
       <AnimatePresence mode="wait" initial={false}>
@@ -115,7 +129,7 @@ export default function Game() {
           ? <p className="ld-cena__luta"><span>{t('games.ldi.jogo.luta')}</span>{cena.luta}</p>
           : <p className="if-eyebrow">{cena.capitulo || t('games.ldi.jogo.ato', { n: romano(save.ato) })}</p>}
         <h1 className={`ld-cena__titulo${cena.destaque ? ' is-destaque' : ''}`}>{cena.title}</h1>
-        <Narrativa cenaId={cena.id} linhas={cena.text} veia={save.veia} habilidades={save.habilidades} nome={save.nome} onPronto={onPronto} />
+        <Narrativa cenaId={cena.id} tempo={tempoQuadro * 1000} linhas={cena.text} veia={save.veia} habilidades={save.habilidades} nome={save.nome} onPronto={onPronto} />
         {pronto
           ? <button type="button" className="if-btn if-btn--primary ld-abrir-escolha" onClick={() => setEscolhaAberta(true)}>{t('games.ldi.jogo.abrir_escolha')}</button>
           : <p className="ld-cena__toque">{t('games.ldi.jogo.continuar')}</p>}

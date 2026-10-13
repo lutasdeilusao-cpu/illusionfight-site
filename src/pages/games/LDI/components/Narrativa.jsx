@@ -60,8 +60,12 @@ function comItalico(texto) {
 const ARTES = import.meta.glob('../arte/*.webp', { eager: true, query: '?url', import: 'default' })
 export const arteDe = nome => ARTES[`../arte/${nome}.webp`] || null
 
-// Revela um quadro de cada vez (sozinho, no tempo de leitura); tocar adianta o próximo.
-export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome, onPronto }) {
+// Revela um quadro de cada vez. Cada quadro fica o tempo escolhido pelo leitor
+// (`tempo`, ms; quadro com muito texto ganha mais, na proporção), com uma barrinha
+// enchendo embaixo; tocar adianta. A página só termina (onPronto → a escolha abre)
+// DEPOIS do tempo de leitura do último quadro — nunca no instante em que ele aparece.
+const LETRAS_POR_TEMPO = 200
+export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome, tempo = 5000, onPronto }) {
   // A lista de habilidades entra pela chave, não pela referência: aprender no
   // meio da cena não pode reiniciar o texto.
   const chaveHabs = habilidades.join(',')
@@ -79,22 +83,25 @@ export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome
       .filter(q => q.arte || q.blocos.length)
   }, [cenaId, linhas, veia, chaveHabs, nome]) // eslint-disable-line react-hooks/exhaustive-deps
   const [vistos, setVistos] = useState(1)
-  const pronto = vistos >= quadros.length
+  const [acabou, setAcabou] = useState(false)
+  const atual = quadros[vistos - 1]
+  const letrasAtual = atual ? atual.blocos.reduce((s, b) => s + b.texto.length, 0) : 0
+  const dur = Math.round(tempo * Math.max(1, letrasAtual / LETRAS_POR_TEMPO))
+  const avancar = () => { if (vistos < quadros.length) setVistos(v => v + 1); else setAcabou(true) }
   const ultimo = useRef(null)
 
   useEffect(() => {
-    if (pronto) { onPronto?.(); return }
-    const q = quadros[vistos - 1]
-    const letras = q.blocos.reduce((s, b) => s + b.texto.length, 0)
-    const espera = Math.min(9000, 1800 + letras * 28 + (q.arte ? 1200 : 0))
-    const t = setTimeout(() => setVistos(v => v + 1), espera)
+    if (acabou) { onPronto?.(); return }
+    const t = setTimeout(avancar, dur)
     return () => clearTimeout(t)
-  }, [vistos, pronto, quadros, onPronto])
+  }, [vistos, acabou, dur, onPronto]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => { if (vistos > 1) ultimo.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }, [vistos])
 
   return (
-    <div className="ld-narrativa" onClick={() => setVistos(v => Math.min(quadros.length, v + 1))}>
+    <div className="ld-narrativa" onClick={avancar}>
+      {/* quanto falta pro próximo quadro: barrinha discreta, presa no pé da tela */}
+      {!acabou && <span key={vistos} className="ld-relogio" style={{ '--dur': `${dur}ms` }} aria-hidden="true" />}
       {quadros.slice(0, vistos).map((q, i) => (
         <motion.figure key={i} ref={i === vistos - 1 ? ultimo : null} className={`ld-quadro${q.arte ? ' tem-arte' : ''}`}
           initial={{ opacity: 0, y: 26, rotate: i % 2 ? 1.4 : -1.4, scale: 0.96 }} animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}

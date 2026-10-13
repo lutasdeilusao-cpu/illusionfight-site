@@ -18,7 +18,8 @@
 
 /* Cena */
 .ld-cena { display: flex; flex-direction: column; gap: 12px; }
-.ld-cena__titulo { margin: 0; font: 900 1.5rem/1.1 var(--font-display); text-transform: uppercase; color: var(--if-ink); }
+.ld-cena__titulo { margin: 0 0 4px; font: 900 2.3rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; color: var(--if-ink);
+  -webkit-text-stroke: 1.5px var(--ldi-bg); paint-order: stroke fill; text-shadow: 3px 3px 0 var(--veia-cor), 6px 6px 0 rgba(0, 0, 0, 0.7); transform: rotate(-1deg); }
 .ld-cena__titulo.is-destaque { color: var(--veia-cor); text-shadow: 0 0 24px color-mix(in srgb, var(--veia-cor) 50%, transparent); }
 .ld-cena__luta { margin: 0; display: flex; gap: 8px; align-items: center; font: 800 0.7rem var(--font-mono); color: var(--if-danger); text-transform: uppercase; letter-spacing: 0.14em; }
 .ld-cena__luta span { padding: 2px 8px; background: var(--if-danger); color: #000; }
@@ -238,7 +239,8 @@ body:has(.ld-pagina) .scroll-top-btn { visibility: hidden; pointer-events: none;
   background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.88)); overscroll-behavior: none; touch-action: none; }
 .ld-escolha-overlay__caixa { width: 100%; max-height: 100%; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: 8px; }
 .ld-escolha-overlay .ld-escolhas-painel { margin: 0; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); }
-.ld-reler { align-self: center; padding: 8px 12px; cursor: pointer; background: none; border: 0; color: var(--text-secondary); font: 700 0.62rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; }
+.ld-reler { align-self: center; min-height: 44px; padding: 10px 18px; cursor: pointer; background: rgba(0, 0, 0, 0.6); border: 2px solid var(--if-ink); color: var(--if-ink);
+  font: 800 0.72rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); }
 .ld-abrir-escolha { width: 100%; margin-top: 8px; }
 
 /* Splash page antes da luta: você (esquerda) contra ele (direita), VS estourando no meio. */
@@ -251,3 +253,14 @@ body:has(.ld-pagina) .scroll-top-btn { visibility: hidden; pointer-events: none;
 .ld-vs__x { position: relative; z-index: 1; font: 900 5.5rem/1 var(--font-display); color: var(--if-amber); -webkit-text-stroke: 3px var(--ldi-bg); paint-order: stroke fill; text-shadow: 6px 6px 0 var(--if-danger); }
 .ld-vs__grito { position: relative; z-index: 1; font: 900 1.4rem/1 var(--font-display); letter-spacing: 0.3em; color: var(--if-ink); text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8); }
 @media (prefers-reduced-motion: reduce) { .ld-quadro .ld-bloco--fala.is-grito { animation: none; } }
+
+/* Título da página e capítulo: letreiro de capa de gibi. */
+.ld-pagina > .if-eyebrow { font-size: 0.8rem; letter-spacing: 0.3em; color: var(--veia-cor); }
+
+/* Tempo de cada quadro: botão discreto no pé da tela (alcance do dedão) + barrinha enchendo. */
+.ld-tempo { position: fixed; bottom: 14px; left: calc(var(--app-gutter) + 12px); z-index: 30; min-height: 36px; padding: 6px 10px; cursor: pointer;
+  background: rgba(0, 0, 0, 0.7); border: 1px solid var(--if-hair-strong); color: var(--if-ink); font: 800 0.62rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%); }
+.ld-relogio { position: fixed; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 31; height: 4px; pointer-events: none;
+  background: var(--veia-cor); transform-origin: left; animation: ld-relogio var(--dur) linear both; opacity: 0.85; }
+@keyframes ld-relogio { from { transform: scaleX(0); } to { transform: scaleX(1); } }

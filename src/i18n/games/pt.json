@@ -803,7 +803,8 @@
         "requer_outra": "Só quem segue {veia} sabe isso.",
         "abrir_escolha": "Fazer a escolha",
         "reler": "Reler a página",
-        "vs_grito": "LUTA!"
+        "vs_grito": "LUTA!",
+        "tempo_quadro": "Quadro: {s}s"
       },
       "decisao": {
         "eyebrow": "Decisão",

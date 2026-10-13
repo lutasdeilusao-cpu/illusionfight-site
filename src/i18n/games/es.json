@@ -803,7 +803,8 @@
         "requer_outra": "Solo quien sigue {veia} sabe esto.",
         "abrir_escolha": "Hacer la elección",
         "reler": "Releer la página",
-        "vs_grito": "¡PELEA!"
+        "vs_grito": "¡PELEA!",
+        "tempo_quadro": "Viñeta: {s}s"
       },
       "decisao": {
         "eyebrow": "Decisión",
