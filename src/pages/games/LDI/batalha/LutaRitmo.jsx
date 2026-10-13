@@ -22,7 +22,7 @@ import './LutaRitmo.css'
 const VOO = 1500 // ms que a nota leva crescendo até a hora certa
 const JANELA = { perfeito: 70, bom: 150 }
 const SOME = 190 // passou disso depois da hora, conta como erro
-const VIDA = 100
+const VIDA = 200
 const ENERGIA_MAX = 100
 
 const TIPOS = {
@@ -71,8 +71,8 @@ function trajeto(tipo, vindo) {
 // 10 e 14: é nela que as notas moram. Notas sem pausa entre elas (até 1 tempo) viram um grupo
 // ("tá-tá-tá") do mesmo golpe. Nível 1 é o treino; 4, o chefão.
 const FRASES = {
-  // nível 1: golpes no tempo, em grupos de 3 ou 4 com descanso no meio (pra pegar o desatento)
-  1: [[0, 2, 4, 8, 10, 12], [0, 2, 4, 6, 10, 12, 14], [2, 4, 6, 10, 12, 14], [0, 2, 4, 6, 12, 14], [0, 2, 4, 10, 12, 14]],
+  // nível 1: golpes no tempo, de 2 em 2 com um respiro no meio
+  1: [[0, 2, 8, 10], [2, 4, 10, 12], [0, 2, 6, 8, 12, 14], [4, 6, 12, 14]],
   2: [[2, 6, 10, 14], [2, 6, 12, 13, 14], [6, 10, 11, 12], [2, 10, 12, 14], [2, 3, 4, 10]],
   3: [[2, 6, 12, 13, 14], [2, 3, 4, 10, 14], [6, 7, 8, 12, 13, 14], [2, 6, 10, 11, 12, 14], [0, 2, 6, 8, 10, 14]],
   4: [[2, 4, 6, 10, 12, 13, 14], [0, 2, 3, 4, 8, 10, 11, 12], [2, 3, 4, 6, 10, 11, 12, 14], [2, 6, 7, 8, 10, 12, 13, 14]],

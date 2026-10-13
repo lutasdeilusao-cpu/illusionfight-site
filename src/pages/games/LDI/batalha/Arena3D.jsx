@@ -90,7 +90,8 @@ const LUTADORES = {
   aventureiro: { url: urlAventureiro, altura: 3.1, parado: 'CharacterArmature|Idle', ataque: ['CharacterArmature|Punch_Right', 'CharacterArmature|Kick_Left', 'CharacterArmature|Punch_Left'], apanha: 'CharacterArmature|HitRecieve', morte: 'CharacterArmature|Death' },
 }
 // Modelo pronto de cada golpe (quando carregou); `metal` pinta de metal de robô.
-const ARQUIVO = { soco: { url: urlLuva }, chute: { url: urlTenis }, cabecada: { url: urlLuva }, bloqueio: { url: urlBracoRobo }, esquiva: { url: urlBota, metal: true } }
+// `vira` deita o modelo pra ponta do golpe apontar pra você (luva e mão: o punho; tênis e bota: a sola).
+const ARQUIVO = { soco: { url: urlLuva, vira: Math.PI / 2 }, chute: { url: urlTenis, vira: -Math.PI / 2 }, bloqueio: { url: urlBracoRobo, vira: Math.PI / 2 }, esquiva: { url: urlBota, metal: true, vira: -Math.PI / 2 } }
 
 // Deixa o modelo do tamanho da nota (cabe num raio ~0.45) e centrado.
 function normalizar(obj, tamanho = 0.9) {
@@ -174,7 +175,8 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
         if (!vivo) return
         const o = g.scene
         if (def.metal) o.traverse(m => { if (m.isMesh) m.material = new THREE.MeshStandardMaterial({ color: 0x9aa4ad, metalness: 0.85, roughness: 0.3 }) })
-        modelos[tipo] = normalizar(o)
+        const deitado = normalizar(o); deitado.rotation.x = def.vira || 0
+        modelos[tipo] = new THREE.Group().add(deitado)
       })
     }
     const relogio = new THREE.Clock()
@@ -288,8 +290,9 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
             b.mat.emissiveIntensity = ehSuper ? 0.7 + pico * 4 : falta < janela ? 1.6 : 0.7
           }
           b.bola.position.copy(pos)
-          b.modelo.rotation.y = Math.sin(t * 2 + n.id) * 0.6
-          b.modelo.rotation.x = Math.sin(t * 1.5 + n.id) * 0.25
+          // o golpe vem DEITADO, com a ponta (punho, bico do pé) apontada pra você
+          b.modelo.rotation.x = Math.sin(t * 1.5 + n.id) * 0.12
+          b.modelo.rotation.y = Math.sin(t * 2 + n.id) * 0.2
           // onde a bola está na tela e de que tamanho, pro botão de toque acompanhar
           const c = naTela(pos), borda = naTela(pos.clone().add(new THREE.Vector3(RAIO, 0, 0)))
           n.tela = { x: c.x, y: c.y, rpx: Math.abs(borda.x - c.x) / 100 * el.clientWidth }
