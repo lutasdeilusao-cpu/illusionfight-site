@@ -72,5 +72,29 @@
 .rt-fim { position: fixed; inset: 0 var(--app-gutter); z-index: 300; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px;
   background: rgba(0,0,0,.82); overscroll-behavior: none; text-align: center; }
 .rt-fim p { margin: 0; color: var(--text-secondary); font: 700 .8rem var(--font-mono); }
-.rt-fim .if-btn { min-width: 220px; min-height: 48px; }
+
 .rt-sair--fim { min-width: 220px; min-height: 44px; }
+.rt-nota--cabecada { --cor: var(--if-violet); }
+.rt-nota--esquiva { --cor: var(--if-teal); }
+.rt-fim__titulo { margin: 0; font: 900 1.8rem/1.05 var(--font-display); text-transform: uppercase; }
+.rt-fim__titulo.is-vitoria { color: var(--if-ok); }
+.rt-fim__titulo.is-derrota { color: var(--if-danger); }
+
+/* Botão principal: âmbar cheio, texto escuro, bem legível. */
+.rt-btn { min-width: 220px; min-height: 52px; padding: 0 18px; border: 0; cursor: pointer;
+  background: var(--if-amber); color: var(--ldi-bg); font: 900 1rem var(--font-display); letter-spacing: .06em; text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%); }
+.rt-btn:active { filter: brightness(1.15); }
+
+/* Menu do laboratório */
+.rt-menu { gap: 10px; padding-bottom: 24px; }
+.rt-menu__titulo { margin: 0; font: 900 1.8rem/1.05 var(--font-display); text-transform: uppercase; }
+.rt-menu__texto { margin: 0; color: var(--text-secondary); font-size: .9rem; line-height: 1.5; }
+.rt-escada { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.rt-degrau { width: 100%; display: grid; grid-template-columns: auto 1fr; column-gap: 12px; text-align: left; padding: 10px 12px; cursor: pointer;
+  border: 1px solid var(--if-hair-strong); background: var(--if-panel); color: var(--if-ink); }
+.rt-degrau__n { grid-row: span 2; font: 900 1rem var(--font-mono); color: var(--if-amber); }
+.rt-degrau b { font: 800 .85rem var(--font-display); }
+.rt-degrau small { color: var(--text-secondary); font-size: .7rem; }
+.rt-degrau.is-on { border-color: var(--if-amber); box-shadow: inset 3px 0 0 var(--if-amber); }
+.rt-menu__lutar { position: sticky; bottom: 12px; width: 100%; }

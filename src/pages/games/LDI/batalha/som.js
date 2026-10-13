@@ -1,9 +1,6 @@
-// Som da batalha do pentagrama, sintetizado na hora (Web Audio, sem arquivo).
-// Cada golpe tem um timbre próprio e a batida é um compasso de 8 tempos:
-// bumbo no 1 e no 5, chimbal nos outros, estalo no 8 (a troca fecha).
-import { PONTOS } from './motorPentagrama'
-
-const CHAVE_MUDO = 'ldi-pentagrama-mudo'
+// Som da luta rítmica, sintetizado na hora (Web Audio, sem arquivo): a batida
+// (bumbo no tempo forte, chimbal nos outros) e a cara sonora de cada golpe.
+const CHAVE_MUDO = 'ldi-luta-mudo'
 let ctx = null
 let master = null
 let mudo = (() => { try { return localStorage.getItem(CHAVE_MUDO) === '1' } catch { return false } })()
@@ -70,11 +67,10 @@ const TIMBRES = {
   chute: t => { sopro(t, { dur: 0.14, vol: 0.6, f0: 380, f1: 2200, q: 2 }); tom(t + 0.1, { f0: 120, f1: 55, dur: 0.16, vol: 0.85 }) },
   cabeca: t => { tom(t, { f0: 260, f1: 140, dur: 0.18, vol: 0.6, tipo: 'triangle' }); tom(t, { f0: 175, f1: 90, dur: 0.22, vol: 0.6 }); sopro(t, { dur: 0.04, vol: 0.5, f0: 900 }) },
 }
-const TIMBRE_DO_PONTO = { cab: 'cabeca', maoD: 'soco', maoE: 'soco', cotD: 'cotovelo', cotE: 'cotovelo', peD: 'chute', peE: 'chute', joeD: 'joelho', joeE: 'joelho' }
 
-export function somGolpe(ponto, quando = 0) {
+export function somGolpe(tipo, quando = 0) {
   if (!ctx) return
-  TIMBRES[TIMBRE_DO_PONTO[ponto]](ctx.currentTime + quando)
+  TIMBRES[{ soco: 'soco', chute: 'chute', cabecada: 'cabeca', super: 'joelho' }[tipo] || 'soco'](ctx.currentTime + quando)
 }
 
 export function somBloqueio(duro, quando = 0) {
@@ -90,7 +86,6 @@ export function somEsquiva(quando = 0) {
   sopro(ctx.currentTime + quando, { dur: 0.22, vol: 0.5, f0: 2500, f1: 600, q: 3 })
 }
 
-// O poder (Gelo Negro): cristal subindo agudo e um estrondo grave por baixo.
 export function somPoder() {
   if (!ctx) return
   const t = ctx.currentTime
@@ -99,42 +94,6 @@ export function somPoder() {
   sopro(t + 0.2, { dur: 0.6, vol: 0.6, filtro: 'lowpass', f0: 900, f1: 200 })
 }
 
-// Tique de ligar um ponto no traço: a altura sobe a cada ponto do combo.
-export function somLigar(ordem, ponto, noTempo = false) {
-  if (!ctx) return
-  const base = PONTOS[ponto]?.grande ? 520 : 780
-  tom(ctx.currentTime, { f0: base * (1 + ordem * 0.18), dur: 0.05, vol: 0.18, tipo: 'triangle' })
-  if (noTempo) tom(ctx.currentTime, { f0: base * 2.5, dur: 0.12, vol: 0.14, tipo: 'sine' })
-}
-
-// O ponto do inimigo acendendo, no tempo da batida.
-export function somAcende() {
-  if (!ctx) return
-  tom(ctx.currentTime, { f0: 330, f1: 300, dur: 0.06, vol: 0.2, tipo: 'sawtooth' })
-}
-
-// Aviso do papel na virada do compasso: ataque sobe, defesa desce (alarme).
-export function somPapel(papel) {
-  if (!ctx) return
-  const t = ctx.currentTime
-  if (papel === 'ataque') tom(t, { f0: 440, f1: 880, dur: 0.14, vol: 0.25, tipo: 'square' })
-  else tom(t, { f0: 660, f1: 330, dur: 0.18, vol: 0.25, tipo: 'sawtooth' })
-}
-
-// Um compasso inteiro da batida, agendado de uma vez: bumbo forte a cada
-// tempo, mais alto no 1 e no 5.
-export function tocarCompasso(duracaoMs) {
-  if (!ctx) return
-  const t0 = ctx.currentTime, oitavo = duracaoMs / 8000
-  for (let i = 0; i < 8; i++) {
-    const t = t0 + i * oitavo
-    if (i % 2 === 0) tom(t, { f0: 120, f1: 40, dur: 0.18, vol: i === 0 ? 1 : i === 4 ? 0.85 : 0.6 })
-    else if (i === 7) sopro(t, { dur: 0.05, vol: 0.55, filtro: 'highpass', f0: 4500 })
-    else sopro(t, { dur: 0.03, vol: 0.18, filtro: 'highpass', f0: 7000 })
-  }
-}
-
-// Batida do modo ritmo: bumbo no tempo forte, chimbal baixinho nos outros.
 export function somBatida(forte, quando = 0) {
   if (!ctx) return
   const t = ctx.currentTime + quando

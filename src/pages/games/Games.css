@@ -115,7 +115,7 @@
 /* ── Rodapé ── */
 
 /* ── Vitrine da Temporada 1: os três jogos do lançamento, um cartão grande
-   com arte própria cada (Gangues na parede, Lendas no pentagrama, Super Trunfo
+   com arte própria cada (Gangues na parede, Lendas nas notas da luta, Super Trunfo
    em leque). Tudo em coluna, CTA embaixo de cada cartão. ── */
 .games-vitrine { display: grid; gap: 16px; align-content: start; }
 .games-hero { padding: 28px 0 4px; text-align: center; }
@@ -144,17 +144,22 @@
 .games-card--gangues .games-card__info { margin-top: 50%; padding-top: 70px; background: linear-gradient(to top, var(--bg-primary) 62%, color-mix(in srgb, var(--bg-primary) 85%, transparent) 78%, transparent); }
 .games-card__logo { width: min(88%, 340px); height: auto; filter: drop-shadow(0 4px 12px rgb(0 0 0 / .7)); }
 
-/* Lendas: o pentagrama da luta aceso, ponto a ponto, e as cinco Veias. */
+/* Lendas: as notas da luta rítmica crescendo no tempo, e as cinco Veias. */
 .games-card--lendas { background: radial-gradient(90% 60% at 50% 30%, color-mix(in srgb, var(--if-danger) 18%, transparent), transparent 70%), var(--bg-secondary); }
 .games-card--lendas .games-card__nome { color: var(--if-danger); text-shadow: 0 0 18px color-mix(in srgb, var(--if-danger) 50%, transparent); }
-.games-card__pentagrama { width: 78%; margin: 22px auto 0; display: block; overflow: visible; }
-.games-card__pentagrama polyline { fill: none; stroke: color-mix(in srgb, var(--if-danger) 60%, transparent); stroke-width: 2; filter: drop-shadow(0 0 6px var(--if-danger)); }
-.games-card__pentagrama circle { fill: var(--bg-primary); stroke: var(--if-cyan); stroke-width: 2.5; animation: games-ponto 2.4s ease-in-out infinite; animation-delay: calc(var(--i) * .22s); }
-.games-card__pentagrama .games-card__centro { stroke: var(--if-ok); animation: none; }
+.games-card__ritmo { position: relative; width: 78%; aspect-ratio: 1; margin: 22px auto 0;
+  background: repeating-radial-gradient(circle at 50% 50%, transparent 0 26px, color-mix(in srgb, var(--if-amber) 18%, transparent) 27px 28px); }
+.games-card__nota { position: absolute; display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; font-size: 1.5rem;
+  background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--cor) 55%, white), var(--cor) 60%); box-shadow: 0 0 0 3px rgba(0,0,0,.5), 0 0 18px var(--cor);
+  transform: translate(-50%, -50%); animation: games-nota 2.4s ease-in-out infinite; animation-delay: calc(var(--d) * .6s); }
+.games-card__nota--0 { --cor: var(--if-amber); --d: 0; left: 20%; top: 45%; }
+.games-card__nota--1 { --cor: var(--if-pink); --d: 1; left: 55%; top: 82%; }
+.games-card__nota--2 { --cor: var(--if-cyan); --d: 2; left: 78%; top: 38%; }
+.games-card__nota--3 { --cor: var(--if-teal); --d: 3; left: 50%; top: 50%; }
 .games-card__veias { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .games-card__veias li { display: flex; align-items: center; gap: 4px; padding: 3px 8px; font: 700 .56rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--veia-cor); border: 1px solid color-mix(in srgb, var(--veia-cor) 50%, transparent); }
 .games-card__veias b { font-size: .8rem; }
-@keyframes games-ponto { 0%, 70%, 100% { fill: var(--bg-primary); } 80% { fill: var(--if-cyan); filter: drop-shadow(0 0 8px var(--if-cyan)); } }
+@keyframes games-nota { 0% { transform: translate(-50%, -50%) scale(.3); opacity: .3; } 70% { transform: translate(-50%, -50%) scale(1); opacity: 1; } 80% { filter: brightness(1.5); } 100% { transform: translate(-50%, -50%) scale(1); opacity: 0; } }
 
 /* Super Trunfo: três cartas do elenco em leque, que abrem no toque. */
 .games-card--trunfo { background: radial-gradient(120% 80% at 50% 0%, var(--if-cyan-08), transparent 70%), var(--bg-secondary); }
@@ -182,5 +187,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .games-card__lutadores img, .games-card__leque img { transition: none; }
-  .games-card__pentagrama circle { animation: none; }
+  .games-card__nota { animation: none; }
 }

@@ -11,7 +11,6 @@ import { creatorAtivo } from '../../lib/creator'
 import ModalSemFichas from '../../components/ModalSemFichas/ModalSemFichas'
 import ModalConfirmacaoFicha from '../../components/ModalConfirmacaoFicha/ModalConfirmacaoFicha'
 import { VEIAS } from './LDI/data/veias'
-import { PONTOS, CENTRO } from './LDI/batalha/motorPentagrama'
 import parede from './Gangues/assets/backgrounds/parede-oficial.jpg'
 import logoGanguesPt from './Gangues/assets/logos/logo-pt.png'
 import logoGanguesEn from './Gangues/assets/logos/logo-en.png'
@@ -27,8 +26,7 @@ import './Games.css'
 const LOGO_GANGUES = { pt: logoGanguesPt, en: logoGanguesEn, es: logoGanguesEs }
 const LUTADORES = [navalha, trinca, marreta]
 const CARTAS = [4, 9, 14]
-const ESTRELA = ['cab', 'peD', 'maoE', 'maoD', 'peE', 'cab']
-const linhaEstrela = ESTRELA.map(id => `${PONTOS[id].x},${PONTOS[id].y}`).join(' ')
+const NOTAS_LUTA = ['👊', '🦶', '✋', '💨']
 
 // Os três da T1 pedem ficha (useFichaGate) antes de abrir.
 const VITRINE = ['gangues', 'ldi', 'toptrumps']
@@ -106,11 +104,9 @@ export default function Games() {
         </a>
 
         <a href={ROTA.ldi} className="games-card games-card--lendas" onClick={jogar('ldi')}>
-          <svg className="games-card__pentagrama" viewBox="0 -10 300 290" aria-hidden="true">
-            <polyline points={linhaEstrela} />
-            {Object.values(PONTOS).map((p, i) => <circle key={i} cx={p.x} cy={p.y} r={p.grande ? 13 : 8} style={{ '--i': i }} />)}
-            <circle className="games-card__centro" cx={CENTRO.x} cy={CENTRO.y} r={10} />
-          </svg>
+          <div className="games-card__ritmo" aria-hidden="true">
+            {NOTAS_LUTA.map((icone, i) => <span key={i} className={`games-card__nota games-card__nota--${i}`}>{icone}</span>)}
+          </div>
           <div className="games-card__info">
             <span className="games-card__nome">{t(NOME.ldi)}</span>
             <p>{t('site.games.vitrine.lendas')}</p>

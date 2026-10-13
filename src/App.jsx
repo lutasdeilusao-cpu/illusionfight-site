@@ -206,7 +206,8 @@ export default function App() {
         <Route path="/games/multiplayer/lobby" element={<FichaGateRoute gameId="top_trumps" feature="o lobby multiplayer" nomeExibicao="Top Trumps LDI"><MultiplayerLobby /></FichaGateRoute>} />
         <Route path="/games/ldi" element={<FichaGateRoute gameId="lendas_ldi" feature="o Lendas do LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDILobby /></FichaGateRoute>} />
         <Route path="/games/ldi/game" element={<FichaGateRoute gameId="lendas_ldi" feature="o Lendas do LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDIGame /></FichaGateRoute>} />
-        <Route path="/games/ldi/pentagrama" element={<LDIBatalhaLab />} />
+        <Route path="/games/ldi/luta" element={<LDIBatalhaLab />} />
+        <Route path="/games/ldi/pentagrama" element={<Navigate to="/games/ldi/luta" replace />} />
         <Route path="/games/jackcandy" element={<SoAdmin><FichaGateRoute gameId="jack_dream_beer" feature="o Jack Dream Beer" nomeExibicao="Jack Dream Beer"><JackCandy /></FichaGateRoute></SoAdmin>} />
         <Route path="/games/minigames" element={<SoAdmin><FichaGateRoute gameId="minigames" feature="os MiniGames" nomeExibicao="MiniGames" isFree={true}><MiniGames /></FichaGateRoute></SoAdmin>} />
         <Route path="/games/ldi-gangues" element={<FichaGateRoute gameId="gangues" feature="o LDI Gangues" nomeExibicao="LDI Gangues"><GanguesRoute /></FichaGateRoute>} />

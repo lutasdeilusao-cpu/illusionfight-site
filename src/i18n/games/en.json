@@ -969,103 +969,17 @@
       },
       "batalha": {
         "lab": "Lab",
-        "titulo": "Pentagram Fight",
+        "titulo": "Rhythm fight",
         "restrito": "Test area, admins only.",
-        "como": "Your body is a pentagram: tap the points and each point becomes a strike. The fight has turns: on ATTACK you draw your combo and he tries to block; on DEFENSE he comes at you and you mirror the limbs to block. Block or dodge and the turn flips. All on the beat.",
-        "regras": {
-          "r1": "Any point, in any order: head, hands, feet, elbows and knees. Tap them one by one on the beat (or drag).",
-          "r2": "Up to 4 strikes; the energy is split between them. Tap the last point again to charge: Charge I (up to 2 strikes) and Charge II (1 strike) hit much harder.",
-          "r3": "ATTACK: draw your combo. He has already picked 1 or 2 points to guard, and each strike shows right away whether it landed (blue) or he guarded it (gold). A guarded strike deals no damage, the rest land; if he guarded any, the turn flips.",
-          "r4": "DEFENSE: you can’t see his strikes, only how many are coming. Pick up to 2 points to guard, in any order. Then it compares: strikes on a limb you guarded don’t land, the rest do. Guard at least one and the turn is yours.",
-          "r5": "A heavy strike (head, elbow, knee) landing unblocked leaves you dizzy: only 1 strike next time.",
-          "r6": "The center lights up green rarely: run your finger through it on defense and you dodge the whole attack, losing no blood, and the turn flips.",
-          "r7": "Tap (or hold) the ⚡ orb above the head to fill the power bar. When it’s full the orb becomes the SUPER button: tap it and the numbered sequence shows up on your pentagram (with more than one power, the game pauses so you can pick: Black Ice freezes, Shock paralyzes, Blindness blinds). Follow the numbers and the power fires — unblockable damage plus the effect.",
-          "r8": "Rhythm is damage: every beat has one full strike. A point hit on the beat (gold, as the ring closes) delivers 25% of it; off beat, 10%. 4 on-beat strikes = a full strike; 1 on beat + 3 off = 55%. Elbows, knees and the head weigh a bit more. And don’t repeat the same combo 3 times in a row — he reads it and guards.",
-          "r9": "He has a super too: when his bar fills you get a warning and a red sequence of 3 to 6 points. Tap ALL of them, in any order, even off beat. Miss one and you take the power and its effect."
-        },
         "oponente": "Pick the fight",
-        "velocidade": "Speed",
         "lutar": "Fight",
         "voce": "You",
         "sair": "Exit",
-        "vel": {
-          "lento": "Slow",
-          "normal": "Normal",
-          "rapido": "Fast"
-        },
         "energia": "energy {n}",
         "vitoria": "You won",
         "derrota": "You went down",
-        "trocas": "{n} exchanges",
         "de_novo": "Again",
-        "pontos": {
-          "cab": "headbutt",
-          "maoD": "right punch",
-          "maoE": "left punch",
-          "cotD": "right elbow",
-          "cotE": "left elbow",
-          "peD": "right kick",
-          "peE": "left kick",
-          "joeD": "right knee",
-          "joeE": "left knee"
-        },
-        "passo": {
-          "acerto_jog": "You landed a {golpe}: −{dano}",
-          "acerto_ini": "Took a {golpe}: −{dano}",
-          "esquiva_jog": "You dodged.",
-          "esquiva_ini": "He dodged.",
-          "vazio": "{golpe} into thin air.",
-          "nada": "Nobody touched anybody.",
-          "ficou_tonto": "You got dizzy.",
-          "deixou_tonto": "He got dizzy.",
-          "poder_jog": "{poder}! −{dano} and he froze.",
-          "poder_ini": "He unleashed {poder}: −{dano}",
-          "congelado": "His {golpe} froze mid-air.",
-          "bloqueou_jog": "You guarded his {golpe}.",
-          "bloqueou_jog_duro": "You guarded his {golpe} with bone and hurt him.",
-          "bloqueou_ini": "He guarded your {golpe}.",
-          "bloqueou_ini_duro": "He blocked your {golpe} with bone and hurt you.",
-          "parado_jog": "You stood still on attack — you lost the beat.",
-          "parado_ini": "He stood still — the beat is yours.",
-          "lido": "He’s read that combo — 3rd time the same. He guarded those limbs.",
-          "no_tempo": "(on beat!)",
-          "super_defendido": "You held off his {poder} — your turn.",
-          "efeito_tonto_jog": "You froze: only 1 strike next beat.",
-          "efeito_tonto_ini": "He froze: only 1 strike next beat.",
-          "efeito_paralisia_jog": "You’re paralyzed.",
-          "efeito_paralisia_ini": "He’s paralyzed.",
-          "efeito_cego_jog": "You’re blind.",
-          "efeito_cego_ini": "He’s blind."
-        },
         "som": "Sound on or off",
-        "ele": "Him",
-        "tonto": "Dizzy: only 1 strike this time",
-        "carga": "Charge {n}",
-        "como_joga": "How to play",
-        "habilidade": "Skill (test)",
-        "ver_origem": "See where his 1st strike starts",
-        "toque_carregar": "Tap the blinking point {n}× to charge",
-        "poder_pronto": "{poder} ready: follow the numbered sequence",
-        "carregando_poder": "Charging power…",
-        "poderes": {
-          "geloNegro": "Black Ice",
-          "choque": "Shock",
-          "cegueira": "Blindness"
-        },
-        "papel": {
-          "ataque": "Attack",
-          "defesa": "Defense"
-        },
-        "status_ataque": "Draw your combo — he’ll try to block",
-        "status_defesa": "He’s coming with {n} strike(s) — guard up to 2 points",
-        "virada_voce": "Turnaround! Your turn to attack",
-        "virada_ele": "He blocked — now he attacks",
-        "super": "SUPER",
-        "recusa": {
-          "tonto": "Dizzy: only 1 strike this beat",
-          "maximo": "Max 4 strikes",
-          "maximo_defesa": "On defense, 2 points max"
-        },
         "inimigos": {
           "1": {
             "nome": "Punching Bag",
@@ -1100,30 +1014,7 @@
             "desc": "The Integrity Engineer. Everything the others do, and the super can be any of them."
           }
         },
-        "efeitos": {
-          "tonto": "Freezes: next beat, only 1 strike.",
-          "paralisia": "Paralyzes: stuck for the whole next beat.",
-          "cego": "Blinds: 2 beats without seeing the rhythm or what’s coming."
-        },
-        "escolha": {
-          "pausa": "Game paused",
-          "titulo": "Which power now?",
-          "detalhe": "{dano} damage · {n}-point sequence",
-          "voltar": "Back to the fight"
-        },
-        "kit": "you: {n} points",
-        "sem_poder": "no power",
-        "super_dele": "⚠ {nome} is unleashing {poder}! Tap the {n} red points, any order",
-        "paralisado": "Paralyzed: you can’t move this beat",
-        "cego": "Blind: you can’t see what’s coming",
-        "seguir": "Continue",
-        "tentar_de_novo": "Try again",
-        "super_pronto": "SUPER ready: tap the ⚡ above the head",
-        "virada_parado": "You lost the beat — now he attacks",
-        "sem_ataque": "no attack",
-        "sem_defesa": "no guard",
         "ritmo": {
-          "entrar": "Try rhythm fight",
           "perfeito": "Perfect!",
           "bom": "Good",
           "raspou": "Close",
@@ -1134,7 +1025,11 @@
           "super_pronto": "Super ready: tap!",
           "super_acertou": "Flawless barrage!",
           "melhor_combo": "Best combo: {n}",
-          "legenda": "👊 punch · 🦶 kick · ✋ block his hit. Tap when the ring touches."
+          "legenda": "👊 sides · 🦶 below · 💥 center up · ✋ block · 💨 dodge at the center",
+          "titulo": "Rhythm fight",
+          "como": "Notes come from far away, growing. Tap when the ring touches them. Punches come from the sides, kicks from below, headbutts rise from the center. ✋ and 💨 are his hits: tap on time to block or dodge, or you take the hit.",
+          "desviou": "Dodged!",
+          "continuar": "Continue"
         }
       }
     },

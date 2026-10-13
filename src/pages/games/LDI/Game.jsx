@@ -10,9 +10,9 @@ import Narrativa from './components/Narrativa'
 import Escolhas from './components/Escolhas'
 import Diario from './components/Diario'
 import PuzzleRouter from './components/PuzzleRouter'
-import Luta, { VELOCIDADES } from './batalha/LutaPentagrama'
-import { INIMIGOS } from './batalha/campanhaPentagrama'
-import { ligarSom } from './batalha/somPentagrama'
+import LutaRitmo from './batalha/LutaRitmo'
+import { INIMIGOS } from './batalha/campanha'
+import { ligarSom } from './batalha/som'
 import './Lendas.css'
 
 export default function Game() {
@@ -60,7 +60,7 @@ export default function Game() {
   }, [save.status]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const onPronto = useCallback(() => setPronto(true), [])
-  // Escolha com `luta` (id do inimigo da campanha) abre a batalha do pentagrama
+  // Escolha com `luta` (id do inimigo da campanha) abre a luta rítmica
   // por cima da cena. Venceu, segue; perdeu, vai pro `next_falha` ou tenta de novo.
   const onEscolher = ch => {
     if (ch.luta && vencidaEm !== cena.id) { ligarSom(); setLuta({ escolha: ch, tentativa: 0 }); return }
@@ -125,8 +125,8 @@ export default function Game() {
 
       {luta && (
         <div className="ld-luta">
-          <Luta key={luta.tentativa} t={t} ficha={INIMIGOS.find(i => i.id === luta.escolha.luta)} batida={VELOCIDADES.normal}
-            verOrigem={save.habilidades.includes(23)} onSair={() => (luta.abertura ? navigate('/games/ldi') : setLuta(null))} onResultado={fimLuta} />
+          <LutaRitmo key={luta.tentativa} t={t} ficha={INIMIGOS.find(i => i.id === luta.escolha.luta)}
+            onSair={() => (luta.abertura ? navigate('/games/ldi') : setLuta(null))} onResultado={fimLuta} />
         </div>
       )}
       {puzzle && (

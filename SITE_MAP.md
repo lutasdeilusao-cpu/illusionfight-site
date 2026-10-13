@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.406.1**.
+> `SITE_VERSION` **10.407.0**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -130,7 +130,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/games/toptrumps/multiplayer` | Partida Top Trumps multiplayer | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | 🔒 |
 | `/games/ldi` | Lobby Lendas do LDI | `src/pages/games/LDI/Lobby.jsx` | 🔒 gratuito |
 | `/games/ldi/game` | História LDI (cenas, escolhas, diário, minijogos e fim) | `src/pages/games/LDI/Game.jsx` | 🔒 gratuito |
-| `/games/ldi/pentagrama` | Laboratório da batalha do pentagrama | `src/pages/games/LDI/batalha/BatalhaLab.jsx` | Só admin (a própria página confere; no dev abre para todos) |
+| `/games/ldi/luta` | Laboratório da luta rítmica (`/games/ldi/pentagrama` redireciona pra cá) | `src/pages/games/LDI/batalha/BatalhaLab.jsx` | Só admin (a própria página confere; no dev abre para todos) |
 | `/games/jackcandy` | Jack Dream Beer | `src/pages/games/JackCandy/JackCandy.jsx` | 🔒 só admin (fora do catálogo) |
 | `/games/minigames` | Coleção MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | 🔒 só admin (fora do catálogo) |
 | `/games/ldi-gangues` | LDI Gangues | `src/pages/games/Gangues/GanguesRoute.jsx` | 🔒 |
@@ -424,7 +424,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.406.1** |
+| `SITE_VERSION` | Site global | **10.407.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.13.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
