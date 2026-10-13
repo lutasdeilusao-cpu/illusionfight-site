@@ -1,5 +1,5 @@
-// Som da luta rítmica: a música da luta (arquivo), os efeitos gravados (impacto,
-// metal, explosão, passos — Kenney, CC0, em ./sfx) e, sintetizado na hora (Web
+// Som do Lendas: a música da luta (arquivo), os efeitos gravados (impacto, metal,
+// explosão, passos, página virando — Kenney, CC0, em ./sfx) e, sintetizado na hora (Web
 // Audio), a batida de reserva (quando a música não toca) e o peso grave por baixo
 // de cada golpe. Efeito gravado que não carregou: fica só o sintetizado.
 const CHAVE_MUDO = 'ldi-luta-mudo'
@@ -144,6 +144,10 @@ export function somNocaute() {
   amostra('explosao', { vol: 1.3 }); amostra('estalo', { vol: 0.8, quando: 0.05 })
   tom(ctx.currentTime, { f0: 70, f1: 25, dur: 1.2, vol: 1 })
 }
+
+// Graphic novel: a página virando e o baque da escolha (Kenney RPG Audio, CC0).
+export function somPagina() { if (ctx) amostra('pagina', { vol: 0.9 }) }
+export function somEscolha() { if (ctx) amostra('escolha', { vol: 0.8 }) }
 
 // Passo do lutador andando no ringue (baixinho, de fundo).
 export function somPasso() { if (ctx) amostra('passo', { vol: 0.22, tom: 0.8 }) }

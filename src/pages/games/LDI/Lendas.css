@@ -141,11 +141,68 @@
 /* Batalha do pentagrama por cima da cena. */
 .ld-luta { position: fixed; inset: 0 var(--app-gutter); z-index: 40; overflow-y: auto; overscroll-behavior: none; background: var(--if-panel-flat); }
 
-/* Graphic novel: cada quadro é a arte do momento + as falas dele. A arte leva o
-   canto chanfrado do portal e um zoom lento (câmera respirando). */
-.ld-quadro { display: grid; gap: 10px; margin: 0; }
-.ld-quadro__moldura { overflow: hidden; aspect-ratio: 4 / 5; background: var(--if-panel); clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%); }
+/* GRAPHIC NOVEL — a cena é uma página de quadrinho.
+   O livro guarda a perspectiva (só ele: perspectiva no .ld-page prenderia os overlays
+   fixos). A página que sai dobra pela lombada esquerda; a sombra corre na dobra. */
+.ld-livro { perspective: 1400px; perspective-origin: 0 40%; }
+.ld-pagina { position: relative; transform-origin: left center; backface-visibility: hidden; padding: 12px 10px 18px; margin: 0 -6px;
+  background:
+    radial-gradient(circle, color-mix(in srgb, var(--if-ink) 5%, transparent) 1px, transparent 1.4px) 0 0 / 7px 7px,
+    linear-gradient(180deg, color-mix(in srgb, var(--if-panel) 92%, transparent), var(--ldi-bg));
+  border: 1px solid var(--if-hair); box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+.ld-pagina::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(0, 0, 0, 0.35), transparent 8%); }
+
+/* Quadro: moldura de tinta, arte com retícula e zoom lento, entra caindo na página. */
+.ld-quadro { display: grid; gap: 0; margin: 0 0 6px; }
+.ld-quadro__moldura { position: relative; overflow: hidden; aspect-ratio: 4 / 5; background: var(--if-panel);
+  border: 3px solid var(--if-ink); clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%); }
+.ld-quadro__moldura::after { content: ''; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: multiply; opacity: 0.35;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.55) 0.8px, transparent 1.2px) 0 0 / 4px 4px; }
 .ld-quadro__arte { display: block; width: 100%; height: 100%; object-fit: cover; animation: ld-respira 14s ease-out both; }
-@keyframes ld-respira { from { transform: scale(1.06); } to { transform: scale(1); } }
-.ld-quadro.tem-arte { padding-bottom: 6px; border-bottom: 1px solid var(--if-hair); }
-@media (prefers-reduced-motion: reduce) { .ld-quadro__arte { animation: none; } }
+@keyframes ld-respira { from { transform: scale(1.08); } to { transform: scale(1); } }
+.ld-quadro.tem-arte > .ld-bloco:nth-child(2) { margin-top: -22px; }
+.ld-quadro .ld-bloco { position: relative; z-index: 1; margin: 6px 0 0; }
+
+/* Narração = caixa de legenda âmbar, levemente torta, por cima da borda da arte. */
+.ld-quadro .ld-bloco--narra { justify-self: start; max-width: 94%; padding: 8px 11px; transform: rotate(-0.6deg);
+  background: var(--if-amber); border: 2px solid var(--ldi-bg); box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6); }
+.ld-quadro .ld-bloco--narra:nth-child(even) { justify-self: end; transform: rotate(0.6deg); }
+.ld-quadro .ld-bloco--narra p { font: 600 0.95rem/1.45 var(--font-body); color: var(--ldi-bg); }
+.ld-quadro .ld-bloco--narra em { color: var(--ldi-bg); font-weight: 800; }
+
+/* Fala = balão branco com rabinho apontando pra cima, pra arte (sem borda redonda). */
+.ld-quadro .ld-bloco--fala { justify-self: center; width: 92%; margin-top: 16px; padding: 9px 12px; background: var(--if-ink);
+  border: 2px solid var(--ldi-bg); box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6); }
+.ld-quadro .ld-bloco--fala::before { content: ''; position: absolute; top: -14px; left: 20%; border: 7px solid transparent; border-bottom-color: var(--if-ink); }
+.ld-quadro .ld-bloco--fala:nth-child(even)::before { left: auto; right: 20%; }
+.ld-quadro .ld-bloco--fala p { font: 700 0.98rem/1.4 var(--font-body); color: var(--ldi-bg); }
+.ld-quadro .ld-bloco--fala .ld-bloco__nome { color: color-mix(in srgb, var(--veia-cor) 60%, var(--ldi-bg)); }
+
+/* Sistema do LDI = janela de terminal colada no quadro. */
+.ld-quadro .ld-bloco--sistema { justify-self: stretch; box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6); background: rgba(2, 10, 14, 0.92); }
+
+/* As escolhas são o último painel da página. */
+.ld-escolhas-painel { margin-top: 10px; padding: 12px 10px 14px; border: 3px solid var(--if-ink);
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--veia-cor) 18%, transparent) 1px, transparent 1.6px) 0 0 / 6px 6px, var(--if-panel); }
+.ld-escolhas-painel .ld-escolhas__titulo { margin: 0 0 10px; font: 900 1.25rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.04em; color: var(--veia-cor); text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7); }
+.ld-escolhas-painel .ld-escolha { box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.55); }
+.ld-escolhas.tem-escolhida .ld-escolha:not(.is-escolhida) { opacity: 0.25; transition: opacity 0.25s; }
+.ld-escolha.is-escolhida { border-color: var(--veia-cor); animation: ld-estalo 0.38s ease-out both; }
+@keyframes ld-estalo { 0% { transform: scale(1); } 35% { transform: scale(1.05) rotate(-0.8deg); background: var(--veia-cor); color: var(--ldi-bg); } 100% { transform: scale(1.02); } }
+
+@media (prefers-reduced-motion: reduce) { .ld-quadro__arte, .ld-escolha.is-escolhida { animation: none; } }
+
+/* Lendo o quadrinho, o botão global de voltar ao topo não pode cobrir a legenda. */
+body:has(.ld-pagina) .scroll-top-btn { visibility: hidden; pointer-events: none; }
+
+/* Capa do capítulo: a arte de fundo escurecida, o título estourando por cima. */
+.ld-capitulo { overflow: hidden; }
+.ld-capitulo__capa { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.38) saturate(1.2); }
+.ld-capitulo span, .ld-capitulo strong { position: relative; text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8); }
+.ld-capitulo strong { font-size: 2.6rem; -webkit-text-stroke: 1px var(--ldi-bg); }
+
+/* Cena de luta: moldura vermelha e o quadro entra com tranco. */
+.ld-page.is-luta .ld-quadro__moldura { border-color: var(--if-danger); animation: ld-tranco 0.35s ease-out both; }
+@keyframes ld-tranco { 0% { transform: translateX(-6px) rotate(-1deg); } 40% { transform: translateX(5px) rotate(0.6deg); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ld-page.is-luta .ld-quadro__moldura { animation: none; } }

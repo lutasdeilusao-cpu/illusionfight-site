@@ -8,11 +8,11 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.418.0'
+export const SITE_VERSION = '10.419.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
-export const LDI_VERSION       = '3.25.0'  // Lendas do LDI — graphic novel interativa: cada trecho de cena vira um quadro com arte
+export const LDI_VERSION       = '3.26.0'  // Lendas do LDI — graphic novel interativa: quadros com arte, página virando, escolhas no painel
 export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
 export const GANGUES_VERSION   = '3.109.1' // Pergunta de entrar no bairro centralizada na tela
 

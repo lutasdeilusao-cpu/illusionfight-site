@@ -49,7 +49,7 @@ function comItalico(texto) {
 }
 
 const ARTES = import.meta.glob('../arte/*.webp', { eager: true, query: '?url', import: 'default' })
-const arteDe = nome => ARTES[`../arte/${nome}.webp`] || null
+export const arteDe = nome => ARTES[`../arte/${nome}.webp`] || null
 
 // Revela um quadro de cada vez (sozinho, no tempo de leitura); tocar adianta o próximo.
 export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome, onPronto }) {
@@ -82,7 +82,8 @@ export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome
     <div className="ld-narrativa" onClick={() => setVistos(v => Math.min(quadros.length, v + 1))}>
       {quadros.slice(0, vistos).map((q, i) => (
         <motion.figure key={i} ref={i === vistos - 1 ? ultimo : null} className={`ld-quadro${q.arte ? ' tem-arte' : ''}`}
-          initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+          initial={{ opacity: 0, y: 26, rotate: i % 2 ? 1.4 : -1.4, scale: 0.96 }} animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
+          transition={{ type: 'spring', stiffness: 260, damping: 22 }}>
           {q.arte && <div className="ld-quadro__moldura"><img className="ld-quadro__arte" src={q.arte} alt="" /></div>}
           {q.blocos.map((b, j) => (
             <motion.div key={j} className={`ld-bloco ld-bloco--${b.tipo}`}

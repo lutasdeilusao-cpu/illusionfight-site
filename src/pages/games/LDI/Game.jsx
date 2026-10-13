@@ -6,13 +6,13 @@ import { useReader } from '../../../context/ReaderContext'
 import { useEventos } from '../../../context/EventosContext'
 import { useLendasStore } from './store/useLendasStore'
 import { veiaPorId, romano } from './data/veias'
-import Narrativa from './components/Narrativa'
+import Narrativa, { arteDe } from './components/Narrativa'
 import Escolhas from './components/Escolhas'
 import Diario from './components/Diario'
 import PuzzleRouter from './components/PuzzleRouter'
 import LutaRitmo from './batalha/LutaRitmo'
 import { INIMIGOS } from './batalha/campanha'
-import { ligarSom } from './batalha/som'
+import { ligarSom, somPagina } from './batalha/som'
 import './Lendas.css'
 
 export default function Game() {
@@ -33,7 +33,15 @@ export default function Game() {
   useEffect(() => { if (!save.nome) navigate('/games/ldi') }, [save.nome, navigate])
   useEffect(() => { if (save.nome) iniciar(locale) }, [locale]) // eslint-disable-line react-hooks/exhaustive-deps
 
+  // O som nasce no primeiro toque (o navegador não deixa antes).
   useEffect(() => {
+    const ligar = () => ligarSom()
+    window.addEventListener('pointerdown', ligar, { once: true })
+    return () => window.removeEventListener('pointerdown', ligar)
+  }, [])
+
+  useEffect(() => {
+    somPagina() // virou a página (antes do 1º toque não toca: o som ainda não nasceu)
     setPronto(false)
     if (cena?.capitulo && !capsVistos.has(cena.id)) { capsVistos.add(cena.id); setCapitulo(cena) }
     window.scrollTo(0, 0)
@@ -94,7 +102,12 @@ export default function Game() {
         </button>
       </header>
 
-      <main className="ld-cena" key={cena.id}>
+      {/* Cada cena é uma página: a anterior vira (dobra pela esquerda) e a nova aparece embaixo. */}
+      <div className="ld-livro">
+      <AnimatePresence mode="wait" initial={false}>
+      <motion.main className="ld-cena ld-pagina" key={cena.id}
+        initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1, transition: { duration: 0.35 } }}
+        exit={{ rotateY: -115, opacity: 0.2, transition: { duration: 0.55, ease: [0.55, 0, 0.75, 0.3] } }}>
         {cena.luta
           ? <p className="ld-cena__luta"><span>{t('games.ldi.jogo.luta')}</span>{cena.luta}</p>
           : <p className="if-eyebrow">{cena.capitulo || t('games.ldi.jogo.ato', { n: romano(save.ato) })}</p>}
@@ -103,14 +116,19 @@ export default function Game() {
         {pronto
           ? <Escolhas t={t} escolhas={escolhas} veiaJogador={save.veia} onEscolher={onEscolher} />
           : <p className="ld-cena__toque">{t('games.ldi.jogo.continuar')}</p>}
-      </main>
+      </motion.main>
+      </AnimatePresence>
+      </div>
 
       <AnimatePresence>
         {capitulo && (
           <motion.div key="capitulo" className="ld-capitulo" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setCapitulo(null)} onAnimationComplete={() => setTimeout(() => setCapitulo(null), 1800)}>
-            <span>{t('games.ldi.jogo.ato', { n: romano(save.ato) })}</span>
-            <strong>{capitulo.capitulo}</strong>
+            {/* capa do capítulo: a primeira arte dele, escurecida, com o título por cima */}
+            {arteDe(`${capitulo.id}-1`) && <motion.img className="ld-capitulo__capa" src={arteDe(`${capitulo.id}-1`)} alt=""
+              initial={{ scale: 1.15 }} animate={{ scale: 1 }} transition={{ duration: 2.6, ease: 'easeOut' }} />}
+            <motion.span initial={{ y: 12, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>{t('games.ldi.jogo.ato', { n: romano(save.ato) })}</motion.span>
+            <motion.strong initial={{ scale: 1.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.35, type: 'spring', stiffness: 220, damping: 14 }}>{capitulo.capitulo}</motion.strong>
           </motion.div>
         )}
         {aprendeu && veia && (

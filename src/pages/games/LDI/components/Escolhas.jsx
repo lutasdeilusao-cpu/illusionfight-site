@@ -3,41 +3,47 @@ import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { veiaPorId } from '../data/veias'
 import { habilidadePorId } from '../data/habilidades'
+import { somEscolha } from '../batalha/som'
 
-// Cartões de escolha. Escolha com `decisao` pede confirmação em tela cheia
-// antes de valer; escolha trancada mostra a Veia e o nível que abririam.
+// As escolhas são o último painel da página: cada uma é um quadrinho que se
+// toca. A escolhida dá um estalo antes da página virar. Escolha com `decisao`
+// pede confirmação em tela cheia antes de valer; escolha trancada mostra a
+// Veia e o nível que abririam.
+const ESTALO = 380
 export default function Escolhas({ t, escolhas, veiaJogador, onEscolher }) {
   const [pendente, setPendente] = useState(null)
+  const [escolhida, setEscolhida] = useState(null)
 
+  const valer = ch => { somEscolha(); setEscolhida(ch.id); setTimeout(() => onEscolher(ch), ESTALO) }
   const tocar = ch => {
-    if (!ch.disponivel) return
+    if (!ch.disponivel || escolhida) return
     if (ch.decisao) setPendente(ch)
-    else onEscolher(ch)
+    else valer(ch)
   }
 
   return (
-    <>
-      <p className="if-eyebrow ld-escolhas__titulo">{t('games.ldi.jogo.decidir')}</p>
-      <ol className="ld-escolhas if-stagger">
-        {escolhas.map((ch, i) => <Cartao key={ch.id} t={t} ch={ch} i={i} veiaJogador={veiaJogador} onClick={() => tocar(ch)} />)}
+    <motion.section className="ld-escolhas-painel" initial={{ opacity: 0, y: 18, rotate: -1.2 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ duration: 0.4 }}>
+      <p className="ld-escolhas__titulo">{t('games.ldi.jogo.decidir')}</p>
+      <ol className={`ld-escolhas${escolhida ? ' tem-escolhida' : ''}`}>
+        {escolhas.map((ch, i) => <Cartao key={ch.id} t={t} ch={ch} i={i} veiaJogador={veiaJogador} escolhida={escolhida === ch.id} onClick={() => tocar(ch)} />)}
       </ol>
       {createPortal(
         <AnimatePresence>
           {pendente && (
             <Decisao t={t} ch={pendente}
-              onConfirmar={() => { const ch = pendente; setPendente(null); onEscolher(ch) }}
+              onConfirmar={() => { const ch = pendente; setPendente(null); valer(ch) }}
               onVoltar={() => setPendente(null)} />
           )}
         </AnimatePresence>,
         document.body,
       )}
-    </>
+    </motion.section>
   )
 }
 
-function Cartao({ t, ch, i, veiaJogador, onClick }) {
+function Cartao({ t, ch, i, veiaJogador, escolhida, onClick }) {
   const veia = veiaPorId(ch.veia || habilidadePorId(ch.motivo)?.veia)
-  const classes = ['ld-escolha', !ch.disponivel && 'is-trancada', ch.veia && 'is-veia', ch.decisao && 'is-decisao'].filter(Boolean).join(' ')
+  const classes = ['ld-escolha', !ch.disponivel && 'is-trancada', ch.veia && 'is-veia', ch.decisao && 'is-decisao', escolhida && 'is-escolhida'].filter(Boolean).join(' ')
   return (
     <li>
       <button type="button" className={classes} onClick={onClick} disabled={!ch.disponivel}
