@@ -65,11 +65,11 @@ function golpeDoGrupo(ficha, grupo) {
 // estão vindo (no tempo de tela delas), senão fica confuso saber qual é a vez.
 function trajeto(tipo, vindo) {
   let melhor = null, folga = -1
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 40; i++) {
     const tj = trajetoUm(tipo)
     const d = Math.min(99, ...vindo.map(n => Math.hypot(n.alvo.x - tj.alvo.x, n.alvo.y - tj.alvo.y)))
     if (d > folga) { melhor = tj; folga = d }
-    if (d >= 32) break
+    if (d >= 44) break
   }
   return melhor
 }
@@ -77,7 +77,7 @@ function trajeto(tipo, vindo) {
 // Frases rítmicas de 2 compassos, em colcheias (0 a 15). A caixa cai em 2, 6,
 // 10 e 14: é nela que as notas moram. Notas sem pausa entre elas (até 1 tempo) viram um grupo
 // ("tá-tá-tá") do mesmo golpe. Nível 1 é o treino; 4, o chefão.
-const FRASES = {
+const FRASES_COMPLETAS = {
   // nível 1: golpes no tempo, de 2 em 2 com um respiro no meio
   1: [[0, 2, 8, 10], [2, 4, 10, 12], [0, 2, 6, 8, 12, 14], [4, 6, 12, 14]],
   2: [[2, 6, 10, 14], [2, 6, 12, 13, 14], [6, 10, 11, 12], [2, 10, 12, 14], [2, 3, 4, 10]],
@@ -85,6 +85,9 @@ const FRASES = {
   4: [[2, 4, 6, 10, 12, 13, 14], [0, 2, 3, 4, 8, 10, 11, 12], [2, 3, 4, 6, 10, 11, 12, 14], [2, 6, 7, 8, 10, 12, 13, 14]],
   5: [[0, 2, 3, 4, 6, 8, 10, 11, 12, 14], [2, 3, 4, 5, 6, 10, 12, 13, 14], [0, 1, 2, 6, 8, 9, 10, 12, 13, 14], [2, 4, 5, 6, 8, 10, 11, 12, 13, 14]],
 }
+// As notas caem SÓ no tempo (posições pares): colcheia no meio do tempo atropela e
+// sai fora da música.
+const FRASES = Object.fromEntries(Object.entries(FRASES_COMPLETAS).map(([n, l]) => [n, l.map(f => f.filter(p => p % 2 === 0))]))
 // Os grupos revezam: um seu, um dele (às vezes, `defesaPeso`, dois dele seguidos).
 // `vez` guarda de quem foi o último grupo entre uma frase e outra.
 function frase(ficha, inicio, n, batida, vez) {
@@ -321,16 +324,11 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     if (!s || n.estado !== 'vindo') return
     const agora = performance.now()
     const dif = Math.abs(agora - n.hora)
-    if (dif > JANELA.bom * 1.6) {
-      // Fora da hora: perdeu a chance. A nota some, a tela treme e fica vermelha;
-      // se era golpe dele, você toma.
-      n.estado = 'errou'; n.fimEm = agora; s.combo = 0
-      if (TIPOS[n.tipo].dele && n.tipo !== 'superDele') apanhar(s, n, agora)
-      else { s.tremor = agora + 260; s.flash = agora + 260; avisar(t('games.ldi.batalha.ritmo.fora_da_hora'), 'is-mal') }
-      return
-    }
-    const nota = dif <= JANELA.perfeito ? 'perfeito' : dif <= JANELA.bom ? 'bom' : 'raspou'
-    const mult = nota === 'perfeito' ? 1.5 : nota === 'bom' ? 1 : 0.5
+    // A nota só aceita toque dentro da janela; antes disso ela nem é tocável (toque ignorado,
+    // sem castigo). Errar golpe SEU não dói: só dói deixar passar o golpe DELE.
+    if (dif > JANELA.bom) return
+    const nota = dif <= JANELA.perfeito ? 'perfeito' : 'bom'
+    const mult = nota === 'perfeito' ? 1.5 : 1
     const tp = TIPOS[n.tipo]
     n.estado = 'acertou'; n.nota = nota; n.fimEm = agora
     s.combo++; s.melhorCombo = Math.max(s.melhorCombo, s.combo)
@@ -398,7 +396,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
           // 0 = acabou de nascer, longe; 1 = hora de tocar.
           const p = Math.min(1.08, Math.max(0, 1 - (n.hora - agora) / VOO))
           // acende um pouco ANTES do beat e segura um pouco DEPOIS (a janela do toque)
-          const perto = n.estado === 'vindo' && agora >= n.hora - JANELA.perfeito && agora <= n.hora + JANELA.bom
+          const perto = n.estado === 'vindo' && Math.abs(agora - n.hora) <= JANELA.bom
           // Com 3D, o botão de toque segue a bola (n.tela, gravado pela Arena3D).
           const tres = !sem3d && n.tela
           const x = tres ? n.tela.x : n.de.x + (n.alvo.x - n.de.x) * Math.min(1, p)

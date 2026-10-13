@@ -147,6 +147,12 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
     cena.fog = new THREE.Fog(0x07090b, 22, 46)
     cena.add(new THREE.AmbientLight(0xffffff, 0.55))
     const luz = new THREE.DirectionalLight(0xffffff, 1.4); luz.position.set(3, 6, 8); cena.add(luz)
+    // As notas vivem num palco à parte, filmado pela câmera fixa: o passeio da câmera do
+    // ringue (ângulos, zoom, tranco) nunca muda onde a nota chega nem de que tamanho.
+    const cenaNotas = new THREE.Scene()
+    cenaNotas.add(new THREE.AmbientLight(0xffffff, 0.75))
+    const luzNotas = new THREE.DirectionalLight(0xffffff, 1.4); luzNotas.position.set(3, 6, 8); cenaNotas.add(luzNotas)
+    renderer.autoClear = false
     const contra = new THREE.DirectionalLight(0xffae32, 1.2); contra.position.set(-4, 3, -10); cena.add(contra)
 
     // Lutador: começa com o boneco simples e troca pelo robô animado quando o modelo chega.
@@ -247,7 +253,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
       const dir = v.sub(camFixa.position).normalize()
       return camFixa.position.clone().add(dir.multiplyScalar(-camFixa.position.z / dir.z))
     }
-    const naTela = v3 => { const p = v3.clone().project(cam); return { x: (p.x + 1) * 50, y: (1 - p.y) * 50 } }
+    const naTela = v3 => { const p = v3.clone().project(camFixa); return { x: (p.x + 1) * 50, y: (1 - p.y) * 50 } }
 
     // libera geometria e material de um golpe que saiu de cena (o anel é compartilhado)
     // (o modelo pronto é um clone que divide geometria e material com o original: esse fica)
@@ -288,7 +294,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
         // tomou golpe: recua e pisca vermelho
         const dg = agora - (s.golpeEm || 0)
         const peitoDele = new THREE.Vector3(lutador.position.x, CHAO_Y + 1.8, FUNDO_Z + 0.5)
-        if (s.golpeEm !== ultimoGolpe) { ultimoGolpe = s.golpeEm; if (!show) chute = { em: agora, lado: (chute.lado || 1) * -1 }; if (robo) tocarAcao(s.inimigo <= 0 ? def.morte : sorteia(def.apanha), true); particulas.explodir(peitoDele, 'acerto') }
+        if (s.golpeEm !== ultimoGolpe) { ultimoGolpe = s.golpeEm; if (!show) chute = { em: agora, lado: (chute.lado || 1) * -1, giro: 1 + Math.random() * 2.6, alto: Math.random() * 3 - 1.2, perto: 1.5 + Math.random() * 2.5 }; if (robo) tocarAcao(s.inimigo <= 0 ? def.morte : sorteia(def.apanha), true); particulas.explodir(peitoDele, 'acerto') }
         const reac = dg < 260 ? Math.sin((dg / 260) * Math.PI) : 0
         lutador.rotation.x = -reac * 0.45
         lutador.position.z = FUNDO_Z - reac * 0.8
@@ -331,12 +337,13 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
           if (show.voa && !show.dele && u >= 0.5 && u < 0.85) { alvoCam.set(lutador.position.x * 0.6, 1.2, FUNDO_Z + 5.4); alvoOlhar.copy(peitoDele) }
           if (u >= 1) show = null
         }
-        // golpe seu acertou: a câmera dá um tranco pra dentro, num ângulo de lado, e volta
-        const dc = (agora - chute.em) / 420
+        // golpe seu acertou: a câmera dá um tranco num ângulo sorteado (lado, de cima, de
+        // baixo, girando em volta dele) e volta. Só o ringue se mexe: as notas não.
+        const dc = (agora - chute.em) / 520
         if (!show && dc < 1) {
           const f = Math.sin(dc * Math.PI)
-          alvoCam.x += chute.lado * 1.1 * f; alvoCam.y -= 0.25 * f; alvoCam.z -= 2.4 * f
-          alvoOlhar.x += lutador.position.x * 0.5 * f
+          alvoCam.x += chute.lado * chute.giro * f; alvoCam.y += chute.alto * f; alvoCam.z -= chute.perto * f
+          alvoOlhar.x += lutador.position.x * 0.6 * f
         }
         const suaviza = 1 - Math.exp(-dt * (dc < 1 ? 14 : 7))
         cam.position.lerp(alvoCam, suaviza); olhar.lerp(alvoOlhar, suaviza)
@@ -359,7 +366,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
             b = { bola, mat: anelMat, modelo, glb: Boolean(modelos[n.tipo]), alvo: noPlano(n.alvo.x, n.alvo.y) }
             // a nota é desenhada sempre por cima do ringue (a lona passa por baixo da câmera)
             bola.traverse(m => { if (m.isMesh) { m.renderOrder = 10; m.material.depthTest = false } })
-            bolas.set(n.id, b); cena.add(bola)
+            bolas.set(n.id, b); cenaNotas.add(bola)
           }
           const p = Math.min(1.08, Math.max(0, 1 - (n.hora - agora) / voo))
           const pos = peito.clone().lerp(b.alvo, Math.min(1, p))
@@ -378,15 +385,18 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
           b.bola.position.copy(pos)
           // o golpe vem DEITADO, com a ponta (punho, bico do pé) apontada pra você
           // a ponta do golpe mira sempre a câmera (você), de onde quer que a nota venha
-          b.modelo.lookAt(cam.position)
+          b.modelo.lookAt(camFixa.position)
           b.modelo.rotateZ(Math.sin(t * 2 + n.id) * 0.15)
           // onde a bola está na tela e de que tamanho, pro botão de toque acompanhar
           const c = naTela(pos), borda = naTela(pos.clone().add(new THREE.Vector3(RAIO, 0, 0)))
           n.tela = { x: c.x, y: c.y, rpx: Math.abs(borda.x - c.x) / 100 * el.clientWidth }
         }
-        for (const [k, b] of bolas) if (!vivas.has(k)) { cena.remove(b.bola); liberar(b); bolas.delete(k) }
+        for (const [k, b] of bolas) if (!vivas.has(k)) { cenaNotas.remove(b.bola); liberar(b); bolas.delete(k) }
       }
+      renderer.clear()
       renderer.render(cena, cam)
+      renderer.clearDepth()
+      renderer.render(cenaNotas, camFixa)
       raf = requestAnimationFrame(quadro)
     }
     raf = requestAnimationFrame(quadro)

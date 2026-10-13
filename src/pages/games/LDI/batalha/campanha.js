@@ -40,7 +40,7 @@ export const INIMIGOS = [
     // 2 golpes no beat, 2 de descanso, 2 golpes (beats 1-2 e 5-6 de cada frase)
     frases: [[2, 4, 10, 12]],
     golpes: { soco: 2, chute: 1, cabecada: 1 }, defesas: { bloqueio: 1 } },
-  { id: 2, vida: 480, musica: { ...MUSICAS[2], velocidade: VELOCIDADE }, bpm: MUSICAS[2].bpm * VELOCIDADE, niveis: [1, 2], defesaPeso: 0.25,
+  { id: 2, vida: 260, musica: { ...MUSICAS[2], velocidade: VELOCIDADE }, bpm: MUSICAS[2].bpm * VELOCIDADE, niveis: [1, 2], defesaPeso: 0.25,
     golpes: { soco: 2, chute: 1, cabecada: 1 }, defesas: { bloqueio: 1 } },
   { id: 3, vida: 560, musica: { ...MUSICAS[3], velocidade: VELOCIDADE }, bpm: MUSICAS[3].bpm * VELOCIDADE, niveis: [1, 2], defesaPeso: 0.28,
     golpes: { soco: 2, chute: 2, cabecada: 1 }, defesas: { bloqueio: 2, esquiva: 2 } },
