@@ -111,7 +111,8 @@ export default function Game() {
   }, [save.status]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Acabou de contar a página: as escolhas abrem no centro da tela.
-  const onPronto = useCallback(() => { setPronto(true); setEscolhaAberta(true) }, [])
+  // `abrir` falso: o leitor está rolando sozinho; a escolha espera o botão no fim da página.
+  const onPronto = useCallback((abrir = true) => { setPronto(true); if (abrir) setEscolhaAberta(true) }, [])
   // Escolha com `luta` (id do inimigo da campanha) abre a luta rítmica
   // por cima da cena. Venceu, segue; perdeu, vai pro `next_falha` ou tenta de novo.
   const onEscolher = ch => {

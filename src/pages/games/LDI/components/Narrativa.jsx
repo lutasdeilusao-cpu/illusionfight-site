@@ -87,27 +87,40 @@ export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome
   const atual = quadros[vistos - 1]
   const letrasAtual = atual ? atual.blocos.reduce((s, b) => s + b.texto.length, 0) : 0
   const dur = Math.round(tempo * Math.max(1, letrasAtual / LETRAS_POR_TEMPO))
-  const avancar = () => { if (vistos < quadros.length) setVistos(v => v + 1); else setAcabou(true) }
+  const avancar = () => { if (manual) return; if (vistos < quadros.length) setVistos(v => v + 1); else setAcabou(true) }
   const ultimo = useRef(null)
-  // Quem rola a página pra cima quer reler no próprio ritmo: o relógio para e a
-  // página não rola mais sozinha (tocar ainda revela o próximo quadro).
+  const avisou = useRef(false)
+  // Quem rola a página com o dedo (ou a roda do mouse) quer ler no próprio ritmo:
+  // a página inteira aparece de uma vez, o relógio some, nada rola sozinho, e a
+  // escolha só abre quando ele tocar no botão no fim da página.
   const [manual, setManual] = useState(false)
   useEffect(() => {
-    let antes = window.scrollY
     const montou = Date.now()
-    const onScroll = () => {
-      // a volta pro topo ao virar a página não conta como leitor rolando
-      if (Date.now() - montou > 1000 && window.scrollY < antes - 40) setManual(true)
-      antes = window.scrollY
+    let y0 = null
+    const soltar = () => { if (Date.now() - montou > 800) setManual(true) }
+    const inicio = e => { y0 = e.touches[0].clientY }
+    const move = e => { if (y0 !== null && Math.abs(e.touches[0].clientY - y0) > 24) soltar() }
+    const roda = e => { if (Math.abs(e.deltaY) > 4) soltar() }
+    const tecla = e => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'End', 'Home'].includes(e.key)) soltar() }
+    window.addEventListener('touchstart', inicio, { passive: true })
+    window.addEventListener('touchmove', move, { passive: true })
+    window.addEventListener('wheel', roda, { passive: true })
+    window.addEventListener('keydown', tecla)
+    return () => {
+      window.removeEventListener('touchstart', inicio); window.removeEventListener('touchmove', move)
+      window.removeEventListener('wheel', roda); window.removeEventListener('keydown', tecla)
     }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
   }, [])
+  useEffect(() => {
+    if (!manual || avisou.current) return
+    setVistos(quadros.length)
+    avisou.current = true
+    onPronto?.(false)
+  }, [manual]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Avisa que a página acabou UMA vez só. Durante a virada da página, esta Narrativa
   // ainda está montada recebendo o texto da cena nova; sem a trava, ela avisava de novo
   // e a escolha da página nova abria antes de qualquer quadro.
-  const avisou = useRef(false)
   useEffect(() => {
     if (acabou) { if (!avisou.current) { avisou.current = true; onPronto?.() } return }
     if (manual) return
