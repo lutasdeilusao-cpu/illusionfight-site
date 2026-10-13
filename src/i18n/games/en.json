@@ -804,7 +804,11 @@
         "abrir_escolha": "Make your choice",
         "reler": "Reread the page",
         "vs_grito": "FIGHT!",
-        "tempo_quadro": "Panel: {s}s"
+        "tempo_quadro": "Panel: {s}s",
+        "encontro_grito": "AMBUSH!",
+        "encontro_titulo": "Run-in on the way",
+        "encontro_ganhou": "You won! Your next fight starts with half energy.",
+        "encontro_perdeu": "Barely got away. The story goes on."
       },
       "decisao": {
         "eyebrow": "Decision",
@@ -1016,6 +1020,10 @@
           "8": {
             "nome": "NULL_ENTITY",
             "desc": "The Integrity Engineer. Everything the others do, and the super can be any of them."
+          },
+          "9": {
+            "nome": "Training Bot",
+            "desc": "The tutorial: slow, one hit at a time."
           }
         },
         "ritmo": {
@@ -1061,7 +1069,15 @@
           "super_dele_nome": "His super",
           "defendeu_pct": "Blocked {n}%",
           "tempo_acabou": "The song is over — time's up!",
-          "carregando": "Getting the fight ready..."
+          "carregando": "Getting the fight ready...",
+          "tutorial": {
+            "ataque": "BLUE hits are yours. Tap it now, when the ring closes on it.",
+            "chute": "Kicks come from below. Tap it at the right time.",
+            "defesa": "RED hits are his. Tap to block, or you take the hit.",
+            "cabecada": "Headbutts rise from the center. Tap it now.",
+            "super": "Full energy! Pick a power down here to unleash the SUPER.",
+            "virada": "The super is a drum fill: tap every golden note on the beat. More hits, stronger blow."
+          }
         }
       }
     },

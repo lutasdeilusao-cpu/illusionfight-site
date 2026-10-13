@@ -42,12 +42,33 @@ function arquivosDe(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).filter(e => e.isFile()).map(e => e.name)
 }
 
+// O gancho post-commit do graphify reconstrói o grafo de conhecimento em segundo plano
+// a cada commit. No commit do branch gh-pages isso é o site compilado inteiro (centenas
+// de arquivos minificados): o processo pesado segura arquivos da pasta do deploy e o
+// git do deploy seguinte falha ao limpar. O build publicado não tem grafo: gancho
+// desligado em todo git daqui (GRAPHIFY_SKIP_HOOK é a chave do próprio gancho).
+const ENV_GIT = { ...process.env, GRAPHIFY_SKIP_HOOK: '1' }
+const INICIO = Date.now()
+const LIMITE_MS = 5 * 60 * 1000
+
+function tempo() { return `${((Date.now() - INICIO) / 1000).toFixed(1)}s` }
+
+// Roda um passo do git; se falhar (arquivo travado por outro processo no Windows),
+// diz QUAL passo falhou e tenta mais uma vez depois de 3 s antes de desistir.
 function git(args, cwd = ROOT) {
-  return execFileSync('git', args, { cwd, stdio: 'inherit' })
+  for (let tentativa = 1; ; tentativa++) {
+    try {
+      return execFileSync('git', args, { cwd, stdio: 'inherit', env: ENV_GIT })
+    } catch (e) {
+      console.error(`[deploy] falhou: git ${args.join(' ')} (tentativa ${tentativa}, ${tempo()})`)
+      if (tentativa >= 2) throw e
+      execFileSync(process.execPath, ['-e', 'setTimeout(() => {}, 3000)'])
+    }
+  }
 }
 
 function gitCapture(args, cwd = ROOT) {
-  return execFileSync('git', args, { cwd }).toString().trim()
+  return execFileSync('git', args, { cwd, env: ENV_GIT }).toString().trim()
 }
 
 function lerVersaoAtual() {
@@ -66,7 +87,7 @@ function main() {
     process.exit(1)
   }
 
-  console.log(`[deploy] buscando ${BRANCH} do remoto...`)
+  console.log(`[deploy] buscando ${BRANCH} do remoto... (${tempo()})`)
   git(['fetch', 'origin', BRANCH])
 
   const jaExiste = fs.existsSync(WORKTREE)
@@ -91,6 +112,9 @@ function main() {
     const origem = path.join(WORKTREE, 'assets', f)
     if (fs.existsSync(origem) && fs.statSync(origem).isFile()) fs.copyFileSync(origem, path.join(guarda, f))
   }
+
+  // Sobra de grafo gerado aqui dentro por gancho de commit: não é do site.
+  fs.rmSync(path.join(WORKTREE, 'graphify-out'), { recursive: true, force: true })
 
   // Remove TUDO que está versionado no worktree de uma vez só — 1 argumento
   // pro processo do git ('.'), sem limite de linha de comando do SO, seja
@@ -122,13 +146,19 @@ function main() {
     return
   }
 
-  console.log('[deploy] commitando...')
+  console.log(`[deploy] commitando... (${tempo()})`)
   git(['commit', '-q', '-m', `Deploy${lerVersaoAtual()}`], WORKTREE)
 
-  console.log('[deploy] enviando pro GitHub Pages...')
+  console.log(`[deploy] enviando pro GitHub Pages... (${tempo()})`)
   git(['push', 'origin', `HEAD:${BRANCH}`], WORKTREE)
 
-  console.log('[deploy] concluído — histórico do gh-pages preservado (sem force-push, sem squash).')
+  console.log(`[deploy] concluído em ${tempo()} — histórico do gh-pages preservado (sem force-push, sem squash).`)
+  if (Date.now() - INICIO > LIMITE_MS) console.error(`[deploy] ATENÇÃO: passou de 5 minutos (${tempo()}). Deploy normal leva menos que isso: investigar.`)
 }
 
-main()
+try {
+  main()
+} catch (e) {
+  console.error(`[deploy] DEPLOY FALHOU depois de ${tempo()}: ${e.message}`)
+  process.exit(1)
+}

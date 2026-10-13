@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
@@ -11,12 +11,24 @@ import Escolhas from './components/Escolhas'
 import Diario from './components/Diario'
 import PuzzleRouter from './components/PuzzleRouter'
 import LutaRitmo from './batalha/LutaRitmo'
-import { INIMIGOS } from './batalha/campanha'
+import { INIMIGOS, TUTORIAL } from './batalha/campanha'
 import { ligarSom, somPagina } from './batalha/som'
 import './Lendas.css'
 
 // Segundos que cada quadro fica na tela (o leitor alterna no botão do canto).
 const TEMPOS = [3, 5, 8]
+// Encontro aleatório: de vez em quando, numa escolha comum, alguém te pega de surpresa.
+// Chance por escolha, com folga mínima de cenas entre um e outro; o inimigo sai da faixa
+// do ato, com metade da vida. Venceu: a próxima luta já começa com meia energia.
+// Perdeu: a história segue, sem castigo.
+const ENCONTRO_CHANCE = 0.12
+const ENCONTRO_FOLGA = 4
+const ENCONTRO_POR_ATO = { 1: [1, 2], 2: [2, 3, 4], 3: [4, 5, 6], 4: [6, 7] }
+const BONUS_ENCONTRO = 50
+const fichaDe = (id, encontro) => {
+  const base = id === TUTORIAL.id ? TUTORIAL : INIMIGOS.find(i => i.id === id)
+  return encontro ? { ...base, vida: Math.round(base.vida / 2) } : base
+}
 const CHAVE_TEMPO = 'ldi-lendas-tempo-quadro'
 
 export default function Game() {
@@ -30,6 +42,9 @@ export default function Game() {
   const [puzzle, setPuzzle] = useState(null)
   const [luta, setLuta] = useState(null) // { escolha, tentativa, abertura, vs }
   const [escolhaAberta, setEscolhaAberta] = useState(false)
+  const [bonusEnergia, setBonusEnergia] = useState(0)
+  const [avisoEncontro, setAvisoEncontro] = useState(null)
+  const cenasSemEncontro = useRef(0)
   // Tempo de leitura de cada quadro (escolha do leitor, lembrada neste aparelho).
   const [tempoQuadro, setTempoQuadro] = useState(() => { try { return Number(localStorage.getItem(CHAVE_TEMPO)) || 5 } catch { return 5 } })
   const trocarTempo = () => setTempoQuadro(s => {
@@ -71,6 +86,12 @@ export default function Game() {
   }, [cena?.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
+    if (!avisoEncontro) return
+    const tm = setTimeout(() => setAvisoEncontro(null), 3600)
+    return () => clearTimeout(tm)
+  }, [avisoEncontro])
+
+  useEffect(() => {
     if (!aprendeu) return
     const tm = setTimeout(limparAprendeu, 3600)
     return () => clearTimeout(tm)
@@ -86,9 +107,26 @@ export default function Game() {
   // por cima da cena. Venceu, segue; perdeu, vai pro `next_falha` ou tenta de novo.
   const onEscolher = ch => {
     if (ch.luta && vencidaEm !== cena.id) { ligarSom(); setEscolhaAberta(false); setLuta({ escolha: ch, tentativa: 0, vs: true }); return }
-    if (ch.isPuzzle) setPuzzle(ch); else escolher(ch)
+    if (ch.isPuzzle) { setPuzzle(ch); return }
+    cenasSemEncontro.current++
+    if (save.veia && !ch.luta && cenasSemEncontro.current >= ENCONTRO_FOLGA && Math.random() < ENCONTRO_CHANCE) {
+      cenasSemEncontro.current = 0
+      const lista = ENCONTRO_POR_ATO[save.ato] || ENCONTRO_POR_ATO[1]
+      ligarSom(); setEscolhaAberta(false)
+      setLuta({ escolha: { luta: lista[Math.floor(Math.random() * lista.length)] }, encontro: true, depois: ch, tentativa: 0, vs: true })
+      return
+    }
+    escolher(ch)
   }
   const fimLuta = resultado => {
+    if (luta.encontro) {
+      setLuta(null)
+      if (resultado === 'vitoria') setBonusEnergia(BONUS_ENCONTRO)
+      setAvisoEncontro(resultado === 'vitoria' ? 'encontro_ganhou' : 'encontro_perdeu')
+      escolher(luta.depois)
+      return
+    }
+    setBonusEnergia(0)
     const ch = luta.escolha
     if (resultado === 'vitoria' && luta.abertura) { setLuta(null); setVencidaEm(cena.id) }
     else if (resultado === 'vitoria') { setLuta(null); escolher(ch) }
@@ -148,6 +186,12 @@ export default function Game() {
             <motion.strong initial={{ scale: 1.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.35, type: 'spring', stiffness: 220, damping: 14 }}>{capitulo.capitulo}</motion.strong>
           </motion.div>
         )}
+        {avisoEncontro && (
+          <motion.div key="encontro" className="ld-aprendeu" initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setAvisoEncontro(null)}>
+            <small>{t('games.ldi.jogo.encontro_titulo')}</small>
+            <b>{t(`games.ldi.jogo.${avisoEncontro}`)}</b>
+          </motion.div>
+        )}
         {aprendeu && veia && (
           <motion.div key="aprendeu" className="ld-aprendeu" initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }} onClick={limparAprendeu}>
             <small>{veia.icone} {t('games.ldi.jogo.aprendeu')}</small>
@@ -173,14 +217,14 @@ export default function Game() {
             <motion.span className="ld-vs__voce" initial={{ x: -200 }} animate={{ x: 0 }} transition={{ type: 'spring', stiffness: 260, damping: 20 }}>{save.nome}</motion.span>
             <motion.b className="ld-vs__x" initial={{ scale: 3, rotate: -30, opacity: 0 }} animate={{ scale: 1, rotate: -8, opacity: 1 }} transition={{ delay: 0.25, type: 'spring', stiffness: 300, damping: 12 }}>VS</motion.b>
             <motion.span className="ld-vs__ele" initial={{ x: 200 }} animate={{ x: 0 }} transition={{ type: 'spring', stiffness: 260, damping: 20 }}>{t(`games.ldi.batalha.inimigos.${luta.escolha.luta}.nome`)}</motion.span>
-            <motion.strong className="ld-vs__grito" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.7, type: 'spring', stiffness: 320, damping: 10 }}>{t('games.ldi.jogo.vs_grito')}</motion.strong>
+            <motion.strong className="ld-vs__grito" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.7, type: 'spring', stiffness: 320, damping: 10 }}>{t(luta.encontro ? 'games.ldi.jogo.encontro_grito' : 'games.ldi.jogo.vs_grito')}</motion.strong>
           </motion.div>
         )}
       </AnimatePresence>
 
       {luta && (
         <div className="ld-luta">
-          <LutaRitmo key={luta.tentativa} t={t} ficha={INIMIGOS.find(i => i.id === luta.escolha.luta)}
+          <LutaRitmo key={luta.tentativa} t={t} ficha={fichaDe(luta.escolha.luta, luta.encontro)} energiaInicial={luta.encontro ? 0 : bonusEnergia}
             onSair={() => (luta.abertura ? navigate('/games/ldi') : setLuta(null))} onResultado={fimLuta} />
         </div>
       )}

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { ligarSom, alternarMudo, estaMudo, somGolpe, somBloqueio, somEsquiva, somPoder, somBatida, tocarMusica, pararMusica, somApanhou, somNocaute, somSuperSolta, sonsProntos } from './som'
 import { PODERES, KIT, TETO_SUPER } from './campanha'
 import Arena3D from './Arena3D'
+import { fraseTutorial, ROTEIRO_TUTORIAL } from './tutorial'
 import './LutaRitmo.css'
 
 // Luta rítmica. Cada nota nasce pequena, longe, e vem crescendo até o ponto
@@ -111,7 +112,7 @@ function frase(ficha, inicio, n, batida, vez) {
   return notas
 }
 
-export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
+export default function LutaRitmo({ t, ficha, onSair, onResultado, energiaInicial = 0 }) {
   const [, setQuadro] = useState(0)
   const [fim, setFim] = useState(null)
   const [mudo, setMudo] = useState(estaMudo())
@@ -128,14 +129,14 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     const agora = performance.now() + 900
     estado.current = {
       inicio: agora, notas: [], proxFrase: agora + Math.ceil(VOO / (8 * BATIDA)) * 8 * BATIDA, nFrase: 0, proxBatida: agora,
-      vida: VIDA, inimigo: ficha.vida, energia: 0, combo: 0, melhorCombo: 0,
+      vida: VIDA, inimigo: ficha.vida, energia: energiaInicial, combo: 0, melhorCombo: 0,
       aviso: null, tremor: 0, poder: null, atordoadoAte: 0, vez: { dele: null }, pausaAte: 0, ultimo: agora, flash: 0,
       // com música: nada é agendado até ela começar a tocar (aí o tempo da luta casa com o dela)
       faixa: ficha.musica ? tocarMusica(ficha.musica.url, ficha.musica.velocidade, true) : null, sincronizado: !ficha.musica, ancora: 0, criadoEm: agora,
       carregando: true,
     }
     setFim(null)
-  }, [ficha, BATIDA])
+  }, [ficha, BATIDA, energiaInicial])
 
   useEffect(() => { ligarSom(); novaLuta() }, [novaLuta])
   useEffect(() => pararMusica, [])
@@ -197,7 +198,8 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
         }
         // Tomou golpe: sem música, o tempo para um instante (tudo é empurrado junto).
         // Com música, não: ela não para, então a luta também não.
-        if (agora < s.pausaAte && !s.faixa) empurra(agora - s.ultimo)
+        // No tutorial, o tempo também para esperando o toque guiado ou a escolha do super.
+        if ((agora < s.pausaAte || s.esperaToque || s.esperaSuper) && !s.faixa) empurra(agora - s.ultimo)
         s.ultimo = agora
         if (!s.sincronizado) { setQuadro(q => q + 1); raf = requestAnimationFrame(passo); return }
         // Perto do fim da música não agenda mais nada.
@@ -206,11 +208,18 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
           if (s.proxFrase + 8 * BATIDA > fimMusica - 200) break
           const sd = ficha.superDele
           if (sd && !s.poder && s.nFrase >= 2 && s.nFrase % sd.cada === 0) { superDele(s, sd); continue }
-          for (const n of frase(ficha, s.proxFrase, s.nFrase, BATIDA, s.vez)) {
+          for (const n of (ficha.tutorial ? fraseTutorial(s, s.proxFrase, BATIDA) : frase(ficha, s.proxFrase, s.nFrase, BATIDA, s.vez))) {
             if (TIPOS[n.tipo].dele && n.hora < s.atordoadoAte) continue // atordoado: ele não ataca
             s.notas.push({ ...n, ...trajeto(n.tipo, s.notas.filter(o => o.estado === 'vindo' && Math.abs(o.hora - n.hora) < VOO)), id: ++id.current, estado: 'vindo' })
           }
           s.proxFrase += 8 * BATIDA; s.nFrase++
+        }
+        if (ficha.tutorial && !s.esperaToque && !s.esperaSuper) {
+          // a nota guiada chegou na hora: o tempo para até o jogador tocar nela
+          const guiada = s.notas.find(n => n.dica && !n.dicaVista && n.estado === 'vindo' && agora >= n.hora)
+          if (guiada) { guiada.dicaVista = true; s.esperaToque = guiada }
+          // o roteiro acabou: a energia enche e o tutorial ensina o super
+          else if (!s.superEnsinado && !s.poder && (s.tutResolvidas || 0) >= ROTEIRO_TUTORIAL.length) { s.superEnsinado = true; s.energia = ENERGIA_MAX; s.esperaSuper = true }
         }
         while (s.proxBatida <= agora) {
           const passoB = Math.round((s.proxBatida - s.inicio) / (BATIDA / 2)) % 8
@@ -222,6 +231,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
           if (n.estado !== 'vindo' || agora - n.hora <= SOME) continue
           n.estado = 'errou'; n.fimEm = agora
           s.combo = 0
+          if (ficha.tutorial) s.tutResolvidas = (s.tutResolvidas || 0) + 1
           if (n.tipo === 'superDele') avisar(t('games.ldi.batalha.ritmo.apanhou'), 'is-mal')
           else if (TIPOS[n.tipo].dele) apanhar(s, n, agora)
           else avisar(t('games.ldi.batalha.ritmo.errou'), 'is-raspou')
@@ -277,6 +287,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     const pd = PODERES[id_]
     const agora = performance.now()
     s.energia = 0
+    s.esperaSuper = false
     somPoder()
     // A luta para: tira todas as notas que ainda estão vindo.
     s.notas = s.notas.filter(n => n.estado !== 'vindo')
@@ -285,7 +296,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     const total = pd.virada.length
     const giro = Math.random() * Math.PI * 2
     pd.virada.forEach((q, i) => {
-      s.notas.push({ tipo: 'super', hora: base + q * passo, de: { x: 50, y: 50 }, alvo: emRoda(total, i, giro), id: ++id.current, estado: 'vindo' })
+      s.notas.push({ tipo: 'super', hora: base + q * passo, de: { x: 50, y: 50 }, alvo: emRoda(total, i, giro), id: ++id.current, estado: 'vindo', dica: ficha.tutorial && i === 0 ? 'virada' : undefined })
     })
     s.poder = { id: id_, total, acertos: 0, mostraEm: 0 }
     s.proxFrase = noCompasso(s, Math.max(s.proxFrase, base + (pd.virada[total - 1] + 1) * passo + APRESENTA + BATIDA))
@@ -332,6 +343,8 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
     const tp = TIPOS[n.tipo]
     n.estado = 'acertou'; n.nota = nota; n.fimEm = agora
     s.combo++; s.melhorCombo = Math.max(s.melhorCombo, s.combo)
+    if (s.esperaToque === n) s.esperaToque = null
+    if (ficha.tutorial && n.tipo !== 'super') s.tutResolvidas = (s.tutResolvidas || 0) + 1
     if (n.tipo === 'bloqueio' || n.tipo === 'superDele') somBloqueio(nota === 'perfeito')
     else if (n.tipo === 'esquiva') somEsquiva()
     else {
@@ -377,7 +390,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
 
       <div className="rt-arena">
         {sem3d && <div className="rt-fundo" aria-hidden="true" />}
-        {!sem3d && <Arena3D estadoRef={estado} voo={VOO} janela={JANELA.bom} onPronto={marcar3d} lutador={ficha.id <= 2 ? 'robo' : 'aventureiro'} onFalha={semTresD} />}
+        {!sem3d && <Arena3D estadoRef={estado} voo={VOO} janela={JANELA.bom} onPronto={marcar3d} lutador={ficha.id <= 2 || ficha.tutorial ? 'robo' : 'aventureiro'} onFalha={semTresD} />}
         {s.poder && agora >= s.poder.mostraEm && (
           <div className={`rt-carga${s.poder.dele ? ' is-dele' : ''}`} aria-hidden="true">
             <span>{s.poder.dele ? t('games.ldi.batalha.ritmo.super_dele') : t(`games.ldi.batalha.ritmo.poderes.${s.poder.id}.nome`)}</span>
@@ -390,6 +403,9 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
             <b>{s.apresenta.dele ? t('games.ldi.batalha.ritmo.super_dele_nome') : t(`games.ldi.batalha.ritmo.poderes.${s.apresenta.id}.nome`)}</b>
             <strong>{t(s.apresenta.dele ? 'games.ldi.batalha.ritmo.defendeu_pct' : 'games.ldi.batalha.ritmo.super_pct', { n: Math.round(s.apresenta.frac * 100) })}</strong>
           </div>
+        )}
+        {(s.esperaToque || s.esperaSuper) && (
+          <p className={`rt-dica${s.esperaSuper ? ' is-super' : ''}`}>{t(`games.ldi.batalha.ritmo.tutorial.${s.esperaSuper ? 'super' : s.esperaToque.dica}`)}</p>
         )}
         {s.pulso && <div key={s.pulso.em} className={`rt-pulso${s.pulso.caixa ? ' is-caixa' : ''}`} aria-hidden="true" />}
         {!fim && s.notas.map(n => {
@@ -405,7 +421,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
             <button
               key={n.id}
               type="button"
-              className={`rt-nota rt-nota--${n.tipo} is-${n.estado}${perto ? ' is-agora' : ''}${n.nota ? ` is-${n.nota}` : ''}${tres ? ' is-3d' : ''}`}
+              className={`rt-nota rt-nota--${n.tipo} is-${n.estado}${perto ? ' is-agora' : ''}${s.esperaToque === n ? ' is-dica' : ''}${n.nota ? ` is-${n.nota}` : ''}${tres ? ' is-3d' : ''}`}
               style={{ left: `${x}%`, top: `${y}%`, '--p': p, '--d': tres ? `${Math.max(30, n.tela.rpx * 2)}px` : undefined, zIndex: Math.round(p * 100) }}
               onPointerDown={e => tocar(n, e)}
             >

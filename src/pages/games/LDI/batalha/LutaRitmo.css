@@ -179,3 +179,12 @@ div.rt-energia { display: grid; place-items: center; }
 .rt-carregando i { display: block; width: 160px; height: 4px; background: rgba(255,255,255,.08); position: relative; overflow: hidden; }
 .rt-carregando i::after { content: ''; position: absolute; inset: 0; width: 40%; background: var(--if-amber); animation: rt-carrega 1s ease-in-out infinite; }
 @keyframes rt-carrega { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+
+/* Tutorial: a explicação do momento, grande e legível, e a nota guiada pulsando. */
+.rt-dica { position: absolute; left: 12px; right: 12px; top: 16px; z-index: 170; margin: 0; padding: 12px 14px; text-align: center;
+  font: 800 1rem/1.35 var(--font-body); color: var(--ldi-bg); background: var(--if-amber); border: 3px solid var(--ldi-bg);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6); pointer-events: none; animation: rt-dica-entra 0.3s ease-out both; }
+.rt-dica.is-super { top: auto; bottom: 8px; }
+@keyframes rt-dica-entra { from { transform: translateY(-12px); opacity: 0; } }
+.rt-nota.is-dica { animation: rt-dica-pulsa 0.6s ease-in-out infinite alternate; box-shadow: 0 0 0 6px var(--if-amber), 0 0 40px 10px var(--if-amber); }
+@keyframes rt-dica-pulsa { to { transform: translate(-50%, -50%) scale(1.15); } }

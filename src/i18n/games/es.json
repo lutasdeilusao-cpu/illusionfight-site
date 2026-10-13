@@ -804,7 +804,11 @@
         "abrir_escolha": "Hacer la elección",
         "reler": "Releer la página",
         "vs_grito": "¡PELEA!",
-        "tempo_quadro": "Viñeta: {s}s"
+        "tempo_quadro": "Viñeta: {s}s",
+        "encontro_grito": "¡EMBOSCADA!",
+        "encontro_titulo": "Encuentro en el camino",
+        "encontro_ganhou": "¡Ganaste! Tu próxima pelea empieza con media energía.",
+        "encontro_perdeu": "Escapaste por poco. La historia sigue."
       },
       "decisao": {
         "eyebrow": "Decisión",
@@ -1016,6 +1020,10 @@
           "8": {
             "nome": "NULL_ENTITY",
             "desc": "El Ingeniero de Integridad. Todo lo que hacen los demás, y su súper puede ser cualquiera."
+          },
+          "9": {
+            "nome": "Bot de Entrenamiento",
+            "desc": "El tutorial: lento, golpe por golpe."
           }
         },
         "ritmo": {
@@ -1061,7 +1069,15 @@
           "super_dele_nome": "Súper de él",
           "defendeu_pct": "Defendiste {n}%",
           "tempo_acabou": "¡La música terminó — se acabó el tiempo!",
-          "carregando": "Preparando la pelea..."
+          "carregando": "Preparando la pelea...",
+          "tutorial": {
+            "ataque": "El golpe AZUL es tuyo. Tócalo ahora, cuando el anillo se cierre encima.",
+            "chute": "La patada viene por abajo. Tócala en el momento justo.",
+            "defesa": "El golpe ROJO es de él. Toca para defenderte, o lo recibes.",
+            "cabecada": "El cabezazo sale del centro y sube. Tócalo ahora.",
+            "super": "¡Energía llena! Elige un poder aquí abajo para soltar el SÚPER.",
+            "virada": "El súper es un redoble: toca cada nota dorada a tiempo. Más aciertos, golpe más fuerte."
+          }
         }
       }
     },

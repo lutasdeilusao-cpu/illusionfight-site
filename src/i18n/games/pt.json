@@ -804,7 +804,11 @@
         "abrir_escolha": "Fazer a escolha",
         "reler": "Reler a página",
         "vs_grito": "LUTA!",
-        "tempo_quadro": "Quadro: {s}s"
+        "tempo_quadro": "Quadro: {s}s",
+        "encontro_grito": "EMBOSCADA!",
+        "encontro_titulo": "Encontro no caminho",
+        "encontro_ganhou": "Você venceu! Sua próxima luta já começa com meia energia.",
+        "encontro_perdeu": "Escapou por pouco. A história segue."
       },
       "decisao": {
         "eyebrow": "Decisão",
@@ -1016,6 +1020,10 @@
           "8": {
             "nome": "NULL_ENTITY",
             "desc": "O Engenheiro de Integridade. Tudo que os outros fazem, e o super dele é qualquer um."
+          },
+          "9": {
+            "nome": "Bot de Treino",
+            "desc": "O tutorial: lento, golpe por golpe."
           }
         },
         "ritmo": {
@@ -1061,7 +1069,15 @@
           "super_dele_nome": "Super dele",
           "defendeu_pct": "Defendeu {n}%",
           "tempo_acabou": "A música acabou — tempo esgotado!",
-          "carregando": "Preparando a luta..."
+          "carregando": "Preparando a luta...",
+          "tutorial": {
+            "ataque": "Golpe AZUL é seu. Toque nele agora, quando o anel fechar em cima.",
+            "chute": "Chute vem por baixo. Toque nele na hora certa.",
+            "defesa": "Golpe VERMELHO é dele. Toque pra defender, senão você toma.",
+            "cabecada": "Cabeçada vem do centro e sobe. Toque nela agora.",
+            "super": "Energia cheia! Escolha um poder aqui embaixo pra soltar o SUPER.",
+            "virada": "O super é uma virada: toque cada nota dourada no tempo. Mais acertos, golpe mais forte."
+          }
         }
       }
     },

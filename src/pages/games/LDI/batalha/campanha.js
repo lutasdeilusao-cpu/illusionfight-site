@@ -35,6 +35,11 @@ const MUSICAS = {
   8: { url: luta08, bpm: 99.998, entrada: 8.598 },
 }
 
+// A luta tutorial (id 9): sem música (a batida sintetizada para junto com o tempo
+// enquanto espera o toque guiado), bem lenta, roteiro em tutorial.js.
+export const TUTORIAL = { id: 9, vida: 90, bpm: 60, niveis: [1], defesaPeso: 0, tutorial: true,
+  golpes: { soco: 1 }, defesas: { bloqueio: 1 } }
+
 export const INIMIGOS = [
   { id: 1, vida: 240, musica: { ...MUSICAS[1], velocidade: VELOCIDADE }, bpm: MUSICAS[1].bpm * VELOCIDADE, niveis: [1], defesaPeso: 0.2,
     // 2 golpes no beat, 2 de descanso, 2 golpes (beats 1-2 e 5-6 de cada frase)
@@ -74,6 +79,7 @@ export const PODERES = {
 
 // Quais poderes você leva em cada luta (pelo id do inimigo).
 export const KIT = {
+  9: ['rajada'],
   1: ['rajada', 'folego'],
   2: ['rajada', 'folego', 'geloNegro'],
   3: ['rajada', 'folego', 'geloNegro'],

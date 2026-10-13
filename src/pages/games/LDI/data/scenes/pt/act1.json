@@ -47,7 +47,7 @@
         "flags_set": [
           "ENTROU_CONFIANTE"
         ],
-        "next_scene": "1.2"
+        "next_scene": "1.1c"
       },
       {
         "id": "B",
@@ -55,6 +55,32 @@
         "flags_set": [
           "ENTROU_DESCONFIADO"
         ],
+        "next_scene": "1.1c"
+      }
+    ]
+  },
+  {
+    "id": "1.1c",
+    "title": "Bot Perdido no Registro",
+    "luta": "Bot de Treino",
+    "text": [
+      "O azul treme.",
+      "Antes da NeoGuide terminar a frase, um bot de treino atravessa a área de registro. Perdido. Socando o vazio, igual bêbado brigando com poste.",
+      "[NEOGUIDE] \"Isso não devia estar aqui. Mas já que está... aula grátis.\"",
+      "---",
+      "Você não sabe como, mas sabe.",
+      "O golpe que vem azul é seu: você bate. O que vem vermelho é dele: você segura.",
+      "*É ritmo. Tudo aqui dentro é ritmo.*",
+      "---",
+      "O bot desmonta em pixel e some no chão que não existe.",
+      "A NeoGuide aplaude devagar, sem tirar o sorriso de propaganda.",
+      "[NEOGUIDE] \"Nada mal pra um ninguém. Agora sim: pode entrar.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Entrar de vez",
+        "luta": 9,
         "next_scene": "1.2"
       }
     ]
