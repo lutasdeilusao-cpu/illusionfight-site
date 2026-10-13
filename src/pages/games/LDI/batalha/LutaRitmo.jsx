@@ -49,19 +49,27 @@ function trajeto(tipo) {
   return { de: { x: 50, y: 50 }, alvo: { x: entre(26, 74), y: entre(32, 64) } }
 }
 
-// Uma frase de 8 batidas (2 compassos). As notas caem na CAIXA (batidas 2 e 4
-// de cada compasso: 1, 3, 5, 7 aqui); quem é mais difícil também usa o bumbo
-// (0 e 4). Fica mais densa conforme a luta anda (até o teto).
-const NA_CAIXA = [1, 3, 5, 7]
-const NO_BUMBO = [0, 4]
+// Frases rítmicas de 2 compassos, em colcheias (0 a 15). A caixa cai em 2, 6,
+// 10 e 14: é nela que as notas moram. Colcheias seguidas viram um grupo rápido
+// ("tá-tá-tá") do mesmo golpe. Nível 1 é o treino; 4, o chefão.
+const FRASES = {
+  1: [[2, 6], [6, 14], [2, 10], [2, 6, 10, 14], [10, 14], []],
+  2: [[2, 6, 10, 14], [2, 6, 12, 13, 14], [6, 10, 11, 12], [2, 10, 12, 14], [2, 3, 4, 10]],
+  3: [[2, 6, 12, 13, 14], [2, 3, 4, 10, 14], [6, 7, 8, 12, 13, 14], [2, 6, 10, 11, 12, 14], [0, 2, 6, 8, 10, 14]],
+  4: [[2, 4, 6, 10, 12, 13, 14], [0, 2, 3, 4, 8, 10, 11, 12], [2, 3, 4, 6, 10, 11, 12, 14], [2, 6, 7, 8, 10, 12, 13, 14]],
+}
 function frase(ficha, inicio, n, batida) {
+  // as 2 primeiras frases da luta são sempre do nível mais leve dele, pra entrar no ritmo
+  const nivel = n < 2 ? ficha.niveis[0] : ficha.niveis[Math.floor(Math.random() * ficha.niveis.length)]
+  const lista = FRASES[nivel]
+  const passos = lista[Math.floor(Math.random() * lista.length)]
   const notas = []
-  const dens = Math.min(ficha.teto, ficha.densidade + n * ficha.sobe)
-  for (let b = 0; b < 8; b++) {
-    const chance = NA_CAIXA.includes(b) ? dens * 1.8 : NO_BUMBO.includes(b) && ficha.teto >= 0.46 ? dens * 0.5 : 0
-    if (Math.random() > chance) continue
-    const dele = Math.random() < ficha.defesaPeso
-    notas.push({ tipo: dele ? sorteiaPeso(ficha.defesas) : sorteiaPeso(ficha.golpes), hora: inicio + b * batida })
+  let tipo = null, anterior = -9
+  for (const p of passos) {
+    // começa grupo novo quando não é a colcheia seguida da anterior
+    if (p !== anterior + 1) tipo = Math.random() < ficha.defesaPeso ? sorteiaPeso(ficha.defesas) : sorteiaPeso(ficha.golpes)
+    notas.push({ tipo, hora: inicio + p * batida / 2 })
+    anterior = p
   }
   return notas
 }
