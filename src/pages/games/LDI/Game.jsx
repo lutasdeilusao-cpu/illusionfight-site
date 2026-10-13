@@ -192,7 +192,7 @@ export default function Game() {
           ? <p className="ld-cena__luta"><span>{t('games.ldi.jogo.luta')}</span>{cena.luta}</p>
           : <p className="if-eyebrow">{cena.capitulo || t('games.ldi.jogo.ato', { n: romano(save.ato) })}</p>}
         <h1 className={`ld-cena__titulo${cena.destaque ? ' is-destaque' : ''}`}>{cena.title}</h1>
-        <Narrativa cenaId={cena.id} tempo={tempoQuadro * 1000} linhas={cena.text} veia={save.veia} habilidades={save.habilidades} nome={save.nome} onPronto={onPronto} />
+        <Narrativa cenaId={cena.id} tempo={tempoQuadro * 1000} pausado={Boolean(luta || capitulo || puzzle)} linhas={cena.text} veia={save.veia} habilidades={save.habilidades} nome={save.nome} onPronto={onPronto} />
         {pronto
           ? <button type="button" className="if-btn if-btn--primary ld-abrir-escolha" onClick={() => setEscolhaAberta(true)}>{t('games.ldi.jogo.abrir_escolha')}</button>
           : <p className="ld-cena__toque">{t('games.ldi.jogo.continuar')}</p>}

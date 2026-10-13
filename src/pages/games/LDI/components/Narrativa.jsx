@@ -65,7 +65,9 @@ export const arteDe = nome => ARTES[`../arte/${nome}.webp`] || null
 // enchendo embaixo; tocar adianta. A página só termina (onPronto → a escolha abre)
 // DEPOIS do tempo de leitura do último quadro — nunca no instante em que ele aparece.
 const LETRAS_POR_TEMPO = 200
-export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome, tempo = 5000, onPronto }) {
+// No último quadro, a escolha nunca abre antes de FIM_MIN: chegar no fim não quer dizer que terminou de ler.
+const FIM_MIN = 5000
+export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome, tempo = 5000, pausado = false, onPronto }) {
   // A lista de habilidades entra pela chave, não pela referência: aprender no
   // meio da cena não pode reiniciar o texto.
   const chaveHabs = habilidades.join(',')
@@ -86,18 +88,28 @@ export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome
   const [acabou, setAcabou] = useState(false)
   const atual = quadros[vistos - 1]
   const letrasAtual = atual ? atual.blocos.reduce((s, b) => s + b.texto.length, 0) : 0
-  const dur = Math.round(tempo * Math.max(1, letrasAtual / LETRAS_POR_TEMPO))
-  const avancar = () => { if (manual) return; if (vistos < quadros.length) setVistos(v => v + 1); else setAcabou(true) }
+  const noFim = vistos >= quadros.length
+  const dur = Math.round(Math.max(noFim ? FIM_MIN : 0, tempo * Math.max(1, letrasAtual / LETRAS_POR_TEMPO)))
+  // Quando o último quadro apareceu (o toque não pula a espera do fim).
+  const fimEm = useRef(null)
+  if (noFim && fimEm.current === null && !pausado) fimEm.current = Date.now()
+  const avancar = () => {
+    if (manual || pausado) return
+    if (!noFim) setVistos(v => v + 1)
+    else if (Date.now() - fimEm.current >= FIM_MIN) setAcabou(true)
+  }
   const ultimo = useRef(null)
   const avisou = useRef(false)
   // Quem rola a página com o dedo (ou a roda do mouse) quer ler no próprio ritmo:
   // a página inteira aparece de uma vez, o relógio some, nada rola sozinho, e a
   // escolha só abre quando ele tocar no botão no fim da página.
   const [manual, setManual] = useState(false)
+  const pausadoRef = useRef(pausado); pausadoRef.current = pausado
   useEffect(() => {
     const montou = Date.now()
     let y0 = null
-    const soltar = () => { if (Date.now() - montou > 800) setManual(true) }
+    // durante a luta/capa por cima, o dedo é da luta: não conta como leitor rolando
+    const soltar = () => { if (Date.now() - montou > 800 && !pausadoRef.current) setManual(true) }
     const inicio = e => { y0 = e.touches[0].clientY }
     const move = e => { if (y0 !== null && Math.abs(e.touches[0].clientY - y0) > 24) soltar() }
     const roda = e => { if (Math.abs(e.deltaY) > 4) soltar() }
@@ -123,17 +135,17 @@ export default function Narrativa({ cenaId, linhas, veia, habilidades = [], nome
   // e a escolha da página nova abria antes de qualquer quadro.
   useEffect(() => {
     if (acabou) { if (!avisou.current) { avisou.current = true; onPronto?.() } return }
-    if (manual) return
-    const t = setTimeout(avancar, dur)
+    if (manual || pausado) { fimEm.current = noFim && !manual ? null : fimEm.current; return }
+    const t = setTimeout(() => (noFim ? setAcabou(true) : setVistos(v => v + 1)), dur)
     return () => clearTimeout(t)
-  }, [vistos, acabou, dur, onPronto, manual]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [vistos, acabou, dur, onPronto, manual, pausado]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => { if (vistos > 1 && !manual) ultimo.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }, [vistos]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="ld-narrativa" onClick={avancar}>
       {/* quanto falta pro próximo quadro: barrinha discreta, presa no pé da tela */}
-      {!acabou && !manual && <span key={vistos} className="ld-relogio" style={{ '--dur': `${dur}ms` }} aria-hidden="true" />}
+      {!acabou && !manual && !pausado && <span key={vistos} className="ld-relogio" style={{ '--dur': `${dur}ms` }} aria-hidden="true" />}
       {quadros.slice(0, vistos).map((q, i) => (
         <motion.figure key={i} ref={i === vistos - 1 ? ultimo : null} className={`ld-quadro${q.arte ? ' tem-arte' : ''}`}
           initial={{ opacity: 0, y: 26, rotate: i % 2 ? 1.4 : -1.4, scale: 0.96 }} animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
