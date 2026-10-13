@@ -1051,7 +1051,8 @@
               "desc": "Redoble de 7, el más difícil. Daño brutal."
             }
           },
-          "super_pct": "Súper {n}%"
+          "super_pct": "Súper {n}%",
+          "creditos3d": "Modelos 3D: RobotExpressive de Tomás Laulhé (CC0), Boxing Glove de J-Toastie, Sneakers de Poly by Google, Robot Arm de Yali Izzo (CC-BY 3.0), Boots de Isa Lousberg (CC0)."
         }
       }
     },

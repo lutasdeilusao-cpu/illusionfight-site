@@ -1051,7 +1051,8 @@
               "desc": "7-note fill, the hardest. Brutal damage."
             }
           },
-          "super_pct": "Super {n}%"
+          "super_pct": "Super {n}%",
+          "creditos3d": "3D models: RobotExpressive by Tomás Laulhé (CC0), Boxing Glove by J-Toastie, Sneakers by Poly by Google, Robot Arm by Yali Izzo (CC-BY 3.0), Boots by Isa Lousberg (CC0)."
         }
       }
     },

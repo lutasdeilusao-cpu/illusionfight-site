@@ -41,6 +41,7 @@ export default function BatalhaLab() {
           </li>
         ))}
       </ol>
+      <p className="rt-menu__creditos">{t('games.ldi.batalha.ritmo.creditos3d')}</p>
       <button type="button" className="rt-btn rt-menu__lutar" onClick={() => { ligarSom(); setLutando(true) }}>{t('games.ldi.batalha.lutar')}</button>
     </div>
   )

@@ -152,3 +152,10 @@ div.rt-energia { display: grid; place-items: center; }
 .rt-nota.is-3d.is-acertou, .rt-nota.is-3d.is-errou { animation: none; opacity: 0; }
 /* no 3D o anel só aparece na reta final, quando a bola já está perto (evita anéis gigantes) */
 .rt-nota.is-3d .rt-nota__anel { opacity: calc((var(--p) - .6) * 2.5); border-width: 3px; }
+/* cor do lado também no anel de toque: azul = golpe seu, vermelho = golpe dele */
+.rt-nota.is-3d { --cor: var(--if-cyan); }
+.rt-nota.is-3d.rt-nota--bloqueio, .rt-nota.is-3d.rt-nota--esquiva { --cor: var(--if-danger); }
+.rt-nota.is-3d.rt-nota--super { --cor: var(--rt-super); }
+/* no 3D o anel do DOM some; quem mostra o tempo é o anel 3D da nota (e o brilho na hora certa) */
+.rt-nota.is-3d .rt-nota__anel { display: none; }
+.rt-menu__creditos { margin: 0; color: var(--text-secondary); font: 600 .58rem var(--font-mono); line-height: 1.5; }
