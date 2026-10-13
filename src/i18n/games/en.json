@@ -1121,7 +1121,21 @@
         "super_pronto": "SUPER ready: tap the ⚡ above the head",
         "virada_parado": "You lost the beat — now he attacks",
         "sem_ataque": "no attack",
-        "sem_defesa": "no guard"
+        "sem_defesa": "no guard",
+        "ritmo": {
+          "entrar": "Try rhythm fight",
+          "perfeito": "Perfect!",
+          "bom": "Good",
+          "raspou": "Close",
+          "errou": "Miss",
+          "apanhou": "Got hit!",
+          "combo": "{n} combo",
+          "super": "SUPER!",
+          "super_pronto": "Super ready: tap!",
+          "super_acertou": "Flawless barrage!",
+          "melhor_combo": "Best combo: {n}",
+          "legenda": "👊 punch · 🦶 kick · ✋ block his hit. Tap when the ring touches."
+        }
       }
     },
     "toptrumps": {

@@ -1,0 +1,76 @@
+/* Luta rítmica (laboratório). Leitura em cima, arena no meio-baixo, botão do
+   super embaixo: tudo no alcance do dedão. */
+.rt-page {
+  --rt-ataque: var(--if-amber);
+  --rt-chute: var(--if-pink);
+  --rt-defesa: var(--if-cyan);
+  --rt-super: color-mix(in srgb, var(--if-amber) 55%, white);
+  display: flex; flex-direction: column; min-height: 100dvh; padding: 10px 12px 14px; gap: 8px;
+  background: radial-gradient(circle at 50% 58%, color-mix(in srgb, var(--if-amber) 10%, transparent), transparent 60%), var(--ldi-bg);
+  color: var(--if-ink); overscroll-behavior: none; touch-action: manipulation; user-select: none;
+}
+.rt-page.is-tremendo { animation: rt-treme .26s linear; }
+@keyframes rt-treme { 25% { transform: translate(-5px, 2px); } 50% { transform: translate(4px, -3px); } 75% { transform: translate(-3px, 1px); } }
+
+.rt-topo { display: flex; align-items: center; gap: 10px; }
+.rt-sair { min-height: 34px; padding: 0 10px; border: 1px solid var(--if-hair-strong); background: var(--if-panel); color: var(--text-secondary); font: 800 .58rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.rt-barras { flex: 1; display: grid; gap: 6px; }
+.rt-barra { display: grid; gap: 2px; }
+.rt-barra span { font: 800 .55rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-secondary); }
+.rt-barra i { display: block; height: 8px; background: rgba(255,255,255,.08); position: relative; overflow: hidden; }
+.rt-barra i::after { content: ''; position: absolute; inset: 0; transform-origin: left; transform: scaleX(var(--v)); transition: transform .18s; }
+.rt-barra--ele i::after { background: var(--if-danger); }
+.rt-barra--voce i::after { background: var(--if-ok); }
+
+.rt-placar { position: relative; height: 34px; display: flex; align-items: center; justify-content: center; }
+.rt-placar b { position: absolute; left: 0; top: 50%; transform: translateY(-50%); font: 900 .75rem var(--font-display); color: var(--if-amber); letter-spacing: .06em; }
+.rt-aviso { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font: 900 1.25rem var(--font-display); text-transform: uppercase; letter-spacing: .06em; animation: rt-aviso .6s ease-out forwards; text-shadow: 0 2px 0 rgba(0,0,0,.6); }
+.rt-aviso.is-perfeito { color: var(--rt-super); }
+.rt-aviso.is-bom { color: var(--if-ok); }
+.rt-aviso.is-raspou { color: var(--text-secondary); }
+.rt-aviso.is-mal { color: var(--if-danger); }
+.rt-aviso.is-super { color: var(--rt-super); font-size: 1.5rem; }
+@keyframes rt-aviso { from { transform: translate(-50%, -30%) scale(.8); opacity: 1; } to { transform: translate(-50%, -80%) scale(1.1); opacity: 0; } }
+
+/* A arena: um quadrado no meio da tela, um pouco esticado na vertical. */
+.rt-arena { position: relative; flex: 1; max-height: 520px; min-height: 340px; margin-top: auto; overflow: hidden; perspective: 600px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 25%, transparent); background: rgba(0,0,0,.35); }
+.rt-fundo { position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.08) 0 2px, transparent 3px),
+    repeating-radial-gradient(circle at 50% 50%, transparent 0 38px, color-mix(in srgb, var(--if-amber) 8%, transparent) 39px 40px); }
+
+/* A nota cresce de longe (--p de 0 a 1) e o anel encolhe até encostar nela. */
+.rt-nota {
+  --cor: var(--rt-ataque);
+  position: absolute; width: 74px; height: 74px; padding: 0; border: 0; border-radius: 50%; cursor: pointer;
+  transform: translate(-50%, -50%) scale(calc(.18 + .82 * var(--p))); opacity: calc(.25 + .75 * var(--p));
+  background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--cor) 55%, white), var(--cor) 55%, color-mix(in srgb, var(--cor) 55%, black));
+  box-shadow: 0 0 0 3px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.6);
+  touch-action: none;
+}
+.rt-nota--chute { --cor: var(--rt-chute); }
+.rt-nota--bloqueio { --cor: var(--rt-defesa); }
+.rt-nota--super { --cor: var(--rt-super); }
+.rt-nota__icone { position: relative; font-size: 2rem; line-height: 74px; filter: drop-shadow(0 2px 0 rgba(0,0,0,.5)); }
+.rt-nota__anel { position: absolute; inset: -4px; border-radius: 50%; border: 3px solid var(--cor); transform: scale(var(--a)); opacity: .9; pointer-events: none; }
+.rt-nota.is-agora { animation: rt-pulso .2s ease-in-out infinite alternate; box-shadow: 0 0 0 3px white, 0 0 26px var(--cor); }
+@keyframes rt-pulso { to { filter: brightness(1.35); } }
+.rt-nota.is-acertou { pointer-events: none; animation: rt-acerto .38s ease-out forwards; }
+.rt-nota.is-errou { pointer-events: none; animation: rt-erro .38s ease-out forwards; }
+@keyframes rt-acerto { to { transform: translate(-50%, -50%) scale(1.8); opacity: 0; filter: brightness(2); } }
+@keyframes rt-erro { to { transform: translate(-50%, -20%) scale(.6); opacity: 0; filter: grayscale(1); } }
+
+.rt-base { display: grid; gap: 6px; }
+.rt-energia { position: relative; min-height: 52px; border: 1px solid color-mix(in srgb, var(--rt-super) 40%, transparent); background: rgba(0,0,0,.4); color: var(--text-secondary); overflow: hidden; font: 900 .8rem var(--font-display); text-transform: uppercase; letter-spacing: .08em; }
+.rt-energia i { position: absolute; inset: 0; transform-origin: left; transform: scaleX(var(--v)); background: color-mix(in srgb, var(--rt-super) 30%, transparent); transition: transform .2s; }
+.rt-energia span { position: relative; }
+.rt-energia.is-cheia { color: var(--ldi-bg); border-color: var(--rt-super); animation: rt-pulso .35s ease-in-out infinite alternate; }
+.rt-energia.is-cheia i { background: var(--rt-super); }
+.rt-legenda { margin: 0; text-align: center; color: var(--text-secondary); font: 600 .62rem var(--font-mono); }
+
+.rt-fim { position: fixed; inset: 0 var(--app-gutter); z-index: 300; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px;
+  background: rgba(0,0,0,.82); overscroll-behavior: none; text-align: center; }
+.rt-fim p { margin: 0; color: var(--text-secondary); font: 700 .8rem var(--font-mono); }
+.rt-fim .if-btn { min-width: 220px; min-height: 48px; }
+.rt-sair--fim { min-width: 220px; min-height: 44px; }

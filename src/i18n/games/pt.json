@@ -1121,7 +1121,21 @@
         "super_pronto": "SUPER pronto: toque na ⚡ em cima da cabeça",
         "virada_parado": "Você perdeu o tempo — agora ele ataca",
         "sem_ataque": "não atacou",
-        "sem_defesa": "não defendeu"
+        "sem_defesa": "não defendeu",
+        "ritmo": {
+          "entrar": "Testar luta rítmica",
+          "perfeito": "Perfeito!",
+          "bom": "Bom",
+          "raspou": "Raspou",
+          "errou": "Errou",
+          "apanhou": "Apanhou!",
+          "combo": "{n} de combo",
+          "super": "SUPER!",
+          "super_pronto": "Super pronto: toca!",
+          "super_acertou": "Rajada certeira!",
+          "melhor_combo": "Melhor combo: {n}",
+          "legenda": "👊 soco · 🦶 chute · ✋ defende o golpe dele. Toca quando o anel encostar."
+        }
       }
     },
     "toptrumps": {

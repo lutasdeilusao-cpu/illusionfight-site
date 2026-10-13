@@ -133,3 +133,11 @@ export function tocarCompasso(duracaoMs) {
     else sopro(t, { dur: 0.03, vol: 0.18, filtro: 'highpass', f0: 7000 })
   }
 }
+
+// Batida do modo ritmo: bumbo no tempo forte, chimbal baixinho nos outros.
+export function somBatida(forte, quando = 0) {
+  if (!ctx) return
+  const t = ctx.currentTime + quando
+  if (forte) tom(t, { f0: 150, f1: 50, dur: 0.12, vol: 0.55 })
+  else sopro(t, { dur: 0.03, vol: 0.18, filtro: 'highpass', f0: 6000 })
+}

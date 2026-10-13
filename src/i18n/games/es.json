@@ -1121,7 +1121,21 @@
         "super_pronto": "SÚPER listo: toca el ⚡ sobre la cabeza",
         "virada_parado": "Perdiste el tiempo — ahora ataca él",
         "sem_ataque": "no atacó",
-        "sem_defesa": "no se defendió"
+        "sem_defesa": "no se defendió",
+        "ritmo": {
+          "entrar": "Probar pelea rítmica",
+          "perfeito": "¡Perfecto!",
+          "bom": "Bien",
+          "raspou": "Casi",
+          "errou": "Fallaste",
+          "apanhou": "¡Te dieron!",
+          "combo": "{n} de combo",
+          "super": "¡SÚPER!",
+          "super_pronto": "Súper listo: ¡toca!",
+          "super_acertou": "¡Ráfaga perfecta!",
+          "melhor_combo": "Mejor combo: {n}",
+          "legenda": "👊 puñetazo · 🦶 patada · ✋ bloquea su golpe. Toca cuando el anillo toque."
+        }
       }
     },
     "toptrumps": {

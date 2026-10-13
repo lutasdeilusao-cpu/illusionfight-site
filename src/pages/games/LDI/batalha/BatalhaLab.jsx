@@ -3,6 +3,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useFichas } from '../../../../context/FichasContext'
 import { useReader } from '../../../../context/ReaderContext'
 import Luta, { VELOCIDADES } from './LutaPentagrama'
+import LutaRitmo from './LutaRitmo'
 import { INIMIGOS } from './campanhaPentagrama'
 import { ligarSom } from './somPentagrama'
 import './Batalha.css'
@@ -79,10 +80,13 @@ export default function BatalhaLab() {
             {verOrigem ? '✓ ' : ''}{t('games.ldi.batalha.ver_origem')}
           </button>
           <button type="button" className="if-btn if-btn--primary pg-comecar" onClick={() => { ligarSom(); setFase('luta') }}>{t('games.ldi.batalha.lutar')}</button>
+          <button type="button" className="if-btn pg-comecar" onClick={() => { ligarSom(); setFase('ritmo') }}>{t('games.ldi.batalha.ritmo.entrar')}</button>
         </div>
       </div>
     )
   }
+
+  if (fase === 'ritmo') return <LutaRitmo t={t} ficha={INIMIGOS[oponente]} onSair={() => setFase('menu')} />
 
   return <Luta t={t} ficha={INIMIGOS[oponente]} batida={VELOCIDADES[velocidade]} verOrigem={verOrigem} onSair={() => setFase('menu')} />
 }
