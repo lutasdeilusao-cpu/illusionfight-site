@@ -18,4 +18,10 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
+  // O servidor de desenvolvimento não vigia o que não é código-fonte: a pasta do
+  // deploy (milhares de arquivos do site compilado), o build e o grafo do graphify.
+  // Vigiar a pasta do deploy segurava arquivos que o git do deploy precisa apagar.
+  server: {
+    watch: { ignored: ['**/.gh-pages-worktree/**', '**/dist/**', '**/graphify-out/**'] },
+  },
 })
