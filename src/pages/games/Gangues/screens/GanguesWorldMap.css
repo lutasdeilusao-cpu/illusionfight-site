@@ -42,22 +42,23 @@
 /* Mapa político — regiões desenhadas no SVG (poly/cor de cada território),
    rótulos numerados sobrepostos via posição percentual (pos.top/left). Cada
    território é um bairro de Marelia, tipo zona de uma cidade de verdade. */
-.gang-world__map { position:relative; z-index:3; aspect-ratio:100/150; width:min(100% - 40px, 320px); max-height:100%; }
+.gang-world__map { position:relative; z-index:3; aspect-ratio:100/150; width:min(100% - 16px, 440px); max-height:100%; }
+.gang-world__arte { position:absolute; inset:0; width:100%; height:100%; display:block; image-rendering:pixelated; pointer-events:none; user-select:none; }
 .gang-world__svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
 .gang-world__region {
-  fill:color-mix(in srgb, var(--regiao-cor) 14%, transparent);
+  fill:transparent;
   stroke:color-mix(in srgb, var(--regiao-cor) 55%, transparent);
   stroke-width:0.6; cursor:pointer; transition:fill .2s, stroke-width .2s, filter .2s;
 }
-.gang-world__region--aberto { fill:color-mix(in srgb, var(--regiao-cor) 30%, transparent); stroke-dasharray:2 1.4; animation:gang-region-pulse 1.6s ease-in-out infinite; }
-.gang-world__region--dominado { fill:color-mix(in srgb, var(--regiao-cor) 62%, transparent); stroke-width:0.9; }
+.gang-world__region--aberto { fill:color-mix(in srgb, var(--regiao-cor) 10%, transparent); stroke-dasharray:2 1.4; animation:gang-region-pulse 1.6s ease-in-out infinite; }
+.gang-world__region--dominado { fill:color-mix(in srgb, var(--regiao-cor) 18%, transparent); stroke-width:0.9; }
 /* Trancado: só opacidade/dessaturação via color-mix — nada de
    filter:grayscale (apagava a identidade nova e voltava a ficar
    indistinguível do visual técnico de antes, mesmo bug já corrigido
    nos cards de modo). */
-.gang-world__region--trancado { fill:color-mix(in srgb, #1a1f22 70%, transparent); stroke:color-mix(in srgb, var(--if-amber) 15%, transparent); }
-.gang-world__region.is-selected { stroke-width:1.4; filter:brightness(1.25); }
-@keyframes gang-region-pulse { 50% { fill:color-mix(in srgb, var(--regiao-cor) 46%, transparent); } }
+.gang-world__region--trancado { fill:color-mix(in srgb, var(--gang-madeira-950) 62%, transparent); stroke:color-mix(in srgb, var(--if-amber) 15%, transparent); }
+.gang-world__region.is-selected { stroke-width:1.4; }
+@keyframes gang-region-pulse { 50% { fill:color-mix(in srgb, var(--regiao-cor) 28%, transparent); } }
 .gang-world__region-label {
   --corte: polygon(0 4%, 10% 0, 90% 1%, 100% 5%, 98% 92%, 90% 100%, 10% 99%, 0 90%);
   position:absolute; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center;
@@ -103,3 +104,17 @@
   background: var(--gang-madeira-900); color: var(--if-amber);
   font: 800 .55rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase;
 }
+
+/* Pergunta "entrar no território?" — folha embaixo, ao alcance do dedão;
+   tocar fora cancela. */
+.gang-world__pergunta-bg {
+  position:fixed; inset:0 var(--app-gutter); z-index:210; display:flex; align-items:flex-end;
+  padding:0 0 18px; background:rgba(0,0,0,.55); overscroll-behavior:none; touch-action:none;
+}
+.gang-world__pergunta { width:100%; margin:0 10px; animation:gang-pergunta-sobe .18s ease-out; }
+.gang-world__pergunta p { -webkit-line-clamp:4; }
+.gang-world__pergunta-txt { display:block; margin:2px 0 10px; color:var(--gang-creme); font:400 1.05rem/1.1 'Permanent Marker', cursive; text-align:center; }
+.gang-world__pergunta-acoes { display:flex; gap:8px; }
+.gang-world__pergunta-acoes button { flex:1; min-height:48px; }
+.gang-world__pergunta-acoes button.is-nao { border-color:color-mix(in srgb, var(--if-amber) 40%, transparent); background:transparent; color:var(--gang-creme); }
+@keyframes gang-pergunta-sobe { from { transform:translateY(24px); opacity:0; } }
