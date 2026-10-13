@@ -252,7 +252,8 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
     // libera geometria e material de um golpe que saiu de cena (o anel é compartilhado)
     // (o modelo pronto é um clone que divide geometria e material com o original: esse fica)
     const liberar = b => { b.mat.dispose(); if (!b.glb) b.modelo.traverse(o => { if (o.isMesh) { o.geometry.dispose(); o.material.dispose() } }) }
-    let raf, ultimoGolpe = 0, ultimoAtaque = 0, show = null, tremeAte = 0
+    // `chute`: o empurrão de câmera a cada golpe seu que acerta (um pra cada lado)
+    let raf, ultimoGolpe = 0, ultimoAtaque = 0, show = null, tremeAte = 0, chute = { em: 0, lado: 1 }
     const projetil = new THREE.Vector3(), alvoCam = new THREE.Vector3(), alvoOlhar = new THREE.Vector3()
     const quadro = () => {
       const s = estadoRef.current
@@ -287,14 +288,14 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
         // tomou golpe: recua e pisca vermelho
         const dg = agora - (s.golpeEm || 0)
         const peitoDele = new THREE.Vector3(lutador.position.x, CHAO_Y + 1.8, FUNDO_Z + 0.5)
-        if (s.golpeEm !== ultimoGolpe) { ultimoGolpe = s.golpeEm; if (robo) tocarAcao(s.inimigo <= 0 ? def.morte : sorteia(def.apanha), true); particulas.explodir(peitoDele, 'acerto') }
+        if (s.golpeEm !== ultimoGolpe) { ultimoGolpe = s.golpeEm; if (!show) chute = { em: agora, lado: (chute.lado || 1) * -1 }; if (robo) tocarAcao(s.inimigo <= 0 ? def.morte : sorteia(def.apanha), true); particulas.explodir(peitoDele, 'acerto') }
         const reac = dg < 260 ? Math.sin((dg / 260) * Math.PI) : 0
         lutador.rotation.x = -reac * 0.45
         lutador.position.z = FUNDO_Z - reac * 0.8
         for (const m of lutador.userData.mats) m.emissive?.setRGB(reac * 0.9, 0, 0)
         // acertou você: avança com os braços
         const da = agora - (s.apanhouEm || 0)
-        if (s.apanhouEm !== ultimoAtaque) { ultimoAtaque = s.apanhouEm; if (robo) tocarAcao(sorteia(def.ataque), true); if (!s.apresenta) particulas.explodir(new THREE.Vector3(0, 0.6, 5), 'apanhou') }
+        if (s.apanhouEm !== ultimoAtaque) { ultimoAtaque = s.apanhouEm; if (!s.apresenta) tremeAte = agora + 260; if (robo) tocarAcao(sorteia(def.ataque), true); if (!s.apresenta) particulas.explodir(new THREE.Vector3(0, 0.6, 5), 'apanhou') }
         const ataque = da < 300 ? Math.sin((da / 300) * Math.PI) : 0
         lutador.position.z += ataque * 2
         if (lutador.userData.bracoD) lutador.userData.bracoD.rotation.x = -1.1 - ataque * 0.6
@@ -306,7 +307,8 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
         if (s.apresenta && (!show || show.ate !== s.apresenta.ate)) {
           const ap = s.apresenta
           show = { ...ap, t0: agora, estilo: ap.dele ? 'dele' : ap.id, impactou: false, voa: ap.frac > 0 && (ap.dele || ap.id !== 'folego') }
-          if (!ap.dele && ap.id === 'folego' && ap.frac > 0) particulas.explodir(new THREE.Vector3(0, -0.8, 5.5), 'folego')
+          // cura: vento verde em volta de você (na frente da câmera), não vai no robô
+          if (!ap.dele && ap.id === 'folego' && ap.frac > 0) for (const x of [-1.4, 0, 1.4]) particulas.explodir(new THREE.Vector3(x, 0.4, 6.8), 'folego')
         }
         alvoCam.copy(CAM_BASE); alvoOlhar.copy(OLHAR_BASE)
         if (show) {
@@ -329,7 +331,14 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
           if (show.voa && !show.dele && u >= 0.5 && u < 0.85) { alvoCam.set(lutador.position.x * 0.6, 1.2, FUNDO_Z + 5.4); alvoOlhar.copy(peitoDele) }
           if (u >= 1) show = null
         }
-        const suaviza = 1 - Math.exp(-dt * 7)
+        // golpe seu acertou: a câmera dá um tranco pra dentro, num ângulo de lado, e volta
+        const dc = (agora - chute.em) / 420
+        if (!show && dc < 1) {
+          const f = Math.sin(dc * Math.PI)
+          alvoCam.x += chute.lado * 1.1 * f; alvoCam.y -= 0.25 * f; alvoCam.z -= 2.4 * f
+          alvoOlhar.x += lutador.position.x * 0.5 * f
+        }
+        const suaviza = 1 - Math.exp(-dt * (dc < 1 ? 14 : 7))
         cam.position.lerp(alvoCam, suaviza); olhar.lerp(alvoOlhar, suaviza)
         if (agora < tremeAte) { const f = (tremeAte - agora) / 380 * 0.25; cam.position.x += (Math.random() - 0.5) * f; cam.position.y += (Math.random() - 0.5) * f }
         cam.lookAt(olhar)
@@ -368,8 +377,9 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
           }
           b.bola.position.copy(pos)
           // o golpe vem DEITADO, com a ponta (punho, bico do pé) apontada pra você
-          b.modelo.rotation.x = Math.sin(t * 1.5 + n.id) * 0.12
-          b.modelo.rotation.y = Math.sin(t * 2 + n.id) * 0.2
+          // a ponta do golpe mira sempre a câmera (você), de onde quer que a nota venha
+          b.modelo.lookAt(cam.position)
+          b.modelo.rotateZ(Math.sin(t * 2 + n.id) * 0.15)
           // onde a bola está na tela e de que tamanho, pro botão de toque acompanhar
           const c = naTela(pos), borda = naTela(pos.clone().add(new THREE.Vector3(RAIO, 0, 0)))
           n.tela = { x: c.x, y: c.y, rpx: Math.abs(borda.x - c.x) / 100 * el.clientWidth }

@@ -30,7 +30,7 @@ export const ESTILOS = {
   },
   // cura: brilho verde subindo em volta de você (não é projétil)
   folego: {
-    impacto: [{ tex: 'magic_02', cor: 0x6be07a, n: 24, vel: 1.2, tam: 1, vida: 1.3, sobe: 2.5 }, { tex: 'twirl_02', cor: 0xb6ffbf, n: 6, vel: 0.6, tam: 2, vida: 1.2, sobe: 1 }],
+    impacto: [{ tex: 'magic_02', cor: 0x6be07a, n: 18, vel: 1.2, tam: 0.7, vida: 1.4, sobe: 1.6 }, { tex: 'twirl_02', cor: 0x3f9e4a, n: 3, vel: 0.4, tam: 1.6, cresce: 1.2, vida: 1.3, sobe: 0.6 }],
   },
   // golpe comum seu acertando ele, e golpe dele acertando você
   acerto: { impacto: [{ tex: 'star_04', cor: 0xb8f6ff, n: 6, vel: 3, tam: 0.7, vida: 0.4 }, { tex: 'spark_04', cor: 0xffffff, n: 8, vel: 5, tam: 0.45, vida: 0.3 }] },

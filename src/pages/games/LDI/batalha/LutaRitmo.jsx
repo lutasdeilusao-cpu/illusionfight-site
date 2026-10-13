@@ -44,15 +44,22 @@ const sorteiaPeso = pesos => {
 }
 
 // De onde a nota sai (de) e onde ela tem que ser tocada (alvo), em % da arena.
+// Todo alvo cai dentro de um quadro só (x 18–82, y 32–76): nada lá no alto da tela.
 function trajetoUm(tipo) {
   if (tipo === 'soco') {
-    const esq = Math.random() < 0.5, y = entre(26, 66)
-    return esq ? { de: { x: -12, y }, alvo: { x: entre(14, 34), y } } : { de: { x: 112, y }, alvo: { x: entre(66, 86), y } }
+    const esq = Math.random() < 0.5, y = entre(40, 64)
+    return esq ? { de: { x: -12, y }, alvo: { x: entre(18, 32), y } } : { de: { x: 112, y }, alvo: { x: entre(68, 82), y } }
   }
-  if (tipo === 'chute') { const x = entre(18, 82); return { de: { x, y: 114 }, alvo: { x, y: entre(72, 88) } } }
-  if (tipo === 'cabecada') return { de: { x: 50, y: 50 }, alvo: { x: entre(30, 70), y: entre(12, 28) } }
-  if (tipo === 'esquiva') return { de: { x: 50, y: 50 }, alvo: { x: 50, y: 50 } }
-  return { de: { x: 50, y: 50 }, alvo: { x: entre(20, 80), y: entre(28, 66) } }
+  if (tipo === 'chute') { const x = entre(22, 78); return { de: { x, y: 114 }, alvo: { x, y: entre(66, 76) } } }
+  if (tipo === 'cabecada') return { de: { x: 50, y: 50 }, alvo: { x: entre(34, 66), y: entre(32, 40) } }
+  if (tipo === 'esquiva') return { de: { x: 50, y: 50 }, alvo: { x: 50, y: 52 } }
+  return { de: { x: 50, y: 50 }, alvo: { x: entre(24, 76), y: entre(36, 66) } }
+}
+// Golpe seu dentro de um grupo: cada nota sorteia o golpe, mas cabeçada e chute
+// não se repetem no mesmo grupo (soco dobrado pode; cabeçada dupla, ninguém dá).
+function golpeDoGrupo(ficha, grupo) {
+  const pesos = Object.fromEntries(Object.entries(ficha.golpes).filter(([g]) => g === 'soco' || !grupo.includes(g)))
+  return sorteiaPeso(Object.keys(pesos).length ? pesos : { soco: 1 })
 }
 // Nunca uma nota em cima da outra: sorteia o alvo até ficar longe das que ainda
 // estão vindo (no tempo de tela delas), senão fica confuso saber qual é a vez.
@@ -85,13 +92,16 @@ function frase(ficha, inicio, n, batida, vez) {
   const lista = ficha.frases || FRASES[nivel]
   const passos = lista[Math.floor(Math.random() * lista.length)]
   const notas = []
-  let tipo = null, anterior = -9
+  let tipo = null, anterior = -9, grupo = []
   for (const p of passos) {
     // começa grupo novo depois de uma pausa (mais de 1 tempo sem nota)
     if (p - anterior > 2) {
       vez.dele = vez.dele == null ? false : vez.dele ? Math.random() < ficha.defesaPeso * 0.5 : true
-      tipo = vez.dele ? sorteiaPeso(ficha.defesas) : sorteiaPeso(ficha.golpes)
+      grupo = []
+      if (vez.dele) tipo = sorteiaPeso(ficha.defesas)
     }
+    if (!vez.dele) tipo = golpeDoGrupo(ficha, grupo)
+    grupo.push(tipo)
     notas.push({ tipo, hora: inicio + p * batida / 2 })
     anterior = p
   }
@@ -245,7 +255,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado }) {
   // Em volta da arena, uma nota em cada ponto do círculo, longe uma da outra.
   const emRoda = (total, i, giro) => {
     const ang = giro + (i / total) * Math.PI * 2 * (total > 4 ? 1 : 0.85)
-    return { x: 50 + Math.cos(ang) * 33, y: 50 + Math.sin(ang) * 33 }
+    return { x: 50 + Math.cos(ang) * 28, y: 54 + Math.sin(ang) * 22 }
   }
 
   // Super DELE: ocupa a frase inteira com a virada dele; você defende nota a nota.
