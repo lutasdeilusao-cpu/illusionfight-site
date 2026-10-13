@@ -24,8 +24,8 @@ import luta08 from './musica/luta-08.mp3?url'
 // Toda música toca um pouco acelerada (VELOCIDADE); o bpm da luta acompanha.
 const VELOCIDADE = 1.08
 const MUSICAS = {
-  // a 01 bate a 100, mas o golpe segue o pulso de 50 (um a cada 1,2 s), marcado pelo Isaias no arquivo
-  1: { url: luta01, bpm: 99.983 / 2, entrada: 6.017 },
+  // a 01 bate a 100, mas o golpe segue o pulso de 50 (um a cada 1,2 s, na caixa), medido na versão equalizada
+  1: { url: luta01, bpm: 49.999, entrada: 6.024 },
   2: { url: luta02, bpm: 154.414 / 2, entrada: 2.855 },
   3: { url: luta03, bpm: 97.996, entrada: 6.201 },
   4: { url: luta04, bpm: 141.325 / 2, entrada: 9.201 },
