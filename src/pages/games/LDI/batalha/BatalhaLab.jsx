@@ -42,6 +42,7 @@ export default function BatalhaLab() {
       <div className="pg-page">
         <p className="if-eyebrow">{t('games.ldi.batalha.lab')}</p>
         <h1 className="pg-titulo">{t('games.ldi.batalha.titulo')}</h1>
+        <button type="button" className="if-btn if-btn--primary pg-comecar" onClick={() => { ligarSom(); setFase('ritmo') }}>{t('games.ldi.batalha.ritmo.entrar')}</button>
         <p className="pg-texto">{t('games.ldi.batalha.como')}</p>
         <details className="pg-como">
           <summary>{t('games.ldi.batalha.como_joga')}</summary>
@@ -80,7 +81,6 @@ export default function BatalhaLab() {
             {verOrigem ? '✓ ' : ''}{t('games.ldi.batalha.ver_origem')}
           </button>
           <button type="button" className="if-btn if-btn--primary pg-comecar" onClick={() => { ligarSom(); setFase('luta') }}>{t('games.ldi.batalha.lutar')}</button>
-          <button type="button" className="if-btn pg-comecar" onClick={() => { ligarSom(); setFase('ritmo') }}>{t('games.ldi.batalha.ritmo.entrar')}</button>
         </div>
       </div>
     )

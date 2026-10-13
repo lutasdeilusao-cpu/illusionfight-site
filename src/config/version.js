@@ -8,11 +8,11 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.406.0'
+export const SITE_VERSION = '10.406.1'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
-export const LDI_VERSION       = '3.14.0'  // Lendas do LDI — laboratório ganha a luta rítmica (teste)
+export const LDI_VERSION       = '3.14.1'  // Lendas do LDI — laboratório ganha a luta rítmica (teste)
 export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
 export const GANGUES_VERSION   = '3.109.1' // Pergunta de entrar no bairro centralizada na tela
 
