@@ -13,6 +13,7 @@
 import { MUNDO_FEIRA, RUAS_FEIRA, MURO_FEIRA, POSTES_FEIRA, QUARTEIROES_FEIRA, PREDIOS_FEIRA, OBSTACULOS_FEIRA, CENARIO_FEIRA, FIACAO_FEIRA } from './mundo.js'
 import { POIS_FEIRA } from './pois.js'
 import { INTERIORES_FEIRA } from './interiores.js'
+import { FUNDO_FEIRA, FUNDO_INT_FEIRA, comFundos } from './fundos.js'
 import { POS_FEIRA, ENTRY_ZONES_FEIRA } from './posicoes.js'
 
 import { FEIRA_POOL_RUA } from './pools.js'
@@ -23,6 +24,7 @@ export const CENA_FEIRA = {
   poolCapangas: FEIRA_POOL_RUA,
   cor: '#7ee787',
   mundo: MUNDO_FEIRA,
+  fundo: FUNDO_FEIRA,
   ruas: RUAS_FEIRA,
   muro: MURO_FEIRA,
   postes: POSTES_FEIRA,
@@ -40,7 +42,7 @@ export const CENA_FEIRA = {
   pois: POIS_FEIRA,
   pos: POS_FEIRA,
   entryZones: ENTRY_ZONES_FEIRA,
-  interiores: INTERIORES_FEIRA,
+  interiores: comFundos(INTERIORES_FEIRA, FUNDO_INT_FEIRA),
 
   // O APAGÃO: do outro lado da barricada a Feira fica no escuro (só um
   // círculo de luz em volta do jogador) até o Cobrador cair.
