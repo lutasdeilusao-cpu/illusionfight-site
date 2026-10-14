@@ -289,33 +289,71 @@
     "numero": 4,
     "so_admin": true,
     "especial": true,
-    "titulo_pt": "Especial de Terror — Parte 1",
-    "titulo_en": "Horror Special — Part 1",
-    "titulo_es": "Especial de Terror — Parte 1",
-    "publicado": false,
+    "titulo_pt": "Presos na Ilusão · Parte 1",
+    "titulo_en": "Trapped in the Illusion · Part 1",
+    "titulo_es": "Atrapados en la Ilusión · Parte 1",
+    "publicado": true,
     "data_publicacao": "2027-12-30",
     "liberacao": {
       "primordial": "2027-11-15",
       "elite": "2027-11-15",
       "conta": "2027-12-15",
       "publico": "2027-12-30"
-    }
+    },
+    "paginas": 64,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "presos-na-ilusao/01",
+    "versoes": [
+      {
+        "id": "gemini-storyboard",
+        "nome_pt": "Gemini · storyboard",
+        "nome_en": "Gemini · storyboard",
+        "nome_es": "Gemini · storyboard",
+        "paginas": 64
+      }
+    ]
   },
   {
     "id": "especial-5",
     "numero": 5,
     "so_admin": true,
     "especial": true,
-    "titulo_pt": "Especial de Terror — Parte 2",
-    "titulo_en": "Horror Special — Part 2",
-    "titulo_es": "Especial de Terror — Parte 2",
-    "publicado": false,
+    "titulo_pt": "Presos na Ilusão · Parte 2",
+    "titulo_en": "Trapped in the Illusion · Part 2",
+    "titulo_es": "Atrapados en la Ilusión · Parte 2",
+    "publicado": true,
     "data_publicacao": "2028-01-30",
     "liberacao": {
       "primordial": "2027-12-15",
       "elite": "2027-12-15",
       "conta": "2028-01-15",
       "publico": "2028-01-30"
-    }
+    },
+    "paginas": 69,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "presos-na-ilusao/02",
+    "versoes": [
+      {
+        "id": "gemini-storyboard",
+        "nome_pt": "Gemini · storyboard",
+        "nome_en": "Gemini · storyboard",
+        "nome_es": "Gemini · storyboard",
+        "paginas": 69
+      }
+    ]
   }
 ]

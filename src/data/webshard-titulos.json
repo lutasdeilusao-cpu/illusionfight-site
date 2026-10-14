@@ -27,6 +27,52 @@
     "fonte_capitulos": "episodios"
   },
   {
+    "id": 5,
+    "slug": "mundo-das-sombras",
+    "nome_pt": "O Mundo das Sombras",
+    "nome_en": "The Shadow World",
+    "nome_es": "El Mundo de las Sombras",
+    "tagline_pt": "Toda vez que as sombras vêm, alguém morre. E a culpa é da marca no ombro dele.",
+    "tagline_en": "Every time the shadows come, someone dies. And the mark on his shoulder is to blame.",
+    "tagline_es": "Cada vez que vienen las sombras, alguien muere. Y la culpa es de la marca en su hombro.",
+    "sinopse_pt": "Minus tem nove anos e já perdeu tudo três vezes. A espiral queimada no ombro dele atrai as sombras — criaturas que se alimentam de dor — e um Iluminado que o odeia desde o berço. Sozinho nas ruas de Brasília, ele aprende a transformar o próprio medo em arma. Até descobrir que existe outra pessoa marcada como ele, e que a fuga sempre foi, na verdade, uma guerra.",
+    "sinopse_en": "Minus is nine years old and has already lost everything three times. The spiral burned into his shoulder draws the shadows — creatures that feed on pain — and an Illuminated One that has hated him since the cradle. Alone on the streets of Brasília, he learns to turn his own fear into a weapon. Until he finds out there is another person marked like him, and that running away was always, in fact, a war.",
+    "sinopse_es": "Minus tiene nueve años y ya lo ha perdido todo tres veces. La espiral quemada en su hombro atrae a las sombras — criaturas que se alimentan del dolor — y a un Iluminado que lo odia desde la cuna. Solo en las calles de Brasilia, aprende a convertir su propio miedo en arma. Hasta que descubre que existe otra persona marcada como él, y que huir siempre fue, en realidad, una guerra.",
+    "generos": [
+      "dark-fantasy",
+      "sobrenatural"
+    ],
+    "classificacao": "16",
+    "cor": "#5b4a8a",
+    "capa": "capa-mundo-das-sombras.webp",
+    "status": "em_andamento",
+    "visivel": "so_admin",
+    "fonte_capitulos": "mundo-das-sombras"
+  },
+  {
+    "id": 4,
+    "slug": "mar-de-cinzas",
+    "nome_pt": "Mar de Cinzas",
+    "nome_en": "Sea of Ashes",
+    "nome_es": "Mar de Cenizas",
+    "tagline_pt": "Dezessete anos. Vestido branco. O noivo tem cinquenta e dois — e três esposas mortas.",
+    "tagline_en": "Seventeen years old. A white dress. The groom is fifty-two — with three dead wives.",
+    "tagline_es": "Diecisiete años. Vestido blanco. El novio tiene cincuenta y dos — y tres esposas muertas.",
+    "sinopse_pt": "Num arquipélago onde o combustível é feito da memória cristalizada de deuses mortos, Elizabeth Thoss é entregue em casamento a um comandante do Almirantado aos dezessete anos. Ela não tem prova do que ele fez às esposas anteriores — tem algo melhor: anos de invisibilidade e uma memória que não esquece nada. E, no fundo do oceano, algo que espera há trinta mil anos começa a prestar atenção nela.",
+    "sinopse_en": "In an archipelago where fuel is made from the crystallized memory of dead gods, Elizabeth Thoss is given in marriage to an Admiralty commander at seventeen. She has no proof of what he did to his previous wives — she has something better: years of invisibility and a memory that forgets nothing. And, at the bottom of the ocean, something that has waited thirty thousand years begins to pay attention to her.",
+    "sinopse_es": "En un archipiélago donde el combustible se hace con la memoria cristalizada de dioses muertos, Elizabeth Thoss es entregada en matrimonio a un comandante del Almirantazgo a los diecisiete años. No tiene prueba de lo que él les hizo a sus esposas anteriores — tiene algo mejor: años de invisibilidad y una memoria que no olvida nada. Y, en el fondo del océano, algo que espera desde hace treinta mil años empieza a prestarle atención.",
+    "generos": [
+      "horror",
+      "drama"
+    ],
+    "classificacao": "16",
+    "cor": "#8a6a5a",
+    "capa": "capa-mar-de-cinzas.webp",
+    "status": "em_andamento",
+    "visivel": "so_admin",
+    "fonte_capitulos": "mar-de-cinzas"
+  },
+  {
     "id": 2,
     "slug": "herois-da-cidade",
     "nome_pt": "Heróis da Cidade",
@@ -70,74 +116,5 @@
     "status": "em_andamento",
     "visivel": "publico",
     "fonte_capitulos": "agradecimentos"
-  },
-  {
-    "id": 4,
-    "slug": "mar-de-cinzas",
-    "nome_pt": "Mar de Cinzas",
-    "nome_en": "Sea of Ashes",
-    "nome_es": "Mar de Cenizas",
-    "tagline_pt": "Dezessete anos. Vestido branco. O noivo tem cinquenta e dois — e três esposas mortas.",
-    "tagline_en": "Seventeen years old. A white dress. The groom is fifty-two — with three dead wives.",
-    "tagline_es": "Diecisiete años. Vestido blanco. El novio tiene cincuenta y dos — y tres esposas muertas.",
-    "sinopse_pt": "Num arquipélago onde o combustível é feito da memória cristalizada de deuses mortos, Elizabeth Thoss é entregue em casamento a um comandante do Almirantado aos dezessete anos. Ela não tem prova do que ele fez às esposas anteriores — tem algo melhor: anos de invisibilidade e uma memória que não esquece nada. E, no fundo do oceano, algo que espera há trinta mil anos começa a prestar atenção nela.",
-    "sinopse_en": "In an archipelago where fuel is made from the crystallized memory of dead gods, Elizabeth Thoss is given in marriage to an Admiralty commander at seventeen. She has no proof of what he did to his previous wives — she has something better: years of invisibility and a memory that forgets nothing. And, at the bottom of the ocean, something that has waited thirty thousand years begins to pay attention to her.",
-    "sinopse_es": "En un archipiélago donde el combustible se hace con la memoria cristalizada de dioses muertos, Elizabeth Thoss es entregada en matrimonio a un comandante del Almirantazgo a los diecisiete años. No tiene prueba de lo que él les hizo a sus esposas anteriores — tiene algo mejor: años de invisibilidad y una memoria que no olvida nada. Y, en el fondo del océano, algo que espera desde hace treinta mil años empieza a prestarle atención.",
-    "generos": [
-      "horror",
-      "drama"
-    ],
-    "classificacao": "16",
-    "cor": "#8a6a5a",
-    "capa": "capa-mar-de-cinzas.webp",
-    "status": "em_andamento",
-    "visivel": "so_admin",
-    "fonte_capitulos": "mar-de-cinzas"
-  },
-  {
-    "id": 5,
-    "slug": "mundo-das-sombras",
-    "nome_pt": "O Mundo das Sombras",
-    "nome_en": "The Shadow World",
-    "nome_es": "El Mundo de las Sombras",
-    "tagline_pt": "Toda vez que as sombras vêm, alguém morre. E a culpa é da marca no ombro dele.",
-    "tagline_en": "Every time the shadows come, someone dies. And the mark on his shoulder is to blame.",
-    "tagline_es": "Cada vez que vienen las sombras, alguien muere. Y la culpa es de la marca en su hombro.",
-    "sinopse_pt": "Minus tem nove anos e já perdeu tudo três vezes. A espiral queimada no ombro dele atrai as sombras — criaturas que se alimentam de dor — e um Iluminado que o odeia desde o berço. Sozinho nas ruas de Brasília, ele aprende a transformar o próprio medo em arma. Até descobrir que existe outra pessoa marcada como ele, e que a fuga sempre foi, na verdade, uma guerra.",
-    "sinopse_en": "Minus is nine years old and has already lost everything three times. The spiral burned into his shoulder draws the shadows — creatures that feed on pain — and an Illuminated One that has hated him since the cradle. Alone on the streets of Brasília, he learns to turn his own fear into a weapon. Until he finds out there is another person marked like him, and that running away was always, in fact, a war.",
-    "sinopse_es": "Minus tiene nueve años y ya lo ha perdido todo tres veces. La espiral quemada en su hombro atrae a las sombras — criaturas que se alimentan del dolor — y a un Iluminado que lo odia desde la cuna. Solo en las calles de Brasilia, aprende a convertir su propio miedo en arma. Hasta que descubre que existe otra persona marcada como él, y que huir siempre fue, en realidad, una guerra.",
-    "generos": [
-      "dark-fantasy",
-      "sobrenatural"
-    ],
-    "classificacao": "16",
-    "cor": "#5b4a8a",
-    "capa": "capa-mundo-das-sombras.webp",
-    "status": "em_andamento",
-    "visivel": "so_admin",
-    "fonte_capitulos": "mundo-das-sombras"
-  },
-  {
-    "id": 6,
-    "slug": "presos-na-ilusao",
-    "fonte_capitulos": "presos-na-ilusao",
-    "visivel": "so_admin",
-    "status": "em_andamento",
-    "classificacao": "18",
-    "cor": "#b8862b",
-    "capa": "capa-presos-na-ilusao.webp",
-    "generos": [
-      "terror",
-      "especial"
-    ],
-    "nome_pt": "Presos na Ilusão",
-    "nome_en": "Trapped in the Illusion",
-    "nome_es": "Atrapados en la Ilusión",
-    "tagline_pt": "Especial de Halloween. Ninguém lembra de quem já morreu.",
-    "tagline_en": "Halloween special. Nobody remembers who already died.",
-    "tagline_es": "Especial de Halloween. Nadie recuerda a quien ya murió.",
-    "sinopse_pt": "Uma luta de exibição na festa de Halloween da SBI. Kim, Jack, Nina, Freddy e o bando do Brock entram na ilusão e não conseguem mais sair. Cada vez que alguém morre, a noite recomeça, e ninguém lembra de quem sumiu. Só uma câmera VHS velha guarda o que aconteceu.",
-    "sinopse_en": "An exhibition fight at the SBI Halloween party. Kim, Jack, Nina, Freddy and Brock's crew enter the illusion and cannot get out. Every time someone dies, the night starts over, and nobody remembers who is gone. Only an old VHS camera keeps what happened.",
-    "sinopse_es": "Una pelea de exhibición en la fiesta de Halloween de la SBI. Kim, Jack, Nina, Freddy y la banda de Brock entran en la ilusión y no pueden salir. Cada vez que alguien muere, la noche vuelve a empezar, y nadie recuerda a quien desapareció. Solo una vieja cámara VHS guarda lo que pasó."
   }
 ]

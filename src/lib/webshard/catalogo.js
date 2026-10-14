@@ -4,7 +4,6 @@ import heroisEpisodios from '../../data/herois-episodios.json'
 import agradecimentosEpisodios from '../../data/agradecimentos-episodios.json'
 import marDeCinzasEpisodios from '../../data/mar-de-cinzas-episodios.json'
 import mundoDasSombrasEpisodios from '../../data/mundo-das-sombras-episodios.json'
-import presosNaIlusaoEpisodios from '../../data/presos-na-ilusao-episodios.json'
 
 /* Catálogo WEB SHARD — única porta de entrada para "quais títulos existem,
    quais capítulos cada um tem e onde moram as páginas". A UI nunca lê
@@ -36,7 +35,6 @@ const FONTES = {
   agradecimentos: () => agradecimentosEpisodios,
   'mar-de-cinzas': () => marDeCinzasEpisodios,
   'mundo-das-sombras': () => mundoDasSombrasEpisodios,
-  'presos-na-ilusao': () => presosNaIlusaoEpisodios,
   nenhuma: () => [],
 }
 
