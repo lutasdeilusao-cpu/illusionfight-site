@@ -69,3 +69,8 @@
   font-size: 0.8rem;
   line-height: 1.45;
 }
+
+/* Lobby do Lutas de Ilusão: abas da linha principal, especiais e contos */
+.ws-titulo__abas { display: flex; gap: 6px; margin: 1.5rem 0 1rem; }
+.ws-titulo__aba { flex: 1; min-height: 44px; border: 1px solid var(--if-hair-strong); background: var(--bg-elevated); color: var(--text-secondary); font: 700 0.72rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%); }
+.ws-titulo__aba.is-ativa { color: var(--ws-cor, var(--if-cyan)); border-color: var(--ws-cor, var(--if-cyan)); box-shadow: inset 0 -2px var(--ws-cor, var(--if-cyan)); }

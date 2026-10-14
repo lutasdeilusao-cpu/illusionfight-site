@@ -1254,7 +1254,13 @@
       "classificacao": "{n}+",
       "especiais": "Especiais",
       "especiais_selo": "Fora da linha principal",
-      "especiais_hint": "Uma história à parte: os personagens levados pra outro mundo, pra preencher o hiato. Não conta pra linha principal."
+      "especiais_hint": "Uma história à parte: os personagens levados pra outro mundo, pra preencher o hiato. Não conta pra linha principal.",
+      "abas": "Seções",
+      "aba_principal": "Linha principal",
+      "aba_especiais": "Especiais",
+      "aba_contos": "Contos",
+      "contos_hint": "Os Contos de Ilusão são histórias em texto do mesmo universo: o passado de cada personagem, contado por ele mesmo.",
+      "contos_ir": "Ler os Contos de Ilusão"
     },
     "cap": {
       "rotulo": "Cap. {n}",
