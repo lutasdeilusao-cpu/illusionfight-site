@@ -192,7 +192,8 @@ export default function WebshardLeitor({ titulo, capId }) {
         />
 
 
-        {avisoAutorAberto && cap.aviso_autor && (
+        {/* o recado do autor é só pra quem tem conta: visitante lê sem nada na frente */}
+        {avisoAutorAberto && cap.aviso_autor && nivel !== 'publico' && (
           <AvisoAutor id={cap.aviso_autor} cor={titulo.cor} onFechar={() => setAvisoAutorAberto(false)} />
         )}
 
