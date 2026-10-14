@@ -320,7 +320,7 @@ export default function LutaRitmo({ t, ficha, onSair, onResultado, energiaInicia
       return
     }
     const pd = PODERES[s.poder.id]
-    if (pd.dano) s.inimigo = Math.max(0, s.inimigo - Math.round(Math.min(pd.dano, ficha.vida * TETO_SUPER) * frac))
+    if (pd.dano) s.inimigo = Math.max(0, s.inimigo - Math.round(ficha.vida * Math.min(TETO_SUPER, pd.dano * (1 - (ficha.resisteSuper || 0))) * frac))
     if (pd.cura) s.vida = Math.min(VIDA, s.vida + Math.round(pd.cura * frac))
     if (pd.atordoa && frac > 0) s.atordoadoAte = agora + APRESENTA + pd.atordoa * frac
     s.apresenta = { id: s.poder.id, frac, ate: agora + APRESENTA }

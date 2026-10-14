@@ -9,7 +9,7 @@ import urlTenis from './modelos/tenis.glb?url'
 import urlBracoRobo from './modelos/bracorobo.glb?url'
 import urlBota from './modelos/bota.glb?url'
 import urlAventureiro from './modelos/aventureiro.glb?url'
-import urlRingue from './modelos/ringue.glb?url'
+import { montarArena } from './arenaLDI'
 
 // Arena em 3D da luta rítmica. Lá no fundo, no centro, o lutador inimigo (modelo
 // pronto, animado); toda nota NASCE DELE e voa até o ponto dela, perto da tela. Acertou
@@ -21,8 +21,7 @@ import urlRingue from './modelos/ringue.glb?url'
 // Modelos 3D (licenças livres, créditos também na tela do laboratório):
 //   RobotExpressive — Tomás Laulhé (CC0) · Boxing Glove — J-Toastie (CC-BY 3.0)
 //   Sneakers — Poly by Google (CC-BY 3.0) · Robot Arm — Yali Izzo (CC-BY 3.0)
-//   Boots — Isa Lousberg (CC0) · Adventurer — Quaternius (CC0)
-//   Boxing Ring — Ian MacGillivray (CC-BY 3.0). Todos via poly.pizza / three.js examples.
+//   Boots — Isa Lousberg (CC0) · Adventurer — Quaternius (CC0). Todos via poly.pizza / three.js examples.
 
 // Seu golpe = anel AZUL e partes humanas; golpe dele = anel VERMELHO e partes de robô.
 const AZUL = 0x18dafb, VERMELHO = 0xff3b4e, OURO = 0xffd166
@@ -137,18 +136,17 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
     el.appendChild(renderer.domElement)
     const cena = new THREE.Scene()
     const cam = new THREE.PerspectiveCamera(45, 1, 0.1, 100)
-    // câmera mirando o meio do lutador, que fica no centro da tela, lá no fundo do ringue
+    // câmera mirando o meio do lutador, que fica no centro da tela, lá no fundo da arena
     const CAM_BASE = new THREE.Vector3(0, 1.8, 10), OLHAR_BASE = new THREE.Vector3(0, CHAO_Y + 1.6, FUNDO_Z)
     cam.position.copy(CAM_BASE); cam.lookAt(OLHAR_BASE)
     // a câmera parada de sempre: é por ela que o ponto de toque de cada nota é calculado,
     // mesmo quando a câmera de verdade está dando zoom na apresentação do super
     const camFixa = cam.clone()
     const olhar = OLHAR_BASE.clone()
-    cena.fog = new THREE.Fog(0x07090b, 22, 46)
     cena.add(new THREE.AmbientLight(0xffffff, 0.55))
     const luz = new THREE.DirectionalLight(0xffffff, 1.4); luz.position.set(3, 6, 8); cena.add(luz)
-    // As notas vivem num palco à parte, filmado pela câmera fixa: o passeio da câmera do
-    // ringue (ângulos, zoom, tranco) nunca muda onde a nota chega nem de que tamanho.
+    // As notas vivem num palco à parte, filmado pela câmera fixa: o passeio da câmera da
+    // arena (ângulos, zoom, tranco) nunca muda onde a nota chega nem de que tamanho.
     const cenaNotas = new THREE.Scene()
     cenaNotas.add(new THREE.AmbientLight(0xffffff, 0.75))
     const luzNotas = new THREE.DirectionalLight(0xffffff, 1.4); luzNotas.position.set(3, 6, 8); cenaNotas.add(luzNotas)
@@ -173,7 +171,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
       nova.play(); acaoAtual = nova; umaVezAtiva = Boolean(umaVez)
     }
     const trocarBase = nome => { if (!nome || nome === base) return; base = nome; if (!umaVezAtiva) tocarAcao(nome) }
-    // O passeio no fundo do ringue: escolhe um ponto, anda (ou pula/rola) até ele, para em guarda.
+    // O passeio no fundo da arena: escolhe um ponto, anda (ou pula/rola) até ele, para em guarda.
     const passeio = { x: 0, alvo: 0, ate: 1.5, modo: 'parado', proxPasso: 0 }
     const modelos = {}
     // Tudo que a luta precisa carregar passa por aqui; quando acaba, avisa (tela de carregamento).
@@ -206,34 +204,13 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
       })
     }
     const relogio = new THREE.Clock()
-    // O ambiente: o ringue (modelo pronto) com o lutador no meio, o chão do galpão
-    // em volta e dois refletores de cima.
+    // O ambiente: a Arena do Lutas de Ilusão (arenaLDI.js), com o lutador no fundo do chão azul.
     const extras = []
-    const chao = new THREE.Mesh(new THREE.PlaneGeometry(80, 80), new THREE.MeshStandardMaterial({ color: 0x15171b, roughness: 0.95 }))
-    chao.rotation.x = -Math.PI / 2; chao.position.set(0, CHAO_Y - 0.9, FUNDO_Z); cena.add(chao); extras.push(chao)
+    const arena = montarArena(cena, { chaoY: CHAO_Y, cz: -3, raio: 14 })
     for (const x of [-5, 5]) {
-      const foco = new THREE.SpotLight(0xffe2b0, 28, 30, 0.45, 0.7, 1.4)
+      const foco = new THREE.SpotLight(0xffe2b0, 18, 30, 0.45, 0.7, 1.4)
       foco.position.set(x, 9, FUNDO_Z + 3); foco.target.position.set(0, CHAO_Y, FUNDO_Z); cena.add(foco, foco.target)
     }
-    loader.load(urlRingue, g => {
-      if (!vivo) return
-      const ringue = g.scene
-      // Você está DENTRO do ringue: ele é esticado até as cordas da frente ficarem
-      // atrás da câmera e as do fundo logo atrás do lutador. A altura das cordas
-      // fica na escala do lutador (por isso a escala em y é separada).
-      ringue.traverse(m => { if (m.isMesh) { m.material = m.material.clone(); m.material.color?.multiplyScalar(0.42) } })
-      ringue.updateMatrixWorld(true)
-      const cx = new THREE.Box3().setFromObject(ringue), tam = cx.getSize(new THREE.Vector3()), meio = cx.getCenter(new THREE.Vector3())
-      const hit = new THREE.Raycaster(new THREE.Vector3(meio.x, cx.max.y + 1, meio.z), new THREE.Vector3(0, -1, 0)).intersectObject(ringue, true)[0]
-      const lona = hit ? hit.point.y : cx.min.y + tam.y * 0.35
-      if (hit) hit.object.material.color.set(0x1c2633) // lona azul-escura
-      const fundo = FUNDO_Z - 2, frente = cam.position.z + 1.5
-      const sz = (frente - fundo) / tam.z, sx = sz * 1.0, sy = 2.6 / (cx.max.y - lona)
-      ringue.scale.set(sx, sy, sz)
-      ringue.position.set(-meio.x * sx, CHAO_Y - lona * sy, (fundo + frente) / 2 - meio.z * sz)
-      chao.position.y = CHAO_Y - (lona - cx.min.y) * sy
-      cena.add(ringue); extras.push(ringue)
-    })
     lutador.scale.setScalar(0.9)
 
     const geoAnel = new THREE.TorusGeometry(RAIO, 0.06, 10, 40)
@@ -271,7 +248,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
         particulas.atualizar(dt)
         // respira e balança em guarda (o robô já tem a animação de guarda dele)
         lutador.position.y = CHAO_Y + (robo ? 0 : Math.sin(t * 3.2) * 0.06)
-        // anda de um lado pro outro no fundo do ringue (as notas continuam saindo do centro)
+        // anda de um lado pro outro no fundo da arena (as notas continuam saindo do centro)
         const pz = passeio
         if (s.inimigo > 0) {
           if (pz.modo === 'parado' && t > pz.ate) {
@@ -281,7 +258,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
           }
           if (pz.modo !== 'parado') {
             const dir = Math.sign(pz.alvo - pz.x), passo = (pz.modo === 'pulo' ? 2.6 : 1.5) * dt
-            if (pz.modo === 'anda') trocarBase(def.anda || (dir > 0 ? def.andaDir : def.andaEsq))
+            if (pz.modo === 'anda') trocarBase(def.anda || (dir > 0 ? def.andaEsq : def.andaDir)) // de frente pra você, a direita dele é a sua esquerda
             if (pz.modo === 'anda' && t > pz.proxPasso) { somPasso(); pz.proxPasso = t + 0.36 }
             if (Math.abs(pz.alvo - pz.x) <= passo) { pz.x = pz.alvo; pz.modo = 'parado'; pz.ate = t + 0.8 + Math.random() * 1.8; trocarBase(def.parado) }
             else pz.x += dir * passo
@@ -338,7 +315,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
           if (u >= 1) show = null
         }
         // golpe seu acertou: a câmera dá um tranco num ângulo sorteado (lado, de cima, de
-        // baixo, girando em volta dele) e volta. Só o ringue se mexe: as notas não.
+        // baixo, girando em volta dele) e volta. Só a arena se mexe: as notas não.
         const dc = (agora - chute.em) / 520
         if (!show && dc < 1) {
           const f = Math.sin(dc * Math.PI)
@@ -364,7 +341,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
             bola.add(new THREE.Mesh(geoAnel, anelMat))
             const modelo = modelos[n.tipo] ? modelos[n.tipo].clone(true) : MODELO[n.tipo](); if (!modelos[n.tipo]) modelo.scale.setScalar(0.95); bola.add(modelo)
             b = { bola, mat: anelMat, modelo, glb: Boolean(modelos[n.tipo]), alvo: noPlano(n.alvo.x, n.alvo.y) }
-            // a nota é desenhada sempre por cima do ringue (a lona passa por baixo da câmera)
+            // a nota é desenhada sempre por cima da arena (o chão passa por baixo da câmera)
             bola.traverse(m => { if (m.isMesh) { m.renderOrder = 10; m.material.depthTest = false } })
             bolas.set(n.id, b); cenaNotas.add(bola)
           }
@@ -409,6 +386,7 @@ export default function Arena3D({ estadoRef, voo, janela = 150, lutador: qual = 
       lutador.traverse(o => { o.geometry?.dispose() })
       lutador.userData.mats.forEach(m => m.dispose())
       Object.values(modelos).concat(extras).forEach(m => m.traverse(o => { if (o.isMesh) { o.geometry.dispose(); o.material.dispose() } }))
+      arena.descartar()
       renderer.dispose(); el.removeChild(renderer.domElement)
     }
   }, [estadoRef, voo, janela, qual, corInimigo, onFalha])

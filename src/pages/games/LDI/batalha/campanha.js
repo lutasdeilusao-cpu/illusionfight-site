@@ -61,20 +61,26 @@ export const INIMIGOS = [
     golpes: { soco: 2, chute: 2, cabecada: 2 }, defesas: { bloqueio: 2, esquiva: 2 } },
 ]
 
+// Quanto cada inimigo segura do seu super (fração tirada da fatia do poder): os
+// primeiros não seguram nada (super cheio tira ~30%), os últimos seguram um quarto.
+const RESISTE_SUPER = { 1: 0, 2: 0, 3: 0.05, 4: 0.1, 5: 0.13, 6: 0.17, 7: 0.2, 8: 0.25 }
+for (const i of INIMIGOS) i.resisteSuper = RESISTE_SUPER[i.id] ?? 0
+
 // Os poderes do SUPER. Cada um é uma virada de bateria: `virada` são as notas em
 // semicolcheias (0 = cabeça da virada; 1 = um quarto de batida depois). Quanto mais
 // nota e mais seguida, mais difícil e mais forte. O efeito sai proporcional às notas
 // acertadas: acertou 3 de 4, sai 75% do poder.
-//   dano: tira do inimigo · cura: devolve sua vida · atordoa: ms em que ele não ataca
+//   dano: FATIA da vida cheia do inimigo (0.30 = 30%), menos a `resisteSuper` dele
+//   cura: devolve sua vida · atordoa: ms em que ele não ataca
 // Nenhum super tira mais que TETO_SUPER da vida cheia de quem apanha (o seu nem o dele).
 export const TETO_SUPER = 0.35
 
 export const PODERES = {
-  rajada: { virada: [0, 2, 4, 6], dano: 40 },
+  rajada: { virada: [0, 2, 4, 6], dano: 0.30 },
   folego: { virada: [0, 2, 3, 4], cura: 35 },
-  geloNegro: { virada: [0, 1, 2, 4, 6], dano: 25, atordoa: 6000 },
-  choque: { virada: [0, 1, 2, 3, 4, 6], dano: 60 },
-  furia: { virada: [0, 1, 2, 3, 4, 6, 8], dano: 90 },
+  geloNegro: { virada: [0, 1, 2, 4, 6], dano: 0.18, atordoa: 6000 },
+  choque: { virada: [0, 1, 2, 3, 4, 6], dano: 0.36 },
+  furia: { virada: [0, 1, 2, 3, 4, 6, 8], dano: 0.42 },
 }
 
 // Quais poderes você leva em cada luta (pelo id do inimigo).
