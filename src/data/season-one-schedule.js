@@ -106,7 +106,7 @@ export const SEASON_ONE_COMPLETION = {
 export const GAMES_ROADMAP = [
   { fase: 'q1', data: '2026-11-15', jogos: ['trumps', 'gangues', 'ldi'] },
   { fase: 'q2', data: '2027-03-15', jogos: ['tama', 'jack', 'tatics'] },
-  { fase: 'q3', data: '2027-07-15', jogos: ['duelo', 'rpg', 'isometrico'] },
+  { fase: 'q3', data: '2027-07-15', jogos: ['duelo', 'isometrico'] },
 ]
 
 // Panorama: só a T1 é garantida; as próximas são a mesma cadência projetada.

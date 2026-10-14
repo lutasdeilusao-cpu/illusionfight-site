@@ -274,7 +274,7 @@ Ela achou estranho. Não comentou.
 
 O Kim encostou a guitarra na parede.
 
-— Tá. Vou lá no seu Zé buscar alguma coisa pra gente tomar.
+— Aqui não. Se a Helena acha bebida na garagem, ela bebe tudo e ainda leva meu cigarro. — Pegou a carteira. — Vou no seu Zé buscar alguma coisa. A gente toma depois, na base.
 
 E saiu.
 
@@ -314,9 +314,9 @@ Era estranho ver uma amizade tão bonita de perto. Tão sincera.
 
 O Kim voltou com uma sacola.
 
-Uma garrafa de vodka barata, dois limões, um refrigerante e um saquinho de gelo que já estava suando. Montou os copos em cima de uma caixa de papelão, cortou o limão com o canivete do Jack, espremeu com a mão, completou com refrigerante.
+Uma garrafa de vodka barata, dois limões, um refrigerante e um saquinho de gelo que já estava suando. Deixou tudo do lado de fora do portão, escondido atrás do muro.
 
-Os três beberam o primeiro gole quase juntos.
+— Isso é pra depois. — Pro Jack, antes que ele abrisse a boca. — Na base.
 
 — Agora chega de enrolar. — Kim. — Me conta direitinho o que aconteceu naquele jogo depois que eu apaguei. E por falar nisso, você tá me devendo uma surra por ter me metido nessa encrenca.
 
@@ -328,17 +328,17 @@ O Jack riu.
 
 A Nina olhava de um pro outro. Ela tinha assistido à luta inteira pelo SBI dela. E tinha ouvido, no anexo, que o Kim não lembrava de nada. Agora queria saber de onde tinha saído aquilo tudo.
 
-O Jack tomou mais um gole e contou. Em ordem, tudo. O cabelo prata, o fogo preto, a voz que não era do Kim, o rugido que derrubou a arena, o outro cara que saiu da poeira, o Freddy sendo comido pelos pés.
+O Jack girou a baqueta e contou. Em ordem, tudo. O cabelo prata, o fogo preto, a voz que não era do Kim, o rugido que derrubou a arena, o outro cara que saiu da poeira, o Freddy sendo comido pelos pés.
 
-— Eu achei que você tava possuído, Kim. De verdade. — O Jack olhando pro copo. — Aí o Narrador perguntou o nome. E você falou que era O Primordial. Kim Primordial. A arena inteira cantou. E antes de voltar ao normal, você disse que ia voltar.
+— Eu achei que você tava possuído, Kim. De verdade. — O Jack olhando pro chão. — Aí o Narrador perguntou o nome. E você falou que era O Primordial. Kim Primordial. A arena inteira cantou. E antes de voltar ao normal, você disse que ia voltar.
 
 A garagem ficou quieta.
 
-A Nina tinha parado de beber.
+A Nina tinha parado de girar o celular na mão.
 
-O Kim pegou o copo e virou metade de uma vez.
+O Kim passou a mão no rosto, devagar.
 
-— Daí em diante eu lembro. — Colocou o copo na caixa. — Hum. Não sei se eu devia contar isso pra vocês. Mas tá. Chega de draminha. Vai que vocês me ajudam.
+— Daí em diante eu lembro. — Encostou a guitarra na caixa. — Hum. Não sei se eu devia contar isso pra vocês. Mas tá. Chega de draminha. Vai que vocês me ajudam.
 
 ---
 
@@ -358,11 +358,11 @@ O Jack abriu a boca. Fechou.
 
 O Jack foi ao chão.
 
-Literalmente. Escorregou do banquinho da bateria e caiu sentado no cimento, o copo ainda na mão por milagre, rindo do riso que sai de um lugar fundo e não pede licença.
+Literalmente. Escorregou do banquinho da bateria e caiu sentado no cimento, a baqueta ainda na mão por milagre, rindo do riso que sai de um lugar fundo e não pede licença.
 
 — EU PERDI. Tô na Disney. Que viagem absurda!
 
-A Nina segurou até a parte do parceiro imaginário. Depois dobrou ao meio, a mão no joelho, rindo tanto que esqueceu onde tinha deixado o copo.
+A Nina segurou até a parte do parceiro imaginário. Depois dobrou ao meio, a mão no joelho, rindo tanto que esqueceu onde tinha deixado o celular.
 
 — Cheguei pra divar! — Ela, sem ar. — Chavoso como sempre! Puta que pariu!
 

@@ -29,8 +29,8 @@ Prazo = a data do ASSINANTE (o primeiro a receber). Conta grátis e público rec
 ## P2 — 2º ciclo (mar – mai/2027)
 | Data | Item | Estado | Falta |
 |---|---|---|---|
-| 15/03 | Jogos Q2: Tama, Jack Dream Beer, LDI Arena (Tactics) | 🟡 | terminar e tirar do `SoAdmin` |
-| 15/03 – 30/05 | Livro caps 7–12 | ✅ pt/en/es | ❓ decidir cap 10 (não está no RETCON) e o lugar da base no cap 9 × cap 17 |
+| 15/03 | Jogos Q2: Tama, Jack Dream Beer, LDI Arena (hexagonal, hoje o Arena Testbed) | 🟡 | terminar e liberar |
+| 15/03 – 30/05 | Livro caps 7–12 | ✅ pt/en/es | — (base = delegacia abandonada; ensaio = garagem do Kim; cap 10 da banda é canon novo) |
 | 15/03 | WEB SHARD 04 | ✅ pt/en/es | — |
 | 15/04 | WEB SHARD 05 | 🟡 65 págs pt | EN/ES |
 | 15/05 | WEB SHARD 06 | 🟡 59 págs pt ("Em Produção") | conferir se fechou; EN/ES |
@@ -43,7 +43,7 @@ Prazo = a data do ASSINANTE (o primeiro a receber). Conta grátis e público rec
 | 30/06 | Conto "Alan, o Campeão" | ✅ | — |
 
 ## P4 — 3º ciclo (jul – set/2027)
-| 15/07 | Jogos Q3: Duelo, RPG 32 bits, LDI Isométrico | ❌/🟡 | produzir |
+| 15/07 | Jogos Q3: Duelo, LDI Isométrico | 🟡 | terminar e liberar |
 | 15/07 – 30/09 | Livro caps 13–18 | ✅ pt/en/es | — |
 | 15/07, 15/08, 15/09 | WEB SHARD 07, 08, 09 | ❌ | produzir do zero (pt + EN/ES) |
 | 15/07 – 15/09 | Músicas 7–9 | ❓ | escolher |
@@ -66,11 +66,11 @@ Prazo = a data do ASSINANTE (o primeiro a receber). Conta grátis e público rec
 | `/games/ldi` (+ `/game`, `/luta` laboratório da luta rítmica) | Lendas do LDI | público | Q1 |
 | `/games/tamagoshi` | Tamagoshi LDI | só admin | Q2 15/03/2027 |
 | `/games/jackcandy` | Jack Dream Candy (Jack Dream Beer) | só admin | Q2 |
-| `/games/ldi-tatics` | **LDI Tactics — tabuleiro ISOMÉTRICO** (`ArenaTatics`, `GridCanvas` iso) | só admin | Q2 ("LDI Arena") / Q3 ("LDI Isométrico") ❓ qual vai em qual |
-| `/prototype/arenatestbed` | **Arena Testbed — tabuleiro HEXAGONAL** (V2, IA por personalidade) | laboratório | candidato ao "LDI Arena hexagonal" do Q2 ❓ |
+| `/games/ldi-tatics` | **LDI Isométrico** (código `ArenaTatics`, `GridCanvas` iso) | só admin | Q3 15/07/2027 — fecha a temporada |
+| `/prototype/arenatestbed` | **LDI Arena — tabuleiro HEXAGONAL** (Arena Testbed V2, IA por personalidade) | laboratório | Q2 15/03/2027 (vira jogo: rota própria em `/games`) |
 | `/prototype/srgrm` | Protótipo SRGRM 3v3 | laboratório | — |
 | `/games/duelo` | Duelo LDI | só admin | Q3 15/07/2027 |
-| (sem rota) | RPG 32 bits | ❌ não existe | Q3 |
+| (sem rota) | LDI RPG 32 bits — a história oficial jogável (Kim, Jack, Nina) | ❌ não existe | depois que o WEB SHARD fechar a história (fora da T1) |
 | `/games/pesadelo` | Pesadelo Particular | só admin | fora do roadmap |
 | `/games/minigames` | MiniGames | só admin | fora do roadmap |
 | `/games/kernel-panic`, `/codigo-perdido`, `/sliding-rafael`, `/maze-rafael`, `/glitch-rafael`, `/bullet-hell-rafael`, `/stabilizer-rafael` | Kernel Games (sócio) | só admin | aguardam calendário do sócio |

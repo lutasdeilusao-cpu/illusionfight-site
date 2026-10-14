@@ -6,7 +6,7 @@ O Jack foi na frente até uma loja de bebida. Do jeito de sempre: um refrigerant
 
 Um estacionamento vazio. Uns carros velhos largados, um Fusca sem rodas, uma caminhonete com árvore crescendo no motor, um hatch vermelho com a porta de trás aberta pra sempre. E o que sobrou de uma delegacia, a placa meio pintada. Os carros eram apreendidos do tempo em que ela funcionava.
 
-Era o refúgio do Kim e do Jack. A primeira vez da Nina ali.
+Era o refúgio do Kim e do Jack. E, desde a noite da banda, da Nina também.
 
 O Kim tirou os copos da mochila. O Jack cortou os limões com o canivete. A Nina abriu o refrigerante.
 

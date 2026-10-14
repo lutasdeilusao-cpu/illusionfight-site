@@ -4,7 +4,7 @@ O Kim pegou a guitarra de novo e começou a afinar.
 
 Girava uma tarraxa, tocava uma corda, ouvia, girava de novo. Sem afinador, sem aplicativo. De ouvido.
 
-A Nina andou pela garagem com o copo na mão. No canto, atrás das caixas de papelão, encostado na parede, tinha outro instrumento. Mais comprido que a guitarra. Quatro cordas grossas.
+A Nina andou pela garagem. No canto, atrás das caixas de papelão, encostado na parede, tinha outro instrumento. Mais comprido que a guitarra. Quatro cordas grossas.
 
 — Isso aqui é um baixo?
 

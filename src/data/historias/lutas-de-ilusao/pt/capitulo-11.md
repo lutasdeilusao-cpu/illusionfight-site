@@ -1,6 +1,12 @@
 # CAPÍTULO 11 — O Pulo do Gato
 
-O Kim encheu os copos de novo e sentou numa caixa de papelão.
+Depois do ensaio, o Kim pegou a sacola escondida atrás do muro e os três foram pra base.
+
+Um estacionamento vazio no fim da rua. Uns carros velhos largados, um Fusca sem rodas, uma caminhonete com árvore crescendo no motor, um hatch vermelho com a porta de trás aberta pra sempre. E o que sobrou de uma delegacia, a placa meio pintada. Os carros eram apreendidos do tempo em que ela funcionava.
+
+Ninguém ia ali. Nem polícia. Nem a Helena.
+
+O Kim montou os copos no capô do hatch. O Jack cortou o limão com o canivete. Vodka, limão espremido com a mão, refrigerante. O Kim sentou no meio-fio.
 
 — Agora sim. — Olhou pros dois. — Me explica essa porra direito. LDI, SBI, SDR, SDA, sei lá o quê. Tudo.
 
@@ -134,7 +140,7 @@ A Nina passou a mão no rosto do Jack, devagar, com um sorriso malicioso.
 
 — EEEEEEEEITAAAAAAA PORRAAAAAAAA!
 
-O grito do Kim ecoou pela garagem.
+O grito do Kim ecoou pelo estacionamento vazio.
 
 O Jack baixou a cabeça, derrotado. E o Kim, que também devia ter se ofendido, começou a rir. Talvez da resposta dela. Talvez da vodka. Mas não parava.
 
@@ -216,13 +222,13 @@ O Kim sorriu. Mais uma vez, feliz por ter aquele amigo.
 
 — Eu sei. Manda assim mesmo.
 
-O Jack levantou, bateu a poeira da calça e desceu a rua até a casa dele com as baquetas no bolso de trás.
+O Jack levantou do meio-fio, bateu a poeira da calça e foi embora pela rua escura com as baquetas no bolso de trás.
 
 — Chega vivo amanhã a tempo da aula. — O Kim, alto.
 
 O Jack levantou a mão sem virar.
 
-O Kim fechou o portão da garagem.
+O Kim juntou os copos, voltou pra casa sozinho e fechou o portão da garagem.
 
 Ficou um segundo com a mão no ferro frio. Lá dentro, no escuro, a guitarra pendurada no prego, o baixo encostado na parede, a bateria com o buraco onde faltava um tom.
 
