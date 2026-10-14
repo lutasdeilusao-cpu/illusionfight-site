@@ -8,7 +8,7 @@
     "titulo_es": "La Marca",
     "frase_pt": "Toda vez que as sombras vêm, alguém morre.",
     "publicado": true,
-    "paginas": 53,
+    "paginas": 58,
     "idiomas": [
       "pt"
     ],
@@ -27,32 +27,11 @@
     "data_publicacao": "2099-02-15",
     "versoes": [
       {
-        "id": "base",
-        "nome_pt": "Original",
-        "nome_en": "Original",
-        "nome_es": "Original",
-        "paginas": 53
-      },
-      {
-        "id": "codex",
-        "nome_pt": "Codex",
-        "nome_en": "Codex",
-        "nome_es": "Codex",
-        "paginas": 53
-      },
-      {
-        "id": "arkham-codex",
-        "nome_pt": "Arkham · Codex v1 (antiga)",
-        "nome_en": "Arkham · Codex v1 (old)",
-        "nome_es": "Arkham · Codex v1 (antigua)",
-        "paginas": 53
-      },
-      {
-        "id": "arkham-gemini",
-        "nome_pt": "Arkham · Gemini",
-        "nome_en": "Arkham · Gemini",
-        "nome_es": "Arkham · Gemini",
-        "paginas": 53
+        "id": "arkham-gemini-v2",
+        "nome_pt": "Arkham · Gemini v2 (pré-final)",
+        "nome_en": "Arkham · Gemini v2 (pre-final)",
+        "nome_es": "Arkham · Gemini v2 (pre-final)",
+        "paginas": 58
       },
       {
         "id": "arkham-v2",
@@ -60,13 +39,6 @@
         "nome_en": "Arkham · Codex v2 (pre-final)",
         "nome_es": "Arkham · Codex v2 (pre-final)",
         "paginas": 47
-      },
-      {
-        "id": "arkham-gemini-v2",
-        "nome_pt": "Arkham · Gemini v2 (pré-final)",
-        "nome_en": "Arkham · Gemini v2 (pre-final)",
-        "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 58
       }
     ]
   },
@@ -79,7 +51,7 @@
     "titulo_es": "El Umbral",
     "frase_pt": "Do outro lado da película.",
     "publicado": true,
-    "paginas": 55,
+    "paginas": 16,
     "idiomas": [
       "pt"
     ],
@@ -97,27 +69,6 @@
     },
     "data_publicacao": "2099-02-15",
     "versoes": [
-      {
-        "id": "base",
-        "nome_pt": "Original",
-        "nome_en": "Original",
-        "nome_es": "Original",
-        "paginas": 55
-      },
-      {
-        "id": "codex",
-        "nome_pt": "Codex",
-        "nome_en": "Codex",
-        "nome_es": "Codex",
-        "paginas": 47
-      },
-      {
-        "id": "arkham-gemini",
-        "nome_pt": "Arkham · Gemini",
-        "nome_en": "Arkham · Gemini",
-        "nome_es": "Arkham · Gemini",
-        "paginas": 55
-      },
       {
         "id": "arkham-gemini-v2",
         "nome_pt": "Arkham · Gemini v2 (pré-final)",
