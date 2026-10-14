@@ -97,7 +97,8 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 
 ## 7. LDI GANGUES
 - Mapas pixel art: NUNCA pedir o bloco inteiro (inventa prédio). Fluxo `GANGUES_MAPA/`: guia do dado → chão sem prédios → cada telhado sozinho → montar no retângulo exato → `comp.py` pra achar prédio inventado. Colisão mora no dado.
-- Retratos de inimigo: cabeça 256×256 pixel art, `assets/enemies/<slug>/neutro.png` + mapa `ENEMY_ID_SLUG` em `data/ganguesEnemyPortraits.js`. Plano: Codex em **grade 6×4 (24 cabeças) numa imagem 1536×1024**, fundo transparente, recortar → 288 inimigos novos = ~12 imagens. Testar 1 grade antes do lote.
+- Retratos de inimigo: cabeça 256×256 pixel art, `assets/enemies/<slug>/neutro.png` + mapa `ENEMY_ID_SLUG` em `data/ganguesEnemyPortraits.js`. Grade no Codex: `MUNDO DAS SOMBRAS/WEBSHARD/scripts/gangues_grades.py` põe na fila do Codex (`prompts/v2/5_NN_gangues.txt`, depois do MDS) grades 6×4 (24 cabeças, 1536×1024, transparente, estilo de `gangues_grades/estilo_retratos.png`), chefões na 1ª; `fila_v2.py` recorta cada célula em `assets/enemies/<id>/neutro.png` (o jogo acha o retrato pela pasta do id quando não há slug). 365 cabeças = 16 grades. Revisar a 1ª grade antes de publicar.
+- Animação (sprite sheet de batalha): só os 7 chefões e os 30 personagens jogáveis — a definir depois; o resto é só cabeça.
 - Texto de inimigo: `LAB-NVIDIA/gangues_inimigos.py plano|gerar|gravar` (DeepSeek+Gemini, lotes de 12, exemplos do catálogo + lista de nomes proibidos). Lotes em paralelo REPETEM nomes → rodar `gangues_renomeia.py` depois.
 - Sprite: animação vai no momento de destaque (dado dramático), nunca no log. Poses giram sozinhas (frente/perfil/costas, 2–3 s).
 

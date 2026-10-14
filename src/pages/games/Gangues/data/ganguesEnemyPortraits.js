@@ -63,5 +63,6 @@ export function getGanguesEnemyPortrait(slug, expressao = 'neutro') {
 /** Atalho pelo `id` numérico do inimigo (gangues-enemies.json/poi.enemy) —
  *  é assim que TretaVS e o combate já têm o dado em mãos. */
 export function getGanguesEnemyPortraitById(enemyId, expressao = 'neutro') {
-  return getGanguesEnemyPortrait(ENEMY_ID_SLUG[enemyId], expressao)
+  // sem slug no mapa, a pasta da arte é o próprio id (assets/enemies/<id>/neutro.png)
+  return getGanguesEnemyPortrait(ENEMY_ID_SLUG[enemyId] || String(enemyId), expressao)
 }
