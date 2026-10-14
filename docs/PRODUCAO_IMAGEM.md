@@ -115,3 +115,35 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 
 ## 8. LUTAS DE ILUSÃO (WEB SHARD principal)
 - Produzido fora do agente (Isaias). Agente só traduz páginas (seção 2) e publica.
+
+## 9. WEB SHARD "CÂMERA NA MÃO" (found footage em VHS)
+Linguagem própria pra especial em que a história é o que uma filmadora gravou. O roteiro diz qual página é fita e qual não é.
+
+**Quadro**
+- Todo painel é um quadro da fita, visto **pela lente** de quem filma. A câmera está na mão: horizonte um pouco torto, enquadramento imperfeito, às vezes uma ponta de dedo ou da alça na borda.
+- Efeito VHS em todo painel: chiado, linhas de tracking, cor sangrando nas bordas, grão, luz estourada, foco "procurando". O traço continua o do estilo da obra; o VHS vai por cima, sem virar foto.
+- **Visor (overlay) sempre igual:** "● REC" em cima à esquerda, data e hora embaixo à direita, bateria em cima à direita e contador da fita. É letra de visor de filmadora: branca, pixelada, com sombra. O texto do visor entra na lista de TEXTS do prompt, exatamente como deve sair (ex.: `"● REC"`, `"31 OUT 1998 23:14"`, `"BAT 60%"`). Se não estiver na lista, o modelo inventa número.
+- O que muda no visor é continuidade: o roteiro diz a hora e a bateria de cada página. Conferir na revisão como se confere um rosto.
+
+**Composição WEB SHARD adaptada**
+- Até 2 painéis grandes por página, 1 nas páginas importantes.
+- **Divisão entre painéis:** faixa de chiado de VHS na cor de quem domina a cena, no lugar da fumaça.
+- **Estilhaço:** quadro solto da fita (frame congelado com borda de chiado) ou, quando a lente já rachou, caco do vidro da lente com a imagem dentro. Sempre um detalhe só.
+- Quem filma **quase nunca aparece**: só no reflexo (espelho, poça, vidro) ou quando alguém toma a câmera.
+
+**Olhar**
+- A regra "ninguém olha pro leitor" muda aqui: olhar pra lente é olhar pra quem filma, e é permitido quando a fala é pra essa pessoa. Escrever no prompt "looks into the camera lens, at the person filming".
+- Olhar de verdade pro leitor (o vilão virando a câmera pro próprio rosto) é exceção marcada no roteiro, uma vez por especial.
+
+**Câmera caída / sem dono**
+- Morte e susto com a câmera caída: lente no chão, quadro de lado (90°), parte do quadro tampada por objeto. O que importa acontece **no fundo ou fora do quadro**, e a onomatopeia carrega o som.
+- Prompt: "the camcorder has fallen on the floor and keeps recording sideways; the frame is rotated 90 degrees; the action happens in the background, partly out of frame".
+
+**Violência e palavras no prompt**
+- Nunca escrever "sangue/blood". Dentro de simulação: "glowing blue liquid". No mundo real: "red liquid".
+- Mostrar a consequência, nunca o ferimento: som, sombra, objeto caído, corpo parado errado.
+
+**Páginas fora da fita** (ex.: alguém assistindo a fita depois): sem visor de REC, imagem limpa, a TV de tubo mostrando a fita. Marcar isso no roteiro da página.
+
+**Bloco pronto pro prompt**
+"FOUND FOOTAGE PAGE: every panel is a frame of an old VHS camcorder tape filmed handheld by NINA (she is behind the camera, never visible except in reflections). VHS look: scan lines, tracking noise, color bleed at the edges, grain, blown highlights, imperfect handheld framing. Camcorder viewfinder overlay on every panel, written exactly as listed in TEXTS. Panels are separated by a band of VHS static in [cor]. Shards are [frozen frames with static borders | cracked fragments of the camera lens]."
