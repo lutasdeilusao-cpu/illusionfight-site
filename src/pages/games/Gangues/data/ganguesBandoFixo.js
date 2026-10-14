@@ -5,6 +5,7 @@
 //
 // Quem entra:
 //   - `bando` escrito no ponto: [{ id, pts }] — vale do jeito que está.
+//   - os ids de cada vaga vêm de ganguesBandos.json (cada inimigo só existe numa luta);
 //   - senão, montado a partir do ponto, sempre igual (o "sorteio" usa o id do ponto
 //     como semente): o líder (`enemy`/`liderFixo`/1º do pool) com a ficha do ponto
 //     e os capangas do pool do ponto (ou da rua do bairro), 2 a 3 pontos abaixo.
@@ -13,6 +14,8 @@
 // bairro (GANGUES_MIN_INIMIGOS).
 import { GANGUES_MIN_INIMIGOS, escalarInimigo, numerarRepetidos, pontosPreviewPoi } from './ganguesEncontros.js'
 import { CENAS_POR_ID } from './cenas/cenaHelpers.js'
+// Quem é quem em cada luta: `<bairro>:<ponto>[:<escolha>]` → ids, um inimigo único por vaga.
+import BANDOS from './ganguesBandos.json'
 
 function semente(texto) {
   let h = 2166136261
@@ -51,6 +54,8 @@ export function bandoFixoDoPoi(poi, territorioId, { viraTreta = null, ptsLider =
     const pts = total ? Math.max(3, Math.round((total - pLider) / (n - 1))) : Math.max(3, pLider - (i % 2 ? 2 : 3))
     bando.push({ id, pts })
   }
+  const ids = BANDOS[`${territorioId}:${poi.id}${chave}`]
+  if (ids?.length === bando.length) ids.forEach((id, i) => { bando[i].id = id })
   return bando
 }
 
