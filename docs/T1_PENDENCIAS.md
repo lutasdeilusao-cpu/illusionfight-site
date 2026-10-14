@@ -30,7 +30,7 @@ Prazo = a data do ASSINANTE (o primeiro a receber). Conta grátis e público rec
 | Data | Item | Estado | Falta |
 |---|---|---|---|
 | 15/03 | Jogos Q2: Tama, Jack Dream Beer, LDI Arena (Tactics) | 🟡 | terminar e tirar do `SoAdmin` |
-| 15/03 – 30/05 | Livro caps 7–12 | 🟡 só pt | traduzir EN/ES |
+| 15/03 – 30/05 | Livro caps 7–12 | ✅ pt/en/es | ❓ decidir cap 10 (não está no RETCON) e o lugar da base no cap 9 × cap 17 |
 | 15/03 | WEB SHARD 04 | ✅ pt/en/es | — |
 | 15/04 | WEB SHARD 05 | 🟡 65 págs pt | EN/ES |
 | 15/05 | WEB SHARD 06 | 🟡 59 págs pt ("Em Produção") | conferir se fechou; EN/ES |
@@ -44,7 +44,7 @@ Prazo = a data do ASSINANTE (o primeiro a receber). Conta grátis e público rec
 
 ## P4 — 3º ciclo (jul – set/2027)
 | 15/07 | Jogos Q3: Duelo, RPG 32 bits, LDI Isométrico | ❌/🟡 | produzir |
-| 15/07 – 30/09 | Livro caps 13–18 | 🟡 só pt | EN/ES |
+| 15/07 – 30/09 | Livro caps 13–18 | ✅ pt/en/es | — |
 | 15/07, 15/08, 15/09 | WEB SHARD 07, 08, 09 | ❌ | produzir do zero (pt + EN/ES) |
 | 15/07 – 15/09 | Músicas 7–9 | ❓ | escolher |
 
@@ -77,8 +77,8 @@ Prazo = a data do ASSINANTE (o primeiro a receber). Conta grátis e público rec
 | `/historias/*`, `/livro/*`, `/webtoon/*`, `/musicas`, `/calendario`, `/universos/*`, `/creators`, `/autor`, `/loja`, `/assinar`, `/admin` | portal | público (admin escondido) | — |
 
 ## Traduções em andamento (agentes)
-- Lendas do LDI, 4 atos → EN/ES: `LAB-NVIDIA/lendas_traduz.py` (DeepSeek; Gemini estourou a cota grátis), revisão do agente antes de ligar `IDIOMAS_PRONTOS`.
-- Livro caps 7–28 → EN/ES: `LAB-NVIDIA/livro_traduz.py 7 28` (DeepSeek, Gemini reserva), saída em `LAB-NVIDIA/livro_traducao/` pra revisão antes de ir pro site.
+- ✅ Lendas do LDI, 4 atos → EN/ES (`LAB-NVIDIA/lendas_traduz.py`) publicados.
+- ✅ Livro caps 7–28 → EN/ES traduzidos (`LAB-NVIDIA/livro_traduz.py`) e publicados.
 
 ## Fora da T1 (sem data)
-Mundo das Sombras caps 5–6 (texto pronto), Mar de Cinzas ("em avaliação", Apêndice sem texto), Livro caps 19–28 (só pt, T2).
+Mundo das Sombras caps 5–6 (texto pronto), Mar de Cinzas ("em avaliação", Apêndice sem texto), Livro caps 19–28 (pt/en/es, T2).
