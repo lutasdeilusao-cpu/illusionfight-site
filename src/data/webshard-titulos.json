@@ -116,5 +116,28 @@
     "status": "em_andamento",
     "visivel": "so_admin",
     "fonte_capitulos": "mundo-das-sombras"
+  },
+  {
+    "id": 6,
+    "slug": "presos-na-ilusao",
+    "fonte_capitulos": "presos-na-ilusao",
+    "visivel": "so_admin",
+    "status": "em_andamento",
+    "classificacao": "18",
+    "cor": "#b8862b",
+    "capa": "capa-presos-na-ilusao.webp",
+    "generos": [
+      "terror",
+      "especial"
+    ],
+    "nome_pt": "Presos na Ilusão",
+    "nome_en": "Trapped in the Illusion",
+    "nome_es": "Atrapados en la Ilusión",
+    "tagline_pt": "Especial de Halloween. Ninguém lembra de quem já morreu.",
+    "tagline_en": "Halloween special. Nobody remembers who already died.",
+    "tagline_es": "Especial de Halloween. Nadie recuerda a quien ya murió.",
+    "sinopse_pt": "Uma luta de exibição na festa de Halloween da SBI. Kim, Jack, Nina, Freddy e o bando do Brock entram na ilusão e não conseguem mais sair. Cada vez que alguém morre, a noite recomeça, e ninguém lembra de quem sumiu. Só uma câmera VHS velha guarda o que aconteceu.",
+    "sinopse_en": "An exhibition fight at the SBI Halloween party. Kim, Jack, Nina, Freddy and Brock's crew enter the illusion and cannot get out. Every time someone dies, the night starts over, and nobody remembers who is gone. Only an old VHS camera keeps what happened.",
+    "sinopse_es": "Una pelea de exhibición en la fiesta de Halloween de la SBI. Kim, Jack, Nina, Freddy y la banda de Brock entran en la ilusión y no pueden salir. Cada vez que alguien muere, la noche vuelve a empezar, y nadie recuerda a quien desapareció. Solo una vieja cámara VHS guarda lo que pasó."
   }
 ]

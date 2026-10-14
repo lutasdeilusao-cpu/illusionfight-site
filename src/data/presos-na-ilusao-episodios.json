@@ -1,0 +1,74 @@
+[
+  {
+    "id": "01",
+    "numero": 1,
+    "so_admin": true,
+    "titulo_pt": "A Exibição",
+    "titulo_en": "The Exhibition",
+    "titulo_es": "La Exhibición",
+    "frase_pt": "",
+    "publicado": true,
+    "paginas": 64,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "presos-na-ilusao/01",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15",
+    "versoes": [
+      {
+        "id": "gemini-storyboard",
+        "nome_pt": "Gemini · storyboard",
+        "nome_en": "Gemini · storyboard",
+        "nome_es": "Gemini · storyboard",
+        "paginas": 64
+      }
+    ]
+  },
+  {
+    "id": "02",
+    "numero": 2,
+    "so_admin": true,
+    "titulo_pt": "Quem Sobra",
+    "titulo_en": "Who Is Left",
+    "titulo_es": "Quién Queda",
+    "frase_pt": "",
+    "publicado": true,
+    "paginas": 69,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "presos-na-ilusao/02",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15",
+    "versoes": [
+      {
+        "id": "gemini-storyboard",
+        "nome_pt": "Gemini · storyboard",
+        "nome_en": "Gemini · storyboard",
+        "nome_es": "Gemini · storyboard",
+        "paginas": 69
+      }
+    ]
+  }
+]
