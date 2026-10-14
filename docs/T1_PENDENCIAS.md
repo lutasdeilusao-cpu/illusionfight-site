@@ -58,5 +58,27 @@ Prazo = a data do ASSINANTE (o primeiro a receber). Conta grátis e público rec
 | 15/11 – 30/12 | Contos 04–07 (Nina, Jack, Inocentes, Correntes) | ✅ | — |
 | 15/11, 15/12 | Especial de Terror partes 1 e 2 (E4, E5) | ❌ | história + produção |
 
+## Rotas do projeto (o que existe hoje)
+| Rota | O quê | Estado | Na T1 |
+|---|---|---|---|
+| `/games/toptrumps` (+ `/multiplayer`, `/games/multiplayer/lobby`) | Super Trunfo (SP e MP) | público | Q1 15/11/2026 |
+| `/games/ldi-gangues` | LDI Gangues | público | Q1 |
+| `/games/ldi` (+ `/game`, `/luta` laboratório da luta rítmica) | Lendas do LDI | público | Q1 |
+| `/games/tamagoshi` | Tamagoshi LDI | só admin | Q2 15/03/2027 |
+| `/games/jackcandy` | Jack Dream Candy (Jack Dream Beer) | só admin | Q2 |
+| `/games/ldi-tatics` | **LDI Tactics — tabuleiro ISOMÉTRICO** (`ArenaTatics`, `GridCanvas` iso) | só admin | Q2 ("LDI Arena") / Q3 ("LDI Isométrico") ❓ qual vai em qual |
+| `/prototype/arenatestbed` | **Arena Testbed — tabuleiro HEXAGONAL** (V2, IA por personalidade) | laboratório | candidato ao "LDI Arena hexagonal" do Q2 ❓ |
+| `/prototype/srgrm` | Protótipo SRGRM 3v3 | laboratório | — |
+| `/games/duelo` | Duelo LDI | só admin | Q3 15/07/2027 |
+| (sem rota) | RPG 32 bits | ❌ não existe | Q3 |
+| `/games/pesadelo` | Pesadelo Particular | só admin | fora do roadmap |
+| `/games/minigames` | MiniGames | só admin | fora do roadmap |
+| `/games/kernel-panic`, `/codigo-perdido`, `/sliding-rafael`, `/maze-rafael`, `/glitch-rafael`, `/bullet-hell-rafael`, `/stabilizer-rafael` | Kernel Games (sócio) | só admin | aguardam calendário do sócio |
+| `/historias/*`, `/livro/*`, `/webtoon/*`, `/musicas`, `/calendario`, `/universos/*`, `/creators`, `/autor`, `/loja`, `/assinar`, `/admin` | portal | público (admin escondido) | — |
+
+## Traduções em andamento (agentes)
+- Lendas do LDI, 4 atos → EN/ES: `LAB-NVIDIA/lendas_traduz.py` (DeepSeek; Gemini estourou a cota grátis), revisão do agente antes de ligar `IDIOMAS_PRONTOS`.
+- Livro caps 7–28 → EN/ES: `LAB-NVIDIA/livro_traduz.py 7 28` (DeepSeek, Gemini reserva), saída em `LAB-NVIDIA/livro_traducao/` pra revisão antes de ir pro site.
+
 ## Fora da T1 (sem data)
 Mundo das Sombras caps 5–6 (texto pronto), Mar de Cinzas ("em avaliação", Apêndice sem texto), Livro caps 19–28 (só pt, T2).
