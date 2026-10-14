@@ -42,9 +42,9 @@
       },
       {
         "id": "arkham-codex",
-        "nome_pt": "Arkham · Codex",
-        "nome_en": "Arkham · Codex",
-        "nome_es": "Arkham · Codex",
+        "nome_pt": "Arkham · Codex v1 (antiga)",
+        "nome_en": "Arkham · Codex v1 (old)",
+        "nome_es": "Arkham · Codex v1 (antigua)",
         "paginas": 53
       },
       {
@@ -53,6 +53,13 @@
         "nome_en": "Arkham · Gemini",
         "nome_es": "Arkham · Gemini",
         "paginas": 53
+      },
+      {
+        "id": "arkham-v2",
+        "nome_pt": "Arkham · Codex v2 (pré-final)",
+        "nome_en": "Arkham · Codex v2 (pre-final)",
+        "nome_es": "Arkham · Codex v2 (pre-final)",
+        "paginas": 6
       }
     ]
   },
