@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.425.0'
+export const SITE_VERSION = '10.426.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
-export const LDI_VERSION       = '3.31.0'  // Lendas do LDI — graphic novel interativa: quadros com arte, página virando, escolhas no painel
+export const LDI_VERSION       = '3.31.1'  // Lendas do LDI — graphic novel interativa: quadros com arte, página virando, escolhas no painel
 export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
-export const GANGUES_VERSION   = '3.110.0' // Tela de carregamento com a logo entre ambientes
+export const GANGUES_VERSION   = '3.111.0' // Bando fixo por luta de território, inimigos exclusivos por bairro, Rinha levanta o caído quando outro está no teto
 
 export const TAMA_VERSION      = '3.4.2' // sem cache local: progresso só na conta
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

@@ -93,3 +93,6 @@
   text-shadow: 0 3px 0 rgba(0, 0, 0, 0.7), 0 0 30px color-mix(in srgb, var(--if-amber) 55%, transparent);
 }
 .gang-report--defeat .gang-report-hero .resultado-topo__nome { color: var(--gang-creme); text-shadow: 0 3px 0 rgba(0, 0, 0, 0.7), 0 0 30px color-mix(in srgb, var(--if-danger) 60%, transparent); }
+
+/* Rinha: aviso de que o caído foi levantado pagando a recuperação. */
+.resultado-rinha-reviveu { margin: 8px 0 0; padding: 8px 10px; font: 700 0.78rem/1.35 var(--font-body); color: var(--if-ink); background: rgba(255, 174, 50, 0.12); border-left: 3px solid var(--if-amber); }

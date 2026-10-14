@@ -8,7 +8,7 @@ import GanguesRetratoImg from '../GanguesRetratoImg'
 /* O que a gangue ganhou: AP de cada lutador com a barra do nível, grana,
    reputação e o que caiu do bando. */
 export default function ResultadoRecompensa({ t, rewardSummary, roster }) {
-  const { apLista, grana, rep, drops = [] } = rewardSummary
+  const { apLista, grana, rep, drops = [], rinhaReviveu = 0 } = rewardSummary
   return (
     <section className="resultado-bloco resultado-recompensa">
       <h2 className="resultado-titulo">{t('games.gangues.report.rewards_title')}</h2>
@@ -32,6 +32,7 @@ export default function ResultadoRecompensa({ t, rewardSummary, roster }) {
           )
         })}
       </ul>
+      {rinhaReviveu > 0 && <p className="resultado-rinha-reviveu">{t('games.gangues.report.rinha_reviveu', { custo: rinhaReviveu })}</p>}
       {(grana > 0 || rep > 0) && (
         <div className="resultado-moedas">
           {grana > 0 && <span className="resultado-moeda is-grana">💵 <b>+{grana}</b></span>}

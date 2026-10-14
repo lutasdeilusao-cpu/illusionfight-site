@@ -97,6 +97,16 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       }
     })
 
+    // Rinha pra upar o fraco: se alguém já está no teto (não ganha mais nada) e outro
+    // caiu, a casa cobra a recuperação e levanta a tropa — quem deixou rodando quer o
+    // mais fraco subindo. Sem ninguém no teto, quem caiu fica caído como sempre.
+    let rinhaReviveu = 0
+    if (victory && emCena && storyAlvo?.rinha && apLista.some(m => m.noTeto && !m.ko) && apLista.some(m => m.ko && !m.noTeto)) {
+      const cenaR = CENAS_POR_ID[storyAlvo.cenaId]
+      const custo = cenaR ? custoRecuperacaoRinha(cenaR, store.cenaProgresso[cenaR.id]) : 0
+      if (custo && store.grana >= custo && store.gastarGrana(custo)) { store.restaurarPvPmTodos(); rinhaReviveu = custo }
+    }
+
     if (victory) {
       // Álbum de Marélia — todo inimigo do bando batido vira entrada.
       store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
@@ -154,7 +164,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       if (confrontoFinal) store.completeCampaign()
       // repMarco: só o ÚLTIMO marco cruzado (pra mostrar 1 modal) — todos os
       // itens já foram concedidos de verdade no inventário dentro de ganharRep.
-      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, drops, repMarco: repMarcos[repMarcos.length - 1] || null })
+      setRewardSummary({ apLista, rinhaReviveu, grana: granaGanha, rep: repGanha, drops, repMarco: repMarcos[repMarcos.length - 1] || null })
       sfx.win()
     } else {
       sfx.lose()

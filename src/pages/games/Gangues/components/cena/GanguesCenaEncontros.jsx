@@ -6,7 +6,7 @@ import GanguesDropLista from '../GanguesDropLista'
 
 // A tela de "encarar ou não" da treta programada (POI/chefe): quem é, a fala,
 // o aviso de nível e o que o inimigo derruba.
-export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim, onNao, t, territorioId, contadoresDrop }) {
+export function TretaVS({ poi, bando, fala, nivelTropa, avisoOff, onOcultarAviso, onSim, onNao, t, territorioId, contadoresDrop }) {
   const [verDrop, setVerDrop] = useState(false)
   const enemyDrop = poi.enemy || poi.liderFixo || poi.revezamento?.pool?.[0] || null
   const nome = poi.ehChefe ? t(`games.gangues.story.bosses.${poi.boss}.nome`) : t(`${poi.i18n}.nome`)
@@ -37,6 +37,10 @@ export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim
     <span className="gang-cena-eyebrow">{poi.ehChefe ? t('games.gangues.story.boss_tag') : t('games.gangues.cena.tipo.treta')}</span>
     <h3 className="gang-cena-enc-titulo">{nome}</h3>
     <p className="gang-cena-papo-fala">{falaShow}</p>
+    {bando?.length > 0 && <div className="gang-cena-bando">
+      <small>{t('games.gangues.cena.bando_titulo', { n: bando.length })}</small>
+      <ul>{bando.map((c, i) => <BandoMembro key={`${c.id}-${i}`} c={c} t={t} />)}</ul>
+    </div>}
     {poi.rinhaInfinita
       ? <p className="gang-drop-bloco-nota">{t('games.gangues.drop.rinha_sem')}</p>
       : enemyDrop && <div className="gang-drop-bloco">
@@ -53,4 +57,16 @@ export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim
       <button className={`gang-cena-btn gang-cena-btn--go${abaixo ? ' gang-cena-btn--risco' : ''}`} onClick={() => onSim()}>{t(abaixo ? 'games.gangues.cena.treta_sim_risco' : 'games.gangues.cena.treta_sim')}</button>
     </div>
   </div>
+}
+
+// Um inimigo do bando na carta: a cara (ou a inicial), o nome e o nível real da ficha.
+function BandoMembro({ c, t }) {
+  const retrato = getGanguesEnemyPortraitById(c.id)
+  const [falhou, setFalhou] = useState(false)
+  const nome = t(`games.gangues.enemy_names.${c.id}`)
+  return <li>
+    <span className="gang-cena-bando-foto">{retrato && !falhou ? <img src={retrato} alt="" onError={() => setFalhou(true)} /> : (nome || '?')[0]}</span>
+    <b>{nome}</b>
+    <em>{t('games.gangues.cena.bando_nivel', { n: nivelRealDePontos(c.pts) })}</em>
+  </li>
 }

@@ -99,7 +99,8 @@
         "perda_item": "Perdiste contra {quem}: se llevaron {itens}.",
         "perda_grana": "Perdiste contra {quem}: se llevaron {n} de tu dinero.",
         "socorro_rinha_titulo": "La casa te remendó",
-        "socorro_rinha": "La banda cayó, pero tenías plata: la riña cobró {custo} por la recuperación y ya está llamando al siguiente. Te quedaron {grana}."
+        "socorro_rinha": "La banda cayó, pero tenías plata: la riña cobró {custo} por la recuperación y ya está llamando al siguiente. Te quedaron {grana}.",
+        "rinha_reviveu": "Al que cayó lo levantaron para seguir subiendo: −💵 {custo} de la recuperación."
       },
       "progression": {
         "loadout": "Equipados: {n}/2",
@@ -6340,7 +6341,9 @@
             "nome": "Depósito de Don Nono"
           }
         },
-        "carregando": "Cargando"
+        "carregando": "Cargando",
+        "bando_titulo": "Te enfrentas a ({n})",
+        "bando_nivel": "NV {n}"
       },
       "enemy_album": {
         "1701": "Maneja la moto del asalto. No se baja, solo acelera — el que se baja es el de atrás.",

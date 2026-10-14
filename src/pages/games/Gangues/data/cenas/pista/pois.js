@@ -396,7 +396,7 @@ export const POIS_PISTA = [
     pos_portao: true,
     i18n: 'games.gangues.cena.pista.posmuro_1',
     // NÍVEL FIXO (ajuste 15/09/2026 nº2): +3 de novo — nível 23 (20 + 3).
-    enemy: 1206,
+    enemy: 1401,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 23, chanceDupla: 0.5 },
     recompensa: { rep: 3 },
     revela: ['posmuro_2'],

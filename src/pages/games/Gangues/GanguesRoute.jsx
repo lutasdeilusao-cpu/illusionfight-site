@@ -30,6 +30,7 @@ import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, suavizarPrim
 import { ajustarPontosFixo, GANGUES_FRUSTRACAO_LIMIAR } from './data/ganguesDificuldade.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
+import { montarBandoFixo } from './data/ganguesBandoFixo.js'
 import './Gangues.css'
 
 import { GANGUES_VERSION } from '../../../config/version'
@@ -241,7 +242,7 @@ export default function GanguesRoute() {
     // pagando a recuperação (derrota com grana) ou subindo de nível.
     const party = (selected.length ? selected : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
     const temRevezamento = alvo?.revezamento?.pool?.length
-    if ((!alvo?.enemyId && !temRevezamento && !alvo?.clube) || party.length < 1) { setFase('story'); return }
+    if ((!alvo?.enemyId && !temRevezamento && !alvo?.clube && !alvo?.bandoFixo?.length) || party.length < 1) { setFase('story'); return }
     // Tropa inteira no chão (todos PV 0) — não entra em luta até se recuperar
     // na birosca. Na cena o aviso aparece antes de sair; aqui (mapa/trilha) é
     // rede de segurança pra não cair numa derrota garantida em loop. O Clube
@@ -284,6 +285,10 @@ export default function GanguesRoute() {
       // o jogador — o loop é voltar mais forte). Ver gerarBandoChefe.
       enemyTeam = gerarBandoChefe({ territorioId: alvo.territorioId, playerTeam: party, enemiesData, modo })
       if (!enemyTeam?.length) { setFase('story'); return }
+    } else if (alvo.bandoFixo?.length) {
+      // Luta de território: sempre o mesmo bando, o que a carta mostrou (ganguesBandoFixo.js).
+      enemyTeam = montarBandoFixo(alvo.bandoFixo.map(c => ({ ...c, pts: ajustarPontosFixo(c.pts, modo) })), enemiesData)
+      if (!enemyTeam.length) { setFase('story'); return }
     } else if (temRevezamento) {
       // Encontro de dungeon (túnel/galpão): capangas fracos que se revezam,
       // quase sempre 1 sozinho, orçamento leve e fixo por corpo — A MENOS que
@@ -314,7 +319,7 @@ export default function GanguesRoute() {
     // Mínimo de inimigos do bairro (GANGUES_MIN_INIMIGOS): vale pra toda luta,
     // inclusive Rinha e Clube; os que faltam entram como capangas mais fracos.
     const bairroDaLuta = alvo.clube ? alvo.voltar?.territorioId : alvo.territorioId
-    enemyTeam = completarBandoMinimo(enemyTeam, { territorioId: bairroDaLuta, pool: CENAS_POR_ID[bairroDaLuta]?.poolCapangas, enemiesData })
+    if (!alvo.bandoFixo?.length) enemyTeam = completarBandoMinimo(enemyTeam, { territorioId: bairroDaLuta, pool: CENAS_POR_ID[bairroDaLuta]?.poolCapangas, enemiesData })
     // Ajuste na ficha do LÍDER desta luta (vem da cena — ver iniciarTreta em
     // GanguesCena.jsx): o ponto fraco do chefe (Feira: −2 Couro com as 3
     // páginas da caderneta) ou o inimigo mais forte contra devedor (+1 Pique).

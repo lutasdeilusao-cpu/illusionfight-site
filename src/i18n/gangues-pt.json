@@ -99,7 +99,8 @@
         "perda_item": "Perdeu pra {quem}: levaram {itens}.",
         "perda_grana": "Perdeu pra {quem}: levaram {n} da tua grana na mão.",
         "socorro_rinha_titulo": "A casa te remendou",
-        "socorro_rinha": "A tropa caiu, mas tinha grana: a rinha cobrou {custo} da recuperação e já tá chamando o próximo. Sobrou {grana} na mão."
+        "socorro_rinha": "A tropa caiu, mas tinha grana: a rinha cobrou {custo} da recuperação e já tá chamando o próximo. Sobrou {grana} na mão.",
+        "rinha_reviveu": "Quem caiu foi levantado pra seguir upando: −💵 {custo} da recuperação."
       },
       "progression": {
         "loadout": "Equipados: {n}/2",
@@ -3237,7 +3238,9 @@
             "nome": "Depósito do Seu Nono"
           }
         },
-        "carregando": "Carregando"
+        "carregando": "Carregando",
+        "bando_titulo": "Você enfrenta ({n})",
+        "bando_nivel": "NV {n}"
       },
       "enemy_album": {
         "1701": "Pilota a moto do assalto. Não desce, só acelera — quem desce é a garupa.",

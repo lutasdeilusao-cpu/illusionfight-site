@@ -99,7 +99,8 @@
         "perda_item": "Lost to {quem}: they took {itens}.",
         "perda_grana": "Lost to {quem}: they took {n} of your cash.",
         "socorro_rinha_titulo": "The house patched you up",
-        "socorro_rinha": "The crew went down, but you had cash: the pit charged {custo} for the patch-up and is already calling the next one. You kept {grana}."
+        "socorro_rinha": "The crew went down, but you had cash: the pit charged {custo} for the patch-up and is already calling the next one. You kept {grana}.",
+        "rinha_reviveu": "The fallen fighter got patched up to keep leveling: −💵 {custo} for the recovery."
       },
       "progression": {
         "loadout": "Equipped: {n}/2",
@@ -6340,7 +6341,9 @@
             "nome": "Old Nono's Storeroom"
           }
         },
-        "carregando": "Loading"
+        "carregando": "Loading",
+        "bando_titulo": "You face ({n})",
+        "bando_nivel": "LV {n}"
       },
       "enemy_album": {
         "1701": "Rides the stick-up bike. Never gets off, just revs — the backseat does the talking.",
