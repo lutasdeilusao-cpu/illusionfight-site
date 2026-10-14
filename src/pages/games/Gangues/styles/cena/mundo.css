@@ -226,3 +226,6 @@
 @media (prefers-reduced-motion: reduce) { .gang-cena-sirene { animation-duration:2.4s; } }
 /* mapa externo em pixel art (cena.fundo): uma faixa por bloco */
 .gang-cena-fundo{position:absolute;left:0;z-index:1;display:block;image-rendering:pixelated;pointer-events:none;user-select:none;}
+
+/* Inimigo ainda sem cara: bolinha com a 1ª letra do nome. */
+.gang-world-npc-letra{display:grid;place-items:center;width:100%;height:100%;font:900 1.7rem/1 var(--font-display);color:var(--if-ink);background:var(--gang-noite-900);box-shadow:inset 0 0 0 2px var(--if-hair-strong)}

@@ -68,3 +68,12 @@ export function montarBandoFixo(bando, enemiesData) {
   numerarRepetidos(corpos)
   return corpos
 }
+
+// Líder de cada luta pelo id do ponto (a cara que o pino mostra no mapa): a luta do
+// próprio ponto vale mais que a treta que nasce de uma escolha dele.
+const LIDER = {}
+for (const [chave, ids] of Object.entries(BANDOS)) {
+  const [, poiId, escolha] = chave.split(':')
+  if (!LIDER[poiId] || !escolha) LIDER[poiId] = ids[0]
+}
+export const liderDaLuta = poiId => LIDER[poiId] || null

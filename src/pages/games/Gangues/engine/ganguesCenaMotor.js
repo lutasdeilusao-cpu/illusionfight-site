@@ -97,7 +97,7 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto, flags =
           : (!gatePorPoi || prog.revelados[gatePorPoi] || prog.resolvidos[gatePorPoi] || prog.boss)
       const zx = pr.porta.zx ?? (pr.x + pr.w / 2), zy = pr.porta.zy ?? (pr.y + pr.h + 16)
       return {
-        id: `porta_${pr.id}`, ehPorta: true, interId: pr.porta.para, predioId: pr.id,
+        id: `porta_${pr.id}`, ehPorta: true, interId: pr.porta.para, predioId: pr.id, nomeLugar: inter?.nome || null,
         comodo: pr.porta.comodo || 0, spawn: pr.porta.spawn,
         world: { x: zx, y: zy }, zona: { x: zx - 34, y: zy - 30, w: 68, h: 60 },
         estado: inter ? (liberada ? 'disponivel' : 'trancado') : 'trancado',

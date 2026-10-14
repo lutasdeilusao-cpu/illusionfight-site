@@ -12,7 +12,7 @@ export const POS_FEIRA = {
   quadro_luz: { x: 582, y: 2197 },
   pagina_1: { x: 650, y: 2245 },
   beco_gato: { x: 430, y: 2270 },
-  muamba: { x: 150, y: 2010 },
+  muamba: { x: 320, y: 2011 },
   balanca: { x: 380, y: 1950 },
   camelo: { x: 160, y: 2560 },
   favor_devedor: { x: 380, y: 2070 },

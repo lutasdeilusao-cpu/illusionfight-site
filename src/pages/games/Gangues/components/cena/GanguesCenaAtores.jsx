@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { STEP_MS } from '../../engine/ganguesCenaMotor.js'
 import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
 import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
+import { liderDaLuta } from '../../data/ganguesBandoFixo.js'
 
 // Marcador do jogador (a gangue) no mundo — anda com transição suave entre
 // passos. Extraído de GanguesCena.jsx
@@ -89,8 +90,17 @@ function hashEstavel(str) {
 // imagem foi tentado (20/09/2026) e o Isaias rejeitou: "animação é ele se
 // mexendo, andando... não é ficar trocando o rosto, tira essa merda" — a
 // "animação" de verdade agora é o movimento (ver `movimentoDoPino`/CSS).
+// Inimigo do pino: o líder ÚNICO da luta daquele ponto (ganguesBandos.json). Fora da
+// Rinha e do chefe, todo pino de briga mostra quem você enfrenta de verdade.
+export function inimigoDoPino(p) {
+  if (p.ehChefe || p.rinhaInfinita || p.npcSlug) return null
+  return liderDaLuta(p.id)
+}
+
 function retratoDoPino(p) {
   if (p.npcSlug) return getGanguesNpcPortrait(p.npcSlug)
+  const inimigo = inimigoDoPino(p)
+  if (inimigo) return getGanguesEnemyPortraitById(inimigo)
   if (p.revezamento?.pool?.length) {
     const pool = p.revezamento.pool
     return getGanguesEnemyPortraitById(pool[hashEstavel(p.id) % pool.length])
@@ -116,7 +126,7 @@ export function ehPersonagem(p) {
   // "Balcão do Aperto", e de novo pro agiota: "esse vai ficar parado"),
   // não personagem que anda por aí; continuam no grupo dos "pinos
   // estáticos de ação" (achado/parada/corre/nav).
-  return Boolean(retratoDoPino(p)) && !p.ehChefe && p.tipo !== 'loja' && p.tipo !== 'agiota' && p.tipo !== 'banca'
+  return Boolean(retratoDoPino(p) || inimigoDoPino(p)) && !p.ehChefe && p.tipo !== 'loja' && p.tipo !== 'agiota' && p.tipo !== 'banca'
 }
 
 // Comportamento de movimento de um personagem na cena (26/09/2026). Pedido
@@ -241,7 +251,7 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado, longeDe }) {
   if (p.estado === 'trancado' && !(p.ehPassagem || p.ehChefe)) return null
   const icone = p.ehChefe ? '★' : p.ehPorta ? '🚪' : p.ehSaida ? '↩' : p.ehSaidaBairro ? '🗺' : p.ehVolta ? '↩' : p.ehPassagem ? (p.label === 'subir' ? '▲' : '▶') : (ICONE[p.tipo] || '•')
   const nome = p.ehChefe ? t(`games.gangues.story.bosses.${p.boss}.nome`)
-    : p.ehPorta ? t('games.gangues.cena.acao.entrar')
+    : p.ehPorta ? (p.nomeLugar ? t(p.nomeLugar) : t('games.gangues.cena.acao.entrar'))
     : p.ehSaida ? t('games.gangues.cena.acao.sair')
     : p.ehSaidaBairro ? t('games.gangues.cena.acao.sair_bairro')
     : p.ehVolta ? t('games.gangues.cena.acao.voltar')
@@ -256,7 +266,10 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado, longeDe }) {
   // andar"). Chefe fica de fora de propósito (showdown parado, dramático).
   // Loja fica de fora mesmo com retrato (ver `ehPersonagem` acima) — banca
   // fixa, não anda.
-  const personagem = Boolean(retrato) && !p.ehChefe && p.tipo !== 'loja'
+  // Inimigo sem cara ainda: bolinha com a 1ª letra do nome (a cara entra depois, sem mexer aqui).
+  const inimigo = inimigoDoPino(p)
+  const letra = inimigo && !retrato ? (t(`games.gangues.enemy_names.${inimigo}`) || '?')[0] : null
+  const personagem = Boolean(retrato || letra) && !p.ehChefe && p.tipo !== 'loja'
   // Movimento (5ª leva, 26/09/2026 — o Isaias jogou e achou forçado todo
   // mundo andando em vaivém contínuo): cada personagem tem UM comportamento
   // fixo — parado, inquieto, patrulha (h/v) ou ronda. Quem decide é
@@ -272,10 +285,10 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado, longeDe }) {
     '--gp-resp': `${3.2 + (h % 5) * 0.3}s`,
   } : undefined
   const movClasse = movimento ? `mov-${movimento}${anda ? ' mov-anda' : ''}` : ''
-  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.fuga ? 'is-fuga' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo && !ignorado ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehSaidaBairro || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${movClasse}`} style={{ left: p.world.x, top: p.world.y }}>
+  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.fuga ? 'is-fuga' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo && !ignorado ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehSaidaBairro || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato || letra ? 'gang-world-npc--retrato' : ''} ${movClasse}`} style={{ left: p.world.x, top: p.world.y }}>
     <span ref={spanRef} style={movStyle}>
       <span className={personagem ? 'gang-world-npc-passo' : undefined}>
-        {retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : icone}
+        {retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : letra ? <b className="gang-world-npc-letra">{letra}</b> : icone}
       </span>
     </span>
     {p.estado !== 'trancado' || p.ehPassagem || p.ehChefe ? <small>{nome}</small> : null}

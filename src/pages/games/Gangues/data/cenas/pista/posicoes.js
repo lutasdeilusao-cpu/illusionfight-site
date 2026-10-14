@@ -25,7 +25,7 @@
 // Fechada/c3, longe da porta da birosca que tava congestionada). Sem
 // prédio nenhum perto (zona centrada no próprio ícone, mesmo critério de
 // rinha).
-export const POS_PISTA = { sinal: { x: 210, y: 2570 }, ferro: { x: 178, y: 2197 }, achado: { x: 110, y: 2245 }, beco: { x: 445, y: 2190 }, loja_pocoes: { x: 600, y: 2560 }, corre: { x: 610, y: 2010 }, beco_2: { x: 330, y: 2270 }, beco_3: { x: 380, y: 1950 }, sinaleiro: { x: 440, y: 1755 }, rasteira_velha: { x: 360, y: 1440 }, posmuro_1: { x: 300, y: 860 }, posmuro_2: { x: 430, y: 600 }, rinha: { x: 610, y: 1740 }, boss: { x: 570, y: 175 } }
+export const POS_PISTA = { sinal: { x: 210, y: 2570 }, ferro: { x: 178, y: 2197 }, achado: { x: 110, y: 2245 }, beco: { x: 445, y: 2190 }, loja_pocoes: { x: 600, y: 2560 }, corre: { x: 440, y: 2011 }, beco_2: { x: 330, y: 2270 }, beco_3: { x: 380, y: 1950 }, sinaleiro: { x: 440, y: 1755 }, rasteira_velha: { x: 360, y: 1440 }, posmuro_1: { x: 300, y: 860 }, posmuro_2: { x: 430, y: 600 }, rinha: { x: 610, y: 1740 }, boss: { x: 570, y: 175 } }
 
 export const ENTRY_ZONES_PISTA = {
   sinal: { x: 243, y: 2532, w: 70, h: 76 }, ferro: { x: 148, y: 2166, w: 60, h: 62 }, achado: { x: 75, y: 2212, w: 72, h: 72 }, beco: { x: 355, y: 2155, w: 76, h: 70 },

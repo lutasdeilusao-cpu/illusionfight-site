@@ -27,7 +27,7 @@ import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 import { GangMarker, PinoAlvo, ZonaChao, WorldControls, BrigaAutoAviso, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
 import { TretaVS } from '../components/cena/GanguesCenaEncontros'
 import { bandoFixoDoPoi } from '../data/ganguesBandoFixo.js'
-import { CENAS_POR_ID, portaoAberto, contarCena, naAreaDoChefe, alertaDaCena, pontosComAlerta } from '../data/cenas/cenaHelpers.js'
+import { CENAS_POR_ID, fichaMaisForte, portaoAberto, contarCena, naAreaDoChefe, alertaDaCena, pontosComAlerta } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
@@ -340,7 +340,9 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   }
   brigaAutoRef.current = (poi, opcoes) => iniciarTreta(poi, { ...opcoes, anunciar: brigaAuto.anunciar })
   // Ficha do líder que a carta mostra: a mesma conta que iniciarTreta faz (com a Barra de Alerta).
-  const ptsCarta = p => { const b = p.pontosFixo || p.revezamento?.budgetPorCorpo; return b ? pontosComAlerta(b, cena, store.storyProgress) : null }
+  // Luta que escala com a tropa (`ratioComTime`): a ficha do líder acompanha o mais forte do time.
+  const ptsDaLuta = (revez, base) => (revez?.ratioComTime ? Math.max(base || 0, Math.round(fichaMaisForte(store.activeParty) * revez.ratioComTime)) : base)
+  const ptsCarta = p => { const b = ptsDaLuta(p.revezamento, p.pontosFixo || p.revezamento?.budgetPorCorpo); return b ? pontosComAlerta(b, cena, store.storyProgress) : null }
   const iniciarTreta = (poi, { viraTreta, revela, anunciar } = {}) => {
     if (barraSeChao()) return
     const chefe = Boolean(poi.ehChefe)
@@ -400,7 +402,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     const revezamento = revez && !revez.nivelDaTropa ? { ...revez, budgetPorCorpo: comAlerta(revez.budgetPorCorpo) } : revez
     // Luta de território = bando FIXO (o mesmo que a carta mostrou). Rinha e chefe têm regra própria.
     const ehRinha = Boolean(poi.rinhaInfinita && !viraTreta)
-    const bandoFixo = ehRinha || chefe ? null : bandoFixoDoPoi(poi, terr.id, { viraTreta, ptsLider: comAlerta(viraTreta ? revez?.budgetPorCorpo : (pontosFixo || revez?.budgetPorCorpo)) || null, chave: viraTreta ? ':' + (viraTreta.enemy || '') : '' })
+    const bandoFixo = ehRinha || chefe ? null : bandoFixoDoPoi(poi, terr.id, { viraTreta, ptsLider: comAlerta(ptsDaLuta(revez, viraTreta ? revez?.budgetPorCorpo : (pontosFixo || revez?.budgetPorCorpo))) || null, chave: viraTreta ? ':' + (viraTreta.enemy || '') : '' })
     store.setStoryTarget({ bandoFixo, ajusteInimigo, rinha: ehRinha, semGrana: !viraTreta && Boolean(poi.semGrana), territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento, isChefe: chefe, revanche: Boolean(chefe && prog.boss), repDelta: viraTreta?.rep || 0, pontosFixos: comAlerta(pontosFixo), qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null) })
     onNavigate('story-combat')
   }
