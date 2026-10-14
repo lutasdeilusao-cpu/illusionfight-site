@@ -31,13 +31,6 @@
 .gang-mdao__foco-texto strong { font: 800 0.72rem var(--font-display); text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .gang-mdao__foco b { flex-shrink: 0; color: var(--gang-cinza-azul-400); font-size: 0.7rem; }
 
-.gang-mdao__tatica {
-  flex: 0 0 auto; min-height: 44px; padding: 0 14px; cursor: pointer;
-  display: flex; align-items: center; gap: 6px;
-  border: 1px solid color-mix(in srgb, var(--if-cyan) 50%, transparent); background: color-mix(in srgb, var(--if-cyan) 8%, transparent);
-  color: var(--if-cyan); font: 800 0.62rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
-}
-.gang-mdao__tatica b { min-width: 16px; padding: 1px 4px; background: var(--if-cyan); color: var(--gang-preto); font-size: 0.56rem; }
 
 /* AVANÇAR RODADA = o ATACAR da Multidão. */
 .gang-mdao__avancar {
@@ -63,34 +56,3 @@
 .gang-mdao__auto.is-on { background: rgba(0, 180, 216, 0.16); box-shadow: 0 0 14px -2px rgba(0, 180, 216, 0.5); }
 .gang-mdao__auto.is-on .gang-mdao__dot { transform: translateX(14px); }
 
-/* ── Folha de Tática (GanguesMultidaoTatica.jsx) ── */
-.gang-tatica { position: fixed; inset: 0 var(--app-gutter); z-index: 1200; display: flex; align-items: flex-end; overscroll-behavior: none; }
-.gang-tatica__scrim { position: absolute; inset: 0; border: 0; background: rgba(2, 5, 8, 0.78); }
-.gang-tatica__card {
-  position: relative; width: 100%; max-height: 82dvh; overflow-y: auto; overscroll-behavior: contain;
-  display: flex; flex-direction: column; gap: 10px; padding: 16px 12px 12px;
-  background: linear-gradient(160deg, var(--gang-noite-850), var(--gang-noite-950) 72%);
-  border: 1px solid color-mix(in srgb, var(--if-cyan) 40%, transparent); border-bottom: 0;
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-}
-.gang-tatica__eyebrow { margin: 0; font: 700 0.55rem var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--if-cyan); }
-.gang-tatica__sub { margin: 0; font: 600 0.62rem var(--font-mono); line-height: 1.4; color: var(--text-secondary); }
-.gang-tatica__membro { display: flex; flex-direction: column; gap: 6px; padding: 8px; border: 1px solid var(--if-hair-strong); background: rgba(255, 255, 255, 0.02); }
-.gang-tatica__nome { font: 800 0.74rem var(--font-display); text-transform: uppercase; color: var(--gang-branco); }
-.gang-tatica__rotulo { font: 800 0.48rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gang-cinza-azul-500); }
-.gang-tatica__opcoes { display: flex; flex-wrap: wrap; gap: 5px; }
-.gang-tatica__op {
-  min-height: 34px; padding: 4px 9px; cursor: pointer;
-  border: 1px solid var(--if-hair-strong); background: rgba(255, 255, 255, 0.03);
-  color: var(--text-secondary); font: 700 0.58rem var(--font-mono); text-align: left;
-}
-.gang-tatica__op small { display: block; font-size: 0.5rem; color: var(--gang-cinza-azul-500); }
-.gang-tatica__op.is-on { border-color: var(--if-cyan); background: color-mix(in srgb, var(--if-cyan) 14%, transparent); color: var(--gang-branco); box-shadow: inset 2px 0 var(--if-cyan); }
-.gang-tatica__op--item.is-on { border-color: var(--if-violet); background: color-mix(in srgb, var(--if-violet) 14%, transparent); box-shadow: inset 2px 0 var(--if-violet); }
-.gang-tatica__op:disabled { opacity: 0.4; cursor: not-allowed; }
-.gang-tatica__pronto {
-  min-height: 48px; border: 0; cursor: pointer;
-  font: 900 0.8rem var(--font-title); letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--gang-preto); background: var(--if-cyan);
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-}

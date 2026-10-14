@@ -782,13 +782,10 @@
         "foco": "Foco",
         "foco_tirar": "Tirar o foco",
         "foco_dica": "Toca num inimigo pra todo mundo cair em cima dele",
-        "tatica": "Tática",
         "rodando": "Rolando...",
-        "tatica_sub": "Fica salva de uma luta pra outra até tu mudar. A poção só entra quando faz sentido: a de PV com alguém na metade da vida, a de PM com alguém na metade da mana. Sem poção que sirva, bate normal.",
-        "tatica_talento": "Talento",
-        "tatica_item": "Item",
-        "tatica_sem_item": "Nenhum",
-        "tatica_pronto": "Fechou"
+        "rodada_titulo": "Rodada · {n} golpes",
+        "rodada_continuar": "Continuar",
+        "rodada_errou": "errou"
       },
       "recrutar_banner": {
         "titulo": "Recrutamento liberado!",
@@ -798,7 +795,7 @@
       "multidao_tutorial": {
         "interruptor": "Briga em Multidão: em vez de golpe a golpe, cada rodada mostra todo mundo brigando, um golpe atrás do outro. Esse interruptor desliga se tu quiser.",
         "foco": "Toca num inimigo pra marcar o FOCO: o bonde inteiro cai em cima dele até ele apagar. Sem foco, a tropa vai no que tá mais perto de cair.",
-        "tatica": "Em TÁTICA tu escolhe o talento e o item de cada um. Vale pra toda rodada, e o item só entra quando faz sentido.",
+        "tatica": "Na BOLINHA tu configura o automático: o talento de cada um e as poções de PV e PM. É o mesmo automático da briga comum.",
         "avancar": "Toca em AVANÇAR RODADA quando tiver pronto. Com o automático ligado, as rodadas vão saindo sozinhas."
       },
       "attr_labels": {

@@ -1,60 +1,48 @@
-// Briga em Multidão: estado da briga, tática do jogador e a rodada mostrada
-// golpe a golpe. O switch da barra do topo liga e desliga a qualquer
-// momento; ligar/desligar passa o PV/PM/status atual de um motor pro outro
-// (alternarMultidao). Cada "avançar rodada" calcula a rodada inteira
-// (engine/ganguesBrigaMultidao.js) e depois a revela um golpe por vez, numa
-// fila: cada ataque abre o painel do golpe com os dados 3D (o mesmo da luta
-// normal) e, quando ele fecha, o dano cai na vida e no registro; item, cura e
-// "perdeu a vez" passam rápido. Com o automático ligado, a próxima rodada
-// sai sozinha.
+// Briga em Multidão: estado da briga e a rodada inteira de uma vez. O switch
+// da barra do topo liga e desliga a qualquer momento; ligar/desligar passa o
+// PV/PM/status atual de um motor pro outro (alternarMultidao). Cada "avançar
+// rodada" calcula a rodada inteira (engine/ganguesBrigaMultidao.js) e mostra
+// TODOS os dados dela caindo juntos (GanguesDadosRodada); quando o painel
+// fecha, o resultado da rodada cai na vida e no registro. O que cada um usa
+// (talento, poção de PV, poção de PM) é a MESMA configuração do automático da
+// briga comum (useGanguesAutoConfig). Com o automático ligado, a próxima
+// rodada sai sozinha.
 import { useEffect, useRef, useState } from 'react'
 import { sfx } from '../../../../lib/sfx'
 import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffects.js'
 import { iniciarBrigaMultidao, iniciarBrigaMultidaoDeCombatentes, avancarRodadaMultidao } from '../engine/ganguesBrigaMultidao.js'
 import { transformarEvento, fighterName } from '../engine/ganguesCombatPresentation.js'
 import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
-import { chaveDoSave } from './useGanguesVelocidadeAuto.js'
+import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
 
 const MULTIDAO_BLINK_ID = 'multidao_blink'
-/** Tática (talento e item de cada um) lembrada entre lutas, por save. */
-const TATICA_CHAVE = 'ldi-gangues-tatica'
-const lerTatica = () => {
-  try { const v = JSON.parse(localStorage.getItem(chaveDoSave(TATICA_CHAVE)) || 'null'); return { poderes: v?.poderes || {}, itens: v?.itens || {} } } catch { return { poderes: {}, itens: {} } }
-}
-const gravarTatica = tatica => { try { localStorage.setItem(chaveDoSave(TATICA_CHAVE), JSON.stringify(tatica)) } catch { /* sem storage: vale só nesta luta */ } }
-/** Pausa entre um evento e o próximo da fila, em 1x (ms). */
-const PAUSA_EVENTO_MS = 450
 /** Pausa entre uma rodada e a próxima no automático, em 1x (ms). */
 const PAUSA_AUTO_MS = 700
 
-export default function useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, multidaoDisponivel, modoMultidaoOn, setModoMultidaoOn, velocidade = 1, fx, autoOn }) {
+export default function useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, multidaoDisponivel, modoMultidaoOn, setModoMultidaoOn, velocidade = 1, fx, autoOn, autoConfig }) {
   const { jaViu: jaViuTutorial, marcarVisto: marcarTutorialVisto } = useTutorialProgress()
   const multidaoBlinkVisto = jaViuTutorial(MULTIDAO_BLINK_ID)
   const modoMultidaoAtivo = multidaoDisponivel && modoMultidaoOn
 
-  // Tática: vale até o jogador mudar (não zera por rodada).
   const [foco, setFoco] = useState(null)        // key do inimigo marcado
-  const [tatica, setTatica] = useState(lerTatica) // { poderes: memberId -> specialId, itens: memberId -> itemId }
-  const { poderes, itens } = tatica
   const [estadoMultidao, setEstadoMultidao] = useState(null)
   const [revelandoRodada, setRevelandoRodada] = useState(false)
-  const [golpeAtual, setGolpeAtual] = useState(null) // { actorKey, targetKey } do golpe na tela
-  const [golpeNaTela, setGolpeNaTela] = useState(null) // ataque com o painel dos dados aberto
-  const filaRef = useRef(null) // { eventos, i, final }
-  const timerRef = useRef(null)
-  useEffect(() => () => { clearTimeout(timerRef.current); filaRef.current = null }, [])
+  const [golpeAtual, setGolpeAtual] = useState(null) // { actorKey, targetKey } destacado
+  const [rodadaNaTela, setRodadaNaTela] = useState(null) // { eventos, final } com os dados caindo
+  // O que cada um usa = a configuração do automático da briga comum: o talento
+  // escolhido de cada um e, se ligadas, as poções de PV e de PM (a de PV primeiro).
+  const config = autoConfig || { talentos: {}, pocao: false, pocaoPm: false }
+  const poderes = config.talentos || {}
+  const pocoes = [
+    ...(config.pocao ? GANGUES_ITENS_LISTA.filter(i => i.tipo === 'cura_pv') : []),
+    ...(config.pocaoPm ? GANGUES_ITENS_LISTA.filter(i => i.tipo === 'cura_pm') : []),
+  ].filter(i => (store.inventario[i.id] || 0) > 0).map(i => i.id)
+  const itens = Object.fromEntries(store.match.playerTeam.map(m => [m.id, pocoes]))
 
   // Foco em quem já caiu não vale mais.
   const focoVivo = foco && estadoMultidao?.combatants.some(c => c.key === foco && c.pv > 0) ? foco : null
 
   const marcarFoco = key => { sfx.select?.(); setFoco(atual => (atual === key ? null : key)) }
-  const mudarTatica = (campo, memberId, valor) => setTatica(prev => {
-    const prox = { ...prev, [campo]: { ...prev[campo], [memberId]: valor || null } }
-    gravarTatica(prox)
-    return prox
-  })
-  const escolherPoder = (memberId, specialId) => mudarTatica('poderes', memberId, specialId)
-  const escolherItem = (memberId, itemId) => mudarTatica('itens', memberId, itemId)
 
   // No modo multidão o motor golpe a golpe fica parado; fora dele, entra na luta.
   useEffect(() => { if (!modoMultidaoAtivo && machine.phase === 'select') machine.enterCombat() }, [modoMultidaoAtivo, machine.phase, machine.enterCombat])
@@ -111,39 +99,19 @@ export default function useGanguesModoMultidao({ store, machine, t, setLog, even
     setLog(prev => [...prev, ...transformarEvento(t, evento, combatentesFinais, { compacto: true })])
   }
 
-  // Fila da revelação: um evento por vez até acabar a rodada.
-  const proximoDaFila = () => {
-    const fila = filaRef.current
-    if (!fila) return
-    const evento = fila.eventos[fila.i++]
-    if (!evento) {
-      filaRef.current = null
-      setEstadoMultidao(fila.final)
-      setGolpeAtual(null)
-      setRevelandoRodada(false)
-      if (fila.final.terminado) finish(fila.final.outcome)
-      return
-    }
-    if (evento.type === 'attack') {
-      setGolpeAtual({ actorKey: evento.actorKey, targetKey: evento.targetKey })
-      setGolpeNaTela(evento)
-      return
-    }
-    revelarEvento(evento, fila.final.combatants)
-    timerRef.current = setTimeout(proximoDaFila, PAUSA_EVENTO_MS / velocidade)
+  // O painel dos dados fechou: a rodada inteira cai de uma vez (vida, números, registro).
+  const fecharRodada = () => {
+    const rodada = rodadaNaTela
+    setRodadaNaTela(null)
+    if (!rodada) return
+    for (const evento of rodada.eventos) revelarEvento(evento, rodada.final.combatants)
+    setEstadoMultidao(rodada.final)
+    setGolpeAtual(null)
+    setRevelandoRodada(false)
+    if (rodada.final.terminado) finish(rodada.final.outcome)
   }
 
-  // O painel do golpe fechou: o dano cai e a fila segue.
-  const fecharGolpe = () => {
-    const fila = filaRef.current
-    const evento = golpeNaTela
-    setGolpeNaTela(null)
-    if (!fila || !evento) return
-    revelarEvento(evento, fila.final.combatants)
-    timerRef.current = setTimeout(proximoDaFila, PAUSA_EVENTO_MS / 2 / velocidade)
-  }
-
-  // Avança UMA rodada: calcula inteira e revela pela fila.
+  // Avança UMA rodada: calcula inteira e joga todos os dados de uma vez.
   const avancarRodada = () => {
     if (revelandoRodada || result || !estadoMultidao) return
     sfx.vs?.()
@@ -151,9 +119,7 @@ export default function useGanguesModoMultidao({ store, machine, t, setLog, even
     for (const m of store.match.playerTeam) especiais[m.id] = getEquippedActiveGanguesSpecials(m)
     const proximo = avancarRodadaMultidao(estadoMultidao, { foco: focoVivo, poderes, especiais, itens, estoque: store.inventario })
     setRevelandoRodada(true)
-    clearTimeout(timerRef.current)
-    filaRef.current = { eventos: proximo.eventosRodada, i: 0, final: proximo }
-    proximoDaFila()
+    setRodadaNaTela({ eventos: proximo.eventosRodada, final: proximo })
   }
 
   // Automático: a próxima rodada sai sozinha. Para enquanto o cartão de KO
@@ -168,7 +134,7 @@ export default function useGanguesModoMultidao({ store, machine, t, setLog, even
 
   return {
     modoMultidaoOn, modoMultidaoAtivo, alternarMultidao, podeLigar, multidaoBlinkVisto,
-    estadoMultidao, revelandoRodada, golpeAtual, golpeNaTela, fecharGolpe, avancarRodada,
-    foco: focoVivo, marcarFoco, poderes, escolherPoder, itens, escolherItem,
+    estadoMultidao, revelandoRodada, golpeAtual, rodadaNaTela, fecharRodada, avancarRodada,
+    foco: focoVivo, marcarFoco,
   }
 }

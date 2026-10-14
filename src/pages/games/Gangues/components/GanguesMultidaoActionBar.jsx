@@ -1,9 +1,9 @@
 import './GanguesMultidaoActionBar.css'
 
 // Barra de ação da Briga em Multidão, embaixo, no dedão: o foco (inimigo
-// marcado tocando nele) e a Tática em cima; AVANÇAR RODADA e o automático
+// marcado tocando nele) em cima; AVANÇAR RODADA e o automático
 // embaixo. Sair fica no "Mete o pé" da barra do topo.
-export default function GanguesMultidaoActionBar({ t, focoNome, onLimparFoco, onAbrirTatica, taticasAtivas, avancarRodada, revelandoRodada, prontoPraAvancar, autoOn, onToggleAuto }) {
+export default function GanguesMultidaoActionBar({ t, focoNome, onLimparFoco, avancarRodada, revelandoRodada, prontoPraAvancar, autoOn, onToggleAuto }) {
   return (
     <div className="gang-mdao">
       <div className="gang-mdao__linha">
@@ -14,10 +14,6 @@ export default function GanguesMultidaoActionBar({ t, focoNome, onLimparFoco, on
               <b aria-hidden="true">✕</b>
             </button>
           : <p className="gang-mdao__foco"><span aria-hidden="true">🎯</span>{t('games.gangues.multidao.foco_dica')}</p>}
-        <button type="button" className="gang-mdao__tatica" onClick={onAbrirTatica}>
-          {t('games.gangues.multidao.tatica')}
-          {taticasAtivas > 0 && <b>{taticasAtivas}</b>}
-        </button>
       </div>
       <div className="gang-mdao__linha">
         <button type="button" className="gang-mdao__avancar" disabled={revelandoRodada || !prontoPraAvancar} onClick={avancarRodada}>

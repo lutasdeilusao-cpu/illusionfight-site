@@ -782,13 +782,10 @@
         "foco": "Foco",
         "foco_tirar": "Quitar el foco",
         "foco_dica": "Toca a un enemigo para que todos le caigan encima",
-        "tatica": "Táctica",
         "rodando": "Tirando...",
-        "tatica_sub": "Queda guardada de una pelea a otra hasta que la cambies. La poción solo entra cuando tiene sentido: la de PV con alguien a media vida, la de PM con alguien a media maná. Si ninguna sirve, pega normal.",
-        "tatica_talento": "Talento",
-        "tatica_item": "Objeto",
-        "tatica_sem_item": "Ninguno",
-        "tatica_pronto": "Listo"
+        "rodada_titulo": "Ronda · {n} golpes",
+        "rodada_continuar": "Continuar",
+        "rodada_errou": "falló"
       },
       "recrutar_banner": {
         "titulo": "¡Reclutamiento liberado!",
@@ -798,7 +795,7 @@
       "multidao_tutorial": {
         "interruptor": "Pelea Multitudinaria: en vez de golpe a golpe, cada ronda muestra a todos peleando, un golpe tras otro. Este interruptor la apaga si quieres.",
         "foco": "Toca a un enemigo para marcar el FOCO: toda la banda le cae encima hasta que caiga. Sin foco, la banda va por el que está más cerca de caer.",
-        "tatica": "En TÁCTICA eliges el talento y el objeto de cada uno. Vale para cada ronda, y el objeto solo entra cuando tiene sentido.",
+        "tatica": "En la BOLITA configuras el automático: el talento de cada uno y las pociones de PV y PM. Es el mismo automático de la pelea común.",
         "avancar": "Toca SIGUIENTE RONDA cuando estés listo. Con el automático encendido, las rondas salen solas."
       },
       "attr_labels": {

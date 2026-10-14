@@ -33,6 +33,7 @@ export default function GanguesActionOrb({
   t, atorNome, atorKey, disabled, equippedSpecials, canAffordSpecial, itens = [], aliados = [],
   onAtacar, onUsarPoder, onUsarItem, autoOn = false, autoBloqueado = false, onToggleAuto,
   autoConfig, onEscolherTalentoAuto, onAlternarPocaoAuto, onAlternarPocaoPmAuto,
+  soAuto = false, // Briga em Multidão: a bolinha abre direto no automático (não há ataque um a um)
 }) {
   const [pos, setPos] = useState(posSalva)
   const [open, setOpen] = useState(false)
@@ -57,9 +58,9 @@ export default function GanguesActionOrb({
   // Teclado (Steam): A ataca direto; Enter/Espaço abre o menu; 1–9 escolhe a
   // opção N do painel aberto (atacar, talento, item, o talento N…); Esc volta/fecha.
   useGanguesTeclado({
-    a: () => { if (disabled || autoOn) return false; onAtacar(); fechar() },
-    enter: () => { if (open) return false; setOpen(true) },
-    espaco: () => { if (open) return false; setOpen(true) },
+    a: () => { if (soAuto || disabled || autoOn) return false; onAtacar(); fechar() },
+    enter: () => { if (open) return false; setOpen(true); if (soAuto) abrirAuto() },
+    espaco: () => { if (open) return false; setOpen(true); if (soAuto) abrirAuto() },
     escape: () => { if (!open) return false; if (tab !== 'menu') { setTab('menu'); setItemEscolhido(null) } else fechar() },
     numero: (_, n) => (open ? clicarOpcao(document.querySelector('.gang-orb-panel'), 'button:not(.gang-orb-voltar)', Number(n)) || false : false),
   })
@@ -85,14 +86,14 @@ export default function GanguesActionOrb({
       setPos(novaPos)
       salvarPos(novaPos)
     } else if (open) fechar()
-    else setOpen(true)
+    else { setOpen(true); if (soAuto) abrirAuto() }
     setDrag(null)
   }
 
   const animPainel = { initial: { opacity: 0, scale: 0.92, y: vpos === 'top' ? -8 : 8 }, animate: { opacity: 1, scale: 1, y: 0 }, exit: { opacity: 0, scale: 0.92 } }
   const cabecalho = (titulo, voltarPara = 'menu') => (
     <div className="gang-orb-head">
-      <button type="button" className="gang-orb-voltar" aria-label={t('games.gangues.orb.voltar')} onClick={() => { setTab(voltarPara); setItemEscolhido(null) }}>←</button>
+      <button type="button" className="gang-orb-voltar" aria-label={t('games.gangues.orb.voltar')} onClick={() => { if (soAuto) { fechar(); return } setTab(voltarPara); setItemEscolhido(null) }}>←</button>
       <span>{titulo}</span>
     </div>
   )

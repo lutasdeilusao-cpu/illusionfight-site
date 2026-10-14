@@ -24,17 +24,16 @@ import { getGanguesItem } from '../data/ganguesItens.js'
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
 
-/** Lutadores somados a partir dos quais a luta da Pista pode virar Multidão. */
-export const GANGUES_MULTIDAO_PISO = 5
+/** Lutadores somados (os dois lados) a partir dos quais existe Briga em Multidão.
+ *  Abaixo disso a luta é sempre a briga comum. */
+export const GANGUES_MULTIDAO_PISO = 6
 
-/** Quando a luta pode ser Briga em Multidão e quando ela já começa ligada:
- *  na Pista, com GANGUES_MULTIDAO_PISO lutadores somados, o jogador escolhe;
- *  da Feira em diante toda luta é em bando e começa em Multidão (o switch
- *  continua desligando). */
-export function regraMultidao(match, territorioId) {
+/** Quando a luta pode ser Briga em Multidão: só com GANGUES_MULTIDAO_PISO
+ *  lutadores somados, igual em todos os bairros. Na 1ª luta assim o jogador
+ *  escolhe; ligar ou desligar fica gravado no save e vale pras próximas. */
+export function regraMultidao(match) {
   const total = (match?.playerTeam?.length || 0) + (match?.enemyTeam?.length || 0)
-  const bairroDeBando = Boolean(territorioId) && territorioId !== 'pista'
-  return { disponivel: bairroDeBando || total >= GANGUES_MULTIDAO_PISO, padrao: bairroDeBando }
+  return { disponivel: total >= GANGUES_MULTIDAO_PISO, padrao: false }
 }
 
 function montar(combatants, round, eventosIniciais) {
@@ -139,8 +138,15 @@ export function avancarRodadaMultidao(estado, tatica = {}) {
     if (motivoPerde) {
       registrar({ type: 'perdeu_vez', side: actor.side, actorKey: actor.key, motivo: motivoPerde })
     } else if (actor.side === 'player') {
-      const item = itens[actor.id] && (estoque[itens[actor.id]] || 0) > 0 ? getGanguesItem(itens[actor.id]) : null
-      const alvoItem = item && item.tipo !== 'poder_unico' ? alvoDoItem(item, actor, lista) : null
+      // `itens[id]`: um item ou uma lista em ordem de preferência (o automático
+      // passa a poção de PV e a de PM); vale o primeiro que tem e que faz sentido agora.
+      const candidatos = [].concat(itens[actor.id] || []).filter(id => (estoque[id] || 0) > 0).map(getGanguesItem).filter(Boolean)
+      let item = null, alvoItem = null
+      for (const c of candidatos) {
+        const alvo = c.tipo !== 'poder_unico' ? alvoDoItem(c, actor, lista) : null
+        if (alvo) { item = c; alvoItem = alvo; break }
+      }
+      if (!item) item = candidatos.find(c => c.tipo === 'poder_unico') || null
       const alvoGolpe = alvoDoJogador(lista, foco)
       if (alvoItem) {
         // Item que faz sentido agora: gasta 1 do estoque e a vez.

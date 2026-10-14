@@ -6,7 +6,7 @@ import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeom
    verdade — cubo com as faces 1-1-2-2-3-3. Giram e quicam enquanto `rolando`
    e pousam com o resultado na face de CIMA, como dado de verdade, vistos de
    cima e de lado. Sem WebGL, mostra só os números. */
-const CORES = { ataque: '#c0392b', defesa: '#1f6fb2' }
+export const CORES = { ataque: '#c0392b', defesa: '#1f6fb2' }
 // Valor de cada face na ordem do material do cubo (+x, -x, +y, -y, +z, -z).
 const VALORES = [1, 1, 2, 2, 3, 3]
 // Rotação que vira a face do valor pra cima (+y).
@@ -28,14 +28,14 @@ function texturaFace(valor, cor) {
   return tx
 }
 
-function criarDado(cor) {
+export function criarDado(cor) {
   const materiais = VALORES.map(v => new THREE.MeshStandardMaterial({ map: texturaFace(v, cor), roughness: 0.35, metalness: 0.15 }))
   return new THREE.Mesh(new RoundedBoxGeometry(1, 1, 1, 4, 0.14), materiais)
 }
 
 // Pouso: a face sorteada pra cima, girado em volta do eixo vertical pra
 // mostrar duas laterais (cada dado pra um lado).
-function alvoDe(valor, lado) {
+export function alvoDe(valor, lado) {
   const face = new THREE.Quaternion().setFromEuler(VIRADA[valor] || VIRADA[2])
   const giro = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), lado * 0.55 + (Math.floor(Math.random() * 4) * Math.PI) / 2)
   return giro.multiply(face)
@@ -45,7 +45,7 @@ function alvoDe(valor, lado) {
 // devolve. Criar um por golpe esgota os contextos WebGL do navegador numa
 // sessão longa (dispose não devolve o contexto) e a tela trava.
 let rendererCompartilhado = null
-function pegarRenderer() {
+export function pegarRenderer() {
   if (rendererCompartilhado === false) return null
   if (!rendererCompartilhado) {
     try {

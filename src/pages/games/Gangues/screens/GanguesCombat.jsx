@@ -26,7 +26,7 @@ import GanguesCombatLogList from '../components/GanguesCombatLogList'
 import GanguesAutoBolinhas from '../components/GanguesAutoBolinhas'
 import GanguesCombatOverlays from '../components/GanguesCombatOverlays'
 import GanguesMultidaoActionBar from '../components/GanguesMultidaoActionBar'
-import GanguesMultidaoTatica from '../components/GanguesMultidaoTatica'
+import GanguesDadosRodada from '../components/golpe/GanguesDadosRodada'
 import { regraMultidao } from '../engine/ganguesBrigaMultidao.js'
 import GanguesActionOrb from '../components/GanguesActionOrb'
 import GanguesCombatSairConfirm from '../components/GanguesCombatSairConfirm'
@@ -84,22 +84,22 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
 
   // A Multidão precisa ser conhecida ANTES de montar o motor normal: ele fica
   // pausado enquanto ela está no controle (senão o inimigo da vez atacava
-  // escondido atrás da tela da Multidão). Quando ela pode ligar e quando já
-  // começa ligada: regraMultidao (da Feira em diante toda luta começa nela).
-  const bairroDaLuta = store.storyTarget?.clube ? store.storyTarget?.voltar?.territorioId : store.storyTarget?.territorioId
-  const { disponivel: multidaoDisponivel, padrao: multidaoPadrao } = regraMultidao(store.match, bairroDaLuta)
-  // Na Pista a pergunta "começar em Multidão?" aparece só na 1ª luta elegível
-  // do save; a escolha guardada vale sozinha depois (o switch troca e regrava).
+  // escondido atrás da tela da Multidão). Ela só existe com 6+ lutadores
+  // somados (regraMultidao), igual em todo bairro: a pergunta aparece na 1ª
+  // luta assim do save e a escolha fica gravada (o switch troca e regrava).
+  const { disponivel: multidaoDisponivel, padrao: multidaoPadrao } = regraMultidao(store.match)
   const [escolhaMultidao, gravarEscolhaMultidao] = useEscolhaMultidao()
-  const [modoMultidaoOn, setModoMultidaoOnState] = useState(() => multidaoDisponivel && (multidaoPadrao || escolhaMultidao === 'sim'))
+  // Desligou uma vez, fica desligado (gravado no save) — mesmo onde ela começaria ligada.
+  const [modoMultidaoOn, setModoMultidaoOnState] = useState(() => multidaoDisponivel && escolhaMultidao !== 'nao' && (multidaoPadrao || escolhaMultidao === 'sim'))
   const setModoMultidaoOn = useCallback((valor) => {
     setModoMultidaoOnState(valor)
-    if (!multidaoPadrao) gravarEscolhaMultidao(valor ? 'sim' : 'nao')
-  }, [gravarEscolhaMultidao, multidaoPadrao])
+    gravarEscolhaMultidao(valor ? 'sim' : 'nao')
+  }, [gravarEscolhaMultidao])
   const modoMultidaoAtivoPreMachine = multidaoDisponivel && modoMultidaoOn
   const [multidaoPromptRespondida, setMultidaoPromptRespondida] = useState(!multidaoDisponivel || multidaoPadrao || escolhaMultidao != null)
   const perguntaMultidaoAtiva = multidaoDisponivel && !multidaoPromptRespondida
-  const [taticaAberta, setTaticaAberta] = useState(false)
+  // O automático (talento de cada um e poções) vale igual pra briga comum e pra Multidão.
+  const autoConfig = useGanguesAutoConfig()
 
   // Automático (um só pra luta normal e Multidão), lembrado entre lutas.
   // Velocidade 1x/2x/3x só vale com ele ligado.
@@ -118,8 +118,8 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
     }
   }, [store.match.playerTeam])
 
-  const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, multidaoDisponivel, modoMultidaoOn, setModoMultidaoOn, velocidade: velocidadeEfetiva, fx, autoOn: modoAutoOn })
-  const { modoMultidaoAtivo, estadoMultidao, alternarMultidao, podeLigar, multidaoBlinkVisto, avancarRodada, revelandoRodada, golpeAtual, golpeNaTela, fecharGolpe, foco, marcarFoco } = multidao
+  const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, multidaoDisponivel, modoMultidaoOn, setModoMultidaoOn, velocidade: velocidadeEfetiva, fx, autoOn: modoAutoOn, autoConfig: autoConfig.config })
+  const { modoMultidaoAtivo, estadoMultidao, alternarMultidao, podeLigar, multidaoBlinkVisto, avancarRodada, revelandoRodada, golpeAtual, rodadaNaTela, fecharRodada, foco, marcarFoco } = multidao
 
   // PV/PM gravado durante a luta (sair/recarregar não devolve a vida).
   useGanguesDanoAoVivo({ store, combatants: modoMultidaoAtivo ? (estadoMultidao?.combatants || []) : machine.combatants })
@@ -211,7 +211,6 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
     perfil, modoMultidaoAtivo, machinePhase: machine.phase, turnoSeq: machine.turnoSeq, result, koCena: fx.koCena,
     selectedActor, selectedTarget, agir: agirAuto,
   })
-  const autoConfig = useGanguesAutoConfig()
 
   // Itens disponíveis (quantidade > 0) — a bolinha só mostra o que a gangue
   // realmente tem, lido direto do inventário compartilhado (store.inventario).
@@ -348,7 +347,6 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
       <GanguesCombatOverlays
         t={t} aviso={aviso} danoCena={fx.danoCena} koCena={fx.koCena}
         dispararProximoKo={fx.dispararProximoKo} machine={machine} modoMultidaoAtivo={modoMultidaoAtivo}
-        golpeMultidao={golpeNaTela && estadoMultidao ? { evento: golpeNaTela, combatants: estadoMultidao.combatants, onComplete: fecharGolpe } : null}
         fichaAberta={fichaAberta} setFichaAberta={setFichaAberta}
         falaFinal={falaFinal} result={result} showResultBtn={showResultBtn}
         openBattleReport={abrirRelatorio}
@@ -364,12 +362,8 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
         trashOptions={trashOptions} trashAberto={trashAberto} setTrashAberto={setTrashAberto} sendPlayerTrash={sendPlayerTrash}
       />
 
-      <GanguesPistaTempo
-        t={t}
-        tempo={modoMultidaoAtivo ? estadoMultidao?.tempo : machine.tempo}
-        combatants={modoMultidaoAtivo ? estadoMultidao?.combatants : machine.combatants}
-        vezKey={modoMultidaoAtivo ? golpeAtual?.actorKey : machine.currentActor?.key}
-      />
+      {/* Na Multidão a pista de velocidade não vale: a rodada inteira sai de uma vez. */}
+      {!modoMultidaoAtivo && <GanguesPistaTempo t={t} tempo={machine.tempo} combatants={machine.combatants} vezKey={machine.currentActor?.key} />}
 
       <GanguesCombatRoster
         members={players} side="player"
@@ -393,17 +387,20 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
       {modoMultidaoAtivo && !result && (
         <GanguesMultidaoActionBar
           t={t} focoNome={foco ? fighterName(t, enemies.find(e => e.key === foco)) : null} onLimparFoco={() => marcarFoco(foco)}
-          onAbrirTatica={() => setTaticaAberta(true)}
-          taticasAtivas={store.match.playerTeam.filter(m => multidao.poderes[m.id] || multidao.itens[m.id]).length}
           avancarRodada={avancarRodada} revelandoRodada={revelandoRodada} prontoPraAvancar={Boolean(estadoMultidao)}
           autoOn={modoAutoOn} onToggleAuto={modoAuto.toggleModoAuto}
         />
       )}
-      {taticaAberta && modoMultidaoAtivo && (
-        <GanguesMultidaoTatica
-          t={t} time={store.match.playerTeam} inventario={store.inventario}
-          poderes={multidao.poderes} escolherPoder={multidao.escolherPoder} itens={multidao.itens} escolherItem={multidao.escolherItem}
-          onClose={() => setTaticaAberta(false)}
+      {rodadaNaTela && modoMultidaoAtivo && (
+        <GanguesDadosRodada t={t} eventos={rodadaNaTela.eventos} combatants={rodadaNaTela.final.combatants} velocidade={velocidadeEfetiva} auto={modoAutoOn} onComplete={fecharRodada} />
+      )}
+      {/* Na Multidão a bolinha mostra só o automático — o mesmo da briga comum. */}
+      {modoMultidaoAtivo && !result && (
+        <GanguesActionOrb
+          t={t} soAuto aliados={aliadosOrb} equippedSpecials={[]} canAffordSpecial={() => false}
+          autoOn={modoAuto.modoAutoOn} autoBloqueado={!modoAuto.podeUsarModoAuto} onToggleAuto={modoAuto.toggleModoAuto}
+          autoConfig={autoConfig.config} onEscolherTalentoAuto={autoConfig.escolherTalento}
+          onAlternarPocaoAuto={autoConfig.alternarPocao} onAlternarPocaoPmAuto={autoConfig.alternarPocaoPm}
         />
       )}
 
