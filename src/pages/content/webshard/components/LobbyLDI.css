@@ -1,0 +1,75 @@
+/* Lobby do Lutas de Ilusão: fileiras de capas que rolam de lado (estilo streaming). */
+.lobby-ldi { display: flex; flex-direction: column; gap: 1.75rem; margin-top: 1.75rem; }
+
+.lobby-ldi__h2 {
+  margin: 0 0 0.75rem;
+  color: var(--if-ink);
+  font: 700 1.1rem var(--font-display, inherit);
+}
+
+/* trilho que rola de lado, com a próxima capa aparecendo pela metade */
+.lobby-ldi__trilho {
+  display: flex;
+  gap: 12px;
+  margin: 0 -16px;
+  padding: 4px 16px 10px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.lobby-ldi__trilho::-webkit-scrollbar { display: none; }
+
+.lobby-ldi__poster {
+  position: relative;
+  flex: 0 0 62%;
+  aspect-ratio: 2 / 3;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--if-hair-strong);
+  background: var(--bg-elevated);
+  cursor: pointer;
+  scroll-snap-align: start;
+  text-align: left;
+  text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.lobby-ldi__poster--conto { flex-basis: 42%; }
+.lobby-ldi__poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.lobby-ldi__poster.is-ativo { border-color: var(--ws-cor, var(--if-cyan)); box-shadow: inset 0 -3px var(--ws-cor, var(--if-cyan)); transform: translateY(-3px); }
+
+.lobby-ldi__poster-info {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 2.5rem 12px 12px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.92));
+}
+.lobby-ldi__poster-nome { color: var(--if-ink); font: 700 1rem/1.2 var(--font-display, inherit); }
+.lobby-ldi__poster--conto .lobby-ldi__poster-nome { font-size: 0.85rem; }
+.lobby-ldi__poster-sub {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lobby-ldi__dica { margin: 0; color: var(--text-secondary); font-size: 0.88rem; text-align: center; }
+
+.lobby-ldi__caps-cabeca {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 0.75rem;
+  box-shadow: inset 0 -1px var(--ws-cor, var(--if-cyan));
+}
+.lobby-ldi__total { color: var(--text-secondary); font: 700 0.7rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
+.lobby-ldi__lista { display: flex; flex-direction: column; }

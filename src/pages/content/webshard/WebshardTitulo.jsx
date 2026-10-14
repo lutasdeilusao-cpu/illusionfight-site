@@ -9,6 +9,7 @@ import TituloHero from './components/TituloHero'
 import CapituloLinha from './components/CapituloLinha'
 import ContinuarLendo from './components/ContinuarLendo'
 import LerAntesCta from './components/LerAntesCta'
+import LobbyLDI from './components/LobbyLDI'
 import './WebshardTitulo.css'
 
 /* /webtoon/:slug — página de um título: capa, sinopse, e a lista de
@@ -18,9 +19,8 @@ export default function WebshardTitulo({ titulo }) {
   const { t, locale } = useLanguage()
   const { nivel, liberado, previa, dataPara } = useWebshardAcesso()
   const [progresso] = useState(() => lerProgresso(titulo.slug))
-  // Lutas de Ilusão tem um lobby: linha principal, especiais e contos, cada um numa aba.
+  // Lutas de Ilusão tem um lobby: séries (linha principal e especiais) e contos em fileiras de capas.
   const lobby = titulo.slug === 'lutas-de-ilusao'
-  const [aba, setAba] = useState('principal')
 
   // Lista inteira: os "Em breve" mostram a data do calendário oficial.
   const capitulos = capitulosPrincipais(titulo)
@@ -57,23 +57,10 @@ export default function WebshardTitulo({ titulo }) {
           </div>
 
           {lobby && (
-            <nav className="ws-titulo__abas" aria-label={t('webShard.titulo.abas')}>
-              {['principal', 'especiais', 'contos'].map(id => (
-                <button key={id} type="button" className={`ws-titulo__aba${aba === id ? ' is-ativa' : ''}`} onClick={() => setAba(id)}>
-                  {t(`webShard.titulo.aba_${id}`)}
-                </button>
-              ))}
-            </nav>
+            <LobbyLDI titulo={titulo} liberado={liberado} previa={previa} dataPara={dataPara} nivel={nivel} progresso={progresso} />
           )}
 
-          {lobby && aba === 'contos' && (
-            <section className="ws-titulo__caps">
-              <p className="ws-titulo__especiais-hint">{t('webShard.titulo.contos_hint')}</p>
-              <Link to="/historias/contos" className="if-btn if-btn--primary">{t('webShard.titulo.contos_ir')}</Link>
-            </section>
-          )}
-
-          {(!lobby || aba === 'principal') && (
+          {!lobby && (
           <section className="ws-titulo__caps">
             <div className="ws-titulo__caps-cabeca">
               <h2 className="ws-titulo__h2">{t('webShard.titulo.capitulos')}</h2>
@@ -103,7 +90,7 @@ export default function WebshardTitulo({ titulo }) {
           </section>
           )}
 
-          {(lobby ? aba === 'especiais' : especiais.length > 0) && (
+          {!lobby && especiais.length > 0 && (
             <section className="ws-titulo__caps ws-titulo__especiais">
               <div className="ws-titulo__caps-cabeca">
                 <h2 className="ws-titulo__h2">{t('webShard.titulo.especiais')}</h2>

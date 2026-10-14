@@ -1254,13 +1254,7 @@
       "classificacao": "{n}+",
       "especiais": "Specials",
       "especiais_selo": "Outside the main story",
-      "especiais_hint": "A side story: the characters taken to another world, to fill the hiatus. Not part of the main storyline.",
-      "abas": "Sections",
-      "aba_principal": "Main story",
-      "aba_especiais": "Specials",
-      "aba_contos": "Tales",
-      "contos_hint": "Illusion Tales are text stories from the same universe: each character's past, told by them.",
-      "contos_ir": "Read the Illusion Tales"
+      "especiais_hint": "A side story: the characters taken to another world, to fill the hiatus. Not part of the main storyline."
     },
     "cap": {
       "rotulo": "Ch. {n}",
@@ -1329,6 +1323,12 @@
       "faltam": "locks in {n} days",
       "ultimo_dia": "last free day!",
       "oficial": "Official release"
+    },
+    "lobby": {
+      "principal": "Illusion Fight · Season 1",
+      "series": "Series",
+      "contos": "Illusion Tales",
+      "escolha": "Pick a series to see its chapters."
     }
   },
   "calendar": {

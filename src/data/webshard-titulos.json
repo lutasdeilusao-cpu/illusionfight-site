@@ -24,7 +24,19 @@
     "capa": "capa-lutas-de-ilusao.webp",
     "status": "em_andamento",
     "visivel": "publico",
-    "fonte_capitulos": "episodios"
+    "fonte_capitulos": "episodios",
+    "series": [
+      {
+        "id": "presos-na-ilusao",
+        "capa": "capa-presos-na-ilusao.webp",
+        "nome_pt": "Presos na Ilusão",
+        "nome_en": "Trapped in the Illusion",
+        "nome_es": "Atrapados en la Ilusión",
+        "tagline_pt": "Especial de Halloween. Ninguém lembra de quem já morreu.",
+        "tagline_en": "Halloween special. Nobody remembers who already died.",
+        "tagline_es": "Especial de Halloween. Nadie recuerda a quien ya murió."
+      }
+    ]
   },
   {
     "id": 5,
