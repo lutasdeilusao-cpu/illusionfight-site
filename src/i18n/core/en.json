@@ -146,13 +146,13 @@
     "seg": "s",
     "no_ar": "We're live!"
   },
-  "gate_leitura": {
+  "convite_conta": {
     "eyebrow": "FREE ACCOUNT",
-    "titulo": "Create your free account and read to the end.",
+    "titulo": "Want to read the next chapters earlier?",
     "texto": "It takes less than a minute and costs nothing.",
-    "item1": "Read the whole chapter, for free",
-    "item2": "Your progress is saved: pick up where you left off, on any device",
-    "item3": "Get notified when a new chapter comes out",
+    "item1": "Get new chapters before the public release",
+    "item2": "Get an email when a new chapter comes out",
+    "item3": "Pick up where you left off, on any device",
     "criar": "Create free account",
     "entrar": "I already have an account"
   },

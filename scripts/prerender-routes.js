@@ -43,12 +43,8 @@ const px = (L, p) => (L === 'en' ? p : `/${L}${p === '' ? '/' : p}`)
 const titulo = (o, L) => (L === 'pt' ? o.titulo || o.titulo_pt : o[`titulo_${L}`]) || o.titulo_en || o.titulo || o.titulo_pt
 const campo = (o, base, L) => o[`${base}_${L}`] || o[`${base}_en`] || o[`${base}_pt`] || ''
 
-// TEXTO DO CAPÍTULO no HTML estático (SEO, 01/10/2026): antes o Google só via
-// o resumo (~130 palavras) e nunca a história. Vai exatamente o que o visitante
-// sem conta lê no site — os primeiros 50% dos parágrafos (mesma regra do
-// GateLeitura, GATE_FRACAO) — e só de capítulo já liberado ao público.
-// Nunca pôr no estático mais do que o visitante vê (o Google pune cloaking).
-const GATE_FRACAO = 0.5
+// Texto do capítulo no HTML estático (SEO): o capítulo inteiro, igual ao que o visitante
+// lê no site, e só de capítulo já liberado ao público.
 const escapeTexto = v => v.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c])
 function inlineMd(t, L) {
   return escapeTexto(t)
@@ -60,9 +56,8 @@ function trechoLivre(arquivo, L) {
   if (!existe(arquivo)) return null
   const blocos = fs.readFileSync(path.resolve(process.cwd(), arquivo), 'utf-8').replace(/\r\n/g, '\n').split(/\n\s*\n/).map(b => b.trim()).filter(Boolean)
   if (blocos.length < 2) return null
-  // mesmo corte do site (conta os blocos com o título, como o cortarTexto),
-  // e o "# CAPÍTULO" sai porque o <h1> da página já diz
-  const livres = blocos.slice(0, Math.max(1, Math.floor(blocos.length * GATE_FRACAO))).filter((b, i) => !(i === 0 && /^#\s/.test(b)))
+  // o "# CAPÍTULO" sai porque o <h1> da página já diz
+  const livres = blocos.filter((b, i) => !(i === 0 && /^#\s/.test(b)))
   const html = livres.map(b => (/^(-{3,}|\*{3,})$/.test(b) ? '<hr>'
     : /^#+\s/.test(b) ? `<h2>${inlineMd(b.replace(/^#+\s*/, ''), L)}</h2>`
       : `<p>${inlineMd(b, L).replace(/\n/g, '<br>')}</p>`)).join('')

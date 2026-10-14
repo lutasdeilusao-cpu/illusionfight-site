@@ -146,13 +146,13 @@
     "seg": "s",
     "no_ar": "¡Ya estamos en vivo!"
   },
-  "gate_leitura": {
+  "convite_conta": {
     "eyebrow": "CUENTA GRATIS",
-    "titulo": "Crea tu cuenta gratis y lee hasta el final.",
+    "titulo": "¿Quieres leer los próximos capítulos antes?",
     "texto": "Tarda menos de un minuto y no pagas nada.",
-    "item1": "Lee el capítulo completo, gratis",
-    "item2": "Tu progreso queda guardado: sigue donde lo dejaste, en cualquier dispositivo",
-    "item3": "Recibe un aviso cuando salga un capítulo nuevo",
+    "item1": "Recibe los capítulos nuevos antes de la versión pública",
+    "item2": "Recibe un correo cuando salga un capítulo nuevo",
+    "item3": "Sigue donde lo dejaste, en cualquier dispositivo",
     "criar": "Crear cuenta gratis",
     "entrar": "Ya tengo cuenta"
   },

@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.432.14**.
+> `SITE_VERSION` **10.433.0**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -169,7 +169,7 @@ Os Kernel Games usam layout portrait compartilhado em `src/pages/games/KernelGam
 - **`/historias`** (`historias/HistoriasHub.jsx`) — no padrão do WEB SHARD: destaque da linha principal (capa oficial do WEB SHARD), "continuar lendo" por título, estante numerada (`TituloCard`) com filtro do farol, **próximos capítulos** com a cascata assinante → conta → público (`CascataLiberacao`) e **capítulos recentes**. `/historias/contos` é o mesmo hub com `tipo="conto"`.
 - **Página de título** (`historias/HistoriaTitulo.jsx`) — uma só pra linha principal, conto e obra: `TituloHero` (capa, selos, sinopse), farol completo, bloco "o universo" (obras), link da Amazon, lista de capítulos (`historias/HistoriaCapLinha.jsx`, o `.ws-cap` do WEB SHARD + resumo) e o `LerAntesCta`.
 - **Dado**: `src/lib/historias/catalogo.js` junta `historias/lutas-de-ilusao.json` / `contos.json` / `obras.json` no formato de título do WEB SHARD — a UI nunca lê os índices direto. A linha principal puxa nome/chamada/sinopse/capa de `webshard-titulos.json` (uma fonte só do produto). Sem arte própria → `ComingSoon.png` (padrão do projeto). Acesso em `src/hooks/useHistoriasAcesso.js` (espelho do `useWebshardAcesso`: Cap. 01 do livro sempre livre, contos pela Beta, resto pela cascata).
-- **Leitor único**: `LivroCapitulo.jsx`, `ContoCapitulo.jsx` e `ObraCapitulo.jsx` só resolvem o dado e entregam para `src/components/Leitor/LeitorCapitulo.jsx` (barra, ajustes, fim do capítulo com reações e recomendação). Visitante sem conta lê até 50% (`GateLeitura`).
+- **Leitor único**: `LivroCapitulo.jsx`, `ContoCapitulo.jsx` e `ObraCapitulo.jsx` só resolvem o dado e entregam para `src/components/Leitor/LeitorCapitulo.jsx` (barra, ajustes, fim do capítulo com reações e recomendação). Visitante sem conta lê o capítulo inteiro e vê o `ConviteConta` no fim.
 - **Recomendação**: `src/lib/historias/recomendacoes.js` + `historico.js` (histórico de leitura local) e `src/lib/recomendacao/afinidade.js` (uso do portal, sincronizado em `perfil_afinidade` para quem tem conta).
 - **Gating de conteúdo não-lançado:** `data_publicacao` futura (`2099-01-01` nas obras) → badge "Em breve" pro público; `estaDisponivel(cap, isAdmin)` libera pra admin. Mesmo mecanismo dos contos, sem lógica de auth nova.
 - **Cross-links entre histórias:** citações de eventos viram `[texto](/historias/lutas-de-ilusao/capitulo-0N)` ou `[texto](/historias/contos/NN/NN)`, renderizados client-side por `readerMdComponents` (`src/lib/mdComponents.jsx`).
@@ -250,7 +250,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 ### 5.3 Componentes reutilizáveis
 
 - Navegação e shell: `Navbar`, `Footer`, `ScrollToTop`, `ScrollToTopOnNav`, `SearchModal`, `CookieBanner`, `TrialBanner`, `DeferredSection` (carga por proximidade).
-- Leitura: `Leitor/` (leitor único de texto), `GateLeitura`, `Reacoes` (reações anônimas, RPC `webshard_reagir`), `Recomendacoes`, `ShareButton`.
+- Leitura: `Leitor/` (leitor único de texto), `ConviteConta` (convite de conta no fim do capítulo), `Reacoes` (reações anônimas, RPC `webshard_reagir`), `Recomendacoes`, `ShareButton`.
 - Acesso e economia: `LoginGate`, `FichaGateRoute`, `GameSessionRoute` (sessão dos Kernel Games), `SoAdmin` (rota só de admin, em `App.jsx`), `GuestNotice`, `ModalConfirmacaoFicha`, `ModalSemFichas`. O gate de fichas está desligado (`FICHAS_GATE_ATIVO = false` em `src/config/fichas.js`): `FichaGateRoute` entrega o jogo direto, sem pedir login nem ficha; sem conta, o progresso some ao recarregar ou fechar.
 - Loja: `/loja` mostra os produtos físicos de `produtos.json` (todos "Em breve"). `ShopSection` + `ProdutoDigitalCard` (fichas, starter pack, skin, de `loja-digital.json`) existem, mas não estão montados em nenhuma página.
 - Notificações: `AchievementToast`, `LDINotification`, `UnifiedNotification`.

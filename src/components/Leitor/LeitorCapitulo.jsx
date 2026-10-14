@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useReader } from '../../context/ReaderContext'
 import { useBarraAutoOculta } from '../../hooks/useBarraAutoOculta'
-import GateLeitura, { cortarTexto } from '../GateLeitura/GateLeitura'
+import ConviteConta from '../ConviteConta/ConviteConta'
 import LeitorBarra from './LeitorBarra'
 import LeitorAjustes from './LeitorAjustes'
 import LeitorFim from './LeitorFim'
@@ -35,7 +35,7 @@ import './LeitorCapitulo.css'
      indice        { rota, rotulo }
      anterior / proximo   { rota, titulo, numero, resumo } | null
      reacoes       { titulo, capitulo } — chave das reações (ver lib/webshard/reacoes)
-     isAdmin, semConta   (semConta = visitante: lê até a metade, GateLeitura)
+     isAdmin, semConta   (semConta = visitante: lê tudo e vê o convite de conta no fim)
      sentinelRef   ref opcional no fim do texto (conquista de leitura completa)
      historia      o título do catálogo (lib/historias/catalogo) — histórico e recomendação
      capId         id do capítulo aberto
@@ -56,8 +56,6 @@ export default function LeitorCapitulo({
   useEffect(() => { setReaderMode(true); return () => setReaderMode(false) }, [setReaderMode])
 
   const corpo = useMemo(() => semTituloDoArquivo(md), [md])
-  const visivelNoGate = cortarTexto(corpo, semConta)
-  const cortado = semConta && visivelNoGate !== corpo
   const minutos = useMemo(() => minutosDeLeitura(corpo), [corpo])
   const pct = useProgressoLeitura(textoRef, corpo)
 
@@ -66,10 +64,10 @@ export default function LeitorCapitulo({
   useEffect(() => { if (historia && capId) registrarAbertura(historia, capId) }, [historia, capId])
   const lidoRef = useRef(null)
   useEffect(() => {
-    if (!historia || !capId || carregando || cortado || pct < 95 || lidoRef.current === capId) return
+    if (!historia || !capId || carregando || pct < 95 || lidoRef.current === capId) return
     lidoRef.current = capId
     registrarLeitura(historia, capId, completa)
-  }, [historia, capId, completa, carregando, cortado, pct])
+  }, [historia, capId, completa, carregando, pct])
 
   if (naoEncontrado) {
     return (
@@ -95,16 +93,16 @@ export default function LeitorCapitulo({
       </header>
 
       <article className="leitor-texto" ref={textoRef}>
-        <ReactMarkdown components={leitorMarkdown}>{visivelNoGate}</ReactMarkdown>
-        {cortado && <GateLeitura />}
-        {!cortado && sentinelRef && <div ref={sentinelRef} className="leitor-texto__sentinela" />}
+        <ReactMarkdown components={leitorMarkdown}>{corpo}</ReactMarkdown>
+        {sentinelRef && <div ref={sentinelRef} className="leitor-texto__sentinela" />}
       </article>
 
-      {!cortado && !carregando && (
+      {!carregando && (
         <LeitorFim reacoes={reacoes} idioma={idioma} isAdmin={isAdmin} proximo={proximo} anterior={anterior} indice={indice} />
       )}
       {/* Acabou o que tem pra ler desta história: recomenda a próxima (Isaias, 30/09/2026). */}
-      {!cortado && !carregando && !proximo && historia && <RecomendacaoFim historia={historia} completa={completa} />}
+      {!carregando && semConta && <ConviteConta />}
+      {!carregando && !proximo && historia && <RecomendacaoFim historia={historia} completa={completa} />}
 
       <LeitorAjustes aberto={ajustes} onFechar={() => setAjustes(false)} prefs={prefs} />
     </main>

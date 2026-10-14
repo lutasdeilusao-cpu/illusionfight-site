@@ -146,13 +146,13 @@
     "seg": "s",
     "no_ar": "Estamos no ar!"
   },
-  "gate_leitura": {
+  "convite_conta": {
     "eyebrow": "CONTA GRÁTIS",
-    "titulo": "Crie sua conta grátis e leia até o fim.",
+    "titulo": "Quer ler os próximos capítulos antes?",
     "texto": "Leva menos de um minuto e você não paga nada.",
-    "item1": "Leia o capítulo inteiro, de graça",
-    "item2": "Seu progresso fica salvo: continue de onde parou, em qualquer aparelho",
-    "item3": "Seja avisado quando sair capítulo novo",
+    "item1": "Receba os capítulos novos antes da versão pública",
+    "item2": "Seja avisado por e-mail quando sair capítulo novo",
+    "item3": "Continue de onde parou, em qualquer aparelho",
     "criar": "Criar conta grátis",
     "entrar": "Já tenho conta"
   },

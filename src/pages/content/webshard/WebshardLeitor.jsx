@@ -20,7 +20,7 @@ import LeitorPaginas from './components/LeitorPaginas'
 import LeitorFim from './components/LeitorFim'
 import AvisoAutor from './components/AvisoAutor'
 import { compartilharLink } from '../../../components/ShareButton/ShareButton'
-import GateLeitura, { cortarLista, useGateLeitura } from '../../../components/GateLeitura/GateLeitura'
+import ConviteConta from '../../../components/ConviteConta/ConviteConta'
 import './WebshardLeitor.css'
 
 /* Leitor WEB SHARD — /webtoon/:id (Lutas de Ilusão, URL legada) e
@@ -71,10 +71,6 @@ export default function WebshardLeitor({ titulo, capId }) {
   const { visivel, alternar, mostrar } = useBarraAutoOculta()
 
   const paginas = useMemo(() => (podeLer ? paginasDe(cap, idioma) : []), [cap, idioma, podeLer])
-  // Sem conta: só a 1ª metade das páginas; o final pede conta grátis.
-  const gate = useGateLeitura()
-  const paginasVisiveis = useMemo(() => cortarLista(paginas, gate), [paginas, gate])
-  const cortado = paginasVisiveis.length < paginas.length
   const idiomaIncompleto = Boolean(cap?.paginas_faltando?.[idioma]?.length)
   const nomeCap = cap ? localizado(cap, 'titulo', locale) : ''
   // Conquista de "terminou o capítulo" vem do dado (episodios.json).
@@ -188,20 +184,19 @@ export default function WebshardLeitor({ titulo, capId }) {
         )}
 
         <LeitorPaginas
-          paginas={paginasVisiveis}
+          paginas={paginas}
           proporcao={cap.proporcao}
           onPagina={onPagina}
           onToque={alternar}
-          ultimaRef={cortado ? null : ultimaPaginaRef}
+          ultimaRef={ultimaPaginaRef}
         />
 
-        {cortado && <GateLeitura />}
 
         {avisoAutorAberto && cap.aviso_autor && (
           <AvisoAutor id={cap.aviso_autor} cor={titulo.cor} onFechar={() => setAvisoAutorAberto(false)} />
         )}
 
-        {!cortado && <LeitorFim
+        <LeitorFim
           titulo={titulo}
           cap={cap}
           proximo={proximo}
@@ -212,7 +207,8 @@ export default function WebshardLeitor({ titulo, capId }) {
           isAdmin={isAdmin}
           onCompartilhar={compartilhar}
           avisoCompartilhar={aviso}
-        />}
+        />
+        {nivel === 'publico' && <ConviteConta />}
       </div>
     </>
   )

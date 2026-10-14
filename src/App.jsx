@@ -247,15 +247,16 @@ export default function App() {
       <Footer hidden={readerMode} />
       <TrialBanner hidden={readerMode} />
       </Suspense>
-      <ScrollToTop />
-      {deferredUiReady && (
+      {/* lendo um capítulo: nada por cima do texto (aviso, rádio, conquista, cookies) */}
+      {!readerMode && <ScrollToTop />}
+      {deferredUiReady && !readerMode && (
         <Suspense fallback={null}>
           <LDINotification />
           <RadioNina />
           <UnifiedNotification />
         </Suspense>
       )}
-      <CookieBanner />
+      {!readerMode && <CookieBanner />}
     </>
   )
 }

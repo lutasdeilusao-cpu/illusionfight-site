@@ -1,19 +1,11 @@
-/* Gate de leitura — a 2ª metade pedem conta grátis. */
-.gate-leitura {
+/* Convite de conta grátis no fim do capítulo (só pra quem não tem conta). */
+.convite-conta {
   position: relative;
-  padding: 0 16px 32px;
+  padding: 8px 16px 32px;
 }
 
-/* Some o fim do conteúdo cortado, dando a sensação de "continua…". */
-.gate-leitura__fade {
-  height: 120px;
-  margin-top: -120px;
-  background: linear-gradient(to bottom, transparent, var(--bg-primary));
-  pointer-events: none;
-  position: relative;
-}
 
-.gate-leitura__card {
+.convite-conta__card {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -23,21 +15,21 @@
   clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
 }
 
-.gate-leitura__eyebrow {
+.convite-conta__eyebrow {
   color: var(--if-amber);
   font: 700 0.66rem var(--font-mono);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.gate-leitura__titulo {
+.convite-conta__titulo {
   margin: 0;
   color: var(--if-ink);
   font: 700 1.15rem var(--font-display, inherit);
   line-height: 1.25;
 }
 
-.gate-leitura__lista {
+.convite-conta__lista {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -46,7 +38,7 @@
   list-style: none;
 }
 
-.gate-leitura__lista li {
+.convite-conta__lista li {
   position: relative;
   padding-left: 1.6rem;
   color: var(--text-primary);
@@ -54,7 +46,7 @@
   line-height: 1.4;
 }
 
-.gate-leitura__lista li::before {
+.convite-conta__lista li::before {
   content: '✓';
   position: absolute;
   left: 0;
@@ -63,18 +55,18 @@
   font-weight: 800;
 }
 
-.gate-leitura__texto {
+.convite-conta__texto {
   margin: 0;
   color: var(--text-secondary);
   font-size: 0.88rem;
   line-height: 1.5;
 }
 
-.gate-leitura__acoes {
+.convite-conta__acoes {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 4px;
 }
 
-.gate-leitura__acoes .if-btn { flex: 1 1 140px; justify-content: center; }
+.convite-conta__acoes .if-btn { flex: 1 1 140px; justify-content: center; }
