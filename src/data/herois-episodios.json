@@ -137,5 +137,32 @@
       "publico": "2099-02-15"
     },
     "data_publicacao": "2099-02-15"
+  },
+  {
+    "id": "06",
+    "numero": 6,
+    "so_admin": true,
+    "titulo_pt": "O Poder do Metal",
+    "titulo_en": "The Power of Metal",
+    "titulo_es": "El Poder del Metal",
+    "frase_pt": "O Mega Metal mostra todos os seus poderes. Mas todo herói tem uma kriptonita.",
+    "publicado": true,
+    "paginas": 14,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "herois-da-cidade/06",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15"
   }
 ]
