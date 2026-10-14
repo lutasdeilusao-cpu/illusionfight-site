@@ -68,16 +68,27 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 ## 2. WEB SHARD (comum)
 - Página 960×1637 (≈1:1,705), safe area 100 px lados / 80 px topo-base. Ficha 2048×1152 (4 vistas, sem texto). Página dupla do Codex: 768×1024 cada.
 - Máx. 2 painéis grandes + estilhaços, cortes diagonais 8–15°, 4 painéis nunca. Pouco texto, letra grande.
+- Estilhaço é detalhe por cima do painel (olho, mão, expressão, objeto), nunca um painel a mais. Se o roteiro tem estilhaço e a página saiu só com painéis, o prompt não descreveu a forma dele — conferir.
 - Publicação: `public/webtoon/<pasta>/<idioma>/NN.webp`; catálogo `src/data/*-episodios.json` + `webshard-titulos.json` + `src/lib/webshard/catalogo.js`. Versões do mesmo capítulo: `versoes` (`<pasta>/<versao>/pt`).
 - Tradução: Nano Banana 2 primeiro (`LAB-NVIDIA/traduz_gemini.py <cap> <EN|ES> <prompts> NN…`, mesmo tamanho do PT), Codex reserva. Adaptar gíria antes; DIX nunca se traduz; ES neutro latino (tuteo). Detalhe e glossário no guia WEB SHARD §10/§17/§26.
 
 ## 3. MUNDO DAS SOMBRAS (MDS) — estilo ARKHAM CODEX
 - Pasta: `MUNDO DAS SOMBRAS/WEBSHARD/`. Estilo oficial (decisão do Isaias): **Arkham Codex** = estilo da arte de Batman: Arkham City, feito no Codex, sem nada da marca.
-- Scripts: `scripts/v2.py` monta a fila `prompts/v2/` (0 fichas Arkham · 1 continuidade · 2 capa/miniaturas · 3 cap.1 · 4 cap.2); `scripts/fila_v2.py [pausa]` roda (tarefa `MDS_Fila_v2`, a cada 4 h; recorta página dupla `NN_MM.png`). Saídas: `sheets_codex_arkham/`, `sheets_v2/`, `capas_v2/`, `wsNN/arkham_v2/`.
-- Fichas Arkham = redesenho das fichas aprovadas (ref = ficha antiga, "keep EXACTLY its design").
-- Continuidade do orfanato: `sheets_v2/MDS_Dormitorio_Planta` (cama do Minus = 5ª da fileira ESQUERDA, cobertor AZUL-ESCURO, rachadura no teto acima, beliche do Carlos ao lado, Marina e Sofia em frente, cadeira da Helena na porta), `MDS_Dormitorio_Sombras`, `MDS_Dormitorio_Criancas`. Planta só entra em página com plano geral/vista de cima; nas outras: regra FECHADO + DEPTH.
-- Abertura do cap.1: "EXISTEM MUITAS COISAS NO MUNDO TE OBSERVANDO." / "MAS ALGUMAS COISAS OLHAM DE VOLTA."
-- Paletas: memória dourada / real azul-frio / Shadow World orgânico. Moldura na cor do narrador (Minus azul `#2E8BFF`, Falha/Nefeli prata `#C9D1DE`, Luna rosa `#E85D9A`).
+- Scripts: `scripts/v2.py` monta a fila do Codex `prompts/v2/` (cada ficha vai logo antes do 1º capítulo que a usa: `3N_00_*`, depois as páginas do capítulo N); `scripts/fila_v2.py` roda (tarefa `MDS_Fila_v2`; recorta página dupla `NN_MM.png`). `scripts/v2_gemini.py montar | rodar [caps]` = mesma coisa no Gemini, uma página por imagem, 2 páginas a cada 3 min. Saídas: `sheets_codex_arkham/`, `sheets_v2/`, `capas_v2/`, `wsNN/arkham_v2/` (Codex), `wsNN/arkham_gemini_v2/` (Gemini). `scripts/publicar_v2.py` sobe as duas versões como "pré-final".
+- **Ordem de produção (economia de Codex):** roteiro → Gemini gera o capítulo → Isaias revisa → só então o Codex gera (a fila do Codex só faz página de capítulo com o arquivo `aprovado/wsNN`; ficha ela faz sempre). Erro achado no Gemini custa centavos; no Codex, cota.
+- **O roteiro (`wsNN/roteiro.json`, formato em `scripts/FORMATO_ROTEIRO.md`) é escrito pelo agente principal**, nunca pelos modelos de fora: eles ignoram as regras de composição (ex.: 1 painel em toda página, vista de cima). Modelo de fora só revisa continuidade, e o agente confere. Cap. 1 escrito à mão em `scripts/roteiro_ws01.py`.
+- Fichas Arkham = redesenho das fichas aprovadas (ref = ficha antiga, "keep EXACTLY its design"). Se a ficha antiga tem erro (ex.: beliche), o prompt da nova diz "ignore isso mesmo que a referência mostre".
+- Continuidade do orfanato: `sheets_v2/MDS_Dormitorio_Planta` (só camas simples de um andar, **nenhum beliche**; corredor do meio sempre vazio; cama do Minus = 5ª da fileira ESQUERDA, cobertor AZUL-MARINHO `#1F3A6E`, as outras cinza; rachadura no teto acima dela; Carlos na cama simples ao lado, Marina e Sofia em frente; cadeira da Helena na porta, janelas só na parede direita). À noite o Minus fica coberto até o queixo. As 4 fichas do quarto (dia, noite, massacre, amanhecer) seguem a planta.
+- **Linguagem WEB SHARD no MDS:**
+  - **Painéis:** no máximo 2 grandes por página (o normal); 1 só nas páginas importantes. Nunca mais.
+  - **Estilhaço = caco de vidro quebrado** (triangular, borda rachada, brilho de vidro, 15–25% da largura) por cima do painel grande, com UM detalhe: olho, expressão, mão, a marca, objeto. Detalhe e expressão vão em estilhaço, nunca em painel grande. No prompt, estilhaço diz "edge: jagged cracked GLASS" — se aparecer como painel/faixa diagonal, o prompt está errado.
+  - **Divisão entre painéis = FUMAÇA** na cor de quem controla a cena (Minus azul `#2E8BFF`, Falha/Nefeli prata `#C9D1DE`, Luna rosa `#E85D9A`, terceira pessoa branco `#E8ECEF`). Escrever "SMOKE, NEVER NEON".
+  - **Narração sem caixa:** o texto flutua numa nuvem de fumaça da cor do narrador, num canto escuro da cena (nunca sobre rosto ou ação).
+  - **Fala:** balão sempre BRANCO; letra e contorno grosso na cor fixa do personagem (tabela `VOZ` em `montar_prompts.py`: cada um tem a sua, nunca dois iguais). Uma fonte só no quadrinho inteiro.
+  - **Câmera:** foco na ação e no rosto, como webtoon. Nada de vista panorâmica, plano geral ou vista de cima do lugar (se a ação é uma chama no quarto, mostra a chama, não o quarto). Nunca corpo inteiro: o mais aberto é plano americano. Ângulos de cinema (contra-plongée, plongée, holandês, sobre o ombro, câmera no chão, close em profundidade, ponto de vista). No máximo 2 personagens em foco por painel.
+  - Toda ação diz QUAL cama/lugar ("a cama do Minus, 5ª da fileira esquerda"), nunca "a cama" ou "no centro".
+- Abertura do cap.1: "EXISTEM MUITAS COISAS NO MUNDO TE OBSERVANDO." / "MAS ALGUMAS COISAS OLHAM DE VOLTA." Narração da Falha sempre em 1ª pessoa ("ele me viu"), nunca "aquilo" falando de si mesma.
+- Paletas: memória dourada / real azul-frio / Shadow World orgânico.
 
 ## 4. MAR DE CINZAS (MDC)
 - Codex. Semi-realista pintado, paleta fria; âncoras `KeyArtCapitulo1.png`, `Cena01.png`, `ElizabethColor.png`. Moldura de éter (cor = quem controla a cena). Fonte serifada condensada; sem onomatopeia. Regra anti-confusão escrita no prompt (vestido branco = Elizabeth; dragonas = Scarn). Codex bateu limite após ~40 imagens seguidas.
