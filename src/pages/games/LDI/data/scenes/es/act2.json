@@ -1,0 +1,307 @@
+[
+  {
+    "id": "2.1",
+    "title": "Kaeda",
+    "capitulo": "El Contacto",
+    "text": [
+      "La dirección lleva a un pasillo detrás de un mercado cerrado. Lámpara parpadeando, olor a cable quemado, una puerta de acero sin manija.",
+      "Apoyada en la pared, fumando un cigarro de datos que suelta humo pixelado, está ella. La misma de la capucha.",
+      "[KAEDA] \"Tardaste.\"",
+      "Se quita los lentes oscuros. La cara es joven. Los ojos no. Los ojos son de alguien que ya enterró gente y dejó de contar.",
+      "[KAEDA] \"Mi nombre es Kaeda. Y necesitaba hablar contigo antes que ellos.\"",
+      "Tira el cigarro al suelo. Se deshace antes de tocar el suelo.",
+      "[KAEDA] \"No eres un jugador común. Lo sentiste cuando caíste. Lo sentiste en la Encruzilhada.\"",
+      "Ella sabe de la Encruzilhada. Nadie debería saber de la Encruzilhada.",
+      "[KAEDA] \"Eres un Eco.\"",
+      "La palabra te golpea como campana en iglesia vacía. Y se queda resonando, que es exactamente lo que ella quería que pasara."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "\"¿Qué mierda es un Eco?\"",
+        "flags_set": [
+          "PERGUNTOU_ECO"
+        ],
+        "next_scene": "2.1a"
+      },
+      {
+        "id": "B",
+        "label": "\"¿Cómo sabes eso?\"",
+        "flags_set": [
+          "PERGUNTOU_SABE"
+        ],
+        "next_scene": "2.1b"
+      },
+      {
+        "id": "C",
+        "label": "Acercarte a ella antes de que ella se acerque a ti",
+        "requer": {
+          "hab": 21
+        },
+        "flags_set": [
+          "DESCONFIOU_KAEDA"
+        ],
+        "next_scene": "2.1c"
+      }
+    ]
+  },
+  {
+    "id": "2.1a",
+    "title": "Eco",
+    "text": [
+      "[KAEDA] \"El LDI no se construyó de la nada. Se construyó sobre algo. Algo antiguo, que pensaba.\"",
+      "Ella mira al techo, como si pudiera ver a través de él.",
+      "[KAEDA] \"Cuando esa cosa murió, quedaron pedazos. Fragmentos atrapados en el código, como hueso en terreno de obra.\"",
+      "[KAEDA] \"De vez en cuando uno de esos pedazos se pega a un jugador. Y el jugador se convierte en otra cosa. Se convierte en Eco.\"",
+      "Ella apunta a tu pecho con dos dedos. Los mismos dos dedos que te tocaron en el ring.",
+      "[KAEDA] \"Y la Yohualticit borra a Eco. Sin aviso, sin ruido. Un día el tipo está aquí, al otro su cuenta nunca existió.\"",
+      "[KAEDA] \"Ellos ya te están buscando.\"",
+      "{veia:5} El zumbido en tu cabeza se detiene. Por primera vez desde la caída, silencio total. Como si la cosa del otro lado se hubiera escondido para escuchar."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Dejarla terminar",
+        "next_scene": "2.1d"
+      }
+    ]
+  },
+  {
+    "id": "2.1b",
+    "title": "La Marca",
+    "text": [
+      "[KAEDA] \"Porque ya vi uno antes. Y porque el sistema te está marcando como ganado.\"",
+      "Ella saca un holograma del bolsillo y lo lanza al aire entre ustedes. Eres tú. Tu avatar, girando despacio. Solo que con contorno rojo, como foto de sospechoso en el periódico.",
+      "Abajo, una etiqueta: ECO NO CLASIFICADO.",
+      "[KAEDA] \"Esa etiqueta solo aparece en quien el sistema ya intentó eliminar una vez.\"",
+      "{veia:1} Lees el código de la etiqueta por encima del hombro de ella. No es etiqueta de error. Es orden de servicio. Tiene fecha. Y la fecha es mañana.",
+      "{veia:3} El holograma tiene un sello de hora en la esquina. Fue generado hace cuatro minutos. Alguien te está mirando ahora.",
+      "[KAEDA] \"Ellos rastrean esa etiqueta. Tenemos que salir de aquí.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ir con ella",
+        "next_scene": "2.1d"
+      }
+    ]
+  },
+  {
+    "id": "2.1c",
+    "title": "Reflejo",
+    "text": [
+      "No piensas. Tu cuerpo piensa por ti.",
+      "Antes de que ella termine la frase, ya tienes el antebrazo en su cuello, su espalda contra el acero de la puerta.",
+      "Ni pestañea.",
+      "[KAEDA] \"Interesante.\"",
+      "Ella mira tu brazo. Luego tu rostro. Sin miedo. Con algo que parece aprobación.",
+      "[KAEDA] \"Reflejo de verdad. Nadie te enseñó eso. Eso es Lona.\"",
+      "[KAEDA] \"Ahora presta atención: si quisiera dejarte noqueado, ya estarías noqueado desde la plaza. Quita el brazo.\"",
+      "Hay algo en su voz que te hace obedecer. No es miedo. Es más irritante que el miedo. Es que tiene razón.",
+      "[KAEDA] \"Bien. Ahora ven. Tenemos poco tiempo.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Quitar el brazo e irte con ella",
+        "next_scene": "2.1d"
+      }
+    ]
+  },
+  {
+    "id": "2.1d",
+    "title": "El Refugio",
+    "text": [
+      "La puerta sin manija se abre cuando ella apoya la palma.",
+      "Adentro es pequeño. Una terminal, dos sillas que no combinan, un colchón en la esquina y las paredes enteras cubiertas de mapa del LDI, con línea roja uniendo punto con punto, como cuarto de detective en película vieja.",
+      "[KAEDA] \"No es mucho. Pero aquí el sistema no ve.\"",
+      "Ella se sienta. Extiende la mano.",
+      "[KAEDA] \"Dame tu display.\"",
+      "---",
+      "Te voy a contar una regla que vale aquí adentro y allá afuera: quien pide tu celular quiere saber quién eres. Quien pide tu display quiere decidir quién vas a ser.",
+      "[KAEDA] \"Te voy a pasar todo lo que tengo. Los StormBytes, la Zona Leste, quién está detrás de la caída que te tiró aquí.\"",
+      "[KAEDA] \"Vas a necesitar de todo. O aceptas, o vuelves a la plaza y esperas a que te encuentren.\"",
+      "{veia:4} Ella no está ofreciendo. Está reclutando. Es diferente. Quien ofrece te da una cosa. Quien recluta te pide la vida y lo llama regalo."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Entregar el display",
+        "flags_set": [
+          "CONFIOU_KAEDA",
+          "RECRUTADO"
+        ],
+        "next_scene": "2.2"
+      },
+      {
+        "id": "B",
+        "label": "\"Dato entregado, dato rastreado. No.\"",
+        "flags_set": [
+          "RECUSOU_DADOS_KAEDA"
+        ],
+        "next_scene": "2.2b"
+      }
+    ]
+  },
+  {
+    "id": "2.2",
+    "title": "La Organización",
+    "text": [
+      "La transferencia dura once segundos. Sientes cada uno en la nuca.",
+      "Cuando termina, el terminal se enciende con cosas que nunca viste. Log interno. Planilla de ranking. Fotos de gente que ya no existe.",
+      "[KAEDA] \"Hay un grupo aquí dentro. Nos llamamos la Organización porque un nombre bonito llama la atención.\"",
+      "[KAEDA] \"Yohualticit esconde cosas. Eso todo el mundo lo sabe. Lo que poca gente sabe es que hay gente ahí dentro vendiendo lo que encuentra. Resultados de peleas. Datos de jugadores. A veces, al propio jugador.\"",
+      "Gira la silla hacia ti.",
+      "[KAEDA] \"Queremos saber quién. Y queremos pararlo.\"",
+      "Silencio. El terminal zumba.",
+      "[KAEDA] \"¿Aceptas?\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "\"Acepto.\"",
+        "flags_required": [
+          "CONFIOU_KAEDA"
+        ],
+        "flags_set": [
+          "ACEITOU_ORGANIZACAO"
+        ],
+        "decisao": true,
+        "next_scene": "2.3"
+      },
+      {
+        "id": "B",
+        "label": "\"Dame un día.\"",
+        "flags_set": [
+          "PENSOU_ORGANIZACAO"
+        ],
+        "next_scene": "2.2b"
+      },
+      {
+        "id": "C",
+        "label": "\"Eso no es pelea mía.\"",
+        "flags_set": [
+          "RECUSOU_ORGANIZACAO"
+        ],
+        "decisao": true,
+        "next_scene": "2.4fim"
+      }
+    ]
+  },
+  {
+    "id": "2.2b",
+    "title": "Un Día",
+    "text": [
+      "Kaeda no insiste. Solo sacude la cabeza, despacio.",
+      "[KAEDA] \"Justo. Pero el sistema no espera a que nadie piense.\"",
+      "Ella te lanza un token. Pequeño, frío, pesa más de lo que debería.",
+      "[KAEDA] \"Si cambias de opinión, este token te trae hasta mí. Si no, tíralo. Solo no dejes que nadie lo encuentre contigo.\"",
+      "---",
+      "Pasas el resto del día caminando sin rumbo.",
+      "Pensando en Eco, en etiqueta roja, en gente que desaparece del sistema como si nunca hubiera existido. Pensando en tu cuarto de tres por tres y en tu cuerpo acostado ahí, solo, esperando que vuelvas.",
+      "Al día siguiente, el token se calienta en tu bolsillo.",
+      "Es ella. Preguntando sin preguntar."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "\"Estoy dentro.\"",
+        "flags_set": [
+          "ACEITOU_ORGANIZACAO",
+          "RECRUTADO"
+        ],
+        "decisao": true,
+        "next_scene": "2.3"
+      },
+      {
+        "id": "B",
+        "label": "Tirar el token",
+        "flags_set": [
+          "RECUSOU_ORGANIZACAO"
+        ],
+        "decisao": true,
+        "next_scene": "2.4fim"
+      }
+    ]
+  },
+  {
+    "id": "2.3",
+    "title": "Código Anómalo",
+    "destaque": true,
+    "text": [
+      "Kaeda sonríe. Es la primera vez. Le queda raro en la cara, como ropa prestada.",
+      "[KAEDA] \"Buena elección.\"",
+      "Ella te aprieta la mano. Apretón firme, seco, de quien cierra un trato.",
+      "[KAEDA] \"A partir de ahora formas parte de algo más grande que el LDI. Eso es bueno y es malo. Vas a descubrir las dos partes.\"",
+      "El terminal parpadea. Afuera, en la habitación, tu SBI se calienta en la nuca.",
+      "[SISTEMA] \"CÓDIGO ANÓMALO ACTIVO.\"",
+      "Algo cambió en el aire. No se ve. Se siente, como presión antes de la lluvia.",
+      "{veia:1} Sientes la modificación entrando en tu SBI. Es código bonito. Demasiado bonito para haber sido hecho en una habitación como esta.",
+      "{veia:5} La estática vuelve. Más cerca. Y ahora casi estás seguro: le gusta Kaeda."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ver qué cambió",
+        "flags_set": [
+          "ATO2_COMPLETO"
+        ],
+        "next_scene": "2.fim"
+      }
+    ]
+  },
+  {
+    "id": "2.4fim",
+    "title": "Fora",
+    "text": [
+      "Te niegas.",
+      "Y está todo bien. Te lo juro. No toda historia te necesita dentro de ella.",
+      "Kaeda no discute. Solo abre la puerta y espera a que pases.",
+      "[KAEDA] \"Buena suerte, Eco. La vas a necesitar.\"",
+      "---",
+      "De camino de vuelta, una notificación en tu SBI.",
+      "[SISTEMA] \"SABEMOS LO QUE ERES.\"",
+      "Sin remitente. La borras.",
+      "Ella vuelve.",
+      "La borras de nuevo. Ella vuelve de nuevo.",
+      "Al día siguiente, tu SBI simplemente no enciende. Cuatro meses de ahorros muertos encima de la cama.",
+      "Cuando finalmente consigues encenderlo, una semana después, hay algo diferente en la pantalla de inicio. Un puntito rojo en la esquina. Una cámara.",
+      "Alguien está mirando.",
+      "A veces no entrar también es una elección. Solo que la cuenta llega igual."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Apagar el SBI",
+        "flags_set": [
+          "FIM_FORK_RECUSA"
+        ],
+        "next_scene": "fim:fork"
+      }
+    ]
+  },
+  {
+    "id": "2.fim",
+    "title": "Cobertura",
+    "text": [
+      "Los días cambian de color.",
+      "Sigues luchando, sigues subiendo de rango, sigues recibiendo golpes. Solo que ahora cada pelea es otra cosa. Cada pelea es cobertura.",
+      "Mientras dos mil espectadores miran el ring, tu SBI extrae archivos del sistema bajo la mesa. Tú golpeas, te golpean, y la Organización lee.",
+      "---",
+      "Y poco a poco, aparece un patrón.",
+      "Hay alguien dentro de Yohualticit desviando datos de jugadores. Alguien con acceso interno. Alguien que sabe exactamente dónde nadie mira.",
+      "Una noche, Kaeda aparece en tu cubo sin tocar. Tiene una carpeta digital en la mano y cara de no dormir hace días.",
+      "[KAEDA] \"Llegó la hora de descubrir quién es.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Abrir la carpeta",
+        "flags_set": [
+          "FIM_ATO2"
+        ],
+        "next_scene": "3.1"
+      }
+    ]
+  }
+]

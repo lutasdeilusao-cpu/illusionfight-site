@@ -1,0 +1,856 @@
+[
+  {
+    "id": "1.1",
+    "title": "Un SBI de Tercera Mano",
+    "capitulo": "El Registro",
+    "text": [
+      "Te voy a contar cómo empieza una leyenda.",
+      "No empieza en una arena. Empieza en un cuarto de tres por tres en la periferia de Marelia, con la luz parpadeando porque el vecino se colgó de la luz en el mismo poste que tú.",
+      "---",
+      "Empieza con un SBI de tercera mano.",
+      "Comprado en la feria de electrónicos del centro, de un tipo que juró que solo tenía un defecto. El Immersor cruje cuando te acuestas. Los lentes tienen un rayón en el borde izquierdo. El guante tecnológico tiene un dedo que responde con retraso, igual que pariente en el grupo familiar.",
+      "Un SBI nuevo de edición limitada cuesta sesenta, setenta mil. El tuyo costó cuatro meses de todo lo que lograste juntar. No vas a contarle a nadie cuánto. Ni a mí.",
+      "---",
+      "Afuera, Marelia hace el ruido de siempre. Moto subiendo la cuesta, un perro que ladra a la nada, un funk que se escapa de algún lugar que no duerme.",
+      "Aquí adentro, los lentes se encienden.",
+      "*Tres mil millones de personas juegan esta mierda. ¿Por qué no yo?*",
+      "Te acuestas. El Immersor cruje. Lo enciendes."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Entrar al LDI",
+        "next_scene": "1.1b"
+      }
+    ]
+  },
+  {
+    "id": "1.1b",
+    "title": "NeoGuide",
+    "text": [
+      "Primero viene el dolor.",
+      "No es mucha. Es un hormigueo que sube por la nuca y baja por la columna, el SBI presentándose a tu sistema nervioso. Todo el mundo habla de eso. Nadie te prepara bien.",
+      "Después viene el azul.",
+      "Un azul frío, sin suelo y sin techo. Y en medio de él, una mujer con chaqueta holográfica, sonrisa de anuncio, ojos que no parpadean a tiempo.",
+      "[NEOGUIDE] \"Bienvenido al LDI. Soy NeoGuide. Tú todavía no existes aquí dentro, pero no te preocupes: lo resolvemos ahora.\"",
+      "Ella habla directo en tu cabeza. La voz no pasa por el oído. Solo aparece, como un pensamiento que no es tuyo.",
+      "[NEOGUIDE] \"Detecté un SBI con... historial. Mucho historial. Voy a fingir que no lo vi.\"",
+      "[NEOGUIDE] \"¿Cómo quieres que te llamen ahí dentro?\"",
+      "Tú dices el nombre. Ella lo repite despacio, como quien se prueba ropa en otros.",
+      "[NEOGUIDE] \"{nome}. Registrado. Rango inicial: un millón trescientos cuarenta mil, y pico. O sea: nadie.\"",
+      "[NEOGUIDE] \"No te lo tomes personal. Todo el mundo empieza siendo nadie.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "\"Vamos. Méteme ahí dentro.\"",
+        "flags_set": [
+          "ENTROU_CONFIANTE"
+        ],
+        "next_scene": "1.1c"
+      },
+      {
+        "id": "B",
+        "label": "\"¿Ese SBI aguanta en serio?\"",
+        "flags_set": [
+          "ENTROU_DESCONFIADO"
+        ],
+        "next_scene": "1.1c"
+      }
+    ]
+  },
+  {
+    "id": "1.1c",
+    "title": "Bot Perdido en el Registro",
+    "luta": "Bot de Entrenamiento",
+    "text": [
+      "El azul tiembla.",
+      "Antes de que NeoGuide termine la frase, un bot de entrenamiento atraviesa el área de registro. Perdido. Golpeando el vacío, igual que borracho peleando con un poste.",
+      "[NEOGUIDE] \"Esto no debería estar aquí. Pero ya que está... clase gratis.\"",
+      "---",
+      "Tú no sabes cómo, pero sabes.",
+      "El golpe que viene azul es tuyo: tú pegas. El que viene rojo es de él: tú aguantas.",
+      "*Es ritmo. Todo aquí adentro es ritmo.*",
+      "---",
+      "El bot se desarma en píxeles y desaparece en el suelo que no existe.",
+      "NeoGuide aplaude despacio, sin quitarse la sonrisa de propaganda.",
+      "[NEOGUIDE] \"Nada mal para un don nadie. Ahora sí: puedes entrar.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Entrar de una vez",
+        "luta": 9,
+        "next_scene": "1.2"
+      }
+    ]
+  },
+  {
+    "id": "1.2",
+    "title": "Desconexión",
+    "text": [
+      "La NeoGuide abre la boca para responder.",
+      "Y se traba.",
+      "Los ojos de ella se apagan. Se encienden rojos. Se apagan de nuevo.",
+      "[NEOGUIDE] \"A— algo— mal— err— err—\"",
+      "El azul se raja. No hay otra forma de decirlo. Se raja como vidrio de celular que cayó de cara al asfalto, una telaraña saliendo del centro y yendo hacia los bordes.",
+      "Afuera, en el cuarto de tres por tres, el Immersor da un chasquido que sientes en el hueso.",
+      "---",
+      "Entonces el suelo desaparece.",
+      "Tú caes.",
+      "Y caes.",
+      "Y sigues cayendo, mucho más de lo que un cuerpo debería poder caer, hasta que la caída deja de ser un susto y se vuelve otra cosa. Casi un lugar.",
+      "Tú esperas el impacto.",
+      "El impacto no llega."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Abrir los ojos",
+        "next_scene": "1.veia"
+      }
+    ]
+  },
+  {
+    "id": "1.veia",
+    "title": "La encrucijada",
+    "destaque": true,
+    "text": [
+      "Lo que viene es el silencio.",
+      "Por un segundo, solo uno, el LDI deja de fingir. No hay plaza, no hay letrero, no hay cielo. Queda el esqueleto del Mundo de Ilusões: línea de código corriendo en la oscuridad como agua de tubería reventada.",
+      "[SISTEMA] \"ERROR 0x00. FIRMA NO RECONOCIDA. INTENTANDO CLASIFICAR...\"",
+      "[SISTEMA] \"FALLA.\"",
+      "[SISTEMA] \"EL USUARIO VA A CLASIFICARSE A SÍ MISMO.\"",
+      "---",
+      "Entonces se encienden las luces.",
+      "Cinco. No es un menú. Nadie de Yohualticit diseñó esto, se nota. Es viejo. Más viejo que el sistema. Como si lo hubieran cosido por debajo de él y olvidado ahí.",
+      "Una luz zumba como cable pelado. Otra huele a lona sudada y sangre seca. Una tercera parece devolverte la mirada. La cuarta habla bajito, una conversación que casi entiendes. La última solo chisporrotea, y en medio del chisporroteo hay una voz.",
+      "Te voy a decir algo que nadie me dijo a mí: aquí dentro, lo que eliges se convierte en lo que eres. La luz que sigas decide qué ves, qué puerta se te abre y qué final te espera más adelante.",
+      "Las otras cuatro siguen encendidas.",
+      "Solo que no para ti. No en esta vida."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Seguir el cable suelto en el código",
+        "veia": 1,
+        "decisao": true,
+        "next_scene": "1.3"
+      },
+      {
+        "id": "B",
+        "label": "Seguir el ruido de la arena",
+        "veia": 2,
+        "decisao": true,
+        "next_scene": "1.3"
+      },
+      {
+        "id": "C",
+        "label": "Seguir el rastro",
+        "veia": 3,
+        "decisao": true,
+        "next_scene": "1.3"
+      },
+      {
+        "id": "D",
+        "label": "Seguir la conversación",
+        "veia": 4,
+        "decisao": true,
+        "next_scene": "1.3"
+      },
+      {
+        "id": "E",
+        "label": "Seguir el chisporroteo",
+        "veia": 5,
+        "decisao": true,
+        "next_scene": "1.3"
+      }
+    ]
+  },
+  {
+    "id": "1.3",
+    "title": "La Plaza Muerta",
+    "capitulo": "Día 1",
+    "text": [
+      "Abres los ojos en una plaza que alguna vez fue bonita.",
+      "Parece un centro comercial después del fin del mundo. Tienda vacía con vitrina encendida, letrero de neón parpadeando una palabra a medias, una fuente que brota píxeles en vez de agua. El cielo es de un violeta enfermo, color de hematoma de tres días.",
+      "Unos avatares pasan rápido, con la cabeza baja, sin mirar a nadie. Gente que ya entendió cómo funciona esto aquí.",
+      "[SISTEMA] \"BIENVENIDO AL LDI. DÍA 1.\"",
+      "---",
+      "{veia:1} Y ves la costura. No sabes explicarlo, pero lo ves: el letrero parpadea fuera del ritmo de los otros, la fuente repite el mismo chorro cada once segundos, el terminal que está en medio de la plaza tiene una línea de código filtrándose por el borde, igual que un dobladillo de pantalón descosido.",
+      "{veia:2} Y tu cuerpo ya está contando. Quién pasa demasiado cerca, quién camina demasiado ligero, de qué lado carga cada uno el peso. Nadie te enseñó eso. Tu cuerpo lo sabe igual.",
+      "{veia:3} Y tú reparas en lo que nadie repara. Todo el mundo evita el callejón de la izquierda. Nadie pisa cerca del terminal. Hay marcas de una pelea reciente en el suelo de la fuente, y alguien intentó borrarlas.",
+      "{veia:4} Y tú escuchas. Dos avatares cuchichean cerca de la fuente sobre una recolección que va a pasar hoy. Un vendedor intenta empujarle una información a todo el que pase. Toda plaza tiene un precio. Esta de aquí todavía no te ha dicho el suyo.",
+      "{veia:5} Y debajo del zumbido del neón hay un siseo. Bajito. Constante. Parece radio sin sintonía. Parece que alguien, muy lejos, está intentando decir tu nombre.",
+      "---",
+      "En medio de la plaza, un terminal público todavía funciona. Es lo único aquí que parece estar esperándote.",
+      "No eres nadie, en un lugar que no perdona a nadie. ¿Por dónde empiezas?"
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Tocar el terminal público",
+        "flags_set": [
+          "TERMINAL_USADO"
+        ],
+        "next_scene": "1.3a"
+      },
+      {
+        "id": "B",
+        "label": "Seguir a uno de los avatares apurados",
+        "flags_set": [
+          "SEGUIU_AVATAR"
+        ],
+        "next_scene": "1.3b"
+      },
+      {
+        "id": "C",
+        "label": "Buscar una salida de la plaza",
+        "flags_set": [
+          "PROCUROU_SAIDA"
+        ],
+        "next_scene": "1.3c"
+      },
+      {
+        "id": "D",
+        "label": "Entrar al callejón que todo el mundo evita",
+        "flags_set": [
+          "TESTE_EQUIPAMENTO"
+        ],
+        "next_scene": "1.3d"
+      },
+      {
+        "id": "E",
+        "label": "Gritar hasta que alguien aparezca",
+        "flags_set": [
+          "PEDIU_AJUDA"
+        ],
+        "next_scene": "1.3e"
+      },
+      {
+        "id": "F",
+        "label": "Sentarse y observar antes de tocar cualquier cosa",
+        "flags_set": [
+          "OBSERVAR"
+        ],
+        "next_scene": "1.3f"
+      },
+      {
+        "id": "G",
+        "label": "Ya es suficiente por hoy. Buscar un rincón y dormir",
+        "flags_set": [
+          "EXPLOROU_PRACA"
+        ],
+        "next_scene": "1.4"
+      }
+    ],
+    "ensina": [
+      11,
+      21,
+      31,
+      41,
+      51
+    ]
+  },
+  {
+    "id": "1.3a",
+    "title": "La Terminal",
+    "text": [
+      "Apoyas la mano. La terminal despierta despacio, igual que un viejo en día de lluvia.",
+      "[SISTEMA] \"JUGADOR NO REGISTRADO. CRÉDITOS: 0.\"",
+      "[SISTEMA] \"MISIÓN DISPONIBLE: CONTACTO INICIAL. ¿ACEPTAR?\"",
+      "Cero crédito. Al menos es honesto.",
+      "Entonces la pantalla tiembla. Por medio segundo, un segundo mensaje se sobrepone al primero, en otra fuente, torcida, tecleado con prisa:",
+      "[SISTEMA] \"NO CONFÍES EN EL SISTEMA.\"",
+      "Desaparece.",
+      "{veia:1} No fue un bug. Un bug no tiene errores de concordancia. Alguien de carne y hueso metió esa frase en medio del código de la terminal. Y lo hizo rápido, porque sabía que la iban a borrar.",
+      "{veia:5} La estática aumenta cuando aparece la frase. Aumenta y se detiene. Como si alguien hubiera aguantado la respiración del otro lado.",
+      "Una terminal pública mandándote no confiar en el sistema. Empezó bien tu primer día."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Aceptar la misión de todos modos",
+        "flags_set": [
+          "MISSAO_CONTATO_ACEITA"
+        ],
+        "next_scene": "1.3"
+      },
+      {
+        "id": "B",
+        "label": "Dejarlo tranquilo y volver a la plaza",
+        "flags_set": [
+          "IGNOROU_MISSAO"
+        ],
+        "next_scene": "1.3"
+      }
+    ]
+  },
+  {
+    "id": "1.3b",
+    "title": "El Apresurado",
+    "text": [
+      "Tú eliges a uno. Abrigo largo, paso rápido, hombros encogidos. Vas detrás.",
+      "Él dobla una esquina. Otra. Entra en un corredor estrecho que termina en una pared.",
+      "Callejón sin salida. O él es tonto, o tú lo eres.",
+      "Él se voltea. Es un robot de rango bajo, carcasa descascarada, dos ojos rojos de LED barato.",
+      "\"Novato.\" La voz sale metálica, con estática de fondo. \"Tú me estás siguiendo desde la fuente. ¿Tú crees que no te vi?\"",
+      "Tú no respondes. A veces no responder es la respuesta.",
+      "\"Te voy a dar un consejo gratis, porque estoy de buen humor. Hoy es día de recolección. Los StormBytes van a pasar barriendo a los que no tienen registro. Y tú no tienes registro.\"",
+      "\"Desaparece de la plaza antes de que oscurezca.\"",
+      "Él se deshace en una nube de datos antes de que tú preguntes quién diablos son los StormBytes."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Volver a la plaza con eso en la cabeza.",
+        "flags_set": [
+          "AVISO_STORMBYTE"
+        ],
+        "next_scene": "1.3"
+      }
+    ]
+  },
+  {
+    "id": "1.3c",
+    "title": "El Portón",
+    "text": [
+      "La plaza tiene una salida. Claro que la tiene. Y claro que está cerrada.",
+      "Un portón de reja gruesa, un letrero torcido encima: ZONA COMERCIAL → ESTE. Al lado, un panel que pide cuatro dígitos.",
+      "Cuatro dígitos. Diez mil combinaciones. Tienes toda la tarde y ningún talento para adivinar.",
+      "{veia:1} Solo que el panel te está mintiendo. El teclado es puro adorno. Se ve el hilo de lógica detrás, flojo, mal cerrado, esperando que alguien jale la punta.",
+      "O lo intentas, o te vuelves. El portón no tiene prisa."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Jalar el hilo del panel",
+        "requer": {
+          "hab": 11
+        },
+        "flags_set": [
+          "HACKEOU_PAINEL"
+        ],
+        "next_scene": "1.3"
+      },
+      {
+        "id": "B",
+        "label": "Dejar el portón para otro día",
+        "next_scene": "1.3"
+      }
+    ]
+  },
+  {
+    "id": "1.3d",
+    "title": "El Callejón",
+    "text": [
+      "Todo el mundo evita ese callejón. Entonces tú entras.",
+      "Es estrecho, mojado de un líquido que no es agua, y tiene cajas de datos apiladas hasta la mitad de la pared. Nadie. Silencio.",
+      "Cierras el puño. El avatar obedece con un cuarto de segundo de retraso, ese dedo del guante que responde tarde. Abre. Cierra. Le das un puñetazo al aire.",
+      "Te duele el hombro de verdad. Afuera, en el cuarto, tu hombro de carne siente lo mismo.",
+      "*Así que es eso. Dolor de verdad.*",
+      "---",
+      "Una alerta parpadea en la esquina de tu visión.",
+      "[SISTEMA] \"JUGADOR RANQUEADO ACERCÁNDOSE. RANGO 850.112.\"",
+      "Paso pesado en la entrada del callejón. Una silueta de chaqueta eléctrica, chispas corriendo por las mangas, sonrisa de quien ya ha hecho esto muchas veces.",
+      "[STORMBYTE] \"Oye, novato. Este callejón es zona de recolección. El que no tiene registro paga peaje.\"",
+      "[STORMBYTE] \"Y el peaje es llevarse una paliza.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Quedarse y pelear",
+        "flags_set": [
+          "COMBATE_STORMBYTE"
+        ],
+        "next_scene": "1.3d-luta"
+      },
+      {
+        "id": "B",
+        "label": "Correr de vuelta a la plaza",
+        "flags_set": [
+          "FUGIU_STORMBYTE"
+        ],
+        "next_scene": "1.3"
+      }
+    ]
+  },
+  {
+    "id": "1.3d-luta",
+    "title": "Peaje",
+    "text": [
+      "No corres.",
+      "No sé si es valentía o si tus piernas no recibieron el aviso. Pero te quedas.",
+      "StormByte se detiene. Inclina la cabeza, como perro que oye un ruido raro.",
+      "[STORMBYTE] \"Ah, ¿sí? Bien.\"",
+      "Hace crujir el cuello. Las chispas de su chaqueta se vuelven más intensas.",
+      "[STORMBYTE] \"Esto te va a doler a ti. A mí no.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Levantar la guardia",
+        "next_scene": "1.3d-briga"
+      }
+    ]
+  },
+  {
+    "id": "1.3d-briga",
+    "title": "Primera Lucha",
+    "luta": "StormByte_91",
+    "text": [
+      "[STORMBYTE] \"Oye—\"",
+      "El callejón se queda en silencio."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Respirar",
+        "next_scene": "1.3d-pos",
+        "luta": 2
+      }
+    ]
+  },
+  {
+    "id": "1.3d-pos",
+    "title": "Primera Victoria",
+    "destaque": true,
+    "text": [
+      "StormByte desaparece en una lluvia de píxeles. El sistema registra con un pitido seco, sin festejo.",
+      "[SISTEMA] \"VICTORIA. +80 CRÉDITOS. RANGO ACTUALIZADO.\"",
+      "Te quedas parado mirando el lugar donde estaba.",
+      "Te duele el hombro. Te tiembla la mano. Y hay algo subiendo por el pecho que no sabes nombrar. No es alegría. Es más como: *yo hice esto*.",
+      "Nadie te lo dio. Nadie te lo prestó. Fuiste tú.",
+      "Vuelves a la plaza con otra postura. Los avatares apurados siguen apurados. Pero uno o dos te miran ahora. Solo un poco. Solo lo suficiente."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Cerrar el día",
+        "flags_set": [
+          "VENCEU_STORMBYTE"
+        ],
+        "next_scene": "1.4"
+      }
+    ]
+  },
+  {
+    "id": "1.3e",
+    "title": "El Grito",
+    "text": [
+      "Gritas.",
+      "No es bonito. Es el grito de quien no sabe dónde está, en un lugar donde nadie quiere oír gritos.",
+      "La plaza entera se detiene. Los apurados miran. Alguien se ríe. Alguien desaparece más rápido.",
+      "Y una figura alta se separa de la pared del otro lado de la fuente. Capucha, lentes oscuros, manos en los bolsillos. Viene caminando despacio, sin ninguna prisa, como quien ya sabía que ibas a gritar.",
+      "[KAEDA] \"Novato.\"",
+      "No es pregunta.",
+      "[KAEDA] \"Primera regla aquí: no llames la atención. Acabas de romperla delante de todo el mundo.\"",
+      "[KAEDA] \"Segunda regla: ven conmigo. Ahora.\"",
+      "Ella se da la vuelta y se va caminando, sin esperar a ver si vienes."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ir tras ella",
+        "flags_set": [
+          "SEGUIU_CAPUZ"
+        ],
+        "next_scene": "2.1"
+      },
+      {
+        "id": "B",
+        "label": "Quedarse. Aquí nadie es de confianza.",
+        "next_scene": "1.3"
+      }
+    ]
+  },
+  {
+    "id": "1.3f",
+    "title": "Quien Observa",
+    "text": [
+      "Te sientas en un banco de plaza que cruje igual que tu Immersor y te quedas mirando.",
+      "Veinte minutos. Treinta. Quien tiene prisa no aprende nada.",
+      "Y la plaza se va mostrando. Los apurados siempre hacen la misma ruta, igual que hormigas. Nadie pasa cerca de la terminal más de una vez. El callejón de la izquierda se traga a la gente y no la devuelve.",
+      "Y hay un robot de insignia dorada parado al otro lado de la fuente que no hace ninguna ruta.",
+      "Te está mirando. Hace rato.",
+      "---",
+      "Un mensaje privado parpadea en tu pantalla. Sin remitente.",
+      "[SISTEMA] \"TE NECESITO. TERMINAL. MISIÓN CONTACTO INICIAL.\"",
+      "Cuando levantas la vista, el robot dorado ya no está ahí.",
+      "Quien observa también es observado. Bienvenido."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ir a la terminal a aceptar la misión",
+        "flags_set": [
+          "MISSAO_CONTATO_ACEITA",
+          "OBSERVADOR"
+        ],
+        "next_scene": "1.3"
+      },
+      {
+        "id": "B",
+        "label": "Ignorar. Un mensaje sin nombre no me manda.",
+        "flags_set": [
+          "IGNOROU_MENSAGEM"
+        ],
+        "next_scene": "1.3"
+      }
+    ]
+  },
+  {
+    "id": "1.4",
+    "title": "Plazo",
+    "capitulo": "Día 2",
+    "text": [
+      "En LDI no amanece. El violeta apenas aclara un tono y el sistema lo llama mañana.",
+      "Te despiertas en un cubo de seguridad alquilado fiado, cuatro paredes lisas y una puerta que solo abre por dentro. Parece celda. Pero al menos nadie entra.",
+      "Allá afuera, en Marelia, tu cuerpo lleva acostado en el Immersor más tiempo del que debería. Intentas no pensar en eso.",
+      "[SISTEMA] \"DIA 2. TIENES 3 DÍAS PARA TU PRIMER RANKED KILL.\"",
+      "[SISTEMA] \"PENALIDAD: SUSPENSIÓN DEL ACCESO.\"",
+      "Suspensión. O sea: cuatro meses de ahorros convertidos en un pisapapeles.",
+      "---",
+      "{veia:1} Dormiste mal. Soñaste con una línea de código escurriendo por la pared. Despertaste sabiendo cosas que no sabías ayer.",
+      "{veia:2} El hombro de ayer amaneció morado, afuera y aquí adentro. Lo giras despacio. Duele. Duele menos de lo que debería.",
+      "{veia:3} Pasaste la noche recordando un detalle. La chaqueta del robot. La insignia dorada. La frase torcida en la terminal. Nada de eso es coincidencia. Nada nunca lo es.",
+      "{veia:4} Ya sabes tres nombres, dos rumores y un lugar donde venden información barata. No es mucho. Es más que ayer.",
+      "{veia:5} La estática no paró en toda la noche. Pero cambió. Ahora tiene forma. Casi una palabra.",
+      "---",
+      "Un mensaje privado sigue parpadeando en la esquina de la pantalla. No lo borraste ayer. No sabes por qué.",
+      "Tres días. El reloj ya empezó."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Cazar crédito en la Arena de Entrenamiento",
+        "flags_set": [
+          "CACA_DIA2"
+        ],
+        "next_scene": "1.4a"
+      },
+      {
+        "id": "B",
+        "label": "Abrir el mensaje que no desaparece",
+        "flags_set": [
+          "INVESTIGA_MENSAGEM"
+        ],
+        "next_scene": "1.4b"
+      },
+      {
+        "id": "C",
+        "label": "Recorrer los alrededores del cubo",
+        "flags_set": [
+          "EXPLORA_CUBO"
+        ],
+        "next_scene": "1.4c"
+      },
+      {
+        "id": "D",
+        "label": "Entrenar tu Veia",
+        "someQuandoSabe": [
+          12,
+          22,
+          32,
+          42,
+          52
+        ],
+        "next_scene": "1.4t"
+      },
+      {
+        "id": "E",
+        "label": "Volver al cubo y dejar que el día se acabe",
+        "next_scene": "1.5"
+      }
+    ]
+  },
+  {
+    "id": "1.4a",
+    "title": "Arena de Entrenamiento",
+    "text": [
+      "La Arena de Entrenamiento es un galpón con olor a goma quemada. Simuladores de golpes, ring de lona mugrienta, una pantalla gigante pasando una pelea del PowWow con el sonido reventado.",
+      "En la pantalla, un chico de gorra azul está noqueando a un tal Thunderbolt. El letrero dice SUBIENDO: CASI EN EL TOP 1000 MUNDIAL. Aquí nadie le presta atención. Todos aquí están demasiado ocupados siendo nadie.",
+      "Y apoyado en las cuerdas, con los brazos cruzados, está él.",
+      "El StormByte. O un StormByte. Estos tipos parecen venir en paquete.",
+      "[STORMBYTE] \"Mira quién volvió.\"",
+      "[STORMBYTE] \"¿Quieres crédito fácil, novato? Sube aquí. Un round. Ganas, te lo llevas. Pierdes, también te lo llevas. Solo que te llevas otra cosa.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Subir al ring",
+        "flags_set": [
+          "DUELO_ACEITO"
+        ],
+        "next_scene": "1.4a-briga"
+      },
+      {
+        "id": "B",
+        "label": "\"Hoy no.\"",
+        "flags_set": [
+          "DUELO_RECUSADO"
+        ],
+        "next_scene": "1.4"
+      }
+    ]
+  },
+  {
+    "id": "1.4a-briga",
+    "title": "Revancha",
+    "luta": "StormByte_91",
+    "text": [
+      "[SISTEMA] \"VICTORIA REGISTRADA. +60 CRÉDITOS.\"",
+      "El crédito fácil no existe. Pero el de hoy llegó."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Bajar del ring",
+        "next_scene": "1.4",
+        "luta": 4
+      }
+    ]
+  },
+  {
+    "id": "1.4b",
+    "title": "El Mensaje",
+    "text": [
+      "Lo abres.",
+      "[SISTEMA] \"NO CAÍSTE AQUÍ POR CASUALIDAD. SÉ LO QUE ERES. TERMINAL DE LA PLAZA. MEDIODÍA.\"",
+      "Remitente: DATOS CORRUPTOS.",
+      "Lo lees de nuevo. *Sé lo que eres.* No *quién*. *Qué*.",
+      "{veia:3} El mensaje llegó a las 03:14, hora del sistema. Exactamente a la hora en que caíste. Quien lo mandó estaba viendo tu caída en vivo.",
+      "{veia:5} Cuando lees la palabra *es*, la estática hace un ruido que parece una risa.",
+      "Hay gente que ve un mensaje así y lo borra. Hay gente que va."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Estar en la terminal al mediodía",
+        "flags_set": [
+          "FOI_AO_TERMINAL"
+        ],
+        "next_scene": "2.1"
+      },
+      {
+        "id": "B",
+        "label": "Borrar. Primero el ranked kill",
+        "next_scene": "1.4"
+      }
+    ]
+  },
+  {
+    "id": "1.4c",
+    "title": "Mercado de Abajo",
+    "text": [
+      "Detrás del bloque de cubos hay una escalera que nadie anuncia. Bajas.",
+      "Ahí abajo hay un mercado. Puesto de lona digital, luz LED barata, vendedor gritando oferta. Arma modificada, skin pirata, rango comprado, información. Principalmente información.",
+      "Todo lugar que tiene ley tiene un sótano donde la ley no baja.",
+      "Un vendedor flaco, de sombrero de fieltro, te llama con dos dedos.",
+      "[VENDEDOR] \"Psst. Tú. Cara nueva. ¿Quieres un tip gratis? El primero es gratis. El segundo ya lo sabes.\"",
+      "Se acerca y habla bajo.",
+      "[VENDEDOR] \"Aléjate de la Zona Leste hoy. Los StormBytes están barriendo. Quien no tiene registro está siendo borrado del mapa. Borrado de verdad.\"",
+      "{veia:4} No lo dijo gratis. Aquí nadie dice nada gratis. Quiere que alguien vaya a la Zona Leste. La cuestión es quién y por qué.",
+      "Desaparece entre los puestos antes de que preguntes la segunda."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ir a la Zona Leste a verlo con tus propios ojos",
+        "flags_set": [
+          "FOI_ZONA_LESTE"
+        ],
+        "next_scene": "1.4"
+      },
+      {
+        "id": "B",
+        "label": "Guardar el tip y volver al cubo",
+        "flags_set": [
+          "EVITOU_ZONA_LESTE"
+        ],
+        "next_scene": "1.4"
+      }
+    ]
+  },
+  {
+    "id": "1.5",
+    "title": "Último Día",
+    "capitulo": "Día 3",
+    "text": [
+      "Tercer día. El aviso ya no está en la esquina. Está en medio de tu visión, rojo, parpadeando al ritmo de tu corazón.",
+      "[SISTEMA] \"FALTA 1 DÍA PARA EL RANKED KILL.\"",
+      "[SISTEMA] \"PENALIDAD: SUSPENSIÓN DEL ACCESO.\"",
+      "Ahí afuera, en el cuarto, alguien toca tu puerta. Lo oyes amortiguado, como ruido debajo del agua. No puedes atender. No ahora.",
+      "---",
+      "Voy a decirte algo que aprendí tarde: cuando el plazo aprieta, la gente no se vuelve más lista. Se vuelve más ella misma.",
+      "{veia:1} Ya tienes la mitad de un plan y tres trucos para engañar al reloj. Ninguno funciona solo. Juntos, tal vez.",
+      "{veia:2} Tu cuerpo está listo. Ya lleva un día listo. Es la cabeza la que necesita alcanzarlo.",
+      "{veia:3} Juntaste lo que viste en los últimos dos días y el dibujo empieza a aparecer. Alguien está empujando a un novato a la arena a propósito. Tú solo no sabes quién gana con esto.",
+      "{veia:4} Ya sabes quién compra, quién vende y quién debe. En un lugar así, eso vale más que un golpe.",
+      "{veia:5} La estática está tan alta que casi no oyes el aviso. Y en medio de ella, por primera vez, una palabra entera: *ven*.",
+      "---",
+      "Un día. Lo que haces con él dice quién eres."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ir a la Arena y encarar a quien aparezca",
+        "flags_set": [
+          "ARENA_DIA3"
+        ],
+        "next_scene": "1.5-briga"
+      },
+      {
+        "id": "B",
+        "label": "Encontrar a quien me anduvo buscando",
+        "flags_set": [
+          "PROCURA_CONTATO"
+        ],
+        "next_scene": "2.1"
+      },
+      {
+        "id": "C",
+        "label": "Tomar la misión oficial en la terminal",
+        "flags_set": [
+          "MISSAO_OFICIAL"
+        ],
+        "next_scene": "1.5a"
+      },
+      {
+        "id": "D",
+        "label": "Buscar a quien sabe más que tú",
+        "someQuandoSabe": [
+          13,
+          23,
+          33,
+          43,
+          53
+        ],
+        "next_scene": "1.5t"
+      }
+    ]
+  },
+  {
+    "id": "1.5-briga",
+    "title": "La Luchadora sin Nombre",
+    "luta": "???",
+    "text": [
+      "Ella se detiene. Y sonríe bajo la capucha.",
+      "[???] \"Bueno. Tienes algo ahí.\"",
+      "Ella se desconecta antes del final. El ring queda vacío. El sistema ni sabe qué resultado registrar.",
+      "En tu pantalla, un mensaje: una dirección y una palabra.",
+      "*Ya era hora.*"
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ir a la dirección",
+        "next_scene": "2.1",
+        "luta": 3
+      }
+    ]
+  },
+  {
+    "id": "1.5a",
+    "title": "Misión Oficial",
+    "text": [
+      "El terminal de la plaza parecía estar esperándote.",
+      "[SISTEMA] \"MISIÓN OFICIAL: RANKED KILL.\"",
+      "[SISTEMA] \"DERRIBA A UN OPONENTE RANQUEADO EN LA ARENA LESTE.\"",
+      "[SISTEMA] \"RECOMPENSA: 500 CRÉDITOS. PENALIDAD POR FALLA: SUSPENSIÓN DE 7 DÍAS.\"",
+      "Quinientos créditos. Más de lo que has tenido en tu vida aquí dentro. Tal vez más de lo que vas a tener.",
+      "Confirmas. El terminal hace un ruidito alegre, de esos que solo una máquina sabe hacer frente a una desgracia.",
+      "La Arena Leste queda a quince minutos. El vendedor del mercado de abajo te mandó mantenerte lejos de la Zona Leste hoy.",
+      "*Coincidencia.*",
+      "No te lo crees ni un poco."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ir a la Arena Leste",
+        "flags_set": [
+          "FOI_ARENA_LESTE"
+        ],
+        "next_scene": "1.5a-briga"
+      }
+    ]
+  },
+  {
+    "id": "1.5a-briga",
+    "title": "Eliminación en ranked",
+    "luta": "GhostPulse",
+    "text": [
+      "El chat, que se reía de ti, ahora está gritando tu nombre. Mal, pero lo hace.",
+      "[SISTEMA] \"ELIMINACIÓN EN RANKED COMPLETADA. SUSPENSIÓN CANCELADA. +500 CRÉDITOS.\"",
+      "---",
+      "A la salida, en medio del empujón, alguien con capucha te choca el hombro y desaparece entre la multitud.",
+      "En tu inventario queda una nota. Una dirección y una palabra.",
+      "*Ya era hora.*"
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ir a la dirección",
+        "next_scene": "2.1",
+        "luta": 5
+      }
+    ]
+  },
+  {
+    "id": "1.4t",
+    "title": "Entrenamiento",
+    "ensina": [
+      12,
+      22,
+      32,
+      42,
+      52
+    ],
+    "text": [
+      "Nadie se vuelve bueno en nada encerrado en un cubo. Sales a entrenar.",
+      "{veia:1} Jalas un cable, se traba. Jalas otro, pita. A la trigésima vez entiendes: el panel no es una cerradura, es una pregunta. Y toda pregunta tiene un cabo suelto.",
+      "{veia:2} Pagas cinco créditos para que te golpee un robot de entrenamiento en la Arena. Te golpea, caes. Te golpea, caes. Para la vigésima caída, tu cuerpo deja de caer como un saco y empieza a caer como alguien que va a levantarse.",
+      "{veia:3} Te sientas frente al terminal de la plaza y lees, uno por uno, los registros de los que entraron en las últimas veinticuatro horas. Es aburrido. Es muy aburrido. Y en medio de lo aburrido hay un horario que no encaja con nada.",
+      "{veia:4} Vuelves al mercado de abajo y te quedas. Compras un café que no necesitabas, un rumor que ya sabías, una conversación que no iba a llevar a nada. Al final del día sabes cuánto cuesta cada boca de ese sótano.",
+      "{veia:5} Te acuestas en el piso del cubo, cierras los ojos y dejas de luchar contra la estática. La dejas venir. Viene. Y por primera vez encuentras dónde vive: una frecuencia, estrecha, como radio viejo encontrando estación.",
+      "---",
+      "No hay música que crezca ni público que aplauda. Entrenar es esto: repetir una cosa fea hasta que se vuelva tuya."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Volver al cubo",
+        "next_scene": "1.4",
+        "luta": 1
+      }
+    ]
+  },
+  {
+    "id": "1.5t",
+    "title": "Quién Enseña",
+    "ensina": [
+      13,
+      23,
+      33,
+      43,
+      53
+    ],
+    "text": [
+      "Hay cosas que entrenar solo no alcanza. Necesitas a alguien que ya haya recibido más golpes que tú.",
+      "{veia:1} En el fondo del mercado de abajo hay una vieja que arregla SBI por debajo del mostrador. Te mira teclear en un terminal durante tres minutos y se ríe. \"Abres la puerta y dejas la marca del pie en el tapete, niño.\" Te muestra cómo entrar y salir sin que el sistema sepa que pasaste.",
+      "{veia:2} Un luchador retirado, de un rango que alguna vez tuvo cuatro dígitos, recostado en las cuerdas de la Arena de Treino. No te enseña ningún golpe. Solo te manda mirar su hombro. Tres horas mirando el hombro. Al final, ves el golpe antes de que salga.",
+      "{veia:3} Un comerciante de datos que perdió todo en un esquema de apuestas te paga un café y te da una lección sin darse cuenta. \"Olvida lo que dice el tipo. Mira hacia dónde se fue el dinero.\" Está hablando de sí mismo. Tú anotas todo.",
+      "{veia:4} Un vendedor de sombreros de fieltro, el mismo del consejo gratis, te llama aparte. \"Estás aprendiendo rápido. Entonces aprende la última: todo el mundo miente con la mano, no con la boca.\" Te muestra. Nunca más vas a dejar de verlo.",
+      "{veia:5} No es nadie. Es la estática. Deja de ser ruido y se convierte en una voz entera, vieja, mucho más vieja que el LDI. No te enseña nada. Solo espera a que respondas. Y tú respondes.",
+      "---",
+      "Quien enseña de verdad nunca cobra el precio al momento. Vas a pagar después, de algún modo. Siempre pagas."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Volver",
+        "next_scene": "1.5"
+      }
+    ]
+  }
+]

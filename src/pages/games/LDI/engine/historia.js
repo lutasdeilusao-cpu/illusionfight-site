@@ -14,7 +14,7 @@ import { habilidadePorId } from '../data/habilidades'
 
 // O texto do Lendas só está pronto em português; os outros idiomas entram
 // depois que o texto for aprovado.
-const IDIOMAS_PRONTOS = ['pt']
+const IDIOMAS_PRONTOS = ['pt', 'en', 'es']
 const ATOS = [1, 2, 3, 4]
 const cache = {}
 

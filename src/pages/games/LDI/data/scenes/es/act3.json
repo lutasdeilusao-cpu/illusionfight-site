@@ -1,0 +1,597 @@
+[
+  {
+    "id": "3.1",
+    "title": "Modo Recolección",
+    "capitulo": "La Recolección",
+    "text": [
+      "El SBI vibra en tu nuca. Afuera y aquí dentro al mismo tiempo.",
+      "[KAEDA] \"Listo. A partir de ahora, cada vez que pelees, recibimos.\"",
+      "Ella te entrega un token nuevo. Este está caliente.",
+      "[KAEDA] \"Funciona así: todos miran la arena. Nadie mira el suelo de la arena. Y es por el suelo por donde pasa el cable.\"",
+      "Tú encajas el token. Se abre una interfaz nueva en la esquina de la pantalla, verde, discreta, como una aplicación de banco que nadie sabe que tienes.",
+      "[SISTEMA] \"CÓDIGO ANÓMALO ACTIVO. MODO RECOLECCIÓN INICIALIZADO.\"",
+      "---",
+      "Hace una semana que caíste aquí. Parece un año.",
+      "{veia:1} Ya lees el sistema como quien lee el periódico. Rápido, desconfiado, buscando la noticia que quedó fuera.",
+      "{veia:2} Ya subiste cuarenta mil posiciones en el ranking. En PowWow hay gente que te llama \"el novato que no cae\". Finges que no lo viste.",
+      "{veia:3} La pared de tu cubo ya tiene tu propio mapa de línea roja. Kaeda lo vio y no dijo nada. Lo que, viniendo de ella, es un elogio.",
+      "{veia:4} Ya tienes gente que te debe favores en tres zonas diferentes. Ninguno de ellos sabe tu nombre verdadero. Mejor así.",
+      "{veia:5} La estática ahora dice frases cortas. Nunca cuando quieres. Siempre cuando lo necesitas.",
+      "---",
+      "Kaeda cruza los brazos.",
+      "[KAEDA] \"Bienvenido al trabajo de verdad.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Comenzar la recolección",
+        "flags_required": [
+          "RECRUTADO"
+        ],
+        "flags_set": [
+          "ATO3_INICIADO"
+        ],
+        "next_scene": "3.2_dia8"
+      }
+    ]
+  },
+  {
+    "id": "3.2_dia8",
+    "title": "Primera Recolección",
+    "text": [
+      "Día 8. Te despiertas en el cubo de la Organización y Kaeda ya está en la terminal. Nunca la viste dormir. Empiezas a desconfiar de que no duerme.",
+      "[KAEDA] \"Hoy es día de arena. Necesito datos de batalla para cruzar con los logs del sistema.\"",
+      "[KAEDA] \"Pero el día es tuyo. Haz lo que creas mejor. Solo no me vuelvas con las manos vacías.\"",
+      "Ella ni levanta la vista de la pantalla.",
+      "Libertad con exigencia. Igual que un empleo, solo que sin contrato."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Luchar en la Arena, la recolección principal",
+        "flags_set": [
+          "DIA8_ARENA"
+        ],
+        "next_scene": "3.2-briga"
+      },
+      {
+        "id": "B",
+        "label": "Hurgar en los logs de las terminales públicas",
+        "requer": {
+          "hab": 32
+        },
+        "flags_set": [
+          "DIA8_INVESTIGACAO"
+        ],
+        "next_scene": "3.2_investiga"
+      },
+      {
+        "id": "C",
+        "label": "Montar un archivo corrupto desde la terminal",
+        "isPuzzle": true,
+        "puzzleType": "terminal",
+        "flags_set": [
+          "DIA8_PUZZLE"
+        ],
+        "next_scene": "3.3_dia9"
+      },
+      {
+        "id": "D",
+        "label": "Hacer un encargo en el MDR para pagar las cuentas",
+        "flags_set": [
+          "DIA8_TRABALHO"
+        ],
+        "next_scene": "3.2_trabalho"
+      },
+      {
+        "id": "E",
+        "label": "Dormir. El cuerpo lo está pidiendo",
+        "flags_set": [
+          "DIA8_DESCANSO"
+        ],
+        "next_scene": "3.2_descanso"
+      }
+    ]
+  },
+  {
+    "id": "3.2-briga",
+    "title": "Recolección en la Arena",
+    "luta": "GhostPulse",
+    "text": [
+      "Ganas por poco. La recolección, por mucho.",
+      "[SISTEMA] \"RECOLECCIÓN: 1 ARCHIVO.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Llevar el archivo a Kaeda",
+        "next_scene": "3.3_dia9",
+        "luta": 5
+      }
+    ]
+  },
+  {
+    "id": "3.2_investiga",
+    "title": "El Usuario 47",
+    "text": [
+      "Pasas la mañana en las terminales públicas, una tras otra, fingiendo que estás buscando misión.",
+      "No lo estás. Estás leyendo lo que nadie lee: el registro de acceso.",
+      "Y aparece un patrón. Un usuario con credencial de empleado de Yohualticit entrando a datos de jugador fuera del horario comercial. Siempre de madrugada. Siempre desde la misma terminal.",
+      "Un nombre se repite: ENG_INTEGRIDADE_47.",
+      "Nunca habías visto ese nombre antes. Pero su nivel de acceso es tan alto que da vértigo.",
+      "Te llega un mensaje de Kaeda antes de que lo cuentes:",
+      "[KAEDA] \"Estoy viendo lo que estás viendo. Buen trabajo. Eso es una pista.\"",
+      "Ella te estaba mirando. Claro que sí."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Cerrar el día",
+        "flags_set": [
+          "PISTA_TERMINAL"
+        ],
+        "next_scene": "3.3_dia9"
+      }
+    ]
+  },
+  {
+    "id": "3.2_trabalho",
+    "title": "Chamba",
+    "text": [
+      "Apagas el SBI y vuelves al mundo real por un día.",
+      "El MDR sigue igual. Marelia sigue cobrando. Luz, agua, el alquiler del cuarto de tres por tres, la cuenta de la tiendita de la esquina que ya tiene tu nombre escrito en el cuaderno.",
+      "Haces entregas. Subes cuestas, bajas escaleras, cargas cosas que no son tuyas para gente que ni te mira a la cara.",
+      "Al final del día, las piernas tiemblan y el DIX pita. Ciento veinte.",
+      "No es mucho. Paga la luz. Paga el SBI encendido una semana más.",
+      "Nada de pista hoy. Pero la recolección continúa mañana, y mañana aún tienes luz para recolectar."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Dormir",
+        "next_scene": "3.3_dia9"
+      }
+    ]
+  },
+  {
+    "id": "3.2_descanso",
+    "title": "Pausa",
+    "text": [
+      "Pasas el día acostado en el cubo, mirando el techo liso.",
+      "Kaeda no se queja. Ella sabe que una investigación es una maratón, no una carrera corta. Quien corre los primeros cien metros a toda velocidad termina la prueba gateando.",
+      "Allá afuera, tu cuerpo lo agradece. Hacía días que no sabía lo que era descansar.",
+      "Y en el silencio, sin luchas, sin registros, sin nada, tu cabeza hace lo que mejor sabe hacer cuando la dejas: junta las cosas sola.",
+      "Mañana hay más."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Dormir de verdad",
+        "next_scene": "3.3_dia9"
+      }
+    ]
+  },
+  {
+    "id": "3.3_dia9",
+    "title": "Segunda Recolección",
+    "text": [
+      "Día 9. La rutina empieza a tener sentido, y eso es lo más peligroso de todo. La rutina es cuando dejas de prestar atención.",
+      "Kaeda está en la terminal, en la misma posición de ayer.",
+      "[KAEDA] \"Los datos de ayer confirmaron. Alguien de adentro está alterando resultados de peleas.\"",
+      "[KAEDA] \"Todavía no es prueba. Es olfato. Hoy intenta tirar de otro lado.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Pelear de nuevo, otra cobertura.",
+        "flags_set": [
+          "DIA9_ARENA"
+        ],
+        "next_scene": "3.3-briga"
+      },
+      {
+        "id": "B",
+        "label": "Conversar con quienes viven en la plaza.",
+        "requer": {
+          "hab": 42
+        },
+        "flags_set": [
+          "DIA9_INVESTIGACAO"
+        ],
+        "next_scene": "3.3_investiga"
+      },
+      {
+        "id": "C",
+        "label": "Decodificar una señal interceptada.",
+        "isPuzzle": true,
+        "puzzleType": "decoder",
+        "flags_set": [
+          "DIA9_PUZZLE"
+        ],
+        "next_scene": "3.4_dia10"
+      },
+      {
+        "id": "D",
+        "label": "Abrir tu propio SBI y ver qué tiene dentro.",
+        "flags_set": [
+          "DIA9_SBI"
+        ],
+        "next_scene": "3.3_sbi"
+      },
+      {
+        "id": "E",
+        "label": "Hacer otra movida en el MDR.",
+        "flags_set": [
+          "DIA9_TRABALHO"
+        ],
+        "next_scene": "3.2_trabalho"
+      }
+    ]
+  },
+  {
+    "id": "3.3-briga",
+    "title": "El Muro",
+    "luta": "IronVeil",
+    "text": [
+      "Cae como un edificio implosionado: despacio, y luego todo de golpe.",
+      "El SBI vibra dos veces. Un archivo más. Y una anomalía: la pelea fue reprogramada tres veces antes de empezar. Por alguien que no era ni tú ni él."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Llevar esto a Kaeda",
+        "next_scene": "3.4_dia10",
+        "luta": 6
+      }
+    ]
+  },
+  {
+    "id": "3.3_investiga",
+    "title": "Charla en la Plaza",
+    "text": [
+      "Pasas el día en los rincones de la Plaza Central. No preguntas nada. Al que pregunta, le cobran. Tú solo te quedas cerca, te arrimas, ofreces un trago, te ríes del chiste correcto.",
+      "Y la gente habla. Siempre habla.",
+      "Un comerciante de datos, después del tercer trago, suelta:",
+      "[COMERCIANTE] \"¿Ya te fijaste en las peleas de rango medio? Está todo raro. El que tenía que ganar pierde. El que tenía que perder gana. Todas las madrugadas.\"",
+      "[COMERCIANTE] \"Y los que apuestan al que no es favorito siempre son los mismos. Siempre.\"",
+      "Se ríe, como si fuera chisme.",
+      "No es chisme. Es un esquema de apuestas. Y un esquema de apuestas tiene dueño.",
+      "[KAEDA] \"Eso cuadra con los logs. Estamos cerca.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Pagar la ronda y escabullirse",
+        "flags_set": [
+          "PISTA_NPC"
+        ],
+        "next_scene": "3.4_dia10"
+      }
+    ]
+  },
+  {
+    "id": "3.3_sbi",
+    "title": "Dentro del SBI",
+    "text": [
+      "Pasas horas con el SBI abierto, leyendo tu propio código como quien lee tu propia ficha médica.",
+      "La modificación de la Organización es elegante. Crea un túnel de datos paralelo durante la lucha, invisible para el sistema. Cosa fina.",
+      "Pero hay otra cosa ahí.",
+      "Por debajo de la modificación, antes que ella, más vieja que ella, hay otra. Una línea que nadie de la Organización escribió. Una línea que vino de fábrica.",
+      "Todo SBI lo tiene. El tuyo, el de Kaeda, el de tres mil millones de personas.",
+      "Cierras el SBI despacio.",
+      "*Esto es más grande que un empleado vendiendo resultado de lucha.*",
+      "Mucho más grande."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Contarle a Kaeda",
+        "flags_set": [
+          "PISTA_SBI"
+        ],
+        "next_scene": "3.4_dia10"
+      }
+    ]
+  },
+  {
+    "id": "3.4_dia10",
+    "title": "El Vigilante",
+    "text": [
+      "Día 10. Kaeda te recibe con una cara que nunca le habías visto. No es cansancio. Es rabia bien guardada.",
+      "[KAEDA] \"Conseguí un acceso parcial a los logs internos de Yohualticit.\"",
+      "Ella gira la terminal hacia ti.",
+      "[KAEDA] \"El usuario 47 es real. Empleado. Cargo: Ingeniero de Integridad de Sistemas.\"",
+      "[KAEDA] \"Nombre verdadero, protegido por contrato. Pero el cargo lo tenemos.\"",
+      "Ingeniero de Integridad. El tipo pagado para cazar fraudes en el sistema.",
+      "---",
+      "El vigilante es el ladrón.",
+      "Yo ya he visto esto pasar en la calle más veces de las que puedo contar. El guardia de seguridad de la tienda es quien se lleva la mercancía. El fiscal es quien cobra el peaje. El que cuida es quien más conoce el hueco en la cerca.",
+      "{hab:13} Y tú ya estás viendo el camino hasta su terminal. Estrecho, vigilado, posible.",
+      "{hab:33} Y tú ya sabes dónde mirar: no a su cargo. A su salario.",
+      "{hab:53} En la esquina de la pantalla del terminal de Kaeda, la estática hace un dibujo. Ella sabe dónde guarda las cosas el 47."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Continuar juntando pruebas despacio",
+        "flags_set": [
+          "PISTA_CARGO"
+        ],
+        "next_scene": "3.5_dia11"
+      },
+      {
+        "id": "B",
+        "label": "Entrar en su terminal",
+        "requer": {
+          "hab": 13
+        },
+        "flags_set": [
+          "TENTOU_HACKEAR"
+        ],
+        "next_scene": "3.4_puzzle"
+      },
+      {
+        "id": "C",
+        "label": "Seguir el dinero del usuario 47",
+        "requer": {
+          "hab": 33
+        },
+        "flags_set": [
+          "PISTA_CARGO",
+          "SEGUIU_DINHEIRO"
+        ],
+        "next_scene": "3.4_puzzle_ok"
+      },
+      {
+        "id": "D",
+        "label": "Preguntarle a la estática dónde esconde",
+        "requer": {
+          "hab": 53
+        },
+        "flags_set": [
+          "PISTA_CARGO",
+          "OUVIU_ECO"
+        ],
+        "next_scene": "3.4_puzzle_ok"
+      },
+      {
+        "id": "E",
+        "label": "Volver al refugio y entrenar",
+        "someQuandoSabe": [
+          13,
+          23,
+          33,
+          43,
+          53
+        ],
+        "next_scene": "3.treino"
+      }
+    ]
+  },
+  {
+    "id": "3.4_puzzle",
+    "title": "Invasión",
+    "text": [
+      "El terminal corporativo de Yohualticit es un edificio de vidrio con cien cámaras. Estás afuera, de noche, con capucha.",
+      "No literalmente. Pero así es como parece.",
+      "[SISTEMA] \"ACCESO DENEGADO. INTENTO REGISTRADO.\"",
+      "Primer intento quemado. Tienes uno solo antes de que la alarma grite tu nombre por todo el edificio.",
+      "Hay una ruta entre las cámaras. Estrecha. Cambia cada segundo.",
+      "Respiras. Afuera, en el cuarto, tu mano de carne aprieta la sábana."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Cruzar entre las cámaras",
+        "isPuzzle": true,
+        "puzzleType": "stealth",
+        "flags_set": [
+          "PUZZLE_TERMINAL_OK"
+        ],
+        "next_scene": "3.4_puzzle_ok",
+        "next_falha": "3.4_puzzle_fail"
+      },
+      {
+        "id": "B",
+        "label": "Abortar antes de ser visto",
+        "flags_set": [
+          "PUZZLE_TERMINAL_FAIL"
+        ],
+        "next_scene": "3.4_puzzle_fail"
+      }
+    ]
+  },
+  {
+    "id": "3.4_puzzle_fail",
+    "title": "Puerta Cerrada",
+    "text": [
+      "No funcionó.",
+      "Sales del terminal antes de la alarma, pero sales sin nada. La puerta sigue cerrada y ahora sabes que alguien tocó la manija.",
+      "Kaeda ni pregunta cuando vuelves. Lo ve en tu cara.",
+      "[KAEDA] \"Está bien. Seguimos con lo que tenemos.\"",
+      "Habla tranquila. Pero apaga el cigarro de datos con más fuerza de lo normal."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Dormir y tratar de olvidar",
+        "next_scene": "3.5_dia11"
+      }
+    ]
+  },
+  {
+    "id": "3.4_puzzle_ok",
+    "title": "Ahí Dentro",
+    "destaque": true,
+    "text": [
+      "El sistema cede.",
+      "Estás dentro. En la terminal personal del Ingeniero de Integridad, donde ningún jugador debería estar.",
+      "Su nombre sigue bloqueado. Pero encuentras algo mejor que un nombre.",
+      "Un registro de transferencia. Pago recurrente, cada semana, a cuentas que no aparecen en ningún lugar. Y las fechas coinciden, una por una, con las peleas extrañas de madrugada.",
+      "El dinero no miente. La gente miente. El dinero solo se mueve.",
+      "Copias todo y sales tres segundos antes de que la alarma despierte.",
+      "Tres segundos. Afuera, en el cuarto, te das cuenta de que contuviste la respiración todo ese tiempo."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Llevar la prueba al refugio",
+        "flags_set": [
+          "PISTA_FINANCEIRA"
+        ],
+        "next_scene": "3.5_dia11"
+      }
+    ]
+  },
+  {
+    "id": "3.5_dia11",
+    "title": "El Dibujo",
+    "text": [
+      "Día 11. Con todo sobre la mesa, el dibujo finalmente aparece entero.",
+      "El usuario 47 entra al sistema todas las noches, entre las once y las dos de la mañana.",
+      "Las peleas extrañas ocurren siempre en las dos horas siguientes.",
+      "Y el dinero se mueve al día siguiente.",
+      "Cada semana. Hace meses. Quizá años.",
+      "Kaeda está animada y tensa al mismo tiempo, una cuerda de guitarra demasiado tensa.",
+      "[KAEDA] \"Tenemos el cargo, el horario y el patrón. Falta la cara.\"",
+      "[KAEDA] \"Y yo sé cómo conseguirlo.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "\"Habla.\"",
+        "next_scene": "3.6_dia12"
+      }
+    ]
+  },
+  {
+    "id": "3.6_dia12",
+    "title": "El Plan",
+    "text": [
+      "[KAEDA] \"Te armamos una pelea a la hora en que él le mete mano al sistema.\"",
+      "[KAEDA] \"Cuando entre a reprogramar la pelea, va a estar dentro de la arena contigo. Por un minuto, tal vez dos. Y tu SBI puede jalar la firma de quien le está metiendo mano.\"",
+      "Ella se apoya en la mesa.",
+      "[KAEDA] \"Funcionó, tenemos el nombre. No funcionó, él sabe que hay alguien investigando. Y ahí nos volvemos el objetivo.\"",
+      "Ella no suaviza. Nunca suaviza. Es lo único en ella en lo que confías con los ojos cerrados."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "\"Arma la pelea.\"",
+        "flags_set": [
+          "PLANO_CAPTURA"
+        ],
+        "decisao": true,
+        "next_scene": "3.6-briga"
+      },
+      {
+        "id": "B",
+        "label": "\"Dame un día para prepararme.\"",
+        "flags_set": [
+          "PLANO_ADIADO"
+        ],
+        "next_scene": "3.7_preparacao"
+      }
+    ]
+  },
+  {
+    "id": "3.7_preparacao",
+    "title": "Víspera",
+    "text": [
+      "Pasas el día entrenando. Kaeda pasa el día ajustando el SBI.",
+      "Ustedes ensayan la pelea como quien ensaya un asalto. Dónde te quedas. Cuánto aguantas. Qué haces si la arena carga mal.",
+      "[KAEDA] \"La herramienta funciona. Ahora depende de que estés de pie en el momento exacto.\"",
+      "De noche, no duermes. Te quedas mirando el techo del cubo y pensando en el cuarto de tres por tres, a kilómetros de ahí y a un palmo de tu nuca.",
+      "Al día siguiente ya no hay excusas."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Entrar a la arena",
+        "flags_set": [
+          "PLANO_CAPTURA"
+        ],
+        "decisao": true,
+        "next_scene": "3.6-briga"
+      }
+    ]
+  },
+  {
+    "id": "3.6-briga",
+    "title": "La Captura",
+    "luta": "Sombra Digital",
+    "text": [
+      "[SISTEMA] \"CAPTURA EN CURSO... 40%... 80%...\"",
+      "La sombra se traba a mitad de un golpe. Su puño se detiene a dos dedos de tu rostro.",
+      "[SISTEMA] \"100%.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Desconectar",
+        "next_scene": "3.8_captura_ok",
+        "luta": 7
+      }
+    ]
+  },
+  {
+    "id": "3.8_captura_ok",
+    "title": "Firma",
+    "destaque": true,
+    "text": [
+      "La arena desaparece. Tu SBI vibra tan fuerte que lo sientes hasta en la raíz de los dientes.",
+      "[SISTEMA] \"FIRMA CAPTURADA. PROCESANDO...\"",
+      "El terminal del refugio muestra un nombre.",
+      "Y de repente todo encaja. El Ingeniero de Integridad no es un operador cualquiera. Es alguien con acceso directo al núcleo del ranking. Al SDR entero. Al lugar donde se decide quién es alguien y quién no es nadie.",
+      "Kaeda aparece frente a ti. Pálida. Por primera vez la ves con miedo.",
+      "[KAEDA] \"Él sabe que estuvimos ahí.\"",
+      "[KAEDA] \"Tenemos setenta y dos horas antes de que borre todas las pruebas. Y a nosotros también.\"",
+      "En la esquina de la pantalla, un reloj que no encendiste empieza a contar solo."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Comenzar el conteo",
+        "flags_set": [
+          "FIM_ATO3"
+        ],
+        "next_scene": "4.1"
+      }
+    ]
+  },
+  {
+    "id": "3.treino",
+    "title": "Entrenamiento en el Refugio",
+    "ensina": [
+      12,
+      22,
+      32,
+      42,
+      52,
+      13,
+      23,
+      33,
+      43,
+      53
+    ],
+    "text": [
+      "Vuelves al refugio. Kaeda ni pregunta. Solo quita las dos sillas del camino y enciende el simulador viejo que guarda debajo del colchón.",
+      "[KAEDA] \"Una puerta con llave no se fuerza. Se aprende a abrirla. Ve.\"",
+      "{veia:1} Ella te da terminal falso tras terminal falso, cada uno más cerrado que el anterior, hasta que tu mano deja de buscar la punta y empieza a encontrarla.",
+      "{veia:2} Ella misma se sube al simulador. Golpea sin avisar, golpea sin ritmo, golpea hasta que tu cuerpo aprende lo que la cabeza todavía está discutiendo.",
+      "{veia:3} Tira sobre la mesa una pila de registros viejos de la Organización y te manda a encontrar lo que no cuadra. En la primera pila no lo encuentras. En la quinta, lo encuentras antes que ella.",
+      "{veia:4} Ella finge ser cinco personas distintas, una a la vez. Comprar, vender, mentir, amenazar, suplicar. Fallas cuatro. Después tres. Después ninguna.",
+      "{veia:5} Ella apaga todo y se sienta a tu lado en la oscuridad. \"Yo no escucho lo que tú escuchas. Pero sé quedarme callada.\" Y en su silencio, la estática habla más claro que nunca.",
+      "---",
+      "Cuando terminas, ella ya está de vuelta en el terminal, como si nada hubiera pasado.",
+      "[KAEDA] \"Ahora vuelve allá y abre la puerta.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Volver a la investigación",
+        "next_scene": "3.4_dia10"
+      }
+    ]
+  }
+]

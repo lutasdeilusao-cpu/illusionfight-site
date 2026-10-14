@@ -12,7 +12,7 @@ Prazo = a data do ASSINANTE (o primeiro a receber). Conta grátis e público rec
 | Música 1 — abertura "Lutas de Ilusão" | ✅ | — |
 | Jogo: Super Trunfo | ✅ | — |
 | Jogo: LDI Gangues | 🟡 | retratos de 365 inimigos (na fila do Codex, 16 grades); revisar os 7 bairros jogando |
-| Jogo: Lendas do LDI | 🟡 | **texto da história só em pt** (4 atos) — falta EN/ES (o site é inglês primeiro); sistema de progressão (adiado); conferir artes refeitas |
+| Jogo: Lendas do LDI | 🟡 | ✅ história em pt/en/es; sistema de progressão (adiado); conferir artes refeitas |
 
 ## P1 — até o 1º hiato (dez/2026 – fev/2027)
 | Data | Item | Estado | Falta |
