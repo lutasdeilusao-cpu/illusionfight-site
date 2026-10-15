@@ -127,5 +127,48 @@
         "paginas": 58
       }
     ]
+  },
+  {
+    "id": "04",
+    "numero": 4,
+    "so_admin": true,
+    "titulo_pt": "O Limiar",
+    "titulo_en": "O Limiar",
+    "titulo_es": "O Limiar",
+    "frase_pt": "",
+    "publicado": true,
+    "paginas": 58,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "mundo-das-sombras/04",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15",
+    "versoes": [
+      {
+        "id": "arkham-v2",
+        "nome_pt": "Arkham · Codex v2 (pré-final)",
+        "nome_en": "Arkham · Codex v2 (pre-final)",
+        "nome_es": "Arkham · Codex v2 (pre-final)",
+        "paginas": 60
+      },
+      {
+        "id": "arkham-gemini-v2",
+        "nome_pt": "Arkham · Gemini v2 (pré-final)",
+        "nome_en": "Arkham · Gemini v2 (pre-final)",
+        "nome_es": "Arkham · Gemini v2 (pre-final)",
+        "paginas": 60
+      }
+    ]
   }
 ]
