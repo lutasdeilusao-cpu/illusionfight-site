@@ -2,9 +2,8 @@
 // sozinha, e é configurável — ver `escolherAcaoAuto`:
 //  • por personagem: só ataque normal (o de sempre) ou UM talento escolhido,
 //    que ele usa toda vez que tiver PM/PV pra pagar (senão, ataque normal);
-//  • poção automática: alguém da tropa com PV ≤ 50% → o MAIS INTEIRO (mais
-//    PV) gasta a vez dele dando a poção de PV pro mais machucado (o ferido
-//    segue batendo; sozinho de pé, se cura);
+//  • poção automática (prioridade máxima): alguém da tropa com PV ≤ 50% →
+//    quem estiver na vez gasta a vez dando a poção de PV pro mais machucado;
 //  • poção de PM automática (opção à parte): sem PM pro talento escolhido, o
 //    próprio personagem toma poção de PM. Usar item gasta a vez de quem age.
 // `modoAutoOn` mora no GanguesCombat (o motor precisa dele pra acelerar a IA
@@ -60,15 +59,13 @@ export function melhorPocao(itens, tipo, falta) {
  *  `itens` = inventário de combate ({id,tipo,valor,quantidade,status}). */
 export function escolherAcaoAuto({ ator, aliados, especiais, pagavel, itens, config }) {
   if (config.pocao) {
-    // Quem cura é o MAIS INTEIRO da tropa (mais PV), abrindo mão da vez dele
-    // — nunca o ferido gastando a própria vez pra se curar (Isaias,
-    // 28/09/2026). Só quando o ferido é o único de pé ele se cura sozinho.
+    // Prioridade: com alguém da tropa na metade da vida ou menos, quem está
+    // na vez cura o mais machucado antes de qualquer ataque ou talento.
     const vivos = aliados.filter(a => a.pv > 0 && a.pvMax > 0)
     const ferido = vivos
       .filter(a => a.pv / a.pvMax <= POCAO_LIMIAR_PV)
       .sort((a, b) => a.pv / a.pvMax - b.pv / b.pvMax)[0]
-    const maisInteiro = [...vivos].sort((a, b) => (b.pv - a.pv) || (b.pv / b.pvMax - a.pv / a.pvMax))[0]
-    const pocao = ferido && maisInteiro?.key === ator?.key && melhorPocao(itens, 'cura_pv', ferido.pvMax - ferido.pv)
+    const pocao = ferido && ator && melhorPocao(itens, 'cura_pv', ferido.pvMax - ferido.pv)
     if (pocao) return { tipo: 'item', itemId: pocao.id, alvoKey: ferido.key }
   }
   const escolhido = especiais.find(s => s.id === config.talentos?.[ator?.id])
