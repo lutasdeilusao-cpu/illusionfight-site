@@ -19,9 +19,9 @@ const naT1 = d => d && d >= T1.inicio && d <= T1.fim
 const MANUAL = {
   'especial:4': { status: 'parcial', nota: 'refazendo realista (Gemini/Codex)' },
   'especial:5': { status: 'parcial', nota: 'refazendo realista (Gemini/Codex)' },
-  'jogo:trumps': { status: 'parcial' },
-  'jogo:gangues': { status: 'parcial' },
-  'jogo:ldi': { status: 'parcial' },
+  'jogo:trumps': { status: 'pronto' },
+  'jogo:gangues': { status: 'pronto' },
+  'jogo:ldi': { status: 'pronto' },
 }
 
 const idiomas = base => ['pt', 'en', 'es'].filter(l => tem(base.replace('{l}', l)))
