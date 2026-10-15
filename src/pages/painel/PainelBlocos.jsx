@@ -1,8 +1,8 @@
 // Peças visuais do painel: número grande, lista ranqueada, série por dia, funil.
 
-export function Kpi({ rotulo, valor, sub, destaque }) {
+export function Kpi({ rotulo, valor, sub, destaque, perigo }) {
   return (
-    <div className={`painel-kpi${destaque ? ' is-destaque' : ''}`}>
+    <div className={`painel-kpi${destaque ? ' is-destaque' : ''}${perigo ? ' is-perigo' : ''}`}>
       <span className="painel-kpi__rotulo">{rotulo}</span>
       <strong className="painel-kpi__valor">{valor}</strong>
       {sub && <small className="painel-kpi__sub">{sub}</small>}
@@ -43,11 +43,11 @@ export function Lista({ itens, vazio, formatar = v => v, onEscolher }) {
 }
 
 /** Barras por dia (ou hora). `pontos`: [{ rotulo, valor }]. */
-export function Serie({ pontos, vazio, formatar = v => v }) {
+export function Serie({ pontos, vazio, formatar = v => v, perigo }) {
   if (!pontos?.length) return <p className="painel-vazio">{vazio}</p>
   const max = Math.max(1, ...pontos.map(p => Number(p.valor) || 0))
   return (
-    <div className="painel-serie" role="img">
+    <div className={`painel-serie${perigo ? ' is-perigo' : ''}`} role="img">
       {pontos.map((p, i) => (
         <div key={i} className="painel-serie__col" title={`${p.rotulo}: ${formatar(p.valor)}`}>
           <b>{formatar(p.valor)}</b>

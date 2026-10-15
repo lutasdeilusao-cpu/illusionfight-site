@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.437.1**.
+> `SITE_VERSION` **10.438.0**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -116,7 +116,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/creators` | Área Creator: porta com login, termos, NeoGuide servindo livros, webtoon, jogos, artes, press kit (`/presskit/illusion-fight-presskit.zip`, montado no build por `scripts/gerar-presskit.cjs` com as artes, as artes de divulgação geradas por `scripts/presskit/gerar-artes.cjs` e os textos de imprensa `scripts/presskit/<idioma>.txt`), ficha técnica e dúvidas. Acesso pela tag `is_creator` (migration 052), concedida na aba Creators do painel ou por link de convite (`/creators?convite=CODIGO`, migrations 053/055) | `src/pages/creators/Creators.jsx` |
 | `/creators/destaques` | Destaques dos creators: o creator envia o link do conteúdo que fez (YouTube, TikTok, Instagram, X, Twitch, Kwai) e embaixo fica a vitrine pública do que o admin aprovou (migration 054) | `src/pages/creators/CreatorsDestaques.jsx` |
 | `/creator` | Redirect para `/creators` | `Navigate` em `src/App.jsx` |
-| `/admin` (`ROTA_PAINEL`) | Painel de administrador: Visão, Agora, Sessões, Financeiro, Logs, Creators e Projeto (andamento da Temporada 1 lido dos dados do site, `PainelProjeto`; tags de creator, envios para aprovar e convites — `PainelCreators`, `PainelEnvios`, `PainelConvites`). Escondido, só `is_admin`, `noindex` | `src/pages/painel/Painel.jsx` |
+| `/admin` (`ROTA_PAINEL`) | Área do Administrador, em 5 seções: **Tarefas** (kanban a fazer / em progresso / feito entre Isaias e Rafael, `PainelTarefas`, migration 058), **Projeto** (andamento da Temporada 1 lido dos dados do site, `PainelProjeto`), **Números** (Visão, Agora, Sessões, Steam), **Dinheiro** (gasto total do projeto, gastos por mês e categoria, receita, assinantes) e **Mais** (Creators e Logs). Escondido, só `is_admin`, `noindex` | `src/pages/painel/Painel.jsx` |
 
 ### 3.3 Catálogo e jogos
 

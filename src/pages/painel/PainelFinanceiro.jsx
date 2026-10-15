@@ -1,5 +1,5 @@
-// Aba "Financeiro": receita (por moeda), assinantes, movimento, custos
-// cadastrados e o resultado do período (receita − custo proporcional).
+// Seção "Dinheiro": gastos do projeto (desde o início e por mês), receita por moeda,
+// assinantes, movimento e o resultado do período (receita − custo proporcional).
 import { useEffect, useState } from 'react'
 import { Kpi, Cartao, Lista, Serie } from './PainelBlocos'
 import { rpc, dinheiro, hora, num } from './painelUtil'
@@ -19,6 +19,18 @@ function custoNoPeriodo(c, inicio, fim) {
   if (b <= a) return 0
   const dias = (b - a) / DIA
   return Math.round(c.valor_centavos * dias / (c.recorrencia === 'anual' ? 365 : 30))
+}
+
+// Quanto já saiu do bolso até `ate`: único conta cheio; mensal e anual contam uma
+// parcela cheia a cada mês/ano começado desde `desde` (assinatura é paga adiantada).
+function pagoAte(c, ate) {
+  const ini = new Date(`${c.desde}T00:00:00-03:00`)
+  const fimC = c.ate ? new Date(`${c.ate}T23:59:59-03:00`) : ate
+  const lim = Math.min(ate.getTime(), fimC.getTime())
+  if (lim < ini.getTime()) return 0
+  if (c.recorrencia === 'unico') return c.valor_centavos
+  const meses = (new Date(lim).getFullYear() - ini.getFullYear()) * 12 + new Date(lim).getMonth() - ini.getMonth()
+  return c.valor_centavos * (c.recorrencia === 'anual' ? Math.floor(meses / 12) + 1 : meses + 1)
 }
 
 export default function PainelFinanceiro({ t, locale, inicio, fim }) {
@@ -51,8 +63,34 @@ export default function PainelFinanceiro({ t, locale, inicio, fim }) {
   const mrr = assinantes.filter(a => a.status !== 'past_due').reduce((acc, a) => { const m = a.moeda || 'BRL'; acc[m] = (acc[m] || 0) + (a.ultimo_valor || 0); return acc }, {})
   const dm = (v, m) => dinheiro(v, m, locale)
 
+  // Gastos desde o início do projeto e nos últimos 6 meses (BRL).
+  const agora = new Date()
+  const gastoTotal = custos.filter(c => c.moeda === 'BRL').reduce((s, c) => s + pagoAte(c, agora), 0)
+  const porCategoria = custos.filter(c => c.moeda === 'BRL').reduce((acc, c) => {
+    const k = c.categoria || 'outros'; acc[k] = (acc[k] || 0) + pagoAte(c, agora); return acc
+  }, {})
+  const meses = Array.from({ length: 6 }, (_, i) => {
+    const ini = new Date(agora.getFullYear(), agora.getMonth() - 5 + i, 1)
+    const fimMes = new Date(agora.getFullYear(), agora.getMonth() - 4 + i, 1)
+    return { rotulo: ini.toLocaleDateString(locale, { month: 'short' }), valor: custos.filter(c => c.moeda === 'BRL').reduce((s, c) => s + pagoAte(c, new Date(fimMes.getTime() - 1)) - pagoAte(c, new Date(ini.getTime() - 1)), 0) }
+  })
+  const recebidoBRL = moedas.find(m => m.moeda === 'BRL')
+
   return (
     <div className="painel-grade">
+      <div className="painel-kpis">
+        <Kpi rotulo={t('painel.fin.gasto_total')} valor={dm(gastoTotal, 'BRL')} sub={t('painel.fin.gasto_total_sub')} perigo />
+        <Kpi rotulo={t('painel.fin.recebido')} valor={dm(recebidoBRL ? recebidoBRL.bruto - recebidoBRL.reembolsos : 0, 'BRL')} sub={t('painel.fin.no_periodo')} destaque />
+      </div>
+
+      <Cartao titulo={t('painel.fin.gastos_mes')}>
+        <Serie pontos={meses} vazio={t('painel.custos.vazio')} formatar={v => dm(v, 'BRL')} perigo />
+      </Cartao>
+
+      <Cartao titulo={t('painel.fin.gastos_categoria')}>
+        <Lista itens={Object.entries(porCategoria).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({ chave: t(`painel.custos.cat.${k}`), valor: v }))} vazio={t('painel.custos.vazio')} formatar={v => dm(v, 'BRL')} />
+      </Cartao>
+
       {moedas.map(m => {
         const liquido = m.bruto - m.reembolsos
         const custo = custoPorMoeda[m.moeda] || 0
@@ -130,7 +168,7 @@ export default function PainelFinanceiro({ t, locale, inicio, fim }) {
           </form>
         ) : (
           <Lista
-            itens={custos.map(c => ({ chave: c.nome, valor: c.valor_centavos, extra: `${t(`painel.custos.rec.${c.recorrencia}`)} · ${t(`painel.custos.cat.${c.categoria || 'outros'}`)}`, c }))}
+            itens={[...custos].sort((a, b) => (b.desde || '').localeCompare(a.desde || '')).map(c => ({ chave: c.nome, valor: c.valor_centavos, extra: `${c.desde ? new Date(`${c.desde}T12:00:00`).toLocaleDateString(locale, { day: '2-digit', month: 'short' }) + ' · ' : ''}${t(`painel.custos.rec.${c.recorrencia}`)}`, c }))}
             vazio={t('painel.custos.vazio')}
             formatar={v => dm(v, 'BRL')}
             onEscolher={i => setEdit({ ...i.c, valor: (i.c.valor_centavos / 100).toFixed(2) })}

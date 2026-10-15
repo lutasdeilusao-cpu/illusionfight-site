@@ -34,9 +34,37 @@
 .painel-btn.is-primario { color: var(--bg-primary); background: var(--if-cyan); }
 .painel-btn.is-perigo { margin-top: 10px; color: var(--if-danger); border-color: color-mix(in srgb, var(--if-danger) 45%, transparent); background: transparent; }
 
-.painel-abas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+.painel-secoes {
+  position: sticky;
+  top: calc(48px + env(safe-area-inset-top, 0px));
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  padding: 6px 0;
+  background: var(--bg-primary);
+}
+.painel-secoes button {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 10px 2px 8px;
+  font: 700 .55rem var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--if-hair-strong);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  cursor: pointer;
+}
+.painel-secoes button i { font: 700 1.1rem/1 var(--font-display); font-style: normal; }
+.painel-secoes button.is-ativa { color: var(--if-cyan); border-color: var(--if-cyan-45); background: var(--if-cyan-08); box-shadow: inset 0 -2px var(--if-cyan); }
+
+.painel-abas { display: flex; flex-wrap: wrap; gap: 4px; }
 .painel-abas button {
-  padding: 10px 4px;
+  flex: 1;
+  padding: 8px 10px;
   font: 700 .6rem var(--font-mono);
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -83,6 +111,8 @@
   border: 1px solid var(--if-hair-strong);
   clip-path: var(--painel-cut);
 }
+.painel-kpi.is-perigo { box-shadow: inset 2px 0 var(--if-danger); border-color: color-mix(in srgb, var(--if-danger) 45%, transparent); }
+.painel-kpi.is-perigo .painel-kpi__valor { color: var(--if-danger); }
 .painel-kpi.is-destaque { box-shadow: inset 2px 0 var(--if-cyan); border-color: var(--if-cyan-45); }
 .painel-kpi__rotulo { font: 700 .55rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-secondary); }
 .painel-kpi__valor { font: 700 1.45rem/1.05 var(--font-display); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
@@ -126,6 +156,7 @@
 .painel-serie__col { flex: 1 0 14px; height: 100%; display: grid; grid-template-rows: auto 1fr auto; justify-items: center; gap: 3px; }
 .painel-serie__col b { font: 700 .5rem var(--font-mono); color: var(--text-secondary); }
 .painel-serie__col small { font: 600 .48rem var(--font-mono); color: var(--text-secondary); }
+.painel-serie.is-perigo .painel-serie__barra { background: linear-gradient(to top, color-mix(in srgb, var(--if-danger) 45%, transparent), var(--if-danger)); }
 .painel-serie__barra { align-self: end; width: 100%; height: var(--h); background: linear-gradient(to top, var(--if-cyan-45), var(--if-cyan)); }
 
 /* funil */

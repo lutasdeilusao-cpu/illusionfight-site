@@ -1,6 +1,8 @@
-// Painel de administrador — rota escondida (ROTA_PAINEL), sem link em lugar
+// Área do Administrador — rota escondida (ROTA_PAINEL), sem link em lugar
 // nenhum, fora do sitemap e do prerender. Quem não é admin vê a página de
 // "não encontrada", sem saber que existe um painel aqui.
+// Quatro seções (Tarefas, Projeto, Números, Dinheiro) + "Mais" (Creators, Logs);
+// Números e Mais têm sub-abas.
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useAuth } from '../../context/AuthContext'
@@ -12,12 +14,21 @@ import PainelLogs from './PainelLogs'
 import PainelCreators from './PainelCreators'
 import PainelSteam from './PainelSteam'
 import PainelProjeto from './PainelProjeto'
+import PainelTarefas from './PainelTarefas'
 import { PainelAgora, PainelSessoes } from './PainelSessoes'
 import { PERIODOS, intervalo, rpc, localeDe } from './painelUtil'
 import './Painel.css'
 
 const NotFound = lazy(() => import('../site/NotFound/NotFound'))
-const ABAS = ['visao', 'agora', 'sessoes', 'steam', 'financeiro', 'logs', 'creators', 'projeto']
+const SECOES = {
+  tarefas: ['tarefas'],
+  projeto: ['projeto'],
+  numeros: ['visao', 'agora', 'sessoes', 'steam'],
+  dinheiro: ['financeiro'],
+  mais: ['creators', 'logs'],
+}
+const ICONE = { tarefas: '☑', projeto: '◔', numeros: '▤', dinheiro: '$', mais: '⋯' }
+const COM_PERIODO = ['visao', 'sessoes', 'steam', 'financeiro', 'logs']
 const FILTROS = ['origem', 'rota', 'dispositivo', 'idioma', 'pais', 'logado']
 
 export default function Painel() {
@@ -26,7 +37,8 @@ export default function Painel() {
   const lc = localeDe(locale)
   const admin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
 
-  const [aba, setAba] = useState('visao')
+  const [secao, setSecao] = useState('tarefas')
+  const [aba, setAba] = useState('tarefas')
   const [periodo, setPeriodo] = useState('7d')
   const [de, setDe] = useState('')
   const [ate, setAte] = useState('')
@@ -82,15 +94,27 @@ export default function Painel() {
       </header>
       {ip && <p className="painel-nota">{t('painel.ip_excluido', { ip })}</p>}
 
-      <nav className="painel-abas" role="tablist">
-        {ABAS.map(a => (
-          <button key={a} type="button" role="tab" aria-selected={aba === a} className={aba === a ? 'is-ativa' : ''} onClick={() => { setAba(a); setErro(null) }}>
-            {t(`painel.aba.${a}`)}
+      <nav className="painel-secoes" role="tablist">
+        {Object.keys(SECOES).map(s => (
+          <button key={s} type="button" role="tab" aria-selected={secao === s} className={secao === s ? 'is-ativa' : ''}
+            onClick={() => { setSecao(s); setAba(SECOES[s][0]); setErro(null) }}>
+            <i aria-hidden="true">{ICONE[s]}</i>
+            <span>{t(`painel.secao.${s}`)}</span>
           </button>
         ))}
       </nav>
 
-      {aba !== 'agora' && aba !== 'creators' && aba !== 'projeto' && (
+      {SECOES[secao].length > 1 && (
+        <nav className="painel-abas" role="tablist">
+          {SECOES[secao].map(a => (
+            <button key={a} type="button" role="tab" aria-selected={aba === a} className={aba === a ? 'is-ativa' : ''} onClick={() => { setAba(a); setErro(null) }}>
+              {t(`painel.aba.${a}`)}
+            </button>
+          ))}
+        </nav>
+      )}
+
+      {COM_PERIODO.includes(aba) && (
         <section className="painel-controles">
           <div className="painel-periodos">
             {PERIODOS.map(p => (
@@ -127,6 +151,7 @@ export default function Painel() {
       {aba === 'financeiro' && <PainelFinanceiro t={t} locale={lc} inicio={inicio} fim={fim} />}
       {aba === 'creators' && <PainelCreators t={t} locale={lc} />}
       {aba === 'projeto' && <PainelProjeto t={t} locale={lc} />}
+      {aba === 'tarefas' && <PainelTarefas t={t} locale={lc} />}
       {aba === 'steam' && <PainelSteam t={t} locale={lc} inicio={inicio} fim={fim} />}
     </main>
   )

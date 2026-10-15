@@ -1702,8 +1702,8 @@
     "ctaBotao": "Subscribe free"
   },
   "painel": {
-    "titulo": "Control Room",
-    "eyebrow": "Admin panel",
+    "titulo": "Admin Area",
+    "eyebrow": "Illusion Fight",
     "atualizar": "Refresh",
     "ip_excluido": "Your IP ({ip}) doesn't count as a visit.",
     "falta_migration": "Migration 043 hasn't run on Supabase yet. Paste supabase/migrations/043_painel_analytics.sql into the SQL Editor.",
@@ -1728,7 +1728,8 @@
       "logs": "Logs",
       "creators": "Creators",
       "steam": "Steam",
-      "projeto": "Project"
+      "projeto": "Project",
+      "tarefas": "Tasks"
     },
     "periodo": {
       "hoje": "Today",
@@ -1833,7 +1834,13 @@
         "reembolso": "Refund",
         "cancelamento": "Canceled",
         "assinou": "Subscribed"
-      }
+      },
+      "gasto_total": "Total project spend",
+      "gasto_total_sub": "since the start, everything out of pocket",
+      "recebido": "Received",
+      "no_periodo": "in the chosen period",
+      "gastos_mes": "Spend per month",
+      "gastos_categoria": "Spend by category"
     },
     "custos": {
       "titulo": "Costs",
@@ -1967,6 +1974,45 @@
         "pronto": "ready",
         "parcial": "in progress",
         "falta": "missing"
+      }
+    },
+    "secao": {
+      "tarefas": "Tasks",
+      "projeto": "Project",
+      "numeros": "Numbers",
+      "dinheiro": "Money",
+      "mais": "More"
+    },
+    "tarefas": {
+      "nova": "New task",
+      "editar": "Edit task",
+      "titulo": "Title",
+      "descricao": "Description",
+      "para": "For",
+      "prazo": "Due",
+      "prioridade": "Priority",
+      "status": "Column",
+      "apagar": "Delete",
+      "os_dois": "Both",
+      "pedido_por": "asked by: {n}",
+      "vazio": "Nothing here.",
+      "voltar": "Move back",
+      "avancar": "Move forward",
+      "col": {
+        "fazer": "To do",
+        "progresso": "In progress",
+        "feito": "Done"
+      },
+      "prio": {
+        "alta": "High",
+        "normal": "Normal",
+        "baixa": "Low"
+      },
+      "filtro": {
+        "todas": "All",
+        "minhas": "Mine",
+        "socio": "{socio}'s",
+        "pedi": "I asked {socio}"
       }
     }
   },

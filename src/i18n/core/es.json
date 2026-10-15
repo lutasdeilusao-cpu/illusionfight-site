@@ -1702,8 +1702,8 @@
     "ctaBotao": "Suscribirse gratis"
   },
   "painel": {
-    "titulo": "Central",
-    "eyebrow": "Panel de administrador",
+    "titulo": "Área del Administrador",
+    "eyebrow": "Illusion Fight",
     "atualizar": "Actualizar",
     "ip_excluido": "Tu IP ({ip}) no cuenta visitas.",
     "falta_migration": "La migration 043 aún no se ejecutó en Supabase. Pega supabase/migrations/043_painel_analytics.sql en el SQL Editor.",
@@ -1728,7 +1728,8 @@
       "logs": "Logs",
       "creators": "Creators",
       "steam": "Steam",
-      "projeto": "Proyecto"
+      "projeto": "Proyecto",
+      "tarefas": "Tareas"
     },
     "periodo": {
       "hoje": "Hoy",
@@ -1833,7 +1834,13 @@
         "reembolso": "Reembolso",
         "cancelamento": "Canceló",
         "assinou": "Se suscribió"
-      }
+      },
+      "gasto_total": "Gasto total del proyecto",
+      "gasto_total_sub": "desde el inicio, todo lo que salió del bolsillo",
+      "recebido": "Recibido",
+      "no_periodo": "en el período elegido",
+      "gastos_mes": "Gastos por mes",
+      "gastos_categoria": "Gastos por categoría"
     },
     "custos": {
       "titulo": "Costos",
@@ -1967,6 +1974,45 @@
         "pronto": "listo",
         "parcial": "en curso",
         "falta": "falta"
+      }
+    },
+    "secao": {
+      "tarefas": "Tareas",
+      "projeto": "Proyecto",
+      "numeros": "Números",
+      "dinheiro": "Dinero",
+      "mais": "Más"
+    },
+    "tarefas": {
+      "nova": "Nueva tarea",
+      "editar": "Editar tarea",
+      "titulo": "Título",
+      "descricao": "Descripción",
+      "para": "Para quién",
+      "prazo": "Plazo",
+      "prioridade": "Prioridad",
+      "status": "Columna",
+      "apagar": "Borrar",
+      "os_dois": "Los dos",
+      "pedido_por": "pidió: {n}",
+      "vazio": "Nada aquí.",
+      "voltar": "Volver columna",
+      "avancar": "Avanzar columna",
+      "col": {
+        "fazer": "Por hacer",
+        "progresso": "En progreso",
+        "feito": "Hecho"
+      },
+      "prio": {
+        "alta": "Alta",
+        "normal": "Normal",
+        "baixa": "Baja"
+      },
+      "filtro": {
+        "todas": "Todas",
+        "minhas": "Mías",
+        "socio": "De {socio}",
+        "pedi": "Le pedí a {socio}"
       }
     }
   },

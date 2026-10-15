@@ -1702,8 +1702,8 @@
     "ctaBotao": "Assinar grátis"
   },
   "painel": {
-    "titulo": "Central",
-    "eyebrow": "Painel do administrador",
+    "titulo": "Área do Administrador",
+    "eyebrow": "Illusion Fight",
     "atualizar": "Atualizar",
     "ip_excluido": "Teu IP ({ip}) não conta visita.",
     "falta_migration": "A migration 043 ainda não rodou no Supabase. Cola o arquivo supabase/migrations/043_painel_analytics.sql no SQL Editor.",
@@ -1728,7 +1728,8 @@
       "logs": "Logs",
       "creators": "Creators",
       "steam": "Steam",
-      "projeto": "Projeto"
+      "projeto": "Projeto",
+      "tarefas": "Tarefas"
     },
     "periodo": {
       "hoje": "Hoje",
@@ -1833,7 +1834,13 @@
         "reembolso": "Reembolso",
         "cancelamento": "Cancelou",
         "assinou": "Assinou"
-      }
+      },
+      "gasto_total": "Gasto total do projeto",
+      "gasto_total_sub": "desde o início, tudo que saiu do bolso",
+      "recebido": "Recebido",
+      "no_periodo": "no período escolhido",
+      "gastos_mes": "Gastos por mês",
+      "gastos_categoria": "Gastos por categoria"
     },
     "custos": {
       "titulo": "Custos",
@@ -1967,6 +1974,45 @@
         "pronto": "pronto",
         "parcial": "em andamento",
         "falta": "falta"
+      }
+    },
+    "secao": {
+      "tarefas": "Tarefas",
+      "projeto": "Projeto",
+      "numeros": "Números",
+      "dinheiro": "Dinheiro",
+      "mais": "Mais"
+    },
+    "tarefas": {
+      "nova": "Nova tarefa",
+      "editar": "Editar tarefa",
+      "titulo": "Título",
+      "descricao": "Descrição",
+      "para": "Pra quem",
+      "prazo": "Prazo",
+      "prioridade": "Prioridade",
+      "status": "Coluna",
+      "apagar": "Apagar",
+      "os_dois": "Os dois",
+      "pedido_por": "pediu: {n}",
+      "vazio": "Nada aqui.",
+      "voltar": "Voltar coluna",
+      "avancar": "Avançar coluna",
+      "col": {
+        "fazer": "A fazer",
+        "progresso": "Em progresso",
+        "feito": "Feito"
+      },
+      "prio": {
+        "alta": "Alta",
+        "normal": "Normal",
+        "baixa": "Baixa"
+      },
+      "filtro": {
+        "todas": "Todas",
+        "minhas": "Minhas",
+        "socio": "Do {socio}",
+        "pedi": "Pedi pro {socio}"
       }
     }
   },
