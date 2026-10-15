@@ -2013,6 +2013,18 @@
         "minhas": "Mine",
         "socio": "{socio}'s",
         "pedi": "I asked {socio}"
+      },
+      "link": "Link (where to do the task)",
+      "feedback": "Feedback",
+      "iniciar": "Start",
+      "continuar": "Continue",
+      "feito_semana": "done (7 days)",
+      "fim": {
+        "concluida": "Task done",
+        "pergunta": "Want to leave your feedback now? It is saved on the task.",
+        "placeholder": "What you thought, what needs fixing...",
+        "enviar": "Send feedback",
+        "depois": "Later"
       }
     }
   },

@@ -51,6 +51,33 @@
 .tarefa__meta { display: flex; flex-wrap: wrap; gap: 8px; font: 600 .6rem var(--font-mono); color: var(--text-secondary); }
 .tarefa__para { font-style: normal; color: var(--if-cyan); }
 .tarefa.is-atrasada .tarefa__prazo { color: var(--if-danger); }
+.tarefa__feedback { font-size: .7rem; color: var(--if-teal); white-space: pre-wrap; }
+.tarefa__iniciar {
+  grid-column: 1 / -1;
+  padding: 10px;
+  font: 700 .62rem var(--font-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--bg-primary);
+  background: var(--if-cyan);
+  border: 0;
+  cursor: pointer;
+}
+.tarefas-placar { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.tarefas-placar__pessoa {
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--if-hair-strong);
+}
+.tarefas-placar__pessoa.is-eu { border-color: var(--if-cyan-45); }
+.tarefas-placar__pessoa b { font: 700 .9rem var(--font-display); }
+.tarefas-placar__pessoa span { display: flex; align-items: baseline; gap: 6px; font-size: .62rem; color: var(--text-secondary); }
+.tarefas-placar__pessoa i { min-width: 18px; font: 700 .9rem var(--font-display); font-style: normal; }
+.tarefas-placar .is-fazer { color: var(--if-danger); }
+.tarefas-placar .is-progresso { color: var(--if-amber); }
+.tarefas-placar .is-feito { color: var(--if-cyan); }
 .tarefa__acoes { display: grid; grid-template-rows: 1fr 1fr; border-left: 1px solid var(--if-hair-strong); }
 .tarefa__acoes button {
   width: 44px;
@@ -79,3 +106,49 @@
   resize: vertical;
 }
 .tarefa-form__linha { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+/* Fim de capítulo de uma tarefa: conclui e pergunta o feedback (TarefaFeedback). */
+.tarefa-fim {
+  position: fixed;
+  inset: 0 var(--app-gutter);
+  z-index: 1900;
+  display: grid;
+  align-items: end;
+  padding: 16px;
+  background: rgba(0, 0, 0, .7);
+  overscroll-behavior: none;
+}
+.tarefa-fim__caixa {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--if-cyan-45);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.tarefa-fim__ok { font: 700 .6rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--if-cyan); }
+.tarefa-fim__caixa strong { font-size: .95rem; }
+.tarefa-fim__caixa p { margin: 0; font-size: .8rem; color: var(--text-secondary); }
+.tarefa-fim__caixa textarea {
+  padding: 8px;
+  font: 600 .8rem var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--if-hair-strong);
+  resize: vertical;
+}
+.tarefa-fim .painel-form__acoes { display: flex; gap: 8px; }
+.tarefa-fim button {
+  flex: 1;
+  padding: 12px;
+  font: 700 .62rem var(--font-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--if-cyan);
+  background: var(--if-cyan-08);
+  border: 1px solid var(--if-cyan-45);
+  cursor: pointer;
+}
+.tarefa-fim button.is-primario { color: var(--bg-primary); background: var(--if-cyan); }
+.tarefa-fim button:disabled { opacity: .45; cursor: default; }

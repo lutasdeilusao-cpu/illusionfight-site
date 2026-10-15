@@ -2013,6 +2013,18 @@
         "minhas": "Minhas",
         "socio": "Do {socio}",
         "pedi": "Pedi pro {socio}"
+      },
+      "link": "Link (onde fazer a tarefa)",
+      "feedback": "Feedback",
+      "iniciar": "Iniciar",
+      "continuar": "Continuar",
+      "feito_semana": "feito (7 dias)",
+      "fim": {
+        "concluida": "Tarefa concluída",
+        "pergunta": "Quer deixar o feedback agora? Fica salvo na tarefa.",
+        "placeholder": "O que achou, o que tem que corrigir...",
+        "enviar": "Mandar feedback",
+        "depois": "Depois"
       }
     }
   },

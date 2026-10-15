@@ -2013,6 +2013,18 @@
         "minhas": "Mías",
         "socio": "De {socio}",
         "pedi": "Le pedí a {socio}"
+      },
+      "link": "Enlace (dónde hacer la tarea)",
+      "feedback": "Feedback",
+      "iniciar": "Empezar",
+      "continuar": "Continuar",
+      "feito_semana": "hecho (7 días)",
+      "fim": {
+        "concluida": "Tarea terminada",
+        "pergunta": "¿Quieres dejar tu feedback ahora? Queda guardado en la tarea.",
+        "placeholder": "Qué te pareció, qué hay que corregir...",
+        "enviar": "Enviar feedback",
+        "depois": "Después"
       }
     }
   },

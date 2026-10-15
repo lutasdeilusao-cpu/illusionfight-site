@@ -21,6 +21,7 @@ import LeitorFim from './components/LeitorFim'
 import AvisoAutor from './components/AvisoAutor'
 import { compartilharLink } from '../../../components/ShareButton/ShareButton'
 import ConviteConta from '../../../components/ConviteConta/ConviteConta'
+import TarefaFeedback from '../../../components/TarefaFeedback/TarefaFeedback'
 import './WebshardLeitor.css'
 
 /* Leitor WEB SHARD — /webtoon/:id (Lutas de Ilusão, URL legada) e
@@ -210,6 +211,7 @@ export default function WebshardLeitor({ titulo, capId }) {
           avisoCompartilhar={aviso}
         />
         {nivel === 'publico' && <ConviteConta />}
+        {isAdmin && <TarefaFeedback />}
       </div>
     </>
   )

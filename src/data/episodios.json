@@ -312,6 +312,13 @@
     "pasta": "presos-na-ilusao/01",
     "versoes": [
       {
+        "id": "realista",
+        "nome_pt": "Realista (pré-final)",
+        "nome_en": "Realistic (pre-final)",
+        "nome_es": "Realista (pre-final)",
+        "paginas": 64
+      },
+      {
         "id": "gemini-storyboard",
         "nome_pt": "Gemini · storyboard",
         "nome_en": "Gemini · storyboard",
@@ -348,6 +355,13 @@
     ],
     "pasta": "presos-na-ilusao/02",
     "versoes": [
+      {
+        "id": "realista",
+        "nome_pt": "Realista (pré-final)",
+        "nome_en": "Realistic (pre-final)",
+        "nome_es": "Realista (pre-final)",
+        "paginas": 69
+      },
       {
         "id": "gemini-storyboard",
         "nome_pt": "Gemini · storyboard",
