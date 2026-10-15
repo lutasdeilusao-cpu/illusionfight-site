@@ -149,9 +149,9 @@
     ]
   },
   {
-    "id": "lisa",
-    "nome": "Lisa",
-    "nomeCompleto": "Lisa",
+    "id": "lenna",
+    "nome": "Lenna",
+    "nomeCompleto": "Lenna",
     "apelido": "",
     "idade": "17-19",
     "status": "viva",
@@ -163,7 +163,7 @@
     "descricaoBreve": "Top 500 mundial. Artista global. Canta, dança, luta. Interesse romântico de Kim.",
     "descricaoCompleta": "Nasceu em Marelia, Bravara. Saiu ainda criança. Cresceu em trânsito entre mercados musicais, estabeleceu carreira em Nortalis, Valdera — o epicentro da indústria pop mundial no universo LDI. Artista global, baseada entre Nortalis e onde a agenda mandar. Cabelos longos cacheados castanho-escuros, pele morena, argolas nas orelhas, postura de quem foi treinada para ocupar palco. Fora do palco, confortável, nada performática. Top 500 mundial — lutadora de nível real, não figurante. Elemental: Gelo. Arma fase 1: microfone (modo normal e xamã a desenvolver). Arma fase 2: em aberto. Colaboração futura com o trio: ela canta, Jack rapa, Nina em dueto. Aparece no livro 2, fora de Bravara, durante o exílio do trio. Entra desafiando Kim porque não acredita que ele mereça o hype. Ancora o quarteto romântico com toda a bagunça cômica que antecede qualquer resolução.",
     "frase": "",
-    "imagem": "/assets/images/characters/lisa.png",
+    "imagem": "/assets/images/characters/lenna.png",
     "relacoes": [
       { "personagem": "Kim", "tipo": "Interesse romântico / rival no LDI" },
       { "personagem": "Jack", "tipo": "Parceiro musical (rap)" },

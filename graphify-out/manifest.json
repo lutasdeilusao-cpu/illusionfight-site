@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792094233.9420035,
-    "ast_hash": "19c7106649460056addd282e4ecfacf9",
+    "mtime": 1792104306.4877114,
+    "ast_hash": "9aecf25f07bbc5e6cacd9ebaf4ef1ac8",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -445,8 +445,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1792077305.2264085,
-    "ast_hash": "d21f5dd707ecb0125db9be63ddafe14b",
+    "mtime": 1792104296.3740432,
+    "ast_hash": "304b23df0432c8984f088408c0899d98",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2560,8 +2560,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792094233.9439008,
-    "ast_hash": "7b4481c699507eb3f3bf173982266d72",
+    "mtime": 1792104306.5272746,
+    "ast_hash": "930816d728c9f7d61e0946c44d55cb98",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4565,8 +4565,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-titulos.json": {
-    "mtime": 1792004055.3628602,
-    "ast_hash": "b108c911f076de656a27b4e57cc92e40",
+    "mtime": 1792104296.7033117,
+    "ast_hash": "e8bb8a627c7931114ccf830e1a72cab1",
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
@@ -9937,6 +9937,11 @@
   "src/assets/webshard/cap-mundo-das-sombras-09.webp": {
     "mtime": 1792094233.9389865,
     "ast_hash": "816b0fbe82862338e7bce0b9788b69af",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/capa-diabo-vermelho.webp": {
+    "mtime": 1792104296.7013092,
+    "ast_hash": "733989d7c44522ae2fbbab1218cc8095",
     "semantic_hash": ""
   }
 }
