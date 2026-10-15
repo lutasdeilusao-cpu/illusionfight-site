@@ -170,5 +170,48 @@
         "paginas": 60
       }
     ]
+  },
+  {
+    "id": "05",
+    "numero": 5,
+    "so_admin": true,
+    "titulo_pt": "Prisão",
+    "titulo_en": "Prisão",
+    "titulo_es": "Prisão",
+    "frase_pt": "",
+    "publicado": true,
+    "paginas": 58,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "mundo-das-sombras/05",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15",
+    "versoes": [
+      {
+        "id": "arkham-v2",
+        "nome_pt": "Arkham · Codex v2 (pré-final)",
+        "nome_en": "Arkham · Codex v2 (pre-final)",
+        "nome_es": "Arkham · Codex v2 (pre-final)",
+        "paginas": 41
+      },
+      {
+        "id": "arkham-gemini-v2",
+        "nome_pt": "Arkham · Gemini v2 (pré-final)",
+        "nome_en": "Arkham · Gemini v2 (pre-final)",
+        "nome_es": "Arkham · Gemini v2 (pre-final)",
+        "paginas": 19
+      }
+    ]
   }
 ]
