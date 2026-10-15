@@ -210,7 +210,151 @@
         "nome_pt": "Arkham · Gemini v2 (pré-final)",
         "nome_en": "Arkham · Gemini v2 (pre-final)",
         "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 19
+        "paginas": 57
+      }
+    ]
+  },
+  {
+    "id": "06",
+    "numero": 6,
+    "so_admin": true,
+    "titulo_pt": "Correntes",
+    "titulo_en": "Correntes",
+    "titulo_es": "Correntes",
+    "frase_pt": "",
+    "publicado": true,
+    "paginas": 58,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "mundo-das-sombras/06",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15",
+    "versoes": [
+      {
+        "id": "arkham-gemini-v2",
+        "nome_pt": "Arkham · Gemini v2 (pré-final)",
+        "nome_en": "Arkham · Gemini v2 (pre-final)",
+        "nome_es": "Arkham · Gemini v2 (pre-final)",
+        "paginas": 58
+      }
+    ]
+  },
+  {
+    "id": "07",
+    "numero": 7,
+    "so_admin": true,
+    "titulo_pt": "Nefeli",
+    "titulo_en": "Nefeli",
+    "titulo_es": "Nefeli",
+    "frase_pt": "",
+    "publicado": true,
+    "paginas": 58,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "mundo-das-sombras/07",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15",
+    "versoes": [
+      {
+        "id": "arkham-gemini-v2",
+        "nome_pt": "Arkham · Gemini v2 (pré-final)",
+        "nome_en": "Arkham · Gemini v2 (pre-final)",
+        "nome_es": "Arkham · Gemini v2 (pre-final)",
+        "paginas": 58
+      }
+    ]
+  },
+  {
+    "id": "08",
+    "numero": 8,
+    "so_admin": true,
+    "titulo_pt": "Protocolo Ômega",
+    "titulo_en": "Protocolo Ômega",
+    "titulo_es": "Protocolo Ômega",
+    "frase_pt": "",
+    "publicado": true,
+    "paginas": 58,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "mundo-das-sombras/08",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15",
+    "versoes": [
+      {
+        "id": "arkham-gemini-v2",
+        "nome_pt": "Arkham · Gemini v2 (pré-final)",
+        "nome_en": "Arkham · Gemini v2 (pre-final)",
+        "nome_es": "Arkham · Gemini v2 (pre-final)",
+        "paginas": 58
+      }
+    ]
+  },
+  {
+    "id": "09",
+    "numero": 9,
+    "so_admin": true,
+    "titulo_pt": "Ressonância",
+    "titulo_en": "Ressonância",
+    "titulo_es": "Ressonância",
+    "frase_pt": "",
+    "publicado": true,
+    "paginas": 58,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "mundo-das-sombras/09",
+    "liberacao": {
+      "primordial": "2099-01-15",
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15",
+    "versoes": [
+      {
+        "id": "arkham-gemini-v2",
+        "nome_pt": "Arkham · Gemini v2 (pré-final)",
+        "nome_en": "Arkham · Gemini v2 (pre-final)",
+        "nome_es": "Arkham · Gemini v2 (pre-final)",
+        "paginas": 58
       }
     ]
   }
