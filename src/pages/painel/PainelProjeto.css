@@ -1,0 +1,60 @@
+/* Aba Projeto: barras de andamento e grade de itens da Temporada 1. */
+.projeto-barra {
+  position: relative;
+  height: 22px;
+  border: 1px solid var(--if-hair-strong);
+  background: var(--bg-elevated);
+}
+.projeto-barra::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--p);
+  background: linear-gradient(90deg, var(--if-cyan-45), var(--if-cyan));
+}
+.projeto-barra span {
+  position: relative;
+  display: block;
+  padding: 0 8px;
+  font: 700 .7rem/20px var(--font-mono);
+  color: var(--if-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.projeto-itens {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.projeto-item {
+  display: grid;
+  gap: 2px;
+  padding: 6px;
+  border: 1px solid var(--if-hair-strong);
+  border-left-width: 3px;
+  background: var(--bg-elevated);
+  min-width: 0;
+}
+.projeto-item b { font: 700 .66rem var(--font-mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.projeto-item small { font-size: .58rem; color: var(--text-secondary); }
+.projeto-item__nota { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.projeto-item.is-pronto { border-left-color: var(--if-cyan); }
+.projeto-item.is-parcial { border-left-color: var(--if-amber); }
+.projeto-item.is-falta { border-left-color: var(--if-danger); opacity: .85; }
+
+.projeto-prioridades { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.projeto-prioridades li {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 8px;
+  padding: 6px 8px;
+  font-size: .74rem;
+  border: 1px solid var(--if-hair-strong);
+  border-left: 3px solid var(--if-danger);
+}
+.projeto-prioridades li.is-parcial { border-left-color: var(--if-amber); }
+.projeto-prioridades li.is-atrasado { background: color-mix(in srgb, var(--if-danger) 12%, transparent); }
+.projeto-prioridades__data { font: 700 .66rem var(--font-mono); color: var(--text-secondary); }

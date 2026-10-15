@@ -1727,7 +1727,8 @@
       "financeiro": "Financeiro",
       "logs": "Logs",
       "creators": "Creators",
-      "steam": "Steam"
+      "steam": "Steam",
+      "projeto": "Projeto"
     },
     "periodo": {
       "hoje": "Hoje",
@@ -1941,6 +1942,32 @@
       "origem_web": "cadastro pelo site",
       "primeiro": "1º acesso {data}",
       "ultimo": "último {data}"
+    },
+    "projeto": {
+      "geral": "Temporada 1 — andamento geral",
+      "legenda": "{pronto} de {total} itens prontos (parcial conta meio)",
+      "prioridades": "Próximas entregas que ainda faltam",
+      "grupo": {
+        "livro": "Livro Lutas de Ilusão",
+        "webshard": "WEB SHARD Lutas de Ilusão",
+        "especial": "WEB SHARD especial",
+        "especiais": "WEB SHARD especiais",
+        "sombras": "O Mundo das Sombras (texto)",
+        "mds": "O Mundo das Sombras (WEB SHARD)",
+        "conto": "Conto",
+        "contos": "Contos",
+        "musica": "Música",
+        "musicas": "Músicas",
+        "clipe": "Clipe",
+        "clipes": "Videoclipes",
+        "jogo": "Jogo",
+        "jogos": "Jogos"
+      },
+      "status": {
+        "pronto": "pronto",
+        "parcial": "em andamento",
+        "falta": "falta"
+      }
     }
   },
   "carrossel": {

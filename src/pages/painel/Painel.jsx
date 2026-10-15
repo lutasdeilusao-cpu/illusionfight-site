@@ -11,12 +11,13 @@ import PainelFinanceiro from './PainelFinanceiro'
 import PainelLogs from './PainelLogs'
 import PainelCreators from './PainelCreators'
 import PainelSteam from './PainelSteam'
+import PainelProjeto from './PainelProjeto'
 import { PainelAgora, PainelSessoes } from './PainelSessoes'
 import { PERIODOS, intervalo, rpc, localeDe } from './painelUtil'
 import './Painel.css'
 
 const NotFound = lazy(() => import('../site/NotFound/NotFound'))
-const ABAS = ['visao', 'agora', 'sessoes', 'steam', 'financeiro', 'logs', 'creators']
+const ABAS = ['visao', 'agora', 'sessoes', 'steam', 'financeiro', 'logs', 'creators', 'projeto']
 const FILTROS = ['origem', 'rota', 'dispositivo', 'idioma', 'pais', 'logado']
 
 export default function Painel() {
@@ -89,7 +90,7 @@ export default function Painel() {
         ))}
       </nav>
 
-      {aba !== 'agora' && aba !== 'creators' && (
+      {aba !== 'agora' && aba !== 'creators' && aba !== 'projeto' && (
         <section className="painel-controles">
           <div className="painel-periodos">
             {PERIODOS.map(p => (
@@ -125,6 +126,7 @@ export default function Painel() {
       {aba === 'logs' && <PainelLogs t={t} locale={lc} inicio={inicio} />}
       {aba === 'financeiro' && <PainelFinanceiro t={t} locale={lc} inicio={inicio} fim={fim} />}
       {aba === 'creators' && <PainelCreators t={t} locale={lc} />}
+      {aba === 'projeto' && <PainelProjeto t={t} locale={lc} />}
       {aba === 'steam' && <PainelSteam t={t} locale={lc} inicio={inicio} fim={fim} />}
     </main>
   )

@@ -1727,7 +1727,8 @@
       "financeiro": "Finanzas",
       "logs": "Logs",
       "creators": "Creators",
-      "steam": "Steam"
+      "steam": "Steam",
+      "projeto": "Proyecto"
     },
     "periodo": {
       "hoje": "Hoy",
@@ -1941,6 +1942,32 @@
       "origem_web": "registro por el sitio",
       "primeiro": "1.er acceso {data}",
       "ultimo": "último {data}"
+    },
+    "projeto": {
+      "geral": "Temporada 1 — avance general",
+      "legenda": "{pronto} de {total} elementos listos (parcial cuenta la mitad)",
+      "prioridades": "Próximas entregas que aún faltan",
+      "grupo": {
+        "livro": "Libro Luchas de Ilusión",
+        "webshard": "WEB SHARD Luchas de Ilusión",
+        "especial": "WEB SHARD especial",
+        "especiais": "WEB SHARD especiales",
+        "sombras": "El Mundo de las Sombras (texto)",
+        "mds": "El Mundo de las Sombras (WEB SHARD)",
+        "conto": "Cuento",
+        "contos": "Cuentos",
+        "musica": "Canción",
+        "musicas": "Canciones",
+        "clipe": "Videoclip",
+        "clipes": "Videoclips",
+        "jogo": "Juego",
+        "jogos": "Juegos"
+      },
+      "status": {
+        "pronto": "listo",
+        "parcial": "en curso",
+        "falta": "falta"
+      }
     }
   },
   "carrossel": {

@@ -1727,7 +1727,8 @@
       "financeiro": "Finance",
       "logs": "Logs",
       "creators": "Creators",
-      "steam": "Steam"
+      "steam": "Steam",
+      "projeto": "Project"
     },
     "periodo": {
       "hoje": "Today",
@@ -1941,6 +1942,32 @@
       "origem_web": "signed up on the site",
       "primeiro": "first {data}",
       "ultimo": "last {data}"
+    },
+    "projeto": {
+      "geral": "Season 1 — overall progress",
+      "legenda": "{pronto} of {total} items ready (partial counts half)",
+      "prioridades": "Next deliveries still missing",
+      "grupo": {
+        "livro": "Illusion Fight book",
+        "webshard": "Illusion Fight WEB SHARD",
+        "especial": "Special WEB SHARD",
+        "especiais": "Special WEB SHARDs",
+        "sombras": "The Shadow World (text)",
+        "mds": "The Shadow World (WEB SHARD)",
+        "conto": "Short story",
+        "contos": "Short stories",
+        "musica": "Song",
+        "musicas": "Songs",
+        "clipe": "Music video",
+        "clipes": "Music videos",
+        "jogo": "Game",
+        "jogos": "Games"
+      },
+      "status": {
+        "pronto": "ready",
+        "parcial": "in progress",
+        "falta": "missing"
+      }
     }
   },
   "carrossel": {
