@@ -371,5 +371,116 @@
       }
     ],
     "serie": "presos-na-ilusao"
+  },
+  {
+    "id": "especial-6",
+    "numero": 6,
+    "so_admin": true,
+    "especial": true,
+    "titulo_pt": "Diabo Vermelho — Parte 1: O Forasteiro",
+    "titulo_en": "Red Devil — Part 1: The Stranger",
+    "titulo_es": "Diablo Rojo — Parte 1: El Forastero",
+    "publicado": true,
+    "data_publicacao": "2099-12-30",
+    "liberacao": {
+      "primordial": "2099-12-15",
+      "elite": "2099-12-15",
+      "conta": "2099-12-30",
+      "publico": "2099-12-30"
+    },
+    "paginas": 51,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "diabo-vermelho/01",
+    "versoes": [
+      {
+        "id": "realista",
+        "nome_pt": "Realista (pré-final)",
+        "nome_en": "Realistic (pre-final)",
+        "nome_es": "Realista (pre-final)",
+        "paginas": 51
+      }
+    ],
+    "serie": "diabo-vermelho"
+  },
+  {
+    "id": "especial-7",
+    "numero": 7,
+    "so_admin": true,
+    "especial": true,
+    "titulo_pt": "Diabo Vermelho — Parte 2: Quem Comeu o Bolo",
+    "titulo_en": "Red Devil — Part 2: Who Ate the Cake",
+    "titulo_es": "Diablo Rojo — Parte 2: Quién se Comió el Pastel",
+    "publicado": true,
+    "data_publicacao": "2099-12-30",
+    "liberacao": {
+      "primordial": "2099-12-15",
+      "elite": "2099-12-15",
+      "conta": "2099-12-30",
+      "publico": "2099-12-30"
+    },
+    "paginas": 51,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "diabo-vermelho/02",
+    "versoes": [
+      {
+        "id": "realista",
+        "nome_pt": "Realista (pré-final)",
+        "nome_en": "Realistic (pre-final)",
+        "nome_es": "Realista (pre-final)",
+        "paginas": 51
+      }
+    ],
+    "serie": "diabo-vermelho"
+  },
+  {
+    "id": "especial-8",
+    "numero": 8,
+    "so_admin": true,
+    "especial": true,
+    "titulo_pt": "Diabo Vermelho — Parte 3: Ano Novo",
+    "titulo_en": "Red Devil — Part 3: New Year",
+    "titulo_es": "Diablo Rojo — Parte 3: Año Nuevo",
+    "publicado": true,
+    "data_publicacao": "2099-12-30",
+    "liberacao": {
+      "primordial": "2099-12-15",
+      "elite": "2099-12-15",
+      "conta": "2099-12-30",
+      "publico": "2099-12-30"
+    },
+    "paginas": 51,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "diabo-vermelho/03",
+    "versoes": [
+      {
+        "id": "realista",
+        "nome_pt": "Realista (pré-final)",
+        "nome_en": "Realistic (pre-final)",
+        "nome_es": "Realista (pre-final)",
+        "paginas": 51
+      }
+    ],
+    "serie": "diabo-vermelho"
   }
 ]

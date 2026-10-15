@@ -35,6 +35,16 @@
         "tagline_pt": "Especial de Halloween. Ninguém lembra de quem já morreu.",
         "tagline_en": "Halloween special. Nobody remembers who already died.",
         "tagline_es": "Especial de Halloween. Nadie recuerda a quien ya murió."
+      },
+      {
+        "id": "diabo-vermelho",
+        "capa": "capa-diabo-vermelho.webp",
+        "nome_pt": "Diabo Vermelho",
+        "nome_en": "Red Devil",
+        "nome_es": "Diablo Rojo",
+        "tagline_pt": "Especial de fim de ano. Marelia, 1951. Comeram o bolo errado.",
+        "tagline_en": "Year-end special. Marelia, 1951. They ate the wrong cake.",
+        "tagline_es": "Especial de fin de año. Marelia, 1951. Se comieron el pastel equivocado."
       }
     ]
   },
