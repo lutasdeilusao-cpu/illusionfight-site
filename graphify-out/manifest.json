@@ -65,8 +65,8 @@
     "semantic_hash": "156131c0c4fa0a41da3fc5ca52b2cde4"
   },
   "package.json": {
-    "mtime": 1791645452.0249856,
-    "ast_hash": "7eafd1bd3eba796f875ec1b0c2e1a87b",
+    "mtime": 1792092364.732162,
+    "ast_hash": "cf51efcf38532ea33cafe2610add5456",
     "semantic_hash": ""
   },
   "playwright.config.js": {
@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1791982843.6759844,
-    "ast_hash": "cbbfedf9177eb301b535aa72caa27320",
+    "mtime": 1792092364.5610983,
+    "ast_hash": "05a878cd749401bb734aac8a1e260a73",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792081938.3407865,
-    "ast_hash": "50610f2a7ca2ed5108c0760681ebd87c",
+    "mtime": 1792092389.5007672,
+    "ast_hash": "b399762845602e507fdd91bef98172b7",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791982856.568285,
-    "ast_hash": "f1e045c67a6759cd5f6f3977cfe1baea",
+    "mtime": 1792092389.4763439,
+    "ast_hash": "25baf754a3367855ebee640c0f189884",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2560,8 +2560,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792081938.3795767,
-    "ast_hash": "686d9e93210575272676acde41816a4f",
+    "mtime": 1792092389.5361378,
+    "ast_hash": "4844c3e713d7b94a7e2b23b9646deece",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4575,8 +4575,8 @@
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
-    "mtime": 1792001946.9212353,
-    "ast_hash": "f6fb179e8b48c369953119862b28d181",
+    "mtime": 1792092346.0391777,
+    "ast_hash": "e11770dba878950db54e431a9fbff777",
     "semantic_hash": ""
   },
   "src/lib/webshard/progresso.js": {
@@ -9907,6 +9907,16 @@
   "supabase/migrations/059_admin_tarefas_link.sql": {
     "mtime": 1792077324.1037545,
     "ast_hash": "a108bb70ea45507400227d8e49e56930",
+    "semantic_hash": ""
+  },
+  "scripts/deploy.py": {
+    "mtime": 1792092372.2015812,
+    "ast_hash": "a239fdd648d0bfda925c1371306b2bc0",
+    "semantic_hash": ""
+  },
+  "scripts/webshard-r2.py": {
+    "mtime": 1792092339.746328,
+    "ast_hash": "429b134d6e23821ebdbfe093c5c2cd97",
     "semantic_hash": ""
   }
 }
