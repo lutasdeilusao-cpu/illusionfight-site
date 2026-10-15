@@ -3,6 +3,8 @@ import path from 'path'
 import { validateRelease } from '../src/lib/releaseAccess.js'
 import { IDIOMAS, HTML_LANG, OG_LOCALE, FIXAS, HOME, UI, preencher } from './seo-textos.js'
 import { BETA_CONTOS_PUBLICO, FECHAMENTO_PRE_LANCAMENTO } from '../src/config/trial.js'
+// Páginas do WEB SHARD moram no R2 (o mesmo endereço de WEBSHARD_CDN em src/lib/webshard/catalogo.js).
+const WEBSHARD_CDN = 'https://webshardillusionfight.lutasdeilusao.workers.dev'
 
 // Páginas estáticas de SEO — uma por rota E POR IDIOMA (01/10/2026, Isaias:
 // "fazer a sugestão 1"): inglês na raiz, português em /pt/..., espanhol em
@@ -222,7 +224,8 @@ function rotasDoIdioma(L) {
   episodios.filter(episodio => episodio.paginas && !episodio.so_admin).forEach(episodio => {
     const nomeEp = titulo(episodio, L)
     // 1ª página do capítulo no idioma: miniatura no compartilhamento e imagem pro Google
-    const pag1 = [L, 'en'].map(l => `/webtoon/${episodio.id}/${l}/01.webp`).find(p => existe(`public${p}`))
+    const pag1Local = [L, 'en'].map(l => `${episodio.id}/${l}/01.webp`).find(p => existe(`public/webtoon/${p}`))
+    const pag1 = pag1Local && `${WEBSHARD_CDN}/${pag1Local}`
     R.push({
       path: `/webtoon/${episodio.id}`,
       title: preencher(U.ep, { titulo: nomeEp, n: episodio.numero }),
@@ -372,7 +375,7 @@ function pageHtml(baseHtml, route) {
   html = replace(html, /<meta name="twitter:title" content="[^"]*">/i, `<meta name="twitter:title" content="${title}">`)
   html = replace(html, /<meta name="twitter:description" content="[^"]*">/i, `<meta name="twitter:description" content="${description}">`)
   if (route.ogImage) {
-    const img = `${SITE_URL}${route.ogImage}`
+    const img = route.ogImage.startsWith('http') ? route.ogImage : `${SITE_URL}${route.ogImage}`
     html = replace(html, /<meta property="og:image" content="[^"]*">/i, `<meta property="og:image" content="${img}">`)
     html = replace(html, /<meta name="twitter:image" content="[^"]*">/i, `<meta name="twitter:image" content="${img}">`)
   }

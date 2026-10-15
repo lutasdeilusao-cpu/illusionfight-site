@@ -145,6 +145,9 @@ export function idiomaInicial(cap, locale) {
  *  `cap.pasta` (ex.: herois-da-cidade/01), pra não colidir com o LDI. Página que ainda não existe no idioma
  *  (ex.: ES do cap. 01 sem a 37) cai no português, em vez de deixar buraco
  *  na leitura. */
+/** Onde as páginas moram: bucket R2 `webshard`, servido pelo Worker (mesmo caminho de public/webtoon). */
+export const WEBSHARD_CDN = 'https://webshardillusionfight.lutasdeilusao.workers.dev'
+
 export function paginasDe(cap, idioma) {
   const formato = cap.formato || 'png'
   const faltando = cap.paginas_faltando?.[idioma] || []
@@ -153,7 +156,7 @@ export function paginasDe(cap, idioma) {
     const lingua = faltando.includes(numero) ? 'pt' : idioma
     return {
       numero,
-      src: `/webtoon/${cap.pasta || cap.id}/${lingua}/${String(numero).padStart(2, '0')}.${formato}`,
+      src: `${WEBSHARD_CDN}/${cap.pasta || cap.id}/${lingua}/${String(numero).padStart(2, '0')}.${formato}`,
     }
   })
 }

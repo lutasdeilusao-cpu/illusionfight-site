@@ -65,8 +65,8 @@
     "semantic_hash": "156131c0c4fa0a41da3fc5ca52b2cde4"
   },
   "package.json": {
-    "mtime": 1791093819.3481863,
-    "ast_hash": "18c2830af0517324493d126988b6ba84",
+    "mtime": 1791645452.0249856,
+    "ast_hash": "7eafd1bd3eba796f875ec1b0c2e1a87b",
     "semantic_hash": ""
   },
   "playwright.config.js": {
@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1791401369.5140586,
-    "ast_hash": "07cea3136755620db18a8973726999bf",
+    "mtime": 1791982843.6759844,
+    "ast_hash": "cbbfedf9177eb301b535aa72caa27320",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1791395081.0481215,
-    "ast_hash": "63e7cc3d5a0f3d20d34f4d6b6fc2cbd4",
+    "mtime": 1791982767.465803,
+    "ast_hash": "630f14270179f75ec90524fa12c1c2d8",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -230,8 +230,8 @@
     "semantic_hash": "266ca415119946a769d0dac2ab74d642"
   },
   "src/components/Navbar.jsx": {
-    "mtime": 1790392603.036372,
-    "ast_hash": "b935edf9f8857d67a659ff697ca18898",
+    "mtime": 1791753105.4890676,
+    "ast_hash": "11857047d101a2dfd60c702a4cbaeed7",
     "semantic_hash": ""
   },
   "src/components/PlatformIcons.jsx": {
@@ -345,8 +345,8 @@
     "semantic_hash": "cf1403ecec95175ca2b5f9c4b11fcd93"
   },
   "src/components/UnifiedNotification/UnifiedNotification.jsx": {
-    "mtime": 1787922715.9119124,
-    "ast_hash": "5eeb36ef6417189a510222dccb0afd80",
+    "mtime": 1791654773.203394,
+    "ast_hash": "a473563ee8ebbf3a6f026a87152dbf6d",
     "semantic_hash": ""
   },
   "src/config/fichas.js": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "src/config/site.js": {
-    "mtime": 1791324565.7289066,
-    "ast_hash": "28a4f28c2067a5de5384bfa970ab4fb7",
+    "mtime": 1791638540.4079857,
+    "ast_hash": "01b635b50cf3b8d0c525c4c77303b415",
     "semantic_hash": ""
   },
   "src/config/trial.js": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1791420816.3217654,
-    "ast_hash": "fd7af4e515ed8a6cb26ab63ad906ca58",
+    "mtime": 1792081938.3407865,
+    "ast_hash": "50610f2a7ca2ed5108c0760681ebd87c",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -380,8 +380,8 @@
     "semantic_hash": ""
   },
   "src/context/AuthContext.jsx": {
-    "mtime": 1789168934.4963803,
-    "ast_hash": "f763e6bbb194b8f465891cd4298ab5a7",
+    "mtime": 1791717611.3074515,
+    "ast_hash": "94f0e4a998a335a509d4d06951e83cf7",
     "semantic_hash": ""
   },
   "src/context/DixContext.jsx": {
@@ -445,8 +445,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1791326681.9893477,
-    "ast_hash": "7801a36abe62c582a8a8a5ef2513fda7",
+    "mtime": 1792077305.2264085,
+    "ast_hash": "d21f5dd707ecb0125db9be63ddafe14b",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -455,19 +455,19 @@
     "semantic_hash": "198693076b2dd22729e2d49536565e1f"
   },
   "src/data/mundo-en.json": {
-    "mtime": 1780374354.7310455,
-    "ast_hash": "3e59ff0ab315860363899879c2f9314f",
-    "semantic_hash": "3e59ff0ab315860363899879c2f9314f"
+    "mtime": 1791688351.7801473,
+    "ast_hash": "75de9c905a1b958b0f2ee588f23dee21",
+    "semantic_hash": ""
   },
   "src/data/mundo-es.json": {
-    "mtime": 1780374354.7320454,
-    "ast_hash": "68a71dd7c6d8cf684908ada1983e1306",
-    "semantic_hash": "68a71dd7c6d8cf684908ada1983e1306"
+    "mtime": 1791688351.781147,
+    "ast_hash": "d850c743439044fc1f3cc615b2ea5a91",
+    "semantic_hash": ""
   },
   "src/data/mundo-pt.json": {
-    "mtime": 1780374354.729045,
-    "ast_hash": "5e322fd9452a5fc35b1e2900c5d8fb1a",
-    "semantic_hash": "5e322fd9452a5fc35b1e2900c5d8fb1a"
+    "mtime": 1791688351.7791471,
+    "ast_hash": "406141d163a20a25cd246b19590e1b6b",
+    "semantic_hash": ""
   },
   "src/data/musicas.json": {
     "mtime": 1790818495.6574693,
@@ -475,8 +475,8 @@
     "semantic_hash": ""
   },
   "src/data/notificacoes.json": {
-    "mtime": 1790299088.4664836,
-    "ast_hash": "a0da006c2626e04782e605a9a039dde2",
+    "mtime": 1791671823.4053793,
+    "ast_hash": "c00365a48cdb0b720cb4ee5c337f6a71",
     "semantic_hash": ""
   },
   "src/data/nowlive.json": {
@@ -490,24 +490,24 @@
     "semantic_hash": "6aa32d1abeef1341bdab97bd9df5a4ad"
   },
   "src/data/personagens-en.json": {
-    "mtime": 1788040052.3130312,
-    "ast_hash": "0509fbc1e4405a5b9a2d45ec4e95f91b",
+    "mtime": 1791686340.76933,
+    "ast_hash": "39f63c5e865fbd5b78a3d61aca508a3e",
     "semantic_hash": ""
   },
   "src/data/personagens-es.json": {
-    "mtime": 1788040063.0703585,
-    "ast_hash": "1736ee6457023239d8faa56ca912f5f4",
+    "mtime": 1791686340.770489,
+    "ast_hash": "74e9b88688f772d23a4b8179ee3550a2",
     "semantic_hash": ""
   },
   "src/data/personagens-pt.json": {
-    "mtime": 1788040037.3168366,
-    "ast_hash": "909ce5a60b1dc860f6b609e504503c2c",
+    "mtime": 1791686340.76933,
+    "ast_hash": "9ea834a7c342bba2d0cfed95c21e3449",
     "semantic_hash": ""
   },
   "src/data/planos.json": {
-    "mtime": 1780599115.4540095,
-    "ast_hash": "85e5dd6f230e4a08e0311e273e152fe8",
-    "semantic_hash": "85e5dd6f230e4a08e0311e273e152fe8"
+    "mtime": 1791691425.1072083,
+    "ast_hash": "329f1fe0fd8736519dadeb3340ad899f",
+    "semantic_hash": ""
   },
   "src/data/produtos.json": {
     "mtime": 1785776401.5723066,
@@ -515,9 +515,9 @@
     "semantic_hash": ""
   },
   "src/data/quiz-pt.json": {
-    "mtime": 1780436404.0771544,
-    "ast_hash": "faec688b85ba1372c9c8fa3dfcb8684d",
-    "semantic_hash": "faec688b85ba1372c9c8fa3dfcb8684d"
+    "mtime": 1791671823.4053793,
+    "ast_hash": "4a58023ff85a57e67965ca59c3fe3a5a",
+    "semantic_hash": ""
   },
   "src/data/search-index.js": {
     "mtime": 1790777117.5265586,
@@ -610,8 +610,8 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/locales.js": {
-    "mtime": 1791236782.2809439,
-    "ast_hash": "ce43e61e17e909fc7870515e08b6f1b0",
+    "mtime": 1791934084.7642212,
+    "ast_hash": "dbd967b136918b883a45ff44be98b536",
     "semantic_hash": ""
   },
   "src/lib/getDeck.js": {
@@ -649,14 +649,9 @@
     "ast_hash": "10f7430a0cb2dd464ece1e8fd5dd0320",
     "semantic_hash": ""
   },
-  "src/pages/content/Mundo.jsx": {
-    "mtime": 1790871520.4192395,
-    "ast_hash": "a07c2a9098033dcb2fb341fc58cdbe71",
-    "semantic_hash": ""
-  },
   "src/pages/content/Musicas.jsx": {
-    "mtime": 1791332319.8039606,
-    "ast_hash": "5c77a8e8a84e73b4a0ae7d1c290d30b3",
+    "mtime": 1791758188.9006672,
+    "ast_hash": "f4a597b5359097d53b670aeff601ac9c",
     "semantic_hash": ""
   },
   "src/pages/content/PersonagemDetalhe.jsx": {
@@ -665,8 +660,8 @@
     "semantic_hash": "519c098cc60510cefaa4b37e59047eca"
   },
   "src/pages/content/Personagens.jsx": {
-    "mtime": 1790307116.3218794,
-    "ast_hash": "d0850677c7d28a58540c6d5ddb0ae324",
+    "mtime": 1791758189.0602326,
+    "ast_hash": "290c6d1c5981f9c915f11665af8b486d",
     "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx": {
@@ -760,9 +755,9 @@
     "semantic_hash": "0633feb4f4707fa0d948e71145c99f71"
   },
   "src/pages/games/ArenaTatics/data/cardPool.js": {
-    "mtime": 1782441630.3487535,
-    "ast_hash": "c117069941554955e8e68f857c715fef",
-    "semantic_hash": "c117069941554955e8e68f857c715fef"
+    "mtime": 1791671831.494408,
+    "ast_hash": "25b34c08cb76c36496674db481877b44",
+    "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/data/classTree.js": {
     "mtime": 1782441630.3487535,
@@ -845,9 +840,9 @@
     "semantic_hash": "5f8afa1ce7c7cf66ee471b1113375e3f"
   },
   "src/pages/games/ArenaTatics/screens/BuildingInterior.jsx": {
-    "mtime": 1783911407.292643,
-    "ast_hash": "debefb90c47c30be48b10535fae26142",
-    "semantic_hash": "debefb90c47c30be48b10535fae26142"
+    "mtime": 1791671823.4063835,
+    "ast_hash": "59cfd6afcdf36d63067b25f3cba55eba",
+    "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/screens/CityOverworld.jsx": {
     "mtime": 1783911258.5523221,
@@ -1030,8 +1025,8 @@
     "semantic_hash": "15ecefb92c5db4d35cb33baf951edd5e"
   },
   "src/pages/games/Games.jsx": {
-    "mtime": 1791342529.6181211,
-    "ast_hash": "ed96bcf82788c81b0fc8a0884128f976",
+    "mtime": 1791903388.2827778,
+    "ast_hash": "507522f6fcd3363b7e9d1981148f0799",
     "semantic_hash": ""
   },
   "src/pages/games/JackCandy/JackCandy.jsx": {
@@ -1370,8 +1365,8 @@
     "semantic_hash": "27fc5a2e72c9f1cef9f8ec1c61cb7eb2"
   },
   "src/pages/games/LDI/Game.jsx": {
-    "mtime": 1791291750.1469736,
-    "ast_hash": "c3d9ed488df4e6c30d0f8dd57377a46a",
+    "mtime": 1791933680.8331282,
+    "ast_hash": "dba30271c3bfdf85a4b71f45332dc79a",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/Lobby.jsx": {
@@ -1410,8 +1405,8 @@
     "semantic_hash": "9ab8532749259b68cda9529aa7e707e6"
   },
   "src/pages/games/LDI/data/scenes/pt/act1.json": {
-    "mtime": 1791317949.7112658,
-    "ast_hash": "b5629789bf47f233c28b22784f6bf824",
+    "mtime": 1791943220.9763763,
+    "ast_hash": "83367899f66c91fffdf8a5274047a961",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/data/scenes/pt/act2.json": {
@@ -2010,13 +2005,13 @@
     "semantic_hash": "a1ecac2dadfb877fae8a9d609f31c7a4"
   },
   "src/pages/platform/Assinar.jsx": {
-    "mtime": 1790307116.3452494,
-    "ast_hash": "cbbd4de6703f99d3078227e47b4ae306",
+    "mtime": 1791758189.1519358,
+    "ast_hash": "0a262d59b5751b235d2642fe0fb78f80",
     "semantic_hash": ""
   },
   "src/pages/platform/Cadastro.jsx": {
-    "mtime": 1790117966.187463,
-    "ast_hash": "f54d4a6cb287ca5657b7926a80ea5fc9",
+    "mtime": 1791717611.3064516,
+    "ast_hash": "98c5ae9bfdd4c0a58d18730374bc232f",
     "semantic_hash": ""
   },
   "src/pages/platform/Leaderboard.jsx": {
@@ -2025,8 +2020,8 @@
     "semantic_hash": ""
   },
   "src/pages/platform/Login.jsx": {
-    "mtime": 1790949766.4009776,
-    "ast_hash": "74602d5182cfc13137f744baa634c6b3",
+    "mtime": 1791638968.051849,
+    "ast_hash": "10e2fd130ee63273ad0710c9df46903f",
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/Perfil.jsx": {
@@ -2065,13 +2060,13 @@
     "semantic_hash": "bebf7790370875f27dbda865baf1393a"
   },
   "src/pages/site/Autor.jsx": {
-    "mtime": 1791239600.9809883,
-    "ast_hash": "d647de7db96c2d68bfe8e939a8b197ee",
+    "mtime": 1791758189.0219948,
+    "ast_hash": "c12f0caf0af88dd271c46604bc447f4a",
     "semantic_hash": ""
   },
   "src/pages/site/Custos.jsx": {
-    "mtime": 1790307116.3487382,
-    "ast_hash": "ab3516b3186bab8f0fbefcda70661304",
+    "mtime": 1791758189.20696,
+    "ast_hash": "f67b2724bc36aedecfe0860524a0249e",
     "semantic_hash": ""
   },
   "src/pages/site/Loja/Loja.jsx": {
@@ -2255,8 +2250,8 @@
     "semantic_hash": "31db883e4c2a874f607640a28016b53b"
   },
   "vite.config.js": {
-    "mtime": 1791307617.1544454,
-    "ast_hash": "f23777298dea70efe465c2f3bc0b9c6a",
+    "mtime": 1791929884.6085715,
+    "ast_hash": "c17821b5133e32a9931b95cc93f6c271",
     "semantic_hash": ""
   },
   "public/arena/sfx/combat/dagger_hit.wav": {
@@ -2525,8 +2520,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791401538.9526813,
-    "ast_hash": "e4a2a5759856071cda7a83dc5473f9a7",
+    "mtime": 1791982856.568285,
+    "ast_hash": "f1e045c67a6759cd5f6f3977cfe1baea",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2565,8 +2560,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1791420816.376359,
-    "ast_hash": "89fdc5cee17310aad7b7e832ef083cfc",
+    "mtime": 1792081938.3795767,
+    "ast_hash": "686d9e93210575272676acde41816a4f",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -2905,8 +2900,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1791126127.7987614,
-    "ast_hash": "3f5ef082209214342eada7bd661a5b0e",
+    "mtime": 1791911343.389442,
+    "ast_hash": "9be18ca2a919ec1b2b5ff2915eb8bd01",
     "semantic_hash": ""
   },
   "public/404.html": {
@@ -3155,13 +3150,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesRoute.jsx": {
-    "mtime": 1791398195.5845501,
-    "ast_hash": "d1796d076b33e068b96df21570c5aec0",
+    "mtime": 1791943585.1498425,
+    "ast_hash": "e71bc6086cd1114cd917284aefd90e46",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/gangues-enemies.json": {
-    "mtime": 1790706286.4978154,
-    "ast_hash": "8a30a94f90aa523c9e061bf7fcd9cb52",
+    "mtime": 1791945046.2632277,
+    "ast_hash": "625cc471c755793fcc7315dd7d9e4179",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesLoadout.js": {
@@ -3190,18 +3185,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1791399263.2028966,
-    "ast_hash": "47cd90adb759a934175bd7454479997b",
+    "mtime": 1791955009.1541302,
+    "ast_hash": "a51aa9d7f5545bfb8493cdb30b992661",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1791399270.5124598,
-    "ast_hash": "b7086b28b25765596db4e8b04503c468",
+    "mtime": 1791955009.1636362,
+    "ast_hash": "105d12c3b21566dcb1b501fbb3e33375",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1791399255.1115458,
-    "ast_hash": "118d6e915f7e9a97af543b3d34c45175",
+    "mtime": 1791955009.1430833,
+    "ast_hash": "e496e8e5c12f1a94c39db310f16a191a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -3300,8 +3295,8 @@
     "semantic_hash": ""
   },
   "src-tauri/tauri.conf.json": {
-    "mtime": 1787942368.8873916,
-    "ast_hash": "3e7362be16e2878e2405b0058dfee48b",
+    "mtime": 1791717052.1638987,
+    "ast_hash": "8f4fe7d057c668be423df8d163683ef9",
     "semantic_hash": ""
   },
   "src/lib/runtimePlatform.js": {
@@ -3310,8 +3305,8 @@
     "semantic_hash": ""
   },
   "steam/README.md": {
-    "mtime": 1787942368.963966,
-    "ast_hash": "03d5114894db56564487d34816193c23",
+    "mtime": 1791717052.17683,
+    "ast_hash": "a8cdae9b13e28277fb609996d10327aa",
     "semantic_hash": ""
   },
   "src-tauri/capabilities/default.json": {
@@ -3340,8 +3335,8 @@
     "semantic_hash": ""
   },
   "src/components/RadioNina/RadioNina.jsx": {
-    "mtime": 1791329584.7495372,
-    "ast_hash": "426828d622a14c4fa76797a435b79580",
+    "mtime": 1791724545.5779912,
+    "ast_hash": "36265baf124057199acccd44d4d6c074",
     "semantic_hash": ""
   },
   "src/components/RadioNina/radio-nina.config.json": {
@@ -3395,13 +3390,13 @@
     "semantic_hash": ""
   },
   "src/data/season-one-schedule.js": {
-    "mtime": 1791332402.9156463,
-    "ast_hash": "7380fdc4da5977db3b61072bcd539ef6",
+    "mtime": 1791953989.2619607,
+    "ast_hash": "1a1562238b6971b890e24bd6ac22a6aa",
     "semantic_hash": ""
   },
   "src/data/universo-index.json": {
-    "mtime": 1790365504.5755496,
-    "ast_hash": "e7cac4a2d0b19274a4ff6d72f65b10d9",
+    "mtime": 1791688683.8040671,
+    "ast_hash": "af3440d75b5b1292bfb5a7c678d12544",
     "semantic_hash": ""
   },
   "src/data/universo/mar-de-cinzas/pt/antagonista.json": {
@@ -3570,8 +3565,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/Universo.jsx": {
-    "mtime": 1790365515.7491765,
-    "ast_hash": "b4fed4ab6454d72982f6319f5b8ea946",
+    "mtime": 1791688958.364504,
+    "ast_hash": "87e11cef3289375ddd95f0e8cf2101c2",
     "semantic_hash": ""
   },
   "src/pages/site/Calendario/Calendario.jsx": {
@@ -3615,13 +3610,13 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/Home.jsx": {
-    "mtime": 1790820435.8083577,
-    "ast_hash": "c6e4d024303b1ef1c0e2e614f73c2566",
+    "mtime": 1791758200.190007,
+    "ast_hash": "071323669af2b9e61cca17d1f3de5581",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/LatestEpisodes.jsx": {
-    "mtime": 1790772564.6927524,
-    "ast_hash": "3c5fc169517423afec3f76d0fd4cf790",
+    "mtime": 1791808433.879,
+    "ast_hash": "248110e024eb4d0d08be313bf160af9a",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/MusicSection.jsx": {
@@ -3645,33 +3640,33 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1791332402.9206398,
-    "ast_hash": "37eded3cd6108b147ab026783ace240b",
+    "mtime": 1792077401.7776525,
+    "ast_hash": "cd0c16940951e556850ddf8f82983b75",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1791332402.9236393,
-    "ast_hash": "2e0725cfb55d12b517492866e67f116b",
+    "mtime": 1792077401.7816505,
+    "ast_hash": "ce7c72e9d7ebf72f6b6ccf46906f966d",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1791332402.9186397,
-    "ast_hash": "f7173b9ff207d261f462044c0cd821c5",
+    "mtime": 1792077401.7742715,
+    "ast_hash": "f4dfb02ad16aec9d873ac8133b81757d",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
-    "mtime": 1791412843.0010853,
-    "ast_hash": "30167334fd9c4b06751dda67385377a9",
+    "mtime": 1791934084.7612376,
+    "ast_hash": "f03f6fc21060eec32c983dd8a4e88dd3",
     "semantic_hash": ""
   },
   "src/i18n/games/es.json": {
-    "mtime": 1791412843.0020955,
-    "ast_hash": "b53cfcbeaf5cc5171f5411cfae035f63",
+    "mtime": 1791934084.7642212,
+    "ast_hash": "a33f0e38916ee4eb0b9d71a4944b21ae",
     "semantic_hash": ""
   },
   "src/i18n/games/pt.json": {
-    "mtime": 1791412833.2519321,
-    "ast_hash": "354c46dfd8264b7b724254540e6b93ec",
+    "mtime": 1791934084.7582412,
+    "ast_hash": "dca0bb089171152fb778c8999e437550",
     "semantic_hash": ""
   },
   "src/i18n/prototype/en.json": {
@@ -3740,8 +3735,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js": {
-    "mtime": 1791399529.9581606,
-    "ast_hash": "1be0e33da4485405bed3d250a60543bb",
+    "mtime": 1791954979.2749944,
+    "ast_hash": "ee97bda015ee25cf69fea950cc268d5d",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesEncontros.js": {
@@ -3790,8 +3785,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesActionOrb.jsx": {
-    "mtime": 1790859329.8348997,
-    "ast_hash": "5df688832c44d60d9968e37ab84c1d34",
+    "mtime": 1791954964.2495341,
+    "ast_hash": "7c64e9bf5fb6f284ff822952596687fa",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesItens.js": {
@@ -3850,13 +3845,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/CenaCenario.jsx": {
-    "mtime": 1790690488.233436,
-    "ast_hash": "477697ddaf919a6609819c0a8434e0f6",
+    "mtime": 1791895497.5824327,
+    "ast_hash": "7c6c799af9f6a2f58d5a0ccdc573b458",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/CenaInterior.jsx": {
-    "mtime": 1790690488.233436,
-    "ast_hash": "5f65ac5687ea34ff0b699230ea52a4a3",
+    "mtime": 1791895483.6900408,
+    "ast_hash": "fed7624b8cde4c3e4ed74df76c1353db",
     "semantic_hash": ""
   },
   "docs/Games/Gangues/PISTA_COMUNICACAO.md": {
@@ -3880,8 +3875,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesVictoryResolution.js": {
-    "mtime": 1791385844.2576737,
-    "ast_hash": "94855651824c5c4121ee243878d4a463",
+    "mtime": 1791943741.7293594,
+    "ast_hash": "0251142b161d83816edabba298e1b62a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/slices/ganguesBiroscaSlice.js": {
@@ -3935,18 +3930,18 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/cenaHelpers.js": {
-    "mtime": 1791386444.3424354,
-    "ast_hash": "f36325219f3b64fa767a841a06c80fc4",
+    "mtime": 1791428667.6340766,
+    "ast_hash": "eb0012fa79590eb10559f6d2f120e8d5",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/index.js": {
-    "mtime": 1791398176.2169,
-    "ast_hash": "9cc633db9f0fe587e6f6a302afdc9d77",
+    "mtime": 1791895548.4702592,
+    "ast_hash": "bb46070663f29cbf45d62c3177d905a2",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/interiores.js": {
-    "mtime": 1791088292.1760306,
-    "ast_hash": "bbe4201efbfa8fecbb533013421d32b7",
+    "mtime": 1791895583.1374788,
+    "ast_hash": "99a2ec2546db86b48321e15627eb0668",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/mundo.js": {
@@ -3955,18 +3950,18 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/pois.js": {
-    "mtime": 1791088292.1690364,
-    "ast_hash": "030118ba07dce0f26e878d84eb0eb2ca",
+    "mtime": 1791943585.1478436,
+    "ast_hash": "a229eeabeca45559f77154515ab924fb",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/pools.js": {
-    "mtime": 1789190166.5524879,
-    "ast_hash": "47e3eb84049d93d81b041685ab4f2a44",
+    "mtime": 1791943585.1458316,
+    "ast_hash": "3ef15e0c8603f143ac296cc8ac951a43",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx": {
-    "mtime": 1791387603.3971689,
-    "ast_hash": "e53e9aa727f649d90d46a9d51c32c09e",
+    "mtime": 1791954431.2991946,
+    "ast_hash": "e18481c653c685bdd428adfbf1d85864",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaBagSheet.jsx": {
@@ -3975,8 +3970,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaEncontros.jsx": {
-    "mtime": 1791088420.8175504,
-    "ast_hash": "b89c8ad56d3fd35c25d86affc2e80c3e",
+    "mtime": 1791943622.8057382,
+    "ast_hash": "5a122c5e9fe443fc1c7363f7c7ccfef0",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaFichaCard.jsx": {
@@ -3985,13 +3980,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/posicoes.js": {
-    "mtime": 1790690488.244437,
-    "ast_hash": "0e13f47053e04e8477f95252caf24421",
+    "mtime": 1791954375.4333622,
+    "ast_hash": "8517cbe92d68ffb775f2c02f11ca0ee6",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesCenaMotor.js": {
-    "mtime": 1791387603.395159,
-    "ast_hash": "74577806793b7d92f65ed7d37e451515",
+    "mtime": 1791954431.298194,
+    "ast_hash": "929f9c18f9fbea7996c1404269c71208",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesCenaMovimento.js": {
@@ -4005,8 +4000,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesCombatOverlays.jsx": {
-    "mtime": 1791409372.6191638,
-    "ast_hash": "0ecd1c6cd37ac8c3ef97cf6f7779820e",
+    "mtime": 1791954964.2471611,
+    "ast_hash": "56da20c4be09da803e4d17d368e145f7",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesCombatRoster.jsx": {
@@ -4020,8 +4015,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesMultidaoActionBar.jsx": {
-    "mtime": 1791399078.4200995,
-    "ast_hash": "f2f883f21fd3e86629d6aaa733c08db7",
+    "mtime": 1791954964.2481601,
+    "ast_hash": "2936c6dfea22ab73a575ff8061a6e4eb",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesCombatPresentation.js": {
@@ -4045,13 +4040,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesModoAuto.js": {
-    "mtime": 1791398889.1197307,
-    "ast_hash": "eb184ec1935c9bf21b85d13524250be0",
+    "mtime": 1792081834.2790723,
+    "ast_hash": "c034b87457d094f1ce948e05ad00134a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesModoMultidao.js": {
-    "mtime": 1791409360.3314757,
-    "ast_hash": "5545c2f2eb8001bca6d868f1a138df44",
+    "mtime": 1791954879.2751157,
+    "ast_hash": "b46c0f75f7f5c17b6d9575c94cb3cc4e",
     "semantic_hash": ""
   },
   "src/components/GameSessionRoute/GameSessionRoute.jsx": {
@@ -4115,8 +4110,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesEnemyPortraits.js": {
-    "mtime": 1789441910.5614092,
-    "ast_hash": "226c7af92bc9e6ee5813e6758e2e6485",
+    "mtime": 1791946819.2796,
+    "ast_hash": "b88d5a7235f4fea48b8eb0f3a54bf4c6",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesNpcPortraits.js": {
@@ -4140,13 +4135,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCena.jsx": {
-    "mtime": 1791420733.452857,
-    "ast_hash": "1fd474899ef69b06f77dc4c56711f90e",
+    "mtime": 1791954465.531471,
+    "ast_hash": "5cb9d3f370c6fa3854ae2c3977ba0aa4",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCombat.jsx": {
-    "mtime": 1791409372.6201637,
-    "ast_hash": "cd735e4145a240d5877d2b91cdfa8777",
+    "mtime": 1791954997.7326443,
+    "ast_hash": "66c2b3df97fd817496c46a0a8849c014",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCreate.jsx": {
@@ -4180,8 +4175,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesStoryMap.jsx": {
-    "mtime": 1790455586.4434981,
-    "ast_hash": "853d1529f27c9913f6a328312ea81df0",
+    "mtime": 1791901147.693823,
+    "ast_hash": "642a591e284954e7c9f83f921cf568ae",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesTerritorio.jsx": {
@@ -4550,8 +4545,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/WebShard.jsx": {
-    "mtime": 1790307428.8259919,
-    "ast_hash": "bc0357ca7959a8722eb1b1c61bee844e",
+    "mtime": 1791758200.2390249,
+    "ast_hash": "75d16f3aff7072172147bfeb4584d733",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesAgiotagem.jsx": {
@@ -4570,18 +4565,18 @@
     "semantic_hash": ""
   },
   "src/data/webshard-titulos.json": {
-    "mtime": 1790347898.9609454,
-    "ast_hash": "3a441ecdb5f66fd2fd1415466dd6e067",
+    "mtime": 1792004055.3628602,
+    "ast_hash": "b108c911f076de656a27b4e57cc92e40",
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
-    "mtime": 1791236486.8011825,
-    "ast_hash": "fc06c0f27bc939cd3892b0a9b9f2bfed",
+    "mtime": 1791638379.4807005,
+    "ast_hash": "9b5ba69b5d337d1fb8cebd19fdbbedab",
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
-    "mtime": 1790348419.2462146,
-    "ast_hash": "a878ececd6ec7016ed943ecfb8659cc1",
+    "mtime": 1792001946.9212353,
+    "ast_hash": "f6fb179e8b48c369953119862b28d181",
     "semantic_hash": ""
   },
   "src/lib/webshard/progresso.js": {
@@ -4595,23 +4590,23 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardHub.jsx": {
-    "mtime": 1790949518.7679698,
-    "ast_hash": "9e17a4ce840c4085c21e74801f3fdcc2",
+    "mtime": 1791917157.7697413,
+    "ast_hash": "59a9f4dd8945579e1fb8b7656cfa4de3",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardLeitor.jsx": {
-    "mtime": 1790741122.5563796,
-    "ast_hash": "22211c674b09200af098ede77ddf7085",
+    "mtime": 1792077401.7535079,
+    "ast_hash": "c1eb69ee05f6da239dfb93815d037021",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardRota.jsx": {
-    "mtime": 1790299088.468484,
-    "ast_hash": "e9a946b36fd80735e6b248decc1dd457",
+    "mtime": 1791917142.3791208,
+    "ast_hash": "7f975f1da218ec853cd0488cd9b7583c",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardTitulo.jsx": {
-    "mtime": 1790347908.2980216,
-    "ast_hash": "658d7ac8b40a5003243298a486862314",
+    "mtime": 1792004090.7596407,
+    "ast_hash": "dfd3142bd800841976f0af03966c5858",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/CapituloLinha.jsx": {
@@ -4645,8 +4640,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/TituloCard.jsx": {
-    "mtime": 1790357160.3679237,
-    "ast_hash": "b441414d531d29db685313ce27c1661f",
+    "mtime": 1791810759.6382678,
+    "ast_hash": "579158039a213f17b95ce2e8aade9ca5",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/TituloHero.jsx": {
@@ -4709,11 +4704,6 @@
     "ast_hash": "084bd2811bd8c9464a06245210db7cd7",
     "semantic_hash": ""
   },
-  "src/components/GateLeitura/GateLeitura.jsx": {
-    "mtime": 1790356052.3107963,
-    "ast_hash": "3e76f86f7613c3eb229d186cb661edd4",
-    "semantic_hash": ""
-  },
   "src/hooks/useHistoriasAcesso.js": {
     "mtime": 1790357133.7775464,
     "ast_hash": "68737d143aad69efe5a9d11812bfbec1",
@@ -4730,13 +4720,13 @@
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriaTitulo.jsx": {
-    "mtime": 1791239486.6404834,
-    "ast_hash": "9bbcb778d486f996b0e3c0f52d3181ac",
+    "mtime": 1791758188.8561041,
+    "ast_hash": "836f3562ca0fbc910e4d2d9fcaad0d39",
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriasHub.jsx": {
-    "mtime": 1791324565.7528315,
-    "ast_hash": "6b352cda19bbe4313e4aa20841a8d396",
+    "mtime": 1791758188.8128736,
+    "ast_hash": "d10196fd4a15364595741b7bc3bd7061",
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriasUniversos.jsx": {
@@ -4915,8 +4905,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/feira/index.js": {
-    "mtime": 1791398176.2179005,
-    "ast_hash": "b1905b6101c0a427b7b81bd9ccc89e1b",
+    "mtime": 1791896859.847206,
+    "ast_hash": "d526200469ba8697d2d804e084e60347",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/feira/interiores.js": {
@@ -4935,13 +4925,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/feira/pools.js": {
-    "mtime": 1790690488.2414365,
-    "ast_hash": "de9df2024331c18a299d5053cbd5fd7b",
+    "mtime": 1791943585.1468365,
+    "ast_hash": "e7b4e464934773f38306e3933081dbd4",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/feira/posicoes.js": {
-    "mtime": 1790690488.242437,
-    "ast_hash": "064275a1be0919300539bd022b631efd",
+    "mtime": 1791954375.4705894,
+    "ast_hash": "dd81e47ba7628be8b5726b37243436bb",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesChefes.js": {
@@ -4955,8 +4945,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesBrigaAutomatica.js": {
-    "mtime": 1791409331.1647146,
-    "ast_hash": "d64af8fc1fc824694e84b0f446da8ab2",
+    "mtime": 1791428712.477948,
+    "ast_hash": "b06d72079ea5a327ecbc65ab4c63f040",
     "semantic_hash": ""
   },
   "docs/Games/Gangues/PLANO_FEIRA.md": {
@@ -4980,8 +4970,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/baixada/index.js": {
-    "mtime": 1791398176.2179005,
-    "ast_hash": "72138a16cb50f1a7857d190bf2ebe011",
+    "mtime": 1791898231.8519986,
+    "ast_hash": "d1761a63c69512d40d72da9387827f90",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/baixada/interiores.js": {
@@ -5025,8 +5015,8 @@
     "semantic_hash": ""
   },
   "src/components/Leitor/LeitorCapitulo.jsx": {
-    "mtime": 1790820417.638589,
-    "ast_hash": "3c303c46e1f6eee4ef94faca24962cf4",
+    "mtime": 1791982810.2211657,
+    "ast_hash": "bcfff96645c90c07d70f614ed403f5c5",
     "semantic_hash": ""
   },
   "src/components/Leitor/LeitorFim.jsx": {
@@ -5035,8 +5025,8 @@
     "semantic_hash": ""
   },
   "src/components/Leitor/leitorMarkdown.jsx": {
-    "mtime": 1790740553.0933566,
-    "ast_hash": "b9ff6b20f862c2b3345aaa59d7dd16d9",
+    "mtime": 1791654127.5481281,
+    "ast_hash": "46da1bc45d9b0c5fa445f04a481937cd",
     "semantic_hash": ""
   },
   "src/components/Leitor/useLeitorPreferencias.js": {
@@ -5065,23 +5055,23 @@
     "semantic_hash": ""
   },
   "src/lib/painelColeta.js": {
-    "mtime": 1790949691.2893648,
-    "ast_hash": "e950e3827e35c0f1364cb2548542d773",
+    "mtime": 1791808077.920912,
+    "ast_hash": "3159d9ed0f923c878e4c060ff345aab9",
     "semantic_hash": ""
   },
   "src/pages/painel/Painel.jsx": {
-    "mtime": 1791237032.217605,
-    "ast_hash": "e6ae938ad4108d8d5cf816408692806c",
+    "mtime": 1792076382.5102994,
+    "ast_hash": "436ece1dfa7daa04f59581607f72a3dc",
     "semantic_hash": ""
   },
   "src/pages/painel/PainelBlocos.jsx": {
-    "mtime": 1790744337.8427386,
-    "ast_hash": "06abcb6410b84bcef6336e78a3c6077e",
+    "mtime": 1792076404.1214051,
+    "ast_hash": "5b0f60b006fa53a3382f9324627bbc0c",
     "semantic_hash": ""
   },
   "src/pages/painel/PainelFinanceiro.jsx": {
-    "mtime": 1790744482.5509949,
-    "ast_hash": "316d6439836948e4cfd4fb7da72a7ff0",
+    "mtime": 1792076583.1146972,
+    "ast_hash": "d14b3a7e628a92cdfb1a4679c9e78e2d",
     "semantic_hash": ""
   },
   "src/pages/painel/PainelSessoes.jsx": {
@@ -5115,8 +5105,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/HomeHistorias.jsx": {
-    "mtime": 1790777117.5295682,
-    "ast_hash": "87ce47f0e1e0283b55383666f98ab32e",
+    "mtime": 1791810768.3031218,
+    "ast_hash": "0220928ac6f81dc9d845f623295eb34b",
     "semantic_hash": ""
   },
   "src/data/historias/contos.json": {
@@ -5125,8 +5115,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao.json": {
-    "mtime": 1791324119.6871626,
-    "ast_hash": "cb1e077d767b42adab578b9ab56dc83e",
+    "mtime": 1791670815.7408037,
+    "ast_hash": "cb423e3a26a509853ef2d135ecbc664f",
     "semantic_hash": ""
   },
   "src/data/historias/obras.json": {
@@ -5135,8 +5125,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/en/01.md": {
-    "mtime": 1788389338.475516,
-    "ast_hash": "4e5f30d3cd7d7c5d77ab8936c43ebcde",
+    "mtime": 1791654429.6496127,
+    "ast_hash": "3826cebe78436262a5f7294621c7a140",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/en/02.md": {
@@ -5145,8 +5135,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/en/03.md": {
-    "mtime": 1788389408.7527094,
-    "ast_hash": "52c1fc6eb61b0feaaf28676bf79ecd57",
+    "mtime": 1791654429.6496127,
+    "ast_hash": "4386901e300f753d7ec46ba43aad0a92",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/en/04.md": {
@@ -5170,8 +5160,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/es/01.md": {
-    "mtime": 1788389503.540614,
-    "ast_hash": "f5a64a418d41e48955d38eac833613ae",
+    "mtime": 1791654429.6496127,
+    "ast_hash": "2e114584aae04add53b040ff98e6ec33",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/es/02.md": {
@@ -5180,8 +5170,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/es/03.md": {
-    "mtime": 1790776635.8992476,
-    "ast_hash": "b9eb90d01c445ae380c2c2ef29eaf1af",
+    "mtime": 1791654429.6506279,
+    "ast_hash": "df269d6a581a2e6a8c14bf1c39efb96b",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/es/04.md": {
@@ -5205,8 +5195,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/pt/01.md": {
-    "mtime": 1790741697.1026635,
-    "ast_hash": "f25eb098cb4391866091837f84876759",
+    "mtime": 1791654429.6506279,
+    "ast_hash": "9b63733ca0ffb319bc66c2eafb365a4e",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/pt/02.md": {
@@ -5215,8 +5205,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/pt/03.md": {
-    "mtime": 1790741697.1036763,
-    "ast_hash": "2d0263ee80c940b528324e6bbd6d0ef6",
+    "mtime": 1791654429.6506279,
+    "ast_hash": "94d880cabd51bc631b4b6c6d8ccad626",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/pt/04.md": {
@@ -5620,8 +5610,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/en/02.md": {
-    "mtime": 1790775994.3172102,
-    "ast_hash": "c1cc997e4e9b36bbc36099da6b55e367",
+    "mtime": 1791658457.74821,
+    "ast_hash": "bce050b2cafff35135e44e97db4c704d",
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/en/03.md": {
@@ -5635,8 +5625,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/en/05.md": {
-    "mtime": 1790775997.4229963,
-    "ast_hash": "3307d8649ab67ef4ff9320d5a7454087",
+    "mtime": 1791658457.7844121,
+    "ast_hash": "638bfa7a4b2e41d0a370ec4b595581aa",
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/en/06.md": {
@@ -5665,8 +5655,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/es/02.md": {
-    "mtime": 1790776003.6397665,
-    "ast_hash": "2919f8474054e8bace10fb8ba438e246",
+    "mtime": 1791658457.820413,
+    "ast_hash": "2ed6174026cb9f6b6f36684520c09ae4",
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/es/03.md": {
@@ -5680,8 +5670,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/es/05.md": {
-    "mtime": 1790776684.5752382,
-    "ast_hash": "4314014bbb20274e46413018e967bf9d",
+    "mtime": 1791658457.8605528,
+    "ast_hash": "c67b2d5e99a5e83ebc3b0e0439daf913",
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/es/06.md": {
@@ -5710,8 +5700,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/pt/02.md": {
-    "mtime": 1788381913.3903954,
-    "ast_hash": "07a0f2e0bcc93a496696323ca08bfb6b",
+    "mtime": 1791658457.692849,
+    "ast_hash": "94e30753c6bcf355f493e74c12f51355",
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/pt/03.md": {
@@ -5725,8 +5715,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/pt/05.md": {
-    "mtime": 1788381913.4342675,
-    "ast_hash": "2e8f8425f5d94cfc35afded96e73dec9",
+    "mtime": 1791658457.7158628,
+    "ast_hash": "7d9cacf29f377db77ce852b49d622e46",
     "semantic_hash": ""
   },
   "src/data/historias/contos/04/pt/06.md": {
@@ -5935,8 +5925,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/06/en/11.md": {
-    "mtime": 1790775888.9629896,
-    "ast_hash": "f08fb0042c76a6d69d70e5abe1cfb999",
+    "mtime": 1791654429.6541133,
+    "ast_hash": "82aa07c9da379671bfdb673cbdb41c15",
     "semantic_hash": ""
   },
   "src/data/historias/contos/06/es/01.md": {
@@ -5990,8 +5980,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/06/es/11.md": {
-    "mtime": 1790776619.0118065,
-    "ast_hash": "3a5564c548f721d1aee284a6d5717f9a",
+    "mtime": 1791654429.6541133,
+    "ast_hash": "b48e7ed26178251ba798f1db745478c5",
     "semantic_hash": ""
   },
   "src/data/historias/contos/06/pt/01.md": {
@@ -6045,8 +6035,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/06/pt/11.md": {
-    "mtime": 1790741679.9954746,
-    "ast_hash": "7e02de8bc4b9ac0d81fe3dc1c12908ac",
+    "mtime": 1791654429.6551187,
+    "ast_hash": "1b54bafad4ce43f89395b553651410f2",
     "semantic_hash": ""
   },
   "src/data/historias/contos/07/en/01.md": {
@@ -6270,8 +6260,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-03.md": {
-    "mtime": 1781557265.1893184,
-    "ast_hash": "4918f472c3bcf75028eb412bc94d2437",
+    "mtime": 1791654459.9025357,
+    "ast_hash": "676176925d01d8b7f48bbc399ce73b0b",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-04.md": {
@@ -6300,8 +6290,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-03.md": {
-    "mtime": 1781557265.1903179,
-    "ast_hash": "89b79d83d0c32c6ab8f197636378307e",
+    "mtime": 1791654459.9025357,
+    "ast_hash": "528066dd249dba692d28b043c65899ec",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-04.md": {
@@ -6320,83 +6310,83 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-01.md": {
-    "mtime": 1781550130.7516751,
-    "ast_hash": "7f9658296cba139251026d21ea738b2b",
+    "mtime": 1791670518.4828262,
+    "ast_hash": "bb322d3c0c6f983daf1d194cabc31e60",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-02.md": {
-    "mtime": 1781556077.19384,
-    "ast_hash": "4853633056fc6079ebed830f79a0314a",
+    "mtime": 1791670793.7554653,
+    "ast_hash": "2074cd4e2d5911b2fc0026c0634f61ff",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-03.md": {
-    "mtime": 1791420816.2896223,
-    "ast_hash": "469bf06b13c37004b709b792cf384391",
+    "mtime": 1791670353.7256188,
+    "ast_hash": "de0f826d2cfaf2b667ec50819c1f4b69",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-04.md": {
-    "mtime": 1781473465.5439782,
-    "ast_hash": "2f0924a3a0ae0e440f6a360402354f19",
+    "mtime": 1791662148.6932144,
+    "ast_hash": "45969d4484166d95b9aebc7a4880d9b9",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-05.md": {
-    "mtime": 1781472479.2001493,
-    "ast_hash": "220bb1395a964e938eb90d52f4ace213",
+    "mtime": 1791670785.926058,
+    "ast_hash": "c0980b79b7652b5089a7e74d653ab4c0",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-06.md": {
-    "mtime": 1781475474.594931,
-    "ast_hash": "bd5e048e12a1c1b2724c40fc63463a55",
+    "mtime": 1791662194.6624055,
+    "ast_hash": "4180749667eb2f6b077da7406fed75d7",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-07.md": {
-    "mtime": 1780349835.7780793,
-    "ast_hash": "26722eb2da0f710d9e78f7314ce9ff6e",
+    "mtime": 1791659232.5841026,
+    "ast_hash": "1ee82a7098903717a1b1884243df3a32",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-08.md": {
-    "mtime": 1780349835.7798781,
-    "ast_hash": "0715cde1377c249c09d205277dc4deba",
+    "mtime": 1791659182.1515567,
+    "ast_hash": "f1bc874f3776e0225e5b6ff4b015bfbe",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-09.md": {
-    "mtime": 1780349835.7828944,
-    "ast_hash": "c2a97128080ade95b51725966098c9e4",
+    "mtime": 1791953632.717678,
+    "ast_hash": "76334144fbef7b03c4b6e304f3785f6c",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-10.md": {
-    "mtime": 1780349835.786845,
-    "ast_hash": "c0eff2b21b986728b29d5d2750ae24c3",
+    "mtime": 1791953632.717678,
+    "ast_hash": "13c45654a96279aa7c138144a0cd0a9c",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-11.md": {
-    "mtime": 1780349835.7879167,
-    "ast_hash": "c1781bf500fa97145bcd007df450cf4d",
+    "mtime": 1791953632.717678,
+    "ast_hash": "6adcde4cef982eb483d1828a5ebc7610",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-12.md": {
-    "mtime": 1780349835.789818,
-    "ast_hash": "7d452787fb366bd5ee11767b19d69a79",
+    "mtime": 1791656708.8352659,
+    "ast_hash": "bba3f6fc50e0b3b00bb6d16df1aae577",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-13.md": {
-    "mtime": 1780349835.794837,
-    "ast_hash": "3c193b0123dfdf21c3dddeebd8ce069d",
+    "mtime": 1791659249.2971945,
+    "ast_hash": "d89a7037d5a07f7ba6913d3181ea0e96",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-14.md": {
-    "mtime": 1780349835.7978485,
-    "ast_hash": "f0f7e22c710d74215e3937a88b6d1ee5",
+    "mtime": 1791670555.4151647,
+    "ast_hash": "4cf098a108d67f159be8489d4b6f3039",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-15.md": {
-    "mtime": 1780349835.799853,
-    "ast_hash": "ec60ba2a508082bfdc787e5ff883cc5d",
+    "mtime": 1791670555.4524634,
+    "ast_hash": "5e877ffec0aaeb4df167bcdcda152d98",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-16.md": {
-    "mtime": 1780349835.804064,
-    "ast_hash": "bb87a4ce15924c73eb3eee8a58b91148",
+    "mtime": 1791659249.2290921,
+    "ast_hash": "b638141a16987a0fce4dc471d240a9e7",
     "semantic_hash": ""
   },
   "src/data/historias/obras/mar-de-cinzas/pt/00.md": {
@@ -6545,8 +6535,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/vila/index.js": {
-    "mtime": 1791398176.2189083,
-    "ast_hash": "d7fc65c853cf43d98de3411caa4655ed",
+    "mtime": 1791898236.1118376,
+    "ast_hash": "26e13755217caa6adaeb2896f018be29",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/vila/interiores.js": {
@@ -6610,8 +6600,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/morro/index.js": {
-    "mtime": 1791398176.2189083,
-    "ast_hash": "ff5c4ed099a363443d87fccf122ff35e",
+    "mtime": 1791898238.872753,
+    "ast_hash": "6b1e124002b020d62ff7bfb90042429f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/morro/interiores.js": {
@@ -6655,8 +6645,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/alto/index.js": {
-    "mtime": 1791398176.2199004,
-    "ast_hash": "b4e67cb7b35b71de118f09843711c35f",
+    "mtime": 1791898241.9569664,
+    "ast_hash": "e02a9a248be6f4ba5a63e1b95060ad1d",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/alto/interiores.js": {
@@ -6685,8 +6675,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/laje/index.js": {
-    "mtime": 1791398176.2199004,
-    "ast_hash": "8d8e8e1174a010adf7ecbf2789fb72df",
+    "mtime": 1791898245.5370364,
+    "ast_hash": "71565ceaa55e89d6b688a923058c9f0b",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/laje/interiores.js": {
@@ -6725,8 +6715,8 @@
     "semantic_hash": ""
   },
   "src/components/Recomendacoes/Recomendacoes.jsx": {
-    "mtime": 1790948514.1801345,
-    "ast_hash": "39a91d6f569beff2cc8a0e438523d367",
+    "mtime": 1791811809.0558472,
+    "ast_hash": "57ee815e1a29a22f016d2cb1d759162a",
     "semantic_hash": ""
   },
   "src/lib/historias/historico.js": {
@@ -6795,8 +6785,8 @@
     "semantic_hash": ""
   },
   "scripts/seo-textos.js": {
-    "mtime": 1791401248.6863167,
-    "ast_hash": "d7433b8ec5713d25fdf06402679cfbf1",
+    "mtime": 1791982843.6759844,
+    "ast_hash": "48912f8a1f021471175ed8fc4c5fe8f3",
     "semantic_hash": ""
   },
   "src/lib/idiomaUrl.js": {
@@ -6920,8 +6910,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/golpe/GanguesDado3D.jsx": {
-    "mtime": 1791122835.1879117,
-    "ast_hash": "964bb3482032aa819c8cad34bdd8a18f",
+    "mtime": 1791954888.5694685,
+    "ast_hash": "68e478918bdf58cb11ff128ff7dffb39",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/golpe/GanguesGolpe.jsx": {
@@ -6950,13 +6940,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/resultado/ResultadoRecompensa.jsx": {
-    "mtime": 1791094506.0949588,
-    "ast_hash": "3c66ba8974a1a29c5dfbce101847e1ac",
+    "mtime": 1791943741.7303658,
+    "ast_hash": "d7a1e7fc87d6962a843c4665c5261e70",
     "semantic_hash": ""
   },
   "docs/Games/LDILendas/LDI_LENDAS_GDD.md": {
-    "mtime": 1791146874.793141,
-    "ast_hash": "6bcc593d2048d690d9a06fe4ba2d0c4f",
+    "mtime": 1791918646.6428246,
+    "ast_hash": "321fae5fa0b9d826869def46b7a1c6fb",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/components/Diario.jsx": {
@@ -6965,13 +6955,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/components/Escolhas.jsx": {
-    "mtime": 1791102261.1083539,
-    "ast_hash": "a03c502f0aec770bf578e5aa81f9147b",
+    "mtime": 1791919957.6886213,
+    "ast_hash": "84fca52667e36d18daab3e1daddb9ba3",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/components/Narrativa.jsx": {
-    "mtime": 1791102324.510142,
-    "ast_hash": "b782be5108b0d4beaaae81180508381d",
+    "mtime": 1791933689.9248006,
+    "ast_hash": "3fb3fe40bee12247cc2112bfe6f17827",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/data/veias.js": {
@@ -6980,13 +6970,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/engine/historia.js": {
-    "mtime": 1791146671.923994,
-    "ast_hash": "4a9b13b87d3fffcb266929a655f4087a",
+    "mtime": 1791951006.3941636,
+    "ast_hash": "3d9b80b64bede977ac1a2bdb87bb67d1",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/store/useLendasStore.js": {
-    "mtime": 1791102228.3425374,
-    "ast_hash": "f05bad205dae9551fb86ea168931be22",
+    "mtime": 1791930521.6379342,
+    "ast_hash": "fdd1662708478b12e71d9d44881ed8d5",
     "semantic_hash": ""
   },
   "supabase/migrations/050_lendas_saves.sql": {
@@ -7005,23 +6995,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/BatalhaLab.jsx": {
-    "mtime": 1791146524.2225523,
-    "ast_hash": "aaef40a9516781eb98d4f8457246a3fa",
-    "semantic_hash": ""
-  },
-  "src/pages/games/LDI/batalha/Pentagrama.jsx": {
-    "mtime": 1791318089.3379831,
-    "ast_hash": "351996c492ecba93a9f71b3108b564aa",
-    "semantic_hash": ""
-  },
-  "src/pages/games/LDI/batalha/motorPentagrama.js": {
-    "mtime": 1791144082.355227,
-    "ast_hash": "4fd81f82db1771c4cee581ec49cac6da",
-    "semantic_hash": ""
-  },
-  "src/pages/games/LDI/batalha/somPentagrama.js": {
-    "mtime": 1791130525.8454251,
-    "ast_hash": "b40886c0fa0c1da12d1fb797a4b226b7",
+    "mtime": 1791910705.116978,
+    "ast_hash": "ba189ad2ef0733ac44a86d78bbcba9e2",
     "semantic_hash": ""
   },
   "src/lib/versaoNova.js": {
@@ -7029,34 +7004,19 @@
     "ast_hash": "4fff5978c19bacc9bf7559aa197e5dc6",
     "semantic_hash": ""
   },
-  "src/pages/games/LDI/batalha/EscolhaPoder.jsx": {
-    "mtime": 1791318036.983038,
-    "ast_hash": "fde25167a4d8fb06f4c70be07377b5f7",
-    "semantic_hash": ""
-  },
-  "src/pages/games/LDI/batalha/campanhaPentagrama.js": {
-    "mtime": 1791141417.1841152,
-    "ast_hash": "b92d5a8d6c5ab2d757255e9fcbbca1df",
-    "semantic_hash": ""
-  },
-  "src/pages/games/LDI/batalha/LutaPentagrama.jsx": {
-    "mtime": 1791318023.6828618,
-    "ast_hash": "128594702a038db2d764b9f0b3448642",
-    "semantic_hash": ""
-  },
   "src/i18n/creators/en.json": {
-    "mtime": 1791321481.9319115,
-    "ast_hash": "2ccc4704b79659d28723ba85d9674a65",
+    "mtime": 1791645682.8252378,
+    "ast_hash": "a73e6b4e5c2a18286abc7669e4f8f762",
     "semantic_hash": ""
   },
   "src/i18n/creators/es.json": {
-    "mtime": 1791321481.9329116,
-    "ast_hash": "f576fe3aaa085ffdc6cb17bfaa2fb27c",
+    "mtime": 1791645682.8262384,
+    "ast_hash": "7a612ee3ea33352b02c2c0ea6434cfa1",
     "semantic_hash": ""
   },
   "src/i18n/creators/pt.json": {
-    "mtime": 1791321481.9309115,
-    "ast_hash": "b6d9a410ceb823f71ca7837548db6358",
+    "mtime": 1791645682.8242328,
+    "ast_hash": "7f137fa49e0eba2ed46e86ba8a450037",
     "semantic_hash": ""
   },
   "src/lib/creator.js": {
@@ -7065,8 +7025,8 @@
     "semantic_hash": ""
   },
   "src/pages/creators/Creators.jsx": {
-    "mtime": 1791236771.7185082,
-    "ast_hash": "b56347f998f5d02ee72deb0d3c07ab5d",
+    "mtime": 1791638996.1706235,
+    "ast_hash": "74350a097d9c8df3298490d5d856f5d3",
     "semantic_hash": ""
   },
   "src/pages/creators/components/BotaoCopiar.jsx": {
@@ -7085,18 +7045,18 @@
     "semantic_hash": ""
   },
   "src/pages/creators/components/CreatorsPorta.jsx": {
-    "mtime": 1791236612.053677,
-    "ast_hash": "237f9f0a957a332595fbce89fe9d4fd1",
+    "mtime": 1791638996.1715746,
+    "ast_hash": "982313fe16590225f520382f0f3a0133",
     "semantic_hash": ""
   },
   "src/pages/creators/components/CreatorsSalao.jsx": {
-    "mtime": 1791237487.007659,
-    "ast_hash": "1ec74538fb7a16958771e1865dba2a83",
+    "mtime": 1791645452.0337522,
+    "ast_hash": "266f83062ba24ab7750f640b4c40092e",
     "semantic_hash": ""
   },
   "src/pages/creators/components/CreatorsServicos.jsx": {
-    "mtime": 1791236737.12443,
-    "ast_hash": "e1b28d354bf142fe2cbf588a3531835f",
+    "mtime": 1791645682.8218856,
+    "ast_hash": "7ff5c2610b79edd3502821ce786d7115",
     "semantic_hash": ""
   },
   "src/pages/creators/components/CreatorsTemas.jsx": {
@@ -7110,18 +7070,18 @@
     "semantic_hash": ""
   },
   "src/pages/creators/data/creatorsCardapio.js": {
-    "mtime": 1791321481.9188986,
-    "ast_hash": "0b2daea0a81762744b7d49dff119f2fc",
+    "mtime": 1791645682.811052,
+    "ast_hash": "9b851d5985689ad835d7b83b461b8872",
     "semantic_hash": ""
   },
   "src/pages/creators/useCreator.js": {
-    "mtime": 1791236559.047363,
-    "ast_hash": "ce6ff584af0c1ad4040968e3a77622db",
+    "mtime": 1791638996.1715746,
+    "ast_hash": "6d453d4de6b63554bd1ef5534806708b",
     "semantic_hash": ""
   },
   "src/pages/painel/PainelCreators.jsx": {
-    "mtime": 1791237014.8703125,
-    "ast_hash": "b2b6bc9939e2ccff425602f552d92945",
+    "mtime": 1791639505.2041175,
+    "ast_hash": "3d7f6f96543b4140bc252ad35935e303",
     "semantic_hash": ""
   },
   "supabase/migrations/052_creators.sql": {
@@ -7234,14 +7194,2719 @@
     "ast_hash": "69e997811bc265b0fd7f55f50f601583",
     "semantic_hash": ""
   },
-  "src/pages/games/Gangues/components/GanguesMultidaoTatica.jsx": {
-    "mtime": 1791399122.2275538,
-    "ast_hash": "5178197a26f2f86b497c87341f0723a5",
-    "semantic_hash": ""
-  },
   "src/pages/games/Gangues/engine/ganguesRegrasCombate.js": {
     "mtime": 1791398889.093419,
     "ast_hash": "acbd28870cc89146545670d9885f094e",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-02-en.webp": {
+    "mtime": 1791432104.9805796,
+    "ast_hash": "bd5cab847cbbdb502f0d3e877e006da5",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-02-es.webp": {
+    "mtime": 1791432127.3783457,
+    "ast_hash": "d7a1880b9be55318456c88632e82db65",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-02-pt.webp": {
+    "mtime": 1791432082.398378,
+    "ast_hash": "54515656ac1261cc1d720a72b4832d68",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-02.webp": {
+    "mtime": 1791432127.4344263,
+    "ast_hash": "0e54629004904c673f508b6077498740",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-03-en.webp": {
+    "mtime": 1791437516.3854988,
+    "ast_hash": "49058f94fbcfe502b564e2e0815be337",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-03-pt.webp": {
+    "mtime": 1791437491.7392702,
+    "ast_hash": "a5f18ecf54b3f4cc54f2e412770dfd03",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-03.webp": {
+    "mtime": 1791437516.4463234,
+    "ast_hash": "661c56aa6d1c62a9c80828ee78e3a987",
+    "semantic_hash": ""
+  },
+  "TAREFAS_PENDENTES_ISAIAS.md": {
+    "mtime": 1791461743.191434,
+    "ast_hash": "ad95639b45975304066eca13aead8b24",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-03-es.webp": {
+    "mtime": 1791438130.7918715,
+    "ast_hash": "dee249d979f8983a3cdae2b207900604",
+    "semantic_hash": ""
+  },
+  "docs/LDI/SBI_SIMULADOR.md": {
+    "mtime": 1791491362.7017367,
+    "ast_hash": "165d38cb549d5368d3ea2297be40f095",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-04-pt.webp": {
+    "mtime": 1791593986.5047064,
+    "ast_hash": "e93e5ff880ade6384a27a99ef43f6553",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-04.webp": {
+    "mtime": 1791593986.5385058,
+    "ast_hash": "b5dec7468fd6977d0adbde7bca62854c",
+    "semantic_hash": ""
+  },
+  "docs/WEBSHARD/HDC_GUIA_DE_PRODUCAO.md": {
+    "mtime": 1791598447.74663,
+    "ast_hash": "3b1c9d155b2037e63c4a7563ff19c0e5",
+    "semantic_hash": ""
+  },
+  "src/data/herois-episodios.json": {
+    "mtime": 1791945580.5267615,
+    "ast_hash": "e95f2638028f26e14cfb10cacf7bde21",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-herois-da-cidade-01-pt.webp": {
+    "mtime": 1791602406.5346825,
+    "ast_hash": "58d79c1b046761763e8af558ae557e53",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-herois-da-cidade-01.webp": {
+    "mtime": 1791602406.5581672,
+    "ast_hash": "8a16b3cd1662a2986b66a6954bd4fabb",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-herois-da-cidade-02-pt.webp": {
+    "mtime": 1791602410.4540722,
+    "ast_hash": "bcb4bccefeffe136e966732029ae7228",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-herois-da-cidade-02.webp": {
+    "mtime": 1791602410.4795249,
+    "ast_hash": "77acb78e15592d076a3f76f79cc06e29",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-herois-da-cidade-03-pt.webp": {
+    "mtime": 1791602414.152171,
+    "ast_hash": "78b680d04dac1aa71109dbf53d5753c0",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-herois-da-cidade-03.webp": {
+    "mtime": 1791602414.180815,
+    "ast_hash": "09dec89e30eb1aa3a46791259cb434d4",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-herois-da-cidade-04-pt.webp": {
+    "mtime": 1791602417.441857,
+    "ast_hash": "25c7f02f928f64cbd3b523dff28b68c5",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-herois-da-cidade-04.webp": {
+    "mtime": 1791602417.4766054,
+    "ast_hash": "80bb26f22fe0eae3a7a60ebfe371c644",
+    "semantic_hash": ""
+  },
+  "src/lib/creatorConvite.js": {
+    "mtime": 1791638956.1879592,
+    "ast_hash": "fa2d32ef3733547201aad1342f2e85aa",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/PainelConvites.jsx": {
+    "mtime": 1791639578.8627872,
+    "ast_hash": "f5568296a0525642ee54a969f371a5d3",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/053_creator_convites.sql": {
+    "mtime": 1791638884.2590954,
+    "ast_hash": "ee47e61a050bad3ba89f67c4b02ee598",
+    "semantic_hash": ""
+  },
+  "src/pages/creators/CreatorsDestaques.jsx": {
+    "mtime": 1791640046.4792657,
+    "ast_hash": "648f797350f64014280344b60a24512c",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/PainelEnvios.jsx": {
+    "mtime": 1791639503.7226772,
+    "ast_hash": "dd23b5c4b36eab6e81301fab3cc18b27",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/054_creator_envios.sql": {
+    "mtime": 1791639345.492348,
+    "ast_hash": "aaea2aa22dfb2e3fc506292255a80ac5",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/055_creator_convite_multiplo.sql": {
+    "mtime": 1791639526.271872,
+    "ast_hash": "6e44bf50ac320423c363c3977575b7da",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/en.txt": {
+    "mtime": 1791686340.7822428,
+    "ast_hash": "e1e83b5715d866f32c9457eb8c0f021b",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/es.txt": {
+    "mtime": 1791686340.7822428,
+    "ast_hash": "48c074f206dae5f3531551064ef89fbf",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/pt.txt": {
+    "mtime": 1791686340.776493,
+    "ast_hash": "0352be3146d4acfb40b2710ccb0ce2c7",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/gangues-16x9-en.jpg": {
+    "mtime": 1791645641.9118996,
+    "ast_hash": "96383571b338f0fc63a2de7bcc4b5b5b",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/gangues-16x9-es.jpg": {
+    "mtime": 1791645641.9148915,
+    "ast_hash": "17dabbac0fe5ca37e69fc1b0cda62f31",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/gangues-16x9-pt.jpg": {
+    "mtime": 1791645641.9178724,
+    "ast_hash": "66fa852b5d07da841adb93a32f5bf1fe",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/gangues-4x5-en.jpg": {
+    "mtime": 1791645641.9188669,
+    "ast_hash": "c924f222593a427fd9619785261861a1",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/gangues-4x5-es.jpg": {
+    "mtime": 1791645641.920877,
+    "ast_hash": "13c49b6904de3e5e8907e547a79ec609",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/gangues-4x5-pt.jpg": {
+    "mtime": 1791645641.9228685,
+    "ast_hash": "6fb194c5c3fdaa79a996490fbb861426",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/gangues-9x16-en.jpg": {
+    "mtime": 1791645641.9248672,
+    "ast_hash": "afda6dff86d8e9d74f723075dcaba213",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/gangues-9x16-es.jpg": {
+    "mtime": 1791645641.9268684,
+    "ast_hash": "1693ba3054728938971ebb659bc76fed",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/gangues-9x16-pt.jpg": {
+    "mtime": 1791645641.9298818,
+    "ast_hash": "4fdfa9d2b677a46f51763734bb94a3f7",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/lendas-16x9-en.jpg": {
+    "mtime": 1791645641.9308684,
+    "ast_hash": "00848ce1b9b8e4e7e685d7b9b2082f7b",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/lendas-16x9-es.jpg": {
+    "mtime": 1791645641.931841,
+    "ast_hash": "878d68167beabe2f2122e093238a9a4f",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/lendas-16x9-pt.jpg": {
+    "mtime": 1791645641.9337823,
+    "ast_hash": "fe38d50d9ae703a9f8c4c9adc2b308e9",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/lendas-4x5-en.jpg": {
+    "mtime": 1791645641.9347825,
+    "ast_hash": "e205c5d4261865589ea04de03cd3a0e5",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/lendas-4x5-es.jpg": {
+    "mtime": 1791645641.935783,
+    "ast_hash": "4c5ee534873c1c24b0c23f3b86e3ce6f",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/lendas-4x5-pt.jpg": {
+    "mtime": 1791645641.9377818,
+    "ast_hash": "b83c913525926010b0abec6a60023bfa",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/lendas-9x16-en.jpg": {
+    "mtime": 1791645641.9387825,
+    "ast_hash": "1489f86423a27ffea9ba11702dd63bd6",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/lendas-9x16-es.jpg": {
+    "mtime": 1791645641.940783,
+    "ast_hash": "8fff4575778c6f6d5906606b0f7c1603",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/lendas-9x16-pt.jpg": {
+    "mtime": 1791645641.9417934,
+    "ast_hash": "c99c1c73f63c9bb185baf895df486ddd",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/trunfo-16x9-en.jpg": {
+    "mtime": 1791645641.9437861,
+    "ast_hash": "75d6ad317471135e07c19a7738824101",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/trunfo-16x9-es.jpg": {
+    "mtime": 1791645641.9447908,
+    "ast_hash": "82edcdd2456ca4df61a737e934694dc5",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/trunfo-16x9-pt.jpg": {
+    "mtime": 1791645641.9467866,
+    "ast_hash": "0e2d52f3909e1a894c688d5466cb25cf",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/trunfo-4x5-en.jpg": {
+    "mtime": 1791645641.947793,
+    "ast_hash": "d30aba81b14af1b975656b09e95a742a",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/trunfo-4x5-es.jpg": {
+    "mtime": 1791645641.9497824,
+    "ast_hash": "1cee778351443e41ad39a661f51fe96e",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/trunfo-4x5-pt.jpg": {
+    "mtime": 1791645641.9507937,
+    "ast_hash": "726dd0da680076410d64042c0bcbc854",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/trunfo-9x16-en.jpg": {
+    "mtime": 1791645641.9527817,
+    "ast_hash": "cee46fe392a2aee5b6fa4840599701e5",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/trunfo-9x16-es.jpg": {
+    "mtime": 1791645641.9537866,
+    "ast_hash": "64e5c6790f3f50311b66e9ea1520d099",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/trunfo-9x16-pt.jpg": {
+    "mtime": 1791645641.9557927,
+    "ast_hash": "e3acc39644273cddc57050bdd47538a8",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/universo-16x9-en.jpg": {
+    "mtime": 1791645641.9577923,
+    "ast_hash": "0710e8456fa444ad7e9820607aefbae3",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/universo-16x9-es.jpg": {
+    "mtime": 1791645641.9597907,
+    "ast_hash": "98d852150b460e57a163156516a54306",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/universo-16x9-pt.jpg": {
+    "mtime": 1791645641.9617937,
+    "ast_hash": "f48ac58d82550bce84799795f1ae392b",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/universo-4x5-en.jpg": {
+    "mtime": 1791645641.9637854,
+    "ast_hash": "869d1ab8b0f04e165159f958a279eae3",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/universo-4x5-es.jpg": {
+    "mtime": 1791645641.9647863,
+    "ast_hash": "1f97921498279a1e4c16d3247fe8234d",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/universo-4x5-pt.jpg": {
+    "mtime": 1791645641.9667869,
+    "ast_hash": "72ccce9f753678ad85256a55b906c4ef",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/universo-9x16-en.jpg": {
+    "mtime": 1791645641.9689002,
+    "ast_hash": "1d18c5a20bfa76306b28e68c3186475d",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/universo-9x16-es.jpg": {
+    "mtime": 1791645641.9709,
+    "ast_hash": "df2ba9df981f3b4ba3e4b0643560269f",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/universo-9x16-pt.jpg": {
+    "mtime": 1791645641.9719105,
+    "ast_hash": "06179231c99c41503e3d5c120144e429",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/webshard-16x9-en.jpg": {
+    "mtime": 1791645641.9748995,
+    "ast_hash": "472cef0cdc2a044209c3a63996633873",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/webshard-16x9-es.jpg": {
+    "mtime": 1791645641.9781854,
+    "ast_hash": "ef7de078ea98b1b96da27a451a6272b6",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/webshard-16x9-pt.jpg": {
+    "mtime": 1791645641.9801893,
+    "ast_hash": "f63b64cabb0f1ef56710a4015230bca0",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/webshard-4x5-en.jpg": {
+    "mtime": 1791645641.9821959,
+    "ast_hash": "33d37de54e0cc109150165008fcea8f6",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/webshard-4x5-es.jpg": {
+    "mtime": 1791645641.9851885,
+    "ast_hash": "2b2d83fd224eca46c8d290d8e072cfa9",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/webshard-4x5-pt.jpg": {
+    "mtime": 1791645641.987196,
+    "ast_hash": "c4575f126eb1ea594d056b9dd038fc2a",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/webshard-9x16-en.jpg": {
+    "mtime": 1791645641.9897118,
+    "ast_hash": "bf8077290cfb0e508614aa22be198370",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/webshard-9x16-es.jpg": {
+    "mtime": 1791645641.9929948,
+    "ast_hash": "6f9171587c2c5a3e921894a9ec9d676e",
+    "semantic_hash": ""
+  },
+  "scripts/presskit/artes/webshard-9x16-pt.jpg": {
+    "mtime": 1791645641.995231,
+    "ast_hash": "e05d2544be0d1a31b043a9e2d749207f",
+    "semantic_hash": ""
+  },
+  "src/assets/images/creators/fichas/ficha-jack.webp": {
+    "mtime": 1791645452.0288215,
+    "ast_hash": "64e073791d84025133c108341c6a93cc",
+    "semantic_hash": ""
+  },
+  "src/assets/images/creators/fichas/ficha-kim.webp": {
+    "mtime": 1791645452.029765,
+    "ast_hash": "9b79ac2bfab932a315c32508aec41442",
+    "semantic_hash": ""
+  },
+  "src/assets/images/creators/fichas/ficha-nina.webp": {
+    "mtime": 1791645452.029765,
+    "ast_hash": "7b106c08d8e77b65f5eeb946c1d7aa53",
+    "semantic_hash": ""
+  },
+  "src/assets/images/creators/fichas/ficha-ryan.webp": {
+    "mtime": 1791645452.0307593,
+    "ast_hash": "150cf1bde70c91dc21a6b75855e109e9",
+    "semantic_hash": ""
+  },
+  "docs/LDI/REVISAO_LIVRO_CAP07_EM_DIANTE.md": {
+    "mtime": 1791652298.3003843,
+    "ast_hash": "a1ca21c0b19355836c2c8d0f03c4283c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-17.md": {
+    "mtime": 1791953337.6190345,
+    "ast_hash": "c6fb55e1ef57e2da0476d0b7b0a9cda5",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-18.md": {
+    "mtime": 1791659249.2654283,
+    "ast_hash": "9bc1574f9244c392936b93cf6b8b1195",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-19.md": {
+    "mtime": 1791658260.9773765,
+    "ast_hash": "30fa3dac0a775a671b94f5af43aa4eeb",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-20.md": {
+    "mtime": 1791658301.0266104,
+    "ast_hash": "fc7afccc937df4f83d413f2d610bc64d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-21.md": {
+    "mtime": 1791658301.0266104,
+    "ast_hash": "8d950db6ce02ec037b7167ed3f4ab12b",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-22.md": {
+    "mtime": 1791658311.0692482,
+    "ast_hash": "f25a99829197843490585d44ed618af2",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-23.md": {
+    "mtime": 1791658311.0692482,
+    "ast_hash": "8371c40780a3f0c373a73e33484e94c5",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-24.md": {
+    "mtime": 1791670555.536628,
+    "ast_hash": "c868f1f9394c4e3444c960cbbdfc549a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-25.md": {
+    "mtime": 1791670555.5763986,
+    "ast_hash": "d5b84565d4ddb4248580702b95e39158",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-26.md": {
+    "mtime": 1791658406.4556265,
+    "ast_hash": "c427daf86b7169c27bcf94688c985413",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-27.md": {
+    "mtime": 1791670555.4916036,
+    "ast_hash": "8d69f2d6f3592a3357259999c5cc6f5b",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-28.md": {
+    "mtime": 1791658385.9070594,
+    "ast_hash": "93d2c3f9e70cf6797b8621b0847008e9",
+    "semantic_hash": ""
+  },
+  "src/components/Leitor/LeitorMusica.jsx": {
+    "mtime": 1791654773.203394,
+    "ast_hash": "a6f7b0b673d77c9d63b7faa50255ae3a",
+    "semantic_hash": ""
+  },
+  "docs/LDI/MITOLOGIA.md": {
+    "mtime": 1791686408.6307735,
+    "ast_hash": "6b0c7d296fbb742ee6037439f6e51d53",
+    "semantic_hash": ""
+  },
+  "docs/LDI/contos/08-sagas-primordiais/pt/01.md": {
+    "mtime": 1791685982.8566778,
+    "ast_hash": "fe58d314da335cf3078a30cd6906726c",
+    "semantic_hash": ""
+  },
+  "docs/LDI/contos/08-sagas-primordiais/pt/02.md": {
+    "mtime": 1791685794.3969166,
+    "ast_hash": "adb7ff652cdf730bf881fb216f10b73a",
+    "semantic_hash": ""
+  },
+  "docs/LDI/contos/08-sagas-primordiais/pt/03.md": {
+    "mtime": 1791685795.4343774,
+    "ast_hash": "6058933af2d16a3a21c697106e7c4397",
+    "semantic_hash": ""
+  },
+  "docs/LDI/contos/08-sagas-primordiais/pt/04.md": {
+    "mtime": 1791685882.5278585,
+    "ast_hash": "edba3f16f28338c866d61dd8f0d824f1",
+    "semantic_hash": ""
+  },
+  "docs/LDI/contos/08-sagas-primordiais/pt/05.md": {
+    "mtime": 1791685982.8892999,
+    "ast_hash": "aee1b3a3717363a4b5ad254221024c48",
+    "semantic_hash": ""
+  },
+  "docs/LDI/contos/08-sagas-primordiais/pt/06.md": {
+    "mtime": 1791685884.6263118,
+    "ast_hash": "55a7a9968a7485abd6b96940b26dd960",
+    "semantic_hash": ""
+  },
+  "docs/LDI/contos/08-sagas-primordiais/pt/07.md": {
+    "mtime": 1791685972.5802686,
+    "ast_hash": "87890fc2a92bca0746a0215093bea978",
+    "semantic_hash": ""
+  },
+  "docs/LDI/contos/08-sagas-primordiais/pt/08.md": {
+    "mtime": 1791685973.6232746,
+    "ast_hash": "2f829d1bfe0a2947428d7128b38d6630",
+    "semantic_hash": ""
+  },
+  "docs/LDI/contos/08-sagas-primordiais/pt/09.md": {
+    "mtime": 1791685974.6500254,
+    "ast_hash": "4952640b0340221481cf061a11c51235",
+    "semantic_hash": ""
+  },
+  "src/pages/content/universo-ldi/MundoMitologia.jsx": {
+    "mtime": 1791688399.6143844,
+    "ast_hash": "49cec98c53fc4b7acfe10576623e7cc6",
+    "semantic_hash": ""
+  },
+  "src/pages/content/universo-ldi/UniversoLDI.jsx": {
+    "mtime": 1791758189.1027248,
+    "ast_hash": "d542aae17098c480e2d0294479bbdd4b",
+    "semantic_hash": ""
+  },
+  "src/pages/content/universo-ldi/secoes/Arena.jsx": {
+    "mtime": 1791688525.2387462,
+    "ast_hash": "4e37d94bcb74946e725b485ce8ea4251",
+    "semantic_hash": ""
+  },
+  "src/pages/content/universo-ldi/secoes/DoisMundos.jsx": {
+    "mtime": 1791688421.4374297,
+    "ast_hash": "a503b213585a9c8d27425f804f4292ee",
+    "semantic_hash": ""
+  },
+  "src/pages/content/universo-ldi/secoes/Glossario.jsx": {
+    "mtime": 1791688595.789824,
+    "ast_hash": "3e8ac3f8b2a7abcae7005d9aa5cba744",
+    "semantic_hash": ""
+  },
+  "src/pages/content/universo-ldi/secoes/LinhaDoTempo.jsx": {
+    "mtime": 1791688488.8581295,
+    "ast_hash": "a4d006304cdc5f813e13377bbc746a9e",
+    "semantic_hash": ""
+  },
+  "src/pages/content/universo-ldi/secoes/Mapa.jsx": {
+    "mtime": 1791688459.3236997,
+    "ast_hash": "54e36bb39c82a4037823cbde60eea9bd",
+    "semantic_hash": ""
+  },
+  "src/pages/content/universo-ldi/secoes/Xakaxi.jsx": {
+    "mtime": 1791688593.6925216,
+    "ast_hash": "d96836e0b927a2e02911e4dd8103ea00",
+    "semantic_hash": ""
+  },
+  "src/pages/content/universo-ldi/useRevela.jsx": {
+    "mtime": 1791688363.1383383,
+    "ast_hash": "a8c001db8947e624800dd02d3f1df5b9",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/PainelSteam.jsx": {
+    "mtime": 1791717638.9643507,
+    "ast_hash": "175ea1fe2cd5ca53114f73eeaa71ba91",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/056_steam_origem.sql": {
+    "mtime": 1791717543.7179434,
+    "ast_hash": "fdf4a3497cc515f4df6d875bdb3c0b8e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/cena/GanguesAvisoConta.jsx": {
+    "mtime": 1791729886.4828956,
+    "ast_hash": "bb1f14cc50eb372cdae0baec59ee4e74",
+    "semantic_hash": ""
+  },
+  "docs/LDI/ATAQUES_E_PODERES.md": {
+    "mtime": 1791735175.81671,
+    "ast_hash": "0d6d58544ac80d4cf72c542a2b8794f6",
+    "semantic_hash": ""
+  },
+  "docs/LDI/lutas/KIM_VS_THUNDERBOLT.md": {
+    "mtime": 1791736210.2613907,
+    "ast_hash": "9524ea64b5846fff1e303903b5d354e4",
+    "semantic_hash": ""
+  },
+  "src/data/agradecimentos-episodios.json": {
+    "mtime": 1791752683.7155151,
+    "ast_hash": "01cf7009fcee7010e8c595652f4c1b38",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-agradecimentos-01.webp": {
+    "mtime": 1791757567.4570725,
+    "ast_hash": "f593fda96b823b04ca4e5abd26f8908c",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/capa-agradecimentos.webp": {
+    "mtime": 1791757567.3643827,
+    "ast_hash": "f593fda96b823b04ca4e5abd26f8908c",
+    "semantic_hash": ""
+  },
+  "public/og/autor.jpg": {
+    "mtime": 1791758160.456766,
+    "ast_hash": "2382f2db19db392fc63cb876d05e02a1",
+    "semantic_hash": ""
+  },
+  "public/og/games.jpg": {
+    "mtime": 1791758159.3608973,
+    "ast_hash": "199565f89e0629831cc7529dc99791ce",
+    "semantic_hash": ""
+  },
+  "public/og/gangues.jpg": {
+    "mtime": 1791758159.6282637,
+    "ast_hash": "c9f1e762bc988ad0b27df83d596ea17d",
+    "semantic_hash": ""
+  },
+  "public/og/historias.jpg": {
+    "mtime": 1791758159.1114194,
+    "ast_hash": "a9eca1da9c4522c883202d25d258bf86",
+    "semantic_hash": ""
+  },
+  "public/og/home.jpg": {
+    "mtime": 1791758158.5256312,
+    "ast_hash": "2ddac53e14099ccc98bfb92c8fab6c91",
+    "semantic_hash": ""
+  },
+  "public/og/musicas.jpg": {
+    "mtime": 1791758160.2067177,
+    "ast_hash": "7c1934ca1f862f89b7741b101bf7b144",
+    "semantic_hash": ""
+  },
+  "public/og/toptrumps.jpg": {
+    "mtime": 1791758159.9413693,
+    "ast_hash": "b6564840cd41b85c2623670c0d5c96be",
+    "semantic_hash": ""
+  },
+  "public/og/webshard.jpg": {
+    "mtime": 1791758158.8318136,
+    "ast_hash": "baf0ef58f6277a68668b75e6aba99b01",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/057_creator_perfil_sem_nome.sql": {
+    "mtime": 1791772926.435066,
+    "ast_hash": "381b1ae53d8ec0e73361f37099b7c9dd",
+    "semantic_hash": ""
+  },
+  "src/components/CarrosselLento/CarrosselLento.jsx": {
+    "mtime": 1791808433.7788494,
+    "ast_hash": "61c7d94df613f5bac6700e3d806d5c2f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/cenas/pista/fundos.js": {
+    "mtime": 1791895548.4317238,
+    "ast_hash": "53b593a1cd3b39256f19e9f35262d05a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-bloco-1.webp": {
+    "mtime": 1791895173.8359952,
+    "ast_hash": "9084374794cc2387024d0401028879a7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-bloco-2.webp": {
+    "mtime": 1791895174.1800349,
+    "ast_hash": "1a33c5f5c491723c77e810cc9a212cae",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-bloco-3.webp": {
+    "mtime": 1791895174.5461707,
+    "ast_hash": "b5c4b02ac27d1dc36b19beea5ad7ed5a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-bloco-4.webp": {
+    "mtime": 1791895174.8798032,
+    "ast_hash": "6a0a7862d334393a4918b9301df1de36",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-bloco-5.webp": {
+    "mtime": 1791895175.2423503,
+    "ast_hash": "1a3af73d8dcff1f423f8bc8ad39b67aa",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-birosca_0.webp": {
+    "mtime": 1791895521.4391773,
+    "ast_hash": "9bb67d5ef9272c8a967ef841d06e18d5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-birosca_1.webp": {
+    "mtime": 1791895521.5146866,
+    "ast_hash": "dad9290ab841dde595c5aa5c61c71235",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-birosca_2_0.webp": {
+    "mtime": 1791895521.6378613,
+    "ast_hash": "a2bebcd1ce12c23cf1e3e6082277976d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-galpao_0.webp": {
+    "mtime": 1791895521.74944,
+    "ast_hash": "2799f51efc4a7ac0ddc9a54039ab3e18",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-galpao_1.webp": {
+    "mtime": 1791895521.856316,
+    "ast_hash": "f761ddbd044c18889ebb7161675c493d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-galpao_2.webp": {
+    "mtime": 1791895521.9368231,
+    "ast_hash": "6f60252694af5dc9ec8e16b3b03209f4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-galpao_3.webp": {
+    "mtime": 1791895522.0912442,
+    "ast_hash": "c303bd8b3ab6c5af184762a97d70a80e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-loja_0.webp": {
+    "mtime": 1791895522.7888224,
+    "ast_hash": "8116d4bc0960ed52cddb3957d155e90b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-oficina_0.webp": {
+    "mtime": 1791895522.9077377,
+    "ast_hash": "6f43473a7b77c70d91fb0a628176ac99",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-tunel_0.webp": {
+    "mtime": 1791895523.0032597,
+    "ast_hash": "c66afb80fff88c22307cc7c5ff5ed52d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-tunel_1.webp": {
+    "mtime": 1791895523.1457877,
+    "ast_hash": "ae76b50dba89ced8f14603561df8df22",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/pista-int-tunel_2.webp": {
+    "mtime": 1791895523.2433105,
+    "ast_hash": "c14717242b8d64d4052fca4b86908338",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/cenas/feira/fundos.js": {
+    "mtime": 1791896859.835875,
+    "ast_hash": "2434599dcbee5c09df102a241fad1607",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-bloco-1.webp": {
+    "mtime": 1791896855.4399607,
+    "ast_hash": "a43c03f14864ca8140b1cdd7fbcd5ac6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-bloco-2.webp": {
+    "mtime": 1791896855.8667026,
+    "ast_hash": "59c9503c4c58c72d8669e0abab818c53",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-bloco-3.webp": {
+    "mtime": 1791896856.3114161,
+    "ast_hash": "98947a44077c0a74afb6848f2554333d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-bloco-4.webp": {
+    "mtime": 1791896856.6782634,
+    "ast_hash": "aeb50a88419ed72edf45033028c036dd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-bloco-5.webp": {
+    "mtime": 1791896857.0784652,
+    "ast_hash": "c18286c1525d4f303986f4da4ff99bde",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-galeria_0.webp": {
+    "mtime": 1791896857.2112327,
+    "ast_hash": "3927ef2c2a915f81c7f466cb2347e7fe",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-galeria_1.webp": {
+    "mtime": 1791896857.3388524,
+    "ast_hash": "29552f32ffa4c40db42112bc115fa3fc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-galeria_2.webp": {
+    "mtime": 1791896857.4536543,
+    "ast_hash": "9daf422207edbe792fc4649117ac6f0b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-mercadao_0.webp": {
+    "mtime": 1791896857.8359222,
+    "ast_hash": "e0bea8b017739529d9df979561e4ac62",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-mercadao_1.webp": {
+    "mtime": 1791896858.1687307,
+    "ast_hash": "e759c730c9de2af5075f76f7bee71336",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-mercadao_2.webp": {
+    "mtime": 1791896858.6234324,
+    "ast_hash": "54aea7642cf63ba0b42f07d4e576aab1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-mercadao_3.webp": {
+    "mtime": 1791896858.7509468,
+    "ast_hash": "5843642cb4bd21bc8c8ca0ae0d2e7ebc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-mercadao_4.webp": {
+    "mtime": 1791896858.921993,
+    "ast_hash": "367bf32a4dbadc9e50d25792e7115b62",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-mercearia_0.webp": {
+    "mtime": 1791896859.0422058,
+    "ast_hash": "c9a59b0cdd22c76aeb47eb264534f103",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-pensao_0.webp": {
+    "mtime": 1791896859.2123342,
+    "ast_hash": "d2e512df3a65d12436149bf6574a3554",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-pensao_1.webp": {
+    "mtime": 1791896859.3271513,
+    "ast_hash": "975ccde8baaa3f57f943041ca5342b9c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-pensao_2_0.webp": {
+    "mtime": 1791896859.459986,
+    "ast_hash": "9f0bfdb715ce5bb0872b2c173922bb41",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-radio_0.webp": {
+    "mtime": 1791896859.60371,
+    "ast_hash": "53e6d1eb5420aa4e5ff9c2e1e86e8f64",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/feira-int-serralheria_0.webp": {
+    "mtime": 1791896859.739017,
+    "ast_hash": "a14e15716d29f50dd8602a19b8ef3db1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/cenas/alto/fundos.js": {
+    "mtime": 1791898241.9551167,
+    "ast_hash": "4d872657da43ea3138e8facfb85ecd4e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/cenas/baixada/fundos.js": {
+    "mtime": 1791898231.8509965,
+    "ast_hash": "5a20e82086f55f518fadc3afc60300f3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/cenas/laje/fundos.js": {
+    "mtime": 1791898245.5359993,
+    "ast_hash": "b4c874eef5b2f09fe999d62162ccf5f8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/cenas/morro/fundos.js": {
+    "mtime": 1791898238.871816,
+    "ast_hash": "c3ee0425a27da4a2571af2b3f3f5b362",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/cenas/vila/fundos.js": {
+    "mtime": 1791898236.1105673,
+    "ast_hash": "70443d67dfc9d0e04ba11d4fb6225a49",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-bloco-1.webp": {
+    "mtime": 1791898239.39554,
+    "ast_hash": "8e1e66a3d4754bed918ea121bee28b72",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-bloco-2.webp": {
+    "mtime": 1791898239.8094535,
+    "ast_hash": "bdd574021b7a5867344d181762e25aec",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-bloco-3.webp": {
+    "mtime": 1791898240.1752274,
+    "ast_hash": "3932cb5f327347774e3b61908a966327",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-bloco-4.webp": {
+    "mtime": 1791898240.5087662,
+    "ast_hash": "9bc77669d6b5be9278d3754e161f6a4b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-bloco-5.webp": {
+    "mtime": 1791898240.943096,
+    "ast_hash": "769063d8e12549f095077e7bae0a4b65",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-int-birosca_0.webp": {
+    "mtime": 1791898241.0593932,
+    "ast_hash": "8ae748ea5fffebca2d63a4d0436143ad",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-int-birosca_1.webp": {
+    "mtime": 1791898241.143412,
+    "ast_hash": "2d13d14fc0ac04de530c47fbbc0e96c4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-int-emporio_0.webp": {
+    "mtime": 1791898241.356125,
+    "ast_hash": "06001c42093100efb40d3ec06a9a507c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-int-escritorio_0.webp": {
+    "mtime": 1791898241.589761,
+    "ast_hash": "e12d75dd6dcf0c2e4ada18a3165edfcb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-int-escritorio_1.webp": {
+    "mtime": 1791898241.6907687,
+    "ast_hash": "43bb8d4bea4b06c8dfbb79d689d4f96a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-int-escritorio_2.webp": {
+    "mtime": 1791898241.8153296,
+    "ast_hash": "418b6718e54a19f6c7b0d7fac383bf0d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-int-escritorio_3.webp": {
+    "mtime": 1791898241.9531004,
+    "ast_hash": "75a77d520232686ddaa7d61ff805ff83",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-int-oficina_0.webp": {
+    "mtime": 1791898241.2440917,
+    "ast_hash": "38af2363d10655f88fa9d8cf2841563c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/alto-int-sala_cinco_0.webp": {
+    "mtime": 1791898241.4800842,
+    "ast_hash": "74aa3270aba5e2443f1eb13856d34d65",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/baixada-bloco-1.webp": {
+    "mtime": 1791898229.8150907,
+    "ast_hash": "71d8b4c773e285fe8c71753e4ead06a5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/baixada-bloco-2.webp": {
+    "mtime": 1791898230.1934211,
+    "ast_hash": "7f50ceb7ab4dc88671a14722f1c39bdb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/baixada-bloco-3.webp": {
+    "mtime": 1791898230.6008399,
+    "ast_hash": "d827c6ff38039e6cc22f0609e34cfe23",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/baixada-bloco-4.webp": {
+    "mtime": 1791898230.9276118,
+    "ast_hash": "5cf1d171c0fd95a1857bb78efb310395",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/baixada-bloco-5.webp": {
+    "mtime": 1791898231.3375387,
+    "ast_hash": "e83e096d65fb8fe0872977d4dfec0597",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/baixada-int-birosca_0.webp": {
+    "mtime": 1791898231.452475,
+    "ast_hash": "630ad82f4231d14d4a85ec95f9c0c58a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/baixada-int-birosca_1.webp": {
+    "mtime": 1791898231.5576122,
+    "ast_hash": "0dae885d495cd30c1fbc3483b8897990",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/baixada-int-birosca_2_0.webp": {
+    "mtime": 1791898231.765771,
+    "ast_hash": "25918fd71e23f31f42d81b6045b82a50",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/baixada-int-deposito_0.webp": {
+    "mtime": 1791898231.8499923,
+    "ast_hash": "be5b4ff64335d0ddf996388ca5ee6a6a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/baixada-int-padaria_0.webp": {
+    "mtime": 1791898231.6631334,
+    "ast_hash": "792d465137fe548587473b705ebbe0ad",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-bloco-1.webp": {
+    "mtime": 1791898242.4074008,
+    "ast_hash": "2914a74ae7e0e41914b64c35d7bd3a2f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-bloco-2.webp": {
+    "mtime": 1791898242.7557998,
+    "ast_hash": "dc6b1cb72326b34d30a9ee3e4096d72f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-bloco-3.webp": {
+    "mtime": 1791898243.1624973,
+    "ast_hash": "b8595bffb43312798c0b209ccdedaa85",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-bloco-4.webp": {
+    "mtime": 1791898243.5261295,
+    "ast_hash": "30e93a42216138bada8ef7806e8c6ef4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-bloco-5.webp": {
+    "mtime": 1791898243.920881,
+    "ast_hash": "85c319dc550896544b9417b67e1dab1b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-birosca_0.webp": {
+    "mtime": 1791898244.052609,
+    "ast_hash": "610a045079960a49c8e811f1ee5ba9cb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-birosca_1.webp": {
+    "mtime": 1791898244.1407769,
+    "ast_hash": "3382ec3f85a7af71d73c26ba052a67d2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-loja_0.webp": {
+    "mtime": 1791898244.3381584,
+    "ast_hash": "620bdfaa1f848f0538274b518c3c45c9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-oficina_0.webp": {
+    "mtime": 1791898244.236865,
+    "ast_hash": "9519a2f97463b22e4cd534f723afeeb2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_0.webp": {
+    "mtime": 1791898244.4484043,
+    "ast_hash": "f4f8e803152ab9a8f2acc0fb3df3ecfd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_1.webp": {
+    "mtime": 1791898244.536494,
+    "ast_hash": "cc38543a5fbba205dce17d34a2f8e1a8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_2.webp": {
+    "mtime": 1791898244.6591654,
+    "ast_hash": "dcab507c85a344400583e89e4ae1a20a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_3.webp": {
+    "mtime": 1791898244.792297,
+    "ast_hash": "58bc62a858edad0cc26b596ea571bd20",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_4.webp": {
+    "mtime": 1791898244.9134495,
+    "ast_hash": "f7b7734aba5da92d0c91571d5c2388af",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_5.webp": {
+    "mtime": 1791898245.0120761,
+    "ast_hash": "a6d39d32d0185f8d4dbc088f1a63a198",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-topo_0.webp": {
+    "mtime": 1791898245.2055209,
+    "ast_hash": "da917b4e33f0005620c6bffce73e89d5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-topo_1.webp": {
+    "mtime": 1791898245.4056108,
+    "ast_hash": "7fb881aa718e5cad1ea5a797d7b19c30",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/laje-int-topo_2.webp": {
+    "mtime": 1791898245.5339174,
+    "ast_hash": "652a7b074cfc292cd5709f6adad03742",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-bloco-1.webp": {
+    "mtime": 1791898236.6028461,
+    "ast_hash": "e3190bc53fa857e36414d083eaecddcb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-bloco-2.webp": {
+    "mtime": 1791898236.9974878,
+    "ast_hash": "43d50386b4d58d7a03da1549ee8745f7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-bloco-3.webp": {
+    "mtime": 1791898237.4029815,
+    "ast_hash": "a9ad65ca87355c7a028be963e391d300",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-bloco-4.webp": {
+    "mtime": 1791898237.7481363,
+    "ast_hash": "802e01dc626adfb8b53af9c8e6013072",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-bloco-5.webp": {
+    "mtime": 1791898238.1376507,
+    "ast_hash": "d04a70edc672c11b1aa5e8d0dfabd993",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-int-birosca_0.webp": {
+    "mtime": 1791898238.2488346,
+    "ast_hash": "961925a67c719760c6a56caab122c220",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-int-birosca_1.webp": {
+    "mtime": 1791898238.3373601,
+    "ast_hash": "838861b0e666b6a4c42b15dfa6fdc652",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-int-boca_0.webp": {
+    "mtime": 1791898238.7344978,
+    "ast_hash": "a91e9fdc4ae0ad6c909600cdeba3b0e0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-int-boca_1.webp": {
+    "mtime": 1791898238.870801,
+    "ast_hash": "97a1d90478b7ebd499f36bdac7145780",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-int-creche_0.webp": {
+    "mtime": 1791898238.638399,
+    "ast_hash": "76b089e640357888f1462bcce8221ee3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-int-oficina_0.webp": {
+    "mtime": 1791898238.4591599,
+    "ast_hash": "5163a50fdacb39355656aa57b073ce0b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/morro-int-venda_0.webp": {
+    "mtime": 1791898238.5531044,
+    "ast_hash": "02c674ac1b1827e1ffabe7b9cd7d7587",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-bloco-1.webp": {
+    "mtime": 1791898232.370321,
+    "ast_hash": "a4930b078ee682190e7279c370130446",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-bloco-2.webp": {
+    "mtime": 1791898232.7243004,
+    "ast_hash": "bc3c6b0d7d2b73e8512f5bc40ffc230b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-bloco-3.webp": {
+    "mtime": 1791898233.1121595,
+    "ast_hash": "19f8ba998c3ba89e01c69f657bf54786",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-bloco-4.webp": {
+    "mtime": 1791898233.4282916,
+    "ast_hash": "fb0eb19d03bc1b08d4c4cfaeb0e9921b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-bloco-5.webp": {
+    "mtime": 1791898233.8113208,
+    "ast_hash": "f6b851983dd2798fd4e2dfddb6aa1a3f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-birosca_0.webp": {
+    "mtime": 1791898233.941205,
+    "ast_hash": "b3f66e7d980437d7216fbc746f5b27ec",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-birosca_1.webp": {
+    "mtime": 1791898234.0228286,
+    "ast_hash": "faf55877b2b8d1bf7ebc7c74c25ff65a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_0.webp": {
+    "mtime": 1791898234.3878074,
+    "ast_hash": "8ad628e0fff5d07f814e30ca5db6f6ad",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_1.webp": {
+    "mtime": 1791898234.5137053,
+    "ast_hash": "8f6ecd9a9c82cd684efd9fc9ac5f2bb7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_10.webp": {
+    "mtime": 1791898236.109643,
+    "ast_hash": "e569e9a12010dd74e2eb06cf4c64caf4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_2.webp": {
+    "mtime": 1791898234.6852355,
+    "ast_hash": "569c161c91501f185c259fc6a5c03cc7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_3.webp": {
+    "mtime": 1791898234.8389795,
+    "ast_hash": "d927d3189cf27b4492134999322d1fe6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_4.webp": {
+    "mtime": 1791898235.0406504,
+    "ast_hash": "2cf6081f302f92ec38153e0abc11ae54",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_5.webp": {
+    "mtime": 1791898235.222849,
+    "ast_hash": "3c553c4b6d8d2c83922e54140d2058fd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_6.webp": {
+    "mtime": 1791898235.386105,
+    "ast_hash": "cd2c1d8f36b4bf5f081612958d3fbedb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_7.webp": {
+    "mtime": 1791898235.5448847,
+    "ast_hash": "657c87e43b308967809a263374165689",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_8.webp": {
+    "mtime": 1791898235.717423,
+    "ast_hash": "7f0ea11347d0bf53d41fc2a1992ed643",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_9.webp": {
+    "mtime": 1791898235.9124653,
+    "ast_hash": "77f69f889336e26a496a95dec5a7e6b1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-brecho_0.webp": {
+    "mtime": 1791898234.272801,
+    "ast_hash": "1394ee3db5da918566cc0285ad3b388e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/vila-int-oficina_0.webp": {
+    "mtime": 1791898234.1337893,
+    "ast_hash": "3a60e8a8ed2dd74e14dbcdf497948df1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/backgrounds/mapa-marelia.webp": {
+    "mtime": 1791901116.9573252,
+    "ast_hash": "e1f7980f3b5a268e672234b50fcc5bdb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/LutaRitmo.jsx": {
+    "mtime": 1791942287.920371,
+    "ast_hash": "30ea3d29095adce56e56392c9b640c4c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/campanha.js": {
+    "mtime": 1791942287.9193654,
+    "ast_hash": "ef57e16b7f92e49990daf7f51f137441",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/som.js": {
+    "mtime": 1791919947.5357685,
+    "ast_hash": "0ae07f094db087fae3cb92ce3d968d2d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/Arena3D.jsx": {
+    "mtime": 1791942265.3093016,
+    "ast_hash": "05eafe0b63a49b12314f226318383b28",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-04-en.webp": {
+    "mtime": 1791907480.9927237,
+    "ast_hash": "c6e10d62fd8e2227ab5a02a34c7abaa7",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-04-es.webp": {
+    "mtime": 1791907481.075084,
+    "ast_hash": "490be0b5cf3113ecbe399db36f7e63c3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/musica/luta-01.mp3": {
+    "mtime": 1791910624.792498,
+    "ast_hash": "addfaeb3c7121452cce28e199bca9e43",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/musica/luta-02.mp3": {
+    "mtime": 1791910627.2176878,
+    "ast_hash": "86bdb82055bf598e2a6664b88fb59dec",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/musica/luta-03.mp3": {
+    "mtime": 1791910630.4824736,
+    "ast_hash": "6c041f55386838b007bfc2aea1ed9085",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/musica/luta-04.mp3": {
+    "mtime": 1791910633.637442,
+    "ast_hash": "76da614b1592fc6d3c38ba0efab99651",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/musica/luta-05.mp3": {
+    "mtime": 1791910635.4433038,
+    "ast_hash": "a956b06053beac7d3e58356f673a2840",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/musica/luta-06.mp3": {
+    "mtime": 1791910637.829972,
+    "ast_hash": "e55edc2b60f12aa96c544d4ac38597ac",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/musica/luta-07.mp3": {
+    "mtime": 1791910639.1614344,
+    "ast_hash": "efced7d9bfb87a91fbe4c733d8af47f2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/musica/luta-08.mp3": {
+    "mtime": 1791910640.7930307,
+    "ast_hash": "52e1b1c355c5b8aa509dd3438ae948c0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/carga-1.mp3": {
+    "mtime": 1791913380.9743135,
+    "ast_hash": "8980934d284f0a0ae5acf890f7028b60",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/estalo-1.mp3": {
+    "mtime": 1791913381.3955457,
+    "ast_hash": "3f1d8a6a3cd1597e5c63ff4b953b7d08",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/explosao-1.mp3": {
+    "mtime": 1791913381.1855254,
+    "ast_hash": "3762cae7b59fb842de8215c0a728c76d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/explosao-2.mp3": {
+    "mtime": 1791913381.294409,
+    "ast_hash": "e995d3dae27ba08ec5e747115bcef31e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/laser-1.mp3": {
+    "mtime": 1791913380.6477394,
+    "ast_hash": "b9ec61e4c8c54504262c55efdb845b78",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/laser-2.mp3": {
+    "mtime": 1791913380.7508976,
+    "ast_hash": "ae893bfceb22b3e1c487116df09765e2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/laser-3.mp3": {
+    "mtime": 1791913380.864709,
+    "ast_hash": "7fab1b8e206b1d10b96e4030f649e24b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/macio-1.mp3": {
+    "mtime": 1791913379.9234376,
+    "ast_hash": "13d5ad243dcad63a3f9bb81d4bbfe117",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/macio-2.mp3": {
+    "mtime": 1791913380.0377643,
+    "ast_hash": "6c3b3e5c72bbe3e84c10199421ad5f63",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/metal-1.mp3": {
+    "mtime": 1791913380.150042,
+    "ast_hash": "9600f8907cbcea9011a70ed7abd740fc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/metal-2.mp3": {
+    "mtime": 1791913380.2467213,
+    "ast_hash": "7220b3852f66994bda5608de656df3f5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/metal-3.mp3": {
+    "mtime": 1791913380.345755,
+    "ast_hash": "5bc14e7d6a28ac723175f4532a6e0af1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/passo-1.mp3": {
+    "mtime": 1791913381.4968355,
+    "ast_hash": "73799ea2c91fc7a9d977dc6a80bdec14",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/passo-2.mp3": {
+    "mtime": 1791913381.5982857,
+    "ast_hash": "a125f2aa7b4ede0fde377c3ddfd1392b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/passo-3.mp3": {
+    "mtime": 1791913381.6964345,
+    "ast_hash": "3862dc7385f388425c45a941e450f4ea",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/passo-4.mp3": {
+    "mtime": 1791913381.794318,
+    "ast_hash": "7d3b1d3bb8e347774f2783041f2a00ba",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/pesado-1.mp3": {
+    "mtime": 1791913379.620945,
+    "ast_hash": "e777c7d0bb58643f6749bae97c3d8da1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/pesado-2.mp3": {
+    "mtime": 1791913379.726508,
+    "ast_hash": "c83ebcc6b789cc7d88fde6c37622e8d0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/pesado-3.mp3": {
+    "mtime": 1791913379.8276231,
+    "ast_hash": "d969abf6399f77c26ebf16d50ea37128",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/placa-1.mp3": {
+    "mtime": 1791913380.445575,
+    "ast_hash": "0a39ec75417756d7735338210a97a60a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/placa-2.mp3": {
+    "mtime": 1791913380.551843,
+    "ast_hash": "1cc68aa5b0bf68107c867fbca6722b10",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/raio-1.mp3": {
+    "mtime": 1791913381.0807123,
+    "ast_hash": "49cc7652ebeaa5dc306d8d85dfa80e07",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/soco-1.mp3": {
+    "mtime": 1791913379.3154387,
+    "ast_hash": "1aeb768a8c998353dbfef04e6b3e22dc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/soco-2.mp3": {
+    "mtime": 1791913379.4188352,
+    "ast_hash": "ee6e2226becf2f177ae124783e215ed1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/soco-3.mp3": {
+    "mtime": 1791913379.519608,
+    "ast_hash": "23c7b4e13b87ee4b69ae3e2315662f03",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/particulas.js": {
+    "mtime": 1791917513.899764,
+    "ast_hash": "89808d6b53be56a677490f7a66dccb14",
+    "semantic_hash": ""
+  },
+  "src/data/mar-de-cinzas-episodios.json": {
+    "mtime": 1791917119.1712186,
+    "ast_hash": "c0294f2e80cf2e6f8b3aaba226f5e77e",
+    "semantic_hash": ""
+  },
+  "src/data/mundo-das-sombras-episodios.json": {
+    "mtime": 1792062408.938042,
+    "ast_hash": "f20a0d70f8379d927929decbb8b344ad",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-mar-de-cinzas-01.webp": {
+    "mtime": 1791917119.0180113,
+    "ast_hash": "3125c890ffd4d682663cb8e1ab8b2c36",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-mundo-das-sombras-01.webp": {
+    "mtime": 1792062408.2203548,
+    "ast_hash": "7c528a53bfa495a91dfca286811f6af1",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-mundo-das-sombras-02.webp": {
+    "mtime": 1792062408.3719594,
+    "ast_hash": "e8824293488fef5563a650679398ce21",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/capa-mar-de-cinzas.webp": {
+    "mtime": 1791917118.9910119,
+    "ast_hash": "6f34aa7f2e71ce9060d04e30f09242f5",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/capa-mundo-das-sombras.webp": {
+    "mtime": 1792062408.0511863,
+    "ast_hash": "1c1f0130f27af95f6458e92fc3eb0f32",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.1-1.webp": {
+    "mtime": 1791918425.700724,
+    "ast_hash": "dc8780b98187e2a3fb70ac6b95bdbef7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.1b-1.webp": {
+    "mtime": 1791918425.7267272,
+    "ast_hash": "2a711ce3d27070e527436cc4cc4167ad",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.1-2.webp": {
+    "mtime": 1791919664.8459575,
+    "ast_hash": "70cd6cd1a0ddeb69692721f805bb931e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.1-3.webp": {
+    "mtime": 1791919664.8669574,
+    "ast_hash": "492637019a91ce3a66d139b0dbc3d3bc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.2-1.webp": {
+    "mtime": 1791922577.0027888,
+    "ast_hash": "b5f2365332058dcf90fdea3ec711bf02",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.2-2.webp": {
+    "mtime": 1791922575.536016,
+    "ast_hash": "6cf43b572048e1f1d0b439cd36bf05f0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3-1.webp": {
+    "mtime": 1791922575.855165,
+    "ast_hash": "09f2604ad5d5e0da3b6cddfc0f972eb3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3-2.webp": {
+    "mtime": 1791922587.2775018,
+    "ast_hash": "d0fff72b1c5fdda47ee5bb761f05df94",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3-3.webp": {
+    "mtime": 1791922587.270502,
+    "ast_hash": "1de416b03c9ce5567e89fee58ee8363d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3a-1.webp": {
+    "mtime": 1791922587.4455125,
+    "ast_hash": "24e7b4d9de668e5c6e18bcfb045409eb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3b-1.webp": {
+    "mtime": 1791922598.926184,
+    "ast_hash": "85fbfcd407fbb551751b702477e023eb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3c-1.webp": {
+    "mtime": 1791922596.2196643,
+    "ast_hash": "ac3d8538dfe2ed8c7b082098c1e2f219",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3d-1.webp": {
+    "mtime": 1791922597.4658196,
+    "ast_hash": "bcd8248de6c49439c8cc96348bb556b6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3d-2.webp": {
+    "mtime": 1791922607.131188,
+    "ast_hash": "94293f7f84b440655d937915df03cc7f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3d-briga-1.webp": {
+    "mtime": 1791922608.2834578,
+    "ast_hash": "bb40425fcb934e9cb401414a608dfaf0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3d-luta-1.webp": {
+    "mtime": 1791922609.4242764,
+    "ast_hash": "9ae215f985db40d9d754da63a7a378fb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3d-pos-1.webp": {
+    "mtime": 1791922617.043424,
+    "ast_hash": "d2f6e1aea067fa1c40d9e144622ea4ab",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3e-1.webp": {
+    "mtime": 1791922618.8594687,
+    "ast_hash": "1b3f06d0391b52aae03511979f4db93d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3f-1.webp": {
+    "mtime": 1791922619.3217533,
+    "ast_hash": "1c5691c62d07db8b492ddff7ee6b6b69",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3f-2.webp": {
+    "mtime": 1791922627.376663,
+    "ast_hash": "fd9e914c2fda8034f75b815dce708ea9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4-1.webp": {
+    "mtime": 1791941683.943488,
+    "ast_hash": "c9e635afdd6345d265c774c7c533d400",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4-2.webp": {
+    "mtime": 1791941732.7075458,
+    "ast_hash": "1ac84d6d6c77209b55d01994b01b9a7d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4-3.webp": {
+    "mtime": 1791922629.8542557,
+    "ast_hash": "927c05d2a50f132e4dd51d30815d9c67",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4a-1.webp": {
+    "mtime": 1791922638.6900828,
+    "ast_hash": "d40a6d754c7c72665504120767501975",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4a-briga-1.webp": {
+    "mtime": 1791922637.9413705,
+    "ast_hash": "4c3996b874ba871cfcb85e6c2034ef21",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4b-1.webp": {
+    "mtime": 1791941733.9357064,
+    "ast_hash": "4869b607d66a0d64469ddc6c3e9ec9dd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4c-1.webp": {
+    "mtime": 1791919753.3309596,
+    "ast_hash": "5eaba5afa415eb4272fb8b80ed27b0d6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4t-1.webp": {
+    "mtime": 1791922648.106589,
+    "ast_hash": "4c9310843be0696ac63c0de594ba6633",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4t-2.webp": {
+    "mtime": 1791922649.8495674,
+    "ast_hash": "c670db0928a67faefae6e77c7cc66c4b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5-1.webp": {
+    "mtime": 1791922650.0900788,
+    "ast_hash": "7208876db852bdd0db96f20a52b63d9c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5-2.webp": {
+    "mtime": 1791941743.7090924,
+    "ast_hash": "1ee1e5e1d41e764b3b43a4cc9c92bab8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5-3.webp": {
+    "mtime": 1791919763.334369,
+    "ast_hash": "5e15324ab4b71d0a985303e1762f92bb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5-briga-1.webp": {
+    "mtime": 1791919768.6240716,
+    "ast_hash": "d7b31253d8cd14c72c4678a8945945ce",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5a-1.webp": {
+    "mtime": 1791922660.9463964,
+    "ast_hash": "2f25439c55c45b326626d9b6267445fd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5a-briga-1.webp": {
+    "mtime": 1791919775.2975166,
+    "ast_hash": "ade0a7fdba65931609c8b3fc698790f0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5a-briga-2.webp": {
+    "mtime": 1791922660.608086,
+    "ast_hash": "2df760770f02ee872499ff5d450451a6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5t-1.webp": {
+    "mtime": 1791922671.2431517,
+    "ast_hash": "ebfeeabc8bb63837c38a6df7b5b2df55",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5t-2.webp": {
+    "mtime": 1791922670.29167,
+    "ast_hash": "efb523fba598eeb792341415ff1e662b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.veia-1.webp": {
+    "mtime": 1791922669.6447716,
+    "ast_hash": "8724efb275fb3ef58a1318948632cf5d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.veia-2.webp": {
+    "mtime": 1791919675.7308767,
+    "ast_hash": "937dc9a8e02c93f5814f3c7bf76f6330",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.1-1.webp": {
+    "mtime": 1791919795.6449022,
+    "ast_hash": "6197f6f50b00c34f2b069bf153ec99d2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.1a-1.webp": {
+    "mtime": 1791919800.289724,
+    "ast_hash": "f75608b6e7a0ec54b4d745cff575e7d8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.1b-1.webp": {
+    "mtime": 1791922680.85392,
+    "ast_hash": "d793dbaba283cc7ca8c06b8b3ea3e754",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.1c-1.webp": {
+    "mtime": 1791919806.6706152,
+    "ast_hash": "b90c728222b9200aac99aefad70d008f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.1d-1.webp": {
+    "mtime": 1791919811.8578124,
+    "ast_hash": "bf38e14afb47e9a04f01e1faa692b95a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.1d-2.webp": {
+    "mtime": 1791919812.5438871,
+    "ast_hash": "3ba4a76ccf109693c9f6581d3d016ba8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.2-1.webp": {
+    "mtime": 1791919817.8171408,
+    "ast_hash": "7bd6eba1909e15f7f5a8b47a94a4e5c1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.2b-1.webp": {
+    "mtime": 1791919822.053438,
+    "ast_hash": "820742710ca4018efa23dfafdc76707e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.2b-2.webp": {
+    "mtime": 1791919821.8863733,
+    "ast_hash": "4a658ba96d49338f92710d16fc9538bf",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.3-1.webp": {
+    "mtime": 1791919827.6188343,
+    "ast_hash": "12131cd46d41e8448d2af19835ae3950",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.4fim-1.webp": {
+    "mtime": 1791919831.002063,
+    "ast_hash": "9187e8c51a87c079244ac369e50279a2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.4fim-2.webp": {
+    "mtime": 1791919831.4401288,
+    "ast_hash": "50e44add2dd7b58e78f50c438ac8172b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.fim-1.webp": {
+    "mtime": 1791919839.2316024,
+    "ast_hash": "791b6c3c1788caaf174a2699bcf7026f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.fim-2.webp": {
+    "mtime": 1791919841.4485657,
+    "ast_hash": "d9cc302b47152daee177f7ba2f41182a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.1-1.webp": {
+    "mtime": 1791919843.4497712,
+    "ast_hash": "7fcc7ba5805759e0f721b8d0ec937d9f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.1-2.webp": {
+    "mtime": 1791919848.6818008,
+    "ast_hash": "a8ea854742d239b4c2b2ecf6f0e4f018",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.1-3.webp": {
+    "mtime": 1791919852.6616488,
+    "ast_hash": "935f3e7f31455a5526280deb931d0944",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.2-briga-1.webp": {
+    "mtime": 1791919860.6781013,
+    "ast_hash": "b83dd60eb3251a5ac60681479c8384f6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.2_descanso-1.webp": {
+    "mtime": 1791941756.8566637,
+    "ast_hash": "4f84f2a8e8120a4c091e04230bacf5ec",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.2_dia8-1.webp": {
+    "mtime": 1791919855.3698308,
+    "ast_hash": "fd8be7e64cb8b6ca54db050bc9010abb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.2_investiga-1.webp": {
+    "mtime": 1791919862.2255156,
+    "ast_hash": "cf68f70ee2ca74b2648b1af53c84c490",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.2_trabalho-1.webp": {
+    "mtime": 1791919865.748996,
+    "ast_hash": "006a63c74d26c9474105c90a4bf1a812",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.3-briga-1.webp": {
+    "mtime": 1791919876.4191332,
+    "ast_hash": "e84b8869d99b20e12ceab39e06f4dc1d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.3_dia9-1.webp": {
+    "mtime": 1791919872.7838044,
+    "ast_hash": "1b0bbaef38018f20899c34afaf9259f9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.3_investiga-1.webp": {
+    "mtime": 1791919882.10851,
+    "ast_hash": "1a735fc1a5dc866534eeff30f40e2683",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.3_sbi-1.webp": {
+    "mtime": 1791919883.5660996,
+    "ast_hash": "d2602e80c1957bcb1cb9b7f0c9fdb44a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.4_dia10-1.webp": {
+    "mtime": 1791919889.2621458,
+    "ast_hash": "4b7ff83f0063a5daa0f630baddf52e25",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.4_dia10-2.webp": {
+    "mtime": 1791919891.4662335,
+    "ast_hash": "a3505f227bf4dbf5d95e473a2cd19d82",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.4_puzzle-1.webp": {
+    "mtime": 1791941683.8794956,
+    "ast_hash": "03dddd879011fd473851c36da415e202",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.4_puzzle_fail-1.webp": {
+    "mtime": 1791941693.3541508,
+    "ast_hash": "b436375f83cca8a11934d010cdf14596",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.4_puzzle_ok-1.webp": {
+    "mtime": 1791941693.2330682,
+    "ast_hash": "78bf59372ba1c8f08f017b2db91090f6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.5_dia11-1.webp": {
+    "mtime": 1791919906.854521,
+    "ast_hash": "47fdc33b276bf1b1aec81cf0e1661d70",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.6-briga-1.webp": {
+    "mtime": 1791919916.9016764,
+    "ast_hash": "0474a6ef2807ba7028f63c7b0a8e0698",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.6_dia12-1.webp": {
+    "mtime": 1791919910.8282585,
+    "ast_hash": "27926b59ccb202a9e2f828e0334bd1d3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.7_preparacao-1.webp": {
+    "mtime": 1791919912.8251042,
+    "ast_hash": "d75fe692e08f2f1e1462a494708775e1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.8_captura_ok-1.webp": {
+    "mtime": 1791919921.8881645,
+    "ast_hash": "dc02fd3c8b00ff6fc2837c91907a8196",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.treino-1.webp": {
+    "mtime": 1791919923.9262052,
+    "ast_hash": "9124abf0d61fb07ddaddb24718f44809",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.treino-2.webp": {
+    "mtime": 1791919927.9072244,
+    "ast_hash": "7dccc8e1b10a03b6ab281131ab4a40ea",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1-1.webp": {
+    "mtime": 1791919932.1331549,
+    "ast_hash": "73f4d07ec4a1256507fa349d901afe8d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1-2.webp": {
+    "mtime": 1791919933.9069674,
+    "ast_hash": "5cf1b76fa418848a5a7d5b1be7eee5ab",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1-3.webp": {
+    "mtime": 1791919938.8783321,
+    "ast_hash": "e42bf7769ce365dfbd48ee57f81059bc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1a-briga-1.webp": {
+    "mtime": 1791919945.4529479,
+    "ast_hash": "5407da431d03dccc035b5f3449514a9a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1a_combate-1.webp": {
+    "mtime": 1791941696.4986384,
+    "ast_hash": "e45b0abaaef08f98255b436437cf170e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1b_exposicao-1.webp": {
+    "mtime": 1791919949.7603106,
+    "ast_hash": "ca6cd51c85d5ab1dd6b6a7e31f9c5c4a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1c_acordo-1.webp": {
+    "mtime": 1791919956.3140955,
+    "ast_hash": "d21ccaf867056a9a8378bbe4d9826d57",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1c_acordo-2.webp": {
+    "mtime": 1791919961.924681,
+    "ast_hash": "b0fe49171c2715caebf8e4f0b2f6fb8d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1c_negociacao-1.webp": {
+    "mtime": 1791919952.6076913,
+    "ast_hash": "d565c1d2194fdac586ca8163ef50b500",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1d-briga-1.webp": {
+    "mtime": 1791919966.3496256,
+    "ast_hash": "baffc772e2c797afc380d23f92af1781",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1d_despreparado-1.webp": {
+    "mtime": 1791919963.2289364,
+    "ast_hash": "7396fac4a844baed541d68bb0e810174",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.2_derrota-1.webp": {
+    "mtime": 1791919985.285762,
+    "ast_hash": "48b4ced4273d0454271b0eb91ac8d4ab",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.2_derrota-2.webp": {
+    "mtime": 1791919987.8584342,
+    "ast_hash": "7a255ef43e79f93959879c87b17e20da",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.2_vitoria-1.webp": {
+    "mtime": 1791919974.3853908,
+    "ast_hash": "d9988d32ba8e734ef33ccf1de9b44357",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.2_vitoria-2.webp": {
+    "mtime": 1791919973.1009831,
+    "ast_hash": "59d2c0f273a65107394063ac28975da5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.2_vitoria_desperado-1.webp": {
+    "mtime": 1791919977.2653377,
+    "ast_hash": "05ff6de225e3a492312d24701b62c31b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.2_vitoria_desperado-2.webp": {
+    "mtime": 1791919983.443567,
+    "ast_hash": "b36f83ba1a10400a6058b244cd8e851c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/escolha-1.mp3": {
+    "mtime": 1791919947.3077824,
+    "ast_hash": "da766ecc502884e8b79a4815bd0ee222",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/escolha-2.mp3": {
+    "mtime": 1791919947.4278543,
+    "ast_hash": "727eae45cd1809234112950aa856635d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/pagina-1.mp3": {
+    "mtime": 1791919946.9291694,
+    "ast_hash": "409d454fca3d4e830433f1f9820cc863",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/pagina-2.mp3": {
+    "mtime": 1791919947.0571766,
+    "ast_hash": "0b9b074644363069ad7afe6f607a7a02",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/sfx/pagina-3.mp3": {
+    "mtime": 1791919947.1834767,
+    "ast_hash": "0076450cb7bcbff62964211147aef238",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/data/onomatopeias.json": {
+    "mtime": 1791924972.2978282,
+    "ast_hash": "2e843d3b0f584d736dd99586c1c6d079",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.1b-1b.webp": {
+    "mtime": 1791925691.8577757,
+    "ast_hash": "a7ad0e0d019eb1703b142405095c52d5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.2-1b.webp": {
+    "mtime": 1791941722.6585176,
+    "ast_hash": "8a5f293fffe4a8a33f0d813ce7eaa7a0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.2-2b.webp": {
+    "mtime": 1791925585.0076458,
+    "ast_hash": "9a08b358cd33ee571df4bc42b5751204",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3-2b.webp": {
+    "mtime": 1791925596.5986793,
+    "ast_hash": "5c42518852dda533dde6c1e16ef7df1d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3a-1b.webp": {
+    "mtime": 1791925603.9993577,
+    "ast_hash": "7feb8916d587295e69cd3d45f5a9a96b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3b-1b.webp": {
+    "mtime": 1791925605.6414225,
+    "ast_hash": "999475fce3b3e03d344693b0a9098947",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3c-1b.webp": {
+    "mtime": 1791925607.1157353,
+    "ast_hash": "e3ae0def4faf8218fa9fc63a01f96dbb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3d-1b.webp": {
+    "mtime": 1791925613.3827684,
+    "ast_hash": "b7b0ff17022558b6330d5596c3303f9c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3d-2b.webp": {
+    "mtime": 1791925617.0673938,
+    "ast_hash": "a488e58bb12ca2d6c295072a32404b14",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3d-luta-1b.webp": {
+    "mtime": 1791925619.6638281,
+    "ast_hash": "29bec57e65c787b28cb3c85d16aa31ad",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3d-pos-1b.webp": {
+    "mtime": 1791925622.8120575,
+    "ast_hash": "3588f5728e9a794c89c357b059efadeb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3e-1b.webp": {
+    "mtime": 1791925627.136878,
+    "ast_hash": "235d5cb78e79369a898530e4dfb7cdd5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.3f-1b.webp": {
+    "mtime": 1791925629.6955156,
+    "ast_hash": "3e2115bee335f4faf2e7a0949b7e0134",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4-1b.webp": {
+    "mtime": 1791941722.8515346,
+    "ast_hash": "d8dcf49b65ef5a10b84a41226d6d13dc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4-2b.webp": {
+    "mtime": 1791941731.5504012,
+    "ast_hash": "9c313c9011eaf5840ad5e46c74400152",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4a-1b.webp": {
+    "mtime": 1791925639.5513706,
+    "ast_hash": "68ebd94f53807734b976eb581b006668",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4b-1b.webp": {
+    "mtime": 1791941743.105762,
+    "ast_hash": "80ab0ab430b7f1018007f62e0b5b1d71",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4c-1b.webp": {
+    "mtime": 1791925648.1500237,
+    "ast_hash": "b159199ebda0143e8811173044a6b999",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.4t-1b.webp": {
+    "mtime": 1791941755.2960494,
+    "ast_hash": "c53c44ae2270241a51f583e8498708b0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5-2b.webp": {
+    "mtime": 1791941745.5726163,
+    "ast_hash": "0a7cdd97307a8e6b255088548230f526",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5-briga-1b.webp": {
+    "mtime": 1791925652.4656756,
+    "ast_hash": "c3bf4f8aa920b2a61a3957849ade7206",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5a-1b.webp": {
+    "mtime": 1791925659.4686213,
+    "ast_hash": "dedef905d68a8c95287107bdbaa6dace",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.5t-1b.webp": {
+    "mtime": 1791925663.250161,
+    "ast_hash": "53004e0865a0feeba602507fe188c5b0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.veia-1b.webp": {
+    "mtime": 1791925593.329919,
+    "ast_hash": "cf9ff51f048927dcfcdd4f55d8ede9c5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.veia-2b.webp": {
+    "mtime": 1791925595.0487463,
+    "ast_hash": "160d6bd802b8b802fb1e52d9f3e0abc2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.1-1b.webp": {
+    "mtime": 1791941710.6938412,
+    "ast_hash": "1d97d023fc1731106611d61dfbe2f0b5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.1a-1b.webp": {
+    "mtime": 1791941709.1311705,
+    "ast_hash": "781cc6f2e673dfb3a65d4f22a45652ed",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.1b-1b.webp": {
+    "mtime": 1791941707.9024885,
+    "ast_hash": "9745fbb4d9d7b6fbea8748fff04c71f2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.1c-1b.webp": {
+    "mtime": 1791941719.9525957,
+    "ast_hash": "2c6b88b26b41117c3d3752188a4d6ff7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.1d-1b.webp": {
+    "mtime": 1791925682.5993776,
+    "ast_hash": "4a6b63eb7f352ab6ed76df28f1d58c05",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.2-1b.webp": {
+    "mtime": 1791925685.5143127,
+    "ast_hash": "2fc839f908e33395b4910b9de6e4b883",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.3-1b.webp": {
+    "mtime": 1791925691.355028,
+    "ast_hash": "52a1d62b254eb0504ae4c9c5bd546c99",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/2.4fim-2b.webp": {
+    "mtime": 1791925692.9412255,
+    "ast_hash": "ee2d1bdddf2160a78f8321730f92492c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.1-1b.webp": {
+    "mtime": 1791925694.9901774,
+    "ast_hash": "6c6b0b2ce0ac780e9ee4ccb8816748fb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.1-2b.webp": {
+    "mtime": 1791925702.6266334,
+    "ast_hash": "2590e012d427fec043ab7d1389765acc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.2_descanso-1b.webp": {
+    "mtime": 1791941765.879064,
+    "ast_hash": "e8aff5d89290cd9bf4bbf6b2c6be89cd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.2_dia8-1b.webp": {
+    "mtime": 1791925706.0841787,
+    "ast_hash": "92cef2da3a7bc78ff4a14ef5ac0e513c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.2_investiga-1b.webp": {
+    "mtime": 1791941755.376049,
+    "ast_hash": "b5a0821a5d6e44b2b830c9e69087a150",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.2_trabalho-1b.webp": {
+    "mtime": 1791941685.5641806,
+    "ast_hash": "7e7b799822d8f2c8d77e36b524e7d796",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.3_investiga-1b.webp": {
+    "mtime": 1791941766.181056,
+    "ast_hash": "f9dceb94295d8cfd104e615b63ddbec7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.3_sbi-1b.webp": {
+    "mtime": 1791941767.3672464,
+    "ast_hash": "a3745fa6c3908e07519636093d6ef5a8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.4_dia10-1b.webp": {
+    "mtime": 1791925721.8931599,
+    "ast_hash": "5809d19020bc2de9fbd124a95f558557",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.4_dia10-2b.webp": {
+    "mtime": 1791925726.2889094,
+    "ast_hash": "84f54150115b6c6d7b66824ed1241b56",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.4_puzzle-1b.webp": {
+    "mtime": 1791941778.3102837,
+    "ast_hash": "33c3629eb69cdedefaf4c8a0159deefe",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.4_puzzle_fail-1b.webp": {
+    "mtime": 1791925733.0266645,
+    "ast_hash": "6c68d2255abd82b9857b6c34d6ce2d82",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.4_puzzle_ok-1b.webp": {
+    "mtime": 1791941777.4705594,
+    "ast_hash": "c0b6b84a470665a471a01a01adff1a43",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.5_dia11-1b.webp": {
+    "mtime": 1791925746.642724,
+    "ast_hash": "725a27d2de4992af9976bcb19107345c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.6_dia12-1b.webp": {
+    "mtime": 1791925741.9231262,
+    "ast_hash": "c1dacd4c7a546785aa7e8bca92e8dbbd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.7_preparacao-1b.webp": {
+    "mtime": 1791925748.7820375,
+    "ast_hash": "29b59c612568e0d6ffbddcc381197756",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.8_captura_ok-1b.webp": {
+    "mtime": 1791925753.6180818,
+    "ast_hash": "b3944388bf0f544675c418a1708a0a1e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/3.treino-1b.webp": {
+    "mtime": 1791925757.645333,
+    "ast_hash": "080b49cefd1eab2d3115387851e7b2b6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1-2b.webp": {
+    "mtime": 1791925758.1827993,
+    "ast_hash": "05ca6937f1128b0f9a7047bdfcdc2bc9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1a_combate-1b.webp": {
+    "mtime": 1791925764.198901,
+    "ast_hash": "3d1a5f5f4734e4c4cc7f36860350e469",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1b_exposicao-1b.webp": {
+    "mtime": 1791925768.635899,
+    "ast_hash": "e3a18a490a8aad8b6e5dc60640b083cd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1c_acordo-1b.webp": {
+    "mtime": 1791925774.786597,
+    "ast_hash": "d593bcaec83fbf3b1d9a31c78c75baa8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1c_acordo-2b.webp": {
+    "mtime": 1791925778.1477015,
+    "ast_hash": "cc6e1949d55621c5f6360abb27465403",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1c_negociacao-1b.webp": {
+    "mtime": 1791925768.2908535,
+    "ast_hash": "49430782d2a07c9d6ae8a8e10da5aff7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1d-briga-1b.webp": {
+    "mtime": 1791925785.2659955,
+    "ast_hash": "feacce696094c98aa1b9ec37f2569e13",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.1d_despreparado-1b.webp": {
+    "mtime": 1791925778.553318,
+    "ast_hash": "9d361368ec939db13c0d053a696de8e7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.2_derrota-2b.webp": {
+    "mtime": 1791925798.3781211,
+    "ast_hash": "8f6076534048aa5cd895f749227931bd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.2_vitoria-1b.webp": {
+    "mtime": 1791925788.0322187,
+    "ast_hash": "953083c67347fad0178698383cbe290a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.2_vitoria_desperado-1b.webp": {
+    "mtime": 1791925789.8567607,
+    "ast_hash": "4817eeb0b6940da613f258d24062b70d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/4.2_vitoria_desperado-2b.webp": {
+    "mtime": 1791925797.02096,
+    "ast_hash": "d03e73ee297f42a0be1eff5dd81365d5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/tutorial.js": {
+    "mtime": 1791934129.2122552,
+    "ast_hash": "32fdd5bc3a6aac9d0aabe3d14293f9c9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.1c-1.webp": {
+    "mtime": 1791929664.5327947,
+    "ast_hash": "2d43ab9a652f27559428aab98b225b09",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.1c-2.webp": {
+    "mtime": 1791929664.5449653,
+    "ast_hash": "c68e79644f2c8d135da32067e71bd83d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/arte/1.1c-3.webp": {
+    "mtime": 1791929665.3016915,
+    "ast_hash": "290cd7521156bcb4ac6c9107a2a7079c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/bolso.js": {
+    "mtime": 1791930486.9671834,
+    "ast_hash": "6a591e7d4484906113ab0817982bc795",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/components/Bolso.jsx": {
+    "mtime": 1791930493.7722452,
+    "ast_hash": "0f6155f71ac61015b0e53dfcd77beb1d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/cena/GanguesCarregando.jsx": {
+    "mtime": 1791931274.5624878,
+    "ast_hash": "13958c0aaf4b0382bb7f14e1f2c9f54e",
+    "semantic_hash": ""
+  },
+  "src/i18n/lendas/en.json": {
+    "mtime": 1791942265.3113062,
+    "ast_hash": "bbc908aa2302e4a95a9dd161b48667d3",
+    "semantic_hash": ""
+  },
+  "src/i18n/lendas/es.json": {
+    "mtime": 1791942265.3113062,
+    "ast_hash": "f7be60e38e8d663b123c8fc1cb3b9b98",
+    "semantic_hash": ""
+  },
+  "src/i18n/lendas/pt.json": {
+    "mtime": 1791942265.3103063,
+    "ast_hash": "0ff72e8a2cf163d6c524f59fdc356b73",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/DicaTutorial.jsx": {
+    "mtime": 1791934129.23848,
+    "ast_hash": "21f3f115cbfc5967b911706198ee1ec3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/batalha/arenaLDI.js": {
+    "mtime": 1791942241.7038672,
+    "ast_hash": "22b74930fb28e1db2b8e8aa2a3637a6e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/ganguesBandoFixo.js": {
+    "mtime": 1791954411.989843,
+    "ast_hash": "a90faea3339615fd7680077113e5dea6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/ganguesBandos.json": {
+    "mtime": 1791944922.8626323,
+    "ast_hash": "2603479f0b9aea68e6656cc253401a7e",
+    "semantic_hash": ""
+  },
+  "docs/PRODUCAO_IMAGEM.md": {
+    "mtime": 1791988008.3378346,
+    "ast_hash": "abab0c15886019a6ae00bdb1c97e3e9e",
+    "semantic_hash": ""
+  },
+  "docs/T1_PENDENCIAS.md": {
+    "mtime": 1791953989.3304734,
+    "ast_hash": "8931e835016499ab0aa736b144743c7d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/data/scenes/en/act1.json": {
+    "mtime": 1791950224.7209854,
+    "ast_hash": "07eed10cab4abca09aea01a1cc4bbca1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/data/scenes/en/act2.json": {
+    "mtime": 1791950289.286796,
+    "ast_hash": "9f6d8ae84984393ea0aef4aa5d96dde2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/data/scenes/en/act3.json": {
+    "mtime": 1791950378.448715,
+    "ast_hash": "2ac270de1469fd1e7df40d620a586526",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/data/scenes/en/act4.json": {
+    "mtime": 1791950458.6867647,
+    "ast_hash": "11cd4d4fa4d93537f8300303d7155988",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/data/scenes/es/act1.json": {
+    "mtime": 1791950655.7131224,
+    "ast_hash": "330b284420fa25ebd28cbcd5e6262e9c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/data/scenes/es/act2.json": {
+    "mtime": 1791950731.3821242,
+    "ast_hash": "494a98d6ab854397a73ba449619ca77a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/data/scenes/es/act3.json": {
+    "mtime": 1791950890.7599857,
+    "ast_hash": "ff1cbf70162737b8267a7a2c992c8371",
+    "semantic_hash": ""
+  },
+  "src/pages/games/LDI/data/scenes/es/act4.json": {
+    "mtime": 1791950982.4157307,
+    "ast_hash": "b009f446d9ed4dc0acb0de5ee47fa978",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-07.md": {
+    "mtime": 1791951309.29982,
+    "ast_hash": "6c180f474e37a88e93ab546ab0962df5",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-08.md": {
+    "mtime": 1791951309.311827,
+    "ast_hash": "cf80dbb790eae72aa6e9cf0739516f0e",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-09.md": {
+    "mtime": 1791953961.191382,
+    "ast_hash": "e5345255314982015a2dfdf0657834d0",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-10.md": {
+    "mtime": 1791953961.2278364,
+    "ast_hash": "1eb8430b99f5a998165b15af677957fa",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-11.md": {
+    "mtime": 1791953961.2582893,
+    "ast_hash": "f979c50c4ec430af4a5aee029a86ae3a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-12.md": {
+    "mtime": 1791951309.4089544,
+    "ast_hash": "962c1e43a32c5db5f137ae2dc876159a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-13.md": {
+    "mtime": 1791951309.4349597,
+    "ast_hash": "c02e7bee42e34d90d6295fd8adc524a1",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-14.md": {
+    "mtime": 1791951309.4604135,
+    "ast_hash": "2f63eb07dadae4aad38534516f068f3c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-15.md": {
+    "mtime": 1791951309.489062,
+    "ast_hash": "5c334d13d6c40a20e6c09e27a7a618c2",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-16.md": {
+    "mtime": 1791951309.5147421,
+    "ast_hash": "8021ac875cffc557545b7a7af633ff2f",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-17.md": {
+    "mtime": 1791953961.2976706,
+    "ast_hash": "3da4406f8b9b9c42a4236b45a4f9087f",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-18.md": {
+    "mtime": 1791951309.5594175,
+    "ast_hash": "be8a2eae51d8034686ab02991a3f2a38",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-19.md": {
+    "mtime": 1791951309.5824904,
+    "ast_hash": "04af26cc704eaa76957c3d677a71427d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-20.md": {
+    "mtime": 1791951309.6004336,
+    "ast_hash": "04fdbfbd9b588d95c47261d3e4a7cfb3",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-21.md": {
+    "mtime": 1791951309.6276622,
+    "ast_hash": "7dc684d03fb2af0747f28cfd0b70feaf",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-22.md": {
+    "mtime": 1791951309.6516702,
+    "ast_hash": "4554a4383be0446d8b959b266b063f8d",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-23.md": {
+    "mtime": 1791951309.6757941,
+    "ast_hash": "4ae1095a1f5e4b7c0b09974dd2d2cefe",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-24.md": {
+    "mtime": 1791951309.6977508,
+    "ast_hash": "4b2ba7e56960ff1ea961939d50976ba1",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-25.md": {
+    "mtime": 1791951309.7191994,
+    "ast_hash": "0e3d4960cde19f3e0574d52707880615",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-26.md": {
+    "mtime": 1791951309.7402403,
+    "ast_hash": "0da5d08561cbe4b8de8198f6803b47e0",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-27.md": {
+    "mtime": 1791951309.762112,
+    "ast_hash": "d05ab947dad68102f4cc8ee93b115111",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-28.md": {
+    "mtime": 1791951309.7871394,
+    "ast_hash": "75baa5827e651796a67f83757e3a7015",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-07.md": {
+    "mtime": 1791951309.8331451,
+    "ast_hash": "e461ebb169e8d6809f1015db6a51a0f2",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-08.md": {
+    "mtime": 1791951309.856106,
+    "ast_hash": "30d80ac59a40db39ad390697043ebb53",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-09.md": {
+    "mtime": 1791953961.3287494,
+    "ast_hash": "6e9391a0bc666c167ec75868da0cfff7",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-10.md": {
+    "mtime": 1791953961.359233,
+    "ast_hash": "f29577248c8191ac49c7d5c67ce50468",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-11.md": {
+    "mtime": 1791953961.389218,
+    "ast_hash": "55f99a6db75e1e61f746f6f3e29bc976",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-12.md": {
+    "mtime": 1791951309.9369228,
+    "ast_hash": "90ac9879054658ea7ba73384bf8a06ea",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-13.md": {
+    "mtime": 1791951309.9519289,
+    "ast_hash": "0e73b86fd0b0699792bb2f26810d3b64",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-14.md": {
+    "mtime": 1791951309.9719224,
+    "ast_hash": "73092680336fba5f823cbe3e64a1276b",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-15.md": {
+    "mtime": 1791951309.9969268,
+    "ast_hash": "fff28707d5ae654f88de9ea0f0cdfc6a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-16.md": {
+    "mtime": 1791951310.0209923,
+    "ast_hash": "6e80e332f28fc194454c1f1bb7748060",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-17.md": {
+    "mtime": 1791953961.4201362,
+    "ast_hash": "ecb4e95a223ef2ada6e462b17783f98c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-18.md": {
+    "mtime": 1791951310.073635,
+    "ast_hash": "6a111acbf718be4ea2c409d1fa4de6e1",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-19.md": {
+    "mtime": 1791951310.1056533,
+    "ast_hash": "3b8b945eeef96aa18c5a5d3f0a066da6",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-20.md": {
+    "mtime": 1791951310.131684,
+    "ast_hash": "27fb6941766ef38c6a01056ba9749759",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-21.md": {
+    "mtime": 1791951310.1526628,
+    "ast_hash": "56a826a1530415140e96889d2753f014",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-22.md": {
+    "mtime": 1791951310.1786575,
+    "ast_hash": "dca4d1f63351a25731126f8052044803",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-23.md": {
+    "mtime": 1791951310.198658,
+    "ast_hash": "c30c2b7ba98bf1fef16ed61e9ecc4048",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-24.md": {
+    "mtime": 1791951310.2137492,
+    "ast_hash": "802193ab591708f06f3e9d93175c5b31",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-25.md": {
+    "mtime": 1791951310.2322576,
+    "ast_hash": "ceef81c5292e63a48a1a075a11a94285",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-26.md": {
+    "mtime": 1791951310.249493,
+    "ast_hash": "9b24ae2acdeeb69ccea611cf7384573a",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-27.md": {
+    "mtime": 1791951310.2659433,
+    "ast_hash": "e588c6de8ecd2d504a010942acc9a6c4",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-28.md": {
+    "mtime": 1791951310.2836418,
+    "ast_hash": "0b7dac62c3ef221d95fb772cf5ac93fc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/golpe/GanguesDadosRodada.jsx": {
+    "mtime": 1791954909.701511,
+    "ast_hash": "049af11d2f20c90022f9693c00eab3ac",
+    "semantic_hash": ""
+  },
+  "src/components/ConviteConta/ConviteConta.jsx": {
+    "mtime": 1791982798.903229,
+    "ast_hash": "e7e23d92678b33baff502a6e5d14379d",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-mundo-das-sombras-03.webp": {
+    "mtime": 1792062408.519905,
+    "ast_hash": "9a0b3e989f381ad72b60138b023497c9",
+    "semantic_hash": ""
+  },
+  "especial.py": {
+    "mtime": 1791995856.2822535,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/LobbyLDI.jsx": {
+    "mtime": 1792004069.9124622,
+    "ast_hash": "3d69a6820896b38e96283b9b5c17c632",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/capa-presos-na-ilusao.webp": {
+    "mtime": 1792004055.3608615,
+    "ast_hash": "ed1faa461f26cf7da45f44faffa16823",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-mundo-das-sombras-04.webp": {
+    "mtime": 1792062408.733292,
+    "ast_hash": "d466848e6a17c524143bbb8ce28b8c28",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-mundo-das-sombras-05.webp": {
+    "mtime": 1792062408.9370515,
+    "ast_hash": "d1630b4c975b7f559dd70064173abffb",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/PainelProjeto.jsx": {
+    "mtime": 1792073575.6378782,
+    "ast_hash": "3a708a3278effce0a0c06d7656ef223c",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/PainelTarefas.jsx": {
+    "mtime": 1792077377.240815,
+    "ast_hash": "00183412c15f175dd3b1b16231c9a343",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/058_admin_tarefas.sql": {
+    "mtime": 1792076312.5014102,
+    "ast_hash": "af6f4d2cc9774ea9c71a4b3136313a59",
+    "semantic_hash": ""
+  },
+  "src/components/TarefaFeedback/TarefaFeedback.jsx": {
+    "mtime": 1792077390.165148,
+    "ast_hash": "3ee7f346cf8a69a979048277143af5b1",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/059_admin_tarefas_link.sql": {
+    "mtime": 1792077324.1037545,
+    "ast_hash": "a108bb70ea45507400227d8e49e56930",
     "semantic_hash": ""
   }
 }
