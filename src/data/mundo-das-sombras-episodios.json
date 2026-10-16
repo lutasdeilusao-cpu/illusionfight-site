@@ -203,7 +203,7 @@
         "nome_pt": "Arkham · Codex v2 (pré-final)",
         "nome_en": "Arkham · Codex v2 (pre-final)",
         "nome_es": "Arkham · Codex v2 (pre-final)",
-        "paginas": 41
+        "paginas": 58
       },
       {
         "id": "arkham-gemini-v2",
@@ -246,7 +246,14 @@
         "nome_pt": "Arkham · Gemini v2 (pré-final)",
         "nome_en": "Arkham · Gemini v2 (pre-final)",
         "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 58
+        "paginas": 60
+      },
+      {
+        "id": "arkham-v2",
+        "nome_pt": "Arkham · Codex v2 (pré-final)",
+        "nome_en": "Arkham · Codex v2 (pre-final)",
+        "nome_es": "Arkham · Codex v2 (pre-final)",
+        "paginas": 53
       }
     ]
   },
@@ -282,7 +289,14 @@
         "nome_pt": "Arkham · Gemini v2 (pré-final)",
         "nome_en": "Arkham · Gemini v2 (pre-final)",
         "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 58
+        "paginas": 60
+      },
+      {
+        "id": "arkham-v2",
+        "nome_pt": "Arkham · Codex v2 (pré-final)",
+        "nome_en": "Arkham · Codex v2 (pre-final)",
+        "nome_es": "Arkham · Codex v2 (pre-final)",
+        "paginas": 55
       }
     ]
   },
@@ -319,6 +333,13 @@
         "nome_en": "Arkham · Gemini v2 (pre-final)",
         "nome_es": "Arkham · Gemini v2 (pre-final)",
         "paginas": 58
+      },
+      {
+        "id": "arkham-v2",
+        "nome_pt": "Arkham · Codex v2 (pré-final)",
+        "nome_en": "Arkham · Codex v2 (pre-final)",
+        "nome_es": "Arkham · Codex v2 (pre-final)",
+        "paginas": 45
       }
     ]
   },
