@@ -1,0 +1,2 @@
+import{a as e}from"./rolldown-runtime-Cyuzqnbw.js";import{i as t}from"./react-vendor--sCzYIHL.js";var n=e(t(),1);function r(e={}){let t=(0,n.useRef)(null);return(0,n.useEffect)(()=>{let n=t.current;if(!n)return;let r=new IntersectionObserver(([e])=>{e.isIntersecting&&(n.classList.add(`revealed`),r.disconnect())},{threshold:.15,...e});return r.observe(n),()=>r.disconnect()},[]),t}export{r as t};
+//# sourceMappingURL=useScrollReveal-CYNFBWYo.js.map
