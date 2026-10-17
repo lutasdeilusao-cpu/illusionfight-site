@@ -1,36 +1,34 @@
 /**
  * VERSIONS — Arquivo Único de Versionamento
  *
- * Todas as versões do site centralizadas aqui.
- * workflow: 1. alterar versão neste arquivo  2. atualizar SITE_MAP.md  3. build, commit, push, deploy
- *
- * Última atualização: 2026-09-10
+ * Workflow: alterar a versão aqui, atualizar SITE_MAP.md e então build, commit,
+ * push e deploy.
  */
 
- // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.441.2'
+// ── Site ──────────────────────────────────────────
+export const SITE_VERSION = '10.441.4'
 
 // ── Games ─────────────────────────────────────────
-export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
-export const LDI_VERSION       = '3.32.0'  // Lendas do LDI — graphic novel interativa: quadros com arte, página virando, escolhas no painel
-export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
-export const GANGUES_VERSION   = '3.115.1'
+export const PP_VERSION        = '2.3.2'
+export const LDI_VERSION       = '3.32.0'
+export const JACK_VERSION      = '5.3.3'
+export const GANGUES_VERSION   = '3.115.2'
 
-export const TAMA_VERSION      = '3.4.2' // sem cache local: progresso só na conta
-export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
-export const MINIGAMES_VERSION = '4.3.7'  // PuzzleLabirinto: setas na tela sempre + labirinto inteiro dimensionado pela largura do container (sem decidir por largura da janela)
-export const TS_VERSION        = '6.0.4'  // tirada a cópia local do deck (só gravava, nunca lia)
-export const TM_VERSION        = '6.0.2'  // Top Trumps MP - alinhado com SP 6.0.2 (GameOverScreen compartilhado)
-export const TATICS_VERSION    = '7.5.1' // fix: PreBatalha.jsx chamava t('tatics.*') (namespace legado, sem essas chaves) em vez de t('games.tatics.*') — tela pre-batalha inteira mostrava chave crua. SimulacaoAuto.jsx usava 11 chaves games.tatics.sim_* que nunca existiram — criadas nos 3 idiomas.
-export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
-export const ARENATESTBED_VERSION = '6.22.2' // fix: 4 chaves prototype.arena_testbed.* (ia_personalidade_label, ordering_title/subtitle/confirm) nunca existiam — modal de empate de agilidade e o seletor de personalidade da IA mostravam chave crua. Criadas nos 3 idiomas.
-export const KP_VERSION = '1.4.2' // Kernel Panic — header CSS limitado ao próprio jogo
-export const SLIDING_VERSION   = '1.4.4'  // fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado
-export const CODIGO_VERSION    = '1.3.3'  // merge wrapper+puzzle em 1 arquivo + fix commit
-export const MAZE_VERSION      = '1.1.4'  // fix: getUnvisitedNeighbors usava mazeRef.current antes de ser atribuído
-export const GLITCH_VERSION    = '1.1.7'  // DIAG: console.log handleClick + endGame para depurar vitoria
-export const BULLETHELL_VERSION = '1.1.3' // fix: null ref em startGame (countdown sem canvas)
-export const STABILIZER_VERSION = '1.1.2' // merge wrapper+puzzle em 1 arquivo + fix commit
+export const TAMA_VERSION      = '3.4.2'
+export const DUELO_VERSION     = '2.8.1'
+export const MINIGAMES_VERSION = '4.3.7'
+export const TS_VERSION        = '6.0.4'
+export const TM_VERSION        = '6.0.2'
+export const TATICS_VERSION    = '7.5.1'
+export const SRGRM_VERSION     = '3.5.0'
+export const ARENATESTBED_VERSION = '6.22.2'
+export const KP_VERSION        = '1.4.2'
+export const SLIDING_VERSION   = '1.4.4'
+export const CODIGO_VERSION    = '1.3.3'
+export const MAZE_VERSION      = '1.1.4'
+export const GLITCH_VERSION    = '1.1.7'
+export const BULLETHELL_VERSION = '1.1.3'
+export const STABILIZER_VERSION = '1.1.2'
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)

@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.441.2**.
+> `SITE_VERSION` **10.441.4**.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -424,11 +424,11 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.432.0** |
+| `SITE_VERSION` | Site global | **10.441.3** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
-| `LDI_VERSION` | Lendas do LDI | 3.28.0 |
+| `LDI_VERSION` | Lendas do LDI | 3.32.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
-| `GANGUES_VERSION` | LDI Gangues | **3.115.1** |
+| `GANGUES_VERSION` | LDI Gangues | **3.115.2** |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.2 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.7 |
