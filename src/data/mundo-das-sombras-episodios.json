@@ -17,30 +17,14 @@
       960,
       1637
     ],
-    "pasta": "mundo-das-sombras/01",
+    "pasta": "mundo-das-sombras/01/arkham-v2",
     "liberacao": {
       "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
     },
-    "data_publicacao": "2099-02-15",
-    "versoes": [
-      {
-        "id": "arkham-gemini-v2",
-        "nome_pt": "Arkham · Gemini v2 (pré-final)",
-        "nome_en": "Arkham · Gemini v2 (pre-final)",
-        "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 58
-      },
-      {
-        "id": "arkham-v2",
-        "nome_pt": "Arkham · Codex v2 (pré-final)",
-        "nome_en": "Arkham · Codex v2 (pre-final)",
-        "nome_es": "Arkham · Codex v2 (pre-final)",
-        "paginas": 58
-      }
-    ]
+    "data_publicacao": "2099-02-15"
   },
   {
     "id": "02",
@@ -51,7 +35,7 @@
     "titulo_es": "El Umbral",
     "frase_pt": "Do outro lado da película.",
     "publicado": true,
-    "paginas": 16,
+    "paginas": 60,
     "idiomas": [
       "pt"
     ],
@@ -60,30 +44,14 @@
       960,
       1637
     ],
-    "pasta": "mundo-das-sombras/02",
+    "pasta": "mundo-das-sombras/02/arkham-v2",
     "liberacao": {
       "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
     },
-    "data_publicacao": "2099-02-15",
-    "versoes": [
-      {
-        "id": "arkham-gemini-v2",
-        "nome_pt": "Arkham · Gemini v2 (pré-final)",
-        "nome_en": "Arkham · Gemini v2 (pre-final)",
-        "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 60
-      },
-      {
-        "id": "arkham-v2",
-        "nome_pt": "Arkham · Codex v2 (pré-final)",
-        "nome_en": "Arkham · Codex v2 (pre-final)",
-        "nome_es": "Arkham · Codex v2 (pre-final)",
-        "paginas": 60
-      }
-    ]
+    "data_publicacao": "2099-02-15"
   },
   {
     "id": "03",
@@ -103,30 +71,14 @@
       960,
       1637
     ],
-    "pasta": "mundo-das-sombras/03",
+    "pasta": "mundo-das-sombras/03/arkham-v2",
     "liberacao": {
       "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
     },
-    "data_publicacao": "2099-02-15",
-    "versoes": [
-      {
-        "id": "arkham-v2",
-        "nome_pt": "Arkham · Codex v2 (pré-final)",
-        "nome_en": "Arkham · Codex v2 (pre-final)",
-        "nome_es": "Arkham · Codex v2 (pre-final)",
-        "paginas": 58
-      },
-      {
-        "id": "arkham-gemini-v2",
-        "nome_pt": "Arkham · Gemini v2 (pré-final)",
-        "nome_en": "Arkham · Gemini v2 (pre-final)",
-        "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 58
-      }
-    ]
+    "data_publicacao": "2099-02-15"
   },
   {
     "id": "04",
@@ -137,7 +89,7 @@
     "titulo_es": "O Limiar",
     "frase_pt": "",
     "publicado": true,
-    "paginas": 58,
+    "paginas": 60,
     "idiomas": [
       "pt"
     ],
@@ -146,30 +98,14 @@
       960,
       1637
     ],
-    "pasta": "mundo-das-sombras/04",
+    "pasta": "mundo-das-sombras/04/arkham-v2",
     "liberacao": {
       "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
     },
-    "data_publicacao": "2099-02-15",
-    "versoes": [
-      {
-        "id": "arkham-v2",
-        "nome_pt": "Arkham · Codex v2 (pré-final)",
-        "nome_en": "Arkham · Codex v2 (pre-final)",
-        "nome_es": "Arkham · Codex v2 (pre-final)",
-        "paginas": 60
-      },
-      {
-        "id": "arkham-gemini-v2",
-        "nome_pt": "Arkham · Gemini v2 (pré-final)",
-        "nome_en": "Arkham · Gemini v2 (pre-final)",
-        "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 60
-      }
-    ]
+    "data_publicacao": "2099-02-15"
   },
   {
     "id": "05",
@@ -189,30 +125,14 @@
       960,
       1637
     ],
-    "pasta": "mundo-das-sombras/05",
+    "pasta": "mundo-das-sombras/05/arkham-v2",
     "liberacao": {
       "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
     },
-    "data_publicacao": "2099-02-15",
-    "versoes": [
-      {
-        "id": "arkham-v2",
-        "nome_pt": "Arkham · Codex v2 (pré-final)",
-        "nome_en": "Arkham · Codex v2 (pre-final)",
-        "nome_es": "Arkham · Codex v2 (pre-final)",
-        "paginas": 58
-      },
-      {
-        "id": "arkham-gemini-v2",
-        "nome_pt": "Arkham · Gemini v2 (pré-final)",
-        "nome_en": "Arkham · Gemini v2 (pre-final)",
-        "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 57
-      }
-    ]
+    "data_publicacao": "2099-02-15"
   },
   {
     "id": "06",
@@ -223,7 +143,7 @@
     "titulo_es": "Correntes",
     "frase_pt": "",
     "publicado": true,
-    "paginas": 58,
+    "paginas": 53,
     "idiomas": [
       "pt"
     ],
@@ -232,30 +152,14 @@
       960,
       1637
     ],
-    "pasta": "mundo-das-sombras/06",
+    "pasta": "mundo-das-sombras/06/arkham-v2",
     "liberacao": {
       "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
     },
-    "data_publicacao": "2099-02-15",
-    "versoes": [
-      {
-        "id": "arkham-gemini-v2",
-        "nome_pt": "Arkham · Gemini v2 (pré-final)",
-        "nome_en": "Arkham · Gemini v2 (pre-final)",
-        "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 60
-      },
-      {
-        "id": "arkham-v2",
-        "nome_pt": "Arkham · Codex v2 (pré-final)",
-        "nome_en": "Arkham · Codex v2 (pre-final)",
-        "nome_es": "Arkham · Codex v2 (pre-final)",
-        "paginas": 53
-      }
-    ]
+    "data_publicacao": "2099-02-15"
   },
   {
     "id": "07",
@@ -266,7 +170,7 @@
     "titulo_es": "Nefeli",
     "frase_pt": "",
     "publicado": true,
-    "paginas": 58,
+    "paginas": 55,
     "idiomas": [
       "pt"
     ],
@@ -275,30 +179,14 @@
       960,
       1637
     ],
-    "pasta": "mundo-das-sombras/07",
+    "pasta": "mundo-das-sombras/07/arkham-v2",
     "liberacao": {
       "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
     },
-    "data_publicacao": "2099-02-15",
-    "versoes": [
-      {
-        "id": "arkham-gemini-v2",
-        "nome_pt": "Arkham · Gemini v2 (pré-final)",
-        "nome_en": "Arkham · Gemini v2 (pre-final)",
-        "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 60
-      },
-      {
-        "id": "arkham-v2",
-        "nome_pt": "Arkham · Codex v2 (pré-final)",
-        "nome_en": "Arkham · Codex v2 (pre-final)",
-        "nome_es": "Arkham · Codex v2 (pre-final)",
-        "paginas": 55
-      }
-    ]
+    "data_publicacao": "2099-02-15"
   },
   {
     "id": "08",
@@ -309,7 +197,7 @@
     "titulo_es": "Protocolo Ômega",
     "frase_pt": "",
     "publicado": true,
-    "paginas": 58,
+    "paginas": 60,
     "idiomas": [
       "pt"
     ],
@@ -318,30 +206,14 @@
       960,
       1637
     ],
-    "pasta": "mundo-das-sombras/08",
+    "pasta": "mundo-das-sombras/08/arkham-v2",
     "liberacao": {
       "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
     },
-    "data_publicacao": "2099-02-15",
-    "versoes": [
-      {
-        "id": "arkham-gemini-v2",
-        "nome_pt": "Arkham · Gemini v2 (pré-final)",
-        "nome_en": "Arkham · Gemini v2 (pre-final)",
-        "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 58
-      },
-      {
-        "id": "arkham-v2",
-        "nome_pt": "Arkham · Codex v2 (pré-final)",
-        "nome_en": "Arkham · Codex v2 (pre-final)",
-        "nome_es": "Arkham · Codex v2 (pre-final)",
-        "paginas": 60
-      }
-    ]
+    "data_publicacao": "2099-02-15"
   },
   {
     "id": "09",
@@ -352,7 +224,7 @@
     "titulo_es": "Ressonância",
     "frase_pt": "",
     "publicado": true,
-    "paginas": 58,
+    "paginas": 60,
     "idiomas": [
       "pt"
     ],
@@ -361,29 +233,13 @@
       960,
       1637
     ],
-    "pasta": "mundo-das-sombras/09",
+    "pasta": "mundo-das-sombras/09/arkham-v2",
     "liberacao": {
       "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
     },
-    "data_publicacao": "2099-02-15",
-    "versoes": [
-      {
-        "id": "arkham-gemini-v2",
-        "nome_pt": "Arkham · Gemini v2 (pré-final)",
-        "nome_en": "Arkham · Gemini v2 (pre-final)",
-        "nome_es": "Arkham · Gemini v2 (pre-final)",
-        "paginas": 58
-      },
-      {
-        "id": "arkham-v2",
-        "nome_pt": "Arkham · Codex v2 (pré-final)",
-        "nome_en": "Arkham · Codex v2 (pre-final)",
-        "nome_es": "Arkham · Codex v2 (pre-final)",
-        "paginas": 9
-      }
-    ]
+    "data_publicacao": "2099-02-15"
   }
 ]

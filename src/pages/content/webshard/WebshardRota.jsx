@@ -12,18 +12,23 @@ import WebshardLeitor from './WebshardLeitor'
                             URL canônica antiga. */
 export default function WebshardRota() {
   const { param, slug, cap } = useParams()
-  const { veOculto, isAdmin } = useWebshardAcesso()
+  const { veOculto, isAdmin, carregando } = useWebshardAcesso()
   const legado = tituloLegado()
 
   if (param) {
+    const tituloConhecido = tituloPorSlug(param, { isAdmin: true, soAdmin: true })
+    if (carregando && tituloConhecido && !['publico', 'previa'].includes(tituloConhecido.visivel)) return null
     const titulo = tituloPorSlug(param, { isAdmin: veOculto, soAdmin: isAdmin })
     if (titulo) return <WebshardTitulo titulo={titulo} />
+    if (tituloConhecido) return <Navigate to="/webtoon" replace />
     const novo = capituloMovido(legado, param)
     if (novo) return <Navigate to={`/webtoon/${novo}`} replace />
     return <WebshardLeitor titulo={legado} capId={param} />
   }
 
   if (slug === legado.slug) return <Navigate to={`/webtoon/${cap}`} replace />
+  const tituloConhecido = tituloPorSlug(slug, { isAdmin: true, soAdmin: true })
+  if (carregando && tituloConhecido && !['publico', 'previa'].includes(tituloConhecido.visivel)) return null
   const titulo = tituloPorSlug(slug, { isAdmin: veOculto, soAdmin: isAdmin })
   if (!titulo) return <Navigate to="/webtoon" replace />
   return <WebshardLeitor titulo={titulo} capId={cap} />

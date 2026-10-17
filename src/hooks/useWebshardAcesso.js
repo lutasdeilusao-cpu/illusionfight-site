@@ -15,7 +15,7 @@ const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
  *  lê só o capítulo marcado `creator: true` no dado (inclusive `so_admin`, que
  *  fora disso só admin lê). */
 export function useWebshardAcesso() {
-  const { user, perfil } = useAuth()
+  const { user, perfil, carregando } = useAuth()
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
   const nivel = resolveAccessLevel(user, perfil)
 
@@ -41,5 +41,5 @@ export function useWebshardAcesso() {
   /** Admin e creator ativo veem também os títulos marcados `visivel: "admin"`. */
   const veOculto = isAdmin || creatorAtivo(perfil)
 
-  return { isAdmin, veOculto, nivel, liberado, previa, dataPara }
+  return { isAdmin, veOculto, nivel, liberado, previa, dataPara, carregando }
 }
