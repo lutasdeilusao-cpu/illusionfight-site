@@ -93,7 +93,8 @@ function hashEstavel(str) {
 // Inimigo do pino: o líder ÚNICO da luta daquele ponto (ganguesBandos.json). Fora da
 // Rinha e do chefe, todo pino de briga mostra quem você enfrenta de verdade.
 export function inimigoDoPino(p) {
-  if (p.ehChefe || p.rinhaInfinita || p.npcSlug) return null
+  const temBrigaNoPino = p.tipo === 'treta' || p.escolhas?.some(escolha => escolha.viraTreta)
+  if (!temBrigaNoPino || p.ehChefe || p.rinhaInfinita || p.npcSlug) return null
   return liderDaLuta(p.id)
 }
 
