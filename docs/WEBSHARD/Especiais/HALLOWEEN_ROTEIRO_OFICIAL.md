@@ -2,7 +2,7 @@
 
 > Revisão editorial: 19/10/2026. Direção de Isaías: continuidade de acontecimentos, quatro linguagens de POV, câmeras como protagonistas e leitura no celular com uma mão. Três lançamentos: **51 páginas narrativas + 9 editoriais por lançamento = 180 páginas físicas; 153 páginas de história**. Esta revisão substitui as versões sobrepostas do documento recebido. O original permanece no histórico do Git; não usar suas instruções conflitantes para produzir novas páginas.
 >
-> Status: roteiro e diálogos revisados para leitura autoral; **L1-01 aprovada; fila PAUSADA; regras de imagem analógica, HUD/bateria, memória e balões em revisão. L1-03 será refeita; não reutilizar as falas pretas e a cauda lateral de Nina**; as fichas de material geradas posteriormente estão registradas em §16 e aguardam revisão autoral. Falas novas são redação editorial deste roteiro, não citações recuperadas de uma arte anterior. Os destinos, as mortes e o banquete foram preservados. A pasta Personagens foi repovoada durante esta revisão: As referências existentes foram inspecionadas e registradas em §13.1; o acréscimo de Brock e as novas fichas têm registro em §16. Os nomes com prefixo halloween_ são complementos planejados, não arquivos já existentes.
+> Status: roteiro e diálogos revisados para leitura autoral; **L1-01 aprovada; fila PAUSADA; regras de imagem analógica, HUD/bateria, memória e balões em revisão. L1-03 refeita e APROVADA por Isaías; L1-04 em geração isolada para análise. Não reutilizar ruído fraco, falas pretas ou cauda lateral de Nina**; as fichas de material geradas posteriormente estão registradas em §16 e aguardam revisão autoral. Falas novas são redação editorial deste roteiro, não citações recuperadas de uma arte anterior. Os destinos, as mortes e o banquete foram preservados. A pasta Personagens foi repovoada durante esta revisão: As referências existentes foram inspecionadas e registradas em §13.1; o acréscimo de Brock e as novas fichas têm registro em §16. Os nomes com prefixo halloween_ são complementos planejados, não arquivos já existentes.
 
 ## 1. Direção da experiência
 
@@ -41,7 +41,7 @@ A paleta, o neon e o desenho dos capítulos regulares do LDI não são obrigaç�
 - Cortes diagonais de 8–15°, com leitura clara de cima para baixo. As diagonais podem variar de direção dentro da página; não precisam ser paralelas. Sem divisão em página de painel único.
 - Separação por uma borda MUITO fina (1–3 px na arte de 960 px), como fibra óptica e microcabos vivos. Não abrir uma faixa entre painéis. L1-01 é exceção aprovada por acomodar narração; não copiar sua faixa larga nas demais páginas. Um reflexo discreto indica a força dominante; não vira neon, fumaça, eletricidade ou moldura grossa. O separador é composição editorial, não objeto registrado pela câmera.
 - Enquadrar a ação necessária. Plano geral só para estabelecer espaço, mudar escala ou mostrar uma relação espacial decisiva. A câmera portátil não encontra sempre rostos perfeitamente compostos; a segurança não faz close, zoom nem acompanha pessoas.
-- **Shards:** pequenos cacos irregulares de vidro rachado, sobrepostos e subordinados ao painel principal. Podem revelar gesto, mão, objeto ou expressão por ângulo editorial externo ao registro da câmera, conforme autorização de Isaías. Não contam como outra câmera nem autorizam cenas inteiras disfarçadas de detalhe. Painéis principais continuam obedecendo à fonte física.
+- **Shards:** pequenos cacos irregulares de vidro rachado, sobrepostos e subordinados ao painel principal. Não ficam presos aos cantos: podem ocupar o meio da página, atravessar a emenda ou seguir o eixo de um olhar. Podem ligar fases de uma ação, destacar o que alguém observa e conectar causa/consequência; posição determinada pela função narrativa, nunca só decoração. Preservar rostos, falas, HUD e gestos essenciais legíveis. Podem revelar gesto, mão, objeto ou expressão por ângulo editorial externo ao registro da câmera, conforme autorização de Isaías. Não contam como outra câmera nem autorizam cenas inteiras disfarçadas de detalhe. Painéis principais continuam obedecendo à fonte física.
 - Balões brancos, letras e contornos na cor de voz, caixa alta, comic bold condensada, mesma fonte no elenco. Reservar espaço para texto desde o quadro; linhas curtas, sem hifenização. Uma palavra pode ganhar ênfase. O guia não fixa uma família comprovada nem um mínimo universal em pixels; não tratar Anime Ace/LETREIRO.png como referência já aprovada deste reinício. A ficha tipográfica precede a geração.
 - Textos entre aspas nos blocos são literais; o nome antes dos dois-pontos indica o falante para produção, **não é escrito na arte**. Copiar uma vez, com acentos. Falas fora de quadro apontam para o operador ou para a posição espacial da voz; nunca para um personagem errado. Pensamento é explicitamente identificado e só aparece na percepção subjetiva.
 - Narração: faixa estreita de fita magnética escura, letras claras legíveis, sem cauda. Não é áudio da vigilância. O número de faixas é o indicado na página. Sem narração adicional sobre o que a imagem já explica.
@@ -177,13 +177,13 @@ Preservar o quase-casal Jack/Nina previsto para este especial; não converter es
 | Kim | `#1E6FE0` | Base do guia geral. |
 | Jack | `#22C55E` | Contorno fino escuro na letra quando necessário ao contraste; não usar o glow como tinta. |
 | Nina | `#B82E69` | Rosa framboesa do guia. |
-| Fred | `#C9A227` | Contorno fino escuro indispensável para o dourado sobre branco. |
+| Fred | `#C9A227` | Amarelo; letra e contorno amarelos em fundo branco. Mesma voz em todos os POVs com áudio. |
 | Brock | `#8B1E1E` | Marrom-vinho do guia. |
 | Anderson | `#4B5563` | Cinza-chumbo do guia, corrigindo o ciano antigo que confundia voz e dominância. |
 | André | `#9A4A16` | Tom editorial do laranja queimado do especial. |
 | Jason | `#6D28A6` | Tom editorial violeta. |
 | Michael | `#155E63` | Tom editorial azul-petróleo. |
-| Kronos | `#4B5058` | Tom editorial cinza metálico, legível no branco. |
+| Kronos | `#4B5058` | Cinza metálico, letra e contorno legíveis no branco; mesma voz humana e César decaído. |
 | Desconhecido | `#6B543A` | Tom editorial bronze escuro; fala única de função cotidiana. |
 
 Os tons editoriais novos precisam constar da ficha de letreiramento antes de produzir a arte; não são paleta retroativa dos capítulos regulares. Dominância dos filamentos: Kim azul; Jack verde; Nina rosa; Fred dourado; Brock vinho; André laranja; Jason violeta; Michael petróleo; Anderson ciano; Kronos metálico; funcionários bronze; cabos carmesim. Uma página pode ter fala de uma pessoa e dominância de outra.
@@ -1622,7 +1622,7 @@ As imagens produzidas com esses prompts são fichas para revisão autoral; gera�
 
 ## 17. Produção serial do lançamento 1
 
-**Estado atual: fila PAUSADA a pedido de Isaías. Revisão de VHS forte, relógios/bateria, memória e balões em todos os loops; somente a página 03 será refeita nesta etapa, sem retomar o lote. Caminho atual: WEBSHARD/PT/loop1.**
+**Estado atual: fila PAUSADA a pedido de Isaías. Revisão de VHS forte, relógios/bateria, memória e balões em todos os loops; página 03 refeita e aprovada, página 04 autorizada como prévia isolada sem intervalo de cinco minutos; não retomar o lote. Caminho atual: WEBSHARD/PT/loop1.**
 
 L1-01 foi aprovada por Isaías em 19/10/2026, com o elenco da piscina corrigido. As outras cinquenta páginas foram autorizadas. A faixa maior da abertura é exceção: nas próximas páginas a separação é uma borda diagonal fina, sem faixa larga. Figurantes diversos mantêm identidade por ambiente; feeds simultâneos de locais diferentes não repetem as mesmas pessoas.
 
@@ -1894,6 +1894,11 @@ P1 A low table axis breaks ONLY because worker picks it up: hand near upper edge
 
 ## 19. Revisão de continuidade, ruído e balões — 19/10/2026
 
-As três âncoras de A são autorais e obrigatórias. O plano por tomada está em HALLOWEEN_CONTINUIDADE.json; cada uma das 153 páginas narrativas recebeu seu contrato de HUD/custódia/balões. As 27 posições editoriais continuam separadas e não viram cenas inventadas. Os prompts existentes do loop1 são recompilados com esses dados. A fila permanece pausada; só L1-03 é refeita nesta revisão.
+As três âncoras de A são autorais e obrigatórias. O plano por tomada está em HALLOWEEN_CONTINUIDADE.json; cada uma das 153 páginas narrativas recebeu seu contrato de HUD/custódia/balões. As 27 posições editoriais continuam separadas e não viram cenas inventadas. Os prompts existentes do loop1 são recompilados com esses dados. A fila permanece pausada; L1-03 foi refeita e aprovada; L1-04 foi autorizada como segunda prévia, sem retomar a fila.
 
 Pasta de imagens reorganizada por Isaías: `ESPECIAIS/presos/WEBSHARD/PT/loop1/`. As artes anteriores de L1-01/02 ainda usam horários antigos de C; precisam de ajuste de HUD antes da publicação final, sem gerar novas versões delas nesta etapa.
+
+
+### Estilhaços como direção e continuidade — orientação de Isaías
+
+Posicionar estilhaços também no centro, sobre a transição ou no trajeto do olhar, conforme a leitura exigir. Na sequência do cinema, ligar olhar aos ingressos; no tropeço, ligar o detalhe do cabo à consequência; no toque, ligar contato e queda sem inventar outro golpe. A sensação cinematográfica vem de posição física da lente, plano, profundidade, oclusão, gesto e eixo de olhar. Borda inclinada sozinha não faz direção. A 03 aprovada permanece intacta; a 04 em análise não autoriza a 05.

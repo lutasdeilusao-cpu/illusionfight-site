@@ -1152,3 +1152,8 @@ Gag recorrente, no espírito do "Toasty!" do Mortal Kombat.
 ### Direção de olhares — atualização de Isaías, 19/10/2026
 
 Ninguém olha diretamente para o leitor ou para a lente. Todo prompt indica o alvo concreto do olhar: pessoa, mão, objeto, passagem ou ação. Vale também para gravação de conteúdo, fala ao operador, vilão e ponto de vista subjetivo; não abrir exceção de olhar frontal. Identidade frontal na ficha não determina o olhar da narrativa.
+
+
+### Estilhaço como técnica de direção e continuidade
+
+O estilhaço não é restrito aos cantos. Pode ficar no centro, cruzar uma emenda ou acompanhar o alvo do olhar. Usar para ligar dois estados de uma ação, mostrar um detalhe observado ou conectar causa e consequência. Definir essa função e a posição no prompt, preservando a leitura dos painéis, das falas e da ação. O fragmento continua subordinado à composição; não vira outra cena inteira disfarçada.

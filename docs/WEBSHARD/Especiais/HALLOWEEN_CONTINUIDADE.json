@@ -4813,5 +4813,18 @@
         }
       ]
     }
+  },
+  "voice_names": {
+    "Kim": "BLUE",
+    "Jack": "GREEN",
+    "Nina": "PINK",
+    "Fred": "YELLOW",
+    "Brock": "DARK WINE RED",
+    "André": "BURNT ORANGE",
+    "Jason": "VIOLET",
+    "Michael": "PETROLEUM TEAL",
+    "Anderson": "CHARCOAL GRAY",
+    "Kronos": "METALLIC GRAY",
+    "Desconhecido": "BRONZE"
   }
 }
