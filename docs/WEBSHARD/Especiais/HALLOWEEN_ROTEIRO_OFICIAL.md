@@ -1353,257 +1353,257 @@ A autorização é de geração. As novas páginas permanecem pré-finais, aguar
 
 Estas direções entram integralmente nos prompts em inglês; nunca são texto impresso. As 51 páginas foram conferidas. A imagem aprovada da 01 permanece intacta; a 02 deve ser refeita quando houver retomada. A revisão não autorizou nova geração.
 
-### L1-01 — câmera, ação e olhar
+#### Direção L1-01 — câmera, ação e olhar
 Approved composition remains. Fixed elevated oblique hall camera and a DIFFERENT fixed elevated pool camera, simultaneous separate casts. Hand/drink shard is an editorial close insert. Do not regenerate approved01 during this review.
 
 **Eyelines:** Hall guests look at one another or drinks; pool guests at their DIFFERENT companions and server tray. Nobody notices CCTV.
 
-### L1-02 — câmera, ação e olhar
+#### Direção L1-02 — câmera, ação e olhar
 P1 CAM01: high oblique three-quarter entrance angle from ABOVE and SIDE, not eye-level portrait; trio crosses threshold on diagonal into depth, Nina walks at rear-right filming into hall, camcorder raised, Jack mid-stride behind Kim. P2 CAM02: DIFFERENT fixed high reverse angle beyond corridor bend, looking back toward arrivals; Kim in near-left foreground clears drape at jamb, Jack partly occluded behind him, Nina now deeper BACKGROUND-LEFT in side/back view, one foot forward and camcorder LOWERED toward chest as she turns her torso into doorway. Nina MUST change screen position, scale, orientation, arm position and walking phase. Do not copy either trio pose from P1.30seconds elapsed, not2. Show only necessary torsos/hands, architecture establishes actual camera heights. No frozen mannequin procession.
 
 **Eyelines:** P1 Kim looks toward entrance route, Jack toward Kim's shoulder, Nina at camcorder controls/route off-axis. P2 Kim at jamb/drape, Jack at passage, Nina down toward her lowered camcorder then doorway. No upward glance at either CCTV lens.
 
-### L1-03 — câmera, ação e olhar
+#### Direção L1-03 — câmera, ação e olhar
 P1 Nina's handheld lens behind Kim's shoulder, low oblique close-medium, his cloth-clearing arm crosses near foreground and Jack responds in depth. P2 motivated wrist turn RIGHT after Kim points: buffet decoration enters near edge, Jack shifts toward the other edge and follows Kim, visible torso turn. Do not reuse same face placement; shard isolates cloth tension from an editorial side angle. Nina never visible externally.
 
 **Eyelines:** Kim looks at drape then buffet; Jack at Kim's face then the direction Kim points. Nina is offscreen.
 
-### L1-04 — câmera, ação e olhar
+#### Direção L1-04 — câmera, ação e olhar
 D supported at sideboard height, slightly LOW upward three-quarter view toward Fred, constant physical axis. P1 Fred leans toward lens with counting fingers near foreground. P2 he recoils a half-step as Michael leans in from opposite edge and blocks part of his shoulder; Fred's hand drops and gaze switches to Michael. Same camera, visibly changed bodies, no duplicate selfie poses. Keep this supported axis for05.
 
 **Eyelines:** Fred looks at Anderson standing at least45degrees OFF the camera axis while counting; when Michael interrupts Fred turns to Michael. Michael looks at Fred, never into recording lens, even when asking if he is in frame.
 
-### L1-05 — câmera, ação e olhar
+#### Direção L1-05 — câmera, ação e olhar
 Same supported LOW D axis as04. P1 Fred steps sideways to restore view while Andre enters across rear depth with Brock following. P2 Andre stops nearer lens, turns toward Brock and opens ticket hand; Brock angles down toward tickets. Fred now cropped at opposite edge, not same central pose. Editorial shard is oblique close insert of fingers/tickets.
 
 **Eyelines:** Fred glances toward Andre crossing behind; Andre down at tickets then Brock's face; Brock at tickets then Andre. No selfie eye contact.
 
-### L1-06 — câmera, ação e olhar
+#### Direção L1-06 — câmera, ação e olhar
 P1 D being picked up: low tilted frame, partial fingers at top edge, sideboard recedes downward; Anderson is partly occluded in middle distance. P2 lens now chest-high and aimed three-quarter toward service jamb: attendant's FOREARM crosses to sensor and door opens into depth, Anderson turns toward doorway. This is an actual pickup/turn, not two stationary views of attendant posing.
 
 **Eyelines:** Anderson at service doorway, attendant at sensor then tray. Fred offscreen.
 
-### L1-07 — câmera, ação e olhar
+#### Direção L1-07 — câmera, ação e olhar
 P1 Nina films obliquely ALONG buffet counter: grape hand large near foreground, Kim in middle depth, stranger farther along counter. P2 small motivated downward tilt follows water glass sliding into stranger's reaching hand; stranger bends coughing/recovering, Kim extends arm across image. Different hands, posture and visual center. Bowl shard editorial overhead detail, not a third full scene.
 
 **Eyelines:** Kim at food then stranger's water hand; stranger at grape then glass, not toward filming Nina.
 
-### L1-08 — câmera, ação e olhar
+#### Direção L1-08 — câmera, ação e olhar
 P1 elevated fixed CAM03 oblique across announcement approach: human Kronos steps THROUGH a gap staff open, Nina at buffet edge turning her camera. P2 fixed CAM05 from opposite lounge upper corner, sofa crops foreground; Fred physically pivots D toward acoustic opening and companions turn their shoulders. Distinct rooms/casts at same instant. Do not pose every person facing surveillance lens.
 
 **Eyelines:** Kronos at waiting guests; Nina at buffet/route, Fred at doorway and D controls, attendants at people they guide. Nobody looks toward CCTV.
 
-### L1-09 — câmera, ação e olhar
+#### Direção L1-09 — câmera, ação e olhar
 P1 Nina's handheld low three-quarter medium angle, Kronos' attention-requesting hand enters foreground. P2 he lowers that hand and indicates selected guests with other arm; Jack leans into frame edge as Nina makes a SMALL justified lateral wrist correction. Kronos shifts from addressing wide group to selection gesture, no repeated podium portrait.
 
 **Eyelines:** Kronos addresses guests45degrees away from Nina's lens; Jack watches Kronos's pointing hand.
 
-### L1-10 — câmera, ação e olhar
+#### Direção L1-10 — câmera, ação e olhar
 P1 handheld D oblique at Jason's shoulder level, his head turns sharply toward hall voice, Brock and Andre staggered in depth. P2 Fred takes a half-step sideways following Jason's leaning response; Jason's hand rises, Brock turns from hall toward Andre. Different blocking, no cut to offscreen Kronos or Fred selfie.
 
 **Eyelines:** Jason toward announcement opening then Brock; Brock at Andre; Andre toward announcement. No eyes toward Fred/lens.
 
-### L1-11 — câmera, ação e olhar
+#### Direção L1-11 — câmera, ação e olhar
 P1 low handheld A close-medium over counter edge, Kim pauses food halfway to mouth while Jack notices from side. P2 Nina tilts slightly up as Kim lowers hand and turns eyes toward announcement; Jack leans toward him smiling. Stranger remains alive at his fixed place in depth, no repeated identical mouths/arms.
 
 **Eyelines:** Jack looks at Kim's food hand then Kim; Kim looks at food then prize announcement direction. Stranger at his glass.
 
-### L1-12 — câmera, ação e olhar
+#### Direção L1-12 — câmera, ação e olhar
 Single handheld A low three-quarter medium frame: Kronos near side, technical doorway in depth along pointing arm. One decisive pointing gesture directs reading toward next route, not panoramic architectural exhibition or full-body portrait.
 
 **Eyelines:** Kronos looks along his pointing hand toward technical access, never along lens axis.
 
-### L1-13 — câmera, ação e olhar
+#### Direção L1-13 — câmera, ação e olhar
 P1 handheld A slightly upward close view of Jack reaching toward lens, fingers near foreground. P2 lens rolls and dips during REAL transfer, showing Jack's wrist rotating INTO strap and floor/cloth replacing upper background. Neither face nor hand may hold the identical pose. Nina's body stays behind lens until transfer permits otherwise.
 
 **Eyelines:** Jack looks DOWN at receiving hand and wrist strap, not into A as he reaches toward it.
 
-### L1-14 — câmera, ação e olhar
+#### Direção L1-14 — câmera, ação e olhar
 One fixed elevated CAM03 diagonal view into technical-corridor mouth. Foreground servant gestures toward opening; groups enter at staggered depths, Jack A and Fred D visibly carried, Nina already walking ahead of Jack. Action crosses image, not nine people standing shoulder-to-shoulder. Everyone's position differs from08.
 
 **Eyelines:** Everyone watches route, attendant's hand or companion ahead. Nobody acknowledges high CCTV.
 
-### L1-15 — câmera, ação e olhar
+#### Direção L1-15 — câmera, ação e olhar
 P1 Jack's handheld A from slightly below Nina's shoulder height while walking, oblique side view as she looks down at his drape. P2 Nina pivots toward him and reaches into NEAR lower edge to tug fold aside; fabric fills foreground, her face shifts higher and off-center. Jack remains behind lens; no repeated neutral Nina portrait.
 
 **Eyelines:** Nina looks DOWN at Jack's drape and the fold she adjusts, not Jack's eyes aligned with lens.
 
-### L1-16 — câmera, ação e olhar
+#### Direção L1-16 — câmera, ação e olhar
 P1 Fred's D over near edge of Brock's shoulder, Anderson ahead turns BACK while still walking. P2 Fred advances one step, Jason's prize-directed gesture drops under Brock's sideways look; Anderson turns forward and recedes. Corridor vanishing lines and occlusions change with actual walking, no mirrored duplicate procession.
 
 **Eyelines:** Anderson turns back to Brock's shoulder beside operator, not Fred/lens; Jason at announcement direction then Brock; Brock at Jason.
 
-### L1-17 — câmera, ação e olhar
+#### Direção L1-17 — câmera, ação e olhar
 P1 handheld D downward oblique: Michael's shoe catches low cable at RIGHT jamb; camera handback Jack-to-Nina occurs recognizably in depth. P2 Fred's startled upward correction catches Michael pitched forward and Jason's gripping arm pulling costume taut. Their weight/feet change, no second posed standing frame. Editorial shoe/cable shard shows same contact, not another trip.
 
 **Eyelines:** Michael looks down at caught shoe, Jason at Michael's grabbing point, Jack/Nina at handoff and strap.
 
-### L1-18 — câmera, ação e olhar
+#### Direção L1-18 — câmera, ação e olhar
 One handheld A shoulder-height oblique from laboratory door with near jamb and side table framing exact nine-chair5+4 geometry. Functional establishing view, camera NOT overhead/floating. Jack near edge moving inward, no centered lineup. Locate Andre chair and camera table for later fixed recording.
 
 **Eyelines:** Jack looks toward assigned chair; staff at stations. Nina offscreen.
 
-### L1-19 — câmera, ação e olhar
+#### Direção L1-19 — câmera, ação e olhar
 P1 D chest-height oblique down toward link station, Brock partially seen beyond it. P2 Fred physically dips lens toward his confirming finger and status display; wrist/contact action changes from hovering to pressed and REGISTRO VINCULADO appears once. No external shot of Fred holding D; no second identical interface frame.
 
 **Eyelines:** Visible Brock at link display and Fred's confirming hand, not lens. Other guests at chairs.
 
-### L1-20 — câmera, ação e olhar
+#### Direção L1-20 — câmera, ação e olhar
 Single fixed elevated CAM06 diagonally across SAME lab, docking support in near side and9chairs beyond. Fred bends to insert physical D, Nina crosses toward side table with A, attendants direct people along clear paths. Dynamic separate actions, not9faces posing at camera. Establish this exact C axis for23/49/50.
 
 **Eyelines:** Fred looks at docking support, Nina at table, attendants at seats. Nobody toward CCTV.
 
-### L1-21 — câmera, ação e olhar
+#### Direção L1-21 — câmera, ação e olhar
 P1 A tilts down and rolls as Nina sets it on side table; tabletop edge enters lower foreground. P2 lens has physically settled at LOW table-height oblique axis aimed toward Andre chair and hand/pocket, Nina moves away ACROSS edge of her own now-stationary image toward seat. Distinct shaky-placement versus stable-supported states. This P2 axis MUST remain identical in22/38/42/46; don't use cinematic angle changes for fixed A.
 
 **Eyelines:** Nina at tabletop while supporting A then at chair as she exits field. Andre at his strap/seat. No glance back into supported lens.
 
-### L1-22 — câmera, ação e olhar
+#### Direção L1-22 — câmera, ação e olhar
 SAME locked table-height A axis in BOTH panels, no pan/zoom/crop change. P1 Andre sits forward testing strap with lifted wrist, Brock partly at side. P2 attendant's arm crosses to close connector, Andre wrist settles against restraint, Brock turns toward him. Change action, overlapping arms and posture; not two copies of seated Andre. Andre hand and costume pocket remain in field.
 
 **Eyelines:** Andre down at wrist restraint then worker's connector; Brock at Andre's strap; worker at connector.
 
-### L1-23 — câmera, ação e olhar
+#### Direção L1-23 — câmera, ação e olhar
 Single fixed CAM06 identical to20: all9 seated, attendant leans to final helmet while another closes technical door in depth. A on table and D docked remain in recorded locations. Staff positions and participants' posture have advanced since20; no standalone empty-room beauty shot.
 
 **Eyelines:** Workers at helmets and door hardware, participants down/eyes enclosed. Nobody toward CCTV.
 
-### L1-24 — câmera, ação e olhar
+#### Direção L1-24 — câmera, ação e olhar
 P1 virtual D at LOW hand-height rising from seated position, gateB ironwork cuts foreground and Brock/Jason shift weight beside it. P2 Fred stands/raises lens naturally to chest height as gate opens, daylight slices across turning faces and threshold. Not two static portraits or a third-person view of Fred lifting camera.
 
 **Eyelines:** Jason at gate latch then toward Brock; Brock toward opening daylight. Neither looks into virtual D.
 
-### L1-25 — câmera, ação e olhar
+#### Direção L1-25 — câmera, ação e olhar
 P1 D at B threshold, near jamb partly blocks image during Fred's motivated turn. P2 turn completes toward gateA, Kim comes out first into near-left, Jack and Nina follow staggered with different strides and glances. No unseen interior ofA, no repeated trio pose from02, no full-body lineup.
 
 **Eyelines:** Kim scans arena/prize direction; Jack looks toward Kim; Nina toward emerging route and parapet. No trio staring at Fred.
 
-### L1-26 — câmera, ação e olhar
+#### Direção L1-26 — câmera, ação e olhar
 P1 D diagonally across gateC from outside: Andre rounds jamb while Anderson/Michael still partly occluded. P2 Fred's small pivot brings Brock's raised beckoning hand into near foreground, Andre turns and walks toward it; companions clear gate. Editorial hand shard magnifies beckon. Keep people advancing, not identical formation in both frames.
 
 **Eyelines:** Andre looks toward Brock's raised hand, Brock at Andre, Michael/Anderson toward arena route.
 
-### L1-27 — câmera, ação e olhar
+#### Direção L1-27 — câmera, ação e olhar
 Single handheld D upward-oblique functional wide from arena margin, near shoulder/gate edge anchors operator, bright stands above floor. Nina's turned profile near edge points attention toward undead crowd. No aerial/master drone shot. Preserve gates' geography without tiny panoramic cast portraits.
 
 **Eyelines:** Nina looks UP at crowd tiers; spectators at arena floor contestants away from camera optical axis.
 
-### L1-28 — câmera, ação e olhar
+#### Direção L1-28 — câmera, ação e olhar
 Single D steep LOW upward angle from Fred on arena floor toward raised imperial balcony, parapet frames zombie Caesar from below, laurel/silhouette striking against daylight. A genuine camera tilt, no cut to balcony-level external camera. Clock20:00 small secondary detail, face/command is focal point.
 
 **Eyelines:** Zombie Caesar looks DOWN toward contenders standing offset from Fred, at least30degrees away from D axis. No straight-to-reader horror stare.
 
-### L1-29 — câmera, ação e olhar
+#### Direção L1-29 — câmera, ação e olhar
 P1 D turns down to medium low three-quarter Andre raising hand, Brock behind his opposite shoulder. P2 Fred eases closer half-step as Andre SHRUGS and turns toward center; Brock reaches briefly toward his upper arm, hand raised then held back. Gestures and eyelines change, no duplicated volunteer portrait.
 
 **Eyelines:** Andre at Brock then arena center, Brock at Andre's raised arm. Not Fred.
 
-### L1-30 — câmera, ação e olhar
+#### Direção L1-30 — câmera, ação e olhar
 P1 D over Andre's near shoulder toward Jack stepping into space. P2 Fred physically retreats half-step to include Jack turning sideways into play stance and Kim shifting aside at edge. Andre is opposite Jack, not another new opponent. Changes are motivated physical movement, not impossible reverse coverage.
 
 **Eyelines:** Jack at Andre's face, Kim at contenders, Andre at Jack's hands. Nobody looks at filming Fred.
 
-### L1-31 — câmera, ação e olhar
+#### Direção L1-31 — câmera, ação e olhar
 One handheld D sideline oblique frame, Nina's hesitant raised fingers near foreground, Jack moving away into center in depth, still within same lens field. Her look follows him rather than camera. Depth shows hesitation failing to stop movement; no frontal posed two-shot.
 
 **Eyelines:** Nina at departing Jack's shoulder, Jack at central opponent position.
 
-### L1-32 — câmera, ação e olhar
+#### Direção L1-32 — câmera, ação e olhar
 P1 D medium close as redhead Michael enters near lens and blocks part of arena; Anderson visible at his far shoulder. P2 Anderson pulls him SIDEWAYS out of optical axis, revealing Jack/Andre deeper in frame. Fred stays at same sideline. Difference is obstruction then clearing, not same pair standing with changed mouths.
 
 **Eyelines:** Michael looks at Anderson/Fred's shoulder SIDE of lens when asking for reaction shot; Anderson at Michael's obstructing arm. Never look into D.
 
-### L1-33 — câmera, ação e olhar
+#### Direção L1-33 — câmera, ação e olhar
 P1 D slight low oblique waist-up of contenders separated by visible arm's length, Andre opens guard and Jack brings fist to ready position. P2 Fred leans slightly to keep gap visible while Andre shifts weight forward and Jack extends shoulder toward upcoming tap. Body mechanics progress; contact has NOT occurred yet.
 
 **Eyelines:** Jack at Andre's raised guard, Andre at Jack's fist. Mutual combat eyelines off lens.
 
-### L1-34 — câmera, ação e olhar
+#### Direção L1-34 — câmera, ação e olhar
 P1 D torso/hand action medium: ONE gentle tap reaches Andre, neither explosive impact nor heavy strike. P2 Fred tilts lens down following Andre's theatrical laughing descent toward same floor patch, Jack's hand recoils and stays at upper edge. Distinct contact then falling state. Glass contact shard is one simultaneous detail, never extra punch.
 
 **Eyelines:** Jack at contact point, Andre at Jack then ground as he falls. No eye contact with lens.
 
-### L1-35 — câmera, ação e olhar
+#### Direção L1-35 — câmera, ação e olhar
 P1 D downward oblique medium: Andre planted palm on grit, pushes torso up from playful fall. P2 small Fred tilt follows SAME arm arrested by cable; Andre's elbow bends back and hips halt halfway up, smile falters. Do not magically return him to flat starting pose. Cable direction established toward ground attachment.
 
 **Eyelines:** Andre looks down at trapped arm then cable origin; Jack at Andre's hand.
 
-### L1-36 — câmera, ação e olhar
+#### Direção L1-36 — câmera, ação e olhar
 P1 same D downward side axis: another cable draws taut, Andre's free hand reaches to it, Jack takes one involuntary step nearer. P2 Fred physically lowers his stance slightly with fear, Andre turns face toward Jack and shoulders tense; Jack's raised hand freezes. Pain escalates in different body state, not same cable/face arrangement twice.
 
 **Eyelines:** Andre looks toward Jack's hand, Jack at cable/Andre arm. Pain must not become a stare at reader.
 
-### L1-37 — câmera, ação e olhar
+#### Direção L1-37 — câmera, ação e olhar
 P1 D whipped sideways by Fred tracking Kim's close pass, red cloak streaks across one near edge with motivated motion blur. P2 lens recovers LOW oblique angle toward SAME trapped arm, Kim now crouches on established side, reaches hand to cable; Andre's hand in opposite depth. Read arrival then intervention, not two blurry duplicates or moved victim.
 
 **Eyelines:** Kim at Andre's trapped arm and cable grip; Andre at Kim's approaching hand.
 
-### L1-38 — câmera, ação e olhar
+#### Direção L1-38 — câmera, ação e olhar
 SAME locked low A table axis from21 in both panels. P1 masked worker leans into field, connector approaches corresponding Andre arm. P2 connector is seated, worker's fingers release it and Andre's real hand contracts against strap. Clear before/after contact. No zoom, no flattering new closeup, no virtual-body replacement.
 
 **Eyelines:** Worker at connector; Andre eyes closed/helmet down. No physical-lab glance at supported A.
 
-### L1-39 — câmera, ação e olhar
+#### Direção L1-39 — câmera, ação e olhar
 P1 D low side angle from Fred's established margin, Kim stays on near-left side of Andre, Brock/Jason enter opposite side and take hold of bundle. P2 Fred leans into closer oblique field without crossing rescue axis: their elbows draw back, cables taut, Andre's torso shifts slightly but remains trapped. Different effort phase, no extra hands or duplicated rescuers.
 
 **Eyelines:** Kim at cable join, Brock/Jason at their gripping hands, Andre at helpers' arms. No rescue lineup staring toward D.
 
-### L1-40 — câmera, ação e olhar
+#### Direção L1-40 — câmera, ação e olhar
 P1 D pivots physically to established sidelines: Michael's laughing mouth and Anderson's half-smile in unequal depth. P2 SAME angle while laugh STOPS: Michael's hand drops, Anderson leans forward, both eyes shift toward offscreen Andre. Expressive reaction change is the action, not another smiling portrait or blur hiding emotion.
 
 **Eyelines:** Michael/Anderson look toward offscreen Andre, reactions shift to same arena action, never lens.
 
-### L1-41 — câmera, ação e olhar
+#### Direção L1-41 — câmera, ação e olhar
 P1 D chest-height oblique side view: Jack stares at near raised fist while Nina approaches behind his shoulder. P2 Nina's hand lands on his shoulder and turns him toward her, Jack lowers fist and meets her eyes; frame shifts a little as Fred adjusts grip. Changed contact, head angle and hand position. No duplicated still Nina from earlier pages.
 
 **Eyelines:** Jack at his own fist then Nina's face; Nina at Jack's eyes, their mutual eyeline is SIDEWAYS to D.
 
-### L1-42 — câmera, ação e olhar
+#### Direção L1-42 — câmera, ação e olhar
 SAME locked A table axis from38. P1 Andre's torso lifts in a convulsion, strap tight, worker's hand reaches for station rail. P2 torso falls back against chair, worker now bracing rail, loose cloth settles. Two phases of SAME event, room/camera/chair do not move. No identical seated-body poses.
 
 **Eyelines:** Worker watches bracing rail/connector; Andre eyes closed or obscured by helmet. No stare into A.
 
-### L1-43 — câmera, ação e olhar
+#### Direção L1-43 — câmera, ação e olhar
 Single subjective LOW upward Andre eyeline from restrained ground position: Kim/Brock hands enter opposite sides above him, their bodies foreshortened beyond hands, vision edges organic. Faces never form a centered portrait lineup. No own-face view, no aerial view, no REC. Cold thought against dark peripheral quiet area.
 
 **Eyelines:** In Andre subjective view, Kim and Brock look at restrained ARMS and cable connections, never into Andre/viewer eyes.
 
-### L1-44 — câmera, ação e olhar
+#### Direção L1-44 — câmera, ação e olhar
 P1 D lens physically tips DOWN toward grit as Fred's hands weaken, lower torsos cut top edge and existing Kim arm remains anchor. P2 Fred raises lens enough to catch Kim lifting his face from rescue toward operator, still gripping cable. Distinct downward loss versus recovered witness, not same closeup copied. Lens never touches floor.
 
 **Eyelines:** Kim turns toward Fred's FREE hand/shoulder clearly to SIDE of lens, eyes visibly off-axis, while demanding recording. Never look straight into lens. Brock at Andre hand.
 
-### L1-45 — câmera, ação e olhar
+#### Direção L1-45 — câmera, ação e olhar
 P1 Andre subjective low side view, Brock leans INTO reach and begins reply, nearer hand partially occludes face. P2 Andre's tiny head sag shifts eyeline downward, Brock leans closer and extends hand, peripheral focus falls off. Motivated bodily POV shift, no external portrait or magically teleported ticket prop.
 
 **Eyelines:** Brock looks DOWN at Andre's reaching hand or restraint, not into subjective viewer's eyes, even while promising help.
 
-### L1-46 — câmera, ação e olhar
+#### Direção L1-46 — câmera, ação e olhar
 Single locked low A table frame from38/42: Andre's hand now UNCLENCHES and tickets fall from costume edge onto same visible lap/seat area. Nothing relocates camera for a macro shot. Optional small editorial shard magnifies ticket corner without printing text. This new released-hand state differs from42's contracted hand.
 
 **Eyelines:** Eyes absent or obscured; worker if visible looks at station. Focus released hand and tickets.
 
-### L1-47 — câmera, ação e olhar
+#### Direção L1-47 — câmera, ação e olhar
 P1 Andre subjective low field, Kim still pulls and leans nearer from SAME rescue side, foreground cable gives scale. P2 head/vision sinks as eye aperture contracts almost closed, Kim's gesture becomes partial silhouette, not a repeated sharp face with black border pasted on. Thought appears once. No running motion blur or technical overlay.
 
 **Eyelines:** Kim looks down at grip/Andre trapped arm, not into subjective viewer's eyes.
 
-### L1-48 — câmera, ação e olhar
+#### Direção L1-48 — câmera, ação e olhar
 Single D slightly lowered oblique medium frame from Fred: Andre now motionless, Brock remains bent toward his hand, Kim loosens pulling effort and turns face to check him, Nina/Jack remain on established side in depth. Changed aftermath posture, no frozen tableau copied from39 and no new pulling cycle.
 
 **Eyelines:** Kim at Andre's lowered face, Brock at limp hand; Nina at Jack, Jack at Andre. No eyes toward Fred/lens.
 
-### L1-49 — câmera, ação e olhar
+#### Direção L1-49 — câmera, ação e olhar
 Both panels EXACT same high oblique CAM06 axis as23. P1 workers roll Andre's chair/body along established service path, empty base emerging behind it. P2 chair/body fully EXIT field, workers farther down route, eight remaining chairs/bodies unchanged. Removal then absence is unmistakable. No second identical chair-in-transit frame.
 
 **Eyelines:** Workers watch chair route and clamps; remaining participants enclosed helmets. Nobody looks at CCTV.
 
-### L1-50 — câmera, ação e olhar
+#### Direção L1-50 — câmera, ação e olhar
 Single same fixed CAM06 field as49 showing empty base as technical shutdown obstructs recording. DELETE is interface only. No new angle, no new people posing, no floating insert of control room never established.
 
 **Eyelines:** No face looking into lens; technical shutdown is interface, not villain address.
 
-### L1-51 — câmera, ação e olhar
+#### Direção L1-51 — câmera, ação e olhar
 P1 A low table axis breaks ONLY because worker picks it up: hand near upper edge, tabletop horizon rolls and lab passes obliquely. P2 after real carrying ellipse, handheld A points upward through hall opening to Roman clock, tall masonry foreshortened, clock hands finish returning toVIII/XII. Clearly changed location and camera height with custody cause. TC keeps advancing, operator never visible externally.
 
 **Eyelines:** Operator face unseen; clock/hand shots have no face toward reader. Any distant attendant watches work/route.
