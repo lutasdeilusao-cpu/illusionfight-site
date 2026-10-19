@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792312473.5450962,
-    "ast_hash": "11eda3d7e670e902d4970f4f8c0edf85",
+    "mtime": 1792416639.21677,
+    "ast_hash": "f82a02a7dcee2d4f7b332bee6e0b4755",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -445,8 +445,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1792104296.3740432,
-    "ast_hash": "304b23df0432c8984f088408c0899d98",
+    "mtime": 1792416639.2220163,
+    "ast_hash": "1d77146b157b653199782f5917bbfc42",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2250,8 +2250,8 @@
     "semantic_hash": "31db883e4c2a874f607640a28016b53b"
   },
   "vite.config.js": {
-    "mtime": 1792207875.3561194,
-    "ast_hash": "c17821b5133e32a9931b95cc93f6c271",
+    "mtime": 1792416639.2230172,
+    "ast_hash": "379e3b27bbf905e0b1d21acb03c7a49b",
     "semantic_hash": ""
   },
   "public/arena/sfx/combat/dagger_hit.wav": {
@@ -2560,8 +2560,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792312473.5496097,
-    "ast_hash": "21ce8c1176385fa5d31713d878bb7b9a",
+    "mtime": 1792416864.6708336,
+    "ast_hash": "5e8e097d9563e4081e6703f7efa204d0",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4565,8 +4565,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-titulos.json": {
-    "mtime": 1792104296.7033117,
-    "ast_hash": "e8bb8a627c7931114ccf830e1a72cab1",
+    "mtime": 1792416639.2230172,
+    "ast_hash": "46899518f917475bd06d492ba298b527",
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
@@ -9869,11 +9869,6 @@
     "ast_hash": "3d69a6820896b38e96283b9b5c17c632",
     "semantic_hash": ""
   },
-  "src/assets/webshard/capa-presos-na-ilusao.webp": {
-    "mtime": 1792004055.3608615,
-    "ast_hash": "ed1faa461f26cf7da45f44faffa16823",
-    "semantic_hash": ""
-  },
   "src/assets/webshard/cap-mundo-das-sombras-04.webp": {
     "mtime": 1792211045.5429711,
     "ast_hash": "d466848e6a17c524143bbb8ce28b8c28",
@@ -9942,6 +9937,11 @@
   "src/assets/webshard/capa-diabo-vermelho.webp": {
     "mtime": 1792104296.7013092,
     "ast_hash": "733989d7c44522ae2fbbab1218cc8095",
+    "semantic_hash": ""
+  },
+  "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md": {
+    "mtime": 1792416864.6628351,
+    "ast_hash": "27824970b5558a7365616961f25efbf0",
     "semantic_hash": ""
   }
 }
