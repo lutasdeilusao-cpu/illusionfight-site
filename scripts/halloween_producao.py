@@ -129,6 +129,17 @@ def prepare():
         number, source, aliases, previous, staging = line.split('|', 4)
         n = int(number)
         text = re.search(r'\*\*Texto:\*\* (.*)', blocks[number]).group(1)
+        # Only quoted artwork strings enter lettering; editorial prose is never printed.
+        lettering = []
+        previous_end, speaker = 0, 'caption'
+        for match in re.finditer(r'“([^”]+)”', text):
+            context = text[previous_end:match.start()]
+            if ':' in context:
+                speaker = context.rsplit(':', 1)[0].split('. ')[-1].strip()
+            if match.group(1) != 'NO SOUND':
+                lettering.append(speaker + ': "' + match.group(1) + '"')
+            previous_end = match.end()
+        text = '\n'.join(lettering) if lettering else 'No additional printed text.'
         refs = [REFS[a] for a in aliases.split()]
         refs += [f'paginas/loop1/{int(p):02d}.png' for p in previous.split()]
         timing = ''
