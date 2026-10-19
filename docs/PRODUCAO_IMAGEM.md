@@ -133,8 +133,8 @@ Linguagem própria pra especial em que a história é o que uma filmadora gravou
 - Quem filma **quase nunca aparece**: só no reflexo (espelho, poça, vidro) ou quando alguém toma a câmera.
 
 **Olhar**
-- A regra "ninguém olha pro leitor" muda aqui: olhar pra lente é olhar pra quem filma, e é permitido quando a fala é pra essa pessoa. Escrever no prompt "looks into the camera lens, at the person filming".
-- Olhar de verdade pro leitor (o vilão virando a câmera pro próprio rosto) é exceção marcada no roteiro, uma vez por especial.
+- A regra "ninguém olha pro leitor" muda aqui: a orientação atual de Isaías proíbe olhar para o leitor ou diretamente para a lente, inclusive falando com quem filma. Indicar uma pessoa ou ação fora do eixo como alvo dos olhos.
+- Não existe exceção para vilão, vlog ou POV subjetivo. O alvo do olhar precisa estar declarado em todo prompt.
 
 **Câmera caída / sem dono**
 - Morte e susto com a câmera caída: lente no chão, quadro de lado (90°), parte do quadro tampada por objeto. O que importa acontece **no fundo ou fora do quadro**, e a onomatopeia carrega o som.

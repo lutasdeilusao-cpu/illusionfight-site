@@ -87,7 +87,7 @@ Procedimento recomendado:
 
 Estilhaços podem mostrar antecipação, simultaneidade, reação ou consequência. O leitor precisa compreender qual dessas relações está vendo. Não sobrepor um detalhe ao rosto, ao ponto de contato do golpe ou a uma fala indispensável.
 
-O handoff fixa cortes diagonais de **8–15 graus**, inclusive nos recortes retangulares; evitar divisões retas horizontais/verticais. As diagonais podem variar de direção na mesma página, preservando a ordem de leitura. A separação normal é uma borda fina, não uma faixa larga; a espessura não deve roubar espaço da ação. Invasões de quadro são opcionais. O fundo acompanha o tema da cena, nunca preto ou branco chapado. Uma pausa pode ter composição simples sem abandonar a linguagem. Ângulo de câmera e borda devem ser declarados dentro de cada bloco de painel no prompt.
+O handoff fixa cortes diagonais de **8–15 graus**, inclusive nos recortes retangulares; evitar divisões retas horizontais/verticais. As diagonais podem variar de direção na mesma página, preservando a ordem de leitura. A separação normal é uma borda fina, não uma faixa larga; a espessura não deve roubar espaço da ação. Invasões de quadro são opcionais. O fundo acompanha o tema da cena, nunca preto ou branco chapado. Uma pausa pode ter composição simples sem abandonar a linguagem. Ângulo de câmera e borda devem ser declarados dentro de cada bloco de painel no prompt. Cada painel também declara o novo estado da ação e a relação com o anterior: gesto, postura, deslocamento, contato ou consequência. Não repetir a mesma pose e posição na tela com falas diferentes. Ângulos cinematográficos dependem da posição física da lente e da profundidade, não apenas de inclinar a borda. Em fonte fixa, o movimento acontece dentro do campo; em fonte portátil, a mudança de ângulo exige deslocamento ou giro real do operador.
 
 ### 4.3 Ritmo e exceções
 
@@ -551,7 +551,7 @@ A sala e as posições **nunca mudam** de uma página para outra. O prompt tem q
 
 **Cada painel deve declarar seu próprio ângulo**, claramente diferente do anterior. Variar escala também: plano geral, close, detalhe, plongée, contra-plongée, sobre o ombro e ponto de vista subjetivo. Não fazer todas as páginas como rostos colados à câmera.
 
-Personagens não olham para o leitor, salvo exceção explicitada: retrato de perfil, selfie, câmera com posição física justificável ou quebra de quarta parede do Pajé. Em conversa, olhar para o interlocutor ou acontecimento.
+Personagens nunca olham para o leitor ou diretamente para a lente, inclusive em selfie, câmera diegética ou fala do Pajé. Em conversa, olhar para o interlocutor ou acontecimento fora do eixo da lente. Todo prompt declara o alvo concreto dos olhos.
 
 Descrever qual braço/perna atua, onde fica o peso, o giro do quadril, a trajetória e o contato. O handoff usa terminologia brasileira e distingue golpes retos de ganchos em arco; sua nomenclatura de “cruzado” não deve substituir a descrição biomecânica. O desenho precisa ser inequívoco mesmo se o nome de um golpe variar entre referências.
 
@@ -820,7 +820,7 @@ Texto exato e localização: [falas curtas; espaço para letras grandes].
 Dimensão: 960 × 1637 px. Área segura: ~100 px laterais, ~80 px topo/base.
 Ângulo de cada painel: [ângulo distinto]; cortes diagonais de 8–15 graus.
 Borda de cada painel/estilhaço: [neon, núcleo e glow; repetir em cada bloco].
-Olhar: para [ação/interlocutor]; nunca para o leitor sem exceção expressa.
+Olhar: para [ação/interlocutor/objeto fora do eixo]; nunca para o leitor ou lente, sem exceção.
 Onomatopeias exatas: [ao menos uma para a página narrativa].
 Ignorar textos e onomatopeias antigos das referências: [lista], e todo título,
 legenda, etiqueta e placa das fichas.
@@ -1147,3 +1147,8 @@ Gag recorrente, no espírito do "Toasty!" do Mortal Kombat.
 - **Página 41 (ES):** em produção. **Página 52:** confirmar se tem texto.
 - **Tom do espanhol:** o prompt base (§26.4) pede um leve tempero de rua mexicano ("¿qué onda?"), e a alternativa da página 47 é "ME VALE MADRE". A regra geral do projeto (`AGENTS.md`) é espanhol **neutro latino-americano**, sem regionalismo marcado de um país só. Decidir qual vale pro WEBSHARD.
 - **Erros no original em PT** (corrigir no PSD, se quiser): página 10, "UMA MAU" → "UM MAU"; página 49, "LUTA DE ILUSÕES" → "LUTAS DE ILUSÃO"; página 49, "ISAIAS" × "ISAÍAS" (padronizar); página 48, placa "LD1" (é LDI?).
+
+
+### Direção de olhares — atualização de Isaías, 19/10/2026
+
+Ninguém olha diretamente para o leitor ou para a lente. Todo prompt indica o alvo concreto do olhar: pessoa, mão, objeto, passagem ou ação. Vale também para gravação de conteúdo, fala ao operador, vilão e ponto de vista subjetivo; não abrir exceção de olhar frontal. Identidade frontal na ficha não determina o olhar da narrativa.

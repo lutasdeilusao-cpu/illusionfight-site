@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792421653.7830055,
-    "ast_hash": "e87b89c14b53c04f195bad16c8df64fd",
+    "mtime": 1792422929.5665548,
+    "ast_hash": "f559f7ca19196ea170cb6065a4eb20b1",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2560,8 +2560,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792421653.784005,
-    "ast_hash": "20b1a3f85f20585e9721634607c0115e",
+    "mtime": 1792422929.5675533,
+    "ast_hash": "7972c7f180d348fab6dd029967384ec3",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9945,8 +9945,8 @@
     "semantic_hash": ""
   },
   "scripts/halloween_producao.py": {
-    "mtime": 1792422645.9112034,
-    "ast_hash": "2d2d1b85b661e66b86e5eb0c95af8c69",
+    "mtime": 1792422929.5812562,
+    "ast_hash": "1b9e0a918fbc63677f38a2cf54780dec",
     "semantic_hash": ""
   }
 }

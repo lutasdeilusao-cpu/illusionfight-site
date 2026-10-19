@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-10-19)
 
 ## Corpus Check
-- 1379 files · ~4,209,580 words
+- 1379 files · ~4,209,643 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `27ba7568`
+- Built from commit: `f6236802`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
