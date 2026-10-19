@@ -275,7 +275,8 @@ def prepare():
         body += '\nMANDATORY EYELINE TARGETS: ' + GAZE_PLAN[n]
         body += '\nEXACT TEXT IN PORTUGUESE (speaker names/instructions NOT printed):\n' + text
         body += '\nActual attached filenames and roles: ' + '; '.join(Path(r).name + (' = previous-page continuity' if r.startswith('paginas') else ' = identity/environment/object reference') for r in refs)
-        body += '\nGenerate ONCE using image generation and SAVE finished PNG to ' + out + '. Reply only ok.'
+        body += '\nTOOL INPUT: all references are local. Use referenced_image_paths with these absolute paths, NOT num_last_images_to_include: ' + json.dumps([str(ROOT / r) for r in refs], ensure_ascii=False)
+        body += '\nGenerate ONCE using image generation and SAVE finished PNG to ' + out + '. Wait for the image tool to finish, then COPY the generated file from its returned path to this OUT path. Copying to OUT is required and allowed. Do not finish while a tool is still running. Reply only ok after the file is saved.'
         write(PROMPTS / f'{n:03d}_pagina{n:02d}.txt', 'OUT: ' + out + '\nREFS: ' + ' '.join(refs) + '\n' + body)
     for alias, (inputs, staging) in MATERIALS.items():
         refs = [REFS[k] for k in inputs.split()]
@@ -316,6 +317,7 @@ def run():
         spec.loader.exec_module(engine)
         sys.argv = saved_argv
         engine.W, engine.P = str(ROOT), str(PROMPTS)
+        engine.ECONOMIA += ' References are local files: prefer referenced_image_paths over num_last_images_to_include. Wait for image generation to COMPLETE and COPY its returned PNG to the specified OUT path before replying ok. Saving the generated file is required and allowed.\n'
         os.chdir(ROOT)
         for n in range(2, 52):
             out = PAGES / f'{n:02d}.png'

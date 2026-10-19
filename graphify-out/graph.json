@@ -4,503 +4,13 @@
   "graph": {},
   "nodes": [
     {
-      "label": "SITE_MAP.md",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "site_map",
-      "community": 66,
-      "norm_label": "site_map.md"
-    },
-    {
-      "label": "ILLUSIONFIGHT.COM \u2014 MAPA DO SITE E DO PROJETO",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "community": 66,
-      "norm_label": "illusionfight.com \u2014 mapa do site e do projeto"
-    },
-    {
-      "label": "1. Vis\u00e3o geral",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "site_map_1_vis\u00e3o_geral",
-      "community": 66,
-      "norm_label": "1. visao geral"
-    },
-    {
-      "label": "2. Entradas e composi\u00e7\u00e3o global",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "site_map_2_entradas_e_composi\u00e7\u00e3o_global",
-      "community": 66,
-      "norm_label": "2. entradas e composicao global"
-    },
-    {
-      "label": "2.1 Abertura (vinheta de carregamento)",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L40",
-      "_origin": "ast",
-      "id": "site_map_2_1_abertura_vinheta_de_carregamento",
-      "community": 66,
-      "norm_label": "2.1 abertura (vinheta de carregamento)"
-    },
-    {
-      "label": "3. Rotas atuais",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L73",
-      "_origin": "ast",
-      "id": "site_map_3_rotas_atuais",
-      "community": 66,
-      "norm_label": "3. rotas atuais"
-    },
-    {
-      "label": "3.1 Site e conte\u00fado",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L77",
-      "_origin": "ast",
-      "id": "site_map_3_1_site_e_conte\u00fado",
-      "community": 66,
-      "norm_label": "3.1 site e conteudo"
-    },
-    {
-      "label": "3.2 Plataforma e conta",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L108",
-      "_origin": "ast",
-      "id": "site_map_3_2_plataforma_e_conta",
-      "community": 66,
-      "norm_label": "3.2 plataforma e conta"
-    },
-    {
-      "label": "3.3 Cat\u00e1logo e jogos",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L122",
-      "_origin": "ast",
-      "id": "site_map_3_3_cat\u00e1logo_e_jogos",
-      "community": 66,
-      "norm_label": "3.3 catalogo e jogos"
-    },
-    {
-      "label": "3.4 Kernel Games",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L144",
-      "_origin": "ast",
-      "id": "site_map_3_4_kernel_games",
-      "community": 66,
-      "norm_label": "3.4 kernel games"
-    },
-    {
-      "label": "3.5 Laborat\u00f3rio e fallback",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L158",
-      "_origin": "ast",
-      "id": "site_map_3_5_laborat\u00f3rio_e_fallback",
-      "community": 66,
-      "norm_label": "3.5 laboratorio e fallback"
-    },
-    {
-      "label": "3.6 Arquitetura de Hist\u00f3rias e Universos",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L168",
-      "_origin": "ast",
-      "id": "site_map_3_6_arquitetura_de_hist\u00f3rias_e_universos",
-      "community": 66,
-      "norm_label": "3.6 arquitetura de historias e universos"
-    },
-    {
-      "label": "4. Organiza\u00e7\u00e3o do c\u00f3digo",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L178",
-      "_origin": "ast",
-      "id": "site_map_4_organiza\u00e7\u00e3o_do_c\u00f3digo",
-      "community": 66,
-      "norm_label": "4. organizacao do codigo"
-    },
-    {
-      "label": "5. M\u00f3dulos globais importantes",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L204",
-      "_origin": "ast",
-      "id": "site_map_5_m\u00f3dulos_globais_importantes",
-      "community": 66,
-      "norm_label": "5. modulos globais importantes"
-    },
-    {
-      "label": "5.1 Contextos",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L206",
-      "_origin": "ast",
-      "id": "site_map_5_1_contextos",
-      "community": 66,
-      "norm_label": "5.1 contextos"
-    },
-    {
-      "label": "5.2 Bibliotecas e hooks",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L219",
-      "_origin": "ast",
-      "id": "site_map_5_2_bibliotecas_e_hooks",
-      "community": 66,
-      "norm_label": "5.2 bibliotecas e hooks"
-    },
-    {
-      "label": "5.3 Componentes reutiliz\u00e1veis",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L251",
-      "_origin": "ast",
-      "id": "site_map_5_3_componentes_reutiliz\u00e1veis",
-      "community": 66,
-      "norm_label": "5.3 componentes reutilizaveis"
-    },
-    {
-      "label": "6. Conte\u00fado, dados e assets",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L265",
-      "_origin": "ast",
-      "id": "site_map_6_conte\u00fado_dados_e_assets",
-      "community": 66,
-      "norm_label": "6. conteudo, dados e assets"
-    },
-    {
-      "label": "6.1 Dados editoriais globais",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L267",
-      "_origin": "ast",
-      "id": "site_map_6_1_dados_editoriais_globais",
-      "community": 66,
-      "norm_label": "6.1 dados editoriais globais"
-    },
-    {
-      "label": "6.2 i18n",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L291",
-      "_origin": "ast",
-      "id": "site_map_6_2_i18n",
-      "community": 66,
-      "norm_label": "6.2 i18n"
-    },
-    {
-      "label": "6.3 Invent\u00e1rio de conte\u00fado",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L310",
-      "_origin": "ast",
-      "id": "site_map_6_3_invent\u00e1rio_de_conte\u00fado",
-      "community": 66,
-      "norm_label": "6.3 inventario de conteudo"
-    },
-    {
-      "label": "7. Multiplayer e persist\u00eancia dos jogos",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L324",
-      "_origin": "ast",
-      "id": "site_map_7_multiplayer_e_persist\u00eancia_dos_jogos",
-      "community": 66,
-      "norm_label": "7. multiplayer e persistencia dos jogos"
-    },
-    {
-      "label": "8. Supabase e Stripe",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L332",
-      "_origin": "ast",
-      "id": "site_map_8_supabase_e_stripe",
-      "community": 66,
-      "norm_label": "8. supabase e stripe"
-    },
-    {
-      "label": "9. GitHub Pages, SEO e deploy",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L348",
-      "_origin": "ast",
-      "id": "site_map_9_github_pages_seo_e_deploy",
-      "community": 66,
-      "norm_label": "9. github pages, seo e deploy"
-    },
-    {
-      "label": "10. Camadas visuais globais",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L359",
-      "_origin": "ast",
-      "id": "site_map_10_camadas_visuais_globais",
-      "community": 66,
-      "norm_label": "10. camadas visuais globais"
-    },
-    {
-      "label": "10.1 Coluna \u00fanica mobile",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L361",
-      "_origin": "ast",
-      "id": "site_map_10_1_coluna_\u00fanica_mobile",
-      "community": 66,
-      "norm_label": "10.1 coluna unica mobile"
-    },
-    {
-      "label": "10.2 Linguagem visual \u00fanica",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L379",
-      "_origin": "ast",
-      "id": "site_map_10_2_linguagem_visual_\u00fanica",
-      "community": 66,
-      "norm_label": "10.2 linguagem visual unica"
-    },
-    {
-      "label": "11. Desktop Windows e Steam Demo",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L412",
-      "_origin": "ast",
-      "id": "site_map_11_desktop_windows_e_steam_demo",
-      "community": 66,
-      "norm_label": "11. desktop windows e steam demo"
-    },
-    {
-      "label": "12. Vers\u00f5es atuais",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L422",
-      "_origin": "ast",
-      "id": "site_map_12_vers\u00f5es_atuais",
-      "community": 66,
-      "norm_label": "12. versoes atuais"
-    },
-    {
-      "label": "13. Onde procurar primeiro",
-      "file_type": "document",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L449",
-      "_origin": "ast",
-      "id": "site_map_13_onde_procurar_primeiro",
-      "community": 66,
-      "norm_label": "13. onde procurar primeiro"
-    },
-    {
-      "label": "PRODUCAO_IMAGEM.md",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_producao_imagem",
-      "community": 169,
-      "norm_label": "producao_imagem.md"
-    },
-    {
-      "label": "PRODU\u00c7\u00c3O DE IMAGEM \u2014 guia do agente",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "community": 169,
-      "norm_label": "producao de imagem \u2014 guia do agente"
-    },
-    {
-      "label": "0. FERRAMENTAS (qual usar)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_0_ferramentas_qual_usar",
-      "community": 169,
-      "norm_label": "0. ferramentas (qual usar)"
-    },
-    {
-      "label": "1. GERAL \u2014 regras que valem pra tudo",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "community": 264,
-      "norm_label": "1. geral \u2014 regras que valem pra tudo"
-    },
-    {
-      "label": "Refer\u00eancias",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_refer\u00eancias",
-      "community": 264,
-      "norm_label": "referencias"
-    },
-    {
-      "label": "Continuidade",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L29",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_continuidade",
-      "community": 264,
-      "norm_label": "continuidade"
-    },
-    {
-      "label": "Anatomia / erros recorrentes",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L37",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_anatomia_erros_recorrentes",
-      "community": 264,
-      "norm_label": "anatomia / erros recorrentes"
-    },
-    {
-      "label": "Texto na imagem",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L44",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_texto_na_imagem",
-      "community": 264,
-      "norm_label": "texto na imagem"
-    },
-    {
-      "label": "V\u00e1rias sa\u00eddas numa chamada (economia de cota)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L48",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_v\u00e1rias_sa\u00eddas_numa_chamada_economia_de_cota",
-      "community": 264,
-      "norm_label": "varias saidas numa chamada (economia de cota)"
-    },
-    {
-      "label": "Fila",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_fila",
-      "community": 264,
-      "norm_label": "fila"
-    },
-    {
-      "label": "Revis\u00e3o e entrega",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L60",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_revis\u00e3o_e_entrega",
-      "community": 264,
-      "norm_label": "revisao e entrega"
-    },
-    {
-      "label": "2. WEB SHARD (comum)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L68",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_2_web_shard_comum",
-      "community": 169,
-      "norm_label": "2. web shard (comum)"
-    },
-    {
-      "label": "3. MUNDO DAS SOMBRAS (MDS) \u2014 estilo ARKHAM CODEX",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L75",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_3_mundo_das_sombras_mds_estilo_arkham_codex",
-      "community": 169,
-      "norm_label": "3. mundo das sombras (mds) \u2014 estilo arkham codex"
-    },
-    {
-      "label": "4. MAR DE CINZAS (MDC)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L93",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_4_mar_de_cinzas_mdc",
-      "community": 169,
-      "norm_label": "4. mar de cinzas (mdc)"
-    },
-    {
-      "label": "5. HER\u00d3IS DA CIDADE (HDC)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L96",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_5_her\u00f3is_da_cidade_hdc",
-      "community": 169,
-      "norm_label": "5. herois da cidade (hdc)"
-    },
-    {
-      "label": "6. LENDAS DO LDI (graphic novel do jogo)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L103",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_6_lendas_do_ldi_graphic_novel_do_jogo",
-      "community": 169,
-      "norm_label": "6. lendas do ldi (graphic novel do jogo)"
-    },
-    {
-      "label": "7. LDI GANGUES",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L109",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_7_ldi_gangues",
-      "community": 169,
-      "norm_label": "7. ldi gangues"
-    },
-    {
-      "label": "8. LUTAS DE ILUS\u00c3O (WEB SHARD principal)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L116",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_8_lutas_de_ilus\u00e3o_web_shard_principal",
-      "community": 169,
-      "norm_label": "8. lutas de ilusao (web shard principal)"
-    },
-    {
-      "label": "9. WEB SHARD \"C\u00c2MERA NA M\u00c3O\" (found footage em VHS)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L119",
-      "_origin": "ast",
-      "id": "docs_producao_imagem_9_web_shard_c\u00e2mera_na_m\u00e3o_found_footage_em_vhs",
-      "community": 169,
-      "norm_label": "9. web shard \"camera na mao\" (found footage em vhs)"
-    },
-    {
       "label": "HALLOWEEN_ROTEIRO_OFICIAL.md",
       "file_type": "document",
       "source_file": "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md",
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_webshard_especiais_halloween_roteiro_oficial",
-      "community": 169,
+      "community": 71,
       "norm_label": "halloween_roteiro_oficial.md"
     },
     {
@@ -3004,14 +2514,504 @@
       "norm_label": "direcao l1-51 \u2014 camera, acao e olhar"
     },
     {
+      "label": "SITE_MAP.md",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "site_map.md",
+      "id": "site_map"
+    },
+    {
+      "label": "ILLUSIONFIGHT.COM \u2014 MAPA DO SITE E DO PROJETO",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "illusionfight.com \u2014 mapa do site e do projeto",
+      "id": "site_map_illusionfight_com_mapa_do_site_e_do_projeto"
+    },
+    {
+      "label": "1. Vis\u00e3o geral",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "1. visao geral",
+      "id": "site_map_1_vis\u00e3o_geral"
+    },
+    {
+      "label": "2. Entradas e composi\u00e7\u00e3o global",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "2. entradas e composicao global",
+      "id": "site_map_2_entradas_e_composi\u00e7\u00e3o_global"
+    },
+    {
+      "label": "2.1 Abertura (vinheta de carregamento)",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L40",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "2.1 abertura (vinheta de carregamento)",
+      "id": "site_map_2_1_abertura_vinheta_de_carregamento"
+    },
+    {
+      "label": "3. Rotas atuais",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L73",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "3. rotas atuais",
+      "id": "site_map_3_rotas_atuais"
+    },
+    {
+      "label": "3.1 Site e conte\u00fado",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L77",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "3.1 site e conteudo",
+      "id": "site_map_3_1_site_e_conte\u00fado"
+    },
+    {
+      "label": "3.2 Plataforma e conta",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L108",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "3.2 plataforma e conta",
+      "id": "site_map_3_2_plataforma_e_conta"
+    },
+    {
+      "label": "3.3 Cat\u00e1logo e jogos",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L122",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "3.3 catalogo e jogos",
+      "id": "site_map_3_3_cat\u00e1logo_e_jogos"
+    },
+    {
+      "label": "3.4 Kernel Games",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L144",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "3.4 kernel games",
+      "id": "site_map_3_4_kernel_games"
+    },
+    {
+      "label": "3.5 Laborat\u00f3rio e fallback",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L158",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "3.5 laboratorio e fallback",
+      "id": "site_map_3_5_laborat\u00f3rio_e_fallback"
+    },
+    {
+      "label": "3.6 Arquitetura de Hist\u00f3rias e Universos",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L168",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "3.6 arquitetura de historias e universos",
+      "id": "site_map_3_6_arquitetura_de_hist\u00f3rias_e_universos"
+    },
+    {
+      "label": "4. Organiza\u00e7\u00e3o do c\u00f3digo",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L178",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "4. organizacao do codigo",
+      "id": "site_map_4_organiza\u00e7\u00e3o_do_c\u00f3digo"
+    },
+    {
+      "label": "5. M\u00f3dulos globais importantes",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L204",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "5. modulos globais importantes",
+      "id": "site_map_5_m\u00f3dulos_globais_importantes"
+    },
+    {
+      "label": "5.1 Contextos",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L206",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "5.1 contextos",
+      "id": "site_map_5_1_contextos"
+    },
+    {
+      "label": "5.2 Bibliotecas e hooks",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L219",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "5.2 bibliotecas e hooks",
+      "id": "site_map_5_2_bibliotecas_e_hooks"
+    },
+    {
+      "label": "5.3 Componentes reutiliz\u00e1veis",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L251",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "5.3 componentes reutilizaveis",
+      "id": "site_map_5_3_componentes_reutiliz\u00e1veis"
+    },
+    {
+      "label": "6. Conte\u00fado, dados e assets",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L265",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "6. conteudo, dados e assets",
+      "id": "site_map_6_conte\u00fado_dados_e_assets"
+    },
+    {
+      "label": "6.1 Dados editoriais globais",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L267",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "6.1 dados editoriais globais",
+      "id": "site_map_6_1_dados_editoriais_globais"
+    },
+    {
+      "label": "6.2 i18n",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L291",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "6.2 i18n",
+      "id": "site_map_6_2_i18n"
+    },
+    {
+      "label": "6.3 Invent\u00e1rio de conte\u00fado",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L310",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "6.3 inventario de conteudo",
+      "id": "site_map_6_3_invent\u00e1rio_de_conte\u00fado"
+    },
+    {
+      "label": "7. Multiplayer e persist\u00eancia dos jogos",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L324",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "7. multiplayer e persistencia dos jogos",
+      "id": "site_map_7_multiplayer_e_persist\u00eancia_dos_jogos"
+    },
+    {
+      "label": "8. Supabase e Stripe",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L332",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "8. supabase e stripe",
+      "id": "site_map_8_supabase_e_stripe"
+    },
+    {
+      "label": "9. GitHub Pages, SEO e deploy",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L348",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "9. github pages, seo e deploy",
+      "id": "site_map_9_github_pages_seo_e_deploy"
+    },
+    {
+      "label": "10. Camadas visuais globais",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L359",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "10. camadas visuais globais",
+      "id": "site_map_10_camadas_visuais_globais"
+    },
+    {
+      "label": "10.1 Coluna \u00fanica mobile",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L361",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "10.1 coluna unica mobile",
+      "id": "site_map_10_1_coluna_\u00fanica_mobile"
+    },
+    {
+      "label": "10.2 Linguagem visual \u00fanica",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L379",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "10.2 linguagem visual unica",
+      "id": "site_map_10_2_linguagem_visual_\u00fanica"
+    },
+    {
+      "label": "11. Desktop Windows e Steam Demo",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L412",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "11. desktop windows e steam demo",
+      "id": "site_map_11_desktop_windows_e_steam_demo"
+    },
+    {
+      "label": "12. Vers\u00f5es atuais",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L422",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "12. versoes atuais",
+      "id": "site_map_12_vers\u00f5es_atuais"
+    },
+    {
+      "label": "13. Onde procurar primeiro",
+      "file_type": "document",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L449",
+      "_origin": "ast",
+      "community": 66,
+      "norm_label": "13. onde procurar primeiro",
+      "id": "site_map_13_onde_procurar_primeiro"
+    },
+    {
+      "label": "PRODUCAO_IMAGEM.md",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "producao_imagem.md",
+      "id": "docs_producao_imagem"
+    },
+    {
+      "label": "PRODU\u00c7\u00c3O DE IMAGEM \u2014 guia do agente",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "producao de imagem \u2014 guia do agente",
+      "id": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente"
+    },
+    {
+      "label": "0. FERRAMENTAS (qual usar)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "0. ferramentas (qual usar)",
+      "id": "docs_producao_imagem_0_ferramentas_qual_usar"
+    },
+    {
+      "label": "1. GERAL \u2014 regras que valem pra tudo",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "1. geral \u2014 regras que valem pra tudo",
+      "id": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo"
+    },
+    {
+      "label": "Refer\u00eancias",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "referencias",
+      "id": "docs_producao_imagem_refer\u00eancias"
+    },
+    {
+      "label": "Continuidade",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "continuidade",
+      "id": "docs_producao_imagem_continuidade"
+    },
+    {
+      "label": "Anatomia / erros recorrentes",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "anatomia / erros recorrentes",
+      "id": "docs_producao_imagem_anatomia_erros_recorrentes"
+    },
+    {
+      "label": "Texto na imagem",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L44",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "texto na imagem",
+      "id": "docs_producao_imagem_texto_na_imagem"
+    },
+    {
+      "label": "V\u00e1rias sa\u00eddas numa chamada (economia de cota)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L48",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "varias saidas numa chamada (economia de cota)",
+      "id": "docs_producao_imagem_v\u00e1rias_sa\u00eddas_numa_chamada_economia_de_cota"
+    },
+    {
+      "label": "Fila",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L53",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "fila",
+      "id": "docs_producao_imagem_fila"
+    },
+    {
+      "label": "Revis\u00e3o e entrega",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L60",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "revisao e entrega",
+      "id": "docs_producao_imagem_revis\u00e3o_e_entrega"
+    },
+    {
+      "label": "2. WEB SHARD (comum)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L68",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "2. web shard (comum)",
+      "id": "docs_producao_imagem_2_web_shard_comum"
+    },
+    {
+      "label": "3. MUNDO DAS SOMBRAS (MDS) \u2014 estilo ARKHAM CODEX",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L75",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "3. mundo das sombras (mds) \u2014 estilo arkham codex",
+      "id": "docs_producao_imagem_3_mundo_das_sombras_mds_estilo_arkham_codex"
+    },
+    {
+      "label": "4. MAR DE CINZAS (MDC)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L93",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "4. mar de cinzas (mdc)",
+      "id": "docs_producao_imagem_4_mar_de_cinzas_mdc"
+    },
+    {
+      "label": "5. HER\u00d3IS DA CIDADE (HDC)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L96",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "5. herois da cidade (hdc)",
+      "id": "docs_producao_imagem_5_her\u00f3is_da_cidade_hdc"
+    },
+    {
+      "label": "6. LENDAS DO LDI (graphic novel do jogo)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L103",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "6. lendas do ldi (graphic novel do jogo)",
+      "id": "docs_producao_imagem_6_lendas_do_ldi_graphic_novel_do_jogo"
+    },
+    {
+      "label": "7. LDI GANGUES",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L109",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "7. ldi gangues",
+      "id": "docs_producao_imagem_7_ldi_gangues"
+    },
+    {
+      "label": "8. LUTAS DE ILUS\u00c3O (WEB SHARD principal)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L116",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "8. lutas de ilusao (web shard principal)",
+      "id": "docs_producao_imagem_8_lutas_de_ilus\u00e3o_web_shard_principal"
+    },
+    {
+      "label": "9. WEB SHARD \"C\u00c2MERA NA M\u00c3O\" (found footage em VHS)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L119",
+      "_origin": "ast",
+      "community": 169,
+      "norm_label": "9. web shard \"camera na mao\" (found footage em vhs)",
+      "id": "docs_producao_imagem_9_web_shard_c\u00e2mera_na_m\u00e3o_found_footage_em_vhs"
+    },
+    {
       "label": "WEBSHARD_GUIA_DE_PRODUCAO.md",
       "file_type": "document",
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao",
-      "community": 169,
-      "norm_label": "webshard_guia_de_producao.md"
+      "community": 27,
+      "norm_label": "webshard_guia_de_producao.md",
+      "id": "docs_webshard_webshard_guia_de_producao"
     },
     {
       "label": "WEBSHARD \u2014 Manifesto e guia de produ\u00e7\u00e3o de Lutas de Ilus\u00e3o",
@@ -3019,9 +3019,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
       "community": 27,
-      "norm_label": "webshard \u2014 manifesto e guia de producao de lutas de ilusao"
+      "norm_label": "webshard \u2014 manifesto e guia de producao de lutas de ilusao",
+      "id": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o"
     },
     {
       "label": "1. Como usar este guia",
@@ -3029,9 +3029,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_1_como_usar_este_guia",
       "community": 27,
-      "norm_label": "1. como usar este guia"
+      "norm_label": "1. como usar este guia",
+      "id": "docs_webshard_webshard_guia_de_producao_1_como_usar_este_guia"
     },
     {
       "label": "2. Manifesto consolidado",
@@ -3039,9 +3039,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_2_manifesto_consolidado",
       "community": 27,
-      "norm_label": "2. manifesto consolidado"
+      "norm_label": "2. manifesto consolidado",
+      "id": "docs_webshard_webshard_guia_de_producao_2_manifesto_consolidado"
     },
     {
       "label": "2.1 Diverg\u00eancia com o texto p\u00fablico atual",
@@ -3049,9 +3049,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L36",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_2_1_diverg\u00eancia_com_o_texto_p\u00fablico_atual",
       "community": 27,
-      "norm_label": "2.1 divergencia com o texto publico atual"
+      "norm_label": "2.1 divergencia com o texto publico atual",
+      "id": "docs_webshard_webshard_guia_de_producao_2_1_diverg\u00eancia_com_o_texto_p\u00fablico_atual"
     },
     {
       "label": "3. Regras essenciais",
@@ -3059,9 +3059,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L44",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_3_regras_essenciais",
       "community": 27,
-      "norm_label": "3. regras essenciais"
+      "norm_label": "3. regras essenciais",
+      "id": "docs_webshard_webshard_guia_de_producao_3_regras_essenciais"
     },
     {
       "label": "4. Gram\u00e1tica visual",
@@ -3069,9 +3069,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L60",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_4_gram\u00e1tica_visual",
       "community": 339,
-      "norm_label": "4. gramatica visual"
+      "norm_label": "4. gramatica visual",
+      "id": "docs_webshard_webshard_guia_de_producao_4_gram\u00e1tica_visual"
     },
     {
       "label": "4.1 Unidades",
@@ -3079,9 +3079,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L62",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_4_1_unidades",
       "community": 339,
-      "norm_label": "4.1 unidades"
+      "norm_label": "4.1 unidades",
+      "id": "docs_webshard_webshard_guia_de_producao_4_1_unidades"
     },
     {
       "label": "4.2 Constru\u00e7\u00e3o de uma p\u00e1gina",
@@ -3089,9 +3089,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L75",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_4_2_constru\u00e7\u00e3o_de_uma_p\u00e1gina",
       "community": 339,
-      "norm_label": "4.2 construcao de uma pagina"
+      "norm_label": "4.2 construcao de uma pagina",
+      "id": "docs_webshard_webshard_guia_de_producao_4_2_constru\u00e7\u00e3o_de_uma_p\u00e1gina"
     },
     {
       "label": "4.3 Ritmo e exce\u00e7\u00f5es",
@@ -3099,9 +3099,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L92",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_4_3_ritmo_e_exce\u00e7\u00f5es",
       "community": 339,
-      "norm_label": "4.3 ritmo e excecoes"
+      "norm_label": "4.3 ritmo e excecoes",
+      "id": "docs_webshard_webshard_guia_de_producao_4_3_ritmo_e_exce\u00e7\u00f5es"
     },
     {
       "label": "5. Texto e letreiramento",
@@ -3109,9 +3109,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L102",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_5_texto_e_letreiramento",
       "community": 424,
-      "norm_label": "5. texto e letreiramento"
+      "norm_label": "5. texto e letreiramento",
+      "id": "docs_webshard_webshard_guia_de_producao_5_texto_e_letreiramento"
     },
     {
       "label": "5.1 Economia de palavras",
@@ -3119,9 +3119,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L104",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_5_1_economia_de_palavras",
       "community": 424,
-      "norm_label": "5.1 economia de palavras"
+      "norm_label": "5.1 economia de palavras",
+      "id": "docs_webshard_webshard_guia_de_producao_5_1_economia_de_palavras"
     },
     {
       "label": "5.2 Forma visual observada",
@@ -3129,9 +3129,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L118",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_5_2_forma_visual_observada",
       "community": 424,
-      "norm_label": "5.2 forma visual observada"
+      "norm_label": "5.2 forma visual observada",
+      "id": "docs_webshard_webshard_guia_de_producao_5_2_forma_visual_observada"
     },
     {
       "label": "5.3 Tamanho percebido no celular",
@@ -3139,9 +3139,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L135",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_5_3_tamanho_percebido_no_celular",
       "community": 424,
-      "norm_label": "5.3 tamanho percebido no celular"
+      "norm_label": "5.3 tamanho percebido no celular",
+      "id": "docs_webshard_webshard_guia_de_producao_5_3_tamanho_percebido_no_celular"
     },
     {
       "label": "6. Cor como narrativa",
@@ -3149,9 +3149,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L145",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_6_cor_como_narrativa",
       "community": 219,
-      "norm_label": "6. cor como narrativa"
+      "norm_label": "6. cor como narrativa",
+      "id": "docs_webshard_webshard_guia_de_producao_6_cor_como_narrativa"
     },
     {
       "label": "6.1 Dois sistemas independentes",
@@ -3159,9 +3159,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L147",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_6_1_dois_sistemas_independentes",
       "community": 219,
-      "norm_label": "6.1 dois sistemas independentes"
+      "norm_label": "6.1 dois sistemas independentes",
+      "id": "docs_webshard_webshard_guia_de_producao_6_1_dois_sistemas_independentes"
     },
     {
       "label": "6.2 Paleta observada e confirma\u00e7\u00e3o pelo handoff",
@@ -3169,9 +3169,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L153",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_6_2_paleta_observada_e_confirma\u00e7\u00e3o_pelo_handoff",
       "community": 219,
-      "norm_label": "6.2 paleta observada e confirmacao pelo handoff"
+      "norm_label": "6.2 paleta observada e confirmacao pelo handoff",
+      "id": "docs_webshard_webshard_guia_de_producao_6_2_paleta_observada_e_confirma\u00e7\u00e3o_pelo_handoff"
     },
     {
       "label": "Cores de fala",
@@ -3179,9 +3179,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L167",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_cores_de_fala",
       "community": 219,
-      "norm_label": "cores de fala"
+      "norm_label": "cores de fala",
+      "id": "docs_webshard_webshard_guia_de_producao_cores_de_fala"
     },
     {
       "label": "6.3 Planejamento de cor por p\u00e1gina",
@@ -3189,9 +3189,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L200",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_6_3_planejamento_de_cor_por_p\u00e1gina",
       "community": 219,
-      "norm_label": "6.3 planejamento de cor por pagina"
+      "norm_label": "6.3 planejamento de cor por pagina",
+      "id": "docs_webshard_webshard_guia_de_producao_6_3_planejamento_de_cor_por_p\u00e1gina"
     },
     {
       "label": "7. Dimens\u00f5es, propor\u00e7\u00e3o e safe area",
@@ -3199,9 +3199,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L212",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_7_dimens\u00f5es_propor\u00e7\u00e3o_e_safe_area",
       "community": 460,
-      "norm_label": "7. dimensoes, proporcao e safe area"
+      "norm_label": "7. dimensoes, proporcao e safe area",
+      "id": "docs_webshard_webshard_guia_de_producao_7_dimens\u00f5es_propor\u00e7\u00e3o_e_safe_area"
     },
     {
       "label": "7.1 O que existe de fato",
@@ -3209,9 +3209,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L214",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_7_1_o_que_existe_de_fato",
       "community": 460,
-      "norm_label": "7.1 o que existe de fato"
+      "norm_label": "7.1 o que existe de fato",
+      "id": "docs_webshard_webshard_guia_de_producao_7_1_o_que_existe_de_fato"
     },
     {
       "label": "7.2 \u00c1rea segura obrigat\u00f3ria",
@@ -3219,9 +3219,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L237",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_7_2_\u00e1rea_segura_obrigat\u00f3ria",
       "community": 460,
-      "norm_label": "7.2 area segura obrigatoria"
+      "norm_label": "7.2 area segura obrigatoria",
+      "id": "docs_webshard_webshard_guia_de_producao_7_2_\u00e1rea_segura_obrigat\u00f3ria"
     },
     {
       "label": "7.3 Rela\u00e7\u00e3o com o leitor",
@@ -3229,9 +3229,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L255",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_7_3_rela\u00e7\u00e3o_com_o_leitor",
       "community": 460,
-      "norm_label": "7.3 relacao com o leitor"
+      "norm_label": "7.3 relacao com o leitor",
+      "id": "docs_webshard_webshard_guia_de_producao_7_3_rela\u00e7\u00e3o_com_o_leitor"
     },
     {
       "label": "8. Identidade de Lutas de Ilus\u00e3o",
@@ -3239,9 +3239,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L265",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_8_identidade_de_lutas_de_ilus\u00e3o",
       "community": 27,
-      "norm_label": "8. identidade de lutas de ilusao"
+      "norm_label": "8. identidade de lutas de ilusao",
+      "id": "docs_webshard_webshard_guia_de_producao_8_identidade_de_lutas_de_ilus\u00e3o"
     },
     {
       "label": "9. Acervo auditado e exemplos",
@@ -3249,9 +3249,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L289",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_9_acervo_auditado_e_exemplos",
       "community": 263,
-      "norm_label": "9. acervo auditado e exemplos"
+      "norm_label": "9. acervo auditado e exemplos",
+      "id": "docs_webshard_webshard_guia_de_producao_9_acervo_auditado_e_exemplos"
     },
     {
       "label": "9.1 Material atual",
@@ -3259,9 +3259,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L291",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_9_1_material_atual",
       "community": 263,
-      "norm_label": "9.1 material atual"
+      "norm_label": "9.1 material atual",
+      "id": "docs_webshard_webshard_guia_de_producao_9_1_material_atual"
     },
     {
       "label": "9.2 Mapa das 53 p\u00e1ginas PT",
@@ -3269,9 +3269,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L305",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_9_2_mapa_das_53_p\u00e1ginas_pt",
       "community": 263,
-      "norm_label": "9.2 mapa das 53 paginas pt"
+      "norm_label": "9.2 mapa das 53 paginas pt",
+      "id": "docs_webshard_webshard_guia_de_producao_9_2_mapa_das_53_p\u00e1ginas_pt"
     },
     {
       "label": "9.3 Refer\u00eancias diretas para produ\u00e7\u00e3o",
@@ -3279,9 +3279,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L329",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_9_3_refer\u00eancias_diretas_para_produ\u00e7\u00e3o",
       "community": 263,
-      "norm_label": "9.3 referencias diretas para producao"
+      "norm_label": "9.3 referencias diretas para producao",
+      "id": "docs_webshard_webshard_guia_de_producao_9_3_refer\u00eancias_diretas_para_produ\u00e7\u00e3o"
     },
     {
       "label": "9.4 Hist\u00f3rico de compara\u00e7\u00e3o",
@@ -3289,9 +3289,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L338",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_9_4_hist\u00f3rico_de_compara\u00e7\u00e3o",
       "community": 263,
-      "norm_label": "9.4 historico de comparacao"
+      "norm_label": "9.4 historico de comparacao",
+      "id": "docs_webshard_webshard_guia_de_producao_9_4_hist\u00f3rico_de_compara\u00e7\u00e3o"
     },
     {
       "label": "10. Entrega digital e integra\u00e7\u00e3o no portal",
@@ -3299,9 +3299,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L361",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_10_entrega_digital_e_integra\u00e7\u00e3o_no_portal",
       "community": 211,
-      "norm_label": "10. entrega digital e integracao no portal"
+      "norm_label": "10. entrega digital e integracao no portal",
+      "id": "docs_webshard_webshard_guia_de_producao_10_entrega_digital_e_integra\u00e7\u00e3o_no_portal"
     },
     {
       "label": "10.1 Estrutura atual",
@@ -3309,9 +3309,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L363",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_10_1_estrutura_atual",
       "community": 211,
-      "norm_label": "10.1 estrutura atual"
+      "norm_label": "10.1 estrutura atual",
+      "id": "docs_webshard_webshard_guia_de_producao_10_1_estrutura_atual"
     },
     {
       "label": "10.2 Cat\u00e1logo, rotas e disponibilidade",
@@ -3319,9 +3319,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L383",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_10_2_cat\u00e1logo_rotas_e_disponibilidade",
       "community": 211,
-      "norm_label": "10.2 catalogo, rotas e disponibilidade"
+      "norm_label": "10.2 catalogo, rotas e disponibilidade",
+      "id": "docs_webshard_webshard_guia_de_producao_10_2_cat\u00e1logo_rotas_e_disponibilidade"
     },
     {
       "label": "10.3 Tradu\u00e7\u00e3o e revis\u00e3o de exporta\u00e7\u00e3o",
@@ -3329,9 +3329,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L397",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_10_3_tradu\u00e7\u00e3o_e_revis\u00e3o_de_exporta\u00e7\u00e3o",
       "community": 211,
-      "norm_label": "10.3 traducao e revisao de exportacao"
+      "norm_label": "10.3 traducao e revisao de exportacao",
+      "id": "docs_webshard_webshard_guia_de_producao_10_3_tradu\u00e7\u00e3o_e_revis\u00e3o_de_exporta\u00e7\u00e3o"
     },
     {
       "label": "10.4 Publica\u00e7\u00e3o no reposit\u00f3rio",
@@ -3339,9 +3339,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L407",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_10_4_publica\u00e7\u00e3o_no_reposit\u00f3rio",
       "community": 211,
-      "norm_label": "10.4 publicacao no repositorio"
+      "norm_label": "10.4 publicacao no repositorio",
+      "id": "docs_webshard_webshard_guia_de_producao_10_4_publica\u00e7\u00e3o_no_reposit\u00f3rio"
     },
     {
       "label": "11. O que a evolu\u00e7\u00e3o do acervo revela",
@@ -3349,9 +3349,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L413",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_11_o_que_a_evolu\u00e7\u00e3o_do_acervo_revela",
-      "community": 27,
-      "norm_label": "11. o que a evolucao do acervo revela"
+      "community": 522,
+      "norm_label": "11. o que a evolucao do acervo revela",
+      "id": "docs_webshard_webshard_guia_de_producao_11_o_que_a_evolu\u00e7\u00e3o_do_acervo_revela"
     },
     {
       "label": "11.1 Est\u00e1gios visuais observados",
@@ -3359,9 +3359,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L417",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_11_1_est\u00e1gios_visuais_observados",
-      "community": 27,
-      "norm_label": "11.1 estagios visuais observados"
+      "community": 522,
+      "norm_label": "11.1 estagios visuais observados",
+      "id": "docs_webshard_webshard_guia_de_producao_11_1_est\u00e1gios_visuais_observados"
     },
     {
       "label": "11.2 Invent\u00e1rio externo",
@@ -3369,9 +3369,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L433",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_11_2_invent\u00e1rio_externo",
-      "community": 27,
-      "norm_label": "11.2 inventario externo"
+      "community": 522,
+      "norm_label": "11.2 inventario externo",
+      "id": "docs_webshard_webshard_guia_de_producao_11_2_invent\u00e1rio_externo"
     },
     {
       "label": "12. Handoff: preced\u00eancia e diferen\u00e7as resolvidas",
@@ -3379,9 +3379,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L451",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_12_handoff_preced\u00eancia_e_diferen\u00e7as_resolvidas",
       "community": 27,
-      "norm_label": "12. handoff: precedencia e diferencas resolvidas"
+      "norm_label": "12. handoff: precedencia e diferencas resolvidas",
+      "id": "docs_webshard_webshard_guia_de_producao_12_handoff_preced\u00eancia_e_diferen\u00e7as_resolvidas"
     },
     {
       "label": "13. Fichas, personagens e cen\u00e1rio",
@@ -3389,9 +3389,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L467",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_13_fichas_personagens_e_cen\u00e1rio",
       "community": 218,
-      "norm_label": "13. fichas, personagens e cenario"
+      "norm_label": "13. fichas, personagens e cenario",
+      "id": "docs_webshard_webshard_guia_de_producao_13_fichas_personagens_e_cen\u00e1rio"
     },
     {
       "label": "13.1 Onde est\u00e3o as refer\u00eancias",
@@ -3399,9 +3399,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L475",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_13_1_onde_est\u00e3o_as_refer\u00eancias",
       "community": 218,
-      "norm_label": "13.1 onde estao as referencias"
+      "norm_label": "13.1 onde estao as referencias",
+      "id": "docs_webshard_webshard_guia_de_producao_13_1_onde_est\u00e3o_as_refer\u00eancias"
     },
     {
       "label": "13.2 Dire\u00e7\u00e3o espec\u00edfica dos personagens",
@@ -3409,9 +3409,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L483",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_13_2_dire\u00e7\u00e3o_espec\u00edfica_dos_personagens",
       "community": 218,
-      "norm_label": "13.2 direcao especifica dos personagens"
+      "norm_label": "13.2 direcao especifica dos personagens",
+      "id": "docs_webshard_webshard_guia_de_producao_13_2_dire\u00e7\u00e3o_espec\u00edfica_dos_personagens"
     },
     {
       "label": "13.3 Ambientes e assets",
@@ -3419,9 +3419,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L509",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_13_3_ambientes_e_assets",
       "community": 218,
-      "norm_label": "13.3 ambientes e assets"
+      "norm_label": "13.3 ambientes e assets",
+      "id": "docs_webshard_webshard_guia_de_producao_13_3_ambientes_e_assets"
     },
     {
       "label": "13.4 Sala A-304: posicionamento obrigat\u00f3rio",
@@ -3429,9 +3429,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L519",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_13_4_sala_a_304_posicionamento_obrigat\u00f3rio",
       "community": 218,
-      "norm_label": "13.4 sala a-304: posicionamento obrigatorio"
+      "norm_label": "13.4 sala a-304: posicionamento obrigatorio",
+      "id": "docs_webshard_webshard_guia_de_producao_13_4_sala_a_304_posicionamento_obrigat\u00f3rio"
     },
     {
       "label": "14. C\u00e2mera, corpo, olhar e a\u00e7\u00e3o",
@@ -3439,9 +3439,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L550",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_14_c\u00e2mera_corpo_olhar_e_a\u00e7\u00e3o",
       "community": 27,
-      "norm_label": "14. camera, corpo, olhar e acao"
+      "norm_label": "14. camera, corpo, olhar e acao",
+      "id": "docs_webshard_webshard_guia_de_producao_14_c\u00e2mera_corpo_olhar_e_a\u00e7\u00e3o"
     },
     {
       "label": "14.1 As cinco correntes",
@@ -3449,9 +3449,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L569",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_14_1_as_cinco_correntes",
       "community": 27,
-      "norm_label": "14.1 as cinco correntes"
+      "norm_label": "14.1 as cinco correntes",
+      "id": "docs_webshard_webshard_guia_de_producao_14_1_as_cinco_correntes"
     },
     {
       "label": "15. Som, texto de impacto e HIT COMBO",
@@ -3459,9 +3459,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L577",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_15_som_texto_de_impacto_e_hit_combo",
       "community": 27,
-      "norm_label": "15. som, texto de impacto e hit combo"
+      "norm_label": "15. som, texto de impacto e hit combo",
+      "id": "docs_webshard_webshard_guia_de_producao_15_som_texto_de_impacto_e_hit_combo"
     },
     {
       "label": "15.1 Contador de combo",
@@ -3469,9 +3469,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L585",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_15_1_contador_de_combo",
       "community": 27,
-      "norm_label": "15.1 contador de combo"
+      "norm_label": "15.1 contador de combo",
+      "id": "docs_webshard_webshard_guia_de_producao_15_1_contador_de_combo"
     },
     {
       "label": "16. Processo de refer\u00eancia e corre\u00e7\u00e3o",
@@ -3479,9 +3479,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L594",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_16_processo_de_refer\u00eancia_e_corre\u00e7\u00e3o",
       "community": 724,
-      "norm_label": "16. processo de referencia e correcao"
+      "norm_label": "16. processo de referencia e correcao",
+      "id": "docs_webshard_webshard_guia_de_producao_16_processo_de_refer\u00eancia_e_corre\u00e7\u00e3o"
     },
     {
       "label": "16.1 Refer\u00eancias: sempre por nome de arquivo",
@@ -3489,9 +3489,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L596",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_16_1_refer\u00eancias_sempre_por_nome_de_arquivo",
       "community": 724,
-      "norm_label": "16.1 referencias: sempre por nome de arquivo"
+      "norm_label": "16.1 referencias: sempre por nome de arquivo",
+      "id": "docs_webshard_webshard_guia_de_producao_16_1_refer\u00eancias_sempre_por_nome_de_arquivo"
     },
     {
       "label": "16.2 Estilo de arte: bloco obrigat\u00f3rio em todo prompt",
@@ -3499,9 +3499,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L626",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_16_2_estilo_de_arte_bloco_obrigat\u00f3rio_em_todo_prompt",
       "community": 724,
-      "norm_label": "16.2 estilo de arte: bloco obrigatorio em todo prompt"
+      "norm_label": "16.2 estilo de arte: bloco obrigatorio em todo prompt",
+      "id": "docs_webshard_webshard_guia_de_producao_16_2_estilo_de_arte_bloco_obrigat\u00f3rio_em_todo_prompt"
     },
     {
       "label": "16.3 Regras gerais",
@@ -3509,9 +3509,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L649",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_16_3_regras_gerais",
       "community": 724,
-      "norm_label": "16.3 regras gerais"
+      "norm_label": "16.3 regras gerais",
+      "id": "docs_webshard_webshard_guia_de_producao_16_3_regras_gerais"
     },
     {
       "label": "17. Localiza\u00e7\u00e3o EN e ES",
@@ -3519,9 +3519,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L665",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_17_localiza\u00e7\u00e3o_en_e_es",
       "community": 27,
-      "norm_label": "17. localizacao en e es"
+      "norm_label": "17. localizacao en e es",
+      "id": "docs_webshard_webshard_guia_de_producao_17_localiza\u00e7\u00e3o_en_e_es"
     },
     {
       "label": "18. V\u00eddeo e outras obras: limites de reaproveitamento",
@@ -3529,9 +3529,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L688",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_18_v\u00eddeo_e_outras_obras_limites_de_reaproveitamento",
       "community": 27,
-      "norm_label": "18. video e outras obras: limites de reaproveitamento"
+      "norm_label": "18. video e outras obras: limites de reaproveitamento",
+      "id": "docs_webshard_webshard_guia_de_producao_18_v\u00eddeo_e_outras_obras_limites_de_reaproveitamento"
     },
     {
       "label": "19. Fonte e limita\u00e7\u00f5es",
@@ -3539,9 +3539,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L696",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_19_fonte_e_limita\u00e7\u00f5es",
       "community": 27,
-      "norm_label": "19. fonte e limitacoes"
+      "norm_label": "19. fonte e limitacoes",
+      "id": "docs_webshard_webshard_guia_de_producao_19_fonte_e_limita\u00e7\u00f5es"
     },
     {
       "label": "20. Modelos espec\u00edficos de corre\u00e7\u00e3o e tradu\u00e7\u00e3o",
@@ -3549,9 +3549,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L702",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_20_modelos_espec\u00edficos_de_corre\u00e7\u00e3o_e_tradu\u00e7\u00e3o",
       "community": 27,
-      "norm_label": "20. modelos especificos de correcao e traducao"
+      "norm_label": "20. modelos especificos de correcao e traducao",
+      "id": "docs_webshard_webshard_guia_de_producao_20_modelos_espec\u00edficos_de_corre\u00e7\u00e3o_e_tradu\u00e7\u00e3o"
     },
     {
       "label": "21. Fluxo recomendado de produ\u00e7\u00e3o",
@@ -3559,9 +3559,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L725",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o",
       "community": 204,
-      "norm_label": "21. fluxo recomendado de producao"
+      "norm_label": "21. fluxo recomendado de producao",
+      "id": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o"
     },
     {
       "label": "Etapa 1 \u2014 Briefing e continuidade",
@@ -3569,9 +3569,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L727",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_etapa_1_briefing_e_continuidade",
       "community": 204,
-      "norm_label": "etapa 1 \u2014 briefing e continuidade"
+      "norm_label": "etapa 1 \u2014 briefing e continuidade",
+      "id": "docs_webshard_webshard_guia_de_producao_etapa_1_briefing_e_continuidade"
     },
     {
       "label": "Etapa 2 \u2014 Decupagem vertical",
@@ -3579,9 +3579,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L731",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_etapa_2_decupagem_vertical",
       "community": 204,
-      "norm_label": "etapa 2 \u2014 decupagem vertical"
+      "norm_label": "etapa 2 \u2014 decupagem vertical",
+      "id": "docs_webshard_webshard_guia_de_producao_etapa_2_decupagem_vertical"
     },
     {
       "label": "Etapa 3 \u2014 Roteiro visual e crom\u00e1tico",
@@ -3589,9 +3589,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L735",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_etapa_3_roteiro_visual_e_crom\u00e1tico",
       "community": 204,
-      "norm_label": "etapa 3 \u2014 roteiro visual e cromatico"
+      "norm_label": "etapa 3 \u2014 roteiro visual e cromatico",
+      "id": "docs_webshard_webshard_guia_de_producao_etapa_3_roteiro_visual_e_crom\u00e1tico"
     },
     {
       "label": "Etapa 4 \u2014 Esbo\u00e7o com texto real",
@@ -3599,9 +3599,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L739",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_etapa_4_esbo\u00e7o_com_texto_real",
       "community": 204,
-      "norm_label": "etapa 4 \u2014 esboco com texto real"
+      "norm_label": "etapa 4 \u2014 esboco com texto real",
+      "id": "docs_webshard_webshard_guia_de_producao_etapa_4_esbo\u00e7o_com_texto_real"
     },
     {
       "label": "Etapa 5 \u2014 Arte",
@@ -3609,9 +3609,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L743",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_etapa_5_arte",
       "community": 204,
-      "norm_label": "etapa 5 \u2014 arte"
+      "norm_label": "etapa 5 \u2014 arte",
+      "id": "docs_webshard_webshard_guia_de_producao_etapa_5_arte"
     },
     {
       "label": "Etapa 6 \u2014 Letreiramento e neon",
@@ -3619,9 +3619,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L749",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_etapa_6_letreiramento_e_neon",
       "community": 204,
-      "norm_label": "etapa 6 \u2014 letreiramento e neon"
+      "norm_label": "etapa 6 \u2014 letreiramento e neon",
+      "id": "docs_webshard_webshard_guia_de_producao_etapa_6_letreiramento_e_neon"
     },
     {
       "label": "Etapa 7 \u2014 Revis\u00e3o em escala de leitura",
@@ -3629,9 +3629,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L753",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_etapa_7_revis\u00e3o_em_escala_de_leitura",
       "community": 204,
-      "norm_label": "etapa 7 \u2014 revisao em escala de leitura"
+      "norm_label": "etapa 7 \u2014 revisao em escala de leitura",
+      "id": "docs_webshard_webshard_guia_de_producao_etapa_7_revis\u00e3o_em_escala_de_leitura"
     },
     {
       "label": "Etapa 8 \u2014 Tradu\u00e7\u00e3o e pacote final",
@@ -3639,9 +3639,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L757",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_etapa_8_tradu\u00e7\u00e3o_e_pacote_final",
       "community": 204,
-      "norm_label": "etapa 8 \u2014 traducao e pacote final"
+      "norm_label": "etapa 8 \u2014 traducao e pacote final",
+      "id": "docs_webshard_webshard_guia_de_producao_etapa_8_tradu\u00e7\u00e3o_e_pacote_final"
     },
     {
       "label": "22. Modelos reutiliz\u00e1veis",
@@ -3649,9 +3649,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L761",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_22_modelos_reutiliz\u00e1veis",
       "community": 726,
-      "norm_label": "22. modelos reutilizaveis"
+      "norm_label": "22. modelos reutilizaveis",
+      "id": "docs_webshard_webshard_guia_de_producao_22_modelos_reutiliz\u00e1veis"
     },
     {
       "label": "22.1 Ficha de p\u00e1gina",
@@ -3659,9 +3659,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L763",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_22_1_ficha_de_p\u00e1gina",
       "community": 726,
-      "norm_label": "22.1 ficha de pagina"
+      "norm_label": "22.1 ficha de pagina",
+      "id": "docs_webshard_webshard_guia_de_producao_22_1_ficha_de_p\u00e1gina"
     },
     {
       "label": "22.2 Briefing de arte ou gera\u00e7\u00e3o assistida",
@@ -3669,9 +3669,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L793",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_22_2_briefing_de_arte_ou_gera\u00e7\u00e3o_assistida",
       "community": 726,
-      "norm_label": "22.2 briefing de arte ou geracao assistida"
+      "norm_label": "22.2 briefing de arte ou geracao assistida",
+      "id": "docs_webshard_webshard_guia_de_producao_22_2_briefing_de_arte_ou_gera\u00e7\u00e3o_assistida"
     },
     {
       "label": "23. Revis\u00e3o de qualidade",
@@ -3679,9 +3679,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L835",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_23_revis\u00e3o_de_qualidade",
       "community": 313,
-      "norm_label": "23. revisao de qualidade"
+      "norm_label": "23. revisao de qualidade",
+      "id": "docs_webshard_webshard_guia_de_producao_23_revis\u00e3o_de_qualidade"
     },
     {
       "label": "Linguagem e narrativa",
@@ -3689,9 +3689,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L837",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_linguagem_e_narrativa",
       "community": 313,
-      "norm_label": "linguagem e narrativa"
+      "norm_label": "linguagem e narrativa",
+      "id": "docs_webshard_webshard_guia_de_producao_linguagem_e_narrativa"
     },
     {
       "label": "Texto e cor",
@@ -3699,9 +3699,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L847",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_texto_e_cor",
       "community": 313,
-      "norm_label": "texto e cor"
+      "norm_label": "texto e cor",
+      "id": "docs_webshard_webshard_guia_de_producao_texto_e_cor"
     },
     {
       "label": "\u00c1rea segura e entrega",
@@ -3709,9 +3709,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L858",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_\u00e1rea_segura_e_entrega",
       "community": 313,
-      "norm_label": "area segura e entrega"
+      "norm_label": "area segura e entrega",
+      "id": "docs_webshard_webshard_guia_de_producao_\u00e1rea_segura_e_entrega"
     },
     {
       "label": "24. Decis\u00f5es ainda necess\u00e1rias",
@@ -3719,9 +3719,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L869",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_24_decis\u00f5es_ainda_necess\u00e1rias",
       "community": 27,
-      "norm_label": "24. decisoes ainda necessarias"
+      "norm_label": "24. decisoes ainda necessarias",
+      "id": "docs_webshard_webshard_guia_de_producao_24_decis\u00f5es_ainda_necess\u00e1rias"
     },
     {
       "label": "25. Fontes e rastreabilidade",
@@ -3729,9 +3729,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L884",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_25_fontes_e_rastreabilidade",
       "community": 27,
-      "norm_label": "25. fontes e rastreabilidade"
+      "norm_label": "25. fontes e rastreabilidade",
+      "id": "docs_webshard_webshard_guia_de_producao_25_fontes_e_rastreabilidade"
     },
     {
       "label": "26. Tradu\u00e7\u00e3o do cap\u00edtulo 01 (EN e ES)",
@@ -3739,9 +3739,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L906",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
       "community": 58,
-      "norm_label": "26. traducao do capitulo 01 (en e es)"
+      "norm_label": "26. traducao do capitulo 01 (en e es)",
+      "id": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es"
     },
     {
       "label": "26.1 Situa\u00e7\u00e3o",
@@ -3749,9 +3749,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L910",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_1_situa\u00e7\u00e3o",
       "community": 58,
-      "norm_label": "26.1 situacao"
+      "norm_label": "26.1 situacao",
+      "id": "docs_webshard_webshard_guia_de_producao_26_1_situa\u00e7\u00e3o"
     },
     {
       "label": "26.2 Fluxo de trabalho, p\u00e1gina por p\u00e1gina",
@@ -3759,9 +3759,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L917",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_2_fluxo_de_trabalho_p\u00e1gina_por_p\u00e1gina",
       "community": 58,
-      "norm_label": "26.2 fluxo de trabalho, pagina por pagina"
+      "norm_label": "26.2 fluxo de trabalho, pagina por pagina",
+      "id": "docs_webshard_webshard_guia_de_producao_26_2_fluxo_de_trabalho_p\u00e1gina_por_p\u00e1gina"
     },
     {
       "label": "26.3 Prompt base \u2014 ingl\u00eas",
@@ -3769,9 +3769,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L929",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_3_prompt_base_ingl\u00eas",
       "community": 58,
-      "norm_label": "26.3 prompt base \u2014 ingles"
+      "norm_label": "26.3 prompt base \u2014 ingles",
+      "id": "docs_webshard_webshard_guia_de_producao_26_3_prompt_base_ingl\u00eas"
     },
     {
       "label": "26.4 Prompt base \u2014 espanhol",
@@ -3779,9 +3779,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L974",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_4_prompt_base_espanhol",
       "community": 58,
-      "norm_label": "26.4 prompt base \u2014 espanhol"
+      "norm_label": "26.4 prompt base \u2014 espanhol",
+      "id": "docs_webshard_webshard_guia_de_producao_26_4_prompt_base_espanhol"
     },
     {
       "label": "26.5 Modelo do bloco \"THIS PAGE\"",
@@ -3789,9 +3789,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1020",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_5_modelo_do_bloco_this_page",
       "community": 58,
-      "norm_label": "26.5 modelo do bloco \"this page\""
+      "norm_label": "26.5 modelo do bloco \"this page\"",
+      "id": "docs_webshard_webshard_guia_de_producao_26_5_modelo_do_bloco_this_page"
     },
     {
       "label": "26.6 Estilo e voz",
@@ -3799,9 +3799,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1033",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_6_estilo_e_voz",
       "community": 58,
-      "norm_label": "26.6 estilo e voz"
+      "norm_label": "26.6 estilo e voz",
+      "id": "docs_webshard_webshard_guia_de_producao_26_6_estilo_e_voz"
     },
     {
       "label": "26.7 Onomatopeias (SFX)",
@@ -3809,9 +3809,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1046",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_7_onomatopeias_sfx",
       "community": 58,
-      "norm_label": "26.7 onomatopeias (sfx)"
+      "norm_label": "26.7 onomatopeias (sfx)",
+      "id": "docs_webshard_webshard_guia_de_producao_26_7_onomatopeias_sfx"
     },
     {
       "label": "26.8 Armadilhas (falsos amigos e erros comuns)",
@@ -3819,9 +3819,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1057",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_8_armadilhas_falsos_amigos_e_erros_comuns",
       "community": 58,
-      "norm_label": "26.8 armadilhas (falsos amigos e erros comuns)"
+      "norm_label": "26.8 armadilhas (falsos amigos e erros comuns)",
+      "id": "docs_webshard_webshard_guia_de_producao_26_8_armadilhas_falsos_amigos_e_erros_comuns"
     },
     {
       "label": "26.9 Decis\u00f5es de adapta\u00e7\u00e3o j\u00e1 tomadas",
@@ -3829,9 +3829,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1084",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_9_decis\u00f5es_de_adapta\u00e7\u00e3o_j\u00e1_tomadas",
       "community": 58,
-      "norm_label": "26.9 decisoes de adaptacao ja tomadas"
+      "norm_label": "26.9 decisoes de adaptacao ja tomadas",
+      "id": "docs_webshard_webshard_guia_de_producao_26_9_decis\u00f5es_de_adapta\u00e7\u00e3o_j\u00e1_tomadas"
     },
     {
       "label": "26.10 Rodap\u00e9 da p\u00e1gina 13",
@@ -3839,9 +3839,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1121",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_10_rodap\u00e9_da_p\u00e1gina_13",
       "community": 58,
-      "norm_label": "26.10 rodape da pagina 13"
+      "norm_label": "26.10 rodape da pagina 13",
+      "id": "docs_webshard_webshard_guia_de_producao_26_10_rodap\u00e9_da_p\u00e1gina_13"
     },
     {
       "label": "26.11 Selo \"BRUUUTAAALLL!!!\"",
@@ -3849,9 +3849,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1131",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_11_selo_bruuutaaalll",
       "community": 58,
-      "norm_label": "26.11 selo \"bruuutaaalll!!!\""
+      "norm_label": "26.11 selo \"bruuutaaalll!!!\"",
+      "id": "docs_webshard_webshard_guia_de_producao_26_11_selo_bruuutaaalll"
     },
     {
       "label": "26.12 Pend\u00eancias",
@@ -3859,9 +3859,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1141",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_26_12_pend\u00eancias",
       "community": 58,
-      "norm_label": "26.12 pendencias"
+      "norm_label": "26.12 pendencias",
+      "id": "docs_webshard_webshard_guia_de_producao_26_12_pend\u00eancias"
     },
     {
       "label": "Dire\u00e7\u00e3o de olhares \u2014 atualiza\u00e7\u00e3o de Isa\u00edas, 19/10/2026",
@@ -3869,9 +3869,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1152",
       "_origin": "ast",
-      "id": "docs_webshard_webshard_guia_de_producao_dire\u00e7\u00e3o_de_olhares_atualiza\u00e7\u00e3o_de_isa\u00edas_19_10_2026",
       "community": 58,
-      "norm_label": "direcao de olhares \u2014 atualizacao de isaias, 19/10/2026"
+      "norm_label": "direcao de olhares \u2014 atualizacao de isaias, 19/10/2026",
+      "id": "docs_webshard_webshard_guia_de_producao_dire\u00e7\u00e3o_de_olhares_atualiza\u00e7\u00e3o_de_isa\u00edas_19_10_2026"
     },
     {
       "label": "halloween_producao.py",
@@ -3879,9 +3879,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "scripts_halloween_producao",
       "community": 848,
-      "norm_label": "halloween_producao.py"
+      "norm_label": "halloween_producao.py",
+      "id": "scripts_halloween_producao"
     },
     {
       "label": "valid()",
@@ -3889,9 +3889,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L222",
       "_origin": "ast",
-      "id": "scripts_halloween_producao_valid",
       "community": 848,
-      "norm_label": "valid()"
+      "norm_label": "valid()",
+      "id": "scripts_halloween_producao_valid"
     },
     {
       "label": "write()",
@@ -3899,9 +3899,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L230",
       "_origin": "ast",
-      "id": "scripts_halloween_producao_write",
       "community": 848,
-      "norm_label": "write()"
+      "norm_label": "write()",
+      "id": "scripts_halloween_producao_write"
     },
     {
       "label": "prepare()",
@@ -3909,9 +3909,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L235",
       "_origin": "ast",
-      "id": "scripts_halloween_producao_prepare",
       "community": 848,
-      "norm_label": "prepare()"
+      "norm_label": "prepare()",
+      "id": "scripts_halloween_producao_prepare"
     },
     {
       "label": "state()",
@@ -3919,9 +3919,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L290",
       "_origin": "ast",
-      "id": "scripts_halloween_producao_state",
       "community": 848,
-      "norm_label": "state()"
+      "norm_label": "state()",
+      "id": "scripts_halloween_producao_state"
     },
     {
       "label": "run()",
@@ -3929,9 +3929,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L296",
       "_origin": "ast",
-      "id": "scripts_halloween_producao_run",
       "community": 848,
-      "norm_label": "run()"
+      "norm_label": "run()",
+      "id": "scripts_halloween_producao_run"
     },
     {
       "label": "generate()",
@@ -3939,9 +3939,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L344",
       "_origin": "ast",
-      "id": "scripts_halloween_producao_generate",
       "community": 848,
-      "norm_label": "generate()"
+      "norm_label": "generate()",
+      "id": "scripts_halloween_producao_generate"
     },
     {
       "label": "Halloween loop 1: prepare English prompts and reuse the existing serial Codex en",
@@ -3949,9 +3949,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "scripts_halloween_producao_rationale_1",
       "community": 848,
-      "norm_label": "halloween loop 1: prepare english prompts and reuse the existing serial codex en"
+      "norm_label": "halloween loop 1: prepare english prompts and reuse the existing serial codex en",
+      "id": "scripts_halloween_producao_rationale_1"
     },
     {
       "label": "version.js",
@@ -3959,9 +3959,9 @@
       "source_file": "src/config/version.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_config_version",
-      "community": 847,
-      "norm_label": "version.js"
+      "community": 111,
+      "norm_label": "version.js",
+      "id": "src_config_version"
     },
     {
       "label": "vite.config.js",
@@ -19859,7 +19859,7 @@
       "source_file": "src/lib/versaoNova.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 522,
+      "community": 111,
       "norm_label": "versaonova.js",
       "id": "src_lib_versaonova"
     },
@@ -19869,7 +19869,7 @@
       "source_file": "src/lib/versaoNova.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 522,
+      "community": 111,
       "norm_label": "builddapagina()",
       "id": "src_lib_versaonova_builddapagina"
     },
@@ -19879,7 +19879,7 @@
       "source_file": "src/lib/versaoNova.js",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 522,
+      "community": 111,
       "norm_label": "emjogo()",
       "id": "src_lib_versaonova_emjogo"
     },
@@ -19889,7 +19889,7 @@
       "source_file": "src/lib/versaoNova.js",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 522,
+      "community": 111,
       "norm_label": "buildnoar()",
       "id": "src_lib_versaonova_buildnoar"
     },
@@ -19899,7 +19899,7 @@
       "source_file": "src/lib/versaoNova.js",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 522,
+      "community": 111,
       "norm_label": "recarregar()",
       "id": "src_lib_versaonova_recarregar"
     },
@@ -19909,7 +19909,7 @@
       "source_file": "src/lib/versaoNova.js",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 522,
+      "community": 111,
       "norm_label": "conferir()",
       "id": "src_lib_versaonova_conferir"
     },
@@ -19919,7 +19919,7 @@
       "source_file": "src/lib/versaoNova.js",
       "source_location": "L47",
       "_origin": "ast",
-      "community": 522,
+      "community": 111,
       "norm_label": "pontoseguro()",
       "id": "src_lib_versaonova_pontoseguro"
     },
@@ -19929,7 +19929,7 @@
       "source_file": "src/lib/versaoNova.js",
       "source_location": "L51",
       "_origin": "ast",
-      "community": 522,
+      "community": 111,
       "norm_label": "iniciarconferenciadeversao()",
       "id": "src_lib_versaonova_iniciarconferenciadeversao"
     },
@@ -19939,7 +19939,7 @@
       "source_file": "src/main.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 522,
+      "community": 111,
       "norm_label": "main.jsx",
       "id": "src_main"
     },
@@ -38339,7 +38339,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "pp.jsx",
       "id": "src_pages_games_pesadeloparticular_pp"
     },
@@ -38349,7 +38349,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "avatares",
       "id": "src_pages_games_pesadeloparticular_pp_avatares"
     },
@@ -38359,7 +38359,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "puzzle_emoji",
       "id": "src_pages_games_pesadeloparticular_pp_puzzle_emoji"
     },
@@ -38369,7 +38369,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "inimigos_nivel",
       "id": "src_pages_games_pesadeloparticular_pp_inimigos_nivel"
     },
@@ -38379,7 +38379,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "getinimigo()",
       "id": "src_pages_games_pesadeloparticular_pp_getinimigo"
     },
@@ -38389,7 +38389,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "getjackstats()",
       "id": "src_pages_games_pesadeloparticular_pp_getjackstats"
     },
@@ -38399,7 +38399,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L58",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "rolar()",
       "id": "src_pages_games_pesadeloparticular_pp_rolar"
     },
@@ -38409,7 +38409,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L65",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "intronoir()",
       "id": "src_pages_games_pesadeloparticular_pp_intronoir"
     },
@@ -38419,7 +38419,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L118",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "telafinal()",
       "id": "src_pages_games_pesadeloparticular_pp_telafinal"
     },
@@ -38429,7 +38429,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L212",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "animacaoinvestigacao()",
       "id": "src_pages_games_pesadeloparticular_pp_animacaoinvestigacao"
     },
@@ -38439,7 +38439,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L264",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "batalhaview()",
       "id": "src_pages_games_pesadeloparticular_pp_batalhaview"
     },
@@ -38449,7 +38449,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L381",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "convoview()",
       "id": "src_pages_games_pesadeloparticular_pp_convoview"
     },
@@ -38459,7 +38459,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L537",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "storyviewer()",
       "id": "src_pages_games_pesadeloparticular_pp_storyviewer"
     },
@@ -38469,7 +38469,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L562",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "localview()",
       "id": "src_pages_games_pesadeloparticular_pp_localview"
     },
@@ -38479,7 +38479,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L667",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "menuinicial()",
       "id": "src_pages_games_pesadeloparticular_pp_menuinicial"
     },
@@ -38489,7 +38489,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L741",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "phonecall()",
       "id": "src_pages_games_pesadeloparticular_pp_phonecall"
     },
@@ -38499,7 +38499,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L844",
       "_origin": "ast",
-      "community": 717,
+      "community": 111,
       "norm_label": "pp()",
       "id": "src_pages_games_pesadeloparticular_pp_pp"
     },
@@ -45889,7 +45889,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 61,
+      "community": 264,
       "norm_label": "classtree.js",
       "id": "src_pages_games_arenatatics_data_classtree"
     },
@@ -45899,7 +45899,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 61,
+      "community": 264,
       "norm_label": "class_tree",
       "id": "src_pages_games_arenatatics_data_classtree_class_tree"
     },
@@ -45909,7 +45909,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L503",
       "_origin": "ast",
-      "community": 61,
+      "community": 264,
       "norm_label": "getno()",
       "id": "src_pages_games_arenatatics_data_classtree_getno"
     },
@@ -45919,7 +45919,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L520",
       "_origin": "ast",
-      "community": 61,
+      "community": 264,
       "norm_label": "getevolucaoativa()",
       "id": "src_pages_games_arenatatics_data_classtree_getevolucaoativa"
     },
@@ -45929,7 +45929,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L537",
       "_origin": "ast",
-      "community": 61,
+      "community": 264,
       "norm_label": "getnomeclasse()",
       "id": "src_pages_games_arenatatics_data_classtree_getnomeclasse"
     },
@@ -46859,7 +46859,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/EvolutionScreen.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 61,
+      "community": 264,
       "norm_label": "evolutionscreen.jsx",
       "id": "src_pages_games_arenatatics_screens_evolutionscreen"
     },
@@ -46869,7 +46869,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/EvolutionScreen.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 61,
+      "community": 264,
       "norm_label": "evolutionscreen()",
       "id": "src_pages_games_arenatatics_screens_evolutionscreen_evolutionscreen"
     },
@@ -47949,7 +47949,7 @@
       "source_file": "src/pages/games/Duelo/version.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 847,
+      "community": 111,
       "norm_label": "version.js",
       "id": "src_pages_games_duelo_version"
     },
@@ -50309,7 +50309,7 @@
       "source_file": "src/pages/games/MiniGames/version.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 847,
+      "community": 111,
       "norm_label": "version.js",
       "id": "src_pages_games_minigames_version"
     },
@@ -51099,7 +51099,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/criaturas.js",
       "source_location": "L327",
       "_origin": "ast",
-      "community": 842,
+      "community": 504,
       "norm_label": "criaturas",
       "id": "src_pages_games_tamagoshi_data_criaturas_criaturas"
     },
@@ -51289,7 +51289,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 853,
+      "community": 723,
       "norm_label": "passeios.js",
       "id": "src_pages_games_tamagoshi_data_passeios"
     },
@@ -51299,7 +51299,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 853,
+      "community": 723,
       "norm_label": "passeios",
       "id": "src_pages_games_tamagoshi_data_passeios_passeios"
     },
@@ -51309,7 +51309,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 853,
+      "community": 723,
       "norm_label": "passeio_key_map",
       "id": "src_pages_games_tamagoshi_data_passeios_passeio_key_map"
     },
@@ -51319,7 +51319,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L55",
       "_origin": "ast",
-      "community": 853,
+      "community": 723,
       "norm_label": "getpasseio()",
       "id": "src_pages_games_tamagoshi_data_passeios_getpasseio"
     },
@@ -51369,7 +51369,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/personalidades.js",
       "source_location": "L97",
       "_origin": "ast",
-      "community": 504,
+      "community": 846,
       "norm_label": "getfala()",
       "id": "src_pages_games_tamagoshi_data_personalidades_getfala"
     },
@@ -51409,7 +51409,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Banhar.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 207,
+      "community": 504,
       "norm_label": "banhar()",
       "id": "src_pages_games_tamagoshi_screens_banhar_banhar"
     },
@@ -51419,7 +51419,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 504,
+      "community": 846,
       "norm_label": "brincadeira.jsx",
       "id": "src_pages_games_tamagoshi_screens_brincadeira"
     },
@@ -51429,7 +51429,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 504,
+      "community": 846,
       "norm_label": "puzzles",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_puzzles"
     },
@@ -51439,7 +51439,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 504,
+      "community": 846,
       "norm_label": "getconfig()",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_getconfig"
     },
@@ -51449,7 +51449,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 504,
+      "community": 846,
       "norm_label": "brincadeira()",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_brincadeira"
     },
@@ -51539,7 +51539,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Luto.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 504,
+      "community": 846,
       "norm_label": "luto.jsx",
       "id": "src_pages_games_tamagoshi_screens_luto"
     },
@@ -51549,7 +51549,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Luto.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 504,
+      "community": 846,
       "norm_label": "luto()",
       "id": "src_pages_games_tamagoshi_screens_luto_luto"
     },
@@ -51579,7 +51579,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Partida.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 842,
+      "community": 504,
       "norm_label": "partida.jsx",
       "id": "src_pages_games_tamagoshi_screens_partida"
     },
@@ -51589,7 +51589,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Partida.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 842,
+      "community": 504,
       "norm_label": "tipo_para_key",
       "id": "src_pages_games_tamagoshi_screens_partida_tipo_para_key"
     },
@@ -51599,7 +51599,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Partida.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 842,
+      "community": 504,
       "norm_label": "partida()",
       "id": "src_pages_games_tamagoshi_screens_partida_partida"
     },
@@ -51629,7 +51629,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passear.jsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 488,
+      "community": 504,
       "norm_label": "passear()",
       "id": "src_pages_games_tamagoshi_screens_passear_passear"
     },
@@ -51639,7 +51639,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passeio.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 853,
+      "community": 723,
       "norm_label": "passeio.jsx",
       "id": "src_pages_games_tamagoshi_screens_passeio"
     },
@@ -51649,7 +51649,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passeio.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 853,
+      "community": 504,
       "norm_label": "passeio()",
       "id": "src_pages_games_tamagoshi_screens_passeio_passeio"
     },
@@ -64898,501 +64898,11 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "site_map",
-      "target": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L359",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_10_camadas_visuais_globais",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L412",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_11_desktop_windows_e_steam_demo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L422",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_12_vers\u00f5es_atuais",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L449",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_13_onde_procurar_primeiro",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_1_vis\u00e3o_geral",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_2_entradas_e_composi\u00e7\u00e3o_global",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L73",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_3_rotas_atuais",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L178",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_4_organiza\u00e7\u00e3o_do_c\u00f3digo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L204",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_5_m\u00f3dulos_globais_importantes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L265",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_6_conte\u00fado_dados_e_assets",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L324",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_7_multiplayer_e_persist\u00eancia_dos_jogos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L332",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_8_supabase_e_stripe",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L348",
-      "weight": 1.0,
-      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
-      "target": "site_map_9_github_pages_seo_e_deploy",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "site_map_2_entradas_e_composi\u00e7\u00e3o_global",
-      "target": "site_map_2_1_abertura_vinheta_de_carregamento",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L77",
-      "weight": 1.0,
-      "source": "site_map_3_rotas_atuais",
-      "target": "site_map_3_1_site_e_conte\u00fado",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L108",
-      "weight": 1.0,
-      "source": "site_map_3_rotas_atuais",
-      "target": "site_map_3_2_plataforma_e_conta",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L122",
-      "weight": 1.0,
-      "source": "site_map_3_rotas_atuais",
-      "target": "site_map_3_3_cat\u00e1logo_e_jogos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L144",
-      "weight": 1.0,
-      "source": "site_map_3_rotas_atuais",
-      "target": "site_map_3_4_kernel_games",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L158",
-      "weight": 1.0,
-      "source": "site_map_3_rotas_atuais",
-      "target": "site_map_3_5_laborat\u00f3rio_e_fallback",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L168",
-      "weight": 1.0,
-      "source": "site_map_3_rotas_atuais",
-      "target": "site_map_3_6_arquitetura_de_hist\u00f3rias_e_universos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L206",
-      "weight": 1.0,
-      "source": "site_map_5_m\u00f3dulos_globais_importantes",
-      "target": "site_map_5_1_contextos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L219",
-      "weight": 1.0,
-      "source": "site_map_5_m\u00f3dulos_globais_importantes",
-      "target": "site_map_5_2_bibliotecas_e_hooks",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L251",
-      "weight": 1.0,
-      "source": "site_map_5_m\u00f3dulos_globais_importantes",
-      "target": "site_map_5_3_componentes_reutiliz\u00e1veis",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L267",
-      "weight": 1.0,
-      "source": "site_map_6_conte\u00fado_dados_e_assets",
-      "target": "site_map_6_1_dados_editoriais_globais",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L291",
-      "weight": 1.0,
-      "source": "site_map_6_conte\u00fado_dados_e_assets",
-      "target": "site_map_6_2_i18n",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L310",
-      "weight": 1.0,
-      "source": "site_map_6_conte\u00fado_dados_e_assets",
-      "target": "site_map_6_3_invent\u00e1rio_de_conte\u00fado",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L361",
-      "weight": 1.0,
-      "source": "site_map_10_camadas_visuais_globais",
-      "target": "site_map_10_1_coluna_\u00fanica_mobile",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "SITE_MAP.md",
-      "source_location": "L379",
-      "weight": 1.0,
-      "source": "site_map_10_camadas_visuais_globais",
-      "target": "site_map_10_2_linguagem_visual_\u00fanica",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "docs_producao_imagem",
-      "target": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "docs_webshard_especiais_halloween_roteiro_oficial",
-      "target": "docs_producao_imagem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_0_ferramentas_qual_usar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_2_web_shard_comum",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L75",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_3_mundo_das_sombras_mds_estilo_arkham_codex",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L93",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_4_mar_de_cinzas_mdc",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L96",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_5_her\u00f3is_da_cidade_hdc",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L103",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_6_lendas_do_ldi_graphic_novel_do_jogo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L109",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_7_ldi_gangues",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L116",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_8_lutas_de_ilus\u00e3o_web_shard_principal",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L119",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_9_web_shard_c\u00e2mera_na_m\u00e3o_found_footage_em_vhs",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L37",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_anatomia_erros_recorrentes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_continuidade",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L53",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_fila",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_refer\u00eancias",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L60",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_revis\u00e3o_e_entrega",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L44",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_texto_na_imagem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L48",
-      "weight": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_v\u00e1rias_sa\u00eddas_numa_chamada_economia_de_cota",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md",
       "source_location": "L1",
       "weight": 1.0,
       "source": "docs_webshard_especiais_halloween_roteiro_oficial",
       "target": "docs_webshard_especiais_halloween_roteiro_oficial_especial_de_halloween_roteiro_oficial_de_produ\u00e7\u00e3o",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "docs_webshard_especiais_halloween_roteiro_oficial",
-      "target": "docs_webshard_webshard_guia_de_producao",
       "confidence_score": 1.0
     },
     {
@@ -67888,12 +67398,482 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map",
+      "target": "site_map_illusionfight_com_mapa_do_site_e_do_projeto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L359",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_10_camadas_visuais_globais"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L412",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_11_desktop_windows_e_steam_demo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L422",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_12_vers\u00f5es_atuais"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L449",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_13_onde_procurar_primeiro"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_1_vis\u00e3o_geral"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_2_entradas_e_composi\u00e7\u00e3o_global"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_3_rotas_atuais"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L178",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_4_organiza\u00e7\u00e3o_do_c\u00f3digo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L204",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_5_m\u00f3dulos_globais_importantes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L265",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_6_conte\u00fado_dados_e_assets"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L324",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_7_multiplayer_e_persist\u00eancia_dos_jogos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L332",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_8_supabase_e_stripe"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L348",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_illusionfight_com_mapa_do_site_e_do_projeto",
+      "target": "site_map_9_github_pages_seo_e_deploy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_2_entradas_e_composi\u00e7\u00e3o_global",
+      "target": "site_map_2_1_abertura_vinheta_de_carregamento"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_3_rotas_atuais",
+      "target": "site_map_3_1_site_e_conte\u00fado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_3_rotas_atuais",
+      "target": "site_map_3_2_plataforma_e_conta"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L122",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_3_rotas_atuais",
+      "target": "site_map_3_3_cat\u00e1logo_e_jogos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L144",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_3_rotas_atuais",
+      "target": "site_map_3_4_kernel_games"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L158",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_3_rotas_atuais",
+      "target": "site_map_3_5_laborat\u00f3rio_e_fallback"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L168",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_3_rotas_atuais",
+      "target": "site_map_3_6_arquitetura_de_hist\u00f3rias_e_universos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L206",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_5_m\u00f3dulos_globais_importantes",
+      "target": "site_map_5_1_contextos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L219",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_5_m\u00f3dulos_globais_importantes",
+      "target": "site_map_5_2_bibliotecas_e_hooks"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L251",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_5_m\u00f3dulos_globais_importantes",
+      "target": "site_map_5_3_componentes_reutiliz\u00e1veis"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L267",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_6_conte\u00fado_dados_e_assets",
+      "target": "site_map_6_1_dados_editoriais_globais"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L291",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_6_conte\u00fado_dados_e_assets",
+      "target": "site_map_6_2_i18n"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L310",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_6_conte\u00fado_dados_e_assets",
+      "target": "site_map_6_3_invent\u00e1rio_de_conte\u00fado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L361",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_10_camadas_visuais_globais",
+      "target": "site_map_10_1_coluna_\u00fanica_mobile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SITE_MAP.md",
+      "source_location": "L379",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "site_map_10_camadas_visuais_globais",
+      "target": "site_map_10_2_linguagem_visual_\u00fanica"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem",
+      "target": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_0_ferramentas_qual_usar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_2_web_shard_comum"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_3_mundo_das_sombras_mds_estilo_arkham_codex"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_4_mar_de_cinzas_mdc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_5_her\u00f3is_da_cidade_hdc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L103",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_6_lendas_do_ldi_graphic_novel_do_jogo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_7_ldi_gangues"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_8_lutas_de_ilus\u00e3o_web_shard_principal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L119",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_9_web_shard_c\u00e2mera_na_m\u00e3o_found_footage_em_vhs"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_anatomia_erros_recorrentes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_continuidade"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_fila"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_refer\u00eancias"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_revis\u00e3o_e_entrega"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_texto_na_imagem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_v\u00e1rias_sa\u00eddas_numa_chamada_economia_de_cota"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao",
-      "target": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o"
     },
     {
       "relation": "contains",
@@ -67901,9 +67881,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L361",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_10_entrega_digital_e_integra\u00e7\u00e3o_no_portal",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_10_entrega_digital_e_integra\u00e7\u00e3o_no_portal"
     },
     {
       "relation": "contains",
@@ -67911,9 +67891,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L413",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_11_o_que_a_evolu\u00e7\u00e3o_do_acervo_revela",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_11_o_que_a_evolu\u00e7\u00e3o_do_acervo_revela"
     },
     {
       "relation": "contains",
@@ -67921,9 +67901,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L451",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_12_handoff_preced\u00eancia_e_diferen\u00e7as_resolvidas",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_12_handoff_preced\u00eancia_e_diferen\u00e7as_resolvidas"
     },
     {
       "relation": "contains",
@@ -67931,9 +67911,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L467",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_13_fichas_personagens_e_cen\u00e1rio",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_13_fichas_personagens_e_cen\u00e1rio"
     },
     {
       "relation": "contains",
@@ -67941,9 +67921,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L550",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_14_c\u00e2mera_corpo_olhar_e_a\u00e7\u00e3o",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_14_c\u00e2mera_corpo_olhar_e_a\u00e7\u00e3o"
     },
     {
       "relation": "contains",
@@ -67951,9 +67931,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L577",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_15_som_texto_de_impacto_e_hit_combo",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_15_som_texto_de_impacto_e_hit_combo"
     },
     {
       "relation": "contains",
@@ -67961,9 +67941,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L594",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_16_processo_de_refer\u00eancia_e_corre\u00e7\u00e3o",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_16_processo_de_refer\u00eancia_e_corre\u00e7\u00e3o"
     },
     {
       "relation": "contains",
@@ -67971,9 +67951,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L665",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_17_localiza\u00e7\u00e3o_en_e_es",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_17_localiza\u00e7\u00e3o_en_e_es"
     },
     {
       "relation": "contains",
@@ -67981,9 +67961,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L688",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_18_v\u00eddeo_e_outras_obras_limites_de_reaproveitamento",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_18_v\u00eddeo_e_outras_obras_limites_de_reaproveitamento"
     },
     {
       "relation": "contains",
@@ -67991,9 +67971,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L696",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_19_fonte_e_limita\u00e7\u00f5es",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_19_fonte_e_limita\u00e7\u00f5es"
     },
     {
       "relation": "contains",
@@ -68001,9 +67981,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_1_como_usar_este_guia",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_1_como_usar_este_guia"
     },
     {
       "relation": "contains",
@@ -68011,9 +67991,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L702",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_20_modelos_espec\u00edficos_de_corre\u00e7\u00e3o_e_tradu\u00e7\u00e3o",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_20_modelos_espec\u00edficos_de_corre\u00e7\u00e3o_e_tradu\u00e7\u00e3o"
     },
     {
       "relation": "contains",
@@ -68021,9 +68001,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L725",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o"
     },
     {
       "relation": "contains",
@@ -68031,9 +68011,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L761",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_22_modelos_reutiliz\u00e1veis",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_22_modelos_reutiliz\u00e1veis"
     },
     {
       "relation": "contains",
@@ -68041,9 +68021,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L835",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_23_revis\u00e3o_de_qualidade",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_23_revis\u00e3o_de_qualidade"
     },
     {
       "relation": "contains",
@@ -68051,9 +68031,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L869",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_24_decis\u00f5es_ainda_necess\u00e1rias",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_24_decis\u00f5es_ainda_necess\u00e1rias"
     },
     {
       "relation": "contains",
@@ -68061,9 +68041,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L884",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_25_fontes_e_rastreabilidade",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_25_fontes_e_rastreabilidade"
     },
     {
       "relation": "contains",
@@ -68071,9 +68051,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L906",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es"
     },
     {
       "relation": "contains",
@@ -68081,9 +68061,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_2_manifesto_consolidado",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_2_manifesto_consolidado"
     },
     {
       "relation": "contains",
@@ -68091,9 +68071,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_3_regras_essenciais",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_3_regras_essenciais"
     },
     {
       "relation": "contains",
@@ -68101,9 +68081,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_4_gram\u00e1tica_visual",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_4_gram\u00e1tica_visual"
     },
     {
       "relation": "contains",
@@ -68111,9 +68091,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_5_texto_e_letreiramento",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_5_texto_e_letreiramento"
     },
     {
       "relation": "contains",
@@ -68121,9 +68101,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_6_cor_como_narrativa",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_6_cor_como_narrativa"
     },
     {
       "relation": "contains",
@@ -68131,9 +68111,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L212",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_7_dimens\u00f5es_propor\u00e7\u00e3o_e_safe_area",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_7_dimens\u00f5es_propor\u00e7\u00e3o_e_safe_area"
     },
     {
       "relation": "contains",
@@ -68141,9 +68121,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L265",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_8_identidade_de_lutas_de_ilus\u00e3o",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_8_identidade_de_lutas_de_ilus\u00e3o"
     },
     {
       "relation": "contains",
@@ -68151,9 +68131,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L289",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_webshard_manifesto_e_guia_de_produ\u00e7\u00e3o_de_lutas_de_ilus\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_9_acervo_auditado_e_exemplos",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_9_acervo_auditado_e_exemplos"
     },
     {
       "relation": "contains",
@@ -68161,9 +68141,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_2_manifesto_consolidado",
-      "target": "docs_webshard_webshard_guia_de_producao_2_1_diverg\u00eancia_com_o_texto_p\u00fablico_atual",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_2_1_diverg\u00eancia_com_o_texto_p\u00fablico_atual"
     },
     {
       "relation": "contains",
@@ -68171,9 +68151,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_4_gram\u00e1tica_visual",
-      "target": "docs_webshard_webshard_guia_de_producao_4_1_unidades",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_4_1_unidades"
     },
     {
       "relation": "contains",
@@ -68181,9 +68161,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_4_gram\u00e1tica_visual",
-      "target": "docs_webshard_webshard_guia_de_producao_4_2_constru\u00e7\u00e3o_de_uma_p\u00e1gina",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_4_2_constru\u00e7\u00e3o_de_uma_p\u00e1gina"
     },
     {
       "relation": "contains",
@@ -68191,9 +68171,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_4_gram\u00e1tica_visual",
-      "target": "docs_webshard_webshard_guia_de_producao_4_3_ritmo_e_exce\u00e7\u00f5es",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_4_3_ritmo_e_exce\u00e7\u00f5es"
     },
     {
       "relation": "contains",
@@ -68201,9 +68181,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_5_texto_e_letreiramento",
-      "target": "docs_webshard_webshard_guia_de_producao_5_1_economia_de_palavras",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_5_1_economia_de_palavras"
     },
     {
       "relation": "contains",
@@ -68211,9 +68191,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_5_texto_e_letreiramento",
-      "target": "docs_webshard_webshard_guia_de_producao_5_2_forma_visual_observada",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_5_2_forma_visual_observada"
     },
     {
       "relation": "contains",
@@ -68221,9 +68201,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_5_texto_e_letreiramento",
-      "target": "docs_webshard_webshard_guia_de_producao_5_3_tamanho_percebido_no_celular",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_5_3_tamanho_percebido_no_celular"
     },
     {
       "relation": "contains",
@@ -68231,9 +68211,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L147",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_6_cor_como_narrativa",
-      "target": "docs_webshard_webshard_guia_de_producao_6_1_dois_sistemas_independentes",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_6_1_dois_sistemas_independentes"
     },
     {
       "relation": "contains",
@@ -68241,9 +68221,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L153",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_6_cor_como_narrativa",
-      "target": "docs_webshard_webshard_guia_de_producao_6_2_paleta_observada_e_confirma\u00e7\u00e3o_pelo_handoff",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_6_2_paleta_observada_e_confirma\u00e7\u00e3o_pelo_handoff"
     },
     {
       "relation": "contains",
@@ -68251,9 +68231,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L200",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_6_cor_como_narrativa",
-      "target": "docs_webshard_webshard_guia_de_producao_6_3_planejamento_de_cor_por_p\u00e1gina",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_6_3_planejamento_de_cor_por_p\u00e1gina"
     },
     {
       "relation": "contains",
@@ -68261,9 +68241,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L167",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_6_2_paleta_observada_e_confirma\u00e7\u00e3o_pelo_handoff",
-      "target": "docs_webshard_webshard_guia_de_producao_cores_de_fala",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_cores_de_fala"
     },
     {
       "relation": "contains",
@@ -68271,9 +68251,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L214",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_7_dimens\u00f5es_propor\u00e7\u00e3o_e_safe_area",
-      "target": "docs_webshard_webshard_guia_de_producao_7_1_o_que_existe_de_fato",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_7_1_o_que_existe_de_fato"
     },
     {
       "relation": "contains",
@@ -68281,9 +68261,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L237",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_7_dimens\u00f5es_propor\u00e7\u00e3o_e_safe_area",
-      "target": "docs_webshard_webshard_guia_de_producao_7_2_\u00e1rea_segura_obrigat\u00f3ria",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_7_2_\u00e1rea_segura_obrigat\u00f3ria"
     },
     {
       "relation": "contains",
@@ -68291,9 +68271,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L255",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_7_dimens\u00f5es_propor\u00e7\u00e3o_e_safe_area",
-      "target": "docs_webshard_webshard_guia_de_producao_7_3_rela\u00e7\u00e3o_com_o_leitor",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_7_3_rela\u00e7\u00e3o_com_o_leitor"
     },
     {
       "relation": "contains",
@@ -68301,9 +68281,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L291",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_9_acervo_auditado_e_exemplos",
-      "target": "docs_webshard_webshard_guia_de_producao_9_1_material_atual",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_9_1_material_atual"
     },
     {
       "relation": "contains",
@@ -68311,9 +68291,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L305",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_9_acervo_auditado_e_exemplos",
-      "target": "docs_webshard_webshard_guia_de_producao_9_2_mapa_das_53_p\u00e1ginas_pt",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_9_2_mapa_das_53_p\u00e1ginas_pt"
     },
     {
       "relation": "contains",
@@ -68321,9 +68301,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L329",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_9_acervo_auditado_e_exemplos",
-      "target": "docs_webshard_webshard_guia_de_producao_9_3_refer\u00eancias_diretas_para_produ\u00e7\u00e3o",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_9_3_refer\u00eancias_diretas_para_produ\u00e7\u00e3o"
     },
     {
       "relation": "contains",
@@ -68331,9 +68311,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L338",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_9_acervo_auditado_e_exemplos",
-      "target": "docs_webshard_webshard_guia_de_producao_9_4_hist\u00f3rico_de_compara\u00e7\u00e3o",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_9_4_hist\u00f3rico_de_compara\u00e7\u00e3o"
     },
     {
       "relation": "contains",
@@ -68341,9 +68321,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L363",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_10_entrega_digital_e_integra\u00e7\u00e3o_no_portal",
-      "target": "docs_webshard_webshard_guia_de_producao_10_1_estrutura_atual",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_10_1_estrutura_atual"
     },
     {
       "relation": "contains",
@@ -68351,9 +68331,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L383",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_10_entrega_digital_e_integra\u00e7\u00e3o_no_portal",
-      "target": "docs_webshard_webshard_guia_de_producao_10_2_cat\u00e1logo_rotas_e_disponibilidade",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_10_2_cat\u00e1logo_rotas_e_disponibilidade"
     },
     {
       "relation": "contains",
@@ -68361,9 +68341,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L397",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_10_entrega_digital_e_integra\u00e7\u00e3o_no_portal",
-      "target": "docs_webshard_webshard_guia_de_producao_10_3_tradu\u00e7\u00e3o_e_revis\u00e3o_de_exporta\u00e7\u00e3o",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_10_3_tradu\u00e7\u00e3o_e_revis\u00e3o_de_exporta\u00e7\u00e3o"
     },
     {
       "relation": "contains",
@@ -68371,9 +68351,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L407",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_10_entrega_digital_e_integra\u00e7\u00e3o_no_portal",
-      "target": "docs_webshard_webshard_guia_de_producao_10_4_publica\u00e7\u00e3o_no_reposit\u00f3rio",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_10_4_publica\u00e7\u00e3o_no_reposit\u00f3rio"
     },
     {
       "relation": "contains",
@@ -68381,9 +68361,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L417",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_11_o_que_a_evolu\u00e7\u00e3o_do_acervo_revela",
-      "target": "docs_webshard_webshard_guia_de_producao_11_1_est\u00e1gios_visuais_observados",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_11_1_est\u00e1gios_visuais_observados"
     },
     {
       "relation": "contains",
@@ -68391,9 +68371,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L433",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_11_o_que_a_evolu\u00e7\u00e3o_do_acervo_revela",
-      "target": "docs_webshard_webshard_guia_de_producao_11_2_invent\u00e1rio_externo",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_11_2_invent\u00e1rio_externo"
     },
     {
       "relation": "contains",
@@ -68401,9 +68381,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L475",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_13_fichas_personagens_e_cen\u00e1rio",
-      "target": "docs_webshard_webshard_guia_de_producao_13_1_onde_est\u00e3o_as_refer\u00eancias",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_13_1_onde_est\u00e3o_as_refer\u00eancias"
     },
     {
       "relation": "contains",
@@ -68411,9 +68391,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L483",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_13_fichas_personagens_e_cen\u00e1rio",
-      "target": "docs_webshard_webshard_guia_de_producao_13_2_dire\u00e7\u00e3o_espec\u00edfica_dos_personagens",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_13_2_dire\u00e7\u00e3o_espec\u00edfica_dos_personagens"
     },
     {
       "relation": "contains",
@@ -68421,9 +68401,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L509",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_13_fichas_personagens_e_cen\u00e1rio",
-      "target": "docs_webshard_webshard_guia_de_producao_13_3_ambientes_e_assets",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_13_3_ambientes_e_assets"
     },
     {
       "relation": "contains",
@@ -68431,9 +68411,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L519",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_13_fichas_personagens_e_cen\u00e1rio",
-      "target": "docs_webshard_webshard_guia_de_producao_13_4_sala_a_304_posicionamento_obrigat\u00f3rio",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_13_4_sala_a_304_posicionamento_obrigat\u00f3rio"
     },
     {
       "relation": "contains",
@@ -68441,9 +68421,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L569",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_14_c\u00e2mera_corpo_olhar_e_a\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_14_1_as_cinco_correntes",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_14_1_as_cinco_correntes"
     },
     {
       "relation": "contains",
@@ -68451,9 +68431,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L585",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_15_som_texto_de_impacto_e_hit_combo",
-      "target": "docs_webshard_webshard_guia_de_producao_15_1_contador_de_combo",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_15_1_contador_de_combo"
     },
     {
       "relation": "contains",
@@ -68461,9 +68441,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L596",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_16_processo_de_refer\u00eancia_e_corre\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_16_1_refer\u00eancias_sempre_por_nome_de_arquivo",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_16_1_refer\u00eancias_sempre_por_nome_de_arquivo"
     },
     {
       "relation": "contains",
@@ -68471,9 +68451,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L626",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_16_processo_de_refer\u00eancia_e_corre\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_16_2_estilo_de_arte_bloco_obrigat\u00f3rio_em_todo_prompt",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_16_2_estilo_de_arte_bloco_obrigat\u00f3rio_em_todo_prompt"
     },
     {
       "relation": "contains",
@@ -68481,9 +68461,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L649",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_16_processo_de_refer\u00eancia_e_corre\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_16_3_regras_gerais",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_16_3_regras_gerais"
     },
     {
       "relation": "contains",
@@ -68491,9 +68471,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L727",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_etapa_1_briefing_e_continuidade",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_etapa_1_briefing_e_continuidade"
     },
     {
       "relation": "contains",
@@ -68501,9 +68481,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L731",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_etapa_2_decupagem_vertical",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_etapa_2_decupagem_vertical"
     },
     {
       "relation": "contains",
@@ -68511,9 +68491,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L735",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_etapa_3_roteiro_visual_e_crom\u00e1tico",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_etapa_3_roteiro_visual_e_crom\u00e1tico"
     },
     {
       "relation": "contains",
@@ -68521,9 +68501,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L739",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_etapa_4_esbo\u00e7o_com_texto_real",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_etapa_4_esbo\u00e7o_com_texto_real"
     },
     {
       "relation": "contains",
@@ -68531,9 +68511,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L743",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_etapa_5_arte",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_etapa_5_arte"
     },
     {
       "relation": "contains",
@@ -68541,9 +68521,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L749",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_etapa_6_letreiramento_e_neon",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_etapa_6_letreiramento_e_neon"
     },
     {
       "relation": "contains",
@@ -68551,9 +68531,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L753",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_etapa_7_revis\u00e3o_em_escala_de_leitura",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_etapa_7_revis\u00e3o_em_escala_de_leitura"
     },
     {
       "relation": "contains",
@@ -68561,9 +68541,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L757",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_21_fluxo_recomendado_de_produ\u00e7\u00e3o",
-      "target": "docs_webshard_webshard_guia_de_producao_etapa_8_tradu\u00e7\u00e3o_e_pacote_final",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_etapa_8_tradu\u00e7\u00e3o_e_pacote_final"
     },
     {
       "relation": "contains",
@@ -68571,9 +68551,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L763",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_22_modelos_reutiliz\u00e1veis",
-      "target": "docs_webshard_webshard_guia_de_producao_22_1_ficha_de_p\u00e1gina",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_22_1_ficha_de_p\u00e1gina"
     },
     {
       "relation": "contains",
@@ -68581,9 +68561,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L793",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_22_modelos_reutiliz\u00e1veis",
-      "target": "docs_webshard_webshard_guia_de_producao_22_2_briefing_de_arte_ou_gera\u00e7\u00e3o_assistida",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_22_2_briefing_de_arte_ou_gera\u00e7\u00e3o_assistida"
     },
     {
       "relation": "contains",
@@ -68591,9 +68571,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L837",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_23_revis\u00e3o_de_qualidade",
-      "target": "docs_webshard_webshard_guia_de_producao_linguagem_e_narrativa",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_linguagem_e_narrativa"
     },
     {
       "relation": "contains",
@@ -68601,9 +68581,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L847",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_23_revis\u00e3o_de_qualidade",
-      "target": "docs_webshard_webshard_guia_de_producao_texto_e_cor",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_texto_e_cor"
     },
     {
       "relation": "contains",
@@ -68611,9 +68591,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L858",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_23_revis\u00e3o_de_qualidade",
-      "target": "docs_webshard_webshard_guia_de_producao_\u00e1rea_segura_e_entrega",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_\u00e1rea_segura_e_entrega"
     },
     {
       "relation": "contains",
@@ -68621,9 +68601,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_10_rodap\u00e9_da_p\u00e1gina_13",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_10_rodap\u00e9_da_p\u00e1gina_13"
     },
     {
       "relation": "contains",
@@ -68631,9 +68611,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1131",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_11_selo_bruuutaaalll",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_11_selo_bruuutaaalll"
     },
     {
       "relation": "contains",
@@ -68641,9 +68621,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_12_pend\u00eancias",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_12_pend\u00eancias"
     },
     {
       "relation": "contains",
@@ -68651,9 +68631,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L910",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_1_situa\u00e7\u00e3o",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_1_situa\u00e7\u00e3o"
     },
     {
       "relation": "contains",
@@ -68661,9 +68641,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L917",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_2_fluxo_de_trabalho_p\u00e1gina_por_p\u00e1gina",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_2_fluxo_de_trabalho_p\u00e1gina_por_p\u00e1gina"
     },
     {
       "relation": "contains",
@@ -68671,9 +68651,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L929",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_3_prompt_base_ingl\u00eas",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_3_prompt_base_ingl\u00eas"
     },
     {
       "relation": "contains",
@@ -68681,9 +68661,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L974",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_4_prompt_base_espanhol",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_4_prompt_base_espanhol"
     },
     {
       "relation": "contains",
@@ -68691,9 +68671,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1020",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_5_modelo_do_bloco_this_page",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_5_modelo_do_bloco_this_page"
     },
     {
       "relation": "contains",
@@ -68701,9 +68681,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1033",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_6_estilo_e_voz",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_6_estilo_e_voz"
     },
     {
       "relation": "contains",
@@ -68711,9 +68691,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1046",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_7_onomatopeias_sfx",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_7_onomatopeias_sfx"
     },
     {
       "relation": "contains",
@@ -68721,9 +68701,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1057",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_8_armadilhas_falsos_amigos_e_erros_comuns",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_8_armadilhas_falsos_amigos_e_erros_comuns"
     },
     {
       "relation": "contains",
@@ -68731,9 +68711,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1084",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_26_9_decis\u00f5es_de_adapta\u00e7\u00e3o_j\u00e1_tomadas",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_26_9_decis\u00f5es_de_adapta\u00e7\u00e3o_j\u00e1_tomadas"
     },
     {
       "relation": "contains",
@@ -68741,9 +68721,9 @@
       "source_file": "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md",
       "source_location": "L1152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_26_tradu\u00e7\u00e3o_do_cap\u00edtulo_01_en_e_es",
-      "target": "docs_webshard_webshard_guia_de_producao_dire\u00e7\u00e3o_de_olhares_atualiza\u00e7\u00e3o_de_isa\u00edas_19_10_2026",
-      "confidence_score": 1.0
+      "target": "docs_webshard_webshard_guia_de_producao_dire\u00e7\u00e3o_de_olhares_atualiza\u00e7\u00e3o_de_isa\u00edas_19_10_2026"
     },
     {
       "relation": "contains",
@@ -68751,9 +68731,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L344",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao",
-      "target": "scripts_halloween_producao_generate",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_generate"
     },
     {
       "relation": "contains",
@@ -68761,9 +68741,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L235",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao",
-      "target": "scripts_halloween_producao_prepare",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_prepare"
     },
     {
       "relation": "contains",
@@ -68771,9 +68751,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L296",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao",
-      "target": "scripts_halloween_producao_run",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_run"
     },
     {
       "relation": "contains",
@@ -68781,9 +68761,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L290",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao",
-      "target": "scripts_halloween_producao_state",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_state"
     },
     {
       "relation": "contains",
@@ -68791,9 +68771,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L222",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao",
-      "target": "scripts_halloween_producao_valid",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_valid"
     },
     {
       "relation": "contains",
@@ -68801,9 +68781,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L230",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao",
-      "target": "scripts_halloween_producao_write",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_write"
     },
     {
       "relation": "rationale_for",
@@ -68811,9 +68791,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao_rationale_1",
-      "target": "scripts_halloween_producao",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao"
     },
     {
       "relation": "calls",
@@ -68822,9 +68802,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L346",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao_generate",
-      "target": "scripts_halloween_producao_valid",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_valid"
     },
     {
       "relation": "calls",
@@ -68833,9 +68813,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L322",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao_run",
-      "target": "scripts_halloween_producao_valid",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_valid"
     },
     {
       "relation": "calls",
@@ -68844,9 +68824,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L291",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao_state",
-      "target": "scripts_halloween_producao_valid",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_valid"
     },
     {
       "relation": "calls",
@@ -68855,9 +68835,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L361",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao_generate",
-      "target": "scripts_halloween_producao_write",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_write"
     },
     {
       "relation": "calls",
@@ -68866,9 +68846,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L279",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao_prepare",
-      "target": "scripts_halloween_producao_write",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_write"
     },
     {
       "relation": "calls",
@@ -68877,9 +68857,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L300",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao_run",
-      "target": "scripts_halloween_producao_write",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_write"
     },
     {
       "relation": "calls",
@@ -68888,9 +68868,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L292",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao_state",
-      "target": "scripts_halloween_producao_write",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_write"
     },
     {
       "relation": "calls",
@@ -68899,9 +68879,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L349",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao_generate",
-      "target": "scripts_halloween_producao_state",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_state"
     },
     {
       "relation": "calls",
@@ -68910,9 +68890,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L336",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao_run",
-      "target": "scripts_halloween_producao_state",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_state"
     },
     {
       "relation": "calls",
@@ -68921,9 +68901,9 @@
       "source_file": "scripts/halloween_producao.py",
       "source_location": "L330",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_halloween_producao_run",
-      "target": "scripts_halloween_producao_generate",
-      "confidence_score": 1.0
+      "target": "scripts_halloween_producao_generate"
     },
     {
       "relation": "imports_from",
@@ -164465,5 +164445,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3f54c9ed965634117d423f0acf7d44e72ddf484e"
+  "built_at_commit": "5fb0e12c7f5ff32f37059e1a8da5de462d020f9e"
 }

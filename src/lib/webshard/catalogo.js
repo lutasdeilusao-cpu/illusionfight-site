@@ -18,7 +18,7 @@ const TITULO_LEGADO = 'lutas-de-ilusao'
 
 // Capítulos que mudaram de número. Set/2026: o antigo Ep. 00 (Apresentação)
 // saiu; a introdução oficial agora é o Cap. 01 — /webtoon/00 está indexada.
-const CAPITULOS_MOVIDOS = { [TITULO_LEGADO]: { '00': '01' } }
+const CAPITULOS_MOVIDOS = { [TITULO_LEGADO]: { '00': '01', 'especial-6-realista': 'especial-6' } }
 
 export function capituloMovido(titulo, id) {
   return CAPITULOS_MOVIDOS[titulo?.slug]?.[id] || null
