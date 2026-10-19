@@ -2,7 +2,7 @@
 
 > Revisão editorial: 19/10/2026. Direção de Isaías: continuidade de acontecimentos, quatro linguagens de POV, câmeras como protagonistas e leitura no celular com uma mão. Três lançamentos: **51 páginas narrativas + 9 editoriais por lançamento = 180 páginas físicas; 153 páginas de história**. Esta revisão substitui as versões sobrepostas do documento recebido. O original permanece no histórico do Git; não usar suas instruções conflitantes para produzir novas páginas.
 >
-> Status: roteiro e diálogos revisados para leitura autoral; **L1-01 aprovada; fila PAUSADA por Isaías para revisão cinematográfica de todos os prompts. L1-02 existente precisa de nova geração; não usar sua pose repetida como modelo**; as fichas de material geradas posteriormente estão registradas em §16 e aguardam revisão autoral. Falas novas são redação editorial deste roteiro, não citações recuperadas de uma arte anterior. Os destinos, as mortes e o banquete foram preservados. A pasta Personagens foi repovoada durante esta revisão: As referências existentes foram inspecionadas e registradas em §13.1; o acréscimo de Brock e as novas fichas têm registro em §16. Os nomes com prefixo halloween_ são complementos planejados, não arquivos já existentes.
+> Status: roteiro e diálogos revisados para leitura autoral; **L1-01 aprovada; fila RETOMADA por Isaías a partir da L1-02 com todos os prompts cinematográficos e olhares revisados. L1-02 anterior arquivada; não reutilizar sua pose repetida**; as fichas de material geradas posteriormente estão registradas em §16 e aguardam revisão autoral. Falas novas são redação editorial deste roteiro, não citações recuperadas de uma arte anterior. Os destinos, as mortes e o banquete foram preservados. A pasta Personagens foi repovoada durante esta revisão: As referências existentes foram inspecionadas e registradas em §13.1; o acréscimo de Brock e as novas fichas têm registro em §16. Os nomes com prefixo halloween_ são complementos planejados, não arquivos já existentes.
 
 ## 1. Direção da experiência
 
@@ -1339,7 +1339,7 @@ As imagens produzidas com esses prompts são fichas para revisão autoral; gera�
 
 ## 17. Produção serial do lançamento 1
 
-**Estado atual: PAUSADA por solicitação de Isaías. Tarefa automática desativada e trava PARADA.txt presente. Não retomar durante esta revisão. Página 02 marcada para refazer antes da 03; as imagens existentes permanecem preservadas.**
+**Estado atual: RETOMADA por autorização de Isaías em 19/10/2026, a partir da página 02. A imagem anterior da 02 foi preservada em _descartadas; tarefa automática reativada. Valem os prompts revisados de câmera, ação e olhar, sem olhar para leitor/lente.**
 
 L1-01 foi aprovada por Isaías em 19/10/2026, com o elenco da piscina corrigido. As outras cinquenta páginas foram autorizadas. A faixa maior da abertura é exceção: nas próximas páginas a separação é uma borda diagonal fina, sem faixa larga. Figurantes diversos mantêm identidade por ambiente; feeds simultâneos de locais diferentes não repetem as mesmas pessoas.
 
@@ -1351,7 +1351,7 @@ A autorização é de geração. As novas páginas permanecem pré-finais, aguar
 
 ## 18. Enquadramento, movimento e olhares — revisão L1-01 a L1-51
 
-Estas direções entram integralmente nos prompts em inglês; nunca são texto impresso. As 51 páginas foram conferidas. A imagem aprovada da 01 permanece intacta; a 02 deve ser refeita quando houver retomada. A revisão não autorizou nova geração.
+Estas direções entram integralmente nos prompts em inglês; nunca são texto impresso. As 51 páginas foram conferidas. A imagem aprovada da 01 permanece intacta; a 02 será refeita na retomada autorizada posteriormente por Isaías, em 19/10/2026.
 
 #### Direção L1-01 — câmera, ação e olhar
 Approved composition remains. Fixed elevated oblique hall camera and a DIFFERENT fixed elevated pool camera, simultaneous separate casts. Hand/drink shard is an editorial close insert. Do not regenerate approved01 during this review.
