@@ -289,9 +289,9 @@
     "numero": 6,
     "so_admin": true,
     "especial": true,
-    "titulo_pt": "Diabo Vermelho — Parte 1: O Forasteiro",
-    "titulo_en": "Red Devil — Part 1: The Stranger",
-    "titulo_es": "Diablo Rojo — Parte 1: El Forastero",
+    "titulo_pt": "Especial de Natal — Parte 1: O Forasteiro",
+    "titulo_en": "Christmas Special — Part 1: The Stranger",
+    "titulo_es": "Especial de Navidad — Parte 1: El Forastero",
     "publicado": true,
     "data_publicacao": "2099-12-30",
     "liberacao": {
@@ -309,7 +309,7 @@
       960,
       1639
     ],
-    "pasta": "diabo-vermelho/01/codex",
-    "serie": "diabo-vermelho"
+    "pasta": "especial-de-natal/01",
+    "serie": "especial-de-natal"
   }
 ]

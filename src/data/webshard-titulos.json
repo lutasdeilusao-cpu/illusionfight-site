@@ -27,11 +27,11 @@
     "fonte_capitulos": "episodios",
     "series": [
       {
-        "id": "diabo-vermelho",
-        "capa": "capa-diabo-vermelho.webp",
-        "nome_pt": "Diabo Vermelho",
-        "nome_en": "Red Devil",
-        "nome_es": "Diablo Rojo",
+        "id": "especial-de-natal",
+        "capa": "capa-especial-de-natal.webp",
+        "nome_pt": "Especial de Natal",
+        "nome_en": "Christmas Special",
+        "nome_es": "Especial de Navidad",
         "tagline_pt": "Especial de fim de ano. Marelia, 1951. Comeram o bolo errado.",
         "tagline_en": "Year-end special. Marelia, 1951. They ate the wrong cake.",
         "tagline_es": "Especial de fin de año. Marelia, 1951. Se comieron el pastel equivocado."

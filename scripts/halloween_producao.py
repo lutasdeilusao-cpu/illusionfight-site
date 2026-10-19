@@ -16,7 +16,7 @@ from PIL import Image
 REPO = Path(__file__).resolve().parents[1]
 ROOT = REPO.parent / 'ESPECIAIS' / 'presos'
 PROMPTS = ROOT / 'prompts' / 'loop1'
-PAGES = ROOT / 'paginas' / 'loop1'
+PAGES = ROOT / 'WEBSHARD' / 'PT' / 'loop1'
 STATE = ROOT / 'producao' / 'loop1'
 DOC = REPO / 'docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md'
 ENGINE = REPO.parent / 'MUNDO DAS SOMBRAS/WEBSHARD/scripts/fila_v2.py'
@@ -198,22 +198,14 @@ GAZE_PLAN = '''
 '''
 GAZE_PLAN = {int(row.split('|', 1)[0]): row.split('|', 1)[1]
              for row in GAZE_PLAN.strip().splitlines()}
-TIMES = {2: -30, 3: 0, 4: 5, 5: 15, 6: 25, 7: 40, 8: 775,
-         9: 780, 10: 788, 11: 792, 12: 796, 13: 805, 14: 810,
-         15: 820, 16: 830, 17: 840, 18: 870, 19: 885, 20: 900,
-         21: 910, 22: 920, 23: 930, 24: 2160, 25: 2165, 26: 2170,
-         27: 2180, 28: 2190, 29: 2195, 30: 2200, 31: 2203,
-         32: 2205, 33: 2208, 34: 2211, 35: 2214, 36: 2217,
-         37: 2220, 38: 2220, 39: 2224, 40: 2228, 41: 2232,
-         42: 2232, 43: 2236, 44: 2240, 45: 2244, 46: 2244,
-         47: 2248, 48: 2250, 49: 2340, 50: 2355, 51: 4320}
+CONTINUITY = json.loads((REPO / 'docs/WEBSHARD/Especiais/HALLOWEEN_CONTINUIDADE.json').read_text(encoding='utf-8'))
 COMMON = '''Create one finished photographic WEB SHARD narrative page, 960 x 1637 px, full bleed, extreme natural photographic realism, NOT illustration, anime or game rendering. Usually TWO large action panels; one only where staging explicitly says one. Never more than three. ALL panel cuts diagonal, slopes MAY differ. Dividers are a VERY THIN 1-3px dark optical-fiber contour with restrained glint, NOT a wide band, black gutter, smoke, static strip or bulky cable border. Page01's wide narrated seam is a one-page exception, do not copy it. Captions occupy compact quiet image area without widening separators. Small shards when specified are jagged cracked GLASS overlays of ONE detail, about15-25% width, not additional full scenes; editorial close angles beyond recorded lens angle ARE allowed inside shards. Main panels respect physical source. Focus faces, hands and action, medium/close rather than full bodies or repeated panoramas. Essential lettering/faces inside x100-860 y80-1557, no blank margins. White speech balloons, large condensed bold uppercase type, short lines, target40-48px, comfortable at phone width. No speaker-name labels printed. Exact Brazilian Portuguese text below, accents intact, only once, no added narration. Put tails on correct speaker; offscreen voices point toward actual operator/source. Thoughts distinct and tailless. If text is dense, allow more balloon space instead of shrinking type. Natural anatomy, no extra hands, no duplicated faces. ABSOLUTE EYELINE RULE: NO character EVER looks at the reader or directly into the recording lens. NO exceptions for selfie/vlog, dialogue addressed to operator, subjective victim POV, villains or reaction shots. Every visible pair of eyes has a specific OFF-LENS target from the eyeline plan. A front-facing face in an identity sheet does NOT authorize front-facing eye contact in narrative. Keep gaze visibly off-axis, preferably profile/three-quarter, at another character, a hand, object, route or ongoing action. Head facing camera does not excuse eyes facing viewer. CINEMATIC BLOCKING is mandatory, not cosmetic Dutch tilt. Each panel has a specified physical lens position, direction, framing, foreground/depth and a NEW action state. Never duplicate pose, silhouette, hand position, gaze and screen placement from preceding panel. Do not copy a reference-sheet standing pose. One frozen tableau with different dialogue is not progression. Fixed cameras keep physical angle but subjects change action/occlusion/position; handheld changes must come from the operator moving, turning or handling the device. Maintain action axis and rescue sides, no arbitrary reverse coverage. Prior pages are identity/continuity references, never a template to clone composition or poses.
 ATTACHED REFERENCES: identify by exact FILENAME listed below, NEVER by upload order. Character sheets govern identity/costume, environment sheets govern floor plan on LEFT and two photographic perspectives on RIGHT; do NOT reproduce board collage in narrative. Previous pages govern props, position, handedness and marks, not source effects when source changes. Do not copy their words. Living extras have varied skin tones, ethnicities, hair including Black/white/blond/redhead, ages and body types. Different simultaneous rooms have DIFFERENT extras, no cloned person at same time. Main cast never replaced by extras. Kim black messy hair brown/indigenous face red cloak bronze armor; Jack darker skin GREEN dreads light tunic burgundy drape; Nina pink ponytail cream/pink Roman dress; Fred blond LEFT-eye bruise white/gold; Brock bald Black imposing burgundy drape. Shared Capangas sheet left-to-right: Jason large bald Black man, Michael redhead scar, Anderson black emo fringe, Andre stocky afro. Brock is NOT on that sheet. Keep all Roman costumes exactly; human Kronos only in mansion, zombie Caesar ONLY in virtual arena. Device sheet: analog on LEFT has eyepiece NO flip LCD; digital center has flip LCD, clock on right.
-Voice text/outline colors only in COLOR feeds: Kim#1E6FE0, Jack#22C55E, Nina#B82E69, Fred#C9A227, Brock#8B1E1E, Andre#9A4A16, Jason#6D28A6, Michael#155E63, Anderson#4B5563, Kronos#4B5058, stranger#6B543A. Dark stroke where needed, one font, white balloons. CCTV always monochrome including lettering.
+EVERY balloon has PURE SOLID WHITE #FFFFFF fill and BOTH TEXT AND ENTIRE OUTLINE in its speaker color; NEVER default black lettering or black outlines in a color feed. Voice text/outline colors only in COLOR feeds: Kim#1E6FE0, Jack#22C55E, Nina#B82E69, Fred#C9A227, Brock#8B1E1E, Andre#9A4A16, Jason#6D28A6, Michael#155E63, Anderson#4B5563, Kronos#4B5058, stranger#6B543A. One bold font, colored letterforms and colored border, white balloons. Never attach an operator voice to a visible character. CAMERA OPERATOR SPEECH: balloon starts at BOTTOM CENTER of the panel and its tail exits the LOWER CENTRAL image edge, from the person holding the camera behind the lens. Nina is OFF-CAMERA when holding A; her pink balloon MUST NOT point right/left or to Kim/Jack. Jack holding A speaks green from bottom center; Fred holding D speaks gold from bottom center. If the camera is supported and speaker is visible, tail points to actual visible speaker. CCTV always monochrome including lettering. All digital devices and recordings reset at each loop, including phones, clocks, batteries and files. World clocks restart20:00. Only analog A preserves footage, own running clock and depleted battery. No conscious memories survive; only Nina has vague sensations, no full recollection. Other characters actions must have visible present causes, not foreknowledge.
 '''
 SOURCES = {
-    'C': 'Fixed physical CCTV, entirely BLACK AND WHITE including HUD, no redREC, tint or colored accents. No microphone, no audible dialogue/SFX. EVERY visibly speaking person must have their own white balloon containing ONLY NO SOUND with tail pointing to that speaker. Keep non-speaking background mouths neutral; do not invent conversations. No handheld shake, pan or autonomous zoom. HUD REC, CAM identifier and location specified in staging,31/10 and actual recording time below, no year.',
-    'A': 'Nina analog camcorder real-world footage in COLOR: modest VHS chroma bleed/tracking, grain and plausible imperfect focus; voices recorded. Never inside virtual arena. Operator remains behind lens except after camera visibly handed over or supported; fixed table A cannot pan, zoom or relocate by itself. HUD only REC and TC tape timecode below. No year, battery numbers or invented date.',
+    'C': 'Fixed physical CCTV, entirely BLACK AND WHITE including HUD, no redREC, tint or colored accents. No microphone, no audible dialogue/SFX. EVERY visibly speaking person must have their own white balloon containing ONLY NO SOUND with tail pointing to that speaker. Keep non-speaking background mouths neutral; do not invent conversations. No handheld shake, pan or autonomous zoom. HUD REC, CAM identifier and location specified in staging,digital-world date/time from continuity below, RESET to20:00 every loop, distinct from preserved analog clock; no year.',
+    'A': 'Nina OLD ANALOG camcorder footage in COLOR, unmistakably AGED VHS IN EVERY PANEL AND SHARD, not a clean modern photo with a faint edge filter. STRONG full-frame luminance/chroma grain, visible scanlines, coarse moving video noise, tracking instability, small horizontal dropouts, ghosting, softened old-video detail, faded low-saturation warm/greenish color and chromatic bleed. Grain and scanlines must remain obvious at phone width. Occasional tracking tears cross interior of image without hiding action; do not confine noise to borders. Keep editorial balloons crisp with pure white fill and colored text/borders, not noise-distorted. Voices recorded. Never inside virtual arena. Operator remains behind lens except after camera visibly handed over or supported; fixed table A cannot pan, zoom or relocate by itself. HUD in EVERY recorded panel: REC, the EXACT own date/time and BAT percentage given in the continuity contract. No elapsed00:00:00 replacing clock19:57. All analog HUD persists when camera is supported or carried. Do not reset its clock or charge; obey midnight rollover. No invented year. When D films this camera, ONLY analog video inside ocular is aged; external D stays clean.',
     'D': 'Fred digital camera in clean COLOR FullHD, natural exposure/focus/motion blur; NEVER VHS or scanlines. HUD exactly REC and FHD, no battery/date/timecode. Fred behind lens except supported recording in lounge; even there he looks at an OFF-AXIS companion, never lens. In arena this is virtual linked D; physical D remains docked in real laboratory. Arena bright DAYLIGHT, solid pale stone floor with shallow grit, not sand dunes. No supernatural image filter.',
     'S': 'Andre subjective perceived vision, organic eye-shaped field, COLOR and natural failing peripheral focus as specified, absolutely NO REC, HUD, camcorder border or tape noise. Never shows his own face or physical laboratory. His hands may enter lower view. Heard speech differs from thought, no omniscient camera.'
 }
@@ -240,6 +232,7 @@ def prepare():
         number, source, aliases, previous, staging = line.split('|', 4)
         n = int(number)
         text = re.search(r'\*\*Texto:\*\* (.*)', blocks[number]).group(1)
+        continuity = CONTINUITY['pages'][f'L1-{n:02d}']
         # Only quoted artwork strings enter lettering; editorial prose is never printed.
         lettering = []
         previous_end, speaker = 0, 'caption'
@@ -248,33 +241,34 @@ def prepare():
             if ':' in context:
                 speaker = context.rsplit(':', 1)[0].split('. ')[-1].strip()
             if match.group(1) != 'NO SOUND':
-                lettering.append(speaker + ': "' + match.group(1) + '"')
+                name = next((v for v in CONTINUITY['voices'] if v.casefold() in speaker.casefold()), None)
+                if not name and 'pensamento' in speaker.casefold():
+                    name = 'André'
+                color = CONTINUITY['voices'].get(name, 'neutral')
+                operator_voice = name and name in continuity['operator'] and not continuity['operator'].startswith('supported')
+                route = 'NO TAIL: thought' if 'pensamento' in speaker.casefold() else 'BOTTOM CENTER balloon; tail exits LOWER CENTRAL edge from unseen camera operator; never point to visible cast' if operator_voice else 'tail to named visible speaker; if offscreen, to their physical side, never operator center'
+                if name:
+                    lettering.append(f'{speaker}: "{match.group(1)}" | WHITE #FFFFFF FILL; TEXT AND OUTLINE {color}; {route}')
+                else:
+                    lettering.append(f'{speaker}: "{match.group(1)}" | INTERFACE/CAPTION/SFX ONLY as staged; NOT a speech balloon; do not print this instruction')
             previous_end = match.end()
         text = '\n'.join(lettering) if lettering else 'No additional printed text.'
         refs = [REFS[a] for a in aliases.split()]
-        refs += [f'paginas/loop1/{int(p):02d}.png' for p in previous.split()]
-        timing = ''
-        if source == 'C':
-            seconds = 19 * 3600 + 47 * 60 + TIMES[n]
-            h, rem = divmod(seconds, 3600)
-            mm, ss = divmod(rem, 60)
-            timing = f'CCTV panel1 actual recording time {h:02d}:{mm:02d}:{ss:02d}; panel2 two seconds later.'
-            if n == 2:
-                timing = 'CCTV CAM01 timestamp31/10 19:46:30; CAM02 timestamp31/10 19:47:00.30second travel ellipse.'
-            elif n == 8:
-                timing = 'Both simultaneous feeds show31/10 19:59:55. No elapsed time between rooms.'
+        refs += [f'WEBSHARD/PT/loop1/{int(p):02d}.png' for p in previous.split()]
+        timing = 'CONTINUITY: ' + json.dumps(continuity, ensure_ascii=False)
         if source == 'A':
-            seconds = TIMES[n]
-            h, rem = divmod(seconds, 3600)
-            mm, ss = divmod(rem, 60)
-            timing = f'Tape TC {h:02d}:{mm:02d}:{ss:02d}; second panel advances two seconds, never resets.'
-        out = f'paginas/loop1/{n:02d}.png'
+            timing += '\nEach panel HUD uses analog_clock and matching battery from CONTINUITY, NEVER digital_world_clock. Do not print JSON keys or operator names.'
+        elif source == 'C':
+            timing += '\nEach panel HUD uses digital_world_clock, NEVER analog_clock. No analog battery in CCTV.'
+        else:
+            timing += '\nContinuity timestamps are production metadata, NOT additional D/S overlay text.'
+        out = f'WEBSHARD/PT/loop1/{n:02d}.png'
         body = COMMON + '\nSOURCE: ' + SOURCES[source] + '\n' + timing
         body += '\nPAGE STAGING: ' + staging
         body += '\nMANDATORY CINEMATOGRAPHY AND ACTION CHANGES: ' + CAMERA_PLAN[n]
         body += '\nMANDATORY EYELINE TARGETS: ' + GAZE_PLAN[n]
-        body += '\nEXACT TEXT IN PORTUGUESE (speaker names/instructions NOT printed):\n' + text
-        body += '\nActual attached filenames and roles: ' + '; '.join(Path(r).name + (' = previous-page continuity' if r.startswith('paginas') else ' = identity/environment/object reference') for r in refs)
+        body += '\nEXACT TEXT AND MANDATORY PER-BALLOON BINDING (only the quoted words are printed; speaker, color and routing labels are NOT printed):\n' + text
+        body += '\nActual attached filenames and roles: ' + '; '.join(Path(r).name + (' = previous-page continuity' if r.startswith('WEBSHARD/') else ' = identity/environment/object reference') for r in refs)
         body += '\nTOOL INPUT: all references are local. Use referenced_image_paths with these absolute paths, NOT num_last_images_to_include: ' + json.dumps([str(ROOT / r) for r in refs], ensure_ascii=False)
         body += '\nGenerate ONCE using image generation and SAVE finished PNG to ' + out + '. Wait for the image tool to finish, then COPY the generated file from its returned path to this OUT path. Copying to OUT is required and allowed. Do not finish while a tool is still running. Reply only ok after the file is saved.'
         write(PROMPTS / f'{n:03d}_pagina{n:02d}.txt', 'OUT: ' + out + '\nREFS: ' + ' '.join(refs) + '\n' + body)

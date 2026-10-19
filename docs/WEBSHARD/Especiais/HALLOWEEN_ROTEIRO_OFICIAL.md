@@ -2,7 +2,7 @@
 
 > Revisão editorial: 19/10/2026. Direção de Isaías: continuidade de acontecimentos, quatro linguagens de POV, câmeras como protagonistas e leitura no celular com uma mão. Três lançamentos: **51 páginas narrativas + 9 editoriais por lançamento = 180 páginas físicas; 153 páginas de história**. Esta revisão substitui as versões sobrepostas do documento recebido. O original permanece no histórico do Git; não usar suas instruções conflitantes para produzir novas páginas.
 >
-> Status: roteiro e diálogos revisados para leitura autoral; **L1-01 aprovada; fila RETOMADA por Isaías a partir da L1-02 com todos os prompts cinematográficos e olhares revisados. L1-02 anterior arquivada; não reutilizar sua pose repetida**; as fichas de material geradas posteriormente estão registradas em §16 e aguardam revisão autoral. Falas novas são redação editorial deste roteiro, não citações recuperadas de uma arte anterior. Os destinos, as mortes e o banquete foram preservados. A pasta Personagens foi repovoada durante esta revisão: As referências existentes foram inspecionadas e registradas em §13.1; o acréscimo de Brock e as novas fichas têm registro em §16. Os nomes com prefixo halloween_ são complementos planejados, não arquivos já existentes.
+> Status: roteiro e diálogos revisados para leitura autoral; **L1-01 aprovada; fila PAUSADA; regras de imagem analógica, HUD/bateria, memória e balões em revisão. L1-03 será refeita; não reutilizar as falas pretas e a cauda lateral de Nina**; as fichas de material geradas posteriormente estão registradas em §16 e aguardam revisão autoral. Falas novas são redação editorial deste roteiro, não citações recuperadas de uma arte anterior. Os destinos, as mortes e o banquete foram preservados. A pasta Personagens foi repovoada durante esta revisão: As referências existentes foram inspecionadas e registradas em §13.1; o acréscimo de Brock e as novas fichas têm registro em §16. Os nomes com prefixo halloween_ são complementos planejados, não arquivos já existentes.
 
 ## 1. Direção da experiência
 
@@ -70,11 +70,11 @@ A vigilância permanece fixa: pessoas em movimento podem borrar, o sensor pode c
 | Fonte | Imagem e áudio | O que pode mostrar | Limite e olhar |
 |---|---|---|---|
 | C — segurança de Kronos | Preto e branco, câmera física fixa, ruído discreto, sem áudio | Geografia real, festa, laboratório, procedimentos, deslocamentos, corpos, DELETE | Não mostra interior do LDI, pensamentos, conversas audíveis ou movimentos de câmera. |
-| A — analógica de Nina | Cor analógica, resolução irregular, ruído de crominância/tracking moderado; áudio ambiente e vozes | O mundo real na direção da lente; fica gravando quando apoiada | Não entra no LDI nem mostra automaticamente quem a segura. A gravação resiste ao reset. |
+| A — analógica de Nina | Imagem colorida fortemente envelhecida, VHS visível em toda a área: grão forte, scanlines, tracking, dropouts, ghosting, cor desbotada e bleed; áudio ambiente e vozes | O mundo real na direção da lente; fica gravando quando apoiada | Não entra no LDI nem mostra automaticamente quem a segura. A gravação resiste ao reset. |
 | D — digital de Fred | Cor limpa Full HD, áudio; tremor/foco/exposição fisicamente possíveis | Mundo real; no LDI, registro do dispositivo virtual vinculado ao SBI | Só mostra a rota de Fred ou o campo de um apoio estabelecido. Não visita outra câmara sozinha. |
 | S — percepção subjetiva | Abertura orgânica de olho; sem REC/HUD; sons percebidos e pensamento curto | Visão e experiência imediata de André, Anderson e, no final, Fred/Nina/Jack/Kim | Não é arquivo recuperado, telepatia ou quinta câmera; não fornece conhecimento fora da vítima. |
 
-**HUD fechado:** C usa `REC`, identificador CAM/local, `31/10` e hora do registro. A usa `REC` e `TC` de fita; relógio físico aparece quando for pista. D usa `REC` e `FHD`; sem HUD analógico. S não tem texto técnico. Os desenhos de interface precisam de ficha própria; os arquivos de referência disponíveis não incluem uma ficha final desses HUDs. O ano do mundo não está definido: não imprimir 1998/2026 nem inventar um ano. A hora da segurança acompanha o registro físico, e não o relógio cenográfico reiniciado.
+**HUD fechado:** A usa `REC`, data/hora própria e `BAT n%` em todos os painéis, inclusive estilhaços e gravação apoiada. Horário absoluto, não contador 00:00:00: primeira imagem 31/10 19:57:00 / BAT 100%; loop 2 começa 31/10 23:43:00 / BAT 75%; loop 3 começa 01/11 02:17:00 / BAT 50%. O relógio da analógica e o consumo não resetam. C usa REC/CAM/local e hora digital do mundo, reiniciada às 20:00 em cada loop; não copiar a hora acumulada de A em C. D usa REC/FHD, imagem limpa e sessão/arquivos/horário/bateria resetados; S não tem HUD. Não imprimir ano. Em PLAY, o trecho mostra sua hora gravada; bateria é a atual do aparelho. O manifesto de continuidade fixa cada valor, sem números inventados.
 
 **Sem som na segurança:** toda imagem de C é inteiramente preto e branco, inclusive HUD, letras e balões. Cada personagem visivelmente falando recebe seu próprio balão branco contendo somente `NO SOUND`, com cauda apontada para ele. Não transcrever diálogos, onomatopeias ou som captado. Figuração sem fala visível não exige balão. Nos anúncios, o áudio impresso avança somente por A e D. A narração editorial é permitida onde o roteiro especificar, sem simular microfone.
 
@@ -84,7 +84,16 @@ A vigilância permanece fixa: pessoas em movimento podem borrar, o sensor pode c
 
 O roteiro recebido já exigia D no LDI, mas não explicava sua passagem. **Convenção de encenação desta revisão:** Fred vincula a câmera ao modo de registro do SBI antes da conexão; a sala real retém o aparelho físico, e o ambiente virtual fornece sua representação de captura. Uma tela de vínculo, um gesto de confirmação e a retomada da mesma empunhadura tornam a passagem compreensível. Não afirmar que uma câmera física atravessou a sala, nem explicar o funcionamento espiritual do LDI. O registro virtual tem o mesmo POV limitado de uma câmera portada; não é câmera livre do jogo.
 
-O arquivo digital do ciclo anterior desaparece no reset. A câmera física pode conservar marcas de uso, mas a sessão virtual recomeça; bateria “milagrosamente cheia” não será usada como prova. A analógica conserva a fita e o relógio físico. Não alegar que ambas guardaram todas as provas.
+Tudo que é digital reseta: câmera de Fred, celular, arquivos, relógio, bateria, configurações e sessão virtual. Não conservar gravação digital ou estado de outro loop como prova. Marcas de uso de D valem apenas dentro do loop em que surgem. O relógio do ambiente volta às 20:00 em cada início. Somente a analógica conserva fita, relógio próprio e bateria consumida. Ela é a única fonte que atravessa o reset com evidências. As memórias dos eventos anteriores são apagadas; ninguém reconhece um loop antes da prova. Só Nina tem sensações e pressentimentos vagos, nunca lembrança completa ou conhecimento do mecanismo.
+
+
+### 3.2 Analógica envelhecida, balões e origem da voz — obrigatórios
+
+Toda imagem captada por A tem desgaste VHS FORTE e visível no celular: detalhe suavizado, grão de luminância/crominância sobre o quadro inteiro, linhas de varredura, tracking irregular, pequenos dropouts, ghosting e cor desbotada com bleed. Não basta um filtro discreto nas bordas. Estilhaços derivados de A também carregam esse desgaste. A imagem externa de D permanece Full HD limpa; quando D filma o ocular, somente o conteúdo de A dentro do ocular é envelhecido. Balões editoriais ficam nítidos, com fundo branco puro #FFFFFF, sem textura nem transparência.
+
+Cada fala tem texto E contorno na cor da voz: Kim azul #1E6FE0; Jack verde #22C55E; Nina rosa #B82E69; demais vozes seguem §6. Não usar letra/contorno preto como padrão. A exceção é C, totalmente monocromática e sem áudio: apenas NO SOUND. Pensamento é distinto, com cor do personagem e sem cauda de fala.
+
+A voz de quem SEGURA a câmera nasce da borda INFERIOR CENTRAL do painel, na posição de quem está atrás da lente. O balão pode ficar no centro inferior sem cobrir a ação; sua cauda termina na borda inferior central, nunca na lateral ou em personagem visível. Em A de Nina: fala dela rosa, operador fora da imagem. Em A de Jack: fala dele verde e central; Nina visível recebe cauda apontada para ela. Em D empunhada por Fred: fala dele dourada e central; se D estiver apoiada e Fred no campo, a cauda aponta para Fred. Câmera apoiada não transforma toda voz fora do quadro em voz de operador: apontar para o lado físico de quem fala. O plano por página declara custódia e vínculo de cada balão.
 
 ## 4. Geografia, custódia e relógios
 
@@ -136,9 +145,9 @@ Não mostrar Kronos segurando A de fora pelo POV de A. O gesto de recolher o apa
 
 O relógio cenográfico do salão volta a **20:00** em cada ciclo. No relógio físico de algarismos romanos, isso é orientação dos ponteiros: hora em VIII, minutos em XII, com a noite já estabelecida. Não acrescentar uma tela digital ou escrever 20:00 sobre o mostrador da referência; os números 20:00 nesta documentação indicam o horário da ação. A arena diurna tem um mostrador cerimonial de referência `20:00` integrado ao relógio de sol: é interface da simulação, não o horário astronômico do sol. O céu da arena permanece claro e seco. Mansão: noite.
 
-A começa a registrar às **19:47**. Na primeira apresentação de seu HUD, TC=`00:00:00`; no início da investigação do ciclo 3, TC=`02:50:00` aproximadamente. O tempo de fita não é a hora do relógio da parede. **153 páginas não equivalem a 153 minutos.** Conexões, espera e reorganizações podem ser omitidas; o contador registra o intervalo real omitido. Não atribuir avanço de uma hora a um único golpe nem desenhar uma espera só para justificar duração.
+A começa às **19:57 / 100%**. O loop 2 começa às **23:43 / 75%**; o loop 3 às **02:17 / 50%**, já em 01/11. Entre essas âncoras, horário e bateria avançam conforme `HALLOWEEN_CONTINUIDADE.json`. São 3h46 até o segundo loop e mais 2h34 até o terceiro: o início do terceiro acumula 6h20 desde a chegada. As elipses maiores ficam na festa, preparação/conexão e manutenção; nunca alongar um soco por horas. A hora própria de A é diferente da hora resetada do mundo.
 
-Durante o PLAY da fita, TC pode recuar porque estamos vendo gravação anterior. O relógio físico continua avançando. Jack retorna ao fim gravado antes de retomar REC; não rebobina e grava por cima da prova. A frase antiga “contador nunca diminui em nenhuma circunstância” foi corrigida: **o reset não apaga/reinicia a fita**, mas reprodução tem seu próprio estado. Uma breve pausa voluntária para PLAY é reconhecida, não escondida como falha de continuidade. Definir no objeto uma fita de longa duração e alimentação capaz de cobrir o evento; não travar bateria em 100% durante três horas.
+Durante o PLAY, o horário gravado do trecho pode recuar; o relógio próprio do aparelho e o consumo de bateria continuam avançando. Jack retorna ao fim gravado antes de retomar REC; não rebobina e grava por cima da prova. A frase antiga “contador nunca diminui em nenhuma circunstância” foi corrigida: **o reset não apaga/reinicia a fita**, mas reprodução tem seu próprio estado. Uma breve pausa voluntária para PLAY é reconhecida, não escondida como falha de continuidade. Definir no objeto uma fita de longa duração e alimentação capaz de cobrir o evento; não travar a bateria enquanto as horas avançam.
 
 **Fechamento de HUD antes das artes:** o mapa de montagem deve anotar hora/TC de entrada e saída de cada tomada, com os pares simultâneos abaixo no mesmo instante. Os blocos não autorizam o gerador a inventar números intermediários. O ano e o valor do prêmio ainda não foram fornecidos; as fichas disponíveis e os complementos faltantes estão discriminados em §13.1; usar redação sem valor/ano e anexos verificados, em vez de fabricar dados. O roteiro é legível sem esses números técnicos.
 
@@ -189,306 +198,396 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 
 ### L1-01 — A festa já começou
 **Fonte:** C; CAM 03 SALÃO e CAM 04 PISCINA; fixas; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 19:59:00; P2 31/10 19:59:00, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois feeds simultâneos, grandes, cortes diagonais. Salão cheio, funcionários servindo; piscina ocupada em área reconhecível da mesma mansão. Sem personagens principais em destaque, sem laboratório; pequeno estilhaço editorial de mão/bebida. Grupos genéricos distintos no salão e na piscina no mesmo horário, com diversidade de pele, cabelo, idade e porte; ninguém duplicado entre os ambientes. A câmera observa atividade, não apresenta um catálogo de arquitetura.
 **Texto:** faixa: “ESPECIAL DE HALLOWEEN DE LUTAS DE ILUSÃO: AQUI TUDO COMEÇA E AQUI TUDO TERMINA.” Balões de quem fala visivelmente: somente “NO SOUND”. A narração pode ocupar uma área maior nesta abertura aprovada.
 **Ligação:** o leitor conhece uma festa em andamento e o olhar fixo que voltará no encerramento. A entrada será vista quando alguém chegar.
 
 ### L1-02 — Os três chegam
 **Fonte:** C; CAM 01 ENTRADA, depois CAM 02 CORREDOR OESTE; dominância bronze.
+**HUD e balões fechados:** C: P1 31/10 19:59:30; P2 31/10 20:00:00, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis sequenciais, horários progressivos. Primeiro: plano alto oblíquo da CAM 01, trio avançando em diagonal; Nina atrás à direita, filmadora elevada. Segundo: outro eixo fixo alto, reverso, da CAM 02, após a curva do corredor; Kim próximo ao batente afasta o drapeado, Jack parcialmente encoberto. Nina agora ao fundo à esquerda, de perfil/costas, avançando e baixando o aparelho ao peito enquanto gira para a passagem. Mudar posição na tela, escala, orientação, braços e fase do passo; não repetir o retrato frontal da primeira tomada. O percurso intermediário foi omitido. Sem sala SBI, sem shards.
 **Texto:** faixa: “CONVIDADOS ESPECIAIS ACABAM DE CHEGAR.” Nenhuma fala captada.
 **Ligação:** o gesto de Kim no vão é a âncora da página seguinte, sem reencenar toda a caminhada.
 
 ### L1-03 — Agora estamos na mão de Nina
 **Fonte:** A, operada por Nina no limiar do salão; dominância verde. REC e início de TC, imagem colorida analógica.
+**HUD e balões fechados:** A: P1 REC | 31/10 19:57:00 | BAT 100%; P2 REC | 31/10 19:57:02 | BAT 100%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Retomar Kim terminando de afastar o tecido, agora do ângulo atrás dele; Jack responde. Segundo: Nina vira um pouco para a decoração necessária, com Jack ainda na margem. Um shard subordinado do tecido/bronze já registrado; não inventar plano externo de Nina.
 **Texto:** Kim: “SÓ VAMOS COMER E DEPOIS VAMOS EMBORA PRA CASA.” Jack: “TÁ BOM, TÁ BOM, PASSA A FOME.” Nina, fora do quadro: “O KRONOS CAPRICHOU NESSA FESTA, HEIN?”
 **Ligação:** o leitor reconhece lugar e gesto, mas ganha voz e intimidade. Kim aponta o buffet. Não continuar a mesma entrada na página 4.
 
 ### L1-04 — Em outro cômodo, outra imagem
 **Fonte:** D, apoiada no lounge leste; Fred no campo do aparelho, olhando para Anderson fora do eixo; dominância dourada. Full HD colorida, limpa.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: supported: Fred visible. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda para o personagem, nunca para o operador; Michael: fundo #FFFFFF; letra e contorno #155E63; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis no mesmo eixo fixo. Fred prepara a pose e conta; Michael invade a lateral antes do fim. O vão ao fundo deixa reconhecer a luz do salão, sem trazer o trio para o mesmo cômodo. Sem shards.
 **Texto:** faixa: “OUTRO CÔMODO. MESMA FESTA.” Fred: “TRÊS, DOIS...” / “POW-POW, HOJE O HYPERMOMENT É MEU!” Michael: “TÔ NA IMAGEM?”
 **Ligação:** corte paralelo, não salto de horas. Terceira fonte apresentada em quatro páginas; a interrupção trivial terá versões diferentes nos resets.
 
 ### L1-05 — Um compromisso banal
 **Fonte:** D ainda apoiada; lounge; dominância laranja de André.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: supported: Fred visible. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda para o personagem, nunca para o operador; André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Fred tenta refazer a pose; André passa atrás com Brock e confere dois ingressos. Um shard dos ingressos, no campo já visível, sem nomes/títulos legíveis.
 **Texto:** Fred: “DÁ PRA NÃO PASSAR NA FRENTE?” André: “SÓ NÃO DEMORA. PROMETI CINEMA PRA MINHA IRMÃ.” Brock: “A GENTE SAI A TEMPO.”
 **Ligação:** André tem vida depois da festa; Brock assume um compromisso com ele. A informação não recebe música, narração de presságio nem close de despedida.
 
 ### L1-06 — A porta abre sozinha
 **Fonte:** D; Fred pega o aparelho do apoio e aponta para a porta do lounge; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Anderson: fundo #FFFFFF; letra e contorno #4B5563; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Gesto de recolher: dedos entram na borda e o eixo sobe, sem mostrar Fred de fora. Atendente chega pela passagem de serviço com bandeja e aciona o sensor com o antebraço; a porta abre. O grupo continua à vista no lounge, sem saída ainda.
 **Texto:** Fred, atrás da câmera: “ATÉ A PORTA É MAIS CARA QUE A SUA CASA.” Anderson: “ENTÃO PARA DE SEGURAR ELA.”
 **Ligação:** sensor e batente ficam estabelecidos; a piada de Fred mantém a pose e encobre um mecanismo que depois falhará.
 
 ### L1-07 — A uva
 **Fonte:** A nas mãos de Nina, buffet; dominância azul.
+**HUD e balões fechados:** A: P1 REC | 31/10 19:57:40 | BAT 100%; P2 REC | 31/10 19:57:42 | BAT 100%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Desconhecido: fundo #FFFFFF; letra e contorno #6B543A; cauda para o personagem, nunca para o operador; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Kim já comendo ao lado do desconhecido; depois o homem tosse com uma uva e Kim lhe aproxima água. Um shard da mão e da tigela, mesmo momento. Nada de queda ou morte.
 **Texto:** desconhecido: “ESSA AQUI TÁ BOA.” Kim: “DEIXA UM POUCO PRA MIM.” / “ÁGUA AÍ.”
 **Ligação:** ele se recompõe e sinaliza que está bem. Identificar seu lugar na borda do balcão e a tigela; não transformar em retrato misterioso.
 
 ### L1-08 — O anfitrião muda o fluxo
 **Fonte:** C; CAM 03 SALÃO e CAM 05 LOUNGE; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 21:20:00; P2 31/10 21:20:00, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois feeds do mesmo instante. Kronos chega à área do anúncio e os funcionários abrem espaço; no lounge, Fred vira D para o vão, antes ocupado pelo atendente. Nina termina de desviar a lente do buffet. Sem áudio, sem shards.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a segurança acrescenta posição e orientação das duas câmeras. Não repete o engasgo nem o vídeo inteiro. O discurso começa na fonte sonora seguinte.
 
 ### L1-09 — Cem convidados
 **Fonte:** A, Nina do salão para Kronos; dominância metálica.
+**HUD e balões fechados:** A: P1 REC | 31/10 21:17:05 | BAT 91%; P2 REC | 31/10 21:17:07 | BAT 91%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador; Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis, mesmo eixo portátil. Kronos pede atenção; segundo quadro permite ver Jack reagindo na margem, sem corte para uma câmera externa. Sem shards.
 **Texto:** Kronos: “BOA NOITE AOS NOSSOS CEM CONVIDADOS ESPECIAIS.” / “NOVE DE VOCÊS VÃO ESTREAR O NOVO EVENTO.”
 **Ligação:** “cem” e “nove” ficam claros, sem pessoas dizendo que são pistas. O anúncio continua no mesmo tempo pela digital.
 
 ### L1-10 — A promessa de prêmio
 **Fonte:** D, Fred filmando os capangas no lounge, com o anúncio vindo pelo vão; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador; Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Reação de Jason ao prêmio, Brock olha para André; segundo quadro Fred ajusta o enquadramento, não aparece de frente segurando o próprio aparelho. Sem shards.
 **Texto:** Kronos, voz do salão: “E O VENCEDOR LEVA UM PRÊMIO EM DINHEIRO.” Jason: “AÍ EU GOSTEI.” Fred, fora do quadro: “EU FALEI QUE IA RENDER.”
 **Ligação:** trecho novo do discurso. Não repetir agradecimento, inventar valor do prêmio ou simular fala por cima de C.
 
 ### L1-11 — O motivo de Kim muda
 **Fonte:** A, Nina para Kim e Jack; salão; dominância azul.
+**HUD e balões fechados:** A: P1 REC | 31/10 21:17:17 | BAT 91%; P2 REC | 31/10 21:17:19 | BAT 91%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Kim para de mastigar ao ouvir “prêmio”; Jack repara antes de ele responder. O desconhecido continua vivo no buffet ao fundo parcial.
 **Texto:** Jack: “NÃO ERA COMER E IR EMBORA?” Kim: “DÁ PRA COMER DEPOIS.”
 **Ligação:** a adesão nasce da ação e do dinheiro, sem monólogo sobre ganância.
 
 ### L1-12 — Quem fica assistindo
 **Fonte:** A, retorno curto a Kronos; dominância metálica.
+**HUD e balões fechados:** A: P1 REC | 31/10 21:17:21 | BAT 91%; P2 REC | 31/10 21:17:23 | BAT 91%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador; Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel. Kronos indica o acesso técnico, sem abrir ainda a sala. Quadro de informação útil, não panorâmica da festa.
 **Texto:** Kronos: “OS OUTROS NOVENTA E UM ACOMPANHAM PELOS PRÓPRIOS SBIS.” / “DEPOIS, TODOS PODERÃO PARTICIPAR.”
 **Ligação:** estabelece os 91 e conduz o movimento seguinte. Não ilustrar 91 corpos contáveis num quadro minúsculo.
 
 ### L1-13 — Segura direito
 **Fonte:** A, Nina entrega a Jack, ainda no salão; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 31/10 21:17:30 | BAT 91%; P2 REC | 31/10 21:17:32 | BAT 91%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina -> Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Nina filma Jack estendendo a mão; o enquadramento baixa enquanto ele recebe, mostrando a alça passando em seu punho. Não mostrar os dois aparelhos ou Nina de frente antes da troca.
 **Texto:** Nina: “PASSA A ALÇA NO PUNHO.” Jack: “EU SEI SEGURAR UMA CÂMERA.”
 **Ligação:** troca material do operador, não troca de fonte. A posição baixa conduz à retomada na mão de Jack.
 
 ### L1-14 — Dois grupos entram no mesmo fluxo
 **Fonte:** C; CAM 03 SALÃO; dominância bronze.
+**HUD e balões fechados:** C: P1 31/10 21:20:35; P2 31/10 21:20:37, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel fixo. Trio e grupo de Fred convergem para o corredor técnico. Jack segura A com alça no punho; Fred segura D. Atendente indica o caminho. O desconhecido permanece no buffet, fora dos nove.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a segurança confirma custódia e seleção sem fazer apresentação nominal de nove pessoas.
 
 ### L1-15 — Fantasia e trabalho
 **Fonte:** A, Jack filma Nina durante o deslocamento já iniciado; dominância verde.
+**HUD e balões fechados:** A: P1 REC | 31/10 21:17:45 | BAT 91%; P2 REC | 31/10 21:17:47 | BAT 91%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis próximos. Nina nota o drapeado desconfortável de Jack sem olhar para a lente; depois ajusta uma dobra que invade a borda do registro. Sem plano inteiro obrigatório.
 **Texto:** Jack, atrás da câmera: “VOCÊ ESCOLHEU ESSA FANTASIA SÓ PRA ME VER SOFRER?” Nina: “PRA VER SE VOCÊ PARA QUIETO NO TRABALHO.”
 **Ligação:** aproximação dos dois e motivo escolar da filmagem surgem numa ação útil; não explicar a relação em narração.
 
 ### L1-16 — O outro trabalho de Anderson
 **Fonte:** D, Fred atrás do grupo no acesso técnico; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Anderson: fundo #FFFFFF; letra e contorno #4B5563; cauda para o personagem, nunca para o operador; Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Anderson pede que Fred caminhe; Jason olha para o prêmio anunciado e desfaz a piada quando Brock o encara.
 **Texto:** Anderson: “ÚLTIMO TRABALHO QUE EU FAÇO PRA VOCÊ.” Jason: “SE EU GANHAR, RESOLVO LÁ EM CASA.” Fred: “PRIMEIRO TEM QUE GANHAR.”
 **Ligação:** duas motivações em conflito curto, não ficha biográfica. Nina recupera A fora deste enquadramento; sua devolução é registrada na página seguinte pela fonte que consegue vê-la.
 
 ### L1-17 — O tropeço
 **Fonte:** D, Fred no corredor técnico; dominância petróleo.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Michael: fundo #FFFFFF; letra e contorno #155E63; cauda para o personagem, nunca para o operador; Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Ao fundo, Jack entrega A a Nina; Michael passa o pé num cabo baixo junto ao batente e quase cai. Jason o segura pela roupa e já continua. Um shard do cabo no mesmo piso.
 **Texto:** Michael: “PORRA!” Jason: “SEGURA A POSE, ESTRELA.”
 **Ligação:** fixar lado do batente, trajeto do cabo e direção de marcha. Acidente rápido; não gastar outra página rindo dele.
 
 ### L1-18 — Nove lugares
 **Fonte:** A de Nina, entrada do laboratório; dominância bronze.
+**HUD e balões fechados:** A: P1 REC | 31/10 21:18:35 | BAT 91%; P2 REC | 31/10 21:18:37 | BAT 91%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel geral funcional. Nove cadeiras SBI e rota de serviço reconhecíveis; mesa lateral no primeiro plano. Nina se aproxima dessa mesa, sem o quadro revelar uma décima cadeira.
 **Texto:** Nina, fora do quadro: “ISSO É BEM MAIS VELHO DO QUE EU ESPERAVA.” Jack: “COMBINA COM A TUA CÂMERA.”
 **Ligação:** agora o laboratório pode ser visto. O espanto pertence ao desenho ritualístico de equipamento técnico, não a ignorância sobre o que é um SBI.
 
 ### L1-19 — Fred exige um registro
 **Fonte:** D, empunhada por Fred junto à estação; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. A lente baixa para o ponto de vínculo do dispositivo; a mão confirma a conexão. O grupo ainda está acordado.
 **Texto:** Fred: “EU VOU GRAVAR LÁ DENTRO.” Brock: “SÓ NÃO ATRAPALHA.” Interface literal única: “REGISTRO VINCULADO”.
 **Ligação:** planta o modo de captura virtual. Nenhum aparelho físico será mostrado atravessando o LDI.
 
 ### L1-20 — As mãos ficam livres
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância bronze.
+**HUD e balões fechados:** C: P1 31/10 21:22:05; P2 31/10 21:22:07, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel. Fred encaixa D no suporte físico depois de vincular; Nina ainda segura A. Funcionários apontam os assentos. Nove participantes reconhecíveis, sem fila de retratos.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** mostra onde D fica de verdade e por que Fred não continua filmando fisicamente quando preso.
 
 ### L1-21 — A analógica fica
 **Fonte:** A, Nina ajusta a mesa lateral; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 31/10 21:19:15 | BAT 91%; P2 REC | 31/10 21:19:17 | BAT 91%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina -> supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Quadro inclina ao apoiar; segundo já está estável, cadeira de André dentro do campo. Nina entra pela lateral da própria imagem, agora que não está segurando a câmera.
 **Texto:** Nina: “VOU DEIXAR GRAVANDO AQUI.” Jack, fora do campo: “NÃO VAI ESQUECER ELA.”
 **Ligação:** apoio, altura e eixo ficam fechados. Dali em diante A não se aproxima do rosto de André por vontade narrativa.
 
 ### L1-22 — O aperto
 **Fonte:** A fixa na mesa; dominância bronze.
+**HUD e balões fechados:** A: P1 REC | 31/10 21:19:25 | BAT 91%; P2 REC | 31/10 21:19:27 | BAT 91%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis do mesmo campo em instantes diferentes. André testa uma correia; Brock responde ao alcance do microfone, mesmo parcialmente fora da imagem. Funcionário fecha o conector.
 **Texto:** André: “PRECISA APERTAR TANTO?” Brock: “JÁ JÁ ACABA.” SFX captado: “CLAC”.
 **Ligação:** o gesto parece rotina de segurança e mais tarde vira contenção. Não antecipar a dor verdadeira.
 
 ### L1-23 — O lado de fora permanece
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 21:22:35; P2 31/10 21:22:37, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel fixo. Últimos capacetes conectados, A visível no apoio, D no suporte; porta técnica se fecha, cadeiras continuam onde estavam.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** elipse assumida entre conexão e primeiro trecho útil da sessão virtual. Nenhuma pessoa entra fisicamente numa arena pela porta do laboratório.
 
 ### L1-24 — A primeira cela
 **Fonte:** D virtual de Fred, câmara B; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Fred levanta a representação do aparelho na mesma empunhadura; Brock e Jason junto ao portão B. A luz diurna invade quando o portão abre.
 **Texto:** Fred: “TÁ GRAVANDO.” Jason: “ENTÃO PEGA O MEU LADO BOM.”
 **Ligação:** imagem limpa e REC/FHD confirmam D; não usar VHS ou uma tomada aérea do jogo.
 
 ### L1-25 — O portão do trio
 **Fonte:** D, Fred sai de B; dominância verde.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Primeiro, batente de B na borda enquanto Fred gira; segundo, portão A abre e Kim, Jack e Nina saem. Não cortar para dentro de A antes de ele poder vê-la.
 **Texto:** Jack: “BONITO O PASSEIO.” Kim: “CADÊ O PRÊMIO?”
 **Ligação:** os grupos passam a ocupar o mesmo espaço. A rotação é visível entre imagens, não posição impossível do operador.
 
 ### L1-26 — André vem atrás
 **Fonte:** D, agora com visão do portão C; dominância laranja.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador; André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. André, Anderson e Michael deixam C; Brock levanta a mão para chamar André para perto. Um shard do gesto de Brock no quadro captado.
 **Texto:** Brock: “AQUI, ANDRÉ.” André: “TÔ INDO.”
 **Ligação:** fecha a divisão 3+3+3 e a amizade, sem reapresentar nomes em legendas.
 
 ### L1-27 — Noventa e um assistem
 **Fonte:** D de Fred, margem da arena; dominância metálica.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel em plano aberto com função: pista, portões e parte da plateia de aparência morta-viva sob sol escaldante. Não repetir esse panorama em todas as páginas seguintes.
 **Texto:** Fred: “ISSO VAI DAR MUITO ACESSO.” Nina: “OLHA A CARA DESSE POVO.”
 **Ligação:** Fred lê o desconforto como oportunidade; o leitor pode aceitar a plateia como estética da simulação.
 
 ### L1-28 — O anfitrião acima deles
 **Fonte:** D, eixo para a sacada imperial; dominância metálica.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel. Kronos como César grotesco, acima das arquibancadas; referência cerimonial `20:00` integrada ao relógio de sol. Sem trono no chão.
 **Texto:** Kronos: “ESCOLHAM OS PRIMEIROS DESAFIANTES.”
 **Ligação:** autoridade e regra aparente em uma frase. Não repetir a explicação do evento.
 
 ### L1-29 — André tem pressa
 **Fonte:** D, Fred volta a lente ao grupo; dominância laranja.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador; André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. André ergue a mão; Brock tenta adiar por um instante, André sorri e dá de ombros.
 **Texto:** André: “EU VOU. QUERO ACABAR LOGO.” Brock: “NEM VIU COMO É.” André: “TEM O CINEMA, MANO.”
 **Ligação:** o compromisso cotidiano produz a decisão fatal, sem entrada de flashback da irmã.
 
 ### L1-30 — Jack aceita
 **Fonte:** D; dominância verde.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Jack se coloca como adversário; Kim observa sem alarme. Fred recua um passo para manter os dois no campo.
 **Texto:** Jack: “FECHOU. PROMETO PEGAR LEVE.” Kim: “SÓ NÃO ENROLA.”
 **Ligação:** a luta é uma escolha, ainda percebida como jogo. A aceitação será alterada no segundo ciclo.
 
 ### L1-31 — Um instante de hesitação
 **Fonte:** D; Nina na margem do campo de Fred; dominância rosa.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel. Nina quase ergue a mão para Jack; ele já segue para o centro, sem perceber. Foco continua no mesmo plano, sem close externo privilegiado.
 **Texto:** Nina: “JACK...” Jack: “É RÁPIDO.”
 **Ligação:** intuição pequena; Nina não adivinha a morte e não diz ainda a frase que mudará a luta.
 
 ### L1-32 — Filmando a brincadeira
 **Fonte:** D; Fred ajusta a posição à margem; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Michael: fundo #FFFFFF; letra e contorno #155E63; cauda para o personagem, nunca para o operador; Anderson: fundo #FFFFFF; letra e contorno #4B5563; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Michael se oferece para entrar na imagem; Anderson o puxa para não tampar a luta. O centro continua visível.
 **Texto:** Michael: “PEGA MINHA REAÇÃO.” Anderson: “SAI DA FRENTE, PORRA.”
 **Ligação:** reafirma D como objeto disputado por exibicionismo e mostra onde os dois ficam quando começarem a rir.
 
 ### L1-33 — Não é uma luta séria
 **Fonte:** D; dominância verde.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Jack e André ajustam a distância; André abre a guarda de brincadeira. Enquadramento do torso e mãos, sem novo panorama.
 **Texto:** André: “VAI, MANDA.” Jack: “NÃO VAI CHORAR DEPOIS.”
 **Ligação:** prepara o contato sem sobrecarregar o quadro do impacto com piada e reação ao mesmo tempo.
 
 ### L1-34 — O soquinho
 **Fonte:** D; dominância verde.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis, contato leve e queda exagerada de André rindo. Um shard subordinado do punho tocando, não outro golpe.
 **Texto:** SFX captado: “TOC”. André: “BOA. AGORA É MINHA VEZ.”
 **Ligação:** o riso pertence ao jogo aparente. Não tornar o soco visualmente forte para justificar os cabos.
 
 ### L1-35 — Algo puxa por baixo
 **Fonte:** D; dominância carmesim começa a substituir o verde.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. André firma a mão na areia para levantar; um cabo se prende no braço e impede o gesto. Fred não antecipa o local com um close perfeito.
 **Texto:** André: “UÉ...”
 **Ligação:** a primeira anomalia impede uma ação concreta; ainda não é um painel de execução inteira.
 
 ### L1-36 — A graça acaba
 **Fonte:** D; dominância carmesim.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador; André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Outros cabos envolvem André; sua expressão e a tensão corporal mudam. Jack para a poucos passos, mão ainda meio erguida.
 **Texto:** André: “EI. TÁ DOENDO.” / “TÁ DOENDO DE VERDADE!”
 **Ligação:** a voz transforma o registro: já não é reação de jogo. Cabos e corpos permanecem na mesma posição na troca de fonte.
 
 ### L1-37 — Kim entra no quadro
 **Fonte:** D; Fred gira para acompanhar Kim; dominância azul.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Kim cruza perto da lente; **BLUR-M** curto por virada brusca, com a capa como rastro. Segundo painel recupera o braço de André e Kim se abaixando no mesmo lado. Não esconder a chegada de Kim no borrão.
 **Texto:** Kim: “SOLTA ELE!”
 **Ligação:** a câmera perde a composição por uma causa visível; a ação continua legível quando recupera o foco.
 
 ### L1-38 — Outra mão, mesmo braço
 **Fonte:** A fixa no laboratório, mesmo instante do bloqueio na arena; dominância bronze.
+**HUD e balões fechados:** A: P1 REC | 31/10 23:39:00 | BAT 75%; P2 REC | 31/10 23:39:02 | BAT 75%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis do eixo estabelecido. Um Mascarado conecta um cabo à região correspondente do corpo real de André; a mão dele contrai. O som é de metal/tecido e respiração, não os gritos da arena.
 **Texto:** SFX captado: “CLIC”. Nenhuma fala do LDI.
 **Ligação:** primeira convergência decisiva. O leitor ganha a causa física que os participantes não conseguem ver.
 
 ### L1-39 — A força não resolve
 **Fonte:** D; dominância vinho de Brock.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Brock e Jason chegam ao lado oposto de Kim; Brock puxa o mesmo feixe enquanto André tenta acompanhar o movimento. Não gerar mais ajudantes.
 **Texto:** Brock: “CALMA. É SÓ O JOGO.” Kim: “ENTÃO DESLIGA ESSA MERDA!”
 **Ligação:** o procedimento real continua apesar do esforço virtual. As mãos dos três não trocam de lado a cada quadro.
 
 ### L1-40 — Quem ainda ri
 **Fonte:** D; Fred desvia por um momento para Anderson e Michael e retorna à margem da ação; dominância petróleo.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Michael: fundo #FFFFFF; letra e contorno #155E63; cauda para o personagem, nunca para o operador; André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Michael começa rindo, Anderson acompanha; o riso para quando ouvem André. Sem blur que encubra a mudança de expressão.
 **Texto:** Michael: “PARA DE CENA, ANDRÉ.” André, fora do quadro: “EU NÃO TÔ BRINCANDO!”
 **Ligação:** a incredulidade dura uma batida; não mantê-los rindo durante toda a morte.
 
 ### L1-41 — Foi só um toque
 **Fonte:** D; Jack perto do centro, Nina tenta alcançá-lo; dominância verde enfraquecida.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Jack olha a própria mão; Nina o puxa pelo ombro para agir, sem retirar Kim/Brock/Jason do resgate.
 **Texto:** Jack: “EU NEM BATI FORTE.” Nina: “OLHA PRA MIM. NÃO FOI VOCÊ.”
 **Ligação:** culpa e vínculo entram em conflito com o que a câmera registrou. Não explicar a origem dos cabos.
 
 ### L1-42 — O corpo responde
 **Fonte:** A fixa; laboratório; dominância carmesim.
+**HUD e balões fechados:** A: P1 REC | 31/10 23:39:12 | BAT 75%; P2 REC | 31/10 23:39:14 | BAT 75%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis. André convulsiona no mesmo assento; funcionário segura a estação, não conforta a pessoa. Campo conserva o apoio e os limites da mesa.
 **Texto:** apenas respiração/sons físicos captados, sem onomatopeia nova impressa.
 **Ligação:** mostrar o contraste metódico, não um segundo ataque independente. A câmera não reenquadra sozinha.
 
 ### L1-43 — Dentro dos olhos de André
 **Fonte:** S de André, na arena; dominância laranja.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** André: fundo #FFFFFF; letra e contorno #9A4A16; pensamento sem cauda; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel com abertura orgânica. Mãos de Kim e Brock invadem seu campo tentando libertá-lo; visão baixa, sem ver o próprio rosto. Ruído de vozes é percepção, não fita.
 **Texto:** pensamento de André: “TÁ FRIO.” Brock, ouvido por ele: “FICA COMIGO.”
 **Ligação:** estreia do quarto POV. Não acrescentar REC, filme de infância ou visão da sala real que André não tem.
 
 ### L1-44 — Não para de gravar
 **Fonte:** D; Fred baixa o aparelho com medo, Kim ainda no campo; dominância azul.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Enquadramento ameaça cair para a areia; Kim ergue o rosto na direção de Fred e pede o registro. Fred recupera a altura, sem limpeza milagrosa de uma lente que não tocou o chão.
 **Texto:** Fred: “EU VOU DESLIGAR.” Kim: “NÃO. GRAVA ISSO.”
 **Ligação:** a mesma câmera que buscava audiência passa a ser necessária como testemunha.
 
 ### L1-45 — A promessa volta
 **Fonte:** S de André; dominância laranja.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis subjetivos. Brock aparece perto demais para um retrato composto; André tenta dizer algo e o foco periférico falha.
 **Texto:** André: “MINHA IRMÃ...” Brock: “EU LEVO VOCÊ ATÉ ELA.”
 **Ligação:** o compromisso de Brock se torna impossível. Não mostrar ingressos na arena se eles ficaram na roupa real.
 
 ### L1-46 — Os ingressos ficaram aqui
 **Fonte:** A fixa no laboratório; dominância bronze.
+**HUD e balões fechados:** A: P1 REC | 31/10 23:39:24 | BAT 75%; P2 REC | 31/10 23:39:26 | BAT 75%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel. Mão real de André relaxa; os ingressos visíveis junto à roupa, dentro do campo estabelecido. Um shard só se os ingressos realmente estiverem legíveis no quadro-mãe; sem inventar texto neles.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** o objeto une o compromisso e o corpo físico, sem narração dizendo quem ficará esperando.
 
 ### L1-47 — A percepção cede
 **Fonte:** S de André; dominância laranja apagando.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** André: fundo #FFFFFF; letra e contorno #9A4A16; pensamento sem cauda.
 **Quadros:** dois painéis, momentos subjetivos: Kim ainda tentando puxá-lo; campo orgânico se fecha até quase nada. Sem borrão de corrida ou HUD.
 **Texto:** pensamento: “EU PROMETI.”
 **Ligação:** encerramento humano da morte. A frase não explica a tecnologia e não se repete em outra fonte.
 
 ### L1-48 — O silêncio que Fred registra
 **Fonte:** D; dominância azul.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel. André imóvel, Kim ainda segura o feixe; Brock não consegue largar a mão do amigo. Fred mantém o aparelho, ligeiramente baixo. Nina e Jack no mesmo lado de antes.
 **Texto:** Kim: “ANDRÉ?”
 **Ligação:** o resultado não fica escondido no apagão subjetivo. Sem mais uma tentativa idêntica de puxar cabo.
 
 ### L1-49 — Retirada
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 23:44:00; P2 31/10 23:44:02, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis fixos em instantes diferentes. Funcionários destravam e levam a cadeira de André com o corpo; depois permanece o vazio da base. As outras oito estações não mudam de lugar.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** quem controla o evento transforma a morte em procedimento. Não recolocar André no segundo ciclo.
 
 ### L1-50 — DELETE
 **Fonte:** C; mesma CAM 06; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 23:44:15; P2 31/10 23:44:17, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel. O registro é obstruído por encerramento técnico da imagem; a área da cadeira retirada ainda pode ser reconhecida antes da obstrução.
 **Texto:** interface literal: “DELETE”.
 **Ligação:** apagamento desta fonte, não de todos os olhos e aparelhos. A continua gravando no laboratório.
 
 ### L1-51 — O relógio volta; a fita, não
 **Fonte:** A; funcionário recolhe o aparelho da mesa e o transporta pelo vão para o salão; dominância metálica.
+**HUD e balões fechados:** A: P1 REC | 31/10 23:42:50 | BAT 75%; P2 REC | 31/10 23:42:52 | BAT 75%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: worker. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis. Gesto de mão na borda e leve inclinação física; corte elíptico para o relógio do salão terminando de voltar a `20:00`, no campo do aparelho carregado. TC adiante do ciclo, sem desligamento. Não mostrar o funcionário por uma câmera flutuante.
 **Texto:** nenhum diálogo; somente os algarismos romanos próprios do mostrador, com ponteiros em VIII/XII (20h), sem legenda numérica adicional.
 **Ligação:** fim do lançamento. O reset foi visto, mas a fita avançou. No lançamento 2, Nina recebe a mesma câmera e a festa tem menos gente. Não repetir retirada/DELETE no começo seguinte.
@@ -497,307 +596,399 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 
 ### L2-01 — O mesmo buffet, outro vazio
 **Fonte:** A; funcionário devolve a câmera a Nina, que orienta a lente para o buffet; dominância azul.
+**HUD e balões fechados:** A: P1 REC | 31/10 23:43:00 | BAT 75%; P2 REC | 31/10 23:43:02 | BAT 75%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Mão de Nina recebe o aparelho na borda; Kim já come, e o lugar do desconhecido está vazio. A fita continua adiante. Não repetir a chegada à mansão.
 **Texto:** Kim: “PEGA UM PRATO E VEM.”
 **Ligação:** uma ausência visual abre o novo ciclo. O desconhecido não virou um cadáver exposto nem um novo Mascarado identificado.
 
 ### L2-02 — Falta alguém no enquadramento
 **Fonte:** D apoiada no lounge, nova sessão; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: supported: Fred visible. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda para o personagem, nunca para o operador; Michael: fundo #FFFFFF; letra e contorno #155E63; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Fred organiza o grupo, deixando o espaço de André sem perceber; Michael invade cedo como antes, mas não há André passando com os ingressos.
 **Texto:** Fred: “MAIS PRA CÁ.” Michael: “ASSIM?” Fred: “NÃO. DEIXA...”
 **Ligação:** a repetição é incompleta. Não desenhar silhueta fantasma de André nem fazê-los lembrar sua morte.
 
 ### L2-03 — Kim serve dois por hábito
 **Fonte:** A nas mãos de Nina; buffet; dominância azul.
+**HUD e balões fechados:** A: P1 REC | 31/10 23:43:15 | BAT 75%; P2 REC | 31/10 23:43:17 | BAT 75%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Kim separa comida para o lado antes ocupado; percebe apenas que Jack se aproximou e empurra o prato para ele. Um shard do prato no mesmo balcão.
 **Texto:** Jack: “Ô, GENTILEZA?” Kim: “PEGA LOGO.”
 **Ligação:** gesto banal muda de destinatário. A frieza de Kim aparece no comportamento, sem narração de diagnóstico.
 
 ### L2-04 — Não come essa uva
 **Fonte:** A; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 31/10 23:43:20 | BAT 75%; P2 REC | 31/10 23:43:22 | BAT 75%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Jack leva a mão à mesma tigela; Nina o interrompe antes da boca, sem precisar tocar nele enquanto filma. A câmera sofre só uma pequena hesitação de enquadramento.
 **Texto:** Nina: “MANO, NÃO COME ESSA UVA!” Jack: “QUAL FOI?”
 **Ligação:** primeira alteração inequívoca da pista. Não fazer a uva revelar veneno, olhos ou cabos.
 
 ### L2-05 — Ela não sabe dizer
 **Fonte:** A; Nina atrás do aparelho, Jack e Kim em campo; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 31/10 23:43:25 | BAT 75%; P2 REC | 31/10 23:43:27 | BAT 75%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Jack deixa a fruta de volta; Kim olha para o lugar vazio, mas não chega a reconhecer alguém.
 **Texto:** Nina: “NÃO SEI. TÔ COM UMA SENSAÇÃO RUIM.” Kim: “ENTÃO NÃO COME.”
 **Ligação:** eles resolvem o incômodo imediato sem deduzir o loop. A informação muda a ação, não inaugura uma aula de mistério.
 
 ### L2-06 — A festa cabe em menos espaço
 **Fonte:** C; CAM 03 SALÃO; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 20:20:00; P2 31/10 20:20:02, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel do mesmo eixo de L1-01. Ilhas de convidados mais espaçadas; atendimento reorganizado, sem trocar paredes ou móveis. Kronos chega ao anúncio.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** o leitor compara densidade. Não usar nova panorâmica bonita sem comparação reconhecível.
 
 ### L2-07 — Cinquenta escolhidos
 **Fonte:** A; Nina para Kronos, salão; dominância metálica.
+**HUD e balões fechados:** A: P1 REC | 01/11 00:03:05 | BAT 72%; P2 REC | 01/11 00:03:07 | BAT 72%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador; Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. O anfitrião anuncia; no segundo, Nina mantém Kronos em campo enquanto sua voz entra de trás da lente.
 **Texto:** Kronos: “BOA NOITE AOS NOSSOS CINQUENTA CONVIDADOS ESCOLHIDOS.” / “OITO VÃO COMEÇAR.” Nina, baixo: “NÃO TINHA MAIS GENTE?”
 **Ligação:** a fala alterada confirma a ausência sem lembrar o anúncio inteiro. Não dizer “ano passado” como fato que ela conhece.
 
 ### L2-08 — O vídeo não resolve
 **Fonte:** D; Fred pega a câmera do apoio e filma a reação de Jason/Brock; dominância dourada.
-**Quadros:** dois painéis. Jason entende apenas a chance de prêmio; Brock olha para o lado vazio que antes André ocupava e segue. Fred tenta narrar a própria importância.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
+**Quadros:** dois painéis. Jason entende apenas a chance de prêmio; Brock olha o acesso do salão e segue, sem reconhecer ausência de outro loop. Fred tenta narrar a própria importância.
 **Texto:** Jason: “O PRÊMIO CONTINUA, NÉ?” Fred: “CLARO. FOI POR ISSO QUE CHAMARAM A GENTE.”
 **Ligação:** a pose sobrevive à ausência. Não fazer Brock lembrar a promessa que foi apagada da memória consciente.
 
 ### L2-09 — Antes do sensor
 **Fonte:** D empunhada por Fred, saída do lounge; dominância dourada.
-**Quadros:** dois painéis. Fred já se aproxima esperando a abertura; atendente chega depois com bandeja menos cheia e aciona o sensor. Fred freia por um instante, depois passa.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Anderson: fundo #FFFFFF; letra e contorno #4B5563; cauda para o personagem, nunca para o operador.
+**Quadros:** dois painéis. Fred vê a indicação do sensor e se aproxima impaciente esperando a abertura; atendente chega depois com bandeja menos cheia e aciona o sensor. Fred freia por um instante, depois passa.
 **Texto:** Fred: “ANDA, ABRE.” Anderson: “ELE NEM ENCOSTOU AINDA.”
-**Ligação:** gesto antecipado pequeno. Mesmo batente e sensor, sem sugerir que Fred controla a porta por pensamento.
+**Ligação:** impaciência diante do sensor visível, não lembrança nem pressentimento de Fred. Mesmo batente e mecanismo; não sugerir controle mental da porta.
 
 ### L2-10 — O pé de Jack sabe
 **Fonte:** D, Fred filma a marcha no corredor técnico; dominância verde.
-**Quadros:** dois painéis. Jack afasta com o pé o mesmo cabo baixo; Michael passa sem tropeçar. Um shard do contato do sapato com o cabo, mesmo registro.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Michael: fundo #FFFFFF; letra e contorno #155E63; cauda para o personagem, nunca para o operador; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador.
+**Quadros:** dois painéis. Jack vê o cabo no caminho e o afasta com o pé; Michael passa sem tropeçar. Um shard do contato do sapato com o cabo, mesmo registro.
 **Texto:** Michael: “QUE FOI?” Jack: “NADA.”
 **Ligação:** a comparação funciona com o lado e a altura iguais a L1-17. Não repetir a queda só para a impedir no quadro seguinte.
 
 ### L2-11 — A alça antes do pedido
 **Fonte:** A; Nina passa o aparelho a Jack por um momento, entrada do laboratório; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 01/11 00:03:50 | BAT 72%; P2 REC | 01/11 00:03:52 | BAT 72%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina -> Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Mão de Jack entra; ele passa a alça no punho antes de Nina terminar a frase. A lente baixa e se firma, sem mostrar seu próprio rosto.
 **Texto:** Nina: “PASSA A...” Jack: “JÁ PASSEI.”
 **Ligação:** a memória corporal aparece sem declaração. A câmera continua a mesma fonte.
 
 ### L2-12 — Devolução vista pela outra câmera
 **Fonte:** D; Fred junto à entrada do laboratório; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel. Jack entrega A a Nina e retira o punho da alça; ao fundo, os funcionários indicam assentos. A base vazia de André pode ficar na borda, ainda sem ênfase.
 **Texto:** Jack: “PESA MAIS QUE A FANTASIA.” Nina: “POR ISSO A ALÇA.”
 **Ligação:** confirma a devolução que o próprio POV de A não poderia mostrar inteira de fora.
 
 ### L2-13 — Oito cadeiras, a mesma sala
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 20:21:10; P2 31/10 20:21:12, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel fixo, comparável a L1-20/23. Oito cadeiras; base da nona sem cadeira. Não compactar o laboratório para esconder o vazio.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** soma a ausência física à contagem do anúncio, sem personagens contando todas as cadeiras em voz alta.
 
 ### L2-14 — Um apoio mais baixo
 **Fonte:** A; Nina escolhe a prateleira inferior da mesa lateral; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 01/11 00:04:20 | BAT 72%; P2 REC | 01/11 00:04:22 | BAT 72%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina -> supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Lente baixa enquanto o aparelho é apoiado; novo eixo estabiliza perto da perna de Brock, com outras bases em profundidade. Nina entra de lado ao ir para seu assento.
 **Texto:** Nina: “AQUI NÃO CAI.”
 **Ligação:** a diferença de ângulo foi causada por uma escolha, não por montagem onisciente. Manter esse campo até recolherem o aparelho.
 
 ### L2-15 — O arquivo que falta
 **Fonte:** A fixa; Fred e D física no campo lateral permitido; dominância dourada.
-**Quadros:** dois painéis. Fred olha a tela de D, tenta achar um vídeo e é apressado por Brock. Não inserir imagens antigas na tela vazia.
-**Texto:** Fred: “EU NÃO TINHA GRAVADO ISSO?” Brock: “GRAVA DEPOIS. SENTA.”
-**Ligação:** digital não conserva a sessão anterior. O leitor conhece a diferença; Fred pode atribuí-la a erro próprio.
+**HUD e balões fechados:** A: P1 REC | 01/11 00:04:30 | BAT 72%; P2 REC | 01/11 00:04:32 | BAT 72%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda para o personagem, nunca para o operador; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
+**Quadros:** dois painéis. Fred olha a tela de D e testa o registro da sessão atual, sem procurar conscientemente um vídeo de outro loop; Brock o apressa. Não inserir imagens antigas na tela vazia.
+**Texto:** Fred: “ISSO TÁ GRAVANDO MESMO?” Brock: “GRAVA DEPOIS. SENTA.”
+**Ligação:** digital não conserva a sessão anterior. A lista está limpa, mas Fred não lembra ter filmado outro loop; só o leitor reconhece a diferença.
 
 ### L2-16 — Nova conexão
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância bronze.
+**HUD e balões fechados:** C: P1 31/10 20:21:40; P2 31/10 20:21:42, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel. Oito conectados; D de novo no suporte, A no apoio baixo. Um funcionário fecha o último conector. Elipse posterior de preparação, sem caminhada repetida.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a próxima fonte é D virtual; não repetir toda a explicação do vínculo.
 
 ### L2-17 — Três na câmara B
 **Fonte:** D virtual, Fred com Brock e Jason; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Fred confirma o registro e a abertura; Brock espera Jason junto ao batente. Mesmo portão B, mesma arena diurna.
 **Texto:** Fred: “AGORA VAI.” Jason: “JÁ ERA PRA TER IDO.”
 **Ligação:** a sessão recomeça com a pose habitual, mas a formação dos outros portões mudou.
 
 ### L2-18 — Dois onde havia três
 **Fonte:** D, Fred sai de B e alcança visão do portão C; dominância petróleo.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Michael: fundo #FFFFFF; letra e contorno #155E63; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel. Anderson e Michael saem de C sem André. A área desocupada aparece por composição, sem sombra fantasma ou legenda explicativa.
 **Texto:** Michael: “BORA, ANDERSON.”
 **Ligação:** ausência reconhecível de uma pessoa que o leitor já perdeu, sem memorial dos personagens.
 
 ### L2-19 — O trio continua junto
 **Fonte:** D, visão do portão A; dominância rosa.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Kim, Jack e Nina saem; Nina demora um instante no batente e olha para o centro da arena. Fred não filma o interior de A antes de poder vê-lo.
 **Texto:** Nina: “ESPERA UM POUCO.” Jack: “O QUÊ?”
 **Ligação:** hesitação vira tentativa de intervir, ainda sem prova consciente.
 
 ### L2-20 — Quarenta e dois
 **Fonte:** D, Fred acompanha a direção do olhar de Nina até a sacada; dominância metálica.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel funcional da sacada e de parte da plateia menos numerosa. Mesma topografia, áreas vazias onde antes havia público.
 **Texto:** Kronos: “NOSSOS QUARENTA E DOIS ESPECTADORES JÁ ESTÃO A POSTOS.”
 **Ligação:** fecha 50 = 8 + 42. Não fazer uma multidão duplicada contradizer a fala por reaproveitar a imagem anterior.
 
 ### L2-21 — Jason quer o dinheiro
 **Fonte:** D; Fred para Jason; dominância violeta.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador; Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Jason se oferece, tenta manter a graça, olha para Brock antes de seguir.
 **Texto:** Jason: “EU VOU.” Brock: “PELO PRÊMIO?” Jason: “TÁ PRECISANDO LÁ EM CASA.”
 **Ligação:** o motivo antes sugerido vira escolha. Não substituir Jason por Brock como adversário.
 
 ### L2-22 — A resposta conhecida
 **Fonte:** D; Jack entra no mesmo espaço de decisão; dominância verde.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Jack levanta a mão e aceita; Nina avança imediatamente. Ainda não há golpe.
 **Texto:** Jack: “ENTÃO VEM.” Nina: “JACK...”
 **Ligação:** o leitor reconhece o padrão de aceitação e espera uma ruptura.
 
 ### L2-23 — Não luta
 **Fonte:** D; Nina alcança Jack; dominância rosa.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel próximo. Nina segura o antebraço dele e o mantém junto ao grupo, sem falar para a lente.
 **Texto:** Nina: “JACK, NÃO LUTA.”
 **Ligação:** frase decisiva, espaço grande. Não colocar explicação do loop no mesmo balão.
 
 ### L2-24 — Ele recua
 **Fonte:** D; dominância verde.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Jack olha Nina, percebe que ela não brinca e baixa a mão; Jason fica sem adversário e olha para a sacada.
 **Texto:** Jack: “TÁ. NÃO VOU.” Jason: “E AGORA?”
 **Ligação:** a mudança de decisão aconteceu de verdade. Não desenhar depois um soco que a contradiga.
 
 ### L2-25 — A regra deixa de valer
 **Fonte:** D, eixo para Kronos; dominância metálica.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Instabilidade breve do ambiente virtual, sem trocar paredes de lugar; Kronos dá a ordem, abandonando a apresentação cordial. A nitidez de D continua limpa.
 **Texto:** Kronos: “ATAQUEM.”
 **Ligação:** o perigo não depende de Jack aceitar a luta. A falha não vira ruído VHS ou uma tela de erro inventada.
 
 ### L2-26 — A plateia se move
 **Fonte:** D; dominância carmesim.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Espectadores descem/saltam pelas rotas da arquibancada para a arena; o grupo começa a correr. Mostrar caminho de aproximação, sem fazer criaturas nascerem dentro dos personagens.
 **Texto:** Brock: “PROS PORTÕES!”
 **Ligação:** decisão imediata de fuga, não a velha decisão tranquila de “dividir e investigar”.
 
 ### L2-27 — A divisão é vista
 **Fonte:** D, Fred recuando para B; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** três painéis, exceção justificada pela separação rápida: trio entra em A ao alcance da lente; Anderson/Michael alcançam C; Brock puxa Fred para B com Jason. Manter os batentes como âncoras. Sem shards extras.
 **Texto:** Kim: “NINA, COM O JACK!” Brock: “FRED, AQUI!”
 **Ligação:** o leitor sabe quem foi para onde. D entra somente em B; não cortar dentro de A depois disso.
 
 ### L2-28 — Segura a passagem
 **Fonte:** D em B; Fred junto à parede, Brock no portão, Jason procurando saída; dominância vinho.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador; Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Brock fecha parcialmente o portão contra a pressão; Jason tenta a saída interna, ainda visível no mesmo cômodo.
 **Texto:** Brock: “PROCURA OUTRA SAÍDA!” Jason: “TÔ PROCURANDO!”
 **Ligação:** cada um faz algo diferente. O espaço não cresce para permitir uma corrida infinita.
 
 ### L2-29 — O primeiro cabo rompe
 **Fonte:** D; dominância vinho.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Cabo vem do encaixe de parede; Brock segura e arrebenta um segmento. Um shard do rompimento já captado, com acabamento de conexão técnica.
 **Texto:** Brock: “VEM, FILHO DA PUTA!” SFX: “TRAC”.
 **Ligação:** uma vitória pequena torna plausível a esperança e contrasta com o procedimento que segue no mundo real.
 
 ### L2-30 — A perna real de Brock
 **Fonte:** A fixa no apoio baixo; laboratório; dominância bronze.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:09:50 | BAT 51%; P2 REC | 01/11 02:09:52 | BAT 51%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis do mesmo campo em instantes diferentes. Perna de Brock se move quando um funcionário prende o conector; ele reposiciona a mão e continua. A não precisa ver o rosto.
 **Texto:** som captado: “CLIC”.
 **Ligação:** mesmo instante de resistência de Brock, outra informação. Não repetir a fala que só D registrou.
 
 ### L2-31 — Jason puxa Fred
 **Fonte:** D; câmara B; dominância violeta.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Fred recua para o canto errado; Jason o puxa pela roupa para a abertura interna. **BLUR-M** no puxão, recuperando a mesma ombreira da porta em seguida.
 **Texto:** Jason: “POR AQUI, CARALHO!” Fred: “SOLTA MINHA ROUPA!”
 **Ligação:** ajuda concreta de Jason; Fred ainda reage como dono do grupo. O borrão não esconde troca de câmara.
 
 ### L2-32 — Anderson procura a saída
 **Fonte:** S de Anderson, câmara C; dominância ciano.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Anderson: fundo #FFFFFF; letra e contorno #4B5563; cauda para o personagem, nunca para o operador; Michael: fundo #FFFFFF; letra e contorno #155E63; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis subjetivos. Michael no mesmo campo à frente; Anderson procura tranca/junta acessível. Percepção corporal, sem HUD ou sobrevoo de planta.
 **Texto:** Anderson: “A PORTA. AJUDA AQUI.” Michael: “EU TÔ VENDO!”
 **Ligação:** primeira visão interna de C vem de olhos identificados, não de D atravessando a parede.
 
 ### L2-33 — A coragem encenada
 **Fonte:** S de Anderson; dominância petróleo.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Michael: fundo #FFFFFF; letra e contorno #155E63; cauda para o personagem, nunca para o operador; Anderson: fundo #FFFFFF; letra e contorno #4B5563; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Michael tenta rir, encara um cabo e usa um objeto fixo do ambiente para afastá-lo; a mão falha e ele recua. Sem arma nova surgida do nada.
 **Texto:** Michael: “É IGUAL NA ARENA. É SÓ...” Anderson: “ENTÃO POR QUE VOCÊ TÁ TREMENDO?”
 **Ligação:** a bravata começa a ceder, com uma ação além de gritar e correr.
 
 ### L2-34 — O som atravessa; a imagem, não
 **Fonte:** D de Fred, câmara B; dominância vinho.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Brock escuta a voz de Michael pela passagem/parede vizinha, previamente prevista na planta; Fred quase vira para uma parede sem visão. Jason insiste na rota interna.
 **Texto:** Brock: “É O MICHAEL.” Fred: “CADÊ?” Brock: “DO OUTRO LADO.”
 **Ligação:** D conhece a outra frente pelo som, sem mostrar seu interior. Não usar áudio da sala física para esse elo.
 
 ### L2-35 — O procedimento continua
 **Fonte:** A fixa; laboratório; dominância bronze.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:10:15 | BAT 51%; P2 REC | 01/11 02:10:17 | BAT 51%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel. Da mesma altura baixa, pés de funcionários passam entre bases; cadeira vazia de André continua ausente; conector é levado à estação de Michael em profundidade. Não deslocar A para ver a estação inteira.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** liga a ameaça a mais de um corpo por geografia parcial, sem uma cirurgia panorâmica impossível.
 
 ### L2-36 — O que Jason não queria dizer
 **Fonte:** D; câmara B; dominância violeta.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Jason força uma tranca com Brock, percebe a pressão dos cabos e perde o sorriso. Não repetir o mesmo quadro de busca da saída.
 **Texto:** Jason: “EU PRECISO VOLTAR PRA CASA.” Brock: “ENTÃO PUXA.”
 **Ligação:** família aparece como urgência, não flashback completo nem uma segunda explicação sobre o prêmio.
 
 ### L2-37 — O cabo prende Brock
 **Fonte:** D; dominância carmesim.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Um novo feixe contorna o segmento rompido e prende Brock; ele empurra Fred para fora do alcance. O primeiro cabo quebrado continua no chão.
 **Texto:** Brock: “NÃO FICA PARADO!”
 **Ligação:** sua resistência não foi apagada; a superioridade da ameaça vence por outra ação.
 
 ### L2-38 — O pai de Fred não está ali
 **Fonte:** D, Fred recuando sem largar a câmera; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. A lente oscila entre Brock e a passagem fechada, sem apontar para o rosto de Fred; a voz perde a pose de apresentador.
 **Texto:** Fred, atrás da lente: “NÃO! MEU PAI NÃO VAI DEIXAR ISSO ACONTECER!”
 **Ligação:** primeira parte da reação original, encurtada em uma fala que cabe. Não fazê-lo resolver a ameaça por influência.
 
 ### L2-39 — Michael é alcançado
 **Fonte:** S de Anderson; dominância petróleo.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Michael: fundo #FFFFFF; letra e contorno #155E63; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Anderson vê o tornozelo de Michael ser puxado e sua mão buscar apoio. Anderson avança para segurar o braço. Sem observar o próprio corpo de fora.
 **Texto:** Michael: “ANDERSON, SEGURA!”
 **Ligação:** convergência temporal com o ataque em B, não continuação espacial de D.
 
 ### L2-40 — Jason não passa
 **Fonte:** D; câmara B; dominância carmesim.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jason: fundo #FFFFFF; letra e contorno #6D28A6; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Jason tenta atravessar a abertura livre para ajudar Brock; feixes o prendem no trajeto. Fred registra o rosto perder a força e a mão soltar o batente.
 **Texto:** Jason: “BROCK...”
 **Ligação:** resultado da tentativa dele, não morte em outro cômodo sem testemunha. Jason é o primeiro dos quatro a cessar movimento nesta montagem.
 
 ### L2-41 — A força acaba
 **Fonte:** D; dominância vinho.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Brock tenta romper outro feixe e não consegue; vê Jason imóvel e muda a ordem para Fred. O cabo quebrado anterior ancora a posição.
 **Texto:** Brock: “SAI DAQUI, FRED.” Fred: “ABRE ESSA PORRA!”
 **Ligação:** a força não se repete como solução. Brock ainda se move; sua morte não será anunciada antes do resultado.
 
 ### L2-42 — Pés sem reação
 **Fonte:** A fixa; dominância carmesim.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:10:45 | BAT 51%; P2 REC | 01/11 02:10:47 | BAT 51%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel. Os movimentos antes vistos nas pernas de Brock diminuem; um funcionário já leva material para a estação ao lado. Parte dos pés de Jason, se no campo da planta aprovada, permanece imóvel. Não inventar um novo eixo para incluir todos.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a operação física continua indiferente à fala de Fred.
 
 ### L2-43 — Não me larga
 **Fonte:** S de Anderson; dominância petróleo.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Michael: fundo #FFFFFF; letra e contorno #155E63; cauda para o personagem, nunca para o operador; Anderson: fundo #FFFFFF; letra e contorno #4B5563; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Michael agarra seu punho; Anderson tenta firmar o pé. O rosto do amigo está perto demais, a fuga virou sustentação.
 **Texto:** Michael: “NÃO ME LARGA.” Anderson: “EU TÔ AQUI.”
 **Ligação:** vínculo entre os dois ganha gesto. Não inverter quem está vendo a cena.
 
 ### L2-44 — A ameaça vazia
 **Fonte:** D; dominância dourada enfraquecida.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** um painel. Fred procura uma saída alta mas filma a parede e parte de Brock, que ainda tenta mover o braço. O foco caça brevemente por proximidade da pedra, não por interferência VHS.
 **Texto:** Fred: “EU VOU PROCESSAR VOCÊS!”
 **Ligação:** a ameaça do pai vira impotência; não alongar o diálogo original em um parágrafo de pânico.
 
 ### L2-45 — Brock para
 **Fonte:** D; dominância vinho apagada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. A mão de Brock deixa de procurar apoio; Fred mantém os dois corpos no alcance possível da lente. Uma passagem parcial junto à parede permite que ele se recolha, sem vitória sobre a ameaça.
 **Texto:** Fred: “BROCK?”
 **Ligação:** segunda morte confirmada. Fred continua vivo e filmando; não adicionar sua execução neste ciclo.
 
 ### L2-46 — Michael escapa da mão
 **Fonte:** S de Anderson; dominância petróleo.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Anderson: fundo #FFFFFF; letra e contorno #4B5563; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. A mão de Michael cede, o corpo fica sem reação; Anderson olha para a própria mão vazia, ainda sem ver seu próprio rosto.
 **Texto:** Anderson: “MICHAEL!”
 **Ligação:** terceira morte. O quadro orgânico continua sendo Anderson, não troca para Michael sem aviso.
 
 ### L2-47 — Agora é o próprio corpo
 **Fonte:** S de Anderson; dominância ciano cercado por carmesim.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Anderson: fundo #FFFFFF; letra e contorno #4B5563; pensamento sem cauda.
 **Quadros:** dois painéis subjetivos. Ele olha para baixo e vê os feixes envolvendo suas pernas/tronco como raízes; perde alcance e a abertura do olho se fecha. Sem explicação anatômica do procedimento.
 **Texto:** pensamento: “EU IA SAIR DESSE GRUPO.”
 **Ligação:** quarta morte. A frase recupera seu desejo de deixar Fred sem inventar uma lembrança que não foi plantada.
 
 ### L2-48 — Só o registro continua em B
 **Fonte:** D; Fred recolhido junto à parede da câmara B; dominância dourada apagada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel. A lente ainda alcança Brock/Jason imóveis; Fred respira perto do microfone. Não preencher o silêncio com narração de sobrevivência heroica.
 **Texto:** respiração captada, sem palavra impressa adicional.
 **Ligação:** resultado visível e Fred vivo. O trio de A permaneceu fora de campo; o encerramento do ciclo, não uma vitória inventada, os preserva.
 
 ### L2-49 — Quatro cadeiras saem
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 22:32:00; P2 31/10 22:32:02, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis, momentos do mesmo eixo: funcionários retiram as cadeiras de Jason/Brock/Michael/Anderson; depois restam as quatro de Kim/Jack/Nina/Fred, que os funcionários giram/reposicionam ao redor do centro antes de encerrar a operação. A cadeira já retirada de André não reaparece. A redistribuição é explícita, correspondente à referência SalasCadeiraQuatro.png, e não mudança silenciosa de sala.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** confirma quatro mortes e quatro sobreviventes, sem obrigar A baixa a mostrar todos os rostos.
 
 ### L2-50 — O segundo DELETE
 **Fonte:** C; mesma CAM 06; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 22:32:15; P2 31/10 22:32:17, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel de encerramento técnico, depois da retirada. Não repetir os dois painéis da remoção.
 **Texto:** interface: “DELETE”.
 **Ligação:** operação reconhecível, sem explicar para o leitor que é “igual ao primeiro”.
 
 ### L2-51 — A fita viaja de novo
 **Fonte:** A; funcionário a recolhe do apoio baixo; dominância metálica.
-**Quadros:** dois painéis. Lente sobe com a mão na borda; elipse de transporte, relógio do salão em `20:00`. O contador se aproxima de três horas acumuladas. Sem apagão geral que pudesse simular outra gravação.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:16:50 | BAT 50%; P2 REC | 01/11 02:16:52 | BAT 50%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: worker. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Quadros:** dois painéis. Lente sobe com a mão na borda; elipse de transporte, relógio do salão em `20:00`. A hora própria se aproxima de 02:17, com 50% de bateria e mais de seis horas acumuladas desde o primeiro registro. Sem apagão geral que pudesse simular outra gravação.
 **Texto:** somente os algarismos romanos próprios do mostrador, com ponteiros em VIII/XII (20h), sem legenda numérica adicional.
 **Ligação:** fim do segundo lançamento. Não gastar a abertura do terceiro retirando de novo os mesmos quatro corpos.
 
@@ -805,306 +996,398 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 
 ### L3-01 — Dez
 **Fonte:** A, entregue de volta a Nina no salão; dominância metálica.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:17:00 | BAT 50%; P2 REC | 01/11 02:17:02 | BAT 50%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Recebimento do aparelho e relógio cenográfico ainda em `20:00`; Kronos diante de uma festa quase vazia. Não repetir o resto do anúncio.
 **Texto:** Kronos: “BOA NOITE AOS NOSSOS DEZ CONVIDADOS.”
-**Ligação:** a redução chega sem recapitular o segundo lançamento. O som volta por A, não por uma câmera de segurança com áudio inventado.
+**Ligação:** a redução chega sem recapitular o segundo lançamento. O som volta por A, com 02:17 e 50% no visor, não por uma câmera de segurança com áudio inventado.
 
 ### L3-02 — Não tem mais plateia para o vídeo
 **Fonte:** D apoiada no lounge; Fred sozinho no centro do enquadramento; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: supported: Fred visible. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Fred tenta a pose de L1-04, olha os espaços vazios e abandona a contagem. A lente continua onde estava; ele sai do quadro para pegar D.
 **Texto:** Fred: “TRÊS...” / “AH, FODA-SE.”
 **Ligação:** terceira versão do hábito. Michael não invade, os cinco capangas não voltam e a ausência não vira piada nova.
 
 ### L3-03 — A tigela sai do caminho
 **Fonte:** A de Nina, buffet; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:17:15 | BAT 50%; P2 REC | 01/11 02:17:17 | BAT 50%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Nina filma Kim, que oferece a tigela; ela a afasta com a mão livre, vista apenas na borda. A posição antiga do desconhecido continua vazia.
 **Texto:** Kim: “QUER?” Nina: “NÃO. DEIXA ISSO AÍ.”
 **Ligação:** a intuição agora evita o objeto antes de alguém pegar uma uva. Não reencenar o susto do ciclo 2.
 
 ### L3-04 — Quem ainda está na festa
 **Fonte:** C; CAM 03 SALÃO; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 20:00:20; P2 31/10 20:00:22, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel funcional. Kim/Jack/Nina/Fred e seis convidados reconhecíveis distribuídos em três pares, ainda sem máscaras; funcionários circulam separados deles. Sem tentativa de contar todo empregado como convidado.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** fixa os dez e os rostos que depois aparecerão no banquete; a contagem não depende de uma panorâmica lotada.
 
 ### L3-05 — Nina pede ajuda
 **Fonte:** A; Nina atrás da lente, Jack no campo; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:17:45 | BAT 50%; P2 REC | 01/11 02:17:47 | BAT 50%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Nina. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. A mão de Nina oscila pouco; Jack nota o desconforto e oferece segurar. Ela não olha para o próprio aparelho por uma tomada impossível.
 **Texto:** Nina: “MANO, EU TÔ ME SENTINDO ESTRANHA.” Jack: “ME DÁ AQUI UM POUCO.”
 **Ligação:** o afeto produz a troca de operador. Ela não perdeu habilidade de agir; permite ajuda enquanto observa.
 
 ### L3-06 — A troca vista de fora
 **Fonte:** D, Fred se aproximando do trio; dominância verde.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Fred registra Nina entregando A; Jack passa a alça no punho sem pedido. Nina olha para ele, não para D.
 **Texto:** Jack: “TÁ CANSADA?” Nina: “NÃO É ISSO.”
 **Ligação:** D tem razão para apontar ao grupo e permite ver os dois operadores sem criar outra câmera.
 
-### L3-07 — Quase três horas
-**Fonte:** D de Fred, apontada para Jack, Nina e o visor de A; dominância rosa.
-**Quadros:** dois painéis. Jack olha o contador físico; segundo aproxima D do visor ocular, que Jack acabou de consultar, mantendo o aro físico como referência. A lente de A está voltada para o chão, não filmando a própria tela.
-**Texto:** Jack: “VOCÊ LIGOU ISSO ANTES DE SAIR?” Nina: “LIGUEI QUANDO A GENTE CHEGOU.” Visor de A: “TC 02:50:00”.
+### L3-07 — Mais de seis horas
+**Fonte:** D de Fred, apontada para Kim, Jack, Nina e o visor de A; dominância rosa.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Visor físico de A em REC: 01/11 02:20:00 / BAT 49%. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
+**Quadros:** dois painéis. Jack olha a hora própria e a bateria de A; segundo aproxima D do visor ocular, que Jack acabou de consultar, mantendo o aro físico como referência. A lente de A está voltada para o chão, não filmando a própria tela.
+**Texto:** Jack: “VOCÊ LIGOU ISSO ANTES DE SAIR?” Nina: “LIGUEI QUANDO A GENTE CHEGOU.” Visor de A: “01/11 02:20:00” e “BAT 49%”.
 **Ligação:** a prova é legível e não confundida com `20:00`. D continua com seu próprio HUD, separado do visor filmado.
 
 ### L3-08 — O número não cabe na lembrança
 **Fonte:** D; mesma posição de Fred; dominância rosa.
-**Quadros:** dois painéis. Jack e Nina conferem a fita, Fred se aproxima sem sair de trás de D. Nina alcança o comando de reprodução enquanto Jack segura A; ela e Jack consultam o ocular alternadamente, depois abrem espaço para D registrar por ele.
-**Texto:** Jack: “QUASE TRÊS HORAS?” Nina: “VOLTA UM POUCO.”
-**Ligação:** pausa voluntária de REC em A e entrada em PLAY. Não fingir que ela grava a própria reprodução ao mesmo tempo.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
+**Quadros:** dois painéis. Kim, Jack e Nina conferem o visor da analógica; Fred acompanha pelo enquadramento de D, sempre atrás da digital. Nina alcança o comando de reprodução enquanto Jack segura A; ela e Jack consultam o ocular alternadamente, depois abrem espaço para D registrar por ele.
+**Texto:** Jack: “MAIS DE SEIS HORAS?” Nina: “VOLTA UM POUCO.”
+**Ligação:** breve pausa explícita de REC em A e entrada em PLAY, autorizada na revisão: relógio próprio e consumo continuam, sem reset. D de Fred registra a revisão dos quatro, limpa por fora e com VHS forte somente no vídeo da analógica dentro do ocular. Não fingir que ela grava a própria reprodução ao mesmo tempo.
 
 ### L3-09 — Uma tela dentro da imagem
 **Fonte:** D; visor ocular de A filmado por Fred; dominância rosa.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. PLAY de L1-22: hora gravada 31/10 21:19:25; bateria atual de A 49%; D externo permanece limpo. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Nina busca trecho anterior; depois o ocular mostra uma tomada do laboratório. D registra a pequena imagem eletrônica através da ocular, com enquadramento aproximado e foco recuperado; não criar uma tela lateral articulada em A. **FOCO** breve de D procurando a tela, recuperado antes da imagem importante.
 **Texto:** visor de A: “PLAY”. Nina: “AQUI. PARA.”
 **Ligação:** a moldura física do visor continua visível. Ruído dentro da reprodução não contamina magicamente o arquivo Full HD externo.
 
 ### L3-10 — André está na fita
 **Fonte:** D filmando o PLAY de A; dominância laranja.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. PLAY de L1-22: hora gravada 31/10 21:19:25; bateria atual de A 49%; D externo permanece limpo. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** André: fundo #FFFFFF; letra e contorno #9A4A16; cauda para o personagem, nunca para o operador; Brock: fundo #FFFFFF; letra e contorno #8B1E1E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Trecho reconhecível de A no laboratório: André reclama da correia e Brock responde parcialmente fora do campo. Jack e Nina são vistos só pela margem física da tela, se ali estiverem. Não usar imagem da arena, que A nunca registrou.
 **Texto:** áudio reproduzido da fita: André: “PRECISA APERTAR TANTO?” Brock: “JÁ JÁ ACABA.”
 **Ligação:** reprise curta e explicitamente gravada. Os personagens atuais não completam a memória do que não viveram conscientemente.
 
 ### L3-11 — O procedimento ficou gravado
 **Fonte:** D filmando outro trecho do PLAY de A; dominância carmesim.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. PLAY de L2-35: hora gravada 01/11 02:10:15; bateria atual de A 49%; D externo permanece limpo. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Corte de reprodução para o eixo baixo do ciclo 2: perna de Brock se debate e funcionário prende o conector. Aro do ocular, dedos e reflexo mantêm a origem da imagem. D se aproxima do ocular; não inventar uma tela articulada em A.
 **Texto:** Nina, presente: “ISSO FOI AQUI.”
 **Ligação:** uma segunda prova muda o sentido da fita. Não reapresentar a perseguição inteira ou falsificar imagens de D dentro de A.
 
 ### L3-12 — Eles se reconhecem
 **Fonte:** D, visor ocular e reação após a leitura; dominância rosa.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. PLAY de L1-21: hora gravada 31/10 21:19:15; bateria atual de A 49%; D externo permanece limpo. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Trecho de A após Nina ter deixado o aparelho: ela senta na própria cadeira; Jack aparece no limite do eixo registrado. Nina já consultou esse trecho pelo ocular; no segundo painel ela se afasta dele e Fred vira D para registrar sua reação.
 **Texto:** Nina: “ESSA SOU EU.” Jack: “EU NÃO LEMBRO DISSO.”
 **Ligação:** a câmera sabe mais que as pessoas. Não explicar o mecanismo das almas nem adicionar flashback externo da infância.
 
 ### L3-13 — Fred prefere o defeito
 **Fonte:** D, Fred atrás da lente, Nina/Jack em campo; dominância dourada em conflito com rosa.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Fred desvia D da tela para a carcaça antiga, tentando reduzir a prova ao aparelho. Nina se interpõe sem olhar para a lente.
 **Texto:** Fred: “CÂMERA VELHA É QUE TEM ESSAS COISAS.” Nina: “NÃO É DEFEITO. A GENTE TÁ NA FITA.”
 **Ligação:** racionalização, não estupidez absoluta: Fred evita aceitar algo que não controla.
 
 ### L3-14 — REC outra vez
 **Fonte:** A, Jack retorna ao fim gravado e retoma a filmagem do rosto de Nina; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:21:25 | BAT 48%; P2 REC | 01/11 02:21:27 | BAT 48%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. A volta do ângulo baixo ao rosto é movimento da mão de Jack; Nina observa o ambiente e pede que ele mantenha o registro. Sem PLAY dentro do próprio POV de A.
 **Texto:** Nina: “NÃO APAGA NADA.” Jack, atrás da câmera: “NÃO VOU APAGAR.”
 **Ligação:** gravação retomada após a breve revisão, sem sobrescrever o material. Esse intervalo consciente não é um reset da fita.
 
 ### L3-15 — Kronos percebe o aparelho
 **Fonte:** C; CAM 03 SALÃO; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 20:04:40; P2 31/10 20:04:42, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis fixos em instantes diferentes. Kronos nota os quatro reunidos sobre A; um dos seis convidados recebe um gesto discreto. A fonte não revela pensamento ou intenção por legenda.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a operação reage à descoberta, sem monólogo do vilão observando o próprio plano.
 
 ### L3-16 — A bandeja vazia
 **Fonte:** A de Jack, próximo ao vão do lounge; dominância bronze.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:22:00 | BAT 48%; P2 REC | 01/11 02:22:02 | BAT 48%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Um atendente retira a última bandeja da rota; atrás, os seis convidados se aproximam dos acessos. Nina nota a movimentação antes dos outros. Não trocar funcionários pelos seis sem mostrar rostos.
 **Texto:** Nina: “JACK. OLHA AS PORTAS.”
 **Ligação:** o gesto banal de servir passa a liberar o espaço para uma contenção. A porta conhecida ainda parece uma saída.
 
 ### L3-17 — Seis máscaras
 **Fonte:** A de Jack; salão; dominância bronze.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:22:10 | BAT 48%; P2 REC | 01/11 02:22:12 | BAT 48%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Três pares de convidados já reconhecidos levam máscaras romanas ao rosto; depois bloqueiam dois acessos em grupos de três. A câmera acompanha uma rotação curta plausível, sem seis retratos minúsculos em shards.
 **Texto:** Nina: “A GENTE VAI SAIR. AGORA.”
 **Ligação:** transformação por gesto visível, não aparecimento mágico de seis perseguidores adicionais.
 
 ### L3-18 — O anfitrião proíbe
 **Fonte:** D, Fred para Kronos e o acesso bloqueado; dominância metálica.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Kronos permanece calmo; Kim entra entre ele e os amigos. Fred não aparece de frente segurando D.
 **Texto:** Kronos: “VOCÊS NÃO PODEM IR EMBORA.” Kim: “ENTÃO TIRA ELES DA FRENTE.”
 **Ligação:** a investigação vira sobrevivência. Não repetir o discurso de boas-vindas.
 
 ### L3-19 — A primeira brecha
 **Fonte:** D de Fred; dominância azul.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Kim empurra a barreira humana suficiente para abrir passagem, usando a posição já vista; Fred recua junto dele. Não vencer todos os seis num só gesto.
 **Texto:** Kim: “CORRE!”
 **Ligação:** resistência real cria uma possibilidade. A captura posterior não será automática nem uma fila obediente até as cadeiras.
 
 ### L3-20 — Duas rotas físicas
 **Fonte:** C; CAM 05 LOUNGE e CAM 07 ESCADARIA; dominância bronze.
+**HUD e balões fechados:** C: P1 31/10 20:05:30; P2 31/10 20:05:30, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois feeds sincronizados. Kim/Fred buscam a passagem de serviço do lounge, que retorna ao corredor oeste e à entrada; Jack/Nina para a circulação e escadaria. Três perseguidores em cada frente; funcionários do laboratório continuam em sua função.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** estabelece a divisão antes das câmeras portáteis mergulharem na fuga. Nada de LDI durante esta perseguição.
 
 ### L3-21 — A porta que conheciam
 **Fonte:** D, Fred com Kim tentando o atalho do lounge para a rota de entrada; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Fred chega ao sensor esperando a abertura; o mecanismo não responde. Kim testa o batente, reconhecível pelo desenho de L1-06/L2-09.
 **Texto:** Fred: “ABRE!” Kim: “SAI DA FRENTE.”
 **Ligação:** terceira versão da pista: a familiaridade vira armadilha. Não inventar outro sensor do lado oposto da mesma porta.
 
 ### L3-22 — Jack tira o cabo sem pensar
 **Fonte:** A de Jack, Jack/Nina no acesso à escadaria junto ao corredor técnico; dominância verde.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:22:40 | BAT 48%; P2 REC | 01/11 02:22:42 | BAT 48%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. O cabo baixo está no mesmo batente conhecido; pé de Jack o afasta enquanto Nina passa. A lente baixa pelo gesto e recupera Nina à frente.
 **Texto:** Nina: “PRA ESCADA!”
 **Ligação:** terceira versão do tropeço, agora sem Michael. A memória corporal ajuda uma fuga concreta, não prevê toda emboscada.
 
 ### L3-23 — A lente encosta
 **Fonte:** D; Kim força o batente, Fred é prensado de lado; dominância azul.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. **LENTE:** manga/tecido invade o campo e o dedo de Fred toca a borda da lente ao segurar o aparelho; depois a imagem volta com uma marca translúcida no canto inferior esquerdo. Kim recua porque o batente não cede.
 **Texto:** Kim: “NÃO VAI. VOLTA!”
 **Ligação:** a falha tem causa e deixa vestígio. A marca permanece até L3-29; não usar a sujeira para esconder uma porta nova.
 
 ### L3-24 — O patamar dá esperança
 **Fonte:** A de Jack; Nina na escadaria; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:22:50 | BAT 48%; P2 REC | 01/11 02:22:52 | BAT 48%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador; Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Nina testa o acesso superior; uma luz/abertura da mesma rota sugere passagem possível. Os perseguidores ainda sobem abaixo, sem atravessar o grupo instantaneamente.
 **Texto:** Nina: “TEM PASSAGEM AQUI.” Jack: “VAI, EU TÔ ATRÁS.”
 **Ligação:** oportunidade verificável, que a pressão dos perseguidores depois retira.
 
 ### L3-25 — A rota está se fechando
 **Fonte:** C; CAM 02 e CAM 07; dominância bronze.
+**HUD e balões fechados:** C: P1 31/10 20:06:00; P2 31/10 20:06:00, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois feeds fixos no mesmo intervalo. Uma frente fecha o retorno do oeste; outra ocupa o acesso do patamar. Movimentos dos perseguidores são mostrados onde o grupo não olha. Pessoas podem borrar ao correr; a câmera não treme.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** repetição parcial do espaço acrescenta a tática que as portáteis não enxergam. Sem mapa desenhado como parte da filmagem.
 
 ### L3-26 — Kim volta por Fred
 **Fonte:** D, ainda com marca no canto; dominância azul.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Fred tropeça ao recuar; a lente baixa e mostra Kim voltar para puxá-lo pelo braço. O próprio Fred não aparece inteiro de fora.
 **Texto:** Fred: “EU TÔ INDO!” Kim: “ENTÃO ANDA!”
 **Ligação:** o comportamento de Kim contraria o desprezo inicial entre os grupos. O gesto de resgate será inútil depois, não inútil agora.
 
 ### L3-27 — Nina abre espaço
 **Fonte:** A de Jack; patamar; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:23:10 | BAT 48%; P2 REC | 01/11 02:23:12 | BAT 48%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Nina barra um perseguidor com o corpo/um golpe curto e afasta a mão que tenta alcançar Jack; o registro pega ação parcial, mas o contato essencial fica claro.
 **Texto:** Nina: “NÃO PARA!”
 **Ligação:** Nina resiste ativamente. Não impor coreografia perfeita de corpo inteiro vista por uma câmera imóvel que não existe.
 
 ### L3-28 — A alça segura a testemunha
 **Fonte:** A de Jack; dominância verde.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:23:20 | BAT 48%; P2 REC | 01/11 02:23:22 | BAT 48%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** três painéis por progressão rápida: colisão no antebraço; **BLUR-M** quase ilegível quando A escorrega presa pela alça; recuperação baixa com o mesmo degrau e o pé de Nina. Um detalhe da alça só é visível se entrar fisicamente na borda; sem shard externo do punho de Jack.
 **Texto:** Jack: “SEGUREI!” Nina: “VEM!”
 **Ligação:** a pista material impede a perda da câmera. A leitura recupera o lugar antes de continuar a fuga.
 
 ### L3-29 — Fred limpa o canto
 **Fonte:** D, junto ao mesmo corredor oeste; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Fred passa a borda limpa do próprio tecido pela lente; parte do campo fica obstruída, depois a marca do canto some. Kim vigia o acesso no fundo.
 **Texto:** Kim: “AGORA NÃO, PORRA!” Fred: “EU NÃO TÔ ENXERGANDO!”
 **Ligação:** resolve a sujeira estabelecida. Não inventar outra marca ou voltar a uma lente limpa antes desse gesto.
 
 ### L3-30 — Dinheiro não compra a saída
 **Fonte:** D limpa novamente; Kim/Fred no corredor; dominância dourada.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Fred tenta negociar com os perseguidores atrás de Kim; Kim o puxa para fora do vão antes que fechem a frente.
 **Texto:** Fred: “EU PAGO. QUANTO VOCÊS QUEREM?” Kim: “GUARDA A GRANA E CORRE!”
 **Ligação:** defesa habitual de Fred falha em ação. Não transformar em longa conversa com Mascarados.
 
 ### L3-31 — A entrada está bloqueada
 **Fonte:** C; CAM 01 ENTRADA; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 20:06:45; P2 31/10 20:06:47, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** um painel fixo. Kim/Fred alcançam o vestíbulo, encontram a porta externa travada e são forçados a retornar. A mesma porta usada no começo; noite lá fora.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** fecha a esperança da saída principal com geografia conhecida. Não teletransportar perseguidores nem abrir um jardim secreto.
 
 ### L3-32 — O patamar também fecha
 **Fonte:** A de Jack; dominância bronze.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:23:50 | BAT 48%; P2 REC | 01/11 02:23:52 | BAT 48%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Nina encontra a passagem superior barrada pelo grupo que C já mostrou; a lente volta ao caminho de descida, agora comprimido. Sem inverter o sentido dos degraus.
 **Texto:** Nina: “VOLTA. POR BAIXO!”
 **Ligação:** perda de oportunidade causada pelo cerco, não por esquecimento da porta que estava aberta.
 
 ### L3-33 — Uma segunda tentativa de Kim
 **Fonte:** D, Fred acompanha Kim no retorno técnico; dominância azul.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Kim força uma grade/porta de serviço já presente na planta; cede pouco, mas o espaço não permite passar antes de chegarem. Fred tenta ajudar com a mão livre, mantendo D.
 **Texto:** Kim: “PUXA AQUI.” Fred: “NÃO CABE!”
 **Ligação:** tentativa diferente da porta anterior; não repetir três vezes o mesmo empurrão.
 
 ### L3-34 — Nina protege a câmera e Jack
 **Fonte:** A de Jack, base da escada; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:24:00 | BAT 48%; P2 REC | 01/11 02:24:02 | BAT 48%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Jack. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Nina afasta a mão de um perseguidor da alça e empurra Jack para o último vão. Um outro fecha o caminho; ela volta a encará-los.
 **Texto:** Nina: “NÃO SOLTA ESSA CÂMERA.”
 **Ligação:** objeto virou prova, mas Nina não abandona Jack para salvá-lo. A captura ainda precisa ser vista.
 
 ### L3-35 — A primeira dupla cai
 **Fonte:** C; CAM 07 ESCADARIA; dominância bronze.
+**HUD e balões fechados:** C: P1 31/10 20:07:05; P2 31/10 20:07:07, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis fixos em instantes diferentes. Três perseguidores imobilizam Jack/Nina pela pressão conjunta; um retira a alça do punho preso e recolhe A. Não mostrar a captura inteira como tela preta da câmera caída.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a custódia muda por gesto visível. A câmera não é destruída nem permanece com Jack depois disso.
 
 ### L3-36 — Kim ouve, Fred quer seguir
 **Fonte:** D; corredor técnico; dominância azul.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Um chamado de Nina chega pelo vão da escada; Kim para e se volta para o som. Fred aponta para a passagem que tentavam abrir.
 **Texto:** Nina, distante: “KIM!” Fred: “NÃO VOLTA!” Kim: “ELA TÁ ALI.”
 **Ligação:** a decisão de ajudar produz a exposição final. D não mostra Jack/Nina presos antes de alcançar a visão deles.
 
 ### L3-37 — A digital perde a altura
 **Fonte:** D; Fred recua diante do cerco a Kim; dominância carmesim.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Kim ainda resiste e é segurado por mais de um perseguidor; Fred recebe um impacto e D desce em **BLUR-M**, recuperando piso, pés e a mão que alcança o aparelho. A captura completa não é escondida aqui.
 **Texto:** Fred: “NÃO ENCOSTA!”
 **Ligação:** último registro portátil de Fred no mundo real; o próximo quadro externo confirma quem tomou D.
 
 ### L3-38 — Os quatro são levados
 **Fonte:** C; CAM 02 CORREDOR e CAM 06 LABORATÓRIO; dominância bronze.
+**HUD e balões fechados:** C: P1 31/10 20:07:25; P2 31/10 20:07:25, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois feeds sequenciais, não simultâneos. Kim/Fred são dominados no corredor; elipse até os quatro sendo conduzidos ao laboratório. Um perseguidor leva D, outro A. Sem multiplicar os seis convidados caçadores; funcionários recebem o grupo.
 **Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** encerra a resistência e comprova as duas capturas. Não usar arrasto longo como repetição de todas as tentativas de fuga.
 
 ### L3-39 — Os aparelhos também são presos
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 20:08:00; P2 31/10 20:08:02, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis do mesmo campo em instantes diferentes. Funcionário coloca A na mesa em novo ângulo para as quatro estações; D física volta ao suporte de vínculo, depois de confirmada a sessão. Os quatro vão às cadeiras.
 **Texto:** nenhum além do HUD; o vínculo é reconhecido pelo mesmo gesto/interface já estabelecidos, sem diálogo audível em C.
 **Ligação:** fixa o terceiro apoio de A e a última posição física de D. Não deixar as câmeras “escolherem” novos lugares sozinhas.
 
 ### L3-40 — Não há mais convite
 **Fonte:** A fixa no novo apoio; dominância rosa.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:25:30 | BAT 47%; P2 REC | 01/11 02:25:32 | BAT 47%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Nina/Jack/Fred nas cadeiras, Kim no limite do campo; contenções são fechadas sem negociação. Jack tenta manter a mão próxima da de Nina, mas a correia impede.
 **Texto:** Jack: “NINA...” Nina: “EU TÔ AQUI.”
 **Ligação:** o campo real e a imobilidade contrastam com a liberdade do começo. O próximo corte é uma conexão, não deslocamento físico para a arena.
 
 ### L3-41 — Fred deixa a câmera no chão
 **Fonte:** D virtual, representação nas mãos de Fred, junto à entrada da arena; dominância metálica.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: Fred. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador; Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Fred recebe a ordem e apoia D num degrau/pedra baixa firme; segundo quadro já fixa o eixo para o centro. A mão sai da borda. Sol forte, sem nova apresentação de plateia.
 **Texto:** Kronos, fora do quadro: “DEIXE A CÂMERA AÍ.” Fred: “EU NÃO VOU ATRAPALHAR.”
 **Ligação:** o apoio explica o registro depois de Fred perder o controle. Não acrescentar panorâmica automática ou zoom remoto não estabelecido.
 
 ### L3-42 — Kim fica no centro
 **Fonte:** D fixa perto da entrada; dominância metálica.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: supported: Fred visible. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis, momentos do mesmo eixo. Kim imobilizado em X por cordas ligadas a quatro ancoragens distintas; outros três no campo disponível. Contenção ritualística, sem cruz. Não enquadrar o rosto de Kim em close por um salto de câmera.
 **Texto:** Kim: “SOLTA ELES.”
 **Ligação:** sua impotência é material. Não reapresentar luta organizada nem espectadores comemorando.
 
 ### L3-43 — Os cabos escolhem os outros
 **Fonte:** D fixa; dominância carmesim.
+**HUD e balões fechados:** D: REC/FHD limpo; digitais e arquivos resetados em cada loop. A visível no ocular mantém seu próprio horário/bateria e VHS somente dentro do ocular. Custódia: supported: Fred visible. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis, momentos do mesmo plano. Feixes avançam para Jack/Nina/Fred; Kim força as quatro ancoragens e não alcança ninguém. As posições permitem que o leitor compreenda a distância.
 **Texto:** Fred: “EU NÃO FIZ NADA!”
 **Ligação:** a câmera mostra a simultaneidade externa, mas a experiência das três vítimas não será um plano longo uniforme.
 
 ### L3-44 — Fred sem público
 **Fonte:** S de Fred; dominância dourada apagando.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Fred: fundo #FFFFFF; letra e contorno #C9A227; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis subjetivos. Fred vê Kim preso e tenta procurá-lo como último recurso; olha para a própria mão, agora sem D. Sem lente em frente ao próprio rosto.
 **Texto:** Fred: “KIM... FAZ ALGUMA COISA.”
 **Ligação:** o homem que comprava ajuda implora sem sua performance. A fonte subjetiva não é o aparelho apoiado.
 
 ### L3-45 — O corpo de Fred
 **Fonte:** A fixa no laboratório; dominância carmesim.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:42:25 | BAT 41%; P2 REC | 01/11 02:42:27 | BAT 41%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis, momentos do campo. Corpo físico de Fred reage e cessa o movimento; os funcionários seguem para a próxima estação. Nina/Jack ainda têm sinais de movimento, quando no campo.
 **Texto:** apenas respiração/sons reais captados, sem fala da arena.
 **Ligação:** primeira das três mortes confirmada por consequência física. Não incluir o banquete virtual nem encerrar D por magia.
 
 ### L3-46 — Nina e a distância de Kim
 **Fonte:** S de Nina, depois S de Kim; dominância rosa cercada por carmesim.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Nina: fundo #FFFFFF; letra e contorno #B82E69; cauda para o personagem, nunca para o operador; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis grandes, dois olhos identificados pela posição. Nina vê Kim em X e os cabos no primeiro plano; corte reverso para o olho de Kim, que vê Nina sendo alcançada. Mesma distância/eixo, sem câmera neutra entre eles.
 **Texto:** Nina: “KIM, OLHA PRA MIM.” Kim, no seu painel: “EU TÔ TENTANDO.”
 **Ligação:** Nina ainda orienta alguém quando perde o corpo. O sentido vem da relação espacial, não de telepatia ou pensamento de um ouvido pelo outro.
 
 ### L3-47 — Jack e a escolha impossível
 **Fonte:** S de Jack, depois S de Kim; dominância verde cercada por carmesim.
+**HUD e balões fechados:** S: sem HUD; pensamentos na cor da voz, sem cauda. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Jack: fundo #FFFFFF; letra e contorno #22C55E; cauda para o personagem, nunca para o operador; Kim: fundo #FFFFFF; letra e contorno #1E6FE0; cauda para o personagem, nunca para o operador.
 **Quadros:** dois painéis. Jack vê Kim e tenta chegar com a mão; a visão de Kim registra Jack parando, depois a própria corda ainda tensa na borda. Sem um terceiro painel escondido como shard.
 **Texto:** Jack: “NÃO FOI VOCÊ.” Kim: “ME LEVA. DEIXA ELES.”
 **Ligação:** inverte a culpa do soquinho e a aceitação de lutar. Nina e Jack deixam de reagir; o resultado será confirmado pela fonte real seguinte, sem nova morte de Kim.
 
 ### L3-48 — O último procedimento
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 20:26:40; P2 31/10 20:26:42, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Custódia: none. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
 **Quadros:** dois painéis fixos em instantes diferentes. Jack/Nina/Fred sem reação são retirados; Kim permanece vivo sob controle. Encerramento do registro após o procedimento.
 **Texto:** interface no segundo momento: “DELETE”.
 **Ligação:** terceiro DELETE **não produz outro reset**. A permanece gravando; seis convidados mascarados não reaparecem inexplicavelmente como cinco capangas mortos nos ciclos anteriores.
 
 ### L3-49 — Kronos pega a testemunha
 **Fonte:** C → A, mudança explícita entre os dois painéis; dominância metálica.
+**HUD e balões fechados:** C: P1 31/10 20:27:00; P2 31/10 20:27:02, relógio digital resetado; preto e branco/NO SOUND, sem áudio. Painel2 muda para A: REC | 01/11 02:44:02 | BAT 41%, VHS forte. Custódia: Kronos. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro; Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Primeiro, outra câmera fixa do laboratório registra Kronos recolhendo A depois do encerramento do feed anterior; segundo, A com a lente virada para ele, perto e um pouco de baixo, enquanto olha um monitor do laboratório fora do eixo da lente. Não mostrar externamente suas duas mãos segurando A no próprio POV.
 **Texto:** somente no painel A, Kronos: “EU SABIA QUE ESSA CÂMERA IA SER UM PROBLEMA.” / “ISSO NÃO ESTAVA NOS PLANOS...”
 **Ligação:** DELETE encerrou CAM 06, não todo o sistema de segurança. A existência da CAM 08 de serviço deve estar prevista na planta e na ficha de C antes da geração.
 
 ### L3-50 — A testemunha muda de mão
 **Fonte:** A; Kronos entrega a câmera a um funcionário; dominância metálica.
+**HUD e balões fechados:** A: P1 REC | 01/11 02:44:10 | BAT 41%; P2 REC | 01/11 02:44:12 | BAT 41%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: Kronos -> worker. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda na BORDA INFERIOR CENTRAL, operador fora do quadro.
 **Quadros:** dois painéis. Passagem da mão e rotação registradas; elipse até a entrada do banquete, Kronos já adiante, Kim sendo levado para seu lugar. Os nove drenados estão na mesa: seis rostos genéricos reconhecíveis, Jack, Nina e Fred. As máscaras dos seis ficam junto aos seus lugares, sem inscrições.
 **Texto:** Kronos: “MAS, NO FINAL, TUDO DEU CERTO.”
 **Ligação:** a drenagem dos seis genéricos ficou elíptica; o resultado é mostrado, sem inventar uma nova sequência de execuções para explicá-lo. O funcionário apoia A no ponto final já previsto na ficha do banquete; o eixo se firma antes da última página.
 
 ### L3-51 — O banquete
 **Fonte:** A fixa no apoio da extremidade da mesa; dominância metálica.
+**HUD e balões fechados:** A: P1 REC | 01/11 03:00:00 | BAT 35%; P2 REC | 01/11 03:00:02 | BAT 35%. VHS forte em toda a imagem; sem TC 00:00:00. Custódia: supported. Fundo dos balões sempre branco; letra e contorno na cor individual. A voz de quem segura nasce da borda inferior central; voz de personagem visível aponta para ele. Sem olhar para leitor/lente.
+**Vínculo de cada fala:** Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador; Kronos: fundo #FFFFFF; letra e contorno #4B5058; cauda para o personagem, nunca para o operador.
 **Quadros:** um painel amplo, vertical, simétrico e funcional como imagem final. Mesa de convivium em profundidade, Kronos ao centro da cabeceira, Kim ao lado, nove drenados nos lugares definidos. Onze ocupantes ao todo; manter os três amigos reconhecíveis sem depender de nove retratos miúdos. Kronos olha Kim, depois a mesa, nunca a lente.
 **Texto:** Kronos: “FINALMENTE, SEU CORPO É MEU, KIM.” / “FELIZ HALLOWEEN.”
 **Ligação:** fim definitivo. Sem reset, resgate, comentário da câmera, epílogo, piscada para o leitor ou cena após a mesa.
@@ -1134,7 +1417,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 
 **Loop 1:** nove pessoas aceitam uma demonstração aparentemente segura. A vontade de André de cumprir um compromisso encontra a brincadeira de Jack. A intervenção dos cabos e a inutilidade do resgate destroem a distinção confortável entre jogo e realidade. Kim não consegue ajudar alguém que estava ao seu alcance. O apagamento da segurança contrasta com a fita que continua.
 
-**Loop 2:** a festa tem metade dos convidados e oito participantes. Os hábitos divergem antes da memória consciente. A recusa de Nina impede a luta, mas não a operação de Kronos. O ataque divide o grupo em espaços que só podem ser narrados por fontes limitadas. Quatro mortes desmontam a confiança em força, influência, coragem e planejamento; Kim perde outras pessoas sem conseguir impedir. O leitor tem evidências que os participantes ainda não conseguem reunir.
+**Loop 2:** a festa tem metade dos convidados e oito participantes. Os hábitos comuns podem variar por causas visíveis; só Nina tem pressentimentos e ninguém lembra eventos de outro loop. A recusa de Nina impede a luta, mas não a operação de Kronos. O ataque divide o grupo em espaços que só podem ser narrados por fontes limitadas. Quatro mortes desmontam a confiança em força, influência, coragem e planejamento; Kim perde outras pessoas sem conseguir impedir. O leitor tem evidências que os participantes ainda não conseguem reunir.
 
 **Loop 3:** dez convidados, quatro sobreviventes conhecidos. A analógica materializa o que a mente apagou. O medo deixa de ser só pressentimento; vira uma tentativa de preservar prova e sair. A perseguição ocorre na mansão física e fecha as rotas que pareciam familiares. Na arena, Kim deixa de poder escolher e presencia a perda de Jack/Nina/Fred. O banquete revela o objetivo de Kronos: o corpo de Kim. A explicação metafísica não é necessária para compreender a derrota e não será acrescentada como aula ao final.
 
@@ -1214,7 +1497,7 @@ Prancha de balcões permanentes integrados lateralmente ao salão, com espaço p
 Prancha do **outro cômodo** de Fred: apoio inicial de D, área onde o grupo passa no fundo, vão acústico para o anúncio e porta de sensor/antebraço na altura do atendente. Fixar lado do sensor, sentido da folha, batente e passagem de serviço que retorna ao corredor oeste/vestíbulo. Mostrar essa conexão na planta geral; não é acesso direto ao exterior. A abertura automática dos ciclos 1/2 e o bloqueio do ciclo 3 usam o mesmo mecanismo. Duas vistas a partir do apoio e da porta, sem personagens.
 
 ### OBJ-12 — Objetos, alças e interfaces
-Este prompt **não usa planta de ambiente**. Produzir fichas separadas, cada objeto isolado de frente/lado/trás: filmadora analógica com fita longa e alimentação suficiente; digital física e representação virtual; pulseira/alça; suporte SBI de registro; cadeira e base; conector/cabo baixo; máscaras romanas; ingressos sem texto legível; tigela; relógio cenográfico; ancoragens/cordas. Ficha de HUD separa REC, PLAY, TC, hora de gravação e DELETE. Sem marcas reais. A marca de sujeira em D no ciclo 3 é estado temporário documentado, não redesign da câmera.
+Este prompt **não usa planta de ambiente**. Produzir fichas separadas, cada objeto isolado de frente/lado/trás: filmadora analógica com fita longa e alimentação suficiente; digital física e representação virtual; pulseira/alça; suporte SBI de registro; cadeira e base; conector/cabo baixo; máscaras romanas; ingressos sem texto legível; tigela; relógio cenográfico; ancoragens/cordas. Ficha de HUD separa REC, PLAY, data/hora própria de A, bateria, hora digital resetada e DELETE. Sem marcas reais. A marca de sujeira em D no ciclo 3 é estado temporário documentado, não redesign da câmera.
 
 ### 13.3 Campos de segurança
 
@@ -1284,7 +1567,7 @@ flowchart TD
 - Confirmar as referências existentes do §13.1 e produzir só os complementos faltantes; a inspeção dessas fichas não equivale à aprovação de páginas novas.
 - Materializar a convenção de vínculo D/SBI e a representação virtual; é encenação nova explícita, não informação encontrada num capítulo antigo.
 - Fechar o espelho das nove páginas editoriais de cada lançamento a partir dos modelos oficiais; o roteiro já reserva essas páginas sem inventar anúncios.
-- Fechar o mapa de hora/TC por tomada a partir dos pontos 19:47, resets cenográficos e quase três horas. Em simultâneos, números correspondentes; em elipses, avanço real; em PLAY, tempo do trecho reproduzido. Nada de números aleatórios gerados em cada arte.
+- Seguir o mapa de data/hora e bateria de HALLOWEEN_CONTINUIDADE.json: 19:57/100%, 23:43/75%, 02:17/50%; mundo e digitais resetam às 20:00. Só Nina tem pressentimentos; ninguém guarda lembrança consciente dos eventos anteriores. Em simultâneos, números correspondentes; em elipses, avanço real; em PLAY, tempo do trecho reproduzido. Nada de números aleatórios gerados em cada arte.
 - Aprovar fonte/escala e os tons editoriais de vozes novas em uma prova de celular. O arquivo do guia não prova por si só qual família foi usada nas artes antigas.
 - Revisar página aprovada em largura de celular, continuidade de geografia e marcas; anexar a anterior como referência sem copiar seus balões.
 - Conferir rosto/corpo corretos, quantidade de pessoas, mãos, fonte/HUD, áudio possível, linha de visão, lado do cabo e custódia antes de aprovar cada imagem.
@@ -1339,11 +1622,11 @@ As imagens produzidas com esses prompts são fichas para revisão autoral; gera�
 
 ## 17. Produção serial do lançamento 1
 
-**Estado atual: RETOMADA por autorização de Isaías em 19/10/2026, a partir da página 02. A imagem anterior da 02 foi preservada em _descartadas; tarefa automática reativada. Valem os prompts revisados de câmera, ação e olhar, sem olhar para leitor/lente.**
+**Estado atual: fila PAUSADA a pedido de Isaías. Revisão de VHS forte, relógios/bateria, memória e balões em todos os loops; somente a página 03 será refeita nesta etapa, sem retomar o lote. Caminho atual: WEBSHARD/PT/loop1.**
 
 L1-01 foi aprovada por Isaías em 19/10/2026, com o elenco da piscina corrigido. As outras cinquenta páginas foram autorizadas. A faixa maior da abertura é exceção: nas próximas páginas a separação é uma borda diagonal fina, sem faixa larga. Figurantes diversos mantêm identidade por ambiente; feeds simultâneos de locais diferentes não repetem as mesmas pessoas.
 
-O adaptador `scripts/halloween_producao.py` reutiliza `MUNDO DAS SOMBRAS/WEBSHARD/scripts/fila_v2.py`, sem modificar sua fila. `preparar` monta cinquenta prompts em inglês com os textos literais em português; `rodar` gera em sequência e `status` consulta o andamento. Os prompts anexados por nome e as imagens ficam em `ESPECIAIS/presos/prompts/loop1/` e `ESPECIAIS/presos/paginas/loop1/`. A página 01 aprovada é preservada.
+O adaptador `scripts/halloween_producao.py` reutiliza `MUNDO DAS SOMBRAS/WEBSHARD/scripts/fila_v2.py`, sem modificar sua fila. `preparar` monta cinquenta prompts em inglês com os textos literais em português; `rodar` gera em sequência e `status` consulta o andamento. Os prompts anexados por nome e as imagens ficam em `ESPECIAIS/presos/prompts/loop1/` e `ESPECIAIS/presos/WEBSHARD/PT/loop1/`. A página 01 aprovada é preservada.
 
 As fichas complementares `LoungeLeste.png`, `Buffet.png` e `CorredorTecnico.png` são produzidas antes do primeiro uso, com planta à esquerda e duas perspectivas à direita. Não substituem referências existentes. Materiais não têm intervalo; páginas mantêm cinco minutos. Falta de referência ou falha técnica interrompe a fila para revisão; cota aguarda outra rodada da tarefa `Halloween_Loop1_Codex`. A tarefa desativa ao concluir. Estado, log e eventual `PARADA.txt` ficam em `ESPECIAIS/presos/producao/loop1/`.
 
@@ -1607,3 +1890,10 @@ Single same fixed CAM06 field as49 showing empty base as technical shutdown obst
 P1 A low table axis breaks ONLY because worker picks it up: hand near upper edge, tabletop horizon rolls and lab passes obliquely. P2 after real carrying ellipse, handheld A points upward through hall opening to Roman clock, tall masonry foreshortened, clock hands finish returning toVIII/XII. Clearly changed location and camera height with custody cause. TC keeps advancing, operator never visible externally.
 
 **Eyelines:** Operator face unseen; clock/hand shots have no face toward reader. Any distant attendant watches work/route.
+
+
+## 19. Revisão de continuidade, ruído e balões — 19/10/2026
+
+As três âncoras de A são autorais e obrigatórias. O plano por tomada está em HALLOWEEN_CONTINUIDADE.json; cada uma das 153 páginas narrativas recebeu seu contrato de HUD/custódia/balões. As 27 posições editoriais continuam separadas e não viram cenas inventadas. Os prompts existentes do loop1 são recompilados com esses dados. A fila permanece pausada; só L1-03 é refeita nesta revisão.
+
+Pasta de imagens reorganizada por Isaías: `ESPECIAIS/presos/WEBSHARD/PT/loop1/`. As artes anteriores de L1-01/02 ainda usam horários antigos de C; precisam de ajuste de HUD antes da publicação final, sem gerar novas versões delas nesta etapa.

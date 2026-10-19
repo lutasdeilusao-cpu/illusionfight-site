@@ -1,6 +1,6 @@
 {
   ".opencode/opencode.json": {
-    "mtime": 1783913479.8108146,
+    "mtime": 1792427842.9393506,
     "ast_hash": "f2ae21510d07365eb2bce8159272c7a0",
     "semantic_hash": "f2ae21510d07365eb2bce8159272c7a0"
   },
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792424532.4955568,
-    "ast_hash": "ffa0114b1c93cb773f9f38b78060269c",
+    "mtime": 1792427139.2492256,
+    "ast_hash": "aae9f48981f99e76e82f2cbdddc7ad87",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2560,8 +2560,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792424740.2901604,
-    "ast_hash": "39500da40d7fab3d4ef14ca69577d748",
+    "mtime": 1792427142.6198504,
+    "ast_hash": "4c8a259e869740c836072f524046b665",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -6715,8 +6715,8 @@
     "semantic_hash": ""
   },
   "src/components/Recomendacoes/Recomendacoes.jsx": {
-    "mtime": 1791811809.0558472,
-    "ast_hash": "57ee815e1a29a22f016d2cb1d759162a",
+    "mtime": 1792427188.55953,
+    "ast_hash": "66bfd314b0d91e82766020f4d3f1d4eb",
     "semantic_hash": ""
   },
   "src/lib/historias/historico.js": {
@@ -7855,8 +7855,8 @@
     "semantic_hash": ""
   },
   "src/components/CarrosselLento/CarrosselLento.jsx": {
-    "mtime": 1791808433.7788494,
-    "ast_hash": "61c7d94df613f5bac6700e3d806d5c2f",
+    "mtime": 1792427165.3587308,
+    "ast_hash": "bbe5c01bd97dd8bd8f0f2c883d6fe98f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/fundos.js": {
@@ -9865,8 +9865,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/LobbyLDI.jsx": {
-    "mtime": 1792004069.9124622,
-    "ast_hash": "3d69a6820896b38e96283b9b5c17c632",
+    "mtime": 1792427187.151929,
+    "ast_hash": "f3dd990cca537d81b353d8842b3734fa",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-04.webp": {
@@ -9945,8 +9945,8 @@
     "semantic_hash": ""
   },
   "scripts/halloween_producao.py": {
-    "mtime": 1792424891.704062,
-    "ast_hash": "53597323ce6c8ef30877d52aa618eccd",
+    "mtime": 1792427223.453017,
+    "ast_hash": "576e79832193ea280950b76da3670f3d",
     "semantic_hash": ""
   }
 }

@@ -1,0 +1,4817 @@
+{
+  "anchors": {
+    "L1": {
+      "clock": "31/10 19:57:00",
+      "battery": 100
+    },
+    "L2": {
+      "clock": "31/10 23:43:00",
+      "battery": 75
+    },
+    "L3": {
+      "clock": "01/11 02:17:00",
+      "battery": 50
+    }
+  },
+  "digital_reset_clock": "31/10 20:00:00",
+  "intermediate_times": "Editorial plan; fixed author anchors and simultaneous cuts must be preserved. No year is printed.",
+  "voices": {
+    "Kim": "#1E6FE0",
+    "Jack": "#22C55E",
+    "Nina": "#B82E69",
+    "Fred": "#C9A227",
+    "Brock": "#8B1E1E",
+    "André": "#9A4A16",
+    "Jason": "#6D28A6",
+    "Michael": "#155E63",
+    "Anderson": "#4B5563",
+    "Kronos": "#4B5058",
+    "Desconhecido": "#6B543A"
+  },
+  "pages": {
+    "L1-01": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 19:56:00",
+        "31/10 19:56:00"
+      ],
+      "battery": [
+        100,
+        100
+      ],
+      "digital_world_clock": [
+        "31/10 19:59:00",
+        "31/10 19:59:00"
+      ],
+      "playback": false,
+      "offset_seconds": -60,
+      "lettering": [
+        {
+          "role": "caption",
+          "text": "ESPECIAL DE HALLOWEEN DE LUTAS DE ILUSÃO: AQUI TUDO COMEÇA E AQUI TUDO TERMINA."
+        }
+      ]
+    },
+    "L1-02": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 19:56:30",
+        "31/10 19:57:00"
+      ],
+      "battery": [
+        100,
+        100
+      ],
+      "digital_world_clock": [
+        "31/10 19:59:30",
+        "31/10 20:00:00"
+      ],
+      "playback": false,
+      "offset_seconds": -30,
+      "lettering": [
+        {
+          "role": "caption",
+          "text": "CONVIDADOS ESPECIAIS ACABAM DE CHEGAR."
+        }
+      ]
+    },
+    "L1-03": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 19:57:00",
+        "31/10 19:57:02"
+      ],
+      "battery": [
+        100,
+        100
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:00",
+        "31/10 20:00:02"
+      ],
+      "playback": false,
+      "offset_seconds": 0,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "SÓ VAMOS COMER E DEPOIS VAMOS EMBORA PRA CASA.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jack",
+          "text": "TÁ BOM, TÁ BOM, PASSA A FOME.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Nina",
+          "text": "O KRONOS CAPRICHOU NESSA FESTA, HEIN?",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L1-04": {
+      "source": "D",
+      "operator": "supported: Fred visible",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 19:57:05",
+        "31/10 19:57:07"
+      ],
+      "battery": [
+        100,
+        100
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:05",
+        "31/10 20:00:07"
+      ],
+      "playback": false,
+      "offset_seconds": 5,
+      "lettering": [
+        {
+          "role": "caption",
+          "text": "OUTRO CÔMODO. MESMA FESTA."
+        },
+        {
+          "speaker": "Fred",
+          "text": "TRÊS, DOIS...",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "POW-POW, HOJE O HYPERMOMENT É MEU!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Michael",
+          "text": "TÔ NA IMAGEM?",
+          "color": "#155E63",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-05": {
+      "source": "D",
+      "operator": "supported: Fred visible",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 19:57:15",
+        "31/10 19:57:17"
+      ],
+      "battery": [
+        100,
+        100
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:15",
+        "31/10 20:00:17"
+      ],
+      "playback": false,
+      "offset_seconds": 15,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "DÁ PRA NÃO PASSAR NA FRENTE?",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "André",
+          "text": "SÓ NÃO DEMORA. PROMETI CINEMA PRA MINHA IRMÃ.",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Brock",
+          "text": "A GENTE SAI A TEMPO.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-06": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 19:57:25",
+        "31/10 19:57:27"
+      ],
+      "battery": [
+        100,
+        100
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:25",
+        "31/10 20:00:27"
+      ],
+      "playback": false,
+      "offset_seconds": 25,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "ATÉ A PORTA É MAIS CARA QUE A SUA CASA.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Anderson",
+          "text": "ENTÃO PARA DE SEGURAR ELA.",
+          "color": "#4B5563",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-07": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 19:57:40",
+        "31/10 19:57:42"
+      ],
+      "battery": [
+        100,
+        100
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:40",
+        "31/10 20:00:42"
+      ],
+      "playback": false,
+      "offset_seconds": 40,
+      "lettering": [
+        {
+          "speaker": "Desconhecido",
+          "text": "ESSA AQUI TÁ BOA.",
+          "color": "#6B543A",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kim",
+          "text": "DEIXA UM POUCO PRA MIM.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kim",
+          "text": "ÁGUA AÍ.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-08": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 21:17:00",
+        "31/10 21:17:00"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:20:00",
+        "31/10 21:20:00"
+      ],
+      "playback": false,
+      "offset_seconds": 4800,
+      "lettering": []
+    },
+    "L1-09": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 21:17:05",
+        "31/10 21:17:07"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:20:05",
+        "31/10 21:20:07"
+      ],
+      "playback": false,
+      "offset_seconds": 4805,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "BOA NOITE AOS NOSSOS CEM CONVIDADOS ESPECIAIS.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kronos",
+          "text": "NOVE DE VOCÊS VÃO ESTREAR O NOVO EVENTO.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-10": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 21:17:13",
+        "31/10 21:17:15"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:20:13",
+        "31/10 21:20:15"
+      ],
+      "playback": false,
+      "offset_seconds": 4813,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "E O VENCEDOR LEVA UM PRÊMIO EM DINHEIRO.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jason",
+          "text": "AÍ EU GOSTEI.",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "EU FALEI QUE IA RENDER.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L1-11": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 21:17:17",
+        "31/10 21:17:19"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:20:17",
+        "31/10 21:20:19"
+      ],
+      "playback": false,
+      "offset_seconds": 4817,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "NÃO ERA COMER E IR EMBORA?",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kim",
+          "text": "DÁ PRA COMER DEPOIS.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-12": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 21:17:21",
+        "31/10 21:17:23"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:20:21",
+        "31/10 21:20:23"
+      ],
+      "playback": false,
+      "offset_seconds": 4821,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "OS OUTROS NOVENTA E UM ACOMPANHAM PELOS PRÓPRIOS SBIS.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kronos",
+          "text": "DEPOIS, TODOS PODERÃO PARTICIPAR.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-13": {
+      "source": "A",
+      "operator": "Nina -> Jack",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 21:17:30",
+        "31/10 21:17:32"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:20:30",
+        "31/10 21:20:32"
+      ],
+      "playback": false,
+      "offset_seconds": 4830,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "PASSA A ALÇA NO PUNHO.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Jack",
+          "text": "EU SEI SEGURAR UMA CÂMERA.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L1-14": {
+      "source": "C",
+      "operator": "none",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 21:17:35",
+        "31/10 21:17:37"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:20:35",
+        "31/10 21:20:37"
+      ],
+      "playback": false,
+      "offset_seconds": 4835,
+      "lettering": []
+    },
+    "L1-15": {
+      "source": "A",
+      "operator": "Jack",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 21:17:45",
+        "31/10 21:17:47"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:20:45",
+        "31/10 21:20:47"
+      ],
+      "playback": false,
+      "offset_seconds": 4845,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "VOCÊ ESCOLHEU ESSA FANTASIA SÓ PRA ME VER SOFRER?",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Nina",
+          "text": "PRA VER SE VOCÊ PARA QUIETO NO TRABALHO.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-16": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 21:17:55",
+        "31/10 21:17:57"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:20:55",
+        "31/10 21:20:57"
+      ],
+      "playback": false,
+      "offset_seconds": 4855,
+      "lettering": [
+        {
+          "speaker": "Anderson",
+          "text": "ÚLTIMO TRABALHO QUE EU FAÇO PRA VOCÊ.",
+          "color": "#4B5563",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jason",
+          "text": "SE EU GANHAR, RESOLVO LÁ EM CASA.",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "PRIMEIRO TEM QUE GANHAR.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L1-17": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 21:18:05",
+        "31/10 21:18:07"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:21:05",
+        "31/10 21:21:07"
+      ],
+      "playback": false,
+      "offset_seconds": 4865,
+      "lettering": [
+        {
+          "speaker": "Michael",
+          "text": "PORRA!",
+          "color": "#155E63",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jason",
+          "text": "SEGURA A POSE, ESTRELA.",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-18": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 21:18:35",
+        "31/10 21:18:37"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:21:35",
+        "31/10 21:21:37"
+      ],
+      "playback": false,
+      "offset_seconds": 4895,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "ISSO É BEM MAIS VELHO DO QUE EU ESPERAVA.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Jack",
+          "text": "COMBINA COM A TUA CÂMERA.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-19": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 21:18:50",
+        "31/10 21:18:52"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:21:50",
+        "31/10 21:21:52"
+      ],
+      "playback": false,
+      "offset_seconds": 4910,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "EU VOU GRAVAR LÁ DENTRO.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Brock",
+          "text": "SÓ NÃO ATRAPALHA.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "role": "interface",
+          "text": "REGISTRO VINCULADO"
+        }
+      ]
+    },
+    "L1-20": {
+      "source": "C",
+      "operator": "none",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 21:19:05",
+        "31/10 21:19:07"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:22:05",
+        "31/10 21:22:07"
+      ],
+      "playback": false,
+      "offset_seconds": 4925,
+      "lettering": []
+    },
+    "L1-21": {
+      "source": "A",
+      "operator": "Nina -> supported",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 21:19:15",
+        "31/10 21:19:17"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:22:15",
+        "31/10 21:22:17"
+      ],
+      "playback": false,
+      "offset_seconds": 4935,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "VOU DEIXAR GRAVANDO AQUI.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Jack",
+          "text": "NÃO VAI ESQUECER ELA.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-22": {
+      "source": "A",
+      "operator": "supported",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 21:19:25",
+        "31/10 21:19:27"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:22:25",
+        "31/10 21:22:27"
+      ],
+      "playback": false,
+      "offset_seconds": 4945,
+      "lettering": [
+        {
+          "speaker": "André",
+          "text": "PRECISA APERTAR TANTO?",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Brock",
+          "text": "JÁ JÁ ACABA.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "role": "sound",
+          "text": "CLAC"
+        }
+      ]
+    },
+    "L1-23": {
+      "source": "C",
+      "operator": "none",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 21:19:35",
+        "31/10 21:19:37"
+      ],
+      "battery": [
+        91,
+        91
+      ],
+      "digital_world_clock": [
+        "31/10 21:22:35",
+        "31/10 21:22:37"
+      ],
+      "playback": false,
+      "offset_seconds": 4955,
+      "lettering": []
+    },
+    "L1-24": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:38:00",
+        "31/10 23:38:02"
+      ],
+      "battery": [
+        76,
+        76
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:00",
+        "31/10 23:41:02"
+      ],
+      "playback": false,
+      "offset_seconds": 13260,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "TÁ GRAVANDO.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Jason",
+          "text": "ENTÃO PEGA O MEU LADO BOM.",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-25": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:38:05",
+        "31/10 23:38:07"
+      ],
+      "battery": [
+        76,
+        76
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:05",
+        "31/10 23:41:07"
+      ],
+      "playback": false,
+      "offset_seconds": 13265,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "BONITO O PASSEIO.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kim",
+          "text": "CADÊ O PRÊMIO?",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-26": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:38:10",
+        "31/10 23:38:12"
+      ],
+      "battery": [
+        76,
+        76
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:10",
+        "31/10 23:41:12"
+      ],
+      "playback": false,
+      "offset_seconds": 13270,
+      "lettering": [
+        {
+          "speaker": "Brock",
+          "text": "AQUI, ANDRÉ.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "André",
+          "text": "TÔ INDO.",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-27": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 23:38:20",
+        "31/10 23:38:22"
+      ],
+      "battery": [
+        76,
+        76
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:20",
+        "31/10 23:41:22"
+      ],
+      "playback": false,
+      "offset_seconds": 13280,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "ISSO VAI DAR MUITO ACESSO.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Nina",
+          "text": "OLHA A CARA DESSE POVO.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-28": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 23:38:30",
+        "31/10 23:38:32"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:30",
+        "31/10 23:41:32"
+      ],
+      "playback": false,
+      "offset_seconds": 13290,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "ESCOLHAM OS PRIMEIROS DESAFIANTES.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-29": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:38:35",
+        "31/10 23:38:37"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:35",
+        "31/10 23:41:37"
+      ],
+      "playback": false,
+      "offset_seconds": 13295,
+      "lettering": [
+        {
+          "speaker": "André",
+          "text": "EU VOU. QUERO ACABAR LOGO.",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Brock",
+          "text": "NEM VIU COMO É.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "André",
+          "text": "TEM O CINEMA, MANO.",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-30": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:38:40",
+        "31/10 23:38:42"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:40",
+        "31/10 23:41:42"
+      ],
+      "playback": false,
+      "offset_seconds": 13300,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "FECHOU. PROMETO PEGAR LEVE.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kim",
+          "text": "SÓ NÃO ENROLA.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-31": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 23:38:43",
+        "31/10 23:38:45"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:43",
+        "31/10 23:41:45"
+      ],
+      "playback": false,
+      "offset_seconds": 13303,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "JACK...",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jack",
+          "text": "É RÁPIDO.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-32": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:38:45",
+        "31/10 23:38:47"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:45",
+        "31/10 23:41:47"
+      ],
+      "playback": false,
+      "offset_seconds": 13305,
+      "lettering": [
+        {
+          "speaker": "Michael",
+          "text": "PEGA MINHA REAÇÃO.",
+          "color": "#155E63",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Anderson",
+          "text": "SAI DA FRENTE, PORRA.",
+          "color": "#4B5563",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-33": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:38:48",
+        "31/10 23:38:50"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:48",
+        "31/10 23:41:50"
+      ],
+      "playback": false,
+      "offset_seconds": 13308,
+      "lettering": [
+        {
+          "speaker": "André",
+          "text": "VAI, MANDA.",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jack",
+          "text": "NÃO VAI CHORAR DEPOIS.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-34": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:38:51",
+        "31/10 23:38:53"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:51",
+        "31/10 23:41:53"
+      ],
+      "playback": false,
+      "offset_seconds": 13311,
+      "lettering": [
+        {
+          "role": "sound",
+          "text": "TOC"
+        },
+        {
+          "speaker": "André",
+          "text": "BOA. AGORA É MINHA VEZ.",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-35": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:38:54",
+        "31/10 23:38:56"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:54",
+        "31/10 23:41:56"
+      ],
+      "playback": false,
+      "offset_seconds": 13314,
+      "lettering": [
+        {
+          "speaker": "André",
+          "text": "UÉ...",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-36": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:38:57",
+        "31/10 23:38:59"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:41:57",
+        "31/10 23:41:59"
+      ],
+      "playback": false,
+      "offset_seconds": 13317,
+      "lettering": [
+        {
+          "speaker": "André",
+          "text": "EI. TÁ DOENDO.",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "André",
+          "text": "TÁ DOENDO DE VERDADE!",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-37": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:39:00",
+        "31/10 23:39:02"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:00",
+        "31/10 23:42:02"
+      ],
+      "playback": false,
+      "offset_seconds": 13320,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "SOLTA ELE!",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-38": {
+      "source": "A",
+      "operator": "supported",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:39:00",
+        "31/10 23:39:02"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:00",
+        "31/10 23:42:02"
+      ],
+      "playback": false,
+      "offset_seconds": 13320,
+      "lettering": [
+        {
+          "role": "sound",
+          "text": "CLIC"
+        }
+      ]
+    },
+    "L1-39": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:39:04",
+        "31/10 23:39:06"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:04",
+        "31/10 23:42:06"
+      ],
+      "playback": false,
+      "offset_seconds": 13324,
+      "lettering": [
+        {
+          "speaker": "Brock",
+          "text": "CALMA. É SÓ O JOGO.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kim",
+          "text": "ENTÃO DESLIGA ESSA MERDA!",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-40": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:39:08",
+        "31/10 23:39:10"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:08",
+        "31/10 23:42:10"
+      ],
+      "playback": false,
+      "offset_seconds": 13328,
+      "lettering": [
+        {
+          "speaker": "Michael",
+          "text": "PARA DE CENA, ANDRÉ.",
+          "color": "#155E63",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "André",
+          "text": "EU NÃO TÔ BRINCANDO!",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-41": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:39:12",
+        "31/10 23:39:14"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:12",
+        "31/10 23:42:14"
+      ],
+      "playback": false,
+      "offset_seconds": 13332,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "EU NEM BATI FORTE.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Nina",
+          "text": "OLHA PRA MIM. NÃO FOI VOCÊ.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-42": {
+      "source": "A",
+      "operator": "supported",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:39:12",
+        "31/10 23:39:14"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:12",
+        "31/10 23:42:14"
+      ],
+      "playback": false,
+      "offset_seconds": 13332,
+      "lettering": []
+    },
+    "L1-43": {
+      "source": "S",
+      "operator": "none",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 23:39:16",
+        "31/10 23:39:18"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:16",
+        "31/10 23:42:18"
+      ],
+      "playback": false,
+      "offset_seconds": 13336,
+      "lettering": [
+        {
+          "speaker": "André",
+          "text": "TÁ FRIO.",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "thought_no_tail"
+        },
+        {
+          "speaker": "Brock",
+          "text": "FICA COMIGO.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-44": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:39:20",
+        "31/10 23:39:22"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:20",
+        "31/10 23:42:22"
+      ],
+      "playback": false,
+      "offset_seconds": 13340,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "EU VOU DESLIGAR.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Kim",
+          "text": "NÃO. GRAVA ISSO.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-45": {
+      "source": "S",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:39:24",
+        "31/10 23:39:26"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:24",
+        "31/10 23:42:26"
+      ],
+      "playback": false,
+      "offset_seconds": 13344,
+      "lettering": [
+        {
+          "speaker": "André",
+          "text": "MINHA IRMÃ...",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Brock",
+          "text": "EU LEVO VOCÊ ATÉ ELA.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-46": {
+      "source": "A",
+      "operator": "supported",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 23:39:24",
+        "31/10 23:39:26"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:24",
+        "31/10 23:42:26"
+      ],
+      "playback": false,
+      "offset_seconds": 13344,
+      "lettering": []
+    },
+    "L1-47": {
+      "source": "S",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:39:28",
+        "31/10 23:39:30"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:28",
+        "31/10 23:42:30"
+      ],
+      "playback": false,
+      "offset_seconds": 13348,
+      "lettering": [
+        {
+          "speaker": "André",
+          "text": "EU PROMETI.",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "thought_no_tail"
+        }
+      ]
+    },
+    "L1-48": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 23:39:30",
+        "31/10 23:39:32"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:42:30",
+        "31/10 23:42:32"
+      ],
+      "playback": false,
+      "offset_seconds": 13350,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "ANDRÉ?",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L1-49": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:41:00",
+        "31/10 23:41:02"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:44:00",
+        "31/10 23:44:02"
+      ],
+      "playback": false,
+      "offset_seconds": 13440,
+      "lettering": []
+    },
+    "L1-50": {
+      "source": "C",
+      "operator": "none",
+      "panels": 1,
+      "analog_clock": [
+        "31/10 23:41:15",
+        "31/10 23:41:17"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:44:15",
+        "31/10 23:44:17"
+      ],
+      "playback": false,
+      "offset_seconds": 13455,
+      "lettering": [
+        {
+          "role": "interface",
+          "text": "DELETE"
+        }
+      ]
+    },
+    "L1-51": {
+      "source": "A",
+      "operator": "worker",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:42:50",
+        "31/10 23:42:52"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 23:45:50",
+        "31/10 23:45:52"
+      ],
+      "playback": false,
+      "offset_seconds": 13550,
+      "lettering": []
+    },
+    "L2-01": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:43:00",
+        "31/10 23:43:02"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:00",
+        "31/10 20:00:02"
+      ],
+      "playback": false,
+      "offset_seconds": 0,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "PEGA UM PRATO E VEM.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-02": {
+      "source": "D",
+      "operator": "supported: Fred visible",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:43:05",
+        "31/10 23:43:07"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:05",
+        "31/10 20:00:07"
+      ],
+      "playback": false,
+      "offset_seconds": 5,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "MAIS PRA CÁ.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Michael",
+          "text": "ASSIM?",
+          "color": "#155E63",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "NÃO. DEIXA...",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-03": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:43:15",
+        "31/10 23:43:17"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:15",
+        "31/10 20:00:17"
+      ],
+      "playback": false,
+      "offset_seconds": 15,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "Ô, GENTILEZA?",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kim",
+          "text": "PEGA LOGO.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-04": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:43:20",
+        "31/10 23:43:22"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:20",
+        "31/10 20:00:22"
+      ],
+      "playback": false,
+      "offset_seconds": 20,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "MANO, NÃO COME ESSA UVA!",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Jack",
+          "text": "QUAL FOI?",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-05": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "31/10 23:43:25",
+        "31/10 23:43:27"
+      ],
+      "battery": [
+        75,
+        75
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:25",
+        "31/10 20:00:27"
+      ],
+      "playback": false,
+      "offset_seconds": 25,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "NÃO SEI. TÔ COM UMA SENSAÇÃO RUIM.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Kim",
+          "text": "ENTÃO NÃO COME.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-06": {
+      "source": "C",
+      "operator": "none",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 00:03:00",
+        "01/11 00:03:02"
+      ],
+      "battery": [
+        72,
+        72
+      ],
+      "digital_world_clock": [
+        "31/10 20:20:00",
+        "31/10 20:20:02"
+      ],
+      "playback": false,
+      "offset_seconds": 1200,
+      "lettering": []
+    },
+    "L2-07": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 00:03:05",
+        "01/11 00:03:07"
+      ],
+      "battery": [
+        72,
+        72
+      ],
+      "digital_world_clock": [
+        "31/10 20:20:05",
+        "31/10 20:20:07"
+      ],
+      "playback": false,
+      "offset_seconds": 1205,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "BOA NOITE AOS NOSSOS CINQUENTA CONVIDADOS ESCOLHIDOS.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kronos",
+          "text": "OITO VÃO COMEÇAR.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Nina",
+          "text": "NÃO TINHA MAIS GENTE?",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L2-08": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 00:03:15",
+        "01/11 00:03:17"
+      ],
+      "battery": [
+        72,
+        72
+      ],
+      "digital_world_clock": [
+        "31/10 20:20:15",
+        "31/10 20:20:17"
+      ],
+      "playback": false,
+      "offset_seconds": 1215,
+      "lettering": [
+        {
+          "speaker": "Jason",
+          "text": "O PRÊMIO CONTINUA, NÉ?",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "CLARO. FOI POR ISSO QUE CHAMARAM A GENTE.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L2-09": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 00:03:25",
+        "01/11 00:03:27"
+      ],
+      "battery": [
+        72,
+        72
+      ],
+      "digital_world_clock": [
+        "31/10 20:20:25",
+        "31/10 20:20:27"
+      ],
+      "playback": false,
+      "offset_seconds": 1225,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "ANDA, ABRE.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Anderson",
+          "text": "ELE NEM ENCOSTOU AINDA.",
+          "color": "#4B5563",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-10": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 00:03:40",
+        "01/11 00:03:42"
+      ],
+      "battery": [
+        72,
+        72
+      ],
+      "digital_world_clock": [
+        "31/10 20:20:40",
+        "31/10 20:20:42"
+      ],
+      "playback": false,
+      "offset_seconds": 1240,
+      "lettering": [
+        {
+          "speaker": "Michael",
+          "text": "QUE FOI?",
+          "color": "#155E63",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jack",
+          "text": "NADA.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-11": {
+      "source": "A",
+      "operator": "Nina -> Jack",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 00:03:50",
+        "01/11 00:03:52"
+      ],
+      "battery": [
+        72,
+        72
+      ],
+      "digital_world_clock": [
+        "31/10 20:20:50",
+        "31/10 20:20:52"
+      ],
+      "playback": false,
+      "offset_seconds": 1250,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "PASSA A...",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Jack",
+          "text": "JÁ PASSEI.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L2-12": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 00:04:00",
+        "01/11 00:04:02"
+      ],
+      "battery": [
+        72,
+        72
+      ],
+      "digital_world_clock": [
+        "31/10 20:21:00",
+        "31/10 20:21:02"
+      ],
+      "playback": false,
+      "offset_seconds": 1260,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "PESA MAIS QUE A FANTASIA.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Nina",
+          "text": "POR ISSO A ALÇA.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-13": {
+      "source": "C",
+      "operator": "none",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 00:04:10",
+        "01/11 00:04:12"
+      ],
+      "battery": [
+        72,
+        72
+      ],
+      "digital_world_clock": [
+        "31/10 20:21:10",
+        "31/10 20:21:12"
+      ],
+      "playback": false,
+      "offset_seconds": 1270,
+      "lettering": []
+    },
+    "L2-14": {
+      "source": "A",
+      "operator": "Nina -> supported",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 00:04:20",
+        "01/11 00:04:22"
+      ],
+      "battery": [
+        72,
+        72
+      ],
+      "digital_world_clock": [
+        "31/10 20:21:20",
+        "31/10 20:21:22"
+      ],
+      "playback": false,
+      "offset_seconds": 1280,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "AQUI NÃO CAI.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L2-15": {
+      "source": "A",
+      "operator": "supported",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 00:04:30",
+        "01/11 00:04:32"
+      ],
+      "battery": [
+        72,
+        72
+      ],
+      "digital_world_clock": [
+        "31/10 20:21:30",
+        "31/10 20:21:32"
+      ],
+      "playback": false,
+      "offset_seconds": 1290,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "ISSO TÁ GRAVANDO MESMO?",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Brock",
+          "text": "GRAVA DEPOIS. SENTA.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-16": {
+      "source": "C",
+      "operator": "none",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 00:04:40",
+        "01/11 00:04:42"
+      ],
+      "battery": [
+        71,
+        71
+      ],
+      "digital_world_clock": [
+        "31/10 20:21:40",
+        "31/10 20:21:42"
+      ],
+      "playback": false,
+      "offset_seconds": 1300,
+      "lettering": []
+    },
+    "L2-17": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:08:00",
+        "01/11 02:08:02"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:25:00",
+        "31/10 22:25:02"
+      ],
+      "playback": false,
+      "offset_seconds": 8700,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "AGORA VAI.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Jason",
+          "text": "JÁ ERA PRA TER IDO.",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-18": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 02:08:10",
+        "01/11 02:08:12"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:25:10",
+        "31/10 22:25:12"
+      ],
+      "playback": false,
+      "offset_seconds": 8710,
+      "lettering": [
+        {
+          "speaker": "Michael",
+          "text": "BORA, ANDERSON.",
+          "color": "#155E63",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-19": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:08:20",
+        "01/11 02:08:22"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:25:20",
+        "31/10 22:25:22"
+      ],
+      "playback": false,
+      "offset_seconds": 8720,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "ESPERA UM POUCO.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jack",
+          "text": "O QUÊ?",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-20": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 02:08:30",
+        "01/11 02:08:32"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:25:30",
+        "31/10 22:25:32"
+      ],
+      "playback": false,
+      "offset_seconds": 8730,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "NOSSOS QUARENTA E DOIS ESPECTADORES JÁ ESTÃO A POSTOS.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-21": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:08:40",
+        "01/11 02:08:42"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:25:40",
+        "31/10 22:25:42"
+      ],
+      "playback": false,
+      "offset_seconds": 8740,
+      "lettering": [
+        {
+          "speaker": "Jason",
+          "text": "EU VOU.",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Brock",
+          "text": "PELO PRÊMIO?",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jason",
+          "text": "TÁ PRECISANDO LÁ EM CASA.",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-22": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:08:50",
+        "01/11 02:08:52"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:25:50",
+        "31/10 22:25:52"
+      ],
+      "playback": false,
+      "offset_seconds": 8750,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "ENTÃO VEM.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Nina",
+          "text": "JACK...",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-23": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 02:09:00",
+        "01/11 02:09:02"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:26:00",
+        "31/10 22:26:02"
+      ],
+      "playback": false,
+      "offset_seconds": 8760,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "JACK, NÃO LUTA.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-24": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:09:05",
+        "01/11 02:09:07"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:26:05",
+        "31/10 22:26:07"
+      ],
+      "playback": false,
+      "offset_seconds": 8765,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "TÁ. NÃO VOU.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jason",
+          "text": "E AGORA?",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-25": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:09:10",
+        "01/11 02:09:12"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:26:10",
+        "31/10 22:26:12"
+      ],
+      "playback": false,
+      "offset_seconds": 8770,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "ATAQUEM.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-26": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:09:20",
+        "01/11 02:09:22"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:26:20",
+        "31/10 22:26:22"
+      ],
+      "playback": false,
+      "offset_seconds": 8780,
+      "lettering": [
+        {
+          "speaker": "Brock",
+          "text": "PROS PORTÕES!",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-27": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:09:30",
+        "01/11 02:09:32"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:26:30",
+        "31/10 22:26:32"
+      ],
+      "playback": false,
+      "offset_seconds": 8790,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "NINA, COM O JACK!",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Brock",
+          "text": "FRED, AQUI!",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-28": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:09:40",
+        "01/11 02:09:42"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:26:40",
+        "31/10 22:26:42"
+      ],
+      "playback": false,
+      "offset_seconds": 8800,
+      "lettering": [
+        {
+          "speaker": "Brock",
+          "text": "PROCURA OUTRA SAÍDA!",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jason",
+          "text": "TÔ PROCURANDO!",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-29": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:09:50",
+        "01/11 02:09:52"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:26:50",
+        "31/10 22:26:52"
+      ],
+      "playback": false,
+      "offset_seconds": 8810,
+      "lettering": [
+        {
+          "speaker": "Brock",
+          "text": "VEM, FILHO DA PUTA!",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "role": "sound",
+          "text": "TRAC"
+        }
+      ]
+    },
+    "L2-30": {
+      "source": "A",
+      "operator": "supported",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:09:50",
+        "01/11 02:09:52"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:26:50",
+        "31/10 22:26:52"
+      ],
+      "playback": false,
+      "offset_seconds": 8810,
+      "lettering": [
+        {
+          "role": "caption",
+          "text": "CLIC"
+        }
+      ]
+    },
+    "L2-31": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:10:00",
+        "01/11 02:10:02"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:00",
+        "31/10 22:27:02"
+      ],
+      "playback": false,
+      "offset_seconds": 8820,
+      "lettering": [
+        {
+          "speaker": "Jason",
+          "text": "POR AQUI, CARALHO!",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "SOLTA MINHA ROUPA!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L2-32": {
+      "source": "S",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:10:05",
+        "01/11 02:10:07"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:05",
+        "31/10 22:27:07"
+      ],
+      "playback": false,
+      "offset_seconds": 8825,
+      "lettering": [
+        {
+          "speaker": "Anderson",
+          "text": "A PORTA. AJUDA AQUI.",
+          "color": "#4B5563",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Michael",
+          "text": "EU TÔ VENDO!",
+          "color": "#155E63",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-33": {
+      "source": "S",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:10:10",
+        "01/11 02:10:12"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:10",
+        "31/10 22:27:12"
+      ],
+      "playback": false,
+      "offset_seconds": 8830,
+      "lettering": [
+        {
+          "speaker": "Michael",
+          "text": "É IGUAL NA ARENA. É SÓ...",
+          "color": "#155E63",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Anderson",
+          "text": "ENTÃO POR QUE VOCÊ TÁ TREMENDO?",
+          "color": "#4B5563",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-34": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:10:15",
+        "01/11 02:10:17"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:15",
+        "31/10 22:27:17"
+      ],
+      "playback": false,
+      "offset_seconds": 8835,
+      "lettering": [
+        {
+          "speaker": "Brock",
+          "text": "É O MICHAEL.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "CADÊ?",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Brock",
+          "text": "DO OUTRO LADO.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-35": {
+      "source": "A",
+      "operator": "supported",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 02:10:15",
+        "01/11 02:10:17"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:15",
+        "31/10 22:27:17"
+      ],
+      "playback": false,
+      "offset_seconds": 8835,
+      "lettering": []
+    },
+    "L2-36": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:10:20",
+        "01/11 02:10:22"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:20",
+        "31/10 22:27:22"
+      ],
+      "playback": false,
+      "offset_seconds": 8840,
+      "lettering": [
+        {
+          "speaker": "Jason",
+          "text": "EU PRECISO VOLTAR PRA CASA.",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Brock",
+          "text": "ENTÃO PUXA.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-37": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:10:25",
+        "01/11 02:10:27"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:25",
+        "31/10 22:27:27"
+      ],
+      "playback": false,
+      "offset_seconds": 8845,
+      "lettering": [
+        {
+          "speaker": "Brock",
+          "text": "NÃO FICA PARADO!",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-38": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:10:30",
+        "01/11 02:10:32"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:30",
+        "31/10 22:27:32"
+      ],
+      "playback": false,
+      "offset_seconds": 8850,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "NÃO! MEU PAI NÃO VAI DEIXAR ISSO ACONTECER!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L2-39": {
+      "source": "S",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:10:35",
+        "01/11 02:10:37"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:35",
+        "31/10 22:27:37"
+      ],
+      "playback": false,
+      "offset_seconds": 8855,
+      "lettering": [
+        {
+          "speaker": "Michael",
+          "text": "ANDERSON, SEGURA!",
+          "color": "#155E63",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-40": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:10:40",
+        "01/11 02:10:42"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:40",
+        "31/10 22:27:42"
+      ],
+      "playback": false,
+      "offset_seconds": 8860,
+      "lettering": [
+        {
+          "speaker": "Jason",
+          "text": "BROCK...",
+          "color": "#6D28A6",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-41": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:10:45",
+        "01/11 02:10:47"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:45",
+        "31/10 22:27:47"
+      ],
+      "playback": false,
+      "offset_seconds": 8865,
+      "lettering": [
+        {
+          "speaker": "Brock",
+          "text": "SAI DAQUI, FRED.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "ABRE ESSA PORRA!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L2-42": {
+      "source": "A",
+      "operator": "supported",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 02:10:45",
+        "01/11 02:10:47"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:45",
+        "31/10 22:27:47"
+      ],
+      "playback": false,
+      "offset_seconds": 8865,
+      "lettering": []
+    },
+    "L2-43": {
+      "source": "S",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:10:50",
+        "01/11 02:10:52"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:50",
+        "31/10 22:27:52"
+      ],
+      "playback": false,
+      "offset_seconds": 8870,
+      "lettering": [
+        {
+          "speaker": "Michael",
+          "text": "NÃO ME LARGA.",
+          "color": "#155E63",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Anderson",
+          "text": "EU TÔ AQUI.",
+          "color": "#4B5563",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-44": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 02:10:55",
+        "01/11 02:10:57"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:27:55",
+        "31/10 22:27:57"
+      ],
+      "playback": false,
+      "offset_seconds": 8875,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "EU VOU PROCESSAR VOCÊS!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L2-45": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:11:00",
+        "01/11 02:11:02"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:28:00",
+        "31/10 22:28:02"
+      ],
+      "playback": false,
+      "offset_seconds": 8880,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "BROCK?",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L2-46": {
+      "source": "S",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:11:05",
+        "01/11 02:11:07"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:28:05",
+        "31/10 22:28:07"
+      ],
+      "playback": false,
+      "offset_seconds": 8885,
+      "lettering": [
+        {
+          "speaker": "Anderson",
+          "text": "MICHAEL!",
+          "color": "#4B5563",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L2-47": {
+      "source": "S",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:11:10",
+        "01/11 02:11:12"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:28:10",
+        "31/10 22:28:12"
+      ],
+      "playback": false,
+      "offset_seconds": 8890,
+      "lettering": [
+        {
+          "speaker": "Anderson",
+          "text": "EU IA SAIR DESSE GRUPO.",
+          "color": "#4B5563",
+          "fill": "#FFFFFF",
+          "origin": "thought_no_tail"
+        }
+      ]
+    },
+    "L2-48": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 02:11:15",
+        "01/11 02:11:17"
+      ],
+      "battery": [
+        51,
+        51
+      ],
+      "digital_world_clock": [
+        "31/10 22:28:15",
+        "31/10 22:28:17"
+      ],
+      "playback": false,
+      "offset_seconds": 8895,
+      "lettering": []
+    },
+    "L2-49": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:15:00",
+        "01/11 02:15:02"
+      ],
+      "battery": [
+        50,
+        50
+      ],
+      "digital_world_clock": [
+        "31/10 22:32:00",
+        "31/10 22:32:02"
+      ],
+      "playback": false,
+      "offset_seconds": 9120,
+      "lettering": []
+    },
+    "L2-50": {
+      "source": "C",
+      "operator": "none",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 02:15:15",
+        "01/11 02:15:17"
+      ],
+      "battery": [
+        50,
+        50
+      ],
+      "digital_world_clock": [
+        "31/10 22:32:15",
+        "31/10 22:32:17"
+      ],
+      "playback": false,
+      "offset_seconds": 9135,
+      "lettering": [
+        {
+          "role": "interface",
+          "text": "DELETE"
+        }
+      ]
+    },
+    "L2-51": {
+      "source": "A",
+      "operator": "worker",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:16:50",
+        "01/11 02:16:52"
+      ],
+      "battery": [
+        50,
+        50
+      ],
+      "digital_world_clock": [
+        "31/10 22:33:50",
+        "31/10 22:33:52"
+      ],
+      "playback": false,
+      "offset_seconds": 9230,
+      "lettering": []
+    },
+    "L3-01": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:17:00",
+        "01/11 02:17:02"
+      ],
+      "battery": [
+        50,
+        50
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:00",
+        "31/10 20:00:02"
+      ],
+      "playback": false,
+      "offset_seconds": 0,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "BOA NOITE AOS NOSSOS DEZ CONVIDADOS.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-02": {
+      "source": "D",
+      "operator": "supported: Fred visible",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:17:05",
+        "01/11 02:17:07"
+      ],
+      "battery": [
+        50,
+        50
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:05",
+        "31/10 20:00:07"
+      ],
+      "playback": false,
+      "offset_seconds": 5,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "TRÊS...",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "AH, FODA-SE.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-03": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:17:15",
+        "01/11 02:17:17"
+      ],
+      "battery": [
+        50,
+        50
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:15",
+        "31/10 20:00:17"
+      ],
+      "playback": false,
+      "offset_seconds": 15,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "QUER?",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Nina",
+          "text": "NÃO. DEIXA ISSO AÍ.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L3-04": {
+      "source": "C",
+      "operator": "none",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 02:17:20",
+        "01/11 02:17:22"
+      ],
+      "battery": [
+        50,
+        50
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:20",
+        "31/10 20:00:22"
+      ],
+      "playback": false,
+      "offset_seconds": 20,
+      "lettering": []
+    },
+    "L3-05": {
+      "source": "A",
+      "operator": "Nina",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:17:45",
+        "01/11 02:17:47"
+      ],
+      "battery": [
+        50,
+        50
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:45",
+        "31/10 20:00:47"
+      ],
+      "playback": false,
+      "offset_seconds": 45,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "MANO, EU TÔ ME SENTINDO ESTRANHA.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Jack",
+          "text": "ME DÁ AQUI UM POUCO.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-06": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:17:55",
+        "01/11 02:17:57"
+      ],
+      "battery": [
+        50,
+        50
+      ],
+      "digital_world_clock": [
+        "31/10 20:00:55",
+        "31/10 20:00:57"
+      ],
+      "playback": false,
+      "offset_seconds": 55,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "TÁ CANSADA?",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Nina",
+          "text": "NÃO É ISSO.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-07": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:20:00",
+        "01/11 02:20:02"
+      ],
+      "battery": [
+        49,
+        49
+      ],
+      "digital_world_clock": [
+        "31/10 20:03:00",
+        "31/10 20:03:02"
+      ],
+      "playback": false,
+      "offset_seconds": 180,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "VOCÊ LIGOU ISSO ANTES DE SAIR?",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Nina",
+          "text": "LIGUEI QUANDO A GENTE CHEGOU.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "role": "interface",
+          "text": "01/11 02:20:00"
+        },
+        {
+          "role": "interface",
+          "text": "BAT 49%"
+        }
+      ]
+    },
+    "L3-08": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:20:15",
+        "01/11 02:20:17"
+      ],
+      "battery": [
+        49,
+        49
+      ],
+      "digital_world_clock": [
+        "31/10 20:03:15",
+        "31/10 20:03:17"
+      ],
+      "playback": false,
+      "offset_seconds": 195,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "MAIS DE SEIS HORAS?",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Nina",
+          "text": "VOLTA UM POUCO.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-09": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:20:30",
+        "01/11 02:20:32"
+      ],
+      "battery": [
+        49,
+        49
+      ],
+      "digital_world_clock": [
+        "31/10 20:03:30",
+        "31/10 20:03:32"
+      ],
+      "playback": true,
+      "offset_seconds": 210,
+      "replay_of": "L1-22",
+      "archived_clock": [
+        "31/10 21:19:25",
+        "31/10 21:19:27"
+      ],
+      "lettering": [
+        {
+          "role": "interface",
+          "text": "PLAY"
+        },
+        {
+          "speaker": "Nina",
+          "text": "AQUI. PARA.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-10": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:20:40",
+        "01/11 02:20:42"
+      ],
+      "battery": [
+        49,
+        49
+      ],
+      "digital_world_clock": [
+        "31/10 20:03:40",
+        "31/10 20:03:42"
+      ],
+      "playback": true,
+      "offset_seconds": 220,
+      "replay_of": "L1-22",
+      "archived_clock": [
+        "31/10 21:19:25",
+        "31/10 21:19:27"
+      ],
+      "lettering": [
+        {
+          "speaker": "André",
+          "text": "PRECISA APERTAR TANTO?",
+          "color": "#9A4A16",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Brock",
+          "text": "JÁ JÁ ACABA.",
+          "color": "#8B1E1E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-11": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:20:50",
+        "01/11 02:20:52"
+      ],
+      "battery": [
+        49,
+        49
+      ],
+      "digital_world_clock": [
+        "31/10 20:03:50",
+        "31/10 20:03:52"
+      ],
+      "playback": true,
+      "offset_seconds": 230,
+      "replay_of": "L2-35",
+      "archived_clock": [
+        "01/11 02:10:15",
+        "01/11 02:10:17"
+      ],
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "ISSO FOI AQUI.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-12": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:21:00",
+        "01/11 02:21:02"
+      ],
+      "battery": [
+        49,
+        49
+      ],
+      "digital_world_clock": [
+        "31/10 20:04:00",
+        "31/10 20:04:02"
+      ],
+      "playback": true,
+      "offset_seconds": 240,
+      "replay_of": "L1-21",
+      "archived_clock": [
+        "31/10 21:19:15",
+        "31/10 21:19:17"
+      ],
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "ESSA SOU EU.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jack",
+          "text": "EU NÃO LEMBRO DISSO.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-13": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:21:10",
+        "01/11 02:21:12"
+      ],
+      "battery": [
+        49,
+        49
+      ],
+      "digital_world_clock": [
+        "31/10 20:04:10",
+        "31/10 20:04:12"
+      ],
+      "playback": false,
+      "offset_seconds": 250,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "CÂMERA VELHA É QUE TEM ESSAS COISAS.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Nina",
+          "text": "NÃO É DEFEITO. A GENTE TÁ NA FITA.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-14": {
+      "source": "A",
+      "operator": "Jack",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:21:25",
+        "01/11 02:21:27"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:04:25",
+        "31/10 20:04:27"
+      ],
+      "playback": false,
+      "offset_seconds": 265,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "NÃO APAGA NADA.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jack",
+          "text": "NÃO VOU APAGAR.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L3-15": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:21:40",
+        "01/11 02:21:42"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:04:40",
+        "31/10 20:04:42"
+      ],
+      "playback": false,
+      "offset_seconds": 280,
+      "lettering": []
+    },
+    "L3-16": {
+      "source": "A",
+      "operator": "Jack",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:22:00",
+        "01/11 02:22:02"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:05:00",
+        "31/10 20:05:02"
+      ],
+      "playback": false,
+      "offset_seconds": 300,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "JACK. OLHA AS PORTAS.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-17": {
+      "source": "A",
+      "operator": "Jack",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:22:10",
+        "01/11 02:22:12"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:05:10",
+        "31/10 20:05:12"
+      ],
+      "playback": false,
+      "offset_seconds": 310,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "A GENTE VAI SAIR. AGORA.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-18": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:22:20",
+        "01/11 02:22:22"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:05:20",
+        "31/10 20:05:22"
+      ],
+      "playback": false,
+      "offset_seconds": 320,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "VOCÊS NÃO PODEM IR EMBORA.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kim",
+          "text": "ENTÃO TIRA ELES DA FRENTE.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-19": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:22:30",
+        "01/11 02:22:32"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:05:30",
+        "31/10 20:05:32"
+      ],
+      "playback": false,
+      "offset_seconds": 330,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "CORRE!",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-20": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:22:30",
+        "01/11 02:22:30"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:05:30",
+        "31/10 20:05:30"
+      ],
+      "playback": false,
+      "offset_seconds": 330,
+      "lettering": []
+    },
+    "L3-21": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:22:40",
+        "01/11 02:22:42"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:05:40",
+        "31/10 20:05:42"
+      ],
+      "playback": false,
+      "offset_seconds": 340,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "ABRE!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Kim",
+          "text": "SAI DA FRENTE.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-22": {
+      "source": "A",
+      "operator": "Jack",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:22:40",
+        "01/11 02:22:42"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:05:40",
+        "31/10 20:05:42"
+      ],
+      "playback": false,
+      "offset_seconds": 340,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "PRA ESCADA!",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-23": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:22:50",
+        "01/11 02:22:52"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:05:50",
+        "31/10 20:05:52"
+      ],
+      "playback": false,
+      "offset_seconds": 350,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "NÃO VAI. VOLTA!",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-24": {
+      "source": "A",
+      "operator": "Jack",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:22:50",
+        "01/11 02:22:52"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:05:50",
+        "31/10 20:05:52"
+      ],
+      "playback": false,
+      "offset_seconds": 350,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "TEM PASSAGEM AQUI.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jack",
+          "text": "VAI, EU TÔ ATRÁS.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L3-25": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:23:00",
+        "01/11 02:23:00"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:06:00",
+        "31/10 20:06:00"
+      ],
+      "playback": false,
+      "offset_seconds": 360,
+      "lettering": []
+    },
+    "L3-26": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:23:10",
+        "01/11 02:23:12"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:06:10",
+        "31/10 20:06:12"
+      ],
+      "playback": false,
+      "offset_seconds": 370,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "EU TÔ INDO!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Kim",
+          "text": "ENTÃO ANDA!",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-27": {
+      "source": "A",
+      "operator": "Jack",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:23:10",
+        "01/11 02:23:12"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:06:10",
+        "31/10 20:06:12"
+      ],
+      "playback": false,
+      "offset_seconds": 370,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "NÃO PARA!",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-28": {
+      "source": "A",
+      "operator": "Jack",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:23:20",
+        "01/11 02:23:22"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:06:20",
+        "31/10 20:06:22"
+      ],
+      "playback": false,
+      "offset_seconds": 380,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "SEGUREI!",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Nina",
+          "text": "VEM!",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-29": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:23:30",
+        "01/11 02:23:32"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:06:30",
+        "31/10 20:06:32"
+      ],
+      "playback": false,
+      "offset_seconds": 390,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "AGORA NÃO, PORRA!",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "EU NÃO TÔ ENXERGANDO!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L3-30": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:23:40",
+        "01/11 02:23:42"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:06:40",
+        "31/10 20:06:42"
+      ],
+      "playback": false,
+      "offset_seconds": 400,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "EU PAGO. QUANTO VOCÊS QUEREM?",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Kim",
+          "text": "GUARDA A GRANA E CORRE!",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-31": {
+      "source": "C",
+      "operator": "none",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 02:23:45",
+        "01/11 02:23:47"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:06:45",
+        "31/10 20:06:47"
+      ],
+      "playback": false,
+      "offset_seconds": 405,
+      "lettering": []
+    },
+    "L3-32": {
+      "source": "A",
+      "operator": "Jack",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:23:50",
+        "01/11 02:23:52"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:06:50",
+        "31/10 20:06:52"
+      ],
+      "playback": false,
+      "offset_seconds": 410,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "VOLTA. POR BAIXO!",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-33": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:23:55",
+        "01/11 02:23:57"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:06:55",
+        "31/10 20:06:57"
+      ],
+      "playback": false,
+      "offset_seconds": 415,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "PUXA AQUI.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "NÃO CABE!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L3-34": {
+      "source": "A",
+      "operator": "Jack",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:24:00",
+        "01/11 02:24:02"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:07:00",
+        "31/10 20:07:02"
+      ],
+      "playback": false,
+      "offset_seconds": 420,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "NÃO SOLTA ESSA CÂMERA.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-35": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:24:05",
+        "01/11 02:24:07"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:07:05",
+        "31/10 20:07:07"
+      ],
+      "playback": false,
+      "offset_seconds": 425,
+      "lettering": []
+    },
+    "L3-36": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:24:10",
+        "01/11 02:24:12"
+      ],
+      "battery": [
+        48,
+        47
+      ],
+      "digital_world_clock": [
+        "31/10 20:07:10",
+        "31/10 20:07:12"
+      ],
+      "playback": false,
+      "offset_seconds": 430,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "KIM!",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "NÃO VOLTA!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Kim",
+          "text": "ELA TÁ ALI.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-37": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:24:20",
+        "01/11 02:24:22"
+      ],
+      "battery": [
+        47,
+        47
+      ],
+      "digital_world_clock": [
+        "31/10 20:07:20",
+        "31/10 20:07:22"
+      ],
+      "playback": false,
+      "offset_seconds": 440,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "NÃO ENCOSTA!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L3-38": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:24:25",
+        "01/11 02:24:25"
+      ],
+      "battery": [
+        47,
+        47
+      ],
+      "digital_world_clock": [
+        "31/10 20:07:25",
+        "31/10 20:07:25"
+      ],
+      "playback": false,
+      "offset_seconds": 445,
+      "lettering": []
+    },
+    "L3-39": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:25:00",
+        "01/11 02:25:02"
+      ],
+      "battery": [
+        47,
+        47
+      ],
+      "digital_world_clock": [
+        "31/10 20:08:00",
+        "31/10 20:08:02"
+      ],
+      "playback": false,
+      "offset_seconds": 480,
+      "lettering": []
+    },
+    "L3-40": {
+      "source": "A",
+      "operator": "supported",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:25:30",
+        "01/11 02:25:32"
+      ],
+      "battery": [
+        47,
+        47
+      ],
+      "digital_world_clock": [
+        "31/10 20:08:30",
+        "31/10 20:08:32"
+      ],
+      "playback": false,
+      "offset_seconds": 510,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "NINA...",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Nina",
+          "text": "EU TÔ AQUI.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-41": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:42:00",
+        "01/11 02:42:02"
+      ],
+      "battery": [
+        41,
+        41
+      ],
+      "digital_world_clock": [
+        "31/10 20:25:00",
+        "31/10 20:25:02"
+      ],
+      "playback": false,
+      "offset_seconds": 1500,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "DEIXE A CÂMERA AÍ.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Fred",
+          "text": "EU NÃO VOU ATRAPALHAR.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L3-42": {
+      "source": "D",
+      "operator": "supported: Fred visible",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:42:10",
+        "01/11 02:42:12"
+      ],
+      "battery": [
+        41,
+        41
+      ],
+      "digital_world_clock": [
+        "31/10 20:25:10",
+        "31/10 20:25:12"
+      ],
+      "playback": false,
+      "offset_seconds": 1510,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "SOLTA ELES.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-43": {
+      "source": "D",
+      "operator": "supported: Fred visible",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:42:20",
+        "01/11 02:42:22"
+      ],
+      "battery": [
+        41,
+        41
+      ],
+      "digital_world_clock": [
+        "31/10 20:25:20",
+        "31/10 20:25:22"
+      ],
+      "playback": false,
+      "offset_seconds": 1520,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "EU NÃO FIZ NADA!",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-44": {
+      "source": "S",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:42:25",
+        "01/11 02:42:27"
+      ],
+      "battery": [
+        41,
+        41
+      ],
+      "digital_world_clock": [
+        "31/10 20:25:25",
+        "31/10 20:25:27"
+      ],
+      "playback": false,
+      "offset_seconds": 1525,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "KIM... FAZ ALGUMA COISA.",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-45": {
+      "source": "A",
+      "operator": "supported",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:42:25",
+        "01/11 02:42:27"
+      ],
+      "battery": [
+        41,
+        41
+      ],
+      "digital_world_clock": [
+        "31/10 20:25:25",
+        "31/10 20:25:27"
+      ],
+      "playback": false,
+      "offset_seconds": 1525,
+      "lettering": []
+    },
+    "L3-46": {
+      "source": "S",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:42:35",
+        "01/11 02:42:37"
+      ],
+      "battery": [
+        41,
+        41
+      ],
+      "digital_world_clock": [
+        "31/10 20:25:35",
+        "31/10 20:25:37"
+      ],
+      "playback": false,
+      "offset_seconds": 1535,
+      "lettering": [
+        {
+          "speaker": "Nina",
+          "text": "KIM, OLHA PRA MIM.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kim",
+          "text": "EU TÔ TENTANDO.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-47": {
+      "source": "S",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:42:45",
+        "01/11 02:42:47"
+      ],
+      "battery": [
+        41,
+        41
+      ],
+      "digital_world_clock": [
+        "31/10 20:25:45",
+        "31/10 20:25:47"
+      ],
+      "playback": false,
+      "offset_seconds": 1545,
+      "lettering": [
+        {
+          "speaker": "Jack",
+          "text": "NÃO FOI VOCÊ.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kim",
+          "text": "ME LEVA. DEIXA ELES.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    },
+    "L3-48": {
+      "source": "C",
+      "operator": "none",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:43:40",
+        "01/11 02:43:42"
+      ],
+      "battery": [
+        41,
+        41
+      ],
+      "digital_world_clock": [
+        "31/10 20:26:40",
+        "31/10 20:26:42"
+      ],
+      "playback": false,
+      "offset_seconds": 1600,
+      "lettering": [
+        {
+          "role": "interface",
+          "text": "DELETE"
+        }
+      ]
+    },
+    "L3-49": {
+      "source": "C",
+      "operator": "Kronos",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:44:00",
+        "01/11 02:44:02"
+      ],
+      "battery": [
+        41,
+        41
+      ],
+      "digital_world_clock": [
+        "31/10 20:27:00",
+        "31/10 20:27:02"
+      ],
+      "playback": false,
+      "offset_seconds": 1620,
+      "sources": [
+        "C",
+        "A"
+      ],
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "EU SABIA QUE ESSA CÂMERA IA SER UM PROBLEMA.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        },
+        {
+          "speaker": "Kronos",
+          "text": "ISSO NÃO ESTAVA NOS PLANOS...",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L3-50": {
+      "source": "A",
+      "operator": "Kronos -> worker",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:44:10",
+        "01/11 02:44:12"
+      ],
+      "battery": [
+        41,
+        41
+      ],
+      "digital_world_clock": [
+        "31/10 20:27:10",
+        "31/10 20:27:12"
+      ],
+      "playback": false,
+      "offset_seconds": 1630,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "MAS, NO FINAL, TUDO DEU CERTO.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "operator_bottom_center"
+        }
+      ]
+    },
+    "L3-51": {
+      "source": "A",
+      "operator": "supported",
+      "panels": 1,
+      "analog_clock": [
+        "01/11 03:00:00",
+        "01/11 03:00:02"
+      ],
+      "battery": [
+        35,
+        35
+      ],
+      "digital_world_clock": [
+        "31/10 20:43:00",
+        "31/10 20:43:02"
+      ],
+      "playback": false,
+      "offset_seconds": 2580,
+      "lettering": [
+        {
+          "speaker": "Kronos",
+          "text": "FINALMENTE, SEU CORPO É MEU, KIM.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Kronos",
+          "text": "FELIZ HALLOWEEN.",
+          "color": "#4B5058",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ]
+    }
+  }
+}
