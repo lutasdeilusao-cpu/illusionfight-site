@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792430857.8213954,
-    "ast_hash": "1741214ca05173b1367fcfa4f990fa35",
+    "mtime": 1792432733.1007564,
+    "ast_hash": "e108ae7d9c981beeda21d7697f614648",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2560,8 +2560,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792430861.411813,
-    "ast_hash": "2247b2445df5e9981aed04d85051e32c",
+    "mtime": 1792432733.1017559,
+    "ast_hash": "5d5073fc3d377c177b5431465f3fffb6",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9940,18 +9940,18 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md": {
-    "mtime": 1792430125.6110277,
-    "ast_hash": "041147766b68e745d05f35a1b17faac3",
+    "mtime": 1792433714.2702773,
+    "ast_hash": "5f5be11d5dfcf6c7e00c7282a858f6db",
     "semantic_hash": ""
   },
   "scripts/halloween_producao.py": {
-    "mtime": 1792430125.6064844,
-    "ast_hash": "0578d3ddf18b806ff05ac2e7aa80c3b7",
+    "mtime": 1792433575.8615158,
+    "ast_hash": "53f9ac68a3a8624cc294e3323ce1f158",
     "semantic_hash": ""
   },
   "docs/WEBSHARD/Especiais/HALLOWEEN_CONTINUIDADE.json": {
-    "mtime": 1792430238.7457,
-    "ast_hash": "9723d13139e57d8e2e85cd7c9aae2d11",
+    "mtime": 1792433714.274516,
+    "ast_hash": "f6729553d58830af29434e109ab03704",
     "semantic_hash": ""
   },
   "src/assets/webshard/capa-especial-de-natal.webp": {

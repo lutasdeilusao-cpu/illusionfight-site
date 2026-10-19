@@ -138,7 +138,7 @@ CAMERA_PLAN = '''
 47|P1 Andre subjective low field, Kim still pulls and leans nearer from SAME rescue side, foreground cable gives scale. P2 head/vision sinks as eye aperture contracts almost closed, Kim's gesture becomes partial silhouette, not a repeated sharp face with black border pasted on. Thought appears once. No running motion blur or technical overlay.
 48|Single D slightly lowered oblique medium frame from Fred: Andre now motionless, Brock remains bent toward his hand, Kim loosens pulling effort and turns face to check him, Nina/Jack remain on established side in depth. Changed aftermath posture, no frozen tableau copied from39 and no new pulling cycle.
 49|Both panels EXACT same high oblique CAM06 axis as23. P1 workers roll Andre's chair/body along established service path, empty base emerging behind it. P2 chair/body fully EXIT field, workers farther down route, eight remaining chairs/bodies unchanged. Removal then absence is unmistakable. No second identical chair-in-transit frame.
-50|A|Kim Jack buffet hall devices|07|ACTUAL LOOP2 START inside release1. A31/10 23:43:00 BAT75, NOT a digital reset. Worker hand finishes handing A back to Nina at lower frame edge; she turns along SAME buffet counter. Two panels: handoff/tilt then Kim addresses Jack choosing food. The unnamed adult from07 is ABSENT, his counter place empty; do not replace him with Andre. Andre was a DIFFERENT man in lounge and is also dead. Only reader recognizes change. Nina behind camera. No prior-loop memories.
+50|Single same fixed CAM06 field as49 showing empty base as technical shutdown obstructs recording. DELETE is interface only. No new angle, no new people posing, no floating insert of control room never established.
 51|P1 A low table axis breaks ONLY because worker picks it up: hand near upper edge, tabletop horizon rolls and lab passes obliquely. P2 after real carrying ellipse, handheld A points upward through hall opening to Roman clock, tall masonry foreshortened, clock hands finish returning toVIII/XII. Clearly changed location and camera height with custody cause. TC keeps advancing, operator never visible externally.
 '''
 CAMERA_PLAN = {int(row.split('|', 1)[0]): row.split('|', 1)[1]
@@ -149,7 +149,7 @@ GAZE_PLAN = '''
 03|Kim looks at drape then buffet; Jack at Kim's face then the direction Kim points. Nina is offscreen.
 04|Fred looks at Anderson standing at least45degrees OFF the camera axis while counting; when Michael interrupts Fred turns to Michael. Michael looks at Fred, never into recording lens, even when asking if he is in frame.
 05|Fred glances toward Andre crossing behind; Andre down at tickets then Brock's face; Brock at tickets then Andre. No selfie eye contact.
-06|D|gang lounge masks|05|ONLY Anderson and a masked server are visible. Fred operates D off-camera; other lounge companions may remain outside selected frame. Kim, Jack and Nina remain in the MAIN HALL: ABSENT from lounge, reflections and background. Anderson is third man in Capangas sheet, black fringe over ONE eye, exact sheet face and costume; NEVER Kim red cloak/bronze armor. P1 Fred picks D up from sideboard, fingers briefly at edge, lens rises and turns right; Anderson steps out of service doorway as server arrives carrying tray. P2 chest-high three-quarter door view: server activates RIGHT-jamb sensor with FOREARM while both hands carry tray; door opens. After opening Fred falsely presents it as VIP access for his video; Anderson points out it is simply the SERVICE DOOR, looking at server/tray. Nobody leaves lounge. No shard.
+06|Anderson at service doorway, attendant at sensor then tray. Fred offscreen.
 07|Kim at food then stranger's water hand; stranger at grape then glass, not toward filming Nina.
 08|Kronos at waiting guests; Nina at buffet/route, Fred at doorway and D controls, attendants at people they guide. Nobody looks toward CCTV.
 09|Kronos addresses guests45degrees away from Nina's lens; Jack watches Kronos's pointing hand.
@@ -178,7 +178,7 @@ GAZE_PLAN = '''
 32|Michael looks at Anderson/Fred's shoulder SIDE of lens when asking for reaction shot; Anderson at Michael's obstructing arm. Never look into D.
 33|Jack at Andre's raised guard, Andre at Jack's fist. Mutual combat eyelines off lens.
 34|Jack at contact point, Andre at Jack then ground as he falls. No eye contact with lens.
-35|D|gang cables arena|34|After mock fall Andre plants hand to rise. Cable emerges from floor joint and traps his FOREARM, NOT leg. Two action states: planting hand then trying unsuccessfully to lift trapped arm. Same arm/side maintained into36-39 and physical connector38. No full execution yet.
+35|Andre looks DOWN at his trapped FOREARM, then along the cable toward the floor joint; Jack watches Andres hand. Both look away from D, never at reader/lens.
 36|Andre looks toward Jack's hand, Jack at cable/Andre arm. Pain must not become a stare at reader.
 37|Kim at Andre's trapped arm and cable grip; Andre at Kim's approaching hand.
 38|Worker at connector; Andre eyes closed/helmet down. No physical-lab glance at supported A.
