@@ -287,18 +287,19 @@
   {
     "id": "especial-6",
     "numero": 6,
-    "so_admin": true,
+    "creator": true,
     "especial": true,
+    "sempre_livre": true,
     "titulo_pt": "Especial de Natal — Parte 1: O Forasteiro",
     "titulo_en": "Christmas Special — Part 1: The Stranger",
     "titulo_es": "Especial de Navidad — Parte 1: El Forastero",
     "publicado": true,
-    "data_publicacao": "2099-12-30",
+    "data_publicacao": "2026-10-19",
     "liberacao": {
-      "primordial": "2099-12-15",
-      "elite": "2099-12-15",
-      "conta": "2099-12-30",
-      "publico": "2099-12-30"
+      "primordial": "2026-10-19",
+      "elite": "2026-10-19",
+      "conta": "2026-10-19",
+      "publico": "2026-10-19"
     },
     "paginas": 52,
     "idiomas": [
