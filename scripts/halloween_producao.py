@@ -358,8 +358,22 @@ def generate(engine, prompt, n, material=False):
         state('material_gerado' if material else 'pagina_gerada_aguarda_revisao', page=n)
         return 'ok'
     if result == 'cota':
-        state('cota_aguarda_proxima_rodada', page=n)
-        return result
+        wait = 300
+        try:
+            log_text = (PROMPTS / (prompt.stem + '.log')).read_text(encoding='utf-8', errors='ignore')
+            m = re.search(r'try again at (\d{1,2}):(\d{2})\s*(AM|PM)', log_text, re.I)
+            if m:
+                hh, mm, ap = int(m.group(1)) % 12 + (12 if m.group(3).upper() == 'PM' else 0), int(m.group(2)), m.group(3)
+                now = time.localtime()
+                target = time.mktime((now.tm_year, now.tm_mon, now.tm_mday, hh, mm, 15, now.tm_wday, now.tm_yday, now.tm_isdst))
+                if target <= time.time():
+                    target += 86400
+                wait = max(60, min(7200, int(target - time.time())))
+        except Exception:
+            wait = 300
+        state('cota_aguarda_proxima_rodada', page=n, retry_in_seconds=wait)
+        time.sleep(wait)
+        return generate(engine, prompt, n, material=material)
     write(STATE / 'PARADA.txt', f'{prompt.name}: {result}. Inspect log and references before manually resuming.\n')
     state('parada_requer_revisao', page=n, result=result)
     return result

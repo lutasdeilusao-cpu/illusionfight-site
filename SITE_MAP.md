@@ -1,12 +1,11 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.441.15**.
+> `SITE_VERSION` **10.441.16**.
 > Última atualização: 19/10/2026.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
-- Diabo Vermelho: somente a Parte 1 oficial Codex, 51 páginas em R2 `diabo-vermelho/01/codex/pt/01.webp` a `51.webp`; leitor `/webtoon/especial-6`. Partes 2/3 antigas removidas do catálogo por orientação de Isaías. Presos: geração retomada na página 02 com os prompts cinematográficos revisados.
 ## 1. Visão geral
 
 - Site oficial: `https://illusionfight.com/`
@@ -426,7 +425,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.441.15** |
+| `SITE_VERSION` | Site global | **10.441.16** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.32.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |

@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-10-19)
 
 ## Corpus Check
-- 1379 files · ~4,217,920 words
+- 1379 files · ~4,225,782 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5fb0e12c`
+- Built from commit: `70a4c444`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -2081,7 +2081,7 @@ Cohesion: 0.47
 Nodes (3): BalloonFala(), MetricBar(), PERSONALIDADES
 
 ## Knowledge Gaps
-- **2753 isolated node(s):** `1.1 Fontes e precedência`, `1.2 Numeração e nove páginas editoriais`, `2.1 Direção cinematográfica obrigatória em TODAS as páginas`, `2.2 Blur, sujeira e falhas com função`, `3.1 Registro digital dentro do LDI` (+2748 more)
+- **2753 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2748 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **425 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -2094,7 +2094,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.007) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `PuzzleStealthGrid.jsx` to `DixContext.jsx`, `Community 1`, `GanguesMultidaoActionBar.jsx`, `Community 9`, `PuzzleAnagrama.jsx`, `PerfilTamagoshi.jsx`, `personalidades.js`, `CityOverworld.jsx`, `Farol.jsx`, `Community 20`, `Number`, `criaturas.js`, `criaturas.js`, `useRadioNina.js`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **What connects `1.1 Fontes e precedência`, `1.2 Numeração e nove páginas editoriais`, `2.1 Direção cinematográfica obrigatória em TODAS as páginas` to the rest of the system?**
+- **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
   _2753 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._

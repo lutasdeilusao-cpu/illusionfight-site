@@ -6,6 +6,17 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.carrossel-lento__trilho.carrossel-lento__trilho.is-arrastando {
+  scroll-snap-type: none;
+  cursor: grabbing;
+}
+
+.carrossel-lento__trilho img {
+  -webkit-user-drag: none;
 }
 
 .carrossel-lento__trilho::-webkit-scrollbar {

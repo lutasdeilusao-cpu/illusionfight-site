@@ -140,7 +140,7 @@ function Fileira({ titulo, children }) {
   return (
     <div className="rec-fileira">
       <h3>{titulo}</h3>
-      <div className="rec-fileira__trilho">{children}</div>
+      <CarrosselLento trilhoClassName="rec-fileira__trilho" intervalo={0}>{children}</CarrosselLento>
     </div>
   )
 }

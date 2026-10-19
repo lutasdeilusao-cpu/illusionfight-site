@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792423502.673986,
-    "ast_hash": "506563b80ef765869059b03cb149a9c1",
+    "mtime": 1792424532.4955568,
+    "ast_hash": "ffa0114b1c93cb773f9f38b78060269c",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -445,8 +445,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1792416639.2220163,
-    "ast_hash": "1d77146b157b653199782f5917bbfc42",
+    "mtime": 1792424711.3931792,
+    "ast_hash": "b2c37c1e0ffa415749e0f3b7512b60c3",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2560,8 +2560,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792423502.6749861,
-    "ast_hash": "590bbfdf354454e83437aedb15f038ce",
+    "mtime": 1792424740.2901604,
+    "ast_hash": "39500da40d7fab3d4ef14ca69577d748",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4575,8 +4575,8 @@
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
-    "mtime": 1792092346.0391777,
-    "ast_hash": "e11770dba878950db54e431a9fbff777",
+    "mtime": 1792424656.3087504,
+    "ast_hash": "d4efe4a789ff70db7416dcf6257a2d42",
     "semantic_hash": ""
   },
   "src/lib/webshard/progresso.js": {
@@ -9935,18 +9935,18 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/capa-diabo-vermelho.webp": {
-    "mtime": 1792104296.7013092,
-    "ast_hash": "733989d7c44522ae2fbbab1218cc8095",
+    "mtime": 1792424656.305751,
+    "ast_hash": "0ef8631dddb6a229ef5ff7e1dc1f7af9",
     "semantic_hash": ""
   },
   "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md": {
-    "mtime": 1792423743.422135,
-    "ast_hash": "656f89644eedb6e5a724dcbc6903a35d",
+    "mtime": 1792424740.2961607,
+    "ast_hash": "fb295aa6b660e77c12b647ce1cc0708c",
     "semantic_hash": ""
   },
   "scripts/halloween_producao.py": {
-    "mtime": 1792423838.056349,
-    "ast_hash": "8bdd62b02309fe2ea32828cffb3dc977",
+    "mtime": 1792424891.704062,
+    "ast_hash": "53597323ce6c8ef30877d52aa618eccd",
     "semantic_hash": ""
   }
 }

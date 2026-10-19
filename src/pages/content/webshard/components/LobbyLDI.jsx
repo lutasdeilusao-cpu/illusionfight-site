@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { capitulosEspeciais, capitulosPrincipais, imagemWebshard, localizado } from '../../../../lib/webshard/catalogo'
 import { listarHistorias } from '../../../../lib/historias/catalogo'
+import CarrosselLento from '../../../../components/CarrosselLento/CarrosselLento'
 import CapituloLinha from './CapituloLinha'
 import './LobbyLDI.css'
 
@@ -28,7 +29,7 @@ export default function LobbyLDI({ titulo, liberado, previa, dataPara, nivel, pr
     <div className="lobby-ldi">
       <section className="lobby-ldi__fileira">
         <h2 className="lobby-ldi__h2">{t('webShard.lobby.series')}</h2>
-        <div className="lobby-ldi__trilho">
+        <CarrosselLento trilhoClassName="lobby-ldi__trilho" intervalo={0}>
           {series.map(s => (
             <button key={s.id} type="button" className={`lobby-ldi__poster${escolhida === s.id ? ' is-ativo' : ''}`} onClick={() => setEscolhida(escolhida === s.id ? null : s.id)}>
               {imagemWebshard(s.capa) && <img src={imagemWebshard(s.capa)} alt="" loading="lazy" decoding="async" />}
@@ -38,7 +39,7 @@ export default function LobbyLDI({ titulo, liberado, previa, dataPara, nivel, pr
               </span>
             </button>
           ))}
-        </div>
+        </CarrosselLento>
       </section>
 
       {atual ? (
@@ -59,7 +60,7 @@ export default function LobbyLDI({ titulo, liberado, previa, dataPara, nivel, pr
 
       <section className="lobby-ldi__fileira">
         <h2 className="lobby-ldi__h2">{t('webShard.lobby.contos')}</h2>
-        <div className="lobby-ldi__trilho">
+        <CarrosselLento trilhoClassName="lobby-ldi__trilho" intervalo={0}>
           {contos.map(c => (
             <Link key={c.id} to={c.rota} className="lobby-ldi__poster lobby-ldi__poster--conto">
               {c.capa && <img src={c.capa} alt="" loading="lazy" decoding="async" />}
@@ -69,7 +70,7 @@ export default function LobbyLDI({ titulo, liberado, previa, dataPara, nivel, pr
               </span>
             </Link>
           ))}
-        </div>
+        </CarrosselLento>
       </section>
     </div>
   )
