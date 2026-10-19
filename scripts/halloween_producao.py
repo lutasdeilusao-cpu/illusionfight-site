@@ -3,6 +3,7 @@ Usage: python scripts/halloween_producao.py preparar|rodar|status
 One image at a time; 300 seconds between pages; materials have no interval.
 """
 import importlib.util
+import hashlib
 import json
 import msvcrt
 import os
@@ -35,7 +36,7 @@ PLAN = '''
 12|A|Kronos hall|09|One useful medium panel of human Kronos pointing toward technical access, not opening laboratory yet. He explains the other91 watch through their SBIs. Do not cram91 countable people into the image; focus face and pointing hand.
 13|A|Jack hall devices|11|Nina hands A to Jack without changing source. Upper frame records Jack reaching toward lens; lower frame tilts downward as he receives it, wrist strap slides onto his wrist. No external image of Nina before handoff. Keep camera object form consistent. No shard.
 14|C|Kim Jack Nina Freddy Brock gang hall corridor devices|08|One fixed CAM03 SALAO frame: both established groups converge toward technical corridor, Jack carries A with wrist strap, Fred carries D, masked attendant indicates route. Stranger remains at buffet outside selected nine. Do not line up nine portrait faces; geography and camera custody are the point. No visibly speaking mouths.
-15|A|Nina corridor|13|Jack now operates A while walking along technical corridor. Two nearby moments: Nina notices Jack's uncomfortable Roman drape without staring at lens, then adjusts a fabric fold entering edge of his recording. Jack speaks from behind camera. Nina is visible because operator changed; do not depict Jack holding A externally.
+15|A|Nina corridor|13|Jack operates A while walking along technical corridor. Ordinary costume banter, no clothing adjustment or physical contact. P1 chest-height oblique view of Nina face and shoulders; she glances SIDEWAYS toward Jacks shoulder clasp, well outside lens axis. P2 Nina turns toward laboratory and points down the corridor, then resumes walking into depth. Jack remains unseen behind A; his complaint concerns an inconvenient costume. Both remain fully clothed. No shard.
 16|D|Brock gang corridor|10|Fred films ahead in technical access. Two panels: emo-fringe Anderson asks him to move; Jason glances toward prize announcement direction, stops joking when Brock looks at him. Keep motion into same corridor. No camera handback shown here; next D page records it clearly.
 17|D|Jack Nina gang corridor devices|16|Two quick action panels. Behind the foreground action Jack visibly returns analog A to Nina. Redhead Michael catches foot on a low cable beside fixed door jamb, almost falls; bald Black Jason catches his costume and continues. Small cracked-glass shard of shoe/cable on same floor. Fix obstacle on the same side of jamb for future loops. Do not stretch gag beyond this page.
 18|A|Jack lab devices|15|Nina again operates A entering laboratory. One functional establishing panel shows exactly nine SBI chairs, layout5+4 from reference, service route and side table in foreground. Approach the table. Jack visible at edge answers Nina off-camera. No tenth chair or fantasy teleport door.
@@ -103,7 +104,7 @@ CAMERA_PLAN = '''
 12|Single handheld A low three-quarter medium frame: Kronos near side, technical doorway in depth along pointing arm. One decisive pointing gesture directs reading toward next route, not panoramic architectural exhibition or full-body portrait.
 13|P1 handheld A slightly upward close view of Jack reaching toward lens, fingers near foreground. P2 lens rolls and dips during REAL transfer, showing Jack's wrist rotating INTO strap and floor/cloth replacing upper background. Neither face nor hand may hold the identical pose. Nina's body stays behind lens until transfer permits otherwise.
 14|One fixed elevated CAM03 diagonal view into technical-corridor mouth. Foreground servant gestures toward opening; groups enter at staggered depths, Jack A and Fred D visibly carried, Nina already walking ahead of Jack. Action crosses image, not nine people standing shoulder-to-shoulder. Everyone's position differs from08.
-15|P1 Jack's handheld A from slightly below Nina's shoulder height while walking, oblique side view as she looks down at his drape. P2 Nina pivots toward him and reaches into NEAR lower edge to tug fold aside; fabric fills foreground, her face shifts higher and off-center. Jack remains behind lens; no repeated neutral Nina portrait.
+15|P1 handheld A at chest height, level optical axis, three-quarter head-and-shoulders Nina, corridor jamb partly occludes foreground. P2 motivated turn follows her pointing hand and forward step toward laboratory, face changes position and scale. No low upward body framing, no near-edge clothing tug, no hand reaching toward operator body.
 16|P1 Fred's D over near edge of Brock's shoulder, Anderson ahead turns BACK while still walking. P2 Fred advances one step, Jason's prize-directed gesture drops under Brock's sideways look; Anderson turns forward and recedes. Corridor vanishing lines and occlusions change with actual walking, no mirrored duplicate procession.
 17|P1 handheld D downward oblique: Michael's shoe catches low cable at RIGHT jamb; camera handback Jack-to-Nina occurs recognizably in depth. P2 Fred's startled upward correction catches Michael pitched forward and Jason's gripping arm pulling costume taut. Their weight/feet change, no second posed standing frame. Editorial shoe/cable shard sits near CENTRAL seam: same contact that causes the rescue below, not another trip. Link cause to consequence and keep handback in depth unobscured.
 18|One handheld A shoulder-height oblique from laboratory door with near jamb and side table framing exact nine-chair5+4 geometry. Functional establishing view, camera NOT overhead/floating. Jack near edge moving inward, no centered lineup. Locate Andre chair and camera table for later fixed recording.
@@ -158,7 +159,7 @@ GAZE_PLAN = '''
 12|Kronos looks along his pointing hand toward technical access, never along lens axis.
 13|Jack looks DOWN at receiving hand and wrist strap, not into A as he reaches toward it.
 14|Everyone watches route, attendant's hand or companion ahead. Nobody acknowledges high CCTV.
-15|Nina looks DOWN at Jack's drape and the fold she adjusts, not Jack's eyes aligned with lens.
+15|Nina first glances SIDEWAYS toward Jacks shoulder clasp outside the lens axis, then looks at laboratory doorway while pointing ahead. Never look down toward the operator body or into the lens.
 16|Anderson turns back to Brock's shoulder beside operator, not Fred/lens; Jason at announcement direction then Brock; Brock at Jason.
 17|Michael looks down at caught shoe, Jason at Michael's grabbing point, Jack/Nina at handoff and strap.
 18|Jack looks toward assigned chair; staff at stations. Nina offscreen.
@@ -213,6 +214,7 @@ GAZE_PLAN.update({
 })
 CONTINUITY = json.loads((REPO / 'docs/WEBSHARD/Especiais/HALLOWEEN_CONTINUIDADE.json').read_text(encoding='utf-8'))
 COMMON = '''Create one finished photographic WEB SHARD narrative page, 960 x 1637 px, full bleed, extreme natural photographic realism, NOT illustration, anime or game rendering. Usually TWO large action panels; one only where staging explicitly says one. Never more than three. ALL panel cuts diagonal, slopes MAY differ. Dividers are a VERY THIN 1-3px dark optical-fiber contour with restrained glint, NOT a wide band, black gutter, smoke, static strip or bulky cable border. Page01's wide narrated seam is a one-page exception, do not copy it. Captions occupy compact quiet image area without widening separators. Small shards when specified are jagged cracked GLASS overlays of ONE detail, about15-25% width, not additional full scenes. SHARDS ARE NOT RESTRICTED TO CORNERS: use middle of page, central overlap, across a panel seam or along an established eyeline when it clarifies action. A shard can bridge successive action states, reveal what a visible character is looking at, link cause to consequence or lead reader attention to an object. Place it by narrative function, not decoration, without covering faces, balloons, HUD or indispensable gestures. Do not force a shard onto pages where none is staged; editorial close angles beyond recorded lens angle ARE allowed inside shards. Main panels respect physical source. Focus faces, hands and action, medium/close rather than full bodies or repeated panoramas. Essential lettering/faces inside x100-860 y80-1557, no blank margins. White speech balloons, large condensed bold uppercase type, short lines, target40-48px, comfortable at phone width. No speaker-name labels printed. Exact Brazilian Portuguese text below, accents intact, only once, no added narration. Put tails on correct speaker; offscreen voices point toward actual operator/source. Thoughts distinct and tailless. If text is dense, allow more balloon space instead of shrinking type. Natural anatomy, no extra hands, no duplicated faces. ABSOLUTE EYELINE RULE: NO character EVER looks at the reader or directly into the recording lens. NO exceptions for selfie/vlog, dialogue addressed to operator, subjective victim POV, villains or reaction shots. Every visible pair of eyes has a specific OFF-LENS target from the eyeline plan. A front-facing face in an identity sheet does NOT authorize front-facing eye contact in narrative. Keep gaze visibly off-axis, preferably profile/three-quarter, at another character, a hand, object, route or ongoing action. Head facing camera does not excuse eyes facing viewer. CINEMATIC BLOCKING is mandatory, not cosmetic Dutch tilt. Each panel has a specified physical lens position, direction, framing, foreground/depth and a NEW action state. Never duplicate pose, silhouette, hand position, gaze and screen placement from preceding panel. Do not copy a reference-sheet standing pose. One frozen tableau with different dialogue is not progression. Fixed cameras keep physical angle but subjects change action/occlusion/position; handheld changes must come from the operator moving, turning or handling the device. Maintain action axis and rescue sides, no arbitrary reverse coverage. Prior pages are identity/continuity references, never a template to clone composition or poses.
+COSTUME AND ACTION FRAMING: Keep opaque Roman costumes securely worn. Use ordinary upright postures and focus on faces, hands, movement and story action. No intimate framing or clothing displacement. Horror is conveyed through restraints, expressions and consequences, without exposed anatomy.
 ATTACHED REFERENCES: identify by exact FILENAME listed below, NEVER by upload order. Character sheets govern identity/costume, environment sheets govern floor plan on LEFT and two photographic perspectives on RIGHT; do NOT reproduce board collage in narrative. Previous pages govern props, position, handedness and marks, not source effects when source changes. Do not copy their words. Living extras have varied skin tones, ethnicities, hair including Black/white/blond/redhead, ages and body types. Different simultaneous rooms have DIFFERENT extras, no cloned person at same time. Main cast never replaced by extras. Only characters explicitly authorized in this page staging may appear. An identity sheet or earlier page never authorizes extra cast. Match each authorized face and costume precisely to its named file. Shared Capangas sheet contains Jason (large bald Black man), Michael (redhead scar), Anderson (black fringe covering one eye), Andre (stocky afro); use only named members. Brock has his own sheet and is NOT one of these four. Do not merge Anderson and Kim: different face, hair, costume and location. Keep all Roman costumes exactly; human Kronos only in mansion, zombie Caesar ONLY in virtual arena. Device sheet: analog on LEFT has eyepiece NO flip LCD; digital center has flip LCD, clock on right.
 EVERY balloon has PURE SOLID WHITE #FFFFFF fill and BOTH TEXT AND ENTIRE OUTLINE in its speaker color; NEVER default black lettering or black outlines in a color feed. Voice text/outline colors only in COLOR feeds: Kim#1E6FE0, Jack#22C55E, Nina#B82E69, Fred YELLOW#C9A227, Brock#8B1E1E, Andre#9A4A16, Jason#6D28A6, Michael#155E63, Anderson#4B5563, Kronos METALLIC GRAY#4B5058, stranger#6B543A. One bold font, colored letterforms and colored border, white balloons. Never attach an operator voice to a visible character. CAMERA OPERATOR SPEECH: balloon starts at BOTTOM CENTER of the panel and its tail exits the LOWER CENTRAL image edge, from the person holding the camera behind the lens. Nina is OFF-CAMERA when holding A; her pink balloon MUST NOT point right/left or to Kim/Jack. Jack holding A speaks green from bottom center; Fred holding D speaks gold from bottom center. If the camera is supported and speaker is visible, tail points to actual visible speaker. CCTV always monochrome including lettering. All digital devices and recordings reset at each loop, including phones, clocks, batteries and files. World clocks restart20:00. Only analog A preserves footage, own running clock and depleted battery. No conscious memories survive; only Nina has vague sensations, no full recollection. Other characters actions must have visible present causes, not foreknowledge.
 '''
@@ -228,9 +230,12 @@ SOURCES = {
 def valid(path):
     if not path.exists():
         return False
-    with Image.open(path) as im:
-        im.verify()
-    return True
+    try:
+        with Image.open(path) as im:
+            im.verify()
+        return True
+    except (OSError, ValueError):
+        return False
 
 
 def write(path, content):
@@ -291,28 +296,48 @@ def prepare():
     print('49 reviewed English prompts03-51 prepared; approved01/02 preserved; no generation started.', flush=True)
 
 
+def pending():
+    path = STATE / 'pendencias.json'
+    return json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+
+
 def state(status, **extra):
-    payload = dict(status=status, generated=sum(valid(PAGES / f'{n:02d}.png') for n in range(1, 52)), total=51, updated=time.time(), **extra)
-    write(STATE / 'status.json', json.dumps(payload, indent=2))
-    print(json.dumps(payload), flush=True)
+    payload = dict(status=status, generated=sum(valid(PAGES / f'{n:02d}.png') for n in range(1, 52)),
+                   total=51, updated=time.time(), pending=list(pending()), **extra)
+    write(STATE / 'status.json', json.dumps(payload, ensure_ascii=False, indent=2))
+    print(json.dumps(payload, ensure_ascii=False), flush=True)
+
+
+def mark_pending(prompt, n, reason):
+    items = pending()
+    items[prompt.name] = dict(page=n, reason=reason, updated=time.time(),
+                             prompt_sha256=hashlib.sha256(prompt.read_bytes()).hexdigest() if prompt.exists() else None)
+    write(STATE / 'pendencias.json', json.dumps(items, ensure_ascii=False, indent=2))
+    state('pagina_pendente_fila_continua', page=n, reason=reason)
+
+
+def pause(seconds):
+    deadline = time.monotonic() + seconds
+    while time.monotonic() < deadline:
+        if (STATE / 'PARADA.txt').exists():
+            state('pausada_pelo_usuario')
+            return False
+        time.sleep(min(5, max(0, deadline - time.monotonic())))
+    return not (STATE / 'PARADA.txt').exists()
 
 
 def run():
     STATE.mkdir(parents=True, exist_ok=True)
     with open(STATE / 'fila.lock', 'a+b') as lock:
-        lock.seek(0)
-        lock.write(b'0')
-        lock.flush()
-        lock.seek(0)
+        lock.seek(0); lock.write(b'0'); lock.flush(); lock.seek(0)
         try:
             msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
         except OSError:
             print('Queue already running', flush=True)
             return
         if (STATE / 'PARADA.txt').exists():
-            print('Stopped: review PARADA.txt before resuming', flush=True)
+            state('pausada_pelo_usuario')
             return
-        # Existing engine reads argv at import; do not feed our command as pause.
         saved_argv = sys.argv
         sys.argv = [str(ENGINE)]
         spec = importlib.util.spec_from_file_location('halloween_existing_engine', ENGINE)
@@ -320,66 +345,73 @@ def run():
         spec.loader.exec_module(engine)
         sys.argv = saved_argv
         engine.W, engine.P = str(ROOT), str(PROMPTS)
-        engine.ECONOMIA += ' References are local files: prefer referenced_image_paths over num_last_images_to_include. Wait for image generation to COMPLETE and COPY its returned PNG to the specified OUT path before replying ok. Saving the generated file is required and allowed.\n'
+        engine.ECONOMIA += ' References are local files: use referenced_image_paths. Wait for image generation to COMPLETE and COPY its returned PNG to OUT before replying ok. Saving is required and allowed.\n'
         os.chdir(ROOT)
         for n in range(2, 52):
-            out = PAGES / f'{n:02d}.png'
-            if valid(out):
+            if (STATE / 'PARADA.txt').exists():
+                state('pausada_pelo_usuario'); return
+            if valid(PAGES / f'{n:02d}.png'):
                 continue
-            if not valid(PAGES / f'{n-1:02d}.png'):
-                raise RuntimeError(f'Previous page{n-1} missing')
-            page_prompt = PROMPTS / f'{n:03d}_pagina{n:02d}.txt'
-            _, refs, _ = engine.ler(page_prompt)
-            for alias in MATERIALS:
-                if REFS[alias] in refs and not valid(ROOT / REFS[alias]):
-                    result = generate(engine, PROMPTS / f'material_{alias}.txt', n, material=True)
-                    if result != 'ok':
-                        return
-            latest = max(p.stat().st_mtime for p in PAGES.glob('[0-9][0-9].png'))
-            delay = max(0, 300 - (time.time() - latest))
-            if delay:
-                state('intervalo', next_page=n, seconds=round(delay))
-                time.sleep(delay)
-            if generate(engine, page_prompt, n) != 'ok':
-                return
-        state('completo_aguarda_revisao_visual')
+            prompt = PROMPTS / f'{n:03d}_pagina{n:02d}.txt'
+            try:
+                old = pending().get(prompt.name)
+                if old and old['prompt_sha256'] == hashlib.sha256(prompt.read_bytes()).hexdigest():
+                    continue  # Do not automatically repeat the same rejected request.
+                _, refs, _ = engine.ler(prompt)
+                for alias in MATERIALS:
+                    if REFS[alias] in refs and not valid(ROOT / REFS[alias]):
+                        if generate(engine, PROMPTS / f'material_{alias}.txt', n, material=True) != 'ok':
+                            break
+                else:
+                    latest = max((p.stat().st_mtime for p in PAGES.glob('[0-9][0-9].png')), default=0)
+                    delay = max(0, 300 - (time.time() - latest))
+                    if delay:
+                        state('intervalo', next_page=n, seconds=round(delay))
+                        if not pause(delay): return
+                    generate(engine, prompt, n)
+                    continue
+                if (STATE / 'PARADA.txt').exists(): return
+                mark_pending(prompt, n, 'referencia_material_indisponivel')
+            except Exception as exc:
+                mark_pending(prompt, n, f'{type(exc).__name__}: {exc}')
+        state('lote_finalizado_com_pendencias' if pending() else 'completo_aguarda_revisao_visual')
         subprocess.run(['schtasks', '/Change', '/TN', 'Halloween_Loop1_Codex', '/Disable'], capture_output=True)
 
 
 def generate(engine, prompt, n, material=False):
     out, refs, body = engine.ler(prompt)
+    old = pending().get(prompt.name)
+    if material and old and old['prompt_sha256'] == hashlib.sha256(prompt.read_bytes()).hexdigest():
+        return 'material_pendente'
     missing = [r for r in refs if not valid(ROOT / r)]
+    essential = [r for r in missing if not r.startswith('WEBSHARD/PT/loop1/')]
+    if essential:
+        mark_pending(prompt, n, 'referencia_ausente: ' + ', '.join(essential))
+        return 'referencia_ausente'
     if missing:
-        raise RuntimeError('Missing references: ' + ', '.join(missing))
-    state('gerando_material' if material else 'gerando_pagina', page=n, output=out)
-    result = engine.gerar(prompt.name, out, refs, body)
-    if result == 'ok' and valid(ROOT / out):
-        if not material:
-            with Image.open(ROOT / out) as im:
-                if im.size != (960, 1637):
-                    raise RuntimeError('Incorrect page dimensions')
-        state('material_gerado' if material else 'pagina_gerada_aguarda_revisao', page=n)
-        return 'ok'
-    if result == 'cota':
-        wait = 300
-        try:
-            log_text = (PROMPTS / (prompt.stem + '.log')).read_text(encoding='utf-8', errors='ignore')
-            m = re.search(r'try again at (\d{1,2}):(\d{2})\s*(AM|PM)', log_text, re.I)
-            if m:
-                hh, mm, ap = int(m.group(1)) % 12 + (12 if m.group(3).upper() == 'PM' else 0), int(m.group(2)), m.group(3)
-                now = time.localtime()
-                target = time.mktime((now.tm_year, now.tm_mon, now.tm_mday, hh, mm, 15, now.tm_wday, now.tm_yday, now.tm_isdst))
-                if target <= time.time():
-                    target += 86400
-                wait = max(60, min(7200, int(target - time.time())))
-        except Exception:
-            wait = 300
-        state('cota_aguarda_proxima_rodada', page=n, retry_in_seconds=wait)
-        time.sleep(wait)
-        return generate(engine, prompt, n, material=material)
-    write(STATE / 'PARADA.txt', f'{prompt.name}: {result}. Inspect log and references before manually resuming.\n')
-    state('parada_requer_revisao', page=n, result=result)
-    return result
+        refs = [r for r in refs if r not in missing]
+        body = re.sub(r'^Actual attached filenames and roles: .*$',
+                      'Actual attached filenames and roles: ' + '; '.join(Path(r).name for r in refs), body, flags=re.M)
+        body = re.sub(r'^TOOL INPUT: .*$', lambda m: 'TOOL INPUT: use referenced_image_paths with these existing files: ' + json.dumps([str(ROOT / r) for r in refs], ensure_ascii=False), body, flags=re.M)
+        body += '\nCONTINUITY NOTE: earlier page artwork is pending: ' + ', '.join(missing) + '. It is NOT attached. The scripted events still occur; follow the explicit source, operator, staging, HUD and existing identity/environment sheets. Do not invent a replacement prior image or change rooms/cast.'
+    while True:
+        if (STATE / 'PARADA.txt').exists(): return 'pausada'
+        state('gerando_material' if material else 'gerando_pagina', page=n, output=out)
+        result = engine.gerar(prompt.name, out, refs, body)
+        if result == 'ok' and valid(ROOT / out):
+            if not material:
+                with Image.open(ROOT / out) as im:
+                    if im.size != (960, 1637): raise RuntimeError('Incorrect page dimensions')
+            items = pending(); items.pop(prompt.name, None)
+            write(STATE / 'pendencias.json', json.dumps(items, ensure_ascii=False, indent=2))
+            state('material_gerado' if material else 'pagina_gerada_aguarda_revisao', page=n)
+            return 'ok'
+        if result != 'cota':
+            mark_pending(prompt, n, result if result != 'ok' else 'arquivo_nao_salvo_ou_invalido')
+            return result if result != 'ok' else 'falhou'
+        # Account-wide quota affects every page: wait rather than exhaust the queue.
+        state('cota_aguarda_proxima_rodada', page=n, retry_in_seconds=300)
+        if not pause(300): return 'pausada'
 
 
 if __name__ == '__main__':
@@ -391,7 +423,7 @@ if __name__ == '__main__':
             run()
         except Exception as exc:
             write(STATE / 'PARADA.txt', str(exc))
-            state('parada_requer_revisao', error=str(exc))
+            state('parada_erro_de_inicializacao', error=str(exc))
             raise
     elif action == 'status':
         print((STATE / 'status.json').read_text(encoding='utf-8') if (STATE / 'status.json').exists() else 'Queue not started')

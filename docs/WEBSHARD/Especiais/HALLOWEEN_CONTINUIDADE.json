@@ -5097,8 +5097,8 @@
     }
   },
   "production": {
-    "paused": true,
-    "resume_from": "L1-06",
+    "paused": false,
+    "resume_from": "L1-15",
     "preserve_existing_art": [
       "L1-01",
       "L1-02",
@@ -5113,6 +5113,7 @@
     ],
     "regenerate_after_author_review": [
       "L1-06"
-    ]
+    ],
+    "skip_page_failures": true
   }
 }

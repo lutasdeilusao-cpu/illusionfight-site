@@ -2,7 +2,7 @@
 
 > Revisão editorial: 19/10/2026. Direção de Isaías: continuidade de acontecimentos, quatro linguagens de POV, câmeras como protagonistas e leitura no celular com uma mão. Três lançamentos: **51 páginas narrativas + 9 editoriais por lançamento = 180 páginas físicas; 153 páginas de história**. Esta revisão substitui as versões sobrepostas do documento recebido. O original permanece no histórico do Git; não usar suas instruções conflitantes para produzir novas páginas.
 >
-> Status: revisão integral de textos e continuidade concluída para leitura autoral; PRODUÇÃO PAUSADA. 01–02 preservadas. 03–05 com falas revisadas, artes anteriores preservadas para possível reletreiramento. 06 precisa de nova geração após revisão autoral. Nenhuma imagem gerada nesta revisão.
+> Status: geração autorizada com textos revisados; páginas01–14 salvas. Página15 com encenação não sexual de caminhada e conversa. Falha individual vira pendência e a fila segue; cota global aguarda disponibilidade. Artes03–05 preservadas para avaliação futura do letreiramento.
 
 ## 1. Direção da experiência
 
@@ -308,8 +308,8 @@ A abertura mantém a ordem das fontes; as falas de 03 em diante passam pela revi
 **Fonte:** A, Jack filma Nina durante o deslocamento já iniciado; dominância verde.
 **HUD e balões fechados:** A: P1 REC | 31/10 21:17:45 | BAT 91%; P2 REC | 31/10 21:17:47 | BAT 91%. VHS FORTE sobre quadro inteiro e estilhaços. Custódia: Jack. Fundo branco; texto/contorno na cor de quem fala. Operador invisível com cauda inferior central; visíveis com cauda na posição real. Ninguém olha para leitor/lente.
 **Vínculo de cada fala:** Jack: #22C55E texto/contorno, fundo #FFFFFF; cauda na borda INFERIOR CENTRAL, operador invisível; Nina: #B82E69 texto/contorno, fundo #FFFFFF; cauda para posição física de quem fala; áudio de fita nasce do ocular quando indicado.
-**Quadros:** dois painéis próximos. Nina nota o drapeado desconfortável de Jack sem olhar para a lente; depois ajusta uma dobra que invade a borda do registro. Sem plano inteiro obrigatório.
-**Texto:** Jack, atrás da câmera: “VOCÊ ESCOLHEU ISSO SÓ PRA ME VER SOFRER, NÉ?” Nina, ajustando o tecido: “EU ESCOLHI A FANTASIA. O DRAMA É TEU.”
+**Quadros:** dois painéis em A de Jack, eixo à altura do peito, foco no rosto e mãos. P1 Nina olha de lado para o broche no ombro dele, fora do eixo da lente; ambos continuam vestidos, sem ajuste de roupa ou contato físico. P2 ela aponta o laboratório, gira o corpo e segue adiante, mudando posição e profundidade. Jack continua atrás da câmera. Sem enquadramento baixo do corpo ou estilhaço.
+**Texto:** Jack, atrás da câmera: “VOCÊ ESCOLHEU ISSO SÓ PRA ME VER SOFRER, NÉ?” Nina, apontando o caminho: “EU ESCOLHI A FANTASIA. O DRAMA É TEU.”
 **Ligação:** aproximação dos dois e motivo escolar da filmagem surgem numa ação útil; não explicar a relação em narração.
 
 ### L1-16 — O outro trabalho de Anderson
@@ -1624,17 +1624,17 @@ As imagens produzidas com esses prompts são fichas para revisão autoral; gera�
 
 ## 17. Produção serial do lançamento 1
 
-**PRODUÇÃO PAUSADA por Isaías até finalizar e revisar os textos. Nenhuma retomada automática autorizada.** Artes 01–05 preservadas; texto revisado desde03, com reletreiramento a avaliar; página06 será refeita após revisão autoral. O destino é WEBSHARD/PT/loop1.
+**PRODUÇÃO AUTORIZADA. Falha de página é registrada como pendência, sem travar o lote.** Artes 01–05 preservadas; texto revisado desde03, com reletreiramento a avaliar; página06 será refeita após revisão autoral. O destino é WEBSHARD/PT/loop1.
 
-O adaptador `scripts/halloween_producao.py` reutiliza o motor existente `MUNDO DAS SOMBRAS/WEBSHARD/scripts/fila_v2.py`. `preparar` apenas compila os 49 prompts03–51 a partir dos textos revisados, preservando01/02; não gera imagens. `rodar` é separado e não deve ser executado durante esta pausa. O letreiramento literal vem do JSON sincronizado com o roteiro, sem uma segunda redação independente dentro de CONTINUITY.
+O adaptador `scripts/halloween_producao.py` reutiliza o motor existente `MUNDO DAS SOMBRAS/WEBSHARD/scripts/fila_v2.py`. `preparar` apenas compila os 49 prompts03–51 a partir dos textos revisados, preservando01/02; não gera imagens. `rodar` executa o lote autorizado, mantendo a pausa manual por PARADA.txt. O letreiramento literal vem do JSON sincronizado com o roteiro, sem uma segunda redação independente dentro de CONTINUITY.
 
 Prompts: ESPECIAIS/presos/prompts/loop1. Imagens: ESPECIAIS/presos/WEBSHARD/PT/loop1. Estado/log/PARADA.txt: ESPECIAIS/presos/producao/loop1. Materiais não exigem intervalo; páginas mantêm cinco minutos quando a produção for retomada. Falta de referência ou falha técnica interrompe a produção. LoungeLeste.png, Buffet.png e CorredorTecnico.png são referências arquitetônicas, planta à esquerda e duas vistas à direita; arquivos ausentes precisam existir antes da página que os usa.
 
-Artes pré-finais exigem revisão visual de texto, continuidade e leitura no celular antes da publicação. Autorização anterior da fila foi suspensa pelo pedido atual de pausa; não publicar artes nem comentários de revisão automaticamente.
+Artes pré-finais exigem revisão visual de texto, continuidade e leitura no celular antes da publicação. A fila foi retomada por Isaías; a autorização de geração não publica artes nem comentários de revisão automaticamente.
 
 ## 19. Revisão de continuidade, ruído e balões — 19/10/2026
 
-As três âncoras de A são autorais e obrigatórias. O plano por tomada está em HALLOWEEN_CONTINUIDADE.json; cada uma das 153 páginas narrativas recebeu seu contrato de HUD/custódia/balões. As 27 posições editoriais continuam separadas e não viram cenas inventadas. Os prompts existentes do loop1 são recompilados com esses dados. A fila permanece pausada. A aprovação das composições anteriores não aprova automaticamente os diálogos desta revisão.
+As três âncoras de A são autorais e obrigatórias. O plano por tomada está em HALLOWEEN_CONTINUIDADE.json; cada uma das 153 páginas narrativas recebeu seu contrato de HUD/custódia/balões. As 27 posições editoriais continuam separadas e não viram cenas inventadas. Os prompts existentes do loop1 são recompilados com esses dados. A fila foi retomada por Isaías após a revisão. A política atual de falhas está na §21.
 
 Pasta de imagens reorganizada por Isaías: `ESPECIAIS/presos/WEBSHARD/PT/loop1/`. As artes anteriores de L1-01/02 ainda usam horários antigos de C; precisam de ajuste de HUD antes da publicação final, sem gerar novas versões delas nesta etapa.
 
@@ -1646,7 +1646,7 @@ Posicionar estilhaços também no centro, sobre a transição ou no trajeto do o
 
 ## 20. Revisão integral de voz e continuidade — 19/10/2026
 
-Produção pausada por Isaías. Leitura comparada de cenas do livro atual (01–03, 05, 07–08, 10–11, 22–23, 26) e anterior (Conhecimento_Otimizado/01_chapters, sobretudo 01, 05–06), guia de estilo e ficha de David Kronos. Livro atual prevalece nos fatos; original ajuda na cadência. Documento antigo de revisão tem numeração anterior, não é mapa atual.
+Revisão realizada durante a pausa; produção retomada por Isaías posteriormente. Leitura comparada de cenas do livro atual (01–03, 05, 07–08, 10–11, 22–23, 26) e anterior (Conhecimento_Otimizado/01_chapters, sobretudo 01, 05–06), guia de estilo e ficha de David Kronos. Livro atual prevalece nos fatos; original ajuda na cadência. Documento antigo de revisão tem numeração anterior, não é mapa atual.
 
 ### Voz com motivo para falar
 
@@ -1677,4 +1677,13 @@ Digitais e relógio do salão voltam às 20:00 nas duas passagens; A conserva re
 
 Nenhuma imagem gerada nesta revisão. 01/02 preservadas. 03/04/05 têm texto revisado e artes preservadas: reletreirar após revisão autoral, mantendo composição se funcionar. 06 precisa ser refeita pela ação de porta e identidade inequívoca. Não apagar arte existente antes da substituta revista. Retomada prevista a partir de 06; a correção de 03–05 não as recoloca automaticamente na fila.
 
-Este roteiro reúne as 153 páginas para leitura. O JSON é cópia mecânica sincronizada do letreiramento, não uma segunda redação independente. Os prompts do lançamento 1 usam os mesmos textos. Falas novas aguardam leitura autoral; não declarar aprovadas por associação à arte anterior. Fila continua pausada, sem gerar amostras ou retomar em segundo plano.
+Este roteiro reúne as 153 páginas para leitura. O JSON é cópia mecânica sincronizada do letreiramento, não uma segunda redação independente. Os prompts do lançamento 1 usam os mesmos textos. Falas novas aguardam leitura autoral; não declarar aprovadas por associação à arte anterior. A retomada posterior e o tratamento de falhas estão registrados na §21.
+
+
+## 21. Continuação após falha individual — 19/10/2026
+
+Isaías autorizou seguir o lote quando uma página falhar. Recusa, erro técnico ou referência essencial ausente são registrados em producao/loop1/pendencias.json; a execução segue para as páginas independentes. Não reenviar automaticamente um prompt recusado sem alteração. A correção da15 mantém as falas, câmera A com Jack, hora/bateria e percurso; muda o gesto para apontar o laboratório, sem mexer na roupa de alguém ou enquadrar o corpo por baixo.
+
+Página anterior pendente não impede gerar a seguinte: a imagem ausente é retirada dos anexos e das listas de nomes/caminhos, e o contrato escrito mais as fichas existentes continuam como referência. Não substituir por foto de outro cenário ou fonte. Se faltar ficha essencial, a página dependente também vira pendência; nunca produzir com anexo inventado.
+
+PARADA.txt continua sendo pausa expressa do usuário e bloqueia novas gerações. Cota real é global e aguarda outra tentativa, preservando a página atual. Ao terminar51, o estado informa lote com pendências quando faltar alguma arte; não declarar todas prontas. Isso não garante ausência de novas recusas: impede que uma ocorrência isolada interrompa todo o trabalho.
