@@ -52,7 +52,9 @@
           "role": "caption",
           "text": "ESPECIAL DE HALLOWEEN DE LUTAS DE ILUSÃO: AQUI TUDO COMEÇA E AQUI TUDO TERMINA."
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-01"
     },
     "L1-02": {
       "source": "C",
@@ -77,7 +79,9 @@
           "role": "caption",
           "text": "CONVIDADOS ESPECIAIS ACABAM DE CHEGAR."
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-02"
     },
     "L1-03": {
       "source": "A",
@@ -100,26 +104,28 @@
       "lettering": [
         {
           "speaker": "Kim",
-          "text": "SÓ VAMOS COMER E DEPOIS VAMOS EMBORA PRA CASA.",
+          "text": "A GENTE COME E VAI EMBORA.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jack",
-          "text": "TÁ BOM, TÁ BOM, PASSA A FOME.",
+          "text": "FALA POR VOCÊ. EU TÔ DE FOLGA.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Nina",
-          "text": "O KRONOS CAPRICHOU NESSA FESTA, HEIN?",
+          "text": "DÁ PRA ANDAR? TÔ FILMANDO AS COSTAS DO KIM.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-03"
     },
     "L1-04": {
       "source": "D",
@@ -153,19 +159,21 @@
         },
         {
           "speaker": "Fred",
-          "text": "POW-POW, HOJE O HYPERMOMENT É MEU!",
+          "text": "E AÍ, GALERA DA POW-POW! HOJE É DIA ESPECIAL. SOMOS VIP NA FESTA DO KRONOS, CRIADOR DO LDI!",
           "color": "#C9A227",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Michael",
-          "text": "TÔ NA IMAGEM?",
+          "text": "CÊ JÁ COMEÇOU?",
           "color": "#155E63",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-04"
     },
     "L1-05": {
       "source": "D",
@@ -195,7 +203,7 @@
         },
         {
           "speaker": "André",
-          "text": "SÓ NÃO DEMORA. PROMETI CINEMA PRA MINHA IRMÃ.",
+          "text": "SÓ NÃO ENROLA. PROMETI CINEMA PRA MINHA IRMÃ.",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
@@ -207,7 +215,9 @@
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-05"
     },
     "L1-06": {
       "source": "D",
@@ -230,19 +240,21 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "ATÉ A PORTA É MAIS CARA QUE A SUA CASA.",
+          "text": "SÓ QUEM É VIP PASSA POR AQUI.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Anderson",
-          "text": "ENTÃO PARA DE SEGURAR ELA.",
+          "text": "É A PORTA DE SERVIÇO, FRED.",
           "color": "#4B5563",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-06"
     },
     "L1-07": {
       "source": "A",
@@ -265,26 +277,21 @@
       "lettering": [
         {
           "speaker": "Desconhecido",
-          "text": "ESSA AQUI TÁ BOA.",
+          "text": "PODE PEGAR. TÁ DOCE.",
           "color": "#6B543A",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Kim",
-          "text": "DEIXA UM POUCO PRA MIM.",
-          "color": "#1E6FE0",
-          "fill": "#FFFFFF",
-          "origin": "speaker_position"
-        },
-        {
-          "speaker": "Kim",
-          "text": "ÁGUA AÍ.",
+          "text": "DEVAGAR, PORRA. TOMA AQUI.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-07"
     },
     "L1-08": {
       "source": "C",
@@ -304,7 +311,9 @@
       ],
       "playback": false,
       "offset_seconds": 4800,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 1,
+      "previous_page_id": "L1-08"
     },
     "L1-09": {
       "source": "A",
@@ -334,12 +343,14 @@
         },
         {
           "speaker": "Kronos",
-          "text": "NOVE DE VOCÊS VÃO ESTREAR O NOVO EVENTO.",
+          "text": "HOJE, NOVE DE VOCÊS VÃO INAUGURAR O NOVO LDI.",
           "color": "#4B5058",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-09"
     },
     "L1-10": {
       "source": "D",
@@ -362,26 +373,28 @@
       "lettering": [
         {
           "speaker": "Kronos",
-          "text": "E O VENCEDOR LEVA UM PRÊMIO EM DINHEIRO.",
+          "text": "E O VENCEDOR RECEBERÁ UM PRÊMIO EM DINHEIRO.",
           "color": "#4B5058",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jason",
-          "text": "AÍ EU GOSTEI.",
+          "text": "AGORA FICOU INTERESSANTE.",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Fred",
-          "text": "EU FALEI QUE IA RENDER.",
+          "text": "EU FALEI QUE AQUI ERA OUTRO NÍVEL.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-10"
     },
     "L1-11": {
       "source": "A",
@@ -411,28 +424,27 @@
         },
         {
           "speaker": "Kim",
-          "text": "DÁ PRA COMER DEPOIS.",
+          "text": "O PRATO NÃO VAI FUGIR.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-11"
     },
     "L1-12": {
       "source": "A",
       "operator": "Nina",
       "panels": 1,
       "analog_clock": [
-        "31/10 21:17:21",
-        "31/10 21:17:23"
+        "31/10 21:17:21"
       ],
       "battery": [
-        91,
         91
       ],
       "digital_world_clock": [
-        "31/10 21:20:21",
-        "31/10 21:20:23"
+        "31/10 21:20:21"
       ],
       "playback": false,
       "offset_seconds": 4821,
@@ -451,7 +463,9 @@
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-12"
     },
     "L1-13": {
       "source": "A",
@@ -474,39 +488,40 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "PASSA A ALÇA NO PUNHO.",
+          "text": "A ALÇA NO PULSO, JACK.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Jack",
-          "text": "EU SEI SEGURAR UMA CÂMERA.",
+          "text": "SIM, SENHORA. MAIS ALGUMA EXIGÊNCIA?",
           "color": "#22C55E",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-13"
     },
     "L1-14": {
       "source": "C",
       "operator": "none",
       "panels": 1,
       "analog_clock": [
-        "31/10 21:17:35",
-        "31/10 21:17:37"
+        "31/10 21:17:35"
       ],
       "battery": [
-        91,
         91
       ],
       "digital_world_clock": [
-        "31/10 21:20:35",
-        "31/10 21:20:37"
+        "31/10 21:20:35"
       ],
       "playback": false,
       "offset_seconds": 4835,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 1,
+      "previous_page_id": "L1-14"
     },
     "L1-15": {
       "source": "A",
@@ -529,19 +544,21 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "VOCÊ ESCOLHEU ESSA FANTASIA SÓ PRA ME VER SOFRER?",
+          "text": "VOCÊ ESCOLHEU ISSO SÓ PRA ME VER SOFRER, NÉ?",
           "color": "#22C55E",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Nina",
-          "text": "PRA VER SE VOCÊ PARA QUIETO NO TRABALHO.",
+          "text": "EU ESCOLHI A FANTASIA. O DRAMA É TEU.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-15"
     },
     "L1-16": {
       "source": "D",
@@ -564,26 +581,28 @@
       "lettering": [
         {
           "speaker": "Anderson",
-          "text": "ÚLTIMO TRABALHO QUE EU FAÇO PRA VOCÊ.",
+          "text": "ANDA, FRED. ÚLTIMO SERVIÇO QUE EU FAÇO PRA VOCÊ.",
           "color": "#4B5563",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jason",
-          "text": "SE EU GANHAR, RESOLVO LÁ EM CASA.",
+          "text": "GANHANDO ESSA GRANA, EU RESOLVO LÁ EM CASA.",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Fred",
-          "text": "PRIMEIRO TEM QUE GANHAR.",
+          "text": "VOCÊS AINDA TÊM QUE GANHAR DE MIM.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-16"
     },
     "L1-17": {
       "source": "D",
@@ -613,47 +632,48 @@
         },
         {
           "speaker": "Jason",
-          "text": "SEGURA A POSE, ESTRELA.",
+          "text": "OLHA O CHÃO, ESTRELA.",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-17"
     },
     "L1-18": {
       "source": "A",
       "operator": "Nina",
       "panels": 1,
       "analog_clock": [
-        "31/10 21:18:35",
-        "31/10 21:18:37"
+        "31/10 21:18:35"
       ],
       "battery": [
-        91,
         91
       ],
       "digital_world_clock": [
-        "31/10 21:21:35",
-        "31/10 21:21:37"
+        "31/10 21:21:35"
       ],
       "playback": false,
       "offset_seconds": 4895,
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "ISSO É BEM MAIS VELHO DO QUE EU ESPERAVA.",
+          "text": "ESSE EQUIPAMENTO É MAIS VELHO DO QUE EU ESPERAVA.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Jack",
-          "text": "COMBINA COM A TUA CÂMERA.",
+          "text": "E VOCÊ VEIO COM ESSA CÂMERA. TÁ EM CASA.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-18"
     },
     "L1-19": {
       "source": "D",
@@ -676,10 +696,10 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "EU VOU GRAVAR LÁ DENTRO.",
+          "text": "EU QUERO O REGISTRO DA LUTA. INTEIRO.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Brock",
@@ -692,27 +712,28 @@
           "role": "interface",
           "text": "REGISTRO VINCULADO"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-19"
     },
     "L1-20": {
       "source": "C",
       "operator": "none",
       "panels": 1,
       "analog_clock": [
-        "31/10 21:19:05",
-        "31/10 21:19:07"
+        "31/10 21:19:05"
       ],
       "battery": [
-        91,
         91
       ],
       "digital_world_clock": [
-        "31/10 21:22:05",
-        "31/10 21:22:07"
+        "31/10 21:22:05"
       ],
       "playback": false,
       "offset_seconds": 4925,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 1,
+      "previous_page_id": "L1-20"
     },
     "L1-21": {
       "source": "A",
@@ -738,7 +759,7 @@
           "text": "VOU DEIXAR GRAVANDO AQUI.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Jack",
@@ -747,7 +768,9 @@
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-21"
     },
     "L1-22": {
       "source": "A",
@@ -786,27 +809,28 @@
           "role": "sound",
           "text": "CLAC"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-22"
     },
     "L1-23": {
       "source": "C",
       "operator": "none",
       "panels": 1,
       "analog_clock": [
-        "31/10 21:19:35",
-        "31/10 21:19:37"
+        "31/10 21:19:35"
       ],
       "battery": [
-        91,
         91
       ],
       "digital_world_clock": [
-        "31/10 21:22:35",
-        "31/10 21:22:37"
+        "31/10 21:22:35"
       ],
       "playback": false,
       "offset_seconds": 4955,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 1,
+      "previous_page_id": "L1-23"
     },
     "L1-24": {
       "source": "D",
@@ -832,16 +856,18 @@
           "text": "TÁ GRAVANDO.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Jason",
-          "text": "ENTÃO PEGA O MEU LADO BOM.",
+          "text": "ENTÃO PEGA MEU LADO BOM.",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-24"
     },
     "L1-25": {
       "source": "D",
@@ -864,7 +890,7 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "BONITO O PASSEIO.",
+          "text": "ATÉ QUE O PASSEIO VALEU.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
@@ -876,7 +902,9 @@
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-25"
     },
     "L1-26": {
       "source": "D",
@@ -911,70 +939,70 @@
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-26"
     },
     "L1-27": {
       "source": "D",
       "operator": "Fred",
       "panels": 1,
       "analog_clock": [
-        "31/10 23:38:20",
-        "31/10 23:38:22"
+        "31/10 23:38:20"
       ],
       "battery": [
-        76,
         76
       ],
       "digital_world_clock": [
-        "31/10 23:41:20",
-        "31/10 23:41:22"
+        "31/10 23:41:20"
       ],
       "playback": false,
       "offset_seconds": 13280,
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "ISSO VAI DAR MUITO ACESSO.",
+          "text": "ISSO AQUI VAI DAR UM VÍDEO...",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Nina",
-          "text": "OLHA A CARA DESSE POVO.",
+          "text": "OLHA A CARA DESSA GENTE.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-27"
     },
     "L1-28": {
       "source": "D",
       "operator": "Fred",
       "panels": 1,
       "analog_clock": [
-        "31/10 23:38:30",
-        "31/10 23:38:32"
+        "31/10 23:38:30"
       ],
       "battery": [
-        75,
         75
       ],
       "digital_world_clock": [
-        "31/10 23:41:30",
-        "31/10 23:41:32"
+        "31/10 23:41:30"
       ],
       "playback": false,
       "offset_seconds": 13290,
       "lettering": [
         {
           "speaker": "Kronos",
-          "text": "ESCOLHAM OS PRIMEIROS DESAFIANTES.",
+          "text": "QUE OS PRIMEIROS DESAFIANTES VENHAM AO CENTRO.",
           "color": "#4B5058",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-28"
     },
     "L1-29": {
       "source": "D",
@@ -997,26 +1025,28 @@
       "lettering": [
         {
           "speaker": "André",
-          "text": "EU VOU. QUERO ACABAR LOGO.",
+          "text": "EU VOU PRIMEIRO.",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Brock",
-          "text": "NEM VIU COMO É.",
+          "text": "NEM OUVIU A REGRA.",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "André",
-          "text": "TEM O CINEMA, MANO.",
+          "text": "QUERO ACABAR LOGO. TENHO QUE BUSCAR MINHA IRMÃ.",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-29"
     },
     "L1-30": {
       "source": "D",
@@ -1039,54 +1069,55 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "FECHOU. PROMETO PEGAR LEVE.",
+          "text": "BELEZA, MEU CARO. EU VOU CONTIGO.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Kim",
-          "text": "SÓ NÃO ENROLA.",
+          "text": "SEM INVENTAR MODA, JACK.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-30"
     },
     "L1-31": {
       "source": "D",
       "operator": "Fred",
       "panels": 1,
       "analog_clock": [
-        "31/10 23:38:43",
-        "31/10 23:38:45"
+        "31/10 23:38:43"
       ],
       "battery": [
-        75,
         75
       ],
       "digital_world_clock": [
-        "31/10 23:41:43",
-        "31/10 23:41:45"
+        "31/10 23:41:43"
       ],
       "playback": false,
       "offset_seconds": 13303,
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "JACK...",
+          "text": "JACK... ESPERA.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jack",
-          "text": "É RÁPIDO.",
+          "text": "QUE FOI? É SÓ UMA LUTINHA.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-31"
     },
     "L1-32": {
       "source": "D",
@@ -1109,19 +1140,21 @@
       "lettering": [
         {
           "speaker": "Michael",
-          "text": "PEGA MINHA REAÇÃO.",
+          "text": "PEGA EU TAMBÉM, FRED.",
           "color": "#155E63",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Anderson",
-          "text": "SAI DA FRENTE, PORRA.",
+          "text": "SAI DA FRENTE. ELE TÁ FILMANDO A LUTA.",
           "color": "#4B5563",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-32"
     },
     "L1-33": {
       "source": "D",
@@ -1144,19 +1177,21 @@
       "lettering": [
         {
           "speaker": "André",
-          "text": "VAI, MANDA.",
+          "text": "VAI PEGAR LEVE COMIGO?",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jack",
-          "text": "NÃO VAI CHORAR DEPOIS.",
+          "text": "EU? NUNCA. VOU ESTRAGAR TEU PENTEADO.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-33"
     },
     "L1-34": {
       "source": "D",
@@ -1183,12 +1218,14 @@
         },
         {
           "speaker": "André",
-          "text": "BOA. AGORA É MINHA VEZ.",
+          "text": "AI, MEU CORAÇÃO! FUI DERROTADO!",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-34"
     },
     "L1-35": {
       "source": "D",
@@ -1211,12 +1248,14 @@
       "lettering": [
         {
           "speaker": "André",
-          "text": "UÉ...",
+          "text": "PERA... PRENDEU MEU BRAÇO.",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-35"
     },
     "L1-36": {
       "source": "D",
@@ -1239,19 +1278,21 @@
       "lettering": [
         {
           "speaker": "André",
-          "text": "EI. TÁ DOENDO.",
+          "text": "AI! PORRA!",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "André",
-          "text": "TÁ DOENDO DE VERDADE!",
+          "text": "JACK, PUXA. TÁ DOENDO DE VERDADE!",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-36"
     },
     "L1-37": {
       "source": "D",
@@ -1274,12 +1315,14 @@
       "lettering": [
         {
           "speaker": "Kim",
-          "text": "SOLTA ELE!",
+          "text": "DESLIGA ESSA PORRA!",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-37"
     },
     "L1-38": {
       "source": "A",
@@ -1304,7 +1347,9 @@
           "role": "sound",
           "text": "CLIC"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-38"
     },
     "L1-39": {
       "source": "D",
@@ -1327,19 +1372,21 @@
       "lettering": [
         {
           "speaker": "Brock",
-          "text": "CALMA. É SÓ O JOGO.",
+          "text": "SEGURA AQUI, ANDRÉ!",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Kim",
-          "text": "ENTÃO DESLIGA ESSA MERDA!",
+          "text": "KRONOS! TIRA ELE DAQUI!",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-39"
     },
     "L1-40": {
       "source": "D",
@@ -1362,19 +1409,21 @@
       "lettering": [
         {
           "speaker": "Michael",
-          "text": "PARA DE CENA, ANDRÉ.",
+          "text": "QUAL FOI, ANDRÉ... ACABOU A PEÇA.",
           "color": "#155E63",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "André",
-          "text": "EU NÃO TÔ BRINCANDO!",
+          "text": "ME TIRA DAQUI!",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-40"
     },
     "L1-41": {
       "source": "D",
@@ -1397,19 +1446,21 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "EU NEM BATI FORTE.",
+          "text": "EU SÓ ENCOSTEI...",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Nina",
-          "text": "OLHA PRA MIM. NÃO FOI VOCÊ.",
+          "text": "EU VI. OLHA O QUE TÁ PRENDENDO ELE.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-41"
     },
     "L1-42": {
       "source": "A",
@@ -1429,23 +1480,22 @@
       ],
       "playback": false,
       "offset_seconds": 13332,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 1,
+      "previous_page_id": "L1-42"
     },
     "L1-43": {
       "source": "S",
       "operator": "none",
       "panels": 1,
       "analog_clock": [
-        "31/10 23:39:16",
-        "31/10 23:39:18"
+        "31/10 23:39:16"
       ],
       "battery": [
-        75,
         75
       ],
       "digital_world_clock": [
-        "31/10 23:42:16",
-        "31/10 23:42:18"
+        "31/10 23:42:16"
       ],
       "playback": false,
       "offset_seconds": 13336,
@@ -1455,16 +1505,18 @@
           "text": "TÁ FRIO.",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
-          "origin": "thought_no_tail"
+          "origin": "thought"
         },
         {
           "speaker": "Brock",
-          "text": "FICA COMIGO.",
+          "text": "FICA COMIGO, ANDRÉ.",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-43"
     },
     "L1-44": {
       "source": "D",
@@ -1490,16 +1542,18 @@
           "text": "EU VOU DESLIGAR.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Kim",
-          "text": "NÃO. GRAVA ISSO.",
+          "text": "NÃO DESLIGA. GRAVA ESSA PORRA.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-44"
     },
     "L1-45": {
       "source": "S",
@@ -1522,39 +1576,40 @@
       "lettering": [
         {
           "speaker": "André",
-          "text": "MINHA IRMÃ...",
+          "text": "BROCK... MINHA IRMÃ...",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Brock",
-          "text": "EU LEVO VOCÊ ATÉ ELA.",
+          "text": "A GENTE VAI SAIR. TÁ ME OUVINDO?",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-45"
     },
     "L1-46": {
       "source": "A",
       "operator": "supported",
       "panels": 1,
       "analog_clock": [
-        "31/10 23:39:24",
-        "31/10 23:39:26"
+        "31/10 23:39:24"
       ],
       "battery": [
-        75,
         75
       ],
       "digital_world_clock": [
-        "31/10 23:42:24",
-        "31/10 23:42:26"
+        "31/10 23:42:24"
       ],
       "playback": false,
       "offset_seconds": 13344,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 1,
+      "previous_page_id": "L1-46"
     },
     "L1-47": {
       "source": "S",
@@ -1580,104 +1635,76 @@
           "text": "EU PROMETI.",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
-          "origin": "thought_no_tail"
+          "origin": "thought"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-47"
     },
     "L1-48": {
       "source": "D",
       "operator": "Fred",
       "panels": 1,
       "analog_clock": [
-        "31/10 23:39:30",
-        "31/10 23:39:32"
+        "31/10 23:39:30"
       ],
       "battery": [
-        75,
         75
       ],
       "digital_world_clock": [
-        "31/10 23:42:30",
-        "31/10 23:42:32"
+        "31/10 23:42:30"
       ],
       "playback": false,
       "offset_seconds": 13350,
       "lettering": [
         {
           "speaker": "Kim",
-          "text": "ANDRÉ?",
+          "text": "...ANDRÉ?",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-48"
     },
     "L1-49": {
-      "source": "C",
-      "operator": "none",
-      "panels": 2,
+      "source": "C+A",
+      "operator": "none -> worker",
+      "panels": 3,
       "analog_clock": [
-        "31/10 23:41:00",
-        "31/10 23:41:02"
+        "31/10 23:41:15",
+        "31/10 23:42:50",
+        "31/10 23:42:52"
       ],
       "battery": [
         75,
-        75
-      ],
-      "digital_world_clock": [
-        "31/10 23:44:00",
-        "31/10 23:44:02"
-      ],
-      "playback": false,
-      "offset_seconds": 13440,
-      "lettering": []
-    },
-    "L1-50": {
-      "source": "C",
-      "operator": "none",
-      "panels": 1,
-      "analog_clock": [
-        "31/10 23:41:15",
-        "31/10 23:41:17"
-      ],
-      "battery": [
         75,
         75
       ],
       "digital_world_clock": [
         "31/10 23:44:15",
-        "31/10 23:44:17"
+        "31/10 20:00:00",
+        "31/10 20:00:00"
       ],
       "playback": false,
       "offset_seconds": 13455,
       "lettering": [
         {
           "role": "interface",
-          "text": "DELETE"
+          "text": "DELETE",
+          "panel": 1
         }
+      ],
+      "event_loop": 1,
+      "previous_page_id": "L1-49",
+      "panel_sources": [
+        "C",
+        "A",
+        "A"
       ]
     },
-    "L1-51": {
-      "source": "A",
-      "operator": "worker",
-      "panels": 2,
-      "analog_clock": [
-        "31/10 23:42:50",
-        "31/10 23:42:52"
-      ],
-      "battery": [
-        75,
-        75
-      ],
-      "digital_world_clock": [
-        "31/10 23:45:50",
-        "31/10 23:45:52"
-      ],
-      "playback": false,
-      "offset_seconds": 13550,
-      "lettering": []
-    },
-    "L2-01": {
+    "L1-50": {
       "source": "A",
       "operator": "Nina",
       "panels": 2,
@@ -1698,14 +1725,16 @@
       "lettering": [
         {
           "speaker": "Kim",
-          "text": "PEGA UM PRATO E VEM.",
+          "text": "VAI COMER OU VAI FICAR ESCOLHENDO?",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-01"
     },
-    "L2-02": {
+    "L1-51": {
       "source": "D",
       "operator": "supported: Fred visible",
       "panels": 2,
@@ -1726,28 +1755,30 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "MAIS PRA CÁ.",
+          "text": "MAIS PRA CÁ, MICHAEL. DEIXA O MEIO LIVRE.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Michael",
-          "text": "ASSIM?",
+          "text": "AQUI?",
           "color": "#155E63",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Fred",
-          "text": "NÃO. DEIXA...",
+          "text": "AÍ. TRÊS, DOIS...",
           "color": "#C9A227",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-02"
     },
-    "L2-03": {
+    "L2-01": {
       "source": "A",
       "operator": "Nina",
       "panels": 2,
@@ -1768,21 +1799,23 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "Ô, GENTILEZA?",
+          "text": "ATÉ ME SERVIU? TÁ QUERENDO O QUÊ?",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Kim",
-          "text": "PEGA LOGO.",
+          "text": "QUE VOCÊ PEGUE LOGO.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-03"
     },
-    "L2-04": {
+    "L2-02": {
       "source": "A",
       "operator": "Nina",
       "panels": 2,
@@ -1803,21 +1836,23 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "MANO, NÃO COME ESSA UVA!",
+          "text": "JACK. NÃO COME ISSO.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Jack",
-          "text": "QUAL FOI?",
+          "text": "QUAL FOI? VOCÊ NEM PROVOU.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-04"
     },
-    "L2-05": {
+    "L2-03": {
       "source": "A",
       "operator": "Nina",
       "panels": 2,
@@ -1838,41 +1873,42 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "NÃO SEI. TÔ COM UMA SENSAÇÃO RUIM.",
+          "text": "NÃO SEI. ME DEU UMA COISA RUIM.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Kim",
-          "text": "ENTÃO NÃO COME.",
+          "text": "ENTÃO PEGA OUTRA COISA, PORRA.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-05"
     },
-    "L2-06": {
+    "L2-04": {
       "source": "C",
       "operator": "none",
       "panels": 1,
       "analog_clock": [
-        "01/11 00:03:00",
-        "01/11 00:03:02"
+        "01/11 00:03:00"
       ],
       "battery": [
-        72,
         72
       ],
       "digital_world_clock": [
-        "31/10 20:20:00",
-        "31/10 20:20:02"
+        "31/10 20:20:00"
       ],
       "playback": false,
       "offset_seconds": 1200,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 2,
+      "previous_page_id": "L2-06"
     },
-    "L2-07": {
+    "L2-05": {
       "source": "A",
       "operator": "Nina",
       "panels": 2,
@@ -1900,21 +1936,23 @@
         },
         {
           "speaker": "Kronos",
-          "text": "OITO VÃO COMEÇAR.",
+          "text": "OITO DE VOCÊS ENTRARÃO NA ARENA.",
           "color": "#4B5058",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Nina",
-          "text": "NÃO TINHA MAIS GENTE?",
+          "text": "CINQUENTA...",
           "color": "#B82E69",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-07"
     },
-    "L2-08": {
+    "L2-06": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -1935,21 +1973,23 @@
       "lettering": [
         {
           "speaker": "Jason",
-          "text": "O PRÊMIO CONTINUA, NÉ?",
+          "text": "O PRÊMIO VALE PRA GENTE TAMBÉM, NÉ?",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Fred",
-          "text": "CLARO. FOI POR ISSO QUE CHAMARAM A GENTE.",
+          "text": "VALE PRA QUEM GANHAR.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-08"
     },
-    "L2-09": {
+    "L2-07": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -1970,21 +2010,23 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "ANDA, ABRE.",
+          "text": "VAI DEMORAR PRA ABRIR?",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Anderson",
-          "text": "ELE NEM ENCOSTOU AINDA.",
+          "text": "DEIXA O CARA CHEGAR NO SENSOR.",
           "color": "#4B5563",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-09"
     },
-    "L2-10": {
+    "L2-08": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2012,14 +2054,16 @@
         },
         {
           "speaker": "Jack",
-          "text": "NADA.",
+          "text": "OLHA O FIO. IA TE PEGAR.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-10"
     },
-    "L2-11": {
+    "L2-09": {
       "source": "A",
       "operator": "Nina -> Jack",
       "panels": 2,
@@ -2040,76 +2084,76 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "PASSA A...",
+          "text": "PASSA A ALÇA NO PULSO.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Jack",
-          "text": "JÁ PASSEI.",
+          "text": "TÁ AQUI. PODE FISCALIZAR.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-11"
     },
-    "L2-12": {
+    "L2-10": {
       "source": "D",
       "operator": "Fred",
       "panels": 1,
       "analog_clock": [
-        "01/11 00:04:00",
-        "01/11 00:04:02"
+        "01/11 00:04:00"
       ],
       "battery": [
-        72,
         72
       ],
       "digital_world_clock": [
-        "31/10 20:21:00",
-        "31/10 20:21:02"
+        "31/10 20:21:00"
       ],
       "playback": false,
       "offset_seconds": 1260,
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "PESA MAIS QUE A FANTASIA.",
+          "text": "ESSA CÂMERA PESA UM TIJOLO.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Nina",
-          "text": "POR ISSO A ALÇA.",
+          "text": "E VOCÊ RECLAMA POR DOIS.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-12"
     },
-    "L2-13": {
+    "L2-11": {
       "source": "C",
       "operator": "none",
       "panels": 1,
       "analog_clock": [
-        "01/11 00:04:10",
-        "01/11 00:04:12"
+        "01/11 00:04:10"
       ],
       "battery": [
-        72,
         72
       ],
       "digital_world_clock": [
-        "31/10 20:21:10",
-        "31/10 20:21:12"
+        "31/10 20:21:10"
       ],
       "playback": false,
       "offset_seconds": 1270,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 2,
+      "previous_page_id": "L2-13"
     },
-    "L2-14": {
+    "L2-12": {
       "source": "A",
       "operator": "Nina -> supported",
       "panels": 2,
@@ -2130,14 +2174,16 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "AQUI NÃO CAI.",
+          "text": "VOU PÔR EMBAIXO. TÁ TODO MUNDO PASSANDO AQUI.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-14"
     },
-    "L2-15": {
+    "L2-13": {
       "source": "A",
       "operator": "supported",
       "panels": 2,
@@ -2158,41 +2204,42 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "ISSO TÁ GRAVANDO MESMO?",
+          "text": "TÁ GRAVANDO MESMO?",
           "color": "#C9A227",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Brock",
-          "text": "GRAVA DEPOIS. SENTA.",
+          "text": "TÁ. AGORA SENTA.",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-15"
     },
-    "L2-16": {
+    "L2-14": {
       "source": "C",
       "operator": "none",
       "panels": 1,
       "analog_clock": [
-        "01/11 00:04:40",
-        "01/11 00:04:42"
+        "01/11 00:04:40"
       ],
       "battery": [
-        71,
         71
       ],
       "digital_world_clock": [
-        "31/10 20:21:40",
-        "31/10 20:21:42"
+        "31/10 20:21:40"
       ],
       "playback": false,
       "offset_seconds": 1300,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 2,
+      "previous_page_id": "L2-16"
     },
-    "L2-17": {
+    "L2-15": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2213,49 +2260,50 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "AGORA VAI.",
+          "text": "AGORA SIM.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Jason",
-          "text": "JÁ ERA PRA TER IDO.",
+          "text": "VAMO PEGAR ESSE PRÊMIO.",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-17"
     },
-    "L2-18": {
+    "L2-16": {
       "source": "D",
       "operator": "Fred",
       "panels": 1,
       "analog_clock": [
-        "01/11 02:08:10",
-        "01/11 02:08:12"
+        "01/11 02:08:10"
       ],
       "battery": [
-        51,
         51
       ],
       "digital_world_clock": [
-        "31/10 22:25:10",
-        "31/10 22:25:12"
+        "31/10 22:25:10"
       ],
       "playback": false,
       "offset_seconds": 8710,
       "lettering": [
         {
           "speaker": "Michael",
-          "text": "BORA, ANDERSON.",
+          "text": "BORA. OS OUTROS JÁ SAÍRAM.",
           "color": "#155E63",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-18"
     },
-    "L2-19": {
+    "L2-17": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2276,49 +2324,50 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "ESPERA UM POUCO.",
+          "text": "JACK. FICA AQUI UM INSTANTE.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jack",
-          "text": "O QUÊ?",
+          "text": "QUE FOI?",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-19"
     },
-    "L2-20": {
+    "L2-18": {
       "source": "D",
       "operator": "Fred",
       "panels": 1,
       "analog_clock": [
-        "01/11 02:08:30",
-        "01/11 02:08:32"
+        "01/11 02:08:30"
       ],
       "battery": [
-        51,
         51
       ],
       "digital_world_clock": [
-        "31/10 22:25:30",
-        "31/10 22:25:32"
+        "31/10 22:25:30"
       ],
       "playback": false,
       "offset_seconds": 8730,
       "lettering": [
         {
           "speaker": "Kronos",
-          "text": "NOSSOS QUARENTA E DOIS ESPECTADORES JÁ ESTÃO A POSTOS.",
+          "text": "NOSSOS QUARENTA E DOIS ESPECTADORES AGUARDAM O COMBATE.",
           "color": "#4B5058",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-20"
     },
-    "L2-21": {
+    "L2-19": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2339,28 +2388,30 @@
       "lettering": [
         {
           "speaker": "Jason",
-          "text": "EU VOU.",
+          "text": "EU VOU PRIMEIRO.",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Brock",
-          "text": "PELO PRÊMIO?",
+          "text": "NÃO SE AFOBA.",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jason",
-          "text": "TÁ PRECISANDO LÁ EM CASA.",
+          "text": "ESSA GRANA FAZ FALTA, BROCK.",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-21"
     },
-    "L2-22": {
+    "L2-20": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2381,49 +2432,50 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "ENTÃO VEM.",
+          "text": "BELEZA. EU VOU...",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Nina",
-          "text": "JACK...",
+          "text": "JACK!",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-22"
     },
-    "L2-23": {
+    "L2-21": {
       "source": "D",
       "operator": "Fred",
       "panels": 1,
       "analog_clock": [
-        "01/11 02:09:00",
-        "01/11 02:09:02"
+        "01/11 02:09:00"
       ],
       "battery": [
-        51,
         51
       ],
       "digital_world_clock": [
-        "31/10 22:26:00",
-        "31/10 22:26:02"
+        "31/10 22:26:00"
       ],
       "playback": false,
       "offset_seconds": 8760,
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "JACK, NÃO LUTA.",
+          "text": "NÃO LUTA. POR FAVOR.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-23"
     },
-    "L2-24": {
+    "L2-22": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2444,21 +2496,23 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "TÁ. NÃO VOU.",
+          "text": "TÁ BOM. EU NÃO VOU.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jason",
-          "text": "E AGORA?",
+          "text": "E EU FICO AQUI ESPERANDO?",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-24"
     },
-    "L2-25": {
+    "L2-23": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2479,14 +2533,16 @@
       "lettering": [
         {
           "speaker": "Kronos",
-          "text": "ATAQUEM.",
+          "text": "ATAQUEM TODOS ELES.",
           "color": "#4B5058",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-25"
     },
-    "L2-26": {
+    "L2-24": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2507,14 +2563,16 @@
       "lettering": [
         {
           "speaker": "Brock",
-          "text": "PROS PORTÕES!",
+          "text": "PROS PORTÕES! AGORA!",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-26"
     },
-    "L2-27": {
+    "L2-25": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2535,21 +2593,23 @@
       "lettering": [
         {
           "speaker": "Kim",
-          "text": "NINA, COM O JACK!",
+          "text": "JACK, LEVA A NINA!",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Brock",
-          "text": "FRED, AQUI!",
+          "text": "FRED! AQUI!",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-27"
     },
-    "L2-28": {
+    "L2-26": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2570,21 +2630,23 @@
       "lettering": [
         {
           "speaker": "Brock",
-          "text": "PROCURA OUTRA SAÍDA!",
+          "text": "JASON, OLHA O FUNDO!",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jason",
-          "text": "TÔ PROCURANDO!",
+          "text": "TRANCADO!",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-28"
     },
-    "L2-29": {
+    "L2-27": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2605,18 +2667,20 @@
       "lettering": [
         {
           "speaker": "Brock",
-          "text": "VEM, FILHO DA PUTA!",
+          "text": "SOLTA, DESGRAÇA!",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "role": "sound",
-          "text": "TRAC"
+          "text": "TRAC!"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-29"
     },
-    "L2-30": {
+    "L2-28": {
       "source": "A",
       "operator": "supported",
       "panels": 2,
@@ -2639,9 +2703,11 @@
           "role": "sound",
           "text": "CLIC"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-30"
     },
-    "L2-31": {
+    "L2-29": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2662,21 +2728,23 @@
       "lettering": [
         {
           "speaker": "Jason",
-          "text": "POR AQUI, CARALHO!",
+          "text": "SAI DA FRENTE!",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Fred",
-          "text": "SOLTA MINHA ROUPA!",
+          "text": "NÃO PUXA MINHA ROUPA!",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-31"
     },
-    "L2-32": {
+    "L2-30": {
       "source": "S",
       "operator": "none",
       "panels": 2,
@@ -2697,21 +2765,23 @@
       "lettering": [
         {
           "speaker": "Anderson",
-          "text": "A PORTA. AJUDA AQUI.",
+          "text": "PEGA DESSE LADO, MICHAEL!",
           "color": "#4B5563",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Michael",
-          "text": "EU TÔ VENDO!",
+          "text": "TÔ PUXANDO!",
           "color": "#155E63",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-32"
     },
-    "L2-33": {
+    "L2-31": {
       "source": "S",
       "operator": "none",
       "panels": 2,
@@ -2732,21 +2802,23 @@
       "lettering": [
         {
           "speaker": "Michael",
-          "text": "É IGUAL NA ARENA. É SÓ...",
+          "text": "É SÓ UM JOGO. A GENTE DÁ CONTA.",
           "color": "#155E63",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Anderson",
-          "text": "ENTÃO POR QUE VOCÊ TÁ TREMENDO?",
+          "text": "ENTÃO SEGURA FIRME.",
           "color": "#4B5563",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-33"
     },
-    "L2-34": {
+    "L2-32": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2774,41 +2846,42 @@
         },
         {
           "speaker": "Fred",
-          "text": "CADÊ?",
+          "text": "ONDE?",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Brock",
-          "text": "DO OUTRO LADO.",
+          "text": "NA OUTRA CÂMARA.",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-34"
     },
-    "L2-35": {
+    "L2-33": {
       "source": "A",
       "operator": "supported",
       "panels": 1,
       "analog_clock": [
-        "01/11 02:10:15",
-        "01/11 02:10:17"
+        "01/11 02:10:15"
       ],
       "battery": [
-        51,
         51
       ],
       "digital_world_clock": [
-        "31/10 22:27:15",
-        "31/10 22:27:17"
+        "31/10 22:27:15"
       ],
       "playback": false,
       "offset_seconds": 8835,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 2,
+      "previous_page_id": "L2-35"
     },
-    "L2-36": {
+    "L2-34": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2829,21 +2902,23 @@
       "lettering": [
         {
           "speaker": "Jason",
-          "text": "EU PRECISO VOLTAR PRA CASA.",
+          "text": "EU TENHO QUE VOLTAR PRA CASA, BROCK.",
           "color": "#6D28A6",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Brock",
-          "text": "ENTÃO PUXA.",
+          "text": "VAI VOLTAR. PUXA AQUI.",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-36"
     },
-    "L2-37": {
+    "L2-35": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2864,14 +2939,16 @@
       "lettering": [
         {
           "speaker": "Brock",
-          "text": "NÃO FICA PARADO!",
+          "text": "PRA TRÁS, FRED!",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-37"
     },
-    "L2-38": {
+    "L2-36": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2892,14 +2969,16 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "NÃO! MEU PAI NÃO VAI DEIXAR ISSO ACONTECER!",
+          "text": "VOCÊS SABEM QUEM É MEU PAI?!",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-38"
     },
-    "L2-39": {
+    "L2-37": {
       "source": "S",
       "operator": "none",
       "panels": 2,
@@ -2920,14 +2999,16 @@
       "lettering": [
         {
           "speaker": "Michael",
-          "text": "ANDERSON, SEGURA!",
+          "text": "ANDERSON! ME SEGURA!",
           "color": "#155E63",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-39"
     },
-    "L2-40": {
+    "L2-38": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2953,9 +3034,11 @@
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-40"
     },
-    "L2-41": {
+    "L2-39": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -2976,41 +3059,42 @@
       "lettering": [
         {
           "speaker": "Brock",
-          "text": "SAI DAQUI, FRED.",
+          "text": "SAI DAQUI, MOLEQUE!",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Fred",
-          "text": "ABRE ESSA PORRA!",
+          "text": "NÃO ABRE!",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-41"
     },
-    "L2-42": {
+    "L2-40": {
       "source": "A",
       "operator": "supported",
       "panels": 1,
       "analog_clock": [
-        "01/11 02:10:45",
-        "01/11 02:10:47"
+        "01/11 02:10:45"
       ],
       "battery": [
-        51,
         51
       ],
       "digital_world_clock": [
-        "31/10 22:27:45",
-        "31/10 22:27:47"
+        "31/10 22:27:45"
       ],
       "playback": false,
       "offset_seconds": 8865,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 2,
+      "previous_page_id": "L2-42"
     },
-    "L2-43": {
+    "L2-41": {
       "source": "S",
       "operator": "none",
       "panels": 2,
@@ -3031,49 +3115,50 @@
       "lettering": [
         {
           "speaker": "Michael",
-          "text": "NÃO ME LARGA.",
+          "text": "NÃO SOLTA!",
           "color": "#155E63",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Anderson",
-          "text": "EU TÔ AQUI.",
+          "text": "EU TÔ SEGURANDO!",
           "color": "#4B5563",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-43"
     },
-    "L2-44": {
+    "L2-42": {
       "source": "D",
       "operator": "Fred",
       "panels": 1,
       "analog_clock": [
-        "01/11 02:10:55",
-        "01/11 02:10:57"
+        "01/11 02:10:55"
       ],
       "battery": [
-        51,
         51
       ],
       "digital_world_clock": [
-        "31/10 22:27:55",
-        "31/10 22:27:57"
+        "31/10 22:27:55"
       ],
       "playback": false,
       "offset_seconds": 8875,
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "EU VOU PROCESSAR VOCÊS!",
+          "text": "MEU PAI VAI ACABAR COM VOCÊS!",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-44"
     },
-    "L2-45": {
+    "L2-43": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -3094,14 +3179,16 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "BROCK?",
+          "text": "BROCK? ...LEVANTA.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-45"
     },
-    "L2-46": {
+    "L2-44": {
       "source": "S",
       "operator": "none",
       "panels": 2,
@@ -3127,9 +3214,11 @@
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-46"
     },
-    "L2-47": {
+    "L2-45": {
       "source": "S",
       "operator": "none",
       "panels": 2,
@@ -3150,34 +3239,35 @@
       "lettering": [
         {
           "speaker": "Anderson",
-          "text": "EU IA SAIR DESSE GRUPO.",
+          "text": "EU SÓ QUERIA IR EMBORA.",
           "color": "#4B5563",
           "fill": "#FFFFFF",
-          "origin": "thought_no_tail"
+          "origin": "thought"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-47"
     },
-    "L2-48": {
+    "L2-46": {
       "source": "D",
       "operator": "Fred",
       "panels": 1,
       "analog_clock": [
-        "01/11 02:11:15",
-        "01/11 02:11:17"
+        "01/11 02:11:15"
       ],
       "battery": [
-        51,
         51
       ],
       "digital_world_clock": [
-        "31/10 22:28:15",
-        "31/10 22:28:17"
+        "31/10 22:28:15"
       ],
       "playback": false,
       "offset_seconds": 8895,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 2,
+      "previous_page_id": "L2-48"
     },
-    "L2-49": {
+    "L2-47": {
       "source": "C",
       "operator": "none",
       "panels": 2,
@@ -3195,23 +3285,22 @@
       ],
       "playback": false,
       "offset_seconds": 9120,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 2,
+      "previous_page_id": "L2-49"
     },
-    "L2-50": {
+    "L2-48": {
       "source": "C",
       "operator": "none",
       "panels": 1,
       "analog_clock": [
-        "01/11 02:15:15",
-        "01/11 02:15:17"
+        "01/11 02:15:15"
       ],
       "battery": [
-        50,
         50
       ],
       "digital_world_clock": [
-        "31/10 22:32:15",
-        "31/10 22:32:17"
+        "31/10 22:32:15"
       ],
       "playback": false,
       "offset_seconds": 9135,
@@ -3220,9 +3309,11 @@
           "role": "interface",
           "text": "DELETE"
         }
-      ]
+      ],
+      "event_loop": 2,
+      "previous_page_id": "L2-50"
     },
-    "L2-51": {
+    "L2-49": {
       "source": "A",
       "operator": "worker",
       "panels": 2,
@@ -3240,9 +3331,11 @@
       ],
       "playback": false,
       "offset_seconds": 9230,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 2,
+      "previous_page_id": "L2-51"
     },
-    "L3-01": {
+    "L2-50": {
       "source": "A",
       "operator": "Nina",
       "panels": 2,
@@ -3263,14 +3356,16 @@
       "lettering": [
         {
           "speaker": "Kronos",
-          "text": "BOA NOITE AOS NOSSOS DEZ CONVIDADOS.",
+          "text": "BOA NOITE AOS NOSSOS DEZ CONVIDADOS ESPECIAIS.",
           "color": "#4B5058",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-01"
     },
-    "L3-02": {
+    "L2-51": {
       "source": "D",
       "operator": "supported: Fred visible",
       "panels": 2,
@@ -3291,21 +3386,23 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "TRÊS...",
+          "text": "TRÊS, DOIS... E AÍ, GALERA DA POW-POW...",
           "color": "#C9A227",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Fred",
-          "text": "AH, FODA-SE.",
+          "text": "...AH, FODA-SE.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-02"
     },
-    "L3-03": {
+    "L3-01": {
       "source": "A",
       "operator": "Nina",
       "panels": 2,
@@ -3333,17 +3430,19 @@
         },
         {
           "speaker": "Nina",
-          "text": "NÃO. DEIXA ISSO AÍ.",
+          "text": "NÃO. TIRA ESSA TIGELA DAQUI.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-03"
     },
-    "L3-04": {
+    "L3-02": {
       "source": "C",
       "operator": "none",
-      "panels": 1,
+      "panels": 2,
       "analog_clock": [
         "01/11 02:17:20",
         "01/11 02:17:22"
@@ -3358,9 +3457,48 @@
       ],
       "playback": false,
       "offset_seconds": 20,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 3,
+      "previous_page_id": "L3-04"
     },
-    "L3-05": {
+    "L3-03": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:18:30",
+        "01/11 02:18:40"
+      ],
+      "battery": [
+        50,
+        50
+      ],
+      "digital_world_clock": [
+        "31/10 20:01:30",
+        "31/10 20:01:40"
+      ],
+      "playback": false,
+      "offset_seconds": 90,
+      "lettering": [
+        {
+          "speaker": "Fred",
+          "text": "VOCÊS TÃO FAZENDO O QUÊ AÍ?",
+          "color": "#C9A227",
+          "fill": "#FFFFFF",
+          "origin": "bottom_center"
+        },
+        {
+          "speaker": "Kim",
+          "text": "DÁ ESPAÇO.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ],
+      "event_loop": 3,
+      "previous_page_id": null
+    },
+    "L3-04": {
       "source": "A",
       "operator": "Nina",
       "panels": 2,
@@ -3381,21 +3519,23 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "MANO, EU TÔ ME SENTINDO ESTRANHA.",
+          "text": "JACK. SEGURA PRA MIM.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Jack",
-          "text": "ME DÁ AQUI UM POUCO.",
+          "text": "EI. VOCÊ TÁ BEM?",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-05"
     },
-    "L3-06": {
+    "L3-05": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -3416,21 +3556,23 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "TÁ CANSADA?",
+          "text": "VOCÊ TÁ PÁLIDA.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Nina",
-          "text": "NÃO É ISSO.",
+          "text": "PARECE QUE EU JÁ PASSEI POR ISSO. NÃO SEI EXPLICAR.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-06"
     },
-    "L3-07": {
+    "L3-06": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -3451,14 +3593,14 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "VOCÊ LIGOU ISSO ANTES DE SAIR?",
+          "text": "QUE HORAS VOCÊ LIGOU ISSO?",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Nina",
-          "text": "LIGUEI QUANDO A GENTE CHEGOU.",
+          "text": "AGORA HÁ POUCO. NA ENTRADA.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
@@ -3468,12 +3610,14 @@
           "text": "01/11 02:20:00"
         },
         {
-          "role": "interface",
+          "role": "sound",
           "text": "BAT 49%"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-07"
     },
-    "L3-08": {
+    "L3-07": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -3489,26 +3633,30 @@
         "31/10 20:03:15",
         "31/10 20:03:17"
       ],
-      "playback": false,
+      "playback": true,
       "offset_seconds": 195,
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "MAIS DE SEIS HORAS?",
+          "text": "SETE E CINQUENTA E SETE... TEM MAIS DE SEIS HORAS AQUI.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Nina",
-          "text": "VOLTA UM POUCO.",
+          "text": "AVANÇA. VÊ O QUE TEM.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-08",
+      "replay_of": "L1-03",
+      "archived_clock": "31/10 19:57:00"
     },
-    "L3-09": {
+    "L3-08": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -3527,10 +3675,7 @@
       "playback": true,
       "offset_seconds": 210,
       "replay_of": "L1-22",
-      "archived_clock": [
-        "31/10 21:19:25",
-        "31/10 21:19:27"
-      ],
+      "archived_clock": "31/10 21:19:25",
       "lettering": [
         {
           "role": "interface",
@@ -3538,14 +3683,16 @@
         },
         {
           "speaker": "Nina",
-          "text": "AQUI. PARA.",
+          "text": "PARA AÍ. DEIXA RODAR.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-09"
     },
-    "L3-10": {
+    "L3-09": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -3564,28 +3711,27 @@
       "playback": true,
       "offset_seconds": 220,
       "replay_of": "L1-22",
-      "archived_clock": [
-        "31/10 21:19:25",
-        "31/10 21:19:27"
-      ],
+      "archived_clock": "31/10 21:19:25",
       "lettering": [
         {
           "speaker": "André",
           "text": "PRECISA APERTAR TANTO?",
           "color": "#9A4A16",
           "fill": "#FFFFFF",
-          "origin": "speaker_position"
+          "origin": "playback_ocular"
         },
         {
           "speaker": "Brock",
           "text": "JÁ JÁ ACABA.",
           "color": "#8B1E1E",
           "fill": "#FFFFFF",
-          "origin": "speaker_position"
+          "origin": "playback_ocular"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-10"
     },
-    "L3-11": {
+    "L3-10": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -3603,22 +3749,21 @@
       ],
       "playback": true,
       "offset_seconds": 230,
-      "replay_of": "L2-35",
-      "archived_clock": [
-        "01/11 02:10:15",
-        "01/11 02:10:17"
-      ],
+      "replay_of": "L2-28",
+      "archived_clock": "01/11 02:09:50",
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "ISSO FOI AQUI.",
+          "text": "É A PERNA DO BROCK. OLHA O QUE TÃO PRENDENDO NELE.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-11"
     },
-    "L3-12": {
+    "L3-11": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -3637,28 +3782,27 @@
       "playback": true,
       "offset_seconds": 240,
       "replay_of": "L1-21",
-      "archived_clock": [
-        "31/10 21:19:15",
-        "31/10 21:19:17"
-      ],
+      "archived_clock": "31/10 21:19:17",
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "ESSA SOU EU.",
+          "text": "ESSA SOU EU. SENTADA ALI.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jack",
-          "text": "EU NÃO LEMBRO DISSO.",
+          "text": "EU TÔ DO TEU LADO. QUANDO FOI ISSO?",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-12"
     },
-    "L3-13": {
+    "L3-12": {
       "source": "D",
       "operator": "Fred",
       "panels": 2,
@@ -3679,19 +3823,67 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "CÂMERA VELHA É QUE TEM ESSAS COISAS.",
+          "text": "O RELÓGIO DESSA VELHARIA DEVE TÁ ERRADO.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Nina",
-          "text": "NÃO É DEFEITO. A GENTE TÁ NA FITA.",
+          "text": "E QUEM GRAVOU A GENTE NAQUELAS CADEIRAS?",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-13"
+    },
+    "L3-13": {
+      "source": "D",
+      "operator": "Fred",
+      "panels": 2,
+      "analog_clock": [
+        "01/11 02:21:17",
+        "01/11 02:21:22"
+      ],
+      "battery": [
+        48,
+        48
+      ],
+      "digital_world_clock": [
+        "31/10 20:04:17",
+        "31/10 20:04:22"
+      ],
+      "playback": true,
+      "offset_seconds": 257,
+      "lettering": [
+        {
+          "speaker": "Kim",
+          "text": "O RELÓGIO DALI TÁ NAS OITO.",
+          "color": "#1E6FE0",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Jack",
+          "text": "E ESSA FITA PASSOU DAS DUAS.",
+          "color": "#22C55E",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        },
+        {
+          "speaker": "Nina",
+          "text": "CHEGA. A GENTE VAI EMBORA.",
+          "color": "#B82E69",
+          "fill": "#FFFFFF",
+          "origin": "speaker_position"
+        }
+      ],
+      "event_loop": 3,
+      "previous_page_id": null,
+      "replay_of": "L2-28",
+      "archived_clock": "01/11 02:09:50"
     },
     "L3-14": {
       "source": "A",
@@ -3714,19 +3906,21 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "NÃO APAGA NADA.",
+          "text": "VOLTA PRO FIM. NÃO GRAVA POR CIMA.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jack",
-          "text": "NÃO VOU APAGAR.",
+          "text": "PRONTO. TÁ GRAVANDO DE NOVO.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-14"
     },
     "L3-15": {
       "source": "C",
@@ -3746,7 +3940,9 @@
       ],
       "playback": false,
       "offset_seconds": 280,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 3,
+      "previous_page_id": "L3-15"
     },
     "L3-16": {
       "source": "A",
@@ -3769,12 +3965,14 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "JACK. OLHA AS PORTAS.",
+          "text": "OLHA AS PORTAS.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-16"
     },
     "L3-17": {
       "source": "A",
@@ -3797,12 +3995,14 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "A GENTE VAI SAIR. AGORA.",
+          "text": "KIM. FRED. VAMO SAIR.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-17"
     },
     "L3-18": {
       "source": "D",
@@ -3825,19 +4025,21 @@
       "lettering": [
         {
           "speaker": "Kronos",
-          "text": "VOCÊS NÃO PODEM IR EMBORA.",
+          "text": "NINGUÉM SAI ANTES DO FIM.",
           "color": "#4B5058",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Kim",
-          "text": "ENTÃO TIRA ELES DA FRENTE.",
+          "text": "ENTÃO SAI DA FRENTE.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-18"
     },
     "L3-19": {
       "source": "D",
@@ -3860,12 +4062,14 @@
       "lettering": [
         {
           "speaker": "Kim",
-          "text": "CORRE!",
+          "text": "AGORA. CORRE!",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-19"
     },
     "L3-20": {
       "source": "C",
@@ -3885,7 +4089,9 @@
       ],
       "playback": false,
       "offset_seconds": 330,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 3,
+      "previous_page_id": "L3-20"
     },
     "L3-21": {
       "source": "D",
@@ -3908,19 +4114,21 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "ABRE!",
+          "text": "O SENSOR NÃO ABRE!",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Kim",
-          "text": "SAI DA FRENTE.",
+          "text": "SAI DO VÃO.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-21"
     },
     "L3-22": {
       "source": "A",
@@ -3943,12 +4151,14 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "PRA ESCADA!",
+          "text": "PELA ESCADA!",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-22"
     },
     "L3-23": {
       "source": "D",
@@ -3971,12 +4181,14 @@
       "lettering": [
         {
           "speaker": "Kim",
-          "text": "NÃO VAI. VOLTA!",
+          "text": "TRAVARAM POR FORA. VOLTA!",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-23"
     },
     "L3-24": {
       "source": "A",
@@ -3999,19 +4211,21 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "TEM PASSAGEM AQUI.",
+          "text": "TEM UMA JANELA NO PATAMAR.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Jack",
-          "text": "VAI, EU TÔ ATRÁS.",
+          "text": "VAI. EU TÔ ATRÁS.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-24"
     },
     "L3-25": {
       "source": "C",
@@ -4031,7 +4245,9 @@
       ],
       "playback": false,
       "offset_seconds": 360,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 3,
+      "previous_page_id": "L3-25"
     },
     "L3-26": {
       "source": "D",
@@ -4054,19 +4270,21 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "EU TÔ INDO!",
+          "text": "MINHA PERNA... NÃO ME DEIXA!",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Kim",
-          "text": "ENTÃO ANDA!",
+          "text": "APOIA AQUI. LEVANTA.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-26"
     },
     "L3-27": {
       "source": "A",
@@ -4089,12 +4307,14 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "NÃO PARA!",
+          "text": "LARGA ELE!",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-27"
     },
     "L3-28": {
       "source": "A",
@@ -4117,10 +4337,10 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "SEGUREI!",
+          "text": "SEGUREI.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Nina",
@@ -4129,7 +4349,9 @@
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-28"
     },
     "L3-29": {
       "source": "D",
@@ -4152,19 +4374,21 @@
       "lettering": [
         {
           "speaker": "Kim",
-          "text": "AGORA NÃO, PORRA!",
+          "text": "ANDA, FRED!",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Fred",
-          "text": "EU NÃO TÔ ENXERGANDO!",
+          "text": "EU NÃO TÔ VENDO NADA!",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-29"
     },
     "L3-30": {
       "source": "D",
@@ -4187,39 +4411,40 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "EU PAGO. QUANTO VOCÊS QUEREM?",
+          "text": "EU PAGO. FALA QUANTO.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Kim",
-          "text": "GUARDA A GRANA E CORRE!",
+          "text": "ELE NÃO QUER TEU DINHEIRO. ANDA!",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-30"
     },
     "L3-31": {
       "source": "C",
       "operator": "none",
       "panels": 1,
       "analog_clock": [
-        "01/11 02:23:45",
-        "01/11 02:23:47"
+        "01/11 02:23:45"
       ],
       "battery": [
-        48,
         48
       ],
       "digital_world_clock": [
-        "31/10 20:06:45",
-        "31/10 20:06:47"
+        "31/10 20:06:45"
       ],
       "playback": false,
       "offset_seconds": 405,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 3,
+      "previous_page_id": "L3-31"
     },
     "L3-32": {
       "source": "A",
@@ -4242,12 +4467,14 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "VOLTA. POR BAIXO!",
+          "text": "FECHARAM LÁ EM CIMA. DESCE!",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-32"
     },
     "L3-33": {
       "source": "D",
@@ -4270,19 +4497,21 @@
       "lettering": [
         {
           "speaker": "Kim",
-          "text": "PUXA AQUI.",
+          "text": "ME AJUDA NESSA GRADE.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Fred",
-          "text": "NÃO CABE!",
+          "text": "ELES TÃO VINDO!",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-33"
     },
     "L3-34": {
       "source": "A",
@@ -4305,12 +4534,14 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "NÃO SOLTA ESSA CÂMERA.",
+          "text": "NÃO ENTREGA A FITA.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-34"
     },
     "L3-35": {
       "source": "C",
@@ -4330,7 +4561,9 @@
       ],
       "playback": false,
       "offset_seconds": 425,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 3,
+      "previous_page_id": "L3-35"
     },
     "L3-36": {
       "source": "D",
@@ -4360,19 +4593,21 @@
         },
         {
           "speaker": "Fred",
-          "text": "NÃO VOLTA!",
+          "text": "NÃO VOLTA. PEGARAM OS DOIS.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         },
         {
           "speaker": "Kim",
-          "text": "ELA TÁ ALI.",
+          "text": "SOLTA MINHA ROUPA.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-36"
     },
     "L3-37": {
       "source": "D",
@@ -4395,12 +4630,14 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "NÃO ENCOSTA!",
+          "text": "ME LARGA! NÃO ENCOSTA!",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-37"
     },
     "L3-38": {
       "source": "C",
@@ -4420,7 +4657,9 @@
       ],
       "playback": false,
       "offset_seconds": 445,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 3,
+      "previous_page_id": "L3-38"
     },
     "L3-39": {
       "source": "C",
@@ -4440,7 +4679,9 @@
       ],
       "playback": false,
       "offset_seconds": 480,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 3,
+      "previous_page_id": "L3-39"
     },
     "L3-40": {
       "source": "A",
@@ -4463,19 +4704,21 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "NINA...",
+          "text": "NINA... TUA MÃO.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Nina",
-          "text": "EU TÔ AQUI.",
+          "text": "TÔ AQUI.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-40"
     },
     "L3-41": {
       "source": "D",
@@ -4498,19 +4741,21 @@
       "lettering": [
         {
           "speaker": "Kronos",
-          "text": "DEIXE A CÂMERA AÍ.",
+          "text": "A CÂMERA NO CHÃO, FREDERICK.",
           "color": "#4B5058",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Fred",
-          "text": "EU NÃO VOU ATRAPALHAR.",
+          "text": "TÁ. TÔ PONDO.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-41"
     },
     "L3-42": {
       "source": "D",
@@ -4533,12 +4778,14 @@
       "lettering": [
         {
           "speaker": "Kim",
-          "text": "SOLTA ELES.",
+          "text": "KRONOS. SOLTA ELES E VEM AQUI.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-42"
     },
     "L3-43": {
       "source": "D",
@@ -4561,12 +4808,14 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "EU NÃO FIZ NADA!",
+          "text": "EU FIZ O QUE VOCÊ MANDOU!",
           "color": "#C9A227",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-43"
     },
     "L3-44": {
       "source": "S",
@@ -4589,12 +4838,14 @@
       "lettering": [
         {
           "speaker": "Fred",
-          "text": "KIM... FAZ ALGUMA COISA.",
+          "text": "KIM... ME TIRA DAQUI.",
           "color": "#C9A227",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-44"
     },
     "L3-45": {
       "source": "A",
@@ -4614,7 +4865,9 @@
       ],
       "playback": false,
       "offset_seconds": 1525,
-      "lettering": []
+      "lettering": [],
+      "event_loop": 3,
+      "previous_page_id": "L3-45"
     },
     "L3-46": {
       "source": "S",
@@ -4637,19 +4890,21 @@
       "lettering": [
         {
           "speaker": "Nina",
-          "text": "KIM, OLHA PRA MIM.",
+          "text": "KIM... EU TÔ AQUI.",
           "color": "#B82E69",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Kim",
-          "text": "EU TÔ TENTANDO.",
+          "text": "NINA. SEGURA MAIS UM POUCO.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-46"
     },
     "L3-47": {
       "source": "S",
@@ -4672,19 +4927,21 @@
       "lettering": [
         {
           "speaker": "Jack",
-          "text": "NÃO FOI VOCÊ.",
+          "text": "NÃO FOI CULPA TUA, MANO.",
           "color": "#22C55E",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         },
         {
           "speaker": "Kim",
-          "text": "ME LEVA. DEIXA ELES.",
+          "text": "ME PEGA. SOLTA OS DOIS.",
           "color": "#1E6FE0",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-47"
     },
     "L3-48": {
       "source": "C",
@@ -4709,10 +4966,12 @@
           "role": "interface",
           "text": "DELETE"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-48"
     },
     "L3-49": {
-      "source": "C",
+      "source": "C+A",
       "operator": "Kronos",
       "panels": 2,
       "analog_clock": [
@@ -4729,25 +4988,20 @@
       ],
       "playback": false,
       "offset_seconds": 1620,
-      "sources": [
-        "C",
-        "A"
-      ],
       "lettering": [
         {
           "speaker": "Kronos",
-          "text": "EU SABIA QUE ESSA CÂMERA IA SER UM PROBLEMA.",
+          "text": "ESTA FICOU LIGADA O TEMPO TODO?",
           "color": "#4B5058",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
-        },
-        {
-          "speaker": "Kronos",
-          "text": "ISSO NÃO ESTAVA NOS PLANOS...",
-          "color": "#4B5058",
-          "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-49",
+      "panel_sources": [
+        "C",
+        "A"
       ]
     },
     "L3-50": {
@@ -4771,35 +5025,34 @@
       "lettering": [
         {
           "speaker": "Kronos",
-          "text": "MAS, NO FINAL, TUDO DEU CERTO.",
+          "text": "LEVE-A PARA A MESA.",
           "color": "#4B5058",
           "fill": "#FFFFFF",
-          "origin": "operator_bottom_center"
+          "origin": "bottom_center"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-50"
     },
     "L3-51": {
       "source": "A",
       "operator": "supported",
       "panels": 1,
       "analog_clock": [
-        "01/11 03:00:00",
-        "01/11 03:00:02"
+        "01/11 03:00:00"
       ],
       "battery": [
-        35,
         35
       ],
       "digital_world_clock": [
-        "31/10 20:43:00",
-        "31/10 20:43:02"
+        "31/10 20:43:00"
       ],
       "playback": false,
       "offset_seconds": 2580,
       "lettering": [
         {
           "speaker": "Kronos",
-          "text": "FINALMENTE, SEU CORPO É MEU, KIM.",
+          "text": "FINALMENTE. O CORPO PERFEITO.",
           "color": "#4B5058",
           "fill": "#FFFFFF",
           "origin": "speaker_position"
@@ -4811,7 +5064,9 @@
           "fill": "#FFFFFF",
           "origin": "speaker_position"
         }
-      ]
+      ],
+      "event_loop": 3,
+      "previous_page_id": "L3-51"
     }
   },
   "voice_names": {
@@ -4826,5 +5081,38 @@
     "Anderson": "CHARCOAL GRAY",
     "Kronos": "METALLIC GRAY",
     "Desconhecido": "BRONZE"
+  },
+  "release_boundaries": {
+    "L1": {
+      "pages": 51,
+      "next_loop_starts_at": "L1-50"
+    },
+    "L2": {
+      "pages": 51,
+      "next_loop_starts_at": "L2-50"
+    },
+    "L3": {
+      "pages": 51,
+      "ending": "definitive"
+    }
+  },
+  "production": {
+    "paused": true,
+    "resume_from": "L1-06",
+    "preserve_existing_art": [
+      "L1-01",
+      "L1-02",
+      "L1-03",
+      "L1-04",
+      "L1-05"
+    ],
+    "reletter_after_author_review": [
+      "L1-03",
+      "L1-04",
+      "L1-05"
+    ],
+    "regenerate_after_author_review": [
+      "L1-06"
+    ]
   }
 }
