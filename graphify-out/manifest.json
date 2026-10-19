@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792417413.050714,
-    "ast_hash": "34536d0344641003126cd179ea455bec",
+    "mtime": 1792419497.79821,
+    "ast_hash": "db8241cc5a0304813aff4c55c78ff47d",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2560,8 +2560,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792418601.3948672,
-    "ast_hash": "81072cdcaebb5ad150182865999d9642",
+    "mtime": 1792419893.53935,
+    "ast_hash": "58746dde02cfc955dea37474bfda89eb",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7180,8 +7180,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1791405865.2699862,
-    "ast_hash": "12557574fb4a3ab357760baf84cea420",
+    "mtime": 1792419893.5127783,
+    "ast_hash": "d243191d52e6017a2029c69ca71284c4",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesBagEquip.jsx": {
@@ -9575,8 +9575,8 @@
     "semantic_hash": ""
   },
   "docs/PRODUCAO_IMAGEM.md": {
-    "mtime": 1792208413.6784103,
-    "ast_hash": "c4e162c7c36162f5c6eae6125f48bc58",
+    "mtime": 1792419893.5086975,
+    "ast_hash": "9fc09a18dc1a7ce4f3ef8bd4c2e7e87f",
     "semantic_hash": ""
   },
   "docs/T1_PENDENCIAS.md": {
@@ -9940,8 +9940,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md": {
-    "mtime": 1792418907.783775,
-    "ast_hash": "bc2b545e3ed03568d48fb52ac2eac9ed",
+    "mtime": 1792419893.5353155,
+    "ast_hash": "f728ddbe64e2cc28411460e8868dd9dd",
     "semantic_hash": ""
   }
 }

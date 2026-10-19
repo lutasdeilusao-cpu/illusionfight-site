@@ -2,7 +2,7 @@
 
 > Revisão editorial: 19/10/2026. Direção de Isaías: continuidade de acontecimentos, quatro linguagens de POV, câmeras como protagonistas e leitura no celular com uma mão. Três lançamentos: **51 páginas narrativas + 9 editoriais por lançamento = 180 páginas físicas; 153 páginas de história**. Esta revisão substitui as versões sobrepostas do documento recebido. O original permanece no histórico do Git; não usar suas instruções conflitantes para produzir novas páginas.
 >
-> Status: roteiro e diálogos revisados para leitura autoral; **nenhuma página narrativa foi gerada nesta revisão**; as fichas de material geradas posteriormente estão registradas em §16 e aguardam revisão autoral. Falas novas são redação editorial deste roteiro, não citações recuperadas de uma arte anterior. Os destinos, as mortes e o banquete foram preservados. A pasta Personagens foi repovoada durante esta revisão: As referências existentes foram inspecionadas e registradas em §13.1; o acréscimo de Brock e as novas fichas têm registro em §16. Os nomes com prefixo halloween_ são complementos planejados, não arquivos já existentes.
+> Status: roteiro e diálogos revisados para leitura autoral; **L1-01 gerada e aprovada por Isaías; L1-02 a L1-51 autorizadas e em produção serial**; as fichas de material geradas posteriormente estão registradas em §16 e aguardam revisão autoral. Falas novas são redação editorial deste roteiro, não citações recuperadas de uma arte anterior. Os destinos, as mortes e o banquete foram preservados. A pasta Personagens foi repovoada durante esta revisão: As referências existentes foram inspecionadas e registradas em §13.1; o acréscimo de Brock e as novas fichas têm registro em §16. Os nomes com prefixo halloween_ são complementos planejados, não arquivos já existentes.
 
 ## 1. Direção da experiência
 
@@ -35,13 +35,13 @@ A paleta, o neon e o desenho dos capítulos regulares do LDI não são obrigaç�
 **Um prompt de página é a soma desta seção, da ficha de fonte (§3), do estado de continuidade (§§4–6) e do bloco Lx-NN correspondente.** Os blocos abaixo são instruções de produção, não apenas títulos de eventos. Antes de enviar uma página ao gerador, reunir essas partes num único texto e anexar as referências reais pelo nome. Não mandar só o resumo da página, nem pedir que o gerador abra links ou consulte este documento.
 
 - **EXTREMO REALISMO fotográfico**, 960 × 1637 px, full-bleed. Pele, cabelo, bronze, tecidos e pedra com textura natural; anatomia e perspectiva plausíveis. O dispositivo governa a nitidez e a exposição. A arena é simulada dentro da história, mas a imagem não assume estética de videogame ou ilustração.
-- A página vertical é montagem editorial de trechos e recortes das fontes. Não exige que toda filmadora tenha gravado um quadro vertical nem permite criar um ângulo que não foi registrado. Ruído e HUD pertencem ao feed; filamentos, balões e faixas pertencem à leitura WEB SHARD.
+- A página vertical é montagem editorial de trechos e recortes das fontes. Não exige que toda filmadora tenha gravado um quadro vertical os painéis principais respeitam o campo registrado; estilhaços editoriais podem usar outros ângulos do mesmo acontecimento. Ruído e HUD pertencem ao feed; filamentos, balões e faixas pertencem à leitura WEB SHARD.
 - Conteúdo indispensável dentro de x=100–860 e y=80–1557, aproximadamente. O cenário ocupa as bordas; a safe area não vira margem branca.
 - Um ou dois painéis grandes. Três somente quando o bloco justificar progressão rápida; quatro não serão usados. **L1-01 foi reduzida a dois feeds legíveis**, em vez da grade antiga de quatro. Entrada e corredor são estabelecidos na página seguinte. Não disfarçar uma terceira cena inteira como estilhaço.
-- Cortes de 8–15°, direção coerente dentro da página, leitura de cima para baixo. Escolher a inclinação por sequência; não alternar diagonais aleatoriamente. Sem divisão em página de painel único.
-- Separação por filamentos tecnológicos finos e escuros, como fibra óptica e microcabos vivos. Um reflexo discreto indica a força dominante; não vira neon, fumaça, eletricidade ou moldura grossa. O separador é composição editorial, não objeto registrado pela câmera.
+- Cortes diagonais de 8–15°, com leitura clara de cima para baixo. As diagonais podem variar de direção dentro da página; não precisam ser paralelas. Sem divisão em página de painel único.
+- Separação por uma borda MUITO fina (1–3 px na arte de 960 px), como fibra óptica e microcabos vivos. Não abrir uma faixa entre painéis. L1-01 é exceção aprovada por acomodar narração; não copiar sua faixa larga nas demais páginas. Um reflexo discreto indica a força dominante; não vira neon, fumaça, eletricidade ou moldura grossa. O separador é composição editorial, não objeto registrado pela câmera.
 - Enquadrar a ação necessária. Plano geral só para estabelecer espaço, mudar escala ou mostrar uma relação espacial decisiva. A câmera portátil não encontra sempre rostos perfeitamente compostos; a segurança não faz close, zoom nem acompanha pessoas.
-- **Shards:** nenhum por padrão. Quando especificado, um fragmento irregular sobreposto amplia um detalhe já captado pela mesma fonte naquele momento. Não mostrar o olho de Nina de fora quando ela opera a analógica, nem a mão de Fred inteira segurando a câmera pelo POV do próprio aparelho. Uma percepção subjetiva não vira estilhaço decorativo de uma fonte física.
+- **Shards:** pequenos cacos irregulares de vidro rachado, sobrepostos e subordinados ao painel principal. Podem revelar gesto, mão, objeto ou expressão por ângulo editorial externo ao registro da câmera, conforme autorização de Isaías. Não contam como outra câmera nem autorizam cenas inteiras disfarçadas de detalhe. Painéis principais continuam obedecendo à fonte física.
 - Balões brancos, letras e contornos na cor de voz, caixa alta, comic bold condensada, mesma fonte no elenco. Reservar espaço para texto desde o quadro; linhas curtas, sem hifenização. Uma palavra pode ganhar ênfase. O guia não fixa uma família comprovada nem um mínimo universal em pixels; não tratar Anime Ace/LETREIRO.png como referência já aprovada deste reinício. A ficha tipográfica precede a geração.
 - Textos entre aspas nos blocos são literais; o nome antes dos dois-pontos indica o falante para produção, **não é escrito na arte**. Copiar uma vez, com acentos. Falas fora de quadro apontam para o operador ou para a posição espacial da voz; nunca para um personagem errado. Pensamento é explicitamente identificado e só aparece na percepção subjetiva.
 - Narração: faixa estreita de fita magnética escura, letras claras legíveis, sem cauda. Não é áudio da vigilância. O número de faixas é o indicado na página. Sem narração adicional sobre o que a imagem já explica.
@@ -68,7 +68,7 @@ A vigilância permanece fixa: pessoas em movimento podem borrar, o sensor pode c
 
 **HUD fechado:** C usa `REC`, identificador CAM/local, `31/10` e hora do registro. A usa `REC` e `TC` de fita; relógio físico aparece quando for pista. D usa `REC` e `FHD`; sem HUD analógico. S não tem texto técnico. Os desenhos de interface precisam de ficha própria; os arquivos de referência disponíveis não incluem uma ficha final desses HUDs. O ano do mundo não está definido: não imprimir 1998/2026 nem inventar um ano. A hora da segurança acompanha o registro físico, e não o relógio cenográfico reiniciado.
 
-**Sem som na segurança:** não transcrever diálogo ou onomatopeia por cima de C como se tivesse microfone. `SEM ÁUDIO` pode aparecer uma vez como rótulo editorial em L1-01; não encher a festa de balões “NO SOUND”. Nos anúncios, a fala passa somente entre A e D, que têm áudio. Uma inserção de C interrompe o diálogo impresso; não serve para acrescentar frases que ninguém registrou.
+**Sem som na segurança:** toda imagem de C é inteiramente preto e branco, inclusive HUD, letras e balões. Cada personagem visivelmente falando recebe seu próprio balão branco contendo somente `NO SOUND`, com cauda apontada para ele. Não transcrever diálogos, onomatopeias ou som captado. Figuração sem fala visível não exige balão. Nos anúncios, o áudio impresso avança somente por A e D. A narração editorial é permitida onde o roteiro especificar, sem simular microfone.
 
 **Olhares:** na gravação para a POW-POW, Fred se dirige à lente do próprio aparelho apoiado; exceção diegética explícita. Nas demais páginas, o olhar tem alvo dentro da cena. Kronos fala olhando para pessoas, a mesa ou um monitor da sala, sem encarar o leitor. Câmera deixada fixa continua fixa mesmo quando alguém sai do enquadramento.
 
@@ -181,8 +181,8 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 
 ### L1-01 — A festa já começou
 **Fonte:** C; CAM 03 SALÃO e CAM 04 PISCINA; fixas; dominância metálica.
-**Quadros:** dois feeds simultâneos, grandes, diagonais coerentes. Salão cheio, funcionários servindo; piscina ocupada em área reconhecível da mesma mansão. Sem personagens principais em destaque, sem laboratório, sem shards. A câmera observa atividade, não apresenta um catálogo de arquitetura.
-**Texto:** faixa: “ESPECIAL DE HALLOWEEN DE LUTAS DE ILUSÃO: AQUI TUDO COMEÇA E AQUI TUDO TERMINA.” Rótulo editorial único: “SEM ÁUDIO”.
+**Quadros:** dois feeds simultâneos, grandes, cortes diagonais. Salão cheio, funcionários servindo; piscina ocupada em área reconhecível da mesma mansão. Sem personagens principais em destaque, sem laboratório; pequeno estilhaço editorial de mão/bebida. Grupos genéricos distintos no salão e na piscina no mesmo horário, com diversidade de pele, cabelo, idade e porte; ninguém duplicado entre os ambientes. A câmera observa atividade, não apresenta um catálogo de arquitetura.
+**Texto:** faixa: “ESPECIAL DE HALLOWEEN DE LUTAS DE ILUSÃO: AQUI TUDO COMEÇA E AQUI TUDO TERMINA.” Balões de quem fala visivelmente: somente “NO SOUND”. A narração pode ocupar uma área maior nesta abertura aprovada.
 **Ligação:** o leitor conhece uma festa em andamento e o olhar fixo que voltará no encerramento. A entrada será vista quando alguém chegar.
 
 ### L1-02 — Os três chegam
@@ -224,7 +224,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L1-08 — O anfitrião muda o fluxo
 **Fonte:** C; CAM 03 SALÃO e CAM 05 LOUNGE; dominância metálica.
 **Quadros:** dois feeds do mesmo instante. Kronos chega à área do anúncio e os funcionários abrem espaço; no lounge, Fred vira D para o vão, antes ocupado pelo atendente. Nina termina de desviar a lente do buffet. Sem áudio, sem shards.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a segurança acrescenta posição e orientação das duas câmeras. Não repete o engasgo nem o vídeo inteiro. O discurso começa na fonte sonora seguinte.
 
 ### L1-09 — Cem convidados
@@ -260,7 +260,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L1-14 — Dois grupos entram no mesmo fluxo
 **Fonte:** C; CAM 03 SALÃO; dominância bronze.
 **Quadros:** um painel fixo. Trio e grupo de Fred convergem para o corredor técnico. Jack segura A com alça no punho; Fred segura D. Atendente indica o caminho. O desconhecido permanece no buffet, fora dos nove.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a segurança confirma custódia e seleção sem fazer apresentação nominal de nove pessoas.
 
 ### L1-15 — Fantasia e trabalho
@@ -296,7 +296,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L1-20 — As mãos ficam livres
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância bronze.
 **Quadros:** um painel. Fred encaixa D no suporte físico depois de vincular; Nina ainda segura A. Funcionários apontam os assentos. Nove participantes reconhecíveis, sem fila de retratos.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** mostra onde D fica de verdade e por que Fred não continua filmando fisicamente quando preso.
 
 ### L1-21 — A analógica fica
@@ -314,7 +314,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L1-23 — O lado de fora permanece
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância metálica.
 **Quadros:** um painel fixo. Últimos capacetes conectados, A visível no apoio, D no suporte; porta técnica se fecha, cadeiras continuam onde estavam.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** elipse assumida entre conexão e primeiro trecho útil da sessão virtual. Nenhuma pessoa entra fisicamente numa arena pela porta do laboratório.
 
 ### L1-24 — A primeira cela
@@ -452,7 +452,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L1-46 — Os ingressos ficaram aqui
 **Fonte:** A fixa no laboratório; dominância bronze.
 **Quadros:** um painel. Mão real de André relaxa; os ingressos visíveis junto à roupa, dentro do campo estabelecido. Um shard só se os ingressos realmente estiverem legíveis no quadro-mãe; sem inventar texto neles.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** o objeto une o compromisso e o corpo físico, sem narração dizendo quem ficará esperando.
 
 ### L1-47 — A percepção cede
@@ -470,7 +470,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L1-49 — Retirada
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância metálica.
 **Quadros:** dois painéis fixos em instantes diferentes. Funcionários destravam e levam a cadeira de André com o corpo; depois permanece o vazio da base. As outras oito estações não mudam de lugar.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** quem controla o evento transforma a morte em procedimento. Não recolocar André no segundo ciclo.
 
 ### L1-50 — DELETE
@@ -520,7 +520,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L2-06 — A festa cabe em menos espaço
 **Fonte:** C; CAM 03 SALÃO; dominância metálica.
 **Quadros:** um painel do mesmo eixo de L1-01. Ilhas de convidados mais espaçadas; atendimento reorganizado, sem trocar paredes ou móveis. Kronos chega ao anúncio.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** o leitor compara densidade. Não usar nova panorâmica bonita sem comparação reconhecível.
 
 ### L2-07 — Cinquenta escolhidos
@@ -562,7 +562,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L2-13 — Oito cadeiras, a mesma sala
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância metálica.
 **Quadros:** um painel fixo, comparável a L1-20/23. Oito cadeiras; base da nona sem cadeira. Não compactar o laboratório para esconder o vazio.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** soma a ausência física à contagem do anúncio, sem personagens contando todas as cadeiras em voz alta.
 
 ### L2-14 — Um apoio mais baixo
@@ -580,7 +580,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L2-16 — Nova conexão
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância bronze.
 **Quadros:** um painel. Oito conectados; D de novo no suporte, A no apoio baixo. Um funcionário fecha o último conector. Elipse posterior de preparação, sem caminhada repetida.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a próxima fonte é D virtual; não repetir toda a explicação do vínculo.
 
 ### L2-17 — Três na câmara B
@@ -694,7 +694,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L2-35 — O procedimento continua
 **Fonte:** A fixa; laboratório; dominância bronze.
 **Quadros:** um painel. Da mesma altura baixa, pés de funcionários passam entre bases; cadeira vazia de André continua ausente; conector é levado à estação de Michael em profundidade. Não deslocar A para ver a estação inteira.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** liga a ameaça a mais de um corpo por geografia parcial, sem uma cirurgia panorâmica impossível.
 
 ### L2-36 — O que Jason não queria dizer
@@ -736,7 +736,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L2-42 — Pés sem reação
 **Fonte:** A fixa; dominância carmesim.
 **Quadros:** um painel. Os movimentos antes vistos nas pernas de Brock diminuem; um funcionário já leva material para a estação ao lado. Parte dos pés de Jason, se no campo da planta aprovada, permanece imóvel. Não inventar um novo eixo para incluir todos.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a operação física continua indiferente à fala de Fred.
 
 ### L2-43 — Não me larga
@@ -778,7 +778,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L2-49 — Quatro cadeiras saem
 **Fonte:** C; CAM 06 LABORATÓRIO; dominância metálica.
 **Quadros:** dois painéis, momentos do mesmo eixo: funcionários retiram as cadeiras de Jason/Brock/Michael/Anderson; depois restam as quatro de Kim/Jack/Nina/Fred, que os funcionários giram/reposicionam ao redor do centro antes de encerrar a operação. A cadeira já retirada de André não reaparece. A redistribuição é explícita, correspondente à referência SalasCadeiraQuatro.png, e não mudança silenciosa de sala.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** confirma quatro mortes e quatro sobreviventes, sem obrigar A baixa a mostrar todos os rostos.
 
 ### L2-50 — O segundo DELETE
@@ -816,7 +816,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L3-04 — Quem ainda está na festa
 **Fonte:** C; CAM 03 SALÃO; dominância metálica.
 **Quadros:** um painel funcional. Kim/Jack/Nina/Fred e seis convidados reconhecíveis distribuídos em três pares, ainda sem máscaras; funcionários circulam separados deles. Sem tentativa de contar todo empregado como convidado.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** fixa os dez e os rostos que depois aparecerão no banquete; a contagem não depende de uma panorâmica lotada.
 
 ### L3-05 — Nina pede ajuda
@@ -882,7 +882,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L3-15 — Kronos percebe o aparelho
 **Fonte:** C; CAM 03 SALÃO; dominância metálica.
 **Quadros:** dois painéis fixos em instantes diferentes. Kronos nota os quatro reunidos sobre A; um dos seis convidados recebe um gesto discreto. A fonte não revela pensamento ou intenção por legenda.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a operação reage à descoberta, sem monólogo do vilão observando o próprio plano.
 
 ### L3-16 — A bandeja vazia
@@ -912,7 +912,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L3-20 — Duas rotas físicas
 **Fonte:** C; CAM 05 LOUNGE e CAM 07 ESCADARIA; dominância bronze.
 **Quadros:** dois feeds sincronizados. Kim/Fred buscam a passagem de serviço do lounge, que retorna ao corredor oeste e à entrada; Jack/Nina para a circulação e escadaria. Três perseguidores em cada frente; funcionários do laboratório continuam em sua função.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** estabelece a divisão antes das câmeras portáteis mergulharem na fuga. Nada de LDI durante esta perseguição.
 
 ### L3-21 — A porta que conheciam
@@ -942,7 +942,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L3-25 — A rota está se fechando
 **Fonte:** C; CAM 02 e CAM 07; dominância bronze.
 **Quadros:** dois feeds fixos no mesmo intervalo. Uma frente fecha o retorno do oeste; outra ocupa o acesso do patamar. Movimentos dos perseguidores são mostrados onde o grupo não olha. Pessoas podem borrar ao correr; a câmera não treme.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** repetição parcial do espaço acrescenta a tática que as portáteis não enxergam. Sem mapa desenhado como parte da filmagem.
 
 ### L3-26 — Kim volta por Fred
@@ -978,7 +978,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L3-31 — A entrada está bloqueada
 **Fonte:** C; CAM 01 ENTRADA; dominância metálica.
 **Quadros:** um painel fixo. Kim/Fred alcançam o vestíbulo, encontram a porta externa travada e são forçados a retornar. A mesma porta usada no começo; noite lá fora.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** fecha a esperança da saída principal com geografia conhecida. Não teletransportar perseguidores nem abrir um jardim secreto.
 
 ### L3-32 — O patamar também fecha
@@ -1002,7 +1002,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L3-35 — A primeira dupla cai
 **Fonte:** C; CAM 07 ESCADARIA; dominância bronze.
 **Quadros:** dois painéis fixos em instantes diferentes. Três perseguidores imobilizam Jack/Nina pela pressão conjunta; um retira a alça do punho preso e recolhe A. Não mostrar a captura inteira como tela preta da câmera caída.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** a custódia muda por gesto visível. A câmera não é destruída nem permanece com Jack depois disso.
 
 ### L3-36 — Kim ouve, Fred quer seguir
@@ -1020,7 +1020,7 @@ As primeiras dez páginas estão fechadas na nova ordem. As demais completam os 
 ### L3-38 — Os quatro são levados
 **Fonte:** C; CAM 02 CORREDOR e CAM 06 LABORATÓRIO; dominância bronze.
 **Quadros:** dois feeds sequenciais, não simultâneos. Kim/Fred são dominados no corredor; elipse até os quatro sendo conduzidos ao laboratório. Um perseguidor leva D, outro A. Sem multiplicar os seis convidados caçadores; funcionários recebem o grupo.
-**Texto:** nenhum além do HUD.
+**Texto:** nenhum além do HUD; se houver personagem visivelmente falando em C, seu balão contém somente “NO SOUND”.
 **Ligação:** encerra a resistência e comprova as duas capturas. Não usar arrasto longo como repetição de todas as tentativas de fuga.
 
 ### L3-39 — Os aparelhos também são presos
@@ -1328,3 +1328,13 @@ As imagens produzidas com esses prompts são fichas para revisão autoral; gera�
 
 
 **Cadência dos materiais (esclarecimento de Isaías, 19/10/2026):** a pausa de cinco minutos vale para páginas narrativas; fichas e outros materiais de referência podem ser gerados sem intervalo obrigatório. As duas fichas desta seção foram geradas com a ferramenta integrada imagegen; arquivos PNG salvos na pasta Personagens, sem modificar as referências originais. A primeira tentativa do Kronos continua preservada em _descartadas.
+
+## 17. Produção serial do lançamento 1
+
+L1-01 foi aprovada por Isaías em 19/10/2026, com o elenco da piscina corrigido. As outras cinquenta páginas foram autorizadas. A faixa maior da abertura é exceção: nas próximas páginas a separação é uma borda diagonal fina, sem faixa larga. Figurantes diversos mantêm identidade por ambiente; feeds simultâneos de locais diferentes não repetem as mesmas pessoas.
+
+O adaptador `scripts/halloween_producao.py` reutiliza `MUNDO DAS SOMBRAS/WEBSHARD/scripts/fila_v2.py`, sem modificar sua fila. `preparar` monta cinquenta prompts em inglês com os textos literais em português; `rodar` gera em sequência e `status` consulta o andamento. Os prompts anexados por nome e as imagens ficam em `ESPECIAIS/presos/prompts/loop1/` e `ESPECIAIS/presos/paginas/loop1/`. A página 01 aprovada é preservada.
+
+As fichas complementares `LoungeLeste.png`, `Buffet.png` e `CorredorTecnico.png` são produzidas antes do primeiro uso, com planta à esquerda e duas perspectivas à direita. Não substituem referências existentes. Materiais não têm intervalo; páginas mantêm cinco minutos. Falta de referência ou falha técnica interrompe a fila para revisão; cota aguarda outra rodada da tarefa `Halloween_Loop1_Codex`. A tarefa desativa ao concluir. Estado, log e eventual `PARADA.txt` ficam em `ESPECIAIS/presos/producao/loop1/`.
+
+A autorização é de geração. As novas páginas permanecem pré-finais, aguardando revisão visual de texto, continuidade e leitura no celular antes de publicação. Não publicar artes ou comentários de revisão automaticamente.

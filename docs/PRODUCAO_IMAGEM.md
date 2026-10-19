@@ -117,6 +117,7 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 - Produzido fora do agente (Isaias). Agente só traduz páginas (seção 2) e publica.
 
 ## 9. WEB SHARD "CÂMERA NA MÃO" (found footage em VHS)
+> **Especial Halloween (direção atual de Isaías, 19/10/2026):** prevalece `WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md`. São quatro fontes: C inteiramente preto e branco, sem áudio, balão `NO SOUND` para cada pessoa visivelmente falando; A colorida analógica/VHS; D colorida Full HD limpa; S subjetiva sem HUD. Não aplicar VHS, bateria, data ou ano inventados a todas as fontes. Divisões diagonais podem variar de direção, com borda muito fina, sem faixa de chiado. Normalmente dois painéis, máximo três só para ação rápida; estilhaços editoriais podem usar outro ângulo do acontecimento. Referências reais sempre anexadas e identificadas por nome de arquivo. As regras antigas abaixo não substituem essas exceções. O lote de 51 páginas usa `scripts/halloween_producao.py`, sem publicar arte automaticamente.
 Linguagem própria pra especial em que a história é o que uma filmadora gravou. O roteiro diz qual página é fita e qual não é.
 
 **Quadro**
