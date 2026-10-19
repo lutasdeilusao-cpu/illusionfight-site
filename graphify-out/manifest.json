@@ -70,7 +70,7 @@
     "semantic_hash": ""
   },
   "playwright.config.js": {
-    "mtime": 1781324014.8367403,
+    "mtime": 1792207875.3591182,
     "ast_hash": "3e491c6cb9c25eec2eb4f53e1d00ac38",
     "semantic_hash": "3e491c6cb9c25eec2eb4f53e1d00ac38"
   },
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792104306.4877114,
-    "ast_hash": "9aecf25f07bbc5e6cacd9ebaf4ef1ac8",
+    "mtime": 1792312473.5450962,
+    "ast_hash": "11eda3d7e670e902d4970f4f8c0edf85",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -490,18 +490,18 @@
     "semantic_hash": "6aa32d1abeef1341bdab97bd9df5a4ad"
   },
   "src/data/personagens-en.json": {
-    "mtime": 1791686340.76933,
-    "ast_hash": "39f63c5e865fbd5b78a3d61aca508a3e",
+    "mtime": 1792105343.9079611,
+    "ast_hash": "a69c17d392a6909f1155c33ad64a1664",
     "semantic_hash": ""
   },
   "src/data/personagens-es.json": {
-    "mtime": 1791686340.770489,
-    "ast_hash": "74e9b88688f772d23a4b8179ee3550a2",
+    "mtime": 1792105343.945899,
+    "ast_hash": "e21130f0dcf1fc87ff88df1cd66c33ae",
     "semantic_hash": ""
   },
   "src/data/personagens-pt.json": {
-    "mtime": 1791686340.76933,
-    "ast_hash": "9ea834a7c342bba2d0cfed95c21e3449",
+    "mtime": 1792105343.8703623,
+    "ast_hash": "9dbb66f24a07688688357a334f9ff667",
     "semantic_hash": ""
   },
   "src/data/planos.json": {
@@ -515,8 +515,8 @@
     "semantic_hash": ""
   },
   "src/data/quiz-pt.json": {
-    "mtime": 1791671823.4053793,
-    "ast_hash": "4a58023ff85a57e67965ca59c3fe3a5a",
+    "mtime": 1792105344.0143142,
+    "ast_hash": "95de53c0192021074cda6a80fe20e5c7",
     "semantic_hash": ""
   },
   "src/data/search-index.js": {
@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/Musicas.jsx": {
-    "mtime": 1791758188.9006672,
-    "ast_hash": "f4a597b5359097d53b670aeff601ac9c",
+    "mtime": 1792207875.3591182,
+    "ast_hash": "be2564d803e4b6fff624a49edb7e546e",
     "semantic_hash": ""
   },
   "src/pages/content/PersonagemDetalhe.jsx": {
@@ -2250,7 +2250,7 @@
     "semantic_hash": "31db883e4c2a874f607640a28016b53b"
   },
   "vite.config.js": {
-    "mtime": 1791929884.6085715,
+    "mtime": 1792207875.3561194,
     "ast_hash": "c17821b5133e32a9931b95cc93f6c271",
     "semantic_hash": ""
   },
@@ -2560,8 +2560,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792104306.5272746,
-    "ast_hash": "930816d728c9f7d61e0946c44d55cb98",
+    "mtime": 1792312473.5496097,
+    "ast_hash": "21ce8c1176385fa5d31713d878bb7b9a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3960,8 +3960,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx": {
-    "mtime": 1791954431.2991946,
-    "ast_hash": "e18481c653c685bdd428adfbf1d85864",
+    "mtime": 1792313325.7585857,
+    "ast_hash": "bf9a6e9e3237c91ec3e17e425a89aef7",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaBagSheet.jsx": {
@@ -4570,8 +4570,8 @@
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
-    "mtime": 1791638379.4807005,
-    "ast_hash": "9b5ba69b5d337d1fb8cebd19fdbbedab",
+    "mtime": 1792214232.6425054,
+    "ast_hash": "60448f98e07e0227dd0834717dd064f0",
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
@@ -4600,8 +4600,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardRota.jsx": {
-    "mtime": 1791917142.3791208,
-    "ast_hash": "7f975f1da218ec853cd0488cd9b7583c",
+    "mtime": 1792214232.6455073,
+    "ast_hash": "fb54ac0689533f152c477f6b1b545a19",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardTitulo.jsx": {
@@ -4630,7 +4630,7 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/LeitorPaginas.jsx": {
-    "mtime": 1790306347.3766966,
+    "mtime": 1792207875.3581178,
     "ast_hash": "66738f1a90fde126d9e235aeb5838ea4",
     "semantic_hash": ""
   },
@@ -4645,8 +4645,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/TituloHero.jsx": {
-    "mtime": 1790949518.7669687,
-    "ast_hash": "ed3841bd2cc50fcf586a37d6dbf74c87",
+    "mtime": 1792207875.3571177,
+    "ast_hash": "2c8cde291954b47f50868540596ca0f6",
     "semantic_hash": ""
   },
   "supabase/migrations/042_webshard_reacoes.sql": {
@@ -8655,8 +8655,8 @@
     "semantic_hash": ""
   },
   "src/data/mundo-das-sombras-episodios.json": {
-    "mtime": 1792094233.9400113,
-    "ast_hash": "47e107d40182374e9bec8561e8cdba03",
+    "mtime": 1792211046.2288601,
+    "ast_hash": "bc9f793cdccac019fbf29953d0a794f7",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mar-de-cinzas-01.webp": {
@@ -8665,12 +8665,12 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-01.webp": {
-    "mtime": 1792094232.4905431,
+    "mtime": 1792211045.0966077,
     "ast_hash": "7c528a53bfa495a91dfca286811f6af1",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-02.webp": {
-    "mtime": 1792094232.6671095,
+    "mtime": 1792211045.2358508,
     "ast_hash": "e8824293488fef5563a650679398ce21",
     "semantic_hash": ""
   },
@@ -8680,7 +8680,7 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/capa-mundo-das-sombras.webp": {
-    "mtime": 1792094232.3270817,
+    "mtime": 1792211044.959282,
     "ast_hash": "1c1f0130f27af95f6458e92fc3eb0f32",
     "semantic_hash": ""
   },
@@ -9575,8 +9575,8 @@
     "semantic_hash": ""
   },
   "docs/PRODUCAO_IMAGEM.md": {
-    "mtime": 1791988008.3378346,
-    "ast_hash": "abab0c15886019a6ae00bdb1c97e3e9e",
+    "mtime": 1792208413.6784103,
+    "ast_hash": "c4e162c7c36162f5c6eae6125f48bc58",
     "semantic_hash": ""
   },
   "docs/T1_PENDENCIAS.md": {
@@ -9845,8 +9845,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/golpe/GanguesDadosRodada.jsx": {
-    "mtime": 1791954909.701511,
-    "ast_hash": "049af11d2f20c90022f9693c00eab3ac",
+    "mtime": 1792207875.3561194,
+    "ast_hash": "8fd664be0bffcda3a740ab7183e31771",
     "semantic_hash": ""
   },
   "src/components/ConviteConta/ConviteConta.jsx": {
@@ -9855,7 +9855,7 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-03.webp": {
-    "mtime": 1792094232.8633795,
+    "mtime": 1792211045.3801196,
     "ast_hash": "9a0b3e989f381ad72b60138b023497c9",
     "semantic_hash": ""
   },
@@ -9875,12 +9875,12 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-04.webp": {
-    "mtime": 1792094233.0656233,
+    "mtime": 1792211045.5429711,
     "ast_hash": "d466848e6a17c524143bbb8ce28b8c28",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-05.webp": {
-    "mtime": 1792094233.2481432,
+    "mtime": 1792211045.6982684,
     "ast_hash": "d1630b4c975b7f559dd70064173abffb",
     "semantic_hash": ""
   },
@@ -9920,22 +9920,22 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-06.webp": {
-    "mtime": 1792094233.4135134,
+    "mtime": 1792211045.8238113,
     "ast_hash": "578faf2a5c8c427d29df99ba5f88e970",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-07.webp": {
-    "mtime": 1792094233.5741656,
+    "mtime": 1792211045.9508233,
     "ast_hash": "07917a8253a492983ab9cc7bc51120bf",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-08.webp": {
-    "mtime": 1792094233.771255,
+    "mtime": 1792211046.086061,
     "ast_hash": "a61642866ff6907ce6f2aa829c803f91",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-09.webp": {
-    "mtime": 1792094233.9389865,
+    "mtime": 1792211046.2277873,
     "ast_hash": "816b0fbe82862338e7bce0b9788b69af",
     "semantic_hash": ""
   },

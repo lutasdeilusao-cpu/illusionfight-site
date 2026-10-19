@@ -1,8 +1,8 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.441.8**.
-> Última atualização: 18/10/2026.
+> `SITE_VERSION` **10.441.9**.
+> Última atualização: 19/10/2026.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -312,7 +312,7 @@ Namespaces de conteúdo relevantes: `nav.links`, `pages.livro`, `pages.contos` (
 | Frente | O que existe | Calendário |
 |---|---|---|
 | Lutas de Ilusão (texto) | 28 capítulos escritos em pt/en/es | 18 com data na Temporada 1 (assinante de 15/11/2026 a 30/09/2027); 19–28 sem data (2099) |
-| WEB SHARD — Lutas de Ilusão | 9 capítulos + 5 especiais no índice; 01–04 com páginas prontas nos 3 idiomas (54, 65, 65, 64 páginas) | 1 por mês para o assinante a partir de 15/11/2026; só o 01 sai do `so_admin` hoje |
+| WEB SHARD — Lutas de Ilusão | 9 capítulos + 6 especiais no índice; 01–04 com páginas prontas nos 3 idiomas (54, 65, 65, 64 páginas) | 1 por mês para o assinante a partir de 15/11/2026; só o 01 sai do `so_admin` hoje |
 | WEB SHARD — Heróis da Cidade | Título visível só para admin (`herois-episodios.json`) | Sem data |
 | Contos de Ilusão | 7 contos, 76 capítulos nos 3 idiomas | Abertos a todos até 31/10/2026; depois pelo calendário |
 | Obras | Mundo das Sombras (6 caps., à venda na Amazon) e Mar de Cinzas (4 caps., em avaliação) | Mundo das Sombras nos hiatos (assinante e conta) |
@@ -425,7 +425,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.441.8** |
+| `SITE_VERSION` | Site global | **10.441.9** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.32.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
@@ -467,3 +467,4 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 | Mapa detalhado do Arena Testbed | `src/pages/lab/Prototype/ArenaTestbed/ARENATESTBED_MAPA.md` |
 | LDI Gangues — bíblia única (lore E mecânica: mundo, facções, combate, progressão) | `docs/Games/Gangues/LDI_GANGUES_GDD.md` |
 | Lendas do LDI — GDD (estado atual e direção da próxima versão) | `docs/Games/LDILendas/LDI_LENDAS_GDD.md` |
+| Especial de Halloween: roteiro oficial (reset em 19/10/2026) | `docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md`; build: `/docs/webshard/especiais/HALLOWEEN_ROTEIRO_OFICIAL.md` |

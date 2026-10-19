@@ -10,6 +10,11 @@ export default defineConfig({
     generateBundle() {
       this.emitFile({
         type: 'asset',
+        fileName: 'docs/webshard/especiais/HALLOWEEN_ROTEIRO_OFICIAL.md',
+        source: readFileSync(new URL('./docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md', import.meta.url), 'utf8'),
+      })
+      this.emitFile({
+        type: 'asset',
         fileName: 'docs/webshard/WEBSHARD_GUIA_DE_PRODUCAO.md',
         source: readFileSync(new URL('./docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md', import.meta.url), 'utf8'),
       })
