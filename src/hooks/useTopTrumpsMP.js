@@ -1,6 +1,6 @@
 import { supabase } from '../lib/supabase'
 
-const LIMITES = { free: 1, elite: 5, primordial: 10 }
+const LIMITES = { free: 1, elite: 10 }
 let realtimeChannelSequence = 0
 
 function codigoSala() {

@@ -225,7 +225,7 @@ export const CLASSES = {
 /** Retorna todas as classes com flag locked se não disponível para o tier */
 export function getClassesDisponiveis(tier, rotacaoSemanal = 0) {
   const todas = Object.keys(CLASSES)
-  if (tier === 'elite' || tier === 'primordial') {
+  if (tier === 'elite') {
     return todas.map(id => ({ ...CLASSES[id], id, locked: false }))
   }
   // Free: mostra todas, mas só 2 estão desbloqueadas (rodízio semanal)

@@ -12,7 +12,8 @@
 import { logDebug } from '../../../../lib/debugLog'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { MODO_AUTO_EXIGE_ASSINATURA, TIERS_COM_MODO_AUTO } from '../engine/ganguesCombatPresentation.js'
+import { MODO_AUTO_EXIGE_ASSINATURA } from '../engine/ganguesCombatPresentation.js'
+import { ehAssinante } from '../../../../lib/releaseAccess'
 import { chaveDoSave } from './useGanguesVelocidadeAuto.js'
 import { POCAO_LIMIAR_PV } from '../engine/ganguesRegrasCombate.js'
 
@@ -86,7 +87,7 @@ export default function useGanguesModoAuto({ modoAutoOn, setModoAutoOn, velocida
   // Beta: o botão APARECE pra todo mundo (é chamariz de assinatura — o cara vê
   // toda hora que podia automatizar). `podeUsarModoAuto` só decide se toca ou
   // se manda pro /assinar. Hoje o flag está desligado → todo mundo pode.
-  const podeUsarModoAuto = !MODO_AUTO_EXIGE_ASSINATURA || TIERS_COM_MODO_AUTO.includes(perfil?.tier)
+  const podeUsarModoAuto = !MODO_AUTO_EXIGE_ASSINATURA || ehAssinante(perfil)
   const agirRef = useRef(agir)
   agirRef.current = agir
   const toggleModoAuto = () => {

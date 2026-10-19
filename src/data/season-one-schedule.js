@@ -24,7 +24,7 @@ export const HIATOS = [
   { n: 2, mes: '2027-06' },
   { n: 3, mes: '2027-10' },
 ]
-const NIVEIS = [['subscriber', 'primordial'], ['account', 'conta'], ['public', 'publico']]
+const NIVEIS = [['subscriber', 'elite'], ['account', 'conta'], ['public', 'publico']]
 const naT1 = data => data >= T1.inicio && data <= T1.fim
 
 function linhasDoTempo(itens) {
@@ -68,7 +68,7 @@ const TITULOS_MUSICA = {
 export const MUSICAS_T1 = MESES_LANCAMENTO.map((mes, i) => ({
   n: i + 1,
   titulo: TITULOS_MUSICA[i + 1],
-  liberacao: { primordial: `${mes}-15`, elite: `${mes}-15`, conta: maisMeses(mes, 1), publico: maisMeses(mes, 2) },
+  liberacao: { elite: `${mes}-15`, conta: maisMeses(mes, 1), publico: maisMeses(mes, 2) },
 }))
 
 // Videoclipes: em cada hiato, o clipe de uma das músicas mais ouvidas pelos
@@ -76,7 +76,7 @@ export const MUSICAS_T1 = MESES_LANCAMENTO.map((mes, i) => ({
 // YouTube (data ainda a definir).
 export const CLIPES_T1 = HIATOS.map(h => ({
   n: h.n,
-  liberacao: { primordial: `${h.mes}-15`, elite: `${h.mes}-15`, conta: '2099-01-01', publico: '2099-01-01' },
+  liberacao: { elite: `${h.mes}-15`, conta: '2099-01-01', publico: '2099-01-01' },
 }))
 
 export const SEASON_ONE_DROPS = {
@@ -94,7 +94,7 @@ const ultimo = (lista, campo) => {
   const fim = datas.at(-1)
   return fim && naT1(fim) ? fim : null
 }
-const conclusao = (id, lista) => ({ id, subscriber: ultimo(lista, 'primordial'), account: ultimo(lista, 'conta'), public: ultimo(lista, 'publico') })
+const conclusao = (id, lista) => ({ id, subscriber: ultimo(lista, 'elite'), account: ultimo(lista, 'conta'), public: ultimo(lista, 'publico') })
 const capsWebshard = episodios.filter(e => !e.especial && e.liberacao)
 export const SEASON_ONE_COMPLETION = {
   chapters: [conclusao('ldi', livro), conclusao('shadows', sombras)],

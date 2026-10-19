@@ -7,11 +7,10 @@ const supabase = createClient(
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
 )
 
-const SITE_URL = 'https://lutasdeilusao-cpu.github.io/illusionfight-site'
+const SITE_URL = 'https://illusionfight.com'
 
 const ALLOWED_PRICE_IDS = new Set([
   Deno.env.get('STRIPE_PRICE_ELITE'),
-  Deno.env.get('STRIPE_PRICE_PRIMORDIAL'),
 ])
 
 Deno.serve(async (req) => {

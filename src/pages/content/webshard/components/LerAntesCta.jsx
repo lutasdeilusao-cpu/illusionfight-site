@@ -7,7 +7,7 @@ import './LerAntesCta.css'
  *  assinatura. Assinante não vê nada. */
 export default function LerAntesCta({ nivel }) {
   const { t } = useLanguage()
-  if (nivel === 'elite' || nivel === 'primordial') return null
+  if (nivel === 'elite') return null
   const semConta = nivel === 'publico'
 
   return (

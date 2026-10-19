@@ -14,7 +14,6 @@
 }
 
 .navbar-perfil--elite { --perfil-cor: var(--if-amber); border-color: var(--if-amber-72); background: linear-gradient(90deg, var(--if-amber-16), rgba(5, 14, 19, 0.6)); }
-.navbar-perfil--primordial { --perfil-cor: var(--if-violet); border-color: var(--if-violet); background: linear-gradient(90deg, rgba(160, 90, 255, 0.2), rgba(5, 14, 19, 0.6)); }
 
 .navbar-perfil {
   flex-shrink: 0;

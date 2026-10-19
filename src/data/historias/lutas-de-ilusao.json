@@ -12,7 +12,6 @@
     "resumo_en": "A shaman in dark glasses crashes Kim's dream. He wakes up remembering nothing, haggles sixty DIX with Helena and heads to school with Jack. In the hallway, something feels off — and by third period, it becomes clear what.",
     "resumo_es": "Un chamán de lentes oscuros se mete en el sueño de Kim. Él despierta sin recordar nada, negocia sesenta DIX con Helena y va a la escuela con Jack. En el pasillo, algo está mal — y en la tercera hora, queda claro qué era.",
     "liberacao": {
-      "primordial": "2026-11-15",
       "elite": "2026-11-15",
       "conta": "2026-11-30",
       "publico": "2026-12-15"
@@ -32,7 +31,6 @@
     "resumo_en": "Nina walks into class mid-lesson and dismantles Jack in thirty seconds. The Machine keeps writing. The door is about to open again.",
     "resumo_es": "Nina entra al salón a mitad de clase y desmonta a Jack en treinta segundos. La Máquina sigue escribiendo. La puerta está a punto de abrirse de nuevo.",
     "liberacao": {
-      "primordial": "2026-11-15",
       "elite": "2026-11-15",
       "conta": "2026-12-15",
       "publico": "2026-12-30"
@@ -52,7 +50,6 @@
     "resumo_en": "Brock and four muscle arrived to work. Kim and Jack went to change in the bathroom. In the annex, someone is about to learn the only rule of street fights.",
     "resumo_es": "Brock y cuatro matones llegaron a trabajar. Kim y Jack fueron a cambiarse al baño. En el anexo, alguien está a punto de aprender la única regla de las peleas callejeras.",
     "liberacao": {
-      "primordial": "2026-11-30",
       "elite": "2026-11-30",
       "conta": "2026-12-30",
       "publico": "2027-01-15"
@@ -69,7 +66,6 @@
     "tagline_en": "The first time hurts for real.",
     "tagline_es": "La primera vez duele de verdad.",
     "liberacao": {
-      "primordial": "2026-12-15",
       "elite": "2026-12-15",
       "conta": "2027-01-15",
       "publico": "2027-01-30"
@@ -86,7 +82,6 @@
     "tagline_en": "He never begged. He's not starting now.",
     "tagline_es": "Nunca suplicó. No va a empezar ahora.",
     "liberacao": {
-      "primordial": "2026-12-30",
       "elite": "2026-12-30",
       "conta": "2027-01-30",
       "publico": "2027-03-15"
@@ -103,7 +98,6 @@
     "tagline_en": "The old man speaks in slang. Power doesn't.",
     "tagline_es": "El viejo habla en jerga. El poder no.",
     "liberacao": {
-      "primordial": "2027-01-15",
       "elite": "2027-01-15",
       "conta": "2027-03-15",
       "publico": "2027-03-30"
@@ -120,7 +114,6 @@
     "tagline_en": "Yohu's alarms go off. A man on an island smiles.",
     "tagline_es": "Las alarmas de Yohu se disparan. Un hombre en una isla sonríe.",
     "liberacao": {
-      "primordial": "2027-03-15",
       "elite": "2027-03-15",
       "conta": "2027-03-30",
       "publico": "2027-04-15"
@@ -136,7 +129,6 @@
     "tagline_en": "She grabbed his phone. He took the fight.",
     "tagline_es": "Ella le quitó el celular. Él se quedó con la pelea.",
     "liberacao": {
-      "primordial": "2027-03-30",
       "elite": "2027-03-30",
       "conta": "2027-04-15",
       "publico": "2027-04-30"
@@ -152,7 +144,6 @@
     "tagline_en": "A sad street, a crumbling garage. And it's their home.",
     "tagline_es": "Una calle triste, un garaje cayéndose a pedazos. Y es su casa.",
     "liberacao": {
-      "primordial": "2027-04-15",
       "elite": "2027-04-15",
       "conta": "2027-04-30",
       "publico": "2027-05-15"
@@ -168,7 +159,6 @@
     "tagline_en": "For the first time, someone heard the band. And joined it.",
     "tagline_es": "Por primera vez, alguien escuchó a la banda. Y entró en ella.",
     "liberacao": {
-      "primordial": "2027-04-30",
       "elite": "2027-04-30",
       "conta": "2027-05-15",
       "publico": "2027-05-30"
@@ -184,7 +174,6 @@
     "tagline_en": "You can make money with this shit?",
     "tagline_es": "¿Se puede ganar dinero con esta mierda?",
     "liberacao": {
-      "primordial": "2027-05-15",
       "elite": "2027-05-15",
       "conta": "2027-05-30",
       "publico": "2027-07-15"
@@ -200,7 +189,6 @@
     "tagline_en": "At twelve, she already knew what no one teaches.",
     "tagline_es": "A los doce, ya sabía lo que nadie enseña.",
     "liberacao": {
-      "primordial": "2027-05-30",
       "elite": "2027-05-30",
       "conta": "2027-07-15",
       "publico": "2027-07-30"
@@ -216,7 +204,6 @@
     "tagline_en": "Coffee with milk, loud country and a mom nobody knew.",
     "tagline_es": "Café con leche, country a todo volumen y una madre que nadie conocía.",
     "liberacao": {
-      "primordial": "2027-07-15",
       "elite": "2027-07-15",
       "conta": "2027-07-30",
       "publico": "2027-08-15"
@@ -232,7 +219,6 @@
     "tagline_en": "Two hours a day. Rules nobody had mentioned.",
     "tagline_es": "Dos horas al día. Reglas que nadie había contado.",
     "liberacao": {
-      "primordial": "2027-07-30",
       "elite": "2027-07-30",
       "conta": "2027-08-15",
       "publico": "2027-08-30"
@@ -248,7 +234,6 @@
     "tagline_en": "Two weapons woke up. The third showed up on its own.",
     "tagline_es": "Dos armas despertaron. La tercera apareció sola.",
     "liberacao": {
-      "primordial": "2027-08-15",
       "elite": "2027-08-15",
       "conta": "2027-08-30",
       "publico": "2027-09-15"
@@ -264,7 +249,6 @@
     "tagline_en": "A steel wire nobody saw.",
     "tagline_es": "Un hilo de acero que nadie vio.",
     "liberacao": {
-      "primordial": "2027-08-30",
       "elite": "2027-08-30",
       "conta": "2027-09-15",
       "publico": "2027-09-30"
@@ -280,7 +264,6 @@
     "tagline_en": "Vodka, lime and the rules of the game.",
     "tagline_es": "Vodka, limón y las reglas del juego.",
     "liberacao": {
-      "primordial": "2027-09-15",
       "elite": "2027-09-15",
       "conta": "2027-09-30",
       "publico": "2027-11-15"
@@ -296,7 +279,6 @@
     "tagline_en": "The record says one thing. The arena said another.",
     "tagline_es": "El registro dice una cosa. La arena dijo otra.",
     "liberacao": {
-      "primordial": "2027-09-30",
       "elite": "2027-09-30",
       "conta": "2027-11-15",
       "publico": "2027-11-30"
@@ -312,7 +294,6 @@
     "tagline_en": "Jack always offers. Nobody has ever said yes.",
     "tagline_es": "Jack siempre ofrece. Nadie ha aceptado nunca.",
     "liberacao": {
-      "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
@@ -328,7 +309,6 @@
     "tagline_en": "She was not going to call for help.",
     "tagline_es": "Ella no iba a pedir ayuda.",
     "liberacao": {
-      "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
@@ -344,7 +324,6 @@
     "tagline_en": "Jack keeps something locked away too.",
     "tagline_es": "Jack también guarda algo bajo llave.",
     "liberacao": {
-      "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
@@ -360,7 +339,6 @@
     "tagline_en": "She wasn't worth a single punch.",
     "tagline_es": "Ella no valía ni un golpe.",
     "liberacao": {
-      "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
@@ -376,7 +354,6 @@
     "tagline_en": "With Jack, he talks. Without Jack, a wall.",
     "tagline_es": "Con Jack, habla. Sin Jack, un muro.",
     "liberacao": {
-      "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
@@ -392,7 +369,6 @@
     "tagline_en": "She'll only keep watching with him.",
     "tagline_es": "Ella solo sigue si es con él.",
     "liberacao": {
-      "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
@@ -408,7 +384,6 @@
     "tagline_en": "Two hundred each. The place is awful.",
     "tagline_es": "Doscientos cada uno. El lugar es pésimo.",
     "liberacao": {
-      "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
@@ -424,7 +399,6 @@
     "tagline_en": "The loudspeaker called the name nobody uses.",
     "tagline_es": "El altavoz llamó el nombre que nadie usa.",
     "liberacao": {
-      "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
@@ -440,7 +414,6 @@
     "tagline_en": "Nobody underestimates a yo-yo twice.",
     "tagline_es": "Nadie subestima un yoyó dos veces.",
     "liberacao": {
-      "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"
@@ -456,7 +429,6 @@
     "tagline_en": "Too much information. Nobody does that in a fight.",
     "tagline_es": "Demasiada información. Nadie hace eso en una pelea.",
     "liberacao": {
-      "primordial": "2099-01-15",
       "elite": "2099-01-15",
       "conta": "2099-01-30",
       "publico": "2099-02-15"

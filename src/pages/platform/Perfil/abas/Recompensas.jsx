@@ -59,8 +59,7 @@ export default function Recompensas() {
             { emoji: '🏆', acaoKey: 'site.perfil.recomp_acao_achievement', fichas: '+1' },
             { emoji: '👥', acaoKey: 'site.perfil.recomp_acao_indicar', fichas: '+3' },
             { emoji: '📤', acaoKey: 'site.perfil.recomp_acao_compartilhar', fichas: '+2' },
-            { emoji: '⭐', acaoKey: 'site.perfil.recomp_acao_elite', fichas: '10/dia' },
-            { emoji: '💎', acaoKey: 'site.perfil.recomp_acao_primordial', fichas: '30/dia' }
+            { emoji: '⭐', acaoKey: 'site.perfil.recomp_acao_elite', fichas: '30/dia' }
           ].map((item, i) => (
             <div key={i} className="recomp-como-item"><span>{item.emoji}</span><span className="recomp-como-acao">{t(item.acaoKey)}</span><span className="recomp-como-fichas">{t('site.perfil.recomp_acoes_fichas', { n: item.fichas })}</span></div>
           ))}

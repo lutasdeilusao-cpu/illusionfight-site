@@ -12,9 +12,8 @@ import './PerfilTamagoshi.css'
 
 const ERROR_I18N_MAP = {
   'FREE_COOLDOWN':         { key: 'games.tamagoshi.troca_erro_free_cooldown',        paramKey: 'dias' },
+  'ELITE_COOLDOWN':        { key: 'games.tamagoshi.troca_erro_elite_cooldown',       paramKey: 'dias' },
   'ELITE_MES_USED':        { key: 'games.tamagoshi.troca_erro_elite_mes' },
-  'PRIMORDIAL_COOLDOWN':   { key: 'games.tamagoshi.troca_erro_primordial_cooldown',  paramKey: 'dias' },
-  'PRIMORDIAL_MES_USED':   { key: 'games.tamagoshi.troca_erro_primordial_mes' },
   'TAMA_NAO_ENCONTRADO':   { key: 'games.tamagoshi.troca_erro_nao_encontrado' },
   'TAMA_PRECISA_VIVO':     { key: 'games.tamagoshi.troca_erro_so_vivo' },
   'ERRO_CRIAR_PEDIDO':     { key: 'games.tamagoshi.troca_erro_criar_pedido' },
@@ -147,7 +146,7 @@ export default function PerfilTamagoshi() {
     <div className="perfil-tama">
       <div className="perfil-tama-header">
         <span className="perfil-tama-title">{t('site.perfil.tama_meu_tamagoshi')}</span>
-        <span className="perfil-tama-tier" style={{ '--tier-cor': userTier === 'primordial' ? '#F5A623' : userTier === 'elite' ? '#00B4D8' : '#555' }}>
+        <span className="perfil-tama-tier" style={{ '--tier-cor': userTier === 'elite' ? '#00B4D8' : '#555' }}>
           {userTier.toUpperCase()}
         </span>
       </div>
@@ -200,9 +199,7 @@ export default function PerfilTamagoshi() {
           <div className="perfil-tama-limites">
             <span className="perfil-tama-limites-label">{t('site.perfil.tama_limite_trocas')}</span>
             <span className="perfil-tama-limites-valor">
-              {userTier === 'free' ? t('site.perfil.tama_free_troca') :
-               userTier === 'elite' ? t('site.perfil.tama_elite_troca') :
-               t('site.perfil.tama_primordial_troca')}
+              {userTier === 'elite' ? t('site.perfil.tama_elite_troca') : t('site.perfil.tama_free_troca')}
             </span>
           </div>
 
@@ -221,7 +218,7 @@ export default function PerfilTamagoshi() {
                 maxLength={8}
                 disabled={confirmando}
               />
-              {userTier === 'primordial' && (
+              {userTier === 'elite' && (
                 <select className="perfil-tama-select" value={slotB} onChange={e => setSlotB(Number(e.target.value))}>
                   <option value={1}>{t('site.perfil.slot_1')}</option>
                   <option value={2}>{t('site.perfil.slot_2')}</option>

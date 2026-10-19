@@ -607,18 +607,10 @@ export const useTamagoshiStore = create((set, get) => ({
 
     if (tier === 'elite') {
       if (ultimaTroca) {
-        const mesUltima = `${ultimaTroca.getMonth()}-${ultimaTroca.getFullYear()}`
-        const mesAgora = `${agora.getMonth()}-${agora.getFullYear()}`
-        if (mesUltima === mesAgora) throw new Error('ELITE_MES_USED')
-      }
-    }
-
-    if (tier === 'primordial') {
-      if (ultimaTroca) {
         const diasDesde = (agora - ultimaTroca) / 86400000
         if (diasDesde < 15) {
           const restam = Math.ceil(15 - diasDesde)
-          const err = new Error('PRIMORDIAL_COOLDOWN')
+          const err = new Error('ELITE_COOLDOWN')
           err.params = { dias: restam }
           throw err
         }
@@ -626,7 +618,7 @@ export const useTamagoshiStore = create((set, get) => ({
       const mesUltima = ultimaTroca ? `${ultimaTroca.getMonth()}-${ultimaTroca.getFullYear()}` : null
       const mesAgora = `${agora.getMonth()}-${agora.getFullYear()}`
       if (mesUltima === mesAgora && (tama.trocas_no_mes || 0) >= 2) {
-        throw new Error('PRIMORDIAL_MES_USED')
+        throw new Error('ELITE_MES_USED')
       }
     }
   },

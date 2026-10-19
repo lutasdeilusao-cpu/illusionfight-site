@@ -14,6 +14,7 @@ import { creatorAtivo } from '../lib/creator'
 import { ADMIN_EMAILS } from '../config/launch'
 import logoMarkEn from '../assets/images/logos/logo-mark-en.png'
 import logoMarkPtEs from '../assets/images/logos/logo-mark-pt-es.png'
+import { ehAssinante } from '../lib/releaseAccess'
 import './Navbar.css'
 import './NavbarPerfil.css'
 
@@ -23,8 +24,7 @@ const LOCALES = ['pt', 'es', 'en']
 // (icon-192.png) igual pros 3 idiomas.
 const LOGO_MARK = { en: logoMarkEn, pt: logoMarkPtEs, es: logoMarkPtEs }
 
-const PLANOS = ['primordial', 'elite']
-function planoDe(perfil) { return PLANOS.includes(perfil?.tier) ? perfil.tier : 'free' }
+function planoDe(perfil) { return ehAssinante(perfil) ? 'elite' : 'free' }
 function primeiroNome(perfil) { return perfil?.nome?.trim().split(/\s+/)[0] || '' }
 function inicialDe(perfil) { return perfil?.nome?.trim()?.[0]?.toUpperCase() || '?' }
 

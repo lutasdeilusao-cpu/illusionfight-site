@@ -29,8 +29,7 @@
     "perfil": {
       "plano": {
         "free": "Cuenta gratis",
-        "elite": "Elite",
-        "primordial": "Primordial"
+        "elite": "Elite"
       }
     }
   },
@@ -198,15 +197,12 @@
   "assinar": {
     "titulo": "Tu clase. Tu elección.",
     "subtitulo": "Cada tier desbloquea un nuevo nivel de acceso al universo. El ranking es real.",
-    "fichaAnchor": "En Free, recibes 3 fichas por día. En Primordial, 900 por mes. La elección es tuya.",
     "cta": "Suscribirse",
     "custosBtn": "Nuestros Costos",
     "nota": "* Los precios en USD y EUR son aproximados. Pago via Stripe o PIX.",
     "plano_atual": "✓ Plan actual",
     "pagamento_pendente": "⚠️ Pago pendiente",
     "cancela_em": "Cancela el {{data}}",
-    "fazer_downgrade": "Hacer downgrade",
-    "fazer_upgrade": "Hacer upgrade",
     "aguarde": "Aguarde...",
     "feedback": {
       "sucesso": "✅ ¡Suscripción {{tier}} activada! Bienvenido al club.",
@@ -217,7 +213,6 @@
       "title": "¿Prefieres apoyar sin suscribirte?",
       "text": "Toda donación ayuda al proyecto a continuar.",
       "benefit1": "€10 o más = 1 mes de ANCESTRAL gratis",
-      "benefit2": "€50 o más = 1 mes de PRIMORDIAL gratis",
       "cta": "HACER UNA DONACIÓN"
     },
     "gate": {
@@ -248,7 +243,7 @@
     "revisao_correta": "Correcta:",
     "btn_reiniciar": "JUGAR DE NUEVO",
     "btn_home": "VOLVER AL INICIO",
-    "bloqueio_titulo": "Modo exclusivo ANCESTRAL / PRIMORDIAL",
+    "bloqueio_titulo": "Modo exclusivo ANCESTRAL",
     "bloqueio_desc": "Suscríbete para desbloquear los modos RECRUTA y ANCESTRAL, historial de rangos y universitarios ilimitados.",
     "bloqueio_btn": "VER PLANES",
     "bloqueio_voltar": "Volver",
@@ -262,14 +257,12 @@
     "hud_acertos": "ACIERTOS: {n}",
     "ajuda_gangue": "PANDILLA ({n})",
     "modo_desc_ranqueado": "5 fáciles + 5 medias",
-    "modo_desc_elite": "7 fáciles + 7 medias + 6 difíciles",
-    "modo_desc_primordial": "10 de cada dificultad",
+    "modo_desc_elite": "10 de cada dificultad",
     "rank_tier_elite": "ANCESTRAL",
     "rank_tier_ranqueado": "RANQUEADO",
     "rank_tier_aspirante": "ASPIRANTE",
     "rank_tier_novato": "NOVATO",
     "rank_tier_recruta": "RECLUTA",
-    "rank_tier_primordial": "PRIMORDIAL",
     "rank_desc_elite": "Top mundial. Kronos te está observando.",
     "rank_desc_ranqueado": "Competitivo. Pero aún hay camino al top 1000.",
     "rank_desc_aspirante": "Sabes lo suficiente para sobrevivir. Por ahora.",
@@ -459,7 +452,6 @@
       "coletar": "RECOGER",
       "tier_ranqueado": "RANQUEADO",
       "tier_elite": "ANCESTRAL",
-      "tier_primordial": "PRIMORDIAL",
       "conta_titulo": "INFORMACIÓN DE LA CUENTA",
       "conta_nome": "Nombre",
       "conta_email": "Email",
@@ -504,8 +496,7 @@
       "tama_ir_pegar": "🥚 Ve a buscar tu Tamagoshi",
       "tama_limite_trocas": "límite de intercambios:",
       "tama_free_troca": "1 cada 3 meses",
-      "tama_elite_troca": "1 por mes",
-      "tama_primordial_troca": "2 por mes (15 días entre cada)",
+      "tama_elite_troca": "2 por mes (15 días entre cada)",
       "tama_propor_troca": "[ PROPONER INTERCAMBIO ]",
       "tama_gerando": "GENERANDO...",
       "tama_input_key": "pega la key de 8 chars...",
@@ -568,7 +559,6 @@
       "recomp_acao_indicar": "Recomendar un amigo",
       "recomp_acao_compartilhar": "Compartir resultado",
       "recomp_acao_elite": "Suscribirse Ancestral",
-      "recomp_acao_primordial": "Suscribirse Primordial",
       "recomp_acoes_fichas": "+{n} 🎰",
       "gangues_bairros": "Barrios",
       "gangues_trofeus": "Trofeos",
@@ -879,7 +869,7 @@
     },
     "assinar": {
       "og_title": "Suscríbete — Lutas de Ilusión",
-      "og_desc": "Elige tu tier: Ranqueado, Ancestral o Primordial. Cada nivel desbloquea nuevos accesos al universo Lutas de Ilusión."
+      "og_desc": "Elige tu plan: Ranqueado, gratis, o Ancestral, la suscripción que apoya el proyecto y libera todo antes en el universo Lutas de Ilusión."
     },
     "leaderboard": {
       "quiz_sdr": "QUIZ SDR",

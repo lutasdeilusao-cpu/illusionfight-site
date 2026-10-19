@@ -1,6 +1,6 @@
 import { supabase } from '../lib/supabase'
 
-const TENTATIVAS_POR_TIER = { free: 3, elite: 5, primordial: 7 }
+const TENTATIVAS_POR_TIER = { free: 3, elite: 7 }
 const PONTOS_POR_VITORIA_TT = 20
 const PONTOS_POR_VITORIA_ARENA = 15
 const MAX_RANKED_PLAYS_DIA = 5

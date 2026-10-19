@@ -13,7 +13,7 @@
       "energia_base": "Initial energy reserve per battle (0-100).",
       "poder_explosivo": "Capacity for sudden power release (0-100)."
     },
-    "tiers": ["free", "elite", "primordial", "evento"]
+    "tiers": ["free", "elite", "evento"]
   },
   "cartas": [
     {
@@ -46,7 +46,7 @@
     {
       "id": 4,
       "nome": "Kim Show",
-      "tier": "primordial",
+      "tier": "elite",
       "elemental": "Trevas (manifestado) / Fogo (nativo)",
       "descricao": "Xakaxi descendant carrying the Primordial Blood. Reached rank 1201 in his first battle. Lives in a squatted house, sells candy on buses, takes care of his mother. Has more power than he understands. When he loses control, something far older than him takes command.",
       "frase_iconica": "The only rule in a street fight? There are no rules.",
@@ -55,7 +55,7 @@
     {
       "id": 5,
       "nome": "Kim Superconcert",
-      "tier": "primordial",
+      "tier": "elite",
       "elemental": "Trevas (manifestado) / Fogo (nativo)",
       "descricao": "Xakaxi descendant carrying the Primordial Blood. Reached rank 1201 in his first battle. Lives in a squatted house, sells candy on buses, takes care of his mother. Has more power than he understands. When he loses control, something far older than him takes command.",
       "frase_iconica": "The only rule in a street fight? There are no rules.",
@@ -91,7 +91,7 @@
     {
       "id": 9,
       "nome": "Jack Show",
-      "tier": "primordial",
+      "tier": "elite",
       "elemental": "Terra / Pedra",
       "descricao": "Kim's best friend since forever. Extroverted, theatrical, never genuinely scared. Combines charm and violence with unsettling efficiency. Uses any environment to his advantage. Three-stage training — lethal when complete, vulnerable while loading.",
       "frase_iconica": "Never leave for tomorrow what you can make Kim do today.",
@@ -100,7 +100,7 @@
     {
       "id": 10,
       "nome": "Jack Superconcert",
-      "tier": "primordial",
+      "tier": "elite",
       "elemental": "Terra / Pedra",
       "descricao": "Kim's best friend since forever. Extroverted, theatrical, never genuinely scared. Combines charm and violence with unsettling efficiency. Uses any environment to his advantage. Three-stage training — lethal when complete, vulnerable while loading.",
       "frase_iconica": "Never leave for tomorrow what you can make Kim do today.",
@@ -136,7 +136,7 @@
     {
       "id": 14,
       "nome": "Nina Show",
-      "tier": "primordial",
+      "tier": "elite",
       "elemental": "Luz",
       "descricao": "Muay Thai and katana since age 12 in the pro circuit. Spent years outside Bravara. When she speaks, the scene shifts. Competitive to the extreme — would rather die than ask for help in a fight.",
       "frase_iconica": "You need to work a lot harder to deserve a woman like me.",

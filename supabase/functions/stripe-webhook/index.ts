@@ -10,7 +10,6 @@ const webhookSecret = Deno.env.get('STRIPE_WEBHOOK_SECRET')
 
 const PRICE_TO_TIER = {
   [Deno.env.get('STRIPE_PRICE_ELITE')]: 'ELITE',
-  [Deno.env.get('STRIPE_PRICE_PRIMORDIAL')]: 'PRIMORDIAL',
 }
 
 function getUserId(obj) {

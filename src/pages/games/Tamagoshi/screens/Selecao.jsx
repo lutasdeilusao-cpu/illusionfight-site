@@ -9,7 +9,7 @@ import SEASON_1 from '../data/tamagoshi-season1.json'
 const CRIATURAS_T1 = CRIATURAS.filter(c => SEASON_1.criaturas.includes(c.id))
 
 // Limite de slots por tier (T1: todos max 1; desbloqueado na T2)
-const SLOT_LIMITS = { free: 1, elite: 1, primordial: 1 }
+const SLOT_LIMITS = { free: 1, elite: 1 }
 
 function shuffle(arr) {
   const a = [...arr]
@@ -20,7 +20,7 @@ function shuffle(arr) {
 }
 
 export function gerarOpcoesSelecaoTama(userTier) {
-  const qtd = userTier === 'primordial' ? 10 : userTier === 'elite' ? 3 : 1
+  const qtd = userTier === 'elite' ? 10 : 1
   return shuffle(CRIATURAS_T1).slice(0, qtd)
 }
 

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { trackEvent } from '../../lib/analytics'
-import { resolveAccessLevel } from '../../lib/releaseAccess'
+import { resolveAccessLevel, ehAssinante } from '../../lib/releaseAccess'
 import CONFIG from './radio-nina.config.json'
 import { carregarPlaylistSalva, salvarPlaylistSalva } from './radio-nina.playlist'
 import ninaArt from '../../assets/images/characters/nina-balloon.png'
@@ -58,7 +58,6 @@ function filaComAbertura(pool) {
   return [primeira, ...resto]
 }
 
-const TIERS_SEM_AD = ['elite', 'primordial', 'moderator', 'admin']
 
 // Música da T1 bloqueada pelo calendário (config `bloqueios`): até `fecha_em`
 // toca pra todo mundo; dali em diante só pra assinante, e a conta grátis e o
@@ -67,13 +66,13 @@ const hojeBrasilia = () => new Date(Date.now() - 3 * 3600 * 1000).toISOString().
 function podeOuvir(key, nivel, admin) {
   const b = BLOQUEIOS.find((x) => x.arquivos.includes(key))
   const hoje = hojeBrasilia()
-  if (!b || admin || hoje < b.fecha_em || nivel === 'primordial' || nivel === 'elite') return true
+  if (!b || admin || hoje < b.fecha_em || nivel === 'elite') return true
   return hoje >= (nivel === 'conta' ? b.conta : b.publico)
 }
 
 export function useRadioNina() {
   const { user, perfil } = useAuth()
-  const semAds = perfil?.is_admin === true || TIERS_SEM_AD.includes(perfil?.tier)
+  const semAds = perfil?.is_admin === true || ehAssinante(perfil) || ['moderator', 'admin'].includes(perfil?.role)
 
   const [estado, setEstado] = useState('oculto') // oculto | barra | mini
   const [tocando, setTocando] = useState(false)

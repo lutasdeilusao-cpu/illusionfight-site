@@ -25,7 +25,6 @@ function retratoDoCombatente(member) {
 // /assinar via toggleModoAuto). O guard em `podeUsarModoAuto` + o check no
 // efeito de auto-ataque garantem que non-assinante nunca dispara.
 export const MODO_AUTO_EXIGE_ASSINATURA = false
-export const TIERS_COM_MODO_AUTO = ['elite', 'primordial']
 
 export const ONOMATOPEIAS = ['POW!', 'WHAM!', 'CRACK!', 'SLASH!', 'BOOM!', 'THWACK!']
 export const randomOnoma = () => ONOMATOPEIAS[Math.floor(Math.random() * ONOMATOPEIAS.length)]

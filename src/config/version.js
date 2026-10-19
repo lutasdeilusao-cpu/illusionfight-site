@@ -6,19 +6,19 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.441.25'
+export const SITE_VERSION = '10.442.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2'
 export const LDI_VERSION       = '3.32.0'
 export const JACK_VERSION      = '5.3.3'
-export const GANGUES_VERSION   = '3.115.3'
+export const GANGUES_VERSION   = '3.115.4'
 
 export const TAMA_VERSION      = '3.4.2'
 export const DUELO_VERSION     = '2.8.1'
 export const MINIGAMES_VERSION = '4.3.7'
-export const TS_VERSION        = '6.0.4'
-export const TM_VERSION        = '6.0.2'
+export const TS_VERSION        = '6.0.5'
+export const TM_VERSION        = '6.0.3'
 export const TATICS_VERSION    = '7.5.1'
 export const SRGRM_VERSION     = '3.5.0'
 export const ARENATESTBED_VERSION = '6.22.2'

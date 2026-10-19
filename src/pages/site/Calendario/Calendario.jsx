@@ -11,7 +11,7 @@ import './Calendario.css'
 // no dia do lançamento, por aba (nas histórias o assinante começa com 2;
 // música: conta 1 mês e público 2 meses depois do assinante).
 const levelRows = [
-  { id: 'subscriber', access: ['elite', 'primordial'], delay: { chapters: 0, webtoon: 0, music: 0 }, launch: { chapters: 2, webtoon: 1, music: 1 }, tales: 5 },
+  { id: 'subscriber', access: ['elite'], delay: { chapters: 0, webtoon: 0, music: 0 }, launch: { chapters: 2, webtoon: 1, music: 1 }, tales: 5 },
   { id: 'account', access: ['conta'], delay: { chapters: 15, webtoon: 15, music: 30 }, launch: { chapters: 0, webtoon: 0, music: 0 }, tales: 0 },
   { id: 'public', access: ['publico'], delay: { chapters: 30, webtoon: 30, music: 60 }, launch: { chapters: 0, webtoon: 0, music: 0 }, tales: 0 },
 ]
@@ -73,7 +73,7 @@ function weekdayLabels(locale) {
 
 // O que sai no dia tocado, nível por nível, com a cor da bolinha.
 function DiaDetalhe({ t, locale, drop, access }) {
-  const souEu = { subscriber: access === 'primordial' || access === 'elite', account: access === 'conta', public: access === 'publico' }
+  const souEu = { subscriber: access === 'elite', account: access === 'conta', public: access === 'publico' }
   return (
     <div className="calendar-dia" aria-live="polite">
       <time>{formatDate(drop.date, locale)}</time>
@@ -92,7 +92,7 @@ function DiaDetalhe({ t, locale, drop, access }) {
 function JogosCalendario({ t, locale, access, today }) {
   const proxima = GAMES_ROADMAP.findIndex(f => f.data > today)
   const estado = (f, i) => (f.data <= today ? 'current' : i === proxima ? 'next' : 'future')
-  const nivelDe = { subscriber: ['elite', 'primordial'], account: ['conta'], public: ['publico'] }
+  const nivelDe = { subscriber: ['elite'], account: ['conta'], public: ['publico'] }
   return (
     <>
       <section className="calendar-section" aria-labelledby="games-fases-title">
@@ -292,7 +292,7 @@ export default function Calendario() {
         <div className="calendar-drops">
           {drops.map((drop, index) => {
             const state = index === currentIndex ? 'current' : index === nextIndex ? 'next' : index < currentIndex ? 'past' : 'future'
-            const souEu = { subscriber: access === 'primordial' || access === 'elite', account: access === 'conta', public: access === 'publico' }
+            const souEu = { subscriber: access === 'elite', account: access === 'conta', public: access === 'publico' }
             return <article className={`calendar-drop is-${state}`} key={drop.date}>
               <div className="calendar-drop-date"><span>DROP {String(drop.number).padStart(2, '0')}</span><time>{formatDate(drop.date, locale)}</time></div>
               {(state === 'current' || state === 'next') && <span className="calendar-drop-state">{t(`calendar.${state}`)}</span>}

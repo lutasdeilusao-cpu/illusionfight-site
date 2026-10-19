@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.441.25**.
+> `SITE_VERSION` **10.442.0**.
 > Última atualização: 19/10/2026.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
@@ -232,7 +232,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | `src/lib/painelColeta.js` | Coleta própria de visitas do painel (`painel_registrar`) |
 | `src/lib/debugLog.js` | Log de depuração das contas admin (`debug_logs`) |
 | `src/lib/lazyWithReload.js` | `lazy()` que recarrega 1x se o chunk sumiu após deploy |
-| `src/lib/releaseAccess.js` | Nível de acesso do visitante (primordial, elite = Ancestral, conta, público) e a data de liberação de cada item para esse nível |
+| `src/lib/releaseAccess.js` | Nível de acesso do visitante (elite = Ancestral, conta, público) e a data de liberação de cada item para esse nível |
 | `src/lib/creator.js` / `src/lib/creatorConvite.js` | Tag de creator ativa e resgate do convite guardado no navegador (RPC `creator_resgatar_convite`) |
 | `src/lib/sessionAnalytics.js` | Tempo real de leitura e de jogo (só conta com a aba visível): `chapter_*`, `webtoon_*`, `game_*` |
 | `src/lib/versaoNova.js` | Atualização forçada: compara o build no ar com o da página e recarrega (fora de jogo na hora; dentro, no `pontoSeguro`) |
@@ -270,7 +270,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 |---|---|
 | Personagens | `src/data/personagens-{pt,en,es}.json` |
 | Mundo/lore | `src/data/mundo-{pt,en,es}.json` (`mitologia` = texto da seção Mitologia); cosmologia completa e canon em `docs/LDI/MITOLOGIA.md` |
-| Livro (linha principal) | `src/data/historias/lutas-de-ilusao.json` (com `resumo_*` / `tagline_*` e `liberacao.{primordial,elite,conta,publico}` por capítulo; a chave `elite` é o tier Ancestral) e `src/data/historias/lutas-de-ilusao/{pt,en,es}/capitulo-NN.md` |
+| Livro (linha principal) | `src/data/historias/lutas-de-ilusao.json` (com `resumo_*` / `tagline_*` e `liberacao.{elite,conta,publico}` por capítulo; a chave `elite` é o tier Ancestral) e `src/data/historias/lutas-de-ilusao/{pt,en,es}/capitulo-NN.md` |
 | Calendário público | `src/data/season-one-schedule.js` reúne as 39 linhas da timeline da Temporada 1 (Portal: assinante/conta grátis/público, sempre -15/0/+15 dias entre si, + Outras Plataformas com ritmo próprio) + `SEASONS_OVERVIEW` (panorama T1-T6, só T1 marcada como confirmada, T2+ é projeção explícita). `Calendario.jsx` renderiza uma grade mês a mês real (nov/2026–jan/2028, ano de 2027 inteiro, todo mês aparece mesmo sem evento) com bolinhas por dia (assinante/conta/público/outras), igual nas abas Capítulos e WEB SHARD; as datas de acesso que alimentam o gate ficam nos três índices editoriais |
 | Contos de Ilusão | `src/data/historias/contos.json` (com `resumo_{pt,en,es}` por capítulo) e `src/data/historias/contos/<id>/{pt,en,es}/NN.md` |
 | Obras (Mundo das Sombras, Mar de Cinzas) | `src/data/historias/obras.json` (`peso`, `canon:false`, `selo`, `idiomas`, `capitulos[].data_publicacao`) e `src/data/historias/obras/<slug>/<lang>/NN.md`; arte webp em `src/assets/obras/<slug>/` (capa + `cap-NN`). Gating por `data_publicacao` futura + bypass de admin |
@@ -319,7 +319,7 @@ Namespaces de conteúdo relevantes: `nav.links`, `pages.livro`, `pages.contos` (
 | Histórias do Autor | Capítulos em `historias/autor.json` | Exclusivo de creator |
 | Músicas | 32 faixas no catálogo, Rádio Nina com bloqueio por data para as da T1 | 9 músicas da T1, 1 por mês de lançamento |
 | Jogos no catálogo | LDI Gangues (7 bairros), Lendas do LDI (5 Veias), Super Trunfo (30 cartas, SP e MP) | Lançamento 15/11/2026 |
-| Planos | Ranqueado (grátis), Ancestral (R$10 · $5 · €5) e Primordial (R$30 · $15 · €15), `src/data/planos.json` | Checkout Stripe, fora da demo Steam |
+| Planos | Ranqueado (grátis) e Ancestral, a única assinatura (R$10 · $5 · €5), `src/data/planos.json` | Checkout Stripe, fora da demo Steam |
 
 ## 7. Multiplayer e persistência dos jogos
 
@@ -429,12 +429,12 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.32.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
-| `GANGUES_VERSION` | LDI Gangues | **3.115.3** |
+| `GANGUES_VERSION` | LDI Gangues | **3.115.4** |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.2 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.7 |
-| `TS_VERSION` | Top Trumps single-player | 6.0.4 |
-| `TM_VERSION` | Top Trumps multiplayer | 6.0.2 |
+| `TS_VERSION` | Top Trumps single-player | 6.0.5 |
+| `TM_VERSION` | Top Trumps multiplayer | 6.0.3 |
 | `TATICS_VERSION` | Arena LDI Tatics | 7.5.1 |
 | `SRGRM_VERSION` | SRGRM 3v3 | 3.5.0 |
 | `ARENATESTBED_VERSION` | Arena Testbed | 6.22.2 |

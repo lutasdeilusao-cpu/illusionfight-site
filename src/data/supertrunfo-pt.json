@@ -13,7 +13,7 @@
       "energia_base": "Reserva inicial de energia por batalha (0-100).",
       "poder_explosivo": "Capacidade de liberação súbita de poder extra (0-100)."
     },
-    "tiers": ["free", "elite", "primordial", "evento"]
+    "tiers": ["free", "elite", "evento"]
   },
   "cartas": [
     {
@@ -46,7 +46,7 @@
     {
       "id": 4,
       "nome": "Kim Show",
-      "tier": "primordial",
+      "tier": "elite",
       "elemental": "Trevas (manifestado) / Fogo (nativo)",
       "descricao": "Descendente Xakaxi portador do Sangue Primordial. Chegou ao rank 1201 na primeira batalha. Mora em casa invadida, vende balas no busão, cuida da mãe. Tem mais poder do que entende. Quando perde o controle, algo muito mais antigo que ele assume o comando.",
       "frase_iconica": "A única regra da briga de rua? Não há regras.",
@@ -55,7 +55,7 @@
     {
       "id": 5,
       "nome": "Kim Superconcerto",
-      "tier": "primordial",
+      "tier": "elite",
       "elemental": "Trevas (manifestado) / Fogo (nativo)",
       "descricao": "Descendente Xakaxi portador do Sangue Primordial. Chegou ao rank 1201 na primeira batalha. Mora em casa invadida, vende balas no busão, cuida da mãe. Tem mais poder do que entende. Quando perde o controle, algo muito mais antigo que ele assume o comando.",
       "frase_iconica": "A única regra da briga de rua? Não há regras.",
@@ -91,7 +91,7 @@
     {
       "id": 9,
       "nome": "Jack Show",
-      "tier": "primordial",
+      "tier": "elite",
       "elemental": "Terra / Pedra",
       "descricao": "Melhor amigo de Kim desde sempre. Extrovertido, teatral, nunca genuinamente assustado. Combina charme e violência com eficiência desconcertante. Usa qualquer ambiente a seu favor. Treino em 3 etapas — letal quando completo, vulnerável durante o carregamento.",
       "frase_iconica": "Nunca deixe para amanhã o que você obrigar o Kim a fazer hoje.",
@@ -100,7 +100,7 @@
     {
       "id": 10,
       "nome": "Jack Superconcerto",
-      "tier": "primordial",
+      "tier": "elite",
       "elemental": "Terra / Pedra",
       "descricao": "Melhor amigo de Kim desde sempre. Extrovertido, teatral, nunca genuinamente assustado. Combina charme e violência com eficiência desconcertante. Usa qualquer ambiente a seu favor. Treino em 3 etapas — letal quando completo, vulnerável durante o carregamento.",
       "frase_iconica": "Nunca deixe para amanhã o que você obrigar o Kim a fazer hoje.",
@@ -136,7 +136,7 @@
     {
       "id": 14,
       "nome": "Nina Show",
-      "tier": "primordial",
+      "tier": "elite",
       "elemental": "Luz",
       "descricao": "Muay Thai e katana desde os 12 anos no circuito profissional. Passou anos fora de Bravara. Quando fala, muda a cena. Competitiva ao extremo — prefere morrer a pedir ajuda numa briga.",
       "frase_iconica": "Você precisa ralar mais para merecer uma mulher como eu.",

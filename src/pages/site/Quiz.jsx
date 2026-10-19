@@ -10,8 +10,7 @@ import './Quiz.css'
 
 const MODOS = {
   ranqueado: { labelKey: 'quiz.rank_tier_ranqueado', descKey: 'quiz.modo_desc_ranqueado', total: 10, premium: false },
-  elite:     { labelKey: 'quiz.rank_tier_elite',     descKey: 'quiz.modo_desc_elite',     total: 20, premium: true },
-  primordial:{ labelKey: 'quiz.rank_tier_primordial',descKey: 'quiz.modo_desc_primordial',total: 30, premium: true },
+  elite:     { labelKey: 'quiz.rank_tier_elite',     descKey: 'quiz.modo_desc_elite',     total: 30, premium: true },
 }
 
 function embaralhar(arr) {

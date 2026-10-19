@@ -5,14 +5,13 @@ import { assertExternalPurchasesAllowed } from './runtimePlatform'
 // com base no país do cartão do cliente (multi-currency Price).
 const PRICES = {
   ELITE: import.meta.env.VITE_STRIPE_PRICE_ELITE,
-  PRIMORDIAL: import.meta.env.VITE_STRIPE_PRICE_PRIMORDIAL,
 }
 
 // Exibição de preço por locale — apenas visual, não determina o Price ID
 const PRICE_DISPLAY = {
-  pt: { symbol: 'R$', elite: '10', primordial: '30', per: 'mês' },
-  en: { symbol: '$',  elite: '5',  primordial: '15', per: 'mo'  },
-  es: { symbol: '€',  elite: '5',  primordial: '15', per: 'mes' },
+  pt: { symbol: 'R$', elite: '10', per: 'mês' },
+  en: { symbol: '$',  elite: '5',  per: 'mo'  },
+  es: { symbol: '€',  elite: '5',  per: 'mes' },
 }
 
 export function getPriceDisplay(locale) {

@@ -1,15 +1,14 @@
-export const ACCESS_LEVELS = ['primordial', 'elite', 'conta', 'publico']
+export const ACCESS_LEVELS = ['elite', 'conta', 'publico']
 
 const ACTIVE_SUBSCRIPTIONS = new Set(['active', 'trialing'])
 
 export function resolveAccessLevel(user, perfil) {
   if (!user) return 'publico'
-  const rawTier = typeof perfil?.tier === 'string' ? perfil.tier.toLowerCase() : ''
   const rawStatus = typeof perfil?.subscription_status === 'string'
     ? perfil.subscription_status.toLowerCase()
     : ''
   if (!ACTIVE_SUBSCRIPTIONS.has(rawStatus)) return 'conta'
-  return rawTier === 'primordial' ? 'primordial' : 'elite'
+  return 'elite'
 }
 
 export function releaseDateFor(item, level) {
@@ -40,3 +39,8 @@ export function nextBetterLevel(level) {
   return null
 }
 
+
+// Assinante = plano Ancestral (tier ELITE no perfil) com a assinatura ativa.
+export function ehAssinante(perfil) {
+  return resolveAccessLevel(Boolean(perfil), perfil) === 'elite'
+}

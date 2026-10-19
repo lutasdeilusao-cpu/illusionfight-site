@@ -3,7 +3,7 @@ import { formatarData } from '../../../../lib/webshard/catalogo'
 import './CascataLiberacao.css'
 
 const DEGRAUS = [
-  { id: 'assinante', niveis: ['primordial', 'elite'], campo: 'elite', rotulo: 'calendar.level_subscriber' },
+  { id: 'assinante', niveis: ['elite'], campo: 'elite', rotulo: 'calendar.level_subscriber' },
   { id: 'conta', niveis: ['conta'], campo: 'conta', rotulo: 'calendar.level_account' },
   { id: 'publico', niveis: ['publico'], campo: 'publico', rotulo: 'calendar.level_public' },
 ]

@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 import { useAuth } from './AuthContext'
 import { supabase } from '../lib/supabase'
 
-const FICHAS_POR_TIER = { free: 3, elite: 10, primordial: 30 }
+const FICHAS_POR_TIER = { free: 3, elite: 30 }
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 const TEST_ACCOUNT_EMAILS = ['conta@teste.com', 'conta1@teste.com', 'conta2@teste.com', 'conta3@teste.com', 'conta4@teste.com', 'conta5@teste.com', 'conta6@teste.com']
 
@@ -30,7 +30,7 @@ export function FichasProvider({ children }) {
     setIsAdmin(adminFlag)
     const testAccountFlag = profileData?.is_test_account || TEST_ACCOUNT_EMAILS.includes(user?.email || '')
     setIsTestAccount(!!testAccountFlag)
-    const fichasPorRole = { free: 100, elite: 10, primordial: 30, moderator: 10, admin: 999 }
+    const fichasPorRole = { free: 100, elite: 30, moderator: 10, admin: 999 }
     const rolePerfil = profileData?.role || 'free'
     setFichasDiariasState(fichasPorRole[rolePerfil] || 3)
     if (adminFlag) { setLoading(false); return }

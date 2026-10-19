@@ -60,7 +60,6 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
   const tierNomes = {
     free: tt('tier_free'),
     elite: tt('tier_elite'),
-    primordial: tt('tier_primordial'),
     lendario: tt('tier_lendario'),
     sombra: tt('tier_sombra')
   }

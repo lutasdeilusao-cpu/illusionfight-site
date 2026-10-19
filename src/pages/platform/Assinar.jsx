@@ -70,8 +70,6 @@ export default function Assinar() {
         : ''
       return t('assinar.cancela_em', { data })
     }
-    if (perfil?.tier === 'PRIMORDIAL' && tier === 'ELITE') return t('assinar.fazer_downgrade')
-    if (perfil?.tier === 'ELITE' && tier === 'PRIMORDIAL') return t('assinar.fazer_upgrade')
     return t('assinar.cta')
   }
 
@@ -189,7 +187,6 @@ export default function Assinar() {
             })}
           </div>
           <p className="assinar-plans__nota">{t('assinar.nota')}</p>
-          <p className="assinar-plans__anchor">{t('assinar.fichaAnchor')}</p>
         </div>
       </section>
 
@@ -200,7 +197,6 @@ export default function Assinar() {
             <p className="assinar-doacao__text">{t('assinar.doacao.text')}</p>
             <ul className="assinar-doacao__benefits">
               <li>{t('assinar.doacao.benefit1')}</li>
-              <li>{t('assinar.doacao.benefit2')}</li>
             </ul>
             <a href="#" className="assinar-doacao__btn">{t('assinar.doacao.cta')}</a>
           </div>

@@ -27,26 +27,26 @@ const MANUAL = {
 const idiomas = base => ['pt', 'en', 'es'].filter(l => tem(base.replace('{l}', l)))
 
 function grupos() {
-  const capsLivro = livro.filter(c => naT1(c.liberacao?.primordial)).map(c => {
+  const capsLivro = livro.filter(c => naT1(c.liberacao?.elite)).map(c => {
     const nn = String(c.numero).padStart(2, '0')
     const ls = idiomas(`lutas-de-ilusao/{l}/capitulo-${nn}.md`)
-    return { id: `livro:${c.numero}`, rotulo: `Cap. ${c.numero}`, data: c.liberacao.primordial, status: ls.length === 3 ? 'pronto' : ls.length ? 'parcial' : 'falta', nota: ls.length < 3 ? `idiomas: ${ls.join(', ') || '—'}` : '' }
+    return { id: `livro:${c.numero}`, rotulo: `Cap. ${c.numero}`, data: c.liberacao.elite, status: ls.length === 3 ? 'pronto' : ls.length ? 'parcial' : 'falta', nota: ls.length < 3 ? `idiomas: ${ls.join(', ') || '—'}` : '' }
   })
   const sombras = obras.find(o => o.id === 'mundo-das-sombras')?.capitulos || []
-  const capsSombras = sombras.filter(c => naT1(c.liberacao?.primordial)).map((c, i) => {
+  const capsSombras = sombras.filter(c => naT1(c.liberacao?.elite)).map((c, i) => {
     const ls = idiomas(`obras/mundo-das-sombras/{l}/${c.id}.md`)
-    return { id: `sombras:${c.id}`, rotulo: `Cap. ${i + 1}`, data: c.liberacao.primordial, status: ls.length === 3 ? 'pronto' : ls.length ? 'parcial' : 'falta', nota: ls.length < 3 ? `idiomas: ${ls.join(', ') || '—'}` : '' }
+    return { id: `sombras:${c.id}`, rotulo: `Cap. ${i + 1}`, data: c.liberacao.elite, status: ls.length === 3 ? 'pronto' : ls.length ? 'parcial' : 'falta', nota: ls.length < 3 ? `idiomas: ${ls.join(', ') || '—'}` : '' }
   })
-  const contosT1 = contos.filter(c => naT1(c.capitulos[0]?.liberacao?.primordial)).map(c => {
+  const contosT1 = contos.filter(c => naT1(c.capitulos[0]?.liberacao?.elite)).map(c => {
     const total = c.capitulos.length
     const ok = c.capitulos.filter(cap => idiomas(`contos/${c.id}/{l}/${String(cap.numero).padStart(2, '0')}.md`).length === 3).length
-    return { id: `conto:${c.id}`, rotulo: c.titulo, data: c.capitulos[0].liberacao.primordial, status: ok === total ? 'pronto' : ok ? 'parcial' : 'falta', nota: ok < total ? `${ok}/${total} caps nos 3 idiomas` : `${total} caps` }
+    return { id: `conto:${c.id}`, rotulo: c.titulo, data: c.capitulos[0].liberacao.elite, status: ok === total ? 'pronto' : ok ? 'parcial' : 'falta', nota: ok < total ? `${ok}/${total} caps nos 3 idiomas` : `${total} caps` }
   })
-  const webshard = episodios.filter(e => !e.especial && naT1(e.liberacao?.primordial)).map(e => (
-    { id: `webshard:${e.numero}`, rotulo: `Cap. ${e.numero}`, data: e.liberacao.primordial, status: e.paginas ? 'pronto' : 'falta', nota: e.paginas ? `${e.paginas} págs` : '' }
+  const webshard = episodios.filter(e => !e.especial && naT1(e.liberacao?.elite)).map(e => (
+    { id: `webshard:${e.numero}`, rotulo: `Cap. ${e.numero}`, data: e.liberacao.elite, status: e.paginas ? 'pronto' : 'falta', nota: e.paginas ? `${e.paginas} págs` : '' }
   ))
-  const especiais = episodios.filter(e => e.especial && naT1(e.liberacao?.primordial)).map((e, i) => (
-    { id: `especial:${i + 1}`, rotulo: `E${i + 1}`, data: e.liberacao.primordial, status: e.paginas ? 'pronto' : 'falta', nota: e.titulo_pt || '' }
+  const especiais = episodios.filter(e => e.especial && naT1(e.liberacao?.elite)).map((e, i) => (
+    { id: `especial:${i + 1}`, rotulo: `E${i + 1}`, data: e.liberacao.elite, status: e.paginas ? 'pronto' : 'falta', nota: e.titulo_pt || '' }
   ))
   const mdsWs = Array.from({ length: 9 }, (_, i) => {
     const ep = mds.find(e => Number(e.id) === i + 1)
@@ -54,8 +54,8 @@ function grupos() {
     const max = Math.max(0, ...vs.map(v => v.paginas || 0))
     return { id: `mds:${i + 1}`, rotulo: `Cap. ${i + 1}`, data: null, status: max >= 55 ? 'pronto' : max ? 'parcial' : 'falta', nota: max ? `${max} págs` : '' }
   })
-  const musicas = MUSICAS_T1.map(m => ({ id: `musica:${m.n}`, rotulo: m.titulo?.pt || `Música ${m.n}`, data: m.liberacao.primordial, status: m.titulo ? 'pronto' : 'falta', nota: '' }))
-  const clipes = CLIPES_T1.map(c => ({ id: `clipe:${c.n}`, rotulo: `Clipe ${c.n}`, data: c.liberacao.primordial, status: 'falta', nota: '' }))
+  const musicas = MUSICAS_T1.map(m => ({ id: `musica:${m.n}`, rotulo: m.titulo?.pt || `Música ${m.n}`, data: m.liberacao.elite, status: m.titulo ? 'pronto' : 'falta', nota: '' }))
+  const clipes = CLIPES_T1.map(c => ({ id: `clipe:${c.n}`, rotulo: `Clipe ${c.n}`, data: c.liberacao.elite, status: 'falta', nota: '' }))
   const jogos = GAMES_ROADMAP.flatMap(f => f.jogos.map(j => ({ id: `jogo:${j}`, rotulo: j, data: f.data, status: 'falta', nota: '' })))
   const aplica = lista => lista.map(x => ({ ...x, ...(MANUAL[x.id] || {}) }))
   return [

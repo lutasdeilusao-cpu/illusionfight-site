@@ -12,7 +12,7 @@ export default function MundoMitologia({ mitologia, indice, titulo }) {
   const { t } = useLanguage()
   const { perfil } = useAuth()
   const { isAdmin, nivel } = useHistoriasAcesso()
-  const aberta = isAdmin || nivel === 'elite' || nivel === 'primordial' || creatorAtivo(perfil)
+  const aberta = isAdmin || nivel === 'elite' || creatorAtivo(perfil)
 
   if (!mitologia) return null
 

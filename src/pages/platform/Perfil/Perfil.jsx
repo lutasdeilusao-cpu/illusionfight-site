@@ -12,12 +12,12 @@ import PerfilConta from './abas/PerfilConta'
 import Recompensas from './abas/Recompensas'
 import PerfilTamagoshi from './abas/PerfilTamagoshi'
 import PerfilProgresso from './PerfilProgresso'
+import { ehAssinante } from '../../../lib/releaseAccess'
 import './Perfil.css'
 
 const TIER_CONFIG = {
   free: { labelKey: 'site.perfil.tier_ranqueado', cor: '#555', bordaCor: '#333' },
   elite: { labelKey: 'site.perfil.tier_elite', cor: '#00B4D8', bordaCor: '#00B4D8' },
-  primordial: { labelKey: 'site.perfil.tier_primordial', cor: '#F5A623', bordaCor: '#F5A623' },
 }
 
 const SECOES = [
@@ -47,7 +47,7 @@ export default function Perfil() {
 
   const toggle = (secao) => setAbertos(prev => ({ ...prev, [secao]: !prev[secao] }))
 
-  const tier = 'free'
+  const tier = ehAssinante(perfil) ? 'elite' : 'free'
   const tierCfg = TIER_CONFIG[tier]
 
   useEffect(() => {

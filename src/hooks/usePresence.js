@@ -10,7 +10,7 @@ const CHANNEL_NAME = 'presence:toptrumps'
  * @param {object} params
  * @param {string} params.userId - ID do usuário (null = não registra presença, só observa)
  * @param {string} params.modo - 'single' | 'lobby' | 'jogo'
- * @param {string} params.tier - tier do usuário ('free' | 'elite' | 'primordial')
+ * @param {string} params.tier - tier do usuário ('free' | 'elite')
  */
 export function usePresence({ userId, modo, tier }) {
   const [presencas, setPresencas] = useState([])
