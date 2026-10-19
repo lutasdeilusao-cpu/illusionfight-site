@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792416639.21677,
-    "ast_hash": "f82a02a7dcee2d4f7b332bee6e0b4755",
+    "mtime": 1792417413.050714,
+    "ast_hash": "34536d0344641003126cd179ea455bec",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2560,8 +2560,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792416864.6708336,
-    "ast_hash": "5e8e097d9563e4081e6703f7efa204d0",
+    "mtime": 1792418601.3948672,
+    "ast_hash": "81072cdcaebb5ad150182865999d9642",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9940,8 +9940,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md": {
-    "mtime": 1792416864.6628351,
-    "ast_hash": "27824970b5558a7365616961f25efbf0",
+    "mtime": 1792418907.783775,
+    "ast_hash": "bc2b545e3ed03568d48fb52ac2eac9ed",
     "semantic_hash": ""
   }
 }

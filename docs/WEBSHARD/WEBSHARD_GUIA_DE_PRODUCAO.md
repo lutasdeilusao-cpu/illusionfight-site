@@ -465,6 +465,12 @@ A inspeção combinou inventário completo dessas pastas com amostras visuais de
 O handoff contém relatos de recusas de ferramentas e tentativas de reformulação. Aqui, a regra operacional é descrever fielmente a cena e o personagem, manter as restrições visuais aprovadas e respeitar os limites da ferramenta. Não disfarçar uma pessoa como máquina nem tratar mudanças de vocabulário como garantia de aceitação.
 
 ## 13. Fichas, personagens e cenário
+**Formato obrigatório das fichas — direção de Isaías, 19/10/2026:**
+
+- Personagens genéricos/figurantes recorrentes: vários personagens distintos numa única folha coletiva; reutilizar as mesmas identidades nas páginas seguintes.
+- Personagem principal ou transformação importante: uma única ficha com três colunas de corpo inteiro — frente, costas e perfil — e expressões do mesmo rosto na quarta coluna ou numa faixa inferior. Não substituir vistas por poses frontais repetidas.
+- A ficha de uma transformação conserva a identidade reconhecível, mas fixa o novo estado visual em todas as vistas e expressões. Kronos César decaído, por exemplo, é um rei zumbi marcante; a ficha humana não substitui essa transformação.
+- O intervalo de cinco minutos é para produzir páginas narrativas. Fichas e outros materiais de referência podem ser gerados em sequência, sem espera obrigatória entre imagens.
 
 ### 13.1 Onde estão as referências
 

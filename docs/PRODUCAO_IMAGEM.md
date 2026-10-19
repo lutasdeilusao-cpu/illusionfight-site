@@ -54,7 +54,7 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 - Formato de prompt: linha 1 `OUT: <arquivo>`, linha 2 `REFS: <arquivos>`, resto = prompt.
 - Fila numerada na ordem de dependência; só roda um prompt quando todas as REFS existem; pula o que já existe; refazer = apagar o arquivo e rodar de novo.
 - Prefixo de economia no Codex: "ECONOMY MODE: do not inspect files or run commands… Generate ONCE… Reply only: ok."
-- Uma imagem por vez + pausa (5 min) em vez de rajada. Trava (lock) contra rodada dupla. Log em arquivo.
+- **Páginas narrativas:** uma imagem por vez + pausa de 5 min em vez de rajada. **Fichas e materiais de referência:** sem intervalo obrigatório entre gerações; seguir direto para o próximo material (esclarecimento de Isaías, 19/10/2026). Trava (lock) contra rodada dupla em filas automáticas. Log em arquivo.
 - **Nunca deixar serviço órfão rodando**: ao trocar de fila, parar a anterior (processo + tarefa agendada + cron da sessão). Conferir com lista de processos e `schtasks /query`.
 
 ### Revisão e entrega
@@ -66,7 +66,7 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 ---
 
 ## 2. WEB SHARD (comum)
-- Página 960×1637 (≈1:1,705), safe area 100 px lados / 80 px topo-base. Ficha 2048×1152 (4 vistas, sem texto). Página dupla do Codex: 768×1024 cada.
+- Página 960×1637 (≈1:1,705), safe area 100 px lados / 80 px topo-base. Ficha 2048×1152, sem texto: personagem principal com três colunas de corpo inteiro (frente, costas, perfil) e expressões na quarta coluna ou numa faixa inferior; genéricos recorrentes juntos numa folha coletiva, com identidades distintas reutilizáveis (Isaías, 19/10/2026). Página dupla do Codex: 768×1024 cada.
 - Máx. 2 painéis grandes + estilhaços, cortes diagonais 8–15°, 4 painéis nunca. Pouco texto, letra grande.
 - Estilhaço é detalhe por cima do painel (olho, mão, expressão, objeto), nunca um painel a mais. Se o roteiro tem estilhaço e a página saiu só com painéis, o prompt não descreveu a forma dele — conferir.
 - Publicação: `public/webtoon/<pasta>/<idioma>/NN.webp`; catálogo `src/data/*-episodios.json` + `webshard-titulos.json` + `src/lib/webshard/catalogo.js`. Versões do mesmo capítulo: `versoes` (`<pasta>/<versao>/pt`).
