@@ -87,7 +87,7 @@ Procedimento recomendado:
 
 Estilhaços podem mostrar antecipação, simultaneidade, reação ou consequência. O leitor precisa compreender qual dessas relações está vendo. Não sobrepor um detalhe ao rosto, ao ponto de contato do golpe ou a uma fala indispensável.
 
-O handoff fixa cortes diagonais de **8–15 graus**, inclusive nos recortes retangulares; evitar divisões retas horizontais/verticais. Invasões de quadro são opcionais. O fundo acompanha o tema da cena, nunca preto ou branco chapado. Uma pausa pode ter composição simples sem abandonar a linguagem. Ângulo de câmera e borda devem ser declarados dentro de cada bloco de painel no prompt.
+O handoff fixa cortes diagonais de **8–15 graus**, inclusive nos recortes retangulares; evitar divisões retas horizontais/verticais. As diagonais podem variar de direção na mesma página, preservando a ordem de leitura. A separação normal é uma borda fina, não uma faixa larga; a espessura não deve roubar espaço da ação. Invasões de quadro são opcionais. O fundo acompanha o tema da cena, nunca preto ou branco chapado. Uma pausa pode ter composição simples sem abandonar a linguagem. Ângulo de câmera e borda devem ser declarados dentro de cada bloco de painel no prompt.
 
 ### 4.3 Ritmo e exceções
 
