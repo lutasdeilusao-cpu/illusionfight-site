@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { rpc } from './painelUtil'
+import PainelTarefaModal from './PainelTarefaModal'
 import './PainelTarefas.css'
 
 const COLUNAS = ['fazer', 'progresso', 'feito']
@@ -42,10 +43,11 @@ export default function PainelTarefas({ t, locale }) {
   const daColuna = visiveis.filter(x => x.status === coluna)
     .sort((a, b) => PRIORIDADES.indexOf(a.prioridade) - PRIORIDADES.indexOf(b.prioridade) || (a.prazo || '9').localeCompare(b.prazo || '9'))
 
-  const mover = async (x, dir) => {
-    const novo = COLUNAS[COLUNAS.indexOf(x.status) + dir]
+  const mover = (x, dir) => moverPara(x, COLUNAS[COLUNAS.indexOf(x.status) + dir])
+  const moverPara = async (x, novo) => {
     if (!novo) return
     setTarefas(ts => ts.map(y => (y.id === x.id ? { ...y, status: novo } : y)))
+    setEdit(e => (e && e.id === x.id ? { ...e, status: novo } : e))
     await rpc('admin_tarefa_mover', { p_id: x.id, p_status: novo }).catch(() => {})
     carregar()
   }
@@ -61,56 +63,19 @@ export default function PainelTarefas({ t, locale }) {
       progresso: delas.filter(x => x.status === 'progresso').length, feito: delas.filter(x => x.status === 'feito' && x.feito_em > semana).length }
   })
 
-  const salvar = async () => {
-    await rpc('admin_tarefa_salvar', { p: edit })
-    setEdit(null); carregar()
+  const salvar = async tarefa => {
+    await rpc('admin_tarefa_salvar', { p: tarefa })
+    carregar()
   }
   const apagar = async id => {
     await rpc('admin_tarefa_apagar', { p_id: id })
-    setEdit(null); carregar()
+    carregar()
   }
+  const abrir = x => setEdit({ ...VAZIA, ...x, para: x.para || '', prazo: x.prazo || '' })
   const data = d => new Date(`${d}T12:00:00`).toLocaleDateString(locale, { day: '2-digit', month: 'short' })
 
   if (erro) return <p className="painel-erro">{erro}</p>
   if (!tarefas) return <p className="painel-vazio">{t('painel.carregando')}</p>
-
-  if (edit) {
-    return (
-      <form className="tarefa-form painel-cartao" onSubmit={e => { e.preventDefault(); salvar() }}>
-        <h3 className="tarefa-form__titulo">{edit.id ? t('painel.tarefas.editar') : t('painel.tarefas.nova')}</h3>
-        <label>{t('painel.tarefas.titulo')}<input value={edit.titulo} onChange={e => setEdit({ ...edit, titulo: e.target.value })} required autoFocus /></label>
-        <label>{t('painel.tarefas.descricao')}<textarea rows={4} value={edit.descricao || ''} onChange={e => setEdit({ ...edit, descricao: e.target.value })} /></label>
-        <div className="tarefa-form__linha">
-          <label>{t('painel.tarefas.para')}
-            <select value={edit.para || ''} onChange={e => setEdit({ ...edit, para: e.target.value })}>
-              <option value="">{t('painel.tarefas.os_dois')}</option>
-              {pessoas.map(p => <option key={p.id} value={p.id}>{primeiroNome(p.nome)}</option>)}
-            </select>
-          </label>
-          <label>{t('painel.tarefas.prazo')}<input type="date" value={edit.prazo || ''} onChange={e => setEdit({ ...edit, prazo: e.target.value })} /></label>
-        </div>
-        <label>{t('painel.tarefas.link')}<input value={edit.link || ''} placeholder="/webtoon/05" onChange={e => setEdit({ ...edit, link: e.target.value })} /></label>
-        <div className="tarefa-form__linha">
-          <label>{t('painel.tarefas.prioridade')}
-            <select value={edit.prioridade} onChange={e => setEdit({ ...edit, prioridade: e.target.value })}>
-              {PRIORIDADES.map(p => <option key={p} value={p}>{t(`painel.tarefas.prio.${p}`)}</option>)}
-            </select>
-          </label>
-          <label>{t('painel.tarefas.status')}
-            <select value={edit.status} onChange={e => setEdit({ ...edit, status: e.target.value })}>
-              {COLUNAS.map(c => <option key={c} value={c}>{t(`painel.tarefas.col.${c}`)}</option>)}
-            </select>
-          </label>
-        </div>
-        <label>{t('painel.tarefas.feedback')}<textarea rows={4} value={edit.feedback || ''} onChange={e => setEdit({ ...edit, feedback: e.target.value })} /></label>
-        <div className="painel-form__acoes">
-          <button type="submit" className="painel-btn is-primario">{t('painel.salvar')}</button>
-          <button type="button" className="painel-btn" onClick={() => setEdit(null)}>{t('painel.cancelar')}</button>
-          {edit.id && <button type="button" className="painel-btn is-perigo" onClick={() => apagar(edit.id)}>{t('painel.tarefas.apagar')}</button>}
-        </div>
-      </form>
-    )
-  }
 
   return (
     <div className="tarefas">
@@ -148,7 +113,7 @@ export default function PainelTarefas({ t, locale }) {
             const atrasada = x.status !== 'feito' && x.prazo && x.prazo < hoje
             return (
               <li key={x.id} className={`tarefa is-${x.prioridade}${atrasada ? ' is-atrasada' : ''}`}>
-                <button type="button" className="tarefa__corpo" onClick={() => setEdit({ ...VAZIA, ...x, para: x.para || '', prazo: x.prazo || '' })}>
+                <button type="button" className="tarefa__corpo" onClick={() => abrir(x)}>
                   <strong>{x.titulo}</strong>
                   {x.descricao && <span className="tarefa__desc">{x.descricao}</span>}
                   <span className="tarefa__meta">
@@ -174,6 +139,11 @@ export default function PainelTarefas({ t, locale }) {
       )}
 
       <button type="button" className="tarefas-nova painel-btn is-primario" onClick={() => setEdit({ ...VAZIA, status: coluna })}>+ {t('painel.tarefas.nova')}</button>
+
+      {edit && (
+        <PainelTarefaModal key={edit.id || 'nova'} tarefa={edit} pessoas={pessoas} t={t} locale={locale} nome={nome}
+          onFechar={() => setEdit(null)} onSalvar={salvar} onApagar={apagar} onMover={moverPara} onIniciar={iniciar} />
+      )}
     </div>
   )
 }

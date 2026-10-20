@@ -1929,7 +1929,12 @@
         "placeholder": "What you thought, what needs fixing...",
         "enviar": "Send feedback",
         "depois": "Later"
-      }
+      },
+      "fechar": "Close",
+      "descartar": "Discard your changes to this task?",
+      "confirmar_apagar": "Delete this task for good?",
+      "sem_descricao": "No description.",
+      "rascunho_recuperado": "We recovered what you were writing. Check it and save."
     }
   },
   "carrossel": {

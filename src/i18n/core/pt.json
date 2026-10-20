@@ -1929,7 +1929,12 @@
         "placeholder": "O que achou, o que tem que corrigir...",
         "enviar": "Mandar feedback",
         "depois": "Depois"
-      }
+      },
+      "fechar": "Fechar",
+      "descartar": "Descartar o que você mudou nesta tarefa?",
+      "confirmar_apagar": "Apagar esta tarefa de vez?",
+      "sem_descricao": "Sem descrição.",
+      "rascunho_recuperado": "Recuperamos o que você estava escrevendo. Confira e salve."
     }
   },
   "carrossel": {

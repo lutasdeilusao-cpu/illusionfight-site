@@ -4,9 +4,10 @@
 // (<meta name="ldi-build">, gravado pelo prerender) e compara com o da página
 // aberta. A 1ª checagem roda ainda na vinheta (index.html), antes do bundle.
 //   • Confere ao abrir, ao voltar pra aba e a cada 5 minutos.
-//   • Achou build novo: fora dos jogos recarrega na hora; dentro de um jogo
-//     espera o próximo ponto seguro (troca de tela, `pontoSeguro`) pra nunca
-//     derrubar uma partida no meio.
+//   • Achou build novo: na navegação comum recarrega na hora. Dentro de um
+//     jogo, no painel admin ou com a pessoa digitando num campo, espera o
+//     próximo ponto seguro (troca de tela fora dessas situações, `pontoSeguro`)
+//     pra nunca derrubar uma partida nem apagar um texto sendo escrito.
 // Recarrega no máximo uma vez por build (se o servidor ainda devolver a página
 // velha, não entra em laço).
 const CHAVE = 'ldi-recarregou-build'
@@ -15,6 +16,12 @@ let pendente = null
 
 const buildDaPagina = () => document.querySelector('meta[name="ldi-build"]')?.content || null
 const emJogo = () => /\/games\//.test(window.location.pathname)
+const noPainel = () => /\/admin(\/|$)/.test(window.location.pathname)
+const digitando = () => {
+  const el = document.activeElement
+  return Boolean(el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)))
+}
+const protegido = () => emJogo() || noPainel() || digitando()
 
 async function buildNoAr() {
   try {
@@ -39,13 +46,13 @@ async function conferir() {
   if (!atual) return
   const noAr = await buildNoAr()
   if (!noAr || noAr === atual) return
-  if (emJogo()) pendente = noAr
+  if (protegido()) pendente = noAr
   else recarregar(noAr)
 }
 
 // Chamado a cada troca de tela: se tinha versão nova esperando, é a hora.
 export function pontoSeguro() {
-  if (pendente) recarregar(pendente)
+  if (pendente && !protegido()) recarregar(pendente)
 }
 
 export function iniciarConferenciaDeVersao() {

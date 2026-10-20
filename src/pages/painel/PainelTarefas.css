@@ -47,7 +47,7 @@
   cursor: pointer;
 }
 .tarefa__corpo strong { font-size: .86rem; line-height: 1.25; }
-.tarefa__desc { font-size: .72rem; color: var(--text-secondary); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.tarefa__desc { font-size: .72rem; color: var(--text-secondary); display: -webkit-box; -webkit-line-clamp: 3; white-space: pre-line; -webkit-box-orient: vertical; overflow: hidden; }
 .tarefa__meta { display: flex; flex-wrap: wrap; gap: 8px; font: 600 .6rem var(--font-mono); color: var(--text-secondary); }
 .tarefa__para { font-style: normal; color: var(--if-cyan); }
 .tarefa.is-atrasada .tarefa__prazo { color: var(--if-danger); }
@@ -152,3 +152,97 @@
 }
 .tarefa-fim button.is-primario { color: var(--bg-primary); background: var(--if-cyan); }
 .tarefa-fim button:disabled { opacity: .45; cursor: default; }
+
+/* Tarefa em tela cheia (PainelTarefaModal): leitura e edição; ações embaixo, no dedão. */
+.tarefa-modal {
+  position: fixed;
+  inset: 0 var(--app-gutter);
+  z-index: 1950;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--bg-primary);
+  overscroll-behavior: none;
+}
+.tarefa-modal__form { display: grid; grid-template-rows: 1fr auto; min-height: 0; }
+.tarefa-modal__topo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--if-hair-strong);
+}
+.tarefa-modal__fechar {
+  width: 44px;
+  height: 44px;
+  font: 700 1.1rem var(--font-display);
+  color: var(--if-cyan);
+  background: var(--bg-secondary);
+  border: 1px solid var(--if-hair-strong);
+  cursor: pointer;
+}
+.tarefa-modal__rotulo { font: 700 .62rem var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--if-cyan); }
+.tarefa-modal__corpo {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-height: 0;
+  padding: 18px 16px 28px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.tarefa-modal__titulo { margin: 0; font: 800 1.45rem/1.2 var(--font-display); color: var(--text-primary); overflow-wrap: anywhere; }
+.tarefa-modal__chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.tarefa-modal__chip {
+  padding: 5px 9px;
+  font: 700 .62rem var(--font-mono);
+  letter-spacing: .06em;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--if-hair-strong);
+}
+.tarefa-modal__chip.is-alta { color: var(--if-danger); border-color: var(--if-danger); }
+.tarefa-modal__chip.is-atrasada { color: var(--if-danger); }
+.tarefa-modal__texto { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--text-primary); white-space: pre-wrap; overflow-wrap: anywhere; }
+.tarefa-modal__texto.is-vazio { color: var(--text-secondary); font-style: italic; }
+.tarefa-modal__feedback { display: grid; gap: 6px; padding: 12px; background: var(--if-cyan-08); border-left: 3px solid var(--if-teal); }
+.tarefa-modal__feedback h3 { margin: 0; font: 700 .58rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--if-teal); }
+.tarefa-modal__feedback p { margin: 0; font-size: .92rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
+.tarefa-modal__iniciar {
+  padding: 14px;
+  font: 700 .7rem var(--font-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--bg-primary);
+  background: var(--if-cyan);
+  border: 0;
+  cursor: pointer;
+}
+.tarefa-modal__base {
+  display: grid;
+  gap: 8px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--if-hair-strong);
+}
+.tarefa-modal__base--form { grid-template-columns: 1fr 2fr; }
+.tarefa-modal__base .painel-btn { min-height: 48px; }
+.tarefa-modal__status { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.tarefa-modal__status button {
+  min-height: 48px;
+  font: 700 .6rem var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  border: 1px solid var(--if-hair-strong);
+  border-top: 3px solid var(--cor);
+  cursor: pointer;
+}
+.tarefa-modal__status .is-fazer { --cor: var(--if-danger); }
+.tarefa-modal__status .is-progresso { --cor: var(--if-amber); }
+.tarefa-modal__status .is-feito { --cor: var(--if-cyan); }
+.tarefa-modal__status .is-ativo { color: var(--text-primary); background: color-mix(in srgb, var(--cor) 18%, var(--bg-primary)); }
+.tarefa-modal__aviso { margin: 0; padding: 8px 10px; font-size: .78rem; color: var(--if-amber); background: var(--if-amber-16); }
+.tarefa-modal .tarefa-form textarea { resize: none; overflow: hidden; min-height: 96px; font-size: 1rem; line-height: 1.5; }
+.tarefa-modal .tarefa-form input, .tarefa-modal .tarefa-form select { min-height: 44px; font-size: 1rem; }
+.tarefa-modal__apagar { justify-self: start; margin-top: 12px; }
