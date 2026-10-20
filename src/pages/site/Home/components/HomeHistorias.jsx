@@ -25,7 +25,9 @@ export default function HomeHistorias() {
   const auth = { user, perfil }
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
 
-  const contos = contosIndex.filter(c => (c.capitulos || []).some(cap => contoLiberado(cap, isAdmin, auth)))
+  // Todo conto aparece; o que ainda não libera fica cinza, sem link.
+  const contos = contosIndex.filter(c => (c.capitulos || []).length)
+  const contoAberto = c => c.capitulos.some(cap => contoLiberado(cap, isAdmin, auth))
   // Todo capítulo que já tem capa aparece: o que ainda não libera fica em
   // preto e branco, sem link, pra mostrar que a história já existe.
   const livre = c => c.id === 'capitulo-01' || estaDisponivel(c, isAdmin, auth)
@@ -50,11 +52,19 @@ export default function HomeHistorias() {
         <ol className="home-historias__lista">
           {contos.map(c => (
             <li key={c.id}>
-              <Link to={`/historias/contos/${c.id}`}>
-                <span className="home-historias__num">{c.id}</span>
-                <strong>{c[tituloKey] || c.titulo}</strong>
-                <small>{t('home.nova.caps', { n: c.capitulos.length })}</small>
-              </Link>
+              {contoAberto(c) ? (
+                <Link to={`/historias/contos/${c.id}`}>
+                  <span className="home-historias__num">{c.id}</span>
+                  <strong>{c[tituloKey] || c.titulo}</strong>
+                  <small>{t('home.nova.caps', { n: c.capitulos.length })}</small>
+                </Link>
+              ) : (
+                <div className="home-historias__item--bloqueado">
+                  <span className="home-historias__num">{c.id}</span>
+                  <strong>{c[tituloKey] || c.titulo}</strong>
+                  <small>{t('pages.webtoon.em_breve')}</small>
+                </div>
+              )}
             </li>
           ))}
         </ol>

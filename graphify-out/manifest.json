@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1791982767.465803,
-    "ast_hash": "630f14270179f75ec90524fa12c1c2d8",
+    "mtime": 1792451998.8401723,
+    "ast_hash": "f35987f5b7d7026df7b065c061ad714c",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -182,11 +182,6 @@
   "src/components/CookieBanner.jsx": {
     "mtime": 1787852555.6548302,
     "ast_hash": "4ff62070e6b6d791742e545166fbc033",
-    "semantic_hash": ""
-  },
-  "src/components/FichaGateRoute/FichaGateRoute.jsx": {
-    "mtime": 1789357042.7327235,
-    "ast_hash": "28cfdc83d40a8a335f81f46f9b49b53a",
     "semantic_hash": ""
   },
   "src/components/Footer.jsx": {
@@ -219,16 +214,6 @@
     "ast_hash": "306c1f5946b69af2228f6eb49246a035",
     "semantic_hash": "306c1f5946b69af2228f6eb49246a035"
   },
-  "src/components/ModalConfirmacaoFicha/ModalConfirmacaoFicha.jsx": {
-    "mtime": 1780897109.2792807,
-    "ast_hash": "50f28796d45ab3eb49b9c47ff5b5af74",
-    "semantic_hash": "50f28796d45ab3eb49b9c47ff5b5af74"
-  },
-  "src/components/ModalSemFichas/ModalSemFichas.jsx": {
-    "mtime": 1781301606.8337524,
-    "ast_hash": "266ca415119946a769d0dac2ab74d642",
-    "semantic_hash": "266ca415119946a769d0dac2ab74d642"
-  },
   "src/components/Navbar.jsx": {
     "mtime": 1792451284.8263814,
     "ast_hash": "fb12b7b605bf6e40b987a8ede5e44dd6",
@@ -240,9 +225,9 @@
     "semantic_hash": "9f1937643a98c5156bdc523e38ccfedc"
   },
   "src/components/ProdutoDigitalCard/ProdutoDigitalCard.jsx": {
-    "mtime": 1788408770.9644675,
-    "ast_hash": "4a9a47d78bf99868c53b301d28c62a7e",
-    "semantic_hash": "4a9a47d78bf99868c53b301d28c62a7e"
+    "mtime": 1792452042.3923814,
+    "ast_hash": "bce09097de75e8ef7b33986c6eaf755c",
+    "semantic_hash": ""
   },
   "src/components/Puzzles/PuzzleAnagrama.jsx": {
     "mtime": 1791412805.7807612,
@@ -349,11 +334,6 @@
     "ast_hash": "a473563ee8ebbf3a6f026a87152dbf6d",
     "semantic_hash": ""
   },
-  "src/config/fichas.js": {
-    "mtime": 1781365251.0598452,
-    "ast_hash": "71b66cea15e3c0c2bd184488edd67611",
-    "semantic_hash": "71b66cea15e3c0c2bd184488edd67611"
-  },
   "src/config/launch.js": {
     "mtime": 1791321404.919712,
     "ast_hash": "9410a69a855fb24978792fe1419f6221",
@@ -370,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792451367.3068907,
-    "ast_hash": "1ede898271a3057c27f0ad5e7584e8be",
+    "mtime": 1792498923.0060117,
+    "ast_hash": "9efab4d682fa8ad87aebc72171bb6cf5",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -392,11 +372,6 @@
   "src/context/EventosContext.jsx": {
     "mtime": 1785776392.8700948,
     "ast_hash": "182e5822aa0adc0fcffb66d6d2e56fc1",
-    "semantic_hash": ""
-  },
-  "src/context/FichasContext.jsx": {
-    "mtime": 1792451200.6440568,
-    "ast_hash": "6ac1c9f54f11334d4c2720374679ff7b",
     "semantic_hash": ""
   },
   "src/context/LanguageContext.jsx": {
@@ -450,9 +425,9 @@
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
-    "mtime": 1780899871.3476045,
-    "ast_hash": "198693076b2dd22729e2d49536565e1f",
-    "semantic_hash": "198693076b2dd22729e2d49536565e1f"
+    "mtime": 1792452042.3451388,
+    "ast_hash": "16416c6b907d7ee4eff63e357b43648d",
+    "semantic_hash": ""
   },
   "src/data/mundo-en.json": {
     "mtime": 1791688351.7801473,
@@ -538,11 +513,6 @@
     "mtime": 1792451106.120437,
     "ast_hash": "5fabc317e3dc36215445e9f50eec7c3b",
     "semantic_hash": ""
-  },
-  "src/hooks/useFichaGate.js": {
-    "mtime": 1781365251.060918,
-    "ast_hash": "4f56be483f7517464b9f96de98c88671",
-    "semantic_hash": "4f56be483f7517464b9f96de98c88671"
   },
   "src/hooks/useHeroEffect.js": {
     "mtime": 1780348239.3265157,
@@ -640,8 +610,8 @@
     "semantic_hash": ""
   },
   "src/main.jsx": {
-    "mtime": 1791125922.2226517,
-    "ast_hash": "1ec4a5c49f868c05ef50f1281306d98e",
+    "mtime": 1792451983.4047894,
+    "ast_hash": "0e47596cbe0a152a591caee594470751",
     "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
@@ -1025,8 +995,8 @@
     "semantic_hash": "15ecefb92c5db4d35cb33baf951edd5e"
   },
   "src/pages/games/Games.jsx": {
-    "mtime": 1791903388.2827778,
-    "ast_hash": "507522f6fcd3363b7e9d1981148f0799",
+    "mtime": 1792451989.7972772,
+    "ast_hash": "9d1bed1d87982bc3cabc0ad3e71db56b",
     "semantic_hash": ""
   },
   "src/pages/games/JackCandy/JackCandy.jsx": {
@@ -2005,8 +1975,8 @@
     "semantic_hash": "a1ecac2dadfb877fae8a9d609f31c7a4"
   },
   "src/pages/platform/Assinar.jsx": {
-    "mtime": 1792451347.8784647,
-    "ast_hash": "f535ddf47097127a485432b17ad18831",
+    "mtime": 1792499005.898343,
+    "ast_hash": "025d7902a20ac98a7e4dfc9683efa2d6",
     "semantic_hash": ""
   },
   "src/pages/platform/Cadastro.jsx": {
@@ -2025,8 +1995,8 @@
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/Perfil.jsx": {
-    "mtime": 1792451284.8644545,
-    "ast_hash": "d85e18f26fa1ec2456a563777a355a00",
+    "mtime": 1792451983.4067874,
+    "ast_hash": "eb6d5bd508c0309fb41d97e22fd50fe1",
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/PerfilProgresso.jsx": {
@@ -2040,9 +2010,9 @@
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/abas/PerfilConquistas.jsx": {
-    "mtime": 1782963736.63752,
-    "ast_hash": "f277f25243a957bc726c02951208eaff",
-    "semantic_hash": "f277f25243a957bc726c02951208eaff"
+    "mtime": 1792451983.4057877,
+    "ast_hash": "8ab3a68d1d1a7bf4afe225070806ab9a",
+    "semantic_hash": ""
   },
   "src/pages/platform/Perfil/abas/PerfilConta.jsx": {
     "mtime": 1787875681.3756187,
@@ -2052,11 +2022,6 @@
   "src/pages/platform/Perfil/abas/PerfilTamagoshi.jsx": {
     "mtime": 1792451213.512001,
     "ast_hash": "3cb47d241ccc8e240def20456d1dff2c",
-    "semantic_hash": ""
-  },
-  "src/pages/platform/Perfil/abas/Recompensas.jsx": {
-    "mtime": 1792451200.643057,
-    "ast_hash": "56e9084fc4eb189df6a783ce004a1dc5",
     "semantic_hash": ""
   },
   "src/pages/site/Autor.jsx": {
@@ -2070,8 +2035,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Loja/Loja.jsx": {
-    "mtime": 1787875681.3736324,
-    "ast_hash": "3941bf95a5487ec52aec7f931f11dfbc",
+    "mtime": 1792452094.145924,
+    "ast_hash": "28b949b0fe026dceb76c791dbeea6270",
     "semantic_hash": ""
   },
   "src/pages/site/NotFound/NotFound.jsx": {
@@ -2560,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792451367.3369496,
-    "ast_hash": "50af07fbcca6e66dfdf5b5cf636263e6",
+    "mtime": 1792498961.4024596,
+    "ast_hash": "7c916e2d957de09bbc192a46c1d4c02e",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3640,33 +3605,33 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1792451340.2077906,
-    "ast_hash": "ef23c5b1a108d85f4b39917e48dc848a",
+    "mtime": 1792452078.7548673,
+    "ast_hash": "ea14380a86598a76631fa60d1c555b15",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1792451340.2117958,
-    "ast_hash": "afc3f53406c430b154a3ce980ecf1bdf",
+    "mtime": 1792452078.8046398,
+    "ast_hash": "0301aeba092c3238279b5eb5d3a87f49",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1792451340.203173,
-    "ast_hash": "c064107095edbe1fb6f64aa1fc9266e6",
+    "mtime": 1792452071.0390317,
+    "ast_hash": "b7f4af5be98aaaf9a265bdd1affb047e",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
-    "mtime": 1792451340.2097974,
-    "ast_hash": "0c68ec94979bfd2f753eae5b1a908d03",
+    "mtime": 1792452071.0490317,
+    "ast_hash": "e6d0b9430591cef1745ab2c5fbb51d71",
     "semantic_hash": ""
   },
   "src/i18n/games/es.json": {
-    "mtime": 1792451340.2137957,
-    "ast_hash": "e67c29e09f6e4db7d25e751bfe91bddb",
+    "mtime": 1792452071.052033,
+    "ast_hash": "e53056227df82d666c4e2af3ba75cb8a",
     "semantic_hash": ""
   },
   "src/i18n/games/pt.json": {
-    "mtime": 1792451340.2056952,
-    "ast_hash": "02c464ea6fafd25a225535867514fb37",
+    "mtime": 1792452071.0440314,
+    "ast_hash": "be8d8543afee762e65604037fd1012eb",
     "semantic_hash": ""
   },
   "src/i18n/prototype/en.json": {
@@ -4050,8 +4015,8 @@
     "semantic_hash": ""
   },
   "src/components/GameSessionRoute/GameSessionRoute.jsx": {
-    "mtime": 1789357051.099678,
-    "ast_hash": "51b056799e21034ba21e0f8a910aa4ab",
+    "mtime": 1792451998.922244,
+    "ast_hash": "341a7e33698753aebd46773d5655c92d",
     "semantic_hash": ""
   },
   "src/context/TutorialProgressContext.jsx": {
@@ -6995,8 +6960,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/BatalhaLab.jsx": {
-    "mtime": 1791910705.116978,
-    "ast_hash": "ba189ad2ef0733ac44a86d78bbcba9e2",
+    "mtime": 1792451983.4047894,
+    "ast_hash": "6cb1dcbdeb07b00f0515a14e5ef8a319",
     "semantic_hash": ""
   },
   "src/lib/versaoNova.js": {

@@ -11,6 +11,10 @@
 .hero-show__palco {
   position: relative;
   aspect-ratio: 2 / 3;
+  /* nunca mais alto que a tela (notebook): os botões ficam na 1ª dobra */
+  max-height: calc(100vh - 48px);
+  max-height: calc(100svh - 48px);
+  min-height: 480px;
   overflow: hidden;
   touch-action: pan-y;
   user-select: none;

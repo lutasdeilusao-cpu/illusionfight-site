@@ -22,6 +22,9 @@
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
   transition: transform .5s ease;
 }
 
@@ -61,7 +64,8 @@
   list-style: none;
 }
 
-.home-historias__lista a {
+.home-historias__lista a,
+.home-historias__item--bloqueado {
   display: grid;
   grid-template-columns: 30px 1fr auto;
   align-items: center;
@@ -72,6 +76,12 @@
   background: var(--bg-secondary);
   border-left: 2px solid transparent;
   transition: border-color .2s, background .2s;
+}
+
+.home-historias__item--bloqueado {
+  color: var(--text-secondary);
+  filter: grayscale(1);
+  opacity: .6;
 }
 
 .home-historias__lista a:hover {
