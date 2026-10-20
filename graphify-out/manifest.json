@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792507861.0465221,
-    "ast_hash": "45031038e43210c419f9ee35f206ab9c",
+    "mtime": 1792531893.350099,
+    "ast_hash": "409d768c5380f95231cf499ee8980e24",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1792451105.8241208,
-    "ast_hash": "c74dfff19400aadb5a507e644c52e46f",
+    "mtime": 1792532023.4496703,
+    "ast_hash": "affcc2adab1fc009751ede916b8506e9",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792507861.0898316,
-    "ast_hash": "fd298195526aa249512437b7c53f4f84",
+    "mtime": 1792531893.3840983,
+    "ast_hash": "66bda9bcef28ad2e8352b1c21ee28faa",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4540,8 +4540,8 @@
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
-    "mtime": 1792424656.3087504,
-    "ast_hash": "d4efe4a789ff70db7416dcf6257a2d42",
+    "mtime": 1792532023.3972533,
+    "ast_hash": "68bb728746decd55801b2d7c30a17d01",
     "semantic_hash": ""
   },
   "src/lib/webshard/progresso.js": {
@@ -9540,8 +9540,8 @@
     "semantic_hash": ""
   },
   "docs/PRODUCAO_IMAGEM.md": {
-    "mtime": 1792429707.0296247,
-    "ast_hash": "aaff17b229f6dde369720639a578f3a5",
+    "mtime": 1792513553.0388448,
+    "ast_hash": "395dcd6957757dffb48c40e60085f404",
     "semantic_hash": ""
   },
   "docs/T1_PENDENCIAS.md": {
@@ -9927,6 +9927,26 @@
   "src/pages/painel/PainelTarefaModal.jsx": {
     "mtime": 1792507719.1002748,
     "ast_hash": "b781ffe5dfac77c056c41475a96d7459",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-especial-6-pt.webp": {
+    "mtime": 1792531871.5913868,
+    "ast_hash": "f8f4acb5fcc11756397c5eb84d97a751",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-especial-6.webp": {
+    "mtime": 1792531871.6200118,
+    "ast_hash": "3f7502b2fa8d28b5f734f47c2050905c",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-especial-7-pt.webp": {
+    "mtime": 1792531871.4836068,
+    "ast_hash": "78fc0e48faa7fd716dc4a7baf2cd98e8",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-especial-7.webp": {
+    "mtime": 1792531871.511803,
+    "ast_hash": "b31af837fe55e25ca5e13bbf6f8e7d6f",
     "semantic_hash": ""
   }
 }

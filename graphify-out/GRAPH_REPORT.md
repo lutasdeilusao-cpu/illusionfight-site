@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-10-20)
 
 ## Corpus Check
-- 1374 files · ~4,262,140 words
+- 1374 files · ~4,270,073 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f2c6e0e8`
+- Built from commit: `99021f84`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -2121,7 +2121,7 @@ Cohesion: 0.83
 Nodes (3): Farol(), pesoIndex(), PESOS
 
 ## Knowledge Gaps
-- **2707 isolated node(s):** `🔴 SEMPRE NA MAIN — NUNCA ABRIR BRANCH`, `Mandatory workflow for every code change`, `Stack`, `Environment`, `🤖 Custom Agents` (+2702 more)
+- **2707 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2702 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **425 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -2129,12 +2129,12 @@ Nodes (3): Farol(), pesoIndex(), PESOS
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `Community 20` to `Community 0`, `Community 1`, `Community 10`, `PuzzleAnagrama.jsx`, `PuzzleForça.jsx`, `Lobby.jsx`, `TypewriterPhrase.jsx`, `Historias.jsx`, `BuildingInterior.jsx`, `DixContext.jsx`, `useTamagoshiStore.js`, `react`, `CityOverworld.jsx`, `levelProgression.js`, `AnalyticsTracker.jsx`, `aiPersonalities.js`, `Dungeon.jsx`, `PuzzleStealthGrid.jsx`, `ResultCard.jsx`, `PuzzleStealthGrid`, `TopTrumpsCard.jsx`, `usePersonagens.js`, `useGameStore.js`, `SearchModal.jsx`, `useSharedLobbyMachine.js`, `Number`, `RestaurarSaude.jsx`, `Farol.jsx`, `useGanguesTeclado`, `personalidades.js`, `criaturas.js`, `useRadioNina.js`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+  _High betweenness centrality (0.033) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `DixContext.jsx` to `Community 0`, `useGanguesTeclado`, `aiPersonalities.js`, `TypewriterPhrase.jsx`, `Community 3`, `Community 20`, `PuzzleForça.jsx`, `useSharedLobbyMachine.js`, `Number`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **Why does `AudioManager` connect `Community 5` to `TypewriterPhrase.jsx`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **What connects `🔴 SEMPRE NA MAIN — NUNCA ABRIR BRANCH`, `Mandatory workflow for every code change`, `Stack` to the rest of the system?**
+- **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
   _2707 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._
