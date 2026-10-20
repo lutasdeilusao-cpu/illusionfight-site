@@ -851,9 +851,14 @@
   "849": "ganguesBrigaMultidao.js",
   "850": "usePersonagens.js",
   "851": "Farol.jsx",
+  "852": "criaturas.js",
   "853": "SearchModal.jsx",
+  "854": "useSharedLobbyMachine.js",
   "855": "Quiz.jsx",
   "856": "useMultiplayerTurnMachine.js",
   "857": "deterministicDeck.js",
-  "858": "MundoMitologia.jsx"
+  "858": "MundoMitologia.jsx",
+  "859": "RestaurarSaude.jsx",
+  "860": "PuzzleAnagrama.jsx",
+  "861": "Farol.jsx"
 }

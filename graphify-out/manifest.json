@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792505051.144276,
-    "ast_hash": "c3ce55155ed483cf6a16b80a34f83f7f",
+    "mtime": 1792507861.0465221,
+    "ast_hash": "45031038e43210c419f9ee35f206ab9c",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2485,8 +2485,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792092389.4763439,
-    "ast_hash": "25baf754a3367855ebee640c0f189884",
+    "mtime": 1792507861.0186615,
+    "ast_hash": "4c7b7b14763347548d6f99d2b5ec9a9b",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792505051.188974,
-    "ast_hash": "0f77c78f895f7349aa4e7b648485a7ff",
+    "mtime": 1792507861.0898316,
+    "ast_hash": "fd298195526aa249512437b7c53f4f84",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3605,18 +3605,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1792452078.7548673,
-    "ast_hash": "ea14380a86598a76631fa60d1c555b15",
+    "mtime": 1792507763.692551,
+    "ast_hash": "6fa786de5bf9b2839ddb308af3f67b66",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1792452078.8046398,
-    "ast_hash": "0301aeba092c3238279b5eb5d3a87f49",
+    "mtime": 1792507763.6945508,
+    "ast_hash": "3de1fbca9f57fe2ffa831c7c71f08633",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1792452071.0390317,
-    "ast_hash": "b7f4af5be98aaaf9a265bdd1affb047e",
+    "mtime": 1792507763.6895504,
+    "ast_hash": "8b3c8c0a253d1456fb4a0aae67daa4cc",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -6965,8 +6965,8 @@
     "semantic_hash": ""
   },
   "src/lib/versaoNova.js": {
-    "mtime": 1791126127.7997608,
-    "ast_hash": "4fff5978c19bacc9bf7559aa197e5dc6",
+    "mtime": 1792507691.3628378,
+    "ast_hash": "02300adbaa5b639e30e6c0cf760bd20f",
     "semantic_hash": ""
   },
   "src/i18n/creators/en.json": {
@@ -9850,8 +9850,8 @@
     "semantic_hash": ""
   },
   "src/pages/painel/PainelTarefas.jsx": {
-    "mtime": 1792077377.240815,
-    "ast_hash": "00183412c15f175dd3b1b16231c9a343",
+    "mtime": 1792507732.9645932,
+    "ast_hash": "2849159616c13c960c2ce6603e5f2154",
     "semantic_hash": ""
   },
   "supabase/migrations/058_admin_tarefas.sql": {
@@ -9922,6 +9922,11 @@
   "src/assets/webshard/capa-especial-de-natal.webp": {
     "mtime": 1792429791.4232988,
     "ast_hash": "3ca3a85b95efc4a67a7355b2707d9139",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/PainelTarefaModal.jsx": {
+    "mtime": 1792507719.1002748,
+    "ast_hash": "b781ffe5dfac77c056c41475a96d7459",
     "semantic_hash": ""
   }
 }

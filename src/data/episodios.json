@@ -275,6 +275,7 @@
   {
     "id": "especial-6",
     "numero": 6,
+    "parte": 1,
     "creator": true,
     "especial": true,
     "sempre_livre": true,
@@ -298,6 +299,35 @@
       1639
     ],
     "pasta": "especial-de-natal/01-v2",
+    "serie": "especial-de-natal"
+  },
+  {
+    "id": "especial-7",
+    "numero": 7,
+    "parte": 2,
+    "creator": true,
+    "especial": true,
+    "sempre_livre": true,
+    "titulo_pt": "Especial de Natal — Parte 2: Forasteiro Verde",
+    "titulo_en": "Christmas Special — Part 2: Green Stranger",
+    "titulo_es": "Especial de Navidad — Parte 2: Forastero Verde",
+    "publicado": true,
+    "data_publicacao": "2026-10-20",
+    "liberacao": {
+      "elite": "2026-10-20",
+      "conta": "2026-10-20",
+      "publico": "2026-10-20"
+    },
+    "paginas": 52,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "especial-de-natal/02",
     "serie": "especial-de-natal"
   }
 ]

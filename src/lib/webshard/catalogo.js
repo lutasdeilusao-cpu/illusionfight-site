@@ -115,13 +115,15 @@ export function tituloLegado() {
 }
 
 export function numeroCapitulo(cap) {
+  if (cap.parte) return `P${cap.parte}`
   return cap.especial ? `E${cap.numero}` : String(cap.numero).padStart(2, '0')
 }
 
-/** "Cap. 01" ou "Especial · Parte 1" — especiais são história à parte. */
+/** "Cap. 01" ou "Especial · Parte 1" — especiais são história à parte; numa série
+ *  de especiais (`serie`), `parte` é a ordem dentro dela. */
 export function rotuloCapitulo(cap, t) {
   return cap.especial
-    ? t('webShard.cap.especial', { n: cap.numero })
+    ? t('webShard.cap.especial', { n: cap.parte || cap.numero })
     : t('webShard.cap.rotulo', { n: numeroCapitulo(cap) })
 }
 
