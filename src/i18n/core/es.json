@@ -62,21 +62,6 @@
     "criar": "CREAR CUENTA GRATIS",
     "entrar": "Ya tengo cuenta — entrar"
   },
-  "modal_sem_fichas": {
-    "titulo": "CREA TU CUENTA GRATIS",
-    "desc": "Crea tu cuenta gratis ahora y gana 100 fichas para jugar {jogo} gratis.",
-    "criar_conta": "CREAR CUENTA GRATIS — GANA 100 FICHAS",
-    "voltar": "volver"
-  },
-  "modal_confirmacao_ficha": {
-    "titulo": "¿GASTAR 1 FICHA?",
-    "desc": "vas a gastar 1 ficha para desbloquear {jogo}.",
-    "duracao": "⏳ válido por 24 horas — ¡juega todo lo que quieras!",
-    "saldo_atual": "saldo actual",
-    "saldo_restante": "saldo después",
-    "confirmar": "gastar 1 ficha",
-    "cancelar": "cancelar"
-  },
   "resultcard": {
     "btn_x": "𝕏 Compartir",
     "btn_whatsapp": "📱 WhatsApp",
@@ -85,33 +70,6 @@
     "copied": "✅ Copiado",
     "fechar": "[ cerrar ]",
     "jogador": "Jugador"
-  },
-  "ficha_gate": {
-    "carregando": "cargando...",
-    "gamefree": {
-      "titulo": "GRATIS",
-      "desc": "{nome} es un juego GRATIS — ¡no gasta fichas!",
-      "sub": "juega todo lo que quieras.",
-      "jogar": "[ JUGAR ]"
-    },
-    "confirmacao": {
-      "titulo": "¿GASTAR 1 FICHA?",
-      "desc": "vas a gastar 1 ficha para desbloquear {nome}.",
-      "duracao": "⏳ válido por 24 horas — ¡juega todo lo que quieras!",
-      "saldo_atual": "saldo actual",
-      "saldo_restante": "saldo después",
-      "gastando": "...",
-      "confirmar": "[ gastar 1 ficha ]",
-      "coletar_mais": "recoger más fichas"
-    },
-    "semfichas": {
-      "titulo": "SIN FICHAS",
-      "desc": "necesitas 1 ficha para jugar {nome}.",
-      "sub": "fichas diarias se reinician a medianoche.",
-      "coletar": "recoger fichas",
-      "assinar": "suscribirse ancestral — 10 fichas/día",
-      "voltar": "volver a los juegos"
-    }
   },
   "search": {
     "placeholder": "Buscar personajes, capítulos, lore...",
@@ -123,15 +81,14 @@
     "titulo": "ARTÍCULOS DEL UNIVERSO",
     "fisico": "FÍSICO",
     "digital": "DIGITAL",
-    "subtitulo": "fichas, DIX y artículos exclusivos",
+    "subtitulo": "DIX y artículos exclusivos",
     "ver_tudo": "VER TODO →",
     "comprar": "COMPRAR",
     "adquirido": "✓ ADQUIRIDO",
     "footer": "© 2026 Illusion Fight — Pague de forma segura vía Stripe",
     "page_title": "Tienda — Illusion Fight",
-    "page_desc": "Compra fichas, DIX y artículos exclusivos del universo Illusion Fight.",
-    "page_og_desc": "Compra fichas, DIX y artículos exclusivos.",
-    "fichas": "fichas",
+    "page_desc": "Compra DIX y artículos exclusivos del universo Illusion Fight.",
+    "page_og_desc": "Compra DIX y artículos exclusivos.",
     "item_exclusivo": "Artículo exclusivo"
   },
   "beta": {
@@ -425,7 +382,6 @@
       "carregando": "CARGANDO..."
     },
     "perfil": {
-      "fichas": "FICHAS",
       "abas": [
         "Logros",
         "Arena",
@@ -447,9 +403,7 @@
       "abas_gangues": "Gangues",
       "abas_colecao": "CARTAS TOP TRUMPS",
       "abas_conta": "Cuenta",
-      "abas_recompensas": "Recompensas",
       "abas_tamagoshi": "Tamagoshi",
-      "coletar": "RECOGER",
       "tier_ranqueado": "RANQUEADO",
       "tier_elite": "ANCESTRAL",
       "conta_titulo": "INFORMACIÓN DE LA CUENTA",
@@ -532,34 +486,6 @@
       "conquistas_secreto": "Logro secreto",
       "conquistas_desbloqueado": "✓ DESBLOQUEADO",
       "conquistas_bloqueado": "🔒 BLOQUEADO",
-      "recomp_fichas_disponiveis": "fichas disponibles",
-      "recomp_admin_bypass": "★ cuenta admin — bypass de fichas activo",
-      "recomp_ficha_diaria": "FICHA DIARIA",
-      "recomp_fichas_disponiveis_valor": "+ {n} fichas disponibles",
-      "recomp_fichas_coletadas_hoje": "fichas recogidas hoy",
-      "recomp_clique_coletar": "clic para recoger",
-      "recomp_reset_meia_noite": "se reinicia a medianoche · {n} fichas/día",
-      "recomp_coletar_btn": "RECOGER",
-      "recomp_coletadas_msg": "+{n} fichas recogidas!",
-      "recomp_como_ganhar": "CÓMO GANAR FICHAS",
-      "recomp_historico": "HISTORIAL",
-      "recomp_motivo_diaria": "fichas diarias",
-      "recomp_motivo_achievement": "logro desbloqueado",
-      "recomp_motivo_webtoon": "episodio leído",
-      "recomp_motivo_livro": "capítulo leído",
-      "recomp_motivo_indicacao": "referencia calificada",
-      "recomp_motivo_compartilhamento": "compartir aprobado",
-      "recomp_motivo_jack": "jack dream beer",
-      "recomp_motivo_lendas": "lendas do ldi",
-      "recomp_motivo_trumps": "top trumps",
-      "recomp_motivo_outro": "{motivo}",
-      "recomp_acao_livro": "Leer capítulo del libro",
-      "recomp_acao_webtoon": "Leer un capítulo del WEB SHARD",
-      "recomp_acao_achievement": "Desbloquear logro",
-      "recomp_acao_indicar": "Recomendar un amigo",
-      "recomp_acao_compartilhar": "Compartir resultado",
-      "recomp_acao_elite": "Suscribirse Ancestral",
-      "recomp_acoes_fichas": "+{n} 🎰",
       "gangues_bairros": "Barrios",
       "gangues_trofeus": "Trofeos",
       "gangues_cartas": "Cartas",
@@ -1639,18 +1565,6 @@
         "items": [
           {
             "label": "Starter Pack",
-            "status": "Disponible"
-          },
-          {
-            "label": "100 Fichas",
-            "status": "Disponible"
-          },
-          {
-            "label": "300 Fichas + Bonif.",
-            "status": "Disponible"
-          },
-          {
-            "label": "1000 Fichas + Bonif.",
             "status": "Disponible"
           },
           {

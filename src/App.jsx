@@ -16,7 +16,6 @@ import DesktopShellBar from './components/DesktopShellBar/DesktopShellBar'
 import AnalyticsTracker from './components/AnalyticsTracker'
 import DebugLogTracker from './components/DebugLogTracker/DebugLogTracker'
 import LoginGate from './components/LoginGate/LoginGate'
-import FichaGateRoute from './components/FichaGateRoute/FichaGateRoute'
 import GameSessionRoute from './components/GameSessionRoute/GameSessionRoute'
 const Home = lazyWithReload(() => import('./pages/site/Home/Home'))
 const Musicas = lazyWithReload(() => import('./pages/content/Musicas'))
@@ -202,20 +201,20 @@ export default function App() {
         <Route path="/games/toptrumps/v2" element={<TopTrumpsSP />} />
         <Route path="/games/toptrumps" element={<TopTrumpsSP />} />
         <Route path="/games/toptrumps/lobby" element={<Navigate to="/games/multiplayer/lobby?game=toptrumps&mode=free" replace />} />
-        <Route path="/games/toptrumps/multiplayer" element={<FichaGateRoute gameId="top_trumps" feature="a partida multiplayer" nomeExibicao="Top Trumps LDI"><TopTrumpsMP /></FichaGateRoute>} />
-        <Route path="/games/multiplayer/lobby" element={<FichaGateRoute gameId="top_trumps" feature="o lobby multiplayer" nomeExibicao="Top Trumps LDI"><MultiplayerLobby /></FichaGateRoute>} />
-        <Route path="/games/ldi" element={<FichaGateRoute gameId="lendas_ldi" feature="o Lendas do LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDILobby /></FichaGateRoute>} />
-        <Route path="/games/ldi/game" element={<FichaGateRoute gameId="lendas_ldi" feature="o Lendas do LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDIGame /></FichaGateRoute>} />
+        <Route path="/games/toptrumps/multiplayer" element={<GameSessionRoute gameId="top_trumps" gameName="Top Trumps LDI" category="ldi"><TopTrumpsMP /></GameSessionRoute>} />
+        <Route path="/games/multiplayer/lobby" element={<GameSessionRoute gameId="top_trumps" gameName="Top Trumps LDI" category="ldi"><MultiplayerLobby /></GameSessionRoute>} />
+        <Route path="/games/ldi" element={<GameSessionRoute gameId="lendas_ldi" gameName="Lendas do LDI" category="ldi"><LDILobby /></GameSessionRoute>} />
+        <Route path="/games/ldi/game" element={<GameSessionRoute gameId="lendas_ldi" gameName="Lendas do LDI" category="ldi"><LDIGame /></GameSessionRoute>} />
         <Route path="/games/ldi/luta" element={<LDIBatalhaLab />} />
         <Route path="/games/ldi/pentagrama" element={<Navigate to="/games/ldi/luta" replace />} />
-        <Route path="/games/jackcandy" element={<SoAdmin><FichaGateRoute gameId="jack_dream_beer" feature="o Jack Dream Beer" nomeExibicao="Jack Dream Beer"><JackCandy /></FichaGateRoute></SoAdmin>} />
-        <Route path="/games/minigames" element={<SoAdmin><FichaGateRoute gameId="minigames" feature="os MiniGames" nomeExibicao="MiniGames" isFree={true}><MiniGames /></FichaGateRoute></SoAdmin>} />
-        <Route path="/games/ldi-gangues" element={<FichaGateRoute gameId="gangues" feature="o LDI Gangues" nomeExibicao="LDI Gangues"><GanguesRoute /></FichaGateRoute>} />
+        <Route path="/games/jackcandy" element={<SoAdmin><GameSessionRoute gameId="jack_dream_beer" gameName="Jack Dream Beer" category="ldi"><JackCandy /></GameSessionRoute></SoAdmin>} />
+        <Route path="/games/minigames" element={<SoAdmin><GameSessionRoute gameId="minigames" gameName="MiniGames" category="ldi"><MiniGames /></GameSessionRoute></SoAdmin>} />
+        <Route path="/games/ldi-gangues" element={<GameSessionRoute gameId="gangues" gameName="LDI Gangues" category="ldi"><GanguesRoute /></GameSessionRoute>} />
         <Route path="/games/ldi-arena" element={<Navigate to="/games/ldi-gangues" replace />} />
-        <Route path="/games/ldi-tatics" element={<SoAdmin><FichaGateRoute gameId="tatics" feature="o LDI Tactics" nomeExibicao="LDI Tactics"><ArenaTaticsRoute /></FichaGateRoute></SoAdmin>} />
-        <Route path="/games/pesadelo" element={<SoAdmin><FichaGateRoute gameId="pesadelo" feature="o Pesadelo Particular" nomeExibicao="Pesadelo Particular"><PP /></FichaGateRoute></SoAdmin>} />
-        <Route path="/games/duelo" element={<SoAdmin><FichaGateRoute gameId="duelo" feature="o Duelo LDI" nomeExibicao="Duelo LDI"><DueloRoute /></FichaGateRoute></SoAdmin>} />
-        <Route path="/games/tamagoshi" element={<SoAdmin><FichaGateRoute isFree={true} gameId="tamagoshi" feature="o Tamagoshi LDI" nomeExibicao="Tamagoshi LDI"><Tamagoshi /></FichaGateRoute></SoAdmin>} />
+        <Route path="/games/ldi-tatics" element={<SoAdmin><GameSessionRoute gameId="tatics" gameName="LDI Tactics" category="ldi"><ArenaTaticsRoute /></GameSessionRoute></SoAdmin>} />
+        <Route path="/games/pesadelo" element={<SoAdmin><GameSessionRoute gameId="pesadelo" gameName="Pesadelo Particular" category="ldi"><PP /></GameSessionRoute></SoAdmin>} />
+        <Route path="/games/duelo" element={<SoAdmin><GameSessionRoute gameId="duelo" gameName="Duelo LDI" category="ldi"><DueloRoute /></GameSessionRoute></SoAdmin>} />
+        <Route path="/games/tamagoshi" element={<SoAdmin><GameSessionRoute gameId="tamagoshi" gameName="Tamagoshi LDI" category="ldi"><Tamagoshi /></GameSessionRoute></SoAdmin>} />
         <Route path="/games/kernel-panic" element={<SoAdmin><GameSessionRoute gameId="kernelpanic" gameName="Kernel Panic"><KernelPanic /></GameSessionRoute></SoAdmin>} />
         <Route path="/games/sliding-rafael" element={<SoAdmin><GameSessionRoute gameId="sliding_rafael" gameName="Sliding Rafael"><SlidingRafael /></GameSessionRoute></SoAdmin>} />
         <Route path="/games/codigo-perdido" element={<SoAdmin><GameSessionRoute gameId="codigo_perdido" gameName="Código Perdido"><CodigoPerdido /></GameSessionRoute></SoAdmin>} />

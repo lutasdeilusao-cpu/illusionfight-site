@@ -11,7 +11,6 @@ import { iniciarConferenciaDeVersao } from './lib/versaoNova'
 import { LanguageProvider } from './context/LanguageProvider'
 import { ReaderProvider } from './context/ReaderContext'
 import { AuthProvider } from './context/AuthContext'
-import { FichasProvider } from './context/FichasContext'
 import { DixProvider } from './context/DixContext'
 import { AchievementsProvider } from './context/AchievementsContext'
 import { TutorialProgressProvider } from './context/TutorialProgressContext'
@@ -29,7 +28,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <HelmetProvider>
         <BrowserRouter basename={BASE_ROTAS}>
           <AuthProvider>
-            <FichasProvider>
               <DixProvider>
                 <AchievementsProvider>
                   <TutorialProgressProvider>
@@ -43,7 +41,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                   </TutorialProgressProvider>
                 </AchievementsProvider>
               </DixProvider>
-            </FichasProvider>
           </AuthProvider>
         </BrowserRouter>
       </HelmetProvider>

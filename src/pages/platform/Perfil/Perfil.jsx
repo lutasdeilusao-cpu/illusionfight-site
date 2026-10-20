@@ -2,14 +2,11 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
-import { useFichas } from '../../../context/FichasContext'
 import { useDix } from '../../../context/DixContext'
-import { FICHAS_GATE_ATIVO } from '../../../config/fichas'
 import PerfilConquistas from './abas/PerfilConquistas'
 import PerfilGangues from './abas/PerfilGangues'
 import PerfilColecao from './abas/PerfilColecao'
 import PerfilConta from './abas/PerfilConta'
-import Recompensas from './abas/Recompensas'
 import PerfilTamagoshi from './abas/PerfilTamagoshi'
 import PerfilProgresso from './PerfilProgresso'
 import { ehAssinante } from '../../../lib/releaseAccess'
@@ -25,7 +22,6 @@ const SECOES = [
   { id: 'tamagoshi',  icone: '🥚', labelKey: 'site.perfil.abas_tamagoshi', soAdmin: true }, // jogo fora da leva atual
   { id: 'gangues',    icone: '🥊', labelKey: 'site.perfil.abas_gangues' },
   { id: 'conquistas', icone: '🏆', labelKey: 'site.perfil.abas_conquistas' },
-  { id: 'recompensas',icone: '🎰', labelKey: 'site.perfil.abas_recompensas' },
   { id: 'conta',      icone: '⚙️', labelKey: 'site.perfil.abas_conta' },
 ]
 
@@ -33,7 +29,7 @@ export default function Perfil() {
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { user, perfil, logout, carregando } = useAuth()
-  const { saldo, podeColetarHoje, coletarDiarias, isAdmin, loading: fichasLoading } = useFichas()
+  const isAdmin = perfil?.is_admin === true
   const { saldo: dix } = useDix()
 
   const [abertos, setAbertos] = useState({
@@ -41,7 +37,6 @@ export default function Perfil() {
     tamagoshi: false,
     arena: false,
     conquistas: false,
-    recompensas: false,
     conta: false,
   })
 
@@ -80,25 +75,12 @@ export default function Perfil() {
             </span>
           </div>
           <div className="perfil-contadores">
-            {FICHAS_GATE_ATIVO && (
-              <div className="perfil-contador">
-                <span className="perfil-contador-valor">
-                  {isAdmin ? '∞' : fichasLoading ? '—' : saldo}
-                </span>
-                <span className="perfil-contador-label">🎰 {t('site.perfil.fichas')}</span>
-              </div>
-            )}
             <div className="perfil-contador">
               <span className="perfil-contador-valor">{dix}</span>
               <span className="perfil-contador-label">💰 DIX</span>
             </div>
           </div>
         </div>
-        {FICHAS_GATE_ATIVO && podeColetarHoje && !isAdmin && (
-          <button className="perfil-fichas-coletar" onClick={coletarDiarias}>
-            {t('site.perfil.coletar')}
-          </button>
-        )}
       </div>
 
       {/* Barra de Progresso */}
@@ -108,7 +90,6 @@ export default function Perfil() {
       <div className="perfil-secoes">
         {SECOES.filter(secao => !secao.soAdmin || isAdmin).map((secao) => {
           const aberta = abertos[secao.id]
-          const isRecompensas = secao.id === 'recompensas'
           return (
             <div key={secao.id} className="perfil-secao">
               <button
@@ -124,7 +105,6 @@ export default function Perfil() {
               </button>
               <div className={`perfil-secao-corpo${aberta ? '' : ' fechado'}`}>
                 <div className="perfil-secao-conteudo">
-                  {secao.id === 'recompensas' && <Recompensas />}
                   {secao.id === 'conquistas' && <PerfilConquistas />}
                   {secao.id === 'gangues' && <PerfilGangues userId={user.id} />}
                   {secao.id === 'colecao' && <PerfilColecao userId={user.id} />}

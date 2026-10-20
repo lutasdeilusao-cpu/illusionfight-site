@@ -169,7 +169,7 @@ export default function Assinar() {
                     <span className="assinar-card__cta assinar-card__cta--disabled">{p[ctaTextKey]}</span>
                   ) : isPreLaunch && p.id !== 'ranqueado' ? (
                     <span className="assinar-card__cta assinar-card__cta--disabled assinar-card__cta--gate">
-                      {t('assinar.gate.pre_lancamento', { date: LAUNCH_DATE })}
+                      {t('assinar.gate.pre_lancamento', { date: new Date(`${LAUNCH_DATE}T12:00:00`).toLocaleDateString(locale, { day: 'numeric', month: 'long' }) })}
                     </span>
                   ) : (
                     <button

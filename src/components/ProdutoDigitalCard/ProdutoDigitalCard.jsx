@@ -31,12 +31,6 @@ export default function ProdutoDigitalCard({ produto, locale, onComprar, adquiri
       <p className="pdc-desc">{desc}</p>
 
       <div className="pdc-itens">
-        {produto.fichas > 0 && (
-          <div className="pdc-item">
-            <span className="pdc-item-icon">🎰</span>
-            <span className="pdc-item-label">{produto.fichas} {t('shop.fichas') || 'fichas'}</span>
-          </div>
-        )}
         {produto.dix_bonus > 0 && (
           <div className="pdc-item pdc-item--dix">
             <span className="pdc-item-icon">💎</span>

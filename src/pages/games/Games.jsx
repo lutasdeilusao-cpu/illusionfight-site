@@ -1,15 +1,11 @@
-import { Fragment } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
-import { useFichaGate } from '../../hooks/useFichaGate'
 import { trackEvent } from '../../lib/analytics'
 import { getTopTrumpsCardImage } from '../../lib/topTrumpsCardImages'
 import { ADMIN_EMAILS } from '../../config/launch'
 import { creatorAtivo } from '../../lib/creator'
-import ModalSemFichas from '../../components/ModalSemFichas/ModalSemFichas'
-import ModalConfirmacaoFicha from '../../components/ModalConfirmacaoFicha/ModalConfirmacaoFicha'
 import { VEIAS } from './LDI/data/veias'
 import parede from './Gangues/assets/backgrounds/parede-oficial.jpg'
 import logoGanguesPt from './Gangues/assets/logos/logo-pt.png'
@@ -28,7 +24,7 @@ const LUTADORES = [navalha, trinca, marreta]
 const CARTAS = [4, 9, 14]
 const NOTAS_LUTA = ['👊', '🦶', '✋', '💨']
 
-// Os três da T1 pedem ficha (useFichaGate) antes de abrir.
+// Os três jogos da T1.
 const VITRINE = ['gangues', 'ldi', 'toptrumps']
 const ROTA = { gangues: '/games/ldi-gangues', ldi: '/games/ldi', toptrumps: '/games/toptrumps' }
 const NOME = { gangues: 'site.games.nomes.gangues', ldi: 'site.games.nomes.ldi', toptrumps: 'site.games.nomes.trumps' }
@@ -59,16 +55,10 @@ export default function Games() {
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
   const veEmAndamento = isAdmin || creatorAtivo(perfil)
 
-  const gates = {}
-  for (const id of VITRINE) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    gates[id] = useFichaGate(id)
-  }
-
   const jogar = (id) => (e) => {
     e.preventDefault()
     trackEvent('game_card_click', { game_id: id, game_name: t(NOME[id]), category: 'ldi' })
-    gates[id].tentarEntrar(() => navigate(ROTA[id]))
+    navigate(ROTA[id])
   }
 
   return (
@@ -144,16 +134,6 @@ export default function Games() {
             </div>
           </section>
         )}
-
-        {VITRINE.map(id => {
-          const gate = gates[id]
-          return (
-            <Fragment key={id}>
-              <ModalConfirmacaoFicha visivel={gate.confirmacaoVisivel} onConfirmar={gate.confirmarGasto} onCancelar={gate.cancelarGasto} jogo={t(NOME[id])} saldo={gate.saldo} />
-              <ModalSemFichas visivel={gate.modalVisivel} onFechar={gate.fecharModal} jogo={t(NOME[id])} />
-            </Fragment>
-          )
-        })}
       </div>
     </>
   )

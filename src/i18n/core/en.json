@@ -62,21 +62,6 @@
     "criar": "CREATE FREE ACCOUNT",
     "entrar": "I already have an account — log in"
   },
-  "modal_sem_fichas": {
-    "titulo": "CREATE YOUR FREE ACCOUNT",
-    "desc": "Create your free account now and get 100 tokens to play {jogo} for free!",
-    "criar_conta": "CREATE FREE ACCOUNT — GET 100 TOKENS",
-    "voltar": "back"
-  },
-  "modal_confirmacao_ficha": {
-    "titulo": "SPEND 1 TOKEN?",
-    "desc": "you'll spend 1 token to unlock {jogo}.",
-    "duracao": "⏳ valid for 24 hours — play as much as you want!",
-    "saldo_atual": "current balance",
-    "saldo_restante": "balance after",
-    "confirmar": "spend 1 token",
-    "cancelar": "cancel"
-  },
   "resultcard": {
     "btn_x": "𝕏 Share",
     "btn_whatsapp": "📱 WhatsApp",
@@ -85,33 +70,6 @@
     "copied": "✅ Copied",
     "fechar": "[ close ]",
     "jogador": "Player"
-  },
-  "ficha_gate": {
-    "carregando": "loading...",
-    "gamefree": {
-      "titulo": "FREE",
-      "desc": "{nome} is a FREE game — no token cost!",
-      "sub": "play as much as you want.",
-      "jogar": "[ PLAY ]"
-    },
-    "confirmacao": {
-      "titulo": "SPEND 1 TOKEN?",
-      "desc": "you'll spend 1 token to unlock {nome}.",
-      "duracao": "⏳ valid for 24 hours — play as much as you want!",
-      "saldo_atual": "current balance",
-      "saldo_restante": "balance after",
-      "gastando": "...",
-      "confirmar": "[ spend 1 token ]",
-      "coletar_mais": "collect more tokens"
-    },
-    "semfichas": {
-      "titulo": "NO TOKENS",
-      "desc": "you need 1 token to play {nome}.",
-      "sub": "daily tokens reset at midnight.",
-      "coletar": "collect tokens",
-      "assinar": "subscribe ancestral — 10 tokens/day",
-      "voltar": "back to games"
-    }
   },
   "search": {
     "placeholder": "Search characters, chapters, lore...",
@@ -123,15 +81,14 @@
     "titulo": "UNIVERSE ITEMS",
     "fisico": "PHYSICAL",
     "digital": "DIGITAL",
-    "subtitulo": "tokens, DIX and exclusive items",
+    "subtitulo": "DIX and exclusive items",
     "ver_tudo": "VIEW ALL →",
     "comprar": "BUY",
     "adquirido": "✓ OWNED",
     "footer": "© 2026 Illusion Fight — Pay securely via Stripe",
     "page_title": "Shop — Illusion Fight",
-    "page_desc": "Buy tokens, DIX and exclusive items from the Illusion Fight universe.",
-    "page_og_desc": "Buy tokens, DIX and exclusive items.",
-    "fichas": "tokens",
+    "page_desc": "Buy DIX and exclusive items from the Illusion Fight universe.",
+    "page_og_desc": "Buy DIX and exclusive items.",
     "item_exclusivo": "Exclusive item"
   },
   "beta": {
@@ -425,7 +382,6 @@
       "carregando": "LOADING..."
     },
     "perfil": {
-      "fichas": "TOKENS",
       "abas": [
         "Achievements",
         "Arena",
@@ -447,9 +403,7 @@
       "abas_gangues": "Gangues",
       "abas_colecao": "TOP TRUMPS CARDS",
       "abas_conta": "Account",
-      "abas_recompensas": "Rewards",
       "abas_tamagoshi": "Tamagoshi",
-      "coletar": "CLAIM",
       "tier_ranqueado": "RANKED",
       "tier_elite": "ANCESTRAL",
       "conta_titulo": "ACCOUNT INFO",
@@ -532,34 +486,6 @@
       "conquistas_secreto": "Secret achievement",
       "conquistas_desbloqueado": "✓ UNLOCKED",
       "conquistas_bloqueado": "🔒 LOCKED",
-      "recomp_fichas_disponiveis": "available tokens",
-      "recomp_admin_bypass": "★ admin account — token bypass active",
-      "recomp_ficha_diaria": "DAILY TOKEN",
-      "recomp_fichas_disponiveis_valor": "+ {n} tokens available",
-      "recomp_fichas_coletadas_hoje": "tokens collected today",
-      "recomp_clique_coletar": "click to collect",
-      "recomp_reset_meia_noite": "resets at midnight · {n} tokens/day",
-      "recomp_coletar_btn": "CLAIM",
-      "recomp_coletadas_msg": "+{n} tokens collected!",
-      "recomp_como_ganhar": "HOW TO EARN TOKENS",
-      "recomp_historico": "HISTORY",
-      "recomp_motivo_diaria": "daily tokens",
-      "recomp_motivo_achievement": "achievement unlocked",
-      "recomp_motivo_webtoon": "episode read",
-      "recomp_motivo_livro": "chapter read",
-      "recomp_motivo_indicacao": "qualified referral",
-      "recomp_motivo_compartilhamento": "approved share",
-      "recomp_motivo_jack": "jack dream beer",
-      "recomp_motivo_lendas": "lendas do ldi",
-      "recomp_motivo_trumps": "top trumps",
-      "recomp_motivo_outro": "{motivo}",
-      "recomp_acao_livro": "Read book chapter",
-      "recomp_acao_webtoon": "Read a WEB SHARD chapter",
-      "recomp_acao_achievement": "Unlock achievement",
-      "recomp_acao_indicar": "Refer a friend",
-      "recomp_acao_compartilhar": "Share result",
-      "recomp_acao_elite": "Subscribe Ancestral",
-      "recomp_acoes_fichas": "+{n} 🎰",
       "gangues_bairros": "Blocks",
       "gangues_trofeus": "Trophies",
       "gangues_cartas": "Cards",
@@ -1639,18 +1565,6 @@
         "items": [
           {
             "label": "Starter Pack",
-            "status": "Available"
-          },
-          {
-            "label": "100 Tokens",
-            "status": "Available"
-          },
-          {
-            "label": "300 Tokens + Bonus",
-            "status": "Available"
-          },
-          {
-            "label": "1000 Tokens + Bonus",
             "status": "Available"
           },
           {

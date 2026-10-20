@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
-import { useFichas } from '../../../../context/FichasContext'
+import { useAuth } from '../../../../context/AuthContext'
 import { useReader } from '../../../../context/ReaderContext'
 import LutaRitmo from './LutaRitmo'
 import { INIMIGOS } from './campanha'
@@ -11,7 +11,8 @@ import './LutaRitmo.css'
 // escolhe o oponente da campanha e testa a luta dele.
 export default function BatalhaLab() {
   const { t } = useLanguage()
-  const { isAdmin, loading } = useFichas()
+  const { perfil, carregando: loading } = useAuth()
+  const isAdmin = perfil?.is_admin === true
   const { setReaderMode } = useReader()
   const [lutando, setLutando] = useState(false)
   const [oponente, setOponente] = useState(0)

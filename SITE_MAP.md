@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.442.0**.
+> `SITE_VERSION` **10.443.0**.
 > Última atualização: 19/10/2026.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
@@ -58,21 +58,20 @@ ReaderProvider
 └── HelmetProvider
     └── BrowserRouter (basename = prefixo de idioma)
         └── AuthProvider
-            └── FichasProvider
-                └── DixProvider
-                    └── AchievementsProvider
-                        └── TutorialProgressProvider
-                            └── EventosProvider
-                                └── LanguageProvider
-                                    └── RadioNinaProvider
-                                        └── App
+            └── DixProvider
+                └── AchievementsProvider
+                    └── TutorialProgressProvider
+                        └── EventosProvider
+                            └── LanguageProvider
+                                └── RadioNinaProvider
+                                    └── App
 ```
 
 Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeTracker` (uso do portal para recomendações), `DebugLogTracker` (só contas admin), `AnalyticsTracker`, `ScrollToTopOnNav`, `DesktopShellBar` (só runtime steam-demo), `Navbar`, `SearchModal`, `Footer`, `TrialBanner`, `ScrollToTop`, `LDINotification`, `RadioNina`, `UnifiedNotification` e `CookieBanner`. `AnalyticsTracker` registra cliques, submits e profundidade de scroll sem capturar valores digitados. A Navbar é uma faixa azul-escura de 48 px, fixa e com espaçador no fluxo, mantendo o hero abaixo dela (§10.1). O hambúrguer é a única navegação; não existe barra de links de desktop. O `TrialBanner` fica no fluxo normal, depois do rodapé, e só aparece quando o visitante chega ao fim da página; o `readerMode` oculta Navbar, TrialBanner e Footer durante leitura.
 
 ## 3. Rotas atuais
 
-`src/App.jsx` é a autoridade. Parâmetros dinâmicos aparecem com `:id`. O símbolo 🔒 indica rota envolvida por `FichaGateRoute`; o gate combina regras de autenticação, fichas e gratuidade conforme suas props.
+`src/App.jsx` é a autoridade. Parâmetros dinâmicos aparecem com `:id`. Os jogos da vitrine passam por `GameSessionRoute`, que só mede a sessão de jogo.
 
 ### 3.1 Site e conteúdo
 
@@ -127,19 +126,19 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/games/toptrumps` | Top Trumps single-player | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | Público |
 | `/games/toptrumps/v2` | Alias ativo do single-player | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | Público |
 | `/games/toptrumps/lobby` | Redirect legado para o lobby compartilhado | `Navigate` em `src/App.jsx` | Redirect |
-| `/games/multiplayer/lobby` | Lobby multiplayer compartilhado | `src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx` | 🔒 |
-| `/games/toptrumps/multiplayer` | Partida Top Trumps multiplayer | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | 🔒 |
-| `/games/ldi` | Lobby Lendas do LDI | `src/pages/games/LDI/Lobby.jsx` | 🔒 gratuito |
-| `/games/ldi/game` | História LDI (cenas, escolhas, diário, minijogos e fim) | `src/pages/games/LDI/Game.jsx` | 🔒 gratuito |
+| `/games/multiplayer/lobby` | Lobby multiplayer compartilhado | `src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx` | |
+| `/games/toptrumps/multiplayer` | Partida Top Trumps multiplayer | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | |
+| `/games/ldi` | Lobby Lendas do LDI | `src/pages/games/LDI/Lobby.jsx` | gratuito |
+| `/games/ldi/game` | História LDI (cenas, escolhas, diário, minijogos e fim) | `src/pages/games/LDI/Game.jsx` | gratuito |
 | `/games/ldi/luta` | Laboratório da luta rítmica (`/games/ldi/pentagrama` redireciona pra cá) | `src/pages/games/LDI/batalha/BatalhaLab.jsx` | Só admin (a própria página confere; no dev abre para todos) |
-| `/games/jackcandy` | Jack Dream Beer | `src/pages/games/JackCandy/JackCandy.jsx` | 🔒 só admin (fora do catálogo) |
-| `/games/minigames` | Coleção MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | 🔒 só admin (fora do catálogo) |
-| `/games/ldi-gangues` | LDI Gangues | `src/pages/games/Gangues/GanguesRoute.jsx` | 🔒 |
+| `/games/jackcandy` | Jack Dream Beer | `src/pages/games/JackCandy/JackCandy.jsx` | só admin (fora do catálogo) |
+| `/games/minigames` | Coleção MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | só admin (fora do catálogo) |
+| `/games/ldi-gangues` | LDI Gangues | `src/pages/games/Gangues/GanguesRoute.jsx` | |
 | `/games/ldi-arena` | Redirect legado para LDI Gangues | `Navigate` em `src/App.jsx` | Redirect |
-| `/games/ldi-tatics` | Arena LDI Tatics | `src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx` | 🔒 só admin (fora do catálogo) |
-| `/games/pesadelo` | Pesadelo Particular | `src/pages/games/PesadeloParticular/PP.jsx` | 🔒 só admin (fora do catálogo) |
-| `/games/duelo` | Duelo LDI | `src/pages/games/Duelo/DueloRoute.jsx` | 🔒 só admin (fora do catálogo) |
-| `/games/tamagoshi` | Tamagoshi LDI | `src/pages/games/Tamagoshi/Tamagoshi.jsx` | 🔒 só admin (fora do catálogo) |
+| `/games/ldi-tatics` | Arena LDI Tatics | `src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx` | só admin (fora do catálogo) |
+| `/games/pesadelo` | Pesadelo Particular | `src/pages/games/PesadeloParticular/PP.jsx` | só admin (fora do catálogo) |
+| `/games/duelo` | Duelo LDI | `src/pages/games/Duelo/DueloRoute.jsx` | só admin (fora do catálogo) |
+| `/games/tamagoshi` | Tamagoshi LDI | `src/pages/games/Tamagoshi/Tamagoshi.jsx` | só admin (fora do catálogo) |
 
 ### 3.4 Kernel Games
 
@@ -147,13 +146,13 @@ Os Kernel Games usam layout portrait compartilhado em `src/pages/games/KernelGam
 
 | Rota | Jogo | Diretório | Acesso |
 |---|---|---|---|
-| `/games/kernel-panic` | Kernel Panic | `src/pages/games/KernelGames/KernelPanic/` | 🔒 só admin |
-| `/games/sliding-rafael` | Sliding Rafael | `src/pages/games/KernelGames/SlidingRafael/` | 🔒 só admin |
-| `/games/codigo-perdido` | Código Perdido | `src/pages/games/KernelGames/CodigoPerdido/` | 🔒 só admin |
-| `/games/maze-rafael` | Maze Rafael | `src/pages/games/KernelGames/MazeRafael/` | 🔒 só admin |
-| `/games/glitch-rafael` | Glitch Rafael | `src/pages/games/KernelGames/GlitchRafael/` | 🔒 só admin |
-| `/games/bullet-hell-rafael` | Bullet Hell Rafael | `src/pages/games/KernelGames/BulletHellRafael/` | 🔒 só admin |
-| `/games/stabilizer-rafael` | Stabilizer Rafael | `src/pages/games/KernelGames/StabilizerRafael/` | 🔒 só admin |
+| `/games/kernel-panic` | Kernel Panic | `src/pages/games/KernelGames/KernelPanic/` | só admin |
+| `/games/sliding-rafael` | Sliding Rafael | `src/pages/games/KernelGames/SlidingRafael/` | só admin |
+| `/games/codigo-perdido` | Código Perdido | `src/pages/games/KernelGames/CodigoPerdido/` | só admin |
+| `/games/maze-rafael` | Maze Rafael | `src/pages/games/KernelGames/MazeRafael/` | só admin |
+| `/games/glitch-rafael` | Glitch Rafael | `src/pages/games/KernelGames/GlitchRafael/` | só admin |
+| `/games/bullet-hell-rafael` | Bullet Hell Rafael | `src/pages/games/KernelGames/BulletHellRafael/` | só admin |
+| `/games/stabilizer-rafael` | Stabilizer Rafael | `src/pages/games/KernelGames/StabilizerRafael/` | só admin |
 
 ### 3.5 Laboratório e fallback
 
@@ -183,7 +182,7 @@ src/
 ├── main.jsx                # providers e montagem
 ├── assets/                 # imagens, cartas e assets processados pelo Vite
 ├── components/             # componentes reutilizáveis e globais
-├── config/                 # site, versões, trial, fichas e lançamentos
+├── config/                 # site, versões, trial e lançamentos
 ├── context/                # estado global React Context
 ├── data/                   # conteúdo editorial e catálogos globais
 ├── hooks/                  # hooks reutilizáveis
@@ -208,7 +207,6 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | Arquivo | Responsabilidade |
 |---|---|
 | `AuthContext.jsx` | Sessão, usuário, perfil, login e logout |
-| `FichasContext.jsx` | Saldo, coleta diária, consumo e regras por role |
 | `DixContext.jsx` | Carteira e transações DIX |
 | `AchievementsContext.jsx` | Conquistas, persistência e notificações |
 | `EventosContext.jsx` | Eventos globais da plataforma |
@@ -240,7 +238,6 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | `src/lib/runtimePlatform.js` | Detecta o cliente (web ou `steam-demo`) e bloqueia compra externa dentro da demo |
 | `src/lib/recomendacao/` | Afinidade por uso do portal (`perfil_afinidade`) e recomendados da Home |
 | `src/lib/webshard/` / `src/lib/historias/` | Catálogos, progresso e reações do WEB SHARD e das histórias |
-| `src/hooks/useFichaGate.js` | Gate reutilizável de fichas |
 | `src/hooks/useLeaderboardDB.js` | Consultas do leaderboard |
 | `src/hooks/usePresence.js` | Presença realtime |
 | `src/hooks/useTopTrumpsMP.js` | Operações multiplayer Top Trumps |
@@ -252,8 +249,8 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 
 - Navegação e shell: `Navbar`, `Footer`, `ScrollToTop`, `ScrollToTopOnNav`, `SearchModal`, `CookieBanner`, `TrialBanner`, `DeferredSection` (carga por proximidade).
 - Leitura: `Leitor/` (leitor único de texto), `ConviteConta` (convite de conta no fim do capítulo), `Reacoes` (reações anônimas, RPC `webshard_reagir`), `Recomendacoes`, `ShareButton`.
-- Acesso e economia: `LoginGate`, `FichaGateRoute`, `GameSessionRoute` (sessão dos Kernel Games), `SoAdmin` (rota só de admin, em `App.jsx`), `GuestNotice`, `ModalConfirmacaoFicha`, `ModalSemFichas`. O gate de fichas está desligado (`FICHAS_GATE_ATIVO = false` em `src/config/fichas.js`): `FichaGateRoute` entrega o jogo direto, sem pedir login nem ficha; sem conta, o progresso some ao recarregar ou fechar.
-- Loja: `/loja` mostra os produtos físicos de `produtos.json` (todos "Em breve"). `ShopSection` + `ProdutoDigitalCard` (fichas, starter pack, skin, de `loja-digital.json`) existem, mas não estão montados em nenhuma página.
+- Acesso: `LoginGate`, `GameSessionRoute` (mede a sessão de cada jogo), `SoAdmin` (rota só de admin, em `App.jsx`), `GuestNotice`. Não existe ficha no produto: todo jogo abre direto; sem conta, o progresso some ao recarregar ou fechar.
+- Loja: `/loja` mostra os produtos físicos de `produtos.json` (todos "Em breve"). `ShopSection` + `ProdutoDigitalCard` (starter pack de DIX, skin, de `loja-digital.json`) existem, mas não estão montados em nenhuma página.
 - Notificações: `AchievementToast`, `LDINotification`, `UnifiedNotification`.
 - Home/conteúdo: `src/pages/site/Home/` em ordem: `HeroSlideshow` (banner rotativo de 5 artes, obrigatório), `PraVoce` (recomendados), `HomeGames`, `HomeHistorias`, `LatestEpisodes` (WEB SHARD), `MusicSection`, apoio, `NowLive`. A Home só mostra o que já dá para ler ou jogar; as vitrines consomem os catálogos oficiais.
 - Histórias: `HistoriaCapLinha` (`src/pages/content/historias/`) — linha de capítulo em texto sobre o `.ws-cap` do WEB SHARD.
@@ -429,12 +426,12 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.32.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
-| `GANGUES_VERSION` | LDI Gangues | **3.115.4** |
+| `GANGUES_VERSION` | LDI Gangues | **3.115.5** |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.2 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.7 |
-| `TS_VERSION` | Top Trumps single-player | 6.0.5 |
-| `TM_VERSION` | Top Trumps multiplayer | 6.0.3 |
+| `TS_VERSION` | Top Trumps single-player | 6.0.6 |
+| `TM_VERSION` | Top Trumps multiplayer | 6.0.4 |
 | `TATICS_VERSION` | Arena LDI Tatics | 7.5.1 |
 | `SRGRM_VERSION` | SRGRM 3v3 | 3.5.0 |
 | `ARENATESTBED_VERSION` | Arena Testbed | 6.22.2 |

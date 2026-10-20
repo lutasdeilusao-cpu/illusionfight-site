@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useAchievements } from '../../../../context/AchievementsContext'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useAuth } from '../../../../context/AuthContext'
-import { useFichas } from '../../../../context/FichasContext'
 import { supabase } from '../../../../lib/supabase'
 import { notificationManager } from '../../../../lib/notificationManager'
 import todosAchievements from '../../../../data/achievements-pt.json'
@@ -10,8 +9,8 @@ import todosAchievements from '../../../../data/achievements-pt.json'
 export default function PerfilConquistas() {
   const { t } = useLanguage()
   const { desbloqueados, refresh } = useAchievements()
-  const { user } = useAuth()
-  const { isAdmin } = useFichas()
+  const { user, perfil } = useAuth()
+  const isAdmin = perfil?.is_admin === true
   const [confirmando, setConfirmando] = useState(false)
   const [resetando, setResetando] = useState(false)
 

@@ -51,9 +51,9 @@ export default function Loja() {
     <>
       <Helmet>
         <title>{t('shop.page_title') || 'Loja — Illusion Fight'}</title>
-        <meta name="description" content={t('shop.page_desc') || 'Compre fichas, DIX e itens exclusivos do universo Illusion Fight.'} />
+        <meta name="description" content={t('shop.page_desc')} />
         <meta property="og:title" content={t('shop.page_title') || 'Loja — Illusion Fight'} />
-        <meta property="og:description" content={t('shop.page_og_desc') || 'Compre fichas, DIX e itens exclusivos.'} />
+        <meta property="og:description" content={t('shop.page_og_desc')} />
         <meta property="og:url" content="https://illusionfight.com/loja" />
       </Helmet>
 
@@ -63,7 +63,7 @@ export default function Loja() {
             <span className="loja-titulo-glitch" data-text={t('shop.titulo')}>{t('shop.titulo')}</span>
           </h1>
           <p className="loja-subtitulo">
-            <span className="loja-cursor">█</span> {t('shop.subtitulo') || 'fichas, DIX e itens exclusivos'}
+            <span className="loja-cursor">█</span> {t('shop.subtitulo')}
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function Loja() {
 
         {!runtimePlatform.isSteamDemo && <div className="loja-tabs">
           <button className={`loja-tab ${aba === 'digital' ? 'loja-tab--ativo' : ''}`} onClick={() => setAba('digital')}>
-            🎰 {t('shop.digital') || 'DIGITAL'}
+            💎 {t('shop.digital') || 'DIGITAL'}
           </button>
           <button className={`loja-tab ${aba === 'fisico' ? 'loja-tab--ativo' : ''}`} onClick={() => setAba('fisico')}>
             📦 {t('shop.fisico') || 'FÍSICO'}

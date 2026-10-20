@@ -149,24 +149,7 @@
   white-space: nowrap;
 }
 
-.perfil-fichas-coletar {
-  display: block;
-  max-width: 720px;
-  margin: 0.75rem auto 0;
-  font-size: 0.65rem;
-  color: #000;
-  background: var(--if-amber);
-  border: none;
-  font-family: 'Share Tech Mono', monospace;
-  padding: 0.3rem 0.8rem;
-  cursor: pointer;
-  letter-spacing: 0.1em;
-  animation: ficha-pulse 1.5s ease-in-out infinite;
-  transition: opacity 0.15s;
-  text-align: center;
-}
 
-.perfil-fichas-coletar:hover { opacity: 0.85; }
 
 @keyframes ficha-pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
