@@ -1,1 +1,0 @@
-import{a as e,i as t,n,r,t as i}from"./GanguesRoute-B2uW8soG.js";export{i as CORES,r as alvoDe,t as criarDado,n as default,e as pegarRenderer};
