@@ -58,7 +58,7 @@
     "cor": "#5b4a8a",
     "capa": "capa-mundo-das-sombras.webp",
     "status": "em_andamento",
-    "visivel": "so_admin",
+    "visivel": "previa",
     "fonte_capitulos": "mundo-das-sombras"
   },
   {
@@ -81,7 +81,7 @@
     "cor": "#8a6a5a",
     "capa": "capa-mar-de-cinzas.webp",
     "status": "em_andamento",
-    "visivel": "so_admin",
+    "visivel": "previa",
     "fonte_capitulos": "mar-de-cinzas"
   },
   {
