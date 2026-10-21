@@ -284,10 +284,11 @@
     "titulo_es": "Especial de Navidad — Parte 1: El Forastero",
     "publicado": true,
     "data_publicacao": "2026-10-19",
+    "so_admin": true,
     "liberacao": {
-      "elite": "2026-12-15",
-      "conta": "2026-12-24",
-      "publico": "2026-12-25"
+      "elite": "2099-12-15",
+      "conta": "2099-12-30",
+      "publico": "2099-12-30"
     },
     "paginas": 52,
     "idiomas": [
@@ -313,10 +314,11 @@
     "titulo_es": "Especial de Navidad — Parte 2: Forastero Verde",
     "publicado": true,
     "data_publicacao": "2026-10-20",
+    "so_admin": true,
     "liberacao": {
-      "elite": "2026-12-15",
-      "conta": "2026-12-24",
-      "publico": "2026-12-25"
+      "elite": "2099-12-15",
+      "conta": "2099-12-30",
+      "publico": "2099-12-30"
     },
     "paginas": 52,
     "idiomas": [
