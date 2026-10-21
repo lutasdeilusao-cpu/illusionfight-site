@@ -5,7 +5,7 @@
   background: #000;
   color: #e8e8e8;
   font-family: 'Share Tech Mono', monospace;
-  padding-bottom: 4rem;
+  padding: 5rem 0 4rem;
   position: relative;
   overflow-x: hidden;
 }
@@ -26,7 +26,7 @@
 .perfil-carregando {
   text-align: center;
   color: #555;
-  padding-top: 6rem;
+  padding-top: 1rem;
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.8rem;
   letter-spacing: 0.2em;
@@ -36,7 +36,7 @@
 .perfil-header {
   position: relative;
   z-index: 1;
-  padding: 5rem 1.5rem 0;
+  padding: 0 1.5rem;
   max-width: 720px;
   margin: 0 auto;
 }
@@ -694,7 +694,7 @@
 .perfil-acoes {
   display: flex;
   justify-content: center;
-  margin: 0 0 1rem;
+  margin: 0 0 0.75rem;
   position: relative;
   z-index: 1;
 }
