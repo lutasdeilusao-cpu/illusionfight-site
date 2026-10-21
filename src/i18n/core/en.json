@@ -1872,7 +1872,9 @@
         "clipe": "Music video",
         "clipes": "Music videos",
         "jogo": "Game",
-        "jogos": "Games"
+        "jogos": "Games",
+        "extras": "In production, not on the site yet",
+        "extra": "Production"
       },
       "status": {
         "pronto": "ready",

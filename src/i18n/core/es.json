@@ -1872,7 +1872,9 @@
         "clipe": "Videoclip",
         "clipes": "Videoclips",
         "jogo": "Juego",
-        "jogos": "Juegos"
+        "jogos": "Juegos",
+        "extras": "En producción, aún fuera del sitio",
+        "extra": "Producción"
       },
       "status": {
         "pronto": "listo",

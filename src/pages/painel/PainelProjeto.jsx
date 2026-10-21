@@ -15,10 +15,15 @@ const MD = new Set(Object.keys(import.meta.glob('../../data/historias/**/*.md'))
 const tem = caminho => MD.has(caminho)
 const naT1 = d => d && d >= T1.inicio && d <= T1.fim
 
+// Produção que ainda não entrou no catálogo do site: páginas feitas / total.
+const EXTRAS = [
+  { id: 'extra:sonata', rotulo: 'Sonata de uma Briga (WEB SHARD)', feitas: 15, total: 73 },
+  { id: 'extra:presos', rotulo: 'Presos na Ilusão (Halloween), loop 1', feitas: 51, total: 51 },
+]
+
 // Status que os dados não mostram. pronto | parcial | falta, com nota curta.
 const MANUAL = {
-  'especial:4': { status: 'parcial', nota: 'refazendo realista (Gemini/Codex)' },
-  'especial:5': { status: 'parcial', nota: 'refazendo realista (Gemini/Codex)' },
+  ...Object.fromEntries(Array.from({ length: 9 }, (_, i) => [`mds:${i + 1}`, { status: 'parcial', nota: 'refazendo em 960×1637' }])),
   'jogo:trumps': { status: 'pronto' },
   'jogo:gangues': { status: 'pronto' },
   'jogo:ldi': { status: 'pronto' },
@@ -45,18 +50,19 @@ function grupos() {
   const webshard = episodios.filter(e => !e.especial && naT1(e.liberacao?.elite)).map(e => (
     { id: `webshard:${e.numero}`, rotulo: `Cap. ${e.numero}`, data: e.liberacao.elite, status: e.paginas ? 'pronto' : 'falta', nota: e.paginas ? `${e.paginas} págs` : '' }
   ))
-  const especiais = episodios.filter(e => e.especial && naT1(e.liberacao?.elite)).map((e, i) => (
-    { id: `especial:${i + 1}`, rotulo: `E${i + 1}`, data: e.liberacao.elite, status: e.paginas ? 'pronto' : 'falta', nota: e.titulo_pt || '' }
+  // especial com página feita entra mesmo sem data de liberação (aguardando data)
+  const especiais = episodios.filter(e => e.especial && (naT1(e.liberacao?.elite) || e.paginas)).map((e, i) => (
+    { id: `especial:${i + 1}`, rotulo: e.serie ? `${e.titulo_pt.split(' — ')[0].replace(/^Especial de /, '')} P${e.parte}` : `E${i + 1}`, data: naT1(e.liberacao?.elite) ? e.liberacao.elite : null, status: e.paginas ? 'pronto' : 'falta', nota: [e.serie ? e.titulo_pt.split(': ').pop() : e.titulo_pt, e.paginas && `${e.paginas} págs`, !naT1(e.liberacao?.elite) && 'sem data'].filter(Boolean).join(' · ') }
   ))
   const mdsWs = Array.from({ length: 9 }, (_, i) => {
     const ep = mds.find(e => Number(e.id) === i + 1)
-    const vs = ep?.versoes || []
-    const max = Math.max(0, ...vs.map(v => v.paginas || 0))
+    const max = ep?.paginas || Math.max(0, ...(ep?.versoes || []).map(v => v.paginas || 0))
     return { id: `mds:${i + 1}`, rotulo: `Cap. ${i + 1}`, data: null, status: max >= 55 ? 'pronto' : max ? 'parcial' : 'falta', nota: max ? `${max} págs` : '' }
   })
   const musicas = MUSICAS_T1.map(m => ({ id: `musica:${m.n}`, rotulo: m.titulo?.pt || `Música ${m.n}`, data: m.liberacao.elite, status: m.titulo ? 'pronto' : 'falta', nota: '' }))
   const clipes = CLIPES_T1.map(c => ({ id: `clipe:${c.n}`, rotulo: `Clipe ${c.n}`, data: c.liberacao.elite, status: 'falta', nota: '' }))
   const jogos = GAMES_ROADMAP.flatMap(f => f.jogos.map(j => ({ id: `jogo:${j}`, rotulo: j, data: f.data, status: 'falta', nota: '' })))
+  const extras = EXTRAS.map(x => ({ id: x.id, rotulo: x.rotulo, data: null, status: x.feitas >= x.total ? 'pronto' : x.feitas ? 'parcial' : 'falta', nota: `${x.feitas}/${x.total} págs` }))
   const aplica = lista => lista.map(x => ({ ...x, ...(MANUAL[x.id] || {}) }))
   return [
     { id: 'livro', itens: aplica(capsLivro) },
@@ -68,6 +74,7 @@ function grupos() {
     { id: 'musicas', itens: aplica(musicas) },
     { id: 'clipes', itens: aplica(clipes) },
     { id: 'jogos', itens: aplica(jogos) },
+    { id: 'extras', itens: extras },
   ]
 }
 
