@@ -693,15 +693,21 @@
 /* ===== LOGOUT ===== */
 .perfil-acoes {
   display: flex;
-  justify-content: flex-end;
-  margin: 0.75rem 0 0;
+  justify-content: center;
+  margin: 0 0 1rem;
   position: relative;
   z-index: 1;
 }
 
-.perfil-logout { min-height: 44px; }
+.perfil-logout.if-btn {
+  min-height: 44px;
+  padding-inline: 2.5rem;
+  background: var(--if-danger);
+  border-color: var(--if-danger);
+  color: var(--if-ink);
+}
 
-.perfil-logout:hover { border-color: var(--if-danger); color: var(--if-danger); }
+.perfil-logout.if-btn:hover { filter: brightness(1.15); }
 
 /* ===== SKELETON ===== */
 .perfil-trump-skeleton { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.6rem; margin-bottom: 1.2rem; }
