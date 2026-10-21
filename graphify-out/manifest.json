@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1792451998.8401723,
-    "ast_hash": "f35987f5b7d7026df7b065c061ad714c",
+    "mtime": 1792596096.942701,
+    "ast_hash": "c71c6f81913243f142fe833f161c0c16",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792595759.4618351,
-    "ast_hash": "eb66b7c800033cef4d65129f453eb475",
+    "mtime": 1792596097.032454,
+    "ast_hash": "d78c9fefa942ddb6f24e5642311a98c2",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792595759.4737437,
-    "ast_hash": "88400eeeff951c8d05ce66f5881316f4",
+    "mtime": 1792596097.0535035,
+    "ast_hash": "b6cda7e4aa42f048d2d14a3bf026555a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3570,8 +3570,8 @@
     "semantic_hash": ""
   },
   "src/assets/obras/mundo-das-sombras/capa.webp": {
-    "mtime": 1788380620.083782,
-    "ast_hash": "c8f247a797f457d099637d9dad4d8bc6",
+    "mtime": 1792596074.7071197,
+    "ast_hash": "1c1f0130f27af95f6458e92fc3eb0f32",
     "semantic_hash": ""
   },
   "src/pages/site/Home/Home.jsx": {
@@ -4695,8 +4695,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriasUniversos.jsx": {
-    "mtime": 1791239516.9514015,
-    "ast_hash": "d0ed92700d210ffb813d4f012f22a693",
+    "mtime": 1792596089.0545814,
+    "ast_hash": "3ff21aa8c59c028322aad921ab76c679",
     "semantic_hash": ""
   },
   "src/assets/obras/mar-de-cinzas/cap-01.webp": {
