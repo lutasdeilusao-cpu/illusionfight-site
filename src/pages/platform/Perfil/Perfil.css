@@ -691,23 +691,17 @@
 .perfil-share-btn:hover { opacity: 0.85; }
 
 /* ===== LOGOUT ===== */
-.perfil-logout {
-  display: block;
-  margin: 2rem auto 0;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  padding: 0.5rem 1.5rem;
-  background: transparent;
-  color: #333;
-  border: 1px solid #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.15s, color 0.15s;
+.perfil-acoes {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.75rem 0 0;
   position: relative;
   z-index: 1;
 }
 
-.perfil-logout:hover { border-color: #8B0000; color: #8B0000; }
+.perfil-logout { min-height: 44px; }
+
+.perfil-logout:hover { border-color: var(--if-danger); color: var(--if-danger); }
 
 /* ===== SKELETON ===== */
 .perfil-trump-skeleton { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.6rem; margin-bottom: 1.2rem; }

@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792596097.032454,
-    "ast_hash": "d78c9fefa942ddb6f24e5642311a98c2",
+    "mtime": 1792606564.4659958,
+    "ast_hash": "8b063303306911d3c022a4f7323ab4ec",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792596097.0535035,
-    "ast_hash": "b6cda7e4aa42f048d2d14a3bf026555a",
+    "mtime": 1792606564.5147028,
+    "ast_hash": "7236f613bd4823b6a657082a03c7561e",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9947,6 +9947,11 @@
   "src/assets/webshard/cap-lutas-de-ilusao-especial-7.webp": {
     "mtime": 1792531871.511803,
     "ast_hash": "b31af837fe55e25ca5e13bbf6f8e7d6f",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/060_painel_robo_e_aba_esquecida.sql": {
+    "mtime": 1792606464.751507,
+    "ast_hash": "6f3933401afaf3728595999e8cdf9ba3",
     "semantic_hash": ""
   }
 }

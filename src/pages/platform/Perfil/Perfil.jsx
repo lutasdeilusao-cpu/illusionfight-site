@@ -83,6 +83,10 @@ export default function Perfil() {
         </div>
       </div>
 
+      <div className="perfil-acoes">
+        <button className="if-btn if-btn--ghost perfil-logout" onClick={logout}>{t('site.perfil.sair')}</button>
+      </div>
+
       {/* Barra de Progresso */}
       <PerfilProgresso />
 
@@ -116,8 +120,6 @@ export default function Perfil() {
           )
         })}
       </div>
-
-      <button className="perfil-logout" onClick={logout}>[ {t('site.perfil.sair')} ]</button>
     </section>
   )
 }
