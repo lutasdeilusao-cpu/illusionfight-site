@@ -3,6 +3,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { localizado } from '../../../lib/webshard/catalogo'
 import { capaContos } from '../../../lib/historias/catalogo'
 import Farol from '../../../components/Farol/Farol'
+import { useHistoriasAcesso } from '../../../hooks/useHistoriasAcesso'
 import TituloCard from '../webshard/components/TituloCard'
 import './Historias.css'
 
@@ -18,7 +19,9 @@ export default function HistoriasUniversos({ historias }) {
   const principal = historias.find(h => h.tipo === 'livro')
   const contos = historias.filter(h => h.tipo === 'conto')
   const obras = historias.filter(h => h.tipo === 'obra')
-  const autor = historias.find(h => h.tipo === 'autor')
+  const { isAdmin, liberado } = useHistoriasAcesso()
+  // Histórias do Autor: só admin enquanto o formato é repensado.
+  const autor = isAdmin ? historias.find(h => h.tipo === 'autor') : null
 
   // A coleção dos contos vira um "título" só na estante do universo LDI.
   const nomeContos = t('pages.contos.linha_contos')
@@ -54,6 +57,9 @@ export default function HistoriasUniversos({ historias }) {
 
       {obras.map(o => {
         const universo = localizado(o, 'universo', locale)
+        // Obra que ninguém lê ainda aparece em preto e branco, sem link.
+        const bloqueada = !o.capitulos.some(c => liberado(o, c))
+        const Caixa = bloqueada ? 'div' : Link
         return (
           <section key={o.slug} className="ws-hub__secao">
             <div className="ws-hub__secao-cabeca">
@@ -61,7 +67,7 @@ export default function HistoriasUniversos({ historias }) {
               <h2 className="ws-hub__h2">{localizado(o, 'nome', locale)}</h2>
               {universo && <p className="ws-hub__hint">{universo}</p>}
             </div>
-            <Link to={o.rota} className="hist-obra" style={{ '--ws-cor': o.cor }}>
+            <Caixa {...(bloqueada ? {} : { to: o.rota })} className={`hist-obra${bloqueada ? ' hist-obra--bloqueada' : ''}`} style={{ '--ws-cor': o.cor }}>
               <span className="hist-obra__capa">
                 <img src={o.capa} alt="" loading="lazy" decoding="async" />
                 <span className="hist-obra__status">{t(`webShard.status.${o.status}`)}</span>
@@ -70,9 +76,9 @@ export default function HistoriasUniversos({ historias }) {
                 {localizado(o, 'saga', locale) && <span className="hist-obra__saga">{localizado(o, 'saga', locale)}</span>}
                 <span className="hist-obra__tagline">{localizado(o, 'tagline', locale)}</span>
                 <Farol peso={o.peso} canon={o.canon} temas={[]} size="sm" showTemas={false} />
-                <span className="hist-obra__cta">{t('webShard.hub.ver_titulo')} ›</span>
+                {!bloqueada && <span className="hist-obra__cta">{t('webShard.hub.ver_titulo')} ›</span>}
               </span>
-            </Link>
+            </Caixa>
           </section>
         )
       })}

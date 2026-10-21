@@ -174,8 +174,8 @@ export default function App() {
         <Route path="/historias/contos" element={<HistoriasHub tipo="conto" />} />
         <Route path="/historias/contos/:historia" element={<HistoriaTitulo tipo="conto" />} />
         <Route path="/historias/contos/:historia/:cap" element={<ContoCapitulo />} />
-        <Route path="/historias/autor" element={<HistoriaTitulo tipo="autor" />} />
-        <Route path="/historias/autor/:cap" element={<AutorCapitulo />} />
+        <Route path="/historias/autor" element={<SoAdmin><HistoriaTitulo tipo="autor" /></SoAdmin>} />
+        <Route path="/historias/autor/:cap" element={<SoAdmin><AutorCapitulo /></SoAdmin>} />
         <Route path="/historias/:slug" element={<HistoriaTitulo tipo="obra" />} />
         <Route path="/historias/:slug/:cap" element={<ObraCapitulo />} />
         {/* Redirects legados — /livro migrou para /historias (v10.199.0) */}
