@@ -6,7 +6,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.445.10'
+export const SITE_VERSION = '10.445.11'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2'
