@@ -1,7 +1,7 @@
-# Graph Report - SiteLDI  (2026-10-21)
+# Graph Report - SiteLDI  (2026-10-22)
 
 ## Corpus Check
-- 1375 files · ~4,277,678 words
+- 1376 files · ~4,301,611 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `23b2d789`
+- Built from commit: `194fa5f6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -2141,7 +2141,7 @@ Nodes (4): ActionMenu(), SkillModal(), EFEITO_AURA, getCorPorElemental()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `Community 20` to `Community 0`, `Community 1`, `Community 10`, `PuzzleAnagrama.jsx`, `PuzzleForça.jsx`, `Lobby.jsx`, `TypewriterPhrase.jsx`, `Historias.jsx`, `BuildingInterior.jsx`, `PuzzleStealthGrid.jsx`, `DixContext.jsx`, `useTamagoshiStore.js`, `CityOverworld.jsx`, `levelProgression.js`, `AnalyticsTracker.jsx`, `aiPersonalities.js`, `Dungeon.jsx`, `PuzzleStealthGrid.jsx`, `ResultCard.jsx`, `PuzzleStealthGrid`, `TopTrumpsCard.jsx`, `usePersonagens.js`, `useGameStore.js`, `SearchModal.jsx`, `useSharedLobbyMachine.js`, `Number`, `RestaurarSaude.jsx`, `PuzzleAnagrama.jsx`, `Phase2Customize.jsx`, `getCorPorElemental`, `TypewriterPhrase.jsx`, `useGanguesTeclado`, `personalidades.js`, `criaturas.js`, `useRadioNina.js`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
+  _High betweenness centrality (0.038) - this node is a cross-community bridge._
 - **Why does `ehAssinante()` connect `Brincadeira.jsx` to `Footer.jsx`, `Criatura.jsx`, `criaturas.js`, `ResultScreen.jsx`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `DixContext.jsx` to `Community 0`, `useGanguesTeclado`, `aiPersonalities.js`, `Community 3`, `Community 20`, `PuzzleForça.jsx`, `TypewriterPhrase.jsx`, `PuzzleStealthGrid.jsx`?**

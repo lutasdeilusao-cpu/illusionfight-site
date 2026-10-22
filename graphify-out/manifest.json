@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792609878.6980429,
-    "ast_hash": "24d93978be9e5a5da23bd15f128ca8ad",
+    "mtime": 1792696789.52584,
+    "ast_hash": "1786b58541325d09809dd5066bd8c70e",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792609878.7310407,
-    "ast_hash": "a0fbc837b13393be429fa99bc9b7a9ff",
+    "mtime": 1792696789.5738478,
+    "ast_hash": "85982644a1edac13b63fa49ea1639e88",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4530,8 +4530,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-titulos.json": {
-    "mtime": 1792595605.8398957,
-    "ast_hash": "3178b0b770d238f4904d7bca29e85041",
+    "mtime": 1792696752.9638305,
+    "ast_hash": "ca244d0f5769148f8d69c7db4ba4d190",
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
@@ -4540,8 +4540,8 @@
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
-    "mtime": 1792533899.677379,
-    "ast_hash": "6f53856e43e18385673ea9cd4ca1dc72",
+    "mtime": 1792696752.9805367,
+    "ast_hash": "6774dbb784e1e5a74b6b3a03f4dc3fe4",
     "semantic_hash": ""
   },
   "src/lib/webshard/progresso.js": {
@@ -9952,6 +9952,26 @@
   "supabase/migrations/060_painel_robo_e_aba_esquecida.sql": {
     "mtime": 1792606464.751507,
     "ast_hash": "6f3933401afaf3728595999e8cdf9ba3",
+    "semantic_hash": ""
+  },
+  "src/data/contos-de-ilusao-episodios.json": {
+    "mtime": 1792696752.9448314,
+    "ast_hash": "d1a611183f5afa761c195f35d8fddd40",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-contos-de-ilusao-sonata-1.webp": {
+    "mtime": 1792696681.8209476,
+    "ast_hash": "0d5200a0deb7173da631b0d9dcbfdd78",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-contos-de-ilusao-sonata-2.webp": {
+    "mtime": 1792696692.1389272,
+    "ast_hash": "b6eb18df0259b5d275040b10de0bbb8e",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/capa-contos-de-ilusao.webp": {
+    "mtime": 1792696692.4596775,
+    "ast_hash": "665bf102d0971f601b9402335c5c4e3d",
     "semantic_hash": ""
   }
 }

@@ -314,14 +314,304 @@
       "norm_label": "version.js"
     },
     {
+      "label": "catalogo.js",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo",
+      "community": 499,
+      "norm_label": "catalogo.js"
+    },
+    {
+      "label": "CAPITULOS_MOVIDOS",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_capitulos_movidos",
+      "community": 499,
+      "norm_label": "capitulos_movidos"
+    },
+    {
+      "label": "capituloMovido()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_capitulomovido",
+      "community": 499,
+      "norm_label": "capitulomovido()"
+    },
+    {
+      "label": "imagens",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_imagens",
+      "community": 499,
+      "norm_label": "imagens"
+    },
+    {
+      "label": "imagemPorNome",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_imagempornome",
+      "community": 499,
+      "norm_label": "imagempornome"
+    },
+    {
+      "label": "FONTES",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_fontes",
+      "community": 499,
+      "norm_label": "fontes"
+    },
+    {
+      "label": "localizado()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_localizado",
+      "community": 499,
+      "norm_label": "localizado()"
+    },
+    {
+      "label": "imagemWebshard()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_imagemwebshard",
+      "community": 499,
+      "norm_label": "imagemwebshard()"
+    },
+    {
+      "label": "miniaturaCapitulo()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_miniaturacapitulo",
+      "community": 499,
+      "norm_label": "miniaturacapitulo()"
+    },
+    {
+      "label": "listarTitulos()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_listartitulos",
+      "community": 499,
+      "norm_label": "listartitulos()"
+    },
+    {
+      "label": "tituloPorSlug()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_tituloporslug",
+      "community": 499,
+      "norm_label": "tituloporslug()"
+    },
+    {
+      "label": "abrirVersoes()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_abrirversoes",
+      "community": 499,
+      "norm_label": "abrirversoes()"
+    },
+    {
+      "label": "capitulosDe()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_capitulosde",
+      "community": 499,
+      "norm_label": "capitulosde()"
+    },
+    {
+      "label": "capituloPorId()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_capituloporid",
+      "community": 499,
+      "norm_label": "capituloporid()"
+    },
+    {
+      "label": "capituloTemConteudo()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L102",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_capitulotemconteudo",
+      "community": 499,
+      "norm_label": "capitulotemconteudo()"
+    },
+    {
+      "label": "rotaTitulo()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_rotatitulo",
+      "community": 499,
+      "norm_label": "rotatitulo()"
+    },
+    {
+      "label": "rotaCapitulo()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L110",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_rotacapitulo",
+      "community": 499,
+      "norm_label": "rotacapitulo()"
+    },
+    {
+      "label": "tituloLegado()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L115",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_titulolegado",
+      "community": 499,
+      "norm_label": "titulolegado()"
+    },
+    {
+      "label": "numeroCapitulo()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L119",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_numerocapitulo",
+      "community": 499,
+      "norm_label": "numerocapitulo()"
+    },
+    {
+      "label": "rotuloCapitulo()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L126",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_rotulocapitulo",
+      "community": 499,
+      "norm_label": "rotulocapitulo()"
+    },
+    {
+      "label": "capitulosPrincipais()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L133",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_capitulosprincipais",
+      "community": 499,
+      "norm_label": "capitulosprincipais()"
+    },
+    {
+      "label": "capitulosEspeciais()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L137",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_capitulosespeciais",
+      "community": 499,
+      "norm_label": "capitulosespeciais()"
+    },
+    {
+      "label": "idiomaInicial()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L143",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_idiomainicial",
+      "community": 499,
+      "norm_label": "idiomainicial()"
+    },
+    {
+      "label": "paginasDe()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L156",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_paginasde",
+      "community": 499,
+      "norm_label": "paginasde()"
+    },
+    {
+      "label": "vizinhos()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L169",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_vizinhos",
+      "community": 499,
+      "norm_label": "vizinhos()"
+    },
+    {
+      "label": "hojeISO()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L179",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_hojeiso",
+      "community": 499,
+      "norm_label": "hojeiso()"
+    },
+    {
+      "label": "emBeta()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L183",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_embeta",
+      "community": 499,
+      "norm_label": "embeta()"
+    },
+    {
+      "label": "diasAte()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L188",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_diasate",
+      "community": 499,
+      "norm_label": "diasate()"
+    },
+    {
+      "label": "formatarData()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L192",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_formatardata",
+      "community": 499,
+      "norm_label": "formatardata()"
+    },
+    {
       "label": "PainelProjeto.jsx",
       "file_type": "code",
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_painel_painelprojeto",
       "community": 865,
-      "norm_label": "painelprojeto.jsx"
+      "norm_label": "painelprojeto.jsx",
+      "id": "src_pages_painel_painelprojeto"
     },
     {
       "label": "MD",
@@ -329,9 +619,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "src_pages_painel_painelprojeto_md",
       "community": 865,
-      "norm_label": "md"
+      "norm_label": "md",
+      "id": "src_pages_painel_painelprojeto_md"
     },
     {
       "label": "tem()",
@@ -339,9 +629,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "src_pages_painel_painelprojeto_tem",
       "community": 865,
-      "norm_label": "tem()"
+      "norm_label": "tem()",
+      "id": "src_pages_painel_painelprojeto_tem"
     },
     {
       "label": "naT1()",
@@ -349,9 +639,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "src_pages_painel_painelprojeto_nat1",
       "community": 865,
-      "norm_label": "nat1()"
+      "norm_label": "nat1()",
+      "id": "src_pages_painel_painelprojeto_nat1"
     },
     {
       "label": "EXTRAS",
@@ -359,9 +649,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "src_pages_painel_painelprojeto_extras",
       "community": 865,
-      "norm_label": "extras"
+      "norm_label": "extras",
+      "id": "src_pages_painel_painelprojeto_extras"
     },
     {
       "label": "MANUAL",
@@ -369,9 +659,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "src_pages_painel_painelprojeto_manual",
       "community": 865,
-      "norm_label": "manual"
+      "norm_label": "manual",
+      "id": "src_pages_painel_painelprojeto_manual"
     },
     {
       "label": "idiomas()",
@@ -379,9 +669,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "src_pages_painel_painelprojeto_idiomas",
       "community": 865,
-      "norm_label": "idiomas()"
+      "norm_label": "idiomas()",
+      "id": "src_pages_painel_painelprojeto_idiomas"
     },
     {
       "label": "grupos()",
@@ -389,9 +679,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L34",
       "_origin": "ast",
-      "id": "src_pages_painel_painelprojeto_grupos",
       "community": 865,
-      "norm_label": "grupos()"
+      "norm_label": "grupos()",
+      "id": "src_pages_painel_painelprojeto_grupos"
     },
     {
       "label": "pct()",
@@ -399,9 +689,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L81",
       "_origin": "ast",
-      "id": "src_pages_painel_painelprojeto_pct",
       "community": 865,
-      "norm_label": "pct()"
+      "norm_label": "pct()",
+      "id": "src_pages_painel_painelprojeto_pct"
     },
     {
       "label": "Barra()",
@@ -409,9 +699,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L83",
       "_origin": "ast",
-      "id": "src_pages_painel_painelprojeto_barra",
       "community": 865,
-      "norm_label": "barra()"
+      "norm_label": "barra()",
+      "id": "src_pages_painel_painelprojeto_barra"
     },
     {
       "label": "PainelProjeto()",
@@ -419,9 +709,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L87",
       "_origin": "ast",
-      "id": "src_pages_painel_painelprojeto_painelprojeto",
       "community": 865,
-      "norm_label": "painelprojeto()"
+      "norm_label": "painelprojeto()",
+      "id": "src_pages_painel_painelprojeto_painelprojeto"
     },
     {
       "label": "Perfil.jsx",
@@ -1122,296 +1412,6 @@
       "community": 863,
       "norm_label": "historiasuniversos()",
       "id": "src_pages_content_historias_historiasuniversos_historiasuniversos"
-    },
-    {
-      "label": "catalogo.js",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "catalogo.js",
-      "id": "src_lib_webshard_catalogo"
-    },
-    {
-      "label": "CAPITULOS_MOVIDOS",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L21",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "capitulos_movidos",
-      "id": "src_lib_webshard_catalogo_capitulos_movidos"
-    },
-    {
-      "label": "capituloMovido()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "capitulomovido()",
-      "id": "src_lib_webshard_catalogo_capitulomovido"
-    },
-    {
-      "label": "imagens",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L27",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "imagens",
-      "id": "src_lib_webshard_catalogo_imagens"
-    },
-    {
-      "label": "imagemPorNome",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L28",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "imagempornome",
-      "id": "src_lib_webshard_catalogo_imagempornome"
-    },
-    {
-      "label": "FONTES",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L32",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "fontes",
-      "id": "src_lib_webshard_catalogo_fontes"
-    },
-    {
-      "label": "localizado()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L41",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "localizado()",
-      "id": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "label": "imagemWebshard()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L46",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "imagemwebshard()",
-      "id": "src_lib_webshard_catalogo_imagemwebshard"
-    },
-    {
-      "label": "miniaturaCapitulo()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L52",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "miniaturacapitulo()",
-      "id": "src_lib_webshard_catalogo_miniaturacapitulo"
-    },
-    {
-      "label": "listarTitulos()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L63",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "listartitulos()",
-      "id": "src_lib_webshard_catalogo_listartitulos"
-    },
-    {
-      "label": "tituloPorSlug()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L67",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "tituloporslug()",
-      "id": "src_lib_webshard_catalogo_tituloporslug"
-    },
-    {
-      "label": "abrirVersoes()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L74",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "abrirversoes()",
-      "id": "src_lib_webshard_catalogo_abrirversoes"
-    },
-    {
-      "label": "capitulosDe()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L89",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "capitulosde()",
-      "id": "src_lib_webshard_catalogo_capitulosde"
-    },
-    {
-      "label": "capituloPorId()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L95",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "capituloporid()",
-      "id": "src_lib_webshard_catalogo_capituloporid"
-    },
-    {
-      "label": "capituloTemConteudo()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L100",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "capitulotemconteudo()",
-      "id": "src_lib_webshard_catalogo_capitulotemconteudo"
-    },
-    {
-      "label": "rotaTitulo()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L104",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "rotatitulo()",
-      "id": "src_lib_webshard_catalogo_rotatitulo"
-    },
-    {
-      "label": "rotaCapitulo()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L108",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "rotacapitulo()",
-      "id": "src_lib_webshard_catalogo_rotacapitulo"
-    },
-    {
-      "label": "tituloLegado()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L113",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "titulolegado()",
-      "id": "src_lib_webshard_catalogo_titulolegado"
-    },
-    {
-      "label": "numeroCapitulo()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L117",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "numerocapitulo()",
-      "id": "src_lib_webshard_catalogo_numerocapitulo"
-    },
-    {
-      "label": "rotuloCapitulo()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L124",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "rotulocapitulo()",
-      "id": "src_lib_webshard_catalogo_rotulocapitulo"
-    },
-    {
-      "label": "capitulosPrincipais()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L131",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "capitulosprincipais()",
-      "id": "src_lib_webshard_catalogo_capitulosprincipais"
-    },
-    {
-      "label": "capitulosEspeciais()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L135",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "capitulosespeciais()",
-      "id": "src_lib_webshard_catalogo_capitulosespeciais"
-    },
-    {
-      "label": "idiomaInicial()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L141",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "idiomainicial()",
-      "id": "src_lib_webshard_catalogo_idiomainicial"
-    },
-    {
-      "label": "paginasDe()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L154",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "paginasde()",
-      "id": "src_lib_webshard_catalogo_paginasde"
-    },
-    {
-      "label": "vizinhos()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L167",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "vizinhos()",
-      "id": "src_lib_webshard_catalogo_vizinhos"
-    },
-    {
-      "label": "hojeISO()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L177",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "hojeiso()",
-      "id": "src_lib_webshard_catalogo_hojeiso"
-    },
-    {
-      "label": "emBeta()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L181",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "embeta()",
-      "id": "src_lib_webshard_catalogo_embeta"
-    },
-    {
-      "label": "diasAte()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L186",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "diasate()",
-      "id": "src_lib_webshard_catalogo_diasate"
-    },
-    {
-      "label": "formatarData()",
-      "file_type": "code",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L190",
-      "_origin": "ast",
-      "community": 499,
-      "norm_label": "formatardata()",
-      "id": "src_lib_webshard_catalogo_formatardata"
     },
     {
       "label": "PRODUCAO_IMAGEM.md",
@@ -64863,12 +64863,1051 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_abrirversoes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_capitulomovido",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_capituloporid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_capitulos_movidos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_capitulosde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_capitulosespeciais",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_capitulosprincipais",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L188",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_diasate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_embeta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_fontes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L192",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_formatardata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L179",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_hojeiso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_idiomainicial",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_imagempornome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_imagemwebshard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_imagens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_listartitulos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_localizado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_miniaturacapitulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_numerocapitulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_paginasde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_rotacapitulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_rotatitulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_rotulocapitulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_titulolegado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_tituloporslug",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L169",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_vizinhos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha",
+      "target": "src_lib_webshard_catalogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_continuarlendo",
+      "target": "src_lib_webshard_catalogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_titulocard",
+      "target": "src_lib_webshard_catalogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardhub",
+      "target": "src_lib_webshard_catalogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardrota",
+      "target": "src_lib_webshard_catalogo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardrota",
+      "target": "src_lib_webshard_catalogo_capitulomovido"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardrota_webshardrota",
+      "target": "src_lib_webshard_catalogo_capitulomovido"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha",
+      "target": "src_lib_webshard_catalogo_localizado"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
+      "target": "src_lib_webshard_catalogo_localizado"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_continuarlendo",
+      "target": "src_lib_webshard_catalogo_localizado"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_continuarlendo_continuarlendo",
+      "target": "src_lib_webshard_catalogo_localizado"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_titulocard",
+      "target": "src_lib_webshard_catalogo_localizado"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_titulocard_titulocard",
+      "target": "src_lib_webshard_catalogo_localizado"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardhub",
+      "target": "src_lib_webshard_catalogo_localizado"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardhub_webshardhub",
+      "target": "src_lib_webshard_catalogo_localizado"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo_miniaturacapitulo",
+      "target": "src_lib_webshard_catalogo_imagemwebshard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_titulocard",
+      "target": "src_lib_webshard_catalogo_imagemwebshard"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_titulocard_titulocard",
+      "target": "src_lib_webshard_catalogo_imagemwebshard"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha",
+      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
+      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_continuarlendo",
+      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_continuarlendo_continuarlendo",
+      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo_tituloporslug",
+      "target": "src_lib_webshard_catalogo_listartitulos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardhub",
+      "target": "src_lib_webshard_catalogo_listartitulos"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardhub_webshardhub",
+      "target": "src_lib_webshard_catalogo_listartitulos"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardhub",
+      "target": "src_lib_webshard_catalogo_tituloporslug"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardhub_webshardhub",
+      "target": "src_lib_webshard_catalogo_tituloporslug"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardrota",
+      "target": "src_lib_webshard_catalogo_tituloporslug"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardrota_webshardrota",
+      "target": "src_lib_webshard_catalogo_tituloporslug"
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo_capitulosde",
+      "target": "src_lib_webshard_catalogo_abrirversoes",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo_capituloporid",
+      "target": "src_lib_webshard_catalogo_capitulosde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo_capitulosespeciais",
+      "target": "src_lib_webshard_catalogo_capitulosde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo_capitulosprincipais",
+      "target": "src_lib_webshard_catalogo_capitulosde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo_vizinhos",
+      "target": "src_lib_webshard_catalogo_capitulosde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardhub",
+      "target": "src_lib_webshard_catalogo_capitulosde"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardhub_webshardhub",
+      "target": "src_lib_webshard_catalogo_capitulosde"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_continuarlendo",
+      "target": "src_lib_webshard_catalogo_capituloporid"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_continuarlendo_continuarlendo",
+      "target": "src_lib_webshard_catalogo_capituloporid"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha",
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardhub",
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardhub_webshardhub",
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_titulocard",
+      "target": "src_lib_webshard_catalogo_rotatitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_titulocard_titulocard",
+      "target": "src_lib_webshard_catalogo_rotatitulo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardhub",
+      "target": "src_lib_webshard_catalogo_rotatitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardhub_webshardhub",
+      "target": "src_lib_webshard_catalogo_rotatitulo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha",
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_continuarlendo",
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_continuarlendo_continuarlendo",
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardhub",
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardhub_webshardhub",
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardrota",
+      "target": "src_lib_webshard_catalogo_titulolegado"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardrota_webshardrota",
+      "target": "src_lib_webshard_catalogo_titulolegado"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo_rotulocapitulo",
+      "target": "src_lib_webshard_catalogo_numerocapitulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha",
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_continuarlendo",
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_continuarlendo_continuarlendo",
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardhub",
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardhub_webshardhub",
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha",
+      "target": "src_lib_webshard_catalogo_rotulocapitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
+      "target": "src_lib_webshard_catalogo_rotulocapitulo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha",
+      "target": "src_lib_webshard_catalogo_embeta"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
+      "target": "src_lib_webshard_catalogo_embeta"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha",
+      "target": "src_lib_webshard_catalogo_diasate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
+      "target": "src_lib_webshard_catalogo_diasate"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha",
+      "target": "src_lib_webshard_catalogo_formatardata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
+      "target": "src_lib_webshard_catalogo_formatardata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_barra",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_barra"
     },
     {
       "relation": "contains",
@@ -64876,9 +65915,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_extras",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_extras"
     },
     {
       "relation": "contains",
@@ -64886,9 +65925,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_grupos",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_grupos"
     },
     {
       "relation": "contains",
@@ -64896,9 +65935,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_idiomas",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_idiomas"
     },
     {
       "relation": "contains",
@@ -64906,9 +65945,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_manual",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_manual"
     },
     {
       "relation": "contains",
@@ -64916,9 +65955,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_md",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_md"
     },
     {
       "relation": "contains",
@@ -64926,9 +65965,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_nat1",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_nat1"
     },
     {
       "relation": "contains",
@@ -64936,9 +65975,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_painelprojeto",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_painelprojeto"
     },
     {
       "relation": "contains",
@@ -64946,9 +65985,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_pct",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_pct"
     },
     {
       "relation": "contains",
@@ -64956,9 +65995,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_tem",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_tem"
     },
     {
       "relation": "references",
@@ -64989,9 +66028,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto_idiomas",
-      "target": "src_pages_painel_painelprojeto_tem",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_tem"
     },
     {
       "relation": "calls",
@@ -65000,9 +66039,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto_grupos",
-      "target": "src_pages_painel_painelprojeto_nat1",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_nat1"
     },
     {
       "relation": "calls",
@@ -65011,9 +66050,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto_grupos",
-      "target": "src_pages_painel_painelprojeto_idiomas",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_idiomas"
     },
     {
       "relation": "calls",
@@ -65022,9 +66061,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_grupos",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_grupos"
     },
     {
       "relation": "calls",
@@ -65033,9 +66072,9 @@
       "source_file": "src/pages/painel/PainelProjeto.jsx",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painelprojeto_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_pct",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painelprojeto_pct"
     },
     {
       "relation": "contains",
@@ -65728,1045 +66767,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_content_historias_historiasuniversos",
       "target": "src_pages_content_historias_historiasuniversos_historiasuniversos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L74",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_abrirversoes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulomovido"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L95",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capituloporid"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulos_movidos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L89",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulosde"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L135",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulosespeciais"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L131",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulosprincipais"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L100",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L186",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_diasate"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L181",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_embeta"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L32",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_fontes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L190",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_formatardata"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L177",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_hojeiso"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L141",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_idiomainicial"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_imagempornome"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L46",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_imagemwebshard"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_imagens"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L63",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_listartitulos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L41",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L52",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L117",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_numerocapitulo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L154",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_paginasde"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L108",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_rotacapitulo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L104",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_rotatitulo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L124",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_rotulocapitulo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L113",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_titulolegado"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L67",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_tituloporslug"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L167",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_vizinhos"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_continuarlendo",
-      "target": "src_lib_webshard_catalogo"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_titulocard",
-      "target": "src_lib_webshard_catalogo"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_lib_webshard_catalogo"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardrota",
-      "target": "src_lib_webshard_catalogo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardrota",
-      "target": "src_lib_webshard_catalogo_capitulomovido"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardrota_webshardrota",
-      "target": "src_lib_webshard_catalogo_capitulomovido"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L45",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_continuarlendo",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_continuarlendo_continuarlendo",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_titulocard",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_titulocard_titulocard",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L61",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardhub_webshardhub",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L53",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo_miniaturacapitulo",
-      "target": "src_lib_webshard_catalogo_imagemwebshard"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_titulocard",
-      "target": "src_lib_webshard_catalogo_imagemwebshard"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_titulocard_titulocard",
-      "target": "src_lib_webshard_catalogo_imagemwebshard"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_continuarlendo",
-      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_continuarlendo_continuarlendo",
-      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L68",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo_tituloporslug",
-      "target": "src_lib_webshard_catalogo_listartitulos"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_lib_webshard_catalogo_listartitulos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L26",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardhub_webshardhub",
-      "target": "src_lib_webshard_catalogo_listartitulos"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_lib_webshard_catalogo_tituloporslug"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardhub_webshardhub",
-      "target": "src_lib_webshard_catalogo_tituloporslug"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardrota",
-      "target": "src_lib_webshard_catalogo_tituloporslug"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardrota_webshardrota",
-      "target": "src_lib_webshard_catalogo_tituloporslug"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L92",
-      "weight": 1.0,
-      "confidence_score": 0.5,
-      "source": "src_lib_webshard_catalogo_capitulosde",
-      "target": "src_lib_webshard_catalogo_abrirversoes"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L96",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo_capituloporid",
-      "target": "src_lib_webshard_catalogo_capitulosde"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L136",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo_capitulosespeciais",
-      "target": "src_lib_webshard_catalogo_capitulosde"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L132",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo_capitulosprincipais",
-      "target": "src_lib_webshard_catalogo_capitulosde"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L169",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo_vizinhos",
-      "target": "src_lib_webshard_catalogo_capitulosde"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_lib_webshard_catalogo_capitulosde"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L32",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardhub_webshardhub",
-      "target": "src_lib_webshard_catalogo_capitulosde"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_continuarlendo",
-      "target": "src_lib_webshard_catalogo_capituloporid"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_continuarlendo_continuarlendo",
-      "target": "src_lib_webshard_catalogo_capituloporid"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L32",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardhub_webshardhub",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_titulocard",
-      "target": "src_lib_webshard_catalogo_rotatitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/TituloCard.jsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_titulocard_titulocard",
-      "target": "src_lib_webshard_catalogo_rotatitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_lib_webshard_catalogo_rotatitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L61",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardhub_webshardhub",
-      "target": "src_lib_webshard_catalogo_rotatitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_rotacapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L74",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "target": "src_lib_webshard_catalogo_rotacapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_continuarlendo",
-      "target": "src_lib_webshard_catalogo_rotacapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_continuarlendo_continuarlendo",
-      "target": "src_lib_webshard_catalogo_rotacapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_lib_webshard_catalogo_rotacapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L61",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardhub_webshardhub",
-      "target": "src_lib_webshard_catalogo_rotacapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardrota",
-      "target": "src_lib_webshard_catalogo_titulolegado"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardrota_webshardrota",
-      "target": "src_lib_webshard_catalogo_titulolegado"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L127",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_webshard_catalogo_rotulocapitulo",
-      "target": "src_lib_webshard_catalogo_numerocapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_numerocapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L41",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "target": "src_lib_webshard_catalogo_numerocapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_continuarlendo",
-      "target": "src_lib_webshard_catalogo_numerocapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/ContinuarLendo.jsx",
-      "source_location": "L26",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_continuarlendo_continuarlendo",
-      "target": "src_lib_webshard_catalogo_numerocapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_lib_webshard_catalogo_numerocapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L69",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardhub_webshardhub",
-      "target": "src_lib_webshard_catalogo_numerocapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_rotulocapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L46",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "target": "src_lib_webshard_catalogo_rotulocapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_embeta"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "target": "src_lib_webshard_catalogo_embeta"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_diasate"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "target": "src_lib_webshard_catalogo_diasate"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_formatardata"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "target": "src_lib_webshard_catalogo_formatardata"
     },
     {
       "relation": "contains",
@@ -162041,5 +162041,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "23b2d789d2532126307caa0ce30e0fb8d9dfeb4b"
+  "built_at_commit": "194fa5f652dd25d46845e7f680cc6d4206cf7081"
 }

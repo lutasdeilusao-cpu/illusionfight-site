@@ -41,5 +41,6 @@ export function useWebshardAcesso() {
   /** Admin e creator ativo veem também os títulos marcados `visivel: "admin"`. */
   const veOculto = isAdmin || creatorAtivo(perfil)
 
-  return { isAdmin, veOculto, nivel, liberado, previa, dataPara, carregando }
+  // logado mas com o perfil ainda chegando: ainda não dá pra saber se é admin ou creator
+  return { isAdmin, veOculto, nivel, liberado, previa, dataPara, carregando: carregando || (Boolean(user) && !perfil) }
 }
