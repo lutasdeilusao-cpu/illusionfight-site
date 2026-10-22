@@ -39,6 +39,29 @@
     ]
   },
   {
+    "id": 6,
+    "slug": "contos-de-ilusao",
+    "nome_pt": "Contos de Ilusão",
+    "nome_en": "Illusion Tales",
+    "nome_es": "Cuentos de Ilusión",
+    "tagline_pt": "Outros personagens, outras cicatrizes, o mesmo mundo.",
+    "tagline_en": "Other characters, other scars, the same world.",
+    "tagline_es": "Otros personajes, otras cicatrices, el mismo mundo.",
+    "sinopse_pt": "Os contos do universo de Lutas de Ilusão em WEB SHARD. Primeiro: Sonata de uma Briga. O Ryan vê o mundo em cinza, até o dia em que dois garotos com cor nenhuma escola aceita resolvem reger a briga dele como quem rege uma orquestra.",
+    "sinopse_en": "The tales of the Illusion Fight universe as WEB SHARD. First: Sonata of a Fight. Ryan sees the world in grey, until the day two boys full of color decide to conduct his fight like an orchestra.",
+    "sinopse_es": "Los cuentos del universo de Lutas de Ilusão en WEB SHARD. Primero: Sonata de una Pelea. Ryan ve el mundo en gris, hasta el día en que dos chicos llenos de color deciden dirigir su pelea como quien dirige una orquesta.",
+    "generos": [
+      "drama",
+      "luta"
+    ],
+    "classificacao": "16",
+    "cor": "#9CA3AF",
+    "capa": "capa-contos-de-ilusao.webp",
+    "status": "em_andamento",
+    "visivel": "so_admin",
+    "fonte_capitulos": "contos-de-ilusao"
+  },
+  {
     "id": 5,
     "slug": "mundo-das-sombras",
     "nome_pt": "O Mundo das Sombras",

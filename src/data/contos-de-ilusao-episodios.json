@@ -1,0 +1,54 @@
+[
+  {
+    "id": "sonata-1",
+    "numero": 1,
+    "so_admin": true,
+    "titulo_pt": "Sonata de uma Briga — Parte 1: O Mundo Cinza",
+    "titulo_en": "Sonata of a Fight — Part 1: The Grey World",
+    "titulo_es": "Sonata de una Pelea — Parte 1: El Mundo Gris",
+    "frase_pt": "Minha vida é cinza.",
+    "publicado": true,
+    "paginas": 34,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "contos-de-ilusao/sonata-1",
+    "liberacao": {
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15"
+  },
+  {
+    "id": "sonata-2",
+    "numero": 2,
+    "so_admin": true,
+    "titulo_pt": "Sonata de uma Briga — Parte 2: A Sonata da Luta",
+    "titulo_en": "Sonata of a Fight — Part 2: The Fight Sonata",
+    "titulo_es": "Sonata de una Pelea — Parte 2: La Sonata de la Pelea",
+    "frase_pt": "Ouvi. E obedeci.",
+    "publicado": true,
+    "paginas": 40,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "contos-de-ilusao/sonata-2",
+    "liberacao": {
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15"
+  }
+]

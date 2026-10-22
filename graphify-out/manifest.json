@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792608892.9748733,
-    "ast_hash": "d6d154480d9c67a624ab6c834035a609",
+    "mtime": 1792609878.6980429,
+    "ast_hash": "24d93978be9e5a5da23bd15f128ca8ad",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792608893.012885,
-    "ast_hash": "178f0c8d243fdb8ce02a34e7d33bf615",
+    "mtime": 1792609878.7310407,
+    "ast_hash": "a0fbc837b13393be429fa99bc9b7a9ff",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3605,18 +3605,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1792507763.692551,
-    "ast_hash": "6fa786de5bf9b2839ddb308af3f67b66",
+    "mtime": 1792609655.6457963,
+    "ast_hash": "fb35603af3dc6174885dca72aa28df2e",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1792507763.6945508,
-    "ast_hash": "3de1fbca9f57fe2ffa831c7c71f08633",
+    "mtime": 1792609655.6668708,
+    "ast_hash": "9d80b0dacf27858ead6d203f7c24c77a",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1792507763.6895504,
-    "ast_hash": "8b3c8c0a253d1456fb4a0aae67daa4cc",
+    "mtime": 1792609655.625667,
+    "ast_hash": "c624d231097267bea1d150a37cd146bc",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -9845,8 +9845,8 @@
     "semantic_hash": ""
   },
   "src/pages/painel/PainelProjeto.jsx": {
-    "mtime": 1792451125.281813,
-    "ast_hash": "d397b32cc5be232065ed6cde8b9a2b14",
+    "mtime": 1792609878.3465896,
+    "ast_hash": "7a28377e2f9f97d7ec2d45e705a59db2",
     "semantic_hash": ""
   },
   "src/pages/painel/PainelTarefas.jsx": {
