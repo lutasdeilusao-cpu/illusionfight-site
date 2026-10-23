@@ -1,35 +1,26 @@
-// Capa de cada música: src/assets/images/music/capas/<id>.webp.
-// As versões em outro idioma da mesma música usam a capa da original (MESMA_CAPA).
+// Capa de cada música e de cada faixa da Rádio Nina: src/assets/images/music/capas/<nome>.webp.
+// Toda versão tem capa própria (geradas por LAB-NVIDIA/capas_musicas.py):
+// - música do catálogo: <id>.webp (a "Tudo que vejo é freeze" do catálogo usa freeze.webp);
+// - faixa só da rádio: o nome do arquivo em slug; se o slug for igual ao id de
+//   uma música do catálogo (outra versão, mesmo nome), usa <slug>-radio.webp.
+import musicas from '../data/musicas.json'
+
 const capas = import.meta.glob('../assets/images/music/capas/*.webp', { eager: true, import: 'default' })
-const MESMA_CAPA = {
-  'todo-lo-que-veo-es-freeze': 'freeze',
-  'all-i-see-is-freeze': 'freeze',
-  'tudo-que-vejo-e-freeze': 'freeze',
-}
-const padrao = capas['../assets/images/music/capas/lutas-de-ilusao.webp']
+const arquivo = nome => capas[`../assets/images/music/capas/${nome}.webp`]
+const padrao = arquivo('lutas-de-ilusao')
+const CATALOGO = new Set(musicas.map(m => m.id))
+const CAPA_DO_CATALOGO = { 'tudo-que-vejo-e-freeze': 'freeze' }
 
 export function capaDaMusica(musica) {
-  const id = MESMA_CAPA[musica?.id] || musica?.id
-  return capas[`../assets/images/music/capas/${id}.webp`] || padrao
+  return arquivo(CAPA_DO_CATALOGO[musica?.id] || musica?.id) || padrao
 }
 
-// Faixa da Rádio Nina (nome do arquivo no R2) → capa. Versões (remix, rock,
-// "version 2", aberturas em outra língua) usam a capa da música de origem.
-const CAPA_POR_NOME = [
-  ['lutas de ilusao', 'lutas-de-ilusao'], ['luchas de ilusion', 'lutas-de-ilusao'], ['illusion fight', 'lutas-de-ilusao'],
-  ['sorte minha', 'sorte-minha'], ['andando por voce', 'andando-por-voce'], ['asilo star', 'asilo-star'],
-  ['chegando', 'chegando'], ['deixa essa night rolar', 'deixa-essa-night-rolar'], ['eles dizem', 'eles-dizem'],
-  ['felicidade que eu nao procurava', 'felicidade-que-eu-nao-procurava'], ['inevitave', 'inevitavel'],
-  ['lisa linda', 'lisa-linda-demais'], ['meu lugar', 'meu-lugar'], ['nuvens', 'nuvens'],
-  ['o dia depois do julgamento', 'o-dia-depois-do-julgamento'], ['pique esconde', 'pique-esconde'],
-  ['so mais um round', 'so-mais-um-round'], ['trono e coroa', 'trono-e-coroa'],
-  ['tudo que sinto e love', 'tudo-que-sinto-e-love'], ['freeze', 'freeze'], ['vilanesca', 'vilanesca'],
-  ['escola pra', 'escola-pra-q'],
-]
-const normaliza = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim()
+const slug = key => (key || '')
+  .normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+  .split('isaias leal music')[0].replace('.mp3', '')
+  .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
 
 export function capaDaFaixa(key) {
-  const nome = normaliza(key)
-  const achou = CAPA_POR_NOME.find(([trecho]) => nome.includes(trecho))
-  return achou ? capaDaMusica({ id: achou[1] }) : padrao
+  const s = slug(key)
+  return arquivo(CATALOGO.has(s) ? `${s}-radio` : s) || padrao
 }

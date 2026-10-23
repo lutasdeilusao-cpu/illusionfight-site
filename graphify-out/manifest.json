@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792775154.6903238,
-    "ast_hash": "e1aa25ed1929309542552f915e101024",
+    "mtime": 1792775727.67932,
+    "ast_hash": "6df1efc03aaaf81362c7d598d97deee1",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -620,8 +620,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/Musicas.jsx": {
-    "mtime": 1792775140.5391433,
-    "ast_hash": "d4abd7daa6829e60aad890a3b0da489b",
+    "mtime": 1792775714.67169,
+    "ast_hash": "ac13d7a8988606df66d6897c33225f33",
     "semantic_hash": ""
   },
   "src/pages/content/PersonagemDetalhe.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792775154.7330413,
-    "ast_hash": "962be9b23fb4bea47986d048ee53b595",
+    "mtime": 1792775727.7217457,
+    "ast_hash": "f49454ef74310928ae376c64729e695f",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9975,7 +9975,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792775300.6670477,
+    "mtime": 1792775809.6784067,
     "ast_hash": "92ac12a46525e053eec110e8b90c1282",
     "semantic_hash": ""
   },
@@ -9985,8 +9985,8 @@
     "semantic_hash": ""
   },
   "src/lib/capaMusica.js": {
-    "mtime": 1792775092.5745406,
-    "ast_hash": "a256f00395889cf768e61dfdad66ce48",
+    "mtime": 1792775713.0463889,
+    "ast_hash": "30fa6eb27fb5346c93c8330886018382",
     "semantic_hash": ""
   },
   "src/assets/images/music/capas/a-garota-de-fora.webp": {
@@ -10137,6 +10137,56 @@
   "src/assets/images/music/capas/v-de-vinganca.webp": {
     "mtime": 1792775084.79098,
     "ast_hash": "3abdbebab46b7f7099c2a805402da477",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/asilo-star.webp": {
+    "mtime": 1792775679.84749,
+    "ast_hash": "50f14ce46086aee8f6d0d9a57ab3223e",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/chegando.webp": {
+    "mtime": 1792775679.9477358,
+    "ast_hash": "4bc3f377bef4c995847325498192aa32",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/deixa-essa-night-rolar.webp": {
+    "mtime": 1792775680.0516405,
+    "ast_hash": "06945b0adb973add0c0e44a88ef860cc",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/eles-dizem.webp": {
+    "mtime": 1792775680.134648,
+    "ast_hash": "44b595b44095e859d23f4c029c49831a",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/lisa-linda-demais.webp": {
+    "mtime": 1792775680.2399154,
+    "ast_hash": "075c5a2e1a167be1df47d6d7c1b32ba4",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/nuvens.webp": {
+    "mtime": 1792775680.330708,
+    "ast_hash": "ef4eb37aa3c967058722968f4e8df8f4",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/o-dia-depois-do-julgamento.webp": {
+    "mtime": 1792775680.425639,
+    "ast_hash": "f9b58b84a1e6c74b2f50c2cbd00f998d",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/pique-esconde.webp": {
+    "mtime": 1792775680.5484858,
+    "ast_hash": "cd8fad0a272c3ef75864f5cd3c45097f",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/trono-e-coroa.webp": {
+    "mtime": 1792775680.655149,
+    "ast_hash": "18820bd2b9b6e726d7617299241c9f72",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/vilanesca.webp": {
+    "mtime": 1792775680.757867,
+    "ast_hash": "0bdbb4e5416fe7518ce5fa0f2cfeb9ea",
     "semantic_hash": ""
   }
 }
