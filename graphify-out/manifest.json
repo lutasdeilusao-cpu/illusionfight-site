@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792776370.1377375,
-    "ast_hash": "bc6a9ac030e7177b25d940033692b742",
+    "mtime": 1792777418.4754057,
+    "ast_hash": "abf7984801517eb859fa015783afe3ad",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792776370.1814063,
-    "ast_hash": "1cb1db87bb2ccd815668bf60d63c6a61",
+    "mtime": 1792777418.5151653,
+    "ast_hash": "e1690f8bbc94d12e2b008a146d66b066",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9955,18 +9955,8 @@
     "semantic_hash": ""
   },
   "src/data/contos-de-ilusao-episodios.json": {
-    "mtime": 1792725344.9864457,
-    "ast_hash": "6083802c14023f60c291f18020049a43",
-    "semantic_hash": ""
-  },
-  "src/assets/webshard/cap-contos-de-ilusao-sonata-1.webp": {
-    "mtime": 1792696681.8209476,
-    "ast_hash": "0d5200a0deb7173da631b0d9dcbfdd78",
-    "semantic_hash": ""
-  },
-  "src/assets/webshard/cap-contos-de-ilusao-sonata-2.webp": {
-    "mtime": 1792696692.1389272,
-    "ast_hash": "b6eb18df0259b5d275040b10de0bbb8e",
+    "mtime": 1792777416.8367662,
+    "ast_hash": "e7bd52e42f045ec41e6abc6b229ea90d",
     "semantic_hash": ""
   },
   "src/assets/webshard/capa-contos-de-ilusao.webp": {
@@ -9975,8 +9965,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792776398.078465,
-    "ast_hash": "92ac12a46525e053eec110e8b90c1282",
+    "mtime": 1792777453.1385572,
+    "ast_hash": "eb59aea89d952f0f5b8c675d5a8ef53e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
@@ -10282,6 +10272,11 @@
   "src/assets/images/music/capas/vilanesca-version-2.webp": {
     "mtime": 1792776194.1865387,
     "ast_hash": "82dc9a94080425fa1f7e1c9f40901a3f",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-contos-de-ilusao-sonata.webp": {
+    "mtime": 1792696681.8209476,
+    "ast_hash": "0d5200a0deb7173da631b0d9dcbfdd78",
     "semantic_hash": ""
   }
 }
