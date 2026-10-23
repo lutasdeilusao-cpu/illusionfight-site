@@ -5,19 +5,23 @@ Uso:
   python scripts/deploy.py --so-conferir          # só confere se o ar serve o SITE_VERSION
 
 A versão já tem que estar subida em src/config/version.js e no SITE_MAP.md.
-Toda etapa é cronometrada; etapa que passa de 1 minuto gera ALERTA na saída
-(algo pode estar preso). Sai com código 0 só quando o site no ar serve a versão nova.
+Enquanto uma etapa roda, a cada 1 minuto sai uma linha "[deploy] ALERTA: <etapa> rodando há Ns"
+(algo pode estar preso); etapa que passa de TETO_ETAPA é morta e o deploy falha.
+A espera pelo GitHub Pages também avisa a cada minuto, com o estado da publicação.
+Sai com código 0 só quando o site no ar serve a versão nova.
 """
 import re
 import subprocess
 import sys
+import tempfile
 import time
 import random
 import urllib.request
 
 RAIZ = __file__.rsplit('scripts', 1)[0]
 SITE = 'https://illusionfight.com/'
-LIMITE = 60          # segundos: passou disso, avisa
+LIMITE = 60          # segundos: passou disso, avisa (e repete a cada LIMITE)
+TETO_ETAPA = 600     # segundos: etapa que passa disso é morta
 ESPERA_MAX = 600     # segundos esperando o GitHub Pages publicar
 API = 'https://api.github.com/repos/lutasdeilusao-cpu/illusionfight-site'
 CO_AUTOR ='Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>'
@@ -32,15 +36,31 @@ def log(msg):
 def etapa(nome, cmd):
     log(f'[deploy] {nome}...')
     ini = time.time()
-    r = subprocess.run(cmd, cwd=RAIZ, shell=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
+    saida = tempfile.TemporaryFile()
+    p = subprocess.Popen(cmd, cwd=RAIZ, shell=True, stdout=saida, stderr=subprocess.STDOUT)
+    proximo_aviso = LIMITE
+    while p.poll() is None:
+        time.sleep(2)
+        dur = time.time() - ini
+        if dur >= proximo_aviso:
+            log(f'[deploy] ALERTA: {nome} rodando há {dur:.0f}s — verificar se está preso')
+            proximo_aviso += LIMITE
+        if dur > TETO_ETAPA:
+            subprocess.run(f'taskkill /PID {p.pid} /T /F', shell=True, capture_output=True)
+            p.kill()
+            log(f'[deploy] {nome}: passou de {TETO_ETAPA}s, matei')
+            break
     dur = time.time() - ini
-    log(f'[deploy] {nome}: {dur:.0f}s (código {r.returncode})')
+    saida.seek(0)
+    texto = saida.read().decode('utf-8', 'replace')
+    codigo = p.returncode if p.returncode is not None else -1
+    log(f'[deploy] {nome}: {dur:.0f}s (código {codigo})')
     if dur > LIMITE:
         alertas.append(f'{nome} levou {dur:.0f}s (> {LIMITE}s) — verificar, pode ter falhado ou ficado preso')
-    if r.returncode != 0:
-        log((r.stdout + r.stderr)[-3000:])
+    if codigo != 0:
+        log(texto[-3000:])
         fim(False, f'{nome} falhou')
-    return r
+    return texto
 
 
 def versao():
@@ -85,7 +105,7 @@ def republicar():
 def conferir(v, tentativas=2):
     log(f'[deploy] conferindo se o ar serve {v}...')
     ini = time.time()
-    avisou = False
+    proximo_aviso = LIMITE
     while time.time() - ini < ESPERA_MAX:
         if no_ar(v):
             log(f'[deploy] NO AR: {v} ({time.time() - ini:.0f}s depois do push)')
@@ -100,11 +120,14 @@ def conferir(v, tentativas=2):
                 time.sleep(20)
                 return conferir(v, tentativas - 1)
             return False
-        if not avisou and time.time() - ini > LIMITE:
-            avisou = True
-            alertas.append(f'o ar ainda não servia {v} depois de {LIMITE}s — verificar o GitHub Pages')
-            log(f'[deploy] ALERTA: passou de {LIMITE}s e o ar ainda não tem {v}')
+        dur = time.time() - ini
+        if dur >= proximo_aviso:
+            if proximo_aviso == LIMITE:
+                alertas.append(f'o ar ainda não servia {v} depois de {LIMITE}s — verificar o GitHub Pages')
+            log(f'[deploy] ALERTA: {dur:.0f}s e o ar ainda não tem {v} (GitHub Pages: {status or "?"}/{conclusao or "-"})')
+            proximo_aviso += LIMITE
         time.sleep(15)
+    log(f'[deploy] ALERTA: {ESPERA_MAX}s esperando e o ar não serve {v}')
     return False
 
 
