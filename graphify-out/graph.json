@@ -304,6 +304,146 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
+      "label": "deploy.py",
+      "file_type": "code",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_deploy",
+      "community": 349,
+      "norm_label": "deploy.py"
+    },
+    {
+      "label": "log()",
+      "file_type": "code",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "scripts_deploy_log",
+      "community": 349,
+      "norm_label": "log()"
+    },
+    {
+      "label": "etapa()",
+      "file_type": "code",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "scripts_deploy_etapa",
+      "community": 349,
+      "norm_label": "etapa()"
+    },
+    {
+      "label": "versao()",
+      "file_type": "code",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "scripts_deploy_versao",
+      "community": 349,
+      "norm_label": "versao()"
+    },
+    {
+      "label": "baixar()",
+      "file_type": "code",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "scripts_deploy_baixar",
+      "community": 349,
+      "norm_label": "baixar()"
+    },
+    {
+      "label": "no_ar()",
+      "file_type": "code",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "scripts_deploy_no_ar",
+      "community": 349,
+      "norm_label": "no_ar()"
+    },
+    {
+      "label": "ultimo_pages()",
+      "file_type": "code",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L87",
+      "_origin": "ast",
+      "id": "scripts_deploy_ultimo_pages",
+      "community": 349,
+      "norm_label": "ultimo_pages()"
+    },
+    {
+      "label": "republicar()",
+      "file_type": "code",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "scripts_deploy_republicar",
+      "community": 349,
+      "norm_label": "republicar()"
+    },
+    {
+      "label": "conferir()",
+      "file_type": "code",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "scripts_deploy_conferir",
+      "community": 349,
+      "norm_label": "conferir()"
+    },
+    {
+      "label": "fim()",
+      "file_type": "code",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L134",
+      "_origin": "ast",
+      "id": "scripts_deploy_fim",
+      "community": 349,
+      "norm_label": "fim()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L141",
+      "_origin": "ast",
+      "id": "scripts_deploy_main",
+      "community": 349,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Deploy completo do site: p\u00e1ginas do WEB SHARD no R2 -> build -> commit -> push -",
+      "file_type": "rationale",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_deploy_rationale_1",
+      "community": 349,
+      "norm_label": "deploy completo do site: paginas do web shard no r2 -> build -> commit -> push -"
+    },
+    {
+      "label": "Status da \u00faltima publica\u00e7\u00e3o do GitHub Pages: (status, conclus\u00e3o).",
+      "file_type": "rationale",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "scripts_deploy_rationale_88",
+      "community": 349,
+      "norm_label": "status da ultima publicacao do github pages: (status, conclusao)."
+    },
+    {
+      "label": "Commit vazio no gh-pages: o GitHub Pages publica de novo.",
+      "file_type": "rationale",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L98",
+      "_origin": "ast",
+      "id": "scripts_deploy_rationale_98",
+      "community": 349,
+      "norm_label": "commit vazio no gh-pages: o github pages publica de novo."
+    },
+    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
@@ -319,9 +459,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_lib_capamusica",
       "community": 259,
-      "norm_label": "capamusica.js"
+      "norm_label": "capamusica.js",
+      "id": "src_lib_capamusica"
     },
     {
       "label": "capas",
@@ -329,9 +469,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "src_lib_capamusica_capas",
       "community": 259,
-      "norm_label": "capas"
+      "norm_label": "capas",
+      "id": "src_lib_capamusica_capas"
     },
     {
       "label": "arquivo()",
@@ -339,9 +479,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "src_lib_capamusica_arquivo",
       "community": 259,
-      "norm_label": "arquivo()"
+      "norm_label": "arquivo()",
+      "id": "src_lib_capamusica_arquivo"
     },
     {
       "label": "padrao",
@@ -349,9 +489,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "src_lib_capamusica_padrao",
       "community": 259,
-      "norm_label": "padrao"
+      "norm_label": "padrao",
+      "id": "src_lib_capamusica_padrao"
     },
     {
       "label": "CATALOGO",
@@ -359,9 +499,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "src_lib_capamusica_catalogo",
       "community": 259,
-      "norm_label": "catalogo"
+      "norm_label": "catalogo",
+      "id": "src_lib_capamusica_catalogo"
     },
     {
       "label": "CAPA_DO_CATALOGO",
@@ -369,9 +509,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_lib_capamusica_capa_do_catalogo",
       "community": 259,
-      "norm_label": "capa_do_catalogo"
+      "norm_label": "capa_do_catalogo",
+      "id": "src_lib_capamusica_capa_do_catalogo"
     },
     {
       "label": "capaDaMusica()",
@@ -379,9 +519,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "src_lib_capamusica_capadamusica",
       "community": 259,
-      "norm_label": "capadamusica()"
+      "norm_label": "capadamusica()",
+      "id": "src_lib_capamusica_capadamusica"
     },
     {
       "label": "slug()",
@@ -389,9 +529,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "src_lib_capamusica_slug",
       "community": 259,
-      "norm_label": "slug()"
+      "norm_label": "slug()",
+      "id": "src_lib_capamusica_slug"
     },
     {
       "label": "capaDaFaixa()",
@@ -399,9 +539,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "src_lib_capamusica_capadafaixa",
       "community": 259,
-      "norm_label": "capadafaixa()"
+      "norm_label": "capadafaixa()",
+      "id": "src_lib_capamusica_capadafaixa"
     },
     {
       "label": "Musicas.jsx",
@@ -1602,146 +1742,6 @@
       "community": 143,
       "norm_label": "analyze.py",
       "id": "scripts_analyze"
-    },
-    {
-      "label": "deploy.py",
-      "file_type": "code",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "deploy.py",
-      "id": "scripts_deploy"
-    },
-    {
-      "label": "log()",
-      "file_type": "code",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L28",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "log()",
-      "id": "scripts_deploy_log"
-    },
-    {
-      "label": "etapa()",
-      "file_type": "code",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L32",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "etapa()",
-      "id": "scripts_deploy_etapa"
-    },
-    {
-      "label": "versao()",
-      "file_type": "code",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L46",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "versao()",
-      "id": "scripts_deploy_versao"
-    },
-    {
-      "label": "baixar()",
-      "file_type": "code",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L51",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "baixar()",
-      "id": "scripts_deploy_baixar"
-    },
-    {
-      "label": "no_ar()",
-      "file_type": "code",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L57",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "no_ar()",
-      "id": "scripts_deploy_no_ar"
-    },
-    {
-      "label": "ultimo_pages()",
-      "file_type": "code",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L67",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "ultimo_pages()",
-      "id": "scripts_deploy_ultimo_pages"
-    },
-    {
-      "label": "republicar()",
-      "file_type": "code",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L77",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "republicar()",
-      "id": "scripts_deploy_republicar"
-    },
-    {
-      "label": "conferir()",
-      "file_type": "code",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L85",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "conferir()",
-      "id": "scripts_deploy_conferir"
-    },
-    {
-      "label": "fim()",
-      "file_type": "code",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L111",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "fim()",
-      "id": "scripts_deploy_fim"
-    },
-    {
-      "label": "main()",
-      "file_type": "code",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L118",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "main()",
-      "id": "scripts_deploy_main"
-    },
-    {
-      "label": "Deploy completo do site: p\u00e1ginas do WEB SHARD no R2 -> build -> commit -> push -",
-      "file_type": "rationale",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "deploy completo do site: paginas do web shard no r2 -> build -> commit -> push -",
-      "id": "scripts_deploy_rationale_1"
-    },
-    {
-      "label": "Status da \u00faltima publica\u00e7\u00e3o do GitHub Pages: (status, conclus\u00e3o).",
-      "file_type": "rationale",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L68",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "status da ultima publicacao do github pages: (status, conclusao).",
-      "id": "scripts_deploy_rationale_68"
-    },
-    {
-      "label": "Commit vazio no gh-pages: o GitHub Pages publica de novo.",
-      "file_type": "rationale",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L78",
-      "_origin": "ast",
-      "community": 349,
-      "norm_label": "commit vazio no gh-pages: o github pages publica de novo.",
-      "id": "scripts_deploy_rationale_78"
     },
     {
       "label": "extract-emails.mjs",
@@ -65456,6 +65456,290 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "scripts_deploy",
+      "target": "scripts_deploy_baixar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "scripts_deploy",
+      "target": "scripts_deploy_conferir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "scripts_deploy",
+      "target": "scripts_deploy_etapa",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "scripts_deploy",
+      "target": "scripts_deploy_fim",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "scripts_deploy",
+      "target": "scripts_deploy_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L141",
+      "weight": 1.0,
+      "source": "scripts_deploy",
+      "target": "scripts_deploy_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "scripts_deploy",
+      "target": "scripts_deploy_no_ar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "scripts_deploy",
+      "target": "scripts_deploy_republicar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "scripts_deploy",
+      "target": "scripts_deploy_ultimo_pages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "scripts_deploy",
+      "target": "scripts_deploy_versao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "scripts_deploy_rationale_1",
+      "target": "scripts_deploy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "scripts_deploy_conferir",
+      "target": "scripts_deploy_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "scripts_deploy_etapa",
+      "target": "scripts_deploy_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "scripts_deploy_fim",
+      "target": "scripts_deploy_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "scripts_deploy_no_ar",
+      "target": "scripts_deploy_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "scripts_deploy_etapa",
+      "target": "scripts_deploy_fim",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "scripts_deploy_main",
+      "target": "scripts_deploy_etapa",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "scripts_deploy_main",
+      "target": "scripts_deploy_versao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "scripts_deploy_no_ar",
+      "target": "scripts_deploy_baixar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "scripts_deploy_ultimo_pages",
+      "target": "scripts_deploy_baixar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "scripts_deploy_conferir",
+      "target": "scripts_deploy_no_ar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "scripts_deploy_conferir",
+      "target": "scripts_deploy_ultimo_pages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "scripts_deploy_rationale_88",
+      "target": "scripts_deploy_ultimo_pages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "scripts_deploy_conferir",
+      "target": "scripts_deploy_republicar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "scripts_deploy_rationale_98",
+      "target": "scripts_deploy_republicar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "scripts_deploy_main",
+      "target": "scripts_deploy_conferir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "scripts_deploy_main",
+      "target": "scripts_deploy_fim",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -65626,9 +65910,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_capamusica",
-      "target": "src_lib_capamusica_arquivo",
-      "confidence_score": 1.0
+      "target": "src_lib_capamusica_arquivo"
     },
     {
       "relation": "contains",
@@ -65636,9 +65920,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_capamusica",
-      "target": "src_lib_capamusica_capa_do_catalogo",
-      "confidence_score": 1.0
+      "target": "src_lib_capamusica_capa_do_catalogo"
     },
     {
       "relation": "contains",
@@ -65646,9 +65930,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_capamusica",
-      "target": "src_lib_capamusica_capadafaixa",
-      "confidence_score": 1.0
+      "target": "src_lib_capamusica_capadafaixa"
     },
     {
       "relation": "contains",
@@ -65656,9 +65940,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_capamusica",
-      "target": "src_lib_capamusica_capadamusica",
-      "confidence_score": 1.0
+      "target": "src_lib_capamusica_capadamusica"
     },
     {
       "relation": "contains",
@@ -65666,9 +65950,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_capamusica",
-      "target": "src_lib_capamusica_capas",
-      "confidence_score": 1.0
+      "target": "src_lib_capamusica_capas"
     },
     {
       "relation": "contains",
@@ -65676,9 +65960,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_capamusica",
-      "target": "src_lib_capamusica_catalogo",
-      "confidence_score": 1.0
+      "target": "src_lib_capamusica_catalogo"
     },
     {
       "relation": "contains",
@@ -65686,9 +65970,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_capamusica",
-      "target": "src_lib_capamusica_padrao",
-      "confidence_score": 1.0
+      "target": "src_lib_capamusica_padrao"
     },
     {
       "relation": "contains",
@@ -65696,9 +65980,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_capamusica",
-      "target": "src_lib_capamusica_slug",
-      "confidence_score": 1.0
+      "target": "src_lib_capamusica_slug"
     },
     {
       "relation": "imports_from",
@@ -65729,9 +66013,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_capamusica_capadafaixa",
-      "target": "src_lib_capamusica_arquivo",
-      "confidence_score": 1.0
+      "target": "src_lib_capamusica_arquivo"
     },
     {
       "relation": "calls",
@@ -65740,9 +66024,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_capamusica_capadamusica",
-      "target": "src_lib_capamusica_arquivo",
-      "confidence_score": 1.0
+      "target": "src_lib_capamusica_arquivo"
     },
     {
       "relation": "references",
@@ -65806,9 +66090,9 @@
       "source_file": "src/lib/capaMusica.js",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_capamusica_capadafaixa",
-      "target": "src_lib_capamusica_slug",
-      "confidence_score": 1.0
+      "target": "src_lib_capamusica_slug"
     },
     {
       "relation": "imports",
@@ -67015,290 +67299,6 @@
       "confidence_score": 1.0,
       "source": "public_sw_serviraudio",
       "target": "public_sw_respondercomrange"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L51",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy",
-      "target": "scripts_deploy_baixar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L85",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy",
-      "target": "scripts_deploy_conferir"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L32",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy",
-      "target": "scripts_deploy_etapa"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L111",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy",
-      "target": "scripts_deploy_fim"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy",
-      "target": "scripts_deploy_log"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L118",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy",
-      "target": "scripts_deploy_main"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L57",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy",
-      "target": "scripts_deploy_no_ar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L77",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy",
-      "target": "scripts_deploy_republicar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L67",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy",
-      "target": "scripts_deploy_ultimo_pages"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L46",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy",
-      "target": "scripts_deploy_versao"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_rationale_1",
-      "target": "scripts_deploy"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L86",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_conferir",
-      "target": "scripts_deploy_log"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_etapa",
-      "target": "scripts_deploy_log"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L113",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_fim",
-      "target": "scripts_deploy_log"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L63",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_no_ar",
-      "target": "scripts_deploy_log"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L42",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_etapa",
-      "target": "scripts_deploy_fim"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L127",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_main",
-      "target": "scripts_deploy_etapa"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L119",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_main",
-      "target": "scripts_deploy_versao"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L59",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_no_ar",
-      "target": "scripts_deploy_baixar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L71",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_ultimo_pages",
-      "target": "scripts_deploy_baixar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L90",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_conferir",
-      "target": "scripts_deploy_no_ar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L93",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_conferir",
-      "target": "scripts_deploy_ultimo_pages"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L68",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_rationale_68",
-      "target": "scripts_deploy_ultimo_pages"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L99",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_conferir",
-      "target": "scripts_deploy_republicar"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L78",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_rationale_78",
-      "target": "scripts_deploy_republicar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L121",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_main",
-      "target": "scripts_deploy_conferir"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/deploy.py",
-      "source_location": "L121",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_deploy_main",
-      "target": "scripts_deploy_fim"
     },
     {
       "relation": "contains",
@@ -202802,5 +202802,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "fa3425c167f7ca20ff02053f77f14ee8f3de16f8"
+  "built_at_commit": "9cfa7289c18172a053af2e6f1b87ec0814cb8f31"
 }

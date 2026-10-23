@@ -15,12 +15,12 @@ import time
 from PIL import Image
 
 REPO = Path(__file__).resolve().parents[1]
-ROOT = REPO.parent / 'ESPECIAIS' / 'presos'
+ROOT = REPO.parent / 'QUADRINHOS' / 'ESPECIAIS' / 'presos'
 PROMPTS = ROOT / 'prompts' / 'loop1'
 PAGES = ROOT / 'WEBSHARD' / 'PT' / 'loop1'
 STATE = ROOT / 'producao' / 'loop1'
 DOC = REPO / 'docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md'
-ENGINE = REPO.parent / 'MUNDO DAS SOMBRAS/WEBSHARD/scripts/fila_v2.py'
+ENGINE = REPO.parent / 'QUADRINHOS/MUNDO DAS SOMBRAS/WEBSHARD/scripts/fila_v2.py'
 # Columns: page, source, attached identity/environment aliases, continuity pages, staging.
 PLAN = '''
 02|C|Kim Jack Nina devices hall|01|Two sequential fixed CCTV feeds. CAM 01 ENTRADA: Kim, Jack and Nina enter the Roman costume party; Nina visibly carries and operates the analog camcorder. CAM 02 CORREDOR OESTE: later, Kim moves his red drape aside at the hall doorway, Jack immediately behind him, Nina following. Invent entrance and west corridor in the same mansion architecture; these are not the technical corridor. No named person duplicated in two locations at the same instant. Narration is a compact caption, not a broad panel separator. No visibly speaking mouths here.
