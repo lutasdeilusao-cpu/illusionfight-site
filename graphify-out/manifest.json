@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792768523.95724,
-    "ast_hash": "f1e81cec54891bde8e2e4c5b94845553",
+    "mtime": 1792775154.6903238,
+    "ast_hash": "e1aa25ed1929309542552f915e101024",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -620,8 +620,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/Musicas.jsx": {
-    "mtime": 1792207875.3591182,
-    "ast_hash": "be2564d803e4b6fff624a49edb7e546e",
+    "mtime": 1792775140.5391433,
+    "ast_hash": "d4abd7daa6829e60aad890a3b0da489b",
     "semantic_hash": ""
   },
   "src/pages/content/PersonagemDetalhe.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792768524.008751,
-    "ast_hash": "bc5e8501d874abaa59d76e878cfdfdb4",
+    "mtime": 1792775154.7330413,
+    "ast_hash": "962be9b23fb4bea47986d048ee53b595",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3585,8 +3585,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/MusicSection.jsx": {
-    "mtime": 1791329556.7404008,
-    "ast_hash": "28c6d623daf52530eac6ee669bc0f8ca",
+    "mtime": 1792775099.8855598,
+    "ast_hash": "f12befb56a7e2521c0566ea5ece08222",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/NowLive.jsx": {
@@ -3605,18 +3605,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1792609655.6457963,
-    "ast_hash": "fb35603af3dc6174885dca72aa28df2e",
+    "mtime": 1792775267.9085543,
+    "ast_hash": "2cb0b6e173dd664fa39adebf0c3cf885",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1792609655.6668708,
-    "ast_hash": "9d80b0dacf27858ead6d203f7c24c77a",
+    "mtime": 1792775267.9503422,
+    "ast_hash": "a6d0db9ddaa93eeff8d7b1783226ad6a",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1792609655.625667,
-    "ast_hash": "c624d231097267bea1d150a37cd146bc",
+    "mtime": 1792775267.9883633,
+    "ast_hash": "edab71a2ad1eaf2c7aab824a783a25e7",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -9540,8 +9540,8 @@
     "semantic_hash": ""
   },
   "docs/PRODUCAO_IMAGEM.md": {
-    "mtime": 1792768516.2046306,
-    "ast_hash": "b854e8691c3a5dbf8c824a8fd6546497",
+    "mtime": 1792770055.8177433,
+    "ast_hash": "3754a817240012be7e3421b1b53ab7dc",
     "semantic_hash": ""
   },
   "docs/T1_PENDENCIAS.md": {
@@ -9975,13 +9975,168 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792768562.0845087,
+    "mtime": 1792775300.6670477,
     "ast_hash": "92ac12a46525e053eec110e8b90c1282",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
     "mtime": 1792766659.3908343,
     "ast_hash": "689328d840ab600cc6416b000e3ee90f",
+    "semantic_hash": ""
+  },
+  "src/lib/capaMusica.js": {
+    "mtime": 1792775092.5745406,
+    "ast_hash": "a256f00395889cf768e61dfdad66ce48",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/a-garota-de-fora.webp": {
+    "mtime": 1792775082.0155356,
+    "ast_hash": "61c81084c4249d3aaa013ed4831a2f77",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/a-pilula-vermelha.webp": {
+    "mtime": 1792775082.1105375,
+    "ast_hash": "ba1de662b9c9d434c4cebce7c74fcfcb",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/andando-por-voce.webp": {
+    "mtime": 1792775082.2030103,
+    "ast_hash": "6445f59d9fa4ff6431672e855b7c5d0c",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/balada-dos-esquizitos.webp": {
+    "mtime": 1792775082.300549,
+    "ast_hash": "390cacaa8681b0ba1506e31debcbc14f",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/bizarre-run.webp": {
+    "mtime": 1792775082.416401,
+    "ast_hash": "b57ae489555469662de9c96a7f26407e",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/chega-de-la-la-la.webp": {
+    "mtime": 1792775082.5126665,
+    "ast_hash": "3fbe3a6dcea6172514482b0e91730fc2",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/come-para-neverland.webp": {
+    "mtime": 1792775082.6095376,
+    "ast_hash": "c7b382fda0b026c8ad5a8b820fff73e1",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/escola-pra-q.webp": {
+    "mtime": 1792775082.7055542,
+    "ast_hash": "2155e1392088f6d0798d3e7f77cc61cc",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/felicidade-que-eu-nao-procurava.webp": {
+    "mtime": 1792775082.8152466,
+    "ast_hash": "a0f5a8a226340b6ce3f644c80fbfe427",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/freeze.webp": {
+    "mtime": 1792775082.922693,
+    "ast_hash": "d336acc821c179dd998429e65bbe8a84",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/garota-de-chanel.webp": {
+    "mtime": 1792775083.0094283,
+    "ast_hash": "ec2ccf8d0634cf76edebcbc7c60abcf3",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/go-easy.webp": {
+    "mtime": 1792775083.1074119,
+    "ast_hash": "ebff13aaf76ec7bec1b57067ffa28e4c",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/gonna-be-stars.webp": {
+    "mtime": 1792775083.198745,
+    "ast_hash": "0a76f52963bd115337b88d0fe9db88b0",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/inevitavel.webp": {
+    "mtime": 1792775083.284113,
+    "ast_hash": "bc8c03bb737c3d1a13963c5d26e8a582",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/infelizes.webp": {
+    "mtime": 1792775083.3762028,
+    "ast_hash": "addfd7169341ad80edc45e448cc97c78",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/lutas-de-ilusao.webp": {
+    "mtime": 1792775083.4680378,
+    "ast_hash": "b811ff3685ac50c853bf3fb76818e7fd",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/meu-lugar.webp": {
+    "mtime": 1792775083.5640433,
+    "ast_hash": "a6378d9cb7701be58d1ae15c2f4a1004",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/offline.webp": {
+    "mtime": 1792775083.6475396,
+    "ast_hash": "0b0d6ff0afe99662b1106d5a27891e88",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/one-night-out.webp": {
+    "mtime": 1792775083.7515502,
+    "ast_hash": "bd7802e51afd0ab237de822af121303d",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/pelo-espaco-sideral.webp": {
+    "mtime": 1792775083.8550415,
+    "ast_hash": "9e7a8f4e453637d04958bab43b9ed349",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/pior-de-mim.webp": {
+    "mtime": 1792775083.9448125,
+    "ast_hash": "2b95c81997b687d3a6e6662fa0e6a15e",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/sinfonia-imperfeita.webp": {
+    "mtime": 1792775084.0535562,
+    "ast_hash": "7c93866609faa32a04bbf9933b68bdb6",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/so-mais-um-round.webp": {
+    "mtime": 1792775084.1405587,
+    "ast_hash": "8ff6a087fd06ce2407e6d50f0e1ef851",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/sorte-minha.webp": {
+    "mtime": 1792775084.2390022,
+    "ast_hash": "619ad0da92626a26c52c3bcd28334df0",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/sou-sua-vitima.webp": {
+    "mtime": 1792775084.332682,
+    "ast_hash": "29d2c3304de643dd1387c2a6336368da",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/todo-dia-cedo.webp": {
+    "mtime": 1792775084.4224052,
+    "ast_hash": "dc89bb9cb91fc22964e073e463fecd14",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/traidores.webp": {
+    "mtime": 1792775084.5014064,
+    "ast_hash": "0f38ebbbf0e83704661b8cb9ffd82c3b",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/tudo-que-sinto-e-love.webp": {
+    "mtime": 1792775084.594752,
+    "ast_hash": "afb4a2dc0d01a8e1d4fa7afcfe5970ed",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/unico-role.webp": {
+    "mtime": 1792775084.6983142,
+    "ast_hash": "3403865b8b188789bd76bf6525e260d7",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/v-de-vinganca.webp": {
+    "mtime": 1792775084.79098,
+    "ast_hash": "3abdbebab46b7f7099c2a805402da477",
     "semantic_hash": ""
   }
 }

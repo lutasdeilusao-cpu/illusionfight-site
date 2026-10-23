@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { useRadio } from '../../components/RadioNina/RadioNinaContext'
 import musicas from '../../data/musicas.json'
 import { platformIconMap } from '../../components/PlatformIcons'
-import { capaDaMusica } from '../../lib/capaMusica'
+import { capaDaMusica, capaDaFaixa } from '../../lib/capaMusica'
 import arteBanda from '../../assets/images/banners/banner-04.webp'
 import ninaImg from '../../assets/images/characters/nina-balloon.png'
 import './Musicas.css'
@@ -233,21 +233,28 @@ export default function Musicas() {
                 <h2 className="mu__h2">{t('pages.musicas.so_na_radio')}</h2>
                 <p className="mu__hint">{t('pages.musicas.so_na_radio_dica')}</p>
               </div>
-              <ol className="mu-exclusivas">
+              <ol className="mu-faixas">
                 {soNaRadio.map((f, i) => (
-                  <li key={f.key}>
-                    <button type="button" className={`if-item mu-exclusiva${eDaVez(f.key) ? ' is-active' : ''}`} onClick={() => tocar(f.key)}>
-                      <span className="if-item__index">{num(i)}</span>
-                      <span className="mu-exclusiva__nome">{f.titulo}</span>
-                      <span className="mu-exclusiva__acao" aria-hidden="true">{tocandoEsta(f.key) ? <Equalizador ativo /> : '▶'}</span>
+                  <li key={f.key} className={`mu-faixa${eDaVez(f.key) ? ' is-ativa' : ''}`}>
+                    <button type="button" className="mu-faixa__tocar" onClick={() => tocar(f.key)} aria-label={`${t('pages.musicas.tocar')} ${f.titulo}`}>
+                      <span className="mu-faixa__num" aria-hidden="true">{tocandoEsta(f.key) ? <Equalizador ativo /> : <><b>{i + 1}</b><i>▶</i></>}</span>
+                      <img className="mu-faixa__capa" src={capaDaFaixa(f.key)} alt="" width="48" height="48" loading="lazy" decoding="async" />
+                      <span className="mu-faixa__texto">
+                        <strong>{f.titulo}</strong>
+                        <small>{t('pages.musicas.radio_titulo')}</small>
+                      </span>
                     </button>
                   </li>
                 ))}
                 {soNaRadioTravadas.map(f => (
-                  <li key={f.key}>
-                    <Link to="/assinar" className="if-item mu-exclusiva is-travada">
-                      <span className="if-item__index">🔒</span>
-                      <span className="mu-exclusiva__nome">{f.titulo}<small>{t('pages.musicas.trava_libera', { data: dataCurta(travaDe(f.key)?.liberaEm || '2099-01-01', locale) })}</small></span>
+                  <li key={f.key} className="mu-faixa is-travada">
+                    <Link to="/assinar" className="mu-faixa__tocar">
+                      <span className="mu-faixa__num" aria-hidden="true">🔒</span>
+                      <img className="mu-faixa__capa" src={capaDaFaixa(f.key)} alt="" width="48" height="48" loading="lazy" decoding="async" />
+                      <span className="mu-faixa__texto">
+                        <strong>{f.titulo}</strong>
+                        <small>{t('pages.musicas.trava_libera', { data: dataCurta(travaDe(f.key)?.liberaEm || '2099-01-01', locale) })}</small>
+                      </span>
                     </Link>
                   </li>
                 ))}
