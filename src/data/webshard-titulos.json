@@ -35,6 +35,16 @@
         "tagline_pt": "Especial de fim de ano. Marelia, 1951. Comeram o bolo errado.",
         "tagline_en": "Year-end special. Marelia, 1951. They ate the wrong cake.",
         "tagline_es": "Especial de fin de año. Marelia, 1951. Se comieron el pastel equivocado."
+      },
+      {
+        "id": "especial-de-halloween",
+        "capa": "cap-lutas-de-ilusao-especial-8.webp",
+        "nome_pt": "Especial de Halloween",
+        "nome_en": "Halloween Special",
+        "nome_es": "Especial de Halloween",
+        "tagline_pt": "Uma festa, quatro câmeras e ninguém sai dela.",
+        "tagline_en": "One party, four cameras, and nobody gets out.",
+        "tagline_es": "Una fiesta, cuatro cámaras y nadie sale."
       }
     ]
   },

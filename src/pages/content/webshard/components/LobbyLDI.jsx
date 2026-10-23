@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
-import { capitulosDe, capitulosEspeciais, capitulosPrincipais, rotaTitulo, tituloPorSlug } from '../../../../lib/webshard/catalogo'
+import { capituloTemConteudo, capitulosDe, capitulosEspeciais, capitulosPrincipais, rotaTitulo, tituloPorSlug } from '../../../../lib/webshard/catalogo'
 import { lerProgresso } from '../../../../lib/webshard/progresso'
 import EpisodioCard from './EpisodioCard'
 import './LobbyLDI.css'
@@ -16,7 +16,7 @@ export default function LobbyLDI({ titulo, liberado, dataPara, progresso }) {
 
   const fileiras = [
     { id: 'principal', titulo, caps: capitulosPrincipais(titulo), progresso },
-    { id: 'especiais', titulo, caps: capitulosEspeciais(titulo), progresso },
+    { id: 'especiais', titulo, caps: capitulosEspeciais(titulo).filter(capituloTemConteudo), progresso },
     contos && { id: 'contos', titulo: contos, caps: capitulosDe(contos), progresso: lerProgresso(contos.slug), link: rotaTitulo(contos) },
   ].filter(f => f && f.caps.length)
 

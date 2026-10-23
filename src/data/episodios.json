@@ -331,5 +331,35 @@
     ],
     "pasta": "especial-de-natal/02",
     "serie": "especial-de-natal"
+  },
+  {
+    "creator": false,
+    "especial": true,
+    "sempre_livre": false,
+    "publicado": true,
+    "data_publicacao": "2099-02-15",
+    "so_admin": true,
+    "liberacao": {
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1639
+    ],
+    "id": "especial-8",
+    "numero": 8,
+    "serie": "especial-de-halloween",
+    "parte": 1,
+    "titulo_pt": "Especial de Halloween — Parte 1: Presos na Ilusão",
+    "titulo_en": "Halloween Special — Part 1: Trapped in the Illusion",
+    "titulo_es": "Especial de Halloween — Parte 1: Atrapados en la Ilusión",
+    "paginas": 51,
+    "pasta": "especial-de-halloween/01"
   }
 ]

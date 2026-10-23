@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792790759.336247,
-    "ast_hash": "6c6ed456e1eb6545d0343998f7912991",
+    "mtime": 1792796537.962511,
+    "ast_hash": "1b28810dcf80adaf8404bd66d1100adf",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792790759.3801272,
-    "ast_hash": "b5955abff826d2f7ee2dbe075f23ade9",
+    "mtime": 1792796538.0005136,
+    "ast_hash": "b2e37cf3a986fb0b515b81a3c192b31e",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3605,18 +3605,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1792775267.9085543,
-    "ast_hash": "2cb0b6e173dd664fa39adebf0c3cf885",
+    "mtime": 1792796444.3141644,
+    "ast_hash": "91b7495a4cca1dede5dc1588b2162e34",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1792775267.9503422,
-    "ast_hash": "a6d0db9ddaa93eeff8d7b1783226ad6a",
+    "mtime": 1792796444.323102,
+    "ast_hash": "872e766068bd105af256aba18159f61c",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1792775267.9883633,
-    "ast_hash": "edab71a2ad1eaf2c7aab824a783a25e7",
+    "mtime": 1792796444.2964678,
+    "ast_hash": "be8b679e391ec27fddc4c12a155b6ea4",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -4530,8 +4530,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-titulos.json": {
-    "mtime": 1792778477.8671339,
-    "ast_hash": "d1fbe38a8f9d04414dadaaeed9563df7",
+    "mtime": 1792796444.3241003,
+    "ast_hash": "d16f435be75ee2b45f96a487aa9a1775",
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
@@ -4555,8 +4555,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardHub.jsx": {
-    "mtime": 1791917157.7697413,
-    "ast_hash": "59a9f4dd8945579e1fb8b7656cfa4de3",
+    "mtime": 1792796453.3470404,
+    "ast_hash": "c7b6355f81a5163a7dda765caa14ba5b",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardLeitor.jsx": {
@@ -8620,8 +8620,8 @@
     "semantic_hash": ""
   },
   "src/data/mundo-das-sombras-episodios.json": {
-    "mtime": 1792790747.8892882,
-    "ast_hash": "36d8395c812c8808116015b1597a1848",
+    "mtime": 1792796099.640163,
+    "ast_hash": "8892a9c29fa66e37b9013b11ad86acaf",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mar-de-cinzas-01.webp": {
@@ -9830,8 +9830,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/LobbyLDI.jsx": {
-    "mtime": 1792427187.151929,
-    "ast_hash": "f3dd990cca537d81b353d8842b3734fa",
+    "mtime": 1792796442.088925,
+    "ast_hash": "caeee1d7a612a619b24c9453465e9c6a",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-04.webp": {
@@ -9965,7 +9965,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792790771.49405,
+    "mtime": 1792796563.5902362,
     "ast_hash": "e1886e1751098112c2f497cce731d151",
     "semantic_hash": ""
   },
@@ -10277,6 +10277,11 @@
   "src/assets/webshard/cap-contos-de-ilusao-sonata.webp": {
     "mtime": 1792696681.8209476,
     "ast_hash": "0d5200a0deb7173da631b0d9dcbfdd78",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/EpisodioCard.jsx": {
+    "mtime": 1792796440.4757233,
+    "ast_hash": "0788b8e3c081cb836e51a84429204eef",
     "semantic_hash": ""
   }
 }
