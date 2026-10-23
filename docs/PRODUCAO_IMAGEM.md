@@ -45,6 +45,9 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 - Lista fechada: "Write ONLY the texts listed, each exactly once… No other text." Palavra de ênfase: "EMPHASIS on X" (nunca asterisco).
 - Acentos explícitos no prompt (Á É Ê Í Ó Ú Ã Õ Ç). Nunca hifenizar.
 
+### Fundo transparente no Gemini
+- O Gemini não devolve alpha (sai JPEG; "transparent background" vira xadrez pintado). Para PNG com alpha 0 de verdade: gerar em fundo BRANCO liso, pedir a mesma imagem trocando só o fundo por PRETO liso, e calcular alpha = 1 − (branco − preto). Pedir "pure solid flat white/black, no checkerboard". Usado nos sprites de veículo do Gangues (`assets/veiculos/`).
+
 ### Várias saídas numa chamada (economia de cota)
 - **Página dupla**: 1 imagem 1536×1024 com 2 páginas consecutivas lado a lado (calha preta fina), "LEFT HALF = página N / RIGHT HALF = N+1", recortar ao meio → 2 páginas 768×1024. Metade das chamadas e continuidade melhor (nascem juntas). Testado no MDS cap.1 p.22–23: excelente.
 - Webtoon Canvas aceita 800 px de largura por pedaço → 768 de largura é aceitável.
@@ -71,6 +74,12 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 - Página de AÇÃO (briga, perseguição, tiro, batida) = 2 painéis em diagonal + 2 a 4 estilhaços que quebram o movimento em tempos (preparo, impacto, reação, destroço), com linha de velocidade. Painel único só pra pausa dramática (splash de chegada, gancho). Isaias, 20/10/2026: "cena de ação deveria ter muito estilhaço e muito painel aproveitando pra mostrar movimento".
 - Objeto que já sumiu da história (ex.: o bolo comido no Diabo Vermelho) não entra como referência: a ficha dele faz o modelo desenhar o objeto de volta.
 - Estilhaço é detalhe por cima do painel (olho, mão, expressão, objeto), nunca um painel a mais. Se o roteiro tem estilhaço e a página saiu só com painéis, o prompt não descreveu a forma dele — conferir.
+- **Correção de página pronta** (Isaias aponta o erro):
+  - Página feita no Codex se corrige no Codex. Nunca editar com o Gemini: ele muda o traço, perde nitidez e "apaga" fundo com borrão.
+  - Mudou a composição (tirar gente, cenário, armário; trocar pose) → refazer a página INTEIRA: achar o prompt dela (`prompts_pag*/NNN_pagina.txt`), reescrever a descrição do painel e os textos, gerar de novo com as mesmas fichas + página anterior. Tirar da lista de refs a ficha que puxa o que tem que sumir (ex.: ficha do corredor puxa armário).
+  - Só texto de caixa de narração → pode desenhar a caixa direto por cima da arte original (PIL, mesma cor de neon), sem IA.
+  - Codex sem cota → não trocar de ferramenta: anotar em `PENDENTES_CODEX.md` na pasta do título e rodar quando a cota voltar.
+  - Antes de começar, dizer ao Isaias qual ferramenta vai usar.
 - Publicação: `public/webtoon/<pasta>/<idioma>/NN.webp`; catálogo `src/data/*-episodios.json` + `webshard-titulos.json` + `src/lib/webshard/catalogo.js`. Versões do mesmo capítulo: `versoes` (`<pasta>/<versao>/pt`).
 - Tradução: Nano Banana 2 primeiro (`LAB-NVIDIA/traduz_gemini.py <cap> <EN|ES> <prompts> NN…`, mesmo tamanho do PT), Codex reserva. Adaptar gíria antes; DIX nunca se traduz; ES neutro latino (tuteo). Detalhe e glossário no guia WEB SHARD §10/§17/§26.
 
