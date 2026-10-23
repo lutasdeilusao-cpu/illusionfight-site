@@ -423,8 +423,8 @@ Isaias relata que o desenvolvimento vem desde o ano anterior e que criou a lingu
 | `PagesWebtoon/00/PT/` | Versões do episódio de apresentação, fundos vinho/preto, imagens unificadas, índices, páginas e PSDs | Documenta montagem e experimentação; contém duplicatas/derivados, não 148 páginas narrativas distintas. |
 | `PagesWebtoon/REMAKE 00/` | Arte mais detalhada, mudança de enquadramentos e composição; ainda há áreas vazias e dimensões diferentes | Etapa de transição, não a edição atual de 53 páginas. |
 | `WEBTOON OFICIAL/01–03-2/` | Páginas muito altas, várias faixas e balões, inclusive dimensões 853 × 1844 | Mostra a organização seriada anterior e o problema de densidade que a nova direção procura evitar. “OFICIAL” no nome é histórico. |
-| `WEBSHARD/LDI/01/{PT,EN,ES}/` | Arquivos PNG correspondentes ao lote de idiomas do capítulo disponível no portal | Referência externa mais próxima do produto atual: 53 PT, 53 EN, 52 ES. |
-| `WEBSHARD/LDI/02/` | 64 PNGs; amostras mostram Kim, Pajé, Helena, rotina e estilhaços com bordas coloridas | Produção externa existente, **não publicada pelo catálogo atual**. Contagem de arquivos não prova revisão ou conclusão editorial. |
+| `QUADRINHOS/LUTAS DE ILUSAO/01/{PT,EN,ES}/` | Arquivos PNG correspondentes ao lote de idiomas do capítulo disponível no portal | Referência externa mais próxima do produto atual: 53 PT, 53 EN, 52 ES. |
+| `QUADRINHOS/LUTAS DE ILUSAO/02/` | 64 PNGs; amostras mostram Kim, Pajé, Helena, rotina e estilhaços com bordas coloridas | Produção externa existente, **não publicada pelo catálogo atual**. Contagem de arquivos não prova revisão ou conclusão editorial. |
 
 **Leitura crítica da evolução:** a direção atual reúne o acontecimento principal e seus detalhes numa única composição, usa a cor para reduzir esforço de identificação e reserva texto maior em vez de multiplicar faixas. Essa interpretação visual é coerente com a motivação declarada por Isaias; não é uma reconstrução de conversas antigas não fornecidas.
 
@@ -437,8 +437,8 @@ Raiz pesquisada: `C:\Users\isaia\Downloads\BRANDS\Lutas de Ilusão`. Os caminhos
 | Pasta | Inventário de arquivos |
 |---|---|
 | `WEBSHARD/` | 263 PNGs no total, incluindo LDI, Heróis da Cidade e WEBANIME. |
-| `WEBSHARD/LDI/01/` | 158 PNGs nos três idiomas. |
-| `WEBSHARD/LDI/02/` | 64 PNGs. |
+| `QUADRINHOS/LUTAS DE ILUSAO/01/` | 158 PNGs nos três idiomas. |
+| `QUADRINHOS/LUTAS DE ILUSAO/02/` | 64 PNGs. |
 | `WEBTOON OFICIAL/` | 87 PNGs: 28 em 01, 23 em 02, 10 em 03, 26 em 03-2. |
 | `PagesWebtoon/` | 260 arquivos: 73 PSDs, 112 PNGs, 73 JPGs e 2 scripts Python. |
 | `Webtoon/` | 15 arquivos: 7 PSDs e 8 PNGs. |
@@ -691,7 +691,7 @@ Vídeo é derivação, não substituto do gabarito da página. O handoff registr
 
 O estilo 2D anime citado nos testes de vídeo é uma escolha daquele experimento. Não reclassifica a página WEBSHARD, cuja direção de imagem no handoff é semi-realista detalhada, alto contraste e iluminação dramática.
 
-Heróis da Cidade tem material externo em `WEBSHARD/HeroisDaCidade/`, mas sua aparição nessa pasta não valida as mesmas regras: o handoff pede comédia de uma página, visual cartoon anos 90 e definição independente de formato/neon. No portal, continua sem fonte de capítulos e visível apenas para admin. Mundo das Sombras e Mar de Cinzas também exigem guias próprios; esta documentação não prescreve suas paletas.
+Heróis da Cidade tem material externo em `QUADRINHOS/HEROIS DA CIDADE/`, mas sua aparição nessa pasta não valida as mesmas regras: o handoff pede comédia de uma página, visual cartoon anos 90 e definição independente de formato/neon. No portal, continua sem fonte de capítulos e visível apenas para admin. Mundo das Sombras e Mar de Cinzas também exigem guias próprios; esta documentação não prescreve suas paletas.
 
 ## 19. Fonte e limitações
 
