@@ -5,6 +5,7 @@ import agradecimentosEpisodios from '../../data/agradecimentos-episodios.json'
 import marDeCinzasEpisodios from '../../data/mar-de-cinzas-episodios.json'
 import mundoDasSombrasEpisodios from '../../data/mundo-das-sombras-episodios.json'
 import contosDeIlusaoEpisodios from '../../data/contos-de-ilusao-episodios.json'
+import hashesPaginas from '../../data/webshard-hashes.json'
 
 /* Catálogo WEB SHARD — única porta de entrada para "quais títulos existem,
    quais capítulos cada um tem e onde moram as páginas". A UI nunca lê
@@ -152,7 +153,13 @@ export function idiomaInicial(cap, locale) {
 /** Onde as páginas moram: bucket R2 `webshard`, servido pelo Worker (mesmo caminho de public/webtoon). */
 export const WEBSHARD_CDN = 'https://webshardillusionfight.lutasdeilusao.workers.dev'
 
-// `revisoes` ({ numero: n }) muda a URL da página refeita: o CDN guarda cada arquivo por 1 ano.
+// O CDN guarda cada página por 1 ano: o `?r=` (md5 do arquivo, gravado por scripts/webshard-r2.py
+// a cada deploy) muda o endereço sempre que a página é refeita.
+function urlPagina(chave) {
+  const r = hashesPaginas[chave]
+  return `${WEBSHARD_CDN}/${chave}${r ? `?r=${r}` : ''}`
+}
+
 export function paginasDe(cap, idioma) {
   const formato = cap.formato || 'png'
   const faltando = cap.paginas_faltando?.[idioma] || []
@@ -161,7 +168,7 @@ export function paginasDe(cap, idioma) {
     const lingua = faltando.includes(numero) ? 'pt' : idioma
     return {
       numero,
-      src: `${WEBSHARD_CDN}/${cap.pasta || cap.id}/${lingua}/${String(numero).padStart(2, '0')}.${formato}${cap.revisoes?.[numero] ? `?r=${cap.revisoes[numero]}` : ''}`,
+      src: urlPagina(`${cap.pasta || cap.id}/${lingua}/${String(numero).padStart(2, '0')}.${formato}`),
     }
   })
 }
