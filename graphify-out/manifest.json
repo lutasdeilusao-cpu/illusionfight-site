@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792779914.3430889,
-    "ast_hash": "3dde5315b0460ffe3781c0bf11af6ad3",
+    "mtime": 1792781127.0671334,
+    "ast_hash": "54f866a0e2e1514d3ea8b922c83b6c54",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2485,8 +2485,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792507861.0186615,
-    "ast_hash": "4c7b7b14763347548d6f99d2b5ec9a9b",
+    "mtime": 1792781054.5445023,
+    "ast_hash": "c9e3be333ad3abf190ebaaf3b3762ae6",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2525,12 +2525,12 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792779914.3845506,
-    "ast_hash": "13c222a2c3fe5852d05763b8c78bcd53",
+    "mtime": 1792781127.0991335,
+    "ast_hash": "23071175b80363f471676f9bc5e11d5c",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
-    "mtime": 1790740250.8172743,
+    "mtime": 1792781054.5865028,
     "ast_hash": "ae6f4f9427f4689c2e7949d422cc3d48",
     "semantic_hash": ""
   },
@@ -7145,8 +7145,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1792430125.613046,
-    "ast_hash": "36c8bd46ed74e769f22b882a222742ba",
+    "mtime": 1792781054.7760239,
+    "ast_hash": "189ce713e68e35c74a497c1daac25ed7",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesBagEquip.jsx": {
@@ -7225,8 +7225,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/HDC_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1791598447.74663,
-    "ast_hash": "3b1c9d155b2037e63c4a7563ff19c0e5",
+    "mtime": 1792781054.7390237,
+    "ast_hash": "9ce8dabb9699354e4246772e90956bdb",
     "semantic_hash": ""
   },
   "src/data/herois-episodios.json": {
@@ -9540,13 +9540,13 @@
     "semantic_hash": ""
   },
   "docs/PRODUCAO_IMAGEM.md": {
-    "mtime": 1792770055.8177433,
-    "ast_hash": "3754a817240012be7e3421b1b53ab7dc",
+    "mtime": 1792781054.6680243,
+    "ast_hash": "c573ab1e901ccc89216de1a25809ddd9",
     "semantic_hash": ""
   },
   "docs/T1_PENDENCIAS.md": {
-    "mtime": 1791953989.3304734,
-    "ast_hash": "8931e835016499ab0aa736b144743c7d",
+    "mtime": 1792781054.7010238,
+    "ast_hash": "1be9b50b9e2c8000608f19be882df490",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/data/scenes/en/act1.json": {
@@ -9910,8 +9910,8 @@
     "semantic_hash": ""
   },
   "scripts/halloween_producao.py": {
-    "mtime": 1792443634.3924198,
-    "ast_hash": "195656f159450190a1b6afa328ced465",
+    "mtime": 1792781096.397992,
+    "ast_hash": "aa3a5f73f1f97f33338586ded4d7fe7d",
     "semantic_hash": ""
   },
   "docs/WEBSHARD/Especiais/HALLOWEEN_CONTINUIDADE.json": {
@@ -9965,7 +9965,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792779919.44016,
+    "mtime": 1792781141.8757937,
     "ast_hash": "572fd759018563f8917c1e3485e4dbf2",
     "semantic_hash": ""
   },
