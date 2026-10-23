@@ -37,6 +37,7 @@ import { getGanguesAttributesWithEquip, getGanguesEquip } from '../data/ganguesE
 import useGanguesBrigaAutomatica from '../hooks/useGanguesBrigaAutomatica.js'
 import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos, posNoMapa } from '../engine/ganguesCenaMotor.js'
 import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
+import GanguesPerseguidor from '../components/cena/GanguesPerseguidor.jsx'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
 import useGanguesEncontroAleatorio from '../hooks/useGanguesEncontroAleatorio.js'
 import useGanguesTrem from '../hooks/useGanguesTrem.js'
@@ -541,7 +542,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
           "voando" até x=332 na rua gigante), um glitch visual de "cair num
           lugar vazio" antes de assentar no lugar certo. key força remontar
           (sem animação) toda vez que entra/sai de um interior. */}
-      {!local && aleatorio.perseguidor && <div className={`gang-world-perseguidor is-${ALEATORIO_TIPOS[aleatorio.perseguidor.tipo]?.cor}`} style={{ left: aleatorio.perseguidor.x, top: aleatorio.perseguidor.y }}><span /><small>{t(`games.gangues.cena.aleatorio.${aleatorio.perseguidor.tipo}.nome`)}</small></div>}
+      {!local && aleatorio.perseguidor && <GanguesPerseguidor perseguidor={aleatorio.perseguidor} t={t} />}
       <GangMarker key={local ? `${local.id}-${local.comodo}` : 'rua'} player={player} facing={facing} gangName={store.gangName} retrato={getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)} />
     </div><div className="gang-cena-vignette" />{noEscuro && <div className="gang-cena-apagao" style={{ '--px': `${player.x - camX}px`, '--py': `${player.y - camY}px` }} aria-hidden="true" />}{!local && (aleatorio.perseguidor?.tipo === 'policia' || aleatorio.onomatopeia === 'policia') && <div className="gang-cena-sirene" aria-hidden="true" />}{!local && cena.respeito && !prog.boss && <BarraRespeito cena={cena} prog={prog} t={t} />}{!local && cena.linhas && !prog.boss && <BarraLinhas cena={cena} cenaProgresso={store.cenaProgresso} t={t} />}{!local && cena.caderno && !prog.boss && <BarraCaderno cena={cena} prog={prog} flags={store.storyProgress.__flags || {}} t={t} />}{cena.alerta && !prog.boss && <BarraAlerta cena={cena} n={alertaDaCena(cena, store.storyProgress)} t={t} />}{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && cena.muro && player.y < cena.muro.aviso && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? cena.textos.muroPassagem : cena.textos.bossTrancado)}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <GanguesCarregando duracao={CARREGANDO_MS} />}</AnimatePresence></div>
     {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}

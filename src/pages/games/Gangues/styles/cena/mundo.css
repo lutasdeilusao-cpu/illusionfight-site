@@ -183,11 +183,11 @@
 .gang-world-auto.is-on i b { transform:translateX(24px);background:var(--terr-cor); }
 @media(prefers-reduced-motion:reduce){.gang-world-auto i,.gang-world-auto i b{transition:none}.gang-cena-world{transition:none}.gang-world-player>span,.gang-world-npc>span,.gang-world-npc-farm-tag,.gang-world-npc.is-perto>span,.gang-world-npc.is-nav.is-perto>span,.gang-world-npc.mov-anda>span,.gang-world-npc-passo img,.gang-world-npc-passo{animation:none}}
 
-/* ── Encontro aleatório: o perseguidor (26/09/2026) ──
-   Por enquanto uma bolinha colorida por tipo (arte da moto/viatura vem depois):
-   amarela = dois numa moto, azul = a ronda, vermelha = bonde rival,
-   roxa = o cobrador da Banca. O anel pulsa pra ser visto de longe. A posição
-   (left/top) vem do pathfinding, passo a passo — a transição suaviza. */
+/* ── Encontro aleatório: o perseguidor ──
+   A moto e a viatura são sprites vistos de cima (.is-veiculo); os outros são
+   uma bolinha colorida por tipo: vermelha = bonde rival, roxa = o cobrador da
+   Banca. O anel pulsa pra ser visto de longe. A posição (left/top) vem do
+   pathfinding, passo a passo — a transição suaviza. */
 .gang-world-perseguidor{position:absolute;z-index:17;transform:translate(-50%,-50%);display:grid;justify-items:center;pointer-events:none;transition:left .09s linear,top .09s linear;--perseg:var(--if-amber)}
 .gang-world-perseguidor.is-azul{--perseg:#3d8bff}
 .gang-world-perseguidor.is-vermelha{--perseg:var(--if-danger)}
@@ -199,7 +199,19 @@
 .gang-world-perseguidor>span::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--perseg);opacity:.8;animation:gang-perseg-anel 1s ease-out infinite}
 @keyframes gang-perseg-anel{from{transform:scale(.7);opacity:.9}to{transform:scale(1.5);opacity:0}}
 .gang-world-perseguidor small{margin-top:3px;padding:2px 5px;background:#02080bcc;color:var(--perseg);font:800 .5rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-@media(prefers-reduced-motion:reduce){.gang-world-perseguidor{transition:none}.gang-world-perseguidor>span::after{animation:none}}
+/* Veículo: folha de 2 quadros (assets/veiculos/), apontando pra cima; gira pro
+   lado em que anda (dir-n/l/s/o) e alterna os quadros (escapamento / giroflex). */
+.gang-world-perseguidor.is-veiculo>i{display:block;width:var(--veic-w);height:var(--veic-h);background:0 0/200% 100% no-repeat;image-rendering:pixelated;filter:drop-shadow(0 4px 4px rgba(0,0,0,.55)) drop-shadow(0 0 8px var(--perseg));transition:transform .18s ease-out;animation:gang-veic-quadro .36s steps(1) infinite}
+.gang-world-perseguidor.veiculo-moto{--veic-w:24px;--veic-h:52px}
+.gang-world-perseguidor.veiculo-moto>i{background-image:url('../../assets/veiculos/moto.png')}
+.gang-world-perseguidor.veiculo-policia{--veic-w:34px;--veic-h:63px}
+.gang-world-perseguidor.veiculo-policia>i{background-image:url('../../assets/veiculos/viatura.png')}
+.gang-world-perseguidor.dir-l>i{transform:rotate(90deg)}
+.gang-world-perseguidor.dir-s>i{transform:rotate(180deg)}
+.gang-world-perseguidor.dir-o>i{transform:rotate(-90deg)}
+.gang-world-perseguidor.is-veiculo small{margin-top:6px}
+@keyframes gang-veic-quadro{0%{background-position:0 0}50%{background-position:100% 0}}
+@media(prefers-reduced-motion:reduce){.gang-world-perseguidor{transition:none}.gang-world-perseguidor>span::after{animation:none}.gang-world-perseguidor.is-veiculo>i{animation:none;transition:none}}
 
 /* Marca de chão: onde se interage com um pino que mora dentro do prédio (ver ZonaChao). */
 .gang-cena-zona-chao { position:absolute; z-index:4; pointer-events:none; border:2px dashed var(--gang-branco); background:rgba(255,255,255,.08); animation:gang-zona-chao 1.4s ease-in-out infinite; }
