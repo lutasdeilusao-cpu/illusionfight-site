@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792778298.1385427,
-    "ast_hash": "95985a4bf8e1f896b83ae3ab772dfb0b",
+    "mtime": 1792778520.8931026,
+    "ast_hash": "aa408a798c705fb4fe0fce01a0c1e08d",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792778298.182236,
-    "ast_hash": "540c3839b47cc985e0227259eb464bbc",
+    "mtime": 1792778520.929222,
+    "ast_hash": "4aa419b64a0561e313331fae3e53aab3",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4530,8 +4530,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-titulos.json": {
-    "mtime": 1792696752.9638305,
-    "ast_hash": "ca244d0f5769148f8d69c7db4ba4d190",
+    "mtime": 1792778477.8671339,
+    "ast_hash": "d1fbe38a8f9d04414dadaaeed9563df7",
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
@@ -8630,13 +8630,13 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-01.webp": {
-    "mtime": 1792537443.726984,
-    "ast_hash": "7c528a53bfa495a91dfca286811f6af1",
+    "mtime": 1792778519.2867618,
+    "ast_hash": "350013c5409bd5c63d77edee525060c4",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-02.webp": {
-    "mtime": 1792537443.899541,
-    "ast_hash": "e8824293488fef5563a650679398ce21",
+    "mtime": 1792778519.4782097,
+    "ast_hash": "88376eac748e4cb0f0b32bf394b95ae7",
     "semantic_hash": ""
   },
   "src/assets/webshard/capa-mar-de-cinzas.webp": {
@@ -9820,8 +9820,8 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-03.webp": {
-    "mtime": 1792537444.085991,
-    "ast_hash": "9a0b3e989f381ad72b60138b023497c9",
+    "mtime": 1792778519.6677473,
+    "ast_hash": "694856e43ccb8c0e65dcfaf774540619",
     "semantic_hash": ""
   },
   "especial.py": {
@@ -9835,13 +9835,13 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-04.webp": {
-    "mtime": 1792537444.2665215,
-    "ast_hash": "d466848e6a17c524143bbb8ce28b8c28",
+    "mtime": 1792778519.862933,
+    "ast_hash": "9a1a94bdb90cebd9d5eb031fc3663a18",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-05.webp": {
-    "mtime": 1792537444.4590325,
-    "ast_hash": "d1630b4c975b7f559dd70064173abffb",
+    "mtime": 1792778520.0725257,
+    "ast_hash": "28a76ca1a49b160b54efea991d331191",
     "semantic_hash": ""
   },
   "src/pages/painel/PainelProjeto.jsx": {
@@ -9880,23 +9880,23 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-06.webp": {
-    "mtime": 1792537444.6373103,
-    "ast_hash": "578faf2a5c8c427d29df99ba5f88e970",
+    "mtime": 1792778520.267222,
+    "ast_hash": "714eacb26bddb77c474a97cb62764677",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-07.webp": {
-    "mtime": 1792537444.763355,
-    "ast_hash": "07917a8253a492983ab9cc7bc51120bf",
+    "mtime": 1792778520.4544418,
+    "ast_hash": "ac0346b0c0d4b87e45735cab98789973",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-08.webp": {
-    "mtime": 1792537444.9627218,
-    "ast_hash": "a61642866ff6907ce6f2aa829c803f91",
+    "mtime": 1792778520.6537676,
+    "ast_hash": "fbe924719c024c3ca51f6783ab6db468",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-09.webp": {
-    "mtime": 1792537445.135522,
-    "ast_hash": "816b0fbe82862338e7bce0b9788b69af",
+    "mtime": 1792778520.8519702,
+    "ast_hash": "209c2928dee45fe0614d4f7720adf704",
     "semantic_hash": ""
   },
   "src/assets/webshard/capa-diabo-vermelho.webp": {
@@ -9965,7 +9965,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792778327.5656016,
+    "mtime": 1792778544.1866674,
     "ast_hash": "6c45db3c288c0159707a191991079449",
     "semantic_hash": ""
   },
