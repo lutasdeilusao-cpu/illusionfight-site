@@ -1,77 +1,41 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
-import { capitulosEspeciais, capitulosPrincipais, imagemWebshard, localizado } from '../../../../lib/webshard/catalogo'
-import { listarHistorias } from '../../../../lib/historias/catalogo'
-import CarrosselLento from '../../../../components/CarrosselLento/CarrosselLento'
-import CapituloLinha from './CapituloLinha'
+import { capitulosDe, capitulosEspeciais, capitulosPrincipais, rotaTitulo, tituloPorSlug } from '../../../../lib/webshard/catalogo'
+import { lerProgresso } from '../../../../lib/webshard/progresso'
+import EpisodioCard from './EpisodioCard'
 import './LobbyLDI.css'
 
-/** Lobby do Lutas de Ilusão, estilo streaming: fileiras de capas que rolam de lado.
- *  Séries (linha principal + especiais com `serie`) abrem a lista de capítulos
- *  embaixo só quando escolhidas; contos levam pra página de cada conto. */
-export default function LobbyLDI({ titulo, liberado, previa, dataPara, nivel, progresso }) {
-  const { t, locale } = useLanguage()
-  const [escolhida, setEscolhida] = useState(null)
+/** Lobby do Lutas de Ilusão, estilo streaming. Três fileiras, cada uma com
+ *  uma frase dizendo o que é: a linha principal, os especiais e os contos em
+ *  quadrinho (o título `contos-de-ilusao`, que mora dentro deste). Cada capa
+ *  abre a leitura direto; o que ainda não saiu aparece em preto e branco. */
+export default function LobbyLDI({ titulo, liberado, dataPara, progresso }) {
+  const { t } = useLanguage()
+  const contos = useMemo(() => tituloPorSlug('contos-de-ilusao', { isAdmin: true, soAdmin: true }), [])
 
-  const series = useMemo(() => {
-    const principal = { id: 'principal', capa: titulo.capa, nome: t('webShard.lobby.principal'), tagline: localizado(titulo, 'tagline', locale), caps: capitulosPrincipais(titulo) }
-    const especiais = (titulo.series || []).map(s => ({
-      id: s.id, capa: s.capa, nome: localizado(s, 'nome', locale), tagline: localizado(s, 'tagline', locale),
-      caps: capitulosEspeciais(titulo).filter(c => c.serie === s.id),
-    })).filter(s => s.caps.some(c => liberado(c) || previa(c)))
-    return [principal, ...especiais]
-  }, [titulo, locale, t, liberado, previa])
-  const contos = useMemo(() => listarHistorias('conto'), [])
-  const atual = series.find(s => s.id === escolhida)
+  const fileiras = [
+    { id: 'principal', titulo, caps: capitulosPrincipais(titulo), progresso },
+    { id: 'especiais', titulo, caps: capitulosEspeciais(titulo), progresso },
+    contos && { id: 'contos', titulo: contos, caps: capitulosDe(contos), progresso: lerProgresso(contos.slug), link: rotaTitulo(contos) },
+  ].filter(f => f && f.caps.length)
 
   return (
     <div className="lobby-ldi">
-      <section className="lobby-ldi__fileira">
-        <h2 className="lobby-ldi__h2">{t('webShard.lobby.series')}</h2>
-        <CarrosselLento trilhoClassName="lobby-ldi__trilho" intervalo={0}>
-          {series.map(s => (
-            <button key={s.id} type="button" className={`lobby-ldi__poster${escolhida === s.id ? ' is-ativo' : ''}`} onClick={() => setEscolhida(escolhida === s.id ? null : s.id)}>
-              {imagemWebshard(s.capa) && <img src={imagemWebshard(s.capa)} alt="" loading="lazy" decoding="async" />}
-              <span className="lobby-ldi__poster-info">
-                <span className="lobby-ldi__poster-nome">{s.nome}</span>
-                <span className="lobby-ldi__poster-sub">{s.tagline}</span>
-              </span>
-            </button>
-          ))}
-        </CarrosselLento>
-      </section>
-
-      {atual ? (
-        <section className="lobby-ldi__caps">
-          <div className="lobby-ldi__caps-cabeca">
-            <h2 className="lobby-ldi__h2">{atual.nome}</h2>
-            <span className="lobby-ldi__total">{t('webShard.titulo.total_caps', { n: atual.caps.filter(c => c.paginas).length })}</span>
+      {fileiras.map(f => (
+        <section key={f.id} className="lobby-ldi__fileira">
+          <div className="lobby-ldi__cabeca">
+            <h2 className="lobby-ldi__h2">{t(`webShard.lobby.${f.id}`)}</h2>
+            {f.link && <Link to={f.link} className="lobby-ldi__ver">{t('webShard.lobby.ver_tudo')} ›</Link>}
           </div>
-          <div className="lobby-ldi__lista if-stagger">
-            {atual.caps.map(cap => (
-              <CapituloLinha key={cap.id} titulo={titulo} cap={cap} liberado={liberado(cap)} data={dataPara(cap)} nivel={nivel} progresso={progresso} previa={previa(cap)} />
+          <p className="lobby-ldi__sub">{t(`webShard.lobby.${f.id}_sub`)}</p>
+          <div className="lobby-ldi__trilho">
+            {f.caps.map(cap => (
+              <EpisodioCard key={cap.id} titulo={f.titulo} cap={cap} liberado={liberado(cap)} data={dataPara(cap)} progresso={f.progresso} />
             ))}
           </div>
         </section>
-      ) : (
-        <p className="lobby-ldi__dica">{t('webShard.lobby.escolha')}</p>
-      )}
-
-      <section className="lobby-ldi__fileira">
-        <h2 className="lobby-ldi__h2">{t('webShard.lobby.contos')}</h2>
-        <CarrosselLento trilhoClassName="lobby-ldi__trilho" intervalo={0}>
-          {contos.map(c => (
-            <Link key={c.id} to={c.rota} className="lobby-ldi__poster lobby-ldi__poster--conto">
-              {c.capa && <img src={c.capa} alt="" loading="lazy" decoding="async" />}
-              <span className="lobby-ldi__poster-info">
-                <span className="lobby-ldi__poster-nome">{localizado(c, 'nome', locale)}</span>
-                <span className="lobby-ldi__poster-sub">{localizado(c, 'tagline', locale)}</span>
-              </span>
-            </Link>
-          ))}
-        </CarrosselLento>
-      </section>
+      ))}
     </div>
   )
 }

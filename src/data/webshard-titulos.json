@@ -59,7 +59,8 @@
     "capa": "capa-contos-de-ilusao.webp",
     "status": "em_andamento",
     "visivel": "previa",
-    "fonte_capitulos": "contos-de-ilusao"
+    "fonte_capitulos": "contos-de-ilusao",
+    "dentro_de": "lutas-de-ilusao"
   },
   {
     "id": 5,

@@ -23,7 +23,8 @@ export default function WebshardHub() {
   const { isAdmin, veOculto, nivel, liberado, previa, dataPara } = useWebshardAcesso()
   const [progresso] = useState(() => ultimoProgresso())
 
-  const titulos = listarTitulos({ isAdmin: veOculto, soAdmin: isAdmin })
+  // Título que mora dentro de outro (`dentro_de`, ex. os contos dentro do Lutas de Ilusão) não vai pra estante.
+  const titulos = listarTitulos({ isAdmin: veOculto, soAdmin: isAdmin }).filter(tt => !tt.dentro_de)
   const destaque = titulos.find(tt => tt.status !== 'em_breve') || titulos[0]
   const progressoDestaque = destaque ? lerProgresso(destaque.slug) : null
   const tituloProgresso = progresso ? tituloPorSlug(progresso.slug, { isAdmin: veOculto, soAdmin: isAdmin }) : null

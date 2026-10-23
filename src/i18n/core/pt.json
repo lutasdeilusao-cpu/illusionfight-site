@@ -1241,10 +1241,13 @@
       "oficial": "Lançamento oficial"
     },
     "lobby": {
-      "principal": "Lutas de Ilusão · Temporada 1",
-      "series": "Séries",
-      "contos": "Contos de Ilusão",
-      "escolha": "Escolha uma série pra ver os capítulos."
+      "principal": "Linha principal · Temporada 1",
+      "principal_sub": "A história de Kim, Jack e Nina na arena de Marélia, capítulo por capítulo. Comece pelo 01.",
+      "especiais": "Especiais",
+      "especiais_sub": "Histórias fechadas do mesmo elenco, fora da linha principal. Dá pra ler em qualquer ordem.",
+      "contos": "Contos em quadrinho",
+      "contos_sub": "Outros personagens do mesmo universo, em histórias completas.",
+      "ver_tudo": "Ver tudo"
     }
   },
   "calendar": {

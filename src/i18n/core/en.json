@@ -1241,10 +1241,13 @@
       "oficial": "Official release"
     },
     "lobby": {
-      "principal": "Illusion Fight · Season 1",
-      "series": "Series",
-      "contos": "Illusion Tales",
-      "escolha": "Pick a series to see its chapters."
+      "principal": "Main story · Season 1",
+      "principal_sub": "Kim, Jack and Nina's story in the Marélia arena, chapter by chapter. Start with 01.",
+      "especiais": "Specials",
+      "especiais_sub": "Standalone stories with the same cast, outside the main story. Read them in any order.",
+      "contos": "Comic tales",
+      "contos_sub": "Other characters from the same universe, in complete stories.",
+      "ver_tudo": "See all"
     }
   },
   "calendar": {
