@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792775727.67932,
-    "ast_hash": "6df1efc03aaaf81362c7d598d97deee1",
+    "mtime": 1792776370.1377375,
+    "ast_hash": "bc6a9ac030e7177b25d940033692b742",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792775727.7217457,
-    "ast_hash": "f49454ef74310928ae376c64729e695f",
+    "mtime": 1792776370.1814063,
+    "ast_hash": "1cb1db87bb2ccd815668bf60d63c6a61",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9975,7 +9975,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792775809.6784067,
+    "mtime": 1792776398.078465,
     "ast_hash": "92ac12a46525e053eec110e8b90c1282",
     "semantic_hash": ""
   },
@@ -9985,8 +9985,8 @@
     "semantic_hash": ""
   },
   "src/lib/capaMusica.js": {
-    "mtime": 1792775713.0463889,
-    "ast_hash": "30fa6eb27fb5346c93c8330886018382",
+    "mtime": 1792776342.6331644,
+    "ast_hash": "981669d34f4dc900d2dd007c95e52876",
     "semantic_hash": ""
   },
   "src/assets/images/music/capas/a-garota-de-fora.webp": {
@@ -10187,6 +10187,101 @@
   "src/assets/images/music/capas/vilanesca.webp": {
     "mtime": 1792775680.757867,
     "ast_hash": "0bdbb4e5416fe7518ce5fa0f2cfeb9ea",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/all-i-see-is-freeze.webp": {
+    "mtime": 1792776192.8739285,
+    "ast_hash": "21d41cde0aebab482c82f69860761f4a",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/andando-por-voce-original.webp": {
+    "mtime": 1792776192.9785461,
+    "ast_hash": "fda1be1122d5ea9ca9225b272f54bc63",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/andando-por-voce-radio.webp": {
+    "mtime": 1792776274.5337217,
+    "ast_hash": "4c25debe2ebbb269eb5d55c22d0848aa",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/andando-por-voce-remix.webp": {
+    "mtime": 1792776193.0865402,
+    "ast_hash": "e22b431f9e72e34763c5f7b3236862f5",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/asilo-star-pop.webp": {
+    "mtime": 1792776193.1955683,
+    "ast_hash": "f1c6207ed516a9ec16229ec9f7ce3c30",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/asilo-star-rock.webp": {
+    "mtime": 1792776193.3002996,
+    "ast_hash": "9672dd40337b04d219fab6839c2a255d",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/deixa-essa-night-rolar-version-2.webp": {
+    "mtime": 1792776193.3947487,
+    "ast_hash": "2235a6566a319bbe70f35f4689897fe5",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/felicidade-que-eu-nao-procurava-radio.webp": {
+    "mtime": 1792776274.6399238,
+    "ast_hash": "d54104cf7de4f34ae4659f007d60e908",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/illusion-fight-opening.webp": {
+    "mtime": 1792776193.493824,
+    "ast_hash": "8dcf5cc4a57dc5cdc767508386bb261b",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/inevitave.webp": {
+    "mtime": 1792776193.5910294,
+    "ast_hash": "8267af39fdeda32335ee02acad1bf6ff",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/luchas-de-ilusion-opening.webp": {
+    "mtime": 1792776193.687759,
+    "ast_hash": "25cd69984798f8954ad8c9bb08933844",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/lutas-de-ilusao-opening.webp": {
+    "mtime": 1792776193.78233,
+    "ast_hash": "560f5206308bcae82a140f4b65c6e208",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/meu-lugar-radio.webp": {
+    "mtime": 1792776274.7536657,
+    "ast_hash": "6df6dc84be02c14e43d6937b1ed8d458",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/so-mais-um-round-radio.webp": {
+    "mtime": 1792776274.8416195,
+    "ast_hash": "efee262bb8bd82446eee559270f6fb4e",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/sorte-minha-lucky-me.webp": {
+    "mtime": 1792776193.8746183,
+    "ast_hash": "faa0e173954b373e3cca3bfcee105d85",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/todo-lo-que-veo-es-freeze.webp": {
+    "mtime": 1792776193.984788,
+    "ast_hash": "48e0aaf9efac00bc0df0c4775cd7d047",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/tudo-que-sinto-e-love-radio.webp": {
+    "mtime": 1792776274.9439313,
+    "ast_hash": "5fb214886c8b09fec3e2366e2462526e",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/tudo-que-vejo-e-freeze-radio.webp": {
+    "mtime": 1792776194.0894713,
+    "ast_hash": "8cec8798da1ca4505c4caf6867208d1e",
+    "semantic_hash": ""
+  },
+  "src/assets/images/music/capas/vilanesca-version-2.webp": {
+    "mtime": 1792776194.1865387,
+    "ast_hash": "82dc9a94080425fa1f7e1c9f40901a3f",
     "semantic_hash": ""
   }
 }
