@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792796537.962511,
-    "ast_hash": "1b28810dcf80adaf8404bd66d1100adf",
+    "mtime": 1792796867.702507,
+    "ast_hash": "a477a1396855e130b00821f35ef1d80a",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1792595759.3908372,
-    "ast_hash": "ec6e2d85308366385324badc3c8de871",
+    "mtime": 1792796867.6073544,
+    "ast_hash": "3a77be0321e47da232ddd6afd9c48541",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792796538.0005136,
-    "ast_hash": "b2e37cf3a986fb0b515b81a3c192b31e",
+    "mtime": 1792796867.744511,
+    "ast_hash": "91f3d5f2816d3a58314c49dd74bdeca8",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4530,8 +4530,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-titulos.json": {
-    "mtime": 1792796444.3241003,
-    "ast_hash": "d16f435be75ee2b45f96a487aa9a1775",
+    "mtime": 1792796850.7341113,
+    "ast_hash": "429fac7aacfe119ddbcdabba2b3d106b",
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
@@ -9830,8 +9830,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/LobbyLDI.jsx": {
-    "mtime": 1792796442.088925,
-    "ast_hash": "caeee1d7a612a619b24c9453465e9c6a",
+    "mtime": 1792796867.637507,
+    "ast_hash": "f282301d134e128eb3e9532760d34343",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-04.webp": {
@@ -9965,8 +9965,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792796563.5902362,
-    "ast_hash": "e1886e1751098112c2f497cce731d151",
+    "mtime": 1792796918.6801503,
+    "ast_hash": "32cab3e08480eeae378a8a9b2d5c822d",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
@@ -10282,6 +10282,11 @@
   "src/pages/content/webshard/components/EpisodioCard.jsx": {
     "mtime": 1792796440.4757233,
     "ast_hash": "0788b8e3c081cb836e51a84429204eef",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-especial-8.webp": {
+    "mtime": 1792796850.7321079,
+    "ast_hash": "8602301c06856fe085e49ba107cc0f44",
     "semantic_hash": ""
   }
 }

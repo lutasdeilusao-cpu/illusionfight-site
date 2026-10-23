@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { capituloTemConteudo, capitulosDe, capitulosEspeciais, capitulosPrincipais, rotaTitulo, tituloPorSlug } from '../../../../lib/webshard/catalogo'
 import { lerProgresso } from '../../../../lib/webshard/progresso'
+import CarrosselLento from '../../../../components/CarrosselLento/CarrosselLento'
 import EpisodioCard from './EpisodioCard'
 import './LobbyLDI.css'
 
@@ -29,11 +30,11 @@ export default function LobbyLDI({ titulo, liberado, dataPara, progresso }) {
             {f.link && <Link to={f.link} className="lobby-ldi__ver">{t('webShard.lobby.ver_tudo')} ›</Link>}
           </div>
           <p className="lobby-ldi__sub">{t(`webShard.lobby.${f.id}_sub`)}</p>
-          <div className="lobby-ldi__trilho">
+          <CarrosselLento trilhoClassName="lobby-ldi__trilho" intervalo={0}>
             {f.caps.map(cap => (
               <EpisodioCard key={cap.id} titulo={f.titulo} cap={cap} liberado={liberado(cap)} data={dataPara(cap)} progresso={f.progresso} />
             ))}
-          </div>
+          </CarrosselLento>
         </section>
       ))}
     </div>
