@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792725096.2905116,
-    "ast_hash": "e68c3b7e07aed737460ce28c8886efa9",
+    "mtime": 1792725557.9292245,
+    "ast_hash": "401720b568b3314c1aec4f7d6cbea6a2",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792725096.6246421,
-    "ast_hash": "4a97cac37eb9970ca8aab0ab96f351d0",
+    "mtime": 1792725558.257325,
+    "ast_hash": "b3f21b26a6f5e012598aa10248cb8293",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4540,8 +4540,8 @@
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
-    "mtime": 1792696752.9805367,
-    "ast_hash": "6774dbb784e1e5a74b6b3a03f4dc3fe4",
+    "mtime": 1792725358.1482978,
+    "ast_hash": "48bd960948af0fcfdd6fa683b23deec2",
     "semantic_hash": ""
   },
   "src/lib/webshard/progresso.js": {
@@ -8620,8 +8620,8 @@
     "semantic_hash": ""
   },
   "src/data/mundo-das-sombras-episodios.json": {
-    "mtime": 1792537445.232054,
-    "ast_hash": "3ba2cb18e0a4d8c3e19a4f7b74aeaf92",
+    "mtime": 1792725344.9864457,
+    "ast_hash": "f452773317ce97bfb953708e0ab5081b",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mar-de-cinzas-01.webp": {
@@ -9875,8 +9875,8 @@
     "semantic_hash": ""
   },
   "scripts/webshard-r2.py": {
-    "mtime": 1792092339.746328,
-    "ast_hash": "429b134d6e23821ebdbfe093c5c2cd97",
+    "mtime": 1792725375.167029,
+    "ast_hash": "954748d59e39dd6af70bd40e1ab5f8df",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-06.webp": {
@@ -9955,8 +9955,8 @@
     "semantic_hash": ""
   },
   "src/data/contos-de-ilusao-episodios.json": {
-    "mtime": 1792725095.9451637,
-    "ast_hash": "ec159e9eac45ec4f2e65a9011f921f12",
+    "mtime": 1792725344.9864457,
+    "ast_hash": "6083802c14023f60c291f18020049a43",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-contos-de-ilusao-sonata-1.webp": {
@@ -9972,6 +9972,11 @@
   "src/assets/webshard/capa-contos-de-ilusao.webp": {
     "mtime": 1792696692.4596775,
     "ast_hash": "665bf102d0971f601b9402335c5c4e3d",
+    "semantic_hash": ""
+  },
+  "src/data/webshard-hashes.json": {
+    "mtime": 1792725564.8794074,
+    "ast_hash": "e58d61b3c4135de0235e4cab9cf5efb4",
     "semantic_hash": ""
   }
 }

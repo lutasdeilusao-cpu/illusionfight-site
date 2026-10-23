@@ -304,13 +304,53 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
+      "label": "webshard-r2.py",
+      "file_type": "code",
+      "source_file": "scripts/webshard-r2.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_webshard_r2",
+      "community": 829,
+      "norm_label": "webshard-r2.py"
+    },
+    {
+      "label": "cliente()",
+      "file_type": "code",
+      "source_file": "scripts/webshard-r2.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "scripts_webshard_r2_cliente",
+      "community": 829,
+      "norm_label": "cliente()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/webshard-r2.py",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "scripts_webshard_r2_main",
+      "community": 829,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Sobe as p\u00e1ginas do WEB SHARD (public/webtoon) pro bucket R2 `webshard`.  O sit",
+      "file_type": "rationale",
+      "source_file": "scripts/webshard-r2.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_webshard_r2_rationale_1",
+      "community": 829,
+      "norm_label": "sobe as paginas do web shard (public/webtoon) pro bucket r2 `webshard`.  o sit"
+    },
+    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_config_version",
-      "community": 533,
+      "community": 289,
       "norm_label": "version.js"
     },
     {
@@ -327,7 +367,7 @@
       "label": "CAPITULOS_MOVIDOS",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_capitulos_movidos",
       "community": 499,
@@ -337,7 +377,7 @@
       "label": "capituloMovido()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_capitulomovido",
       "community": 499,
@@ -347,7 +387,7 @@
       "label": "imagens",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_imagens",
       "community": 499,
@@ -357,7 +397,7 @@
       "label": "imagemPorNome",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_imagempornome",
       "community": 499,
@@ -367,7 +407,7 @@
       "label": "FONTES",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_fontes",
       "community": 499,
@@ -377,7 +417,7 @@
       "label": "localizado()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L43",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_localizado",
       "community": 499,
@@ -387,7 +427,7 @@
       "label": "imagemWebshard()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L48",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_imagemwebshard",
       "community": 499,
@@ -397,7 +437,7 @@
       "label": "miniaturaCapitulo()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L54",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_miniaturacapitulo",
       "community": 499,
@@ -407,7 +447,7 @@
       "label": "listarTitulos()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L65",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_listartitulos",
       "community": 499,
@@ -417,7 +457,7 @@
       "label": "tituloPorSlug()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L69",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_tituloporslug",
       "community": 499,
@@ -427,7 +467,7 @@
       "label": "abrirVersoes()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L76",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_abrirversoes",
       "community": 499,
@@ -437,7 +477,7 @@
       "label": "capitulosDe()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L91",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_capitulosde",
       "community": 499,
@@ -447,7 +487,7 @@
       "label": "capituloPorId()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L97",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_capituloporid",
       "community": 499,
@@ -457,7 +497,7 @@
       "label": "capituloTemConteudo()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L102",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_capitulotemconteudo",
       "community": 499,
@@ -467,7 +507,7 @@
       "label": "rotaTitulo()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L106",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_rotatitulo",
       "community": 499,
@@ -477,7 +517,7 @@
       "label": "rotaCapitulo()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L110",
+      "source_location": "L111",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_rotacapitulo",
       "community": 499,
@@ -487,7 +527,7 @@
       "label": "tituloLegado()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L115",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_titulolegado",
       "community": 499,
@@ -497,7 +537,7 @@
       "label": "numeroCapitulo()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L119",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_numerocapitulo",
       "community": 499,
@@ -507,7 +547,7 @@
       "label": "rotuloCapitulo()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L126",
+      "source_location": "L127",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_rotulocapitulo",
       "community": 499,
@@ -517,7 +557,7 @@
       "label": "capitulosPrincipais()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L133",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_capitulosprincipais",
       "community": 499,
@@ -527,7 +567,7 @@
       "label": "capitulosEspeciais()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L137",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_capitulosespeciais",
       "community": 499,
@@ -537,17 +577,27 @@
       "label": "idiomaInicial()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L143",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_idiomainicial",
       "community": 499,
       "norm_label": "idiomainicial()"
     },
     {
+      "label": "urlPagina()",
+      "file_type": "code",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "src_lib_webshard_catalogo_urlpagina",
+      "community": 499,
+      "norm_label": "urlpagina()"
+    },
+    {
       "label": "paginasDe()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L156",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_paginasde",
       "community": 499,
@@ -557,7 +607,7 @@
       "label": "vizinhos()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L169",
+      "source_location": "L176",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_vizinhos",
       "community": 499,
@@ -567,7 +617,7 @@
       "label": "hojeISO()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L179",
+      "source_location": "L186",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_hojeiso",
       "community": 499,
@@ -577,7 +627,7 @@
       "label": "emBeta()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L183",
+      "source_location": "L190",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_embeta",
       "community": 499,
@@ -587,7 +637,7 @@
       "label": "diasAte()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L188",
+      "source_location": "L195",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_diasate",
       "community": 499,
@@ -597,7 +647,7 @@
       "label": "formatarData()",
       "file_type": "code",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L192",
+      "source_location": "L199",
       "_origin": "ast",
       "id": "src_lib_webshard_catalogo_formatardata",
       "community": 499,
@@ -2799,7 +2849,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 854,
+      "community": 779,
       "norm_label": "carregardeck()",
       "id": "src_hooks_useleaderboarddb_carregardeck"
     },
@@ -4039,7 +4089,7 @@
       "source_file": "src/pages/games/TopTrumps/components/CardViewerModal/CardViewerModal.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 854,
+      "community": 779,
       "norm_label": "cardviewermodal.jsx",
       "id": "src_pages_games_toptrumps_components_cardviewermodal_cardviewermodal"
     },
@@ -4049,7 +4099,7 @@
       "source_file": "src/pages/games/TopTrumps/components/CardViewerModal/CardViewerModal.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 854,
+      "community": 779,
       "norm_label": "attr_keys",
       "id": "src_pages_games_toptrumps_components_cardviewermodal_cardviewermodal_attr_keys"
     },
@@ -4059,7 +4109,7 @@
       "source_file": "src/pages/games/TopTrumps/components/CardViewerModal/CardViewerModal.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 854,
+      "community": 779,
       "norm_label": "cardviewermodal()",
       "id": "src_pages_games_toptrumps_components_cardviewermodal_cardviewermodal_cardviewermodal"
     },
@@ -10092,46 +10142,6 @@
       "community": 95,
       "norm_label": "sitemap",
       "id": "scripts_prerender_routes_sitemap"
-    },
-    {
-      "label": "webshard-r2.py",
-      "file_type": "code",
-      "source_file": "scripts/webshard-r2.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 829,
-      "norm_label": "webshard-r2.py",
-      "id": "scripts_webshard_r2"
-    },
-    {
-      "label": "cliente()",
-      "file_type": "code",
-      "source_file": "scripts/webshard-r2.py",
-      "source_location": "L21",
-      "_origin": "ast",
-      "community": 829,
-      "norm_label": "cliente()",
-      "id": "scripts_webshard_r2_cliente"
-    },
-    {
-      "label": "main()",
-      "file_type": "code",
-      "source_file": "scripts/webshard-r2.py",
-      "source_location": "L33",
-      "_origin": "ast",
-      "community": 829,
-      "norm_label": "main()",
-      "id": "scripts_webshard_r2_main"
-    },
-    {
-      "label": "Sobe as p\u00e1ginas do WEB SHARD (public/webtoon) pro bucket R2 `webshard`.  O site",
-      "file_type": "rationale",
-      "source_file": "scripts/webshard-r2.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 829,
-      "norm_label": "sobe as paginas do web shard (public/webtoon) pro bucket r2 `webshard`.  o site",
-      "id": "scripts_webshard_r2_rationale_1"
     },
     {
       "label": "TarefaFeedback.jsx",
@@ -18129,7 +18139,7 @@
       "source_file": "src/components/Puzzles/PuzzleAnagrama.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 846,
+      "community": 864,
       "norm_label": "puzzleanagrama.jsx",
       "id": "src_components_puzzles_puzzleanagrama"
     },
@@ -18139,7 +18149,7 @@
       "source_file": "src/components/Puzzles/PuzzleAnagrama.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 846,
+      "community": 864,
       "norm_label": "banco",
       "id": "src_components_puzzles_puzzleanagrama_banco"
     },
@@ -18149,7 +18159,7 @@
       "source_file": "src/components/Puzzles/PuzzleAnagrama.jsx",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 846,
+      "community": 864,
       "norm_label": "configs",
       "id": "src_components_puzzles_puzzleanagrama_configs"
     },
@@ -18159,7 +18169,7 @@
       "source_file": "src/components/Puzzles/PuzzleAnagrama.jsx",
       "source_location": "L51",
       "_origin": "ast",
-      "community": 846,
+      "community": 864,
       "norm_label": "shufflearray()",
       "id": "src_components_puzzles_puzzleanagrama_shufflearray"
     },
@@ -18169,7 +18179,7 @@
       "source_file": "src/components/Puzzles/PuzzleAnagrama.jsx",
       "source_location": "L58",
       "_origin": "ast",
-      "community": 846,
+      "community": 864,
       "norm_label": "prepararunidades()",
       "id": "src_components_puzzles_puzzleanagrama_prepararunidades"
     },
@@ -18179,7 +18189,7 @@
       "source_file": "src/components/Puzzles/PuzzleAnagrama.jsx",
       "source_location": "L62",
       "_origin": "ast",
-      "community": 846,
+      "community": 864,
       "norm_label": "puzzleanagrama()",
       "id": "src_components_puzzles_puzzleanagrama_puzzleanagrama"
     },
@@ -18339,7 +18349,7 @@
       "source_file": "src/components/Puzzles/PuzzleSlidingTiles.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 846,
+      "community": 866,
       "norm_label": "puzzleslidingtiles.jsx",
       "id": "src_components_puzzles_puzzleslidingtiles"
     },
@@ -18349,7 +18359,7 @@
       "source_file": "src/components/Puzzles/PuzzleSlidingTiles.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 846,
+      "community": 866,
       "norm_label": "shufflesolvable()",
       "id": "src_components_puzzles_puzzleslidingtiles_shufflesolvable"
     },
@@ -18359,7 +18369,7 @@
       "source_file": "src/components/Puzzles/PuzzleSlidingTiles.jsx",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 846,
+      "community": 866,
       "norm_label": "puzzleslidingtiles()",
       "id": "src_components_puzzles_puzzleslidingtiles_puzzleslidingtiles"
     },
@@ -39239,7 +39249,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/SimulacaoAuto.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 533,
+      "community": 207,
       "norm_label": "simulacaoauto.jsx",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto"
     },
@@ -39249,7 +39259,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/SimulacaoAuto.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 533,
+      "community": 207,
       "norm_label": "emoji",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto_emoji"
     },
@@ -39259,7 +39269,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/SimulacaoAuto.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 533,
+      "community": 207,
       "norm_label": "simulacaoauto()",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto_simulacaoauto"
     },
@@ -43269,7 +43279,7 @@
       "source_file": "src/components/AchievementToast/AchievementToast.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "achievementtoast.jsx",
       "id": "src_components_achievementtoast_achievementtoast"
     },
@@ -43279,7 +43289,7 @@
       "source_file": "src/components/AchievementToast/AchievementToast.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "achievementtoast()",
       "id": "src_components_achievementtoast_achievementtoast_achievementtoast"
     },
@@ -43359,7 +43369,7 @@
       "source_file": "src/components/CharacterCard.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "charactercard.jsx",
       "id": "src_components_charactercard"
     },
@@ -43369,7 +43379,7 @@
       "source_file": "src/components/CharacterCard.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "charactercard()",
       "id": "src_components_charactercard_charactercard"
     },
@@ -43559,7 +43569,7 @@
       "source_file": "src/components/Jokempo/Jokempo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 10,
+      "community": 31,
       "norm_label": "jokempo.jsx",
       "id": "src_components_jokempo_jokempo"
     },
@@ -43569,7 +43579,7 @@
       "source_file": "src/components/Jokempo/Jokempo.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 10,
+      "community": 31,
       "norm_label": "emoji",
       "id": "src_components_jokempo_jokempo_emoji"
     },
@@ -43579,7 +43589,7 @@
       "source_file": "src/components/Jokempo/Jokempo.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 10,
+      "community": 31,
       "norm_label": "choices",
       "id": "src_components_jokempo_jokempo_choices"
     },
@@ -43589,7 +43599,7 @@
       "source_file": "src/components/Jokempo/Jokempo.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 10,
+      "community": 31,
       "norm_label": "getwinner()",
       "id": "src_components_jokempo_jokempo_getwinner"
     },
@@ -43599,7 +43609,7 @@
       "source_file": "src/components/Jokempo/Jokempo.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 10,
+      "community": 31,
       "norm_label": "jokempo()",
       "id": "src_components_jokempo_jokempo_jokempo"
     },
@@ -43609,7 +43619,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "ldinotification.jsx",
       "id": "src_components_ldinotification_ldinotification"
     },
@@ -43619,7 +43629,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "shuffle()",
       "id": "src_components_ldinotification_ldinotification_shuffle"
     },
@@ -43629,7 +43639,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "personagens",
       "id": "src_components_ldinotification_ldinotification_personagens"
     },
@@ -43639,7 +43649,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "pickpersonagem()",
       "id": "src_components_ldinotification_ldinotification_pickpersonagem"
     },
@@ -43649,7 +43659,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "ldinotification()",
       "id": "src_components_ldinotification_ldinotification_ldinotification"
     },
@@ -43909,7 +43919,7 @@
       "source_file": "src/components/RadioNina/radio-nina.playlist.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 76,
+      "community": 207,
       "norm_label": "radio-nina.playlist.js",
       "id": "src_components_radionina_radio_nina_playlist"
     },
@@ -43919,7 +43929,7 @@
       "source_file": "src/components/RadioNina/radio-nina.playlist.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 76,
+      "community": 207,
       "norm_label": "carregarplaylistsalva()",
       "id": "src_components_radionina_radio_nina_playlist_carregarplaylistsalva"
     },
@@ -43929,7 +43939,7 @@
       "source_file": "src/components/RadioNina/radio-nina.playlist.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 76,
+      "community": 207,
       "norm_label": "salvarplaylistsalva()",
       "id": "src_components_radionina_radio_nina_playlist_salvarplaylistsalva"
     },
@@ -44149,7 +44159,7 @@
       "source_file": "src/components/TypewriterPhrase.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 867,
+      "community": 533,
       "norm_label": "typewriterphrase.jsx",
       "id": "src_components_typewriterphrase"
     },
@@ -44159,7 +44169,7 @@
       "source_file": "src/components/TypewriterPhrase.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 867,
+      "community": 533,
       "norm_label": "typewriterphrase()",
       "id": "src_components_typewriterphrase_typewriterphrase"
     },
@@ -44319,7 +44329,7 @@
       "source_file": "src/context/LanguageContext.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "uselanguage()",
       "id": "src_context_languagecontext_uselanguage"
     },
@@ -44429,7 +44439,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 207,
+      "community": 533,
       "norm_label": "usepersonagens.js",
       "id": "src_hooks_usepersonagens"
     },
@@ -44439,7 +44449,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 207,
+      "community": 533,
       "norm_label": "data",
       "id": "src_hooks_usepersonagens_data"
     },
@@ -44449,7 +44459,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 207,
+      "community": 533,
       "norm_label": "usepersonagens()",
       "id": "src_hooks_usepersonagens_usepersonagens"
     },
@@ -44459,7 +44469,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 207,
+      "community": 533,
       "norm_label": "usepersonagem()",
       "id": "src_hooks_usepersonagens_usepersonagem"
     },
@@ -44469,7 +44479,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 207,
+      "community": 533,
       "norm_label": "group_order",
       "id": "src_hooks_usepersonagens_group_order"
     },
@@ -44479,7 +44489,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 207,
+      "community": 533,
       "norm_label": "group_labels",
       "id": "src_hooks_usepersonagens_group_labels"
     },
@@ -44489,7 +44499,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 207,
+      "community": 533,
       "norm_label": "usepersonagensagrupados()",
       "id": "src_hooks_usepersonagens_usepersonagensagrupados"
     },
@@ -44599,7 +44609,7 @@
       "source_file": "src/hooks/useTypewriter.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 867,
+      "community": 533,
       "norm_label": "usetypewriter.js",
       "id": "src_hooks_usetypewriter"
     },
@@ -44609,7 +44619,7 @@
       "source_file": "src/hooks/useTypewriter.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 867,
+      "community": 533,
       "norm_label": "usetypewriter()",
       "id": "src_hooks_usetypewriter_usetypewriter"
     },
@@ -44689,7 +44699,7 @@
       "source_file": "src/lib/getDeck.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 854,
+      "community": 779,
       "norm_label": "getdeck.js",
       "id": "src_lib_getdeck"
     },
@@ -44699,7 +44709,7 @@
       "source_file": "src/lib/getDeck.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 854,
+      "community": 779,
       "norm_label": "decks",
       "id": "src_lib_getdeck_decks"
     },
@@ -44709,7 +44719,7 @@
       "source_file": "src/lib/getDeck.js",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 854,
+      "community": 779,
       "norm_label": "getdeck()",
       "id": "src_lib_getdeck_getdeck"
     },
@@ -44769,7 +44779,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "notificationmanager.js",
       "id": "src_lib_notificationmanager"
     },
@@ -44779,7 +44789,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "notificationtype",
       "id": "src_lib_notificationmanager_notificationtype"
     },
@@ -44789,7 +44799,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "legacyachievements",
       "id": "src_lib_notificationmanager_legacyachievements"
     },
@@ -44799,7 +44809,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "getnotificationachievementid()",
       "id": "src_lib_notificationmanager_getnotificationachievementid"
     },
@@ -44809,7 +44819,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "notificationmanager",
       "id": "src_lib_notificationmanager_notificationmanager"
     },
@@ -44909,7 +44919,7 @@
       "source_file": "src/lib/supabase.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 76,
+      "community": 207,
       "norm_label": "supabase.js",
       "id": "src_lib_supabase"
     },
@@ -44919,7 +44929,7 @@
       "source_file": "src/lib/supabase.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 76,
+      "community": 207,
       "norm_label": "supabase",
       "id": "src_lib_supabase_supabase"
     },
@@ -44969,7 +44979,7 @@
       "source_file": "src/pages/content/PersonagemDetalhe.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 207,
+      "community": 533,
       "norm_label": "personagemdetalhe.jsx",
       "id": "src_pages_content_personagemdetalhe"
     },
@@ -44979,7 +44989,7 @@
       "source_file": "src/pages/content/PersonagemDetalhe.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 207,
+      "community": 533,
       "norm_label": "personagemdetalhe()",
       "id": "src_pages_content_personagemdetalhe_personagemdetalhe"
     },
@@ -45049,7 +45059,7 @@
       "source_file": "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 533,
+      "community": 207,
       "norm_label": "arenataticsroute.jsx",
       "id": "src_pages_games_arenatatics_arenataticsroute"
     },
@@ -45059,7 +45069,7 @@
       "source_file": "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 533,
+      "community": 207,
       "norm_label": "randompick()",
       "id": "src_pages_games_arenatatics_arenataticsroute_randompick"
     },
@@ -45069,7 +45079,7 @@
       "source_file": "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 533,
+      "community": 207,
       "norm_label": "arenataticsroute()",
       "id": "src_pages_games_arenatatics_arenataticsroute_arenataticsroute"
     },
@@ -45079,7 +45089,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/ActionMenu.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 866,
+      "community": 533,
       "norm_label": "actionmenu.jsx",
       "id": "src_pages_games_arenatatics_components_actionmenu"
     },
@@ -45089,7 +45099,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/ActionMenu.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 866,
+      "community": 533,
       "norm_label": "actionmenu()",
       "id": "src_pages_games_arenatatics_components_actionmenu_actionmenu"
     },
@@ -45159,7 +45169,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/ConfirmEndTurn.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "confirmendturn.jsx",
       "id": "src_pages_games_arenatatics_components_confirmendturn"
     },
@@ -45169,7 +45179,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/ConfirmEndTurn.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "confirmendturn()",
       "id": "src_pages_games_arenatatics_components_confirmendturn_confirmendturn"
     },
@@ -45179,7 +45189,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/DanoPopup.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "danopopup.jsx",
       "id": "src_pages_games_arenatatics_components_danopopup"
     },
@@ -45189,7 +45199,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/DanoPopup.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "danopopup()",
       "id": "src_pages_games_arenatatics_components_danopopup_danopopup"
     },
@@ -45449,7 +45459,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/SkillModal.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 866,
+      "community": 42,
       "norm_label": "skillmodal.jsx",
       "id": "src_pages_games_arenatatics_components_skillmodal"
     },
@@ -45459,7 +45469,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/SkillModal.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 866,
+      "community": 42,
       "norm_label": "skillmodal()",
       "id": "src_pages_games_arenatatics_components_skillmodal_skillmodal"
     },
@@ -45519,7 +45529,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/StatusBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "statusbar.jsx",
       "id": "src_pages_games_arenatatics_components_statusbar"
     },
@@ -45529,7 +45539,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/StatusBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "status_icons",
       "id": "src_pages_games_arenatatics_components_statusbar_status_icons"
     },
@@ -45539,7 +45549,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/StatusBar.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "statusbar()",
       "id": "src_pages_games_arenatatics_components_statusbar_statusbar"
     },
@@ -45579,7 +45589,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/TurnoIndicator.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 422,
+      "community": 533,
       "norm_label": "turnoindicator.jsx",
       "id": "src_pages_games_arenatatics_components_turnoindicator"
     },
@@ -45589,7 +45599,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/TurnoIndicator.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 422,
+      "community": 533,
       "norm_label": "turnoindicator()",
       "id": "src_pages_games_arenatatics_components_turnoindicator_turnoindicator"
     },
@@ -45779,7 +45789,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/aiPersonalities.js",
       "source_location": "L395",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "sortearias()",
       "id": "src_pages_games_arenatatics_data_aipersonalities_sortearias"
     },
@@ -45789,7 +45799,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/aiPersonalities.js",
       "source_location": "L403",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "resolveracaoia()",
       "id": "src_pages_games_arenatatics_data_aipersonalities_resolveracaoia"
     },
@@ -45809,7 +45819,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 61,
+      "community": 860,
       "norm_label": "classtree.js",
       "id": "src_pages_games_arenatatics_data_classtree"
     },
@@ -45819,7 +45829,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 61,
+      "community": 860,
       "norm_label": "class_tree",
       "id": "src_pages_games_arenatatics_data_classtree_class_tree"
     },
@@ -45829,7 +45839,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L503",
       "_origin": "ast",
-      "community": 61,
+      "community": 860,
       "norm_label": "getno()",
       "id": "src_pages_games_arenatatics_data_classtree_getno"
     },
@@ -45839,7 +45849,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L520",
       "_origin": "ast",
-      "community": 61,
+      "community": 860,
       "norm_label": "getevolucaoativa()",
       "id": "src_pages_games_arenatatics_data_classtree_getevolucaoativa"
     },
@@ -45849,7 +45859,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L537",
       "_origin": "ast",
-      "community": 61,
+      "community": 860,
       "norm_label": "getnomeclasse()",
       "id": "src_pages_games_arenatatics_data_classtree_getnomeclasse"
     },
@@ -45859,7 +45869,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/combat.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "combat.js",
       "id": "src_pages_games_arenatatics_data_combat"
     },
@@ -45869,7 +45879,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/combat.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "status_tol",
       "id": "src_pages_games_arenatatics_data_combat_status_tol"
     },
@@ -45879,7 +45889,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/combat.js",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "fx_info",
       "id": "src_pages_games_arenatatics_data_combat_fx_info"
     },
@@ -45889,7 +45899,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/combat.js",
       "source_location": "L76",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "resolverataque()",
       "id": "src_pages_games_arenatatics_data_combat_resolverataque"
     },
@@ -45899,7 +45909,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/combat.js",
       "source_location": "L150",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "aplicarstatus()",
       "id": "src_pages_games_arenatatics_data_combat_aplicarstatus"
     },
@@ -45909,7 +45919,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/combat.js",
       "source_location": "L191",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "processarstatus()",
       "id": "src_pages_games_arenatatics_data_combat_processarstatus"
     },
@@ -45919,7 +45929,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/combat.js",
       "source_location": "L219",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "temstatus()",
       "id": "src_pages_games_arenatatics_data_combat_temstatus"
     },
@@ -45929,7 +45939,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/combat.js",
       "source_location": "L226",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "podeagir()",
       "id": "src_pages_games_arenatatics_data_combat_podeagir"
     },
@@ -45939,7 +45949,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/combat.js",
       "source_location": "L230",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "podemover()",
       "id": "src_pages_games_arenatatics_data_combat_podemover"
     },
@@ -45949,7 +45959,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/cosmeticos.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 866,
+      "community": 42,
       "norm_label": "cosmeticos.js",
       "id": "src_pages_games_arenatatics_data_cosmeticos"
     },
@@ -45969,7 +45979,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/cosmeticos.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 866,
+      "community": 42,
       "norm_label": "efeito_aura",
       "id": "src_pages_games_arenatatics_data_cosmeticos_efeito_aura"
     },
@@ -45979,7 +45989,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/cosmeticos.js",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 866,
+      "community": 42,
       "norm_label": "getcorporelemental()",
       "id": "src_pages_games_arenatatics_data_cosmeticos_getcorporelemental"
     },
@@ -46109,7 +46119,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/elementais.js",
       "source_location": "L81",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "getmultiplicadorelemental()",
       "id": "src_pages_games_arenatatics_data_elementais_getmultiplicadorelemental"
     },
@@ -46129,7 +46139,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/elementals.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "elementals",
       "id": "src_pages_games_arenatatics_data_elementals_elementals"
     },
@@ -46189,7 +46199,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 61,
+      "community": 422,
       "norm_label": "equipment.js",
       "id": "src_pages_games_arenatatics_data_equipment"
     },
@@ -46199,7 +46209,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 61,
+      "community": 422,
       "norm_label": "armes",
       "id": "src_pages_games_arenatatics_data_equipment_armes"
     },
@@ -46209,7 +46219,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 61,
+      "community": 422,
       "norm_label": "armaduras",
       "id": "src_pages_games_arenatatics_data_equipment_armaduras"
     },
@@ -46219,7 +46229,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 61,
+      "community": 422,
       "norm_label": "acessorios",
       "id": "src_pages_games_arenatatics_data_equipment_acessorios"
     },
@@ -46229,7 +46239,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 61,
+      "community": 422,
       "norm_label": "getallequipamentos()",
       "id": "src_pages_games_arenatatics_data_equipment_getallequipamentos"
     },
@@ -46239,7 +46249,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 61,
+      "community": 422,
       "norm_label": "getequipamento()",
       "id": "src_pages_games_arenatatics_data_equipment_getequipamento"
     },
@@ -46249,7 +46259,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L45",
       "_origin": "ast",
-      "community": 61,
+      "community": 422,
       "norm_label": "calcularbonus()",
       "id": "src_pages_games_arenatatics_data_equipment_calcularbonus"
     },
@@ -46289,7 +46299,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/juice.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "juice.js",
       "id": "src_pages_games_arenatatics_data_juice"
     },
@@ -46299,7 +46309,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/juice.js",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "shake_profiles",
       "id": "src_pages_games_arenatatics_data_juice_shake_profiles"
     },
@@ -46309,7 +46319,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/juice.js",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "screenshake()",
       "id": "src_pages_games_arenatatics_data_juice_screenshake"
     },
@@ -46319,7 +46329,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/juice.js",
       "source_location": "L55",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "flashcelula()",
       "id": "src_pages_games_arenatatics_data_juice_flashcelula"
     },
@@ -46479,7 +46489,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "batalha.jsx",
       "id": "src_pages_games_arenatatics_screens_batalha"
     },
@@ -46489,7 +46499,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "getskills()",
       "id": "src_pages_games_arenatatics_screens_batalha_getskills"
     },
@@ -46499,7 +46509,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "getocupadas()",
       "id": "src_pages_games_arenatatics_screens_batalha_getocupadas"
     },
@@ -46509,7 +46519,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L39",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "getalcancemovimento()",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcancemovimento"
     },
@@ -46519,7 +46529,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L52",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "temlinhavisao()",
       "id": "src_pages_games_arenatatics_screens_batalha_temlinhavisao"
     },
@@ -46529,7 +46539,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L63",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "getalvoocupadas()",
       "id": "src_pages_games_arenatatics_screens_batalha_getalvoocupadas"
     },
@@ -46539,7 +46549,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "getalcanceskill()",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcanceskill"
     },
@@ -46549,7 +46559,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L86",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "estahemalcance()",
       "id": "src_pages_games_arenatatics_screens_batalha_estahemalcance"
     },
@@ -46559,7 +46569,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L91",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "calcularcaminho()",
       "id": "src_pages_games_arenatatics_screens_batalha_calcularcaminho"
     },
@@ -46569,7 +46579,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L133",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "getfaselabel()",
       "id": "src_pages_games_arenatatics_screens_batalha_getfaselabel"
     },
@@ -46579,7 +46589,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L156",
       "_origin": "ast",
-      "community": 422,
+      "community": 441,
       "norm_label": "batalha()",
       "id": "src_pages_games_arenatatics_screens_batalha_batalha"
     },
@@ -46589,7 +46599,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BatalhaSimulacao.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "batalhasimulacao.jsx",
       "id": "src_pages_games_arenatatics_screens_batalhasimulacao"
     },
@@ -46599,7 +46609,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BatalhaSimulacao.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "pickchars()",
       "id": "src_pages_games_arenatatics_screens_batalhasimulacao_pickchars"
     },
@@ -46609,7 +46619,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BatalhaSimulacao.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "posicionar()",
       "id": "src_pages_games_arenatatics_screens_batalhasimulacao_posicionar"
     },
@@ -46619,7 +46629,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BatalhaSimulacao.jsx",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "sleep()",
       "id": "src_pages_games_arenatatics_screens_batalhasimulacao_sleep"
     },
@@ -46629,7 +46639,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BatalhaSimulacao.jsx",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 480,
+      "community": 441,
       "norm_label": "batalhasimulacao()",
       "id": "src_pages_games_arenatatics_screens_batalhasimulacao_batalhasimulacao"
     },
@@ -46739,7 +46749,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/EvolutionScreen.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 61,
+      "community": 860,
       "norm_label": "evolutionscreen.jsx",
       "id": "src_pages_games_arenatatics_screens_evolutionscreen"
     },
@@ -46749,7 +46759,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/EvolutionScreen.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 61,
+      "community": 860,
       "norm_label": "evolutionscreen()",
       "id": "src_pages_games_arenatatics_screens_evolutionscreen_evolutionscreen"
     },
@@ -46829,7 +46839,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/TeamSelect.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 61,
+      "community": 422,
       "norm_label": "teamselect.jsx",
       "id": "src_pages_games_arenatatics_screens_teamselect"
     },
@@ -46839,7 +46849,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/TeamSelect.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 61,
+      "community": 422,
       "norm_label": "emoji",
       "id": "src_pages_games_arenatatics_screens_teamselect_emoji"
     },
@@ -46849,7 +46859,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/TeamSelect.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 61,
+      "community": 422,
       "norm_label": "elem_cor",
       "id": "src_pages_games_arenatatics_screens_teamselect_elem_cor"
     },
@@ -46859,7 +46869,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/TeamSelect.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 61,
+      "community": 422,
       "norm_label": "teamselect()",
       "id": "src_pages_games_arenatatics_screens_teamselect_teamselect"
     },
@@ -46929,7 +46939,7 @@
       "source_file": "src/pages/games/ArenaTatics/store/useArenaTaticsStore.js",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 533,
+      "community": 207,
       "norm_label": "usearenataticsstore",
       "id": "src_pages_games_arenatatics_store_usearenataticsstore_usearenataticsstore"
     },
@@ -46949,7 +46959,7 @@
       "source_file": "src/pages/games/ArenaTatics/store/useCityStore.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 434,
+      "community": 207,
       "norm_label": "usecitystore.js",
       "id": "src_pages_games_arenatatics_store_usecitystore"
     },
@@ -46959,7 +46969,7 @@
       "source_file": "src/pages/games/ArenaTatics/store/useCityStore.js",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 434,
+      "community": 207,
       "norm_label": "calcweather()",
       "id": "src_pages_games_arenatatics_store_usecitystore_calcweather"
     },
@@ -46969,7 +46979,7 @@
       "source_file": "src/pages/games/ArenaTatics/store/useCityStore.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 434,
+      "community": 207,
       "norm_label": "usecitystore",
       "id": "src_pages_games_arenatatics_store_usecitystore_usecitystore"
     },
@@ -47269,7 +47279,7 @@
       "source_file": "src/pages/games/Duelo/components/StatusBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 227,
+      "community": 533,
       "norm_label": "statusbar.jsx",
       "id": "src_pages_games_duelo_components_statusbar"
     },
@@ -47279,7 +47289,7 @@
       "source_file": "src/pages/games/Duelo/components/StatusBar.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 227,
+      "community": 533,
       "norm_label": "statusbar()",
       "id": "src_pages_games_duelo_components_statusbar_statusbar"
     },
@@ -47289,7 +47299,7 @@
       "source_file": "src/pages/games/Duelo/components/TrapActivator.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "trapactivator.jsx",
       "id": "src_pages_games_duelo_components_trapactivator"
     },
@@ -47299,7 +47309,7 @@
       "source_file": "src/pages/games/Duelo/components/TrapActivator.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "trapactivator()",
       "id": "src_pages_games_duelo_components_trapactivator_trapactivator"
     },
@@ -47749,7 +47759,7 @@
       "source_file": "src/pages/games/Duelo/screens/DueloMenu.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 227,
+      "community": 533,
       "norm_label": "duelomenu()",
       "id": "src_pages_games_duelo_screens_duelomenu_duelomenu"
     },
@@ -47829,7 +47839,7 @@
       "source_file": "src/pages/games/Duelo/version.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 533,
+      "community": 289,
       "norm_label": "version.js",
       "id": "src_pages_games_duelo_version"
     },
@@ -47839,7 +47849,7 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesI18n.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 860,
+      "community": 533,
       "norm_label": "useganguesi18n.js",
       "id": "src_pages_games_gangues_hooks_useganguesi18n"
     },
@@ -47849,7 +47859,7 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesI18n.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 860,
+      "community": 533,
       "norm_label": "loadedlocales",
       "id": "src_pages_games_gangues_hooks_useganguesi18n_loadedlocales"
     },
@@ -47859,7 +47869,7 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesI18n.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 860,
+      "community": 533,
       "norm_label": "loaders",
       "id": "src_pages_games_gangues_hooks_useganguesi18n_loaders"
     },
@@ -47869,7 +47879,7 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesI18n.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 860,
+      "community": 533,
       "norm_label": "useganguesi18n()",
       "id": "src_pages_games_gangues_hooks_useganguesi18n_useganguesi18n"
     },
@@ -48009,7 +48019,7 @@
       "source_file": "src/pages/games/JackCandy/components/Monologue.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "monologue.jsx",
       "id": "src_pages_games_jackcandy_components_monologue"
     },
@@ -48019,7 +48029,7 @@
       "source_file": "src/pages/games/JackCandy/components/Monologue.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "monologue()",
       "id": "src_pages_games_jackcandy_components_monologue_monologue"
     },
@@ -50189,7 +50199,7 @@
       "source_file": "src/pages/games/MiniGames/version.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 533,
+      "community": 289,
       "norm_label": "version.js",
       "id": "src_pages_games_minigames_version"
     },
@@ -50199,7 +50209,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 289,
+      "community": 60,
       "norm_label": "multiplayerlobby.jsx",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby"
     },
@@ -50209,7 +50219,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 289,
+      "community": 60,
       "norm_label": "multiplayerlobby()",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby_multiplayerlobby"
     },
@@ -50769,7 +50779,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/CooldownTimer.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "cooldowntimer.jsx",
       "id": "src_pages_games_tamagoshi_components_cooldowntimer"
     },
@@ -50779,7 +50789,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/CooldownTimer.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "cooldowntimer()",
       "id": "src_pages_games_tamagoshi_components_cooldowntimer_cooldowntimer"
     },
@@ -51289,7 +51299,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Banhar.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 195,
+      "community": 415,
       "norm_label": "banhar()",
       "id": "src_pages_games_tamagoshi_screens_banhar_banhar"
     },
@@ -51329,7 +51339,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 195,
+      "community": 846,
       "norm_label": "brincadeira()",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_brincadeira"
     },
@@ -51439,7 +51449,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Ovo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "ovo.jsx",
       "id": "src_pages_games_tamagoshi_screens_ovo"
     },
@@ -51449,7 +51459,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Ovo.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "ovo()",
       "id": "src_pages_games_tamagoshi_screens_ovo_ovo"
     },
@@ -51529,7 +51539,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passeio.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 195,
+      "community": 504,
       "norm_label": "passeio()",
       "id": "src_pages_games_tamagoshi_screens_passeio_passeio"
     },
@@ -51609,7 +51619,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Termo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 195,
       "norm_label": "termo.jsx",
       "id": "src_pages_games_tamagoshi_screens_termo"
     },
@@ -51619,7 +51629,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Termo.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 1,
+      "community": 195,
       "norm_label": "termo()",
       "id": "src_pages_games_tamagoshi_screens_termo_termo"
     },
@@ -51829,7 +51839,7 @@
       "source_file": "src/pages/games/TopTrumps/components/GameOverScreen/GameOverScreen.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 31,
+      "community": 533,
       "norm_label": "gameoverscreen.jsx",
       "id": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen"
     },
@@ -51839,7 +51849,7 @@
       "source_file": "src/pages/games/TopTrumps/components/GameOverScreen/GameOverScreen.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 31,
+      "community": 533,
       "norm_label": "gameoverscreen()",
       "id": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen_gameoverscreen"
     },
@@ -51869,7 +51879,7 @@
       "source_file": "src/pages/games/TopTrumps/components/MenuScreen/MenuScreen.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 854,
+      "community": 779,
       "norm_label": "menuscreen.jsx",
       "id": "src_pages_games_toptrumps_components_menuscreen_menuscreen"
     },
@@ -51879,7 +51889,7 @@
       "source_file": "src/pages/games/TopTrumps/components/MenuScreen/MenuScreen.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 854,
+      "community": 779,
       "norm_label": "menuscreen()",
       "id": "src_pages_games_toptrumps_components_menuscreen_menuscreen_menuscreen"
     },
@@ -52619,7 +52629,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/poderes.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 535,
+      "community": 868,
       "norm_label": "poderes.js",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes"
     },
@@ -52629,7 +52639,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/poderes.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 535,
+      "community": 868,
       "norm_label": "poderes_base",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_poderes_base"
     },
@@ -52639,7 +52649,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/poderes.js",
       "source_location": "L64",
       "_origin": "ast",
-      "community": 535,
+      "community": 407,
       "norm_label": "getpoderesporid()",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_getpoderesporid"
     },
@@ -52649,7 +52659,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/poderes.js",
       "source_location": "L68",
       "_origin": "ast",
-      "community": 535,
+      "community": 868,
       "norm_label": "getpoderesdisponiveis()",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_getpoderesdisponiveis"
     },
@@ -52659,7 +52669,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/poderes.js",
       "source_location": "L73",
       "_origin": "ast",
-      "community": 535,
+      "community": 868,
       "norm_label": "tempoderdisponivel()",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_tempoderdisponivel"
     },
@@ -53029,7 +53039,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/index.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "personalidades_ia",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_personalidades_ia"
     },
@@ -53039,7 +53049,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/index.js",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "getpersonalidadeporid()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_getpersonalidadeporid"
     },
@@ -53489,7 +53499,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/defense/index.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 781,
+      "community": 36,
       "norm_label": "defenseanimid",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_defense_index_defenseanimid"
     },
@@ -53689,7 +53699,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/movement/index.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 36,
+      "community": 480,
       "norm_label": "index.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_movement_index"
     },
@@ -53699,7 +53709,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/movement/index.js",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 36,
+      "community": 480,
       "norm_label": "movementanimid",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_movement_index_movementanimid"
     },
@@ -53709,7 +53719,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/movement/index.js",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 36,
+      "community": 480,
       "norm_label": "registry",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_movement_index_registry"
     },
@@ -53719,7 +53729,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/movement/index.js",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 36,
+      "community": 480,
       "norm_label": "getmovementanimation()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_movement_index_getmovementanimation"
     },
@@ -53729,7 +53739,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/movement/moveAnim1Standard.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 36,
+      "community": 480,
       "norm_label": "moveanim1standard.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_movement_moveanim1standard"
     },
@@ -53739,7 +53749,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/movement/moveAnim1Standard.js",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 36,
+      "community": 480,
       "norm_label": "execute()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_movement_moveanim1standard_execute"
     },
@@ -53749,7 +53759,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/movement/moveAnim2Teleport.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 36,
+      "community": 480,
       "norm_label": "moveanim2teleport.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_movement_moveanim2teleport"
     },
@@ -53759,7 +53769,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/movement/moveAnim2Teleport.js",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 36,
+      "community": 480,
       "norm_label": "execute()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_movement_moveanim2teleport_execute"
     },
@@ -53769,7 +53779,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/movement/moveAnim3Slingshot.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 36,
+      "community": 480,
       "norm_label": "moveanim3slingshot.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_movement_moveanim3slingshot"
     },
@@ -53779,7 +53789,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/movement/moveAnim3Slingshot.js",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 36,
+      "community": 480,
       "norm_label": "execute()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_movement_moveanim3slingshot_execute"
     },
@@ -54049,7 +54059,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/audioManager.js",
       "source_location": "L159",
       "_origin": "ast",
-      "community": 5,
+      "community": 76,
       "norm_label": ".error()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_audiomanager_audiomanager_error"
     },
@@ -54309,7 +54319,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "combat.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat"
     },
@@ -54319,7 +54329,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "calcularfa()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfa"
     },
@@ -54329,7 +54339,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "calcularfd()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfd"
     },
@@ -54349,7 +54359,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L129",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "resolvercontraataque()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_resolvercontraataque"
     },
@@ -54359,7 +54369,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L153",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "rolard6()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_rolard6"
     },
@@ -54379,7 +54389,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L174",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "gethp()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_gethp"
     },
@@ -54389,7 +54399,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L182",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "getmp()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_getmp"
     },
@@ -54409,7 +54419,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L203",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "criarpersonagem()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_criarpersonagem"
     },
@@ -54499,7 +54509,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 771,
       "norm_label": "hexutils.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils"
     },
@@ -54509,7 +54519,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 407,
+      "community": 771,
       "norm_label": "sqrt3",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_sqrt3"
     },
@@ -54519,7 +54529,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 407,
+      "community": 771,
       "norm_label": "offsettocubo()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_offsettocubo"
     },
@@ -54529,7 +54539,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 407,
+      "community": 771,
       "norm_label": "cubotooffset()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_cubotooffset"
     },
@@ -54539,7 +54549,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 407,
+      "community": 771,
       "norm_label": "cuboround()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_cuboround"
     },
@@ -54549,7 +54559,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L40",
       "_origin": "ast",
-      "community": 407,
+      "community": 771,
       "norm_label": "cubolerp()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_cubolerp"
     },
@@ -54589,7 +54599,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L105",
       "_origin": "ast",
-      "community": 407,
+      "community": 771,
       "norm_label": "gethexline()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_gethexline"
     },
@@ -54599,7 +54609,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L145",
       "_origin": "ast",
-      "community": 407,
+      "community": 771,
       "norm_label": "haswallbetween()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_haswallbetween"
     },
@@ -54619,7 +54629,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L189",
       "_origin": "ast",
-      "community": 407,
+      "community": 771,
       "norm_label": "getcellsinpdfrange()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_getcellsinpdfrange"
     },
@@ -54629,7 +54639,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L216",
       "_origin": "ast",
-      "community": 407,
+      "community": 771,
       "norm_label": "getcelulasalcance()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_getcelulasalcance"
     },
@@ -54699,7 +54709,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 864,
+      "community": 535,
       "norm_label": "regrasficha.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha"
     },
@@ -54709,7 +54719,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 864,
+      "community": 535,
       "norm_label": "cores_disponiveis",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_cores_disponiveis"
     },
@@ -54719,7 +54729,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 864,
+      "community": 535,
       "norm_label": "nomes_disponiveis",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_nomes_disponiveis"
     },
@@ -54739,7 +54749,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 864,
+      "community": 535,
       "norm_label": "podeadicionarpersonagemabatalha()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_podeadicionarpersonagemabatalha"
     },
@@ -54749,7 +54759,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 864,
+      "community": 535,
       "norm_label": "cordisponivel()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_cordisponivel"
     },
@@ -54759,7 +54769,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 864,
+      "community": 535,
       "norm_label": "nomedisponivel()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_nomedisponivel"
     },
@@ -54769,7 +54779,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 864,
+      "community": 535,
       "norm_label": "getcoresdisponiveis()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_getcoresdisponiveis"
     },
@@ -54779,7 +54789,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 864,
+      "community": 535,
       "norm_label": "getnomesdisponiveis()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_getnomesdisponiveis"
     },
@@ -54789,7 +54799,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "turnorder.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder"
     },
@@ -54799,7 +54809,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "calculargruposeordem()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder_calculargruposeordem"
     },
@@ -54809,7 +54819,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L60",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "aplicarordeminterna()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder_aplicarordeminterna"
     },
@@ -54819,7 +54829,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L68",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "encontrarproximojokenpo()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder_encontrarproximojokenpo"
     },
@@ -54829,7 +54839,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L92",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "processarresultadojokenpo()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder_processarresultadojokenpo"
     },
@@ -54839,7 +54849,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/turnOrder.js",
       "source_location": "L98",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "aplicarresultadoscruzados()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turnorder_aplicarresultadoscruzados"
     },
@@ -54869,7 +54879,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/useCombatEngine.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "usecombatengine.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_usecombatengine"
     },
@@ -55059,7 +55069,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "phase1sheetbuilder.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder"
     },
@@ -55069,7 +55079,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "attributes",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder_attributes"
     },
@@ -55079,7 +55089,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "budget_options",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder_budget_options"
     },
@@ -55089,7 +55099,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 407,
+      "community": 868,
       "norm_label": "phase1sheetbuilder()",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder_phase1sheetbuilder"
     },
@@ -55099,7 +55109,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase2Customize.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 864,
+      "community": 535,
       "norm_label": "phase2customize.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase2customize"
     },
@@ -55109,7 +55119,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase2Customize.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 864,
+      "community": 535,
       "norm_label": "icones",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase2customize_icones"
     },
@@ -55119,7 +55129,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase2Customize.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 864,
+      "community": 535,
       "norm_label": "phase2customize()",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase2customize_phase2customize"
     },
@@ -57099,7 +57109,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilColecao.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 854,
+      "community": 779,
       "norm_label": "perfilcolecao.jsx",
       "id": "src_pages_platform_perfil_abas_perfilcolecao"
     },
@@ -57109,7 +57119,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilColecao.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 854,
+      "community": 779,
       "norm_label": "perfilcolecao()",
       "id": "src_pages_platform_perfil_abas_perfilcolecao_perfilcolecao"
     },
@@ -57219,7 +57229,7 @@
       "source_file": "src/pages/site/NotFound/NotFound.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "notfound.jsx",
       "id": "src_pages_site_notfound_notfound"
     },
@@ -57229,7 +57239,7 @@
       "source_file": "src/pages/site/NotFound/NotFound.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 20,
+      "community": 533,
       "norm_label": "notfound()",
       "id": "src_pages_site_notfound_notfound_notfound"
     },
@@ -57239,7 +57249,7 @@
       "source_file": "src/store/notificationStore.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "notificationstore.js",
       "id": "src_store_notificationstore"
     },
@@ -57249,7 +57259,7 @@
       "source_file": "src/store/notificationStore.js",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 771,
+      "community": 76,
       "norm_label": "usenotificationstore",
       "id": "src_store_notificationstore_usenotificationstore"
     },
@@ -57399,7 +57409,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 61,
+      "community": 854,
       "norm_label": "paridade-exata.mjs",
       "id": "tests_paridade_exata"
     },
@@ -57409,7 +57419,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 61,
+      "community": 854,
       "norm_label": "calcatkpower()",
       "id": "tests_paridade_exata_calcatkpower"
     },
@@ -57419,7 +57429,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 61,
+      "community": 854,
       "norm_label": "calcdefpower()",
       "id": "tests_paridade_exata_calcdefpower"
     },
@@ -57429,7 +57439,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 61,
+      "community": 854,
       "norm_label": "getterrainmods()",
       "id": "tests_paridade_exata_getterrainmods"
     },
@@ -57439,7 +57449,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 61,
+      "community": 854,
       "norm_label": "calcatkwithterrain()",
       "id": "tests_paridade_exata_calcatkwithterrain"
     },
@@ -57449,7 +57459,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L50",
       "_origin": "ast",
-      "community": 61,
+      "community": 854,
       "norm_label": "calcdefwithterrain()",
       "id": "tests_paridade_exata_calcdefwithterrain"
     },
@@ -57459,7 +57469,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L65",
       "_origin": "ast",
-      "community": 61,
+      "community": 854,
       "norm_label": "cardatk()",
       "id": "tests_paridade_exata_cardatk"
     },
@@ -57469,7 +57479,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L66",
       "_origin": "ast",
-      "community": 61,
+      "community": 854,
       "norm_label": "carddef()",
       "id": "tests_paridade_exata_carddef"
     },
@@ -57479,7 +57489,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 61,
+      "community": 854,
       "norm_label": "test()",
       "id": "tests_paridade_exata_test"
     },
@@ -57489,7 +57499,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L75",
       "_origin": "ast",
-      "community": 61,
+      "community": 854,
       "norm_label": "eq()",
       "id": "tests_paridade_exata_eq"
     },
@@ -64696,6 +64706,47 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/webshard-r2.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "scripts_webshard_r2",
+      "target": "scripts_webshard_r2_cliente",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/webshard-r2.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "scripts_webshard_r2",
+      "target": "scripts_webshard_r2_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/webshard-r2.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "scripts_webshard_r2_rationale_1",
+      "target": "scripts_webshard_r2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/webshard-r2.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "scripts_webshard_r2_main",
+      "target": "scripts_webshard_r2_cliente",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -64864,7 +64915,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L76",
+      "source_location": "L77",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_abrirversoes",
@@ -64874,7 +64925,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_capitulomovido",
@@ -64884,7 +64935,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L97",
+      "source_location": "L98",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_capituloporid",
@@ -64894,7 +64945,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_capitulos_movidos",
@@ -64904,7 +64955,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L91",
+      "source_location": "L92",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_capitulosde",
@@ -64914,7 +64965,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L137",
+      "source_location": "L138",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_capitulosespeciais",
@@ -64924,7 +64975,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L133",
+      "source_location": "L134",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_capitulosprincipais",
@@ -64934,7 +64985,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L102",
+      "source_location": "L103",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_capitulotemconteudo",
@@ -64944,7 +64995,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L188",
+      "source_location": "L195",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_diasate",
@@ -64954,7 +65005,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L183",
+      "source_location": "L190",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_embeta",
@@ -64964,7 +65015,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_fontes",
@@ -64974,7 +65025,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L192",
+      "source_location": "L199",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_formatardata",
@@ -64984,7 +65035,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L179",
+      "source_location": "L186",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_hojeiso",
@@ -64994,7 +65045,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L143",
+      "source_location": "L144",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_idiomainicial",
@@ -65004,7 +65055,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_imagempornome",
@@ -65014,7 +65065,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L48",
+      "source_location": "L49",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_imagemwebshard",
@@ -65024,7 +65075,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_imagens",
@@ -65034,7 +65085,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_listartitulos",
@@ -65044,7 +65095,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L43",
+      "source_location": "L44",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_localizado",
@@ -65054,7 +65105,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L54",
+      "source_location": "L55",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_miniaturacapitulo",
@@ -65064,7 +65115,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L119",
+      "source_location": "L120",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_numerocapitulo",
@@ -65074,7 +65125,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L156",
+      "source_location": "L163",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_paginasde",
@@ -65084,7 +65135,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L110",
+      "source_location": "L111",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_rotacapitulo",
@@ -65094,7 +65145,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L106",
+      "source_location": "L107",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_rotatitulo",
@@ -65104,7 +65155,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L126",
+      "source_location": "L127",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_rotulocapitulo",
@@ -65114,7 +65165,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L115",
+      "source_location": "L116",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_titulolegado",
@@ -65124,7 +65175,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L69",
+      "source_location": "L70",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_tituloporslug",
@@ -65134,7 +65185,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L169",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo",
+      "target": "src_lib_webshard_catalogo_urlpagina",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L176",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo",
       "target": "src_lib_webshard_catalogo_vizinhos",
@@ -65310,7 +65371,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L55",
+      "source_location": "L56",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo_miniaturacapitulo",
       "target": "src_lib_webshard_catalogo_imagemwebshard",
@@ -65387,7 +65448,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L70",
+      "source_location": "L71",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo_tituloporslug",
       "target": "src_lib_webshard_catalogo_listartitulos",
@@ -65464,7 +65525,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L94",
+      "source_location": "L95",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo_capitulosde",
       "target": "src_lib_webshard_catalogo_abrirversoes",
@@ -65475,7 +65536,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L98",
+      "source_location": "L99",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo_capituloporid",
       "target": "src_lib_webshard_catalogo_capitulosde",
@@ -65486,7 +65547,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L138",
+      "source_location": "L139",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo_capitulosespeciais",
       "target": "src_lib_webshard_catalogo_capitulosde",
@@ -65497,7 +65558,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L134",
+      "source_location": "L135",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo_capitulosprincipais",
       "target": "src_lib_webshard_catalogo_capitulosde",
@@ -65508,7 +65569,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L171",
+      "source_location": "L178",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo_vizinhos",
       "target": "src_lib_webshard_catalogo_capitulosde",
@@ -65739,7 +65800,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/webshard/catalogo.js",
-      "source_location": "L129",
+      "source_location": "L130",
       "weight": 1.0,
       "source": "src_lib_webshard_catalogo_rotulocapitulo",
       "target": "src_lib_webshard_catalogo_numerocapitulo",
@@ -65832,6 +65893,17 @@
       "weight": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
       "target": "src_lib_webshard_catalogo_rotulocapitulo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/webshard/catalogo.js",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "src_lib_webshard_catalogo_paginasde",
+      "target": "src_lib_webshard_catalogo_urlpagina",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -79149,47 +79221,6 @@
       "confidence_score": 1.0,
       "source": "scripts_prerender_routes_pagehtml",
       "target": "scripts_prerender_routes_staticcontent"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/webshard-r2.py",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_webshard_r2",
-      "target": "scripts_webshard_r2_cliente"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/webshard-r2.py",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_webshard_r2",
-      "target": "scripts_webshard_r2_main"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/webshard-r2.py",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_webshard_r2_rationale_1",
-      "target": "scripts_webshard_r2"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/webshard-r2.py",
-      "source_location": "L34",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scripts_webshard_r2_main",
-      "target": "scripts_webshard_r2_cliente"
     },
     {
       "relation": "contains",
@@ -162041,5 +162072,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "194fa5f652dd25d46845e7f680cc6d4206cf7081"
+  "built_at_commit": "410320046ac5969ae03543ad30ecc5224878b271"
 }
