@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useRadio } from '../../components/RadioNina/RadioNinaContext'
 import musicas from '../../data/musicas.json'
 import { platformIconMap } from '../../components/PlatformIcons'
+import { capaDaMusica } from '../../lib/capaMusica'
 import arteBanda from '../../assets/images/banners/banner-04.webp'
 import ninaImg from '../../assets/images/characters/nina-balloon.png'
 import './Musicas.css'
@@ -14,13 +15,12 @@ import './Musicas.css'
    1. o herói é a RÁDIO: a arte da banda sangrando na coluna, um play e começa;
       tocando, vira o painel "no ar" com equalizador, faixa e controles;
    2. o lançamento em destaque;
-   3. a discografia — estante de capas (tocar na capa = toca na rádio; no nome
+   3. a discografia — lista de faixas (tocar na linha = toca na rádio; no "⋯"
       = "onde ouvir", as plataformas);
    4. o que só existe na rádio — lista numerada no padrão do drawer.
    O tocador é o MESMO da barra (useRadio, components/RadioNina). */
 
-const capas = Object.values(import.meta.glob('../../assets/images/music/*.png', { eager: true, import: 'default' }))
-const capaDe = i => capas[i % capas.length]
+const capaDe = i => capaDaMusica(musicas[i])
 const mmss = s => (!Number.isFinite(s) || s < 0 ? '0:00' : `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`)
 const num = i => String(i + 1).padStart(2, '0')
 
@@ -203,23 +203,26 @@ export default function Musicas() {
               <h2 className="mu__h2">{t('pages.musicas.discografia')}</h2>
               <p className="mu__hint">{t('pages.musicas.discografia_hint')}</p>
             </div>
-            <div className="mu-estante if-stagger">
-              {musicas.map((m, i) => (
-                <article key={m.id} className={`mu-card${eDaVez(m.arquivo) ? ' is-ativa' : ''}${m.arquivo ? '' : ' is-fora'}${travaDe(m.arquivo) ? ' is-travada' : ''}`} style={{ '--mu-cor': m.cor }}>
-                  <button type="button" className="mu-card__capa" onClick={() => (m.arquivo && !travaDe(m.arquivo) ? tocar(m.arquivo) : setAberta(i))} aria-label={m.arquivo ? `${t('pages.musicas.tocar')} ${m.titulo}` : t('pages.musicas.onde_ouvir')}>
-                    <img src={capaDe(i)} alt="" width="300" height="300" loading="lazy" decoding="async" />
-                    <span className="mu-card__indice">{num(i)}</span>
-                    {m.arquivo
-                      ? <span className="mu-card__play" aria-hidden="true">{travaDe(m.arquivo) ? '🔒' : tocandoEsta(m.arquivo) ? <Equalizador ativo /> : '▶'}</span>
-                      : <span className="mu-card__fora">{t('pages.musicas.so_plataformas')}</span>}
-                  </button>
-                  <button type="button" className="mu-card__info" onClick={() => setAberta(i)}>
-                    <strong>{m.titulo}</strong>
-                    <small>{m.ano} · {t('pages.musicas.plataformas_n', { n: m.plataformas.length })}</small>
-                  </button>
-                </article>
-              ))}
-            </div>
+            <ol className="mu-faixas">
+              {musicas.map((m, i) => {
+                const trava = travaDe(m.arquivo)
+                return (
+                  <li key={m.id} className={`mu-faixa${eDaVez(m.arquivo) ? ' is-ativa' : ''}${m.arquivo ? '' : ' is-fora'}${trava ? ' is-travada' : ''}`}>
+                    <button type="button" className="mu-faixa__tocar" onClick={() => (m.arquivo && !trava ? tocar(m.arquivo) : setAberta(i))} aria-label={m.arquivo && !trava ? `${t('pages.musicas.tocar')} ${m.titulo}` : `${t('pages.musicas.onde_ouvir')} ${m.titulo}`}>
+                      <span className="mu-faixa__num" aria-hidden="true">
+                        {trava ? '🔒' : tocandoEsta(m.arquivo) ? <Equalizador ativo /> : <><b>{i + 1}</b><i>▶</i></>}
+                      </span>
+                      <img className="mu-faixa__capa" src={capaDe(i)} alt="" width="48" height="48" loading="lazy" decoding="async" />
+                      <span className="mu-faixa__texto">
+                        <strong>{m.titulo}</strong>
+                        <small>{m.arquivo ? m.artista : t('pages.musicas.so_plataformas')}</small>
+                      </span>
+                    </button>
+                    <button type="button" className="mu-faixa__mais" onClick={() => setAberta(i)} aria-label={`${t('pages.musicas.onde_ouvir')} ${m.titulo}`}>⋯</button>
+                  </li>
+                )
+              })}
+            </ol>
           </section>
 
           {/* ── 4. Só na Rádio Nina ── */}

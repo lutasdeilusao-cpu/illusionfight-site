@@ -77,7 +77,7 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 - **Correção de página pronta** (Isaias aponta o erro):
   - Página feita no Codex se corrige no Codex. Nunca editar com o Gemini: ele muda o traço, perde nitidez e "apaga" fundo com borrão.
   - Mudou a composição (tirar gente, cenário, armário; trocar pose) → refazer a página INTEIRA: achar o prompt dela (`prompts_pag*/NNN_pagina.txt`), reescrever a descrição do painel e os textos, gerar de novo com as mesmas fichas + página anterior. Tirar da lista de refs a ficha que puxa o que tem que sumir (ex.: ficha do corredor puxa armário).
-  - Só texto de caixa de narração → pode desenhar a caixa direto por cima da arte original (PIL, mesma cor de neon), sem IA.
+  - Só texto (balão ou caixa de narração) → também no Codex: passar a própria página com `-i` e pedir pra mudar só aquele texto. Nunca desenhar letra à mão (PIL): a fonte não bate com a do Codex.
   - Codex sem cota → não trocar de ferramenta: anotar em `PENDENTES_CODEX.md` na pasta do título e rodar quando a cota voltar.
   - Antes de começar, dizer ao Isaias qual ferramenta vai usar.
 - Publicação: `public/webtoon/<pasta>/<idioma>/NN.webp`; catálogo `src/data/*-episodios.json` + `webshard-titulos.json` + `src/lib/webshard/catalogo.js`. Versões do mesmo capítulo: `versoes` (`<pasta>/<versao>/pt`).

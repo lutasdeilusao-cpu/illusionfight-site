@@ -108,40 +108,30 @@
 .mu-plataformas a:hover { border-color: var(--if-cyan-45); color: var(--if-cyan); }
 .mu-plataformas svg { width: 16px; height: 16px; }
 
-/* ══ 3. Discografia — estante de capas ══ */
-.mu-estante { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
-.mu-card {
-  position: relative; display: flex; flex-direction: column; min-width: 0;
-  border: 1px solid var(--if-edge); background: var(--if-panel);
-  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
-  transition: border-color 0.22s, transform 0.22s;
+/* ══ 3. Discografia — lista de faixas (número, capa, título/artista, ⋯) ══ */
+.mu-faixas { margin: 0; padding: 0; list-style: none; }
+.mu-faixa { display: flex; align-items: center; min-height: 64px; transition: background 0.18s; }
+.mu-faixa:hover, .mu-faixa.is-ativa { background: rgba(255, 255, 255, 0.05); }
+.mu-faixa__tocar {
+  display: flex; flex: 1; align-items: center; gap: 0.75rem; min-width: 0; padding: 0.45rem 0 0.45rem 0.25rem;
+  border: 0; background: none; color: inherit; text-align: left; cursor: pointer;
 }
-.mu-card:hover { border-color: var(--mu-cor, var(--if-cyan)); transform: translateY(-2px); }
-.mu-card.is-ativa { border-color: var(--if-amber); }
-.mu-card__capa { position: relative; padding: 0; border: 0; background: #000; cursor: pointer; aspect-ratio: 1; overflow: hidden; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
-.mu-card__capa img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease, filter 0.3s; }
-.mu-card:hover .mu-card__capa img { transform: scale(1.05); }
-.mu-card.is-fora .mu-card__capa img { filter: saturate(0.6) brightness(0.75); }
-.mu-card__indice { position: absolute; top: 6px; left: 8px; color: var(--if-ink); font: 700 0.55rem var(--font-mono); letter-spacing: 0.1em; text-shadow: 0 1px 4px #000; }
-.mu-card.is-ativa .mu-card__indice { color: var(--if-amber-soft); }
-.mu-card__play {
-  position: absolute; right: 8px; bottom: 14%; display: grid; place-items: center; width: 34px; height: 34px;
-  background: rgba(0, 0, 0, 0.7); border: 1px solid var(--if-hair-strong); color: var(--if-ink); font-size: 0.8rem;
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%); transition: background 0.2s, color 0.2s;
+.mu-faixa__num { display: grid; place-items: center; flex: 0 0 22px; color: var(--text-muted); font: 600 0.85rem var(--font-mono); font-variant-numeric: tabular-nums; }
+.mu-faixa__num i { display: none; font-style: normal; font-size: 0.75rem; color: var(--if-ink); }
+.mu-faixa:hover .mu-faixa__num b { display: none; }
+.mu-faixa:hover .mu-faixa__num i { display: inline; }
+.mu-faixa.is-ativa .mu-faixa__num { color: var(--if-amber); }
+.mu-faixa__capa { flex: 0 0 48px; width: 48px; height: 48px; object-fit: cover; display: block; background: #000; }
+.mu-faixa.is-fora .mu-faixa__capa, .mu-faixa.is-travada .mu-faixa__capa { filter: grayscale(0.6) brightness(0.65); }
+.mu-faixa__texto { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.mu-faixa__texto strong { overflow: hidden; color: var(--text-primary); font-family: var(--font-body); font-weight: 600; font-size: 0.98rem; line-height: 1.2; white-space: nowrap; text-overflow: ellipsis; }
+.mu-faixa.is-ativa .mu-faixa__texto strong { color: var(--if-amber); }
+.mu-faixa__texto small { overflow: hidden; color: var(--text-muted); font-family: var(--font-body); font-size: 0.8rem; white-space: nowrap; text-overflow: ellipsis; }
+.mu-faixa__mais {
+  display: grid; place-items: center; flex: 0 0 44px; height: 44px; border: 0; background: none;
+  color: var(--text-muted); font-size: 1.2rem; cursor: pointer; transition: color 0.18s;
 }
-.mu-card:hover .mu-card__play, .mu-card.is-ativa .mu-card__play { background: var(--if-amber); color: #1b1000; border-color: var(--if-amber); }
-.mu-card__fora {
-  position: absolute; bottom: 12%; left: 0; padding: 0.18rem 0.5rem; background: rgba(0, 0, 0, 0.75);
-  color: var(--text-secondary); font: 700 0.5rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase;
-}
-.mu-card__info {
-  display: flex; flex-direction: column; gap: 0.2rem; padding: 0.4rem 0.6rem 0.7rem; border: 0; background: none;
-  color: inherit; text-align: left; cursor: pointer; box-shadow: inset 0 2px 0 var(--mu-cor, var(--if-cyan));
-}
-.mu-card.is-ativa .mu-card__info { box-shadow: inset 0 2px 0 var(--if-amber); }
-.mu-card__info strong { color: var(--text-primary); font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.1; letter-spacing: 0.02em; overflow-wrap: anywhere; }
-.mu-card.is-ativa .mu-card__info strong { color: var(--if-amber-soft); }
-.mu-card__info small { color: var(--text-muted); font: 600 0.56rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.mu-faixa__mais:hover { color: var(--if-ink); }
 
 /* ══ 4. Só na Rádio Nina — lista no padrão do drawer ══ */
 .mu-exclusivas { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--if-hair); }
@@ -184,7 +174,7 @@
 .mu-cadeado strong { font: 800 .74rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--if-amber); }
 .mu-cadeado span { font: 500 .82rem/1.4 var(--font-body); color: var(--if-ink); }
 .mu-cadeado .if-btn { justify-self: start; }
-.mu-card.is-travada .mu-card__capa img, .mu-destaque.is-travada .mu-destaque__capa img, .music-circle.is-travada img { filter: grayscale(.6) brightness(.6); }
+.mu-destaque.is-travada .mu-destaque__capa img, .music-circle.is-travada img { filter: grayscale(.6) brightness(.6); }
 .mu-exclusiva.is-travada { opacity: .85; text-decoration: none; }
 .mu-exclusiva.is-travada .mu-exclusiva__nome { display: grid; gap: 2px; }
 .mu-exclusiva.is-travada small { font: 500 .72rem var(--font-body); color: var(--if-amber); }

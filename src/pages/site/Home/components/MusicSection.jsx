@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useRadio } from '../../../../components/RadioNina/RadioNinaContext'
 import musicas from '../../../../data/musicas.json'
+import { capaDaMusica } from '../../../../lib/capaMusica'
 import HomeSectionHeading from './HomeSectionHeading'
 import './MusicSection.css'
-
-const capas = Object.values(import.meta.glob('../../../../assets/images/music/*.png', { eager: true, import: 'default' }))
 
 /** Músicas na Home: o carrossel dos lançamentos — tocar numa capa já toca a
  *  música pela Rádio Nina (o mesmo tocador da barra e da página /musicas) —
@@ -16,7 +15,7 @@ export default function MusicSection() {
   const { estado, tocando, faixaAtual, ligar, alternar, tocarKey, travaDe } = useRadio()
 
   const lista = useMemo(() => {
-    const comCapa = musicas.map((m, i) => ({ ...m, _img: capas[i % capas.length] }))
+    const comCapa = musicas.map(m => ({ ...m, _img: capaDaMusica(m) }))
     return [...comCapa, ...comCapa]
   }, [])
 
