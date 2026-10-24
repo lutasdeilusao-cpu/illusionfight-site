@@ -193,7 +193,10 @@
       "conta": "2027-07-30",
       "publico": "2027-08-15"
     },
-    "paginas": 57
+    "idiomas": ["pt"],
+    "paginas": 57,
+    "formato": "webp",
+    "proporcao": [960, 1632]
   },
   {
     "id": "08",
