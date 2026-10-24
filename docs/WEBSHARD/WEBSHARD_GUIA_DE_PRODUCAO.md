@@ -510,9 +510,22 @@ Void está na introdução onírica, mas o handoff o mantém **fora do cânone o
 
 ### 13.3 Ambientes e assets
 
+**Referências oficiais reafirmadas por Isaias, 23/10/2026 — prevalecem sobre alternativas antigas do acervo:**
+
+| Elemento | Arquivo em `Personagens/WEBTOON/` | O que governa |
+|---|---|---|
+| Sala de aula | `SalaDeAulaKimJackNina.png` | Arquitetura, acabamento e luz; usar junto da planta oficial |
+| Planta da sala | `SalaDeAulaKimJackNinaVistaTop.png` | Carteiras, corredor e posições fixas de Kim, Jack e Nina (§13.4) |
+| Óculos escolares | `OculosSaladeAula.png` | Óculos de RA usados na sala, armação azul translúcida; não são o visor do SBI |
+| SBI | `SBISheet.png` | Visor e luvas de simulação; não substituir pelos óculos escolares |
+| Arena, vista interna | `Nova pasta/ArenaLDI2.png` | Piso, parede e arquitetura da arena oficial |
+| Arena, vista panorâmica | `Nova pasta/ArenaLDI.png` | Escala e geografia da mesma arena; a vista não obriga panorâmica nas páginas |
+
+Os caminhos identificam arquivos locais a anexar, não imagens que a ferramenta pode abrir por link. As duas referências da sala devem ser usadas juntas. Não substituir a sala por outra planta de bancadas para acomodar uma conversa: adaptar os enquadramentos e manter as posições oficiais. Para fichas novas de ambientes recorrentes: folha horizontal, **planta baixa de todo o ambiente à esquerda; dois painéis à direita, um acima do outro, com dois ângulos do MESMO lugar**. Planta e vistas precisam concordar. Referências oficiais já suficientes são reutilizadas, não recriadas por hábito.
+
 - Casa: três janelas superiores; quarto de Kim na esquerda; garagem, entrada, janela baixa de Helena, lâmpada pendurada e rua rachada. Usar a referência, não reconstruir fachadas diferentes a cada página.
 - Quarto: bagunça, pôsteres, prateleiras, guitarra e TV antiga, conforme `QuartoKim.png`.
-- Arena: `Ambiente2.png`, coliseu, plateia, bandeiras e mármore com louros dourados; `Ambiente.png` é o estado destruído. Céu conforme o momento.
+- Arena: as vistas oficiais atuais são `Nova pasta/ArenaLDI2.png` e `Nova pasta/ArenaLDI.png`. `Ambiente2.png` e `Ambiente.png` permanecem referências históricas/de estado específicas, sem substituir a arquitetura oficial. Nas páginas de ação, mostrar piso e parede; não enquadrar plateia junto do combate (§14).
 - Elite Academy: portão de ferro com nome dourado no arco. A Sala A-304 tem planta fixa (§13.4).
 - Óculos de RA: nome de referência no handoff `OculosSaladeAula.png`; confirmar arquivo antes do uso.
 - Logos: `LogoEnglish.png` e `LogoSquareEn.png` segundo o handoff; usar assets aprovados, nunca redesenhar a marca para cada página.
@@ -550,6 +563,10 @@ A sala e as posições **nunca mudam** de uma página para outra. O prompt tem q
 - Um personagem em foco por quadro facilita a leitura e diminui erros de identidade. Kim, Jack e Nina não precisam aparecer juntos em todo painel.
 
 ## 14. Câmera, corpo, olhar e ação
+
+**Direção de Isaias, 23/10/2026:** foco na ação e na emoção, com ângulos cinematográficos e pouco background. Preferir plano americano, médio, close e detalhe; evitar corpo inteiro e enquadramento do ambiente inteiro. Plano aberto só quando o próprio acontecimento o exige. A ficha de ambiente pode mostrar a planta e o lugar completo; isso não é instrução para abrir a câmera nas páginas.
+
+**Arena — piso e parede, sem plateia no quadro do combate.** Enquadrar a ação contra fragmentos do chão e da parede, preservando a amplitude: não transformar a arena numa sala pequena nem aproximar arquibancadas para fazê-las caber. Quando a plateia precisar aparecer, usar estilhaços sobrepostos de reação ou uma panorâmica EXCLUSIVA da plateia, sem mostrar o que acontece na área de luta. Não pedir ao gerador torcida detalhada e ação dentro da arena no mesmo enquadramento. Uma referência panorâmica fixa escala/geografia; não obriga repetir seu ponto de vista.
 
 **Cada painel deve declarar seu próprio ângulo**, claramente diferente do anterior. Variar escala também: plano geral, close, detalhe, plongée, contra-plongée, sobre o ombro e ponto de vista subjetivo. Não fazer todas as páginas como rostos colados à câmera.
 
@@ -626,6 +643,8 @@ Vocabulário registrado: FSSH, ZIIIP, BIP, GLUP, FRUP, MISS, FWOOSH, CRACK, KRAK
 | `SalaDeAulaKimJackNina.png` | Sala A-304 vista da porta | Referência de ambiente e de acabamento/luz. |
 
 ### 16.2 Estilo de arte: bloco obrigatório em todo prompt
+
+**Atualização autoral de 23/10/2026:** a obra tem contraste deliberado entre dois acabamentos. Nos momentos casuais de história e humor, usar linguagem gráfica mais expressiva de quadrinho. Quando a ação ou a emoção ficam sérias, a mudança deve ser drástica para **semirrealista, quase realista**, com volume, textura e atuação mais contida. O primeiro ataque sério pode marcar essa virada. Não aplicar um semirrealismo uniforme a toda página, nem mudar rosto, roupa, ferimento ou geografia ao trocar o acabamento. O bloco abaixo descreve o modo sério; em páginas casuais, substituí-lo por um bloco explícito de comic expressivo com volume e luz cinematográfica, sem virar anime chapado, chibi ou render 3D. A ficha fixa aparência; a página e sua direção fixam o acabamento.
 
 **Regra autoral:** todo prompt reforça o estilo de arte do WEBSHARD LDI. Sem esse bloco, a ferramenta deriva para outro estilo, como anime chapado, entre uma página e outra.
 
