@@ -1,5 +1,43 @@
 # Revisão do livro Lutas de Ilusão — capítulo 7 em diante
 
+## Auditoria atual — 23/10/2026
+
+**Bíblia da cronologia:** `../DOCS/Lutas de Ilusão - A ilusão (RETCON).txt`, original de 14 capítulos, confirmado pelo autor. Seus capítulos longos foram desdobrados nos 28 capítulos atuais. A comparação é por acontecimentos e sequência, nunca pela igualdade dos números. O Markdown de 16 capítulos `docs/Lutas de Ilusão - Retcon.md` era uma versão incorreta, sem referências de uso no projeto, e foi removido.
+
+O relatório antigo abaixo descreve uma versão intermediária de 16 capítulos. **Não é uma lista atual de cenas ausentes.** A versão atual já contém a maior parte das restaurações solicitadas.
+
+| Ponto da revisão | Situação no livro atual |
+|---|---|
+| Presente de Ryan duplicado | Resolvido: entrega no capítulo 13; capítulo 15 desenvolve equipamentos e treino. |
+| Conversa incompleta com Helena | Restaurada no capítulo 12, retomada na conversa da manhã do 13. |
+| Aparelho chamado IDI | SBI no texto principal PT atual. |
+| Entrada e saída do treino | Praça após as aulas no fim do 13, entrada no 14 e retorno no 16. O original também usa a praça; não trocar por anexo. |
+| Fio de aço atribuído a Jack | Corrigido: pertence à Xakixi de Kim, capítulos 15–16. |
+| Morte na sala privada | A explicação inicial estava correta, mas outra fala ainda aplicava o cooldown público ao treino. Corrigida no capítulo 16: nova sala permite voltar; cinco horas são das salas públicas. |
+| Shuntaro lutando no mundo real | Corrigido: conexão pelo SBI no pátio no 26; confronto dentro do LDI nos capítulos 27–28. |
+| Regras e desenvolvimento do treino | Presentes nos capítulos 14–18, incluindo Sala Fashion, limites da sala, armas, segundo Pajé, observação e práticas. |
+| Roxy, Nina e Jack no parque | Arco presente nos capítulos 19–23. |
+| Tarde com Helena e trabalho no clube | Presentes nos capítulos 24–25. |
+
+### Correções adicionais encontradas nesta conferência
+
+- **Capítulo 9:** retirada a descoberta antecipada dos vídeos virais durante a aula. No original, o trio descobre a dimensão da repercussão na manhã seguinte, na sequência do presente de Ryan, correspondente ao capítulo 13 atual.
+- **Ryan:** Kim e Jack já o conhecem de *Sonata de uma Briga*, uma semana antes da linha principal. Retirada a pergunta pelo nome no capítulo 9 e explicitado o reencontro. Nina pode perguntar como se conhecem. Samuel e seu grupo não são Arnold e seus capangas do conto.
+- **Capítulo 13:** Ryan entrega a caixa antes das aulas; o trio descobre os vídeos, assiste às aulas e só depois segue para a praça. Eliminada também a afirmação de que Kim desconhecia o PowWow, já usado pela banda.
+- **Capítulo 16:** eliminada a segunda fala que confundia a regra de morte privada com o respawn público. Alterações correspondentes aplicadas em PT/EN/ES; isso não certifica a tradução integral desses arquivos, inclusive o capítulo EN 16, que já continha texto em português.
+
+### Continuidade da produção dos quadrinhos
+
+O recorte planejado permanece: WEB SHARD 07 = 52 páginas narrativas; 08 = 56; 09 = 72. O 09 encerra na conversa noturna com Helena, capítulo 12 da versão atual, correspondente ao núcleo do capítulo 7 original. A manhã, o presente e o treino vêm depois. Os prompts devem acompanhar a correção da descoberta dos vídeos, sem antecipá-la no 07.
+
+Ryan já possui ficha oficial em `../WEBSHARD/LUTAS DE ILUSAO/CONTOS/01-sonata/fichas/ryan.png`; reutilizar seu rosto, cabelo e acessórios. Não redesenhá-lo na ficha de Samuel e seus seis colegas. A representação em cinza do conto é um recurso narrativo, não uma alteração física permanente.
+
+As Sagas Primordiais têm organização separada em `docs/LDI/contos/08-sagas-primordiais/`; isso não autoriza afirmar que todas as cenas do original estão publicadas. A genealogia deve seguir `MITOLOGIA.md`: Kawa é filho de Nara e do cacique; Powa é filho do Pajé.
+
+## Histórico da revisão anterior — preservado para consulta
+
+Os títulos, números e diagnósticos abaixo se referem à versão intermediária antiga. Em caso de divergência, prevalecem a auditoria acima e o original TXT.
+
 Comparação entre o livro original (`Lutas de Ilusão - A ilusão (RETCON).txt`, 14 capítulos) e os capítulos atuais do site (`src/data/historias/lutas-de-ilusao/pt/capitulo-07` a `16`).
 
 ## 1. Onde cada capítulo atual está no original

@@ -6,6 +6,8 @@
 
 ## 1. Como usar este guia
 
+**Cronologia da linha principal (confirmada pelo autor em 23/10/2026):** a Bíblia é o original `DOCS/Lutas de Ilusão - A ilusão (RETCON).txt`, na pasta da marca, com 14 capítulos longos desdobrados nos 28 atuais. Comparar acontecimentos e sua ordem, não números de capítulo. A antiga cópia `SiteLDI/docs/Lutas de Ilusão - Retcon.md`, de 16 capítulos, estava incorreta e foi removida. Os visuais oficiais e as determinações posteriores do autor governam a adaptação gráfica. Ryan já aparece em *Sonata de uma Briga*, uma semana antes da linha principal; reutilizar sua ficha em `WEBSHARD/LUTAS DE ILUSAO/CONTOS/01-sonata/fichas/ryan.png`, sem tratar o reencontro como primeira apresentação a Kim e Jack.
+
 Leia primeiro o manifesto e as regras essenciais (§2–3). Para produzir uma página, use composição (§4), texto (§5), cores e vozes (§6), área segura (§7) e referências e processo (§11–22). A revisão final está no §23.
 
 As seções 11 a 22 trazem evolução do acervo, fichas, posicionamento na Sala A-304, coreografia, HIT COMBO, referências e estilo de arte, localização, fluxo de produção e modelos de prompt. A §26 reúne a tradução do capítulo 01 para inglês e espanhol: fluxo, prompts, voz, armadilhas e decisões já tomadas. Os registros distinguem:

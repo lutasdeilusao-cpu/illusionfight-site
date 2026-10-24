@@ -46,17 +46,9 @@ Se rieron. Después se concentraron en el trabajo.
 
 ---
 
-El celular de Jack vibró debajo de la mesa.
+Jack todavía intentó hacer otra broma en voz baja. Nina señaló el trabajo. Kim ni siquiera levantó la mirada.
 
-Lo ignoró. Vibró de nuevo. A la tercera, deslizó el aparato debajo de la mesa y miró rápido.
-
-Foro GearShift LDI. Un post con doce minutos de vida y cuatrocientas ochenta y siete respuestas.
-
-Guardó el celular sin decir nada.
-
-Al lado, Nina estaba cabizbaja con el tablet, fingiendo anotar algo sobre el Iluminismo. Jack no necesitó mirar para saber que ella había visto lo mismo.
-
-Kim era el único de los tres prestando atención a la clase.
+Los tres volvieron a los textos. Por primera vez aquel día, nadie intentaba golpearle la cara a nadie.
 
 Dos clases de matemáticas con Máquina. La de biología con la profesora Florista, que ya habían tenido en el anexo. Y ahora dos seguidas con Romancista.
 
@@ -70,23 +62,13 @@ Kim cerró el tablet. Se levantó. Hizo crujir el cuello hacia un lado.
 
 — Por fin.
 
-— Amigo. Amigo, amigo, amigo. — Jack, con el celular ya en la mano antes de terminar de levantarse.
-
-— ¿Qué pasa?
-
-Jack le giró la pantalla.
-
-Kim miró los números. Los comentarios en idiomas que no sabía leer. Su propio nick escrito en letras de un alfabeto que no conocía, repetido en decenas de posts. El contador de visualizaciones que no paraba de subir ni por un segundo.
-
-Se quedó mirando tres segundos.
-
 *Necesito mucho una birra.*
 
 ---
 
-A la salida, los números todavía no se le habían ido de la cabeza a Kim.
+A la salida, Kim seguía agotado por la pelea. Las peleas. Ya ni sabía cómo contar aquella mañana.
 
-El contador que no paraba. Los comentarios en idiomas que no leía. Bajó por el pasillo con eso, pasó por el portón donde Osvaldo lo saludó sin preguntar nada, y la calle de Marelia se abrió frente a los tres con el sol de final de tarde golpeando torcido en la acera.
+Bajó por el pasillo con los otros dos, pasó por el portón donde Osvaldo lo saludó sin preguntar nada, y la calle de Marelia se abrió frente a los tres con el sol de final de tarde golpeando torcido en la acera.
 
 — ¿Cuánto dio al final? — Kim a Jack, caminando.
 
@@ -126,7 +108,9 @@ Y un grito cortó la calle.
 
 ---
 
-Al lado del portón, un chico estaba en el suelo.
+Al lado del portón, Ryan estaba en el suelo.
+
+El mismo chico al que Kim y Jack habían ayudado en el pasillo una semana antes.
 
 Siete a su alrededor. Todos con uniforme de la escuela. Pateándolo. El chico, más bajo y más flaco que cualquiera de ellos, encogido, con las manos en la cabeza.
 
@@ -140,7 +124,7 @@ Kim ya estaba caminando.
 
 Pasó entre los siete como quien pasa entre gente esperando el autobús. Se agachó al lado del chico.
 
-— ¿Y bien, amigo? ¿Vas a quedarte ahí tirado dejando que hagan lo que quieran?
+— Ryan. ¿Recuerdas el pasillo? ¿Vas a quedarte ahí tirado dejando que hagan lo que quieran?
 
 El chico lo miró con la cara sucia de tierra.
 
@@ -194,9 +178,9 @@ El chico se acercó a los tres cuando todo se calmó.
 
 — Gracias. — Limpiándose la nariz con la manga. — No sé qué habría hecho sin ustedes.
 
-— ¿Cuál es tu nombre?
+— ¿Ya se conocen? — preguntó Nina.
 
-— Ryan.
+— Del pasillo. La semana pasada. — Jack.
 
 — Ryan. — Kim. — Hoy tuviste suerte. Esos cobardes solo van contra quien no da guerra. No necesitas ganar. Solo tienes que dar suficiente dolor de cabeza para que se rindan.
 

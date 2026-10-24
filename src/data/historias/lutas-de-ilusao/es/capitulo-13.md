@@ -166,11 +166,11 @@ Los tres siguieron por el pasillo conversando, sin darse cuenta de que toda la e
 
 ---
 
-Pasó un día más de clases. El dúo se había convertido en trío.
+El dúo se había convertido en trío.
 
 Pero aquel no iba a ser un día común. Jack tenía planes para Kim. Y sabía que no iba a ser fácil convencerlo. Solo que, si había alguien en el mundo que convencía a Kim de hacer lo que no quería, era Jack.
 
-A la salida, Ryan pasó junto a ellos. Y volvió.
+Antes de que llegaran al salón, Ryan pasó junto a ellos. Y volvió.
 
 — Entonces, señores. Quiero agradecerles una vez más por lo que hicieron por mí ayer. — Miró a Nina. — Y agradecerle a la señorita también.
 
@@ -242,7 +242,7 @@ Nina ya estaba con el celular en la mano, en PowWow.
 
 Ahí estaba el video. El que ella había visto en vivo. Entre los diez más vistos del mundo.
 
-Nadie lo había mirado antes. La víspera los tres habían ido a beber y habían vuelto a casa borrachos. Nina no había abierto PowWow. Jack se había apagado. Y Kim ni siquiera sabía que PowWow existía.
+Hasta entonces, ninguno de los tres había buscado los videos de aquella pelea. La víspera habían ido a beber y habían vuelto a casa borrachos. Nina no había abierto PowWow. Jack se había quedado dormido. Y Kim solo quería olvidar lo que había pasado dentro del juego.
 
 Ella fue mostrando. Los cortes. Los videos cortos. No era un solo video. Eran decenas.
 
@@ -340,4 +340,6 @@ Jack conocía a su amigo. Sabía que no iba a quedar en paz con aquello.
 
 Kim asintió.
 
-Salieron de la escuela y fueron a una plaza cerca de ahí.
+Guardaron la caja y fueron al salón. El resto de las clases pasó con Kim intentando concentrarse y Jack mirando de vez en cuando la mochila de su amigo.
+
+Solo después del último timbre salieron de la escuela y fueron a una plaza cercana.

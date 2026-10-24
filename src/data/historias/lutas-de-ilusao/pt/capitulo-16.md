@@ -110,7 +110,7 @@ Jack ficou sério. Olhou pro machado na mão do amigo, pro fio de aço que só a
 
 Os dois ficaram se olhando com o mesmo sorriso. O sorriso de cinco anos de briga do mesmo lado.
 
-— Agora que ficou só eu e você, vai ser pra valer. — Jack. — Você tá começando a pegar o jogo. Então eu vou terminar isso antes que as chances fiquem todas do seu lado. Depois disso tem cooldown pra treinar de novo. Beleza?
+— Agora que ficou só eu e você, vai ser pra valer. — Jack. — Você tá começando a pegar o jogo. Então eu vou terminar isso antes que as chances fiquem todas do seu lado. Pra voltar depois de morrer aqui, só abrindo outra sala. As cinco horas são pras salas públicas. Beleza?
 
 — Beleza. Mostra o que você faz nesse joguinho.
 

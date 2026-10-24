@@ -46,17 +46,9 @@ They laughed. Then focused on the assignment.
 
 ---
 
-Jack's phone vibrated under the workbench.
+Jack tried one more quiet joke. Nina pointed at the assignment. Kim didn't even look up.
 
-He ignored it. It vibrated again. On the third, he slid the device under the table and glanced quickly.
-
-GearShift LDI forum. A post twelve minutes old with four hundred eighty-seven replies.
-
-He put the phone away without saying anything.
-
-Beside him, Nina was head-down on her tablet, pretending to jot notes about the Enlightenment. Jack didn't need to look to know she'd seen the same thing.
-
-Kim was the only one of the three paying attention in class.
+The three went back to the texts. For the first time that day, nobody was trying to punch anybody in the face.
 
 Two math classes with Machine. The biology class with teacher Florist, which they'd had in the annex. And now two in a row with the Novelist.
 
@@ -70,23 +62,13 @@ Kim closed his tablet. Stood up. Cracked his neck to the side.
 
 — Finally.
 
-— Dude. Dude dude dude. — Jack, phone already in hand before he finished standing.
-
-— What is it?
-
-Jack turned the screen to him.
-
-Kim looked at the numbers. The comments in languages he couldn't read. His own nick written in letters from an alphabet he didn't know, repeated across dozens of posts. The view counter that wouldn't stop climbing for even a second.
-
-He stared for three seconds.
-
 *I really need a beer.*
 
 ---
 
-On the way out, the numbers still hadn't left Kim's head.
+On the way out, Kim was still exhausted from the fight. The fights. He wasn't even sure how to count that morning anymore.
 
-The counter that wouldn't stop. The comments in a language he didn't read. He walked down the hallway with that, passed through the gate where Osvaldo waved without asking anything, and the street of Marelia opened in front of the three of them with the late-afternoon sun hitting the sidewalk crooked.
+He walked down the hallway with the other two, passed through the gate where Osvaldo waved without asking anything, and the street of Marelia opened in front of the three of them with the late-afternoon sun hitting the sidewalk crooked.
 
 — How much was it again? — Kim to Jack, walking.
 
@@ -126,7 +108,9 @@ And a scream cut through the street.
 
 ---
 
-Next to the gate, a boy was on the ground.
+Next to the gate, Ryan was on the ground.
+
+The same boy Kim and Jack had helped in the hallway a week earlier.
 
 Seven around him. All in school uniforms. Kicking. The boy, smaller and skinnier than any of them, curled up, hands on his head.
 
@@ -140,7 +124,7 @@ Kim was already walking.
 
 He passed through the middle of the seven like someone walking through people waiting for a bus. Crouched beside the boy.
 
-— Hey, man. You gonna stay lying there letting them do whatever they want?
+— Ryan. Remember the hallway? You gonna stay lying there letting them do whatever they want?
 
 The boy looked at him with his face dirty with dirt.
 
@@ -194,9 +178,9 @@ The boy came up to the three of them when everything calmed down.
 
 — Thanks. — Wiping his nose with his sleeve. — I don't know what I would've done without you guys.
 
-— What's your name?
+— You already know each other? — Nina asked.
 
-— Ryan.
+— From the hallway. Last week. — Jack.
 
 — Ryan. — Kim. — Today you got lucky. Those cowards only go after people who don't give them trouble. You don't need to win. You just have to give them enough headache to make them quit.
 

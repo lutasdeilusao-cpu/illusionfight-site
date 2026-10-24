@@ -46,17 +46,9 @@ Riram. Depois focaram no trabalho.
 
 ---
 
-O celular do Jack vibrou embaixo da bancada.
+O Jack ainda tentou fazer uma graça em voz baixa. A Nina apontou pro trabalho. O Kim nem levantou os olhos.
 
-Ele ignorou. Vibrou de novo. Na terceira, ele deslizou o aparelho pra debaixo da mesa e olhou rápido.
-
-Fórum GearShift LDI. Um post com doze minutos de vida e quatrocentas e oitenta e sete respostas.
-
-Guardou o celular sem falar nada.
-
-Do lado, a Nina estava de cabeça baixa no tablet, fingindo anotar coisa sobre o Iluminismo. O Jack não precisou olhar pra saber que ela tinha visto a mesma coisa.
-
-O Kim era o único dos três prestando atenção na aula.
+Os três voltaram pros textos. Pela primeira vez naquele dia, não tinha ninguém tentando acertar a cara de ninguém.
 
 Duas aulas de matemática com o Máquina. A de biologia com a professora Florista, que eles tinham passado no anexo. E agora duas seguidas com a Romancista.
 
@@ -70,23 +62,13 @@ O Kim fechou o tablet. Levantou. Estalou o pescoço pro lado.
 
 — Finalmente.
 
-— Cara. Cara cara cara. — Jack, o celular já na mão antes de terminar de levantar.
-
-— O que foi?
-
-O Jack virou a tela pra ele.
-
-O Kim olhou os números. Os comentários em idiomas que ele não sabia ler. O próprio nick escrito em letras de um alfabeto que ele não conhecia, repetido em dezenas de posts. O contador de visualizações que não parava de subir nem por um segundo.
-
-Ficou olhando três segundos.
-
 *Preciso muito de uma breja.*
 
 ---
 
-Na saída, os números ainda não tinham saído da cabeça do Kim.
+Na saída, o Kim ainda estava cansado da luta. Das lutas. Nem sabia mais como contar aquela manhã.
 
-O contador que não parava. Os comentários em língua que ele não lia. Ele desceu o corredor com aquilo, passou pelo portão onde o Osvaldo acenou sem perguntar nada, e a rua de Marelia abriu na frente dos três com o sol de fim de tarde batendo torto na calçada.
+Desceu o corredor com os dois, passou pelo portão onde o Osvaldo acenou sem perguntar nada, e a rua de Marelia abriu na frente dos três com o sol de fim de tarde batendo torto na calçada.
 
 — Deu quanto mesmo? — Kim pro Jack, andando.
 
@@ -126,7 +108,9 @@ E um grito cortou a rua.
 
 ---
 
-Do lado do portão, um garoto estava no chão.
+Do lado do portão, o Ryan estava no chão.
+
+O mesmo garoto que o Kim e o Jack tinham ajudado no corredor uma semana antes.
 
 Sete em volta dele. Todos de uniforme da escola. Chutando. O garoto, menor e mais magro que qualquer um deles, encolhido, as mãos na cabeça.
 
@@ -140,7 +124,7 @@ O Kim já estava andando.
 
 Passou no meio dos sete como quem passa no meio de gente esperando ônibus. Agachou do lado do garoto.
 
-— E aí, cara. Vai ficar aí deitado deixando eles fazerem o que quiserem?
+— Ryan. Lembra do corredor? Vai ficar aí deitado deixando eles fazerem o que quiserem?
 
 O garoto olhou pra ele com o rosto sujo de terra.
 
@@ -194,9 +178,9 @@ O garoto chegou perto dos três quando tudo acalmou.
 
 — Obrigado. — Limpando o nariz com a manga. — Eu não sei o que eu ia fazer sem vocês.
 
-— Qual o teu nome?
+— Vocês já se conhecem? — A Nina.
 
-— Ryan.
+— Do corredor. Semana passada. — O Jack.
 
 — Ryan. — Kim. — Hoje você deu sorte. Esses covardes só vão atrás de quem não dá trabalho. Você não precisa ganhar. Só tem que dar dor de cabeça suficiente pra eles desistirem.
 

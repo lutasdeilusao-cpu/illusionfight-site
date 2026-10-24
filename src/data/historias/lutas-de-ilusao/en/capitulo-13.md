@@ -166,11 +166,11 @@ The three continued down the hall talking, without noticing that the whole schoo
 
 ---
 
-Another school day passed. The duo had become a trio.
+The duo had become a trio.
 
 But that wasn't going to be an ordinary day. Jack had plans for Kim. And he knew it wouldn't be easy to convince him. But if there was anyone in the world who could convince Kim to do what he didn't want, it was Jack.
 
-At dismissal, Ryan passed by them. And came back.
+Before they reached the classroom, Ryan passed by them. And came back.
 
 — So, gentlemen. I want to thank you once again for what you did for me yesterday. — He looked at Nina. — And thank you too, miss.
 
@@ -242,7 +242,7 @@ Nina already had her phone in hand, on PowWow.
 
 There was the video. The one she had seen live. Among the ten most watched in the world.
 
-No one had looked before. The night before the three had gone drinking and come home drunk. Nina hadn't opened PowWow. Jack had crashed. And Kim didn't even know PowWow existed.
+Until then, none of the three had looked up the videos of that fight. The night before, they'd gone drinking and come home drunk. Nina hadn't opened PowWow. Jack had crashed. And Kim just wanted to forget what had happened inside the game.
 
 She showed it. The clips. The short videos. It wasn't just one video. There were dozens.
 
@@ -340,4 +340,6 @@ Jack knew his friend. He knew he wouldn't be at peace with it.
 
 Kim nodded.
 
-They left the school and went to a nearby square.
+They put the box away and went to class. The rest of the lessons passed with Kim trying to concentrate and Jack glancing at his friend's backpack now and then.
+
+Only after the final bell did they leave school and head to a nearby square.

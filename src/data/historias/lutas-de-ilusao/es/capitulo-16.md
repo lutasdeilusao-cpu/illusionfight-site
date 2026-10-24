@@ -110,7 +110,7 @@ Jack se puso serio. Miró el hacha en la mano de su amigo, el alambre de acero q
 
 Los dos se quedaron mirándose con la misma sonrisa. La sonrisa de cinco años de pelea del mismo lado.
 
-— Ahora que quedamos solo tú y yo, va a ser en serio. — Jack. — Estás empezando a agarrarle el juego. Entonces voy a terminar esto antes de que las chances queden todas de tu lado. Después de esto hay cooldown para entrenar de nuevo. ¿Okay?
+— Ahora que quedamos solo tú y yo, va a ser en serio. — Jack. — Estás empezando a agarrarle el juego. Entonces voy a terminar esto antes de que las chances queden todas de tu lado. Para volver después de morir aquí, hay que abrir otra sala. Las cinco horas son para las salas públicas. ¿De acuerdo?
 
 — Okay. Muestra lo que haces en este jueguito.
 
