@@ -23,6 +23,8 @@ O handoff fecha dimensão, margens aproximadas, estilo tipográfico e paletas. I
 
 **WEBSHARD é uma linguagem autoral de quadrinhos concebida para a leitura vertical no celular.** A página funciona como uma composição: painéis grandes sustentam a cena e estilhaços sobrepostos destacam gesto, reação, impacto e passagem de tempo. As diagonais orientam o olhar. A sobreposição participa da narrativa.
 
+**Direção autoral de Isaias, 23/10/2026: estilhaços SOBREPOSTOS.** Sobreposição é a relação espacial com os painéis, não uma hierarquia de importância. O estilhaço pode concentrar o impacto, a emoção ou a informação decisiva da página; não precisa ter menor destaque nem se limitar a um detalhe que o painel deixou de mostrar. Pode ocupar o centro, cruzar emendas e conduzir o olhar. Especificar formato, posição, conteúdo e ordem de leitura; preservar a clareza sem transformar os estilhaços em faixas de uma grade convencional.
+
 O nome remete a *shard*, caco ou estilhaço. A identidade nasce da combinação entre composição fragmentada, clareza, ritmo e cor com significado. Não basta inclinar quadros ou colocar brilho em uma página convencional.
 
 No LDI, poucas palavras precisam ser vistas com facilidade. O texto ocupa espaço real, tem tamanho confortável e identifica a voz do personagem pela cor. O neon dos painéis e dos estilhaços indica quem conduz a cena ou qual emoção a domina. A voz e o domínio da cena são informações distintas e podem coexistir com cores diferentes.
@@ -46,7 +48,7 @@ Grafias encontradas: **WEB SHARD** na interface e **WEBSHARD** em artes e na ori
 | Regra autoral | Aplicação na produção |
 |---|---|
 | Pensado para o mundo vertical e o celular | Projetar e revisar na largura de leitura do telefone. |
-| Estilhaços sobrepostos sobre painéis | Separar a cena principal de seus detalhes; sobrepor com intenção narrativa. |
+| Estilhaços sobrepostos sobre painéis | Sobrepor com intenção narrativa; podem concentrar a ação, a emoção ou a informação decisiva. |
 | No máximo dois painéis grandes como regra | Uma cena dominante ou duas batidas principais; não montar uma grade cheia de cenas equivalentes. |
 | Três painéis grandes apenas em casos muito específicos | Justificar por velocidade, progressão de movimento ou outra necessidade narrativa concreta. Não usar para acomodar roteiro excedente. |
 | Nunca informação demais | Preservar uma hierarquia clara mesmo quando há ação, som e efeitos. |
@@ -65,7 +67,7 @@ Não há limite numérico geral de estilhaços, palavras ou balões. Isso não a
 |---|---|---|
 | Página | Composição vertical completa, com percurso de leitura e batida dramática | 10: Jack registra a queda enquanto Kim reage na arena. |
 | Painel principal | Sustenta a ação, o espaço ou a expressão dominante | 38: encontro dos dois personagens no centro da arena. |
-| Estilhaço | Detalhe subordinado à cena: olho, mão, telefone, reação, contato ou preparação | 10: telefone; 22: mão; 34: detalhe do braço. |
+| Estilhaço | Fragmento sobreposto aos painéis: gesto, reação, impacto, passagem de tempo ou informação decisiva, sem hierarquia obrigatória de menor importância | 10: telefone; 22: mão; 34: detalhe do braço. |
 | Corte diagonal | Separa e conecta momentos, sugerindo direção e velocidade | 15–17: ataque, impacto e deslocamento. |
 | Sobreposição | Integra planos e estabelece a prioridade do detalhe | 09–10: Jack e o aparelho sobre a cena da queda. |
 | Invasão de quadro | Um elemento cruza a divisão e conecta planos | Gesto previsto expressamente no manifesto público; usar quando a ação justificar. |
@@ -79,7 +81,7 @@ Procedimento recomendado:
 1. Escrever em uma frase o que muda nesta página.
 2. Escolher a imagem que precisa ser percebida primeiro.
 3. Definir um ou dois painéis principais, com tamanhos coerentes com sua importância.
-4. Acrescentar somente os estilhaços que revelam algo que o painel não entrega bem sozinho.
+4. Compor os estilhaços sobrepostos com função narrativa própria: podem preparar, completar ou concentrar a ação e a emoção, inclusive como foco visual da página.
 5. Traçar o percurso do olhar de cima para baixo; dentro de cada região, garantir ordem clara de ação e fala.
 6. Reservar desde o esboço o espaço de texto e a área segura.
 7. Definir quem controla a cena, sua emoção e a cor do neon.
@@ -428,7 +430,7 @@ Isaias relata que o desenvolvimento vem desde o ano anterior e que criou a lingu
 
 **Leitura crítica da evolução:** a direção atual reúne o acontecimento principal e seus detalhes numa única composição, usa a cor para reduzir esforço de identificação e reserva texto maior em vez de multiplicar faixas. Essa interpretação visual é coerente com a motivação declarada por Isaias; não é uma reconstrução de conversas antigas não fornecidas.
 
-O objetivo de produção não é copiar cada tentativa anterior. É preservar o aprendizado que levou a painéis maiores, estilhaços subordinados, hierarquia, legibilidade e cor narrativa. Uma página antiga mais carregada não autoriza repetir o excesso.
+O objetivo de produção não é copiar cada tentativa anterior. É preservar o aprendizado que levou a painéis maiores, estilhaços sobrepostos, clareza de leitura, legibilidade e cor narrativa. Uma página antiga mais carregada não autoriza repetir o excesso. Sobreposição não impõe menor importância visual ou narrativa aos estilhaços.
 
 ### 11.2 Inventário externo
 
@@ -839,7 +841,7 @@ Campos pendentes não devem ser preenchidos com valores apresentados como oficia
 - [ ] O estilo segue o bloco do §16.2 e a âncora anexada: semi-realista, sombreamento suave, olhos realistas, sem anime chapado.
 - [ ] A página tem uma batida principal compreensível.
 - [ ] Há no máximo dois painéis grandes, ou justificativa expressa para a exceção de três.
-- [ ] Cada estilhaço tem função e permanece subordinado à cena.
+- [ ] Os estilhaços estão sobrepostos aos painéis, têm função narrativa e posição explícitas, podendo receber o maior destaque da página sem comprometer a leitura.
 - [ ] A ordem de ação e diálogo é inequívoca.
 - [ ] A cena respira; detalhes e efeitos não competem todos ao mesmo tempo.
 - [ ] Aparência, objetos, ferimentos e geografia continuam coerentes.
@@ -1156,4 +1158,4 @@ Ninguém olha diretamente para o leitor ou para a lente. Todo prompt indica o al
 
 ### Estilhaço como técnica de direção e continuidade
 
-O estilhaço não é restrito aos cantos. Pode ficar no centro, cruzar uma emenda ou acompanhar o alvo do olhar. Usar para ligar dois estados de uma ação, mostrar um detalhe observado ou conectar causa e consequência. Definir essa função e a posição no prompt, preservando a leitura dos painéis, das falas e da ação. O fragmento continua subordinado à composição; não vira outra cena inteira disfarçada.
+O estilhaço não é restrito aos cantos. Pode ficar no centro, cruzar uma emenda ou acompanhar o alvo do olhar. Usar para ligar dois estados de uma ação, mostrar um detalhe observado ou conectar causa e consequência. Definir essa função e a posição no prompt, preservando a leitura dos painéis, das falas e da ação. O fragmento é SOBREPOSTO: pode ser o foco do impacto ou da emoção e conduzir a composição, sem obrigação de menor importância. Sua forma sobreposta deve permanecer reconhecível, em vez de virar outra faixa de uma grade convencional.

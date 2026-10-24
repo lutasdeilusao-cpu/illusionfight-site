@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792797213.987172,
-    "ast_hash": "d7bdf943154432147ddbc4e3d8979e75",
+    "mtime": 1792802665.732607,
+    "ast_hash": "890ab623cd472115551d47a14a919763",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792797214.0267773,
-    "ast_hash": "2e35f1cb0bd4c9aa6efb31621d07a9aa",
+    "mtime": 1792802665.7686973,
+    "ast_hash": "ce75da83f64ed0480ed2e269d724c3f3",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7145,8 +7145,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1792781054.7760239,
-    "ast_hash": "189ce713e68e35c74a497c1daac25ed7",
+    "mtime": 1792802632.3298457,
+    "ast_hash": "2a15ec21d78c3df762d5c5996a236758",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesBagEquip.jsx": {
@@ -7225,8 +7225,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/HDC_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1792781054.7390237,
-    "ast_hash": "9ce8dabb9699354e4246772e90956bdb",
+    "mtime": 1792802632.292783,
+    "ast_hash": "7b0ff75200b10fbddc87f136b2b95547",
     "semantic_hash": ""
   },
   "src/data/herois-episodios.json": {
@@ -8620,8 +8620,8 @@
     "semantic_hash": ""
   },
   "src/data/mundo-das-sombras-episodios.json": {
-    "mtime": 1792796099.640163,
-    "ast_hash": "8892a9c29fa66e37b9013b11ad86acaf",
+    "mtime": 1792802783.570556,
+    "ast_hash": "c6ae490a994060e38675674ce30d111b",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mar-de-cinzas-01.webp": {
@@ -8630,13 +8630,13 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-01.webp": {
-    "mtime": 1792790746.8052452,
-    "ast_hash": "7c528a53bfa495a91dfca286811f6af1",
+    "mtime": 1792802782.1243682,
+    "ast_hash": "fe0b09c7f78e4bf81637ef4634fc9fdc",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-02.webp": {
-    "mtime": 1792790746.9399695,
-    "ast_hash": "e8824293488fef5563a650679398ce21",
+    "mtime": 1792802782.2925572,
+    "ast_hash": "f3fe0762cabe3421ac942d6f43250dd4",
     "semantic_hash": ""
   },
   "src/assets/webshard/capa-mar-de-cinzas.webp": {
@@ -8645,7 +8645,7 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/capa-mundo-das-sombras.webp": {
-    "mtime": 1792790746.6674218,
+    "mtime": 1792802781.9637694,
     "ast_hash": "1c1f0130f27af95f6458e92fc3eb0f32",
     "semantic_hash": ""
   },
@@ -9540,8 +9540,8 @@
     "semantic_hash": ""
   },
   "docs/PRODUCAO_IMAGEM.md": {
-    "mtime": 1792781054.6680243,
-    "ast_hash": "c573ab1e901ccc89216de1a25809ddd9",
+    "mtime": 1792802632.2578535,
+    "ast_hash": "4e9b9e562b0609d11fafb62d8f4d80f4",
     "semantic_hash": ""
   },
   "docs/T1_PENDENCIAS.md": {
@@ -9820,8 +9820,8 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-03.webp": {
-    "mtime": 1792790747.075711,
-    "ast_hash": "9a0b3e989f381ad72b60138b023497c9",
+    "mtime": 1792802782.4638388,
+    "ast_hash": "cd5aded1e4555249395a393895052428",
     "semantic_hash": ""
   },
   "especial.py": {
@@ -9835,13 +9835,13 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-04.webp": {
-    "mtime": 1792790747.2278886,
-    "ast_hash": "d466848e6a17c524143bbb8ce28b8c28",
+    "mtime": 1792802782.6478765,
+    "ast_hash": "63a3cf91487cc3b844adba84ebfe0a26",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-05.webp": {
-    "mtime": 1792790747.3769908,
-    "ast_hash": "d1630b4c975b7f559dd70064173abffb",
+    "mtime": 1792802782.8437452,
+    "ast_hash": "f3523f65a31afd7cc81e8b2b9d1616d1",
     "semantic_hash": ""
   },
   "src/pages/painel/PainelProjeto.jsx": {
@@ -9880,23 +9880,23 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-06.webp": {
-    "mtime": 1792790747.5036776,
-    "ast_hash": "578faf2a5c8c427d29df99ba5f88e970",
+    "mtime": 1792802783.0354576,
+    "ast_hash": "f47942e001cbf57a5455c439fe0df045",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-07.webp": {
-    "mtime": 1792790747.6288571,
-    "ast_hash": "07917a8253a492983ab9cc7bc51120bf",
+    "mtime": 1792802783.19896,
+    "ast_hash": "765cf1511416d061f323951545abdddb",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-08.webp": {
-    "mtime": 1792790747.7547896,
-    "ast_hash": "a61642866ff6907ce6f2aa829c803f91",
+    "mtime": 1792802783.3817096,
+    "ast_hash": "fc116c88601ee4ed8fb04f71161895f3",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-09.webp": {
-    "mtime": 1792790747.8882883,
-    "ast_hash": "816b0fbe82862338e7bce0b9788b69af",
+    "mtime": 1792802783.5695567,
+    "ast_hash": "146f11f8a19eedee1082bcb93b8ffdb4",
     "semantic_hash": ""
   },
   "src/assets/webshard/capa-diabo-vermelho.webp": {
@@ -9905,13 +9905,13 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md": {
-    "mtime": 1792443718.8515038,
-    "ast_hash": "7317e7bb482dfeb3c4bd881ec822ccc1",
+    "mtime": 1792802504.514163,
+    "ast_hash": "8947f28c77fb760e647bb4b878bd0fa2",
     "semantic_hash": ""
   },
   "scripts/halloween_producao.py": {
-    "mtime": 1792781096.397992,
-    "ast_hash": "aa3a5f73f1f97f33338586ded4d7fe7d",
+    "mtime": 1792802632.2147896,
+    "ast_hash": "3d851a073890955e4ece262176d6a2fc",
     "semantic_hash": ""
   },
   "docs/WEBSHARD/Especiais/HALLOWEEN_CONTINUIDADE.json": {
@@ -9965,8 +9965,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792797222.1475022,
-    "ast_hash": "32cab3e08480eeae378a8a9b2d5c822d",
+    "mtime": 1792802819.477524,
+    "ast_hash": "75f231ead61da0c3f37aa16a08f138d7",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
