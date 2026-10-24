@@ -1626,7 +1626,7 @@ As imagens produzidas com esses prompts são fichas para revisão autoral; gera�
 
 **PRODUÇÃO AUTORIZADA. Falha de página é registrada como pendência, sem travar o lote.** Artes 01–05 preservadas; texto revisado desde03, com reletreiramento a avaliar; página06 será refeita após revisão autoral. O destino é WEBSHARD/PT/loop1.
 
-O adaptador `scripts/halloween_producao.py` reutiliza o motor existente `MUNDO DAS SOMBRAS/WEBSHARD/scripts/fila_v2.py`. `preparar` apenas compila os 49 prompts03–51 a partir dos textos revisados, preservando01/02; não gera imagens. `rodar` executa o lote autorizado, mantendo a pausa manual por PARADA.txt. O letreiramento literal vem do JSON sincronizado com o roteiro, sem uma segunda redação independente dentro de CONTINUITY.
+O adaptador `scripts/halloween_producao.py` reutiliza o motor existente `MUNDO DAS SOMBRAS/scripts/fila_v2.py`. `preparar` apenas compila os 49 prompts03–51 a partir dos textos revisados, preservando01/02; não gera imagens. `rodar` executa o lote autorizado, mantendo a pausa manual por PARADA.txt. O letreiramento literal vem do JSON sincronizado com o roteiro, sem uma segunda redação independente dentro de CONTINUITY.
 
 Prompts: ESPECIAIS/presos/prompts/loop1. Imagens: ESPECIAIS/presos/WEBSHARD/PT/loop1. Estado/log/PARADA.txt: ESPECIAIS/presos/producao/loop1. Materiais não exigem intervalo; páginas mantêm cinco minutos quando a produção for retomada. Falta de referência ou falha técnica interrompe a produção. LoungeLeste.png, Buffet.png e CorredorTecnico.png são referências arquitetônicas, planta à esquerda e duas vistas à direita; arquivos ausentes precisam existir antes da página que os usa.
 

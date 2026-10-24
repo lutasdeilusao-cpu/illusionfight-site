@@ -1,7 +1,7 @@
 # PRODUÇÃO DE IMAGEM — guia do agente
 
 Formato: regras curtas, imperativas. Ler a seção GERAL + a seção do produto antes de gerar qualquer imagem.
-Guias longos por produto (detalhe, não repetir aqui): `docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md`, `docs/WEBSHARD/HDC_GUIA_DE_PRODUCAO.md`, `../QUADRINHOS/MAR DE CINZAS/WEBSHARD/MDC_GUIA_DE_PRODUCAO.md`, `../QUADRINHOS/MUNDO DAS SOMBRAS/WEBSHARD/MDS_PLANEJAMENTO.md`.
+Guias longos por produto (detalhe, não repetir aqui): `docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md`, `docs/WEBSHARD/HDC_GUIA_DE_PRODUCAO.md`, `../WEBSHARD/MAR DE CINZAS/MDC_GUIA_DE_PRODUCAO.md`, `../WEBSHARD/MUNDO DAS SOMBRAS/MDS_PLANEJAMENTO.md`.
 Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLDI/.env.local`, lidas por `LAB-NVIDIA/chaves.py` (`chaves.k('NOME')`).
 
 ---
@@ -84,7 +84,7 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 - Tradução: Nano Banana 2 primeiro (`LAB-NVIDIA/traduz_gemini.py <cap> <EN|ES> <prompts> NN…`, mesmo tamanho do PT), Codex reserva. Adaptar gíria antes; DIX nunca se traduz; ES neutro latino (tuteo). Detalhe e glossário no guia WEB SHARD §10/§17/§26.
 
 ## 3. MUNDO DAS SOMBRAS (MDS) — estilo ARKHAM CODEX
-- Pasta: `QUADRINHOS/MUNDO DAS SOMBRAS/WEBSHARD/`. Estilo oficial (decisão do Isaias): **Arkham Codex** = estilo da arte de Batman: Arkham City, feito no Codex, sem nada da marca.
+- Pasta: `WEBSHARD/MUNDO DAS SOMBRAS/`. Estilo oficial (decisão do Isaias): **Arkham Codex** = estilo da arte de Batman: Arkham City, feito no Codex, sem nada da marca.
 - Scripts: `scripts/v2.py` monta a fila do Codex `prompts/v2/` (cada ficha vai logo antes do 1º capítulo que a usa: `3N_00_*`, depois as páginas do capítulo N); `scripts/fila_v2.py` roda (tarefa `MDS_Fila_v2`; recorta página dupla `NN_MM.png`). `scripts/v2_gemini.py montar | rodar [caps]` = mesma coisa no Gemini, uma página por imagem, 2 páginas a cada 3 min. Saídas: `sheets_codex_arkham/`, `sheets_v2/`, `capas_v2/`, `wsNN/arkham_v2/` (Codex), `wsNN/arkham_gemini_v2/` (Gemini). `scripts/publicar_v2.py` sobe as duas versões como "pré-final".
 - **Ordem de produção (economia de Codex):** roteiro → Gemini gera o capítulo → Isaias revisa → só então o Codex gera (a fila do Codex só faz página de capítulo com o arquivo `aprovado/wsNN`; ficha ela faz sempre). Erro achado no Gemini custa centavos; no Codex, cota.
 - **O roteiro (`wsNN/roteiro.json`, formato em `scripts/FORMATO_ROTEIRO.md`) é escrito pelo agente principal**, nunca pelos modelos de fora: eles ignoram as regras de composição (ex.: 1 painel em toda página, vista de cima). Modelo de fora só revisa continuidade, e o agente confere. Cap. 1 escrito à mão em `scripts/roteiro_ws01.py`.
@@ -105,7 +105,7 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 - Codex. Semi-realista pintado, paleta fria; âncoras `KeyArtCapitulo1.png`, `Cena01.png`, `ElizabethColor.png`. Moldura de éter (cor = quem controla a cena). Fonte serifada condensada; sem onomatopeia. Regra anti-confusão escrita no prompt (vestido branco = Elizabeth; dragonas = Scarn). Codex bateu limite após ~40 imagens seguidas.
 
 ## 5. HERÓIS DA CIDADE (HDC)
-- Nano Banana 2 via `LAB-NVIDIA/hdc.py gerar(prompt, refs, out, (960,1637), '9:16')`; episódio = `hdc_epNN.py` (dicionário `PAG`, refs por chave em `R`), correção = `hdc_epNN_fix*.py`. Saída `QUADRINHOS/HEROIS DA CIDADE/WEBSHARD/NN/`, publicar em `public/webtoon/herois-da-cidade/NN/pt/` + `src/data/herois-episodios.json`.
+- Nano Banana 2 via `LAB-NVIDIA/hdc.py gerar(prompt, refs, out, (960,1637), '9:16')`; episódio = `hdc_epNN.py` (dicionário `PAG`, refs por chave em `R`), correção = `hdc_epNN_fix*.py`. Saída `WEBSHARD/HEROIS DA CIDADE/MAIN/NN/`, publicar em `public/webtoon/herois-da-cidade/NN/pt/` + `src/data/herois-episodios.json`.
 - Cartoon anos 90, traço grosso, cor chapada, fundo bege. Uma piada por episódio, falas secas. Ordem: cold open (2 legendas + imagem) → divulgação → história → divulgação → créditos.
 - Mega Bandido em 1 página só (roubando algo pequeno). Fechar todo prompt com "No other text. No Mega Bandido." (ou "This is the ONLY page with Mega Bandido").
 - Cores de balão: Playboy `#D62828`, Metal `#5B2A86`, Volver-Rindo `#E07B00`, figurantes cinza.
@@ -119,7 +119,7 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 
 ## 7. LDI GANGUES
 - Mapas pixel art: NUNCA pedir o bloco inteiro (inventa prédio). Fluxo `JOGOS/GANGUES_MAPA/`: guia do dado → chão sem prédios → cada telhado sozinho → montar no retângulo exato → `comp.py` pra achar prédio inventado. Colisão mora no dado.
-- Retratos de inimigo: cabeça 256×256 pixel art, `assets/enemies/<slug>/neutro.png` + mapa `ENEMY_ID_SLUG` em `data/ganguesEnemyPortraits.js`. Grade no Codex: `QUADRINHOS/MUNDO DAS SOMBRAS/WEBSHARD/scripts/gangues_grades.py` põe na fila do Codex (`prompts/v2/5_NN_gangues.txt`, depois do MDS) grades 6×4 (24 cabeças, 1536×1024, transparente, estilo de `gangues_grades/estilo_retratos.png`), chefões na 1ª; `fila_v2.py` recorta cada célula em `assets/enemies/<id>/neutro.png` (o jogo acha o retrato pela pasta do id quando não há slug). 365 cabeças = 16 grades. Revisar a 1ª grade antes de publicar.
+- Retratos de inimigo: cabeça 256×256 pixel art, `assets/enemies/<slug>/neutro.png` + mapa `ENEMY_ID_SLUG` em `data/ganguesEnemyPortraits.js`. Grade no Codex: `WEBSHARD/MUNDO DAS SOMBRAS/scripts/gangues_grades.py` põe na fila do Codex (`prompts/v2/5_NN_gangues.txt`, depois do MDS) grades 6×4 (24 cabeças, 1536×1024, transparente, estilo de `gangues_grades/estilo_retratos.png`), chefões na 1ª; `fila_v2.py` recorta cada célula em `assets/enemies/<id>/neutro.png` (o jogo acha o retrato pela pasta do id quando não há slug). 365 cabeças = 16 grades. Revisar a 1ª grade antes de publicar.
 - Animação (sprite sheet de batalha): só os 7 chefões e os 30 personagens jogáveis — a definir depois; o resto é só cabeça.
 - Texto de inimigo: `LAB-NVIDIA/gangues_inimigos.py plano|gerar|gravar` (DeepSeek+Gemini, lotes de 12, exemplos do catálogo + lista de nomes proibidos). Lotes em paralelo REPETEM nomes → rodar `gangues_renomeia.py` depois.
 - Sprite: animação vai no momento de destaque (dado dramático), nunca no log. Poses giram sozinhas (frente/perfil/costas, 2–3 s).

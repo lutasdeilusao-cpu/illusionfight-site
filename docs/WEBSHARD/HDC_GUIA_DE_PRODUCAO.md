@@ -58,7 +58,7 @@ Teste antes de gerar: lendo só os balões, alguém sente que o roteiro está "t
 
 ## 6. Personagens
 
-Fichas em `QUADRINHOS/HEROIS DA CIDADE/Personagens/`. A ficha sempre manda na aparência; a pose da ficha é ignorada.
+Fichas em `WEBSHARD/HEROIS DA CIDADE/Personagens/`. A ficha sempre manda na aparência; a pose da ficha é ignorada.
 
 | Herói | Identidade secreta | O segredo que é a piada |
 |---|---|---|

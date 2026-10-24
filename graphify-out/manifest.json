@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792796867.702507,
-    "ast_hash": "a477a1396855e130b00821f35ef1d80a",
+    "mtime": 1792797213.987172,
+    "ast_hash": "d7bdf943154432147ddbc4e3d8979e75",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792796867.744511,
-    "ast_hash": "91f3d5f2816d3a58314c49dd74bdeca8",
+    "mtime": 1792797214.0267773,
+    "ast_hash": "2e35f1cb0bd4c9aa6efb31621d07a9aa",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9830,8 +9830,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/LobbyLDI.jsx": {
-    "mtime": 1792796867.637507,
-    "ast_hash": "f282301d134e128eb3e9532760d34343",
+    "mtime": 1792797203.9714057,
+    "ast_hash": "abaf82f51f1b2bc2173309e2157b4f7a",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-04.webp": {
@@ -9965,7 +9965,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792796918.6801503,
+    "mtime": 1792797222.1475022,
     "ast_hash": "32cab3e08480eeae378a8a9b2d5c822d",
     "semantic_hash": ""
   },
