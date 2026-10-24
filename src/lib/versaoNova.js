@@ -8,10 +8,13 @@
 //     jogo, no painel admin ou com a pessoa digitando num campo, espera o
 //     próximo ponto seguro (troca de tela fora dessas situações, `pontoSeguro`)
 //     pra nunca derrubar uma partida nem apagar um texto sendo escrito.
-// Recarrega no máximo uma vez por build (se o servidor ainda devolver a página
-// velha, não entra em laço).
+// A recarga vai pra um endereço com `?v=<build>`, que fura o cache do CDN do
+// GitHub Pages. Se mesmo assim a página voltar velha, tenta de novo até
+// TENTATIVAS vezes por build, com intervalo, sem entrar em laço.
 const CHAVE = 'ldi-recarregou-build'
+const TENTATIVAS = 4
 const A_CADA_MS = 5 * 60 * 1000
+const RETENTAR_MS = 20 * 1000
 let pendente = null
 
 const buildDaPagina = () => document.querySelector('meta[name="ldi-build"]')?.content || null
@@ -33,12 +36,17 @@ async function buildNoAr() {
 }
 
 function recarregar(build) {
+  let tentativa = 1
   try {
-    if (sessionStorage.getItem(CHAVE) === build) return
-    sessionStorage.setItem(CHAVE, build)
+    const salvo = JSON.parse(sessionStorage.getItem(CHAVE) || 'null')
+    if (salvo?.build === build) tentativa = salvo.tentativa + 1
+    if (tentativa > TENTATIVAS) return
+    sessionStorage.setItem(CHAVE, JSON.stringify({ build, tentativa }))
   } catch { /* sem storage: recarrega mesmo assim */ }
-  console.log(`[SITE] versão nova no ar (${build}), recarregando`)
-  window.location.reload()
+  console.log(`[SITE] versão nova no ar (${build}), recarregando (tentativa ${tentativa})`)
+  const url = new URL(window.location.href)
+  url.searchParams.set('v', build.replace(/\W/g, '').slice(-12))
+  window.location.replace(url.toString())
 }
 
 async function conferir() {
@@ -50,6 +58,14 @@ async function conferir() {
   else recarregar(noAr)
 }
 
+// Voltou de uma recarga e a página ainda é a velha (CDN atrasado): tenta de novo.
+function retentarSeVoltouVelha() {
+  try {
+    const salvo = JSON.parse(sessionStorage.getItem(CHAVE) || 'null')
+    if (salvo && salvo.build !== buildDaPagina()) setTimeout(conferir, RETENTAR_MS)
+  } catch { /* nada */ }
+}
+
 // Chamado a cada troca de tela: se tinha versão nova esperando, é a hora.
 export function pontoSeguro() {
   if (pendente && !protegido()) recarregar(pendente)
@@ -57,6 +73,7 @@ export function pontoSeguro() {
 
 export function iniciarConferenciaDeVersao() {
   if (typeof window === 'undefined') return
+  retentarSeVoltouVelha()
   conferir()
   setInterval(conferir, A_CADA_MS)
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') conferir() })
