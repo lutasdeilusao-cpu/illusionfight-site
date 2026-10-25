@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792873193.2869532,
-    "ast_hash": "cab18a7e66e3cde67d052814d161c67b",
+    "mtime": 1792902603.8026955,
+    "ast_hash": "5cd35a3f5a207f56927d78e608be91f4",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1792865239.1653805,
-    "ast_hash": "49b72dd4af1c423e7a13378094679fc7",
+    "mtime": 1792902588.1633272,
+    "ast_hash": "6ab758f3f133908e760273e802a056c3",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792873193.3209584,
-    "ast_hash": "450f1500967ca018b4144ffe46e97824",
+    "mtime": 1792902603.8840353,
+    "ast_hash": "bb8690e5536e5e8429ae7d670281b407",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7145,8 +7145,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1792809103.702385,
-    "ast_hash": "59fd50cb831f47904129d790dc80cb99",
+    "mtime": 1792878408.836972,
+    "ast_hash": "dffe91d8c3e2787c0be6a7fb940f475a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesBagEquip.jsx": {
@@ -9540,8 +9540,8 @@
     "semantic_hash": ""
   },
   "docs/PRODUCAO_IMAGEM.md": {
-    "mtime": 1792867894.101727,
-    "ast_hash": "25920510453561606b3a5cbd59ea6883",
+    "mtime": 1792878137.2213993,
+    "ast_hash": "13d28ab2edb5be9f2f4c4298a19487b6",
     "semantic_hash": ""
   },
   "docs/T1_PENDENCIAS.md": {
@@ -9965,8 +9965,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792873203.232976,
-    "ast_hash": "99c31ad700a90d6b238b8440fdaa5b42",
+    "mtime": 1792902629.2601132,
+    "ast_hash": "846a6bfdd93be8dd385f46cd188fc7cf",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
@@ -10287,6 +10287,36 @@
   "src/assets/webshard/cap-lutas-de-ilusao-especial-8.webp": {
     "mtime": 1792796850.7321079,
     "ast_hash": "8602301c06856fe085e49ba107cc0f44",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-06-pt.webp": {
+    "mtime": 1792902578.1595535,
+    "ast_hash": "f50996c0af0c02ce91e1b2796e822677",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-06.webp": {
+    "mtime": 1792902578.2039847,
+    "ast_hash": "5e25dca2a9ef22c970334e42002c60a8",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-07-pt.webp": {
+    "mtime": 1792902578.2789915,
+    "ast_hash": "22281f0b2225700266b40a9460041c9b",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-07.webp": {
+    "mtime": 1792902578.3237948,
+    "ast_hash": "8010fb6b28b879191b4a968512bbeea0",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-08-pt.webp": {
+    "mtime": 1792902578.3945577,
+    "ast_hash": "bc525dac1bac9eefe83a15814e79c808",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-08.webp": {
+    "mtime": 1792902578.4363542,
+    "ast_hash": "6ef9d4415d385eeb3c4d28cdae3f7a4a",
     "semantic_hash": ""
   }
 }

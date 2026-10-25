@@ -231,16 +231,25 @@
     "id": "09",
     "numero": 9,
     "so_admin": true,
-    "titulo_pt": "Em Breve",
-    "titulo_en": "Coming Soon",
-    "titulo_es": "Próximamente",
+    "titulo_pt": "Uma Mãe de Ilusão",
+    "titulo_en": "A Mother of Illusion",
+    "titulo_es": "Una Madre de Ilusión",
     "publicado": false,
     "data_publicacao": "2027-11-15",
     "liberacao": {
       "elite": "2027-09-15",
       "conta": "2027-09-30",
       "publico": "2027-11-15"
-    }
+    },
+    "idiomas": [
+      "pt"
+    ],
+    "paginas": 55,
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1632
+    ]
   },
   {
     "id": "especial-1",
