@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792924914.1757455,
-    "ast_hash": "dbfaa2a5581a2dc5e98312f85393fda6",
+    "mtime": 1792944160.188587,
+    "ast_hash": "2a9bbebe9ea60c8dbe5045e2a88dcf33",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792924914.2157435,
-    "ast_hash": "25503baf9aa3d592478b3c8705dc3513",
+    "mtime": 1792944160.2357597,
+    "ast_hash": "4770e16888803ed9ec015ec4fe61d064",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9965,7 +9965,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792924943.1217816,
+    "mtime": 1792944176.9770977,
     "ast_hash": "329df23b8ff10cd0f4420636fbd64d48",
     "semantic_hash": ""
   },
@@ -10327,6 +10327,16 @@
   "src/assets/webshard/cap-lutas-de-ilusao-09.webp": {
     "mtime": 1792924914.133742,
     "ast_hash": "a3c9cb9e30b1ddd348b51ab53d222059",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-05-pt.webp": {
+    "mtime": 1792944160.1204963,
+    "ast_hash": "4efe886d61d6b815d35e7bcb512f5e1d",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-05.webp": {
+    "mtime": 1792944160.14883,
+    "ast_hash": "290745ecf69258fea124fc3d78972bac",
     "semantic_hash": ""
   }
 }
