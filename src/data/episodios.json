@@ -159,9 +159,9 @@
     "id": "06",
     "numero": 6,
     "so_admin": true,
-    "titulo_pt": "Em Produção",
-    "titulo_en": "In Production",
-    "titulo_es": "En Producción",
+    "titulo_pt": "O Mundo Viu de Ilusão",
+    "titulo_en": "The World Saw the Illusion",
+    "titulo_es": "El Mundo Vio la Ilusión",
     "publicado": true,
     "data_publicacao": "2027-07-15",
     "liberacao": {
@@ -183,9 +183,9 @@
     "id": "07",
     "numero": 7,
     "so_admin": true,
-    "titulo_pt": "Em Breve",
-    "titulo_en": "Coming Soon",
-    "titulo_es": "Próximamente",
+    "titulo_pt": "Uma Amiga de Ilusão",
+    "titulo_en": "A Friend of Illusion",
+    "titulo_es": "Una Amiga de Ilusión",
     "publicado": false,
     "data_publicacao": "2027-08-15",
     "liberacao": {
@@ -193,25 +193,39 @@
       "conta": "2027-07-30",
       "publico": "2027-08-15"
     },
-    "idiomas": ["pt"],
-    "paginas": 57,
+    "idiomas": [
+      "pt"
+    ],
+    "paginas": 58,
     "formato": "webp",
-    "proporcao": [960, 1632]
+    "proporcao": [
+      960,
+      1632
+    ]
   },
   {
     "id": "08",
     "numero": 8,
     "so_admin": true,
-    "titulo_pt": "Em Breve",
-    "titulo_en": "Coming Soon",
-    "titulo_es": "Próximamente",
+    "titulo_pt": "A Banda de Ilusão",
+    "titulo_en": "The Band of Illusion",
+    "titulo_es": "La Banda de Ilusión",
     "publicado": false,
     "data_publicacao": "2027-09-15",
     "liberacao": {
       "elite": "2027-08-15",
       "conta": "2027-08-30",
       "publico": "2027-09-15"
-    }
+    },
+    "idiomas": [
+      "pt"
+    ],
+    "paginas": 59,
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1632
+    ]
   },
   {
     "id": "09",
