@@ -4,6 +4,24 @@
 > Base: orientação direta de Isaias nesta data, handoff WEB SHARD v2 fornecido pelo autor, pasta da marca, manifesto do portal, imagens, catálogo, leitor e histórico do repositório.
 > Este documento organiza a produção futura. Não altera retroativamente as artes, o texto público do manifesto ou o cânone das histórias.
 
+## 0. REGRA MAIS CRÍTICA — o sistema de produção de páginas
+
+Toda página nova passa por este sistema, nesta ordem. Nada vai para o gerador sem ele.
+
+1. **Roteiro de produção por página, escrito para o capítulo atual.** Nunca copiar bloco de prompt de outro capítulo: ele carrega continuidade de outra cena (machucado, personagem, objeto) para dentro da página.
+2. **Formato fixo de cada página:**
+   - **Anexos pelo nome do arquivo** (máximo 5): ficha de corpo e ficha de expressões de TODO personagem que aparece, ambiente, e o que mais a página precisa. Cada anexo diz em uma linha o que governa. Regra curta: dreads verdes = Jack; boné = Kim; cabelo rosa = Nina.
+   - **Luz da cena** em uma linha.
+   - **Painel A e Painel B**: corte diagonal com o grau e o LADO para onde desce (os dois descem para lados OPOSTOS), cor do neon, posição da câmera e a ação daquele momento.
+   - **Estilhaços sobrepostos**: cada um com POSIÇÃO (qual canto, por cima de qual painel, ou cruzando a emenda), UM detalhe da cena e ordem de leitura. Ficam por cima dos painéis, invadindo emenda ou borda, com sombra, como caco de vidro caído em cima do quadrinho.
+   - **Texto exato em ordem de leitura**: quem fala, onde, e "letras pintadas na cor" de quem fala (Kim azul `#1E6FE0`, Jack verde `#22C55E`, Nina rosa framboesa `#B82E69`), ênfase marcada, SFX e lista fechada.
+3. **Só informação útil, em positivo, do que a câmera vê.** Não citar o que não deve aparecer: a palavra puxa a coisa para a imagem. Detalhe que a câmera não vê confunde (o logo do boné de costas virou boné para trás). Uma ficha anexada "só para um detalhe" muda a roupa do personagem.
+4. **Antes de rodar, ler o prompt imaginando a saída**, painel por painel: ordem de leitura dos balões (mesma altura = esquerda para direita), cauda apontando para quem está no quadro, ficha certa para a roupa daquele momento.
+5. **Trava**: nenhuma página é gerada sem a ficha de corpo e a de rosto de quem aparece nela.
+6. **Lotes de 5 páginas**: roda o lote, revisa cada imagem (fichas, cores das letras, ordem dos balões, estilhaços sobrepostos e espalhados, cortes opostos, movimento, continuidade) e manda ao autor COM a lista de críticas. A decisão de refazer é tomada junto com o autor; correção pequena é pontual no próprio Codex, cena errada é página refeita.
+7. **Fonte oficial sempre com referência anexada**: a descrição em palavras não basta (a página 17 do cap. 08 saiu em fonte redonda). Anexar `letreiro_oficial.png` (balões de páginas aprovadas) quando houver vaga, ou uma página aprovada como referência de letra na correção pontual.
+8. **Numeração só com números** (`01.png`, `02.png`...), na ordem final; página inserida no meio renumera as seguintes.
+
 ## 1. Como usar este guia
 
 **Cronologia da linha principal (confirmada pelo autor em 23/10/2026):** a Bíblia é o original `DOCS/Lutas de Ilusão - A ilusão (RETCON).txt`, na pasta da marca, com 14 capítulos longos desdobrados nos 28 atuais. Comparar acontecimentos e sua ordem, não números de capítulo. A antiga cópia `SiteLDI/docs/Lutas de Ilusão - Retcon.md`, de 16 capítulos, estava incorreta e foi removida. Os visuais oficiais e as determinações posteriores do autor governam a adaptação gráfica. Ryan já aparece em *Sonata de uma Briga*, uma semana antes da linha principal; reutilizar sua ficha em `WEBSHARD/LUTAS DE ILUSAO/CONTOS/01-sonata/fichas/ryan.png`, sem tratar o reencontro como primeira apresentação a Kim e Jack.
