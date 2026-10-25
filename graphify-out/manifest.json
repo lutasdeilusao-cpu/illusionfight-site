@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792902603.8026955,
-    "ast_hash": "5cd35a3f5a207f56927d78e608be91f4",
+    "mtime": 1792924914.1757455,
+    "ast_hash": "dbfaa2a5581a2dc5e98312f85393fda6",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1792902588.1633272,
-    "ast_hash": "6ab758f3f133908e760273e802a056c3",
+    "mtime": 1792924914.1357422,
+    "ast_hash": "390a38889a5cf2ac78fbd6a9f91482b5",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792902603.8840353,
-    "ast_hash": "bb8690e5536e5e8429ae7d670281b407",
+    "mtime": 1792924914.2157435,
+    "ast_hash": "25503baf9aa3d592478b3c8705dc3513",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9965,8 +9965,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792902629.2601132,
-    "ast_hash": "846a6bfdd93be8dd385f46cd188fc7cf",
+    "mtime": 1792924943.1217816,
+    "ast_hash": "329df23b8ff10cd0f4420636fbd64d48",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
@@ -10317,6 +10317,16 @@
   "src/assets/webshard/cap-lutas-de-ilusao-08.webp": {
     "mtime": 1792902578.4363542,
     "ast_hash": "6ef9d4415d385eeb3c4d28cdae3f7a4a",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-09-pt.webp": {
+    "mtime": 1792924914.0982215,
+    "ast_hash": "20bf594fada41f6fa568569aa8168d1b",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-09.webp": {
+    "mtime": 1792924914.133742,
+    "ast_hash": "a3c9cb9e30b1ddd348b51ab53d222059",
     "semantic_hash": ""
   }
 }
