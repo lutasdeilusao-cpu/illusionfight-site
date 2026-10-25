@@ -6,7 +6,7 @@
 .episodes-featured-card {
   position: relative;
   width: min(100%, 352px);
-  min-height: 510px;
+  aspect-ratio: 960 / 1637;
   overflow: hidden;
   cursor: pointer;
   border: 1px solid rgba(0, 229, 255, 0.5);
@@ -126,7 +126,7 @@
 }
 
 .episode-list-item:hover { transform: translateY(-4px); border-color: var(--if-cyan); }
-.episode-list-thumb { aspect-ratio: 3 / 4; overflow: hidden; background: #080d11; }
+.episode-list-thumb { aspect-ratio: 960 / 1637; overflow: hidden; background: #080d11; }
 .episode-list-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 350ms ease; }
 .episode-list-item:hover img { transform: scale(1.04); }
 .episode-list-thumb-placeholder { width: 100%; height: 100%; display: grid; place-items: center; color: #52616c; font: 600 0.65rem 'JetBrains Mono', monospace; }

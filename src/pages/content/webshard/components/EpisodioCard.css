@@ -12,7 +12,7 @@
 .ep-card__capa {
   position: relative;
   display: block;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 960 / 1637;
   overflow: hidden;
   border: 1px solid var(--if-hair-strong);
   background: var(--bg-elevated);
