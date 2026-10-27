@@ -240,7 +240,7 @@
 }
 .tarefa-modal__base--form { grid-template-columns: 1fr 2fr; }
 .tarefa-modal__base .painel-btn { min-height: 48px; }
-.tarefa-modal__status { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.tarefa-modal__status { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
 .tarefa-modal__status button {
   min-height: 48px;
   font: 700 .6rem var(--font-mono);
@@ -255,6 +255,7 @@
 .tarefa-modal__status .is-fazer { --cor: var(--if-danger); }
 .tarefa-modal__status .is-progresso { --cor: var(--if-amber); }
 .tarefa-modal__status .is-feito { --cor: var(--if-cyan); }
+.tarefa-modal__status .is-arquivo { --cor: var(--text-secondary); }
 .tarefa-modal__status .is-ativo { color: var(--text-primary); background: color-mix(in srgb, var(--cor) 18%, var(--bg-primary)); }
 .tarefa-modal__aviso { margin: 0; padding: 8px 10px; font-size: .78rem; color: var(--if-amber); background: var(--if-amber-16); }
 .tarefa-modal .tarefa-form textarea { resize: none; overflow: hidden; min-height: 96px; font-size: 1rem; line-height: 1.5; }

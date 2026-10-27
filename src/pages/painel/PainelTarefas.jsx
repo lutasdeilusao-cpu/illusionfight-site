@@ -49,8 +49,8 @@ export default function PainelTarefas({ t, locale }) {
   const mover = (x, dir) => moverPara(x, COLUNAS[COLUNAS.indexOf(x.status) + dir])
   const moverPara = async (x, novo) => {
     if (!novo) return
-    setTarefas(ts => ts.map(y => (y.id === x.id ? { ...y, status: novo } : y)))
-    setEdit(e => (e && e.id === x.id ? { ...e, status: novo } : e))
+    setTarefas(ts => ts.map(y => (y.id === x.id ? { ...y, status: novo, arquivada: false } : y)))
+    setEdit(e => (e && e.id === x.id ? { ...e, status: novo, arquivada: false } : e))
     await rpc('admin_tarefa_mover', { p_id: x.id, p_status: novo }).catch(() => {})
     carregar()
   }
@@ -61,6 +61,7 @@ export default function PainelTarefas({ t, locale }) {
   }
   const arquivar = async (x, sim = true) => {
     setTarefas(ts => ts.map(y => (y.id === x.id ? { ...y, arquivada: sim } : y)))
+    setEdit(e => (e && e.id === x.id ? { ...e, arquivada: sim } : e))
     await rpc('admin_tarefa_arquivar', { p_id: x.id, p_arquivar: sim }).catch(() => {})
     carregar()
   }
@@ -142,8 +143,11 @@ export default function PainelTarefas({ t, locale }) {
                   </button>
                 )}
                 <div className="tarefa__acoes">
-                  <button type="button" disabled={x.status === 'fazer'} onClick={() => mover(x, -1)} aria-label={t('painel.tarefas.voltar')}>‹</button>
-                  <button type="button" disabled={x.status === 'feito'} onClick={() => mover(x, 1)} aria-label={t('painel.tarefas.avancar')}>›</button>
+                  {/* A seta segue o quadro: de Feito, › arquiva; do Arquivo, ‹ volta pra Feito. */}
+                  <button type="button" disabled={x.status === 'fazer' && !x.arquivada}
+                    onClick={() => (x.arquivada ? arquivar(x, false) : mover(x, -1))} aria-label={t('painel.tarefas.voltar')}>‹</button>
+                  <button type="button" disabled={!!x.arquivada}
+                    onClick={() => (x.status === 'feito' ? arquivar(x) : mover(x, 1))} aria-label={t('painel.tarefas.avancar')}>›</button>
                 </div>
               </li>
             )
@@ -155,7 +159,7 @@ export default function PainelTarefas({ t, locale }) {
 
       {edit && (
         <PainelTarefaModal key={edit.id || 'nova'} tarefa={edit} pessoas={pessoas} t={t} locale={locale} nome={nome}
-          onFechar={() => setEdit(null)} onSalvar={salvar} onApagar={apagar} onMover={moverPara} onIniciar={iniciar} />
+          onFechar={() => setEdit(null)} onSalvar={salvar} onApagar={apagar} onMover={moverPara} onArquivar={x => arquivar(x)} onIniciar={iniciar} />
       )}
     </div>
   )

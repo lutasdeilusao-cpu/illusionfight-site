@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793138031.2905056,
-    "ast_hash": "56457981fe529f686a622f9ef3d8605b",
+    "mtime": 1793138832.21504,
+    "ast_hash": "63a91a98e696b3b9cf8fff8274eab877",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793138031.3408477,
-    "ast_hash": "805a0b1a354dbf352ae554a36260d41b",
+    "mtime": 1793138832.2578123,
+    "ast_hash": "531d15ce41aabf4a3236a6a7a8422112",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3605,18 +3605,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1793138030.9264016,
-    "ast_hash": "1c51e320d992f0e5a5a97a9fe55341d3",
+    "mtime": 1793138825.6735232,
+    "ast_hash": "d53312ed48622af384ca91f46f1f2c3c",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1793138030.9590788,
-    "ast_hash": "e9e4dc556722431cfc6f2af5c62cb733",
+    "mtime": 1793138825.7590227,
+    "ast_hash": "b37105a7926a12ca23bef2316ae6b3be",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1793138030.8832421,
-    "ast_hash": "857f1ba21546734bcffb57c180fdf039",
+    "mtime": 1793138825.570745,
+    "ast_hash": "adc238983e1f793b93c1dd7dab565633",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -9850,8 +9850,8 @@
     "semantic_hash": ""
   },
   "src/pages/painel/PainelTarefas.jsx": {
-    "mtime": 1793138009.6584466,
-    "ast_hash": "0f47abdbe46caa0f990003a76b7aa686",
+    "mtime": 1793138815.8881109,
+    "ast_hash": "f208412c8e6091c8ee343955f71eea2e",
     "semantic_hash": ""
   },
   "supabase/migrations/058_admin_tarefas.sql": {
@@ -9965,7 +9965,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793138103.8661528,
+    "mtime": 1793138873.328055,
     "ast_hash": "51f317c68e7357099214a7610a1123ed",
     "semantic_hash": ""
   },
@@ -10357,6 +10357,11 @@
   "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md": {
     "mtime": 1793113243.0016923,
     "ast_hash": "1d33ff65b999190a90e9a08752a124ea",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/061_admin_tarefas_arquivo.sql": {
+    "mtime": 1793138724.2297423,
+    "ast_hash": "a60926cc06bf82d35b9c7981de65c4d1",
     "semantic_hash": ""
   }
 }

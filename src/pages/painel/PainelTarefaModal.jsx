@@ -31,7 +31,7 @@ function TextoLongo({ value, onChange, ...resto }) {
   return <textarea ref={ref} value={value} onChange={onChange} rows={3} {...resto} />
 }
 
-export default function PainelTarefaModal({ tarefa, pessoas, t, locale, nome, onFechar, onSalvar, onApagar, onMover, onIniciar }) {
+export default function PainelTarefaModal({ tarefa, pessoas, t, locale, nome, onFechar, onSalvar, onApagar, onMover, onArquivar, onIniciar }) {
   const rascunho = lerRascunho(tarefa.id)
   const [modo, setModo] = useState(!tarefa.id || rascunho ? 'editar' : 'ver')
   const [form, setForm] = useState(rascunho || tarefa)
@@ -115,12 +115,19 @@ export default function PainelTarefaModal({ tarefa, pessoas, t, locale, nome, on
           </div>
           <footer className="tarefa-modal__base">
             <div className="tarefa-modal__status" role="group" aria-label={t('painel.tarefas.status')}>
-              {COLUNAS.map(c => (
-                <button key={c} type="button" className={`is-${c}${tarefa.status === c ? ' is-ativo' : ''}`}
-                  aria-pressed={tarefa.status === c} onClick={() => tarefa.status !== c && onMover(tarefa, c)}>
-                  {t(`painel.tarefas.col.${c}`)}
-                </button>
-              ))}
+              {COLUNAS.map(c => {
+                const ativo = !tarefa.arquivada && tarefa.status === c
+                return (
+                  <button key={c} type="button" className={`is-${c}${ativo ? ' is-ativo' : ''}`}
+                    aria-pressed={ativo} onClick={() => !ativo && onMover(tarefa, c)}>
+                    {t(`painel.tarefas.col.${c}`)}
+                  </button>
+                )
+              })}
+              <button type="button" className={`is-arquivo${tarefa.arquivada ? ' is-ativo' : ''}`}
+                aria-pressed={!!tarefa.arquivada} onClick={() => !tarefa.arquivada && onArquivar(tarefa)}>
+                {t('painel.tarefas.col.arquivo')}
+              </button>
             </div>
             <button type="button" className="painel-btn is-primario tarefa-modal__editar" onClick={() => setModo('editar')}>✎ {t('painel.tarefas.editar')}</button>
           </footer>
