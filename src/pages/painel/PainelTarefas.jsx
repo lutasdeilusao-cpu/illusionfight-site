@@ -8,6 +8,8 @@ import PainelTarefaModal from './PainelTarefaModal'
 import './PainelTarefas.css'
 
 const COLUNAS = ['fazer', 'progresso', 'feito']
+// Tarefa feita há mais de uma semana sai do quadro e fica no Arquivo.
+const ABAS = [...COLUNAS, 'arquivo']
 const PRIORIDADES = ['alta', 'normal', 'baixa']
 const VAZIA = { titulo: '', descricao: '', para: '', prioridade: 'normal', prazo: '', status: 'fazer', link: '', feedback: '' }
 const primeiroNome = n => (n || '').split(' ')[0]
@@ -40,7 +42,10 @@ export default function PainelTarefas({ t, locale }) {
     pedi: x => x.pedido_por === eu && x.para && x.para !== eu,
   }
   const visiveis = useMemo(() => (tarefas || []).filter(FILTROS[filtro]), [tarefas, filtro, eu, socio?.id])
-  const daColuna = visiveis.filter(x => x.status === coluna)
+  const semana = new Date(Date.now() - 7 * 86400000).toISOString()
+  const naAba = (x, c) => (c === 'arquivo' ? x.status === 'feito' && x.feito_em <= semana
+    : x.status === c && !(c === 'feito' && x.feito_em <= semana))
+  const daColuna = visiveis.filter(x => naAba(x, coluna))
     .sort((a, b) => PRIORIDADES.indexOf(a.prioridade) - PRIORIDADES.indexOf(b.prioridade) || (a.prazo || '9').localeCompare(b.prazo || '9'))
 
   const mover = (x, dir) => moverPara(x, COLUNAS[COLUNAS.indexOf(x.status) + dir])
@@ -56,7 +61,6 @@ export default function PainelTarefas({ t, locale }) {
     if (x.status === 'fazer') await rpc('admin_tarefa_mover', { p_id: x.id, p_status: 'progresso' }).catch(() => {})
     navigate(x.link)
   }
-  const semana = new Date(Date.now() - 7 * 86400000).toISOString()
   const placar = pessoas.map(pe => {
     const delas = (tarefas || []).filter(x => !x.para || x.para === pe.id)
     return { id: pe.id, nome: primeiroNome(pe.nome), fazer: delas.filter(x => x.status === 'fazer').length,
@@ -99,10 +103,10 @@ export default function PainelTarefas({ t, locale }) {
       </div>
 
       <nav className="tarefas-colunas" role="tablist">
-        {COLUNAS.map(c => (
+        {ABAS.map(c => (
           <button key={c} type="button" role="tab" aria-selected={coluna === c} className={`is-${c}${coluna === c ? ' is-ativa' : ''}`} onClick={() => setColuna(c)}>
             <span>{t(`painel.tarefas.col.${c}`)}</span>
-            <b>{visiveis.filter(x => x.status === c).length}</b>
+            <b>{visiveis.filter(x => naAba(x, c)).length}</b>
           </button>
         ))}
       </nav>
@@ -138,7 +142,7 @@ export default function PainelTarefas({ t, locale }) {
         </ul>
       )}
 
-      <button type="button" className="tarefas-nova painel-btn is-primario" onClick={() => setEdit({ ...VAZIA, status: coluna })}>+ {t('painel.tarefas.nova')}</button>
+      <button type="button" className="tarefas-nova painel-btn is-primario" onClick={() => setEdit({ ...VAZIA, status: coluna === 'arquivo' ? 'fazer' : coluna })}>+ {t('painel.tarefas.nova')}</button>
 
       {edit && (
         <PainelTarefaModal key={edit.id || 'nova'} tarefa={edit} pessoas={pessoas} t={t} locale={locale} nome={nome}

@@ -1911,7 +1911,8 @@
       "col": {
         "fazer": "A fazer",
         "progresso": "Em progresso",
-        "feito": "Feito"
+        "feito": "Feito",
+        "arquivo": "Arquivo"
       },
       "prio": {
         "alta": "Alta",

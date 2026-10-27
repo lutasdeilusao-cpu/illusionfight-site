@@ -1911,7 +1911,8 @@
       "col": {
         "fazer": "To do",
         "progresso": "In progress",
-        "feito": "Done"
+        "feito": "Done",
+        "arquivo": "Archive"
       },
       "prio": {
         "alta": "High",

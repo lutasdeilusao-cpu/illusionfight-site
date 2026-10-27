@@ -2,7 +2,7 @@
 .tarefas { display: grid; gap: 10px; }
 .tarefas-filtros { display: flex; flex-wrap: wrap; gap: 4px; }
 
-.tarefas-colunas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.tarefas-colunas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
 .tarefas-colunas button {
   display: flex;
   align-items: center;
@@ -21,6 +21,7 @@
 .tarefas-colunas .is-fazer { --cor: var(--if-danger); }
 .tarefas-colunas .is-progresso { --cor: var(--if-amber); }
 .tarefas-colunas .is-feito { --cor: var(--if-cyan); }
+.tarefas-colunas .is-arquivo { --cor: var(--text-secondary); }
 .tarefas-colunas button b { font: 700 .9rem var(--font-display); color: var(--cor); }
 .tarefas-colunas button.is-ativa { color: var(--text-primary); background: color-mix(in srgb, var(--cor) 12%, var(--bg-secondary)); }
 
