@@ -1,0 +1,27 @@
+[
+  {
+    "id": "01",
+    "numero": 1,
+    "titulo_pt": "A Mudança",
+    "titulo_en": "The Move",
+    "titulo_es": "La Mudanza",
+    "frase_pt": "Três amigos que foram morar juntos numa maldita casa amaldiçoada.",
+    "publicado": true,
+    "paginas": 43,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      1080,
+      1920
+    ],
+    "pasta": "o-deus-o-mortal-e-o-nada/01",
+    "liberacao": {
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15"
+  }
+]

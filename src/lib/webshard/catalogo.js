@@ -5,6 +5,7 @@ import agradecimentosEpisodios from '../../data/agradecimentos-episodios.json'
 import marDeCinzasEpisodios from '../../data/mar-de-cinzas-episodios.json'
 import mundoDasSombrasEpisodios from '../../data/mundo-das-sombras-episodios.json'
 import contosDeIlusaoEpisodios from '../../data/contos-de-ilusao-episodios.json'
+import deusMortalNadaEpisodios from '../../data/o-deus-o-mortal-e-o-nada-episodios.json'
 import hashesPaginas from '../../data/webshard-hashes.json'
 
 /* Catálogo WEB SHARD — única porta de entrada para "quais títulos existem,
@@ -38,6 +39,7 @@ const FONTES = {
   'mar-de-cinzas': () => marDeCinzasEpisodios,
   'mundo-das-sombras': () => mundoDasSombrasEpisodios,
   'contos-de-ilusao': () => contosDeIlusaoEpisodios,
+  'o-deus-o-mortal-e-o-nada': () => deusMortalNadaEpisodios,
   nenhuma: () => [],
 }
 

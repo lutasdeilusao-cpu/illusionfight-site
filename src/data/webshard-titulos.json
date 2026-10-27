@@ -162,5 +162,27 @@
     "status": "em_andamento",
     "visivel": "publico",
     "fonte_capitulos": "agradecimentos"
+  },
+  {
+    "id": 7,
+    "slug": "o-deus-o-mortal-e-o-nada",
+    "nome_pt": "O Deus, o Mortal e o Nada",
+    "nome_en": "The God, the Mortal and the Nothing",
+    "nome_es": "El Dios, el Mortal y la Nada",
+    "tagline_pt": "Três amigos. Uma casa de graça. A casa é amaldiçoada.",
+    "tagline_en": "Three friends. A free house. The house is cursed.",
+    "tagline_es": "Tres amigos. Una casa gratis. La casa está maldita.",
+    "sinopse_pt": "Um deus estagiário, um mortal insuportável e um cara que é literalmente o Nada vão morar juntos numa casa de graça. A casa se chama Ciatou. E a Ciatou quer os dois mortais mortos.",
+    "sinopse_en": "A trainee god, an unbearable mortal and a guy who is literally Nothing move in together into a free house. The house is called Ciatou. And Ciatou wants the two mortals dead.",
+    "sinopse_es": "Un dios en prácticas, un mortal insoportable y un tipo que es literalmente la Nada se mudan juntos a una casa gratis. La casa se llama Ciatou. Y Ciatou quiere muertos a los dos mortales.",
+    "generos": [
+      "comedia"
+    ],
+    "classificacao": "16",
+    "cor": "#D4A017",
+    "capa": "capa-o-deus-o-mortal-e-o-nada.webp",
+    "status": "em_andamento",
+    "visivel": "so_admin",
+    "fonte_capitulos": "o-deus-o-mortal-e-o-nada"
   }
 ]
