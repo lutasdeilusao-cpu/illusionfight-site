@@ -31,6 +31,10 @@
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
   cursor: pointer;
 }
+.painel-btn:active { transform: scale(.96); }
+.painel-atualizar.is-ok { color: var(--bg-primary); background: var(--if-cyan); }
+.painel-conteudo { animation: painel-recarga .35s ease-out; }
+@keyframes painel-recarga { from { opacity: .35; } to { opacity: 1; } }
 .painel-btn.is-primario { color: var(--bg-primary); background: var(--if-cyan); }
 .painel-btn.is-perigo { margin-top: 10px; color: var(--if-danger); border-color: color-mix(in srgb, var(--if-danger) 45%, transparent); background: transparent; }
 

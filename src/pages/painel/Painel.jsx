@@ -63,7 +63,16 @@ export default function Painel() {
     rpc('painel_dados', { p_inicio: inicio.toISOString(), p_fim: fim.toISOString(), p_filtros: filtros })
       .then(setDados)
       .catch(e => setErro(e.faltaMigration ? t('painel.falta_migration') : e.message))
-  }, [admin, aba, inicio.getTime(), fim.getTime(), JSON.stringify(filtros)])
+  }, [admin, aba, inicio.getTime(), fim.getTime(), JSON.stringify(filtros), recarga])
+
+  // "Atualizar": recarrega a aba aberta (o conteúdo remonta pela key) e o botão confirma.
+  const [atualizado, setAtualizado] = useState(false)
+  useEffect(() => {
+    if (!recarga) return
+    setAtualizado(true)
+    const id = setTimeout(() => setAtualizado(false), 1800)
+    return () => clearTimeout(id)
+  }, [recarga])
 
   if (carregando) return null
   if (!admin) return <Suspense fallback={null}><NotFound /></Suspense>
@@ -90,7 +99,9 @@ export default function Painel() {
           <span className="painel-topo__eyebrow">{t('painel.eyebrow')}</span>
           <h1>{t('painel.titulo')}</h1>
         </div>
-        <button type="button" className="painel-btn" onClick={() => setRecarga(r => r + 1)}>{t('painel.atualizar')}</button>
+        <button type="button" className={`painel-btn painel-atualizar${atualizado ? ' is-ok' : ''}`} onClick={() => setRecarga(r => r + 1)} aria-live="polite">
+          {atualizado ? `✓ ${t('painel.atualizado')}` : t('painel.atualizar')}
+        </button>
       </header>
       {ip && <p className="painel-nota">{t('painel.ip_excluido', { ip })}</p>}
 
@@ -143,6 +154,7 @@ export default function Painel() {
         </section>
       )}
 
+      <div key={recarga} className="painel-conteudo">
       {erro && aba === 'visao' && <p className="painel-erro">{erro}</p>}
       {aba === 'visao' && !erro && (dados ? <PainelVisao dados={dados} t={t} locale={lc} onFiltro={filtrar} /> : <p className="painel-vazio">{t('painel.carregando')}</p>)}
       {aba === 'agora' && <PainelAgora t={t} locale={lc} />}
@@ -153,6 +165,7 @@ export default function Painel() {
       {aba === 'projeto' && <PainelProjeto t={t} locale={lc} />}
       {aba === 'tarefas' && <PainelTarefas t={t} locale={lc} />}
       {aba === 'steam' && <PainelSteam t={t} locale={lc} inicio={inicio} fim={fim} />}
+      </div>
     </main>
   )
 }

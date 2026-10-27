@@ -1612,6 +1612,7 @@
     "titulo": "Admin Area",
     "eyebrow": "Illusion Fight",
     "atualizar": "Refresh",
+    "atualizado": "Updated",
     "ip_excluido": "Your IP ({ip}) doesn't count as a visit.",
     "falta_migration": "Migration 043 hasn't run on Supabase yet. Paste supabase/migrations/043_painel_analytics.sql into the SQL Editor.",
     "carregando": "Loading…",

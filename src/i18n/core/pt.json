@@ -1612,6 +1612,7 @@
     "titulo": "Área do Administrador",
     "eyebrow": "Illusion Fight",
     "atualizar": "Atualizar",
+    "atualizado": "Atualizado",
     "ip_excluido": "Teu IP ({ip}) não conta visita.",
     "falta_migration": "A migration 043 ainda não rodou no Supabase. Cola o arquivo supabase/migrations/043_painel_analytics.sql no SQL Editor.",
     "carregando": "Carregando…",
