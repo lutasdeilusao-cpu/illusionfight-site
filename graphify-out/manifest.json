@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793138832.21504,
-    "ast_hash": "63a91a98e696b3b9cf8fff8274eab877",
+    "mtime": 1793139066.3094594,
+    "ast_hash": "9cca8bd76707baf174deaae25cc6bdb8",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793138832.2578123,
-    "ast_hash": "531d15ce41aabf4a3236a6a7a8422112",
+    "mtime": 1793139066.3454857,
+    "ast_hash": "fbeba0df2fcf73bfcb67c707275d658f",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9850,8 +9850,8 @@
     "semantic_hash": ""
   },
   "src/pages/painel/PainelTarefas.jsx": {
-    "mtime": 1793138815.8881109,
-    "ast_hash": "f208412c8e6091c8ee343955f71eea2e",
+    "mtime": 1793139066.161311,
+    "ast_hash": "1f7bc457182af87483fab53f14a09ddd",
     "semantic_hash": ""
   },
   "supabase/migrations/058_admin_tarefas.sql": {
@@ -9925,8 +9925,8 @@
     "semantic_hash": ""
   },
   "src/pages/painel/PainelTarefaModal.jsx": {
-    "mtime": 1792507719.1002748,
-    "ast_hash": "b781ffe5dfac77c056c41475a96d7459",
+    "mtime": 1793139066.1603,
+    "ast_hash": "8ff39490eec07f9253b3969ea45808f7",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-lutas-de-ilusao-especial-6-pt.webp": {
@@ -9965,7 +9965,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793138873.328055,
+    "mtime": 1793139105.8444302,
     "ast_hash": "51f317c68e7357099214a7610a1123ed",
     "semantic_hash": ""
   },
