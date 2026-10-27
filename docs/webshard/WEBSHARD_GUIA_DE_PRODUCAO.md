@@ -492,7 +492,7 @@ O handoff contém relatos de recusas de ferramentas e tentativas de reformulaç�
 - Personagens genéricos/figurantes recorrentes: vários personagens distintos numa única folha coletiva; reutilizar as mesmas identidades nas páginas seguintes.
 - Personagem principal ou transformação importante: uma única ficha com três colunas de corpo inteiro — frente, costas e perfil — e expressões do mesmo rosto na quarta coluna ou numa faixa inferior. Não substituir vistas por poses frontais repetidas.
 - A ficha de uma transformação conserva a identidade reconhecível, mas fixa o novo estado visual em todas as vistas e expressões. Kronos César decaído, por exemplo, é um rei zumbi marcante; a ficha humana não substitui essa transformação.
-- O intervalo de cinco minutos é para produzir páginas narrativas. Fichas e outros materiais de referência podem ser gerados em sequência, sem espera obrigatória entre imagens.
+- Páginas narrativas: um pedido a cada 2 minutos (contado de um pedido ao próximo). Fichas e outros materiais de referência podem ser gerados em sequência, sem espera obrigatória entre imagens.
 
 ### 13.1 Onde estão as referências
 
