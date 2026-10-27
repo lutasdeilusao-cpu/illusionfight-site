@@ -36,7 +36,7 @@ Consequências diretas:
    - **se alguma palavra pede algo que a câmera não vê**.
    Repetir storyboard + teste até não sobrar erro com causa no prompt. Erro que o Gemini comete sozinho (cabeça dupla, texto repetido, palavra sem sentido) não se persegue no prompt: o Codex não repete.
 6. **Revisão dos prompts pelo Isaias.** Entregar `prompts/v3/NN/_TODOS_OS_PROMPTS.md` + o storyboard. O Codex não roda antes da liberação dele.
-7. **Codex (arte final), só depois da liberação.** `python scripts/v3.py codex NN` põe os prompts na fila; `python scripts/fila_v2.py 300 NN` gera uma página por vez, com 5 minutos entre elas. A troca é página por página: a nova nasce ao lado (`_nova_NN.png`) e só quando ela existe a antiga daquele número vai para `MAIN/NN/_descartadas/`. Nunca tirar as antigas antes das novas chegarem.
+7. **Codex (arte final), só depois da liberação.** `python scripts/v3.py codex NN` põe os prompts na fila (rodar de novo depois de toda mudança no roteiro, senão a fila fica com a versão velha; o `v2.py` também faz isso para os capítulos listados em `V3`); `python scripts/fila_v2.py 300 NN` gera uma página por vez, com 5 minutos entre elas. A troca é página por página: a nova nasce ao lado (`_nova_NN.png`) e só quando ela existe a antiga daquele número vai para `MAIN/NN/_descartadas/`. Nunca tirar as antigas antes das novas chegarem.
 8. **Revisão** (folha de contato + recorte ampliado de mão, rosto e texto) e publicação pelo `scripts/publicar_v2.py`.
 
 ---
@@ -110,6 +110,9 @@ Consequências diretas:
 | Posição na cena | O que o personagem fazia na página anterior continua (ajoelhado no asfalto do 48 ao 55). Escrever em cada painel. |
 | Iluminado | Figura humanoide de luz branca e dourada com contorno de chama, como na ficha. Não "corrigir" para outra forma. |
 
+- **Fichas Arkham** são redesenho das fichas aprovadas (referência = ficha antiga, "manter exatamente o design"). Se a ficha antiga tem erro, a nova descreve o certo em positivo, e a ficha velha só entra de referência quando não carrega o erro (ambiente molhado ou de pôr do sol sai só da descrição).
+- **Orfanato (caps. 1 e 2):** planta fixa em `FICHAS/sheets_v2/MDS_Dormitorio_Planta.png`: só camas simples de um andar, corredor do meio sempre vazio; cama do Minus = 5ª da fileira ESQUERDA, cobertor azul-marinho `#1F3A6E` (as outras cinza), rachadura no teto acima dela; Carlos na cama ao lado, Marina e Sofia em frente; cadeira da Helena na porta; janelas só na parede direita. À noite o Minus fica coberto até o queixo. Toda ação diz QUAL cama ("a cama do Minus, 5ª da fileira esquerda").
+- **Narração da Falha** sempre em 1ª pessoa ("ele me viu"). Abertura do cap. 1: "EXISTEM MUITAS COISAS NO MUNDO TE OBSERVANDO." / "MAS ALGUMAS COISAS OLHAM DE VOLTA."
 - **Antes de corrigir um elemento, comparar com a ficha.** Se a página bate com a ficha aprovada, não é erro, e mudar quebra a continuidade com os capítulos anteriores.
 
 ---
