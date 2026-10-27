@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1792966600.2596986,
-    "ast_hash": "405b4955fe476cca70d3b2439abc8338",
+    "mtime": 1793076670.6253338,
+    "ast_hash": "0f8297603105b12baeb9fab4e6744077",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1792966600.2905705,
-    "ast_hash": "a4907aad52b7adf150ae2776b76272e2",
+    "mtime": 1793076670.6396718,
+    "ast_hash": "ebe70e9d5a07711742698aacc2c0cba8",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4530,8 +4530,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-titulos.json": {
-    "mtime": 1792796850.7341113,
-    "ast_hash": "429fac7aacfe119ddbcdabba2b3d106b",
+    "mtime": 1793076654.67634,
+    "ast_hash": "ab5877929eb6ef73018686436cb52ead",
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
@@ -4540,8 +4540,8 @@
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
-    "mtime": 1792725358.1482978,
-    "ast_hash": "48bd960948af0fcfdd6fa683b23deec2",
+    "mtime": 1793076670.6076934,
+    "ast_hash": "999ed5f7e230abae9a1f3dc7ff75d0e4",
     "semantic_hash": ""
   },
   "src/lib/webshard/progresso.js": {
@@ -9965,8 +9965,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1792966606.5031013,
-    "ast_hash": "d7f82dfe9b00808273b286f89f9839f6",
+    "mtime": 1793076751.1304052,
+    "ast_hash": "51f317c68e7357099214a7610a1123ed",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
@@ -10337,6 +10337,21 @@
   "src/assets/webshard/cap-lutas-de-ilusao-05.webp": {
     "mtime": 1792944160.14883,
     "ast_hash": "290745ecf69258fea124fc3d78972bac",
+    "semantic_hash": ""
+  },
+  "src/data/o-deus-o-mortal-e-o-nada-episodios.json": {
+    "mtime": 1793076654.6743686,
+    "ast_hash": "c2e0e5c1e1b9aaa31d7cade70d3d3660",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-o-deus-o-mortal-e-o-nada-01.webp": {
+    "mtime": 1793076654.6717627,
+    "ast_hash": "c6ba025ceedb7d9dcd0cccaed362f22a",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/capa-o-deus-o-mortal-e-o-nada.webp": {
+    "mtime": 1793076654.4838264,
+    "ast_hash": "13602c40766fbe63e08847d1e6ae9235",
     "semantic_hash": ""
   }
 }

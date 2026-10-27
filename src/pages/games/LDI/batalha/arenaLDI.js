@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-// A Arena do Lutas de Ilusão (referência: Personagens/WEBTOON/ArenaLDI.png e ArenaLDI2.png):
+// A Arena do Lutas de Ilusão (referência: Personagens/Cenarios/ArenaLDI.png e ArenaLDI_Arquibancada.png):
 // um coliseu romano de alta tecnologia. Chão redondo de placas azuis com o círculo
 // central, muro de pedra clara com faixas de luz ciano, arquibancadas em degraus com
 // arcos e torcida, pilares com luz, estandartes brancos de borda dourada, torres pontudas,

@@ -22,6 +22,7 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 ## 1. GERAL — regras que valem pra tudo
 
 ### Referências
+- Todas as fichas e cenários moram em `BRANDS/Lutas de Ilusão/Personagens/`, um arquivo de cada: pasta por personagem com as fichas oficiais na raiz (`Kim/KimExpressionSheet.png`), `Inimigos/<Nome>/`, `Secundarios/`, `Trio/`, `Cenarios/`, `Objetos/`, `Estilo/`. Ficha nova vai direto pra pasta do dono, com nome descritivo; nunca deixar ficha só dentro da pasta de produção de um capítulo. Estrutura completa no `docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md` §13.1.
 - Anexar sempre com `-i` (Codex) ou inline (Gemini) e citar **pelo nome do arquivo** no texto. Nunca "imagem 1", nunca link (o modelo finge que abriu).
 - Ficha manda na APARÊNCIA; mandar ignorar pose, fundo e texto da ficha. Máx. ~5 refs por imagem.
 - Ficha nasce antes da página. Estado duradouro (ferimento, idade, forma) = ficha própria. Lado de marca/ferida escrito como "lado ESQUERDO DELE".
@@ -70,8 +71,8 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 
 ## 2. WEB SHARD (comum)
 - **Direção LDI de Isaias, 23/10/2026:** ação/emoção em primeiro plano; pouco background, preferência por plano americano, médio, close e detalhe, evitando corpo inteiro. Ângulo cinematográfico é posição real da lente, não só inclinar a borda. Cotidiano/humor = comic expressivo; ação/emoção séria = mudança drástica para semirrealista quase realista. Não trocar identidade/roupa/ferida ao mudar o acabamento.
-- **Arena LDI:** usar `Personagens/WEBTOON/Nova pasta/ArenaLDI2.png` e `ArenaLDI.png` da MESMA pasta. Combate enquadrado contra CHÃO e PAREDE, sem plateia no mesmo quadro e sem diminuir a amplitude do lugar. Plateia só em estilhaços sobrepostos de reação ou panorâmica EXCLUSIVA dela, sem a ação na área de luta.
-- **Sala/SBI LDI:** sala e posições fixas em `Personagens/WEBTOON/SalaDeAulaKimJackNina.png` + `SalaDeAulaKimJackNinaVistaTop.png`, sempre juntas; óculos escolares de RA em `OculosSaladeAula.png`; visor/luvas de simulação em `SBISheet.png`. Não confundir os aparelhos nem inventar outra planta para acomodar o trio.
+- **Arena LDI:** usar `Personagens/Cenarios/ArenaLDI_Arquibancada.png` e `ArenaLDI.png` da mesma pasta. Combate enquadrado contra CHÃO e PAREDE, sem plateia no mesmo quadro e sem diminuir a amplitude do lugar. Plateia só em estilhaços sobrepostos de reação ou panorâmica EXCLUSIVA dela, sem a ação na área de luta.
+- **Sala/SBI LDI:** sala e posições fixas em `Personagens/Cenarios/EliteSchool_SalaDoTrio.png` + `EliteSchool_SalaDoTrio_VistaDeCima.png`, sempre juntas; óculos escolares de RA em `Personagens/Objetos/Oculos_SalaDeAula.png`; visor/luvas de simulação em `Personagens/Objetos/SBISheet.png`. Não confundir os aparelhos nem inventar outra planta para acomodar o trio.
 - **Ficha de ambiente recorrente:** planta baixa completa à ESQUERDA; à DIREITA dois painéis empilhados, com dois ângulos do MESMO ambiente. Sem personagens. Posições idênticas na planta e nas duas vistas. Reutilizar referências oficiais suficientes; criar o que falta para continuidade.
 - Página 960×1637 (≈1:1,705), safe area 100 px lados / 80 px topo-base. Ficha 2048×1152, sem texto: personagem principal com três colunas de corpo inteiro (frente, costas, perfil) e expressões na quarta coluna ou numa faixa inferior; genéricos recorrentes juntos numa folha coletiva, com identidades distintas reutilizáveis (Isaías, 19/10/2026). Página dupla do Codex: 768×1024 cada.
 - Máx. 2 painéis grandes + estilhaços, cortes diagonais 8–15°, 4 painéis nunca. Pouco texto, letra grande.
@@ -119,7 +120,7 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 - Nano Banana 2. Bíblia `LAB-NVIDIA/lendas_estilo.txt` entra na frente de todo prompt. Protagonista sem rosto (moletom cinza), ninguém olha pra câmera, sem texto, 1 ilustração full-bleed 4:5 (768 px webp em `src/pages/games/LDI/arte/<cena>-<n>[b].webp`).
 - `planeja_lendas.py` → `gera_lendas.py <lote.json>` → `revisa_lendas.py` (QA Gemini: texto, vários quadros, olhar pra câmera, rosto) → `refaz_lendas.py`. Lugar errado: `lendas/conserta_lugares.py` (lugar pelo TEXTO da cena + ref do quadro principal).
 - Folhas do elenco em `LAB-NVIDIA/lendas/folhas/` (Kaeda: óculos escuros SEMPRE na cabeça). Lugares fixos: esconderijo da Kaeda, cubo de segurança alugado, Praça Morta, mercado de baixo, arena principal, quarto 3×3 (mundo real).
-- Arena de luta 3D: `src/pages/games/LDI/batalha/arenaLDI.js` (código, a partir de `Personagens/WEBTOON/ArenaLDI.png`).
+- Arena de luta 3D: `src/pages/games/LDI/batalha/arenaLDI.js` (código, a partir de `Personagens/Cenarios/ArenaLDI.png`).
 
 ## 7. LDI GANGUES
 - Mapas pixel art: NUNCA pedir o bloco inteiro (inventa prédio). Fluxo `JOGOS/GANGUES_MAPA/`: guia do dado → chão sem prédios → cada telhado sozinho → montar no retângulo exato → `comp.py` pra achar prédio inventado. Colisão mora no dado.

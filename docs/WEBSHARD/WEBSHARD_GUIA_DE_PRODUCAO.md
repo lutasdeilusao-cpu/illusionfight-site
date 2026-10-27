@@ -496,22 +496,29 @@ O handoff contém relatos de recusas de ferramentas e tentativas de reformulaç�
 
 ### 13.1 Onde estão as referências
 
-A pasta `Personagens/WEBTOON/` reúne cópias de trabalho de `KimCasualDanoSheet.png`, `KimCasualSheet.png`, fichas escolares de Kim e Jack, `JackExpressionSheet.png`, `JackCasualSheet.png`, `NinaBaseSheet.png`, `NinaCasualSheet.png`, `VoidBaseSheet.png`, `VoidV2BaseSheet.png`, `VoidV2CromadoSheet.png`, `FreddySheet.png`, `BrockSheet.png`, `AMaquinaSheet.png`, `HITCOMBO.png`, `Ambiente2.png`, `Ambiente.png` e `QuartoKim.png`.
+Tudo que se usa pra gerar imagem mora em `Personagens/` (raiz `BRANDS/Lutas de Ilusão/Personagens`), uma cópia de cada arquivo:
 
-Também existem cópias em subpastas de personagens e cenários. Não presumir que duplicatas sejam idênticas ou que a mais recente por data de disco seja a aprovada. No briefing, declarar o caminho e a revisão usada. A lista de arquivos de referência atuais e como citá-los no prompt estão no §16.1.
+- `Personagens/<Nome>/` — uma pasta por personagem (Kim, Jack, Nina, Helena, Lenna, Osvaldo, NeoGuide, NexusPhaton, PajeYwari, Alan, Nara, Autor). Na raiz da pasta ficam as **fichas oficiais** (`KimCasualSheet.png`, `KimExpressionSheet.png`, `KimEscolarUniformeSheet.png`…); dentro, `Variacoes/`, `Cenas/`, `Show/`, `Noir/`, `Poses/` e as formas especiais (`Kim/Primordial/`, `Kim/Sombrio/`).
+- `Personagens/Inimigos/<Nome>/` — Brock (e `CapangasBrockSheet.png`), Freddy, DavidKronos, AMaquina, Walter, Shuntaro, ThunderBolt, Void, VoidHunterX, Powa.
+- `Personagens/Secundarios/` — elenco de apoio (Turma do Samuel, Professora, conveniência, Equipe Yohu).
+- `Personagens/Trio/` — montagens do trio juntas (casual, show, noturno, rostos e letreiro).
+- `Personagens/Cenarios/` — ambientes e plantas.
+- `Personagens/Objetos/` — SBI, óculos de RA, HIT COMBO, PowWow, baixo da Nina, balões oficiais.
+- `Personagens/Estilo/` — páginas âncora do estilo semi-realista.
+- `Personagens/_A_IDENTIFICAR/` — arte sem dono confirmado; não usar até o Isaias dizer quem é.
 
-Diferenças de nome verificadas: o arquivo da casa é **`Casa Kim2.png`**, com espaço, em `Personagens/WEBTOON/` e `Personagens/Cenarios/`; o handoff escreve `Casa_Kim2.png`. A ficha escolar de Jack sem uniforme aparece como **`JackEscolarNouniformeSheet.png`**. A ficha do autor existe em `Personagens/Autor/IsaiasSheet.png`.
+Ficha nova entra direto na pasta do dono, com nome descritivo (`<Nome><Roupa>Sheet.png` pra ficha, `<Nome>_<Lugar>.png` pra cena). No briefing, declarar o caminho usado. A lista de arquivos de referência atuais e como citá-los no prompt estão no §16.1.
 
 ### 13.2 Direção específica dos personagens
 
 | Personagem/estado | Regras registradas no handoff |
 |---|---|
-| Kim escolar | **Sempre de boné azul-petróleo** nas cenas escolares atuais, cabelo preto ondulado saindo por baixo, pele marrom, **descendência indígena brasileira**, relógio azul, mochila laranja (`KimEscolarUniformizadoSheet.png`; rosto em `Generated_Image_May_29__2026_-_12_38AM.png`). |
+| Kim escolar | **Sempre de boné azul-petróleo** nas cenas escolares atuais, cabelo preto ondulado saindo por baixo, pele marrom, **descendência indígena brasileira**, relógio azul, mochila laranja (`Kim/KimEscolarUniformeSheet.png`; rosto em `Kim/KimExpressionSheet.png`). |
 | Kim casual | Camiseta preta, plaquinha no colar, pulseira azul, jeans rasgado, tênis preto/branco. Ficha prevalece em aparência; pose deve seguir a ação. |
 | Kim danificado | Supercílio direito cortado; olho esquerdo roxo; bochecha esquerda ralada; canto esquerdo do lábio cortado; marcas na nuca; rasgo grande nas costas. Preservar lados entre todas as vistas. |
 | Jack | Negro brasileiro, pele **negra escura**, dreads **verdes** curtas e definidas em quantidade moderada, **laterais e nuca raspadas**, **nunca de boné**, relógio preto. Para o rosto, usar a ficha de expressões (`JackExpressionSheet.png`) só pelos rostos, ignorando a jaqueta verde e as legendas em inglês; evitar descaracterização. Ao zoar: meio sorriso fechado e sobrancelha erguida, não gargalhada automática. Celular em uma mão, outra livre. |
 | Nina | Cabelo rosa em rabo de cavalo alto e longo; na escola, luvas táticas pretas de dedos inteiros com detalhe amarelo; casual com jaqueta rosa aberta, cropped preto, jeans rasgado, luvas sem dedos e tênis rosa de cano alto. Voz **rosa framboesa `#B82E69`**. Conferir ficha da cena. |
-| Helena | Nome com E, cabelo roxo; referência de ressaca mencionada no handoff como `HelenaRessaca.png`. |
+| Helena | Nome com E, cabelo roxo. Duas fichas: arrumada (`Helena/HelenaArrumadaSheet.png`) e de casa/ressaca (`Helena/HelenaDeCasaSheet.png`). |
 | Freddy | Terno completo, olho roxo permanente na referência registrada. |
 | Brock | Jaqueta preta de couro; não é aluno. |
 | Capangas do Brock | Jason, Michael, Anderson e André, os quatro na mesma ficha (`CapangasBrockSheet.png`). Dizer no prompt qual figura usar e mandar ignorar as outras: o **Anderson é a terceira da esquerda para a direita**. |
@@ -524,7 +531,7 @@ Diferenças de nome verificadas: o arquivo da casa é **`Casa Kim2.png`**, com e
 
 **Regra curta para repetir em todo prompt: dreads verdes = Jack; boné = Kim; cabelo rosa = Nina.** Cada personagem é chamado pelo código ou nome de arquivo da referência, sempre junto desses traços, para a ferramenta não trocar ninguém.
 
-A ficha escolar do Jack (`JackEscolarSemMoicanoUniformizadoSheet.png`) tem o título "KIM" escrito por engano. Enquanto ela não for corrigida, todo prompt que a usa avisa que o arquivo é o Jack e manda ignorar o texto.
+A ficha escolar do Jack (`Jack/JackEscolarUniformeSemMoicanoSheet.png`) tem o título "KIM" escrito por engano. Enquanto ela não for corrigida, todo prompt que a usa avisa que o arquivo é o Jack e manda ignorar o texto.
 
 Void está na introdução onírica, mas o handoff o mantém **fora do cânone oficial** até decisão do autor e proíbe usá-lo em capa/material promocional oficial. Sua presença no capítulo não resolve essa pendência automaticamente.
 
@@ -532,24 +539,25 @@ Void está na introdução onírica, mas o handoff o mantém **fora do cânone o
 
 **Referências oficiais reafirmadas por Isaias, 23/10/2026 — prevalecem sobre alternativas antigas do acervo:**
 
-| Elemento | Arquivo em `Personagens/WEBTOON/` | O que governa |
+| Elemento | Arquivo em `Personagens/` | O que governa |
 |---|---|---|
-| Sala de aula | `SalaDeAulaKimJackNina.png` | Arquitetura, acabamento e luz; usar junto da planta oficial |
-| Planta da sala | `SalaDeAulaKimJackNinaVistaTop.png` | Carteiras, corredor e posições fixas de Kim, Jack e Nina (§13.4) |
-| Óculos escolares | `OculosSaladeAula.png` | Óculos de RA usados na sala, armação azul translúcida; não são o visor do SBI |
-| SBI | `SBISheet.png` | Visor e luvas de simulação; não substituir pelos óculos escolares |
-| Arena, vista interna | `Nova pasta/ArenaLDI2.png` | Piso, parede e arquitetura da arena oficial |
-| Arena, vista panorâmica | `Nova pasta/ArenaLDI.png` | Escala e geografia da mesma arena; a vista não obriga panorâmica nas páginas |
+| Sala de aula | `Cenarios/EliteSchool_SalaDoTrio.png` | Arquitetura, acabamento e luz; usar junto da planta oficial |
+| Planta da sala | `Cenarios/EliteSchool_SalaDoTrio_VistaDeCima.png` | Carteiras, corredor e posições fixas de Kim, Jack e Nina (§13.4) |
+| Óculos escolares | `Objetos/Oculos_SalaDeAula.png` | Óculos de RA usados na sala, armação azul translúcida; não são o visor do SBI |
+| SBI | `Objetos/SBISheet.png` | Visor e luvas de simulação; não substituir pelos óculos escolares |
+| Arena, vista interna | `Cenarios/ArenaLDI_Arquibancada.png` | Piso, parede e arquitetura da arena oficial |
+| Arena, vista panorâmica | `Cenarios/ArenaLDI.png` | Escala e geografia da mesma arena; a vista não obriga panorâmica nas páginas |
 
 Os caminhos identificam arquivos locais a anexar, não imagens que a ferramenta pode abrir por link. As duas referências da sala devem ser usadas juntas. Não substituir a sala por outra planta de bancadas para acomodar uma conversa: adaptar os enquadramentos e manter as posições oficiais. Para fichas novas de ambientes recorrentes: folha horizontal, **planta baixa de todo o ambiente à esquerda; dois painéis à direita, um acima do outro, com dois ângulos do MESMO lugar**. Planta e vistas precisam concordar. Referências oficiais já suficientes são reutilizadas, não recriadas por hábito.
 
 - Casa: três janelas superiores; quarto de Kim na esquerda; garagem, entrada, janela baixa de Helena, lâmpada pendurada e rua rachada. Usar a referência, não reconstruir fachadas diferentes a cada página.
-- Quarto: bagunça, pôsteres, prateleiras, guitarra e TV antiga, conforme `QuartoKim.png`.
-- Arena: as vistas oficiais atuais são `Nova pasta/ArenaLDI2.png` e `Nova pasta/ArenaLDI.png`. `Ambiente2.png` e `Ambiente.png` permanecem referências históricas/de estado específicas, sem substituir a arquitetura oficial. Nas páginas de ação, mostrar piso e parede; não enquadrar plateia junto do combate (§14).
+- Casa: fachada em `Cenarios/CasaKim.png`; sala `Cenarios/SalaKim.png`; cozinha `Cenarios/CozinhaKim.png`.
+- Quarto: bagunça, pôsteres, prateleiras, guitarra e TV antiga, conforme `Cenarios/QuartoKim.png`.
+- Arena: as vistas oficiais são `Cenarios/ArenaLDI_Arquibancada.png` e `Cenarios/ArenaLDI.png`. `Cenarios/Coliseu_Noite.png` e `Cenarios/Coliseu_Destruido.png` são estados específicos, sem substituir a arquitetura oficial. Nas páginas de ação, mostrar piso e parede; não enquadrar plateia junto do combate (§14).
 - Elite Academy: portão de ferro com nome dourado no arco. A Sala A-304 tem planta fixa (§13.4).
-- Óculos de RA: nome de referência no handoff `OculosSaladeAula.png`; confirmar arquivo antes do uso.
+- Óculos de RA: `Objetos/Oculos_SalaDeAula.png`.
 - Logos: `LogoEnglish.png` e `LogoSquareEn.png` segundo o handoff; usar assets aprovados, nunca redesenhar a marca para cada página.
-- HIT COMBO: arquivo localizado em `Personagens/WEBTOON/HITCOMBO.png`; recortar/aplicar o asset existente.
+- HIT COMBO: arquivo localizado em `Personagens/Objetos/HitCombo.png`; recortar/aplicar o asset existente.
 
 ### 13.4 Sala A-304: posicionamento obrigatório
 
@@ -627,7 +635,7 @@ Vocabulário registrado: FSSH, ZIIIP, BIP, GLUP, FRUP, MISS, FWOOSH, CRACK, KRAK
 - Zera ao final da sequência. Pertence a quem acerta, não a quem apanha.
 - Fica no **canto superior esquerdo do painel**, sem cobrir rosto ou informação.
 - É **overlay de transmissão** para espectadores. Lutadores não o enxergam e não comentam o contador enquanto lutam.
-- Usar `HITCOMBO.png`, com letras e dígitos em chroma verde; não regenerar um HUD diferente.
+- Usar `Objetos/HitCombo.png`, com letras e dígitos em chroma verde; não regenerar um HUD diferente.
 - Ideia reservada, ainda não regra implementada: contador falhar quando Kim supera a capacidade de medição.
 
 ## 16. Processo de referência e correção
@@ -645,22 +653,22 @@ Vocabulário registrado: FSSH, ZIIIP, BIP, GLUP, FRUP, MISS, FWOOSH, CRACK, KRAK
 
 **Nunca passar referência por link** (biblioteca do ChatGPT ou qualquer outro endereço). Foi testado: a ferramenta não abre a imagem de verdade, inventa o que ela mostraria e gera personagens e cenários errados, mesmo quando diz que conseguiu abrir. Referência só vale anexada no chat.
 
-**Arquivos de referência atuais**
+**Arquivos de referência atuais** (caminhos dentro de `Personagens/`)
 
 | Arquivo | Conteúdo | Observação |
 |---|---|---|
-| `KimEscolarUniformizadoSheet.png` | Kim de uniforme escolar, com boné | |
-| `Generated_Image_May_29__2026_-_12_38AM.png` | Rosto e expressões do Kim, com boné | Sugestão: renomear para `KimExpressionSheet.png`. Usar só os rostos; ignorar a camisa escura e as legendas. |
-| `JackEscolarSemMoicanoUniformizadoSheet.png` | Jack de uniforme escolar | O título dentro da ficha diz "KIM" por engano. Todo prompt avisa que é o Jack, até a ficha ser corrigida. |
-| `JackExpressionSheet.png` | Rosto e expressões do Jack | Usar só os rostos; ignorar a jaqueta verde e as legendas. |
-| `CapangasBrockSheet.png` | Jason, Michael, Anderson e André | Anderson é a **terceira figura da esquerda para a direita**. |
-| `NinaBaseSheet.png` | Nina de uniforme | |
-| `AMaquinaSheet.png` | Professor A Máquina | |
-| `FreddySheet.png` | Freddy | Olho roxo permanente. |
-| `BrockSheet.png` | Brock | Não é aluno. |
-| `OculosSaladeAula.png` | Óculos de realidade aumentada da escola | |
-| `SalaDeAulaKimJackNinaVistaTop.png` | Planta da Sala A-304 vista de cima, com posições | Governa posições; ignorar etiquetas. |
-| `SalaDeAulaKimJackNina.png` | Sala A-304 vista da porta | Referência de ambiente e de acabamento/luz. |
+| `Kim/KimEscolarUniformeSheet.png` | Kim de uniforme escolar, com boné | |
+| `Kim/KimExpressionSheet.png` | Rosto e expressões do Kim, com boné | Usar só os rostos; ignorar a camisa escura e as legendas. |
+| `Jack/JackEscolarUniformeSemMoicanoSheet.png` | Jack de uniforme escolar | O título dentro da ficha diz "KIM" por engano. Todo prompt avisa que é o Jack, até a ficha ser corrigida. |
+| `Jack/JackExpressionSheet.png` | Rosto e expressões do Jack | Usar só os rostos; ignorar a jaqueta verde e as legendas. |
+| `Inimigos/Brock/CapangasBrockSheet.png` | Jason, Michael, Anderson e André | Anderson é a **terceira figura da esquerda para a direita**. |
+| `Nina/NinaBaseSheet.png` | Nina de uniforme | |
+| `Inimigos/AMaquina/AMaquinaSheet.png` | Professor A Máquina | |
+| `Inimigos/Freddy/FreddySheet.png` | Freddy | Olho roxo permanente. |
+| `Inimigos/Brock/BrockSheet.png` | Brock | Não é aluno. |
+| `Objetos/Oculos_SalaDeAula.png` | Óculos de realidade aumentada da escola | |
+| `Cenarios/EliteSchool_SalaDoTrio_VistaDeCima.png` | Planta da Sala A-304 vista de cima, com posições | Governa posições; ignorar etiquetas. |
+| `Cenarios/EliteSchool_SalaDoTrio.png` | Sala A-304 vista da porta | Referência de ambiente e de acabamento/luz. |
 
 ### 16.2 Estilo de arte: bloco obrigatório em todo prompt
 
@@ -680,7 +688,7 @@ Colar este bloco logo depois da lista de arquivos. Quando houver uma página apr
 - Iluminação dramática e cinematográfica: sol dourado da manhã de um lado e brilho azul dos tampos e telas do outro, com luz de recorte nas bordas dos personagens. Alto contraste.
 - Vidro e superfícies com reflexos brilhantes. Fundo com profundidade de campo e desfoque suave.
 - Cores ricas e saturadas, sem aspecto lavado.
-- Acabamento e luz no nível da SalaDeAulaKimJackNina.png [e da página aprovada anexada, se houver].
+- Acabamento e luz no nível da EliteSchool_SalaDoTrio.png [e da página aprovada anexada, se houver].
 - As fichas de personagem servem só para a APARÊNCIA; o acabamento segue este bloco.
 NÃO USAR: anime/mangá chapado, chibi, screentone de mangá, contorno grosso uniforme, render 3D, fotografia, aquarela.
 ```
