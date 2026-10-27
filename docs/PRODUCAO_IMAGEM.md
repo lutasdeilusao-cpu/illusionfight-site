@@ -58,7 +58,7 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 - Formato de prompt: linha 1 `OUT: <arquivo>`, linha 2 `REFS: <arquivos>`, resto = prompt.
 - Fila numerada na ordem de dependência; só roda um prompt quando todas as REFS existem; pula o que já existe; refazer = apagar o arquivo e rodar de novo.
 - Prefixo de economia no Codex: "ECONOMY MODE: do not inspect files or run commands… Generate ONCE… Reply only: ok."
-- **Páginas narrativas:** uma imagem por vez + pausa de 5 min em vez de rajada. **Fichas e materiais de referência:** sem intervalo obrigatório entre gerações; seguir direto para o próximo material (esclarecimento de Isaías, 19/10/2026). Trava (lock) contra rodada dupla em filas automáticas. Log em arquivo.
+- **Páginas narrativas:** uma imagem por vez, **um pedido a cada 2 minutos** (o intervalo conta de um pedido ao próximo, não depois que a imagem sai; se a geração já levou 2 min, a próxima é pedida em seguida). `fila_v2.py 120 <cap>`. **Fichas e materiais de referência:** sem intervalo obrigatório entre gerações; seguir direto para o próximo material (esclarecimento de Isaías, 19/10/2026). Trava (lock) contra rodada dupla em filas automáticas. Log em arquivo.
 - **Nunca deixar serviço órfão rodando**: ao trocar de fila, parar a anterior (processo + tarefa agendada + cron da sessão). Conferir com lista de processos e `schtasks /query`.
 
 ### Revisão e entrega

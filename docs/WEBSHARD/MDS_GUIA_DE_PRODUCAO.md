@@ -36,7 +36,7 @@ Consequências diretas:
    - **se alguma palavra pede algo que a câmera não vê**.
    Repetir storyboard + teste até não sobrar erro com causa no prompt. Erro que o Gemini comete sozinho (cabeça dupla, texto repetido, palavra sem sentido) não se persegue no prompt: o Codex não repete.
 6. **Revisão dos prompts pelo Isaias.** Entregar `prompts/v3/NN/_TODOS_OS_PROMPTS.md` + o storyboard. O Codex não roda antes da liberação dele.
-7. **Codex (arte final), só depois da liberação.** `python scripts/v3.py codex NN` põe os prompts na fila (rodar de novo depois de toda mudança no roteiro, senão a fila fica com a versão velha; o `v2.py` também faz isso para os capítulos listados em `V3`); `python scripts/fila_v2.py 300 NN` gera uma página por vez, com 5 minutos entre elas. A troca é página por página: a nova nasce ao lado (`_nova_NN.png`) e só quando ela existe a antiga daquele número vai para `MAIN/NN/_descartadas/`. Nunca tirar as antigas antes das novas chegarem.
+7. **Codex (arte final), só depois da liberação.** `python scripts/v3.py codex NN` põe os prompts na fila (rodar de novo depois de toda mudança no roteiro, senão a fila fica com a versão velha; o `v2.py` também faz isso para os capítulos listados em `V3`); `python scripts/fila_v2.py 120 NN` gera uma página por vez, **um pedido a cada 2 minutos** (contado de um pedido ao próximo). A troca é página por página: a nova nasce ao lado (`_nova_NN.png`) e só quando ela existe a antiga daquele número vai para `MAIN/NN/_descartadas/`. Nunca tirar as antigas antes das novas chegarem.
 8. **Revisão** (folha de contato + recorte ampliado de mão, rosto e texto) e publicação pelo `scripts/publicar_v2.py`.
 
 ---
