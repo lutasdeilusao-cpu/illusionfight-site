@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793104805.215054,
-    "ast_hash": "4cc7eeea0fdde453ad4ce19b9fda8075",
+    "mtime": 1793107692.7478569,
+    "ast_hash": "5bcf106a08cd32bc94d9908ff48f58df",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793104805.2839417,
-    "ast_hash": "0c267fb00d229ed5906179b5eeb9d0fc",
+    "mtime": 1793107692.7894285,
+    "ast_hash": "5e345c21fb2dc24f7b687fe2a777926b",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9965,7 +9965,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793104890.9734476,
+    "mtime": 1793107728.465769,
     "ast_hash": "51f317c68e7357099214a7610a1123ed",
     "semantic_hash": ""
   },
@@ -10352,6 +10352,11 @@
   "src/assets/webshard/capa-o-deus-o-mortal-e-o-nada.webp": {
     "mtime": 1793076654.4838264,
     "ast_hash": "13602c40766fbe63e08847d1e6ae9235",
+    "semantic_hash": ""
+  },
+  "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md": {
+    "mtime": 1793107644.2165837,
+    "ast_hash": "6dbd28bee11aaa049495e056bcc90282",
     "semantic_hash": ""
   }
 }

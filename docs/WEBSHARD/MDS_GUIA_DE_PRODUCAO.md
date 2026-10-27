@@ -26,8 +26,9 @@ Consequências diretas:
 3. **Storyboard no Gemini (descartável).** `python scripts/v3.py storyboard NN` → `PRODUCAO/storyboard/wsNN/`. Sai o capítulo inteiro em uns 15–20 minutos. Ele não é a arte final: serve para enxergar o que cada prompt produz.
 4. **Análise do storyboard.** Antes de chamar algo de erro, comparar com a ficha: se a página bate com a ficha aprovada (ex.: o Iluminado é uma figura humanoide de luz), não é erro, e "corrigir" quebra a continuidade com os capítulos anteriores. `python scripts/v3.py folha NN` e ler as folhas página por página. Todo erro vira correção NO PROMPT (ou na ficha), anotado. Gemini erra anatomia sozinho (braço a mais, mão estranha); erro de composição, de câmera, de quem está no quadro ou de texto é do prompt.
 5. **Teste de saída.** Reler cada prompt corrigido imaginando a imagem que vai sair, painel por painel: o que aparece primeiro, para onde cada um olha, onde está cada texto, se alguma palavra pede algo que a câmera não vê. Corrigir o que a imaginação mostrar errado.
-6. **Codex (arte final).** `python scripts/v3.py codex NN` põe os prompts na fila; `python scripts/fila_v2.py 300 NN` gera uma página por vez, com 5 minutos entre elas. A página antiga vai para `MAIN/NN/_descartadas/` (nunca se apaga página gerada).
-7. **Revisão** (folha de contato + recorte ampliado de mão, rosto e texto) e publicação pelo `scripts/publicar_v2.py`.
+6. **Revisão dos prompts pelo Isaias.** Entregar `prompts/v3/NN/_TODOS_OS_PROMPTS.md` + o storyboard. O Codex não roda antes da liberação dele.
+7. **Codex (arte final), só depois da liberação.** `python scripts/v3.py codex NN` põe os prompts na fila; `python scripts/fila_v2.py 300 NN` gera uma página por vez, com 5 minutos entre elas. A troca é página por página: a nova nasce ao lado (`_nova_NN.png`) e só quando ela existe a antiga daquele número vai para `MAIN/NN/_descartadas/`. Nunca tirar as antigas antes das novas chegarem.
+8. **Revisão** (folha de contato + recorte ampliado de mão, rosto e texto) e publicação pelo `scripts/publicar_v2.py`.
 
 ---
 
