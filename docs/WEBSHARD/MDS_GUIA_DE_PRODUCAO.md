@@ -16,7 +16,7 @@ Consequências diretas:
 - **Nunca escrever o que não deve aparecer.** A palavra puxa a coisa pra imagem. "Sem chuva" desenha chuva; "a pata que falta" desenha a pata. Descrever em positivo: "rua seca", "três patas: uma da frente, duas de trás".
 - **Nenhum bloco genérico.** Regra de dormitório, de escudo, de pele ou de marca entra só na página em que aquilo está no quadro, em uma linha. Prompt longo com regra que não se aplica confunde o modelo.
 - **A ficha também é prompt.** Ficha com erro (cachorro de quatro patas, chão molhado, marca visível) espalha o erro pelo capítulo inteiro. Conferir as fichas do capítulo antes de escrever as páginas (§6).
-- **Tudo que está no prompt pode virar texto na página.** O modelo já escreveu na arte: o título e o número da página (vindos da linha de abertura), "ALL CAPS" (da instrução de letreiramento), "80px"/"100px" com setas (da margem escrita em números), "MINUS WHITE BOY" (da descrição do personagem). Por isso: nenhuma linha diz título, capítulo ou número de página; a cena (`SCENE`) é descrição em inglês, sem aspas e sem fala; margem é "margem larga dos quatro lados", nunca em pixels; e o cabeçalho das referências avisa que as descrições servem para desenhar e nunca se escrevem.
+- **Tudo que está no prompt pode virar texto na página.** O modelo já escreveu na arte: o título e o número da página (vindos da linha de abertura), "ALL CAPS" (da instrução de letreiramento), "80px"/"100px" com setas (da margem escrita em números), "MINUS WHITE BOY" (da descrição do personagem). Por isso: nenhuma linha diz título, capítulo ou número de página; a cena (`SCENE`) é descrição em inglês, sem aspas e sem fala; margem nunca em pixels; e o cabeçalho das referências avisa que as descrições servem para desenhar e nunca se escrevem.
 - **Palavra vaga vira o que o modelo quiser.** "Empty eyes" virou olho de cego; "paper bag with bones" virou ícone de caveira; "MINUS, 13" virou adulto nos closes; "over the still dog" virou cachorro sentado e vivo. Escrever o concreto: "olhos escuros cansados olhando pra baixo", "saco de papel aberto com ossos de carne aparecendo", "um menino de 13 anos, rosto de criança", "deitado de lado no asfalto, imóvel, olhos fechados".
 
 ---
@@ -60,10 +60,13 @@ Consequências diretas:
 
 ## 4. Composição
 
+**O modelo é a página aprovada, não a descrição.** `FICHAS/MDS_Padrao_Pagina.png` junta duas páginas aprovadas do cap. 1 (01/14 e 01/15) e os recortes do letreiro; vai anexada em TODA página. Sem ela, o modelo desenha "quadrinho comum": moldura preta em volta da página, vão entre os painéis e caco de vidro realista. Escolher como referência só página aprovada que siga as regras (a 02/43 tem fonte em itálico e não serve).
+
+- **Arte até a borda nos quatro lados (sangria total).** Nada de moldura, borda ou fundo preto em volta dos painéis. A área segura vale só para texto e rosto principal, nunca para a página inteira: "margem larga dos quatro lados" no prompt desenhou moldura preta.
 - **No máximo 2 painéis grandes.** Uma página importante pode ter 1 painel só (no máximo 2 splashes por capítulo).
-- **Divisão entre painéis = FUMAÇA**, na cor de quem conduz a cena (tabela §7). Nunca neon.
-- **O corte é uma cunha e muda de lado a cada página.** A borda de baixo do painel 1 e a borda de cima do painel 2 inclinam para lados opostos: quase se tocam de um lado e abrem do outro, e a fumaça enche a abertura. Uma página abre para a direita, a seguinte para a esquerda. Corte sempre para o mesmo lado deixa a leitura parada. O `v3.py` escreve o corte e alterna o lado sozinho; o roteiro só diz a cor.
-- **Estilhaço = caco de vidro quebrado** por cima dos painéis: triangular, borda rachada, brilho de vidro, de 15 a 30% da largura da página. É o recurso narrativo mais forte do MDS. Cada estilhaço tem uma função escrita no prompt:
+- **Divisão entre painéis: os painéis se ENCOSTAM numa diagonal**, sem vão e sem faixa preta, e um **fio fino de fumaça** na cor de quem conduz a cena (tabela §7) passa por cima da emenda. Nunca neon, nunca uma cunha larga cheia de fumaça (isso abriu um vão enorme).
+- **A diagonal muda de lado a cada página**: uma página desce para a direita, a seguinte para a esquerda. Corte sempre para o mesmo lado deixa a leitura parada. O `v3.py` escreve o corte e alterna sozinho; o roteiro só diz a cor.
+- **Estilhaço = recorte em triângulo ou losango** por cima dos painéis, com a sua imagem nítida dentro (sem reflexo, sem vidro), e o **contorno é uma linha branca fina e brilhante cheia de rachadurinhas e pontas, como gelo trincado**, com brilho branco-azulado (branco-lilás em cena escura). Não é caco de vidro realista: a palavra "glass" no prompt fez o Codex desenhar vidro de verdade, com reflexo e espessura. De 15 a 30% da largura da página. É o recurso narrativo mais forte do MDS. Cada estilhaço tem uma função escrita no prompt:
   - **tempo**: o instante seguinte ou anterior da mesma ação (a mão que estica / a mão que alcança);
   - **reação**: o rosto de quem vê o que o painel mostra;
   - **causa e consequência**: o que provocou / o que ficou (a garra / o cachorro caído);
@@ -79,12 +82,12 @@ Consequências diretas:
 - **O livro não é legenda.** O texto do livro é a fonte da cena, não a lista de caixas. Uma página tem em geral de 0 a 3 textos; o que a imagem já conta sai do texto.
 - **Pelo menos 3 páginas de silêncio** por capítulo.
 - **Fonte padrão, uma só no quadrinho inteiro:** comic bold condensada, **reta (nunca itálico)**, caixa alta, grande, com a palavra-chave de cada caixa um pouco maior. É a fonte das páginas aprovadas do cap. 1.
-- **A referência de letra vai sempre anexada.** Descrição em palavras não basta (mesma lição do Lutas de Ilusão, guia §0 item 7). `FICHAS/MDS_Letreiro.png` reúne recortes dos balões e da narração aprovados do cap. 1. O `v3.py` anexa em toda página que tem fala, narração ou pensamento; se passar de 5 referências, sai a página anterior. Página sem palavra não cita o letreiro.
+- **A referência de letra vai sempre anexada.** Descrição em palavras não basta (mesma lição do Lutas de Ilusão, guia §0 item 7). `FICHAS/MDS_Padrao_Pagina.png` traz as páginas aprovadas e os recortes de balão e narração do cap. 1 (o recorte sozinho está em `FICHAS/MDS_Letreiro.png`). O `v3.py` anexa em toda página; se passar de 5 referências, sai a página anterior.
 - **Cada personagem que fala tem a SUA cor** (tabela §7), a mesma em todos os capítulos: **balão branco puro, letra e contorno grosso na cor dele**, cauda apontando para ele. Nunca dois personagens com a mesma cor de fala (a exceção são os possuídos, que dividem o cinza do balão de contorno duplo: a voz sai em dois tons). Personagem novo com fala ganha cor antes da página e entra na tabela.
 - **Narração sem caixa:** letras brancas flutuando numa nuvem pequena de fumaça da cor do narrador, num canto escuro do painel, nunca sobre rosto ou ação.
 - **Tela de fumaça da Falha/Nefeli:** letras prateadas no ar, nunca balão. **Voz do Iluminado:** dourada, itálico, sem balão. **Sussurro das sombras:** vermelho-escuro irregular na borda do painel.
 - Lista fechada: o prompt manda escrever só os textos listados, cada um uma vez, com acento.
-- **Todo texto diz onde fica** quando a página tem mais de um painel (`panel 1`, `panel 2`, `the glass shard`, "no alto do painel"). Sem isso, o texto sai duplicado ou no painel errado.
+- **Todo texto diz onde fica** quando a página tem mais de um painel (`panel 1`, `panel 2`, `the shard`, "no alto do painel"). Sem isso, o texto sai duplicado ou no painel errado.
 - **Balão aponta para quem fala**, e quando dois personagens parecidos falam na mesma página, o balão diz qual ("o homem de terno", "o homem de moletom").
 
 ---
@@ -172,12 +175,12 @@ REFERENCES (attached, by file name; they define appearance only; these descripti
 - MDS_Minus_13.png: <quem é, em uma linha, só o visível>
 STYLE: <Arkham Codex>
 LIGHT: <a luz desta página>
-PAGE FORMAT: <página vertical, margem larga dos quatro lados> + FRAMING: <da cintura pra cima>
+PAGE FORMAT: <página vertical, arte até a borda, sem moldura> + FRAMING: <da cintura pra cima>
 
 PANEL 1: <altura da câmera + ângulo + lente + primeiro plano: o que se vê, enquadramento do corpo, para onde olham>
-DIVISION BETWEEN THE PANELS: <cunha em lados opostos, cor da fumaça; o v3.py escreve e alterna>
+DIVISION BETWEEN THE PANELS: <painéis encostados numa diagonal, fio de fumaça na emenda; o v3.py escreve e alterna o lado>
 PANEL 2: ...
-GLASS SHARD: <posição + câmera + conteúdo>
+SHARD: <posição + câmera + conteúdo> (o v3.py descreve o contorno rachado)
 
 LETTERING: <lista fechada>
 - <cada texto, com o tipo, a cor e o painel onde fica>

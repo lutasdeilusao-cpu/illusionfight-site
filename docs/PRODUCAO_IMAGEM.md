@@ -90,7 +90,7 @@ Repositório é público: aqui só NOME de chave, nunca valor. Chaves em `SiteLD
 
 ## 3. MUNDO DAS SOMBRAS (MDS) — estilo ARKHAM CODEX
 - **Guia completo e único: `docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md`.** Ler antes de qualquer página ou ficha do MDS.
-- Resumo: estilo **Arkham Codex** (arte de Batman: Arkham City, sem nada da marca). Roteiro à mão em `scripts/roteiro_wsNN.py` → `scripts/v3.py montar` → storyboard no Gemini → análise e teste de saída → Isaias revisa os prompts → só então Codex (`v3.py codex` + `fila_v2.py`), trocando página por página. Câmera de cinema em todo painel, da cintura pra cima; corte em cunha que alterna de lado; estilhaço de vidro; fumaça na cor de quem conduz; fonte padrão com `FICHAS/MDS_Letreiro.png` anexado; cada personagem com sua cor de fala.
+- Resumo: estilo **Arkham Codex** (arte de Batman: Arkham City, sem nada da marca). Roteiro à mão em `scripts/roteiro_wsNN.py` → `scripts/v3.py montar` → storyboard no Gemini → análise e teste de saída → Isaias revisa os prompts → só então Codex (`v3.py codex` + `fila_v2.py`), trocando página por página. Câmera de cinema em todo painel, da cintura pra cima; painéis encostados com fio de fumaça na emenda, diagonal alternando de lado; arte até a borda; estilhaço com contorno de rachadura branca; fumaça na cor de quem conduz; fonte padrão com `FICHAS/MDS_Padrao_Pagina.png` anexado em toda página; cada personagem com sua cor de fala.
 - Capítulos ainda no sistema antigo (`scripts/v2.py`, `roteiro.json`) seguem a fila `prompts/v2/`; o `v2.py` pula os capítulos já no v3 (`V3` no topo do script).
 
 ## 4. MAR DE CINZAS (MDC)

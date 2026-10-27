@@ -304,6 +304,206 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
+      "label": "PRODUCAO_IMAGEM.md",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_producao_imagem",
+      "community": 169,
+      "norm_label": "producao_imagem.md"
+    },
+    {
+      "label": "PRODU\u00c7\u00c3O DE IMAGEM \u2014 guia do agente",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "community": 169,
+      "norm_label": "producao de imagem \u2014 guia do agente"
+    },
+    {
+      "label": "0. FERRAMENTAS (qual usar)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_0_ferramentas_qual_usar",
+      "community": 169,
+      "norm_label": "0. ferramentas (qual usar)"
+    },
+    {
+      "label": "1. GERAL \u2014 regras que valem pra tudo",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "community": 21,
+      "norm_label": "1. geral \u2014 regras que valem pra tudo"
+    },
+    {
+      "label": "Refer\u00eancias",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_refer\u00eancias",
+      "community": 21,
+      "norm_label": "referencias"
+    },
+    {
+      "label": "Continuidade",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_continuidade",
+      "community": 21,
+      "norm_label": "continuidade"
+    },
+    {
+      "label": "Anatomia / erros recorrentes",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_anatomia_erros_recorrentes",
+      "community": 21,
+      "norm_label": "anatomia / erros recorrentes"
+    },
+    {
+      "label": "Texto na imagem",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_texto_na_imagem",
+      "community": 21,
+      "norm_label": "texto na imagem"
+    },
+    {
+      "label": "Fundo transparente no Gemini",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_fundo_transparente_no_gemini",
+      "community": 21,
+      "norm_label": "fundo transparente no gemini"
+    },
+    {
+      "label": "V\u00e1rias sa\u00eddas numa chamada (economia de cota)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_v\u00e1rias_sa\u00eddas_numa_chamada_economia_de_cota",
+      "community": 21,
+      "norm_label": "varias saidas numa chamada (economia de cota)"
+    },
+    {
+      "label": "Fila",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_fila",
+      "community": 21,
+      "norm_label": "fila"
+    },
+    {
+      "label": "Revis\u00e3o e entrega",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_revis\u00e3o_e_entrega",
+      "community": 21,
+      "norm_label": "revisao e entrega"
+    },
+    {
+      "label": "2. WEB SHARD (comum)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_2_web_shard_comum",
+      "community": 169,
+      "norm_label": "2. web shard (comum)"
+    },
+    {
+      "label": "3. MUNDO DAS SOMBRAS (MDS) \u2014 estilo ARKHAM CODEX",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_3_mundo_das_sombras_mds_estilo_arkham_codex",
+      "community": 169,
+      "norm_label": "3. mundo das sombras (mds) \u2014 estilo arkham codex"
+    },
+    {
+      "label": "4. MAR DE CINZAS (MDC)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_4_mar_de_cinzas_mdc",
+      "community": 169,
+      "norm_label": "4. mar de cinzas (mdc)"
+    },
+    {
+      "label": "5. HER\u00d3IS DA CIDADE (HDC)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_5_her\u00f3is_da_cidade_hdc",
+      "community": 169,
+      "norm_label": "5. herois da cidade (hdc)"
+    },
+    {
+      "label": "6. LENDAS DO LDI (graphic novel do jogo)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_6_lendas_do_ldi_graphic_novel_do_jogo",
+      "community": 169,
+      "norm_label": "6. lendas do ldi (graphic novel do jogo)"
+    },
+    {
+      "label": "7. LDI GANGUES",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_7_ldi_gangues",
+      "community": 169,
+      "norm_label": "7. ldi gangues"
+    },
+    {
+      "label": "8. LUTAS DE ILUS\u00c3O (WEB SHARD principal)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L119",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_8_lutas_de_ilus\u00e3o_web_shard_principal",
+      "community": 169,
+      "norm_label": "8. lutas de ilusao (web shard principal)"
+    },
+    {
+      "label": "9. WEB SHARD \"C\u00c2MERA NA M\u00c3O\" (found footage em VHS)",
+      "file_type": "document",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L130",
+      "_origin": "ast",
+      "id": "docs_producao_imagem_9_web_shard_c\u00e2mera_na_m\u00e3o_found_footage_em_vhs",
+      "community": 169,
+      "norm_label": "9. web shard \"camera na mao\" (found footage em vhs)"
+    },
+    {
       "label": "MDS_GUIA_DE_PRODUCAO.md",
       "file_type": "document",
       "source_file": "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md",
@@ -387,7 +587,7 @@
       "label": "7. Cores",
       "file_type": "document",
       "source_file": "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md",
-      "source_location": "L117",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "docs_webshard_mds_guia_de_producao_7_cores",
       "community": 287,
@@ -397,7 +597,7 @@
       "label": "8. Estilo",
       "file_type": "document",
       "source_file": "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md",
-      "source_location": "L154",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "docs_webshard_mds_guia_de_producao_8_estilo",
       "community": 287,
@@ -407,7 +607,7 @@
       "label": "9. O prompt de uma p\u00e1gina",
       "file_type": "document",
       "source_file": "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md",
-      "source_location": "L160",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "docs_webshard_mds_guia_de_producao_9_o_prompt_de_uma_p\u00e1gina",
       "community": 287,
@@ -732,206 +932,6 @@
       "community": 75,
       "norm_label": "graphify",
       "id": "agents_graphify"
-    },
-    {
-      "label": "PRODUCAO_IMAGEM.md",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 169,
-      "norm_label": "producao_imagem.md",
-      "id": "docs_producao_imagem"
-    },
-    {
-      "label": "PRODU\u00c7\u00c3O DE IMAGEM \u2014 guia do agente",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 169,
-      "norm_label": "producao de imagem \u2014 guia do agente",
-      "id": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente"
-    },
-    {
-      "label": "0. FERRAMENTAS (qual usar)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L9",
-      "_origin": "ast",
-      "community": 169,
-      "norm_label": "0. ferramentas (qual usar)",
-      "id": "docs_producao_imagem_0_ferramentas_qual_usar"
-    },
-    {
-      "label": "1. GERAL \u2014 regras que valem pra tudo",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "community": 21,
-      "norm_label": "1. geral \u2014 regras que valem pra tudo",
-      "id": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo"
-    },
-    {
-      "label": "Refer\u00eancias",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L24",
-      "_origin": "ast",
-      "community": 21,
-      "norm_label": "referencias",
-      "id": "docs_producao_imagem_refer\u00eancias"
-    },
-    {
-      "label": "Continuidade",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L30",
-      "_origin": "ast",
-      "community": 21,
-      "norm_label": "continuidade",
-      "id": "docs_producao_imagem_continuidade"
-    },
-    {
-      "label": "Anatomia / erros recorrentes",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L38",
-      "_origin": "ast",
-      "community": 21,
-      "norm_label": "anatomia / erros recorrentes",
-      "id": "docs_producao_imagem_anatomia_erros_recorrentes"
-    },
-    {
-      "label": "Texto na imagem",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L45",
-      "_origin": "ast",
-      "community": 21,
-      "norm_label": "texto na imagem",
-      "id": "docs_producao_imagem_texto_na_imagem"
-    },
-    {
-      "label": "Fundo transparente no Gemini",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L49",
-      "_origin": "ast",
-      "community": 21,
-      "norm_label": "fundo transparente no gemini",
-      "id": "docs_producao_imagem_fundo_transparente_no_gemini"
-    },
-    {
-      "label": "V\u00e1rias sa\u00eddas numa chamada (economia de cota)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L52",
-      "_origin": "ast",
-      "community": 21,
-      "norm_label": "varias saidas numa chamada (economia de cota)",
-      "id": "docs_producao_imagem_v\u00e1rias_sa\u00eddas_numa_chamada_economia_de_cota"
-    },
-    {
-      "label": "Fila",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L57",
-      "_origin": "ast",
-      "community": 21,
-      "norm_label": "fila",
-      "id": "docs_producao_imagem_fila"
-    },
-    {
-      "label": "Revis\u00e3o e entrega",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L64",
-      "_origin": "ast",
-      "community": 21,
-      "norm_label": "revisao e entrega",
-      "id": "docs_producao_imagem_revis\u00e3o_e_entrega"
-    },
-    {
-      "label": "2. WEB SHARD (comum)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L72",
-      "_origin": "ast",
-      "community": 169,
-      "norm_label": "2. web shard (comum)",
-      "id": "docs_producao_imagem_2_web_shard_comum"
-    },
-    {
-      "label": "3. MUNDO DAS SOMBRAS (MDS) \u2014 estilo ARKHAM CODEX",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L91",
-      "_origin": "ast",
-      "community": 169,
-      "norm_label": "3. mundo das sombras (mds) \u2014 estilo arkham codex",
-      "id": "docs_producao_imagem_3_mundo_das_sombras_mds_estilo_arkham_codex"
-    },
-    {
-      "label": "4. MAR DE CINZAS (MDC)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L109",
-      "_origin": "ast",
-      "community": 169,
-      "norm_label": "4. mar de cinzas (mdc)",
-      "id": "docs_producao_imagem_4_mar_de_cinzas_mdc"
-    },
-    {
-      "label": "5. HER\u00d3IS DA CIDADE (HDC)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L112",
-      "_origin": "ast",
-      "community": 169,
-      "norm_label": "5. herois da cidade (hdc)",
-      "id": "docs_producao_imagem_5_her\u00f3is_da_cidade_hdc"
-    },
-    {
-      "label": "6. LENDAS DO LDI (graphic novel do jogo)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L119",
-      "_origin": "ast",
-      "community": 169,
-      "norm_label": "6. lendas do ldi (graphic novel do jogo)",
-      "id": "docs_producao_imagem_6_lendas_do_ldi_graphic_novel_do_jogo"
-    },
-    {
-      "label": "7. LDI GANGUES",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L125",
-      "_origin": "ast",
-      "community": 169,
-      "norm_label": "7. ldi gangues",
-      "id": "docs_producao_imagem_7_ldi_gangues"
-    },
-    {
-      "label": "8. LUTAS DE ILUS\u00c3O (WEB SHARD principal)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L132",
-      "_origin": "ast",
-      "community": 169,
-      "norm_label": "8. lutas de ilusao (web shard principal)",
-      "id": "docs_producao_imagem_8_lutas_de_ilus\u00e3o_web_shard_principal"
-    },
-    {
-      "label": "9. WEB SHARD \"C\u00c2MERA NA M\u00c3O\" (found footage em VHS)",
-      "file_type": "document",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L143",
-      "_origin": "ast",
-      "community": 169,
-      "norm_label": "9. web shard \"camera na mao\" (found footage em vhs)",
-      "id": "docs_producao_imagem_9_web_shard_c\u00e2mera_na_m\u00e3o_found_footage_em_vhs"
     },
     {
       "label": "WEBSHARD_GUIA_DE_PRODUCAO.md",
@@ -65638,6 +65638,206 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_producao_imagem",
+      "target": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_especiais_halloween_roteiro_oficial",
+      "target": "docs_producao_imagem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_0_ferramentas_qual_usar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_2_web_shard_comum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_3_mundo_das_sombras_mds_estilo_arkham_codex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_4_mar_de_cinzas_mdc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_5_her\u00f3is_da_cidade_hdc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_6_lendas_do_ldi_graphic_novel_do_jogo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_7_ldi_gangues",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_8_lutas_de_ilus\u00e3o_web_shard_principal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
+      "target": "docs_producao_imagem_9_web_shard_c\u00e2mera_na_m\u00e3o_found_footage_em_vhs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_anatomia_erros_recorrentes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_continuidade",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_fila",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_fundo_transparente_no_gemini",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_refer\u00eancias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_revis\u00e3o_e_entrega",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_texto_na_imagem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/PRODUCAO_IMAGEM.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
+      "target": "docs_producao_imagem_v\u00e1rias_sa\u00eddas_numa_chamada_economia_de_cota",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -65709,7 +65909,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md",
-      "source_location": "L117",
+      "source_location": "L120",
       "weight": 1.0,
       "source": "docs_webshard_mds_guia_de_producao_o_mundo_das_sombras_guia_de_produ\u00e7\u00e3o_do_web_shard",
       "target": "docs_webshard_mds_guia_de_producao_7_cores",
@@ -65719,7 +65919,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md",
-      "source_location": "L154",
+      "source_location": "L157",
       "weight": 1.0,
       "source": "docs_webshard_mds_guia_de_producao_o_mundo_das_sombras_guia_de_produ\u00e7\u00e3o_do_web_shard",
       "target": "docs_webshard_mds_guia_de_producao_8_estilo",
@@ -65729,7 +65929,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md",
-      "source_location": "L160",
+      "source_location": "L163",
       "weight": 1.0,
       "source": "docs_webshard_mds_guia_de_producao_o_mundo_das_sombras_guia_de_produ\u00e7\u00e3o_do_web_shard",
       "target": "docs_webshard_mds_guia_de_producao_9_o_prompt_de_uma_p\u00e1gina",
@@ -66277,206 +66477,6 @@
       "confidence_score": 1.0,
       "source": "agents_agents_md_illusion_fight_site",
       "target": "agents_version_constants_every_game_has_its_own"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem",
-      "target": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_especiais_halloween_roteiro_oficial",
-      "target": "docs_producao_imagem"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_0_ferramentas_qual_usar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L72",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_2_web_shard_comum"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L91",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_3_mundo_das_sombras_mds_estilo_arkham_codex"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L109",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_4_mar_de_cinzas_mdc"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L112",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_5_her\u00f3is_da_cidade_hdc"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L119",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_6_lendas_do_ldi_graphic_novel_do_jogo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L125",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_7_ldi_gangues"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L132",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_8_lutas_de_ilus\u00e3o_web_shard_principal"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L143",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_produ\u00e7\u00e3o_de_imagem_guia_do_agente",
-      "target": "docs_producao_imagem_9_web_shard_c\u00e2mera_na_m\u00e3o_found_footage_em_vhs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_anatomia_erros_recorrentes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L30",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_continuidade"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L57",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_fila"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L49",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_fundo_transparente_no_gemini"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_refer\u00eancias"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L64",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_revis\u00e3o_e_entrega"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L45",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_texto_na_imagem"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/PRODUCAO_IMAGEM.md",
-      "source_location": "L52",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_producao_imagem_1_geral_regras_que_valem_pra_tudo",
-      "target": "docs_producao_imagem_v\u00e1rias_sa\u00eddas_numa_chamada_economia_de_cota"
     },
     {
       "relation": "references",
@@ -202416,5 +202416,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "43539c1b01dc5875f1e5e42f28df587d3f3b2d1d"
+  "built_at_commit": "a45e56d862f39fedd36181bf5a98a14e59b0be99"
 }
