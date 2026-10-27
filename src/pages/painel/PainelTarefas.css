@@ -64,6 +64,19 @@
   border: 0;
   cursor: pointer;
 }
+.tarefa__arquivar {
+  grid-column: 1 / -1;
+  padding: 10px;
+  font: 700 .62rem var(--font-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--if-cyan-45);
+  cursor: pointer;
+}
+.tarefa__arquivar:active { transform: scale(.98); }
 .tarefas-placar { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .tarefas-placar__pessoa {
   display: grid;

@@ -1929,6 +1929,8 @@
       "feedback": "Feedback",
       "iniciar": "Iniciar",
       "continuar": "Continuar",
+      "arquivar": "Arquivar",
+      "desarquivar": "Desarquivar",
       "feito_semana": "feito (7 dias)",
       "fim": {
         "concluida": "Tarefa concluída",

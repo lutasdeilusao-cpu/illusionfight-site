@@ -1929,6 +1929,8 @@
       "feedback": "Feedback",
       "iniciar": "Start",
       "continuar": "Continue",
+      "arquivar": "Archive",
+      "desarquivar": "Unarchive",
       "feito_semana": "done (7 days)",
       "fim": {
         "concluida": "Task done",

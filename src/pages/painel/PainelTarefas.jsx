@@ -8,7 +8,7 @@ import PainelTarefaModal from './PainelTarefaModal'
 import './PainelTarefas.css'
 
 const COLUNAS = ['fazer', 'progresso', 'feito']
-// Tarefa feita há mais de uma semana sai do quadro e fica no Arquivo.
+// Tarefa arquivada sai do quadro e fica na aba Arquivo.
 const ABAS = [...COLUNAS, 'arquivo']
 const PRIORIDADES = ['alta', 'normal', 'baixa']
 const VAZIA = { titulo: '', descricao: '', para: '', prioridade: 'normal', prazo: '', status: 'fazer', link: '', feedback: '' }
@@ -42,9 +42,7 @@ export default function PainelTarefas({ t, locale }) {
     pedi: x => x.pedido_por === eu && x.para && x.para !== eu,
   }
   const visiveis = useMemo(() => (tarefas || []).filter(FILTROS[filtro]), [tarefas, filtro, eu, socio?.id])
-  const semana = new Date(Date.now() - 7 * 86400000).toISOString()
-  const naAba = (x, c) => (c === 'arquivo' ? x.status === 'feito' && x.feito_em <= semana
-    : x.status === c && !(c === 'feito' && x.feito_em <= semana))
+  const naAba = (x, c) => (c === 'arquivo' ? !!x.arquivada : !x.arquivada && x.status === c)
   const daColuna = visiveis.filter(x => naAba(x, coluna))
     .sort((a, b) => PRIORIDADES.indexOf(a.prioridade) - PRIORIDADES.indexOf(b.prioridade) || (a.prazo || '9').localeCompare(b.prazo || '9'))
 
@@ -61,6 +59,12 @@ export default function PainelTarefas({ t, locale }) {
     if (x.status === 'fazer') await rpc('admin_tarefa_mover', { p_id: x.id, p_status: 'progresso' }).catch(() => {})
     navigate(x.link)
   }
+  const arquivar = async (x, sim = true) => {
+    setTarefas(ts => ts.map(y => (y.id === x.id ? { ...y, arquivada: sim } : y)))
+    await rpc('admin_tarefa_arquivar', { p_id: x.id, p_arquivar: sim }).catch(() => {})
+    carregar()
+  }
+  const semana = new Date(Date.now() - 7 * 86400000).toISOString()
   const placar = pessoas.map(pe => {
     const delas = (tarefas || []).filter(x => !x.para || x.para === pe.id)
     return { id: pe.id, nome: primeiroNome(pe.nome), fazer: delas.filter(x => x.status === 'fazer').length,
@@ -130,6 +134,11 @@ export default function PainelTarefas({ t, locale }) {
                 {x.link && x.status !== 'feito' && (
                   <button type="button" className="tarefa__iniciar" onClick={() => iniciar(x)}>
                     ▶ {t(x.status === 'fazer' ? 'painel.tarefas.iniciar' : 'painel.tarefas.continuar')}
+                  </button>
+                )}
+                {(x.status === 'feito' || x.arquivada) && (
+                  <button type="button" className="tarefa__arquivar" onClick={() => arquivar(x, !x.arquivada)}>
+                    {x.arquivada ? `↩ ${t('painel.tarefas.desarquivar')}` : `🗄 ${t('painel.tarefas.arquivar')}`}
                   </button>
                 )}
                 <div className="tarefa__acoes">
