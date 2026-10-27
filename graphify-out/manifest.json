@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793076670.6253338,
-    "ast_hash": "0f8297603105b12baeb9fab4e6744077",
+    "mtime": 1793101100.3866916,
+    "ast_hash": "6d9a646472c14a51fd4e7729e4014c2e",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2485,8 +2485,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792781054.5445023,
-    "ast_hash": "c9e3be333ad3abf190ebaaf3b3762ae6",
+    "mtime": 1793100852.9081557,
+    "ast_hash": "171b03bc6458582f706cac1892b9c936",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793076670.6396718,
-    "ast_hash": "ebe70e9d5a07711742698aacc2c0cba8",
+    "mtime": 1793101100.4432218,
+    "ast_hash": "580df1a90e24921fe1acf1fc2c9aa93a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7145,8 +7145,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1792878408.836972,
-    "ast_hash": "dffe91d8c3e2787c0be6a7fb940f475a",
+    "mtime": 1793100978.9016025,
+    "ast_hash": "3222111d2c4ad5b2c795c03c09783e8b",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesBagEquip.jsx": {
@@ -9525,8 +9525,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/arenaLDI.js": {
-    "mtime": 1791942241.7038672,
-    "ast_hash": "22b74930fb28e1db2b8e8aa2a3637a6e",
+    "mtime": 1793100908.2239027,
+    "ast_hash": "a986128a19f710059ea5546b702a3f74",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesBandoFixo.js": {
@@ -9540,8 +9540,8 @@
     "semantic_hash": ""
   },
   "docs/PRODUCAO_IMAGEM.md": {
-    "mtime": 1792878137.2213993,
-    "ast_hash": "13d28ab2edb5be9f2f4c4298a19487b6",
+    "mtime": 1793100993.6270072,
+    "ast_hash": "a435f2dedd8c459d447c0d0644daf364",
     "semantic_hash": ""
   },
   "docs/T1_PENDENCIAS.md": {
@@ -9965,7 +9965,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793076751.1304052,
+    "mtime": 1793101159.2489574,
     "ast_hash": "51f317c68e7357099214a7610a1123ed",
     "semantic_hash": ""
   },

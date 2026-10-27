@@ -1,12 +1,13 @@
 // Aba "Projeto": o que a Temporada 1 promete e o quanto já está pronto.
 // Tudo é lido dos próprios dados do site (capítulos, páginas, traduções, calendário),
 // então a aba se atualiza sozinha quando algo entra. O que não dá pra medir pelos dados
-// (jogos, clipes, refações) fica em MANUAL, editado à mão.
+// (jogos, clipes, páginas a refazer) fica em MANUAL, editado à mão.
 import livro from '../../data/historias/lutas-de-ilusao.json'
 import obras from '../../data/historias/obras.json'
 import contos from '../../data/historias/contos.json'
 import episodios from '../../data/episodios.json'
 import mds from '../../data/mundo-das-sombras-episodios.json'
+import contosWs from '../../data/contos-de-ilusao-episodios.json'
 import { T1, MUSICAS_T1, CLIPES_T1, GAMES_ROADMAP } from '../../data/season-one-schedule'
 import { Cartao } from './PainelBlocos'
 import './PainelProjeto.css'
@@ -15,15 +16,11 @@ const MD = new Set(Object.keys(import.meta.glob('../../data/historias/**/*.md'))
 const tem = caminho => MD.has(caminho)
 const naT1 = d => d && d >= T1.inicio && d <= T1.fim
 
-// Produção que ainda não entrou no catálogo do site: páginas feitas / total.
-const EXTRAS = [
-  { id: 'extra:sonata', rotulo: 'Sonata de uma Briga (WEB SHARD)', feitas: 15, total: 73 },
-  { id: 'extra:presos', rotulo: 'Presos na Ilusão (Halloween), loop 1', feitas: 51, total: 51 },
-]
-
 // Status que os dados não mostram. pronto | parcial | falta, com nota curta.
 const MANUAL = {
-  ...Object.fromEntries(Array.from({ length: 9 }, (_, i) => [`mds:${i + 1}`, { status: 'parcial', nota: 'refazendo em 960×1637' }])),
+  // páginas do Mundo das Sombras ainda no formato antigo (768×1024), por capítulo
+  ...Object.fromEntries([[1, 1], [3, 50], [4, 50], [5, 50], [6, 44], [7, 46], [8, 50], [9, 50]]
+    .map(([n, velhas]) => [`mds:${n}`, { status: 'parcial', nota: `${velhas} págs a refazer em 960×1637` }])),
   'jogo:trumps': { status: 'pronto' },
   'jogo:gangues': { status: 'pronto' },
   'jogo:ldi': { status: 'pronto' },
@@ -47,8 +44,11 @@ function grupos() {
     const ok = c.capitulos.filter(cap => idiomas(`contos/${c.id}/{l}/${String(cap.numero).padStart(2, '0')}.md`).length === 3).length
     return { id: `conto:${c.id}`, rotulo: c.titulo, data: c.capitulos[0].liberacao.elite, status: ok === total ? 'pronto' : ok ? 'parcial' : 'falta', nota: ok < total ? `${ok}/${total} caps nos 3 idiomas` : `${total} caps` }
   })
+  // página feita só conta como pronta com os 3 idiomas
+  const statusWs = e => (!e.paginas ? 'falta' : (e.idiomas || []).length >= 3 ? 'pronto' : 'parcial')
+  const notaWs = e => [e.paginas && (e.idiomas || []).length < 3 && `só ${(e.idiomas || ['pt']).join('/').toUpperCase()}`, e.paginas && `${e.paginas} págs`].filter(Boolean).join(' · ')
   const webshard = episodios.filter(e => !e.especial && naT1(e.liberacao?.elite)).map(e => (
-    { id: `webshard:${e.numero}`, rotulo: `Cap. ${e.numero}`, data: e.liberacao.elite, status: e.paginas ? 'pronto' : 'falta', nota: e.paginas ? `${e.paginas} págs` : '' }
+    { id: `webshard:${e.numero}`, rotulo: `Cap. ${e.numero}`, data: e.liberacao.elite, status: statusWs(e), nota: notaWs(e) }
   ))
   // especial com página feita entra mesmo sem data de liberação (aguardando data)
   const especiais = episodios.filter(e => e.especial && (naT1(e.liberacao?.elite) || e.paginas)).map((e, i) => (
@@ -57,12 +57,12 @@ function grupos() {
   const mdsWs = Array.from({ length: 9 }, (_, i) => {
     const ep = mds.find(e => Number(e.id) === i + 1)
     const max = ep?.paginas || Math.max(0, ...(ep?.versoes || []).map(v => v.paginas || 0))
-    return { id: `mds:${i + 1}`, rotulo: `Cap. ${i + 1}`, data: null, status: max >= 55 ? 'pronto' : max ? 'parcial' : 'falta', nota: max ? `${max} págs` : '' }
+    return { id: `mds:${i + 1}`, rotulo: `Cap. ${i + 1}`, data: null, status: max ? 'pronto' : 'falta', nota: max ? `${max} págs` : '' }
   })
   const musicas = MUSICAS_T1.map(m => ({ id: `musica:${m.n}`, rotulo: m.titulo?.pt || `Música ${m.n}`, data: m.liberacao.elite, status: m.titulo ? 'pronto' : 'falta', nota: '' }))
   const clipes = CLIPES_T1.map(c => ({ id: `clipe:${c.n}`, rotulo: `Clipe ${c.n}`, data: c.liberacao.elite, status: 'falta', nota: '' }))
   const jogos = GAMES_ROADMAP.flatMap(f => f.jogos.map(j => ({ id: `jogo:${j}`, rotulo: j, data: f.data, status: 'falta', nota: '' })))
-  const extras = EXTRAS.map(x => ({ id: x.id, rotulo: x.rotulo, data: null, status: x.feitas >= x.total ? 'pronto' : x.feitas ? 'parcial' : 'falta', nota: `${x.feitas}/${x.total} págs` }))
+  const contosWsItens = contosWs.map(e => ({ id: `contosws:${e.id}`, rotulo: e.titulo_pt, data: naT1(e.liberacao?.elite) ? e.liberacao.elite : null, status: statusWs(e), nota: notaWs(e) }))
   const aplica = lista => lista.map(x => ({ ...x, ...(MANUAL[x.id] || {}) }))
   return [
     { id: 'livro', itens: aplica(capsLivro) },
@@ -74,7 +74,7 @@ function grupos() {
     { id: 'musicas', itens: aplica(musicas) },
     { id: 'clipes', itens: aplica(clipes) },
     { id: 'jogos', itens: aplica(jogos) },
-    { id: 'extras', itens: extras },
+    { id: 'contosws', itens: aplica(contosWsItens) },
   ]
 }
 
