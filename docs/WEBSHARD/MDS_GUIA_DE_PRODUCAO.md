@@ -51,6 +51,7 @@ Consequências diretas:
   - **primeiro plano**: algo desfocado entre a câmera e a ação (a orelha do cachorro, revistas penduradas, as grades do portão, o ombro de outro), que dá profundidade.
 - **Dois painéis seguidos nunca repetem altura nem lente**, inclusive o último de uma página e o primeiro da seguinte.
 - Na ação, a câmera se mexe com o personagem: correndo junto, girando com o movimento, borrão de movimento no fundo.
+- **"Camera" e "lens" podem virar objeto desenhado.** "Câmera no asfalto entre as mãos dele… dos dois lados da lente" saiu com uma câmera fotográfica no chão. Nunca usar "the lens" como alvo ("braço na direção da lente" → "na direção do primeiro plano") e, quando o ponto de vista fica no meio de objetos, escrever "visto do nível do chão", não "câmera entre X e Y".
 - **No máximo dois personagens em foco por painel.** Elenco grande nunca entra todo num quadro: cada um ganha o seu painel ou estilhaço.
 - **Pouco fundo.** O lugar aparece em pedaços atrás da ação. Plano aberto só quando a página precisa apresentar o lugar, e aí com a ficha do lugar.
 - **Ninguém olha para o leitor.** Todo painel diz para onde vão os olhos (outra pessoa, a mão, o cachorro, fora do quadro à esquerda).
@@ -77,8 +78,10 @@ Consequências diretas:
 
 - **O livro não é legenda.** O texto do livro é a fonte da cena, não a lista de caixas. Uma página tem em geral de 0 a 3 textos; o que a imagem já conta sai do texto.
 - **Pelo menos 3 páginas de silêncio** por capítulo.
+- **Fonte padrão, uma só no quadrinho inteiro:** comic bold condensada, **reta (nunca itálico)**, caixa alta, grande, com a palavra-chave de cada caixa um pouco maior. É a fonte das páginas aprovadas do cap. 1.
+- **A referência de letra vai sempre anexada.** Descrição em palavras não basta (mesma lição do Lutas de Ilusão, guia §0 item 7). `FICHAS/MDS_Letreiro.png` reúne recortes dos balões e da narração aprovados do cap. 1. O `v3.py` anexa em toda página que tem fala, narração ou pensamento; se passar de 5 referências, sai a página anterior. Página sem palavra não cita o letreiro.
+- **Cada personagem que fala tem a SUA cor** (tabela §7), a mesma em todos os capítulos: **balão branco puro, letra e contorno grosso na cor dele**, cauda apontando para ele. Nunca dois personagens com a mesma cor de fala (a exceção são os possuídos, que dividem o cinza do balão de contorno duplo: a voz sai em dois tons). Personagem novo com fala ganha cor antes da página e entra na tabela.
 - **Narração sem caixa:** letras brancas flutuando numa nuvem pequena de fumaça da cor do narrador, num canto escuro do painel, nunca sobre rosto ou ação.
-- **Fala:** balão branco, letra e contorno grosso na cor do personagem (tabela §7). Uma fonte só no quadrinho inteiro, caixa alta, grande.
 - **Tela de fumaça da Falha/Nefeli:** letras prateadas no ar, nunca balão. **Voz do Iluminado:** dourada, itálico, sem balão. **Sussurro das sombras:** vermelho-escuro irregular na borda do painel.
 - Lista fechada: o prompt manda escrever só os textos listados, cada um uma vez, com acento.
 - **Todo texto diz onde fica** quando a página tem mais de um painel (`panel 1`, `panel 2`, `the glass shard`, "no alto do painel"). Sem isso, o texto sai duplicado ou no painel errado.
@@ -113,16 +116,32 @@ Consequências diretas:
 
 ## 7. Cores
 
-| Quem | Fumaça (divisão e narração) | Fala |
-|---|---|---|
-| Minus | azul elétrico `#2E8BFF` | azul `#1F6FD1` |
-| Falha / Nefeli | prata `#C9D1DE` | (tela de fumaça) |
-| Luna | rosa `#E85D9A` | rosa `#C2185B` |
-| Terceira pessoa | branco `#E8ECEF` | — |
-| Seu Jorge | — | verde-oliva `#5B6B2F` |
-| Homens possuídos | — | cinza `#555555`, balão de contorno duplo |
+**Fumaça (divisão entre painéis e narração) = quem conduz a cena:**
 
-Demais vozes: tabela `VOZ` de `scripts/montar_prompts.py`. Personagem novo com fala ganha cor antes da página.
+| Narrador | Fumaça |
+|---|---|
+| Minus | azul elétrico `#2E8BFF` |
+| Falha / Nefeli | prata `#C9D1DE` |
+| Luna | rosa `#E85D9A` |
+| Terceira pessoa | branco `#E8ECEF` |
+
+**Cor de fala (balão branco, letra e contorno na cor):**
+
+| Personagem | Cor |
+|---|---|
+| Minus | azul `#1F6FD1` |
+| Luna | rosa `#C2185B` |
+| Mãe do Minus | mel `#B8862B` |
+| Senhora Helena | marrom `#6D4C41` |
+| Seu Jorge | verde-oliva `#5B6B2F` |
+| Carlos (órfão) | laranja `#E07B39` |
+| Marina | verde-azulado `#1E9E8F` |
+| Sofia | lilás `#8E6CC9` |
+| Matheus | dourado `#C9A227` |
+| Pedrinho | verde-limão `#7CB342` |
+| Homens possuídos, Carlos (garçom), Roberto | cinza `#555555`, balão de **contorno duplo** |
+
+Vozes que não são balão: tela de fumaça da Falha/Nefeli (letras prateadas no ar), voz do Iluminado (dourada, itálico, sem balão), sussurro das sombras (vermelho-escuro irregular). A fonte da verdade da tabela é `VOZ` em `scripts/montar_prompts.py`; o `v3.py` lê de lá.
 
 | Mundo | Paleta |
 |---|---|
