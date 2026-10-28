@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793188797.190478,
-    "ast_hash": "28f54a92fad857da3a87d53e6cc0d03b",
+    "mtime": 1793189649.337507,
+    "ast_hash": "36d2a66a28a781a6470d643c50868101",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -1730,14 +1730,14 @@
     "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/ai.js": {
-    "mtime": 1782441630.4608119,
-    "ast_hash": "411a11742b0fa379f07021a6de31dd1a",
-    "semantic_hash": "411a11742b0fa379f07021a6de31dd1a"
+    "mtime": 1793189613.8359785,
+    "ast_hash": "6b602fca8455a34fc2cd2052b423183b",
+    "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/fujona.js": {
-    "mtime": 1782441630.4628901,
-    "ast_hash": "039ddfa21ac5b326f410822c33d28d44",
-    "semantic_hash": "039ddfa21ac5b326f410822c33d28d44"
+    "mtime": 1793189613.8359785,
+    "ast_hash": "df9a606632ace7d8a61156a201c9b552",
+    "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/index.js": {
     "mtime": 1782441630.4628901,
@@ -1745,14 +1745,14 @@
     "semantic_hash": "93933cb7ffb8a1fc101514da93e15740"
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/persistente.js": {
-    "mtime": 1782441630.4638915,
-    "ast_hash": "eea5228f4a71261043430e964d1adcea",
-    "semantic_hash": "eea5228f4a71261043430e964d1adcea"
+    "mtime": 1793189613.8349795,
+    "ast_hash": "969cf44235a0cb31f13a49fd5d65cd7d",
+    "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/sanguinaria.js": {
-    "mtime": 1782441630.4638915,
-    "ast_hash": "80f890ea9de906263722e50c69a9bca0",
-    "semantic_hash": "80f890ea9de906263722e50c69a9bca0"
+    "mtime": 1793189586.6067002,
+    "ast_hash": "f240762ddc7db79ecc7a2fa2a50e4ad5",
+    "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/animations/attack/attackAnim1Standard.js": {
     "mtime": 1782441630.4648898,
@@ -1890,8 +1890,8 @@
     "semantic_hash": "b5c6cfcdeb200c0c30ba5660e2e4fb4d"
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/useCombatEngine.js": {
-    "mtime": 1793188756.8696823,
-    "ast_hash": "855697d4d41b160f5d99fd56b75d8792",
+    "mtime": 1793189662.8630743,
+    "ast_hash": "d7a89cb449eaf8d8b45c6b1fe6cc388d",
     "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/useEffectMachine.js": {
@@ -1950,9 +1950,9 @@
     "semantic_hash": "2f6b99cfb61a10c1f5476ce8329e1122"
   },
   "src/pages/lab/Prototype/ArenaTestbed/phases/Phase6CombatV2.jsx": {
-    "mtime": 1782588274.1684456,
-    "ast_hash": "10bc62300531d498936f0bc680f245a9",
-    "semantic_hash": "10bc62300531d498936f0bc680f245a9"
+    "mtime": 1793189586.5794902,
+    "ast_hash": "fd06c01fa138efba6956c733c45ab3cd",
+    "semantic_hash": ""
   },
   "src/pages/lab/Prototype/Prototype.jsx": {
     "mtime": 1793160442.5975003,
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793188797.2254772,
-    "ast_hash": "4ff0f629b1ff1b525232862be63c488f",
+    "mtime": 1793189649.3756175,
+    "ast_hash": "c5aad04c76a66beb027dc3aa3ab5daad",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9955,7 +9955,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793188864.5388281,
+    "mtime": 1793189742.4068696,
     "ast_hash": "2c7c2399fbdc0dc2a4073a02253bd396",
     "semantic_hash": ""
   },
@@ -10355,8 +10355,13 @@
     "semantic_hash": ""
   },
   "docs/Games/LDIArena/LDI_ARENA.md": {
-    "mtime": 1793188797.073303,
-    "ast_hash": "ca5970ca1b86589e738da67ef3cfbea9",
+    "mtime": 1793189722.9369218,
+    "ast_hash": "4893ba1c8f87cecb5fb02a38569629a3",
+    "semantic_hash": ""
+  },
+  "src/pages/lab/Prototype/ArenaTestbed/engine/regras.js": {
+    "mtime": 1793189441.5701532,
+    "ast_hash": "b9e107eecc77fc9630161fa2cab4a935",
     "semantic_hash": ""
   }
 }

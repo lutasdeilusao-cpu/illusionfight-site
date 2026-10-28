@@ -16,6 +16,9 @@
       "desc": "Protótipo de sistema de combate 3v3"
     },
     "arena_testbed": {
+      "cam_aproximar": "Aproximar",
+      "cam_afastar": "Afastar",
+      "cam_centralizar": "Centralizar em quem age",
       "title": "LDI Arena",
       "desc": "Luta tática num tabuleiro hexagonal: fichas, tabuleiro e partida.",
       "phase1_title": "FASE 1 — Construção de Fichas",

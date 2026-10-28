@@ -36,6 +36,35 @@
   z-index: 2;
   width: 100%;
   height: 100%;
+  touch-action: none;
+}
+
+/* Câmera: zoom e centralizar na metade de baixo, à direita (ao alcance do dedão). */
+.atb-cam {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.atb-cam-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--if-cyan);
+  background: rgba(6, 12, 20, 0.82);
+  color: var(--if-cyan);
+  font-size: 20px;
+  line-height: 1;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  cursor: pointer;
+}
+
+.atb-cam-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 .atb-balloon-container {

@@ -4,6 +4,7 @@ import useInputLock from '../engine/useInputLock'
 import useUIController from '../engine/useUIController'
 import useCanvasLoop from '../engine/useCanvasLoop'
 import useHexCanvas from '../engine/useHexCanvas'
+import useCamera from '../engine/useCamera'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { drawCombatBoard } from '../engine/drawCombatBoard'
 import { encontrarCaminho } from '../engine/hexUtils'
@@ -68,6 +69,9 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
           padRef, sizeRef } = useHexCanvas({
     canvasRef, cols, rows, minSz: 18, maxSz: 36,
   })
+  const camera = useCamera({ canvasRef, cols, rows, padRef, sizeRef })
+  const focoCameraRef = useRef(null)
+  const [, setCameraVersao] = useState(0)
 
   const { inputLocked, inputLockedRef, lockInput, unlockInput } = useInputLock()
 
@@ -244,6 +248,12 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
 
   const currentChar = useMemo(() => characters.find(c => c.id === currentCharId), [characters, currentCharId])
   const isPlayerTurn = currentChar?.time === 'jogador'
+  focoCameraRef.current = currentChar?.posicao || null
+  const olharLivre = isPlayerTurn && !iaThinking && !winner
+
+  // Troca de turno: a câmera volta a seguir quem vai agir.
+  const seguirCamera = camera.seguir
+  useEffect(() => { seguirCamera() }, [currentCharId, seguirCamera])
 
   const [phase, setPhase] = useState('prepare')
   const [battleLog, setBattleLog] = useState([])
@@ -381,6 +391,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
     draw,
     calcVersion,
     onFrame: () => {
+      camera.tick(focoCameraRef.current)
       angleRef.current = (angleRef.current || 0) + 0.018
 
       const hitStopAtivo = isHitStopActive(hitStopRef)
@@ -453,11 +464,11 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
   }, [isPlayerTurn, iaThinking, cols, rows, subPhase, subPhaseStep,
       currentChar, actionPanel, characters, obstaculos, set, actions])
 
-  const handleTouch = useCallback((e) => {
-    if (e.cancelable) e.preventDefault()
-    const touch = e.changedTouches[0]
-    handleCanvasClick({ clientX: touch.clientX, clientY: touch.clientY })
-  }, [handleCanvasClick])
+  const aoSoltarCanvas = useCallback((e) => {
+    if (!camera.fimArrasto()) handleCanvasClick(e)
+  }, [camera, handleCanvasClick])
+
+  const usarCamera = (fn) => { audio.click(); fn(); setCameraVersao(v => v + 1) }
 
   if (phase === 'resultado' && winner) {
     return (
@@ -624,7 +635,19 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
           <button className="atb-top-log-btn" onClick={() => { audio.click(); setLogDrawerOpen(true) }}>≡</button>
         </div>
         <div className="atb-canvas-wrap" ref={canvasContainerRef}>
-          <canvas ref={canvasRef} className="atb-canvas" onClick={handleCanvasClick} onTouchEnd={handleTouch} />
+          <canvas ref={canvasRef} className="atb-canvas"
+            onPointerDown={e => camera.inicioArrasto(e, olharLivre)}
+            onPointerMove={camera.moverArrasto}
+            onPointerUp={aoSoltarCanvas}
+            onPointerCancel={camera.fimArrasto} />
+          <div className="atb-cam">
+            <button className="atb-cam-btn" aria-label={t('prototype.arena_testbed.cam_aproximar')}
+              disabled={!camera.podeZoom(1)} onClick={() => usarCamera(() => camera.zoom(1))}>+</button>
+            <button className="atb-cam-btn" aria-label={t('prototype.arena_testbed.cam_afastar')}
+              disabled={!camera.podeZoom(-1)} onClick={() => usarCamera(() => camera.zoom(-1))}>−</button>
+            <button className="atb-cam-btn" aria-label={t('prototype.arena_testbed.cam_centralizar')}
+              onClick={() => usarCamera(camera.seguir)}>⌖</button>
+          </div>
           <div className="atb-balloon-container" ref={overlayContainerRef}></div>
         </div>
         <div className="atb-hud">

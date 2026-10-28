@@ -16,6 +16,9 @@
       "desc": "3v3 combat system prototype"
     },
     "arena_testbed": {
+      "cam_aproximar": "Zoom in",
+      "cam_afastar": "Zoom out",
+      "cam_centralizar": "Center on who is acting",
       "title": "LDI Arena",
       "desc": "Tactical fighting on a hexagonal board: sheets, board and match.",
       "phase1_title": "PHASE 1 — Character Sheet Building",

@@ -149,6 +149,18 @@ Cada IA tem uma personalidade escolhida na ficha (`engine/ai/personalidades/inde
 
 `verificarVitoria` (`engine/useCombatEngine.js:177-192`): sem jogador vivo → IA vence; sem IA viva → jogador vence. HP 0 = morto, marcado no `TurnController` e pulado. Sem limite de turnos, sem empate, sem recompensa nem progresso.
 
+### Câmera (`engine/useCamera.js`)
+
+O tabuleiro é desenhado a partir de dois números: onde a grade começa na tela (`padRef`) e o tamanho do hexágono (`sizeRef`). A câmera só escreve neles a cada quadro (`camera.tick`, no `onFrame` da tela de combate), então desenho, animação, balões e toque seguem a câmera sem saber dela.
+
+- **Seguir:** por padrão a câmera fica centrada em quem está agindo, e volta a seguir a cada troca de turno.
+- **Olhar em volta:** na vez do jogador, arrastar o dedo no tabuleiro move a câmera. Arrasto de menos de 8 px conta como toque (selecionar casa).
+- **Zoom:** botões − e + no canto de baixo à direita, ao alcance do dedão; nunca pinça. Os níveis são: tabuleiro inteiro, legível (hexágono de 30 px) e perto (44 px).
+- **Centralizar:** o botão ⌖ volta a seguir quem está agindo.
+- **Abertura:** se o tabuleiro inteiro cabe legível na tela, abre mostrando tudo; senão, abre no tamanho legível seguindo quem age.
+- **Limites:** a câmera não sai do tabuleiro; no eixo em que o tabuleiro cabe na tela, ele fica centralizado.
+- Tabuleiro de qualquer tamanho funciona sem mudar a câmera. O editor de tabuleiro (fase 4) ainda não usa a câmera.
+
 ### Apresentação
 
 - Animações por id: movimento (padrão, teleporte, estilingue), ataque corpo a corpo (padrão, padrão+, rage dash, soco de energia), distância (tiro reto, rajada, spirit gun), defesa (golpe, bloqueio, escudo mágico) em `engine/animations/`. Partículas, "juice" (tremor, hit stop) em `engine/animations/particles.js`, `engine/animations/juice.js`. "habilidade" e "efeito" da fase de debug não têm animação ligada.
