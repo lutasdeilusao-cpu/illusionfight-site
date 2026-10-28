@@ -39,23 +39,9 @@ Fontes do canon:
   - **Todos os primários** (Pajé Yawanari): o poder sagrado dos Xakaxi.
   - **Primordial**, o "oitavo elemental" dos fóruns: é o próprio Caos. O sistema não tem categoria pra ele e registra o que vê como Trevas.
 
-### 1.2 O elemental de cada personagem
+### 1.2 Personagens
 
-| Personagem | Elemental | Tipo |
-|---|---|---|
-| Kim | Fogo no registro; manifesta chamas negras, que o sistema lê como Trevas | Primário (com a anomalia do Primordial) |
-| Jack | Pedra | Secundário de Terra |
-| Nina | Luz | Primário |
-| Thunderbolt | Eletricidade | Secundário de Luz |
-| Shuntaro | Água | Primário |
-| Lenna | Vento | Secundário de Ar |
-| Osvaldo | Terra | Primário |
-| Pajé Yawanari | Todos os primários | Fora do sistema |
-| David Kronos | Escuridão Corrompida | Fora do sistema |
-| Void | Vazio | Fora do sistema |
-| NeoGuide | Digital | Fora do sistema |
-
-Ainda sem elemental definido no canon: Roxy e o resto do elenco de apoio.
+O jogo não usa personagens oficiais do universo neste momento. Os lutadores têm nomes genéricos: **Jogador 1, Jogador 2, Jogador 3** e **Inimigo 1, Inimigo 2, Inimigo 3**. O elemental de cada um é escolhido na montagem do time.
 
 ### 1.3 A tabela de compatibilidade (a da Yohu) — [PROPOSTA]
 
@@ -122,18 +108,18 @@ São regras de chefe e de evento de história. O jogador não escolhe nenhum del
 
 | Elemental | Quem | Regra no jogo |
 |---|---|---|
-| Primordial | Kim, quando as correntes cedem | **Absorve** poder elemental recebido (o canon das chamas negras). Evento raro de história, nunca um poder comum. |
-| Escuridão Corrompida | David Kronos | Drena como Trevas, mas não sofre choque da Luz. É a "Trevas estragada": a tabela não pega nele. |
-| Vazio | Void | Abre casas de **gosma preta** no chão da arena (o Caos escorrendo), que ferem quem pisa. |
-| Digital | NeoGuide, NexusPhantasm | Elementais do sistema: aparecem como **regras da arena** (treino, narrador), não como lutadores comuns. |
-| Todos os primários | Pajé Yawanari | Troca de primário a cada turno. Chefe especial. |
+| Primordial | — | **Absorve** poder elemental recebido (o canon das chamas negras). Evento raro de história, nunca um poder comum. |
+| Escuridão Corrompida | — | Drena como Trevas, mas não sofre choque da Luz. É a "Trevas estragada": a tabela não pega nele. |
+| Vazio | — | Abre casas de **gosma preta** no chão da arena (o Caos escorrendo), que ferem quem pisa. |
+| Digital | — | Elementais do sistema: aparecem como **regras da arena** (treino, narrador), não como lutadores comuns. |
+| Todos os primários | — | Troca de primário a cada turno. Chefe especial. |
 
 ### 1.6 Regras que ligam o elemental ao resto do jogo
 
 - **[CANON]** **3 modos de luta:** mãos livres, arma e poder. Só o **modo poder** usa o elemental.
 - **[CANON]** **Máximo de 4 poderes ativos** por luta. Um poder novo pode surgir no meio da luta e entra no lugar do último.
 - **[CANON]** Poderes têm **3 durações**: instantâneo (barato), médio e longo (forte e caro). Carregar deixa o lutador exposto, e tomar golpe faz perder a carga.
-- **[CANON]** Arma no **modo Xamã** gasta mais energia e pode **fundir** com o elemental (Angel Luminus Blade da Nina: corte da arma + Luz).
+- **[CANON]** Arma no **modo Xamã** gasta mais energia e pode **fundir** com o elemental (corte da arma + o poder do elemento).
 - **[PROPOSTA]** Os 4 poderes de cada lutador saem do seu elemental: 2 do primário e 2 próprios. No caso do secundário, 2 do primário pai e 2 do secundário.
 - **[PROPOSTA]** As **arenas** têm afinidade elemental: Vulcânica favorece Fogo e Lava; Aquática, Água; Neve, Gelo; Ruínas, Terra. Lutar na arena do seu elemento dá um bônus pequeno, como no "Especialista de Arena" do manual.
 
@@ -145,4 +131,3 @@ São regras de chefe e de evento de história. O jogador não escolhe nenhum del
 2. Os pares opostos são **Fogo ↔ Água, Terra ↔ Ar, Luz ↔ Trevas**?
 3. O efeito de cada secundário (§1.4) está no espírito do elemento? Algum que não combina?
 4. O Neutro fica sem efeito próprio, só com a estabilidade?
-5. Que elemental têm Roxy e o resto do elenco de apoio?

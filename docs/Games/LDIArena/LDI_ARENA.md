@@ -33,7 +33,7 @@ O orquestrador é `ArenaTestbed.jsx`. As fases são o enum `FaseArena` (`ArenaTe
 |---|------|---------|--------------------------|
 | 0 | INICIO | `phases/Phase0Start.jsx` | "Novo jogo" ou "Carregar". Lista de fichas salvas (nomes dos personagens), carregar ou apagar (com confirmação). Aviso quando atinge o limite de 9 fichas. O botão "Carregar" grande carrega sempre a 1ª ficha. |
 | 1 | FICHA | `phases/Phase1SheetBuilder.jsx` | Monta até 4 combatentes. Cada um: time (Jogador/IA), personalidade (só IA), tipo de ataque (corpo a corpo / distância), orçamento de pontos (3 a 30, de 3 em 3), distribuição nos 6 atributos, equipamento, poções HP/MP iniciais. Só avança com ≥1 jogador, ≥1 IA e todos os pontos gastos. |
-| 2 | PERSONALIZACAO | `phases/Phase2Customize.jsx` | Só para os personagens do jogador (máx. 3): cor (3 fixas), ícone (círculo/quadrado/losango) e nome (Kim, Jack, Nina). Cor e nome não se repetem. Ao confirmar, a ficha é salva no `localStorage`. Carregar ficha pula direto pra cá. |
+| 2 | PERSONALIZACAO | `phases/Phase2Customize.jsx` | Só para os personagens do jogador (máx. 3): cor (3 fixas), ícone (círculo/quadrado/losango) e nome (Jogador 1, 2 ou 3). Cor e nome não se repetem. Ao confirmar, a ficha é salva no `localStorage`. Carregar ficha pula direto pra cá. |
 | 3 | MODO | `phases/Phase3ModeSelect.jsx` | Treino (ativo) ou Campanha (botão com selo "em breve", sem ação). |
 | 4 | TABULEIRO | `phases/Phase4BoardSetup.jsx` | Editor do mapa em canvas: tamanho (até 10 colunas × 15 linhas, começa em 7×4), ferramentas Selecionar/Borracha, 4 tipos de obstáculo, poções no chão (HP/MP), posicionar personagens. Só libera "Iniciar" com jogadores na metade esquerda, IA na direita e sem sobreposição. |
 | 5 | PODERES | `phases/Phase5PowerSelect.jsx` | Um card recolhível por personagem (jogador e IA). Grade de poderes filtrada pelo tipo do personagem, abas por elemento e ordenação por FA/FD/A-Z. Limite de poderes = `min(RES, 4)`. IA sem escolha recebe 1–3 poderes aleatórios (`ArenaTestbed.jsx:84-96`). |
@@ -60,6 +60,7 @@ O orquestrador é `ArenaTestbed.jsx`. As fases são o enum `FaseArena` (`ArenaTe
 
 ### Onde mora
 
+- Nomes: Jogador 1–3 e Inimigo 1–3 (`engine/regrasFicha.js`, `phases/Phase1SheetBuilder.jsx`). Ficha antiga salva com nome de personagem do universo é trocada pro nome genérico na leitura (`data/fichaStorage.js`).
 - Ficha em edição: estado React da fase 1. Objeto final por `criarPersonagem` (`engine/combat.js:203-230`), id `char_<timestamp>_<rand>`.
 - Persistência: `data/fichaStorage.js`, `localStorage['ldi_arenatestbed_fichas']`, interface assíncrona. Uma "ficha" salva = a lista de personagens (jogador personalizado + IA).
 - Regras de limite: `engine/regrasFicha.js` (9 fichas, 3 personagens do jogador, 3 cores, 3 nomes).
@@ -283,21 +284,16 @@ Um jogo tático anterior, em grade **quadrada**, no estilo Ragnarok: nível até
 
 ## 14. Que jogo é o LDI Arena
 
-**Proposta:** o LDI Arena é a própria arena do livro. O jogador entra no LDI, monta seu time com os lutadores do universo e sobe o **ranking SDR** em lutas táticas no tabuleiro hexagonal, até o Top 128.
+**Proposta:** o LDI Arena é a própria arena do livro. O jogador entra no LDI, monta seu time e sobe o **ranking SDR** em lutas táticas no tabuleiro hexagonal, até o Top 128.
 
 Por que esse caminho é seguro:
 
 - Usa regra que já é canon (o manual), golpes que já são canon (os kits) e um objetivo que já é canon (o ranking). Nada precisa ser inventado de lore.
-- É o único jogo do portal em que o leitor **joga com o Kim, o Jack e a Nina lutando como lutam no livro**. O Gangues é outra época e o Lendas é história.
 - O ranking dá progressão natural: cada faixa do SDR é um "capítulo", com arenas e rivais próprios.
 
-## 15. Personagens: elenco fixo com kit, não ficha livre
+## 15. Personagens
 
-| Opção | Como é | Risco |
-|---|---|---|
-| **A. Elenco canônico com kit fixo** (recomendado) | Kim, Jack, Nina, Thunderbolt, Shuntaro, Roxy… cada um com atributos, elemental, arma e 4 poderes autorados. O jogador escolhe quem leva. | Baixo: dá pra balancear, cada personagem tem identidade, igual ao Gangues. |
-| B. Avatar próprio com ficha livre | O jogador cria um lutador e distribui pontos (o sistema de hoje). | Alto: balancear ficha livre é o trabalho mais caro que existe, e o lutador não é ninguém da história. |
-| C. Os dois | Elenco canônico na campanha, avatar livre num modo à parte. | Médio: dobra o trabalho; dá pra deixar pra depois. |
+**Decidido:** o jogo não usa personagens oficiais do universo neste momento. Os lutadores são **Jogador 1, Jogador 2, Jogador 3** e **Inimigo 1, Inimigo 2, Inimigo 3**, e assim já estão no protótipo. Os kits da §9 ficam só como referência de como um lutador pode ser montado (arma, elemental, golpe-assinatura).
 
 ## 16. Regra de luta: puxar o motor para o manual
 
@@ -346,7 +342,7 @@ O sistema elemental oficial (6 primários com 3 secundários cada, Neutro, a tab
 Do mais básico pro mais visível, cada passo jogável e testado antes do próximo:
 
 1. **Regra do manual no `regras.js`** + um simulador de lutas (rodar milhares de lutas pra calibrar, como já foi feito com o golpe).
-2. **Elenco inicial de 4** (Kim, Jack, Nina, Thunderbolt) com kit e curva de nível.
+2. **Lutadores genéricos com kit** (arma, elemental, poderes) e curva de nível.
 3. **Poderes de verdade**: os 4 de cada um + o efeito no tabuleiro.
 4. **3 mapas prontos** e o editor fora do fluxo do jogador.
 5. **Save na conta** (Supabase), XP e nível.
@@ -370,10 +366,8 @@ Com isso fechado, o jogo está pronto pra 15/03/2027 com um ciclo completo. As o
 
 Antes de começar a construção, estas respostas fecham o rumo:
 
-1. **O jogo é a escalada do ranking SDR** com os personagens do livro? (seção 14)
-2. **Elenco canônico com kit fixo**, sem ficha livre no modo principal? (seção 15)
-3. **Regra do manual** (5 atributos, PV/PM separados, esquiva por H) substitui a de hoje? E o dano mínimo 1 fica? (seção 16)
-4. **Níveis como no Gangues** (todo nível +1 atributo, poderes em níveis fixos)? (seção 18)
-5. **Quem entra no elenco inicial?** Proposta: Kim, Jack, Nina e Thunderbolt.
-6. **Time de quantos?** O livro tem 1×1, 2×2 e mais; proposta: até 3 por lado na campanha.
-7. **A morte no ranking** ("quem morre perde posição") vale no jogo, ou derrota só não sobe?
+1. **O jogo é a escalada do ranking SDR**? (seção 14)
+2. **Regra do manual** (5 atributos, PV/PM separados, esquiva por H) substitui a de hoje? E o dano mínimo 1 fica? (seção 16)
+3. **Níveis como no Gangues** (todo nível +1 atributo, poderes em níveis fixos)? (seção 18)
+4. **Time de quantos?** O livro tem 1×1, 2×2 e mais; proposta: até 3 por lado na campanha.
+5. **A morte no ranking** ("quem morre perde posição") vale no jogo, ou derrota só não sobe?

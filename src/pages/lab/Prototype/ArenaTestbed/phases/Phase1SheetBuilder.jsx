@@ -17,7 +17,7 @@ export default function Phase1SheetBuilder({ onConfirm }) {
     const mesmoTime = todosChars.filter(c => c.time === time)
     const ordem = mesmoTime.length + 1
     if (time === 'jogador') return `Jogador ${ordem}`
-    return `IA ${ordem}`
+    return `Inimigo ${ordem}`
   }
 
   function addCharacter() {

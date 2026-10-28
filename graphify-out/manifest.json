@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793194175.1333036,
-    "ast_hash": "88782b4174549ac3cb842d62458c0984",
+    "mtime": 1793194467.2176235,
+    "ast_hash": "9237864ff66f8d9bc806f62ab08b703e",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793194175.1785138,
-    "ast_hash": "75cf019f48896294ace7d9a04867db13",
+    "mtime": 1793194467.2508478,
+    "ast_hash": "8195e76b303f360e490be86cd2b2d787",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9955,7 +9955,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793194181.5427952,
+    "mtime": 1793194473.7979677,
     "ast_hash": "c2b44780d2eaac787bf5a0ed31057d96",
     "semantic_hash": ""
   },
@@ -10355,8 +10355,8 @@
     "semantic_hash": ""
   },
   "docs/Games/LDIArena/LDI_ARENA.md": {
-    "mtime": 1793193646.8386712,
-    "ast_hash": "20b39261a483edc5d79d9b9a1fc2cafa",
+    "mtime": 1793194460.2149472,
+    "ast_hash": "b264772997a072f7f9126752d56d6676",
     "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/regras.js": {
@@ -10367,6 +10367,11 @@
   "src/pages/lab/Prototype/ArenaTestbed/engine/useCamera.js": {
     "mtime": 1793191283.2083406,
     "ast_hash": "21cc3c6ec9b5111b196a561c5bc75b6a",
+    "semantic_hash": ""
+  },
+  "docs/Games/LDIArena/LDI_ARENA_GDD.md": {
+    "mtime": 1793194449.5258844,
+    "ast_hash": "cee8d88b493ab1f4df7558301ec773ba",
     "semantic_hash": ""
   }
 }

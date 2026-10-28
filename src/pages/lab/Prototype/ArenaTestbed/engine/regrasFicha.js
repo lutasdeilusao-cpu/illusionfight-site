@@ -1,7 +1,7 @@
 const MAX_FICHAS = 9
 const MAX_PERSONAGENS_BATALHA = 3
 const CORES_DISPONIVEIS = ['#00ff88', '#4488ff', '#ffcc00']
-const NOMES_DISPONIVEIS = ['Kim', 'Jack', 'Nina']
+export const NOMES_DISPONIVEIS = ['Jogador 1', 'Jogador 2', 'Jogador 3']
 
 export function podeSalvarNovaFicha(fichasExistentes) {
   if (fichasExistentes.length >= MAX_FICHAS) {

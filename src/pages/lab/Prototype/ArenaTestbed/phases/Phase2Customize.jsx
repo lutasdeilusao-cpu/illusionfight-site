@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
-import { podeAdicionarPersonagemABatalha, getCoresDisponiveis, getNomesDisponiveis } from '../engine/regrasFicha'
+import { podeAdicionarPersonagemABatalha, getCoresDisponiveis, getNomesDisponiveis, NOMES_DISPONIVEIS } from '../engine/regrasFicha'
 import { audio } from '../engine/audioManager'
 import './Phase2Customize.css'
 
@@ -20,7 +20,7 @@ export default function Phase2Customize({ personagens, onConfirm, onBack }) {
       aparencia: c.aparencia || {
         cor: ['#00ff88', '#4488ff', '#ffcc00'][i],
         icone: ICONES[i],
-        nome: ['Kim', 'Jack', 'Nina'][i],
+        nome: NOMES_DISPONIVEIS[i],
       },
     })))
   }, [personagens])
@@ -95,7 +95,7 @@ export default function Phase2Customize({ personagens, onConfirm, onBack }) {
               <div className="p2-field">
                 <div className="p2-label">{t('prototype.arena_testbed.p2_nome')}</div>
                 <div className="p2-nomes">
-                  {['Kim', 'Jack', 'Nina'].map(nome => {
+                  {NOMES_DISPONIVEIS.map(nome => {
                     const ocupado = !nomesDisponiveis.includes(nome) && ch.aparencia?.nome !== nome
                     return (
                       <button
