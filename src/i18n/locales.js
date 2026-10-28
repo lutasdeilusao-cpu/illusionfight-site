@@ -64,9 +64,10 @@ export async function carregarArea(area, locale) {
  *  O catálogo /games usa site.games.*, que mora no núcleo; só as
  *  telas de dentro (/games/algum-jogo) precisam do pedaço pesado. */
 export function areaDaRota(pathname) {
+  if (pathname.startsWith('/games/ldi-arena')) return 'prototype'
   if (/^\/games\/ldi(\/|$)/.test(pathname)) return 'lendas'
   if (/^\/games\/./.test(pathname)) return 'games'
-  if (pathname.startsWith('/lab') || pathname.startsWith('/prototype') || pathname.startsWith('/games/ldi-arena')) return 'prototype'
+  if (pathname.startsWith('/lab') || pathname.startsWith('/prototype')) return 'prototype'
   if (pathname.startsWith('/creators')) return 'creators'
   return null
 }
