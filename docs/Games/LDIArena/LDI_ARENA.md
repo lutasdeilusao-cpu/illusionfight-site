@@ -4,9 +4,18 @@ Jogo tático por turnos em tabuleiro hexagonal. Times de até 4 combatentes (jog
 
 Código: `src/pages/lab/Prototype/ArenaTestbed/`. Textos: `src/i18n/prototype/pt.json` (bloco `prototype.arena_testbed`, ~236 chaves). Versão: `ARENATESTBED_VERSION` em `src/config/version.js`.
 
-Caminhos abaixo são relativos a `src/pages/lab/Prototype/ArenaTestbed/`.
+Este documento tem tudo o que existe sobre o jogo, num lugar só:
+
+- **Parte 1** — o que o protótipo tem hoje e como funciona.
+- **Parte 2** — o material do universo que pode virar jogo (manual de batalha, golpes dos personagens, a arena na história, o Tactics antigo e o que os outros jogos já provaram).
+- **Parte 3** — propostas de que jogo construir e em que ordem.
+- **Parte 4** — as decisões que fecham o rumo.
+
+Na Parte 1, os caminhos são relativos a `src/pages/lab/Prototype/ArenaTestbed/`.
 
 ---
+
+# Parte 1 — O que existe hoje
 
 ## 1. Como se chega no jogo
 
@@ -178,25 +187,191 @@ O tabuleiro é desenhado a partir de dois números: onde a grade começa na tela
 - Ficha carregada só leva a personalização; a IA da ficha volta junto, mas não há como editar atributos de uma ficha salva.
 - Muitos `console.log('[DEBUG] ...')` nas personalidades e no `TurnController` (diagnóstico, manter até decisão).
 
-## 8. Documentos relacionados em `docs/`
+---
 
-- `docs/importantes/MANUAL_BATALHA_LDI.md` — manual de batalha "3D&T adaptado" do universo LDI, com os 7 elementais (fogo, água, terra, ar, trevas, luz… + Primordial). É a base de lore de elementos que os poderes de amostra imitam, mas o jogo não implementa nada de elemento.
-- `docs/LDI/ATAQUES_E_PODERES.md` — catálogo de ataques e poderes do universo.
-- `docs/Games/LDITatics/RefactoryBattleLDITatics.md`, `IasLDITatics.md`, `RELATORIO_CLASSES_COMPLETO.md` — sistema do **LDI Tactics** (outro jogo, `src/pages/games/ArenaTatics/`, estilo RO: nível 99, atributos com custo por faixa, classes). Não é o sistema da LDI Arena; serve só de referência.
-- Não existe GDD da LDI Arena. As fórmulas acima citam um "GDD v0.1" (`engine/combat.js:1-4`) que não está no repositório.
+# Parte 2 — A base que já existe fora do código
 
-## 9. Lacunas de design para a batalha final
+O jogo não começa do zero. O universo já tem regra de luta, golpes de personagem e uma arena com ranking. O que está escrito abaixo é o material que pode virar jogo sem inventar canon novo.
 
-1. **Poderes de verdade:** área, alcance próprio, carregamento (`turnosCarregamento`), cura, empurrão, mobilidade. Hoje só há "+2/+3 no ataque" e "−2/−3 no dano".
-2. **Elementos:** existem só como etiqueta. Falta decidir vantagem/fraqueza, resistência e o que o elemental muda na ficha.
-3. **Efeitos de estado:** nenhum. Decidir quais, duração e como aparecem.
-4. **Economia de MP:** MP = HP = RES × 10 e não regenera; só poção de +5. RES vira o atributo dominante (HP, MP e nº de poderes).
-5. **Balanceamento de atributos:** DEX vale 25% fora do crítico; ARM soma inteiro na FD; dano mínimo 1 sempre. Sem curva de pontos por nível, sem progressão.
-6. **Movimento:** AGI 1:1 sem teto pode cruzar o mapa; sem zona de controle, sem custo de terreno, sem ataque de oportunidade; mover e atacar em qualquer ordem.
-7. **Terreno:** obstáculos destrutíveis/móveis/armadilhas desenhados mas sem regra; não há cobertura nem altura.
-8. **Mapa:** é desenhado pelo jogador em cada partida. Falta mapa pronto, posições iniciais por mapa e a coerência de coordenadas (`gerarGrid` vs resto).
-9. **IA:** escolhe alvo, anda e escolhe poder; não usa poção, cobertura nem coordena o time. Fujona foge só 1 casa.
-10. **Personagens:** não há elenco oficial (Kim/Jack/Nina são só nomes e cores); ficha é livre por orçamento. Decidir se a final usa personagens canônicos com kit fixo ou ficha montada.
-11. **Fim de partida:** sem limite de turno, sem recompensa, sem campanha, sem salvamento na conta (só `localStorage`, contra a regra de "sem save local de jogo").
-12. **Uma mão:** a seleção é por toque no canvas e painéis espalhados; conferir o mandamento de uso com o dedão (ações na metade de baixo).
-13. **Fluxo:** a tela de animações de debug está no caminho do jogador e a edição de mapa vem antes dos poderes; o fluxo final precisa ser redesenhado.
+## 8. O manual de batalha do LDI (`docs/importantes/MANUAL_BATALHA_LDI.md`)
+
+É a regra de luta "oficial" do universo, um 3D&T adaptado. O motor atual da Arena já é parente dele (d6, FA contra FD, crítico no 6, 1 ação + 1 movimento), mas com outros atributos.
+
+| | Manual do LDI | Motor atual da Arena |
+|---|---|---|
+| Atributos | 5: F (potência), H (agilidade), R (resistência), A (proteção), PdF (poder elemental) | 6: FOR, AGI, DEX, PdF, RES, ARM |
+| Escala | 0 a 5 (5 = topo absoluto) | orçamento de 3 a 30 pontos |
+| Vida e energia | PV = R × 5; PM = PdF × 5 | HP = RES × 10; MP = RES × 10 |
+| Ataque | F + H + d6 (perto) ou PdF + H + d6 (longe) | FOR + DEX/4 + d6 |
+| Defesa | A + H + d6 | ARM + AGI/4 + d6 |
+| Dano | FA − FD, sem dano mínimo | FA − FD, mínimo 1 |
+| Crítico | 6 no dado dobra F/PdF (ataque) ou A (defesa) | 6 libera a DEX/AGI inteira |
+| Esquiva | teste de H contra H; passou, não toma dano | tabela de chance de acerto pela AGI |
+| Iniciativa | H + d6, rolada uma vez | AGI, com Jokenpô no empate |
+| Pontos de ficha | Novato 5, Lutador 7, Campeão 10, Lenda 12 | livre |
+
+- **7 elementais:** Fogo (dano), Água (controle e cura), Terra (defesa e atordoar), Ar (iniciativa e mobilidade), Trevas (dreno e enfraquecer), Luz (cura, proteção e cegueira), Neutro (sem fraqueza). O 8º, Primordial, não é registrado no sistema.
+- **Poderes:** 6 por elemental, de 1 a 4 PM, com efeitos de verdade — área (Terremoto), empurrar (Ciclone), puxar (Corrente), impedir aproximação (Redemoinho), ignorar proteção (Lâmina d'Água), dano dobrado (Inferno). Equipa até H + 1, no máximo 5.
+- **Vantagens** com custo em PM: movimento extra, alcance, cura, teleporte, regeneração, tiro carregável (fica indefeso 1 turno e dá PdF × 2), voo, ataque em área, paralisia, reflexão e dezenas de outras.
+- **Arena como vantagem:** o manual já lista tipos de arena — Digital Clássica, Ruínas, Aquática, Gravitacional, Torre Espiral, Vulcânica, Neve — e lutador especialista ganha bônus no terreno dele.
+- **Estados:** Perto da Morte (PV ≤ R), Indefeso, Surpreso e teste de morte no d6.
+- **Recuperação:** nada entre turnos; tudo volta ao máximo depois da batalha.
+- **XP:** vitória justa 10, derrota 1; a cada 100 XP, 1 ponto de personagem.
+
+## 9. Os golpes dos personagens (`docs/LDI/ATAQUES_E_PODERES.md`)
+
+Cada personagem do livro já tem arma, elemental e golpe-assinatura. É um elenco pronto com kit:
+
+| Personagem | Elemental | Arma (normal → modo Xamã) | Golpe-assinatura |
+|---|---|---|---|
+| Kim | Fogo (manifesta Trevas) | 2 machadinhas com fio de aço que volta à mão → machado de duas lâminas | Golpe do escorpião, bola de fogo; "correntes" e modo pantera |
+| Jack | Terra | bengala "Vitória" → nunchaku de 3 partes | Vitória Finals: carrega em 3 etapas, letal, deixa uma grande abertura |
+| Nina | Luz | katana "Angel" → chicote segmentado de 2 a 3 m | Angel Luminus Blade: corte em área girando; fintas de Muay Thai |
+| Thunderbolt | Luz → eletricidade | bastão elétrico | raio das mãos; some em fumaça e reaparece pelas costas |
+| Shuntaro | Água | ioiôs → serra-escudo arremessável | Fatal Slices: 10 ioiôs, 5 m de alcance |
+| Outros citados | — | Roxy (socos-ingleses), Pajé (todos os elementais), Powa/Kronos (dreno de vida), Lenna (Vento), Osvaldo (Terra) | sem golpes descritos |
+
+Regras do LDI que o livro já fixou e que viram regra de jogo:
+
+- 3 modos de luta combináveis: **mãos livres** (mais barato), **arma** e **poder**.
+- Arma tem modo normal e **modo Xamã**, que gasta mais energia.
+- **1 elemental por avatar**, sem troca.
+- Poderes de 3 durações: instantâneo, médio e longo. **Carregar deixa exposto; tomar golpe perde a carga.**
+- **No máximo 4 poderes ativos.**
+- Formatos de luta: 1×1, 2×1, 10×1, 2×2, vitória por tempo, resistência ou objetivo, e Battle Royale.
+- Salas de treino com obstáculos, desvantagem elemental e inimigos já enfrentados.
+
+## 10. A arena na história
+
+- O LDI é o jogo de luta virtual de Bravara: a consciência entra no MDI pelo SBI e a dor é real. São 3 bilhões de jogadores.
+- **Ranking SDR:** faixas de 1 milhão até o **Top 128**, que disputa o Torneio Mundial na ilha Davoss, de Kronos, a cada 4 anos. Quem morre perde posição.
+- Sistemas do LDI que já existem na história: SDA (apostas), SDD (doações com pedido de golpe), SAL (luta privada), STE (treino pago), SDP (patrocínio), moeda **LT** (pacotes de armas, treino e itens), o narrador **NexusPhantasm** e a NeoGuide.
+
+## 11. O LDI Tactics antigo (`src/pages/games/ArenaTatics/`, `/games/ldi-tatics`, só admin)
+
+Um jogo tático anterior, em grade **quadrada**, no estilo Ragnarok: nível até 99, 6 atributos com custo por faixa, 6 classes com árvore de 42 nós, 20 personagens inventados (fora do elenco do livro), 12 elementais (o manual tem 7), cidade de Marélia como mapa-mundo, cartas, eventos e save no Supabase (`arena_tatica_saves`).
+
+- **Serve de referência:** save na conta, recompensa por luta, mapa-mundo com prédios, eventos de rodada, as 16 personalidades de IA documentadas (`docs/Games/LDITatics/IasLDITatics.md`).
+- **Não serve de base:** os 12 elementais, o elenco inventado, nível 99 com milhares de HP e custo por faixa de atributo — tudo isso briga com o manual e com o livro.
+
+## 12. O que os outros jogos do portal já provaram
+
+- **Gangues:** personagens com atributos **autorados** (o jogador não distribui ponto); **todo nível sobe +1 atributo**, sempre; poderes liberam em níveis fixos; XP por inimigo, com bônus por lutar contra quem é mais forte; proteção contra frustração (2 derrotas seguidas deixam a próxima mais fácil); territórios com teto de nível e chefe fixo; save só na conta. O custo escalonado por atributo foi tentado duas vezes e **revertido** depois de jogar: "todo nível tem que subir atributo".
+- **Lendas:** prova que uma escolha de identidade (a Veia) com poucas habilidades próprias dá vontade de rejogar.
+- **Regras do portal que valem pro Arena:** mobile only, uma mão (ação na metade de baixo, sem pinça), nenhum save local de jogo, ID numérico pra todo conteúdo, nome no i18n dos 3 idiomas.
+
+## 13. O que o sistema de hoje já entrega pro jogo final
+
+| Peça | Estado | Vale pro jogo final? |
+|---|---|---|
+| Tabuleiro hexagonal, caminho, linha de visão | funciona | sim, é a base |
+| Câmera (seguir, olhar, zoom) | funciona | sim, pronta pra mapa grande |
+| Regra única do golpe (`engine/regras.js`) | funciona | sim, é onde a regra final entra |
+| Turno, iniciativa, Jokenpô | funciona | sim |
+| IA com personalidade (decide, não calcula) | funciona, simples | sim, precisa crescer |
+| Animações, partículas, sons, efeitos | funciona | sim |
+| Poderes (16, só +2/+3) | raso | o formato do dado serve; o efeito tem de ser refeito |
+| Ficha livre com 6 atributos | funciona | não, se o jogo usar o manual e o elenco |
+| Editor de mapa no caminho do jogador | funciona | vira ferramenta de criar mapa, fora do fluxo do jogador |
+| Save no `localStorage` | funciona | não; tem de ir pra conta |
+
+---
+
+# Parte 3 — Propostas
+
+## 14. Que jogo é o LDI Arena
+
+**Proposta:** o LDI Arena é a própria arena do livro. O jogador entra no LDI, monta seu time com os lutadores do universo e sobe o **ranking SDR** em lutas táticas no tabuleiro hexagonal, até o Top 128.
+
+Por que esse caminho é seguro:
+
+- Usa regra que já é canon (o manual), golpes que já são canon (os kits) e um objetivo que já é canon (o ranking). Nada precisa ser inventado de lore.
+- É o único jogo do portal em que o leitor **joga com o Kim, o Jack e a Nina lutando como lutam no livro**. O Gangues é outra época e o Lendas é história.
+- O ranking dá progressão natural: cada faixa do SDR é um "capítulo", com arenas e rivais próprios.
+
+## 15. Personagens: elenco fixo com kit, não ficha livre
+
+| Opção | Como é | Risco |
+|---|---|---|
+| **A. Elenco canônico com kit fixo** (recomendado) | Kim, Jack, Nina, Thunderbolt, Shuntaro, Roxy… cada um com atributos, elemental, arma e 4 poderes autorados. O jogador escolhe quem leva. | Baixo: dá pra balancear, cada personagem tem identidade, igual ao Gangues. |
+| B. Avatar próprio com ficha livre | O jogador cria um lutador e distribui pontos (o sistema de hoje). | Alto: balancear ficha livre é o trabalho mais caro que existe, e o lutador não é ninguém da história. |
+| C. Os dois | Elenco canônico na campanha, avatar livre num modo à parte. | Médio: dobra o trabalho; dá pra deixar pra depois. |
+
+## 16. Regra de luta: puxar o motor para o manual
+
+**Proposta:** trocar os 6 atributos de hoje pelos 5 do manual (F, H, R, A, PdF), com as fórmulas do manual, dentro do `engine/regras.js`.
+
+- Tudo passa por um lugar só, então a troca não espalha pelo código.
+- A esquiva do manual (H contra H) substitui a tabela de chance de acerto.
+- PV = R × 5 e PM = PdF × 5 separam vida de energia (hoje RES manda nas duas coisas e vira o único atributo que importa).
+- O carregamento de poder com exposição (livro) já tem campo no dado (`turnosCarregamento`); o Vitória Finals do Jack é o exemplo pronto.
+- **Ajuste necessário:** "sem dano mínimo" pode travar lutas entre defensores. Proposta: manter o dano mínimo 1 de hoje, ou testar no simulador antes.
+
+## 17. Poderes e elementos
+
+- **7 elementais do manual**, cada um com o seu papel (Fogo dano, Água controle e cura, Terra defesa, Ar mobilidade, Trevas dreno, Luz cura e cegueira, Neutro equilíbrio).
+- **Vantagem elemental simples**, uma regra só (por exemplo: elemento forte contra o alvo, +2 na FA). Nada de tabela de 12 elementos.
+- **Máximo de 4 poderes ativos**, regra do livro.
+- Poderes com efeito de verdade no tabuleiro: área, empurrar, puxar, cura, impedir aproximação, carregar. É aqui que o hexágono vira jogo: posição passa a importar.
+- **Poucos estados**, só os que o manual já tem: Indefeso, Atordoado, Perto da Morte. Cada um com 1 a 2 turnos e ícone sobre o personagem.
+
+## 18. Sistema de níveis
+
+| Opção | Como é | Risco |
+|---|---|---|
+| **A. Como o Gangues** (recomendado) | Cada personagem tem a curva autorada; todo nível sobe +1 atributo; poderes liberam em níveis fixos. XP por luta, com bônus contra quem é mais forte. | Baixo: já foi testado em jogo de verdade pelo Isaias e aprovado. |
+| B. Pontos do manual | 100 XP = 1 ponto de personagem pra gastar. | Médio: a escala 0–5 do manual sobe pouco, a progressão fica curta. |
+| C. Ragnarok (Tactics antigo) | Nível 99, custo por faixa. | Alto: foi o que falhou; custo escalonado já foi revertido duas vezes. |
+
+**Escala proposta:** nível 1 a 30 na T1, com o teto de cada faixa do ranking parecido com o teto por território do Gangues. A escala 0–5 do manual vira o "nível do lutador" na história; no jogo, os atributos podem crescer além disso, porque é progressão de jogo.
+
+## 19. Modos de jogo
+
+1. **Escalada do Ranking (campanha)** — o modo principal. Cada faixa do SDR é um mapa de lutas com rivais, uma arena-tema e um chefe da faixa. Recompensa: XP e LT.
+2. **Sala de treino** — o modo Treino de hoje, já existe: escolher time, rival e arena. É onde o jogador testa time e poder.
+3. **Torneio** — depois de terminar a campanha, chaveamento contra a IA (o Top 128).
+4. **Contra outro jogador** — só depois, quando a regra estiver estável. O lobby multiplayer do portal já existe (`/games/multiplayer/lobby`).
+
+## 20. Mapas
+
+- **Mapas prontos**, um por tipo de arena do manual (Digital Clássica, Ruínas, Aquática, Vulcânica, Neve, Gravitacional, Torre Espiral), cada um com uma regra de terreno simples (lava fere, água lenta, gelo escorrega…).
+- O editor de hoje vira **ferramenta de criar mapa** (admin), e os mapas viram dado (`data/mapas`), com posição inicial de cada time.
+- Os obstáculos 3 e 4 (armadilha e caixa) ganham regra: destrutível, empurrável, explode.
+- A câmera já aguenta mapa maior que a tela.
+
+## 21. Ordem de construção segura
+
+Do mais básico pro mais visível, cada passo jogável e testado antes do próximo:
+
+1. **Regra do manual no `regras.js`** + um simulador de lutas (rodar milhares de lutas pra calibrar, como já foi feito com o golpe).
+2. **Elenco inicial de 4** (Kim, Jack, Nina, Thunderbolt) com kit e curva de nível.
+3. **Poderes de verdade**: os 4 de cada um + o efeito no tabuleiro.
+4. **3 mapas prontos** e o editor fora do fluxo do jogador.
+5. **Save na conta** (Supabase), XP e nível.
+6. **Campanha do ranking**: 1ª faixa completa, com chefe.
+7. **Fluxo final do jogador**: entrar → escolher time → mapa → luta → recompensa. Some a tela de debug, tudo traduzido, uma mão.
+
+Com isso fechado, o jogo está pronto pra 15/03/2027 com um ciclo completo. As outras faixas do ranking, o torneio e o multiplayer entram depois, com o sistema já firme.
+
+## 22. O que não fazer
+
+- Não usar os 12 elementais nem o elenco inventado do Tactics antigo.
+- Não usar custo escalonado de atributo.
+- Não deixar a ficha livre como modo principal.
+- Não gravar progresso no `localStorage`.
+- Não depender de pinça ou de duas mãos.
+- Não começar pelo multiplayer.
+
+---
+
+# Parte 4 — Decisões do Isaias
+
+Antes de começar a construção, estas respostas fecham o rumo:
+
+1. **O jogo é a escalada do ranking SDR** com os personagens do livro? (seção 14)
+2. **Elenco canônico com kit fixo**, sem ficha livre no modo principal? (seção 15)
+3. **Regra do manual** (5 atributos, PV/PM separados, esquiva por H) substitui a de hoje? E o dano mínimo 1 fica? (seção 16)
+4. **Níveis como no Gangues** (todo nível +1 atributo, poderes em níveis fixos)? (seção 18)
+5. **Quem entra no elenco inicial?** Proposta: Kim, Jack, Nina e Thunderbolt.
+6. **Time de quantos?** O livro tem 1×1, 2×2 e mais; proposta: até 3 por lado na campanha.
+7. **A morte no ranking** ("quem morre perde posição") vale no jogo, ou derrota só não sobe?
