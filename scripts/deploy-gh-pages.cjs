@@ -110,6 +110,14 @@ function main() {
   if (!anteriores.size) arquivosDe(path.join(WORKTREE, 'assets')).forEach(f => anteriores.add(path.join('assets', f)))
   fs.rmSync(path.join(WORKTREE, 'graphify-out'), { recursive: true, force: true })
 
+  // Hash de cada arquivo já publicado, guardado fora do worktree: compara só lendo o dist/,
+  // sem reler o site publicado inteiro a cada deploy.
+  const HASHES = path.join(ROOT, '.git', 'gh-pages-hashes.json')
+  let publicados = {}
+  try { publicados = JSON.parse(fs.readFileSync(HASHES, 'utf8')) } catch {}
+  const hashDe = f => require('crypto').createHash('sha1').update(fs.readFileSync(f)).digest('hex')
+  const novosHashes = {}
+
   const noDist = new Set()
   let copiados = 0
   function copiar(rel) {
@@ -118,10 +126,9 @@ function main() {
       if (e.isDirectory()) { fs.mkdirSync(path.join(WORKTREE, r), { recursive: true }); copiar(r); continue }
       noDist.add(r)
       const de = path.join(DIST, r), para = path.join(WORKTREE, r)
-      if (fs.existsSync(para)) {
-        const [x, y] = [fs.statSync(de), fs.statSync(para)]
-        if (x.size === y.size && fs.readFileSync(de).equals(fs.readFileSync(para))) continue
-      }
+      const h = hashDe(de)
+      novosHashes[r] = h
+      if (publicados[r] === h && fs.existsSync(para)) continue
       fs.copyFileSync(de, para)
       copiados++
     }
@@ -146,6 +153,7 @@ function main() {
   }
   limpar('')
   fs.writeFileSync(path.join(WORKTREE, MANIFESTO), JSON.stringify(arquivosDe(path.join(DIST, 'assets'))))
+  fs.writeFileSync(HASHES, JSON.stringify(novosHashes))
   console.log(`[deploy] ${copiados} arquivo(s) novo(s) ou mudado(s), ${apagados} apagado(s), ${mantidos} da versão anterior mantido(s). (${tempo()})`)
 
   git(['add', '-A'], WORKTREE)

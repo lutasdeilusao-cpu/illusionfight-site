@@ -20,7 +20,8 @@ import urllib.request
 
 RAIZ = __file__.rsplit('scripts', 1)[0]
 SITE = 'https://illusionfight.com/'
-LIMITE = 60          # segundos: passou disso, avisa (e repete a cada LIMITE)
+LIMITE = 60          # segundos: etapa que passa disso avisa (e repete a cada LIMITE)
+LIMITE_TOTAL = 120   # segundos: deploy inteiro (com a espera do GitHub Pages) que passa disso tem algo errado
 TETO_ETAPA = 600     # segundos: etapa que passa disso é morta
 ESPERA_MAX = 600     # segundos esperando o GitHub Pages publicar
 API = 'https://api.github.com/repos/lutasdeilusao-cpu/illusionfight-site'
@@ -164,8 +165,8 @@ def main():
     ok = conferir(v)
     total = time.time() - ini
     log(f'[deploy] total: {total:.0f}s')
-    if total > LIMITE:
-        alertas.append(f'deploy inteiro levou {total:.0f}s (> {LIMITE}s) — ver qual etapa demorou')
+    if total > LIMITE_TOTAL:
+        alertas.append(f'deploy inteiro levou {total:.0f}s (> {LIMITE_TOTAL}s) — ver qual etapa demorou')
     fim(ok, v)
 
 
