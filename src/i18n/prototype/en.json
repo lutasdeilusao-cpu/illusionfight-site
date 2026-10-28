@@ -16,8 +16,8 @@
       "desc": "3v3 combat system prototype"
     },
     "arena_testbed": {
-      "title": "Arena Testbed — Mechanics Test",
-      "desc": "Complete GDD v0.1 combat system testbed: sheets, board, and match.",
+      "title": "LDI Arena",
+      "desc": "Tactical fighting on a hexagonal board: sheets, board and match.",
       "phase1_title": "PHASE 1 — Character Sheet Building",
       "phase1_desc": "Build the characters for the test. Minimum 1 per team.",
       "phase1_short": "Sheets",

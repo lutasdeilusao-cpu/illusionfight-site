@@ -32,7 +32,7 @@ const NOME = { gangues: 'site.games.nomes.gangues', ldi: 'site.games.nomes.ldi',
 // Em andamento, fora do catálogo: só admin e creator veem e abrem (as rotas também barram o resto).
 const FORA = [
   { id: 'jackcandy', nomeKey: 'site.games.nomes.jack', rota: '/games/jackcandy' },
-  { id: 'tatics', nomeKey: 'site.games.nomes.tatics', rota: '/games/ldi-tatics' },
+  { id: 'tatics', nomeKey: 'site.games.nomes.tatics', rota: '/games/ldi-arena' },
   { id: 'tamagoshi', nomeKey: 'site.games.nomes.tama', rota: '/games/tamagoshi' },
   { id: 'duelo', nomeKey: 'site.games.nomes.duelo', rota: '/games/duelo' },
   { id: 'pesadelo', nomeKey: 'site.games.nomes.pesadelo', rota: '/games/pesadelo' },

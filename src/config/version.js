@@ -6,7 +6,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.458.18'
+export const SITE_VERSION = '10.459.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2'
@@ -21,7 +21,7 @@ export const TS_VERSION        = '6.0.6'
 export const TM_VERSION        = '6.0.4'
 export const TATICS_VERSION    = '7.5.1'
 export const SRGRM_VERSION     = '3.5.0'
-export const ARENATESTBED_VERSION = '6.22.3'
+export const ARENATESTBED_VERSION = '6.23.0'
 export const KP_VERSION        = '1.4.2'
 export const SLIDING_VERSION   = '1.4.4'
 export const CODIGO_VERSION    = '1.3.3'
@@ -38,7 +38,7 @@ console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 console.log(`[GANGUES] versão carregada: ${GANGUES_VERSION}`)
 console.log(`[TATICS] versão carregada: ${TATICS_VERSION}`)
 console.log(`[SRGRM] versão carregada: ${SRGRM_VERSION}`)
-console.log(`[ARENATESTBED] versão carregada: ${ARENATESTBED_VERSION}`)
+console.log(`[LDI ARENA] versão carregada: ${ARENATESTBED_VERSION}`)
 console.log(`[KP] versão carregada: ${KP_VERSION}`)
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 console.log(`[DUELO] versão carregada: ${DUELO_VERSION}`)

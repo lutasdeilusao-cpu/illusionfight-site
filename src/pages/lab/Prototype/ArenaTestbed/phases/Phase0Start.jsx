@@ -26,7 +26,7 @@ export default function Phase0Start({ onNewGame, onLoadGame }) {
   return (
     <div className="p0-root">
       <div className="p0-card">
-        <h1 className="p0-title">Arena Testbed</h1>
+        <h1 className="p0-title">LDI Arena</h1>
 
         <button className="p0-btn p0-btn--primary" onClick={() => { audio.confirm(); onNewGame() }}>
           {t('prototype.arena_testbed.p0_new_game')}

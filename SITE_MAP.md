@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.458.18**.
+> `SITE_VERSION` **10.459.0**.
 > Última atualização: 23/10/2026.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
@@ -134,7 +134,6 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsPageView`, `AfinidadeT
 | `/games/jackcandy` | Jack Dream Beer | `src/pages/games/JackCandy/JackCandy.jsx` | só admin (fora do catálogo) |
 | `/games/minigames` | Coleção MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | só admin (fora do catálogo) |
 | `/games/ldi-gangues` | LDI Gangues | `src/pages/games/Gangues/GanguesRoute.jsx` | |
-| `/games/ldi-arena` | Redirect legado para LDI Gangues | `Navigate` em `src/App.jsx` | Redirect |
 | `/games/ldi-tatics` | Arena LDI Tatics | `src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx` | só admin (fora do catálogo) |
 | `/games/pesadelo` | Pesadelo Particular | `src/pages/games/PesadeloParticular/PP.jsx` | só admin (fora do catálogo) |
 | `/games/duelo` | Duelo LDI | `src/pages/games/Duelo/DueloRoute.jsx` | só admin (fora do catálogo) |
@@ -161,7 +160,7 @@ Os Kernel Games usam layout portrait compartilhado em `src/pages/games/KernelGam
 | `/prototype` | Índice de protótipos | `src/pages/lab/Prototype/Prototype.jsx` |
 | `/prototype/srgrm` | Protótipo SRGRM 3v3 | `src/pages/lab/Prototype/SRGRM/SRGRM.jsx` |
 | `/preview-privado/webtoon-00-comparar` | Comparação privada de páginas do WEB SHARD (imagens repostas no `predeploy` por `scripts/restaurar-preview-privado.cjs`) | `src/pages/preview/WebtoonCompare.jsx` |
-| `/prototype/arenatestbed` | Arena Testbed V2 | `src/pages/lab/Prototype/ArenaTestbed/ArenaTestbed.jsx` |
+| `/games/ldi-arena` | LDI Arena (só admin; `/prototype/arenatestbed` redireciona) | `src/pages/lab/Prototype/ArenaTestbed/ArenaTestbed.jsx` |
 | `*` | Página 404 interna | `src/pages/site/NotFound/NotFound.jsx` |
 
 ### 3.6 Arquitetura de Histórias e Universos
@@ -347,7 +346,7 @@ As Edge Functions ficam em `supabase/functions/`; o frontend de assinatura está
 - `public/404.html` e o script de restauração em `index.html` sustentam deep links da SPA no GitHub Pages.
 - `scripts/prerender-routes.js` roda após o build e gera um HTML estático por rota indexável, em três idiomas (raiz em inglês, `/pt/`, `/es/`), com `canonical`, `hreflang`, JSON-LD (`WebSite`, `Organization`, `WebPage`, `ProfilePage`, `Book`, `Chapter`, `ComicSeries`, `ComicStory`, `VideoGame`) e, nos capítulos liberados, o mesmo trecho que o visitante sem conta lê. Textos SEO das páginas fixas em `scripts/seo-textos.js`; `ogImage` por rota (miniaturas dos contos em `public/og/contos/`, geradas por `scripts/gerar-og-contos.cjs`).
 - `/login/` e `/cadastro/` saem com `noindex` e fora do sitemap; rotas privadas, de admin e de laboratório não entram.
-- Redirects estáticos: `/livro*` → `/historias*`, `/mundo*` → `/universos*`, `/games/ldi-arena`, `/games/toptrumps/lobby`. Links internos da Navbar/Footer usam barra final para evitar o 301 do GitHub Pages.
+- Redirects estáticos: `/livro*` → `/historias*`, `/mundo*` → `/universos*`, `/games/toptrumps/lobby`. Links internos da Navbar/Footer usam barra final para evitar o 301 do GitHub Pages.
 - Divisão de código por rota com `lazyWithReload`; na Home, seções abaixo da dobra carregam por proximidade.
 - `public/sitemap.xml` lista as URLs indexáveis nos três idiomas.
 - Deploy: `npm run build`, commit/push da fonte e `npm run deploy` (o `predeploy` roda o build, a auditoria de CSS do Gangues e a reposição do preview privado) para publicar `dist/` em `gh-pages`.
@@ -434,7 +433,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 | `TM_VERSION` | Top Trumps multiplayer | 6.0.4 |
 | `TATICS_VERSION` | Arena LDI Tatics | 7.5.1 |
 | `SRGRM_VERSION` | SRGRM 3v3 | 3.5.0 |
-| `ARENATESTBED_VERSION` | Arena Testbed | 6.22.3 |
+| `ARENATESTBED_VERSION` | LDI Arena | 6.23.0 |
 | `KP_VERSION` | Kernel Panic | 1.4.2 |
 | `SLIDING_VERSION` | Sliding Rafael | 1.4.4 |
 | `CODIGO_VERSION` | Código Perdido | 1.3.3 |
@@ -461,7 +460,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 | Assinaturas | `src/lib/stripe.js` e `supabase/functions/` |
 | Shell Windows / Steam Demo | `src-tauri/`, `src/lib/runtimePlatform.js` e `steam/README.md` |
 | SEO indexável | `public/sitemap.xml` e `scripts/prerender-routes.js` |
-| Mapa detalhado do Arena Testbed | `src/pages/lab/Prototype/ArenaTestbed/ARENATESTBED_MAPA.md` |
+| Documentação do LDI Arena: `docs/Games/LDIArena/LDI_ARENA.md` · Mapa de código | `src/pages/lab/Prototype/ArenaTestbed/ARENATESTBED_MAPA.md` |
 | LDI Gangues — bíblia única (lore E mecânica: mundo, facções, combate, progressão) | `docs/Games/Gangues/LDI_GANGUES_GDD.md` |
 | Lendas do LDI — GDD (estado atual e direção da próxima versão) | `docs/Games/LDILendas/LDI_LENDAS_GDD.md` |
 | Especial de Halloween: roteiro oficial revisado em 19/10/2026; 3 lançamentos de 51 páginas narrativas + 9 editoriais, quatro POVs, continuidade, prompts de fichas e inventário de referências | `docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md`; build: `/docs/webshard/especiais/HALLOWEEN_ROTEIRO_OFICIAL.md` |

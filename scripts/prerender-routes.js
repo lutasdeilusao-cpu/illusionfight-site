@@ -277,7 +277,6 @@ function rotasDoIdioma(L) {
 }
 
 const REDIRECTS = [
-  { path: '/games/ldi-arena', target: '/games/ldi-gangues' },
   { path: '/games/toptrumps/lobby', target: '/games/multiplayer/lobby?game=toptrumps&mode=free' },
   { path: '/mundo', target: '/universos' },
   { path: '/livro', target: '/historias' },

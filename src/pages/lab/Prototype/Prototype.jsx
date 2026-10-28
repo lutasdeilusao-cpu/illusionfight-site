@@ -24,7 +24,7 @@ const PROTOTYPES = [
     titleKey: 'prototype.arena_testbed.title',
     descKey: 'prototype.arena_testbed.desc',
     version: ARENATESTBED_VERSION,
-    route: '/prototype/arenatestbed',
+    route: '/games/ldi-arena',
   },
 ]
 

@@ -104,7 +104,7 @@ export default function PainelProjeto({ t, locale }) {
             {proximas.map(x => (
               <li key={x.id} className={`is-${x.status}${x.data < hoje ? ' is-atrasado' : ''}`}>
                 <span className="projeto-prioridades__data">{data(x.data)}</span>
-                <span>{t(`painel.projeto.grupo.${x.id.split(':')[0]}`)} · {x.rotulo}</span>
+                <span>{t(`painel.projeto.grupo.${x.id.split(':')[0]}`)} · {x.id.startsWith('jogo:') ? t(`calendar.game_${x.rotulo}`) : x.rotulo}</span>
               </li>
             ))}
           </ul>
@@ -117,7 +117,7 @@ export default function PainelProjeto({ t, locale }) {
           <ul className="projeto-itens">
             {g.itens.map(x => (
               <li key={x.id} className={`projeto-item is-${x.status}`} title={x.nota}>
-                <b>{x.rotulo}</b>
+                <b>{x.id.startsWith('jogo:') ? t(`calendar.game_${x.rotulo}`) : x.rotulo}</b>
                 <small>{x.data ? data(x.data) : t(`painel.projeto.status.${x.status}`)}</small>
                 {x.nota && <small className="projeto-item__nota">{x.nota}</small>}
               </li>

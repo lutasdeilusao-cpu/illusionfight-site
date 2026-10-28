@@ -210,7 +210,6 @@ export default function App() {
         <Route path="/games/jackcandy" element={<SoAdmin><GameSessionRoute gameId="jack_dream_beer" gameName="Jack Dream Beer" category="ldi"><JackCandy /></GameSessionRoute></SoAdmin>} />
         <Route path="/games/minigames" element={<SoAdmin><GameSessionRoute gameId="minigames" gameName="MiniGames" category="ldi"><MiniGames /></GameSessionRoute></SoAdmin>} />
         <Route path="/games/ldi-gangues" element={<GameSessionRoute gameId="gangues" gameName="LDI Gangues" category="ldi"><GanguesRoute /></GameSessionRoute>} />
-        <Route path="/games/ldi-arena" element={<Navigate to="/games/ldi-gangues" replace />} />
         <Route path="/games/ldi-tatics" element={<SoAdmin><GameSessionRoute gameId="tatics" gameName="LDI Tactics" category="ldi"><ArenaTaticsRoute /></GameSessionRoute></SoAdmin>} />
         <Route path="/games/pesadelo" element={<SoAdmin><GameSessionRoute gameId="pesadelo" gameName="Pesadelo Particular" category="ldi"><PP /></GameSessionRoute></SoAdmin>} />
         <Route path="/games/duelo" element={<SoAdmin><GameSessionRoute gameId="duelo" gameName="Duelo LDI" category="ldi"><DueloRoute /></GameSessionRoute></SoAdmin>} />
@@ -236,7 +235,8 @@ export default function App() {
         <Route path={ROTA_PAINEL} element={<Painel />} />
         <Route path="/prototype" element={<Prototype />} />
         <Route path="/prototype/srgrm" element={<SRGRM />} />
-        <Route path="/prototype/arenatestbed" element={<ArenaTestbed />} />
+        <Route path="/games/ldi-arena" element={<SoAdmin><ArenaTestbed /></SoAdmin>} />
+        <Route path="/prototype/arenatestbed" element={<Navigate to="/games/ldi-arena" replace />} />
         <Route path="/custos" element={<Custos />} />
         <Route path="/web-shard" element={<WebShard />} />
         <Route path="/calendario" element={<Calendario />} />

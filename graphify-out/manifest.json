@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793148889.1119766,
-    "ast_hash": "7f5a9f290f599ef61f4344584cf640fd",
+    "mtime": 1793159551.1285532,
+    "ast_hash": "72fc725f51ac247a25fc3e2f00269c2f",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2525,8 +2525,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793148889.1518753,
-    "ast_hash": "775f1400a171fe768224e993d9b346de",
+    "mtime": 1793159551.171451,
+    "ast_hash": "aed64babe8ed3574ed3d49069e044d48",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -8620,7 +8620,7 @@
     "semantic_hash": ""
   },
   "src/data/mundo-das-sombras-episodios.json": {
-    "mtime": 1792802783.570556,
+    "mtime": 1793159540.5434704,
     "ast_hash": "c6ae490a994060e38675674ce30d111b",
     "semantic_hash": ""
   },
@@ -8630,12 +8630,12 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-01.webp": {
-    "mtime": 1792802782.1243682,
+    "mtime": 1793159538.3499405,
     "ast_hash": "fe0b09c7f78e4bf81637ef4634fc9fdc",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-02.webp": {
-    "mtime": 1792802782.2925572,
+    "mtime": 1793159538.6019366,
     "ast_hash": "f3fe0762cabe3421ac942d6f43250dd4",
     "semantic_hash": ""
   },
@@ -8645,7 +8645,7 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/capa-mundo-das-sombras.webp": {
-    "mtime": 1792802781.9637694,
+    "mtime": 1793159538.098926,
     "ast_hash": "1c1f0130f27af95f6458e92fc3eb0f32",
     "semantic_hash": ""
   },
@@ -9820,7 +9820,7 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-03.webp": {
-    "mtime": 1792802782.4638388,
+    "mtime": 1793159538.853145,
     "ast_hash": "cd5aded1e4555249395a393895052428",
     "semantic_hash": ""
   },
@@ -9835,12 +9835,12 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-04.webp": {
-    "mtime": 1792802782.6478765,
+    "mtime": 1793159539.129169,
     "ast_hash": "63a3cf91487cc3b844adba84ebfe0a26",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-05.webp": {
-    "mtime": 1792802782.8437452,
+    "mtime": 1793159539.433012,
     "ast_hash": "f3523f65a31afd7cc81e8b2b9d1616d1",
     "semantic_hash": ""
   },
@@ -9880,22 +9880,22 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-06.webp": {
-    "mtime": 1792802783.0354576,
+    "mtime": 1793159539.7151265,
     "ast_hash": "f47942e001cbf57a5455c439fe0df045",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-07.webp": {
-    "mtime": 1792802783.19896,
+    "mtime": 1793159539.9633284,
     "ast_hash": "765cf1511416d061f323951545abdddb",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-08.webp": {
-    "mtime": 1792802783.3817096,
+    "mtime": 1793159540.2485287,
     "ast_hash": "fc116c88601ee4ed8fb04f71161895f3",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-mundo-das-sombras-09.webp": {
-    "mtime": 1792802783.5695567,
+    "mtime": 1793159540.541036,
     "ast_hash": "146f11f8a19eedee1082bcb93b8ffdb4",
     "semantic_hash": ""
   },
@@ -9965,8 +9965,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793148946.9189465,
-    "ast_hash": "329df7362a259d074b47ba255baf8e10",
+    "mtime": 1793159618.9367678,
+    "ast_hash": "2c7c2399fbdc0dc2a4073a02253bd396",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
