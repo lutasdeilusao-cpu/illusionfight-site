@@ -33,34 +33,40 @@ def log(msg):
     print(msg, flush=True)
 
 
-def etapa(nome, cmd):
-    log(f'[deploy] {nome}...')
-    ini = time.time()
-    saida = tempfile.TemporaryFile()
-    p = subprocess.Popen(cmd, cwd=RAIZ, shell=True, stdout=saida, stderr=subprocess.STDOUT)
-    proximo_aviso = LIMITE
-    while p.poll() is None:
-        time.sleep(2)
-        dur = time.time() - ini
-        if dur >= proximo_aviso:
-            log(f'[deploy] ALERTA: {nome} rodando há {dur:.0f}s — verificar se está preso')
-            proximo_aviso += LIMITE
-        if dur > TETO_ETAPA:
-            subprocess.run(f'taskkill /PID {p.pid} /T /F', shell=True, capture_output=True)
-            p.kill()
-            log(f'[deploy] {nome}: passou de {TETO_ETAPA}s, matei')
-            break
-    dur = time.time() - ini
-    saida.seek(0)
-    texto = saida.read().decode('utf-8', 'replace')
-    codigo = p.returncode if p.returncode is not None else -1
-    log(f'[deploy] {nome}: {dur:.0f}s (código {codigo})')
-    if dur > LIMITE:
-        alertas.append(f'{nome} levou {dur:.0f}s (> {LIMITE}s) — verificar, pode ter falhado ou ficado preso')
-    if codigo != 0:
-        log(texto[-3000:])
-        fim(False, f'{nome} falhou')
-    return texto
+def etapas(*lista):
+    """Roda as etapas ao mesmo tempo (uma só = em série) e espera todas. lista = (nome, comando)."""
+    rodando = []
+    for nome, cmd in lista:
+        log(f'[deploy] {nome}...')
+        saida = tempfile.TemporaryFile()
+        p = subprocess.Popen(cmd, cwd=RAIZ, shell=True, stdout=saida, stderr=subprocess.STDOUT)
+        rodando.append({'nome': nome, 'p': p, 'saida': saida, 'ini': time.time(), 'aviso': LIMITE, 'dur': None})
+    while any(r['dur'] is None for r in rodando):
+        time.sleep(0.5)
+        for r in rodando:
+            if r['dur'] is not None:
+                continue
+            dur = time.time() - r['ini']
+            if r['p'].poll() is not None:
+                r['dur'] = dur
+                log(f"[deploy] {r['nome']}: {dur:.0f}s (código {r['p'].returncode})")
+                continue
+            if dur >= r['aviso']:
+                log(f"[deploy] ALERTA: {r['nome']} rodando há {dur:.0f}s — verificar se está preso")
+                r['aviso'] += LIMITE
+            if dur > TETO_ETAPA:
+                subprocess.run(f"taskkill /PID {r['p'].pid} /T /F", shell=True, capture_output=True)
+                r['p'].kill()
+                r['p'].wait()
+                r['dur'] = dur
+                log(f"[deploy] {r['nome']}: passou de {TETO_ETAPA}s, matei")
+    for r in rodando:
+        if r['dur'] > LIMITE:
+            alertas.append(f"{r['nome']} levou {r['dur']:.0f}s (> {LIMITE}s) — verificar, pode ter falhado ou ficado preso")
+        if r['p'].returncode != 0:
+            r['saida'].seek(0)
+            log(r['saida'].read().decode('utf-8', 'replace')[-3000:])
+            fim(False, f"{r['nome']} falhou")
 
 
 def versao():
@@ -126,7 +132,7 @@ def conferir(v, tentativas=2):
                 alertas.append(f'o ar ainda não servia {v} depois de {LIMITE}s — verificar o GitHub Pages')
             log(f'[deploy] ALERTA: {dur:.0f}s e o ar ainda não tem {v} (GitHub Pages: {status or "?"}/{conclusao or "-"})')
             proximo_aviso += LIMITE
-        time.sleep(15)
+        time.sleep(5)
     log(f'[deploy] ALERTA: {ESPERA_MAX}s esperando e o ar não serve {v}')
     return False
 
@@ -147,15 +153,20 @@ def main():
     msg = sys.argv[1]
     if v not in msg:
         msg += f' + v{v}'
-    etapa('páginas do WEB SHARD no R2', 'python scripts/webshard-r2.py')
-    etapa('build', 'npm run build')
-    etapa('git add', 'git add -A')
+    ini = time.time()
+    # R2 e build não dependem um do outro; o push da main e o do gh-pages também não.
+    etapas(('páginas do WEB SHARD no R2', 'python scripts/webshard-r2.py'), ('build', 'npm run build'))
     with open(RAIZ + '.git/DEPLOY_MSG', 'w', encoding='utf-8') as f:
         f.write(f'{msg}\n\n{CO_AUTOR}\n')
-    etapa('commit', 'git commit -q -F .git/DEPLOY_MSG')
-    etapa('push', 'git push -q')
-    etapa('gh-pages', 'node scripts/deploy-gh-pages.cjs')
-    fim(conferir(v), v)
+    etapas(('commit', 'git add -A && git commit -q -F .git/DEPLOY_MSG'))
+    etapas(('push', 'git push -q'), ('gh-pages', 'node scripts/deploy-gh-pages.cjs'))
+    log(f'[deploy] enviado em {time.time() - ini:.0f}s')
+    ok = conferir(v)
+    total = time.time() - ini
+    log(f'[deploy] total: {total:.0f}s')
+    if total > LIMITE:
+        alertas.append(f'deploy inteiro levou {total:.0f}s (> {LIMITE}s) — ver qual etapa demorou')
+    fim(ok, v)
 
 
 if __name__ == '__main__':

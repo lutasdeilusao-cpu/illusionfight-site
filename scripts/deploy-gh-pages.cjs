@@ -93,7 +93,6 @@ function main() {
   const jaExiste = fs.existsSync(WORKTREE)
   if (jaExiste) {
     console.log('[deploy] reaproveitando worktree existente, sincronizando com origin/' + BRANCH + '...')
-    git(['fetch', 'origin', BRANCH], WORKTREE)
     git(['reset', '--hard', `origin/${BRANCH}`], WORKTREE)
     git(['clean', '-fdx', '--exclude=.git'], WORKTREE)
   } else {
@@ -105,38 +104,49 @@ function main() {
   // está com uma aba aberta na versão anterior (o HTML antigo em cache pede o
   // CSS/JS antigo; sem eles a página abre sem estilo). Só a versão anterior
   // é mantida, pela lista que cada deploy grava em MANIFESTO.
-  let anteriores = lerManifesto(WORKTREE)
-  if (!anteriores.length && fs.existsSync(path.join(WORKTREE, 'assets'))) anteriores = arquivosDe(path.join(WORKTREE, 'assets'))
-  const guarda = fs.mkdtempSync(path.join(require('os').tmpdir(), 'ldi-assets-'))
-  for (const f of anteriores) {
-    const origem = path.join(WORKTREE, 'assets', f)
-    if (fs.existsSync(origem) && fs.statSync(origem).isFile()) fs.copyFileSync(origem, path.join(guarda, f))
-  }
-
-  // Sobra de grafo gerado aqui dentro por gancho de commit: não é do site.
+  // Sincroniza só o que mudou: arquivo igual não é tocado, então o git não precisa reler o site inteiro.
+  // Os assets do build anterior ficam (aba aberta com a versão velha ainda os pede).
+  const anteriores = new Set(lerManifesto(WORKTREE).map(f => path.join('assets', f)))
+  if (!anteriores.size) arquivosDe(path.join(WORKTREE, 'assets')).forEach(f => anteriores.add(path.join('assets', f)))
   fs.rmSync(path.join(WORKTREE, 'graphify-out'), { recursive: true, force: true })
 
-  // Remove TUDO que está versionado no worktree de uma vez só — 1 argumento
-  // pro processo do git ('.'), sem limite de linha de comando do SO, seja
-  // qual for o tamanho real do build.
-  console.log('[deploy] limpando conteúdo antigo do branch...')
-  git(['rm', '-r', '-f', '-q', '--ignore-unmatch', '--', '.'], WORKTREE)
-  git(['clean', '-fdx', '--exclude=.git'], WORKTREE)
-
-  console.log('[deploy] copiando dist/ para o worktree...')
-  for (const entry of fs.readdirSync(DIST)) {
-    fs.cpSync(path.join(DIST, entry), path.join(WORKTREE, entry), { recursive: true })
+  const noDist = new Set()
+  let copiados = 0
+  function copiar(rel) {
+    for (const e of fs.readdirSync(path.join(DIST, rel), { withFileTypes: true })) {
+      const r = path.join(rel, e.name)
+      if (e.isDirectory()) { fs.mkdirSync(path.join(WORKTREE, r), { recursive: true }); copiar(r); continue }
+      noDist.add(r)
+      const de = path.join(DIST, r), para = path.join(WORKTREE, r)
+      if (fs.existsSync(para)) {
+        const [x, y] = [fs.statSync(de), fs.statSync(para)]
+        if (x.size === y.size && fs.readFileSync(de).equals(fs.readFileSync(para))) continue
+      }
+      fs.copyFileSync(de, para)
+      copiados++
+    }
   }
+  copiar('')
 
-  const novos = arquivosDe(path.join(DIST, 'assets'))
-  let mantidos = 0
-  for (const f of fs.readdirSync(guarda)) {
-    const destino = path.join(WORKTREE, 'assets', f)
-    if (!fs.existsSync(destino)) { fs.copyFileSync(path.join(guarda, f), destino); mantidos++ }
+  let apagados = 0, mantidos = 0
+  function limpar(rel) {
+    for (const e of fs.readdirSync(path.join(WORKTREE, rel), { withFileTypes: true })) {
+      const r = path.join(rel, e.name)
+      if (!rel && (e.name === '.git' || e.name === MANIFESTO)) continue
+      if (e.isDirectory()) {
+        limpar(r)
+        if (!fs.readdirSync(path.join(WORKTREE, r)).length) fs.rmdirSync(path.join(WORKTREE, r))
+        continue
+      }
+      if (noDist.has(r)) continue
+      if (anteriores.has(r)) { mantidos++; continue }
+      fs.rmSync(path.join(WORKTREE, r))
+      apagados++
+    }
   }
-  fs.rmSync(guarda, { recursive: true, force: true })
-  fs.writeFileSync(path.join(WORKTREE, MANIFESTO), JSON.stringify(novos))
-  console.log(`[deploy] ${mantidos} arquivo(s) da versão anterior mantido(s) em assets/.`)
+  limpar('')
+  fs.writeFileSync(path.join(WORKTREE, MANIFESTO), JSON.stringify(arquivosDe(path.join(DIST, 'assets'))))
+  console.log(`[deploy] ${copiados} arquivo(s) novo(s) ou mudado(s), ${apagados} apagado(s), ${mantidos} da versão anterior mantido(s). (${tempo()})`)
 
   git(['add', '-A'], WORKTREE)
 
