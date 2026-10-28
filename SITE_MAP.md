@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.459.1**.
+> `SITE_VERSION` **10.459.2**.
 > Última atualização: 23/10/2026.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
@@ -433,7 +433,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 | `TM_VERSION` | Top Trumps multiplayer | 6.0.4 |
 | `TATICS_VERSION` | Arena LDI Tatics | 7.5.1 |
 | `SRGRM_VERSION` | SRGRM 3v3 | 3.5.0 |
-| `ARENATESTBED_VERSION` | LDI Arena | 6.23.1 |
+| `ARENATESTBED_VERSION` | LDI Arena | 6.23.2 |
 | `KP_VERSION` | Kernel Panic | 1.4.2 |
 | `SLIDING_VERSION` | Sliding Rafael | 1.4.4 |
 | `CODIGO_VERSION` | Código Perdido | 1.3.3 |
@@ -460,7 +460,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 | Assinaturas | `src/lib/stripe.js` e `supabase/functions/` |
 | Shell Windows / Steam Demo | `src-tauri/`, `src/lib/runtimePlatform.js` e `steam/README.md` |
 | SEO indexável | `public/sitemap.xml` e `scripts/prerender-routes.js` |
-| Documentação do LDI Arena: `docs/Games/LDIArena/LDI_ARENA.md` · Mapa de código | `src/pages/lab/Prototype/ArenaTestbed/ARENATESTBED_MAPA.md` |
+| Documentação do LDI Arena | `docs/Games/LDIArena/LDI_ARENA.md` |
 | LDI Gangues — bíblia única (lore E mecânica: mundo, facções, combate, progressão) | `docs/Games/Gangues/LDI_GANGUES_GDD.md` |
 | Lendas do LDI — GDD (estado atual e direção da próxima versão) | `docs/Games/LDILendas/LDI_LENDAS_GDD.md` |
 | Especial de Halloween: roteiro oficial revisado em 19/10/2026; 3 lançamentos de 51 páginas narrativas + 9 editoriais, quatro POVs, continuidade, prompts de fichas e inventário de referências | `docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md`; build: `/docs/webshard/especiais/HALLOWEEN_ROTEIRO_OFICIAL.md` |

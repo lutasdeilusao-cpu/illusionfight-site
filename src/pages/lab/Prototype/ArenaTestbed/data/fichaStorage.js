@@ -22,7 +22,11 @@ function lerDoStorage() {
     const raw = localStorage.getItem(CHAVE)
     if (!raw) return []
     const parsed = JSON.parse(raw)
-    return Array.isArray(parsed) ? parsed : []
+    if (!Array.isArray(parsed)) return []
+    if (!parsed.some(f => !f.id)) return parsed
+    const comId = parsed.map(f => (f.id ? f : { ...f, id: gerarId() }))
+    localStorage.setItem(CHAVE, JSON.stringify(comId))
+    return comId
   } catch (err) {
     console.error('[fichaStorage] Erro ao ler localStorage:', err)
     return []
@@ -39,8 +43,8 @@ function escreverNoStorage(fichas) {
 
 export async function salvarFicha(ficha) {
   const fichas = lerDoStorage()
-  const nova = { id: gerarId(), ...ficha }
-  const idx = fichas.findIndex(f => f.id === ficha.id)
+  const nova = { ...ficha, id: ficha.id || gerarId() }
+  const idx = fichas.findIndex(f => f.id === nova.id)
   if (idx !== -1) {
     fichas[idx] = nova
   } else {

@@ -84,7 +84,7 @@ Calculada uma vez no início e vale a partida inteira (`engine/turnOrder.js`, ch
 3. Empate só entre IAs → sorteio.
 4. Empate jogador × IA → **Jokenpô** (componente compartilhado `src/components/Jokempo/Jokempo`); vencedores e perdedores se intercalam no bloco (`engine/turnOrder.js:98-127`).
 
-O controle do turno é o módulo `engine/TurnController.js` (estado em variável de módulo, não React): ordem, quem está na vez, ações já feitas no turno, mortos (pulados ao avançar). Também tem **agendamento** (`agendarAcao`, contagem de turnos) e **restrição** (`definirRestricao`, bloqueia tipos de ação) — prontos, mas **ninguém os chama**. `TipoAcao` inclui `USAR_PODER` e `CARREGAR_PODER`, também sem uso.
+O controle do turno é o módulo `engine/TurnController.js` (estado em variável de módulo, não React): ordem, quem está na vez, ações já feitas no turno, mortos (pulados ao avançar).
 
 ## 6. O combate
 
@@ -157,22 +157,12 @@ Cada IA tem uma personalidade escolhida na ficha (`engine/ai/personalidades/inde
 
 ## 7. O que é placeholder, morto ou quebrado
 
-- `archive/`: pasta vazia.
-- `ARENATESTBED_MAPA.md`: desatualizado (cita `Phase6Combat.jsx`, `JokenpoModal`, `engine/ai/estagios.js`, `efeitosVisuaisIA.js`, `REFATORACAO_PHASE3_ESTUDO.md` — nenhum existe mais).
-- `engine/ai/index.js`: não é importado por ninguém (`ATIVA` fixo em "sanguinaria").
-- `components/effects/effectsMap.js`: não importado.
-- `TurnController`: agendamento, restrição, `USAR_PODER`, `CARREGAR_PODER` sem uso.
 - `casasMovimento` da ficha e a tabela por faixa de AGI: não usados no combate.
 - Obstáculos 3 e 4: propriedades sem efeito.
 - Modo Campanha: só o botão.
-- `executarAtaque` rola um `d6Val` que nunca usa (`engine/useCombatEngine.js:504`).
 - Fase ANIM_DEBUG faz parte do fluxo normal (todo jogador passa por ela) e tem texto fixo em português, fora do i18n.
 - Textos fixos fora do i18n também na fase 1 ("CONSTRUÇÃO DE FICHAS", "JOGADOR", "EQUIPAMENTO", "+ NOVO COMBATENTE"…), no log de combate e nas personalidades.
-- `fichaStorage.salvarFicha` faz `{ id: gerarId(), ...ficha }`: com `fichaId` nulo, o `id: null` da ficha sobrescreve o id gerado — fichas novas são salvas com id nulo e o "apagar" por id fica ambíguo.
 - Ficha carregada só leva a personalização; a IA da ficha volta junto, mas não há como editar atributos de uma ficha salva.
-- Fase 5 chama `useMemo` dentro de um `map` (viola as regras de hooks se o número de personagens mudar).
-- `maxSz: 50000000000000000` no editor de tabuleiro (valor sem sentido).
-- Rota duplicada `/games/ldi-arena` (seção 1).
 - Muitos `console.log('[DEBUG] ...')` nas personalidades e no `TurnController` (diagnóstico, manter até decisão).
 
 ## 8. Documentos relacionados em `docs/`
@@ -187,7 +177,7 @@ Cada IA tem uma personalidade escolhida na ficha (`engine/ai/personalidades/inde
 1. **Igualdade de regras:** jogador e IA têm de passar pelo mesmo resolvedor de ataque (acerto, contra-ataque, ataque extra, poder, defesa). Hoje são dois caminhos diferentes.
 2. **Poderes de verdade:** escolher o poder certo, custo e efeito vindos do dado, área, alcance próprio, carregamento (`turnosCarregamento`), cura, empurrão, mobilidade. Hoje só há "+2/+3 no ataque" e "−2 no dano".
 3. **Elementos:** existem só como etiqueta. Falta decidir vantagem/fraqueza, resistência e o que o elemental muda na ficha.
-4. **Efeitos de estado:** nenhum. Decidir quais, duração e como aparecem (a infraestrutura de restrição/agendamento já existe).
+4. **Efeitos de estado:** nenhum. Decidir quais, duração e como aparecem.
 5. **Economia de MP:** MP = HP = RES × 10 e não regenera; só poção de +5. RES vira o atributo dominante (HP, MP e nº de poderes).
 6. **Balanceamento de atributos:** DEX vale 25% fora do crítico; ARM soma inteiro na FD; dano mínimo 1 sempre. Sem curva de pontos por nível, sem progressão.
 7. **Movimento:** AGI 1:1 sem teto pode cruzar o mapa; sem zona de controle, sem custo de terreno, sem ataque de oportunidade; mover e atacar em qualquer ordem.

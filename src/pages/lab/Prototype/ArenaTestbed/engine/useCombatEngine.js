@@ -501,7 +501,6 @@ export default function useCombatEngine({
       setPowerAttackMode(false)
     }
 
-    const d6Val = rolarD6()
     const dist = distanciaHex(currentChar.posicao, target.posicao)
     const resultado = resolverAtaque(atacanteFinal, target, Math.ceil(dist))
     addLog(`⚔️ ${currentChar.nome} ataca ${target.nome}!`)

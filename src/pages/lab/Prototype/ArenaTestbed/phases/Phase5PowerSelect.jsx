@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { PODERES_BASE } from '../data/poderes'
 import PowerFilterBar from '../components/power-selection/PowerFilterBar'
@@ -56,7 +56,7 @@ export default function Phase5PowerSelect({ characters, onConfirm, onBack, modoJ
           const isExpanded = expandido === ch.id
           const tipoChar = ch.tipoAtaque === 'melee' ? 'forca' : 'pdf'
 
-          const poderesFiltrados = useMemo(() => {
+          const poderesFiltrados = (() => {
             if (!isExpanded) return []
             let lista = PODERES_BASE.filter(p => {
               if (p.tipoPersonagem !== 'universal' && p.tipoPersonagem !== tipoChar) return false
@@ -85,7 +85,7 @@ export default function Phase5PowerSelect({ characters, onConfirm, onBack, modoJ
             }
 
             return lista
-          }, [isExpanded, filtroElemento, ordenacao, sortDir, tipoChar, t])
+          })()
 
           return (
             <div key={ch.id} className={`tab-power-char-card ${isExpanded ? 'tab-power-char-card--expanded' : ''}`}>
