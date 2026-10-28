@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793189649.337507,
-    "ast_hash": "36d2a66a28a781a6470d643c50868101",
+    "mtime": 1793191402.1936748,
+    "ast_hash": "a4978584520344ebcc43f8e4d4058ec9",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -1950,8 +1950,8 @@
     "semantic_hash": "2f6b99cfb61a10c1f5476ce8329e1122"
   },
   "src/pages/lab/Prototype/ArenaTestbed/phases/Phase6CombatV2.jsx": {
-    "mtime": 1793189586.5794902,
-    "ast_hash": "fd06c01fa138efba6956c733c45ab3cd",
+    "mtime": 1793191044.6783109,
+    "ast_hash": "c4eb46fd67e51cf62299aac7e742fdf6",
     "semantic_hash": ""
   },
   "src/pages/lab/Prototype/Prototype.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793189649.3756175,
-    "ast_hash": "c5aad04c76a66beb027dc3aa3ab5daad",
+    "mtime": 1793191402.2362645,
+    "ast_hash": "c346e076ef64d8e89dda70791fec6e29",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3625,18 +3625,18 @@
     "semantic_hash": ""
   },
   "src/i18n/prototype/en.json": {
-    "mtime": 1793160442.8836708,
-    "ast_hash": "d4944694f65eab79e57e135a3a78dc4a",
+    "mtime": 1793191044.803645,
+    "ast_hash": "f94fe64d12b1e393d7c9cd91c7898a01",
     "semantic_hash": ""
   },
   "src/i18n/prototype/es.json": {
-    "mtime": 1793160452.9948523,
-    "ast_hash": "a07e0823a9bc323299ff1bfac7b7c3a2",
+    "mtime": 1793191044.8046455,
+    "ast_hash": "b1a65ada56bc0eb6edadc7afc65d2966",
     "semantic_hash": ""
   },
   "src/i18n/prototype/pt.json": {
-    "mtime": 1793160442.8470664,
-    "ast_hash": "70e97fb7d009efeb019d13bc577df0f5",
+    "mtime": 1793191044.802206,
+    "ast_hash": "6b8bf7b44277046a782d74f729510f37",
     "semantic_hash": ""
   },
   "src/pages/content/UniversosHub/UniversosHub.jsx": {
@@ -9955,7 +9955,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793189742.4068696,
+    "mtime": 1793191425.168543,
     "ast_hash": "2c7c2399fbdc0dc2a4073a02253bd396",
     "semantic_hash": ""
   },
@@ -10355,13 +10355,18 @@
     "semantic_hash": ""
   },
   "docs/Games/LDIArena/LDI_ARENA.md": {
-    "mtime": 1793189722.9369218,
-    "ast_hash": "4893ba1c8f87cecb5fb02a38569629a3",
+    "mtime": 1793191402.161644,
+    "ast_hash": "8a3738def991de47cea1bdbbee2ce607",
     "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/regras.js": {
     "mtime": 1793189441.5701532,
     "ast_hash": "b9e107eecc77fc9630161fa2cab4a935",
+    "semantic_hash": ""
+  },
+  "src/pages/lab/Prototype/ArenaTestbed/engine/useCamera.js": {
+    "mtime": 1793191283.2083406,
+    "ast_hash": "21cc3c6ec9b5111b196a561c5bc75b6a",
     "semantic_hash": ""
   }
 }
