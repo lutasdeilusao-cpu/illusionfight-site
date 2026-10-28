@@ -1,24 +1,24 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
-import { podeAdicionarPersonagemABatalha, getCoresDisponiveis, getNomesDisponiveis, NOMES_DISPONIVEIS } from '../engine/regrasFicha'
+import { podeAdicionarPersonagemABatalha, getCoresDisponiveis, getNomesDisponiveis, NOMES_DISPONIVEIS, CORES_DISPONIVEIS, MAX_TIME_JOGADOR } from '../engine/regrasFicha'
 import { audio } from '../engine/audioManager'
 import './Phase2Customize.css'
 
-const ICONES = ['circle', 'square', 'diamond']
+const ICONES = ['circle', 'square', 'diamond', 'triangle']
 
 export default function Phase2Customize({ personagens, onConfirm, onBack }) {
   const { t } = useLanguage()
   const [chars, setChars] = useState([])
 
   useEffect(() => {
-    const maxPersonagens = 3
+    const maxPersonagens = MAX_TIME_JOGADOR
     const jogadores = personagens.filter(c => c.time === 'jogador')
     const ias = personagens.filter(c => c.time === 'ia')
     const selecionados = jogadores.slice(0, maxPersonagens)
     setChars(selecionados.map((c, i) => ({
       ...c,
       aparencia: c.aparencia || {
-        cor: ['#00ff88', '#4488ff', '#ffcc00'][i],
+        cor: CORES_DISPONIVEIS[i],
         icone: ICONES[i],
         nome: NOMES_DISPONIVEIS[i],
       },
@@ -58,7 +58,7 @@ export default function Phase2Customize({ personagens, onConfirm, onBack }) {
               <div className="p2-field">
                 <div className="p2-label">{t('prototype.arena_testbed.p2_cor')}</div>
                 <div className="p2-cores">
-                  {['#00ff88', '#4488ff', '#ffcc00'].map(cor => {
+                  {CORES_DISPONIVEIS.map(cor => {
                     const ocupada = !coresDisponiveis.includes(cor) && ch.aparencia?.cor !== cor
                     return (
                     <button
@@ -86,6 +86,7 @@ export default function Phase2Customize({ personagens, onConfirm, onBack }) {
                         {ico === 'circle' && <circle cx="12" cy="12" r="8" />}
                         {ico === 'square' && <rect x="5" y="5" width="14" height="14" />}
                         {ico === 'diamond' && <polygon points="12,4 20,12 12,20 4,12" />}
+                        {ico === 'triangle' && <polygon points="12,4 20,19 4,19" />}
                       </svg>
                     </button>
                   ))}

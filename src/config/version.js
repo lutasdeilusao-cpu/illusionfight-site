@@ -6,7 +6,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.461.8'
+export const SITE_VERSION = '10.462.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2'
@@ -21,7 +21,7 @@ export const TS_VERSION        = '6.0.6'
 export const TM_VERSION        = '6.0.4'
 export const TATICS_VERSION    = '7.5.1'
 export const SRGRM_VERSION     = '3.5.0'
-export const ARENATESTBED_VERSION = '6.25.1'
+export const ARENATESTBED_VERSION = '6.26.0'
 export const KP_VERSION        = '1.4.2'
 export const SLIDING_VERSION   = '1.4.4'
 export const CODIGO_VERSION    = '1.3.3'

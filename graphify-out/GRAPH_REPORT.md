@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-10-28)
 
 ## Corpus Check
-- 1385 files · ~4,528,533 words
+- 1385 files · ~4,528,577 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d2f9b927`
+- Built from commit: `879f6f5e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1849,7 +1849,7 @@ Cohesion: 0.56
 Nodes (10): generate(), mark_pending(), pause(), pending(), prepare(), Halloween loop 1: prepare English prompts and reuse the existing serial Codex en, run(), state() (+2 more)
 
 ## Knowledge Gaps
-- **2651 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2646 more)
+- **2651 isolated node(s):** `🔴 SEMPRE NA MAIN — NUNCA ABRIR BRANCH`, `Mandatory workflow for every code change`, `Stack`, `Environment`, `🤖 Custom Agents` (+2646 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **358 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1857,12 +1857,12 @@ Nodes (10): generate(), mark_pending(), pause(), pending(), prepare(), Halloween
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `PuzzleForça.jsx` to `Community 0`, `Community 1`, `TopTrumpsSP.jsx`, `Phase2Customize.jsx`, `Community 8`, `Community 9`, `useSharedLobbyMachine.js`, `versaoNova.js`, `sfx.js`, `MazeRafael.jsx`, `MazeRafael.jsx`, `Community 20`, `AuthContext.jsx`, `ganguesEffectThemes.js`, `TypewriterPhrase.jsx`, `px`, `Footer.jsx`, `PlatformIcons.jsx`, `CodigoPerdido.jsx`, `PuzzleStealthGrid.jsx`, `LDINotification.jsx`, `DixContext.jsx`, `TopTrumpsMP.jsx`, `DeckBuilder.jsx`, `ganguesEncontros.js`, `PainelSessoes.jsx`, `personalidades.js`, `EventosContext.jsx`, `react`, `GanguesClubeResultado.jsx`, `getGanguesEnemyPortraitById`, `CityOverworld.jsx`, `runtimePlatform.js`, `Perfil.jsx`, `TypewriterPhrase.jsx`, `levelProgression.js`, `criaturas.js`, `ganguesSpecialEffects.js`, `index.js`, `aiPersonalities.js`, `Dungeon.jsx`, `PuzzleStealthGrid.jsx`, `ganguesCombatResolver.js`, `GanguesVictory.jsx`, `classTree.js`, `useGameStore.js`, `Quiz.jsx`, `particles.js`, `Community 97`, `Community 99`, `useGanguesTeclado`, `WebshardTitulo.jsx`, `GanguesVictory.jsx`, `useTamagoshiStore.js`, `cenaHelpers.js`, `PuzzleDecoder.jsx`, `.constructor`, `drawCombatBoard`, `useSharedLobbyMachine.js`?**
-  _High betweenness centrality (0.098) - this node is a cross-community bridge._
+  _High betweenness centrality (0.100) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `Community 1` to `TopTrumpsSP.jsx`, `Phase2Customize.jsx`, `Community 9`, `useSharedLobbyMachine.js`, `Community 20`, `PuzzleForça.jsx`, `AuthContext.jsx`, `px`, `Footer.jsx`, `LDINotification.jsx`, `CodigoPerdido.jsx`, `PuzzleStealthGrid.jsx`, `TopTrumpsMP.jsx`, `DeckBuilder.jsx`, `personalidades.js`, `EventosContext.jsx`, `PuzzleForça.jsx`, `Perfil.jsx`, `TypewriterPhrase.jsx`, `criaturas.js`, `ganguesSpecialEffects.js`, `index.js`, `aiPersonalities.js`, `GanguesVictory.jsx`, `useGameStore.js`, `Quiz.jsx`, `useGanguesTeclado`, `GanguesVictory.jsx`, `WebshardTitulo.jsx`, `PuzzleDecoder.jsx`, `GanguesCenaEncontros.jsx`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **Why does `useRadioNina()` connect `PuzzleForça.jsx` to `Community 1`, `Community 99`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `BuildingInterior.jsx`, `cenaHelpers.js`, `Community 95`?**
   _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
+- **What connects `🔴 SEMPRE NA MAIN — NUNCA ABRIR BRANCH`, `Mandatory workflow for every code change`, `Stack` to the rest of the system?**
   _2651 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._

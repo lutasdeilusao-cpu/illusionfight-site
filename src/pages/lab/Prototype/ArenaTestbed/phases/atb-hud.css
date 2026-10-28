@@ -5,6 +5,7 @@
   background: var(--ldi-bg2);
   border-top: 1px solid var(--ldi-border);
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   flex-shrink: 0;
 }
 

@@ -4,6 +4,7 @@ import { getHP, getMP, getCasasMovimento, criarPersonagem } from '../engine/comb
 import { PERSONALIDADES_IA } from '../engine/ai/personalidades/index'
 import { audio } from '../engine/audioManager'
 import './Phase1SheetBuilder.css'
+import { MAX_TIME_JOGADOR, MAX_TIME_INIMIGO } from '../engine/regrasFicha'
 
 const ATTRIBUTES = ['forca', 'agi', 'dex', 'pdf', 'res', 'arm']
 const BUDGET_OPTIONS = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
@@ -20,9 +21,13 @@ export default function Phase1SheetBuilder({ onConfirm }) {
     return `Inimigo ${ordem}`
   }
 
+  const nJogador = characters.filter(c => c.time === 'jogador').length
+  const nInimigo = characters.filter(c => c.time === 'ia').length
+  const podeAdicionar = nJogador < MAX_TIME_JOGADOR || nInimigo < MAX_TIME_INIMIGO
+
   function addCharacter() {
-    if (characters.length >= 4) return
-    const time = characters.filter(c => c.time === 'jogador').length === 0 ? 'jogador' : 'ia'
+    if (!podeAdicionar) return
+    const time = nJogador === 0 || nInimigo >= MAX_TIME_INIMIGO ? 'jogador' : 'ia'
     const novoNome = gerarNomeAutomatico(time, characters)
 
     const isJogador = type => type === 'jogador'
@@ -166,8 +171,8 @@ export default function Phase1SheetBuilder({ onConfirm }) {
             <label className="p1-field">
               <span>TIME</span>
               <select value={char.time} onChange={e => updateChar(idx, 'time', e.target.value)}>
-                <option value="jogador">JOGADOR</option>
-                <option value="ia">IA</option>
+                <option value="jogador" disabled={char.time !== 'jogador' && nJogador >= MAX_TIME_JOGADOR}>JOGADOR</option>
+                <option value="ia" disabled={char.time !== 'ia' && nInimigo >= MAX_TIME_INIMIGO}>IA</option>
               </select>
             </label>
 
@@ -277,7 +282,7 @@ export default function Phase1SheetBuilder({ onConfirm }) {
         })}
       </div>
 
-      {characters.length < 4 && (
+      {podeAdicionar && (
         <button className="p1-add-btn" onClick={() => { audio.toggle(); addCharacter() }}>
           + NOVO COMBATENTE
         </button>

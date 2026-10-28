@@ -1,6 +1,6 @@
 # LDI Arena
 
-Jogo tático por turnos em tabuleiro hexagonal. Times de até 4 combatentes (jogador × IA) se enfrentam até um lado ficar sem ninguém vivo. Hoje é um protótipo jogável de ponta a ponta no modo Treino.
+Jogo tático por turnos em tabuleiro hexagonal. Até 4 combatentes do jogador contra até 10 inimigos (IA) se enfrentam até um lado ficar sem ninguém vivo. Hoje é um protótipo jogável de ponta a ponta no modo Treino.
 
 Código: `src/pages/lab/Prototype/ArenaTestbed/`. Textos: `src/i18n/prototype/pt.json` (bloco `prototype.arena_testbed`, ~236 chaves). Versão: `ARENATESTBED_VERSION` em `src/config/version.js`.
 
@@ -32,8 +32,8 @@ O orquestrador é `ArenaTestbed.jsx`. As fases são o enum `FaseArena` (`ArenaTe
 | # | Fase | Arquivo | O que o jogador vê e faz |
 |---|------|---------|--------------------------|
 | 0 | INICIO | `phases/Phase0Start.jsx` | "Novo jogo" ou "Carregar". Lista de fichas salvas (nomes dos personagens), carregar ou apagar (com confirmação). Aviso quando atinge o limite de 9 fichas. O botão "Carregar" grande carrega sempre a 1ª ficha. |
-| 1 | FICHA | `phases/Phase1SheetBuilder.jsx` | Monta até 4 combatentes. Cada um: time (Jogador/IA), personalidade (só IA), tipo de ataque (corpo a corpo / distância), orçamento de pontos (3 a 30, de 3 em 3), distribuição nos 6 atributos, equipamento, poções HP/MP iniciais. Só avança com ≥1 jogador, ≥1 IA e todos os pontos gastos. |
-| 2 | PERSONALIZACAO | `phases/Phase2Customize.jsx` | Só para os personagens do jogador (máx. 3): cor (3 fixas), ícone (círculo/quadrado/losango) e nome (Jogador 1, 2 ou 3). Cor e nome não se repetem. Ao confirmar, a ficha é salva no `localStorage`. Carregar ficha pula direto pra cá. |
+| 1 | FICHA | `phases/Phase1SheetBuilder.jsx` | Monta até 4 combatentes do jogador e até 10 inimigos. Cada um: time (Jogador/IA), personalidade (só IA), tipo de ataque (corpo a corpo / distância), orçamento de pontos (3 a 30, de 3 em 3), distribuição nos 6 atributos, equipamento, poções HP/MP iniciais. Só avança com ≥1 jogador, ≥1 IA e todos os pontos gastos. |
+| 2 | PERSONALIZACAO | `phases/Phase2Customize.jsx` | Só para os personagens do jogador (máx. 4): cor (4 fixas), ícone (círculo/quadrado/losango/triângulo) e nome (Jogador 1 a 4). Cor e nome não se repetem. Ao confirmar, a ficha é salva no `localStorage`. Carregar ficha pula direto pra cá. |
 | 3 | MODO | `phases/Phase3ModeSelect.jsx` | Treino (ativo) ou Campanha (botão com selo "em breve", sem ação). |
 | 4 | TABULEIRO | `phases/Phase4BoardSetup.jsx` | Editor do mapa em canvas: tamanho (até 10 colunas × 15 linhas, começa em 7×4), ferramentas Selecionar/Borracha, 4 tipos de obstáculo, poções no chão (HP/MP), posicionar personagens. Só libera "Iniciar" com jogadores na metade esquerda, IA na direita e sem sobreposição. |
 | 5 | PODERES | `phases/Phase5PowerSelect.jsx` | Um card recolhível por personagem (jogador e IA). Grade de poderes filtrada pelo tipo do personagem, abas por elemento e ordenação por FA/FD/A-Z. Limite de poderes = `min(RES, 4)`. IA sem escolha recebe 1–3 poderes aleatórios (`ArenaTestbed.jsx:84-96`). |
@@ -63,7 +63,7 @@ O orquestrador é `ArenaTestbed.jsx`. As fases são o enum `FaseArena` (`ArenaTe
 - Nomes: Jogador 1–3 e Inimigo 1–3 (`engine/regrasFicha.js`, `phases/Phase1SheetBuilder.jsx`). Ficha antiga salva com nome de personagem do universo é trocada pro nome genérico na leitura (`data/fichaStorage.js`).
 - Ficha em edição: estado React da fase 1. Objeto final por `criarPersonagem` (`engine/combat.js:203-230`), id `char_<timestamp>_<rand>`.
 - Persistência: `data/fichaStorage.js`, `localStorage['ldi_arenatestbed_fichas']`, interface assíncrona. Uma "ficha" salva = a lista de personagens (jogador personalizado + IA).
-- Regras de limite: `engine/regrasFicha.js` (9 fichas, 3 personagens do jogador, 3 cores, 3 nomes).
+- Regras de limite: `engine/regrasFicha.js` (9 fichas, 4 do jogador, 10 inimigos, 4 cores, 4 nomes).
 
 ## 4. Tabuleiro hexagonal
 

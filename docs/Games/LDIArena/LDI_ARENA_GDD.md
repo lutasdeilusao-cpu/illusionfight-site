@@ -43,6 +43,15 @@ Fontes do canon:
 
 O jogo não usa personagens oficiais do universo neste momento. Os lutadores têm nomes genéricos: **Jogador 1, Jogador 2, Jogador 3** e **Inimigo 1, Inimigo 2, Inimigo 3**. O elemental de cada um é escolhido na montagem do time.
 
+### 1.2.1 Tamanho dos times
+
+- **[DECIDIDO]** Do lado do jogador: **até 4** lutadores.
+- **[DECIDIDO]** Do lado inimigo: **até 10**. Quantidade e força andam em sentido contrário:
+  - **8 a 10 inimigos** só quando são **fracos** — capangas que caem com um golpe. É quantidade, não qualidade.
+  - **Até 8 inimigos fortes** só no **fim do jogo**.
+  - No começo e no meio do jogo, inimigo forte vem em grupo pequeno.
+- No protótipo, o limite está em `engine/regrasFicha.js` (`MAX_TIME_JOGADOR`, `MAX_TIME_INIMIGO`). A força de cada inimigo ainda é livre na montagem; a regra de "muitos = fracos" entra quando existirem as lutas prontas da campanha.
+
 ### 1.3 A tabela de compatibilidade (a da Yohu) — [PROPOSTA]
 
 O canon garante duas coisas que a tabela tem de respeitar:

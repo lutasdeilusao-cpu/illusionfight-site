@@ -47,9 +47,12 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
   }, [])
 
   useEffect(() => {
-    const initial = characters.map((ch, idx) => {
-      const assignedCol = ch.time === 'jogador' ? Math.floor(idx / 2) : cols - 1 - Math.floor(idx / 2)
-      const assignedRow = ch.time === 'jogador' ? (idx % 2) * (rows - 1) : (idx % 2) * (rows - 1)
+    // Cada time enche colunas a partir da sua borda, uma linha por vez.
+    const contagem = { jogador: 0, ia: 0 }
+    const initial = characters.map((ch) => {
+      const k = contagem[ch.time]++
+      const assignedCol = ch.time === 'jogador' ? Math.floor(k / rows) : cols - 1 - Math.floor(k / rows)
+      const assignedRow = k % rows
       return {
         charId: ch.id,
         nome: ch.aparencia?.nome || ch.nome || '',
@@ -169,6 +172,7 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
               if (icone === 'circle') ctx.arc(0, 0, sz * 0.2, 0, Math.PI * 2)
               else if (icone === 'square') ctx.rect(-sz * 0.18, -sz * 0.18, sz * 0.36, sz * 0.36)
               else if (icone === 'diamond') { ctx.moveTo(0, -sz * 0.25); ctx.lineTo(sz * 0.2, 0); ctx.lineTo(0, sz * 0.25); ctx.lineTo(-sz * 0.2, 0); ctx.closePath() }
+              else if (icone === 'triangle') { ctx.moveTo(0, -sz * 0.23); ctx.lineTo(sz * 0.21, sz * 0.16); ctx.lineTo(-sz * 0.21, sz * 0.16); ctx.closePath() }
               ctx.stroke()
               ctx.restore()
             } else {

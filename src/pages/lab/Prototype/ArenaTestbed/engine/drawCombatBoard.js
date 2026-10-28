@@ -46,6 +46,7 @@ function drawCharacter(ctx, ch, x, y, scale, rotation, currentChar, angle, sz, c
     if (icone === 'circle') ctx.arc(0, 0, sz * 0.18, 0, Math.PI * 2)
     else if (icone === 'square') ctx.rect(-sz * 0.16, -sz * 0.16, sz * 0.32, sz * 0.32)
     else if (icone === 'diamond') { ctx.moveTo(0, -sz * 0.22); ctx.lineTo(sz * 0.18, 0); ctx.lineTo(0, sz * 0.22); ctx.lineTo(-sz * 0.18, 0); ctx.closePath() }
+    else if (icone === 'triangle') { ctx.moveTo(0, -sz * 0.2); ctx.lineTo(sz * 0.19, sz * 0.14); ctx.lineTo(-sz * 0.19, sz * 0.14); ctx.closePath() }
     ctx.stroke()
     ctx.restore()
   } else {

@@ -1,7 +1,10 @@
 const MAX_FICHAS = 9
-const MAX_PERSONAGENS_BATALHA = 3
-const CORES_DISPONIVEIS = ['#00ff88', '#4488ff', '#ffcc00']
-export const NOMES_DISPONIVEIS = ['Jogador 1', 'Jogador 2', 'Jogador 3']
+// Tamanho máximo dos times: até 4 do lado do jogador e até 10 inimigos (grupo grande é de inimigo fraco).
+export const MAX_TIME_JOGADOR = 4
+export const MAX_TIME_INIMIGO = 10
+const MAX_PERSONAGENS_BATALHA = MAX_TIME_JOGADOR
+export const CORES_DISPONIVEIS = ['#00ff88', '#4488ff', '#ffcc00', '#ff5ad1']
+export const NOMES_DISPONIVEIS = ['Jogador 1', 'Jogador 2', 'Jogador 3', 'Jogador 4']
 
 export function podeSalvarNovaFicha(fichasExistentes) {
   if (fichasExistentes.length >= MAX_FICHAS) {
