@@ -37,7 +37,7 @@
 /* ── Dano popup ── */
 
 .atb-dano-popup {
-  position: fixed; inset: 0; z-index: 700;
+  position: fixed; inset: 0 var(--app-gutter); z-index: 700;
   display: flex; align-items: center; justify-content: center;
   pointer-events: none;
 }
@@ -76,7 +76,7 @@
 
 .atb-flash-overlay {
   position: fixed;
-  inset: 0;
+  inset: 0 var(--app-gutter);
   background: rgba(255,0,0,0.15);
   pointer-events: none;
   z-index: 999;
@@ -92,7 +92,7 @@
 
 .atb-announcement-overlay {
   position: fixed;
-  inset: 0;
+  inset: 0 var(--app-gutter);
   z-index: 500;
   display: flex;
   align-items: center;
@@ -111,7 +111,7 @@
 
 .atb-announcement-text {
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(24px, 5vw, 48px);
+  font-size: clamp(24px, calc(5 * var(--app-vw) / 100), 48px);
   font-weight: 900;
   letter-spacing: 0.15em;
   color: var(--if-cyan);
@@ -171,7 +171,7 @@
 
 .atb-drawer-overlay {
   position: fixed;
-  inset: 0;
+  inset: 0 var(--app-gutter);
   z-index: 1000;
   background: rgba(0,0,0,0.6);
   display: flex;
@@ -224,7 +224,7 @@
 
 .atb-ordering-overlay {
   position: fixed;
-  inset: 0;
+  inset: 0 var(--app-gutter);
   z-index: 800;
   background: rgba(5, 6, 15, 0.92);
   display: flex;
@@ -399,7 +399,7 @@
 
 .atb-modal-overlay {
   position: fixed;
-  inset: 0;
+  inset: 0 var(--app-gutter);
   z-index: 1000;
   background: rgba(0,0,0,0.6);
   display: flex;

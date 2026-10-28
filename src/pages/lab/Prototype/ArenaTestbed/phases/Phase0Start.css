@@ -45,16 +45,17 @@
   color: var(--ldi-text-dim, #666);
 }
 .p0-lista-item {
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;
   padding: 10px 12px; border-radius: 4px;
   background: var(--ldi-bg, #0a0e14);
   border: 1px solid var(--ldi-border, #1a1e26);
 }
 .p0-lista-info {
+  min-width: 0; overflow-wrap: anywhere;
   font-family: var(--ldi-font-body, sans-serif);
   font-size: 12px; color: var(--ldi-text, #ccc);
 }
-.p0-lista-acoes { display: flex; gap: 6px; }
+.p0-lista-acoes { display: flex; gap: 6px; flex-shrink: 0; }
 .p0-lista-btn {
   padding: 4px 10px; border-radius: 3px;
   font-family: var(--ldi-font-hud, monospace);
@@ -71,8 +72,8 @@
   font-size: 11px; color: #ff8866; text-align: center;
 }
 .p0-modal-overlay {
-  position: fixed; inset: 0; z-index: 900;
-  background: rgba(0,0,0,0.7);
+  position: fixed; inset: 0 var(--app-gutter); z-index: 900;
+  background: rgba(0,0,0,0.7); overscroll-behavior: none;
   display: flex; align-items: center; justify-content: center;
 }
 .p0-modal {

@@ -1,11 +1,11 @@
 .p2-root {
   display: flex; flex-direction: column; gap: 20px;
-  padding: 20px 0;
+  padding: 20px 16px;
 }
 .p2-header { text-align: center; }
 .p2-header h2 {
   font-family: var(--ldi-font-hud, monospace);
-  font-size: 16px; text-transform: uppercase; letter-spacing: 0.08em;
+  font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; overflow-wrap: anywhere;
   color: var(--ldi-text, #ccc); margin: 0 0 4px;
 }
 .p2-subtitle {

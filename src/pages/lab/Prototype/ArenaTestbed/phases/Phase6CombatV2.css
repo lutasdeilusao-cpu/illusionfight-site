@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  inset: 0;
+  inset: 0 var(--app-gutter);
   background: var(--ldi-bg);
   color: var(--ldi-text);
   overflow: hidden;
@@ -145,7 +145,7 @@
 
 .atb-action-panel {
   position: fixed;
-  right: 0;
+  right: var(--app-gutter);
   top: 50%;
   transform: translateY(-50%);
   z-index: 600;
@@ -250,7 +250,7 @@
 
 .arena-jkp-overlay {
   position: fixed;
-  inset: 0;
+  inset: 0 var(--app-gutter);
   z-index: 500;
   background: rgba(0,0,0,0.75);
   display: flex;
