@@ -64,7 +64,9 @@ function montarZip(itens) {
   const locais = []
   const central = []
   let offset = 0
-  const { hora, data } = dosHora(new Date())
+  // Data do arquivo mais novo do pacote, não a hora do build: o .zip só muda quando uma arte muda
+  // (e o deploy não reenvia 30 MB iguais a cada publicação).
+  const { hora, data } = dosHora(new Date(Math.max(...itens.map(([, origem]) => fs.statSync(origem).mtimeMs))))
   for (const [nome, origem] of itens) {
     const bruto = fs.readFileSync(origem)
     const texto = nome.endsWith('.txt')
