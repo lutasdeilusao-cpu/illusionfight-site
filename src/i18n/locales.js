@@ -66,7 +66,7 @@ export async function carregarArea(area, locale) {
 export function areaDaRota(pathname) {
   if (/^\/games\/ldi(\/|$)/.test(pathname)) return 'lendas'
   if (/^\/games\/./.test(pathname)) return 'games'
-  if (pathname.startsWith('/lab')) return 'prototype'
+  if (pathname.startsWith('/lab') || pathname.startsWith('/prototype')) return 'prototype'
   if (pathname.startsWith('/creators')) return 'creators'
   return null
 }
