@@ -11,6 +11,8 @@ Este documento tem tudo o que existe sobre o jogo, num lugar só:
 - **Parte 3** — propostas de que jogo construir e em que ordem.
 - **Parte 4** — as decisões que fecham o rumo.
 
+O design do jogo (as regras que valem) mora no GDD: `docs/Games/LDIArena/LDI_ARENA_GDD.md`.
+
 Na Parte 1, os caminhos são relativos a `src/pages/lab/Prototype/ArenaTestbed/`.
 
 ---
@@ -210,7 +212,7 @@ O jogo não começa do zero. O universo já tem regra de luta, golpes de persona
 | Iniciativa | H + d6, rolada uma vez | AGI, com Jokenpô no empate |
 | Pontos de ficha | Novato 5, Lutador 7, Campeão 10, Lenda 12 | livre |
 
-- **7 elementais:** Fogo (dano), Água (controle e cura), Terra (defesa e atordoar), Ar (iniciativa e mobilidade), Trevas (dreno e enfraquecer), Luz (cura, proteção e cegueira), Neutro (sem fraqueza). O 8º, Primordial, não é registrado no sistema.
+- **Elementais:** o manual lista 7 (os 6 primários + Neutro), mas o sistema oficial do universo tem mais: 6 primários, cada um com 3 secundários, Neutro e os elementais fora do sistema. O sistema oficial está no GDD (`docs/Games/LDIArena/LDI_ARENA_GDD.md` §1); o manual vale só pra fórmula de luta.
 - **Poderes:** 6 por elemental, de 1 a 4 PM, com efeitos de verdade — área (Terremoto), empurrar (Ciclone), puxar (Corrente), impedir aproximação (Redemoinho), ignorar proteção (Lâmina d'Água), dano dobrado (Inferno). Equipa até H + 1, no máximo 5.
 - **Vantagens** com custo em PM: movimento extra, alcance, cura, teleporte, regeneração, tiro carregável (fica indefeso 1 turno e dá PdF × 2), voo, ataque em área, paralisia, reflexão e dezenas de outras.
 - **Arena como vantagem:** o manual já lista tipos de arena — Digital Clássica, Ruínas, Aquática, Gravitacional, Torre Espiral, Vulcânica, Neve — e lutador especialista ganha bônus no terreno dele.
@@ -309,11 +311,11 @@ Por que esse caminho é seguro:
 
 ## 17. Poderes e elementos
 
-- **7 elementais do manual**, cada um com o seu papel (Fogo dano, Água controle e cura, Terra defesa, Ar mobilidade, Trevas dreno, Luz cura e cegueira, Neutro equilíbrio).
-- **Vantagem elemental simples**, uma regra só (por exemplo: elemento forte contra o alvo, +2 na FA). Nada de tabela de 12 elementos.
+O sistema elemental oficial (6 primários com 3 secundários cada, Neutro, a tabela de compatibilidade da Yohu e os elementais fora do sistema) está no GDD: `docs/Games/LDIArena/LDI_ARENA_GDD.md` §1.
+
 - **Máximo de 4 poderes ativos**, regra do livro.
 - Poderes com efeito de verdade no tabuleiro: área, empurrar, puxar, cura, impedir aproximação, carregar. É aqui que o hexágono vira jogo: posição passa a importar.
-- **Poucos estados**, só os que o manual já tem: Indefeso, Atordoado, Perto da Morte. Cada um com 1 a 2 turnos e ícone sobre o personagem.
+- **Poucos estados**, cada um com 1 a 2 turnos e ícone sobre o personagem.
 
 ## 18. Sistema de níveis
 
