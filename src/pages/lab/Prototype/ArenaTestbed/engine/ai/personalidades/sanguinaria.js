@@ -1,5 +1,5 @@
 import { distanciaHex, getCelulasAtaque, getVizinhos, encontrarCaminho } from '../../hexUtils'
-import { resolverAtaque, getChanceAcerto, getCasasMovimento } from '../../combat'
+import { getCasasMovimento } from '../../combat'
 import { getPoderesPorId } from '../../../data/poderes'
 
 function melhorPoderParaAtaque(personagem, poderesIds) {
@@ -26,18 +26,6 @@ function podeAtacarAlvo(personagem, alvo, cols, rows, obstaculos) {
   const alcanceMax = personagem.tipoAtaque === 'melee' ? 1 : personagem.pdf
   const celulas = getCelulasAtaque(personagem.posicao.row, personagem.posicao.col, personagem.tipoAtaque, cols, rows, alcanceMax, obstaculos)
   return celulas.some(c => c.row === alvo.posicao.row && c.col === alvo.posicao.col)
-}
-
-function resolverAtaqueIA(personagem, alvo, logs) {
-  const dist = distanciaHex(personagem.posicao, alvo.posicao)
-  const chance = getChanceAcerto(personagem.dex, alvo.agi)
-  const roll = Math.random()
-  const acertou = roll <= chance || personagem.dex > alvo.agi
-  if (acertou) {
-    const resultado = resolverAtaque(personagem, alvo, Math.ceil(dist))
-    return { resultado, miss: false }
-  }
-  return { resultado: null, miss: true }
 }
 
 function calcularPassos(personagem, destino, todosPersonagens, obstaculos, cols, rows) {
@@ -77,9 +65,7 @@ export function acaoSanguinaria(personagem, inimigos, todosPersonagens, obstacul
     } else {
       logs.push(`⚔️ ${personagem.nome} ataca ${alvo.nome} (ataque comum)`)
     }
-    const { resultado, miss } = resolverAtaqueIA(personagem, alvo, logs)
-    const dist = distanciaHex(personagem.posicao, alvo.posicao)
-    return { tipo: 'atacar', detalhes: { alvo, resultado, distancia: Math.ceil(dist), miss }, logs }
+    return { tipo: 'atacar', detalhes: { alvo, poderId: poder?.id ?? null }, logs }
   }
 
   const passos = calcularPassos(personagem, alvo.posicao, todosPersonagens, obstaculos, cols, rows)

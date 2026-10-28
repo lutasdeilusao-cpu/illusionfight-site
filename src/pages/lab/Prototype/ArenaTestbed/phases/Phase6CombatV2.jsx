@@ -560,8 +560,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
                 actions.confirmarEscolhaAtaque(op)
               } else if (powerChoiceModal.mode === 'defesa') {
                 set.setDefensePending(null)
-                const bonus = op.poderId ? 2 : 0
-                defensePending.onResolve(bonus)
+                defensePending.onResolve(op.poderId)
               }
             }}
           />
@@ -577,8 +576,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
             faBruto={defensePending.faBruto} opcoes={defensePending.opcoes}
             onEscolher={(op) => {
               set.setDefensePending(null)
-              const bonus = op.poderId ? 2 : 0
-              defensePending.onResolve(bonus)
+              defensePending.onResolve(op.poderId)
             }}
           />
         )}

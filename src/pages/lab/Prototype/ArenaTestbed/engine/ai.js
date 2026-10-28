@@ -4,7 +4,7 @@
  */
 
 import { distanciaHex, getVizinhos, getCelulasAtaque, encontrarCaminho } from './hexUtils'
-import { resolverAtaque, rolarD6, getChanceAcerto, getCasasMovimento } from './combat'
+import { getCasasMovimento } from './combat'
 
 /**
  * Decide a ação da IA para um personagem
@@ -44,27 +44,10 @@ export function decidirAcaoIA(personagem, inimigos, todosPersonagens, obstaculos
         c => c.row === alvo.posicao.row && c.col === alvo.posicao.col
       )?.distancia || 1
 
-      const chance = getChanceAcerto(personagem.dex, alvo.agi)
-      const roll = Math.random()
-      const acertou = roll <= chance || personagem.dex > alvo.agi
-
-      if (acertou) {
-        const resultado = resolverAtaque(personagem, alvo, dist)
-        return {
-          tipo: 'atacar',
-          detalhes: { alvo, resultado, distancia: dist, miss: false },
-          logs: [
-            `[${personagem.nome}] Atacando ${alvo.nome} (distância ${dist})`,
-            ...resultado.logs,
-          ],
-        }
-      } else {
-        logs.push(`[${personagem.nome}] Tentou atacar ${alvo.nome} mas errou! (chance: ${Math.round(chance * 100)}%)`)
-        return {
-          tipo: 'atacar',
-          detalhes: { alvo, resultado: null, distancia: dist, miss: true },
-          logs,
-        }
+      return {
+        tipo: 'atacar',
+        detalhes: { alvo, poderId: null },
+        logs: [`[${personagem.nome}] Atacando ${alvo.nome} (distância ${dist})`],
       }
     }
 

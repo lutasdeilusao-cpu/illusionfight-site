@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793177175.8015573,
-    "ast_hash": "2e530e13106020451d4a0b2cba0f42bc",
+    "mtime": 1793188797.190478,
+    "ast_hash": "28f54a92fad857da3a87d53e6cc0d03b",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -1715,9 +1715,9 @@
     "semantic_hash": "e0118983b2c2004a300be8f243195f2e"
   },
   "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js": {
-    "mtime": 1782441630.4588122,
-    "ast_hash": "05b58294b279aa088eef950196d4d319",
-    "semantic_hash": "05b58294b279aa088eef950196d4d319"
+    "mtime": 1793188778.807438,
+    "ast_hash": "5ab914b899d23de48976cca33c081033",
+    "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/data/poderes.js": {
     "mtime": 1782441630.4588122,
@@ -1725,19 +1725,14 @@
     "semantic_hash": "01862206895ac18a9ed8a908562f7686"
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/TurnController.js": {
-    "mtime": 1782441630.4608119,
-    "ast_hash": "6baa3d4bc428c0530c8988696eb8602e",
-    "semantic_hash": "6baa3d4bc428c0530c8988696eb8602e"
+    "mtime": 1793188756.8673458,
+    "ast_hash": "1523f22a05248e92c748f2441a23910c",
+    "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/ai.js": {
     "mtime": 1782441630.4608119,
     "ast_hash": "411a11742b0fa379f07021a6de31dd1a",
     "semantic_hash": "411a11742b0fa379f07021a6de31dd1a"
-  },
-  "src/pages/lab/Prototype/ArenaTestbed/engine/ai/index.js": {
-    "mtime": 1782441630.46189,
-    "ast_hash": "168816a9d31b73f3e3a9a9ffb73afaf3",
-    "semantic_hash": "168816a9d31b73f3e3a9a9ffb73afaf3"
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/fujona.js": {
     "mtime": 1782441630.4628901,
@@ -1895,9 +1890,9 @@
     "semantic_hash": "b5c6cfcdeb200c0c30ba5660e2e4fb4d"
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/useCombatEngine.js": {
-    "mtime": 1782441630.483079,
-    "ast_hash": "986a57bfddd6993ef6ad17341cc731f9",
-    "semantic_hash": "986a57bfddd6993ef6ad17341cc731f9"
+    "mtime": 1793188756.8696823,
+    "ast_hash": "855697d4d41b160f5d99fd56b75d8792",
+    "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/useEffectMachine.js": {
     "mtime": 1782441630.483079,
@@ -1940,13 +1935,13 @@
     "semantic_hash": "315dbd4e5e30c554aa3ac2f0406300e7"
   },
   "src/pages/lab/Prototype/ArenaTestbed/phases/Phase4BoardSetup.jsx": {
-    "mtime": 1788408771.0130064,
-    "ast_hash": "cc02209b06ca1c032d079b86262a03d5",
+    "mtime": 1793188756.885187,
+    "ast_hash": "4b47121c8856713e02ea5a905b8a916e",
     "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5PowerSelect.jsx": {
-    "mtime": 1783914626.9603324,
-    "ast_hash": "bb607bbf240c1044ba0b7796fe0be849",
+    "mtime": 1793188778.822428,
+    "ast_hash": "f3cf7a4ee3dae37ea05561b3d516d3ea",
     "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5bAnimDebug.jsx": {
@@ -2525,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793177175.841675,
-    "ast_hash": "fe10f07febbdb05ea2cf51e8e8f78a7b",
+    "mtime": 1793188797.2254772,
+    "ast_hash": "4ff0f629b1ff1b525232862be63c488f",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -2917,11 +2912,6 @@
   "public/robots.txt": {
     "mtime": 1782707908.4690425,
     "ast_hash": "cc27fd114cfd116b1f8fedaccf76702c",
-    "semantic_hash": ""
-  },
-  "src/pages/lab/Prototype/ArenaTestbed/ARENATESTBED_MAPA.md": {
-    "mtime": 1785614524.0867054,
-    "ast_hash": "4ebbfc68b650c6da80bc7d381d2bdbdc",
     "semantic_hash": ""
   },
   "Jogos_Rafael/26.06.03.Anexo III \u2013Segmentos da Lei Rouanet (1).pdf": {
@@ -9965,7 +9955,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793177240.4401715,
+    "mtime": 1793188864.5388281,
     "ast_hash": "2c7c2399fbdc0dc2a4073a02253bd396",
     "semantic_hash": ""
   },
@@ -10365,8 +10355,8 @@
     "semantic_hash": ""
   },
   "docs/Games/LDIArena/LDI_ARENA.md": {
-    "mtime": 1793160604.0740416,
-    "ast_hash": "f609744828ecc0db1d3bc4572f987f97",
+    "mtime": 1793188797.073303,
+    "ast_hash": "ca5970ca1b86589e738da67ef3cfbea9",
     "semantic_hash": ""
   }
 }

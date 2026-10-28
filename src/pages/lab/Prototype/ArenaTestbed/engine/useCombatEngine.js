@@ -5,15 +5,11 @@ import {
   encontrarProximoJokenpo, processarResultadoJokenpo,
   aplicarResultadosCruzados,
 } from './turnOrder'
-import {
-  resolverAtaque, resolverContraAtaque, rolarD6, calcularFA, calcularFD,
-  getCasasMovimento, getChanceAcerto,
-} from './combat'
+import { getCasasMovimento } from './combat'
 import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, getHexLine } from './hexUtils'
 import { decidirAcaoIA } from './ai'
 import { getPersonalidadePorId } from './ai/personalidades/index'
-import { PODERES_BASE, getPoderesPorId, temPoderDisponivel } from '../data/poderes'
-import { executarMecanica } from './mecanicasPoder'
+import { resolverGolpe, poderesDisponiveis, melhorPoder } from './regras'
 import { TipoAcao } from './TurnController'
 import { emit } from './eventBus'
 import { getMovementAnimation } from './animations/movement/index'
@@ -84,7 +80,7 @@ export default function useCombatEngine({
   const sortedGlobalRef = useRef([])
   const crossTieResultsRef = useRef([])
   const crossTieQueueRef = useRef([])
-  const defesaBonusRef = useRef(0)
+  const poderAtaqueIdRef = useRef(null)
   const tutorialMostradoRef = useRef(false)
   const currentCharIdRef = useRef(null)
 
@@ -254,96 +250,91 @@ export default function useCombatEngine({
     })
   }
 
-  function aposAnimacaoAtaque(atacante, alvo, resultado) {
+  function gastarMP(charId, custo) {
+    if (!custo) return
+    charsRef.current = charsRef.current.map(c => c.id === charId ? { ...c, mp: c.mp - custo } : c)
+    setCharacters(charsRef.current)
+  }
+
+  // Golpe único de jogador e IA: a regra sai pronta de resolverGolpe (regras.js);
+  // aqui só se paga o MP, se anima e se aplica. aoTerminar devolve o turno a quem bateu.
+  function executarGolpe(atacante, alvo, { poderAtaque = null, poderDefesa = null }, aoTerminar) {
+    const distancia = distanciaHex(atacante.posicao, alvo.posicao)
+    const r = resolverGolpe(atacante, alvo, { distancia, poderAtaque, poderDefesa })
+    gastarMP(atacante.id, r.custoAtaque)
+    gastarMP(alvo.id, r.custoDefesa)
+    addLog(`⚔️ ${atacante.nome} ataca ${alvo.nome}!`)
+    r.logs.forEach(l => addLog(`  ${l}`))
+    const depois = () => aplicarGolpe(atacante, alvo, r, aoTerminar)
+    if (atacante.tipoAtaque === 'melee') animarAtaqueMelee(atacante, alvo, r.golpe || {}, depois)
+    else animarAtaqueProjetil(atacante, alvo, r.golpe || {}, depois)
+  }
+
+  function aplicarGolpe(atacante, alvo, r, aoTerminar) {
     clearAnimTimers()
-
-    const tipo = resultado.criticoDefensivo ? 'block' : 'hit'
-
-    animarDefesa(alvo, atacante, tipo, () => {
-      if (resultado.criticoDefensivo) {
+    if (!r.acertou) {
+      adicionarBalao(alvo.id, 'MISS!', 'miss', alvo.posicao?.row, alvo.posicao?.col)
+      dispararJuice(alvo, { dano: 0, miss: true })
+      setAnimTimer(() => encerrarGolpe(aoTerminar), 1300)
+      return
+    }
+    const bloqueio = r.golpe.criticoDefensivo
+    animarDefesa(alvo, atacante, bloqueio ? 'block' : r.custoDefesa ? 'magic' : 'hit', () => {
+      if (bloqueio) {
         addLog(`  🛡️ BLOQUEIO!`)
         adicionarBalao(alvo.id, 'CRÍTICO DEF!', 'block', alvo.posicao?.row, alvo.posicao?.col)
         dispararJuice(alvo, { dano: 0, bloqueio: true })
-      } else {
-        aplicarDano(alvo.id, Math.max(1, resultado.dano || 1), atacante)
-      }
-      if (resultado.criticoDefensivo) {
         adicionarFloatTexto(alvo.id, 'BLOQUEIO!', '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
-        setAnimTimer(() => {
-          const contra = resolverContraAtaque(alvo, atacante, resultado.fa / 2)
-          contra.logs.forEach(l => addLog(`  ↺ ${l}`))
-          if (contra.dano > 0) {
-            aplicarDano(atacante.id, contra.dano, alvo, { contra: true })
-            adicionarFloatTexto(atacante.id, 'CONTRA!', '#ff8800', atacante.posicao?.row, atacante.posicao?.col)
-          }
-          if (resultado.ataqueExtra) {
-            setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
-          } else {
-            setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
-          }
-        }, 500)
       } else {
-        if (resultado.ataqueExtra) {
-          setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
-        } else {
-          setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
-        }
+        aplicarDano(alvo.id, r.dano, atacante)
+        if (r.custoDefesa) dispararJuice(alvo, { dano: 0, magic: true })
       }
+      const seguir = () => {
+        if (r.extra) setAnimTimer(() => aplicarExtra(atacante, alvo, r.extra, aoTerminar), 600)
+        else setAnimTimer(() => encerrarGolpe(aoTerminar), 400)
+      }
+      if (!r.contra) { seguir(); return }
+      setAnimTimer(() => {
+        r.contra.logs.forEach(l => addLog(`  ↺ ${l}`))
+        if (r.contra.dano > 0) {
+          aplicarDano(atacante.id, r.contra.dano, alvo, { contra: true })
+          adicionarFloatTexto(atacante.id, 'CONTRA!', '#ff8800', atacante.posicao?.row, atacante.posicao?.col)
+        }
+        seguir()
+      }, 500)
     })
   }
 
-  // Bug 1 fix: única declaração de handleAtaqueExtra com os logs completos da bíblia
-  function handleAtaqueExtra(atacante, alvo, faBase) {
-    const faExtra = Math.round((faBase / 2) * 10) / 10
-    addLog(`⚡ ATAQUE EXTRA! FA = ${faExtra}`)
+  function aplicarExtra(atacante, alvo, extra, aoTerminar) {
+    extra.logs.forEach(l => addLog(`  ${l}`))
     adicionarFloatTexto(atacante.id, 'EXTRA!', '#ffcc00', atacante.posicao?.row, atacante.posicao?.col)
-    const d6Def = rolarD6()
-    const isCriticoDefExtra = d6Def === 6
-    const fd = calcularFD(alvo, isCriticoDefExtra, d6Def)
-    addLog(`  🎲 ${alvo.nome} FD extra: ARM=${alvo.arm} AGI=${alvo.agi} d6=${d6Def}${isCriticoDefExtra ? ' [CRÍTICO DEFENSIVO]' : ''} → FD=${fd}`)
-    if (isCriticoDefExtra) {
-      addLog(`  🛡️ ${alvo.nome} defendeu criticamente o ataque extra!`)
-      adicionarFloatTexto(alvo.id, 'BLOQUEIO!', '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
-      finalizarAposAtaque(alvo, { dano: 0 })
-    } else {
-      const danoExtra = Math.max(1, Math.round(faExtra - fd))
-      addLog(`  💥 Dano extra: ${danoExtra}`)
-      aplicarDano(alvo.id, danoExtra, atacante, { extraHit: true })
-      finalizarAposAtaque(alvo, { dano: danoExtra })
-    }
+    if (extra.criticoDef) adicionarFloatTexto(alvo.id, 'BLOQUEIO!', '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
+    else aplicarDano(alvo.id, extra.dano, atacante, { extraHit: true })
+    encerrarGolpe(aoTerminar)
   }
 
-  // Bug 2 fix: finalizarAposAtaque volta para subPhase:'free' em vez de chamar onTurnoJogador
-  function finalizarAposAtaque(alvo, resultado) {
+  // Marca quem caiu (o alvo ou, no contra-ataque, quem bateu), confere vitória e devolve o turno.
+  function encerrarGolpe(aoTerminar) {
     animatingRef.current = false
     if (winnerRef.current) return
-    const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
-    if (hpAtual <= 0) {
-      charsRef.current = charsRef.current.map(c => c.id === alvo.id ? { ...c, vivo: false } : c)
+    const caidos = charsRef.current.filter(c => c.vivo && c.hp <= 0)
+    if (caidos.length) {
+      charsRef.current = charsRef.current.map(c => (c.vivo && c.hp <= 0 ? { ...c, vivo: false } : c))
       setCharacters(charsRef.current)
-      tc.marcarMorto(alvo.id)
-      addLog(`💀 ${alvo.nome} foi derrotado!`)
-      setAnimTimer(() => {
-        if (verificarVitoria()) return
-        tc.registrarAcao(currentCharIdRef.current, TipoAcao.ATACAR)
-        setTurnoAcoes(prev => ({ ...prev, atacou: true }))
-        setSubPhase('free')
-        setHighlightedCells([])
-        setAttackCells([])
-        setRangeCells([])
-        if (onUnlockInput) onUnlockInput(1500)
-      }, 1200)
-    } else {
-      setAnimTimer(() => {
-        tc.registrarAcao(currentCharIdRef.current, TipoAcao.ATACAR)
-        setTurnoAcoes(prev => ({ ...prev, atacou: true }))
-        setSubPhase('free')
-        setHighlightedCells([])
-        setAttackCells([])
-        setRangeCells([])
-        if (onUnlockInput) onUnlockInput(1500)
-      }, 800)
+      caidos.forEach(c => { tc.marcarMorto(c.id); addLog(`💀 ${c.nome} foi derrotado!`) })
     }
+    setAnimTimer(() => { if (verificarVitoria()) return; aoTerminar() }, caidos.length ? 1200 : 800)
+  }
+
+  function voltarAoTurnoJogador() {
+    if (!charsRef.current.find(c => c.id === currentCharIdRef.current)?.vivo) { finalizarTurno(); return }
+    tc.registrarAcao(currentCharIdRef.current, TipoAcao.ATACAR)
+    setTurnoAcoes(prev => ({ ...prev, atacou: true }))
+    setSubPhase('free')
+    setHighlightedCells([])
+    setAttackCells([])
+    setRangeCells([])
+    if (onUnlockInput) onUnlockInput(1500)
   }
 
   function iniciarMovimento() {
@@ -455,14 +446,13 @@ export default function useCombatEngine({
   function escolherTipoAtaque() {
     const currentChar = charsRef.current.find(c => c.id === currentCharIdRef.current)
     if (!currentChar || animatingRef.current) return
-    const poderesDisponiveis = getPoderesPorId(poderesEscolhidos[currentChar.id] || currentChar.poderesEscolhidos || [])
-      .filter(p => p.gatilho === 'ataque' && currentChar.mp >= p.custoMP)
-    if (poderesDisponiveis.length === 0) {
+    const opcoes = poderesDisponiveis(currentChar, 'ataque', poderesEscolhidos[currentChar.id])
+    if (opcoes.length === 0) {
       setActionPanel(false)
       confirmarEscolhaAtaque({ poderId: null, custoMP: 0, disponivel: true })
       return
     }
-    setPowerChoiceModal({ mode: 'ataque', charName: currentChar.nome, opcoes: poderesDisponiveis })
+    setPowerChoiceModal({ mode: 'ataque', charName: currentChar.nome, opcoes })
   }
 
   function confirmarEscolhaAtaque(opcao) {
@@ -470,6 +460,7 @@ export default function useCombatEngine({
     const currentChar = charsRef.current.find(c => c.id === currentCharIdRef.current)
     if (!currentChar || animatingRef.current) return
     setPowerAttackMode(!!opcao.poderId)
+    poderAtaqueIdRef.current = opcao.poderId || null
     const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
     const atkCells = getCelulasAtaque(currentChar.posicao.row, currentChar.posicao.col, currentChar.tipoAtaque, cols, rows, alcanceMax, obstaculos)
     setRangeCells(atkCells)
@@ -489,25 +480,13 @@ export default function useCombatEngine({
     setAttackCells([])
     setRangeCells([])
 
-    let atacanteFinal = currentChar
-    if (powerAttackMode) {
-      const poder = getPoderesPorId(poderesEscolhidos[currentChar.id] || currentChar.poderesEscolhidos || [])
-        .find(p => p.gatilho === 'ataque')
-      if (poder && currentChar.mp >= poder.custoMP) {
-        charsRef.current = charsRef.current.map(c => c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c)
-        setCharacters(charsRef.current)
-        atacanteFinal = executarMecanica(poder.mecanicaId, poder.params, { atacante: currentChar })
-      }
-      setPowerAttackMode(false)
-    }
-
-    const dist = distanciaHex(currentChar.posicao, target.posicao)
-    const resultado = resolverAtaque(atacanteFinal, target, Math.ceil(dist))
-    addLog(`⚔️ ${currentChar.nome} ataca ${target.nome}!`)
-    resultado.logs.forEach(l => addLog(`  ${l}`))
-    const cbFinalizar = () => aposAnimacaoAtaque(currentChar, target, resultado)
-    if (currentChar.tipoAtaque === 'melee') animarAtaqueMelee(currentChar, target, resultado, cbFinalizar)
-    else animarAtaqueProjetil(currentChar, target, resultado, cbFinalizar)
+    const poderAtaque = poderesDisponiveis(currentChar, 'ataque', poderesEscolhidos[currentChar.id])
+      .find(p => p.id === poderAtaqueIdRef.current) || null
+    poderAtaqueIdRef.current = null
+    setPowerAttackMode(false)
+    // A IA defende pela mesma regra que o jogador: o melhor poder de defesa que ela pode pagar.
+    const poderDefesa = melhorPoder(target, 'defesa', poderesEscolhidos[target.id])
+    executarGolpe(currentChar, target, { poderAtaque, poderDefesa }, voltarAoTurnoJogador)
   }
 
   function usarItem(tipo) {
@@ -714,84 +693,37 @@ export default function useCombatEngine({
       addLog(`  ${iaChar.nome} — Fase: Ação`)
       const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
       const dec2 = decidirAcaoComPersonalidade(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
-      if (dec2.tipo === 'atacar') {
-        const alvo = dec2.detalhes.alvo; const res = dec2.detalhes.resultado; const isMiss = dec2.detalhes.miss === true
+      if (dec2.tipo === 'atacar' && tc.podeAgir(iaChar.id, TipoAcao.ATACAR)) {
         const atacante = iaAtual2
+        const alvo = charsAgora2.find(c => c.id === dec2.detalhes.alvo.id) || dec2.detalhes.alvo
+        const poderAtaque = poderesDisponiveis(atacante, 'ataque', poderesEscolhidos[atacante.id])
+          .find(p => p.id === dec2.detalhes.poderId) || null
+        dec2.logs.forEach(l => addLog(`  ${l}`))
         setRangeCells(getCelulasAtaque(atacante.posicao.row, atacante.posicao.col, atacante.tipoAtaque, cols, rows, atacante.tipoAtaque === 'melee' ? 1 : atacante.pdf, obstaculos))
         setAttackCells([])
-        const callbackFinal = () => {
-          if (winnerRef.current) { finalizarTurnoIA(); return }
-          if (isMiss) {
-            adicionarBalao(alvo.id, 'MISS!', 'miss', alvo.posicao?.row, alvo.posicao?.col)
-            dispararJuice(alvo, { dano: 0, miss: true })
-            setAnimTimer(() => finalizarTurnoIA(), 1300)
-            return
-          }
-
-          const tipoDef = res.criticoDefensivo ? 'block'
-            : (defesaBonusRef.current > 0) ? 'magic'
-            : 'hit'
-          const bonusDef = defesaBonusRef.current
-          defesaBonusRef.current = 0
-
-          animarDefesa(alvo, atacante, tipoDef, () => {
-            if (res.criticoDefensivo) {
-              adicionarBalao(atacante.id, 'CRÍTICO DEF!', 'block', atacante.posicao?.row, atacante.posicao?.col)
-              dispararJuice(alvo, { dano: 0, bloqueio: true })
-            } else if (bonusDef > 0) {
-              const danoFinal = Math.max(1, (res.dano || 1) - bonusDef)
-              aplicarDano(alvo.id, danoFinal, atacante)
-              dispararJuice(alvo, { dano: 0, magic: true })
-            } else {
-              const danoFinal = Math.max(1, (res.dano || 1) - bonusDef)
-              aplicarDano(alvo.id, danoFinal, atacante)
-            }
-            const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
-            if (hpAtual <= 0) {
-              charsRef.current = charsRef.current.map(c => c.id === alvo.id ? { ...c, vivo: false } : c)
-              setCharacters(charsRef.current); tc.marcarMorto(alvo.id)
-              addLog(`💀 ${alvo.nome} foi derrotado!`)
-              setAnimTimer(() => { if (verificarVitoria()) return; finalizarTurnoIA() }, 1200)
-            } else setAnimTimer(() => finalizarTurnoIA(), 800)
-          })
-        }
-        const podeDefesa = alvo.time === 'jogador' && charsRef.current.find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
-        function iniciarAnimacaoAtaqueIA() {
+        const golpear = (poderDefesa) => {
           setAnimTimer(() => {
             setRangeCells([])
             setAttackCells([{ row: alvo.posicao.row, col: alvo.posicao.col }])
             setAnimTimer(() => {
               setRangeCells([]); setAttackCells([])
-              addLog(`  ${atacante.nome} ataca ${alvo.nome}!`)
-              dec2.logs.forEach(l => addLog(`  ${l}`))
-              if (atacante.tipoAtaque === 'melee') animarAtaqueMelee(atacante, alvo, res, callbackFinal)
-              else animarAtaqueProjetil(atacante, alvo, res, callbackFinal)
+              tc.registrarAcao(iaChar.id, TipoAcao.ATACAR)
+              executarGolpe(atacante, alvo, { poderAtaque, poderDefesa }, finalizarTurnoIA)
             }, 700)
           }, 1200)
         }
-        if (podeDefesa) {
-          if (onBannerIA) onBannerIA(atacante.nome)
-          const poderesDefesa = getPoderesPorId(
-            poderesEscolhidos[alvo.id] || alvo.poderesEscolhidos || []
-          ).filter(p => p.gatilho === 'defesa' && alvo.mp >= p.custoMP)
-          const opcoesDefesa = [
-            { rotulo: 'Sem poder', poderId: null, custoMP: 0, disponivel: true },
-            ...poderesDefesa.map(p => ({
-              rotulo: `${p.chaveI18n} (-${p.custoMP} MP)`,
-              poderId: p.id, custoMP: p.custoMP, disponivel: true,
-            })),
-          ]
-          setDefensePending({ alvo, atacante, faBruto: res.fa, opcoes: opcoesDefesa,
-            onResolve: (bonus) => {
-              defesaBonusRef.current = bonus
-              if (bonus > 0) {
-                charsRef.current = charsRef.current.map(c => c.id === alvo.id ? { ...c, mp: c.mp - 3 } : c)
-                setCharacters(charsRef.current); addLog(`🛡️ ${alvo.nome} usou Defesa+2! (-3 MP)`)
-              }
-              iniciarAnimacaoAtaqueIA()
-            },
+        if (onBannerIA) onBannerIA(atacante.nome)
+        const defesas = alvo.time === 'jogador' ? poderesDisponiveis(alvo, 'defesa', poderesEscolhidos[alvo.id]) : []
+        if (defesas.length) {
+          setDefensePending({
+            alvo, atacante, faBruto: null,
+            opcoes: [
+              { rotulo: 'Sem poder', poderId: null, custoMP: 0, disponivel: true },
+              ...defesas.map(p => ({ rotulo: `${p.chaveI18n} (-${p.custoMP} MP)`, poderId: p.id, custoMP: p.custoMP, disponivel: true })),
+            ],
+            onResolve: (poderId) => golpear(defesas.find(p => p.id === poderId) || null),
           })
-        } else { defesaBonusRef.current = 0; if (onBannerIA) onBannerIA(atacante.nome); iniciarAnimacaoAtaqueIA() }
+        } else golpear(alvo.time === 'jogador' ? null : melhorPoder(alvo, 'defesa', poderesEscolhidos[alvo.id]))
       } else {
         dec2.logs.forEach(l => addLog(`  ${l}`))
         setAnimTimer(finalizarTurnoIA, 500)

@@ -1,5 +1,5 @@
 import { distanciaHex, getCelulasAtaque, getVizinhos, encontrarCaminho } from '../../hexUtils'
-import { getCasasMovimento, getChanceAcerto, resolverAtaque } from '../../combat'
+import { getCasasMovimento } from '../../combat'
 import { getPoderesPorId } from '../../../data/poderes'
 
 function melhorPoderParaAtaque(personagem, poderesIds) {
@@ -84,15 +84,7 @@ export function acaoPersistente(personagem, inimigos, todosPersonagens, obstacul
   if (podeAtacarAlvo(personagem, alvo, cols, rows, obstaculos)) {
     const poder = melhorPoderParaAtaque(personagem, personagem.poderesEscolhidos)
     if (poder) logs.push(`⚡ ${personagem.nome} usa poder contra ${alvo.nome}!`)
-    const dist = distanciaHex(personagem.posicao, alvo.posicao)
-    const chance = getChanceAcerto(personagem.dex, alvo.agi)
-    const roll = Math.random()
-    const acertou = roll <= chance || personagem.dex > alvo.agi
-    if (acertou) {
-      const resultado = resolverAtaque(personagem, alvo, Math.ceil(dist))
-      return { tipo: 'atacar', detalhes: { alvo, resultado, distancia: Math.ceil(dist), miss: false }, logs }
-    }
-    return { tipo: 'atacar', detalhes: { alvo, resultado: null, distancia: Math.ceil(dist), miss: true }, logs }
+    return { tipo: 'atacar', detalhes: { alvo, poderId: poder?.id ?? null }, logs }
   }
 
   const passos = calcularPassos(personagem, alvo.posicao, todosPersonagens, obstaculos, cols, rows)

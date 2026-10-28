@@ -1,5 +1,5 @@
 import { distanciaHex, getCelulasAtaque, getVizinhos, encontrarCaminho } from '../../hexUtils'
-import { getCasasMovimento, getChanceAcerto, resolverAtaque } from '../../combat'
+import { getCasasMovimento } from '../../combat'
 
 function inimigoMaisProximo(personagem, inimigos) {
   let alvo = null, menorDist = Infinity
@@ -88,17 +88,8 @@ export function acaoFujona(personagem, inimigos, todosPersonagens, obstaculos, c
       logs.push(`🚶 ${personagem.nome} não tem alvo em alcance após fugir.`)
       return { tipo: 'finalizar', detalhes: {}, logs }
     }
-    const dist = distanciaHex(personagem.posicao, alvo.posicao)
-    const chance = getChanceAcerto(personagem.dex, alvo.agi)
-    const roll = Math.random()
-    const acertou = roll <= chance || personagem.dex > alvo.agi
-    if (acertou) {
-      const resultado = resolverAtaque(personagem, alvo, Math.ceil(dist))
-      logs.push(`🎯 ${personagem.nome} ataca ${alvo.nome} à distância após fugir.`)
-      return { tipo: 'atacar', detalhes: { alvo, resultado, distancia: Math.ceil(dist), miss: false }, logs }
-    }
-    logs.push(`🎯 ${personagem.nome} tenta atacar ${alvo.nome} mas erra.`)
-    return { tipo: 'atacar', detalhes: { alvo, resultado: null, distancia: Math.ceil(dist), miss: true }, logs }
+    logs.push(`🎯 ${personagem.nome} ataca ${alvo.nome} à distância após fugir.`)
+    return { tipo: 'atacar', detalhes: { alvo, poderId: null }, logs }
   }
 
   logs.push(`${personagem.nome} — fase desconhecida: ${fase}`)

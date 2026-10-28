@@ -88,7 +88,7 @@ O controle do turno é o módulo `engine/TurnController.js` (estado em variável
 
 ## 6. O combate
 
-Tela: `phases/Phase6CombatV2.jsx` (layout) + motor `engine/useCombatEngine.js` (toda a regra, ~845 linhas). Topo: de quem é a vez e botão ≡ do log; meio: canvas; abaixo: chips de HP/MP de cada vivo (toque abre `components/modals/CharModal.jsx` com os atributos); rodapé: botões de ação.
+Tela: `phases/Phase6CombatV2.jsx` (layout) + motor `engine/useCombatEngine.js` (turno, animação e aplicação; a regra do golpe mora em `engine/regras.js`). Topo: de quem é a vez e botão ≡ do log; meio: canvas; abaixo: chips de HP/MP de cada vivo (toque abre `components/modals/CharModal.jsx` com os atributos); rodapé: botões de ação.
 
 ### Turno do jogador
 
@@ -109,30 +109,31 @@ Tela: `phases/Phase6CombatV2.jsx` (layout) + motor `engine/useCombatEngine.js` (
 - **Redução por distância** (só ataque à distância, sobre o dano bruto): distância 2 → ×0,75; distância ≥ 3 → ×0,5 (`engine/combat.js:91-99`). Distância 1 = 100%.
 - **Crítico ofensivo** (d6 = 6): só libera a DEX inteira.
 - **Crítico defensivo** (d6 do defensor = 6): dano 0 e contra-ataque com FA/2 contra a FD do atacante (`engine/combat.js:75-86`, resolvido em `resolverContraAtaque`, `engine/combat.js:129-148`; dano mínimo 1, anulado se o atacante tirar 6).
-- **Ataque extra**: se AGI do atacante > 2 × AGI do defensor, golpe extra com FA/2 contra nova FD (`engine/combat.js:104-109`; aplicado em `engine/useCombatEngine.js:296-314`).
+- **Ataque extra**: se AGI do atacante > 2 × AGI do defensor, golpe extra com FA/2 contra nova FD (`engine/combat.js:104-109`; rolado em `engine/regras.js`).
 - **Chance de acerto** (`engine/combat.js:189-198`): 100% se DEX atacante > AGI defensor; senão 90% (AGI ≤2), 80%, 70%, 60%, 50%, 40%, 30% (AGI ≥8).
 
-### Assimetrias reais entre jogador e IA
+### Regra única do golpe (`engine/regras.js`)
 
-| Regra | Ataque do jogador | Ataque da IA |
-|---|---|---|
-| Chance de acerto (`getChanceAcerto`) | **não é rolada** — jogador sempre acerta | rolada (`engine/ai.js:48-50`, personalidades) |
-| Contra-ataque no crítico defensivo | aplicado | **não aplicado** (só mostra o balão) |
-| Ataque extra por AGI | aplicado | **ignorado** |
-| Prompt de poder defensivo | — | jogador alvo escolhe defender com poder |
-| Poder de ataque | aplicado | só aparece no log, nunca gasta MP nem soma bônus (`engine/ai/personalidades/sanguinaria.js`) |
+Jogador e IA passam pelo mesmo resolvedor, `resolverGolpe(atacante, alvo, { distancia, poderAtaque, poderDefesa })`. Ele é puro (sem React, sem animação) e devolve tudo já rolado: acerto, custo de MP de quem ataca e de quem defende, dano, contra-ataque e ataque extra. O motor (`engine/useCombatEngine.js`, `executarGolpe`) só paga o MP, anima e aplica; no fim, `aoTerminar` devolve o turno a quem bateu.
+
+- **Acerto:** sempre rolado, para os dois lados (`getChanceAcerto`). Errou = balão MISS, sem dano.
+- **Poder de ataque:** vale o poder escolhido. O jogador escolhe no modal; a IA escolhe pela personalidade (Sanguinária e Persistente pegam o mais forte que podem pagar, a Fujona ataca sem poder). Paga o `custoMP` do próprio poder e soma o bônus dele.
+- **Poder de defesa:** vale o poder escolhido, com o custo e o valor dele (`valorComparativo.fd`, tirado do dano). O jogador escolhe no modal quando é atacado; a IA defende com o melhor poder de defesa que pode pagar.
+- **Contra-ataque e ataque extra:** valem para os dois lados. Quem cai no contra-ataque também é marcado como derrotado.
+- **A IA só decide:** as personalidades (`engine/ai/personalidades/`) e `engine/ai.js` devolvem só o pedido — `{ tipo: 'andar' | 'atacar' | 'finalizar', detalhes: { alvo, poderId } }` — e nunca calculam dano.
+- O ataque da IA também passa pelo `TurnController` (`podeAgir`/`registrarAcao`), como o do jogador.
 
 ### Poderes (`data/poderes.js`, `engine/mecanicasPoder.js`)
 
 - 16 poderes: 3 base sem elemento (FOR+, PdF+, Defesa+) e 13 de amostra em 6 elementos (fogo, água, terra, ar, trevas, luz). Elementos são só filtro/etiqueta, sem efeito.
 - Campos: `gatilho` (`ataque`/`defesa`), `tipoPersonagem` (`forca`/`pdf`/`universal`), `custoMP` (3–5), `mecanicaId`, `params`, `valorComparativo` (pra ordenar), `visualId` (sempre null), `tipoExecucao` (sempre `instantaneo`), `turnosCarregamento` (sempre 0).
 - Mecânica 1 `bonusAtributo`: soma `bonus` (+2 ou +3) em FOR ou PdF só naquele ataque (`engine/mecanicasPoder.js:12-22`).
-- Mecânica 2 `defesaPrompt`: sem função; o efeito está chumbado na tela.
-- **Bugs de uso:** o ataque com poder usa o **primeiro** poder de ataque da lista, não o escolhido no modal (`engine/useCombatEngine.js:494-495`). A defesa com poder custa sempre 3 MP e reduz sempre 2 do dano, qualquer que seja o poder (Muralha diz FD 3, Labareda custa 5…) (`phases/Phase6CombatV2.jsx:563`, `:580`; `engine/useCombatEngine.js:743`, `:789`). O prompt só aparece se o alvo tem ≥ 3 MP.
+- Mecânica 2 `defesaPrompt`: o efeito vem do `valorComparativo.fd` do poder, aplicado em `resolverGolpe`.
+- O modal de defesa só aparece se o jogador alvo tem algum poder de defesa que consiga pagar.
 
 ### Efeitos de estado
 
-Não existem. Não há veneno, atordoamento, congelamento, queimadura, buff com duração nem nada que dure além de um golpe. A infraestrutura (`definirRestricao`, `agendarAcao`) existe sem uso.
+Não existem. Não há veneno, atordoamento, congelamento, queimadura, buff com duração nem nada que dure além de um golpe.
 
 ### IA (`engine/ai.js`, `engine/ai/personalidades/`)
 
@@ -174,17 +175,16 @@ Cada IA tem uma personalidade escolhida na ficha (`engine/ai/personalidades/inde
 
 ## 9. Lacunas de design para a batalha final
 
-1. **Igualdade de regras:** jogador e IA têm de passar pelo mesmo resolvedor de ataque (acerto, contra-ataque, ataque extra, poder, defesa). Hoje são dois caminhos diferentes.
-2. **Poderes de verdade:** escolher o poder certo, custo e efeito vindos do dado, área, alcance próprio, carregamento (`turnosCarregamento`), cura, empurrão, mobilidade. Hoje só há "+2/+3 no ataque" e "−2 no dano".
-3. **Elementos:** existem só como etiqueta. Falta decidir vantagem/fraqueza, resistência e o que o elemental muda na ficha.
-4. **Efeitos de estado:** nenhum. Decidir quais, duração e como aparecem.
-5. **Economia de MP:** MP = HP = RES × 10 e não regenera; só poção de +5. RES vira o atributo dominante (HP, MP e nº de poderes).
-6. **Balanceamento de atributos:** DEX vale 25% fora do crítico; ARM soma inteiro na FD; dano mínimo 1 sempre. Sem curva de pontos por nível, sem progressão.
-7. **Movimento:** AGI 1:1 sem teto pode cruzar o mapa; sem zona de controle, sem custo de terreno, sem ataque de oportunidade; mover e atacar em qualquer ordem.
-8. **Terreno:** obstáculos destrutíveis/móveis/armadilhas desenhados mas sem regra; não há cobertura nem altura.
-9. **Mapa:** é desenhado pelo jogador em cada partida. Falta mapa pronto, posições iniciais por mapa e a coerência de coordenadas (`gerarGrid` vs resto).
-10. **IA:** só escolhe alvo e anda; não usa poder, poção, cobertura nem coordena o time. Fujona foge só 1 casa.
-11. **Personagens:** não há elenco oficial (Kim/Jack/Nina são só nomes e cores); ficha é livre por orçamento. Decidir se a final usa personagens canônicos com kit fixo ou ficha montada.
-12. **Fim de partida:** sem limite de turno, sem recompensa, sem campanha, sem salvamento na conta (só `localStorage`, contra a regra de "sem save local de jogo").
-13. **Uma mão:** a seleção é por toque no canvas e painéis espalhados; conferir o mandamento de uso com o dedão (ações na metade de baixo).
-14. **Fluxo:** a tela de animações de debug está no caminho do jogador e a edição de mapa vem antes dos poderes; o fluxo final precisa ser redesenhado.
+1. **Poderes de verdade:** área, alcance próprio, carregamento (`turnosCarregamento`), cura, empurrão, mobilidade. Hoje só há "+2/+3 no ataque" e "−2/−3 no dano".
+2. **Elementos:** existem só como etiqueta. Falta decidir vantagem/fraqueza, resistência e o que o elemental muda na ficha.
+3. **Efeitos de estado:** nenhum. Decidir quais, duração e como aparecem.
+4. **Economia de MP:** MP = HP = RES × 10 e não regenera; só poção de +5. RES vira o atributo dominante (HP, MP e nº de poderes).
+5. **Balanceamento de atributos:** DEX vale 25% fora do crítico; ARM soma inteiro na FD; dano mínimo 1 sempre. Sem curva de pontos por nível, sem progressão.
+6. **Movimento:** AGI 1:1 sem teto pode cruzar o mapa; sem zona de controle, sem custo de terreno, sem ataque de oportunidade; mover e atacar em qualquer ordem.
+7. **Terreno:** obstáculos destrutíveis/móveis/armadilhas desenhados mas sem regra; não há cobertura nem altura.
+8. **Mapa:** é desenhado pelo jogador em cada partida. Falta mapa pronto, posições iniciais por mapa e a coerência de coordenadas (`gerarGrid` vs resto).
+9. **IA:** escolhe alvo, anda e escolhe poder; não usa poção, cobertura nem coordena o time. Fujona foge só 1 casa.
+10. **Personagens:** não há elenco oficial (Kim/Jack/Nina são só nomes e cores); ficha é livre por orçamento. Decidir se a final usa personagens canônicos com kit fixo ou ficha montada.
+11. **Fim de partida:** sem limite de turno, sem recompensa, sem campanha, sem salvamento na conta (só `localStorage`, contra a regra de "sem save local de jogo").
+12. **Uma mão:** a seleção é por toque no canvas e painéis espalhados; conferir o mandamento de uso com o dedão (ações na metade de baixo).
+13. **Fluxo:** a tela de animações de debug está no caminho do jogador e a edição de mapa vem antes dos poderes; o fluxo final precisa ser redesenhado.
