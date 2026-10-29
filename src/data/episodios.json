@@ -360,6 +360,36 @@
     "serie": "especial-de-natal"
   },
   {
+    "id": "especial-9",
+    "numero": 9,
+    "parte": 3,
+    "creator": true,
+    "especial": true,
+    "sempre_livre": true,
+    "titulo_pt": "Especial de Natal — Parte 3: Ano Novo",
+    "titulo_en": "Christmas Special — Part 3: New Year",
+    "titulo_es": "Especial de Navidad — Parte 3: Año Nuevo",
+    "publicado": true,
+    "data_publicacao": "2026-10-28",
+    "so_admin": true,
+    "liberacao": {
+      "elite": "2099-12-15",
+      "conta": "2099-12-30",
+      "publico": "2099-12-30"
+    },
+    "paginas": 52,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "especial-de-natal/03",
+    "serie": "especial-de-natal"
+  },
+  {
     "creator": false,
     "especial": true,
     "sempre_livre": false,
