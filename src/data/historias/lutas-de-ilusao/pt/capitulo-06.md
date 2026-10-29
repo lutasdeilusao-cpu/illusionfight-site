@@ -260,7 +260,7 @@ Quando a transmissão voltou, a poeira estava baixando.
 
 E no meio das ruínas tinha outra coisa.
 
-O cabelo agora era feito de filamento branco, como fibra ótica, liso até os ombros, cada fio pulsando um brilho negro-elétrico. As tatuagens tinham virado canais rituais fundos tomando o corpo inteiro, subindo pelo pescoço em geometria e descendo pelos braços como rio. Os símbolos Xikaxi, mais selvagens, pulsando embaixo da pele.
+O cabelo agora era feito de filamento branco, como fibra ótica, liso até os ombros, cada fio pulsando um brilho negro-elétrico. As tatuagens tinham virado canais rituais fundos tomando o corpo inteiro, subindo pelo pescoço em geometria e descendo pelos braços como rio. Os símbolos Xakaxi, mais selvagens, pulsando embaixo da pele.
 
 Um casaco de couro negro até os joelhos, cortado torto, aberto no peito, cheio de pena de corvo, osso de bicho e garra. Calça de couro com placa de osso nas laterais, símbolo gravado a fogo. Bota que parecia engolir a luz, atravessada por veia azul.
 

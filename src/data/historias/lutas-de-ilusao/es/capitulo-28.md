@@ -30,7 +30,7 @@ Kim estaba acorralado.
 
 Kim abrió las dos manos. Las hachitas aparecieron.
 
-— Xakixi. Chamán.
+— Xakaxi. Chamán.
 
 Juntó las dos frente al cuerpo y se convirtieron en el hacha de doble hoja.
 
@@ -112,7 +112,7 @@ La rodilla encontró la nariz de Shuntaro. El hueso cedió. La sangre bajó por 
 
 Kim soltó su cabeza. Shuntaro fue cayendo hacia atrás. Y Kim, aún en el aire, levantó la mano.
 
-— ¡Xakixi! ¡Chamán!
+— ¡Xakaxi! ¡Chamán!
 
 El hacha de doble hoja apareció en su mano.
 

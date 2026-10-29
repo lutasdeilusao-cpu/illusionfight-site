@@ -1,4 +1,4 @@
-# CAPÍTULO 16 — Xakixi, Xamã
+# CAPÍTULO 16 — Xakaxi, Xamã
 
 A luz que saiu das machadinhas não era luz.
 

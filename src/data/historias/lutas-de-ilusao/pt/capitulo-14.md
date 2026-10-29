@@ -152,9 +152,9 @@ Jack e Nina sorriram ao mesmo tempo.
 
 — Avatar é coisa muito pessoal. — Jack. — Eu te ensino, mas depois. Tem a sala Fashion, você entra quando quiser e troca quantas vezes quiser. Vai ser legal ver o que você vai montar. Agora não. A sala privada só libera duas horas por dia, então hoje é treino.
 
-— Segunda pergunta. Eu lembro que o Thunderbolt também tinha uma arma. Uma lança. Mas ele não usou contra mim. Você tem uma bengala. Ela tem uma espada. Dá pra usar arma nesse jogo?
+— Segunda pergunta. Você tem uma bengala. Ela tem uma espada. Dá pra usar arma nesse jogo?
 
-— Dá. — Nina. — Depende de cada jogador. O Thunderbolt usa aquela lança, mas naquela luta ele provavelmente achou que nem precisava, contra você. Arma no LDI é livre. É uma extensão do teu poder. Mas tem lutador por aí que prefere nem usar.
+— Dá. — Nina. — Depende de cada jogador. O Thunderbolt mesmo usa uma lança. Contra você, ele só puxou depois que você apagou. Não adiantou nada. Arma no LDI é livre. É uma extensão do teu poder. Mas tem lutador por aí que prefere nem usar.
 
 ---
 

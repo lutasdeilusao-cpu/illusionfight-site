@@ -92,7 +92,7 @@ Os três brindaram.
 
 Jack e Nina se olharam e riram. Eles gostavam daquela inocência dele.
 
-— Quem dera, cara. — Jack. — Se fosse só isso, os maiores lutadores do mundo seriam os campeões do LDI. Não são. Eu te venci hoje sem dar um soco. E com a Nina você sofreu. Calma. Não começa a se achar.
+— Quem dera, cara. — Jack. — Se fosse só isso, os maiores lutadores do mundo seriam os campeões do LDI. Não são. Eu te venci hoje com um ataque que nem encosta em você. E com a Nina você sofreu. Calma. Não começa a se achar.
 
 Kim pensou. Ele tinha razão.
 
@@ -124,7 +124,7 @@ Jack fez um sinal com a mão pra ela continuar. Nina continuou, porque todo mund
 
 Jack, que viu que aquele assunto ainda doía, entrou na frente.
 
-— E aí você dá nome. Eu tenho a minha Vitória. A Nina tem a Angel. Você tem a Xakixi. Nome bonito, inclusive. Quando você define o nome, a arma se liga em você. O LDI reconhece. Sempre que você pensar no nome ou falar o nome, ela aparece. E quando você chama, ela fica com você a partida inteira. A primeira transformação em Xamã tem que ser falada, em voz alta, pra ela aprender. Depois disso é só pensar.
+— E aí você dá nome. Eu tenho a minha Vitória. A Nina tem a Angel. Você tem a Xakaxi. Nome bonito, inclusive. Quando você define o nome, a arma se liga em você. O LDI reconhece. Sempre que você pensar no nome ou falar o nome, ela aparece. E quando você chama, ela fica com você a partida inteira. A primeira transformação em Xamã tem que ser falada, em voz alta, pra ela aprender. Depois disso é só pensar.
 
 — Ela lê o meu pensamento.
 

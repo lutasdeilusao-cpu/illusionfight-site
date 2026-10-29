@@ -106,7 +106,7 @@ E no meio da luz, começou a escurecer.
 
 Ele conhecia aquilo. Já tinha estado ali.
 
-Foi ali que o Guardião tinha falado com ele daquele jeito desconexo. *Não, não, não... não, sim, sim, sim, sim.*
+Foi ali que o Pajé tinha falado com ele daquele jeito desconexo. *Não, não, não... não, sim, sim, sim, sim.*
 
 O escuro sem chão. O som de água pingando num ritmo que não era aleatório, mas também não era música. Kim continuava com os braços levantados, na mesma posição de defesa, e virou a cabeça devagar.
 
@@ -186,7 +186,7 @@ No cinto, que ele não lembrava de ter, pendurada do lado esquerdo, outra machad
 
 E no cabo da que estava na mão dele, gravada no metal, uma palavra.
 
-*Xakixi.*
+*Xakaxi.*
 
 Kim lembrou do Jack deslizando a mão pela bengala. Da Nina puxando a espada da bainha. Do nome e da palavra que os dois tinham dito.
 
@@ -196,4 +196,4 @@ Estendeu o braço esquerdo pro lado. Ergueu o direito.
 
 Bateu uma lâmina na outra.
 
-— Xakixi. — Kim. — Xamã.
+— Xakaxi. — Kim. — Xamã.

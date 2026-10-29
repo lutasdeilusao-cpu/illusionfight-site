@@ -146,7 +146,7 @@ Antes de sair, foi até o quarto da mãe. A Helena estava dormindo, encolhida de
 
 Ele encostou no ombro dela de leve.
 
-— Dona Helena. Tô saindo, tá? Volto lá pelas quatro, cinco da manhã. Tudo bem?
+— Dona Helena. Tô saindo, tá? Volto lá pelas três da manhã. Tudo bem?
 
 Ela abriu os olhos devagar.
 

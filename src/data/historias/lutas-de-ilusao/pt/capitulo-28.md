@@ -30,7 +30,7 @@ O Kim estava encurralado.
 
 O Kim abriu as duas mãos. As machadinhas apareceram.
 
-— Xakixi. Xamã.
+— Xakaxi. Xamã.
 
 Juntou as duas na frente do corpo e elas viraram o machado de duas lâminas.
 
@@ -112,7 +112,7 @@ O joelho encontrou o nariz do Shuntaro. O osso cedeu. O sangue desceu pelo joelh
 
 O Kim soltou a cabeça dele. O Shuntaro foi caindo pra trás. E o Kim, ainda no ar, levantou a mão.
 
-— Xakixi! Xamã!
+— Xakaxi! Xamã!
 
 O machado de duas lâminas apareceu na mão dele.
 

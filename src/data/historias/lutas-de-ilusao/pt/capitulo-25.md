@@ -270,7 +270,7 @@ A segunda confusão foi do Jack. Eles revezavam. O Jack tinha outro jeito de res
 
 — Eu nunca tive uma noite tão tranquila. — Contando o dinheiro. — Eu pago vocês com gosto. Não sei o que vocês fizeram e não quero saber. Mas eu quero trabalhar com vocês de novo.
 
-Duzentos pra cada na mão.
+O resto na mão. Trezentos pra cada, contando o adiantado.
 
 Saíram na rua de terra com o frio da madrugada batendo no terno. Pegaram o ônibus caindo aos pedaços, depois o outro. O Jack dormiu no segundo quarteirão, a cabeça no vidro.
 
@@ -278,9 +278,9 @@ O Kim ficou acordado, o dinheiro no bolso, a cidade passando.
 
 ---
 
-O fim de semana foi tranquilo.
+O resto da semana foi tranquilo.
 
-O trio não se encontrou. Era a primeira semana calma desde que os três tinham se conhecido.
+O trio não se encontrou. Foram os primeiros dias calmos desde que os três tinham se conhecido.
 
 O Kim vendeu bala. O Jack arrumou um bico novo, depois outro. A Nina mandava mensagem no grupo de vez em quando, uma foto, um áudio reclamando do pai, uma pergunta sobre o machado que ninguém sabia responder.
 

@@ -1,293 +1,293 @@
 # CHAPTER 25 — Risca a Faca
 
-Kim chegou na calçada às sete e cinquenta e cinco.
+Kim reached the sidewalk at seven fifty-five.
 
-O Jack apareceu às sete e cinquenta e nove.
+Jack showed up at seven fifty-nine.
 
-O Kim sempre se irritava com os horários do Jack. Não porque ele chegava atrasado. Porque ele chegava em cima. Sempre em cima. Como se o relógio fosse uma sugestão que ele aceitava no último segundo.
+Kim always got irritated with Jack's timing. Not because he arrived late. Because he arrived right on the dot. Always right on the dot. As if the clock were a suggestion he accepted at the last second.
 
-E aí o Kim olhou o terno.
+And then Kim looked at the suit.
 
-Amarrotado. Inteiro. A gola torta, a manga com uma dobra que atravessava o cotovelo, a camisa por dentro da calça de um lado só.
+Wrinkled. All of it. Collar crooked, the sleeve with a crease running across the elbow, the shirt tucked in only on one side.
 
-O sangue do Kim ferveu um pouquinho.
+Kim's blood boiled a little.
 
-— Cara. Você me mandou passar o terno. E olha o estado disso. Não passou ferro, não?
+— Man. You told me to iron the suit. And look at the state of it. You didn't iron it, did you?
 
-O Jack bocejou.
+Jack yawned.
 
-— Para de se preocupar com detalhe. — Com sono de verdade. — Você leva tudo muito a sério, Kim.
+— Stop worrying about details. — Genuinely sleepy. — You take everything way too seriously, Kim.
 
-Foram andando pro ponto. O Kim olhando o Jack de cima a baixo e balançando a cabeça o caminho inteiro.
-
----
-
-Menor não pode trabalhar.
-
-É a lei de Bravara. Abaixo de uma certa idade, nada de carteira, nada de contrato, nada de emprego. A lei existe pra proteger criança, e a lei nunca perguntou pra criança nenhuma como ela ia comer.
-
-Então quem precisava se virava. Uns entravam no crime. Outros vendiam coisa no ônibus, faziam bico, ofereciam serviço. E tinha os lugares de reputação ruim, que não conseguiam contratar adulto direito, e que aceitavam o risco de pôr pra trabalhar quem a lei não deixava.
-
-O Kim e o Jack eram desses.
-
-Ganhavam menos que um segurança de verdade. Uma parte do pagamento ia embora pra cobrir o risco da casa. Mas pro Jack, ganhar menos era muito melhor do que não ganhar nada.
-
-Desceram do primeiro ônibus num bairro mais pobre que o deles. Pegaram um segundo, um ônibus caindo aos pedaços, com o banco de trás amarrado com arame, que levava pra um lugar ainda pior.
-
-Pela janela, as casas iam virando ruína. Muro sem reboco. Telhado sem telha. Rua sem asfalto. E mesmo assim tinha dinheiro rodando. Dava pra ver. Carro bom parado em porta de barraco. Moto nova. Gente na esquina que não estava ali à toa. O dinheiro daquele lugar vinha de coisa que o governo dizia que não deixava. E fingia que não via, por causa dos acordos com os empresários da região.
-
-O Jack cutucou o braço do Kim.
-
-— O nome do lugar é Risca a Faca.
-
-O Kim estalou o pescoço, olhando pela janela.
-
-— Risca a Faca. — Repetiu. — Se prepara. Hoje vai valer cada centavo.
-
-— Calma. Pensamento positivo. Vai que dá tudo certo e nada dá errado.
-
-— Você tá sendo redundante. Se deu tudo certo, é porque nada deu errado.
-
-— Você vai reclamar a noite inteira? Se continuar assim, vai ser uma noite péssima.
-
-— Eu só tô avisando. — O Kim. — Mas quer saber? Eu só quero uma coisa. Ver a grana antes.
-
-O Jack pensou.
-
-— É. Nisso você tem razão. Grana antes.
+They walked to the bus stop. Kim looking Jack up and down and shaking his head the whole way.
 
 ---
 
-Desceram numa rua de terra.
+Minors can't work.
 
-Na esquina, uma moça encostada num poste esperava cliente. Mais pra frente, dois caras trocavam alguma coisa com a mão fechada. Um carro passou devagar com o som alto demais. E no meio daquilo, o Kim e o Jack, de terno e gravata, andando como se fossem pra um casamento.
+It's Bravara law. Below a certain age, no work permit, no contract, no job. The law exists to protect children, and the law never asked any child how they were supposed to eat.
 
-A balada era um galpão com uma porta de ferro e uma placa de neon com metade das letras queimadas.
+So those who needed to made do. Some went into crime. Others sold stuff on the bus, did side gigs, offered services. And there were the places with bad reputations that couldn't hire adults properly, and that accepted the risk of putting to work those the law wouldn't allow.
 
-Na porta, um homem grande. Muito grande. Ele viu os dois chegando e abriu um sorriso.
+Kim and Jack were those kinds.
 
-— Então vocês vieram mesmo. — Abrindo os braços. — Eu jurava que não iam aparecer. Ainda bem. Eu já tava quase fazendo a porta sozinho.
+They made less than a real security guard. Part of the pay went to cover the house's risk. But for Jack, making less was a lot better than making nothing.
 
-— Eu falei que vinha. — Jack. — Palavra de homem. Só tem uma coisa. Você vai ter que pagar antes.
+They got off the first bus in a neighborhood poorer than theirs. They caught a second, a bus falling to pieces, with the back seat tied up with wire, that went to an even worse place.
 
-O homem grande fechou a cara.
+Through the window, the houses turned into ruins. Walls without plaster. Roofs without tiles. Streets without asphalt. And even so there was money moving around. You could see it. Nice cars parked in front of shacks. New motorcycles. People on corners who weren't there for no reason. The money in that place came from things the government said it didn't allow. And pretended not to see, because of deals with the region's businessmen.
 
-— Não foi isso que a gente combinou. Por que mudar agora?
+Jack poked Kim's arm.
 
-— O meu amigo aqui é meio reclamão, tá ligado? — Jack apontando o Kim com o polegar. — Tá desconfiado. Se você paga agora, todo mundo fica tranquilo.
+— The name of the place is Risca a Faca.
 
-— Quem vai ficar desconfiado sou eu. E se eu pago e vocês somem antes de acabar? Não vai rolar.
+Kim cracked his neck, looking out the window.
 
-O Jack deu de ombros.
+— Risca a Faca. — He repeated. — Get ready. Today it's going to be worth every cent.
 
-— Então tá. Falou. Se você não quer, tem quem queira. Eu não vou mendigar por duzentos. Vamos, Kim. Vamos tomar uma cerveja.
+— Calm down. Positive thinking. Maybe everything goes right and nothing goes wrong.
 
-E virou as costas.
+— You're being redundant. If everything went right, it's because nothing went wrong.
 
-O homem grande ficou olhando os dois indo embora pela rua de terra. Olhou pra porta da balada. Olhou pra fila que já estava começando a se formar. Fez a conta de quantas brigas ia ter que separar sozinho naquela noite.
+— You're going to complain all night? If you keep this up, it's going to be an awful night.
 
-— Calma, amigo! — Indo atrás. — Nem vão negociar? Vamos fazer assim: metade agora, metade na saída. Que tal?
+— I'm just warning you. — Kim. — But you know what? I only want one thing. To see the money first.
 
-O Jack virou devagar.
+Jack thought.
 
-— Tá. Aceito. Mas agora o preço subiu. Trezentos pra ficar até as duas.
-
-— Você é difícil, hein? — O homem grande passou a mão na cabeça. — Mas eu tô sem opção. Se fizerem trabalho bom, a gente acerta. Cem agora. Duzentos na saída.
-
-O Jack olhou pro Kim.
-
-O Kim não falou nada. Só olhou de volta. E o olhar dizia tudo: *tá bom, Jack. Deu bom. Pode fechar.*
-
-O Jack virou pro homem grande e estendeu a mão.
-
-— Fechado. Temos um acordo.
-
-O homem grande apertou a mão dele, deu os cem pro Jack, entrou na balada sorrindo e foi direto pra sala dele no fundo. Não ia precisar ficar na porta. Não ia precisar separar briga. Ele nunca tinha visto aqueles dois trabalhando. Mas tinha ouvido falar.
+— Yeah. You're right about that. Money first.
 
 ---
 
-A noite começou calma.
+They got off on a dirt street.
 
-O Jack ficou na porta. Lista de nome, revista, quem entra, quem não entra. Uma vez ou outra ele achava uma arma na revista. Ali, aquilo era mais formalidade do que segurança. Eles não tinham autorização pra tirar arma de ninguém nem pra guardar. Só conferiam e deixavam passar.
+On the corner, a girl leaning against a light pole was waiting for a client. Further ahead, two guys exchanged something with closed fists. A car drove by slowly with the music way too loud. And in the middle of that, Kim and Jack, in suits and ties, walking like they were going to a wedding.
 
-O Jack era bom naquilo. Falava com todo mundo. Resolvia problema antes de virar problema. Fazia piada com quem estava nervoso. E toda vez que chegava uma mulher sozinha, ele dava um jeito de flertar.
+The club was a warehouse with an iron door and a neon sign with half the letters burned out.
 
-No fim da noite, ele tinha alguns números de telefone no celular.
+At the door, a big man. Very big. He saw the two arriving and broke into a smile.
 
-Um deles ia trazer muito mais problema do que solução. Mas isso é assunto pra depois.
+— So you really came. — Spreading his arms. — I swore you wouldn't show. Good thing. I was almost working the door by myself.
 
-Pro Kim, era mais difícil.
+— I told you I'd come. — Jack. — Word of a man. Just one thing. You'll have to pay upfront.
 
-O Kim falava bem com o Jack. Com o resto do mundo, não sabia. Não gostava de conversar com gente que não conhecia. Talvez nem soubesse como. E isso incomodava ele de um jeito que ele não falava.
+The big man scowled.
 
-Então ele ficava do lado do Jack, de braço cruzado, olhando a fila. E foi ali que ele contou.
+— That's not what we agreed. Why change now?
 
-A volta pra casa. A casa arrumada. O almoço sem sal. A série.
+— My friend here is kind of a complainer, you know? — Jack pointing at Kim with his thumb. — He's suspicious. If you pay now, everybody stays calm.
 
-O Jack parou de revistar um cara no meio da revista.
+— The suspicious one will be me. What if I pay and you disappear before it's over? That's not happening.
 
-— Peraí. Você assistiu uma série?
+Jack shrugged.
 
-— Assisti.
+— Then fine. That's it. If you don't want to, someone else will. I'm not going to beg for two hundred. Come on, Kim. Let's go have a beer.
 
-— Você. Kim. Assistiu uma série. Com a sua mãe.
+And he turned his back.
 
-— Um episódio.
+The big man stood watching the two walk away down the dirt street. He looked at the club door. He looked at the line already starting to form. He did the math on how many fights he'd have to break up alone that night.
 
-— Qual?
+— Hold on, friend! — Going after them. — You're not even going to negotiate? Let's do this: half now, half at the end. How about that?
 
-— La Casa do Dinheiro.
+Jack turned slowly.
 
-O Jack largou o cara da revista e ficou olhando o amigo com a boca aberta.
+— Okay. I accept. But now the price went up. Three hundred to stay until two.
 
-— Cara. É uma das minhas séries preferidas. Eu falo dessa série faz dois anos. Dois anos, Kim. E você nunca quis saber.
+— You're a hard one, huh? — The big man ran a hand over his head. — But I'm out of options. If you do good work, we'll settle up. A hundred now. Two hundred at the end.
 
-— Agora eu quero.
+Jack looked at Kim.
 
-O Jack ficou com aquilo. Era a primeira vez em cinco anos que o Kim falava de começar uma série. O Kim, empolgado, contou o primeiro episódio inteiro, o professor, o plano, a parte que ele achou mais inteligente. O Jack ouviu com o sorriso de quem está descobrindo uma coisa nova sobre uma pessoa que ele achava que conhecia inteira.
+Kim didn't say anything. Just looked back. And the look said everything: *it's good, Jack. It worked out. Close the deal.*
 
-O LDI. Agora a série. Coisa em comum que eles nunca tinham tido.
+Jack turned to the big man and held out his hand.
 
----
+— Deal. We have an agreement.
 
-— E aquele índio? — Jack, aproveitando o embalo, enquanto o movimento da porta acalmava. — Já descobriu quem é? Por que ele aparece pra você nas lutas?
-
-— Não sei. — O Kim. — É a segunda vez. E sempre lá dentro. Nunca aqui fora.
-
-— Muito estranho. Eu nunca vi ninguém falar disso. E eu tô em tudo que é fórum. Tem gente que acha que o LDI é uma ferramenta de controle mental pra dominar o mundo. Tem gente que acha que o David Kronos é alienígena disfarçado de gente. Tem gente que acha que o jogo foi feito por um espírito do mal pra humanidade se destruir sozinha.
-
-O Kim riu.
-
-Pra ele aquilo era piada. Fórum era lugar de gente sem nada pra fazer.
-
-Mas uma pontinha de alguma coisa passou pela cabeça dele. Ele estava vendo coisa estranha desde que entrou naquele jogo. Um velho de chapéu de penas falando gíria. Um poder com nome em letra que ninguém lia. Alguém atrás dele.
-
-O índio era estranho. Mas não era bizarro igual às teorias do Jack.
-
-*Ainda.*
-
-Voltou a olhar a fila.
+The big man shook his hand, gave the hundred to Jack, walked into the club smiling and went straight to his room in the back. He wouldn't have to work the door. He wouldn't have to break up fights. He'd never seen those two work. But he'd heard about them.
 
 ---
 
-A primeira confusão veio perto da meia-noite.
+The night started calm.
 
-O Kim e o Jack se olharam ao mesmo tempo. O Jack ficou na porta. O Kim entrou.
+Jack stayed at the door. Name list, pat-down, who gets in, who doesn't. Every once in a while he found a weapon during the pat-down. There, it was more formality than security. They didn't have authorization to take anyone's weapon or hold it. They just checked and let them through.
 
-Lá dentro, a balada era fumaça e grave e luz vermelha. O Kim foi tirando o paletó enquanto andava, dobrou ele no braço, procurando onde estava a roda. Achou fácil. Onde tem briga, tem gente fazendo roda.
+Jack was good at that. He talked to everyone. He solved problems before they became problems. He joked with anyone who was nervous. And every time a woman came alone, he found a way to flirt.
 
-No meio, seis homens. Grandes, altos, bêbados, dois de cada lado segurando os que estavam na frente.
+By the end of the night, he had a few phone numbers in his cell phone.
 
-— Você tá louco de mexer com a minha mulher? — O primeiro, sendo segurado. — Eu vou te matar!
+One of them would bring a lot more problem than solution. But that's a matter for later.
 
-— Que foi, covarde? Ela que veio dar em cima de mim! Pode vir, que eu acabo com você!
+For Kim, it was harder.
 
-O Kim entrou no meio da roda.
+Kim talked fine with Jack. With the rest of the world, he didn't know how. He didn't like talking to people he didn't know. Maybe he didn't even know how. And that bothered him in a way he didn't say.
 
-— É o seguinte. — Com as mãos no bolso. — Eu não sei qual é o problema. Mas se vocês querem resolver alguma coisa, resolvam lá fora. Quem encostar a mão em alguém aqui dentro vai apanhar. E não vai ser um só. Vai ser todo mundo. Então, se ninguém quer apanhar, é melhor resolver lá fora.
+So he stayed next to Jack, arms crossed, watching the line. And it was there that he told him.
 
-E aí aconteceu o que sempre acontecia.
+Going home. The tidy house. The unsalted lunch. The show.
 
-A raiva toda mudou de direção. Os seis esqueceram por que estavam brigando e olharam pro Kim.
+Jack stopped patting down a guy in the middle of the search.
 
-O primeiro se soltou dos amigos e chegou perto. Era bem mais alto que o Kim. O bafo de álcool chegou antes dele.
+— Hold up. You watched a series?
 
-— Você é muito folgado, baixinho. Quantos anos você tem? A sua mãe deixa você sair de casa essa hora?
+— I did.
 
-— É o seguinte. — O Kim. — Eu não vou ficar de conversa. Em consideração à casa, eu tô pedindo pra você se afastar, voltar pro seu lugar e curtir a noite. Agora, se é confusão que você quer, vai lá pra fora.
+— You. Kim. Watched a series. With your mom.
 
-— E se eu não quiser?
+— One episode.
 
-— Se você não fizer nada idiota, fica tudo bem. Se fizer, eu não garanto a sua segurança.
+— Which one?
 
-O homem colocou a mão no ombro do Kim.
+— Money Heist.
 
-O Kim olhou pra mão. Depois pra ele.
+Jack let go of the guy in the search and stared at his friend open-mouthed.
 
-O homem chegou o rosto perto.
+— Man. That's one of my favorite shows. I've been talking about that show for two years. Two years, Kim. And you never wanted to know.
 
-— É melhor você ficar no seu canto. Aquele ali mexeu com a minha namorada e ele vai apanhar. Eu não quero bater em criança hoje. Se você ficar quieto, quem sabe você não apanha também.
+— Now I do.
 
-O Kim abriu meio sorriso.
+Jack sat with that. It was the first time in five years Kim had talked about starting a series. Kim, excited, told the whole first episode, the professor, the plan, the part he thought was smartest. Jack listened with the smile of someone discovering something new about a person he thought he knew completely.
 
-— É melhor tirar essa mão do meu ombro. Pro seu próprio bem.
-
-O homem riu. Virou o rosto pros amigos pra ver se eles tinham ouvido aquilo. Eles tinham. Estavam rindo também.
-
-Quando ele virou de volta, a mão dele estava doendo.
-
-O Kim tinha pegado a mão dele do ombro, rápido, e estava torcendo. Não o pulso. Os dedos. Só os dedos. O homem gritou. Os amigos dele deram um passo à frente.
-
-O Kim levantou a outra mão. Os amigos pararam.
-
-— Amigo. Vamos ficar sossegados. Volta pra sua noite e não me arruma mais problema. Por favor.
-
-Soltou.
-
-O homem ficou vermelho. Armou o soco. Um soco grande, de quem quer acertar a cara inteira.
-
-O Kim viu o soco vindo e fez uma coisa que nenhum dos seis entendeu.
-
-Chegou mais perto.
-
-Encurtou a distância até o rosto dele ficar quase colado na mão do homem. E deixou o soco chegar. De perto. Sem espaço pra pegar força.
-
-O punho bateu no meio do rosto do Kim.
-
-— Eu não queria fazer isso. — O homem, com o punho ainda ali. — Mas você não me deixou opção. Quem mandou mexer comigo?
-
-E aí ele olhou.
-
-O punho dele estava no meio da cara do Kim. E os olhos do Kim estavam abertos. Bem abertos. Olhando pra ele.
-
-— Agora tá satisfeito? — O Kim, calmo. — Tamo quite. Eu te machuquei. Você me bateu. Tá resolvido. Volta pro seu lugar e curte a noite como se nada tivesse acontecido.
-
-O homem ficou parado.
-
-Ele não entendia. O soco tinha entrado. O garoto não tinha mexido a cabeça. Não tinha nem piscado.
-
-— Tá. — Com nojo, recolhendo a mão. — Tá bom. Cansei de você. Vou voltar pro meu lugar.
-
-E voltou.
-
-O Kim foi até o outro grupo.
-
-— E os senhores? Podem voltar pros seus lugares e continuar a noite sem mais problema?
-
-Os três tinham assistido tudo. Fizeram que sim com a cabeça e foram embora sem falar nada.
-
-O Kim vestiu o paletó de novo e voltou pra porta.
+LDI. Now the series. Common ground they'd never had.
 
 ---
 
-O Jack olhou o Kim chegando e nem perguntou.
+— And that Indian? — Jack, riding the moment, while the traffic at the door slowed. — Did you find out who he is? Why does he appear to you in the fights?
 
-Ele sabia. O Kim levava aquele trabalho a sério. Sempre que dava, ele evitava briga. E se uma briga acontecia, era porque não tinha outro jeito.
+— I don't know. — Kim. — It's the second time. And always in there. Never out here.
 
-A segunda confusão foi do Jack. Eles revezavam. O Jack tinha outro jeito de resolver. Mais conversa. Mais piada. Às vezes uma cortesia, uma bebida por conta da casa, um "deixa que eu falo com ela". Era importante que eles fossem vistos como quem resolve problema. Não como quem arruma problema. Era assim que chamavam eles de novo.
+— Very weird. I've never seen anyone talk about that. And I'm on every forum. There are people who think LDI is a mind control tool to take over the world. There are people who think David Kronos is an alien disguised as a human. There are people who think the game was made by an evil spirit for humanity to destroy itself.
 
-Às duas da manhã, o homem grande apareceu na porta.
+Kim laughed.
 
-— Eu nunca tive uma noite tão tranquila. — Contando o dinheiro. — Eu pago vocês com gosto. Não sei o que vocês fizeram e não quero saber. Mas eu quero trabalhar com vocês de novo.
+To him that was a joke. Forums were a place for people with nothing to do.
 
-Duzentos pra cada na mão.
+But a little sliver of something crossed his mind. He'd been seeing weird things since he entered that game. An old man in a feather hat speaking slang. A power with a name in letters no one could read. Someone behind him.
 
-Saíram na rua de terra com o frio da madrugada batendo no terno. Pegaram o ônibus caindo aos pedaços, depois o outro. O Jack dormiu no segundo quarteirão, a cabeça no vidro.
+The Indian was strange. But it wasn't as bizarre as Jack's theories.
 
-O Kim ficou acordado, o dinheiro no bolso, a cidade passando.
+*Yet.*
+
+He went back to looking at the line.
 
 ---
 
-O fim de semana foi tranquilo.
+The first trouble came near midnight.
 
-O trio não se encontrou. Era a primeira semana calma desde que os três tinham se conhecido.
+Kim and Jack looked at each other at the same time. Jack stayed at the door. Kim went in.
 
-O Kim vendeu bala. O Jack arrumou um bico novo, depois outro. A Nina mandava mensagem no grupo de vez em quando, uma foto, um áudio reclamando do pai, uma pergunta sobre o machado que ninguém sabia responder.
+Inside, the club was smoke and bass and red light. Kim took off his suit jacket as he walked, folded it over his arm, looking for where the circle was. He found it easily. Where there's a fight, people form a circle.
 
-Tudo parecia calmo.
+In the middle, six men. Big, tall, drunk, two on each side holding back the ones in front.
 
-Calmo demais, o Kim pensou no domingo à noite, deitado olhando o teto, ouvindo a Helena rir sozinha de alguma coisa na televisão lá embaixo.
+— Are you crazy messing with my woman? — The first one, being held back. — I'm going to kill you!
 
-Tudo parecia tranquilo.
+— What's up, coward? She's the one who came onto me! Come on, I'll finish you!
 
-Até uma segunda-feira.
+Kim stepped into the middle of the circle.
+
+— Here's the deal. — With his hands in his pockets. — I don't know what the problem is. But if you want to settle something, settle it outside. Anyone who lays a hand on someone in here is going to get beaten. And it won't be just one. It'll be everyone. So if nobody wants to get beaten, it's better to settle it outside.
+
+And then what always happened happened.
+
+All the anger changed direction. The six forgot why they were fighting and looked at Kim.
+
+The first one shook off his friends and got close. He was a lot taller than Kim. The alcohol breath reached him first.
+
+— You're pretty cocky, shorty. How old are you? Your mom let you out of the house at this hour?
+
+— Here's the thing. — Kim. — I'm not going to stand around talking. Out of consideration for the house, I'm asking you to back off, go back to your spot and enjoy the night. Now, if it's trouble you want, take it outside.
+
+— And if I don't want to?
+
+— If you don't do anything stupid, everything's fine. If you do, I can't guarantee your safety.
+
+The man put his hand on Kim's shoulder.
+
+Kim looked at the hand. Then at him.
+
+The man brought his face close.
+
+— You better stay in your corner. That guy over there messed with my girlfriend and he's going to get beaten. I don't want to hit a kid today. If you stay quiet, maybe you won't get beaten too.
+
+Kim cracked a half-smile.
+
+— Better take that hand off my shoulder. For your own good.
+
+The man laughed. He turned his face to his friends to see if they'd heard that. They had. They were laughing too.
+
+When he turned back, his hand was hurting.
+
+Kim had grabbed his hand off his shoulder, fast, and was twisting it. Not the wrist. The fingers. Just the fingers. The man screamed. His friends stepped forward.
+
+Kim raised the other hand. The friends stopped.
+
+— Friend. Let's stay calm. Go back to your night and don't cause me any more trouble. Please.
+
+He let go.
+
+The man turned red. He wound up a punch. A big punch, the kind meant to hit the whole face.
+
+Kim saw the punch coming and did something none of the six understood.
+
+He moved closer.
+
+He shortened the distance until his face was almost pressed against the man's hand. And he let the punch land. Up close. Without space to build force.
+
+The fist hit the middle of Kim's face.
+
+— I didn't want to do this. — The man, his fist still there. — But you gave me no choice. Who told you to mess with me?
+
+And then he looked.
+
+His fist was in the middle of Kim's face. And Kim's eyes were open. Wide open. Looking at him.
+
+— Now are you satisfied? — Kim, calm. — We're even. I hurt you. You hit me. It's settled. Go back to your spot and enjoy the night as if nothing happened.
+
+The man stood still.
+
+He didn't understand. The punch had landed. The kid hadn't moved his head. He hadn't even blinked.
+
+— Okay. — With disgust, pulling his hand back. — Fine. I'm done with you. I'm going back to my spot.
+
+And he went back.
+
+Kim went to the other group.
+
+— And you gentlemen? Can you go back to your spots and continue the night with no more trouble?
+
+The three had watched everything. They nodded yes and left without saying a word.
+
+Kim put his suit jacket back on and went back to the door.
+
+---
+
+Jack watched Kim coming and didn't even ask.
+
+He knew. Kim took that job seriously. Whenever he could, he avoided fights. And if a fight happened, it was because there was no other way.
+
+The second trouble was Jack's. They took turns. Jack had another way of resolving things. More talking. More joking. Sometimes a courtesy, a drink on the house, a "let me talk to her." It was important that they be seen as the ones who solve problems. Not as the ones who cause problems. That was how they got called back.
+
+At two in the morning, the big man appeared at the door.
+
+— I've never had such a calm night. — Counting the money. — I'm happy to pay you. I don't know what you did and I don't want to know. But I want to work with you again.
+
+The rest in hand. Three hundred each, counting the advance.
+
+They went out onto the dirt street with the early morning cold hitting their suits. They caught the falling-apart bus, then the other. Jack fell asleep within two blocks, his head against the glass.
+
+Kim stayed awake, the money in his pocket, the city passing by.
+
+---
+
+The rest of the week was quiet.
+
+The trio didn't meet up. They were the first calm days since the three had met.
+
+Kim sold candy. Jack got a new side gig, then another. Nina sent messages in the group every now and then, a photo, a voice note complaining about her dad, a question about the ax that nobody knew how to answer.
+
+Everything seemed calm.
+
+Too calm, Kim thought on Sunday night, lying looking at the ceiling, hearing Helena laugh by herself at something on TV downstairs.
+
+Everything seemed peaceful.
+
+Until a Monday.

@@ -74,7 +74,7 @@ E uma ilha pequena de outra cor no meio dele. O rei de coroa. A garota de capa.
 
 O Shuntaro não se mexeu. Ficou olhando pro Kim.
 
-— Você foi impressionante na sua primeira luta. — Ele. — Chegou em mil duzentos e um. E caiu. Tá em mil quatrocentos e vinte e três. Porque não lutou mais nenhuma vez. Isso mostra que você não leva esse jogo a sério como devia. — Ele girou o ioiô. — Se você quer chegar lá em cima, nos torneios, eu te aconselho. Não como adversário. Como amigo. Leva o LDI a sério.
+— Você foi impressionante na sua primeira luta. — Ele. — Chegou em mil duzentos e um. E caiu. Tá em mil quatrocentos e vinte e três. Porque não lutou mais nenhuma vez, e o ranking anda todo dia. Isso mostra que você não leva esse jogo a sério como devia. — Ele girou o ioiô. — Se você quer chegar lá em cima, nos torneios, eu te aconselho. Não como adversário. Como amigo. Leva o LDI a sério.
 
 O Kim torceu os pulsos. Estalou os dedos. Estalou o pescoço.
 

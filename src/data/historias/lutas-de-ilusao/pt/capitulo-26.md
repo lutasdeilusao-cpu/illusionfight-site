@@ -18,7 +18,7 @@ O Kim e o Jack se olharam.
 
 — Não faço ideia. — Nina. — Mas parece que tem alguém importante lá fora. Será que é problema pra vocês?
 
-— Acho que não. — Kim. — A gente teve uma semana tranquila. Não fizemos nada. Deve ser outra coisa.
+— Acho que não. — Kim. — A gente teve uns dias tranquilos. Não fizemos nada. Deve ser outra coisa.
 
 Foram saindo pelo corredor, tentando desviar da multidão que se juntava na porta da frente, pra pegar outro caminho até o canto preferido deles.
 
@@ -78,7 +78,7 @@ O Jack teve outra crise.
 
 O Kim deu de ombros.
 
-Fazia um tempo desde a última luta dele de LDI. Ele se virou pros dois.
+Fazia uns dias desde a luta do Thunderbolt. Ele se virou pros dois.
 
 — E aí? O que vocês acham? Eu não tô entendendo direito o que tá acontecendo. Mas pelo jeito esse cara quer brigar. E vocês sabem que eu não fujo de briga.
 

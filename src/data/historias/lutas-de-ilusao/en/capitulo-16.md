@@ -1,253 +1,253 @@
-# CHAPTER 16 — Xakixi, Shaman
+# CHAPTER 16 — Xakaxi, Shaman
 
-A luz que saiu das machadinhas não era luz.
+The light that came out of the hatchets wasn't light.
 
-Era um brilho negro. Jack e Nina viram aquilo do outro lado da sala, uma coisa que brilhava sem iluminar, e quando acabou as duas machadinhas não estavam mais nas mãos de Kim.
+It was a black glow. Jack and Nina saw it from across the room, a thing that glowed without illuminating, and when it ended the two hatchets were no longer in Kim's hands.
 
-Estava um machado.
+There was an ax.
 
-Duas lâminas, uma de cada lado. Nada gigante. Entre um metro e dez e um metro e vinte. Leve o bastante pra ele segurar com uma mão só.
+Two blades, one on each side. Nothing giant. Between a meter ten and a meter twenty. Light enough for him to hold with one hand.
 
-Kim passou o machado pra mão direita. A roldana desceu pelo cabo e encaixou embaixo dos dedos, com o fio de aço preso no fim do cabo, exatamente como nas machadinhas.
+Kim switched the ax to his right hand. The ring slid down the handle and seated under his fingers, with the steel wire attached to the end of the handle, exactly like on the hatchets.
 
-Ele apoiou o machado no ombro, atrás da cabeça.
+He rested the ax on his shoulder, behind his head.
 
-— É, galera. — Com um sorriso que Jack conhecia de briga de rua. — Parece que o pai tá on. Vamos começar?
+— Yeah, folks. — With a smile Jack knew from street fights. — Looks like the old man's on. Let's get started?
 
-Jack olhou pra Nina com a cara de quem acabou de ver o próprio carro sendo rebocado.
+Jack looked at Nina with the face of someone who'd just watched his own car get towed.
 
-— Ele já sabe transformar. Ele nem começou e já sabe transformar.
+— He already knows how to transform. He hasn't even started and he already knows how to transform.
 
-— Jack. — Nina, séria. — Se a gente não trabalhar junto direito, a gente perde aqui.
+— Jack. — Nina, serious. — If we don't work together right, we lose here.
 
-— Você acha que eu não sei, menina? Você viu o que o moleque acabou de fazer.
+— You think I don't know, girl? You saw what the kid just did.
 
-— Então o quê?
+— So what?
 
-— Investida rápida. — Jack ajustando o que sobrou da cartola. — Antes que ele se acostume com essa coisa.
+— Quick rush. — Jack adjusting what was left of his top hat. — Before he gets used to that thing.
 
-Nina assentiu.
+Nina nodded.
 
-Os dois vieram juntos, quase lado a lado.
-
----
-
-Kim viu os dois vindo e fez a coisa mais óbvia que existia.
-
-Girou o braço e arremessou o machado.
-
-O machado foi girando no ar direto no meio dos dois. Jack e Nina se olharam com a cara de quem viu um amador fazer a jogada mais previsível do mundo, abriram espaço um pro outro, e o machado passou rasgando no vão entre os dois sem tocar ninguém.
-
-Nina viu a abertura. Kim ainda estava com o corpo preso no fim do arremesso, o braço esticado, o peso todo pra frente.
-
-Ela puxou a Angel.
-
-— Expandir!
-
-A lâmina saiu em gomos, serpenteando rápido na direção dele.
-
-Nina não viu o fio.
-
-Não tinha como ver. Era um fio de aço fino como cabelo, saindo da mão de Kim, atravessando a sala na altura da cintura dela, indo até o machado que já estava atrás dos dois.
-
-Quando ela entendeu, já tinha entendido tarde.
-
-— NÃAAAO—
+The two came together, almost side by side.
 
 ---
 
-Nina sentiu um impacto nas costas.
+Kim saw the two coming and did the most obvious thing there was.
 
-Depois sentiu que estava leve.
+He swung his arm and threw the ax.
 
-Depois estava olhando de cima.
+The ax went spinning through the air straight between the two. Jack and Nina looked at each other with the face of people who'd watched an amateur make the most predictable move in the world, gave each other space, and the ax tore through the gap between them without touching anyone.
 
-Flutuava em cima da sala, sem peso, sem corpo, e lá embaixo, no chão da arena, estava ela. Duas metades dela. Separadas pela cintura, o sangue espalhado num raio que ia longe, o que tinha dentro dela pra fora, tudo com um realismo que ela tinha esquecido que o LDI tinha.
+Nina saw the opening. Kim was still locked in the end of the throw, arm extended, all his weight forward.
 
-O machado voltou girando pelo fio e encaixou na mão de Kim como cachorro voltando pro dono.
+She drew Angel.
 
-Nina ficou olhando aquilo do alto.
+— Expand!
 
-Ela não sabia que a arma fazia isso. Ninguém sabia. Nem o Kim, ela tinha certeza.
+The blade came out in segments, snaking fast toward him.
 
-Soltou meio sorriso.
+Nina didn't see the wire.
+
+There was no way to see it. It was a steel wire fine as hair, coming from Kim's hand, crossing the room at the height of her waist, going all the way to the ax already behind them both.
+
+By the time she understood, she had understood too late.
+
+— NOOOO—
+
+---
+
+Nina felt an impact in her back.
+
+Then she felt weightless.
+
+Then she was looking down from above.
+
+She floated above the room, weightless, bodiless, and down there on the arena floor was her. Two halves of her. Separated at the waist, blood spread in a wide radius, what was inside her spilling out, all with a realism she had forgotten LDI had.
+
+The ax came back spinning along the wire and seated into Kim's hand like a dog returning to its owner.
+
+Nina kept looking at it from above.
+
+She didn't know the weapon could do that. Nobody knew. Not even Kim, she was sure.
+
+She let out a half smile.
 
 *Fuck. I'll get you next time.*
 
 ---
 
-Jack recuou devagar pra longe do corpo da Nina, como quem se afasta de uma bomba que já explodiu.
+Jack backed away slowly from Nina's body, like someone moving away from a bomb that had already gone off.
 
-— Shit, cara. Mancada. Partiu a menina no meio. Deu uma de Salomão. Ela vai ficar puta quando a gente voltar.
+— Fuck, man. That was cold. Cut the girl in half. Pulled a Solomon. She's gonna be pissed when we get back.
 
-— Ela volta, né? — Kim. — É sala de treino. Ela volta daqui a pouco.
+— She comes back, right? — Kim. — It's a training room. She'll be back in a bit.
 
-— Não volta, não. Morreu numa sala de treino, ficou de fora. Só volta quando abrir uma sala nova. Agora ela só assiste.
+— No, she doesn't. Died in a training room, she's out. She only comes back when a new room opens. Now she just watches.
 
-— Eu achei que era tipo respawn. Morre, volta, morre, volta.
+— I thought it was like respawn. Die, come back, die, come back.
 
-— Devia ser. Mas não é. Treino é pra ser leve, ninguém matando ninguém, senão ninguém treina. — Jack apontou pra cima com a bengala. — E nas salas públicas, pra voltar, tem cooldown de cinco horas. É por isso que tem uns grupos que entram numa sala pública e matam todo mundo que tá lá. Cinco horas de sala vazia. É assim que a galera limpa uma sala pública pra ter uma sala meio privada só pra ela.
+— It should be. But it isn't. Training is supposed to be light, nobody killing anybody, otherwise nobody trains. — Jack pointed up with his cane. — And in public rooms, to come back, there's a five-hour cooldown. That's why some groups go into a public room and kill everyone in there. Five hours of empty room. That's how people clear a public room to have a semi-private room just for themselves.
 
-A voz da Nina veio de algum lugar da sala, do mesmo jeito que a NeoGuide falava com eles.
+Nina's voice came from somewhere in the room, the same way NeoGuide talked to them.
 
-— Tudo bem. Tudo bem. Ninguém te explicou as regras da sala. Faz parte. — Uma pausa. — Mas porra, esse machado é irado. Sorte sua que eu não sabia daquele fio. Na próxima eu vou estar preparada. Você me aguarde.
+— It's fine. It's fine. Nobody explained the room rules to you. It happens. — A pause. — But fuck, that ax is sick. Lucky for you I didn't know about that wire. Next time I'll be ready. Just you wait.
 
-Jack riu alto.
+Jack laughed out loud.
 
-— Eu não falei que ela tava puta? Eu falei.
+— Didn't I say she was pissed? I said it.
 
-— EU NÃO TÔ PUTA. — Nina. — Para de falar de mim e continua a luta.
+— I'M NOT PISSED. — Nina. — Stop talking about me and continue the fight.
 
-— Tá vendo? Calminha. — Jack pra Kim. — Um anjo. Uma paz. Uma monja no centro do Nirvana. Isso é a Nina agora.
+— See? So calm. — Jack to Kim. — An angel. Peace itself. A nun in the center of Nirvana. That's Nina now.
 
-Kim não conseguiu segurar o riso.
+Kim couldn't hold back a laugh.
 
-Jack ficou sério. Olhou pro machado na mão do amigo, pro fio de aço que só agora ele via direito, brilhando quando a luz pegava.
+Jack turned serious. He looked at the ax in his friend's hand, at the steel wire he could only now really see, glinting when the light caught it.
 
-— Foi mal, cara. Esse fiozinho aí eu demorei pra ver. Se você não tivesse escolhido ela, tinha sido eu. — Pausa. — É uma sacada muito boa pra uma arma. Gostei dela. Parabéns.
+— Sorry, man. That little wire took me a while to see. If you hadn't chosen her, it would've been me. — Pause. — It's a really good gimmick for a weapon. I liked it. Congrats.
 
-— Valeu. — Kim olhando pro machado. — Eu nem sei como eu fiz isso. Só não queria morrer pra lâmina da Nina. E aí? Vamos continuar ou não?
+— Thanks. — Kim looking at the ax. — I don't even know how I did that. I just didn't want to die to Nina's blade. So? Do we keep going or not?
 
-Os dois ficaram se olhando com o mesmo sorriso. O sorriso de cinco anos de briga do mesmo lado.
+The two stood looking at each other with the same smile. The smile of five years fighting on the same side.
 
-— Agora que ficou só eu e você, vai ser pra valer. — Jack. — Você tá começando a pegar o jogo. Então eu vou terminar isso antes que as chances fiquem todas do seu lado. Pra voltar depois de morrer aqui, só abrindo outra sala. As cinco horas são pras salas públicas. Beleza?
+— Now that it's just me and you, it's for real. — Jack. — You're starting to get the game. So I'm going to end this before the odds all swing your way. To come back after dying here, you only get back by opening another room. The five hours are for public rooms. Got it?
 
-— Beleza. Mostra o que você faz nesse joguinho.
+— Got it. Show me what you do in this little game.
 
 ---
 
-Jack segurou a Vitória com as duas mãos e cruzou os braços com ela na frente do peito. Entortou um pouco a coluna. Abriu as pernas, o peso igual nos dois pés.
+Jack held Vitória with both hands and crossed his arms, the weapon in front of his chest. He bent his spine slightly. He spread his legs, weight even on both feet.
 
 — First move.
 
-Pedras começaram a subir do chão em volta dele.
+Stones began to rise from the ground around him.
 
-Pequenas. Milhares. Saindo do chão da arena sem barulho e ficando paradas no ar, girando devagar em volta dele como se ele fosse um planeta.
+Small. Thousands. Rising from the arena floor without a sound and hanging still in the air, spinning slowly around him like he was a planet.
 
-Kim não sabia o que aquilo ia fazer. Sabia que o amigo não estava brincando. Começou a andar pra trás, abrindo distância, garantindo espaço pra fazer alguma coisa antes que aquilo terminasse.
+Kim didn't know what that was going to do. He knew his friend wasn't playing around. He started walking backward, opening distance, making sure he had room to do something before that finished.
 
 — Second move.
 
-As pedras começaram a se esfarelar no ar.
+The stones began to crumble in the air.
 
-Não viravam areia. Viravam lascas, cada pedra se partindo em pedaços menores e triangulares, as pontas finas e afiadas. Da distância em que Kim estava, ele não conseguia ver as pontas. Só via a nuvem de pedra mudando de forma.
+They didn't turn into sand. They turned into splinters, each stone breaking into smaller triangular pieces, the points thin and sharp. From the distance Kim was at, he couldn't see the points. He only saw the cloud of stone changing shape.
 
-Ele continuou recuando.
+He kept backing away.
 
-Jack sorriu do jeito que sorria quando já sabia como a história terminava.
+Jack smiled the way he smiled when he already knew how the story ended.
 
 — Third move. Vitória Finals.
 
-As lascas vieram todas de uma vez.
+The splinters came all at once.
 
-Como uma metralhadora. Kim sentiu a primeira entrar na coxa e não teve tempo de sentir a segunda porque a terceira e a quarta e a décima já estavam entrando. No braço. Na barriga. No peito. Perfurando, atravessando, achando os órgãos lá dentro. O sangue subiu pela garganta e saiu pela boca. As pernas falharam. O corpo era um alvo e não tinha onde se esconder.
+Like a machine gun. Kim felt the first one enter his thigh and didn't have time to feel the second because the third and the fourth and the tenth were already entering. In the arm. In the belly. In the chest. Piercing, passing through, finding the organs inside. Blood rose up his throat and out his mouth. His legs failed. His body was a target and there was nowhere to hide.
 
-Ele não teve tempo de pensar. Não teve tempo de reagir.
+He didn't have time to think. Didn't have time to react.
 
-Era exatamente assim que ele imaginava que seria morrer. Cada furo abrindo, o sangue saindo, a visão escurecendo das bordas pro centro, devagar, com uma calma que não combinava com nada.
+It was exactly how he imagined dying would be. Each hole opening, blood leaving, vision darkening from the edges to the center, slowly, with a calm that matched nothing.
 
-Kim caiu.
+Kim fell.
 
-Lá em cima, Jack levantou os braços.
+Up above, Jack raised his arms.
 
-— VENCI! HEYYYYYYYYY!
-
----
-
-Kim abriu os olhos e estava em cima.
-
-Flutuando sobre a arena, sem corpo. Lá embaixo, o próprio corpo, estirado no chão, cheio de furos, o sangue fazendo poça. E do lado do corpo, o Jack. Dançando.
-
-Uma dança ridícula, com os cotovelos pra fora e o quadril indo pra um lado e pro outro, girando em volta do cadáver dele.
-
-Do lado de Kim, no ar, a Nina. Ou o avatar da Nina, inteiro de novo.
-
-Ele fez um tchau pra ela com a cara de quem não estava entendendo nada.
-
-Ela riu.
-
-— Você não tá entendendo o que tá acontecendo, né.
-
-Kim balançou a cabeça.
-
-— Aquele desgraçado ali embaixo não encerrou a partida. Então a gente fica preso aqui assistindo ele fazer essa dancinha.
-
-Kim olhou pra baixo.
-
-— EI, DESGRAÇA! POR QUE VOCÊ TÁ DANÇANDO EM VOLTA DO MEU CORPO?
-
-— Porque é divertido demais, cara! — Jack sem parar. — Muito, muito divertido.
-
-— Fala olhando pra mim e para com essa palhaçada!
-
-— Primeiro: deixa eu terminar a minha dancinha, que isso aqui vai virar um short pro PowWow, pra ver se viraliza. Segundo: eu não sei onde você tá. Quem morre some. Eu só vejo o seu corpo aqui, todo esburacado, com as tripa pra fora, sabe.
-
-Kim estava horrorizado. Era o corpo dele. Parecido demais com o de verdade. E o melhor amigo dele estava rebolando em cima.
-
-— Calma. — Nina. — Ele já vai acabar. Vídeo no PowWow tem no máximo um minuto. Espera mais um pouquinho que ele chama a NeoGuide.
-
-Esperaram.
-
-Lá embaixo, o Jack fez a pose final pro vídeo. Olhou pra cima, pra lugar nenhum.
-
-— NeoGuide. Encerrar partida.
+— I WON! HEYYYYYYYYY!
 
 ---
 
-O escuro veio de novo, como se os olhos fechassem sozinhos. E depois a praça.
+Kim opened his eyes and he was above.
 
-O banco de cimento. A luz da tarde. O pombo.
+Floating over the arena, bodiless. Down there, his own body, stretched on the floor, full of holes, blood pooling. And beside the body, Jack. Dancing.
 
-Kim tirou o SBI da cabeça e ficou um segundo parado, as mãos no peito procurando os furos que não estavam lá. Do lado, o Jack tirou o dele com a cara satisfeita de quem ganhou. A Nina tirou o dela devagar.
+A ridiculous dance, elbows out and hips going side to side, spinning around his corpse.
 
-— Maluco. — Kim. — Que ataque foi aquele, cara? Eu tenho mil perguntas pra fazer pra vocês. Mas que ataque. Espero conseguir fazer umas coisas assim um dia.
+Beside Kim, in the air, Nina. Or Nina's avatar, whole again.
 
-— Não foi tudo isso. — Nina. — O Jack se aproveitou de você não saber nada do jogo. Numa luta de verdade ele não conseguia usar aquilo.
+He waved at her with the face of someone who understood nothing.
 
-— Você não pode dizer isso. — Jack ofendido. — Você nunca me viu lutando.
+She laughed.
 
-— Três etapas de carregamento parado no meio da arena? Ninguém ia ficar esperando, Jack. Qualquer um percebe no primeiro movimento que você tem que ficar parado esperando carregar. Só o Kim, que não sabia dessa regra. Ele se afastou e ficou olhando você terminar tudo.
+— You're not understanding what's happening, are you.
 
-— Carregando? — Kim. — Como assim carregando? Tô perdido.
+Kim shook his head.
 
-O Jack sorriu.
+— That bastard down there didn't end the match. So we're stuck here watching him do that little dance.
 
-— Cara, tem vários tipos de ataque no LDI. Uns são instantâneos. Outros precisam de tempo pra carregar. Esse que eu usei em você tem um carregamento muito longo. Você viu: três etapas. Eu tenho que esperar cada uma ficar pronta antes da próxima, e só na terceira eu solto o ataque. Normalmente isso me deixa todo aberto. — Coçou a cabeça. — Sendo sincero, a Nina tem razão. Eu me aproveitei de você não saber como funciona. Mas eu te ensino com o tempo. Relaxa.
+Kim looked down.
 
-— Tá. Essa parte eu meio que entendi. — Kim. — Agora, por que eu fiquei flutuando no céu depois que você me matou?
+— HEY, BASTARD! WHY ARE YOU DANCING AROUND MY BODY?
 
-— Quando você perde no LDI, você só sai da sala quando o vencedor encerra a partida, ou quando o sistema encerra sozinho. — Nina. — Não dá pra desconectar no meio. Começou, vai até o fim. Por isso ninguém começa partida em lugar aberto, ou sem amigo do lado olhando o teu corpo aqui fora. Quando a gente morre lá dentro, vira observador. Dá pra assistir. Mas não dá pra interagir com nada nem com ninguém. Só esperar. — Ela olhou pra ele. — Você joga algum jogo, Kim?
+— Because it's too much fun, man! — Jack without stopping. — Very, very fun.
 
-— Claro. Jogo muito. Sempre que sobra tempo entre cuidar da casa, cuidar da minha mãe, trabalhar e estudar de bolsista, eu jogo direto. Gamer de verdade. Muito, muito gamer. Pode ter certeza.
+— Talk looking at me and stop with this clowning!
 
-O Jack riu da ironia.
+— First: let me finish my little dance, because this is going to become a short for PowWow, to see if it goes viral. Second: I don't know where you are. Whoever dies disappears. I only see your body here, all full of holes, guts hanging out, you know.
 
-— Não precisa ser sarcástico. — Nina emburrada. — Já entendi.
+Kim was horrified. It was his body. Too much like the real one. And his best friend was shaking his ass on top of it.
+
+— Calm down. — Nina. — He'll finish soon. A PowWow video is at most one minute. Wait a little more and he'll call NeoGuide.
+
+They waited.
+
+Down there, Jack struck the final pose for the video. He looked up, at nowhere.
+
+— NeoGuide. End match.
 
 ---
 
-O Kim sorriu da cara dela. Mas estava feliz. Tinha gostado do jogo. Muita coisa ali parecia real.
+The dark came again, as if the eyes closed on their own. And then the plaza.
 
-Agora era a vez dele de responder.
+The concrete bench. The afternoon light. The pigeon.
 
-— O que eu quero saber — Nina — é como você manifestou uma arma de tipo único no meio de uma partida. Mesmo sendo treino.
+Kim took the SBI off his head and stood still for a second, hands on his chest searching for the holes that weren't there. Beside him, Jack took his off with the satisfied face of someone who won. Nina took hers off slowly.
 
-O Kim abriu as mãos, igual o meme do John Travolta.
+— Dude. — Kim. — What attack was that, man? I have a thousand questions to ask you guys. But what an attack. I hope I can do stuff like that someday.
 
-— Eu não sei o que aconteceu. Só não queria morrer naquela hora. Aquela tua arma maluca tava quase me partindo no meio, eu pus as mãos na frente e do nada aquilo apareceu.
+— It wasn't all that. — Nina. — Jack took advantage of you not knowing anything about the game. In a real fight he wouldn't be able to use that.
 
-— Isso não é possível. É contra as regras do jogo. Ninguém manifesta arma no meio de uma partida que já começou. Nem em treino.
+— You can't say that. — Jack offended. — You've never seen me fight.
 
-O Kim cruzou os braços.
+— Three stages of charging standing still in the middle of the arena? Nobody would wait around, Jack. Anyone notices on the first move that you have to stand still waiting to charge. Only Kim, who didn't know that rule. He backed away and stood there watching you finish everything.
 
-— Olha, Nina. Eu tô começando a gostar muito de você. Você parece uma pessoa legal. Mas quando eu digo que não sei, é porque eu não sei. Não faço a menor ideia. E sinceramente, não me importa. O importante é que pelo menos eu não morri pra você.
+— Charging? — Kim. — What do you mean charging? I'm lost.
 
-O clima esquentou.
+Jack smiled.
 
-Os dois eram meio agressivos. E a Nina era competitiva demais pra perder de boa. Ela tinha certeza de que aquela era a chance da revanche. E tinha perdido pra ele de novo. A segunda vez.
+— Man, there are several types of attacks in LDI. Some are instant. Others need time to charge. The one I used on you has a very long charge. You saw: three stages. I have to wait for each one to be ready before the next, and only on the third do I release the attack. Normally that leaves me wide open. — He scratched his head. — Honestly, Nina's right. I took advantage of you not knowing how it works. But I'll teach you over time. Relax.
 
-Ela estava revoltada.
+— Okay. That part I sort of understood. — Kim. — Now, why did I stay floating in the sky after you killed me?
 
-O Jack viu o tempo fechando e fez o que ele sempre fazia.
+— When you lose in LDI, you only leave the room when the winner ends the match, or when the system ends it on its own. — Nina. — You can't disconnect in the middle. It starts, it goes to the end. That's why nobody starts a match in an open place, or without a friend beside you watching your body out here. When we die in there, you become an observer. You can watch. But you can't interact with anything or anyone. Just wait. — She looked at him. — Do you play any games, Kim?
 
-— Gente. Vamos se acalmar, respirar fundo e achar alguma coisa pra beber, que eu tô com a garganta seca. — Já se levantando. — Eu ainda tenho um trocadinho, e só vou trabalhar à noite. Hoje a gente acha uma lojinha, pega uma vodkinha, e bebe com calma. Apreciando cada gole.
+— Of course. I play a lot. Whenever there's time left over between taking care of the house, taking care of my mom, working, and studying on a scholarship, I play nonstop. A real gamer. Very, very gamer. You can be sure.
+
+Jack laughed at the irony.
+
+— You don't need to be sarcastic. — Nina sulky. — I get it.
+
+---
+
+Kim smiled at her face. But he was happy. He had liked the game. A lot of it felt real.
+
+Now it was her turn to respond.
+
+— What I want to know — Nina — is how you manifested a unique-type weapon in the middle of a match. Even if it was training.
+
+Kim opened his hands, like the John Travolta meme.
+
+— I don't know what happened. I just didn't want to die at that moment. That crazy weapon of yours was almost splitting me in half, I put my hands up in front and out of nowhere that thing appeared.
+
+— That's not possible. It's against the rules of the game. Nobody manifests a weapon in the middle of a match that already started. Not even in training.
+
+Kim crossed his arms.
+
+— Look, Nina. I'm starting to like you a lot. You seem like a nice person. But when I say I don't know, it's because I don't know. I have no idea. And honestly, I don't care. What matters is that at least I didn't die to you.
+
+The mood heated up.
+
+The two were kind of aggressive. And Nina was too competitive to lose gracefully. She was sure that had been her chance for a rematch. And she had lost to him again. The second time.
+
+She was furious.
+
+Jack saw the storm brewing and did what he always did.
+
+— Guys. Let's calm down, take a deep breath, and find something to drink, because my throat's dry. — Already getting up. — I still have a little cash, and I only work at night. Today we find a little store, grab a little vodka, and drink it slow. Appreciating every sip.

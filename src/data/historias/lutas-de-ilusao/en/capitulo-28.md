@@ -30,7 +30,7 @@ Kim was cornered.
 
 Kim opened both hands. The hatchets appeared.
 
-— Xakixi. Shaman.
+— Xakaxi. Shaman.
 
 He brought the two together in front of his body and they became the double-bladed axe.
 
@@ -112,7 +112,7 @@ The knee met Shuntaro's nose. The bone gave. Blood ran down Kim's knee. Shuntaro
 
 Kim let go of his head. Shuntaro was falling backward. And Kim, still in the air, raised his hand.
 
-— Xakixi! Shaman!
+— Xakaxi! Shaman!
 
 The double-bladed axe appeared in his hand.
 

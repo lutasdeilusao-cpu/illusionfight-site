@@ -96,7 +96,7 @@ Ela nunca tinha se conectado com ninguém do jeito que estava começando a se co
 
 ---
 
-— Kim. — Jack, olhando o celular. — Bora pra casa. Tá chegando a hora. Quero descansar um pouco. Nove horas na frente da sua casa. O dono da balada vai deixar a gente na segurança. Duzentos pra cada. Pega o terninho, limpinho, sem cecê. Pra gente chegar apresentável. Vai até umas duas. Pode esticar até as três.
+— Kim. — Jack, olhando o celular. — Bora pra casa. Tá chegando a hora. Quero descansar um pouco. Oito horas na frente da sua casa. O dono da balada vai deixar a gente na segurança. Duzentos pra cada. Pega o terninho, limpinho, sem cecê. Pra gente chegar apresentável. Vai até umas duas. Pode esticar até as três.
 
 — Eu sei como é, Jack. Não é a primeira vez que eu trabalho com você. Eu sei muito bem os lugares que você arruma. Aposto que vai ter briga a cada cinco minutos. Porque só aceitam a gente quando a casa é muito ruim e ninguém mais quer.
 

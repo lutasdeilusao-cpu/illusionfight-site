@@ -1,36 +1,36 @@
 # CAPÍTULO 24 — Una Serie por Primera Vez
 
-Duber olía a aromatizante de pino y a cigarrillo escondido.
+El Duber olía a aromatizante de pino y a cigarrillo escondido.
 
-Kim se sentó atrás del conductor y apoyó la cabeza en la ventanilla. El corte de la frente le latía al ritmo de la calle. Se había limpiado la cara con la camiseta antes de subir, pero el conductor lo miró dos veces por el espejo retrovisor y decidió que no era asunto suyo.
+Kim se sentó detrás del chofer y apoyó la cabeza en la ventanilla. El corte de la frente le latía al ritmo de la calle. Se había limpiado la cara con la camiseta antes de subir al auto, pero el chofer lo miró por el retrovisor dos veces y decidió que no era asunto suyo.
 
-Hoy no iba a vender dulces.
+Hoy no iba a vender caramelos.
 
-Iba a trabajar de noche. Si tomaba el autobús ahora, llegaría a casa demasiado tarde y perdería el tiempo de acostarse, bañarse y arreglarse. Por primera vez en mucho tiempo había tomado un carro. Por los mil DIX de Freddy y por doscientos que todavía ni siquiera había recibido.
+Iba a trabajar de noche. Si se iba a los autobuses ahora, llegaba a casa demasiado tarde y perdía el tiempo de acostarse, bañarse y arreglarse. Por primera vez en mucho tiempo había tomado un auto. Por los mil DIX de Freddy y por doscientos que todavía ni había recibido.
 
-Entonces recordó que podía encontrar a su madre en casa.
+Entonces recordó que podía encontrarse con su madre en casa.
 
 Se quedó con eso.
 
-Por la mañana ella había hecho café. Había bailado en la cocina. Lo había abrazado en el pasillo. Y él no sabía qué esperar de la tarde. Con Helena nunca se sabía. A veces la calma era solo el tiempo que la tormenta tardaba en juntar fuerza.
+Esa mañana ella había hecho café. Había bailado en la cocina. Lo había abrazado en el pasillo. Y él no sabía qué esperar de la tarde. Con Helena nunca se sabía. A veces la calma era solo el tiempo que la tormenta tardaba en juntar fuerzas.
 
-*Desde que entré en esta mierda de juego, mi vida está diferente.*
+*Desde que entré en esa mierda de juego, mi vida está diferente.*
 
 Había una persona nueva andando con ellos. Eso no era malo. En realidad era bueno. Era bueno de una forma que él no iba a admitir en voz alta. Pero era diferente.
 
-Había descubierto cosas sobre su padre. O no. Porque el viejo loco que le hablaba dentro del juego no sabía conversar con un ser humano. *Tu papi.* Por el amor de Dios.
+Había descubierto algo sobre su padre. O no. Porque el viejo loco que hablaba con él dentro del juego no sabía conversar con un ser humano. *Tu papi.* Por el amor de Dios.
 
-Había un video de él circulando en redes sociales que ni siquiera entendía bien cómo funcionaba. Eso le preocupaba. Tenía miedo de no poder comer tranquilo en el patio de comidas del centro comercial. Aunque casi nunca iba al centro comercial. Quien lo llevaba era Jack.
+Había un video suyo circulando en una red social que él ni siquiera sabía bien cómo funcionaba. Eso le preocupaba. Tenía miedo de no poder comer tranquilo en el patio de comidas del centro comercial. Aunque casi nunca iba al centro comercial. Quien lo llevaba era Jack.
 
-Y por primera vez en la vida, le había preguntado a su madre sobre el pasado. Y había descubierto mucho más de lo que quería.
+Y por primera vez en la vida le había preguntado a su madre sobre el pasado. Y había descubierto mucho más de lo que quería.
 
-De algún modo, sentía que todo eso estaba ligado al tal hombre misterioso. La habitación de Helena. El viejo del bastón. La Sangre Primordial. Alguien detrás de él. Alguien pagando por tomarle fotos.
+De algún modo, sentía que todo aquello estaba relacionado con el tal hombre misterioso. El cuarto de Helena. El viejo del bastón. La Sangre Primordial. Alguien detrás de él. Alguien pagando por tomarle fotos.
 
 Y había algo más. Algo muy adentro, que sentía cada vez que cerraba los ojos y recordaba la arena. Algo fuerte. Oscuro. Con hambre.
 
 No quería pensar en eso.
 
-Eso lo iba a atormentar muy pronto.
+Eso iba a atormentarlo muy pronto.
 
 ---
 
@@ -42,25 +42,25 @@ Abrió.
 
 La casa estaba ordenada.
 
-No el ordenado de la mañana, el de quien quiere que parezca ordenado. Ordenada de verdad. La loza lavada. El piso barrido. Los pedazos de ayer habían desaparecido. El cenicero limpio.
+No era el orden de la mañana, el de quien quiere que parezca ordenado. Ordenado de verdad. Los platos lavados. El piso barrido. Los pedazos de ayer habían desaparecido. El cenicero limpio.
 
 Helena estaba en el sofá.
 
-Con las piernas dobladas debajo del cuerpo, el control en la mano, la pantalla de Cineflix encendida en la pared. Giró la cabeza cuando oyó la puerta.
+Con las piernas dobladas bajo el cuerpo, el control en la mano, la pantalla de Cineflix encendida en la pared. Giró la cabeza al oír la puerta.
 
-— Ah. Llegaste. Qué bueno. — Le miró la frente y decidió no preguntar. — ¿Hoy no vas a trabajar más?
+— Ah. Llegaste. Qué bueno. — Miró su frente y decidió no preguntar. — ¿Ya no vas a trabajar hoy?
 
-— Hoy no, mamá. Solo de noche. Vine a descansar, bañarme y ponerme ropa decente. Voy a hacer seguridad en un club.
+— Hoy no, mamá. Solo de noche. Vine a descansar, bañarme y ponerme ropa decente. Voy a trabajar de seguridad en un club.
 
-— Ah, entonces está bien. Aprovecha. Descansa. Báñate. — Se levantó. — Hice el almuerzo. Si quieres, te lo caliento mientras te bañas. Luego comes. Y si no te duermes, podemos ver algo juntos. Estoy viendo una serie muy buena. La Casa del Dinero.
+— Ah, entonces está bien. Aprovecha. Descansa. Báñate. — Se levantó. — Hice el almuerzo. Si quieres, lo caliento mientras te bañas. Después comes. Y si no vas a dormir, podemos ver algo juntos. Estoy viendo una serie muy buena. La Casa del Dinero.
 
 Kim se quedó parado en la puerta.
 
-Nunca se había sentado a ver nada con su madre. Nunca. Ni siquiera cuando era pequeño. En su recuerdo, la televisión de esa casa era algo que quedaba encendido mientras Helena dormía en el sofá.
+Él nunca se había sentado a ver nada con su madre. Nunca. Ni siquiera cuando era pequeño. En su recuerdo, la televisión de esa casa era algo que quedaba encendido mientras Helena dormía en el sofá.
 
-— Acepto. — Oyó su propia voz decir. — Si calientas la comida, será genial. Después del baño vemos esa tal La Casa del Dinero.
+— Acepto. — Oyó su propia voz decirlo. — Si calientas la comida, va a ser genial. Después del baño vemos esa tal La Casa del Dinero.
 
-Helena dio una sonrisa pequeña.
+Helena esbozó una sonrisa pequeña.
 
 Él subió las escaleras.
 
@@ -68,29 +68,29 @@ Ella fue a la cocina.
 
 ---
 
-El agua caliente arrancó el polvo del parque, la sangre seca de la frente, el olor del monte.
+El agua caliente le arrancó el polvo del parque, la sangre seca de la frente, el olor del monte.
 
 Kim se quedó un rato con las manos en la pared, la cabeza baja, el agua cayendo.
 
-Ayer se había quedado allí debajo de esa ducha con miedo de saber. Hoy tenía miedo de otra cosa. Miedo de acostumbrarse.
+Ayer había estado ahí debajo de esa ducha con miedo de saber. Hoy tenía miedo de otra cosa. Miedo de acostumbrarse.
 
-Bajó con bermuda y camiseta limpia. La mesa estaba puesta. Un solo plato. Arroz, frijoles, un pedazo de carne, ensalada.
+Bajó con bermudas y camiseta limpia. La mesa estaba puesta. Un solo plato. Arroz, frijoles, un pedazo de carne, ensalada.
 
 Se sentó. Comió.
 
-La comida no estaba buena. El arroz se había pasado un poco. Los frijoles estaban sin sal. La carne estaba dura.
+La comida no estaba buena. El arroz estaba un poco pasado. Los frijoles estaban sin sal. La carne estaba dura.
 
-Era la mejor comida que había probado en su vida.
+Era la mejor comida que había comido en su vida.
 
-Hacía casi cinco años que Helena no hacía el almuerzo. El café de esa mañana había sido el primero. Esto era el segundo. Dos veces en el mismo día, después de cinco años de ninguna.
+Hacía casi cinco años que Helena no hacía almuerzo. El café de esa mañana había sido el primero. Esto era el segundo. Dos veces en el mismo día, después de cinco años sin ninguna.
 
 Helena se sentó al otro lado de la mesa con un vaso de refresco en la mano. No era cerveza. Él lo notó y no comentó.
 
-— ¿Y? — Ella. — ¿Cómo te fue el día?
+— Y bueno. — Ella. — ¿Cómo estuvo el día?
 
 Y Kim contó.
 
-No sabía por qué. Nunca contaba nada. Pero contó. Walter en el pasillo. Ryan con la caja. La sala de entrenamiento, el hacha, Nina partida por la mitad, Jack bailando encima de su cuerpo. Y la pelea del parque. Contó la pelea del parque riendo, los detalles, la cara del tipo del caño cuando él no cayó, Roxy quitándose la camiseta, Jack apareciendo con el rasguñito en el cuello.
+No sabía por qué. Nunca contaba nada. Pero contó. Walter en el pasillo. Ryan con la caja. La sala de entrenamiento, el hacha, Nina partida por la mitad, Jack bailando encima de su cuerpo. Y la pelea del parque. Contó la pelea del parque riéndose, los detalles, la cara del tipo del tubo cuando él no cayó, Roxy quitándose la camiseta, Jack apareciendo con el rasguñito en el cuello.
 
 Helena escuchó todo.
 
@@ -102,21 +102,21 @@ Ella sonrió.
 
 Después del almuerzo, los dos fueron a la sala.
 
-Se sentaron en el mismo sofá. Cada uno en una punta. Los dos extraños, los dos sin saber bien dónde poner las manos. Helena apretó play.
+Se sentaron en el mismo sofá. Cada uno en una punta. Los dos extraños, los dos sin saber bien dónde poner las manos. Helena le dio play.
 
-En cinco minutos Kim había olvidado que se sentía incómodo.
+En cinco minutos Kim ya se había olvidado de que se sentía raro.
 
-La serie era buena. Un grupo de gente con nombres de ciudad asaltando la casa de moneda. Un profesor que lo planeaba todo. Gente que no podía confiar en los demás y confiaba de todos modos.
+La serie era buena. Una banda de gente con nombres de ciudad asaltando la casa de moneda. Un profesor que lo planeaba todo. Gente que no podía confiar la una en la otra y confiaba de todos modos.
 
-No tenía costumbre de ver nada. Su rutina era escuela, trabajo, casa, comida, estudio. La última vez que había visto algo solo por ver fue antes de los doce años. Antes de la deuda. Por eso siempre se quedaba medio afuera cuando Jack hablaba de películas, de juegos, de música. Él no sabía nada de eso. No tenía tiempo.
+Él no tenía costumbre de ver nada. Su rutina era escuela, trabajo, casa, comida, estudio. La última vez que había visto algo solo por ver había sido antes de los doce años. Antes de la deuda. Por eso siempre se quedaba medio afuera cuando Jack hablaba de películas, de juegos, de música. Él no sabía nada de eso. No tenía tiempo.
 
-Al final del episodio, se quedó mirando la pantalla negra.
+Al final del episodio se quedó mirando la pantalla negra.
 
-— Me gustó. — Kim. — Me gustó mucho. Quería seguir viendo. Pero necesito dormir un poco antes de verme con Jack.
+— Me gustó. — Kim. — Me gustó mucho. Quería continuar. Pero necesito dormir un poco antes de encontrarme con Jack.
 
 Helena se quedó mirando la pantalla también.
 
-— Entonces no voy a seguir. — Ella. — Solo continúo si es contigo.
+— Entonces no voy a continuar. — Ella. — Solo continúo si es contigo.
 
 Kim no respondió.
 
@@ -124,7 +124,7 @@ No tenía respuesta para eso.
 
 ---
 
-Subió a su cuarto. Se acostó de lado, mirando la pared.
+Subió al cuarto. Se acostó de lado, mirando la pared.
 
 Dormitó pensando en que, a pesar de todo, muchas de las cosas que estaban cambiando eran buenas.
 
@@ -132,40 +132,40 @@ Nina era buena.
 
 El juego, aun con todo, era interesante.
 
-Y eso allá abajo, el sofá, la serie, el «solo continúo si es contigo». Eso era especial. Eso lo iba a guardar.
+Y eso de abajo, el sofá, la serie, el "solo continúo si es contigo". Eso era especial. Eso lo iba a guardar.
 
 ---
 
-Despertó a las siete y media sin alarma.
+Se despertó a las siete y media sin alarma.
 
-Se vistió el traje. El único que tenía. Negro, un poco corto de mangas, pero planchado, sin una arruga fuera de lugar. Acomodó la corbata en el espejo del baño. El corte de la frente se había cerrado en una línea fina.
+Se puso el traje. El único que tenía. Negro, un poco corto de mangas, pero planchado, sin una arruga fuera de lugar. Se arregló la corbata en el espejo del baño. El corte de la frente se había cerrado en una línea fina.
 
 Parecía otro hombre.
 
-Antes de salir, fue a la habitación de su madre. Helena estaba durmiendo, encogida de lado, el rostro tranquilo de una forma que no recordaba haber visto.
+Antes de salir, fue al cuarto de su madre. Helena estaba durmiendo, encogida de lado, el rostro tranquilo de una manera que él no recordaba haber visto.
 
-Le tocó el hombro suavemente.
+Le tocó el hombro con suavidad.
 
-— Doña Helena. Me voy, ¿sí? Vuelvo alrededor de las cuatro, cinco de la mañana. ¿Está bien?
+— Doña Helena. Ya me voy, ¿eh? Vuelvo como a las tres de la mañana. ¿Todo bien?
 
 Ella abrió los ojos despacio.
 
-— Está bien... — La voz ronca de sueño. — ¿Pero no es medio complicado trabajar hasta tan tarde y luego ir directo a la escuela?
+— Todo bien... — La voz ronca por el sueño. — ¿Pero no es medio complicado trabajar hasta tan tarde y después ir directo a la escuela?
 
 Kim sonrió.
 
-— No es la primera vez. Tú sabes. No tienes que preocuparte. Sé cuidarme. Voy a arreglar todo y todo va a estar bien.
+— No es la primera vez. Lo sabes. No tienes que preocuparte. Sé cuidarme. Voy a arreglar todo y todo va a estar bien.
 
-Ella cerró los ojos de nuevo, una media sonrisa en la comisura de la boca.
+Ella cerró los ojos de nuevo, una media sonrisa en la comisura de los labios.
 
 — Está bien, señor hombrecito. Cuídate. Te veo mañana. Hasta luego, hijo.
 
 — Hasta luego, mamá.
 
-Cerró la puerta de la habitación despacio.
+Él cerró la puerta del cuarto despacio.
 
 Bajó la escalera.
 
 En la sala, la pantalla de Cineflix estaba detenida en el menú, el episodio dos esperando, la portada de la serie con esas máscaras sonriendo.
 
-Ella no había continuado.
+Ella no había seguido viendo.
