@@ -2,7 +2,7 @@
 
 Guia de Lutas de Ilusão / Illusion Fight. É também o guia de formato de todo WEB SHARD: página, safe area, letreiro, publicação e tradução.
 
-> **Antes deste guia, leia `REGRAS_CRITICAS.md`** (mesma pasta). Ele é a base de toda produção de página e vence este guia quando há conflito. Ferramentas, formatos de ficha e fila ficam em `docs/PRODUCAO_IMAGEM.md`.
+> **Antes deste guia, leia `REGRAS_CRITICAS.md`** (mesma pasta). Ele é a base de toda produção de página e vence este guia quando há conflito. Ferramentas, formatos de ficha e fila também estão lá.
 
 Guias dos outros títulos: `MDS_GUIA_DE_PRODUCAO.md` (Mundo das Sombras), `HDC_GUIA_DE_PRODUCAO.md` (Heróis da Cidade) e `Especiais/` (especiais).
 

@@ -4,11 +4,14 @@
 
 Cada regra saiu de um erro real que custou páginas e cota. Os guias de cada produto dizem COMO é o produto; este arquivo diz onde a produção já errou.
 
-Ordem de leitura: este arquivo → `docs/PRODUCAO_IMAGEM.md` (ferramentas e fila) → o guia do produto:
-- `WEBSHARD_GUIA_DE_PRODUCAO.md`: Lutas de Ilusão e regras de formato de todo WEB SHARD;
+São só dois documentos por trabalho: este arquivo e o guia do produto.
+- `WEBSHARD_GUIA_DE_PRODUCAO.md`: Lutas de Ilusão (linha principal e contos) e o formato de todo WEB SHARD. Modelo pronto de produção: `WEBSHARD/LUTAS DE ILUSAO/CONTOS/06-inocentes/PRODUCAO/`;
 - `MDS_GUIA_DE_PRODUCAO.md`: Mundo das Sombras;
+- `BRANDS/Lutas de Ilusão/WEBSHARD/MAR DE CINZAS/MDC_GUIA_DE_PRODUCAO.md`: Mar de Cinzas;
 - `HDC_GUIA_DE_PRODUCAO.md`: Heróis da Cidade;
-- `Especiais/`: especiais.
+- `Especiais/`: especiais (o Halloween em câmera na mão segue `HALLOWEEN_ROTEIRO_OFICIAL.md`).
+
+Ferramentas, fila e os truques de imagem estão no fim deste arquivo (§9).
 
 ---
 
@@ -159,10 +162,14 @@ O prompt final é gerado por script a partir do roteiro (`montar.py`, `v3.py`). 
   - cachorro com quatro patas quando eram três.
 - **Antes de "corrigir" uma página, comparar com a ficha.** Se ela bate com a ficha aprovada, não é erro.
 - **Anatomia fora do padrão o Codex não desenha** (volta sempre com quatro patas). Editar a ficha no Gemini e montar só as vistas certas.
-- **Formatos de ficha:** os detalhes estão em `PRODUCAO_IMAGEM.md` §1.
-  - personagem: frente, costas, perfil e 3 expressões;
-  - ambiente: planta de cima mais 2 vistas, sem personagens e sem texto;
-  - objeto: quadro quadrado.
+- **Onde moram:** `BRANDS/Lutas de Ilusão/Personagens/`, um arquivo de cada. Uma pasta por personagem com as fichas oficiais na raiz (`Kim/KimExpressionSheet.png`), mais `Inimigos/`, `Secundarios/`, `Trio/`, `Cenarios/`, `Objetos/`, `Estilo/`, `Capas_Contos/`. `_A_IDENTIFICAR/` não se usa até o Isaias dizer quem é. Ficha nova vai direto pra pasta do dono (`<Nome><Roupa>Sheet.png`, `<Lugar>_<Parte>.png`), nunca só na pasta do capítulo.
+- **Formatos de ficha:**
+  - personagem principal ou transformação: frente, costas e perfil de corpo inteiro, mais 3 expressões do mesmo rosto;
+  - figurantes e grupos recorrentes: vários na mesma folha, lado a lado, com identidades distintas;
+  - ambiente: planta de cima à esquerda e duas vistas do MESMO lugar à direita, nos ângulos que as páginas usam, sem personagens e sem texto; planta e vistas concordam;
+  - objeto: quadro quadrado, só o objeto;
+  - tamanho no Codex: 1536×1024 (horizontal) ou 1024×1024 (objeto). Lado de marca ou ferida se escreve "lado ESQUERDO DELE".
+- **O fragmento de fundo não fecha o espaço.** Uma cama entre 2 ou 3 paredes vira "quarto de uma cama só"; escrever que o lugar continua e some no escuro.
 - **No máximo 5 anexos por página**, só do que está no quadro. Página anterior entra só se for a mesma cena.
 
 ## 7. Revisão do roteiro
@@ -212,3 +219,25 @@ Depois de cada revisão, checagem mecânica por script:
 - **Página refeita nunca é apagada.** Ela vai pra `_descartadas/<motivo>/`. Roteiro antigo vai pra `PRODUCAO/_historico/`. A página nova nasce antes da antiga sair.
 - **Numeração só com números** (`01.png`, `02.png`…), na ordem final.
 - **A cota do Codex acaba no meio** (umas 40 a 50 imagens por janela). Quando volta está no log (`resets_in_seconds`). Retomar de onde parou; agendar a retomada pede permissão do Isaias.
+
+## 9. Ferramentas, fila e truques de imagem
+
+O repositório é público: aqui só vai NOME de chave. As chaves ficam em `SiteLDI/.env.local`, lidas por `LAB-NVIDIA/chaves.py`.
+
+| Uso | Ferramenta |
+|---|---|
+| Página final, ficha, capa | **Codex**: `codex exec --skip-git-repo-check -m gpt-5.6-terra --sandbox workspace-write -c model_reasoning_effort="low" -i <ref>... -` (prompt via stdin). Sempre com `-m`. Tamanhos 1024×1024, 1536×1024, 1024×1536. Uns 2 min por imagem. |
+| Storyboard, cartoon (HDC), tradução de página, edição pontual de ficha | **Nano Banana 2** (`gemini-3.1-flash-image`), chave `GEMINI_API_KEY_PANORAMA`, `imageSize "2K"` + `aspectRatio`. |
+| Texto braçal (transcrever balão, rascunho de tradução) | NVIDIA `moonshotai/kimi-k3` → Gemini `gemini-3-flash-preview` → DeepSeek `deepseek-flash`. Sempre rascunho. |
+| Não usar | FLUX/Kontext da NVIDIA, Pollinations. |
+
+- **Codex não abre caminho com acento.** Copiar as referências pra `C:\webshard_refs` antes de anexar, e provar que o anexo abriu antes de culpar o prompt.
+- **Referência anexada** (`-i` no Codex, inline no Gemini) e citada pelo nome do arquivo, nunca "imagem 1".
+- **Fila:** cada prompt começa com `OUT: <arquivo>` e `REFS: <arquivos>`. Roda na ordem de dependência, pula o que existe, tem trava contra rodada dupla e grava log. Prefixo no Codex: "ECONOMY MODE: do not inspect files or run commands… Generate ONCE… Reply only: ok."
+- **Ritmo:** página narrativa, um pedido a cada 2 minutos; fichas, em sequência. Ao trocar de fila, parar a anterior (processo, `schtasks /query`, cron da sessão).
+- **Texto:** lista fechada ("Write ONLY the texts listed, each exactly once… No other text."), acentos explícitos, nunca hifenizar. Letra se corrige no gerador, nunca em PIL.
+- **Anatomia no Gemini:** "EXACTLY two arms… one elbow and one hand each… no extra arms, no floating hands". Quadro difícil: 3 variantes e escolher pelo recorte ampliado.
+- **Conteúdo:** nunca pessoa, banda, marca ou logo de IA real. Nunca escrever "sangue/blood": mostrar a consequência. Estampa de folha tropical → "PALM and BANANA leaves only".
+- **Fundo transparente:** o Gemini pinta xadrez. Gerar em branco liso, de novo em preto liso, e calcular alpha = 1 − (branco − preto).
+- **Economia de cota:** página dupla = uma imagem 1536×1024 com 2 páginas e calha preta fina, cortada em 2 de 768×1024. Vale também pra fichas, retratos e blocos de mapa.
+- **Revisão de entrega:** folha de contato pra visão geral e recorte ampliado onde tem mão, rosto ou texto. O Isaias revisa pelo celular: mandar a imagem ou a folha.
