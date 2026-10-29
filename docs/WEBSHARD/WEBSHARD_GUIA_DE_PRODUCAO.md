@@ -1,1208 +1,493 @@
-# WEBSHARD — Manifesto e guia de produção de Lutas de Ilusão
+# WEB SHARD — guia de produção
 
-> Consolidação editorial de 05/10/2026, atualizada em 06/10/2026 com o que a produção do capítulo 03 ensinou. Escopo: a linguagem WEBSHARD aplicada a **Lutas de Ilusão / Illusion Fight**.
-> Base: orientação direta de Isaias nesta data, handoff WEB SHARD v2 fornecido pelo autor, pasta da marca, manifesto do portal, imagens, catálogo, leitor e histórico do repositório.
-> Este documento organiza a produção futura. Não altera retroativamente as artes, o texto público do manifesto ou o cânone das histórias.
+Guia de Lutas de Ilusão / Illusion Fight. É também o guia de formato de todo WEB SHARD: página, safe area, letreiro, publicação e tradução.
 
-## 0. REGRA MAIS CRÍTICA — o sistema de produção de páginas
+> **Antes deste guia, leia `REGRAS_CRITICAS.md`** (mesma pasta). Ele é a base de toda produção de página e vence este guia quando há conflito. Ferramentas, formatos de ficha e fila ficam em `docs/PRODUCAO_IMAGEM.md`.
 
-Toda página nova passa por este sistema, nesta ordem. Nada vai para o gerador sem ele.
+Guias dos outros títulos: `MDS_GUIA_DE_PRODUCAO.md` (Mundo das Sombras), `HDC_GUIA_DE_PRODUCAO.md` (Heróis da Cidade) e `Especiais/` (especiais).
 
-1. **Roteiro de produção por página, escrito para o capítulo atual.** Nunca copiar bloco de prompt de outro capítulo: ele carrega continuidade de outra cena (machucado, personagem, objeto) para dentro da página.
-2. **Formato fixo de cada página:**
-   - **Anexos pelo nome do arquivo** (máximo 5): ficha de corpo e ficha de expressões de TODO personagem que aparece, ambiente, e o que mais a página precisa. Cada anexo diz em uma linha o que governa. Regra curta: dreads verdes = Jack; boné = Kim; cabelo rosa = Nina.
-   - **Luz da cena** em uma linha.
-   - **Painel A e Painel B**: corte diagonal com o grau e o LADO para onde desce (os dois descem para lados OPOSTOS), cor do neon, posição da câmera e a ação daquele momento.
-   - **Estilhaços sobrepostos**: cada um com POSIÇÃO (qual canto, por cima de qual painel, ou cruzando a emenda), UM detalhe da cena e ordem de leitura. Ficam por cima dos painéis, invadindo emenda ou borda, com sombra, como caco de vidro caído em cima do quadrinho.
-   - **Texto exato em ordem de leitura**: quem fala, onde, e "letras pintadas na cor" de quem fala (Kim azul `#1E6FE0`, Jack verde `#22C55E`, Nina rosa framboesa `#B82E69`), ênfase marcada, SFX e lista fechada.
-3. **Só informação útil, em positivo, do que a câmera vê.** Não citar o que não deve aparecer: a palavra puxa a coisa para a imagem. Detalhe que a câmera não vê confunde (o logo do boné de costas virou boné para trás). Uma ficha anexada "só para um detalhe" muda a roupa do personagem.
-4. **Antes de rodar, ler o prompt imaginando a saída**, painel por painel: ordem de leitura dos balões (mesma altura = esquerda para direita), cauda apontando para quem está no quadro, ficha certa para a roupa daquele momento.
-5. **Trava**: nenhuma página é gerada sem a ficha de corpo e a de rosto de quem aparece nela.
-6. **Lotes de 5 páginas**: roda o lote, revisa cada imagem (fichas, cores das letras, ordem dos balões, estilhaços sobrepostos e espalhados, cortes opostos, movimento, continuidade) e manda ao autor COM a lista de críticas. A decisão de refazer é tomada junto com o autor; correção pequena é pontual no próprio Codex, cena errada é página refeita.
-7. **Fonte oficial sempre com referência anexada**: a descrição em palavras não basta (a página 17 do cap. 08 saiu em fonte redonda). Anexar `letreiro_oficial.png` (balões de páginas aprovadas) quando houver vaga, ou uma página aprovada como referência de letra na correção pontual.
-8. **Numeração só com números** (`01.png`, `02.png`...), na ordem final; página inserida no meio renumera as seguintes.
+---
 
-## 1. Como usar este guia
+## 1. O que é WEB SHARD
 
-**Cronologia da linha principal (confirmada pelo autor em 23/10/2026):** a Bíblia é o original `DOCS/Lutas de Ilusão - A ilusão (RETCON).txt`, na pasta da marca, com 14 capítulos longos desdobrados nos 28 atuais. Comparar acontecimentos e sua ordem, não números de capítulo. A antiga cópia `SiteLDI/docs/Lutas de Ilusão - Retcon.md`, de 16 capítulos, estava incorreta e foi removida. Os visuais oficiais e as determinações posteriores do autor governam a adaptação gráfica. Ryan já aparece em *Sonata de uma Briga*, uma semana antes da linha principal; reutilizar sua ficha em `WEBSHARD/LUTAS DE ILUSAO/CONTOS/01-sonata/fichas/ryan.png`, sem tratar o reencontro como primeira apresentação a Kim e Jack.
+**WEB SHARD é uma linguagem autoral de quadrinhos feita para a leitura vertical no celular.** Não é webtoon, comic nem mangá: essas categorias podem servir de referência de estilo, mas não definem a linguagem.
 
-Leia primeiro o manifesto e as regras essenciais (§2–3). Para produzir uma página, use composição (§4), texto (§5), cores e vozes (§6), área segura (§7) e referências e processo (§11–22). A revisão final está no §23.
+A página é uma composição. Painéis grandes sustentam a cena, e estilhaços sobrepostos destacam gesto, reação, impacto e passagem de tempo. As diagonais conduzem o olhar. O nome vem de *shard*, caco ou estilhaço.
 
-As seções 11 a 22 trazem evolução do acervo, fichas, posicionamento na Sala A-304, coreografia, HIT COMBO, referências e estilo de arte, localização, fluxo de produção e modelos de prompt. A §26 reúne a tradução do capítulo 01 para inglês e espanhol: fluxo, prompts, voz, armadilhas e decisões já tomadas. Os registros distinguem:
+- Poucas palavras, em letra grande. A cor do texto diz quem fala.
+- O neon das bordas diz quem conduz a cena ou qual emoção domina. A cor da voz e a do neon são informações diferentes e convivem.
+- Toda página funciona no celular sem zoom. A área segura protege o conteúdo nos quatro lados.
+- Outros títulos usam o formato com o seu próprio desenho, ritmo e cor. Este guia fixa a aplicação no LDI.
 
-| Nível | Significado |
+Grafias: **WEB SHARD** na interface, **WEBSHARD** nas artes. A rota técnica `/webtoon` fica por compatibilidade.
+
+## 2. Regras essenciais
+
+| Regra | Aplicação |
 |---|---|
-| **Regra autoral** | Orientação expressa de Isaias (05 e 06/10/2026). Prevalece sobre exemplos antigos e descrições promocionais divergentes. |
-| **Handoff v2** | Regras de produção fornecidas pelo autor durante esta pesquisa; incorporadas quando compatíveis com sua orientação atual. Numeração de páginas, agenda e status são históricos. |
-| **Evidência do acervo/repositório** | Característica observada em imagens ou comportamento comprovado no código. Uma ocorrência não cria automaticamente uma regra universal. |
-| **Recomendação de produção** | Procedimento proposto neste guia para executar e revisar a linguagem. Não deve ser apresentado como decisão histórica do autor. |
+| Feito para o celular | Projetar e revisar na largura do telefone. |
+| No máximo dois painéis grandes | Uma cena dominante ou duas batidas; nunca uma grade de cenas equivalentes. Três só com justificativa concreta de velocidade ou movimento; quatro, nunca. |
+| Estilhaços sobrepostos | Por cima dos painéis, com função narrativa; podem ser o foco da página. |
+| Nunca informação demais | Hierarquia clara mesmo com ação, som e efeito. |
+| Pouco texto, letra grande | Editar a fala ou redistribuir a cena antes de diminuir a letra. |
+| Safe area nos quatro lados | Letra e informação indispensável dentro dela. |
+| Cor do texto = quem fala | A mesma em toda a sequência e em todos os idiomas. |
+| Neon = quem conduz ou qual emoção | Planejado junto com a narrativa. |
 
-O handoff fecha dimensão, margens aproximadas, estilo tipográfico e paletas. Isaias confirmou a fala rosa da Nina e delegou a escolha de um tom próximo das fichas: **rosa framboesa `#B82E69`**, definido nesta consolidação. A fonte está definida (§5.2): uma só para todo o elenco, com a Máquina como única exceção. Continua pendente o tamanho mínimo da letra. Não confundir parâmetro aproximado com medição uniforme das exportações.
+Não existe limite numérico de estilhaços, palavras ou balões, mas isso não autoriza excesso. Uma faixa fina de olhos que funciona como painel conta como painel: não rebatizar painel de estilhaço para fugir do limite.
 
-## 2. Manifesto consolidado
+## 3. Composição
 
-**WEBSHARD é uma linguagem autoral de quadrinhos concebida para a leitura vertical no celular.** A página funciona como uma composição: painéis grandes sustentam a cena e estilhaços sobrepostos destacam gesto, reação, impacto e passagem de tempo. As diagonais orientam o olhar. A sobreposição participa da narrativa.
+### 3.1 Unidades
 
-**Direção autoral de Isaias, 23/10/2026: estilhaços SOBREPOSTOS.** Sobreposição é a relação espacial com os painéis, não uma hierarquia de importância. O estilhaço pode concentrar o impacto, a emoção ou a informação decisiva da página; não precisa ter menor destaque nem se limitar a um detalhe que o painel deixou de mostrar. Pode ocupar o centro, cruzar emendas e conduzir o olhar. Especificar formato, posição, conteúdo e ordem de leitura; preservar a clareza sem transformar os estilhaços em faixas de uma grade convencional.
-
-O nome remete a *shard*, caco ou estilhaço. A identidade nasce da combinação entre composição fragmentada, clareza, ritmo e cor com significado. Não basta inclinar quadros ou colocar brilho em uma página convencional.
-
-No LDI, poucas palavras precisam ser vistas com facilidade. O texto ocupa espaço real, tem tamanho confortável e identifica a voz do personagem pela cor. O neon dos painéis e dos estilhaços indica quem conduz a cena ou qual emoção a domina. A voz e o domínio da cena são informações distintas e podem coexistir com cores diferentes.
-
-Cada página precisa funcionar no celular sem exigir que o leitor amplie letras para compreender a história. A composição protege o conteúdo essencial em uma área segura nos quatro lados. O espaço da tela serve à ação e à leitura, sem excesso de informação.
-
-Isaias define WEBSHARD como uma linguagem própria, criada por insatisfação com as linguagens de webtoon, comic e mangá. Essas categorias podem aparecer como referências de descoberta ou de estilo gráfico, mas **não substituem sua definição autoral**.
-
-O formato poderá ser aplicado a outras marcas. Mundo das Sombras e Mar de Cinzas poderão ter decisões próprias de desenho, ritmo, cor e atmosfera. Este guia não fixa a direção artística dessas marcas: especifica a aplicação no LDI.
-
-### 2.1 Divergência com o texto público atual
-
-`src/i18n/core/pt.json`, no namespace `webShard`, ainda descreve o produto como “formato de web comic e mangá vertical”; a FAQ responde “Os dois” à pergunta sobre ser mangá ou comic. O hub, por outro lado, já apresenta “Não é webtoon. É WEB SHARD.”
-
-Para a produção, vale a definição autoral acima. Uma revisão futura da comunicação pública deve alinhar as três traduções, metadados e textos de SEO; esta tarefa apenas registra a divergência. A rota técnica `/webtoon` permanece por compatibilidade e não determina o nome da linguagem.
-
-Grafias encontradas: **WEB SHARD** na interface e **WEBSHARD** em artes e na orientação do autor. Ambas se referem à mesma linguagem; este documento usa WEBSHARD como forma editorial e preserva nomes técnicos existentes.
-
-## 3. Regras essenciais
-
-| Regra autoral | Aplicação na produção |
+| Unidade | Função |
 |---|---|
-| Pensado para o mundo vertical e o celular | Projetar e revisar na largura de leitura do telefone. |
-| Estilhaços sobrepostos sobre painéis | Sobrepor com intenção narrativa; podem concentrar a ação, a emoção ou a informação decisiva. |
-| No máximo dois painéis grandes como regra | Uma cena dominante ou duas batidas principais; não montar uma grade cheia de cenas equivalentes. |
-| Três painéis grandes apenas em casos muito específicos | Justificar por velocidade, progressão de movimento ou outra necessidade narrativa concreta. Não usar para acomodar roteiro excedente. |
-| Nunca informação demais | Preservar uma hierarquia clara mesmo quando há ação, som e efeitos. |
-| Pouco texto e texto grande | Editar a fala ou redistribuir a cena antes de reduzir a letra. |
-| Safe area em cima, embaixo e nos dois lados | Proteger letras e informação indispensável de cortes e bordas. |
-| Cor de texto identifica quem fala | Manter consistência de voz durante toda a sequência e entre idiomas. |
-| Neon indica controle ou emoção da cena | Planejar a cor de painéis e estilhaços junto com a narrativa. |
+| Página | Composição vertical completa, com percurso de leitura e uma batida dramática. |
+| Painel principal | Sustenta a ação, o espaço ou a expressão dominante. |
+| Estilhaço | Fragmento sobreposto: gesto, reação, impacto, tempo ou informação decisiva. |
+| Corte diagonal | Separa e liga os momentos, dando direção e velocidade. |
+| Invasão de quadro | Um elemento cruza a divisão e liga os planos, quando a ação justifica. |
+| Neon | Borda que marca domínio, tensão ou emoção. |
+| Letreiro | Fala, pensamento, grito ou som, com hierarquia própria. |
 
-Não há limite numérico geral de estilhaços, palavras ou balões. Isso não autoriza excesso. Uma faixa fina de olhos que funciona como painel sequencial conta como painel; não rebatizar cenas como estilhaços para contornar o teto. O handoff registra 3–4 painéis de esmagamento como exceção histórica, mas a orientação atual admite casos específicos de três: quatro não são padrão autorizado para novas páginas.
+Páginas-modelo do capítulo 01:
+- [10](https://illusionfight.com/webtoon/01/pt/10.webp): estilhaço e duas cores de voz;
+- [22](https://illusionfight.com/webtoon/01/pt/22.webp): voz azul em moldura roxa;
+- [34](https://illusionfight.com/webtoon/01/pt/34.webp): virada azul e detalhe sobreposto;
+- [38](https://illusionfight.com/webtoon/01/pt/38.webp): duas vozes na mesma composição;
+- [42](https://illusionfight.com/webtoon/01/pt/42.webp): hierarquia de gritos.
 
-## 4. Gramática visual
-
-### 4.1 Unidades
-
-| Unidade | Função | Exemplo no capítulo 01, PT |
-|---|---|---|
-| Página | Composição vertical completa, com percurso de leitura e batida dramática | 10: Jack registra a queda enquanto Kim reage na arena. |
-| Painel principal | Sustenta a ação, o espaço ou a expressão dominante | 38: encontro dos dois personagens no centro da arena. |
-| Estilhaço | Fragmento sobreposto aos painéis: gesto, reação, impacto, passagem de tempo ou informação decisiva, sem hierarquia obrigatória de menor importância | 10: telefone; 22: mão; 34: detalhe do braço. |
-| Corte diagonal | Separa e conecta momentos, sugerindo direção e velocidade | 15–17: ataque, impacto e deslocamento. |
-| Sobreposição | Integra planos e estabelece a prioridade do detalhe | 09–10: Jack e o aparelho sobre a cena da queda. |
-| Invasão de quadro | Um elemento cruza a divisão e conecta planos | Gesto previsto expressamente no manifesto público; usar quando a ação justificar. |
-| Neon | Borda narrativa que marca domínio, tensão ou emoção | Mudanças entre azul, roxo, verde e laranja ao longo da luta. |
-| Letreiramento | Fala, pensamento, grito ou som com hierarquia própria | 22: falas azuis sobre composição roxa. |
-
-### 4.2 Construção de uma página
-
-Procedimento recomendado:
+### 3.2 Construção de uma página
 
 1. Escrever em uma frase o que muda nesta página.
-2. Escolher a imagem que precisa ser percebida primeiro.
-3. Definir um ou dois painéis principais, com tamanhos coerentes com sua importância.
-4. Compor os estilhaços sobrepostos com função narrativa própria: podem preparar, completar ou concentrar a ação e a emoção, inclusive como foco visual da página.
-5. Traçar o percurso do olhar de cima para baixo; dentro de cada região, garantir ordem clara de ação e fala.
-6. Reservar desde o esboço o espaço de texto e a área segura.
-7. Definir quem controla a cena, sua emoção e a cor do neon.
+2. Escolher a imagem que precisa ser vista primeiro.
+3. Definir um ou dois painéis, com o tamanho de cada um seguindo a importância.
+4. Compor os estilhaços com função própria.
+5. Traçar o caminho do olhar de cima para baixo.
+6. Reservar o espaço do texto e a área segura.
+7. Definir quem conduz a cena e a cor do neon.
 8. Rever a página reduzida ao tamanho do celular.
 
-Estilhaços podem mostrar antecipação, simultaneidade, reação ou consequência. O leitor precisa compreender qual dessas relações está vendo. Não sobrepor um detalhe ao rosto, ao ponto de contato do golpe ou a uma fala indispensável.
+- **Corte:** diagonal de 8 a 15 graus, nunca reto. Um corte só por página, com proporção e lado definidos, sem repetir a página anterior (`REGRAS_CRITICAS.md` §3).
+- **Separação:** borda fina, nunca faixa larga. O fundo acompanha o tema da cena, nunca preto ou branco chapado.
+- **Movimento:** cada painel declara o novo estado da ação (gesto, postura, deslocamento, contato ou consequência). Não repetir a mesma pose na mesma posição com outra fala.
 
-O handoff fixa cortes diagonais de **8–15 graus**, inclusive nos recortes retangulares; evitar divisões retas horizontais/verticais. As diagonais podem variar de direção na mesma página, preservando a ordem de leitura. A separação normal é uma borda fina, não uma faixa larga; a espessura não deve roubar espaço da ação. Invasões de quadro são opcionais. O fundo acompanha o tema da cena, nunca preto ou branco chapado. Uma pausa pode ter composição simples sem abandonar a linguagem. Ângulo de câmera e borda devem ser declarados dentro de cada bloco de painel no prompt. Cada painel também declara o novo estado da ação e a relação com o anterior: gesto, postura, deslocamento, contato ou consequência. Não repetir a mesma pose e posição na tela com falas diferentes. Ângulos cinematográficos dependem da posição física da lente e da profundidade, não apenas de inclinar a borda. Em fonte fixa, o movimento acontece dentro do campo; em fonte portátil, a mudança de ângulo exige deslocamento ou giro real do operador.
+### 3.3 Estilhaços sobrepostos
 
-### 4.3 Ritmo e exceções
+- O estilhaço fica POR CIMA dos painéis, como caco caído em cima do quadrinho, com sombra, invadindo a emenda ou a borda.
+- "Sobreposto" é a posição, não uma importância menor: o estilhaço pode concentrar o impacto, a emoção ou a informação decisiva e ser o foco da página. Pode ficar no centro, cruzar a emenda e seguir o alvo do olhar.
+- Cada estilhaço tem no prompt:
+  - **posição**: qual canto, por cima de qual painel ou cruzando a emenda;
+  - **conteúdo**: um detalhe só;
+  - **função**: tempo, reação, causa/consequência, olhar ou detalhe que conta;
+  - **ordem de leitura**.
+- Nunca cobre rosto, ponto de contato do golpe nem fala.
+- Continua um fragmento reconhecível, nunca uma faixa extra de grade. Se a página saiu só com painéis, a descrição da sobreposição estava fraca.
 
-- **Impacto:** reservar área grande para o acontecimento decisivo; detalhes mostram preparação ou consequência.
-- **Velocidade:** encadear momentos curtos na direção do movimento. Três painéis grandes exigem justificativa específica no roteiro.
-- **Humor:** preservar preparação e resposta; evitar que um balão revele a piada antes da imagem necessária.
-- **Emoção:** dar espaço à expressão e ao silêncio. Uma emoção intensa não exige mais palavras.
-- **Transição:** tornar reconhecível a mudança de sonho, arena, quarto ou outro ambiente sem depender de explicação longa.
+### 3.4 Ritmo
 
-A página é uma unidade compositiva, mas não precisa caber inteira na altura de qualquer aparelho. A proporção do telefone, as barras do navegador e a interface variam. Deve continuar legível durante a rolagem, sem corte do conteúdo essencial.
+- **Ação** (briga, perseguição, tiro, batida): 2 painéis em diagonal mais 2 a 4 estilhaços que quebram o movimento em tempos (preparo, impacto, reação, destroço), com linha de velocidade. Nunca painel único.
+- **Impacto:** área grande para o acontecimento decisivo; os detalhes mostram o preparo ou a consequência.
+- **Humor:** preservar o preparo e a resposta; nenhum balão revela a piada antes da imagem.
+- **Emoção:** espaço para a expressão e o silêncio. Emoção forte não pede mais palavras.
+- **Transição:** a troca de sonho, arena, quarto ou ambiente fica clara sem explicação longa.
+- **Painel único:** só em pausa dramática (chegada, virada, gancho).
 
-## 5. Texto e letreiramento
+## 4. Texto e letreiro
 
-### 5.1 Economia de palavras
+### 4.1 Economia
+O texto é curto para poder ser grande. Quando falta espaço:
+1. tirar o que a imagem já explica;
+2. separar a batida em outra página;
+3. reorganizar balões e composição.
 
-O texto deve ser curto para poder ser grande. Cada fala precisa cumprir uma função: intenção, conflito, reação, informação indispensável ou humor. Não transcrever parágrafos do romance diretamente para os balões.
+Diminuir a letra até caber não é opção. Na adaptação de um conto, toda fala entra literal (`REGRAS_CRITICAS.md` §3): o que se ajusta é o número de páginas.
 
-Quando faltar espaço, seguir esta ordem recomendada:
+### 4.2 Forma
+- **Uma fonte só para todo o elenco:** comic bold condensada, reta, caixa alta, em balão branco puro.
+  - A palavra de ênfase de cada balão sai bem maior, na mesma cor e fonte. No prompt, a ênfase se escreve em palavras ("a palavra X bem maior"), nunca com colchete nem asterisco.
+  - Única exceção: o Professor Máquina (§5).
+- **Formatos de balão:**
+  - fala: oval, cauda reta;
+  - pensamento: nuvem com bolinhas;
+  - sussurro: contorno tracejado;
+  - grito: bordas pontudas, que podem sair do painel sem sair da área segura.
+- **A fonte oficial vai sempre anexada.** Descrição em palavras não basta: a página 17 do cap. 08 saiu em fonte redonda. Anexar `Personagens/Objetos/Baloes_LetreiroOficial.png` (balões de páginas aprovadas) quando houver vaga, ou uma página aprovada na correção.
+- Balão só existe com diálogo exato fornecido. "NÃO HÁ REGRAS!!!" é texto gráfico de impacto, nunca balão.
+- O balão aponta sem dúvida pra quem fala. Não depender só da cor: posição e cauda também identificam.
+- Acento, cedilha e pontuação precisam sobreviver à redução.
 
-1. Remover o que a imagem já explica.
-2. Encurtar a formulação preservando a voz do personagem.
-3. Separar a batida em outra página, se necessário.
-4. Reorganizar balões e composição.
-5. Reavaliar a quantidade de acontecimentos.
+### 4.3 Tamanho no celular
+`tamanho na tela ≈ tamanho na arte × largura exibida ÷ largura da arte` (48 px numa arte de 960 px viram ~16 px numa tela de 320 px). Ainda não existe um mínimo oficial. Revisar em 320, 360, 390, 430 e 480 px: a leitura funciona sem pinça.
 
-Diminuir a letra até caber contradiz o objetivo central da linguagem.
+## 5. Cor
 
-### 5.2 Forma visual observada
+**A cor da fala responde "quem está falando?". A cor do neon responde "quem conduz este momento?".** Uma não muda a outra: na p. 11 do cap. 03, o Brock fala em marrom-vinho dentro de bordas douradas, porque quem domina é o Freddy.
 
-O capítulo atual usa predominantemente letras de exibição inclinadas e em caixa alta, palavras-chave ampliadas, balões claros e texto colorido. Há pensamentos diretamente sobre a imagem, balões de pensamento, balões de grito e onomatopeias integradas à ação.
+### 5.1 Cores de fala
 
-O handoff fixa estilo **impacto/comic bold condensado, caixa alta**, padrão único da obra, e fundo **branco puro** nos balões. Fala: oval/cauda reta; pensamento: nuvem/bolinhas; sussurro: contorno tracejado; grito: bordas pontiagudas. Quase todo balão destaca uma palavra muito maior, mantendo cor e fonte. No prompt, marcar `[ÊNFASE]` e avisar que os colchetes não aparecem. Gritos podem ultrapassar o painel, respeitando a área segura da página.
-
-**Regra autoral:** a fonte é a mesma para todos os personagens, impacto/comic bold condensada, caixa alta, balão branco puro, com uma palavra de ênfase maior. A única exceção é o Professor Máquina, com balão invertido e Share Tech Mono (§6.2). O nome exato da família comic e o tamanho mínimo ainda não estão fixados; `Fonts/animeace2_bld.ttf` existe na pasta da marca, mas sua presença não prova uso no letreiramento atual. Balões só existem quando há diálogo exato fornecido: corrigir erros de ditado antes de travar o texto, depois copiar palavra por palavra, sem inventar fala. “NÃO HÁ REGRAS!!!” é texto gráfico de impacto, nunca balão.
-
-Recomendações:
-
-- Manter contraste entre letra e fundo; o halo nunca deve apagar o contorno da letra.
-- Usar ênfase para palavras decisivas, evitando destacar todas as palavras.
-- Garantir que pontuação, acentos e cedilha sobrevivam à redução e à exportação.
-- Fazer o balão apontar de maneira inequívoca para quem fala, quando houver ponteiro.
-- Não depender somente da cor para identificar a fala: posição, ponteiro e contexto também ajudam.
-- Preservar leitura de onomatopeias sem cobrir o acontecimento que produziu o som.
-
-### 5.3 Tamanho percebido no celular
-
-Não foi encontrado um mínimo oficial em pixels. Para avaliar um arquivo raster, usar a relação:
-
-`tamanho na tela ≈ tamanho na arte × largura exibida ÷ largura da arte`
-
-Exemplo apenas matemático: uma letra com medida de 48 px em uma arte de 960 px corresponde aproximadamente a 16 px quando a imagem é exibida com 320 px de largura. Isso **não estabelece** que 48 px seja o mínimo aprovado; fontes e formas de medir letras variam.
-
-Revisar a exportação em larguras de 320, 360, 390, 430 e 480 px é uma recomendação de controle de qualidade. A leitura precisa funcionar sem pinça ou zoom obrigatório, coerente com o mandamento de uso com uma mão do projeto.
-
-## 6. Cor como narrativa
-
-### 6.1 Dois sistemas independentes
-
-**Cor da fala responde “quem está falando?”. Cor do neon responde “quem conduz ou qual emoção governa este momento?”.**
-
-Não recolorir automaticamente a fala quando muda o domínio da cena. A página 22 demonstra isso: o texto de Kim continua azul enquanto os recortes têm bordas roxas. Na 38, Kim e Jack mantêm falas azuis e verdes dentro de uma composição predominantemente azul.
-
-### 6.2 Paleta observada e confirmação pelo handoff
-
-| Elemento | Evidência visual | O que pode ser usado como referência |
-|---|---|---|
-| Voz de Kim | Azul em diversas páginas, inclusive 10, 22, 38 e 42 | Associação consistente no capítulo atual. |
-| Voz de Jack | Verde em 10, 29, 37–39 | Associação consistente no capítulo atual. |
-| Voz de Nina | **Rosa framboesa `#B82E69`** | Tom escolhido nesta tarefa por delegação do autor, próximo das referências fornecidas. |
-| Voz externa na página 42 | Roxo no grito vindo da casa | O handoff identifica Helena e fixa sua voz violeta. |
-| Oponente da arena | Laranja nas bordas da sequência 30–33 e em elementos do corpo | Referência para esse oponente/trecho, não para todos os inimigos. |
-| Queda inicial | Vermelho nas páginas 05–07 | Atmosfera de alarme/intensidade é uma leitura visual, não um significado universal aprovado. |
-| Sequência roxa | Páginas 18–28 atravessam ofensiva adversária e reação de Kim | Impede tratar roxo como sinônimo fixo de “inimigo”. Pode carregar estado emocional ou poder; sentido exato por trecho requer direção autoral. |
-| Retomada azul | 34–36 | Exemplo de mudança cromática acompanhando a virada da ação. |
-| Presença verde de Jack | Recortes de 09–10; sequência 37 e 39 | Exemplo de identidade incidindo na moldura e na condução da cena. |
-
-#### Cores de fala
-
-| Personagem | Cor da fala | Como aplicar |
+| Personagem | Cor | Como aplicar |
 |---|---|---|
 | Kim | Azul `#1E6FE0` | Texto colorido em balão branco. |
 | Jack | Verde `#22C55E` | Texto colorido em balão branco. |
-| Nina | Rosa framboesa `#B82E69` | Texto e contorno do balão em rosa. Contraste de ~5,78:1 sobre branco puro, antes de rasterização e glow. Não trocar a letra pelo rosa claro do brilho. |
+| Nina | Rosa framboesa `#B82E69` | Texto e contorno do balão em rosa. Não trocar pelo rosa claro do brilho. |
 | Helena | Violeta `#9B4DCA` | Texto colorido em balão branco. |
 | Pajé Yawanari | Laranja `#E8730C` | Texto colorido em balão branco. |
-| Brock | Marrom-vinho `#8B1E1E` | Texto **e contorno do balão** em marrom-vinho (cap. 03, p. 11). |
-| Fred/Freddy | Dourado `#C9A227` | Sempre com **contorno fino escuro na letra**: dourado puro sobre branco tem pouco contraste e some no celular (cap. 03, p. 11). |
-| Anderson | Cinza-chumbo `#4B5563` | Balão branco comum, para não confundir com o balão escuro da Máquina (cap. 03, p. 13). |
+| Brock | Marrom-vinho `#8B1E1E` | Texto e contorno do balão. |
+| Freddy | Dourado `#C9A227` | Sempre com contorno fino escuro na letra: dourado puro some no branco. |
+| Jasmine | Turquesa-escuro `#0E7C86` | Texto colorido em balão branco. |
+| Anderson | Cinza-chumbo `#4B5563` | Balão branco comum. |
 | Osvaldo | `#5B7A9E` | Texto colorido em balão branco. |
-| Professor Máquina | Prata-gelo `#D9DEE3` em balão grafite `#3A3A3A` | Único balão invertido: fundo grafite, texto e contorno prata-gelo, formato retangular chanfrado, fonte monoespaçada de terminal **Share Tech Mono**. Cursor "▌" opcional no fim de falas marcantes. |
+| Professor Máquina | Prata-gelo `#D9DEE3` em balão grafite `#3A3A3A` | O único balão invertido: retangular chanfrado, fonte **Share Tech Mono**, cursor "▌" opcional. |
 
-Personagem novo com fala precisa de cor definida antes da página. Escolher um tom que não se confunda com os da tabela, testar contraste sobre branco e registrar aqui.
+Personagem novo com fala ganha cor antes da página: escolher um tom que não se confunda com os da tabela, testar o contraste sobre branco e registrar aqui.
 
-| Neon LDI | Núcleo / glow | Uso registrado |
+### 5.2 Neon
+
+| Neon | Núcleo / glow | Uso |
 |---|---|---|
 | Azul | `#3B82F6` / `#1E6FE0` | Kim no controle. |
-| Negro | `#0A0612` / `#2A0B3D` | Void dominando, brutalidade; halo violeta-abissal. |
 | Verde | `#4ADE80` / `#22C55E` | Jack, comédia. |
-| Laranja | `#FB923C` / `#F97316` | Void fase 2 dominando. |
+| Rosa Nina | `#F472B6` / `#DB2777` | Cenas conduzidas pela Nina. |
+| Dourado | `#FCD34D` / `#F59E0B` | Freddy dominando; divulgação do Pajé. |
+| Cinza-escuro | `#6B7280` / `#374151` | Anderson dominando, inclusive apanhando: ameaça fria. |
+| Negro | `#0A0612` / `#2A0B3D` | Void dominando, brutalidade; halo violeta-abissal. |
+| Laranja | `#FB923C` / `#F97316` | Void fase 2. |
 | Azul-escuro | `#1E3A8A` / `#1E40AF` | Madrugada, quarto, mundo real. |
 | Vermelho | `#F43F5E` / `#DC2626` | Queda livre no abismo. |
-| Dourado | `#FCD34D` / `#F59E0B` | Divulgação do Pajé; Freddy dominando a cena, quando a gangue entra e ele aponta os alvos (cap. 03, p. 11). |
-| Cinza-escuro | `#6B7280` / `#374151` | Anderson dominando a cena, inclusive quando está apanhando: ameaça fria, sem grito (cap. 03, p. 13). O núcleo é mais claro que o nome sugere, porque cinza escuro de verdade não brilha. |
-| Rosa Nina | `#F472B6` / `#DB2777` | Par de neon definido nesta consolidação para cenas conduzidas por Nina; não altera seu texto `#B82E69`. |
 
-Fala e neon continuam independentes: na página 11 do capítulo 03, o Brock fala em marrom-vinho dentro de bordas douradas, porque quem domina a cena é o Freddy.
+- **Aspecto do neon:** borda fina (~3 px), glow externo suave (10–14 px), núcleo mais claro, como tubo de neon. Preto puro não brilha.
+- **Quando trocar:** a troca de neon precisa de motivo dramático, nunca a cada fala. Evitar várias cores competindo com a mesma força.
 
-Borda fina de aproximadamente **3 px**, glow externo suave de **10–14 px**, núcleo mais claro, aspecto de tubo neon. Preto puro não brilha em fundo escuro. São referências de produção, não medições exatas dos WebP. O neon é recurso adotado no LDI, não obrigação universal para outras marcas. A interface usa seus próprios tokens; o vermelho `#ff2a3d` do catálogo não substitui esta paleta da arte.
+## 6. Página: tamanho e área segura
 
-### 6.3 Planejamento de cor por página
+- **Página:** 960 × 1637 px, cerca de 1:1,705 (não é 9:16). Página dupla do Codex: 768 × 1024 cada metade.
+- **Outros formatos:** ficha e cenário em 1536 × 1024 no Codex; vídeo em 1080 × 1920 (não substitui a página).
+- **Área segura:** ~100 px nos lados e ~80 px em cima e embaixo, ou seja, uma região de ~760 × 1477 px (x de 100 a 860, y de 80 a 1557).
+  - Texto, rosto principal e ponto decisivo da ação ficam dentro dela.
+  - Fundo e efeito podem ir até a borda.
+  - No prompt, nunca escrever margem em pixels: vira moldura.
+- **O leitor** (`LeitorPaginas.jsx`) mostra cada página com `width:100%` e `height:auto`, sem cortar; tela baixa só pede rolagem.
+  - O fio ciano diagonal entre as páginas é da interface, não do neon da arte.
+  - Evitar informação essencial encostada na emenda.
+- **Não deformar nem recortar** artes antigas para igualar o tamanho.
 
-Registrar no briefing:
+## 7. Páginas fixas do capítulo
 
-- Quem fala e qual sua cor de voz.
-- Quem conduz o momento ou qual emoção determina a moldura.
-- Cor dominante do neon e eventuais estilhaços com identidade própria.
-- Ponto em que o controle muda e como a cor acompanha a mudança.
-- Referências aprovadas usadas para manter consistência.
+Ordem: capa → aviso de idade → divulgação → história → **gancho em glitch** → divulgação → créditos. Na linha principal, são 4 páginas de abertura e 3 de encerramento.
 
-Recomendação: evitar trocar o neon a cada fala por automatismo. A mudança precisa de motivo dramático. Também evitar várias cores competindo com igual intensidade sem hierarquia. Cor de iluminação do cenário, energia de poder, fala e moldura podem cumprir funções diferentes.
+- **Capa:** usar a arte oficial quando existir (`Personagens/Capas_Contos/` nos contos).
+- **Gancho em glitch (última página da história, obrigatório):**
+  - Modelos: `MAIN/02/PT/63.png`, `MAIN/03/PT/62.png` e `MAIN/06/PT/57.png` (anexar duas delas).
+  - A página inteira "trava": faixas horizontais deslocadas, aberração cromática vermelho/ciano, scan lines, pixels quebrados.
+  - Plaquinha vermelha "⚠ ERRO" e chiado "ZZZZT" no topo.
+  - Pergunta-gancho GRANDE embaixo, com a palavra-chave colorida.
+  - "FIM DO CAPÍTULO N" pequeno no canto inferior direito. Nunca o selo "FIM DO WEB SHARD".
+- **Glitch no meio do capítulo (virada de cena):**
+  - Modelo: `MAIN/02/PT/35.png`.
+  - Chiado de VHS e aberração cromática.
+  - Pergunta curta em cima ("QUEM É ESSA MULHER?") e frase de impacto grande embaixo, na cor do personagem.
+  - Linha pequena: "VISITE O PORTAL PARA VER O QUE ACONTECE AGORA."
+- **Selo "BRUUUTAAALLL!!!":** gag no espírito do "Toasty!".
+  - Texto igual nos três idiomas: três U, três A, três L e três !.
+  - Arte: o Pajé de olhos saltados. O arquivo `Brutal.png` está hoje em `_LIXEIRA_2026-10-27/Personagens/WEBTOON/`: devolver pra `Personagens/Objetos/` antes de usar.
+  - No máximo um por capítulo, no golpe mais espetacular do MEIO da luta, nunca no clímax nem no golpe final.
+  - O Pajé olha pra dentro da página. Tamanho: uns 35% da largura, inclinado 8–10°.
+- **Rodapé de glossário:** `*[Termo] — [explicação curta]. illusionfight.com/universos`, legível e dentro da área segura.
 
-## 7. Dimensões, proporção e safe area
+## 8. Lutas de Ilusão: personagens, referências e lugares
 
-### 7.1 O que existe de fato
+### 8.1 Cânone e vozes
+- A Bíblia da linha principal é `DOCS/Lutas de Ilusão - A ilusão (RETCON).txt` (pasta da marca). São 14 capítulos longos, desdobrados nos atuais. Comparar acontecimentos e a ordem deles, não o número do capítulo. Cena mostrada no WEB SHARD é cânone.
+- O Ryan já aparece em *Sonata de uma Briga*, uma semana antes da linha principal. O reencontro com ele não é uma apresentação.
+- O capítulo 01, *O Sonho de Ilusão*, é uma introdução fora da linha principal.
 
-O capítulo 01 declara `proporcao: [960, 1637]` em `src/data/episodios.json`. É a referência nominal atual, aproximadamente **1:1,705**; não é 9:16 exato.
-
-Auditoria dos 158 arquivos WebP presentes em `public/webtoon/01/`:
-
-| Dimensões em px | PT | EN | ES |
-|---|---:|---:|---:|
-| 960 × 1637 | 15 | 8 | 7 |
-| 961 × 1637 | 23 | 10 | 13 |
-| 941 × 1672 | 2 | 2 | 2 |
-| 962 × 1635 | 2 | 1 | 2 |
-| 961 × 1636 | 7 | 6 | 2 |
-| 960 × 1639 | 2 | 21 | 23 |
-| 992 × 1586 | 1 | 1 | 1 |
-| 960 × 1638 | 1 | 4 | 1 |
-| 959 × 1640 | 0 | 0 | 1 |
-| **Total** | **53** | **53** | **52** |
-
-Há variações reais; o valor do catálogo não significa que todos os arquivos tenham a mesma dimensão. Não redimensionar ou recortar o acervo automaticamente para “corrigir” isso.
-
-O handoff confirma **960 × 1637 px como formato exato de entrega da página**. Usar esse gabarito nas novas páginas. Cenário sem personagens e ficha de quatro vistas: 2048 × 1152; asset isolado: 2048 × 2048; frame de vídeo: 1080 × 1920. Não trocar a página pelo formato de vídeo 9:16. Não deformar artes antigas para normalizar o inventário.
-
-### 7.2 Área segura obrigatória
-
-**Regra autoral:** existe área de segurança no topo, na base, à esquerda e à direita. Seu objetivo é proteger o conteúdo contra cortes dependentes da tela ou do destino da publicação.
-
-**Handoff:** margens de aproximadamente **100 px à esquerda e à direita e 80 px no topo e na base**. Em 960 × 1637, a região interna resultante é aproximadamente **760 × 1477 px**, de x=100 a 860 e y=80 a 1557. São valores aproximados explicitamente registrados, não valores deduzidos das imagens. Preservar conteúdo essencial dentro dessas guias; verificar a exportação real.
-
-Representação para o arquivo de produção:
-
-```text
-Arte: largura W, altura H
-Margens aprovadas: esquerda E, direita D, topo T, base B
-Área segura: x entre E e W-D; y entre T e H-B
-```
-
-Texto, identificação indispensável, expressão essencial e ponto decisivo da ação precisam ser compostos considerando essa região. Fundos e efeitos periféricos podem ocupar as bordas se isso não comprometer informação necessária. Esta separação entre conteúdo essencial e sangria é uma recomendação operacional, não uma medida de margem aprovada.
-
-Registrar no gabarito se os valores são absolutos ou proporcionais. Se o mestre for ampliado uniformemente, ampliar as margens na mesma escala.
-
-### 7.3 Relação com o leitor
-
-`LeitorPaginas.jsx` entrega cada página como imagem; o CSS usa `width: 100%` e `height: auto`. O leitor mantém a proporção natural da imagem e não aplica `object-fit: cover` ao corpo das páginas. Uma tela mais baixa exige rolagem, não deveria cortar a imagem por si só.
-
-Portanto, não usar a safe area como justificativa para implementar recorte automático no leitor. Ela protege a composição e suas adaptações; não substitui a revisão do comportamento de exibição.
-
-As páginas ficam empilhadas. Um fio ciano diagonal de altura de layout zero é sobreposto às emendas por `.ws-paginas__corte`. Esse efeito pertence à interface e não é o neon narrativo da arte. Não inferir dele que todo painel deve ser ciano. Evitar informação essencial encostada às emendas.
-
-O portal tem coluna única de até 480 px e mantém a experiência de celular em telas grandes. A arte não ganha uma composição alternativa de desktop.
-
-## 8. Identidade de Lutas de Ilusão
-
-O catálogo atual apresenta Bravara em **2XXX**, ação, luta e drama, classificação 16. O núcleo acompanha Kim, Jack e Nina; a realidade social, a amizade, a provocação e a dor participam da identidade da obra.
-
-As fichas e o guia de escrita em `Conhecimento_Otimizado/` ajudam a preservar vozes:
-
-| Personagem | Direção de diálogo | Cuidado na adaptação |
+| Personagem | Voz | Cuidado |
 |---|---|---|
-| Kim | Sarcástico, defensivo, direto; humor seco e reação incisiva | Encurtar sem torná-lo uma voz genérica de herói. |
-| Jack | Teatral, brincalhão, falante e leal; provoca e improvisa | Preservar o timing da piada sem transformar a página em monólogo. |
-| Nina | Direta, precisa, cortante; provocação e confiança | Não confundir economia de palavras com ausência de personalidade. |
+| Kim | Seco, sarcástico, defensivo; frases curtas | **Nunca sorri nem ri.** Surpresa é contida. Escrever isso no prompt de toda página com ele. |
+| Jack | Teatral, brincalhão, leal; vive de rede social | Ao zoar: meio sorriso fechado e sobrancelha erguida, não gargalhada. |
+| Nina | Direta, precisa, cortante | Economia de palavras não é falta de personalidade. |
 
-Essas fichas são apoio, não autoridade automática sobre toda revisão do cânone. Existem referências antigas a datas como 2030, enquanto a apresentação atual usa 2XXX. Conferir o capítulo que está sendo adaptado, sua revisão e a orientação do autor antes de trazer detalhes históricos ao roteiro.
+### 8.2 Aparência
 
-Recomendações de continuidade visual:
-
-- Fixar aparência e roupa a partir de referências aprovadas para a cena específica: cotidiano, avatar ou transformação.
-- Preservar cabelo, tom de pele, proporções, acessórios e silhueta entre planos.
-- Registrar ferimentos, sujeira, roupa rasgada, objetos e posição dos personagens entre páginas.
-- Manter geografia da luta e consequência dos golpes compreensíveis.
-- Evitar que um novo ângulo altere sem intenção o braço atingido, a arma, a distância ou a direção de movimento.
-
-O capítulo 01, **O Sonho de Ilusão**, é uma introdução explicitamente situada fora da linha principal, segundo o catálogo e o aviso do autor. Sua apresentação de sonho e espetáculo não autoriza importar todos os acontecimentos para a cronologia do romance.
-
-## 9. Acervo auditado e exemplos
-
-### 9.1 Material atual
-
-| Material | Estado observado em 05/10/2026 |
+| Personagem | Regra |
 |---|---|
-| Capítulo 01 | 53 posições de página; 53 arquivos PT, 53 EN e 52 ES. |
-| Página 37 em espanhol | Ausente; `paginas_faltando.es: [37]` direciona essa posição para PT. |
-| Capítulos 02–09 | Entradas de planejamento, sem contagem de páginas no catálogo atual. Não confundir agenda com arte pronta. |
-| Especiais 1–2 | Entradas planejadas de fim de temporada, sem páginas cadastradas. |
-| Heróis da Cidade | Título do universo LDI com capa, visível só para admin; `fonte_capitulos: "nenhuma"`. Não há capítulo entregue por essa fonte. |
-| Capas e miniaturas | `src/assets/webshard/`, com variantes da miniatura do capítulo 01 em PT/EN/ES. |
-| Manifesto público | Página `/web-shard`, conteúdo traduzido em `src/i18n/core/{pt,en,es}.json`. |
-
-A inspeção visual desta pesquisa percorreu as 53 páginas PT em pranchas de contato, com leitura ampliada das páginas 10, 22, 38 e 42. A auditoria de arquivos e dimensões cobriu PT/EN/ES; **não constitui revisão linguística completa das traduções**.
-
-### 9.2 Mapa das 53 páginas PT
-
-| Páginas | Conteúdo observado | Uso como referência |
-|---|---|---|
-| 01–02 | Capa e apresentação visual | Identidade e embalagem editorial. |
-| 03 | Aviso de conteúdo / 16+ | Página de serviço, não modelo de diálogo. |
-| 04 | Divulgação do universo e portal | Material promocional. |
-| 05–08 | Queda e reação de Kim | Tensão inicial, expressão, pensamento e grande cena vertical. |
-| 09–10 | Arena, Jack registrando e reação de Kim | Estilhaços sobre a cena, voz azul/verde, detalhe do telefone. |
-| 11–12 | Apresentação da arena e ameaça | Escala, antecipação, presença do oponente. |
-| 13–17 | Provocação e primeira ofensiva | Recortes de preparação, impacto, onomatopeias e azul dominante. |
-| 18–21 | Contra-ataque e dano | Sequência roxa, deslocamento, consequência física. |
-| 22–28 | Virada de intensidade e nova ofensiva | Cor de fala diferente da moldura; detalhes e ação prolongada. |
-| 29 | Intervenção de Jack | Verde associado ao recorte/intervenção de Jack. |
-| 30–33 | Transformação/ofensiva do adversário | Laranja, velocidade e pressão da ameaça. |
-| 34–36 | Reação e destruição do oponente | Retomada azul, contatos e consequências. |
-| 37–39 | Kim e Jack, provocação e conclusão da arena | Alternância de vozes e domínio visual. |
-| 40–42 | Despertar, telefone e gritos na casa | Mudança de ambiente; economia de cena e encerramento. |
-| 43–50 | Palavras do autor | Colagem editorial mais densa, com tratamento próprio. |
-| 51–52 | Divulgação e convite ao portal | Peças promocionais; a 52 ainda traz “webtoon” na própria imagem. |
-| 53 | Créditos | Autoria, direção e apresentação final. |
-
-Algumas páginas existentes têm muitas faixas, detalhes ou texto miúdo, inclusive notas de rodapé. A existência desses exemplos não suspende as regras mais recentes de poucos painéis e leitura fácil. Para novas cenas, aplicar a orientação autoral atual; para material editorial, planejar a densidade explicitamente e preservar legibilidade.
-
-### 9.3 Referências diretas para produção
-
-- [Página 10 — cena principal, estilhaço do telefone e duas cores de voz](https://illusionfight.com/webtoon/01/pt/10.webp).
-- [Página 22 — voz azul e moldura roxa](https://illusionfight.com/webtoon/01/pt/22.webp).
-- [Página 34 — virada azul e detalhe sobreposto](https://illusionfight.com/webtoon/01/pt/34.webp).
-- [Página 38 — duas vozes dentro da mesma composição](https://illusionfight.com/webtoon/01/pt/38.webp).
-- [Página 42 — encerramento e hierarquia de gritos](https://illusionfight.com/webtoon/01/pt/42.webp).
-
-
-### 9.4 Histórico de comparação
-
-A rota `/preview-privado/webtoon-00-comparar` conserva duas versões históricas, denominadas “antigo” e “novo” no código. **“Novo” nessa comparação não significa a edição atual de 53 páginas.**
-
-| Acervo histórico | Quantidade | Dimensões medidas |
-|---|---:|---|
-| Antigo | 37 PNG | 800 × 1280 |
-| Remake chamado “novo” | 32 PNG | 941 × 1610 ou 941 × 1611 |
-
-As 69 imagens estão no commit `e78392b158334b9b38de3dce630a00d48c24daa7` de `gh-pages`, restauradas por `scripts/restaurar-preview-privado.cjs`. Foram examinadas em pranchas de contato nesta pesquisa. Apresentam estágios anteriores de composição, mais áreas vazias e outra organização do texto e das molduras. Algumas fatias do remake mostram conteúdo cortado nas emendas: não usar o recorte histórico como gabarito de safe area.
-
-A rota é uma comparação interna não indexada; o componente não implementa autenticação própria. Não confundir “sem link público” com proteção de acesso.
-
-Marcos no histórico da fonte:
-
-| Commit | Marco |
-|---|---|
-| `4bd5e7753` | Página explicativa do termo próprio WEB SHARD. |
-| `0775a01b6` | Redesign do catálogo/leitor e capítulo 01 final. |
-| `e550f32e1` | Introdução oficial como capítulo 01 e saída do antigo episódio 00. |
-| `3600bb3f3` | Especiais e corte neon entre páginas do leitor. |
-| `220375421` | Troca de Webtoon por WEB SHARD na comunicação visível/metadados. |
-
-## 10. Entrega digital e integração no portal
-
-### 10.1 Estrutura atual
-
-```text
-public/webtoon/01/
-  pt/01.webp ... 53.webp
-  en/01.webp ... 53.webp
-  es/01.webp ... 36.webp, 38.webp ... 53.webp
-
-src/assets/webshard/
-  capa-lutas-de-ilusao.webp
-  cap-lutas-de-ilusao-01.webp
-  cap-lutas-de-ilusao-01-pt.webp
-  cap-lutas-de-ilusao-01-en.webp
-  cap-lutas-de-ilusao-01-es.webp
-```
-
-As páginas de publicação são WebP. A pasta externa contém PNGs atuais e PSDs de estágios antigos; preservar esses materiais sem enviá-los em massa ao repositório. A pesquisa não inspecionou as camadas dos PSDs nem estabeleceu uma qualidade numérica oficial de compressão.
-
-Recomenda-se manter camadas separadas para arte, máscaras de painéis, neon, balões, textos e guias. Isso facilita tradução, correção e revisão de margem sem regenerar a cena inteira. É uma proposta de processo, não a descrição de arquivos-mestre encontrados.
-
-### 10.2 Catálogo, rotas e disponibilidade
-
-- `src/data/webshard-titulos.json`: títulos, identidade, capas, visibilidade e fonte de capítulos.
-- `src/data/episodios.json`: capítulos LDI, páginas, idiomas, proporção, formato e liberação.
-- `src/lib/webshard/catalogo.js`: resolve títulos, rotas, miniaturas e URLs de página. A UI consulta esse módulo.
-- `/webtoon/lutas-de-ilusao`: página do título; `/webtoon/01`: capítulo atual; `/webtoon/00`: referência legada redirecionada para 01.
-- Outros títulos têm rota `/webtoon/:slug/:cap`, mas `paginasDe()` hoje forma URLs de imagem somente com o ID de capítulo. Antes de publicar outra série com IDs iguais, planejar armazenamento para não colidir com o LDI.
-
-Não renumerar capítulos ou páginas existentes sem avaliar links, retomada de leitura, traduções e referências. A modelagem atual usa IDs de capítulo como strings (`"01"`, `"especial-1"`); conservar compatibilidade.
-
-A disponibilidade não depende apenas de `publicado`. `useWebshardAcesso.js` combina existência de conteúdo, admin, beta, trial e calendário. No catálogo auditado, o capítulo 01 tem beta até 09/11/2026 e liberação oficial em 15/11 para assinantes, 30/11 para conta e 15/12 para público. Essas datas são estado do produto, não regra da linguagem: consultar os dados atuais antes de anunciar lançamento.
-
-O leitor também aplica o gate de visitante sem conta sobre parte do conteúdo. Não prometer acesso integral e permanente com base no texto antigo de “grátis, sem cadastro” do manifesto. Para futuras alterações de acesso, conferir simultaneamente o leitor e o prerender.
-
-### 10.3 Tradução e revisão de exportação
-
-1. Fechar o sentido e a ordem das falas em PT.
-2. Adaptar EN/ES preservando voz, intenção, piada e intensidade.
-3. Recompor quebras de linha por idioma, sem encolher o texto para conservar um balão inadequado.
-4. Preservar cores de voz e o significado da moldura.
-5. Conferir acentos, pontuação, nomes próprios e onomatopeias.
-6. Exportar e conferir numeração, dimensão, qualidade e sequência.
-7. Declarar qualquer ausência real em `paginas_faltando`; esse fallback explícito não substitui a entrega da tradução.
-
-### 10.4 Publicação no repositório
-
-Seguir `AGENTS.md`: trabalhar na `main`; conferir Git; incrementar primeiro `SITE_VERSION`; atualizar `SITE_MAP.md`; executar build com sourcemap; revisar o diff; commit e push antes de `npm run deploy`; confirmar a versão do bundle servida por `https://illusionfight.com/` com cache-buster antes de declarar a publicação concluída.
-
-Artes finais precisam estar em fontes persistentes do build, como `public/`. Nunca depender de cópia manual em `dist/`: o build limpa esse diretório. A restauração do preview histórico é um mecanismo específico já automatizado. A fonte única deste guia é **`docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md`**. O plugin `webshard-docs` de `vite.config.js` o emite no build em `/docs/webshard/`, sem manter cópia em `public/`.
-
-## 11. O que a evolução do acervo revela
-
-Isaias relata que o desenvolvimento vem desde o ano anterior e que criou a linguagem por não gostar da organização narrativa de webtoon, comic e mangá para o produto que queria. As imagens mostram experiências diferentes de composição; nomes de pastas e datas de arquivo não bastam para atribuir uma cronologia exata de criação.
-
-### 11.1 Estágios visuais observados
-
-| Conjunto | Observação visual por amostragem | Relação com o WEBSHARD atual |
-|---|---|---|
-| `Webtoon/` | Páginas 800 × 1280, fundo branco, texto separado e quadros pequenos com bastante vazio | Contraste com a página atual integrada e de maior ocupação visual. Há 7 PSDs e 8 PNGs. |
-| `Webtoon01/01/` | Estudos horizontais, em torno de 1344–1376 × 768–784, com grades de cenas de rotina | Material de desenvolvimento; não gabarito final de leitura vertical. |
-| `PagesWebtoon/00/PT/` | Versões do episódio de apresentação, fundos vinho/preto, imagens unificadas, índices, páginas e PSDs | Documenta montagem e experimentação; contém duplicatas/derivados, não 148 páginas narrativas distintas. |
-| `PagesWebtoon/REMAKE 00/` | Arte mais detalhada, mudança de enquadramentos e composição; ainda há áreas vazias e dimensões diferentes | Etapa de transição, não a edição atual de 53 páginas. |
-| `WEBTOON OFICIAL/01–03-2/` | Páginas muito altas, várias faixas e balões, inclusive dimensões 853 × 1844 | Mostra a organização seriada anterior e o problema de densidade que a nova direção procura evitar. “OFICIAL” no nome é histórico. |
-| `WEBSHARD/LUTAS DE ILUSAO/01/{PT,EN,ES}/` | Arquivos PNG correspondentes ao lote de idiomas do capítulo disponível no portal | Referência externa mais próxima do produto atual: 53 PT, 53 EN, 52 ES. |
-| `WEBSHARD/LUTAS DE ILUSAO/02/` | 64 PNGs; amostras mostram Kim, Pajé, Helena, rotina e estilhaços com bordas coloridas | Produção externa existente, **não publicada pelo catálogo atual**. Contagem de arquivos não prova revisão ou conclusão editorial. |
-
-**Leitura crítica da evolução:** a direção atual reúne o acontecimento principal e seus detalhes numa única composição, usa a cor para reduzir esforço de identificação e reserva texto maior em vez de multiplicar faixas. Essa interpretação visual é coerente com a motivação declarada por Isaias; não é uma reconstrução de conversas antigas não fornecidas.
-
-O objetivo de produção não é copiar cada tentativa anterior. É preservar o aprendizado que levou a painéis maiores, estilhaços sobrepostos, clareza de leitura, legibilidade e cor narrativa. Uma página antiga mais carregada não autoriza repetir o excesso. Sobreposição não impõe menor importância visual ou narrativa aos estilhaços.
-
-### 11.2 Inventário externo
-
-Raiz pesquisada: `C:\Users\isaia\Downloads\BRANDS\Lutas de Ilusão`. Os caminhos desta seção são relativos a essa raiz e servem à equipe local; os arquivos externos não foram publicados junto com este manual.
-
-| Pasta | Inventário de arquivos |
-|---|---|
-| `WEBSHARD/` | 263 PNGs no total, incluindo LDI, Heróis da Cidade e WEBANIME. |
-| `WEBSHARD/LUTAS DE ILUSAO/01/` | 158 PNGs nos três idiomas. |
-| `WEBSHARD/LUTAS DE ILUSAO/02/` | 64 PNGs. |
-| `WEBTOON OFICIAL/` | 87 PNGs: 28 em 01, 23 em 02, 10 em 03, 26 em 03-2. |
-| `PagesWebtoon/` | 260 arquivos: 73 PSDs, 112 PNGs, 73 JPGs e 2 scripts Python. |
-| `Webtoon/` | 15 arquivos: 7 PSDs e 8 PNGs. |
-| `Webtoon01/` | 15 imagens: 6 PNGs e 9 JPGs. |
-| `ChapterImages/` | 7 PNGs de apoio em Cap1/Cap2/Cap3. |
-| `Fonts/` | 14 arquivos, incluindo `animeace2_bld.ttf`, `Ethnocentric-Regular.otf` e pacotes ZIP. Não prova a fonte das artes atuais. |
-
-A inspeção combinou inventário completo dessas pastas com amostras visuais de cada estágio. As 53 páginas PT publicadas e as 69 páginas do preview histórico foram percorridas em pranchas de contato. Não se afirma leitura integral de todos os PSDs, de toda tradução ou de cada arte externa.
-
-## 12. Handoff: precedência e diferenças resolvidas
-
-| Assunto | Registro antigo | Decisão da consolidação |
-|---|---|---|
-| Nome | Nome oficial WEB SHARD; descritor WEB COMIC / MANGÁ VERTICAL | Preservar WEB SHARD como nome; definição atual é linguagem autoral própria. Descritor antigo não define sua identidade. |
-| Painéis | 1–2, com exceção antiga de 3–4 no esmagamento | Regra atual: até dois; exceção específica de três. Quatro ficam como histórico, não autorização permanente. |
-| Neon | Opcional na linguagem geral, adotado no LDI | Preservar sua função narrativa no LDI; outras marcas podem tomar decisões diferentes. |
-| Nina | Cor ainda indefinida | **Rosa framboesa `#B82E69`**, definido nesta tarefa após o autor delegar a escolha de um tom próximo das fichas. |
-| Páginas citadas | Esmagamento “34”, gritos “40”, diário “41–49” | Numeração histórica; no produto atual o mapa é o §9. Identificar cena e arquivo, não deslocar referências automaticamente. |
-| Tradução EN | Handoff parou no bloco 16–24 | O repo já tem 53 EN; isso não prova revisão linguística integral, mas supera aquele inventário de andamento. |
-| Capítulo 1 | Handoff reúne descrição de rotina e sonho | O portal atual publica o sonho como introdução 01; há rotina no acervo externo 02. Não importar a numeração antiga ao catálogo. |
-| Calendário | Agenda de trabalho antiga | Dados atuais de `episodios.json` e calendário do portal prevalecem. Não substituir datas com o handoff. |
-| Ferramenta | Limite de 5 imagens por prompt no fluxo usado | As referências são anexadas no chat e chamadas pelo nome do arquivo (§16.1). Conferir o limite de anexos da ferramenta usada e anexar só o que a página precisa. |
-
-O handoff contém relatos de recusas de ferramentas e tentativas de reformulação. Aqui, a regra operacional é descrever fielmente a cena e o personagem, manter as restrições visuais aprovadas e respeitar os limites da ferramenta. Não disfarçar uma pessoa como máquina nem tratar mudanças de vocabulário como garantia de aceitação.
-
-## 13. Fichas, personagens e cenário
-**Formato obrigatório das fichas — direção de Isaías, 19/10/2026:**
-
-- Personagens genéricos/figurantes recorrentes: vários personagens distintos numa única folha coletiva; reutilizar as mesmas identidades nas páginas seguintes.
-- Personagem principal ou transformação importante: uma única ficha com três colunas de corpo inteiro — frente, costas e perfil — e expressões do mesmo rosto na quarta coluna ou numa faixa inferior. Não substituir vistas por poses frontais repetidas.
-- A ficha de uma transformação conserva a identidade reconhecível, mas fixa o novo estado visual em todas as vistas e expressões. Kronos César decaído, por exemplo, é um rei zumbi marcante; a ficha humana não substitui essa transformação.
-- Páginas narrativas: um pedido a cada 2 minutos (contado de um pedido ao próximo). Fichas e outros materiais de referência podem ser gerados em sequência, sem espera obrigatória entre imagens.
-
-### 13.1 Onde estão as referências
-
-Tudo que se usa pra gerar imagem mora em `Personagens/` (raiz `BRANDS/Lutas de Ilusão/Personagens`), uma cópia de cada arquivo:
-
-- `Personagens/<Nome>/` — uma pasta por personagem (Kim, Jack, Nina, Helena, Lenna, Osvaldo, NeoGuide, NexusPhaton, PajeYwari, Alan, Nara, Autor). Na raiz da pasta ficam as **fichas oficiais** (`KimCasualSheet.png`, `KimExpressionSheet.png`, `KimEscolarUniformeSheet.png`…); dentro, `Variacoes/`, `Cenas/`, `Show/`, `Noir/`, `Poses/` e as formas especiais (`Kim/Primordial/`, `Kim/Sombrio/`).
-- `Personagens/Inimigos/<Nome>/` — Brock (e `CapangasBrockSheet.png`), Freddy, DavidKronos, AMaquina, Walter, Shuntaro, ThunderBolt, Void, VoidHunterX, Powa.
-- `Personagens/Secundarios/` — elenco de apoio (Turma do Samuel, Professora, conveniência, Equipe Yohu).
-- `Personagens/Trio/` — montagens do trio juntas (casual, show, noturno, rostos e letreiro).
-- `Personagens/Cenarios/` — ambientes e plantas.
-- `Personagens/Objetos/` — SBI, óculos de RA, HIT COMBO, PowWow, baixo da Nina, balões oficiais.
-- `Personagens/Estilo/` — páginas âncora do estilo semi-realista.
-- `Personagens/_A_IDENTIFICAR/` — arte sem dono confirmado; não usar até o Isaias dizer quem é.
-
-Ficha nova entra direto na pasta do dono, com nome descritivo (`<Nome><Roupa>Sheet.png` pra ficha, `<Nome>_<Lugar>.png` pra cena). No briefing, declarar o caminho usado. A lista de arquivos de referência atuais e como citá-los no prompt estão no §16.1.
-
-### 13.2 Direção específica dos personagens
-
-| Personagem/estado | Regras registradas no handoff |
-|---|---|
-| Kim escolar | **Sempre de boné azul-petróleo** nas cenas escolares atuais, cabelo preto ondulado saindo por baixo, pele marrom, **descendência indígena brasileira**, relógio azul, mochila laranja (`Kim/KimEscolarUniformeSheet.png`; rosto em `Kim/KimExpressionSheet.png`). |
-| Kim casual | Camiseta preta, plaquinha no colar, pulseira azul, jeans rasgado, tênis preto/branco. Ficha prevalece em aparência; pose deve seguir a ação. |
-| Kim danificado | Supercílio direito cortado; olho esquerdo roxo; bochecha esquerda ralada; canto esquerdo do lábio cortado; marcas na nuca; rasgo grande nas costas. Preservar lados entre todas as vistas. |
-| Jack | Negro brasileiro, pele **negra escura**, dreads **verdes** curtas e definidas em quantidade moderada, **laterais e nuca raspadas**, **nunca de boné**, relógio preto. Para o rosto, usar a ficha de expressões (`JackExpressionSheet.png`) só pelos rostos, ignorando a jaqueta verde e as legendas em inglês; evitar descaracterização. Ao zoar: meio sorriso fechado e sobrancelha erguida, não gargalhada automática. Celular em uma mão, outra livre. |
-| Nina | Cabelo rosa em rabo de cavalo alto e longo; na escola, luvas táticas pretas de dedos inteiros com detalhe amarelo; casual com jaqueta rosa aberta, cropped preto, jeans rasgado, luvas sem dedos e tênis rosa de cano alto. Voz **rosa framboesa `#B82E69`**. Conferir ficha da cena. |
-| Helena | Nome com E, cabelo roxo. Duas fichas: arrumada (`Helena/HelenaArrumadaSheet.png`) e de casa/ressaca (`Helena/HelenaDeCasaSheet.png`). |
-| Freddy | Terno completo, olho roxo permanente na referência registrada. |
+| Kim (escola) | Boné azul-petróleo, cabelo preto ondulado saindo por baixo, pele marrom, descendência indígena brasileira, relógio azul, mochila laranja. Ficha: `Kim/KimEscolarUniformeSheet.png`. |
+| Kim (casual) | SEM boné. Camiseta preta, plaquinha no colar, pulseira azul, jeans rasgado, tênis preto e branco. Ficha: `Kim/KimCasualSheet.png`. |
+| Kim (machucado) | Supercílio direito cortado, olho esquerdo roxo, bochecha esquerda ralada, canto esquerdo do lábio cortado. Os lados valem em todas as vistas. |
+| Jack | Negro brasileiro de pele escura, dreads **verdes** curtos, laterais e nuca raspadas, **nunca de boné**, relógio preto. Casual: regata preta, plaquinhas e corrente. Celular numa mão, a outra livre. |
+| Nina | Cabelo rosa em rabo alto e longo. Escola: luvas táticas pretas com detalhe amarelo. Casual: jaqueta rosa aberta, cropped preto, jeans rasgado, luvas sem dedos, tênis rosa de cano alto. |
+| Helena | Cabelo roxo. Fichas: `HelenaArrumadaSheet.png` e `HelenaDeCasaSheet.png`. |
+| Freddy | Loiro. Ficha oficial: terno e olho roxo permanente. Na festa do conto 06 (antes do olho roxo): `FreddyFestaSheet.png`. |
 | Brock | Jaqueta preta de couro; não é aluno. |
-| Capangas do Brock | Jason, Michael, Anderson e André, os quatro na mesma ficha (`CapangasBrockSheet.png`). Dizer no prompt qual figura usar e mandar ignorar as outras: o **Anderson é a terceira da esquerda para a direita**. |
-| Anderson | Baixo, magro, franja preta cobrindo o olho esquerdo, moletom preto, calça cargo preta com corrente. |
-| Pajé Yawanari | Visual exuberante de drag queen moderna: cocar, chapéu preto, óculos redondos, barba branca com tranças, ouro, cajado, manto geométrico e tênis branco. Debochado. |
-| Isaias no diário | Boné com caveira, moletom roxo, calça preta, meias e tênis rosa; usar `IsaiasSheet.png`. |
-| Kim Primordial | Handoff descreve cabelo branco, pele cinza-escura, olhos brancos, marcas tribais, preto e padrões turquesa. Não havia ficha própria confirmada naquele documento; não inventar uma referência aprovada. |
-| Void fase 1 | Construto mecânico fictício, ~2,10 m; armadura preta fosca, garras e linhas laranja. Exatamente dois braços e duas pernas; sem capa, manto ou tecido. |
-| Void fase 2 | **`VoidV2CromadoSheet.png` prevalece** sobre a fase 2 preta: cromado espelhado, mandíbula serrilhada, viseira laranja, lâminas curvas nos antebraços. |
+| Anderson | Baixo, magro, franja preta no olho esquerdo, moletom preto, calça cargo preta com corrente. É a 3ª figura da esquerda em `CapangasBrockSheet.png` (Jason, Michael, Anderson, André). |
+| Pajé Yawanari | Drag queen moderna: cocar, chapéu preto, óculos redondos, barba branca com tranças, ouro, cajado, manto geométrico, tênis branco. Debochado. |
+| Isaias no diário | Boné com caveira, moletom roxo, calça preta, tênis rosa (`IsaiasSheet.png`). |
+| Void fase 1 | Construto mecânico de ~2,10 m, armadura preta fosca, garras e linhas laranja. Exatamente dois braços e duas pernas, sem capa. |
+| Void fase 2 | `VoidV2CromadoSheet.png`: cromado espelhado, mandíbula serrilhada, viseira laranja, lâminas nos antebraços. |
 
-**Regra curta para repetir em todo prompt: dreads verdes = Jack; boné = Kim; cabelo rosa = Nina.** Cada personagem é chamado pelo código ou nome de arquivo da referência, sempre junto desses traços, para a ferramenta não trocar ninguém.
+- **Regra curta, repetida no prompt:** dreads verdes = Jack; cabelo rosa = Nina; boné = Kim **só na escola**. Fora da escola, descrever a roupa do Kim por extenso.
+- **Avisos de ficha:**
+  - `Jack/JackEscolarUniformeSemMoicanoSheet.png` tem "KIM" escrito por engano. Todo prompt que a usa avisa que é o Jack e manda ignorar o texto.
+  - Das fichas de expressão, usar só os rostos, ignorando a roupa e as legendas.
+- **Void:** fora do cânone oficial até decisão do autor; nunca em capa ou material promocional.
+- **Kim Primordial:** não tem ficha aprovada; não inventar uma. As formas Noir, Primordial e Sombrio do Kim não entram sem pedido.
 
-A ficha escolar do Jack (`Jack/JackEscolarUniformeSemMoicanoSheet.png`) tem o título "KIM" escrito por engano. Enquanto ela não for corrigida, todo prompt que a usa avisa que o arquivo é o Jack e manda ignorar o texto.
+### 8.3 Regras de cena da linha principal
+- **Rosto sempre pela ficha de expressões.** Toda página com protagonista anexa a ficha de rosto e manda copiar o rosto; sem isso sai rosto genérico de anime.
+- **Sem panorâmica em cena de conversa.** Sala de aula e corredor: planos fechados em quem fala.
+- **Machucado não atravessa cenas.** A marca de briga some na cena seguinte, a não ser que a história diga o contrário.
+- **A roupa não muda dentro da cena.** Troca só entre cenas. Objeto e figurino continuam de uma página pra outra.
 
-Void está na introdução onírica, mas o handoff o mantém **fora do cânone oficial** até decisão do autor e proíbe usá-lo em capa/material promocional oficial. Sua presença no capítulo não resolve essa pendência automaticamente.
+### 8.4 Lugares oficiais (em `Personagens/`)
 
-### 13.3 Ambientes e assets
-
-**Referências oficiais reafirmadas por Isaias, 23/10/2026 — prevalecem sobre alternativas antigas do acervo:**
-
-| Elemento | Arquivo em `Personagens/` | O que governa |
+| Elemento | Arquivo | O que governa |
 |---|---|---|
-| Sala de aula | `Cenarios/EliteSchool_SalaDoTrio.png` | Arquitetura, acabamento e luz; usar junto da planta oficial |
-| Planta da sala | `Cenarios/EliteSchool_SalaDoTrio_VistaDeCima.png` | Carteiras, corredor e posições fixas de Kim, Jack e Nina (§13.4) |
-| Óculos escolares | `Objetos/Oculos_SalaDeAula.png` | Óculos de RA usados na sala, armação azul translúcida; não são o visor do SBI |
-| SBI | `Objetos/SBISheet.png` | Visor e luvas de simulação; não substituir pelos óculos escolares |
-| Arena, vista interna | `Cenarios/ArenaLDI_Arquibancada.png` | Piso, parede e arquitetura da arena oficial |
-| Arena, vista panorâmica | `Cenarios/ArenaLDI.png` | Escala e geografia da mesma arena; a vista não obriga panorâmica nas páginas |
+| Sala A-304 | `Cenarios/EliteSchool_SalaDoTrio.png` + `EliteSchool_SalaDoTrio_VistaDeCima.png` (sempre juntas) | Arquitetura, luz e posições fixas (§8.5) |
+| Óculos de RA da escola | `Objetos/Oculos_SalaDeAula.png` | Armação azul translúcida; não é o SBI |
+| SBI | `Objetos/SBISheet.png` | Visor e luvas de simulação |
+| Arena, vista interna | `Cenarios/ArenaLDI_Arquibancada.png` | Piso, parede e arquitetura |
+| Arena, panorâmica | `Cenarios/ArenaLDI.png` | Escala e geografia (não obriga panorâmica) |
+| Casa do Kim | `Cenarios/CasaKim.png`, `SalaKim.png`, `CozinhaKim.png`, `QuartoKim.png` | Fachada (três janelas em cima, quarto do Kim à esquerda, garagem, janela baixa da Helena, rua rachada) e interiores |
+| Base (delegacia) | `Cenarios/BaseDelegacia_Planta_2Angulos.png` | Estacionamento e base do trio |
+| HIT COMBO | `Objetos/HitCombo.png` | Overlay oficial (§10) |
+| Logos | `LogoEnglish.png`, `LogoSquareEn.png` | Nunca redesenhar a marca |
 
-Os caminhos identificam arquivos locais a anexar, não imagens que a ferramenta pode abrir por link. As duas referências da sala devem ser usadas juntas. Não substituir a sala por outra planta de bancadas para acomodar uma conversa: adaptar os enquadramentos e manter as posições oficiais. Para fichas novas de ambientes recorrentes: folha horizontal, **planta baixa de todo o ambiente à esquerda; dois painéis à direita, um acima do outro, com dois ângulos do MESMO lugar**. Planta e vistas precisam concordar. Referências oficiais já suficientes são reutilizadas, não recriadas por hábito.
+- **Arena:** a luta se enquadra contra o CHÃO e a PAREDE, sem plateia no mesmo quadro e sem diminuir o lugar. A plateia entra só em estilhaço de reação ou numa panorâmica só dela. `Coliseu_Noite.png` e `Coliseu_Destruido.png` são estados específicos e não substituem a arena oficial.
+- **Elite Academy:** portão de ferro com o nome dourado no arco.
 
-- Casa: três janelas superiores; quarto de Kim na esquerda; garagem, entrada, janela baixa de Helena, lâmpada pendurada e rua rachada. Usar a referência, não reconstruir fachadas diferentes a cada página.
-- Casa: fachada em `Cenarios/CasaKim.png`; sala `Cenarios/SalaKim.png`; cozinha `Cenarios/CozinhaKim.png`.
-- Quarto: bagunça, pôsteres, prateleiras, guitarra e TV antiga, conforme `Cenarios/QuartoKim.png`.
-- Arena: as vistas oficiais são `Cenarios/ArenaLDI_Arquibancada.png` e `Cenarios/ArenaLDI.png`. `Cenarios/Coliseu_Noite.png` e `Cenarios/Coliseu_Destruido.png` são estados específicos, sem substituir a arquitetura oficial. Nas páginas de ação, mostrar piso e parede; não enquadrar plateia junto do combate (§14).
-- Elite Academy: portão de ferro com nome dourado no arco. A Sala A-304 tem planta fixa (§13.4).
-- Óculos de RA: `Objetos/Oculos_SalaDeAula.png`.
-- Logos: `LogoEnglish.png` e `LogoSquareEn.png` segundo o handoff; usar assets aprovados, nunca redesenhar a marca para cada página.
-- HIT COMBO: arquivo localizado em `Personagens/Objetos/HitCombo.png`; recortar/aplicar o asset existente.
+### 8.5 Sala A-304: posições fixas
 
-### 13.4 Sala A-304: posicionamento obrigatório
+- 12 carteiras em 3 fileiras de 4: 2 carteiras, corredor, 2 carteiras.
+- **Fileira 1** (a mais perto da tela, olhando pra tela): **Kim | Jack | corredor | Nina | carteira da janela**.
+  - O corredor separa Jack e Nina **de lado, nunca em profundidade**: piso livre da largura de uma carteira, com faixa de luz azul no chão.
+  - Na frente da fileira 1 só existem o piso, a mesa do professor (diante do Kim) e a tela.
+- **Paredes:**
+  - esquerda (lado do Kim): escura, sem janela, com a porta no fundo;
+  - direita (lado da Nina): janelas grandes com sol dourado da manhã.
 
-A sala e as posições **nunca mudam** de uma página para outra. O prompt tem que dizer o que fica à esquerda, à direita, na frente e atrás **na imagem**. Quando isso fica implícito, a ferramenta inventa. Referências: `SalaDeAulaKimJackNina.png` (ambiente, acabamento e luz) e `SalaDeAulaKimJackNinaVistaTop.png` (vista de cima com as posições).
-
-**Planta**
-
-- 12 carteiras em 3 fileiras de 4: 2 carteiras, corredor central, 2 carteiras.
-- **Fileira 1**, a mais próxima da tela, olhando para a tela: **Kim | Jack | corredor | Nina | carteira da janela**.
-- Kim e Jack são vizinhos, lado a lado. O **corredor** separa Jack e Nina **de lado, nunca em profundidade**: é um vão de piso livre da largura de uma carteira, com uma faixa de luz azul no chão.
-- Na frente da fileira 1 **não há nenhuma carteira nem aluno**, só piso livre, a mesa do professor (diante do Kim) e a tela.
-- Parede esquerda, do lado do Kim: escura, sem janelas, com a **porta no fundo da sala**, na altura das fileiras 2 e 3.
-- Parede direita, do lado da Nina: janelas grandes com sol dourado da manhã.
-
-**Câmeras e lados na imagem**
-
-| Câmera | Da esquerda para a direita, na imagem | Uso |
-|---|---|---|
-| **De trás**, olhando para a tela | parede escura, Kim, Jack, corredor, Nina, janelas | Personagens de costas, todos lado a lado. |
-| **De frente**, de costas para a tela | janelas, Nina, corredor, Jack, Kim, parede escura (**espelhado**) | Rostos visíveis, todos lado a lado. |
-| Lateral, de qualquer parede | personagens **um atrás do outro** | Só para close de **um** personagem; nunca para mostrar dois da fileira juntos. |
-| No fundo, olhando para a porta | frente da sala à direita da imagem | Entradas e saídas pela porta. |
-
-**O que a produção do capítulo 03 ensinou**
-
-- Dois personagens da fileira 1 no mesmo quadro: escrever **"mesma fileira, mesma distância, mesmo tamanho, cabeças na mesma altura"**.
-- Não usar palavras que sugiram profundidade entre vizinhos de fileira: "menor", "ao fundo", "câmera virada para o corredor". Essas palavras fizeram o Jack aparecer várias fileiras atrás da Nina.
-- Câmera lateral ao longo da fileira faz Kim e Jack saírem um atrás do outro.
-- Na câmera frontal, os lados se invertem. Escrever sempre para que lado **da imagem** cada personagem olha ou aponta.
-- O cenário só precisa de detalhe quando importa para a ação. O texto do prompt vai para posições, gestos e olhares.
-- Um personagem em foco por quadro facilita a leitura e diminui erros de identidade. Kim, Jack e Nina não precisam aparecer juntos em todo painel.
-
-## 14. Câmera, corpo, olhar e ação
-
-**Direção de Isaias, 23/10/2026:** foco na ação e na emoção, com ângulos cinematográficos e pouco background. Preferir plano americano, médio, close e detalhe; evitar corpo inteiro e enquadramento do ambiente inteiro. Plano aberto só quando o próprio acontecimento o exige. A ficha de ambiente pode mostrar a planta e o lugar completo; isso não é instrução para abrir a câmera nas páginas.
-
-**Arena — piso e parede, sem plateia no quadro do combate.** Enquadrar a ação contra fragmentos do chão e da parede, preservando a amplitude: não transformar a arena numa sala pequena nem aproximar arquibancadas para fazê-las caber. Quando a plateia precisar aparecer, usar estilhaços sobrepostos de reação ou uma panorâmica EXCLUSIVA da plateia, sem mostrar o que acontece na área de luta. Não pedir ao gerador torcida detalhada e ação dentro da arena no mesmo enquadramento. Uma referência panorâmica fixa escala/geografia; não obriga repetir seu ponto de vista.
-
-**Cada painel deve declarar seu próprio ângulo**, claramente diferente do anterior. Variar escala também: plano geral, close, detalhe, plongée, contra-plongée, sobre o ombro e ponto de vista subjetivo. Não fazer todas as páginas como rostos colados à câmera.
-
-Personagens nunca olham para o leitor ou diretamente para a lente, inclusive em selfie, câmera diegética ou fala do Pajé. Em conversa, olhar para o interlocutor ou acontecimento fora do eixo da lente. Todo prompt declara o alvo concreto dos olhos.
-
-Descrever qual braço/perna atua, onde fica o peso, o giro do quadril, a trajetória e o contato. O handoff usa terminologia brasileira e distingue golpes retos de ganchos em arco; sua nomenclatura de “cruzado” não deve substituir a descrição biomecânica. O desenho precisa ser inequívoco mesmo se o nome de um golpe variar entre referências.
-
-| Recurso validado | Como orientar |
+| Ponto de vista | Da esquerda para a direita, na imagem |
 |---|---|
-| Rajada/multiexposição | Corpo nítido, 6–8 imagens-fantasma dos braços partindo dos mesmos ombros, opacidades distintas e movimento. Parecer vários golpes, não só uma pose borrada. |
-| Esquiva rápida | Fantasmas de cabeça/tronco com pés plantados quando a ação exigir. |
-| Esmagamento progressivo | O corpo inteiro baixa, joelhos flexionam, câmera acompanha e chão entra na imagem; não esticar o braço. Aplicar o teto atual de painéis. |
-| Mudança entre painéis | Declarar o que mudou em pose, distância, estado ou ação. Evitar repetição involuntária do mesmo instante. |
-| Transformação do Void | Casca preta racha e cai, revelando cromado por baixo; manter laranja para continuidade. |
-| Impacto insuficiente, pose correta | Preservar anatomia; acrescentar choque, detritos, reação, piso e som em torno do contato. |
+| De trás, olhando a tela | parede escura, Kim, Jack, corredor, Nina, janelas (de costas) |
+| De frente, de costas pra tela | janelas, Nina, corredor, Jack, Kim, parede escura (espelhado) |
+| Lateral | um atrás do outro: só pra close de **um** personagem |
+| Do fundo, olhando a porta | frente da sala à direita |
 
-Direção visual de dano do handoff: marcas humanas em vinho-escuro quase preto, secas/crostas, sem sangue vivo jorrando, poças, osso exposto ou desfiguração grotesca. Inserto interno usa diagrama técnico azul-ciano. Isso é direção de conteúdo/arte, não promessa sobre aprovação de ferramentas.
+- **Ao escrever o prompt:**
+  - Dois da fileira 1 no mesmo quadro: escrever "mesma fileira, mesma distância, mesmo tamanho, cabeças na mesma altura".
+  - Palavras como "menor", "ao fundo" e "virado para o corredor" fizeram o Jack aparecer fileiras atrás da Nina.
+  - Kim, Jack e Nina não precisam aparecer juntos em todo painel: um personagem em foco por quadro erra menos.
 
-### 14.1 As cinco correntes
+## 9. Câmera, corpo e golpe
 
-Registro narrativo de produção do handoff: cinco correntes mentais — dois pulsos, dois tornozelos e pescoço —, cada uma associada a 20% de poder. Elos pretos com chama negra, veios carmesim e fumaça; movimento quase vivo. Na introdução, Kim solta a do **pulso direito**.
+As regras de câmera estão em `REGRAS_CRITICAS.md` §4 (corpo cortado na cintura, plano de câmera antes do prompt, quatro coisas por painel). No LDI vale ainda:
 
-Pré-movimento: estalar pescoço → girar ombro → girar pulso com braço solto para baixo. **Não segurar um pulso com a outra mão.** Depois da libertação, as correntes deixam de aparecer; conferir a cena equivalente no lote atual, pois o número antigo “página 23” não é chave confiável.
+- **Golpe:** descrever qual braço ou perna atua, onde fica o peso, o giro do quadril, a trajetória e o contato. O desenho tem que ser inequívoco mesmo que o nome do golpe varie.
 
-Contido: sério, técnico, econômico. Libertado: postura animalesca, rajadas e diversão brutal. Quando recupera seriedade, a expressão marca a transição. Essas regras orientam a sequência; uma mudança no cânone geral deve ser validada pelo autor, não inferida de um sonho.
+| Recurso | Como pedir |
+|---|---|
+| Rajada | Corpo nítido e 6 a 8 fantasmas dos braços saindo dos mesmos ombros, com opacidades diferentes. |
+| Esquiva rápida | Fantasmas de cabeça e tronco, com os pés plantados quando a ação pede. |
+| Esmagamento | O corpo inteiro baixa, os joelhos dobram, o chão entra na imagem; o braço não estica. |
+| Impacto fraco com a pose certa | Manter a anatomia e somar choque, detrito, reação e som em volta do contato. |
+| Transformação do Void | A casca preta racha e cai, revelando o cromado; o laranja fica. |
 
-## 15. Som, texto de impacto e HIT COMBO
+- **Dano:** marca humana em vinho-escuro quase preto, seca. Sem sangue jorrando, poça, osso exposto ou desfiguração. O inserto interno usa diagrama técnico azul-ciano.
 
-O handoff exige **ao menos uma onomatopeia por página de cena**. Aplicar ao roteiro narrativo; capas, créditos e avisos têm função editorial própria. Som é texto gráfico sem balão, geralmente branco com contorno/glow da cena. Seu tamanho acompanha a intensidade: golpe decisivo maior que passo.
+### 9.1 As cinco correntes
+- São cinco correntes mentais: dois pulsos, dois tornozelos e o pescoço, cada uma com 20% do poder.
+- **Visual:** elos pretos com chama negra, veios carmesim e fumaça, com movimento quase vivo. Na introdução, o Kim solta a do pulso direito.
+- **Pré-movimento:** estala o pescoço → gira o ombro → gira o pulso com o braço solto pra baixo. **Nunca segurar um pulso com a outra mão.**
+- **Contido:** sério, técnico, econômico. **Libertado:** postura animalesca, rajadas e diversão brutal.
 
-**MISS** é a forma registrada para golpe que não conecta. Listar no prompt os sons da referência anterior a ignorar, além dos novos a escrever. Não deixar a ferramenta copiar letras antigas.
+## 10. Som e HIT COMBO
 
-Vocabulário registrado: FSSH, ZIIIP, BIP, GLUP, FRUP, MISS, FWOOSH, CRACK, KRAKOOM, BAM, SHKK, KRA-THOOOM, THUD, GRNK, SCHRAAACK, VSHOOOM, DA-DA-DA-DAK, KRAK, KRUNCH, KRRAAASH, TIIINK, KRAAANG, VRRRM, SWOOSH, KRIK, TUC, KRK. Usar somente os sons especificados para a página.
+- **Onomatopeia em toda página de cena.** Capa, crédito e aviso não precisam.
+  - O som é texto gráfico sem balão, em geral branco com o contorno e o glow da cena.
+  - Golpe decisivo tem som maior que passo.
+  - **MISS** é a forma pra golpe que não conecta.
+- **Vocabulário já usado:** FSSH, ZIIIP, BIP, GLUP, FRUP, MISS, FWOOSH, CRACK, KRAKOOM, BAM, SHKK, THUD, GRNK, VSHOOOM, DA-DA-DA-DAK, KRAK, KRUNCH, KRRAAASH, TIIINK, KRAAANG, VRRRM, SWOOSH, KRIK, TUC.
+- **Sons das referências:** listar no prompt os sons da referência que devem ser ignorados.
+- **Contador de combo:**
+  - Só em sequência de **três ou mais golpes acertados**, e só dentro do LDI (nunca em briga do mundo real).
+  - Pertence a quem acerta e zera no fim da sequência.
+  - Fica no canto superior esquerdo do painel. É overlay de transmissão: os lutadores não o veem.
+  - Usar `Objetos/HitCombo.png`; nunca gerar outro HUD.
 
-### 15.1 Contador de combo
+## 11. Estilo de arte
 
-- Só em sequência de **três ou mais golpes acertados**, apenas dentro do LDI; nunca em briga do mundo real.
-- Zera ao final da sequência. Pertence a quem acerta, não a quem apanha.
-- Fica no **canto superior esquerdo do painel**, sem cobrir rosto ou informação.
-- É **overlay de transmissão** para espectadores. Lutadores não o enxergam e não comentam o contador enquanto lutam.
-- Usar `Objetos/HitCombo.png`, com letras e dígitos em chroma verde; não regenerar um HUD diferente.
-- Ideia reservada, ainda não regra implementada: contador falhar quando Kim supera a capacidade de medição.
+A obra tem dois acabamentos, com contraste proposital:
 
-## 16. Processo de referência e correção
+- **Cotidiano e humor:** comic expressivo, com volume e luz de cinema, sem virar anime chapado, chibi ou 3D.
+- **Ação ou emoção séria:** virada drástica para o **semirrealista quase realista**, com volume, textura e atuação contida. O primeiro ataque sério pode marcar a virada.
 
-### 16.1 Referências: sempre por nome de arquivo
+Rosto, roupa, ferimento e geografia não mudam quando o acabamento muda. A ficha fixa a aparência; a página fixa o acabamento. **O bloco de estilo vai escrito por extenso em toda página** (o modelo não conhece este guia), com uma página aprovada ou a âncora `Personagens/Estilo/AncoraSemiRealista1.png` anexada.
 
-**Regra autoral:** as imagens de referência são **anexadas ao chat** a cada geração e chamadas no prompt **pelo nome do arquivo**, nunca pela ordem de envio ("imagem 1", "a segunda").
-
-- Listar no começo do prompt cada arquivo anexado e o que ele governa.
-- Chamar o arquivo pelo nome toda vez que o personagem ou o elemento aparecer.
-- Repetir junto do nome os traços que identificam o personagem (§13.2).
-- Fichas com mais de um personagem: dizer qual figura usar e mandar ignorar as outras.
-- Mandar ignorar todo texto das referências: títulos, legendas, etiquetas da planta e placas.
-- As fichas governam a **aparência**. O acabamento do desenho segue o bloco de estilo (§16.2), mesmo quando a ficha estiver desenhada num estilo mais simples.
-
-**Nunca passar referência por link** (biblioteca do ChatGPT ou qualquer outro endereço). Foi testado: a ferramenta não abre a imagem de verdade, inventa o que ela mostraria e gera personagens e cenários errados, mesmo quando diz que conseguiu abrir. Referência só vale anexada no chat.
-
-**Arquivos de referência atuais** (caminhos dentro de `Personagens/`)
-
-| Arquivo | Conteúdo | Observação |
-|---|---|---|
-| `Kim/KimEscolarUniformeSheet.png` | Kim de uniforme escolar, com boné | |
-| `Kim/KimExpressionSheet.png` | Rosto e expressões do Kim, com boné | Usar só os rostos; ignorar a camisa escura e as legendas. |
-| `Jack/JackEscolarUniformeSemMoicanoSheet.png` | Jack de uniforme escolar | O título dentro da ficha diz "KIM" por engano. Todo prompt avisa que é o Jack, até a ficha ser corrigida. |
-| `Jack/JackExpressionSheet.png` | Rosto e expressões do Jack | Usar só os rostos; ignorar a jaqueta verde e as legendas. |
-| `Inimigos/Brock/CapangasBrockSheet.png` | Jason, Michael, Anderson e André | Anderson é a **terceira figura da esquerda para a direita**. |
-| `Nina/NinaBaseSheet.png` | Nina de uniforme | |
-| `Inimigos/AMaquina/AMaquinaSheet.png` | Professor A Máquina | |
-| `Inimigos/Freddy/FreddySheet.png` | Freddy | Olho roxo permanente. |
-| `Inimigos/Brock/BrockSheet.png` | Brock | Não é aluno. |
-| `Objetos/Oculos_SalaDeAula.png` | Óculos de realidade aumentada da escola | |
-| `Cenarios/EliteSchool_SalaDoTrio_VistaDeCima.png` | Planta da Sala A-304 vista de cima, com posições | Governa posições; ignorar etiquetas. |
-| `Cenarios/EliteSchool_SalaDoTrio.png` | Sala A-304 vista da porta | Referência de ambiente e de acabamento/luz. |
-
-### 16.2 Estilo de arte: bloco obrigatório em todo prompt
-
-**Atualização autoral de 23/10/2026:** a obra tem contraste deliberado entre dois acabamentos. Nos momentos casuais de história e humor, usar linguagem gráfica mais expressiva de quadrinho. Quando a ação ou a emoção ficam sérias, a mudança deve ser drástica para **semirrealista, quase realista**, com volume, textura e atuação mais contida. O primeiro ataque sério pode marcar essa virada. Não aplicar um semirrealismo uniforme a toda página, nem mudar rosto, roupa, ferimento ou geografia ao trocar o acabamento. O bloco abaixo descreve o modo sério; em páginas casuais, substituí-lo por um bloco explícito de comic expressivo com volume e luz cinematográfica, sem virar anime chapado, chibi ou render 3D. A ficha fixa aparência; a página e sua direção fixam o acabamento.
-
-**Regra autoral:** todo prompt reforça o estilo de arte do WEBSHARD LDI. Sem esse bloco, a ferramenta deriva para outro estilo, como anime chapado, entre uma página e outra.
-
-Colar este bloco logo depois da lista de arquivos. Quando houver uma página aprovada, anexá-la e citá-la pelo nome do arquivo como âncora de estilo.
+Bloco do semirrealista:
 
 ```text
-═══ ESTILO DE ARTE WEBSHARD LDI (OBRIGATÓRIO) ═══
-- Ilustração de quadrinho SEMI-REALISTA DETALHADA. Proporções realistas de adolescentes; rostos com estrutura óssea, nariz e boca desenhados com volume.
-- Olhos de tamanho REALISTA. Nada de olhos grandes de anime.
-- Linha de contorno fina a média, com variação de espessura, discreta.
-- Pintura com SOMBREAMENTO SUAVE em degradê e volume: pele com meios-tons, reflexos e sombras modeladas. NÃO usar cel-shading chapado de anime em duas cores.
-- Cabelos com mechas e fios detalhados; tecidos com dobras e textura (algodão da camisa, moletom, jeans).
-- Iluminação dramática e cinematográfica: sol dourado da manhã de um lado e brilho azul dos tampos e telas do outro, com luz de recorte nas bordas dos personagens. Alto contraste.
-- Vidro e superfícies com reflexos brilhantes. Fundo com profundidade de campo e desfoque suave.
-- Cores ricas e saturadas, sem aspecto lavado.
-- Acabamento e luz no nível da EliteSchool_SalaDoTrio.png [e da página aprovada anexada, se houver].
-- As fichas de personagem servem só para a APARÊNCIA; o acabamento segue este bloco.
-NÃO USAR: anime/mangá chapado, chibi, screentone de mangá, contorno grosso uniforme, render 3D, fotografia, aquarela.
+ESTILO (OBRIGATÓRIO): ilustração de quadrinho SEMI-REALISTA DETALHADA. Proporções realistas de adolescentes; rostos com estrutura óssea, nariz e boca com volume; olhos de tamanho realista. Linha fina a média, com variação de espessura. Sombreamento suave em degradê, pele com meios-tons e reflexos, nada de cel-shading em duas cores. Cabelos com mechas e fios; tecidos com dobras e textura. Iluminação dramática de cinema com luz de recorte nas bordas e alto contraste [descrever a luz desta cena]. Fundo com profundidade de campo e desfoque suave. Cores ricas e saturadas. As fichas definem só a aparência; o acabamento segue este bloco. Fora deste estilo: anime chapado, chibi, retícula de mangá, contorno grosso uniforme, render 3D, fotografia, aquarela.
 ```
 
-A linha da iluminação descreve a Sala A-304 de manhã; fora dela, trocar pela luz da cena, mantendo o alto contraste e a luz de recorte.
+## 12. Roteiro e prompt da página
 
-### 16.3 Regras gerais
+### 12.1 Formato do roteiro por página
+Cada página do roteiro (`PRODUCAO/roteiros/`) traz:
+- **anexos** pelo nome do arquivo, no máximo 5, cada um com uma linha dizendo o que governa (corpo e rosto de cada personagem que aparece, mais o ambiente);
+- **lugar e luz**, uma linha cada;
+- **geografia e continuidade** da cena;
+- **painéis**, cada um com o enquadramento do plano de câmera, a ação, o corte do corpo e o alvo do olhar;
+- **corte** (proporção, grau e lado) e **cor do neon**;
+- **estilhaços**: posição, conteúdo, função e ordem;
+- **texto exato** em ordem de leitura: quem fala, em que painel, cor, ênfase e SFX.
 
-1. Identificar anexos por **nome de arquivo** ou **código da biblioteca**, nunca apenas “imagem 1”.
-2. Ficha prevalece em aparência, mas sua pose neutra deve ser ignorada quando há movimento.
-3. Referência de pose governa mecânica corporal; ignorar roupa, pessoa e ambiente alheios ao LDI.
-4. Página anterior governa continuidade; ignorar texto antigo, ângulo e neon quando o novo roteiro os muda.
-5. Usar poucas referências relevantes. O pacote de luta registrado era Kim danificado + Void correto + arena + página anterior, deixando um quinto espaço para correção, Jack ou HUD.
-6. Quando houver mudança durável de estado, produzir ficha correspondente e fixar o lado dos ferimentos em todas as vistas.
-7. Prompts devem ser enxutos. Detalhar a regra específica da página, ângulo/borda por painel e texto exato; evitar repetir o mesmo bloco genérico várias vezes.
+O prompt final é montado por script (`montar.py`): ele tira a marcação de produção, escreve a roupa de cada um a partir da ficha, conta os balões e as caixas e aplica o enquadramento. Modelo pronto: `WEBSHARD/LUTAS DE ILUSAO/CONTOS/06-inocentes/PRODUCAO/`.
 
-Revisar português de ditado antes de fechar o texto: grafia, acento, nome e sentido. Preservar a voz informal aprovada; depois de travado, não normalizar falas silenciosamente durante geração ou tradução.
+### 12.2 Referências
+- Referência é anexada e chamada pelo nome do arquivo toda vez que o personagem aparece, junto dos traços que o identificam. Nunca por ordem ("imagem 1") e nunca por link.
+- Mandar ignorar todo texto, pose e fundo das referências.
+- A página anterior governa a continuidade quando é a mesma cena; texto, ângulo e neon antigos são ignorados.
 
-Para correção pontual, usar a página aprovada e uma marcação clara. Descrever **uma mudança**, preservar enquadramento, anatomia correta, texto, neon e composição restantes. Retângulo de marcação não entra no resultado. Após qualquer correção solicitada, entregar **o prompt completo atualizado em bloco de código**, não só um fragmento.
-
-Rodapé de glossário registrado: `*[Termo] — [explicação curta]. illusionfight.com/universos`. Deve continuar legível e dentro da área segura; “discreto” não significa microscópico. O modelo histórico não suspende a regra atual de leitura fácil.
-
-## 17. Localização EN e ES
-
-Traduzir a **página aprovada**, preservando arte, posições, proporção e efeitos. Antes, inventariar todo o texto: se só houver sons já utilizáveis em inglês, copiar o arquivo para EN sem gastar nova geração. Não copiar automaticamente para ES sem essa mesma triagem linguística.
-
-Preservar fonte, peso, cor de personagem, glow, inclinação, perspectiva e ênfase. Alterar apenas regiões de texto. Manter balões e geometria na localização de arte aprovada; se a tradução não couber com letra legível, reescrever com fidelidade e revisar o texto antes de autorizar qualquer mudança no desenho.
-
-| PT | EN registrado |
-|---|---|
-| PLIC... | DRIP... |
-| TAC... | TIK... |
-| TCLK. | CLK. |
-| TAK! | WHAK! |
-| GLUP | GULP |
-| TUM-TUM | THUMP-THUMP |
-| TSC | TSK |
-| MINHA VEZ. | MY TURN. |
-| FAZ TEMPO. | BEEN A WHILE. |
-| ESPERO QUE TENHA UM BOM PLANO DENTÁRIO!!! | HOPE YOU'VE GOT A GOOD DENTAL PLAN!!! |
-| JÁ QUE É UM SONHO, ENTÃO EU ACHO QUE NÃO PRECISO PEGAR LEVE. | SINCE IT'S JUST A DREAM, GUESS I DON'T HAVE TO HOLD BACK. |
-| MAS EU ACHO QUE TÁ NA HORA DE LIBERTAR UMA DAS CORRENTES. | BUT I THINK IT'S TIME TO BREAK ONE OF THE CHAINS. |
-
-Glossário: Lutas de Ilusão → **Illusion Fight**; Sangue Primordial → **Primordial Blood**; LDI continua LDI. Manter nomes próprios, Bravara, Marélia, Elite Academy, Yohu e Yohualticit. Logos e palavras já em inglês, como HIT COMBO, permanecem. O processo completo da tradução do capítulo 01, os prompts base EN e ES, as decisões de adaptação dos dois idiomas, as armadilhas e as pendências estão na §26.
-
-## 18. Vídeo e outras obras: limites de reaproveitamento
-
-Vídeo é derivação, não substituto do gabarito da página. O handoff registra frames inicial/final em 1080 × 1920 com mesma câmera, distância, luz e fundo; só a ação muda. No teste descrito, não há bordas, painéis, texto ou onomatopeias desenhadas. Descrever ordem das ações sem impor minutagem quadro a quadro e manter anatomia/fichas estáveis.
-
-O estilo 2D anime citado nos testes de vídeo é uma escolha daquele experimento. Não reclassifica a página WEBSHARD, cuja direção de imagem no handoff é semi-realista detalhada, alto contraste e iluminação dramática.
-
-Heróis da Cidade tem material externo em `WEBSHARD/HEROIS DA CIDADE/`, mas sua aparição nessa pasta não valida as mesmas regras: o handoff pede comédia de uma página, visual cartoon anos 90 e definição independente de formato/neon. No portal, continua sem fonte de capítulos e visível apenas para admin. Mundo das Sombras e Mar de Cinzas também exigem guias próprios; esta documentação não prescreve suas paletas.
-
-## 19. Fonte e limitações
-
-O handoff v2 foi fornecido como `Pasted text.txt` nesta conversa. Seus parâmetros foram incorporados neste guia; não é necessário depender do arquivo temporário do chat para continuar produzindo. Datas, estados de tradução e números antigos de página foram reconciliados com o repositório, sem apagar o registro das diferenças.
-
-Os arquivos externos permanecem nos diretórios de origem. O manual registra inventário e caminhos, sem publicar em massa arte inédita, arquivos editáveis ou o capítulo 02. As únicas imagens usadas como exemplos online no guia são as que já fazem parte do portal.
-
-## 20. Modelos específicos de correção e tradução
+### 12.3 Correção de página pronta
+- **Ferramenta:**
+  - Página feita no Codex se corrige no Codex; nunca no Gemini, que muda o traço e "apaga" fundo com borrão.
+  - Avisar ao Isaias qual ferramenta vai usar.
+  - Sem cota: anotar em `PENDENTES_CODEX.md` na pasta do título e rodar quando ela voltar.
+- **Mudou a composição** (tirar gente, cenário, trocar pose): refazer a página INTEIRA pelo prompt dela, com as mesmas fichas e a página anterior. Tirar da lista a ficha que puxa o que tem que sumir.
+- **Só texto:** a própria página vai anexada, com o pedido de mudar só aquele texto. Nunca desenhar letra à mão.
+- **Correção pontual:**
 
 ```text
-CORREÇÃO PONTUAL — página [arquivo], revisão [n]
+CORREÇÃO PONTUAL — página [arquivo]
 A página está aprovada. Corrigir somente [erro] em [local].
 Manter composição, enquadramento, poses, texto, cores, neon e sons.
-Referências: [página]; [marcação]; [ficha relevante, se necessária].
-A marcação não deve aparecer no resultado.
+Referências: [página]; [ficha relevante].
 Texto e onomatopeias a preservar: [lista literal].
-Conferir [correção], continuidade e ausência de alterações colaterais.
 Entrega: página completa 960 × 1637 px.
 ```
 
-```text
-LOCALIZAÇÃO — página aprovada [arquivo], PT → [EN/ES]
-Trocar somente os textos listados; preservar toda a arte e os balões.
-Manter fonte, cor, tamanho legível, glow, posição, inclinação e ênfase.
-Texto exato: [local: original → tradução aprovada].
-Manter sem alteração: [logos, nomes, sons e elementos já no idioma].
-Aplicar glossário oficial. Não inventar diálogo nem redesenhar.
-Conferir cada substituição e exportar na dimensão original da página.
-```
+## 13. Revisão da página pronta
 
-## 21. Fluxo recomendado de produção
+**Narrativa e imagem**
+- [ ] Uma batida principal, compreensível.
+- [ ] No máximo dois painéis grandes, e enquadramento diferente da página anterior.
+- [ ] Ninguém de corpo inteiro nem parado de frente; ninguém olhando o leitor.
+- [ ] Estilhaços sobrepostos, com função e posição claras.
+- [ ] Aparência, roupa, objetos, ferimentos e geografia coerentes com a página anterior.
+- [ ] Rosto igual à ficha de expressões; Kim sem sorriso.
 
-### Etapa 1 — Briefing e continuidade
+**Texto e cor**
+- [ ] Texto exato, sem balão inventado nem caixa repetida, com acento.
+- [ ] Legível na largura do celular, sem zoom.
+- [ ] Cor de cada voz conforme o §5.1; Freddy com contorno escuro; só a Máquina com balão escuro.
+- [ ] Ordem dos balões e cauda apontando pra quem fala.
+- [ ] Neon com motivo; troca de neon não recolore as falas.
 
-Definir capítulo, momento da história, contexto anterior/posterior, personagens, roupas, cenário, estado físico e referências aprovadas. Separar intenção narrativa de descrição visual. Registrar a versão do roteiro utilizado.
+**Entrega**
+- [ ] Conteúdo essencial dentro da área segura; nada essencial na emenda.
+- [ ] Numeração, quantidade e idiomas batem com o catálogo; sem deformação.
+- [ ] A compressão não estragou letra, linha nem glow.
 
-### Etapa 2 — Decupagem vertical
+## 14. Publicação
 
-Dividir a sequência em batidas. Para cada página, escolher o acontecimento principal e limitar os painéis grandes. Anotar o motivo de qualquer terceiro painel. Planejar o silêncio e a passagem entre páginas.
+- **Páginas:** `public/webtoon/<pasta>/<idioma>/NN.webp`. As imagens moram no bucket R2 `webshard`, enviadas por `scripts/webshard-r2.py` no deploy.
+- **Catálogo:**
+  - `src/data/webshard-titulos.json`: títulos, capa e visibilidade;
+  - `src/data/*-episodios.json`: capítulos, páginas, idiomas, proporção e liberação;
+  - `src/lib/webshard/catalogo.js`: rotas e URLs; a interface só lê dele.
+  - Versões do mesmo capítulo usam `versoes` (`<pasta>/<versão>/pt`).
+- **Disponibilidade:** combina conteúdo, admin, beta, trial e calendário (`useWebshardAcesso.js`). Consultar os dados atuais antes de anunciar uma data.
+- **Não renumerar** capítulos ou páginas publicados sem avaliar links, retomada de leitura e traduções.
+- **Deploy:** seguir o `AGENTS.md` (versão, build, commit, push, deploy e conferir no ar). Nunca colar arquivo à mão em `dist/`.
+- **Este guia** é publicado pelo build em `/docs/webshard/` (plugin `webshard-docs` do `vite.config.js`).
 
-### Etapa 3 — Roteiro visual e cromático
+## 15. Tradução (EN e ES)
 
-Descrever painéis, detalhes sobrepostos, diagonais, direção do movimento, texto exato, cores de voz e domínio emocional. Prever mudança de neon quando ela tiver função narrativa.
+### 15.1 Fluxo
+1. Listar **todo** o texto da página: balões, legendas, SFX, placas, telas, calendários e rodapés.
+2. Decidir o que **não** se traduz: o que já está em inglês, nomes, logos e termos de jogo.
+3. Montar a tabela **Onde | Original | Tradução | Observação**.
+4. Adaptar a gíria, o palavrão e a piada antes de gerar. Essa parte é do agente principal; a transcrição pode ir pra modelo externo.
+5. Gerar com o **Nano Banana 2** primeiro (`LAB-NVIDIA/traduz_gemini.py <cap> <EN|ES> <prompts> NN…`, no mesmo tamanho do PT). O Codex entra quando o Gemini falhar ou errar a mesma página duas vezes.
+6. Uma página por chamada. Página só com SFX em inglês não passa pelo gerador: é copiada pra pasta do idioma.
+7. Ausência real vai declarada em `paginas_faltando`.
 
-### Etapa 4 — Esboço com texto real
+### 15.2 Voz
+- **Adaptar, não traduzir.** A piada e a atitude valem mais que a letra.
+- **Palavrão:** a mesma intensidade do PT. Já decidido: porra → *fuck*; fudido → *fucked*; filho da puta → *son of a bitch*; esse merda → *that little shit*.
+- **Espanhol:** neutro latino-americano, com "tú", sem regionalismo de um país só (nada de "¿qué onda?", "güey", "me vale madre"), como em todo o projeto (`AGENTS.md`).
+- **Inglês:** americano natural. *16 AND OLDER*, não *over 16*.
+- **Tom por personagem:**
+  - Kim: seco e curto.
+  - Jack: teatral, influencer (EN *so fire*; ES *hermano*).
+  - Pajé: debochado e carinhoso (ES *mis amores*, *¡qué fail!*).
+  - Palavras do Autor: espanhol caloroso, sem gíria.
+- **Destaque:** a palavra-chave do balão continua maior; dizer isso no pedido.
+- **Monólogo interno do Kim:** às vezes é texto azul flutuante, sem balão. Descrever isso, senão o gerador inventa balão.
 
-Colocar os balões e o texto definitivo no esboço. Aplicar guias da safe area definida para a produção. Revisar a miniatura: se tudo disputa atenção, reduzir elementos antes de detalhar a arte.
+### 15.3 Glossário
 
-### Etapa 5 — Arte
-
-Produzir a cena com referências consistentes. Conferir anatomia, contato dos golpes, perspectiva, iluminação e continuidade. A textura do desenho não deve competir com a leitura dos estilhaços ou das falas.
-
-Se houver geração assistida por IA, informar a estrutura de página explicitamente; o nome WEBSHARD sozinho não garante que a ferramenta conheça a linguagem. Usar referências aprovadas, revisar cada resultado e corrigir texto, anatomia e continuidade. A ferramenta é parte do processo, não a autoridade editorial.
-
-### Etapa 6 — Letreiramento e neon
-
-Aplicar fala por personagem e borda por intenção da cena. Conferir os dois sistemas separadamente. Regular glow e espessura olhando a arte reduzida; um efeito bonito em tamanho grande pode borrar letras ou eliminar divisões no celular.
-
-### Etapa 7 — Revisão em escala de leitura
-
-Testar o arquivo exportado na largura do celular, em sequência com as páginas anterior e posterior. Confirmar que a leitura funciona sem zoom, que a ação é entendida e que as bordas não carregam informação vulnerável.
-
-### Etapa 8 — Tradução e pacote final
-
-Entregar imagens por idioma, miniaturas/capas necessárias, metadados e registro de pendências. Guardar referências e arquivos editáveis de maneira recuperável. Publicar pelo processo do repositório.
-
-## 22. Modelos reutilizáveis
-
-### 22.1 Ficha de página
-
-```text
-WEBSHARD LDI — capítulo __ / página __ / revisão __
-Tipo: narrativa | capa | aviso | editorial | divulgação | créditos
-Fonte do roteiro/cânone:
-O que muda nesta página:
-Momento anterior / gancho para a seguinte:
-Ambiente e continuidade:
-Personagens e referências de aparência:
-
-Painel principal 1 — ação, enquadramento e foco:
-Painel principal 2 — ação, enquadramento e foco (se necessário):
-Terceiro painel — justificativa excepcional (se houver):
-Estilhaços — conteúdo, função, ângulo e borda de cada um:
-Ordem de leitura / movimento / sobreposições:
-
-Falas exatas — personagem, idioma, cor e ênfase:
-Pensamentos:
-Onomatopeias:
-Quem controla a cena / emoção dominante:
-Neon — cor dominante, exceções e motivo:
-
-Dimensão do mestre / dimensão de exportação:
-Safe area — aproximadamente 100 / 100 / 80 / 80 px:
-Referência de fonte e tamanho aprovado:
-Validação em largura de celular:
-Pendências e responsável pela decisão:
-```
-
-### 22.2 Briefing de arte ou geração assistida
-
-```text
-═══ ARQUIVOS ANEXADOS ═══
-[NomeDoArquivo.png]: [o que governa: aparência de quem, posições, ambiente/luz]
-(... só os arquivos usados na página, §16.1 ...)
-
-[bloco ESTILO DE ARTE WEBSHARD LDI do §16.2]
-
-Criar uma página WEBSHARD de Lutas de Ilusão, vertical, conforme
-os arquivos anexados e o roteiro abaixo.
-
-Composição: [um ou dois painéis grandes], com [detalhes necessários]
-em estilhaços sobrepostos. Diagonais conduzem o olhar por [percurso].
-A imagem dominante mostra [ação]. Os estilhaços mostram [funções].
-Preservar clareza e pouca informação na escala do celular.
-
-Personagens e continuidade: [nome do arquivo + traços: dreads verdes = Jack;
-boné = Kim; cabelo rosa = Nina; roupa, estado físico].
-Posições na imagem: [quem fica à esquerda/direita; na mesma fileira, mesma
-distância, mesmo tamanho; para que lado da imagem cada um olha].
-Cenário e luz: [descrição específica].
-Controle/emoção: [intenção]. Neon: [cor aprovada e mudanças justificadas].
-Vozes: [personagem → cor aprovada]. Fonte comic bold condensada, caixa alta,
-balão branco; Máquina em balão grafite com Share Tech Mono.
-Texto exato e localização: [falas curtas; espaço para letras grandes].
-
-Dimensão: 960 × 1637 px. Área segura: ~100 px laterais, ~80 px topo/base.
-Ângulo de cada painel: [ângulo distinto]; cortes diagonais de 8–15 graus.
-Borda de cada painel/estilhaço: [neon, núcleo e glow; repetir em cada bloco].
-Olhar: para [ação/interlocutor/objeto fora do eixo]; nunca para o leitor ou lente, sem exceção.
-Onomatopeias exatas: [ao menos uma para a página narrativa].
-Ignorar textos e onomatopeias antigos das referências: [lista], e todo título,
-legenda, etiqueta e placa das fichas.
-Ênfase em [PALAVRA]; colchetes não aparecem na imagem final.
-Sem texto de diálogo fornecido: sem balões; manter sons especificados.
-Referências de página: [arquivos].
-Não inventar falas, nomes, cores canônicas ou elementos de continuidade.
-```
-
-Campos pendentes não devem ser preenchidos com valores apresentados como oficiais. A produção pode estudar alternativas identificadas como propostas, mantendo a decisão em aberto.
-
-## 23. Revisão de qualidade
-
-### Linguagem e narrativa
-
-- [ ] O estilo segue o bloco do §16.2 e a âncora anexada: semi-realista, sombreamento suave, olhos realistas, sem anime chapado.
-- [ ] A página tem uma batida principal compreensível.
-- [ ] Há no máximo dois painéis grandes, ou justificativa expressa para a exceção de três.
-- [ ] Os estilhaços estão sobrepostos aos painéis, têm função narrativa e posição explícitas, podendo receber o maior destaque da página sem comprometer a leitura.
-- [ ] A ordem de ação e diálogo é inequívoca.
-- [ ] A cena respira; detalhes e efeitos não competem todos ao mesmo tempo.
-- [ ] Aparência, objetos, ferimentos e geografia continuam coerentes.
-
-### Texto e cor
-
-- [ ] Falas curtas, grandes e legíveis no arquivo exportado à largura do celular.
-- [ ] Não foi necessário zoom para entender a história.
-- [ ] A cor de voz permanece consistente por personagem, conforme a tabela do §6.2.
-- [ ] Dourado (Freddy) tem contorno escuro na letra; só a Máquina tem balão escuro.
-- [ ] O neon comunica domínio ou emoção deliberados.
-- [ ] Mudança de moldura não recolore automaticamente todas as falas.
-- [ ] Contraste, ponteiros e posição ajudam a identificar o falante.
-- [ ] Ortografia, ênfase e onomatopeias foram revisadas por idioma.
-
-### Área segura e entrega
-
-- [ ] O gabarito registra dimensão e margens dos quatro lados.
-- [ ] Conteúdo essencial está protegido; cortes periféricos são intencionais.
-- [ ] As emendas no leitor não escondem informação necessária.
-- [ ] Arquivos, numeração, quantidade e idiomas correspondem ao catálogo.
-- [ ] Não há deformação para forçar proporção.
-- [ ] Compressão não prejudicou letras, linhas e glow.
-- [ ] Ausências conhecidas estão documentadas, sem falsa declaração de tradução completa.
-- [ ] Build, commit, push, deploy e verificação online seguiram `AGENTS.md` quando houver publicação.
-
-## 24. Decisões ainda necessárias
-
-| Parâmetro | Estado | Como fechar sem inventar regra |
+| PT | EN | ES |
 |---|---|---|
-| Safe area E/D/T/B | Confirmada no handoff: ~100/100/80/80 px | Manter guias e verificar conteúdo essencial. |
-| Formato da página | Confirmado no handoff: 960 × 1637 px | Diferenciar de assets wide e vídeo. |
-| Fonte | Estilo único definido (comic bold condensada; Máquina em Share Tech Mono) | Fixar o nome exato da família comic usada no letreiramento. |
-| Tamanho mínimo da letra | Não localizado | Aprovar teste em largura de celular. |
-| Códigos de cor das vozes | Dez personagens definidos (§6.2) | Personagem novo com fala ganha cor antes da página. |
-| Tom da voz de Nina | **Resolvido:** rosa framboesa `#B82E69` | Manter o tom entre páginas/idiomas; neon tem núcleo/glow próprios. |
-| Significados das cores emocionais | Usos de referência definidos no §6 | Registrar intenção específica e mudanças por cena. |
-| Limites de palavras, balões e estilhaços | Sem número oficial | Manter economia e legibilidade como critérios; não inventar teto histórico. |
-| Revisão da definição pública | Há divergência com a direção autoral atual | Alinhar manifesto/FAQ/SEO em tarefa editorial própria. |
-| ES, página 37 | Fallback explícito para PT | Produzir/revisar a versão ES antes de declarar o capítulo integralmente traduzido. |
+| Lutas de Ilusão | Illusion Fight | Illusion Fight |
+| Contos de Ilusão | Illusion Tales | Cuentos de Ilusión |
+| Sangue Primordial | Primordial Blood | Sangre Primordial |
+| Povos originários | Indigenous peoples | pueblos originarios |
+| Cabeça de Musgo (Kim → Jack) | Snot Top | Cabeza de Moco |
+| Velho Rabugento (Jack → Kim) | Old Grump | Viejo Gruñón |
+| Sonhe / Treine / Evolua | Dream / Train / Evolve | Sueña / Entrena / Evoluciona |
+| A única regra da briga de rua | The only rule of a street fight | La única regla de la pelea callejera |
+| Não há regras | There are no rules | No hay reglas |
 
-## 25. Fontes e rastreabilidade
+- **Não se traduzem:** LDI, WEBSHARD, PowWow, DIX, Bravara, Marélia, Elite Academy, Yohu, Yohualticit, nomes de personagem e termos de jogo (HIT, MISS, COMBO, K.O.).
+- **SFX:**
+  - O que já está em inglês fica (BAM, CRACK, FWOOSH, CLICK…).
+  - Os brasileiros se adaptam: TUM-TUM → THUMP-THUMP; TAK → WHAK; GLUP → GULP; TSC → TSK (Jack) ou CLICK (câmera).
+  - Página só com SFX em inglês serve pros três idiomas.
 
-| Fonte | O que fundamenta |
-|---|---|
-| Orientação direta de Isaias, 05/10/2026, nesta tarefa | Linguagem própria, celular, estilhaços, máximo usual de dois painéis, exceção de três, texto curto/grande, safe area nos quatro lados, voz por cor e neon de domínio/emoção. |
-| Orientação de Isaias, 06/10/2026, na produção do capítulo 03 (páginas 2–13) | Fonte única do elenco, cores de Brock, Freddy e Anderson, balão da Máquina, neons dourado e cinza-escuro, referências por nome de arquivo, bloco de estilo de arte e posicionamento na Sala A-304. |
-| Handoff WEB SHARD v2 fornecido nesta conversa | Medidas, cores, regras operacionais, fichas, assets, localização e histórico; consolidação nas seções 11–22. |
-| Pasta local da marca, inventariada em 05/10/2026 | Versões anteriores, arquivos editáveis, PNGs atuais, capítulo 02 em produção externa e fichas. Ver inventário no §11.2. |
-| [`src/i18n/core/pt.json`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/src/i18n/core/pt.json), namespace `webShard` | Manifesto público, composição, diagonais, invasão de quadro, FAQ e aviso do autor. |
-| [`src/pages/site/WebShard.jsx`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/src/pages/site/WebShard.jsx) | Estrutura da explicação pública e registro do termo próprio. |
-| [`src/data/episodios.json`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/src/data/episodios.json) | Capítulo, contagem, idiomas, proporção, fallback e calendário. |
-| [`src/data/webshard-titulos.json`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/src/data/webshard-titulos.json) | Identidade dos títulos, sinopse, cor de interface e visibilidade. |
-| [`public/webtoon/01/`](https://illusionfight.com/webtoon/01/) | Artes atuais e dimensões medidas; referências visuais. |
-| [`src/lib/webshard/catalogo.js`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/src/lib/webshard/catalogo.js) | Resolução de rotas, páginas, miniaturas e idiomas. |
-| [`LeitorPaginas.jsx`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/src/pages/content/webshard/components/LeitorPaginas.jsx) e CSS correspondente | Exibição das imagens e corte entre páginas. |
-| [`WebshardLeitor.jsx`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/src/pages/content/webshard/WebshardLeitor.jsx) e [`useWebshardAcesso.js`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/src/hooks/useWebshardAcesso.js) | Leitura, idiomas e restrições de acesso. |
-| [`WebtoonCompare.jsx`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/src/pages/preview/WebtoonCompare.jsx) e [`restaurar-preview-privado.cjs`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/scripts/restaurar-preview-privado.cjs) | Acervo histórico, quantidades e recuperação no deploy. |
-| [`Conhecimento_Otimizado/07_style_guide.md`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/docs/LDI/Conhecimento_Otimizado/07_style_guide.md) e fichas de Kim/Jack/Nina | Voz, tom e apoio à continuidade; conferir revisões do cânone. |
-| [`SITE_MAP.md`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/SITE_MAP.md) e [`AGENTS.md`](https://github.com/lutasdeilusao-cpu/illusionfight-site/blob/main/AGENTS.md) | Mapa, estrutura, coluna mobile e regras de manutenção/publicação. |
+### 15.4 Armadilhas
+- **Espanhol:**
+  - "bala" é munição (doce = DULCES); "boleto" é ingresso (conta = CUENTA); "camión" em vários países é ônibus (usar BUS).
+  - Carimbo de pago = PAGADO. "Sulfite" = HOJAS BLANCAS. "El arte" é masculino. "Legal" = INCREÍBLE.
+  - Sem acento: MANGA, COPIA, GUION, SOLO. "AÑO" sem Ñ é outra palavra: listar sempre os acentos e o Ñ no pedido.
+- **Inglês:** sulfite = PRINTER PAPER; bala = CANDY. Interface de celular e calendário também se traduzem.
+- **Sensíveis:**
+  - **PowWow** fica em inglês de propósito: tem fundamento na lore, explicado no site.
+  - **"Indiozinho"** (o Alan chamando o Kim) soa como ofensa racial em EN/ES: decidir com o Isaias caso a caso.
 
-Esta documentação cobre o repositório, o histórico indicado pelo projeto, o handoff fornecido pelo autor e o acervo local inventariado. A inspeção externa foi por amostragem visual e inventário de arquivos; não constitui aprovação de cada arte nem revisão linguística integral. Não presume acesso a conversas ou materiais não fornecidos.
+### 15.5 Prompt base (EN; para ES, trocar o idioma e as regras de voz)
 
-## 26. Tradução do capítulo 01 (EN e ES)
+```text
+You are editing a FINAL, APPROVED page. Your only job is to replace Portuguese text with English text. This is a text-replacement task, NOT a redesign.
 
-Registro de Isaias sobre a tradução do capítulo 01 de Lutas de Ilusão / Illusion Fight. Complementa §10.3, §17 e §20; quando houver diferença, vale esta seção, que é a mais recente. O glossário e a lore completos estão no site (illusionfight.com, com busca).
+ARTWORK: keep it 100% identical (characters, poses, faces, colors, lighting, effects, composition, framing, aspect ratio, resolution). Only touch the pixels where Portuguese text is.
 
-### 26.1 Situação
+TEXT STYLE: each translated text matches the original in font, weight, color, glow, outline, perspective, rotation and position. Bubbles and caption boxes keep shape, size and tail direction; adjust line breaks to fit. The key word of each bubble stays bigger and bold, as in the original.
 
-- **Formato:** WEBSHARD, termo próprio do projeto. Não se traduz.
-- **Capítulo 01:** cerca de 53 páginas, finais e aprovadas. A tradução troca só o texto, nunca a arte.
-- **Idiomas:** PT é o original; EN e ES são adaptações.
-- **Status:** inglês concluído. Espanhol feito até a página 53, exceto a 41 (em produção) e a 52 (confirmar se tem texto).
+DO NOT TRANSLATE: anything already in English, logos, the ILLUSION FIGHT logo, the IF emblem, names of people and places, game terms.
 
-### 26.2 Fluxo de trabalho, página por página
-
-1. Analisar a página e listar **todo** o texto: balões, legendas, SFX, placas, telas de celular, calendários e rodapés.
-2. Decidir o que **não** se traduz: o que já está em inglês, nomes, logos e termos de game.
-3. Montar uma tabela: **Onde | Original | Tradução | Observação** (adaptação cultural).
-4. Gerar o bloco "THIS PAGE" (§26.5) e colar no fim do prompt base (§26.3 ou §26.4).
-5. Uma página por conversa no gerador; mais de uma na mesma conversa mistura os estilos.
-6. Página só com SFX em inglês não passa pelo gerador: copia direto pra pasta do idioma.
-7. Texto novo (como um rodapé), texto longo manuscrito ou muitos acentos: considerar fazer no PSD.
-8. Ferramenta atual: ChatGPT no modo *thinking*. Ele revisa sozinho a arte (dedos, braços, anatomia) e **não** muda o texto traduzido.
-9. **Regra do Isaias:** a cada ajuste pedido, entregar o trabalho **completo** atualizado (bloco ou prompt inteiro), nunca só o pedaço alterado.
-
-### 26.3 Prompt base — inglês
-
-```
-You are editing a FINAL, APPROVED webtoon page. Your only job is to replace Portuguese text with English text. This is a text-replacement task, NOT a redesign.
-
-STRICT RULES — ARTWORK:
-- Keep the artwork 100% identical: same characters, poses, faces, colors, lighting, effects, composition, framing, aspect ratio and resolution.
-- Do not redraw, restyle, crop, extend, add or remove anything outside the text areas.
-- Only touch the pixels where Portuguese text currently is.
-
-STRICT RULES — TEXT STYLE:
-- Each translated text must match the original exactly in font style, weight, color, glow, outline, texture, damage/crack effects, perspective, rotation and position.
-- Speech bubbles and caption boxes keep the same shape and size. Fit the English text inside them, adjusting line breaks if needed.
-- Sound effects (SFX) keep the same hand-drawn/impact style and energy.
-
-WHAT NOT TO TRANSLATE (analyze first):
-- Before editing, identify every piece of text on the page and decide whether it is already in English or is a proper noun.
-- Leave untouched: anything already in English (e.g. HIT, COMBO, K.O., FIGHT, ROUND, PERFECT, GAME OVER, LEVEL UP), logos, the "ILLUSION FIGHT" logo, the "IF" emblem, character names, place names and brand names.
-- Only translate what is actually Portuguese.
-
-OFFICIAL GLOSSARY (always use these):
-- Lutas de Ilusão → Illusion Fight
-- Contos de Ilusão → Illusion Tales
-- Alan, o Campeão → Alan, the Champion
-- Bravara, Marélia, Elite Academy, Yohu, Yohualticit → keep as is
-- Kim, Jack, Nina, Helena, David Kronos, Pajé Yawanari, Alan → keep as is
-- Sangue Primordial → Primordial Blood
-- LDI → keep as LDI
-- PowWow (in-universe social network) → keep as PowWow
-- Povos originários → Indigenous peoples
-- Cabeça de Musgo (Kim's nickname for Jack) → Snot Top
-- Velho Rabugento (Jack's nickname for Kim) → Old Grump
-- Sonhe / Treine / Evolua → Dream / Train / Evolve
-- A única regra da briga de rua → The only rule of a street fight
-- Não há regras → There are no rules
-- Game terms already in English (HIT, MISS, COMBO, K.O., etc.) → keep as is
-
-TRANSLATION TONE:
-- Natural, punchy English that fits a fighting/action webtoon — not literal word-for-word.
-- Keep the character's personality, slang level and attitude. Short and impactful, similar length to the original so it fits the same space.
+TONE: natural, punchy English for an action comic, same slang level and profanity intensity, similar length.
+[ES: natural neutral Latin American Spanish, "tú", no regional slang from a single country; opening "¡" and "¿"; same profanity intensity.]
 
 THIS PAGE:
-[colar o bloco da página aqui]
-```
-
-### 26.4 Prompt base — espanhol
-
-```
-You are editing a FINAL, APPROVED webtoon page. Your only job is to replace Portuguese text with Spanish text. This is a text-replacement task, NOT a redesign.
-
-STRICT RULES — ARTWORK:
-- Keep the artwork 100% identical: same characters, poses, faces, colors, lighting, effects, composition, framing, aspect ratio and resolution.
-- Do not redraw, restyle, crop, extend, add or remove anything outside the text areas.
-- Only touch the pixels where Portuguese text currently is.
-
-STRICT RULES — TEXT STYLE:
-- Each translated text must match the original exactly in font style, weight, color, glow, outline, texture, damage/crack effects, perspective, rotation and position.
-- Speech bubbles and caption boxes keep the same shape and size. Fit the Spanish text inside them, adjusting line breaks if needed.
-- Sound effects (SFX) keep the same hand-drawn/impact style and energy.
-- Use Spanish punctuation: opening "¡" and "¿" at the start of exclamations and questions.
-
-WHAT NOT TO TRANSLATE (analyze first):
-- Before editing, identify every piece of text on the page and decide whether it is already in English/Spanish or is a proper noun.
-- Leave untouched: English sound effects and game terms (HIT, MISS, COMBO, K.O., BAM, CRACK, FWOOSH, CLICK, etc.), logos, the "ILLUSION FIGHT" logo, the "IF" emblem, character names, place names and brand names.
-- Only translate what is actually Portuguese.
-
-OFFICIAL GLOSSARY (always use these):
-- Lutas de Ilusão → Illusion Fight
-- Contos de Ilusão → Cuentos de Ilusión
-- Bravara, Marélia, Elite Academy, Yohu, Yohualticit → keep as is
-- Kim, Jack, Nina, Helena, David Kronos, Pajé Yawanari, Alan → keep as is
-- Sangue Primordial → Sangre Primordial
-- LDI → keep as LDI
-- PowWow (in-universe social network) → keep as PowWow
-- Povos originários → pueblos originarios
-- Cabeça de Musgo (Kim's nickname for Jack) → Cabeza de Moco
-- Velho Rabugento (Jack's nickname for Kim) → Viejo Gruñón
-- Irmão / mano (Jack talking to Kim) → hermano
-- Sonhe / Treine / Evolua → Sueña / Entrena / Evoluciona
-- A única regra da briga de rua → La única regla de la pelea callejera
-- Não há regras → No hay reglas
-
-TRANSLATION TONE:
-- Natural Latin American Spanish with a light Mexican street flavor (e.g. "¿qué onda?"), punchy and fitting a fighting/action webtoon — not literal word-for-word.
-- Keep each character's personality, slang level and attitude. Keep profanity at the same intensity as the Portuguese.
-- Short and impactful, similar length to the original so it fits the same space.
-
-THIS PAGE:
-[colar o bloco da página aqui]
-```
-
-### 26.5 Modelo do bloco "THIS PAGE"
-
-```
-THIS PAGE:
-- Page: Ep. 01 – Page XX (descrição curta da cena)
+- Page: [cap] – [NN] ([cena])
 - Text to translate:
-  1. [Onde + estilo: ex. "Top-right speech bubble (white fill, blue outline, blue comic font)"]: "ORIGINAL / COM / QUEBRAS" → "TRADUÇÃO / COM / QUEBRAS" (palavra-chave maior e em negrito, igual ao original)
-  2. ...
-- Do not change: [SFX que ficam, personagens, painéis, bordas neon, cenário, iluminação — listar tudo]
-- Speech bubbles keep the same shape, size and tail direction
-- (ES) Accents and special letters must be spelled exactly: [lista de palavras com acento/Ñ]
+  1. [onde + estilo]: "ORIGINAL" → "TRADUÇÃO"
+- Do not change: [SFX que ficam, personagens, painéis, neon, cenário]
+- (ES) Accents and Ñ spelled exactly: [lista]
 ```
 
-### 26.6 Estilo e voz
+### 15.6 Pendências do capítulo 01
+- **p. 02 (EN):** confirmar se ficou WEBSHARD ou WEBTOON.
+- **p. 07:** o "TSC." é do Jack (TSK) ou da câmera (CLICK)?
+- **p. 41 (ES):** em produção. **p. 52:** confirmar se tem texto.
+- **Erros no PT original** (corrigir no PSD):
+  - p. 10: "UMA MAU";
+  - p. 49: "LUTA DE ILUSÕES" e "ISAIAS" × "ISAÍAS";
+  - p. 48: placa "LD1".
+- **p. 47 (ES):** trocar a alternativa "ME VALE MADRE", que é regional, por "ME IMPORTA UNA MIERDA".
+- **Texto público do manifesto** (`src/i18n/core/*.json`, namespace `webShard`): ainda chama o formato de "web comic e mangá vertical". Alinhar com o §1 numa tarefa editorial.
 
-- **Adaptar, não traduzir literalmente.** A piada e a atitude valem mais que a letra.
-- **Palavrão:** manter a **mesma** intensidade do PT. Decisões tomadas: porra → *fuck*; fudido → *fucked*; filho da puta → *son of a bitch*; esse merda → *that little shit*.
-- **Destaque:** nos balões, a palavra-chave (normalmente a última) é maior e em negrito. Sempre dizer isso no bloco, senão o gerador deixa tudo igual.
-- **Cores de voz:** Kim = balão branco com contorno **azul**; Jack = contorno **verde**; Helena = **roxo**. O monólogo interno do Kim às vezes é texto azul flutuante, **sem** balão: descrever isso explicitamente, pro gerador não inventar balão.
-- **Kim:** seco, econômico, sarcástico. Frases curtas.
-- **Jack:** teatral, influencer, vive de rede social (EN: *so fire*; ES: *hermano*).
-- **Pajé Yawanari:** influencer debochado e carinhoso, gíria de internet (ES: *mis amores*, *¡qué fail!*, *la vibra*, *la banda*).
-- **Palavras do Autor (páginas 43–50):** voz pessoal do Isaias. Espanhol neutro e caloroso, sem gíria regional forte.
-- **Espanhol:** "LDI" sem artigo (*escribir LDI*, *LDI continúa*).
-- **Inglês:** *16 AND OLDER* (não *over 16*, que é ambíguo).
-
-### 26.7 Onomatopeias (SFX)
-
-- **Já em inglês, não mexe:** FWOOOSH, VWOOOSH, BLOP, DRIP, VRRM, BAM, CRACK, KRRK, SHRAK, MISS, CLICK, GRRT, SPLAAT etc.
-- **Adaptar as "brasileiras":**
-  - TUM-TUM → THUMP-THUMP
-  - TAK (soco) → WHAK
-  - GLUP → GULP
-  - TSC → TSK (se for o Jack); CLICK (se for a câmera)
-  - Polimento opcional: TWAK → THWAK; SCHRAAACK → SHRAAACK
-- O leitor brasileiro e o latino aceitam SFX em inglês, então uma página só com SFX serve pros três idiomas.
-
-### 26.8 Armadilhas (falsos amigos e erros comuns)
-
-**Espanhol**
-
-- "Bala" é munição. Doce é **DULCES**.
-- "Boleto" é ingresso ou passagem. Conta é **CUENTA**.
-- "Vale" é "ok". Pra "vale a pena", usar **VALE LA PENA**.
-- "Ya valió" (MX) é "deu ruim". Usar a frase completa: **VALIÓ LA PENA**.
-- Carimbo de pago é **PAGADO** (não "PAGO").
-- "Sulfite" não existe: **HOJAS BLANCAS**. "Busão" é **BUS**/**BUSES** ("camión", em outros países, é caminhão).
-- "El arte" é masculino: *el arte es generado*, *arte generado*.
-- Sem acento em espanhol: MANGA, COPIA, INTELIGENCIA, GUION, HISTORIA, ESENCIA, POSIBILIDADES, SOLO.
-- "AÑO" sem o Ñ vira outra palavra. Sempre listar os acentos no bloco.
-- "Jornada do herói" → **VIAJE DEL HÉROE**; "tática de escrita" → **TÉCNICA DE ESCRITURA**.
-- "Legal" → **INCREÍBLE** (evitar *chido* e *bacán*, que são regionais).
-
-**Inglês**
-
-- "Sulfite" → **PRINTER PAPER**; "bala" → **CANDY**.
-- Interface de celular também se traduz: VÍDEO/FOTO/RETRATO → VIDEO/PHOTO/PORTRAIT.
-- Calendários: traduzir dias e meses (ES: LUN MAR MIÉ JUE VIE SÁB DOM / ENE FEB MAR ABR MAY JUN JUL AGO SEP OCT NOV DIC).
-
-**Sensíveis**
-
-- **PowWow:** em inglês, é termo de cerimônia dos povos nativos norte-americanos. Mantido de propósito: tem fundamento na lore, explicado no site.
-- **"Indiozinho"** (o Alan chama o Kim assim nos Contos): a tradução direta em EN/ES soa como ofensa racial. Quando aparecer, pensar com calma.
-
-### 26.9 Decisões de adaptação já tomadas
-
-**Inglês**
-
-| Página | PT | EN |
-|---|---|---|
-| 00 (capa) | O SONHO DE ILUSÃO | THE ILLUSION DREAM |
-| 01 | REALIDADE TAMBÉM É UMA LUTA | REALITY IS A FIGHT TOO |
-| 02 | MAIS QUE UM WEBSHARD | manter WEBSHARD (confirmar, §26.12); OST, LORE |
-| 03 | QUE PORRA É ESSA? | WHAT THE FUCK / IS THIS? |
-| 04 | AQUIETA, CORAÇÃO / ...É UM SONHO | EASY, HEART / NO DOUBT ABOUT IT... THIS IS A DREAM |
-| 05 | CABEÇA DE MUSGO | SNOT TOP |
-| 06 | ME ZUAR / ESSE MERDA | CLOWN ON ME / THAT LITTLE SHIT |
-| 08 | DEMAIS | SO FIRE (página da PowWow\*) |
-| 09 | — | BLACK GOLD... STRIKE IT RICH? / NOPE. NOT BLACK GOLD. JUST THE USUAL SIGN THAT I'M FUCKED!!! |
-| 10 | — | I'VE GOT A BAD FEELING... / ABOUT THIS SHIT RIGHT HERE!!! (eco de Star Wars) |
-| 11 | OU GOSMA!!! | OR SLIME!!! |
-| 12–13 | — | YOU KNOW THE ONLY RULE OF A STREET FIGHT? / THERE ARE NO RULES!!!\* |
-| 14 | — | HOPE YOU'VE GOT A GOOD DENTAL PLAN!!! |
-| 42 | — | I CAN'T TAKE THIS SHIT ANYMORE!!! / GO TO SLEEP, YOU DEVIL'S SPAWN!!! |
-
-**Espanhol**
-
-| Página | PT | ES |
-|---|---|---|
-| 42 | — | ¡YA NO AGUANTO MÁS ESTA MIERDA! / ¡VETE A DORMIR, ENGENDRO DEL DIABLO!!! |
-| 43 | — | VENDIENDO DULCES EN EL BUS; HOJAS BLANCAS; LAS PÁGINAS VOLARON |
-| 44 | — | SE ESFUMABA (combina com a cena do mágico) |
-| 45 | SAIR DO PAPEL | DIRECTO A LA VENA; COBRAR VIDA |
-| 46 | — | SE ESFUMÓ; VIAJE DEL HÉROE |
-| 47 | DO MEU JEITO / POUCO ME FODENDO | A MI MANERA / ME IMPORTA UNA MIERDA (alternativa: ME VALE MADRE) |
-| 48 | TÁ FODA | YA PAGÓ UNA CUENTA; MANO, VALE LA PENA; PAGADO; DE PUTA MADRE |
-| 49 | AGRADAR O ISAÍAS DE 17 ANOS | HACER FELIZ AL ISAÍAS DE 17 AÑOS |
-| 50 | TAMO JUNTO / VOCÊ QUE SE FODA | ¡SOMOS EQUIPO! / PUES, JÓDETE. |
-| 51 (Pajé) | — | ¿CÓMO ANDAN, MIS AMORES?; ¡QUÉ FAIL, MANO!; ¡ESTÉN PENDIENTES, EH!; BESOS DEL PAJÉ |
-| 53 | O REAL TAMBÉM É UMA LUTA | LO REAL TAMBIÉN ES UNA LUCHA |
-
-### 26.10 Rodapé da página 13
-
-Nas três versões, com a mesma fonte do rodapé da PowWow na página 08:
-
-- **PT:** \*Quer saber onde o Kim aprendeu essa regra? Acesse illusionfight.com e procure por Contos de Ilusão.
-- **EN:** \*Want to know where Kim learned this rule? Visit illusionfight.com and search for Illusion Tales.
-- **ES:** \*¿Quieres saber dónde aprendió Kim esta regla? Visita illusionfight.com y busca Cuentos de Ilusión.
-
-O asterisco vem depois de "REGRAS!!!" / "NO RULES!!!" / "REGLAS!!!". Na lore, quem diz a frase primeiro é o **Alan** ("Alan, o Campeão", cap. 16); o Kim aprendeu com ele. Os nomes da seção no site batem com o rodapé: **Illusion Tales** em inglês e **Cuentos de Ilusión** em espanhol.
-
-### 26.11 Selo "BRUUUTAAALLL!!!"
-
-Gag recorrente, no espírito do "Toasty!" do Mortal Kombat.
-
-- **Texto:** igual nos três idiomas, B-R-U-U-U-T-A-A-A-L-L-L-!-!-! (três U, três A, três L, três !). Não usar "Toasty" nem "Brutality", que são da franquia.
-- **Arte:** Pajé Yawanari de olhos saltados (cartoon), boca aberta, mão com anéis (cinco dedos), balão explosivo branco com contorno turquesa, letras amarelo-ouro com contorno preto, contorno branco de adesivo, fundo transparente. Arquivo: `Brutal.png`.
-- **Uso:** no **máximo um** por capítulo, no golpe mais espetacular do **meio** da luta. Nunca no clímax emocional nem no golpe final.
-- **Capítulo 01:** página 27 (Kim arranca o braço + chute de ponte). Canto inferior direito, sobre o bokeh escuro, espelhado na horizontal pro Pajé olhar **pra dentro** da página (o texto e o "$" continuam legíveis), inclinado 8–10° no sentido anti-horário, cerca de 35% da largura, sombra suave.
-- **Sugestão:** gerar uma versão já virada pra esquerda (`Brutal_esquerda.png`), pra evitar texto espelhado.
-
-### 26.12 Pendências
-
-- **Página 02 (EN):** confirmar se ficou WEBSHARD (termo do projeto) ou WEBTOON.
-- **Página 07:** o "TSC." é do Jack (TSK) ou da câmera (CLICK)?
-- **Página 01 (ES):** conferir como ficou "REALIDADE TAMBÉM É UMA LUTA", pra ecoar certinho na página 53.
-- **Página 43 (EN):** conferir se ficou "CANDY" e "PRINTER PAPER".
-- **Página 41 (ES):** em produção. **Página 52:** confirmar se tem texto.
-- **Tom do espanhol:** o prompt base (§26.4) pede um leve tempero de rua mexicano ("¿qué onda?"), e a alternativa da página 47 é "ME VALE MADRE". A regra geral do projeto (`AGENTS.md`) é espanhol **neutro latino-americano**, sem regionalismo marcado de um país só. Decidir qual vale pro WEBSHARD.
-- **Erros no original em PT** (corrigir no PSD, se quiser): página 10, "UMA MAU" → "UM MAU"; página 49, "LUTA DE ILUSÕES" → "LUTAS DE ILUSÃO"; página 49, "ISAIAS" × "ISAÍAS" (padronizar); página 48, placa "LD1" (é LDI?).
-
-
-### Direção de olhares — atualização de Isaías, 19/10/2026
-
-Ninguém olha diretamente para o leitor ou para a lente. Todo prompt indica o alvo concreto do olhar: pessoa, mão, objeto, passagem ou ação. Vale também para gravação de conteúdo, fala ao operador, vilão e ponto de vista subjetivo; não abrir exceção de olhar frontal. Identidade frontal na ficha não determina o olhar da narrativa.
-
-
-### Estilhaço como técnica de direção e continuidade
-
-O estilhaço não é restrito aos cantos. Pode ficar no centro, cruzar uma emenda ou acompanhar o alvo do olhar. Usar para ligar dois estados de uma ação, mostrar um detalhe observado ou conectar causa e consequência. Definir essa função e a posição no prompt, preservando a leitura dos painéis, das falas e da ação. O fragmento é SOBREPOSTO: pode ser o foco do impacto ou da emoção e conduzir a composição, sem obrigação de menor importância. Sua forma sobreposta deve permanecer reconhecível, em vez de virar outra faixa de uma grade convencional.
+## 16. Pendências de formato
+- Nome exato da família de fonte comic do letreiro.
+- Tamanho mínimo de letra, a aprovar num teste na largura do celular.

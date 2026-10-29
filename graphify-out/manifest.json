@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793196248.1188433,
-    "ast_hash": "879e64c47e3dc1afaba045518e8abfe2",
+    "mtime": 1793233528.045369,
+    "ast_hash": "b210c424ef223b4f1ba906b29c374f09",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1792966035.852339,
-    "ast_hash": "8ad66dbcdd03f20adca112dff635d189",
+    "mtime": 1793233548.626706,
+    "ast_hash": "342cae38bfb39f7618daa3727e7b177a",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793196248.1593077,
-    "ast_hash": "6cc99c2674e396b2326c43e166410520",
+    "mtime": 1793233528.0972202,
+    "ast_hash": "0fcc283750bee4db0511213d37ba7605",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9955,8 +9955,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793196255.8143835,
-    "ast_hash": "c2b44780d2eaac787bf5a0ed31057d96",
+    "mtime": 1793233591.4907427,
+    "ast_hash": "4dadeffb56e5f692146a11a6d29c2274",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
@@ -10275,7 +10275,7 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-lutas-de-ilusao-especial-8.webp": {
-    "mtime": 1792796850.7321079,
+    "mtime": 1793233537.9674957,
     "ast_hash": "8602301c06856fe085e49ba107cc0f44",
     "semantic_hash": ""
   },
@@ -10367,6 +10367,16 @@
   "docs/Games/LDIArena/LDI_ARENA_GDD.md": {
     "mtime": 1793196248.0660086,
     "ast_hash": "b03daa951775a0fed216ae329e00b0d9",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-especial-9-pt.webp": {
+    "mtime": 1793233548.5944839,
+    "ast_hash": "75ac6240b122f23e0a7253be97498a54",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-especial-9.webp": {
+    "mtime": 1793233548.625703,
+    "ast_hash": "c66d5159900811adf0cb7dc4aed737aa",
     "semantic_hash": ""
   }
 }

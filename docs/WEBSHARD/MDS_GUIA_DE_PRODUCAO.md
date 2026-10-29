@@ -1,23 +1,20 @@
 # O Mundo das Sombras — guia de produção do WEB SHARD
 
-Guia único de produção das páginas do Mundo das Sombras (MDS). O que vale para qualquer WEB SHARD (formato, safe area, entrega, publicação) está no `WEBSHARD_GUIA_DE_PRODUCAO.md`; a história, os capítulos e o elenco estão no `MDS_PLANEJAMENTO.md` (pasta `WEBSHARD/MUNDO DAS SOMBRAS/PRODUCAO/`). Quando os dois divergem em regra de página, vale este guia.
+Guia de produção das páginas do Mundo das Sombras (MDS).
 
-Pasta de trabalho: `BRANDS/Lutas de Ilusão/WEBSHARD/MUNDO DAS SOMBRAS/`.
+> **Antes deste guia, leia `REGRAS_CRITICAS.md`** (mesma pasta): as três leis, a câmera, o prompt, as fichas e a revisão valem aqui. Este guia traz só o que é próprio do MDS.
+
+O formato de todo WEB SHARD (página, safe area, publicação) está no `WEBSHARD_GUIA_DE_PRODUCAO.md`. A história, os capítulos e o elenco estão no `MDS_PLANEJAMENTO.md` (`WEBSHARD/MUNDO DAS SOMBRAS/PRODUCAO/`). Pasta de trabalho: `BRANDS/Lutas de Ilusão/WEBSHARD/MUNDO DAS SOMBRAS/`.
 
 ---
 
-## 1. A regra que manda em todas
+## 1. Regras próprias do prompt do MDS
 
-**Imagem errada é prompt errado.** O Codex desenha exatamente o que está escrito. Se a página saiu errada, a correção é no texto do prompt (ou na ficha que ele anexa), nunca "tentar de novo" o mesmo prompt.
-
-Consequências diretas:
-
-- **Só o que a câmera vê.** Personagem de costas: o prompt não fala de rosto, olhos, bigode ou expressão (o modelo tenta mostrar e vira a pessoa). Mão em close: não descrever a roupa do corpo que está fora do quadro.
-- **Nunca escrever o que não deve aparecer.** A palavra puxa a coisa pra imagem. "Sem chuva" desenha chuva; "a pata que falta" desenha a pata. Descrever em positivo: "rua seca", "três patas: uma da frente, duas de trás".
-- **Nenhum bloco genérico.** Regra de dormitório, de escudo, de pele ou de marca entra só na página em que aquilo está no quadro, em uma linha. Prompt longo com regra que não se aplica confunde o modelo.
-- **A ficha também é prompt.** Ficha com erro (cachorro de quatro patas, chão molhado, marca visível) espalha o erro pelo capítulo inteiro. Conferir as fichas do capítulo antes de escrever as páginas (§6).
-- **Tudo que está no prompt pode virar texto na página.** O modelo já escreveu na arte: o título e o número da página (vindos da linha de abertura), "ALL CAPS" (da instrução de letreiramento), "80px"/"100px" com setas (da margem escrita em números), "MINUS WHITE BOY" (da descrição do personagem). Por isso: nenhuma linha diz título, capítulo ou número de página; a cena (`SCENE`) é descrição em inglês, sem aspas e sem fala; margem nunca em pixels; e o cabeçalho das referências avisa que as descrições servem para desenhar e nunca se escrevem.
-- **Palavra vaga vira o que o modelo quiser.** "Empty eyes" virou olho de cego; "paper bag with bones" virou ícone de caveira; "MINUS, 13" virou adulto nos closes; "over the still dog" virou cachorro sentado e vivo. Escrever o concreto: "olhos escuros cansados olhando pra baixo", "saco de papel aberto com ossos de carne aparecendo", "um menino de 13 anos, rosto de criança", "deitado de lado no asfalto, imóvel, olhos fechados".
+- **Nenhum bloco genérico.** Regra de dormitório, de escudo, de pele ou de marca entra só na página em que aquilo está no quadro, em uma linha.
+- **A cena (`SCENE`) é descrição em inglês**, sem aspas e sem fala. O cabeçalho das referências avisa que as descrições servem pra desenhar e nunca se escrevem ("MINUS WHITE BOY" já saiu escrito na arte).
+- **Palavra vaga no MDS:**
+  - "Empty eyes" virou olho de cego: escrever "olhos escuros cansados olhando pra baixo".
+  - "Over the still dog" virou cachorro sentado e vivo: escrever "deitado de lado no asfalto, imóvel, olhos fechados".
 
 ---
 
@@ -43,18 +40,12 @@ Consequências diretas:
 
 ## 3. Câmera
 
-- **Cintura pra cima.** O plano normal é médio, americano, close e detalhe. Corpo inteiro só se o próprio acontecimento depender dos pés no chão (um tropeço, um salto), e mesmo aí a câmera fecha no que importa. O prompt diz o enquadramento em palavras de corpo ("da cintura pra cima", "só cabeça, pescoço e ombros enchem o painel", "da cabeça até os joelhos"); "close" sozinho o modelo abre.
-- **Todo painel é cinema, nenhum é "close comum".** "Close-up of MINUS" (câmera na altura do rosto, de frente ou de lado) é câmera de novela e é proibido. Todo painel diz quatro coisas:
-  - **altura da câmera**: no chão, na altura do cachorro, da cintura, do olho, do alto de um telhado;
-  - **ângulo**: contra-plongée, plongée, holandês, sobre o ombro, ponto de vista de alguém, por trás de quem está de costas;
-  - **lente**: grande-angular perto (distorce, dá urgência e ação) ou teleobjetiva longe (achata, espia, isola);
-  - **primeiro plano**: algo desfocado entre a câmera e a ação (a orelha do cachorro, revistas penduradas, as grades do portão, o ombro de outro), que dá profundidade.
-- **Dois painéis seguidos nunca repetem altura nem lente**, inclusive o último de uma página e o primeiro da seguinte.
-- Na ação, a câmera se mexe com o personagem: correndo junto, girando com o movimento, borrão de movimento no fundo.
-- **"Camera" e "lens" podem virar objeto desenhado.** "Câmera no asfalto entre as mãos dele… dos dois lados da lente" saiu com uma câmera fotográfica no chão. Nunca usar "the lens" como alvo ("braço na direção da lente" → "na direção do primeiro plano") e, quando o ponto de vista fica no meio de objetos, escrever "visto do nível do chão", não "câmera entre X e Y".
-- **No máximo dois personagens em foco por painel.** Elenco grande nunca entra todo num quadro: cada um ganha o seu painel ou estilhaço.
-- **Pouco fundo.** O lugar aparece em pedaços atrás da ação. Plano aberto só quando a página precisa apresentar o lugar, e aí com a ficha do lugar.
-- **Ninguém olha para o leitor.** Todo painel diz para onde vão os olhos (outra pessoa, a mão, o cachorro, fora do quadro à esquerda).
+As regras de câmera estão em `REGRAS_CRITICAS.md` §4: corpo cortado na cintura, as quatro coisas de todo painel, nenhum enquadramento repetido entre vizinhos e ninguém olhando o leitor. No MDS vale ainda:
+
+- **"Close-up of MINUS"** (câmera na altura do rosto, de frente ou de lado) é câmera de novela e é proibido.
+- **O primeiro plano** sai do mundo do MDS: a orelha do cachorro, revistas penduradas, as grades do portão.
+- **Na ação, a câmera se mexe com o personagem:** corre junto, gira com o movimento, com borrão de movimento no fundo.
+- **Corpo inteiro** só quando o acontecimento depende dos pés no chão (um tropeço, um salto), e mesmo aí a câmera fecha no que importa.
 
 ---
 
@@ -82,7 +73,7 @@ Consequências diretas:
 - **O livro não é legenda.** O texto do livro é a fonte da cena, não a lista de caixas. Uma página tem em geral de 0 a 3 textos; o que a imagem já conta sai do texto.
 - **Pelo menos 3 páginas de silêncio** por capítulo.
 - **Fonte padrão, uma só no quadrinho inteiro:** comic bold condensada, **reta (nunca itálico)**, caixa alta, grande, com a palavra-chave de cada caixa um pouco maior. É a fonte das páginas aprovadas do cap. 1.
-- **A referência de letra vai sempre anexada.** Descrição em palavras não basta (mesma lição do Lutas de Ilusão, guia §0 item 7). `FICHAS/MDS_Padrao_Pagina.png` traz as páginas aprovadas e os recortes de balão e narração do cap. 1 (o recorte sozinho está em `FICHAS/MDS_Letreiro.png`). O `v3.py` anexa em toda página; se passar de 5 referências, sai a página anterior.
+- **A referência de letra vai sempre anexada.** Descrição em palavras não basta (mesma lição do Lutas de Ilusão, `WEBSHARD_GUIA_DE_PRODUCAO.md` §4.2). `FICHAS/MDS_Padrao_Pagina.png` traz as páginas aprovadas e os recortes de balão e narração do cap. 1 (o recorte sozinho está em `FICHAS/MDS_Letreiro.png`). O `v3.py` anexa em toda página; se passar de 5 referências, sai a página anterior.
 - **Cada personagem que fala tem a SUA cor** (tabela §7), a mesma em todos os capítulos: **balão branco puro, letra e contorno grosso na cor dele**, cauda apontando para ele. Nunca dois personagens com a mesma cor de fala (a exceção são os possuídos, que dividem o cinza do balão de contorno duplo: a voz sai em dois tons). Personagem novo com fala ganha cor antes da página e entra na tabela.
 - **Narração sem caixa:** letras brancas flutuando numa nuvem pequena de fumaça da cor do narrador, num canto escuro do painel, nunca sobre rosto ou ação.
 - **Tela de fumaça da Falha/Nefeli:** letras prateadas no ar, nunca balão. **Voz do Iluminado:** dourada, itálico, sem balão. **Sussurro das sombras:** vermelho-escuro irregular na borda do painel.

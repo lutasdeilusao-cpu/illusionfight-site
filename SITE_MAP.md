@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.463.0**.
+> `SITE_VERSION` **10.463.1**.
 > Última atualização: 23/10/2026.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
@@ -421,7 +421,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.453.3** |
+| `SITE_VERSION` | Site global | **10.463.1** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.32.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
@@ -452,7 +452,10 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 | Versões | `src/config/version.js` |
 | Catálogo visível de jogos | `src/pages/games/Games.jsx` |
 | Conteúdo e traduções | `src/data/` e `src/i18n/` |
-| WEBSHARD LDI — manifesto e guia de produção (composição, texto, neon, safe area e acervo) | `docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md` (documento único: manifesto, guia, referências, biblioteca, Sala A-304, processo e modelos); o build emite o MD em `/docs/webshard/`, sem duplicar fonte em `public/` |
+| Produção de quadrinho — regras críticas (base de tudo, ler primeiro) | `docs/WEBSHARD/REGRAS_CRITICAS.md` |
+| Produção de imagem — ferramentas, fichas, fila, resumo por produto | `docs/PRODUCAO_IMAGEM.md` |
+| WEBSHARD LDI — guia de produção (formato, composição, letreiro, cor, safe area, elenco, Sala A-304, publicação, tradução) | `docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md`; o build emite o MD em `/docs/webshard/`, sem duplicar fonte em `public/` |
+| Guias por título | `docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md` (Mundo das Sombras), `docs/WEBSHARD/HDC_GUIA_DE_PRODUCAO.md` (Heróis da Cidade) |
 | Histórias, obras e cross-links | `src/data/historias/obras.json`, `src/data/historias/obras/`, `src/lib/historias/catalogo.js` · `src/pages/content/historias/` |
 | Worldbuilding dos universos | `src/data/universo-index.json`, `src/data/universo/`, `src/pages/content/Universo.jsx` (blocos tipados) |
 | Estado de um jogo | `src/pages/games/<Jogo>/store/` ou hooks do próprio módulo |

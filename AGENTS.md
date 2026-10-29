@@ -299,9 +299,21 @@ Histórico de mudanças não existe no produto, de maneira alguma (Isaias, 03/10
 - **Músicas da T1: 9, uma por mês nos meses de lançamento** — músicas próprias do universo (cantadas pela banda do Kim, do Jack, da Nina e dos próximos integrantes). Sai exclusiva na Rádio Nina pro assinante no dia 15; conta grátis 1 mês depois; público 2 meses depois; só depois vai pras plataformas. Datas em `MUSICAS_T1` (`data/season-one-schedule.js`). A Rádio Nina respeita o calendário pelo `bloqueios` de `radio-nina.config.json` (`podeOuvir` em `useRadioNina.js`): a 1ª música, a abertura "Lutas de Ilusão" nos 3 idiomas, toca pra todos até 31/10/2026, só pra assinante a partir de 01/11, pra conta em 15/12 e pro público em 15/01/2027; a 2ª, "O Dia Depois do Julgamento", do mesmo jeito com conta em 15/01 e público em 15/02/2027. Música nova da T1 que já existir no servidor entra ali com as datas dela. Nos hiatos sai o **videoclipe** de uma das músicas mais ouvidas pelos assinantes (dia 15, link exclusivo de assinante, depois público no YouTube — `CLIPES_T1`). As músicas são canônicas: citadas e tocadas na história (a aba Músicas do calendário diz isso). Música travada mostra **cadeado** (só depois de `fecha_em`, nunca antes): página /musicas, seção da Home e app da Rádio Nina, com a data em que libera e o convite pra assinar (`travaDe`/`travadas` do `useRadio()`).
 - **Jogos da T1: só Gangues, Lendas e Super Trunfo no catálogo** — os outros (Jack Dream Beer, Tactics, Tama, Duelo, Pesadelo, MiniGames, Kernel) saem do catálogo, do SEO/sitemap e dos links do site, e a rota é embrulhada em `<SoAdmin>` (App.jsx): quem não é admin volta pra `/games`. Jogo novo entra de volta tirando o `<SoAdmin>`, pondo na vitrine e no `FIXAS` do SEO. Ordem de lançamento no `GAMES_ROADMAP`, por quadrimestre: 1º (15/11/2026) Super Trunfo, Gangues, Lendas; 2º (15/03/2027) Tama, Jack Dream Beer, LDI Arena (hexagonal, ainda não isométrico); 3º (15/07/2027) Duelo, RPG 32 bits, LDI Isométrico. Kernel Games ficam fora até o sócio mandar o calendário deles.
 
-## Produção de imagem: ler `docs/PRODUCAO_IMAGEM.md` antes de gerar qualquer imagem
+## 🔴 Produção de quadrinho: `docs/WEBSHARD/REGRAS_CRITICAS.md` PRIMEIRO, toda vez
 
-Guia único (ferramentas, regras gerais, continuidade, página dupla, fila, revisão e o que vale por produto). Aprendizado novo de produção vai pra lá.
+Qualquer trabalho em quadrinho (WEB SHARD da linha principal e dos contos, Mundo das Sombras, Mar de Cinzas, Heróis da Cidade, especiais) começa lendo `docs/WEBSHARD/REGRAS_CRITICAS.md`. São as regras mais críticas do projeto, e elas vencem qualquer outro guia. Ao instruir um agente para produzir quadrinho, mande ele ler esse arquivo antes de tudo.
+
+Ordem de leitura:
+1. `REGRAS_CRITICAS.md`;
+2. `docs/PRODUCAO_IMAGEM.md` (ferramentas, fichas, fila; vale também pra imagem que não é quadrinho);
+3. o guia do produto (`WEBSHARD_GUIA_DE_PRODUCAO.md`, `MDS_GUIA_DE_PRODUCAO.md`, `HDC_GUIA_DE_PRODUCAO.md`, `Especiais/`).
+
+Onde vai o aprendizado novo:
+- erro de produção de quadrinho, em `REGRAS_CRITICAS.md`;
+- ferramenta e regra geral de imagem, em `PRODUCAO_IMAGEM.md`;
+- regra de um produto só, no guia dele.
+
+Cada regra fica num lugar só: os outros arquivos apontam pra ela.
 
 ## Trabalho braçal vai pros modelos de fora (economia de token)
 

@@ -1,6 +1,8 @@
 # Heróis da Cidade — guia de produção
 
-Heróis da Cidade (HDC) é a tirinha de comédia do universo Illusion Fight. Ela usa o formato WEB SHARD (página vertical para o celular), mas tem regras próprias de tom, desenho e piada. Para o que for igual ao LDI (entrega, pastas, publicação), vale o `WEBSHARD_GUIA_DE_PRODUCAO.md`.
+> **Antes deste guia, leia `REGRAS_CRITICAS.md`** (mesma pasta). Este guia traz só o que é próprio do HDC: tom, traço, piada e tamanho do episódio.
+
+Heróis da Cidade (HDC) é a tirinha de comédia do universo Illusion Fight. Ela usa o formato WEB SHARD (página vertical para o celular). Para o que for igual ao LDI (entrega, pastas, publicação), vale o `WEBSHARD_GUIA_DE_PRODUCAO.md`.
 
 Autor: Isaias Leal. Origem: uma campanha de RPG de comédia, criada para relaxar entre campanhas pesadas. Os jogadores criaram os heróis: Rafael (Mega Playboy), Dedé (Mega Genius), Arthur (Mega Metal).
 
