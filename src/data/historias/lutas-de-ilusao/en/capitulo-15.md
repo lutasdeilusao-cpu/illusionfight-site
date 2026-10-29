@@ -10,7 +10,7 @@ They exchanged a look and jumped back at the same time, each to one side, openin
 
 Jack took the cane with his left hand and held it horizontal in front of his body. His right hand, the metal one, slid along its length from end to end.
 
-— Victory. — Jack. — Shaman.
+— Vitória. — Jack. — Shaman.
 
 The cane broke into three parts linked by chains, a metal San Tien Kwan, with the curved cane handle at one end and a spear tip at the other. A golden-brown energy ran through the links.
 

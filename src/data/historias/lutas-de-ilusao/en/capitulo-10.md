@@ -8,7 +8,7 @@ Nina walked through the garage. In the corner, behind the cardboard boxes, leani
 
 — This is a bass?
 
-— Yeah. — Jack, without taking his eyes off the drum box, which he was tightening with his hand. — I fixed that one up because I figured the second thing I was going to learn in life was bass. Because this band is always missing a bass player. — He pointed at Kim with the drumstick. — That guy's been saying that since he was twelve.
+— Yeah. — Jack, without taking his eyes off the snare, which he was tightening with his hand. — I fixed that one up because I figured the second thing I was going to learn in life was bass. Because this band is always missing a bass player. — He pointed at Kim with the drumstick. — That guy's been saying that since he was twelve.
 
 — I never said that.
 
@@ -56,7 +56,7 @@ She scrolled, went back, scrolled again. Her fingers went to the bass neck and s
 
 One minute. Two.
 
-Jack drummed on the rim of the drum box.
+Jack drummed on the rim of the snare.
 
 — So? Guys? Let's go? Is it gonna start or not? Pretty soon I'll be drunk.
 
@@ -78,7 +78,7 @@ She was focused. Eyes on the bass neck, mouth moving a little, counting. She see
 
 The riff went around. Again. And again. Three times more than it needed.
 
-Jack slammed the drum box so hard the light bulb swung on its wire.
+Jack slammed the snare so hard the light bulb swung on its wire.
 
 — JUST GO, DAMN IT! START ALREADY!
 

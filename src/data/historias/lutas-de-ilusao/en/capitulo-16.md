@@ -8,7 +8,7 @@ There was an ax.
 
 Two blades, one on each side. Nothing giant. Between a meter ten and a meter twenty. Light enough for him to hold with one hand.
 
-Kim switched the ax to his right hand. The ring slid down the handle and seated under his fingers, with the steel wire attached to the end of the handle, exactly like on the hatchets.
+Kim switched the ax to his right hand. The pulley slid down the handle and seated under his fingers, with the steel wire attached to the end of the handle, exactly like on the hatchets.
 
 He rested the ax on his shoulder, behind his head.
 
@@ -228,7 +228,7 @@ Jack laughed at the irony.
 
 Kim smiled at her face. But he was happy. He had liked the game. A lot of it felt real.
 
-Now it was her turn to respond.
+Now it was his turn to respond.
 
 — What I want to know — Nina — is how you manifested a unique-type weapon in the middle of a match. Even if it was training.
 

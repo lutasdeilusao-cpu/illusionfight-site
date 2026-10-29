@@ -96,7 +96,7 @@ In the stands, Nina stopped wringing her hands.
 
 — I see it.
 
-— He's getting stronger. He started out weaker and he's getting stronger. — Her voice low. — It's the explosive. What we talked about in the parking lot. He's explosive.
+— He's getting stronger. He started out weaker and he's getting stronger. — Her voice low. — It's the balanced one. What we talked about in the parking lot. He's balanced.
 
 Shuntaro was seeing it too.
 
@@ -120,7 +120,7 @@ He came down with everything, the axe above his head, to split Shuntaro in half.
 
 ---
 
-— SHAMAN. KING.
+— REI. SHAMAN.
 
 Shuntaro shouted with his right arm in front of his body.
 
@@ -152,7 +152,7 @@ The saw came back spinning through the air and fitted onto his arm again. The sa
 
 He cracked his arm. Popped his nose back into place with a snap. He clenched his hand, and the saw on his forearm spun.
 
-— This is my King's Shaman form. One of the strongest weapons in this game. But it eats energy according to its power. I can't use it long in a fight. — He raised his arm. — Which only means one thing. I have to finish you fast.
+— This is my Rei's Shaman form. One of the strongest weapons in this game. But it eats energy according to its power. I can't use it long in a fight. — He raised his arm. — Which only means one thing. I have to finish you fast.
 
 Kim, at the far end of the arena, stood still at that.
 

@@ -170,7 +170,7 @@ The three looked at each other with the same smile.
 
 The three burst out laughing.
 
-Ryan didn't quite understand. But he knew he was being teased. And he didn't mind. Those two had saved his skin. The Sonata da Luta, Arnold knocked out on the hallway floor. He wasn't going to forget.
+Ryan didn't quite understand. But he knew he was being teased. And he didn't mind. Those two had saved his skin. The Sonata of the Fight, Arnold knocked out on the hallway floor. He wasn't going to forget.
 
 He said goodbye. Took two steps. And came back.
 

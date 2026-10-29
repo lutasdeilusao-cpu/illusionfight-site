@@ -96,7 +96,7 @@ Na arquibancada, a Nina parou de apertar as mãos.
 
 — Tô vendo.
 
-— Ele tá ficando mais forte. Ele começou mais fraco e tá ficando mais forte. — A voz dela baixa. — É o explosivo. O que a gente falou no estacionamento. Ele é explosivo.
+— Ele tá ficando mais forte. Ele começou mais fraco e tá ficando mais forte. — A voz dela baixa. — É o equilibrado. O que a gente falou no estacionamento. Ele é equilibrado.
 
 O Shuntaro também estava vendo.
 

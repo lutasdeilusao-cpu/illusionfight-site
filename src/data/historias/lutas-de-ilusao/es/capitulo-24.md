@@ -90,7 +90,7 @@ Helena se sentó al otro lado de la mesa con un vaso de refresco en la mano. No 
 
 Y Kim contó.
 
-No sabía por qué. Nunca contaba nada. Pero contó. Walter en el pasillo. Ryan con la caja. La sala de entrenamiento, el hacha, Nina partida por la mitad, Jack bailando encima de su cuerpo. Y la pelea del parque. Contó la pelea del parque riéndose, los detalles, la cara del tipo del tubo cuando él no cayó, Roxy quitándose la camiseta, Jack apareciendo con el rasguñito en el cuello.
+No sabía por qué. Nunca contaba nada. Pero contó. Walter en el pasillo. Ryan con la caja. La sala de entrenamiento, el hacha, Nina partida por la mitad, Jack bailando encima de su cuerpo. Y la pelea del parque. Contó la pelea del parque riéndose, los detalles, la cara del tipo de la barra cuando él no cayó, Roxy quitándose la camiseta, Jack apareciendo con el rasguñito en el cuello.
 
 Helena escuchó todo.
 

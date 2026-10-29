@@ -12,6 +12,8 @@ Nina didn't even look at the hand.
 
 — Speak, my dear. Say what you want, for the love of the gods.
 
+— How do you guys get powers? Do you buy them like weapons? In packs?
+
 Jack gave Nina a nod, like: good question. But he was the one who answered.
 
 — No. The first power comes with the avatar. The moment your avatar is created, the system defines your element. And with the element comes the first power. Get your SBI out and I'll show you.
@@ -88,7 +90,7 @@ Kim nodded.
 
 Jack slapped his hands on his thighs and stood up.
 
-— Good. I think class is over. If we missed anything, we'll explain as it comes up. — He stretched, cracked his neck to the side. — And I think it's time to get up. There's a crew waiting for us for a little while now.
+— Good. I think class is over. If we missed anything, we'll explain as it comes up. — He stretched, cracked his neck to the side. — And I think it's time to get up. There's a crew that's been waiting for us for a little while now.
 
 ---
 

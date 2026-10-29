@@ -2,7 +2,7 @@
 
 Kim and Nina looked at Jack and went along with it.
 
-Jack went ahead to a liquor store. Same as always: a soda, some lemons, a vodka. They stopped by DIX. And went to their quiet corner, where nobody hassled them. Not enemies, not people looking for a fight, not cops.
+Jack went ahead to a liquor store. Same as always: a soda, some lemons, a vodka. They paid with DIX. And went to their quiet corner, where nobody hassled them. Not enemies, not people looking for a fight, not cops.
 
 An empty parking lot. A few old abandoned cars, a Beetle with no wheels, a pickup with a tree growing out of the engine, a red hatchback with the back door open forever. And what was left of a police station, its sign half painted over. The cars were impounded from back when it was open.
 
@@ -28,7 +28,7 @@ Neither said anything. But they both drank at the same time, which was the same 
 
 ---
 
-— Now the good part. — Jack. — Kim discovered Xamã mode on his own. First time he ever picked up a weapon. And he already used it like it was mid-tier weapon skill. That's insane for a beginner. I thought I'd have way more work. If he knew, for example, that I had to charge my attack...
+— Now the good part. — Jack. — Kim discovered Shaman mode on his own. First time he ever picked up a weapon. And he already used it like it was mid-tier weapon skill. That's insane for a beginner. I thought I'd have way more work. If he knew, for example, that I had to charge my attack...
 
 — That was messed up, honestly. — Kim. — Training environment. You were supposed to fill me in on everything first. And you guys already came at me throwing powers when I didn't know how to use any of it. Every fighting game at least lets you learn a hadouken before it beats the crap out of you.
 
@@ -68,7 +68,7 @@ Jack stirred his drink with his finger and started walking in front of the two.
 
 Nina lowered her cup slowly. She had the still eyes of someone who'd just connected two things.
 
-— It's true. — she said over Jack. — I never thought about that. There are two types. There's mental strength that gives a lot of power the whole time, from start to finish. And there's the explosive kind. The person starts weaker and releases more than they had during the fight. It's a modifier. How did I never think of that?
+— It's true. — Over Jack. — I never thought about that. There are two types. There's the explosive kind. It releases a lot of energy at once, insane power right at the start, and then it gets weak. And there's the balanced kind. The person starts weaker and releases the power little by little, and gets stronger as the fight goes on. It's a modifier. How did I never think of that?
 
 Jack smiled, proud of the conclusion. Modesty was never his strong suit.
 
@@ -96,7 +96,7 @@ Jack and Nina looked at each other and laughed. They liked that innocence of his
 
 Kim thought about it. He had a point.
 
-— But for you, who already knows how to fight, it makes sense to start freehand. To read the opponent and decide how much you want to spend in that fight. — Jack. — But careful with the explosive type. If the guy is hiding his power and unleashes everything at once, you're not ready and you get fucked. And in freehand, if you commit, you can get more speed, more strength, and catch your opponent by surprise. Did I miss anything, Nina?
+— But for you, who already knows how to fight, it makes sense to start freehand. To read the opponent and decide how much you want to spend in that fight. — Jack. — But careful with the explosive type. If the guy unleashes everything at once right at the start, you're not ready and you get fucked. Survive the first wave, because after that he gets weak. And in freehand, if you commit, you can get more speed, more strength, and catch your opponent by surprise. Did I miss anything, Nina?
 
 — No, my dear. That's it, handsome.
 
@@ -120,11 +120,11 @@ Jack gestured for her to continue. Nina continued, because everyone knows you do
 
 — And you buy the weapon.
 
-— Buy a pack. You don't choose the weapon. You buy a pack with five different weapons, sealed, and you pick one blind. One in five chance of getting the one you wanted. And the packs are expensive, just so you know. Each weapon comes with a card that explains how it works in normal mode and in Xamã mode. Then you use it in an official fight. — She looked at him. — And you can't buy or draw a weapon mid-match. Not even in training. That's why we're impressed. You didn't buy anything. And the weapon appeared.
+— Buy a pack. You don't choose the weapon. You buy a pack with five different weapons, sealed, and you pick one blind. One in five chance of getting the one you wanted. And the packs are expensive, just so you know. Each weapon comes with a card that explains how it works in normal mode and in Shaman mode. Then you use it in an official fight. — She looked at him. — And you can't buy or draw a weapon mid-match. Not even in training. That's why we're impressed. You didn't buy anything. And the weapon appeared.
 
 Jack, seeing that subject still stung, stepped in.
 
-— Then you name it. I have my Vitória. Nina has Angel. You have Xakaxi. Nice name, by the way. When you set the name, the weapon binds to you. LDI recognizes it. Whenever you think the name or say the name, it appears. And when you call it, it stays with you the whole match. The first transformation into Xamã has to be spoken out loud, so it learns. After that you just think it.
+— Then you name it. I have my Vitória. Nina has Angel. You have Xakaxi. Nice name, by the way. When you set the name, the weapon binds to you. LDI recognizes it. Whenever you think the name or say the name, it appears. And when you call it, it stays with you the whole match. The first transformation into Shaman has to be spoken out loud, so it learns. After that you just think it.
 
 — It reads my mind.
 
@@ -132,11 +132,11 @@ Jack, seeing that subject still stung, stepped in.
 
 Kim sat with that for a second. A weapon that read your mind. A game that read your mind. It made as much sense as everything else.
 
-— And the weapon divides your energy. — Jack continued. — The more it needs to attack or block, the more it takes from you. And you already spend energy on fast movements; with a weapon that draws more, the cost goes up. Xamã takes even more. If you stay in Xamã the whole time, you dry up quick. That's why it goes back to normal when you're not using it. Got it? Xamã mode is like Super Saiyan. The weapon's max. Clear?
+— And the weapon divides your energy. — Jack continued. — The more it needs to attack or block, the more it takes from you. And you already spend energy on fast movements; with a weapon that draws more, the cost goes up. Shaman takes even more. If you stay in Shaman the whole time, you dry up quick. That's why it goes back to normal when you're not using it. Got it? Shaman mode is like Super Saiyan. The weapon's max. Clear?
 
 Kim nodded.
 
-— In our fight I used Angel in Xamã mode. — Nina. — In Xamã it stretches like an arm, up to about three meters. Then I combined it with my elemental, which is Light, and made the Luminus Blade. The weapon with the power together. To make sure I'd cut you in half.
+— In our fight I used Angel in Shaman mode. — Nina. — In Shaman it stretches like an arm, up to about three meters. Then I combined it with my elemental, which is Light, and made the Luminus Blade. The weapon with the power together. To make sure I'd cut you in half.
 
 — That I remember. — Kim. — It was way too close. Thanks for reminding me. — Pause. — And that's when I saw the old wise man again. The one who speaks in riddles.
 

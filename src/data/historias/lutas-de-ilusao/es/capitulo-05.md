@@ -180,23 +180,23 @@ El viejo cruzó los brazos y arqueó una ceja por encima de las gafas.
 
 El viejo suspiró. Los hombros subieron y bajaron en todo un teatro de paciencia.
 
-— Cierto. Entonces es hora de que yo brille, con estilo como siempre. — Se golpeó el pecho. — ¡Llegué para impresionar! Soy chamán de la tribu Xakaxi. Me llamo Chamán Yawanari. Soy el diez de diez que quedó a cargo de proteger todos los poderes sagrados de este mundote.
+— Cierto. Entonces es hora de que yo brille, con estilo como siempre. — Se golpeó el pecho. — ¡Llegué para impresionar! Soy Pajé de la tribu Xakaxi. Me llamo Pajé Yawanari. Soy el diez de diez que quedó a cargo de proteger todos los poderes sagrados de este mundote.
 
 Los ojos detrás de las gafas se entrecerraron. Midieron a Kim de arriba abajo.
 
-— Y veo que, igual que tu abuelo, eres bien cabroncito. Nieto del chingón. — Apuntó con el bastón al vacío del lado. — ¡Ah! Y no le hagas caso a mi amigo aquí al lado, no. Ese sí que está en Disney.
+— Y veo que, igual que tu abuelo, eres bien rudito. Nieto del más rudo. — Apuntó con el bastón al vacío del lado. — ¡Ah! Y no le hagas caso a mi amigo aquí al lado, no. Ese sí que está en Disney.
 
 Kim miró hacia el lado. No había nadie.
 
 — ¿Mi abuelo?
 
-*Este viejo conoce a mi abuelo.*
+*¿Este viejo conoce a mi abuelo?*
 
 *¿Será que conoce a mi papá?*
 
 *Definitivamente estoy muerto. Y loco.*
 
-— Viejo. — El chamán se pasó la mano por la barba, con una sonrisa torcida en la boca. — Tienes más poder del que imaginas. Pero tienes más peligro a tu alrededor del que jamás podrías imaginar. Esta mierda que estás pasando ahora es solo una pulga en el culo del mono.
+— Viejo. — El Pajé se pasó la mano por la barba, con una sonrisa torcida en la boca. — Tienes más poder del que imaginas. Pero tienes más peligro a tu alrededor del que jamás podrías imaginar. Esta mierda que estás pasando ahora es solo una pulga en el culo del mono.
 
 Se acercó más.
 
@@ -210,13 +210,13 @@ Kim estaba con la rodilla rota. Los dedos rotos. La cara desmontada. Y un chamá
 
 El corazón le martilló en las costillas.
 
-El chamán se llevó la mano al oído de nuevo.
+El Pajé se llevó la mano al oído de nuevo.
 
 — ¿Qué? ¿Ah, ah? — La otra mano fue a la frente. — ¿Explicarle el contrato? ¡Si no intervenimos, este aquí va a estirar la pata! — Resopló. — Está bien, está bien. Voy a explicarle el contrato.
 
 Se volvió hacia Kim. En los lentes oscuros de las gafas, Kim vio su propio reflejo. Caído. Ensangrentado.
 
-— Así está la cosa, parce. Necesito que me digas qué quieres. Ahora no es hora de mentir. Una vez en toda tu vida. — La voz bajó. — Dime, Kim. ¿Qué quieres?
+— Así está la cosa, hermano. Necesito que me digas qué quieres. Ahora no es hora de mentir. Una vez en toda tu vida. — La voz bajó. — Dime, Kim. ¿Qué quieres?
 
 Incluso en medio de aquella confusión, algo se encendió en el pecho. Desesperado.
 
@@ -226,7 +226,7 @@ Juntó el aire que tenía y gritó desde adentro.
 
 El grito resonó por la oscuridad como el rugido de un animal herido.
 
-La sonrisa del chamán se abrió despacio. Dientes amarillentos por el tiempo. Los ojos encendiéndose detrás de las gafas con una luz que no era exactamente luz.
+La sonrisa del Pajé se abrió despacio. Dientes amarillentos por el tiempo. Los ojos encendiéndose detrás de las gafas con una luz que no era exactamente luz.
 
 — Uy. Es hora de soltar al monstruo. — Se volvió a la nada de nuevo, todo animado. — Sí, sí, seguro que me entiende. ¿No es así como hablan hoy en día? ¡Estoy en sintonía con la nueva era, mi querido!
 
@@ -246,9 +246,9 @@ El dolor cortaba como cuchilla. Pero debajo de él había otra cosa. Hueso rehac
 
 *Si sobrevivo a esto, voy a estrangular a ese desgraciado con mis propias manos.*
 
-El chamán se alejó unos pasos y cruzó los brazos, mirando como quien observa un experimento.
+El Pajé se alejó unos pasos y cruzó los brazos, mirando como quien observa un experimento.
 
-— Espero que no salga mal... — susurró a su amigo invisible. Después se volvió hacia Kim, la sonrisa torcida de vuelta. — Ni siquiera sirve que me guardes rencor si sale mal, muchacho. Vive con tus propias decisiones, que yo ya me voy. Chau.
+— Espero que no salga mal... — susurró a su amigo invisible. Después se volvió hacia Kim, la sonrisa torcida de vuelta. — Ni siquiera sirve que me guardes rencor si sale mal, muchacho. Vive con tus propias decisiones, que yo ya me voy. Me fui.
 
 Plantó los pies. Cerró los ojos por un instante.
 

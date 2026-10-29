@@ -180,7 +180,7 @@ The old man crossed his arms and arched an eyebrow over his glasses.
 
 The old man sighed. His shoulders rose and fell in a whole theater of patience.
 
-— Fine. Then it's time for me to slay, dripped out as always. — He beat his chest. — I came to dominate! I'm a Shaman of the Xakaxi tribe. My name is Shaman Yawanari. I'm the ten out of ten tasked with protecting all the sacred powers of this big old world.
+— Fine. Then it's time for me to slay, dripped out as always. — He beat his chest. — I came to dominate! I'm a Pajé of the Xakaxi tribe. My name is Pajé Yawanari. I'm the ten out of ten tasked with protecting all the sacred powers of this big old world.
 
 The eyes behind the glasses narrowed. They measured Kim from top to bottom.
 
@@ -196,7 +196,7 @@ Kim looked to the side. There was no one there.
 
 *I'm definitely dead. And crazy.*
 
-— Dude. — The Shaman ran a hand through his beard, a crooked smile on his mouth. — You have more power than you realize. But you have more danger around you than you could ever imagine. This shit you're going through right now is just a flea on a monkey's ass.
+— Dude. — The Pajé ran a hand through his beard, a crooked smile on his mouth. — You have more power than you realize. But you have more danger around you than you could ever imagine. This shit you're going through right now is just a flea on a monkey's ass.
 
 He moved closer.
 
@@ -210,7 +210,7 @@ Kim had a broken knee. Broken fingers. A destroyed face. And a shaman in a feath
 
 His heart hammered against his ribs.
 
-The Shaman brought his hand to his ear again.
+The Pajé brought his hand to his ear again.
 
 — What? Huh, huh? — The other hand went to his forehead. — Explain the contract? If we don't intervene, this one's going to bite it! — He snorted. — Fine, fine. I'll explain the contract to him.
 
@@ -226,7 +226,7 @@ He gathered what air he had and screamed from the inside.
 
 The shout echoed through the dark like the roar of a wounded animal.
 
-The Shaman's smile opened slowly. Teeth yellowed by time. His eyes lighting up behind the glasses with a light that wasn't quite light.
+The Pajé's smile opened slowly. Teeth yellowed by time. His eyes lighting up behind the glasses with a light that wasn't quite light.
 
 — Whoa. Time to let the monster out. — He turned to nothing again, all excited. — Yes, yes, it's certain he understands me. Isn't that how they talk nowadays? I'm tuned into the new era, my dear!
 
@@ -246,7 +246,7 @@ The pain cut like a blade. But underneath it there was something else. Bone rebu
 
 *If I survive this, I'm going to strangle that bastard with my own hands.*
 
-The Shaman stepped back a few paces and crossed his arms, watching like someone observing an experiment.
+The Pajé stepped back a few paces and crossed his arms, watching like someone observing an experiment.
 
 — Hope this doesn't go sideways... — he whispered to his invisible friend. Then turned to Kim, the crooked smile back. — No point holding a grudge against me if it goes bad, kid. Live with your choices, 'cause I'm out. Peace.
 

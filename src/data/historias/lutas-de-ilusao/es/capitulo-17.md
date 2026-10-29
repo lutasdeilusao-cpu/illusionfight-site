@@ -2,7 +2,7 @@
 
 Kim y Nina miraron a Jack y asintieron.
 
-Jack fue al frente hasta una tienda de bebidas. Lo de siempre: un refresco, unos limones, un vodka. Pasaron por el DIX. Y se fueron a su rincón tranquilo, donde nadie molestaba. Ni enemigos, ni gente buscando pelea, ni policía.
+Jack fue al frente hasta una tienda de bebidas. Lo de siempre: un refresco, unos limones, un vodka. Pagaron con DIX. Y se fueron a su rincón tranquilo, donde nadie molestaba. Ni enemigos, ni gente buscando pelea, ni policía.
 
 Un estacionamiento vacío. Unos autos viejos abandonados, un Fusca sin ruedas, una camioneta con un árbol creciéndole en el motor, un hatchback rojo con la puerta trasera abierta para siempre. Y lo que quedaba de una comisaría, el letrero medio despintado. Los autos eran incautados de la época en que funcionaba.
 
@@ -20,7 +20,7 @@ Los tres dieron el primer sorbo casi al mismo tiempo. Ajustaron la bebida, más 
 
 Dio un sorbo leve. Se volvió hacia Kim.
 
-— Y tú. Sé que todavía no estás acostumbrado. Pero acéptalo de una vez: Nina ya es prácticamente de nuestra crew. De la ganga. De nuestro grupo. Cuanto antes lo aceptes, más fácil va a ser insultarla en el futuro sin que nadie se lo tome a pecho. Igual que yo te insulto y tú me insultas. ¿Está bien?
+— Y tú. Sé que todavía no estás acostumbrado. Pero acéptalo de una vez: Nina ya es prácticamente de nuestra crew. De la pandilla. De nuestro grupo. Cuanto antes lo aceptes, más fácil va a ser insultarla en el futuro sin que nadie se lo tome a pecho. Igual que yo te insulto y tú me insultas. ¿Está bien?
 
 Kim y Nina se miraron.
 
@@ -28,7 +28,7 @@ Ninguno de los dos dijo nada. Pero los dos bebieron al mismo tiempo, que era lo 
 
 ---
 
-— Ahora la parte buena. — Jack. — Kim descubrió el modo Xamã solo. La primera vez que agarró un arma. Y ya la usó como si fuera nivel medio de arma. Eso es absurdo para un principiante. Creí que me iba a costar mucho más. Si él supiera, por ejemplo, que yo tenía que cargar mi ataque...
+— Ahora la parte buena. — Jack. — Kim descubrió el modo Chamán solo. La primera vez que agarró un arma. Y ya la usó como si fuera nivel medio de arma. Eso es absurdo para un principiante. Creí que me iba a costar mucho más. Si él supiera, por ejemplo, que yo tenía que cargar mi ataque...
 
 — Eso fue una jugada sucia, la verdad. — Kim. — Era un ambiente de entrenamiento. Se suponía que ustedes me enseñaran todo antes. Y ya llegaron lanzándome poderes y yo no sabía usar nada. Todo juego de pelea te deja aprender al menos un hadouken antes de darte una paliza.
 
@@ -68,7 +68,7 @@ Jack revolvió la bebida con el dedo y empezó a caminar frente a los dos.
 
 Nina bajó el vaso despacio. Tenía los ojos quietos de quien acaba de unir dos cosas.
 
-— Es verdad. — Por encima de Jack. — Nunca había pensado en eso. Son dos tipos. Está la fuerza mental que da mucho poder todo el tiempo, de principio a fin. Y está la explosiva. La persona empieza más débil y va liberando más de lo que tenía durante la pelea. Es un modificador. ¿Cómo nunca pensé en eso?
+— Es verdad. — Por encima de Jack. — Nunca había pensado en eso. Son dos tipos. Está el explosivo. Suelta mucha energía de una vez, un poder absurdo justo al comienzo, y después se queda débil. Y está el equilibrado. La persona empieza más débil y va soltando el poder poco a poco, y se va haciendo más fuerte durante la pelea. Es un modificador. ¿Cómo nunca pensé en eso?
 
 Jack sonrió, orgulloso de la conclusión. La modestia nunca fue lo suyo.
 
@@ -96,7 +96,7 @@ Jack y Nina se miraron y rieron. Les gustaba esa inocencia de él.
 
 Kim pensó. Tenía razón.
 
-— Pero para ti, que ya sabes pelear, tiene sentido empezar con manos libres. Para leer al adversario y decidir cuánto quieres gastar en esa pelea. — Jack. — Solo que cuidado con el explosivo. Si el tipo está escondiendo su poder y lo suelta todo de una vez, no estás preparado y te jodes. Y en manos libres, si te empeñas, puedes tener más velocidad, más fuerza y agarrar al adversario por sorpresa. ¿Faltó algo, Nina?
+— Pero para ti, que ya sabes pelear, tiene sentido empezar con manos libres. Para leer al adversario y decidir cuánto quieres gastar en esa pelea. — Jack. — Solo que cuidado con el explosivo. Si el tipo lo suelta todo de una vez justo al comienzo, no estás preparado y te jodes. Aguanta la primera ola, que después se queda débil. Y en manos libres, si te empeñas, puedes tener más velocidad, más fuerza y agarrar al adversario por sorpresa. ¿Faltó algo, Nina?
 
 — No, mi querido. Eso es, lindón.
 
@@ -120,11 +120,11 @@ Jack le hizo una seña con la mano para que continuara. Nina continuó, porque t
 
 — ¿Y compras el arma?
 
-— Compras un paquete. No eliges el arma. Compras un paquete con cinco armas diferentes, cerrado, y eliges una a ciegas. Una posibilidad entre cinco de que salga la que querías. Y los paquetes son caros, solo te aviso. Cada arma viene con una tarjeta que explica cómo funciona en modo normal y en modo Xamã. Entonces la usas en pelea oficial. — Ella lo miró. — Y no se puede comprar ni sacar arma en medio de la partida. Ni en entrenamiento. Por eso estamos impresionados. Tú no compraste nada. Y el arma apareció.
+— Compras un paquete. No eliges el arma. Compras un paquete con cinco armas diferentes, cerrado, y eliges una a ciegas. Una posibilidad entre cinco de que salga la que querías. Y los paquetes son caros, solo te aviso. Cada arma viene con una tarjeta que explica cómo funciona en modo normal y en modo Chamán. Entonces la usas en pelea oficial. — Ella lo miró. — Y no se puede comprar ni sacar arma en medio de la partida. Ni en entrenamiento. Por eso estamos impresionados. Tú no compraste nada. Y el arma apareció.
 
 Jack, que vio que ese tema todavía dolía, se adelantó.
 
-— Y entonces le pones nombre. Yo tengo mi Vitória. Nina tiene a Angel. Tú tienes la Xakaxi. Bonito nombre, por cierto. Cuando defines el nombre, el arma se vincula contigo. LDI lo reconoce. Siempre que pienses en el nombre o digas el nombre, aparece. Y cuando la llamas, se queda contigo toda la partida. La primera transformación en Xamã tiene que decirse en voz alta, para que aprenda. Después de eso, solo piensas.
+— Y entonces le pones nombre. Yo tengo mi Vitória. Nina tiene a Angel. Tú tienes la Xakaxi. Bonito nombre, por cierto. Cuando defines el nombre, el arma se vincula contigo. LDI lo reconoce. Siempre que pienses en el nombre o digas el nombre, aparece. Y cuando la llamas, se queda contigo toda la partida. La primera transformación en Chamán tiene que decirse en voz alta, para que aprenda. Después de eso, solo piensas.
 
 — Ella lee mi pensamiento.
 
@@ -132,11 +132,11 @@ Jack, que vio que ese tema todavía dolía, se adelantó.
 
 Kim se quedó un segundo con eso. Un arma que leía la mente. Un juego que leía la mente. Tenía el mismo sentido que el resto.
 
-— Y el arma divide tu energía. — Jack continuó. — Cuanto más necesita para atacar o bloquear, más te quita. Y ya gastas energía en los movimientos rápidos; con un arma que exige más, el gasto aumenta. El Xamã quita aún más. Si te quedas en Xamã todo el tiempo, te seca rapidito. Por eso vuelve a la normalidad cuando no la estás usando. ¿Entendiste? El modo Xamã es como el Super Saiyajin. El máximo del arma. ¿Quedó claro?
+— Y el arma divide tu energía. — Jack continuó. — Cuanto más necesita para atacar o bloquear, más te quita. Y ya gastas energía en los movimientos rápidos; con un arma que exige más, el gasto aumenta. El Chamán quita aún más. Si te quedas en Chamán todo el tiempo, te seca rapidito. Por eso vuelve a la normalidad cuando no la estás usando. ¿Entendiste? El modo Chamán es como el Super Saiyajin. El máximo del arma. ¿Quedó claro?
 
 Kim asintió.
 
-— En nuestra pelea usé a Angel en Xamã. — Nina. — En Xamã se estira como si fuera un brazo, hasta unos tres metros. Y entonces lo combiné con mi elemental, que es Luz, e hice el Luminus Blade. El arma con el poder junto. Para asegurarme de que te iba a cortar por la mitad.
+— En nuestra pelea usé a Angel en Chamán. — Nina. — En Chamán se estira como si fuera un brazo, hasta unos tres metros. Y entonces lo combiné con mi elemental, que es Luz, e hice el Luminus Blade. El arma con el poder junto. Para asegurarme de que te iba a cortar por la mitad.
 
 — De eso me acuerdo. — Kim. — Fue por muy poco. Gracias por recordármelo. — Pausa. — Y fue ahí cuando vi al viejo sabio de nuevo. Ese que habla con enigmas.
 

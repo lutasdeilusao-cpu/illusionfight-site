@@ -8,7 +8,7 @@ Los dos no se levantaron.
 
 Jack hablaba del ensayo. Kim hacía el ejercicio. Era la misma conversación de siempre, y el mismo resultado de siempre: Jack jurando que la banda existía, Kim jurando que tenía una factura que pagar.
 
-Desde el pasillo, un chico entró despacio. Manos en los bolsillos del buzo negro, el flequillo cubriéndole el ojo izquierdo. Cruzó la sala sin apuro y se detuvo frente a las dos mesas.
+Desde el pasillo, un chico entró despacio. Manos en los bolsillos de la sudadera negra, el flequillo cubriéndole el ojo izquierdo. Cruzó la sala sin apuro y se detuvo frente a las dos mesas.
 
 Anderson.
 
@@ -124,13 +124,13 @@ Atrás, el resto de la banda se fue calentando.
 
 — Esos niños bien tuvieron suerte — gruñó Michael. — La próxima, los voy a rasgar a los dos.
 
-— Van a descubrir lo que es un criado de verdad. — Anderson todavía se pasaba la mano por el mentón. — Vamos a tumbar a estos hijos de puta.
+— Van a descubrir lo que es ser de la calle de verdad. — Anderson todavía se pasaba la mano por el mentón. — Vamos a tumbar a estos hijos de puta.
 
-— Fue bueno ver a esos dos golpearse ahí adentro. Se creían demasiado. — Jason se dio un golpe suave en el pecho. — Y otra cosa: aquí, el segundo al mando soy yo.
+— Fue bueno ver a esos dos llevarse una paliza ahí adentro. Se creían demasiado. — Jason se dio un golpe suave en el pecho. — Y otra cosa: aquí, el segundo al mando soy yo.
 
 André mordió el chocolate.
 
-— Joder, espero que acabe pronto. Tengo hambre.
+— Carajo, espero que acabe pronto. Tengo hambre.
 
 Freddy apretó el paso hasta Brock.
 
@@ -220,7 +220,7 @@ Michael golpeó un bate envuelto en alambre de púas contra una viga de hierro. 
 
 Jack ni siquiera escuchó. Estaba parado en medio del patio con las dos manos en la cabeza.
 
-— Hermano, ¿cómo era esa canción? — Caminó en círculo. — ¡No, joder! ¡Voy a recordar esa canción! ¡Esto me está matando la mente! ¡Necesito recordar esa canción!
+— Hermano, ¿cómo era esa canción? — Caminó en círculo. — ¡No, carajo! ¡Voy a recordar esa canción! ¡Esto me está matando la mente! ¡Necesito recordar esa canción!
 
 Kim cruzó los brazos y esperó a que pasara.
 
@@ -246,7 +246,7 @@ Los cuatro pararon. Por puro susto.
 
 — ¿Se están volviendo locos? — Jack abrió los brazos. — Tenemos que calentar antes de empezar.
 
-— No queremos distendernos ningún músculo.
+— No queremos desgarrarnos ningún músculo.
 
 Y los dos comenzaron a estirarse.
 
@@ -408,7 +408,7 @@ Kim torció.
 
 El puño americano cayó al suelo. *Tlink.*
 
-*Si no puedes vencerlo...*
+Si no puedes vencerlo...
 
 Kim empezó a cantar bajito también.
 
@@ -500,7 +500,7 @@ Jack, con las manos en los bolsillos, recibió el primer puñetazo en el estóma
 
 — Hablas demasiado.
 
-— Eita, Kim, ¡sálvame!
+— ¡Uy, Kim, sálvame!
 
 Kim no se movió. Se limpió la sangre de los nudillos en el pantalón. Sacó una cajetilla arrugada del bolsillo y encendió un cigarrillo.
 
@@ -600,7 +600,7 @@ Kim ni miró.
 
 Jack empezó a batir los brazos como alas de gallina.
 
-— ¿Tienes miedo? ¿Vas a achicarte? ¡Pó, pó, pó! ¿Qué pasa? ¿No eres el chingón? ¿El segundo rey de las peleas? ¿Eh? ¿Eh?
+— ¿Tienes miedo? ¿Vas a achicarte? ¡Coc, coc, coc! ¿Qué pasa? ¿No eres el más bravo? ¿El segundo rey de las peleas? ¿Eh? ¿Eh?
 
 El cigarrillo se partió entre los dedos de Kim.
 

@@ -48,9 +48,9 @@ Kim lo miró.
 
 ---
 
-Nina ajustó el bajo en el regazo y abrió en el celular el archivo que Jack le había mandado en el camino. La letra. La cifra.
+Nina ajustó el bajo en el regazo y abrió en el celular el archivo que Jack le había mandado en el camino. La letra. Los acordes.
 
-Nadie nunca le había pedido la cifra a Jack. Nadie nunca había estado allí para pedirla.
+Nadie nunca le había pedido los acordes a Jack. Nadie nunca había estado allí para pedirla.
 
 Ella deslizó la pantalla, volvió, deslizó de nuevo. Sus dedos fueron al brazo del bajo y empezaron a buscar las notas sin hacer sonido, encima de las cuerdas, como quien lee algo en voz baja.
 
@@ -93,8 +93,6 @@ KIM: Solo existe una regla en la pelea callejera,
 KIM Y JACK: Solo existe una regla en la pelea callejera...
 ```
 
----
-
 Las baquetas de Jack chocaron una contra otra. Uno, dos, tres, cuatro.
 
 Y entró la batería.
@@ -112,8 +110,6 @@ KIM: Finalmente encontré al enemigo,
 KIM Y JACK: GOOOOOO, ohhhh...
 KIM Y JACK: Y en medio del camino...
 ```
-
----
 
 Y entonces vino algo que ninguno de los dos esperaba.
 
@@ -133,8 +129,6 @@ NINA: Los gritos de desesperación sobresalen,
 NINA: Deseos escondidos, sueños reprimidos,
 NINA: Me miran de frente...
 ```
-
----
 
 Kim abrió los ojos y la miró.
 
@@ -160,10 +154,8 @@ NINA: Conmigo siempre será así,
 > — ¡Todos!
 TODOS: Voy a correr
 > Solo Kim. Jack grita, y él va.
-KIM: y luchar hasta el final!
+KIM: ¡y luchar hasta el final!
 ```
-
----
 
 Jack tomó aire y soltó una voz que nadie sabía de dónde venía. Rasgada, gutural, desde el fondo del estómago.
 
@@ -197,8 +189,6 @@ NINA: Libera mi ser...
 > Kim entra solo.
 KIM: ¡Lo que quiero es vencer, vencer, vencer!
 ```
-
----
 
 Y Nina lo vio.
 
@@ -300,8 +290,6 @@ TODOS: Libera mi ser...
 TODOS: ¡Lo que quiero es vencer, vencer, vencer!
 ```
 
----
-
 — Listo.
 
 Jack sostuvo los platillos con la mano.
@@ -366,7 +354,7 @@ Al fondo, los dos se pusieron pasamontañas. El calvo levantó la camiseta y el 
 
 El de capucha fue directo a la caja.
 
-— ¡Perdiste, perdiste! ¡Nadie se mueva!
+— ¡Esto es un asalto! ¡Nadie se mueva!
 
 El empleado levantó las manos. El celular cayó al mostrador.
 

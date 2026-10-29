@@ -16,7 +16,7 @@ A bengala se desfez em três partes ligadas por elos, um San Tien Kwan de metal,
 
 Do outro lado, Nina deitou a katana embainhada na palma da mão esquerda. Fechou a direita no cabo.
 
-— Anjo. Xamã.
+— Angel. Xamã.
 
 Puxou.
 

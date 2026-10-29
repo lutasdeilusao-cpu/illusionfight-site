@@ -260,7 +260,7 @@ When the broadcast returned, the dust was settling.
 
 And in the middle of the ruins was something else.
 
-His hair was now made of white filament, like fiber optic, smooth to his shoulders, each strand pulsing with a black-electric glow. The tattoos had become deep ritual channels taking over his whole body, climbing his neck in geometry and descending his arms like a river. The Xikaxi symbols, wilder, pulsing under the skin.
+His hair was now made of white filament, like fiber optic, smooth to his shoulders, each strand pulsing with a black-electric glow. The tattoos had become deep ritual channels taking over his whole body, climbing his neck in geometry and descending his arms like a river. The Xakaxi symbols, wilder, pulsing under the skin.
 
 A black leather coat to his knees, cut crooked, open at the chest, covered in crow feathers, animal bones and claws. Leather pants with bone plates on the sides, symbols burned into them. Boots that seemed to swallow light, crossed by blue veins.
 

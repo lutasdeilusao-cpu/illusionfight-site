@@ -18,7 +18,7 @@ Nina volteó con la punta del pie a uno de los matones noqueados en el suelo. Le
 
 — No lo son. — Kim. — En esta escuela entra quien quiere, a la hora que quiere. Aquí todo se compra. Solo hay que tener el precio correcto.
 
-— Y es normal que los niños ricos usen la plata de papi para pagar matones y que vengan por nosotros. — Jack. — Ya es parte de la rutina.
+— Y es normal que los niños ricos usen el dinero de papi para pagar matones y que vengan por nosotros. — Jack. — Ya es parte de la rutina.
 
 Kim la miró con cara de no tener paciencia de sobra.
 
@@ -58,7 +58,7 @@ Nina estaba dos pasos atrás, saltando, cambiando el apoyo de un pie al otro, co
 
 Kim miró la mano vacía. Jack, sentado en el suelo, miró el techo del anexo sin entender cómo había ido a parar ahí.
 
-— Está bien. — Kim, levantándose despacio. — Entendí. Eres un poquito rápida. Pero ese celular es mío, y me voy a poner muy bravo si le pasa algo.
+— Está bien. — Kim, levantándose despacio. — Entendí. Eres un poquito rápida. Pero ese celular es mío, y me voy a enojar mucho si le pasa algo.
 
 Jack rio, limpiándose el hombro.
 
@@ -130,7 +130,7 @@ Kim se apoyó en el hombro de Jack.
 
 Jack entendió. Volvió al celular.
 
-Kim caminó hacia ella y tronó el cuello.
+Kim caminó hacia ella y se hizo crujir el cuello.
 
 — No te preocupes. A diferencia de Jack, yo no voy a ir suave contigo.
 

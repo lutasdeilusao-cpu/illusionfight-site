@@ -34,13 +34,13 @@ Ganaban menos que un guardia de seguridad de verdad. Una parte del pago se iba p
 
 Bajaron del primer autobús en un barrio más pobre que el suyo. Tomaron un segundo, un autobús cayéndose a pedazos, con el asiento de atrás atado con alambre, que llevaba a un lugar todavía peor.
 
-Por la ventana, las casas se iban convirtiendo en ruinas. Muros sin revoque. Techos sin tejas. Calles sin asfalto. Y aun así había dinero circulando. Se podía ver. Buenos autos parados en la puerta de los ranchos. Motos nuevas. Gente en la esquina que no estaba ahí por casualidad. El dinero de ese lugar venía de cosas que el gobierno decía que no permitía. Y fingía que no veía, por los acuerdos con los empresarios de la región.
+Por la ventana, las casas se iban convirtiendo en ruinas. Muros sin revoque. Techos sin tejas. Calles sin asfalto. Y aun así había dinero circulando. Se podía ver. Buenos autos parados en la puerta de las casuchas. Motos nuevas. Gente en la esquina que no estaba ahí por casualidad. El dinero de ese lugar venía de cosas que el gobierno decía que no permitía. Y fingía que no veía, por los acuerdos con los empresarios de la región.
 
 Jack le dio un toque en el brazo a Kim.
 
 — El nombre del lugar es Risca a Faca.
 
-Kim crujió el cuello, mirando por la ventana.
+Kim hizo crujir el cuello, mirando por la ventana.
 
 — Risca a Faca. — Repitió. — Prepárate. Hoy va a valer cada centavo.
 
@@ -136,7 +136,7 @@ Jack dejó de registrar a un tipo en medio del registro.
 
 — ¿Cuál?
 
-— La Casa do Dinheiro.
+— La Casa del Dinero.
 
 Jack soltó al tipo del registro y se quedó mirando al amigo con la boca abierta.
 

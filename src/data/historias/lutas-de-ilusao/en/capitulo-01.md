@@ -38,7 +38,7 @@ He looked Kim up and down.
 
 And pointed the finger again.
 
-— Yeah. If there's no you, then you it is!
+— Yeah. If there's nobody else, you'll have to do!
 
 The staff glowed. The star floor became a whirlpool and swallowed Kim.
 
@@ -352,7 +352,7 @@ Five buses later, the last one turned the corner at Elite Academy.
 
 They ran.
 
-Every morning was like that. The bus left them just in time, and the arrival turned into a marathon.
+Every morning was like that. Selling candy left them cutting it close, and the arrival turned into a marathon.
 
 At the iron gate, Osvaldo waited.
 

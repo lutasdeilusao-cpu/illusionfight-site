@@ -1,6 +1,6 @@
 # CAPÍTULO 18 — Fuego
 
-La Nina se detuvo en medio de las palabras y tomó un trago grande. Los tres seguían en el primer vaso, lo que era una buena señal para un día en que nadie podía terminar en el suelo.
+Nina se detuvo en medio de las palabras y tomó un trago grande. Los tres seguían en el primer vaso, lo que era una buena señal para un día en que nadie podía terminar en el suelo.
 
 — Entonces—
 
@@ -46,21 +46,21 @@ Jack lo miró con una expresión que Kim conocía poco. No era miedo. Era pareci
 
 Kim negó con la cabeza.
 
-— Tu elemento. — Jack. — Es fuego.
+— Tu elemental. — Jack. — Es fuego.
 
 ---
 
 Nina le quitó el SBI de la mano a Jack y acercó el holograma a su cara.
 
-Ahí estaba. Elemento principal: Fuego.
+Ahí estaba. Elemental principal: Fuego.
 
 — Gente. — Kim. — ¿Alguien me explica?
 
-— Lo que salió de ti en la primera pelea era Oscuridad. — Nina. — Fue lo que todos vieron. Llama negra. Pero aquí, en tu SBI, tu elemento principal es Fuego.
+— Lo que salió de ti en la primera pelea era Oscuridad. — Nina. — Fue lo que todos vieron. Llama negra. Pero aquí, en tu SBI, tu elemental principal es Fuego.
 
 Jack levantó el dedo, como quien acaba de entender algo.
 
-— Por eso se me hizo raro en ese momento. Parecía fuego. Pero era negro. — Miró a Kim. — Usaste otro elemento en la transformación. Y eso no se puede. Nadie cambia de elemento. Es una de las pocas reglas que nadie ha roto nunca. Oficialmente, el tuyo es fuego.
+— Por eso se me hizo raro en ese momento. Parecía fuego. Pero era negro. — Miró a Kim. — Usaste otro elemental en la transformación. Y eso no se puede. Nadie cambia de elemental. Es una de las pocas reglas que nadie ha roto nunca. Oficialmente, el tuyo es fuego.
 
 Kim miró su muñequito girando en el aire.
 
@@ -98,7 +98,7 @@ Kim ya lo sabía.
 
 Lo sabía desde la salida de la escuela. Desde la segunda cuadra, cuando dos tipos con gorra del mismo color cruzaron la calle detrás de ellos y siguieron cruzando. Desde el mercado, cuando la misma moto pasó dos veces despacio. Desde que llegaron al estacionamiento y las sombras detrás del muro del fondo empezaron a moverse de vez en cuando, mientras el viento no se movía.
 
-También había visto que, cuando Jack se puso de pie para explicar los modos de combate, el grupo de atrás se detuvo. Habían planejado entrar en ese momento. Jack de pie los hizo esperar. Y les dio tiempo a terminar la clase.
+También había visto que, cuando Jack se puso de pie para explicar los modos de combate, el grupo de atrás se detuvo. Habían planeado entrar en ese momento. Jack de pie los hizo esperar. Y les dio tiempo a terminar la clase.
 
 La única que no se había dado cuenta era Nina.
 

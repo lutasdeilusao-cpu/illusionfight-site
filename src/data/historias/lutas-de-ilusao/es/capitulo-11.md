@@ -102,7 +102,7 @@ Con fuerza.
 
 Jack rio. Asintió con la cabeza, despacio, de arriba abajo.
 
-— Se puede, mano. Se puede ganar dinero con esa mierda. Y no es poco. Estamos hablando de mucha plata.
+— Se puede, mano. Se puede ganar dinero con esa mierda. Y no es poco. Estamos hablando de mucho dinero.
 
 Kim le soltó el brazo. Bebió. Por primera vez en toda la tarde, estaba prestando atención de verdad.
 
@@ -162,7 +162,7 @@ Kim levantó el vaso, feliz de la vida por primera vez en la conversación.
 
 Jack lo abrazó, ya con el alcohol subiendo, la voz de borracho bueno.
 
-— ¡Claro, mi amigo! Es lógico que te ayudo a personalizar tu avatar y tu nick. Pero para eso necesitas un SBI tuyo. Hoy no nos calentamos con eso. Mañana, después de la escuela, yo me las arreglo. ¿Alguna otra duda?
+— ¡Claro, mi amigo! Es lógico que te ayudo a personalizar tu avatar y tu nick. Pero para eso necesitas un SBI tuyo. Hoy no nos preocupamos por eso. Mañana, después de la escuela, yo me las arreglo. ¿Alguna otra duda?
 
 Kim conocía a su amigo. Sabía que eso iba a traer problemas. Sonrió, devolvió el abrazo y aceptó el destino.
 
@@ -236,7 +236,7 @@ Ella subió. Bajó la ventanilla.
 
 — Va a ser Peleador, y punto.
 
-— Y mándenme la próxima canción. —dijo ella—. Con el cifrado.
+— Y mándenme la próxima canción. —dijo ella—. Con los acordes.
 
 El carro se fue.
 
@@ -262,7 +262,7 @@ Entonces la cara seria volvió. Apagó el cigarro en el suelo.
 
 Kim miró a Jack. Era increíble cuánto lo conocía ese tipo. No se le podía esconder nada.
 
-— Sí. —Miró hacia la calle—. En la pelea. Antes de desmayarme. Había un viejo. Un chamán. Me habló como si me conociera.
+— Sí. —Miró hacia la calle—. En la pelea. Antes de desmayarme. Había un viejo. Un pajé. Me habló como si me conociera.
 
 ---
 
@@ -328,6 +328,6 @@ Jack levantó la mano sin voltearse.
 
 Kim juntó los vasos, volvió a casa solo y cerró el portón del garaje.
 
-Se quedó un segundo con la mano en el hierro frío. Ahí adentro, en la oscuridad, la guitarra colgada del clavo, el bajo recargado contra la pared, la batería con el hueco donde faltaba un tom.
+Se quedó un segundo con la mano en el hierro frío. Ahí adentro, en la oscuridad, la guitarra colgada del clavo, el bajo apoyado contra la pared, la batería con el hueco donde faltaba un tom.
 
 Por primera vez, el garaje parecía demasiado pequeño.

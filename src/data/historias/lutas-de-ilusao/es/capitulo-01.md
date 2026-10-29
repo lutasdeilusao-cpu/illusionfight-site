@@ -38,7 +38,7 @@ Se quedó mirando a Kim de arriba a abajo.
 
 Y apuntó el dedo de nuevo.
 
-— Sí. ¡Si no eres tú, pues tú mismo!
+— Sí. ¡Si no hay nadie más, pues vas tú!
 
 El bastón brilló. El suelo de estrellas se volvió remolino y se tragó a Kim.
 
@@ -64,7 +64,7 @@ El viejo se agachó y tomó una hoja del suelo. En la palma de su mano, la hoja 
 
 Desmenuzó la ceniza entre los dedos. Kim se quedó mirando.
 
-— Lo que te voy a contar ahora seguro te va a ayudar en todo este rollo. Es decisivo para tu misión. Compa, si no tienes esa información, o sea... valiste. Así que concéntrate en lo que te voy a decir, porque ahora el muerto es tuyo.
+— Lo que te voy a contar ahora seguro te va a ayudar en todo este rollo. Es decisivo para tu misión. Compa, si no tienes esa información, o sea... estás jodido. Así que concéntrate en lo que te voy a decir, porque ahora el muerto es tuyo.
 
 Kim esperó.
 
@@ -244,7 +244,7 @@ Jack apareció por la calle con paso suelto, como si fuera parte del paisaje. Ra
 
 — Hermano, pasa la cerveza. Estoy viendo un video del LDI. Está buenísimo. — Abrió los brazos. — Viejo gruñón.
 
-— Cabeza hueca. — Kim ni levantó la vista de la pantalla. — Carajo, Jack. A medianoche, en la mañana, en la tarde y en la noche. No dejas de fastidiarme, ¿verdad?
+— Cabeza de musgo. — Kim ni levantó la vista de la pantalla. — Carajo, Jack. A medianoche, en la mañana, en la tarde y en la noche. No dejas de fastidiarme, ¿verdad?
 
 Se levantó. Abrió la mochila y le pasó la lata al amigo.
 
@@ -352,7 +352,7 @@ Cinco buses después, el último dobló la esquina de Elite Academy.
 
 Corrieron.
 
-Todas las mañanas era así. El bus los dejaba justo a tiempo, y la llegada se convertía en maratón.
+Todas las mañanas era así. Vender dulces los dejaba con la hora justa, y la llegada se convertía en maratón.
 
 En el portón de hierro, Osvaldo esperaba.
 

@@ -22,7 +22,7 @@ Miró a Kim con una cara medio avergonzada, fue a la cocina, agarró una cerveza
 
 Kim estaba con la bolsa de basura en la mano, recogiendo las últimas cosas del suelo.
 
-— Qué onda, inútil. Espero que hayas traído plata. Hazme un DIX que ya estoy saliendo para el parche.
+— Oye, inútil. Espero que hayas traído dinero. Hazme un DIX que ya me voy de fiesta.
 
 Desde pequeño Kim lo sabía: si no tenía nada que dar, la cosa podía ponerse fea. Cuando era niño, podía hasta recibir una paliza.
 
@@ -54,7 +54,7 @@ Helena se sentó en el sofá.
 
 La cartera cayó al suelo. Bajó la cabeza unos segundos. Respiró hondo. Cuando la levantó, la cara estaba vacía.
 
-— No entendí bien lo que estás diciendo, muchacho. Y ni me importa. Si de mí depende, nunca vas a saber nada del desgraciado de tu padre. Tu única obligación aquí es trabajar y traerme la plata todos los días. Tienes una deuda conmigo, por haberte criado. Ahora dame la plata para salir.
+— No entendí bien lo que estás diciendo, muchacho. Y ni me importa. Si de mí depende, nunca vas a saber nada del desgraciado de tu padre. Tu única obligación aquí es trabajar y traerme el dinero todos los días. Tienes una deuda conmigo, por haberte criado. Ahora dame el dinero para salir.
 
 Kim se sorprendió.
 
@@ -94,7 +94,7 @@ Se levantó. Fue hasta la puerta de la cocina. Se quedó mirando, esperando una 
 
 Llegó la pausa.
 
-— Llegué cansado. Te voy a dejar ahí con tus... — Un vaso pasó rozándole la cara. — Upa, ese casi. ...quehaceres. Y voy a ducharme. Cuando te calmes, conversamos. Pero ya lo dije y lo repito: hoy me vas a contar. O vas a seguir con ese show y yo voy a seguir esperando la respuesta. Hasta ahora, doña Helena.
+— Llegué cansado. Te voy a dejar ahí con tus... — Un vaso pasó rozándole la cara. — Upa, ese casi. ...quehaceres. Y voy a ducharme. Cuando te calmes, conversamos. Pero ya lo dije y lo repito: hoy me vas a contar. O vas a seguir con ese show y yo voy a seguir esperando la respuesta. Nos vemos en un rato, doña Helena.
 
 Más vasos. Él esquivó todos y subió la escalera.
 
@@ -250,7 +250,7 @@ Kim se quedó quieto. Era la primera vez que oía una risa salir de la boca de s
 
 Ella siguió riendo, ahora con otra lágrima. Una lágrima que nunca había llorado.
 
-— Estoy pésima, en verdad. Soy una pésima madre, una pésima mujer, un ser humano horrible en todo lo que hago. Pero fue muy bueno... fue muy bueno oírte llamarme mamá de nuevo. Después de tanto tiempo. — Sorbió. — Y sí, tonto, ya te sonreí antes. En esa época eras un bebecito hermoso y tierno. No este grandulón peleonero en que te convertiste.
+— Estoy pésima, en verdad. Soy una pésima madre, una pésima mujer, un ser humano horrible en todo lo que hago. Pero fue muy bueno... fue muy bueno oírte llamarme mamá de nuevo. Después de tanto tiempo. — Sorbió. — Y sí, tonto, ya te sonreí antes. En esa época eras un bebecito hermoso y tierno. No este grandulón buscapleitos en que te convertiste.
 
 Fue el turno de Kim de sonreír. Nunca imaginó que se reiría de un insulto de su madre.
 
@@ -286,7 +286,7 @@ Cuando terminaron, ya era tarde.
 
 — Voy a intentar. Pero no prometo nada.
 
-— Te voy a transferir la plata.
+— Te voy a transferir el dinero.
 
 Kim rió y subió la escalera.
 

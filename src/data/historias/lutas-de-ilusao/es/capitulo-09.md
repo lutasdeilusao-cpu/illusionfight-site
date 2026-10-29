@@ -102,7 +102,7 @@ Kim se detuvo en medio del pasillo.
 
 — Pues, es nuestra base, ¿sabes? — Jack, como si fuera obvio. — Y ella ya es de casa. Por el amor de Dios, Kim. Deja de ser un Viejo Gruñón.
 
-— Cabeza de Musgo, deja de hincharme las pelotas. — Kim volviendo a caminar. — Solo vamos a hacer esa mierda de sesioncita porque tengo la plata de la semana. Si no, iría a trabajar y tú te joderías. No te creas que siempre consigues lo que quieres.
+— Cabeza de Musgo, deja de joderme. — Kim volviendo a caminar. — Solo vamos a hacer esa mierda de sesioncita porque tengo el dinero de la semana. Si no, iría a trabajar y tú te joderías. No te creas que siempre consigues lo que quieres.
 
 Jack no respondió.
 

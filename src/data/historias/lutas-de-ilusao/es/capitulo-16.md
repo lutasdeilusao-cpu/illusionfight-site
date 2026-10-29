@@ -12,7 +12,7 @@ Kim pasó el hacha a la mano derecha. La polea bajó por el mango y se encajó d
 
 Apoyó el hacha en el hombro, detrás de la cabeza.
 
-— Es, gente. — Con una sonrisa que Jack conocía de pelea callejera. — Parece que papá está on. ¿Empezamos?
+— Sí, gente. — Con una sonrisa que Jack conocía de pelea callejera. — Parece que papá está on. ¿Empezamos?
 
 Jack miró a Nina con cara de quien acaba de ver su propio carro siendo remolcado.
 
@@ -90,7 +90,7 @@ Jack retrocedió despacio lejos del cuerpo de Nina, como quien se aleja de una b
 
 La voz de Nina vino de algún lugar de la sala, de la misma forma en que NeoGuide les hablaba.
 
-— Está bien. Está bien. Nadie te explicó las reglas de la sala. Es parte del asunto. — Una pausa. — Pero mierda, ese hacha está genial. Suerte la tuya que no sabía de ese hilo. La próxima estaré preparada. Espérame.
+— Está bien. Está bien. Nadie te explicó las reglas de la sala. Es parte del asunto. — Una pausa. — Pero mierda, esa hacha está genial. Suerte la tuya que no sabía de ese hilo. La próxima estaré preparada. Espérame.
 
 Jack se rió fuerte.
 
@@ -162,7 +162,7 @@ Un baile ridículo, con los codos hacia afuera y la cadera yendo de un lado a ot
 
 Al lado de Kim, en el aire, Nina. O el avatar de Nina, entero de nuevo.
 
-Le hizo un chau con cara de no estar entendiendo nada.
+Le dijo adiós con la mano, con cara de no estar entendiendo nada.
 
 Ella se rió.
 
@@ -250,4 +250,4 @@ Estaba furiosa.
 
 Jack vio que la cosa se estaba poniendo tensa e hizo lo que siempre hacía.
 
-— Gente. Vamos a calmarnos, respirar hondo y buscar algo para beber, que tengo la garganta seca. — Ya levantándose. — Todavía tengo un dinerillo, y solo trabajo por la noche. Hoy encontramos una tiendita, compramos una vodkita, y bebemos con calma. Apreciando cada sorbo.
+— Gente. Vamos a calmarnos, respirar hondo y buscar algo para beber, que tengo la garganta seca. — Ya levantándose. — Todavía tengo un dinerillo, y solo trabajo por la noche. Hoy encontramos una tiendita, compramos un vodkita, y bebemos con calma. Apreciando cada sorbo.

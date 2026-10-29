@@ -10,7 +10,7 @@ Olfateó el aire como un perro, buscando de dónde venía. Buen olor. Olor a com
 
 Llegó a la puerta de la cocina.
 
-Helena estaba en la cocina. La música alta, sonando de verdad, no en auriculares: *Man! I Feel Like A Woman*, de Shena Twuin, el country que ella amaba. Y bailaba. Movía las caderas, cantaba, daba vuelta los huevos en la sartén. Café con leche en la mesa. Jugo. Fruta cortada. Los platos lavados.
+Helena estaba frente al fogón. La música alta, sonando de verdad, no en auriculares: *Man! I Feel Like A Woman*, de Shena Twuin, el country que ella amaba. Y bailaba. Movía las caderas, cantaba, volteaba los huevos en la sartén. Café con leche en la mesa. Jugo. Fruta cortada. Los platos lavados.
 
 Kim se quedó parado en la puerta, sonriendo, solo mirando.
 
@@ -90,7 +90,7 @@ Esperándolos.
 
 Era gracioso. Un día. Tenía un día allí y ya parecía amiga de años. Los tres fueron caminando por el pasillo, contando lo que cada uno había hecho después de irse la noche anterior.
 
-— Chicos. — Jack fue el primero. — Después de irme, me fui a casa. Y juro que a cada paso la distancia se hacía más grande. Cuando llegué, mi papá estaba en la puerta esperándome. Tenía que dejarme la llave, porque perdí la mía. Me miró y soltó: "Estás borracho, ¿no?". Le di vueltas y vueltas, y al final se rió y dijo: "¿No tienes nada que hacer mañana, no?". Le dije que no, que había conseguido algo de plata y estaba libre. Entonces él: "Ve a bañarte para quitarte esa cara de loco, dejé comida lista". Me bañé, me di un buen banquete, vi una película y me quedé frito.
+— Chicos. — Jack fue el primero. — Después de irme, me fui a casa. Y juro que a cada paso la distancia se hacía más grande. Cuando llegué, mi papá estaba en la puerta esperándome. Tenía que dejarme la llave, porque perdí la mía. Me miró y soltó: "Estás borracho, ¿no?". Le di vueltas y vueltas, y al final se rió y dijo: "¿No tienes nada que hacer mañana, no?". Le dije que no, que había conseguido algo de dinero y estaba libre. Entonces él: "Ve a bañarte para quitarte esa cara de loco, dejé comida lista". Me bañé, me di un buen banquete, vi una película y me quedé frito.
 
 Kim y Nina se rieron por cómo lo contaba.
 
@@ -146,7 +146,7 @@ Nina miró a los dos. Los dos seguían serios. Entonces, lentamente, la sonrisa 
 
 Ella entendió. Para ellos, aquello era solo un día más normal.
 
-Los tres siguieron por el pasillo conversando, sin darse cuenta de que toda la escuela estaba mirando a Kim con el celular en la mano. Todos allí sabían que el famoso Buscapleitos de Luchas de Ilusión era él.
+Los tres siguieron por el pasillo conversando, sin darse cuenta de que toda la escuela estaba mirando a Kim con el celular en la mano. Todos allí sabían que el famoso Peleador de Luchas de Ilusión era él.
 
 ---
 
@@ -184,7 +184,7 @@ Kim lo miró de reojo.
 
 El tono hizo que Ryan se quedara congelado. Arrodillado, las manos en la caja, paralizado.
 
-— No sé qué crees que pasó en ese pasillo. Pero lo que sé es que no me debes nada. Mucho menos un regalo. Eso fue pelea. Quien dio el golpe fuiste tú.
+— No sé qué crees que pasó en ese pasillo. Pero lo que sé es que no me debes nada. Mucho menos un regalo. Eso fue física. Quien dio el golpe fuiste tú.
 
 Jack y Nina se rieron de la cara de Kim, que no sabía qué hacer con eso.
 

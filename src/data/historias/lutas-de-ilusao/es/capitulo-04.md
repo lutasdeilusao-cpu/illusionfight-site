@@ -70,7 +70,7 @@ La arena creció debajo de él. Las tribunas se materializaban en capas, miles d
 
 Entonces, en una punta de la tribuna, algo explotó.
 
-Fuegos artificiales. Dos cañones dorados en la espalda de alguien disparando chispas hacia arriba. Una corona. Gafas en forma de estrella. Un abrigo de lentejuelas verde y dorado hasta el suelo. Cadena de oro con un signo de dólar en el pecho. Y los dreads verdes.
+Fuegos artificiales. Dos cañones dorados en la espalda de alguien disparando chispas hacia arriba. Una corona. Gafas en forma de estrella. Un abrigo de lentejuelas verde y dorado hasta el suelo. Cadena de oro con un signo de dólar en el pecho. Y las rastas verdes.
 
 Jack, con los brazos abiertos, en medio de la explosión, mirando al cielo y pensando en voz alta.
 
@@ -114,7 +114,7 @@ El aire allí se rasgó. Un portal se abrió, un anillo de luz chirriando, y alg
 
 Lo que estaba allí ya no era el Freddy que había temblado detrás de una columna de concreto en el anexo. La armadura plateada pulsaba con energía acumulada, descargas eléctricas serpenteando por las articulaciones como venas de luz azul. El casco tenía una franja eléctrica que recorría la parte superior y desaparecía detrás de los hombros. La lanza en sus manos vibraba con una frecuencia que Kim podía casi sentir en el pecho incluso a distancia. Las ranuras del casco brillaban en rojo vivo.
 
-*Parece que el ratoncito se ganó una apariencia de Goliat. Tengo que admitir, el look está genial. Pero no es el primer grandullón al que tengo que enfrentarme.*
+*Parece que el ratoncito se ganó una apariencia de Goliat. Tengo que admitir, el look está genial. Pero no es el primer grandote al que tengo que enfrentarme.*
 
 — Apuestas cerradas. Que comience la Lucha de Ilusión.
 

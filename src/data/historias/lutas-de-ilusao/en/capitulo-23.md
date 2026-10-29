@@ -74,7 +74,7 @@ Jack had a smile that Kim knew.
 
 Kim remembered that, in Jack's group, at least three girls had gone after him.
 
-— What did you pull? — Kim, hand on his forehead. — Quoting the great and powerful coxinha: you bastard! You're a piece of shit when it comes to women. And I know at least three went after you.
+— What did you pull? — Kim, hand on his forehead. — Quoting the great and powerful preppy boy: you bastard! You're a piece of shit when it comes to women. And I know at least three went after you.
 
 Jack crossed his arms, the shameless smile on his face.
 

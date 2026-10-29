@@ -244,7 +244,7 @@ On the other side of the park, on the left-hand trail, Nina had one leg stretche
 
 Seven guys came up the dirt path.
 
-She was already waiting. She was a woman. She knew exactly what men did when they thought they'd found a girl alone in the woods. She had seen that smile on many men's faces before. She had never liked any of them.
+She'd expected it. She was a woman. She knew exactly what men did when they thought they'd found a girl alone in the woods. She had seen that smile on many men's faces before. She had never liked any of them.
 
 She took her leg off the tree.
 

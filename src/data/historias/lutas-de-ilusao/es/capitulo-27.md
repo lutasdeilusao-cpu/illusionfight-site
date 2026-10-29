@@ -142,7 +142,7 @@ No se podía saber si se estaba divirtiendo o si estaba nervioso.
 
 Nina no decía nada. Estaba mirando a Kim sangrar. Los verdugones subiendo. Los cortes abriéndose.
 
-— Era eso lo que temía. — Ella, en voz baja. — Ese tipo no llegó adonde está de balde. Kim no tiene madurez todavía para pelear con alguien de ese nivel. Esos tipos saben cómo empezar y terminar una pelea.
+— Era eso lo que temía. — Ella, en voz baja. — Ese tipo no llegó adonde está por casualidad. Kim no tiene madurez todavía para pelear con alguien de ese nivel. Esos tipos saben cómo empezar y terminar una pelea.
 
 Jack dejó de reír. La miró.
 

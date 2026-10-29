@@ -68,7 +68,7 @@ Jack mexeu a bebida com o dedo e começou a andar na frente dos dois.
 
 Nina abaixou o copo devagar. Tinha os olhos parados de quem acabou de juntar duas coisas.
 
-— É verdade. — Por cima do Jack. — Eu nunca tinha pensado nisso. São dois tipos. Tem a força mental que dá muito poder o tempo inteiro, do começo ao fim. E tem a explosiva. A pessoa começa mais fraca e vai liberando mais do que tinha durante a luta. É um modificador. Como eu nunca pensei nisso?
+— É verdade. — Por cima do Jack. — Eu nunca tinha pensado nisso. São dois tipos. Tem o explosivo. Solta muita energia de uma vez, um poder absurdo logo no começo, e depois fica fraco. E tem o equilibrado. A pessoa começa mais fraca e vai soltando o poder aos poucos, e vai ficando mais forte durante a luta. É um modificador. Como eu nunca pensei nisso?
 
 Jack sorriu, orgulhoso da conclusão. Modéstia nunca foi o forte dele.
 
@@ -96,7 +96,7 @@ Jack e Nina se olharam e riram. Eles gostavam daquela inocência dele.
 
 Kim pensou. Ele tinha razão.
 
-— Mas pra você, que já sabe brigar, faz sentido começar de mão livre. Pra ler o adversário e decidir quanto você quer gastar naquela luta. — Jack. — Só que cuidado com o explosivo. Se o cara tá escondendo o poder dele e solta tudo de uma vez, você não tá preparado e se fode. E no mão livre, se você se empenhar, dá pra ter mais velocidade, mais força e pegar o adversário de surpresa. Faltou alguma coisa, Nina?
+— Mas pra você, que já sabe brigar, faz sentido começar de mão livre. Pra ler o adversário e decidir quanto você quer gastar naquela luta. — Jack. — Só que cuidado com o explosivo. Se o cara solta tudo de uma vez logo no começo, você não tá preparado e se fode. Aguenta a primeira onda que depois ele fica fraco. E no mão livre, se você se empenhar, dá pra ter mais velocidade, mais força e pegar o adversário de surpresa. Faltou alguma coisa, Nina?
 
 — Não, meu querido. É isso, lindão.
 

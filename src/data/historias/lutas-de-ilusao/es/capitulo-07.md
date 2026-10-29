@@ -8,7 +8,7 @@ No en todas partes al mismo tiempo. En oleadas. Como siempre.
 
 La torre de Yohualticit tenía noventa pisos.
 
-Yohu, para quienes tenían menos de treinta años. La empresa que había inventado Lutas de Ilusão y, con él, se había convertido en la corporación más poderosa del planeta. Hologramas flotando en el pasillo de mármol negro. Pasarela de vidrio sobre treinta metros de vacío. Gente de traje caminando rápido, sin ruido.
+Yohu, para quienes tenían menos de treinta años. La empresa que había inventado Luchas de Ilusión y, con él, se había convertido en la corporación más poderosa del planeta. Hologramas flotando en el pasillo de mármol negro. Pasarela de vidrio sobre treinta metros de vacío. Gente de traje caminando rápido, sin ruido.
 
 Hasta que todas las alarmas de todos los departamentos se dispararon al mismo tiempo.
 
@@ -144,7 +144,7 @@ En Zylvaron, en el piso cuarenta y siete de una torre de vidrio, Mikael detuvo l
 
 Aire acondicionado a veintitrés grados. Allá abajo, treinta y cinco. Camisa blanca, corbata de seda, orquídea blanca en la mesa.
 
-El celular vibró sobre la mesa. *BRIGUENTO 142536 — SDR #1.201.* El expositor siguió hablando del retorno proyectado para el próximo trimestre. Gráficos, análisis, números. Todo se volvió borroso.
+El celular vibró sobre la mesa. *PELEADOR 142536 — SDR #1.201.* El expositor siguió hablando del retorno proyectado para el próximo trimestre. Gráficos, análisis, números. Todo se volvió borroso.
 
 Solo quedó una certeza.
 

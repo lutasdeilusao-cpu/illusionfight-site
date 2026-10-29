@@ -1,6 +1,6 @@
 # CAPÍTULO 15 — Ángel y Victoria
 
-Jack y Nina nunca habían luchado juntos en la LDI.
+Jack y Nina nunca habían luchado juntos en el LDI.
 
 Se miraron y saltaron hacia atrás al mismo tiempo, cada uno por su lado, abriendo distancia y ángulo. Kim saltó también, medio segundo más tarde, y mantuvo la misma distancia.
 
@@ -16,7 +16,7 @@ El bastón se deshizo en tres partes unidas por eslabones, un San Tien Kwan de m
 
 Del otro lado, Nina colocó la katana envainada en la palma de la mano izquierda. Cerró la derecha en la empuñadura.
 
-— Anjo. Chamán.
+— Angel. Chamán.
 
 Tiró.
 
@@ -188,7 +188,7 @@ Y en el mango de la que estaba en su mano, grabada en el metal, una palabra.
 
 *Xakaxi.*
 
-Kim recordó a Jack deslizando la mano por el bastón. A Nina sacando la espada de la vaina. Del nombre y la palabra que los dos habían dicho.
+Kim recordó a Jack deslizando la mano por el bastón. A Nina sacando la espada de la vaina. El nombre y la palabra que los dos habían dicho.
 
 Sacó la segunda hacha del cinturón. La polea se encajó debajo de la mano sola.
 

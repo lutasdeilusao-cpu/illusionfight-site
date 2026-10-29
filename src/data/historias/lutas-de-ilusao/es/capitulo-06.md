@@ -260,7 +260,7 @@ Cuando la transmisión volvió, el polvo estaba bajando.
 
 Y en medio de las ruinas había otra cosa.
 
-El cabello ahora estaba hecho de filamento blanco, como fibra óptica, liso hasta los hombros, cada hebra pulsando un brillo negro-eléctrico. Los tatuajes se habían convertido en canales rituales profundos que tomaban todo el cuerpo, subiendo por el cuello en geometría y bajando por los brazos como ríos. Los símbolos Xikaxi, más salvajes, pulsando debajo de la piel.
+El cabello ahora estaba hecho de filamento blanco, como fibra óptica, liso hasta los hombros, cada hebra pulsando un brillo negro-eléctrico. Los tatuajes se habían convertido en canales rituales profundos que tomaban todo el cuerpo, subiendo por el cuello en geometría y bajando por los brazos como ríos. Los símbolos Xakaxi, más salvajes, pulsando debajo de la piel.
 
 Un abrigo de cuero negro hasta las rodillas, cortado torcido, abierto en el pecho, lleno de plumas de cuervo, huesos de animal y garras. Pantalón de cuero con placas de hueso en los costados, símbolo grabado a fuego. Botas que parecían tragarse la luz, atravesadas por venas azules.
 
@@ -404,7 +404,7 @@ Dando palmadas al ritmo, una sonrisa orgullosa en la cara. Había apostado todas
 
 El Narrador vino deslizándose por la arena. Una figura elegante y grotesca, miembros demasiado largos, moviéndose como araña. Tomó la muñeca del Kim Primordial y la levantó hacia el cielo.
 
-— ¡Seres y seres! ¡Hemos presenciado algo extraordinario! ¡Aquel que creíamos solo un chico común se reveló como una fuerza primordial incontestable! ¡Cuando todo parecía perdido, emergió como el temible Gostosão Nevado, dominando el campo de batalla! — Extendió el micrófono. — Y ahora, gran campeón, ¿cómo deseas ser aclamado?
+— ¡Seres y seres! ¡Hemos presenciado algo extraordinario! ¡Aquel que creíamos solo un chico común se reveló como una fuerza primordial incontestable! ¡Cuando todo parecía perdido, emergió como el temible Bombón Nevado, dominando el campo de batalla! — Extendió el micrófono. — Y ahora, gran campeón, ¿cómo deseas ser aclamado?
 
 El Kim Primordial miró el micrófono con una curiosidad muy antigua.
 
@@ -574,7 +574,7 @@ Jack, conteniendo una sonrisa que no le cabía en la boca.
 
 — ¡Mierda! — Jack explotó. — ¡Lo logramos! ¡Jodidamente genial, Kim! ¡Jodidamente genial!
 
-— Tipo. Deja el puto show y explica qué mierda está pasando. — Kim. — Empieza contándome cómo gané esa pelea.
+— Hermano. Deja el puto show y explica qué mierda está pasando. — Kim. — Empieza contándome cómo le di la vuelta a esa pelea.
 
 Jack abrió la boca para responder.
 

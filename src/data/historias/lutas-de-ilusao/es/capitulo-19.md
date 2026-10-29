@@ -38,7 +38,7 @@ Jack se detuvo a dos pasos de la muchacha, las manos en los bolsillos.
 
 La muchacha se subió un poco los lentes con la mano izquierda. Apoyó la barra de hierro en el suelo. Escupió al lado del tenis de Jack.
 
-— No va a poder ser. — Una voz ronca, tranquila. — Nos están pagando buena plata solo por tomar unas fotos de la paliza que ustedes van a recibir. Y mira. A mí me encanta dar palizas. Pero me encanta más cuando me pagan por hacerlo.
+— No va a poder ser. — Una voz ronca, tranquila. — Nos están pagando buen dinero solo por tomar unas fotos de la paliza que ustedes van a recibir. Y mira. A mí me encanta dar palizas. Pero me encanta más cuando me pagan por hacerlo.
 
 Jack asintió con la cabeza. Despacio. Como quien se lava las manos.
 
@@ -244,8 +244,8 @@ Del otro lado del parque, en el sendero de la izquierda, Nina estaba con una pie
 
 Siete tipos llegaron por el camino de tierra.
 
-Ella ya esperaba. Era mujer. Sabía exactamente lo que un hombre hacía cuando creía que había encontrado a una chica sola en el monte. Ya había visto esa sonrisa en la cara de muchos hombres antes. Nunca le había gustado ninguno.
+Ya lo esperaba. Era mujer. Sabía exactamente lo que un hombre hacía cuando creía que había encontrado a una chica sola en el monte. Ya había visto esa sonrisa en la cara de muchos hombres antes. Nunca le había gustado ninguno.
 
 Bajó la pierna del árbol.
 
-Tronó el cuello.
+Se hizo sonar el cuello.

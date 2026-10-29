@@ -218,4 +218,4 @@ Kim looked at his hands. Closed them. Opened them. Bounced once. Twice. Jumped h
 
 — Then let's go. — Nina.
 
-— Only if it's now.
+— Right now, let's go.

@@ -8,7 +8,7 @@ Se había metido demasiado profundo. Era su culpa. Nadie lo encontraba.
 
 Finalmente aparecieron. Siete. Cuatro mujeres y tres hombres. Jack sonrió, se levantó del tronco donde estaba sentado y lanzó unos puñetazos al aire para calentar.
 
-— Siete, ¿eh? Apuesto a que la mayoría fue detrás de Kim. Qué fastidio. No deberían subestimarme así. Y lo peor es que esta pelea se la van a cobrar a Kim. Eso me enfurece todavía más.
+— Siete, ¿eh? Apuesto a que la mayoría fue detrás de Kim. Qué fastidio. No deberían subestimarme así. Y lo peor es que esta pelea se la van a anotar a Kim. Eso me enfurece todavía más.
 
 Una chica de look punk vino al frente. Mohicano, alfiler en la oreja, botas militares. Midió a Jack de arriba abajo.
 
@@ -108,7 +108,7 @@ Por alguna razón, todos se detuvieron.
 
 La chica que estaba en el suelo gritó.
 
-— ¡Hijo de puta! ¿Crees que tenemos miedo? ¡No metes miedo a nadie! Nuestra jefa quiere la plata que acordaron. Y cuando ella quiere algo, lo consigue.
+— ¡Hijo de puta! ¿Crees que tenemos miedo? ¡No metes miedo a nadie! Nuestra jefa quiere el dinero que acordaron. Y cuando ella quiere algo, lo consigue.
 
 — Esta vez no. — Jack, con lástima.
 

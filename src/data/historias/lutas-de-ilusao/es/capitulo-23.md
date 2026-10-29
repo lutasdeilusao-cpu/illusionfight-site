@@ -44,7 +44,7 @@ Ella llegó por el monte con el cigarrillo en la boca.
 
 — ¿Qué tal, Nina? — Jack. — ¿Todo bien? ¿Tranquila? ¿Ninguna herida? ¿Nada roto? ¿Cuál es la situación?
 
-— Óptima. Como están viendo. Tranquila, nada roto, ninguna herida. Solo ensucié mi falda. De Dolce e Gabbana. Después la mando a lavar. — Miró a los dos. — Y ustedes, por lo visto, todo bien también.
+— Óptima. Como están viendo. Tranquila, nada roto, ninguna herida. Solo ensucié mi falda. De Dolce & Gabbana. Después la mando a lavar. — Miró a los dos. — Y ustedes, por lo visto, todo bien también.
 
 Kim la miró de arriba abajo.
 

@@ -88,7 +88,7 @@ Kim estaba cayendo de nuevo.
 
 La arena allá abajo no era muy diferente de la primera. Solo que vacía. Ninguna tribuna gritando, nadie mirando hacia arriba. No vio ni una sola persona mientras caía.
 
-*Tiene que haber una forma de aterrizar sin darse de cara.*
+*Tiene que haber una forma de aterrizar sin darme de cara.*
 
 — Kim. — NeoGuide dentro de su cabeza. — Hay dos solicitudes de entrada para tu sala privada. Ambos dicen ser tus amigos. ¿Puedo aprobar?
 
@@ -162,7 +162,7 @@ Jack levantó la mano con tres dedos.
 
 — Tres cosas. Uno: aquí todo es mente. El LDI se aferra a la fuerza mental de quien juega. Si crees que caer de doscientos metros es normal, caes y te pones de pie. Si dudas, caes como saco de cemento. Por eso te das de cara. Piensas demasiado en el suelo.
 
-— Dos. Todo avatar tiene un elemental. Primario o secundario. Secundario no es más débil, solo tiene más opciones de combinación. Thunderbolt usaba electricidad, que es secundario de la Luz. Lo que salió de ti en aquella pelea parecía Trevas, que es primario.
+— Dos. Todo avatar tiene un elemental. Primario o secundario. Secundario no es más débil, solo tiene más opciones de combinación. Thunderbolt usaba electricidad, que es secundario de la Luz. Lo que salió de ti en aquella pelea parecía Tinieblas, que es primario.
 
 — Tres. Lo más importante. Todo lo que sabes de pelea allá afuera funciona aquí. Solo que tienes que creer que aquí eres tan fuerte como allá. O más. Eso no está escrito en ningún lado. Nadie sabe bien cómo funciona el LDI. Pero es lo que yo hago y me funciona.
 
@@ -170,7 +170,7 @@ Jack levantó la mano con tres dedos.
 
 Kim tenía cara de estar entendiendo la mitad.
 
-— Tipos de sala. — Jack, cambiando de tema antes de que el amigo se trabara. — Hay sala de obstáculos, sala con desventaja elemental, sala con enemigo que ya enfrentaste. Hoy es la simple, la que elegiste. Vamos a probar tu elemental de Trevas. Y como ya mostraste que tienes mucho poder aquí adentro, Nina y yo vamos a pelear juntos contra ti.
+— Tipos de sala. — Jack, cambiando de tema antes de que el amigo se trabara. — Hay sala de obstáculos, sala con desventaja elemental, sala con enemigo que ya enfrentaste. Hoy es la simple, la que elegiste. Vamos a probar tu elemental de Tinieblas. Y como ya mostraste que tienes mucho poder aquí adentro, Nina y yo vamos a pelear juntos contra ti.
 
 — Dos contra uno.
 
@@ -218,4 +218,4 @@ Kim miró sus manos. Las cerró. Las abrió. Saltó una vez. Dos. Saltó más al
 
 — Entonces vamos. — Nina.
 
-— Solo si es ahora.
+— Ahora mismo.

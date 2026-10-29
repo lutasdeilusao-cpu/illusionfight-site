@@ -86,7 +86,7 @@ The two talked to her like she'd always been there. She'd never had that.
 
 Jack came back with a full cup and a huge smile.
 
-— And this is where the cat leaps. To get into the rank, you have to be at least at position one million. There are more than eight billion people in the world. At least three billion play LDI. Getting into the top one million is already not easy. But if you get in, you already have some relevance. Small. But you have it.
+— And here's the trick. To get into the rank, you have to be at least at position one million. There are more than eight billion people in the world. At least three billion play LDI. Getting into the top one million is already not easy. But if you get in, you already have some relevance. Small. But you have it.
 
 — And the rank is divided into bands. — Nina said, making another round. — From one million to five hundred thousand, they're the least relevant. The least of the least. From five hundred thousand to one hundred thousand, little relevance. From one hundred thousand to fifty thousand, if you work a little, you can already get something. From fifty thousand to ten thousand is the most-watched crowd. They can't close their fights, so the whole world likes to watch. They're the forty thousand free. — She stopped. — I've said too much. Go on, Jack.
 
@@ -262,7 +262,7 @@ Then the serious face came back. He stubbed out his cigarette on the ground.
 
 Kim looked at Jack. It was unbelievable how much that guy knew him. There was no hiding anything.
 
-— There is. — He looked at the street. — In the fight. Before I blacked out. There was an old man. A shaman. He talked to me like he knew me.
+— There is. — He looked at the street. — In the fight. Before I blacked out. There was an old man. A pajé. He talked to me like he knew me.
 
 ---
 
@@ -278,7 +278,7 @@ Jack went still.
 
 Jack opened his mouth. Closed it.
 
-— Said he was Shaman Yawanari, of the Xakaxi tribe. That he was the ten out of ten who was in charge of protecting all the sacred powers of this whole world. — Kim said, serious. — And that the problem I was going through was just a flea on the monkey's ass.
+— Said he was Pajé Yawanari, of the Xakaxi tribe. That he was the ten out of ten who was in charge of protecting all the sacred powers of this whole world. — Kim said, serious. — And that the problem I was going through was just a flea on the monkey's ass.
 
 Jack hit the ground.
 
@@ -322,7 +322,7 @@ Kim smiled. Once again, happy to have that friend.
 
 Jack got up from the curb, dusted off his pants and walked off down the dark street with the drumsticks in his back pocket.
 
-— Get home alive tomorrow in time for class. — Kim said, loud.
+— Show up alive tomorrow in time for class. — Kim said, loud.
 
 Jack raised his hand without turning.
 

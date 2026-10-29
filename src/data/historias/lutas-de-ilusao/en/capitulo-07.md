@@ -8,7 +8,7 @@ Not everywhere at once. In waves. As always.
 
 The Yohualticit tower had ninety floors.
 
-Yohu, for anyone under thirty. The company that had invented Lutas de Ilusão and, with it, become the most powerful corporation on the planet. Hologram floating in the black marble corridor. Glass walkway over thirty meters of empty space. People in suits walking fast, silent.
+Yohu, for anyone under thirty. The company that had invented Illusion Fight and, with it, become the most powerful corporation on the planet. Hologram floating in the black marble corridor. Glass walkway over thirty meters of empty space. People in suits walking fast, silent.
 
 Until all the alarms in all departments went off at once.
 
@@ -144,7 +144,7 @@ In Zylvaron, on the forty-seventh floor of a glass tower, Mikael stopped the inv
 
 Air conditioning at twenty-three degrees. Down below, thirty-five. White shirt, silk tie, white orchid on the table.
 
-His phone buzzed on the table. *BRIGUENTO 142536 — SDR #1.201.* The speaker went on about projected returns for the next quarter. Chart, analysis, number. It all became a blur.
+His phone buzzed on the table. *BRAWLER 142536 — SDR #1.201.* The speaker went on about projected returns for the next quarter. Chart, analysis, number. It all became a blur.
 
 Only one certainty remained.
 
