@@ -19,7 +19,7 @@ O horror progride de festa → jogo que parece defeituoso → evidência física
 ### 1.1 Fontes e precedência
 
 1. Orientações de Isaías em 19/10/2026, incorporadas neste documento.
-2. Manifesto e regras universais: [WEBSHARD_GUIA_DE_PRODUCAO.md](../WEBSHARD_GUIA_DE_PRODUCAO.md), §§2–7; processo e referências: [PRODUCAO_IMAGEM.md](../../PRODUCAO_IMAGEM.md).
+2. Manifesto e regras universais: [WEBSHARD_GUIA_DE_PRODUCAO.md](../WEBSHARD_GUIA_DE_PRODUCAO.md), §§2–7; processo, ferramentas e referências: [REGRAS_CRITICAS.md](../REGRAS_CRITICAS.md).
 3. Este roteiro determina os acontecimentos, as exceções deste especial e os textos das páginas.
 4. Fichas aprovadas determinam aparência; plantas aprovadas determinam geografia. Uma ficha não modifica o roteiro nem muda a identidade de um personagem.
 5. Para vozes e identidade, conferir os capítulos atuais de `src/data/historias/lutas-de-ilusao/pt/`, sobretudo 01–03, e `src/data/personagens-pt.json`. As fichas em `docs/LDI/Conhecimento_Otimizado/` ajudam, mas contêm versões antigas divergentes.
