@@ -1,329 +1,675 @@
 # CHAPTER 3 — The Only Rule
 
-Brock walked through the classroom door without knocking.
+Nobody in the room moved.
 
-It wasn't aggressive. It was the entrance of someone who doesn't consider the possibility that a door might be closed to him. The four behind him with the same posture, no uniform, no excuse to be there. And Freddy last, trying to appear as the main reason for the scene when he was clearly the footnote.
+The bald guy in the jacket stood by the door, next to Freddy, waiting for the two to get up.
 
-The room felt it before processing it.
+The two didn't get up.
 
-Kim and Jack didn't turn their heads. They were in the middle of a discussion about whether the band existed or not, the same discussion as always, and the consensus was the same as always — which was two completely different consensuses. Jack insisted the last guitar session had been a rehearsal. Kim insisted it had been an error in judgment.
+Jack was talking about rehearsal. Kim was doing the exercise. Same conversation as always, same result as always: Jack swearing the band existed, Kim swearing he had a bill to pay.
 
-Brock walked to Kim's desk and stood there.
+From the hallway, a kid came in slowly. Hands in the pockets of his black hoodie, bangs covering his left eye. He crossed the room unhurried and stopped in front of the two desks.
 
-Nothing.
+Anderson.
 
-Kim flipped the tablet screen to the next exercise.
+— Bro. Didn't you see the boss talking to you?
 
-— We need to talk. Both of you. — Brock had the patience of someone paid by the hour.
+He slammed both hands on the desk hard.
 
-Kim raised his eyes, assessed Brock for a second, and went back to the tablet.
+— When the boss talks, you obey.
 
-— Fine, but fair warning: our time is expensive and you need to be worth the effort.
+Kim and Jack exchanged a look.
 
-Not a question. Not a refusal. A redirection, said with the calm of someone who has already decided how the scene ends.
+That was all.
 
-Brock stood there for a second. Then nodded. Professional enough to recognize when the other party thought they controlled the pace.
+Jack gave a shallow slap to Anderson's right hand. The support vanished, his body came forward, and in the way was Kim's fist. Stopped. No force at all. Anderson's chin fell onto it by itself.
 
-Kim closed the tablet, grabbed his bag and walked to the door with Jack beside him, the two resuming the band discussion at the exact point where it had stopped. The group parted to let them through, all four with a silent curiosity about whether that arrogance was courage or stupidity.
+*Tap.*
 
-Freddy didn't have the same patience.
+Anderson straightened up with his face red, bangs swinging.
 
-— You sons of bitches! You're going to let these two pieces of trash run things? I'm paying you to destroy them. I want them humiliated in front of the whole school, I want videos of these animals bleeding.
+— You sons of bitches! Miserable pricks!
 
-Brock knew the job well. He knew demanding clients came with the package. He turned his head to respond, but didn't open his mouth.
+He yelled too long. Kim, still seated, landed a sharp kick to his knee. The leg gave way. When Anderson bent over, Jack grabbed him by the scruff and pulled his face into the desk.
 
-Freddy had changed completely. What was on his face now wasn't anger. It was solid, raw, pure terror. His legs were visibly trembling.
+*Smack.*
 
-Brock followed the client's gaze.
+Anderson slid to the floor and stayed there, looking at the classroom ceiling with the face of someone who doesn't know what day it is.
 
-Kim and Jack were no longer laughing. They weren't saying anything. They were looking at Freddy, both at the same time, with the expression of someone who has just noted something important.
+Jack turned his body back to Kim as if nothing had happened.
 
-Brock made a mental note.
+— Bro, today we're gonna figure out a new song. But I can't remember which one...
 
-*These two aren't small-time.*
-
-Kim and Jack turned around and resumed the conversation normally. The rest followed.
-
-Nina hadn't moved. She looked at the other students, at the absence of surprise on their faces, at the expressions of disappointment from those who had expected a different result. She picked up her bag. She didn't quite know why, but she needed to see this through.
+— Jack, drop it, damn it. I'm not rehearsing with you today.
 
 ---
 
-The procession through the hallway had a clear geometry.
+In the third row, Nina had stopped messing with the tablet.
 
-Kim and Jack in front, steady pace, the band discussion continuing at normal volume with no concession to the group behind them.
+*That's why they seemed so unconcerned.*
 
-The group following: Jason, strangely the physically strongest but not the leader, dark-skinned, the tallest, well-defined muscles under his tank top. Michael, slightly shorter than Brock, spiked red hair, a scar on his face running down to his eye — not a first-timer. Anderson, the shortest of the five, worn hoodie, black bangs covering his left eye, the right eye hungry for blood. André, heavyset but solid, the calmest of them all, eating a chocolate bar without hurry, natural hair, brown skin.
+At the door, Freddy went white.
 
-Jack did a full read of the group without appearing to look.
+— No way.
 
-— You think there's more than this? — he said low, just for Kim.
+The bald guy crossed his arms and looked at Anderson on the floor, no anger. Just sizing up.
 
-— Unfortunately, I don't think so. — Kim didn't turn. — It'll be quick. Maybe the leader gives some trouble.
+— Maybe these two will amount to something.
 
-Jack rolled his neck with a crack, lazy gesture. Kim yawned.
+Jack cracked the fingers of one hand, one by one.
 
-Brock, a few meters back, noticed the gestures. Frowned slightly. Went back to his phone.
+— Looks like we're gonna take a break from studying.
 
----
+Kim adjusted the brim of his blue cap and sighed.
 
-Outside, Freddy listened to the two inside the bathroom. He couldn't make out the words, only the tone — calm, almost bored, as if what was about to happen was a minor inconvenience in their day.
+— That's fucked... — And to the door: — You guys could've waited until dismissal, huh?
 
-That was worse than anything he had expected.
+No one had time to answer.
 
-Inside, Jack turned on the faucet, splashed his face, turned it off.
+A redhead came running from the hallway. Big, spiky red hair, a scar running down his face to his eye. A knife in his hand and a scream in his mouth.
 
-— You remember the last time we lost a fight?
+— AAAAAAAAH!
 
-Kim paused with the shirt still in his hand.
+Jack got up from the chair spinning. A full three-sixty spin, outside the knife's arc. The redhead charged through the space where Jack had been and looked for him ahead.
 
-— We never lost. The only one who put us down more than once was the Champion.
+Jack was behind.
 
-Jack made a face. Not anger. Something between disgust and involuntary respect.
+— Didn't your mother ever tell you not to run around... with a sharp object?
 
-— Where do you think he is now?
+The redhead turned with the knife. Kim caught his wrist in the air and bent the hand back, slowly, until the fingers opened on their own. The knife fell to the classroom floor.
 
-— Disappeared a while back. Word is he's dead. Strong fighter, but not stronger than a bullet. — Kim checked the mirror. — Let's be quick. I'm worried about being late for the next class.
+— Careful, kid. You might hurt yourself with that.
 
-Outside, Freddy heard the two laugh before the door opened.
+A knee came up into the pit of his stomach.
 
----
+The redhead folded in half and went to the floor next to Anderson.
 
-Freddy watched the two walking toward the annex. He sized them up and felt nothing. He couldn't see the slightest threat. They looked like ordinary kids. How had they managed to fight over thirty of his friends and still beat them all? And the worst of it: the one with the cap looked like a street kid, would knock someone down and go back for a snack. The one with the green hair wouldn't stop drinking while he fought, looked almost drunk. It had only ended because the police showed up, and the two had vanished the same way they'd appeared — from nowhere, leaving over thirty men on the ground.
+Michael.
 
-The annex was at the back of the school, separated from the main building by an uncovered courtyard nobody had used in a long time. Windows without glass, vines covering the outer walls, wood creaking in the wind. Kim and Jack crossed without watching their step. They knew where to walk.
+The whole room was on its feet now. Nobody was screaming. It was the silence of people who have seen this happen before and know it's best not to be in the way.
 
-They started stretching.
+Freddy gritted his teeth.
 
-The group watched every movement of the two, trying to read what that calm was saying. Comments started low and grew louder.
+*Savage sons of bitches!*
 
-— Watch yourself, bro, these guys think they're something. — Jason gave Michael a light punch on the shoulder.
+The bald guy uncrossed his arms. For the first time, something in his face closed.
 
-— They'll find out soon enough that you don't mess with real ones. — Michael replied and gave a restrained laugh.
+— You two. Better get up. Or I'll finish you myself.
 
-Anderson, bent at the knees looking at the ground, let out:
+Kim closed the tablet. Jack grabbed his backpack. The two stood up at the same time.
 
-— I'm gonna lay these clowns out. Closed casket.
+— Bros. — Jack raised his hands. — Wait until we get outside... so we don't mess up the classroom.
 
-André wiped his chocolate-stained mouth and said:
-
-— I want to finish this quick so I don't miss lunch.
-
-Brock stayed quiet. Pocketed his phone.
-
-Freddy felt relieved seeing them finally focused. Almost ten thousand coins hadn't been cheap, but the group was known as the best in the area, recommended by several friends who had used their services before.
-
-Kim raised his eyes and nodded to Brock. Simple signal: we're ready.
-
-Freddy, true to instinct, went straight behind a concrete column.
-
-The groups met in the center of the annex separated by a meter of hostility. Kim raised his index finger toward Brock.
-
-— You know what the only rule in a street fight is?
-
-Brock frowned. Kim turned his thumb down, slowly, like a Roman emperor deciding the fate of a gladiator.
-
-— There are no rules.
+The bald guy stood still for a second. Then he stepped aside and opened the door.
 
 ---
 
-Kim came in low, pendulum movement. Jason threw the hook and bent forward to reach him. The light kick behind the already unstable support knee took the leg out. Kim moved to his back before Jason hit the ground, locked the elbow against Jason's clavicle and pulled down. The shoulder came out of the socket with a sound that wasn't loud but was definitive.
+The group waited in the hallway.
 
-— Little son of a bitch, I'll kill you, ahhh!
+The bald guy in the jacket was Brock. The boss. Behind him came the others, each with the face of someone who'd done this many times.
 
-On the other side, Michael came with the steel pipe and his spiked red hair. Jack kept his hands in his pockets.
+Jason, the tallest and strongest of the group, dark-skinned, the muscle etched under his tank top. Strangely, he wasn't the leader. Michael, still holding his stomach, the scar on his face saying he wasn't new to this. Anderson, the smallest of the five, black bangs hiding one eye and the other thirsting for blood. And André, fat and strong, afro hair, eating a chocolate bar without any hurry.
 
-The first arc was vertical. Jack didn't shift his base, just leaned his torso back while the pipe cut the air in front of his face. He finished with a smile at Michael, which made him angrier.
+Kim and Jack walked past them in front. Easy stride.
 
-The second arc came horizontal, aiming for the neck. Jack ducked and the pipe passed overhead, Michael's own momentum rotating his shoulder outward. Jack slid through the space the arc opened and was back-to-back with him before the movement finished.
+— Shut up, Jack.
 
-— So, what did you think of her? — Jack asked Kim, completely relaxed.
+— Bro, I'm almost remembering the song. It has to do with habits...
 
-— Who? Oh, the new girl. — Anderson came with the knife extended straight at Kim's chest. Kim stepped back and pulled the wrist by its own momentum. The movement made him pass right through. The rotation left Kim facing Jack and he continued — Same content as always. Rich girl who thinks she's better than everyone.
+Brock watched the two's backs.
 
-— What kind of dance is this, I'll cut you up, you piece of shit. — Anderson turned furious, saw Kim's back, spun the knife and leapt to drive it into his back.
+— These guys don't take us seriously. — Low. — I hope they're worth it.
 
-Michael had lost sight of Jack. Hearing his target's voice, he simply swung the pipe horizontally, back still turned, aiming at Jack's shoulder.
+Behind, the rest of the crew was getting heated.
 
-Kim and Jack exchanged a quick look.
+— These rich kids got lucky — Michael growled. — Next time, I'll tear them both apart.
 
-Kim grabbed Jack's head and bent it, throwing his own body back at the same time. Michael's pipe passed through the space where they both were a second before.
+— They'll find out what real street kids are. — Anderson was still rubbing his chin. — Let's lay those sons of bitches out.
 
-Kim launched his body forward at the end of the arc, now facing Michael. The flying kick came with the tip of his foot hitting the jaw with a force that lifted him off the ground.
+— It was good to see those two get beat in there. They were getting too full of themselves. — Jason hit his own chest lightly. — And another thing: around here, I'm the second in command.
 
-Jack, bent by Kim's movement, turned his face at the exact moment Anderson completed his leap.
+André bit the chocolate.
 
-The smile on Jack's face wasn't provocation. It was gratitude. Anderson, lost in everything that had happened in that second, couldn't see that his own weight and velocity would be his end.
+— Shit, I hope this ends soon. I'm hungry.
 
-Jack's uppercut rose clean into Anderson's stomach, legs driving from below, Anderson's body in the air in a position any Street Fighter player would recognize as a Shoryuken.
+Freddy quickened his pace to Brock.
+
+— Finish them off quick. I paid good money for this job.
+
+— Another Tuesday with a demanding client. — Brock didn't even turn.
+
+Up ahead, Jack tapped a rhythm on his thigh that only existed in his head.
+
+— Bro, the song goes like... tuts, tuts, tus. You know? Do you know which one, Kim?
+
+— I still don't know why you're talking about that shit.
+
+---
+
+In room A-304, Nina stood up.
+
+She pulled her black gloves up to her wrists, one finger at a time. Closed a belt pouch with a click. Crossed the room down the aisle of desks, unhurried.
+
+*Wow. Action on the very first day. I didn't expect that at an elite school.*
+
+She stopped at the door.
+
+*I have to see how this ends.*
+
+---
+
+Freddy watched the two walking ahead and didn't understand.
+
+They looked like ordinary boys. The one in the cap looked half-starved. The one with green hair wouldn't stop singing. Neither looked like any kind of threat.
+
+But at the party it had been them. More than thirty of his friends on the ground. The one in the cap would knock someone down and go back to grab snacks from the table. The green-haired one fought with a beer in his hand, looking drunk. It only ended because the police arrived, and the two disappeared the same way they appeared. Out of nowhere.
+
+The two turned at the end of the hallway and entered the locker room.
+
+— They must be trying to run away — Freddy said.
+
+Brock didn't answer. He leaned against the wall and waited.
+
+---
+
+Inside, Jack turned on the faucet and wet his face. He looked at himself in the mirror for a while.
+
+— My partner. Remember the last time we lost a fight?
+
+Kim took off his school shirt and grabbed another from his backpack.
+
+— We haven't lost a fight since the Champion.
+
+Jack made a face. It wasn't anger. It was something between disgust and respect, the kind you don't choose to feel.
+
+— Where do you think he is?
+
+— Disappeared a long time ago. Rumors say he died. — Kim put on the black shirt. — Strong in a brawl. But not stronger than a bullet.
+
+Jack was quiet for a second. Then he took off his uniform shirt, put it in the locker, and slammed the metal door.
+
+— So, my man. Little bet?
+
+— How much?
+
+— Ten... or twenty little punches.
+
+— Let's go twenty. — Kim slung the backpack over his shoulder. — I'm not gonna lose anyway.
+
+— If you say so.
+
+Outside, Freddy heard the two laughing before the door opened.
+
+---
+
+In the back of Elite Academy there was the annex. An old complex nobody had used in years.
+
+A rusty iron gate. Buildings with no glass in the windows, eaten concrete, vines climbing the walls. The afternoon sun made everything orange.
+
+Kim and Jack crossed the gate without looking at the ground. They knew where to step.
+
+The crew was already inside.
+
+Jason slipped his fingers into a brass knuckles covered in spikes. *Crack.* He closed his fist slowly, for everyone to see.
+
+— This is where the son cries and the mother doesn't see.
+
+Michael hit a club wrapped in barbed wire against an iron beam. *Clang.* He laughed.
+
+— You got lucky in that classroom, using your dirty tricks. But out here you're gonna feel the iron bite.
+
+Jack didn't even hear. He was standing in the middle of the courtyard with both hands on his head.
+
+— Bro, how does that song go again? — He walked in circles. — No, man! I'm gonna remember this song! This is wrecking my brain! I need to remember this song!
+
+Kim crossed his arms and waited for it to pass.
+
+Anderson had found a rusty machete in some corner. He ran his thumb along the edge, slowly.
+
+— I need to see you bleed. — Almost whispering. — I'm going to drink your blood.
+
+André swung a thick chain through the air, bored.
+
+— I want to end this soon. I'm dying of hunger.
+
+Brock lit a cigarette and moved back.
+
+— Let's go, family. We're gonna make this a closed-casket wake.
+
+The four came running. Brass knuckles, club, machete, chain.
+
+— STOP! — Jack shouted.
+
+The four stopped. Out of pure shock.
+
+— Hasty little crowd, huh — Kim said.
+
+— Are you guys crazy? — Jack opened his arms. — We have to warm up before we start.
+
+— We don't want to pull any muscles.
+
+And the two started stretching.
+
+Right there. In the middle of the courtyard. In front of four armed guys.
+
+Kim rolled his neck, threw a punch at the air.
+
+— Let's finish this fast. I want to watch the Florist's class.
+
+— Yeah, her class is too good. — Jack pulled his heel up to his butt. — And speaking of too good... what did you think of the pink-haired girl, huh?
+
+— She earned my sympathy by humiliating you. — Kim stretched his arm over his head. — I even saved it, for future teasing and humiliations.
+
+— I knew it! You bastard!
+
+Leaning against a pillar, Brock blew out smoke.
+
+*These two are crazy. Really crazy.*
+
+Behind a concrete column, Freddy had found his spot. And, a little farther away, in a window opening without glass, a pink-haired girl sat down to watch.
+
+Kim finished stretching. He pulled the brim of his cap down.
+
+— Do you know the only rule of a street fight?
+
+---
+
+Nobody answered.
+
+Kim took off running.
+
+It was fast. Low. Straight at Anderson, dust rising behind. He was going to close the distance in two steps...
+
+— Kim... Kim... KIM!
+
+Kim looked to the side.
+
+— What?!
+
+Anderson's foot hit him square in the face.
+
+Kim flew backward across the courtyard, scraped along the stone floor, and landed flat on his back.
+
+On the other side, Jack raised both arms.
+
+— I REMEMBERED THE SONG!
+
+Anderson was already in the air. The rusty machete raised with both hands, his whole body falling together with the blade, straight at Kim on the ground.
+
+— Son of a bitch... — Kim, lying down.
+
+He rolled.
+
+The blade came down where his head had been and stuck into the stone floor. *Chank.* It stayed there, upright, vibrating.
+
+Kim was already crouched beside it. His eye had changed.
+
+— Let's try again. The answer is...
+
+He closed both hands on the machete handle.
+
+— Not...
+
+Using the handle for support, he raised his body and drove his sneaker up, his foot shoving everything forward.
+
+— Any...
+
+His fist came up from below and crashed into Anderson's chin.
+
+— RULES!
+
+Bone cracked.
+
+— Just so you know — Kim said, low —, I went pretty easy on you back in that classroom.
+
+He pulled his arm back again.
+
+— This time it's gonna hurt.
+
+The second punch sent Anderson flying, spitting blood, onto a pile of rubble. He didn't get up.
+
+One.
+
+---
+
+André came spinning the chain with all the swagger in the world. He'd waited for the right moment, the right entrance, the right line. It was going to be his big entrance.
+
+And Jack had screamed in the middle.
+
+— You moss-headed fuck, you ruined my moment.
+
+Jack raised a hand.
+
+— My bad.
+
+The chain came down. Jack stuck his hands in his pockets and stepped out of the way.
+
+And he started to sing.
+
+It was "Bad Habits" by Ed Sheeran. In English, half right and half made up, the voice too on-key for someone dodging an iron chain. The chain went, Jack wasn't there anymore. The chain came back, Jack was already on the other side, singing the chorus with his eyes closed.
+
+André got tired of the dance. He aimed low. The chain wrapped around Jack's ankle and he pulled with all his strength.
+
+Jack came. Willingly.
+
+— Alright, my friend, I'll let you hit me! — he shouted in the air. — Do you play Street Fighter? Here in Bravara we call this move...
+
+He used André's own pull to build speed. His knee came up.
+
+— TIGEEEER... ROBOCOP!
+
+The knee sank into André's stomach. All the air left at once. The chocolate came out with it. André sat on the ground, then lay down, and stayed there.
+
+Two.
+
+Jack unwrapped the chain from his ankle, thoughtful.
+
+— Wait. I think Robocop is when you use the arm... Hey, Kim, the Roboc...
+
+— Fuck, man! — Kim didn't even turn. — Stop using other people's move names, you're gonna get sued! — Pause. — I mean: stop naming your shitty moves!
+
+---
+
+Jason came at Kim.
+
+And he came different.
+
+The first punch grazed his ear. The second, grazed his chin. The spiked brass knuckles whistled through the air. Kim went back, to the side, down, and each strike missed by a finger.
+
+In the background, Jack kept singing. "My bad habits," and the rest of the lyrics all in English, as if it were a movie soundtrack.
+
+*This one is faster. And stronger.*
+
+A high kick passed over the cap.
+
+— Stop running, you son of a bitch!
+
+*Maybe this one should be the leader.*
+
+Another punch. Another breeze on the face. Jack hit the chorus again, and Kim, without meaning to, realized his head was bobbing to the beat.
+
+*What a pain. That song really is good, son of a bitch.*
+
+— As you wish — Kim said to Jason.
+
+He stopped running.
+
+The next punch came, and Kim caught his wrist in the air. He twisted Jason's arm back, over his shoulder, and pushed down, down, until the big man was kneeling on the stone floor with his hand bent awkwardly upward.
+
+— Jack, stop giving soundtracks to our fights!
+
+— My man, just give up already...
+
+Kim twisted.
+
+*Crack.*
+
+— Son of a bitch, you broke my hand! — Jason held his wrist, blood dripping between his fingers. — What the fuck, you fucking asshole!
+
+The brass knuckles fell to the ground. *Clink.*
+
+If you can't beat him...
+
+Kim started to sing quietly too.
+
+He closed his fist at waist height and rose his whole body with it.
+
+— Shoryu... KEEEEN!
+
+The punch caught Jason right in the chest. The big man spat blood and went flat on his back.
+
+Three.
+
+Kim shook his hand, annoyed.
+
+— Now you're making me even name my moves, son of a bitch.
+
+— Partner, relax, man. — Jack opened his arms. — Sing with me, come on...
+
+And he got the lyrics wrong. Tried again. Wrong again.
+
+---
+
+Michael came up behind Jack with the barbed-wire club raised high.
+
+The club came down. Jack took a little step to the side, without even looking.
+
+— Hi.
+
+The club came back horizontally. Jack ducked his head and kept talking.
+
+— So, Kim, do you think you can figure out that Ed Sheeran song?
+
+— If there's a chord chart, it might work.
+
+Mid-sentence, Kim picked up a stone from the ground, still dirty with blood, and threw it. The stone flew across the courtyard and hit Michael in the forehead. *Tap.*
+
+— You cowardly bitches! — Michael touched his forehead and saw his own blood. — What the fuck is this?
+
+— Hey! — Jack waved from the other side. — Look here!
+
+Michael looked.
+
+— Shouldn't have looked...
+
+Kim's kick came from behind and caught Michael in the side of the face. He spun in the air before falling.
+
+— Wha... what is... this...
+
+— That's bad habits — Kim said.
+
+Four.
+
+---
+
+Behind the column, Freddy was clutching his own hair with both hands.
+
+— What kind of fucking job is this? — He came out from behind the column, pointing at Brock. — Do something, you filthy bastard!
+
+Brock tossed the cigarette to the ground.
+
+*Damn Tuesday.*
+
+— If I step in, it'll cost double.
+
+Freddy swallowed hard.
+
+— I'll pay. I'll pay whatever you want. But only after I see them on the ground!
+
+Brock smiled for the first time.
+
+— Now Tuesday was worth the whole week. — He took off his jacket. — After this, I'm taking a vacation.
+
+From the middle of the courtyard, Jack sang again.
+
+— Bro, shut the fuck up! — Kim looked over his shoulder. — Looks like the final boss arrived.
+
+Brock came.
+
+It was an explosion. Dust rose behind him, and in a blink he was next to Kim.
+
+And he went straight past.
+
+Kim stood staring at his back, his hand still closed.
+
+Brock went at Jack.
+
+Jack, with his hands in his pockets, took the first punch to the stomach and the second to the face. Both landed clean.
+
+— Easy, big guy. — Jack spat to the side. — I know you're the leader...
+
+— You talk too much.
+
+— Whoa, Kim, save me!
+
+Kim didn't move. He wiped the blood from his knuckles on his pants. Took a crumpled pack from his pocket and lit a cigarette.
+
+*Wow. That was different.*
+
+He blew out the smoke.
+
+*He thinks Jack is the weakest.*
+
+— Go fuck yourself! — Jack shouted.
+
+Kim hummed a bit of the song, very low, and sat on a concrete block to watch.
+
+---
+
+Jack ran his thumb over his lip. Looked at the blood.
+
+— Here's the thing, friend. — His voice had changed. — I should be offended.
+
+Brock brought up his guard.
+
+— You think you have an advantage over me? — Jack took his hands out of his pockets. — Terrible mistake, big guy.
+
+Brock's high kick came. Jack blocked with his forearm and, in the same motion, drove a punch into his chest. Brock stepped back two paces.
+
+Now it was Brock attacking and finding nothing. A stomp on the ground that raised dust, and Jack was already to the side. A hook, and Jack was already behind. Jack dodged and sang at the same time, one word per dodge, and Brock started breathing through his mouth.
+
+Then Jack stopped dodging.
+
+— *My!*
+
+A kick to the thigh.
+
+— *Bad!*
+
+A punch to the ribs.
+
+— *Habits!*
+
+Another, in the same place.
+
+The rest of the verse came blow by blow, one punch per word, until the last. On the last, Jack grabbed Brock by the collar of his shirt and pulled his head down.
+
+The headbutt cracked across the whole courtyard.
+
+Brock fell backward into the rubble and stayed there.
+
+Five.
+
+Jack raised his fist to the orange sky.
+
+— It was a fair fight! Leader versus leader!
 
 ![](/assets/images/livro/03.png)
 
-The sequence was so fast and precise it stopped Brock and André in place.
-
-— Damn, Kim. — Jack shook out his wrist. — How many times do I have to say it: don't touch my hair. It takes work to fix in the morning.
-
-Anderson and Michael were completely out of the fight.
-
-— Don't change the subject — she carved an unforgettable humiliation into you. That's why I'm eternally grateful. I even saved it for future reference. — Kim smiled at his friend, matter-of-factly.
-
-— I knew it. This only proves it's our destiny. A beautiful story to tell our kids. — Jack pulled a comb from his pocket and started fixing his hair. — She has something different. The others don't have that.
-
-André swung the chain in the air, the sound of it cutting through the space. Jack stepped back, still focused on his hair. Kim turned his face.
-
-André's first arc was vertical toward Kim. Jason got up at the same time, right shoulder out of the socket, agony and fury on his face, coming from the side with his left arm raised.
-
-Kim stepped back. Jason took the space where he had been and the chain found his neck. He was out before he hit the ground.
-
-Kim closed the distance with André in one movement, face to face, eye to eye.
-
-André hadn't processed yet that he had just taken down his own friend.
-
-The first punch landed in the solar plexus, taking all the air at once. The second crushed the liver. The third hit the kidney. The sequence left no room to breathe, and when the fourth blow found the throat, André's legs buckled and he began to slide, large and heavy, unable to hold his own weight.
-
-Kim finished with a lateral elbow strike already turning toward Jack, confident André wouldn't be getting up again. He clapped his hands in a done gesture.
-
-— You think they're all interesting.
-
-— But this one really is different. I swear. — Jack with his usual smile.
-
-Brock was standing in the center of the annex. He had watched everything in silence, eyes moving, cataloguing. No phone in hand. No hurry. He put on a pair of brass knuckles, one on each hand, and started moving.
-
-Brock moved past Kim quickly as if he wasn't even there.
-
-— Interesting. — Kim pulled a cigarette from his pocket, leaving Brock at his back.
-
-Jack noticed the choice, he was being underestimated, and something in his face changed slightly. The humor left. What remained was colder.
-
-Brock didn't telegraph. The first blow came direct, a fast jab that Jack barely slipped. The second looked like a cross Jack was expecting, but Brock didn't throw the cross, just rolled his shoulders in a feint. He threw a low hook that caught Jack's ribs with a force that folded all the air from his lungs at once.
-
-Jack stepped back. For the first time in the chapter.
-
-Kim had already lit the cigarette and watched Brock's last punch land.
-
-— Ah. — Kim blew the smoke. — That was a good one. I'm jealous.
-
-Brock advanced without pause. Jab, jab, hook, spinning leg kick and knee, always the same rhythm, forcing Jack back without leaving room to breathe. Jack blocked what he could, took what he couldn't. His ribs throbbed with every breath.
-
-— Damn, what a punch. — Jack through his teeth at Kim.
-
-— I know. — Kim watching with the satisfaction of someone who enjoys seeing his friend take a hit.
-
-— You just going to stand there?
-
-— I'm enjoying the break, which is what you normally do. It's your turn now, princess.
-
-Jack took three jabs straight to the face, right on the nose. He was getting tired of this. When Brock's right leg kick came, Jack grabbed the leg with his left hand, pulled the shirt with his right and headbutted him clean in the middle of the face.
-
-The impact made both of them step back one pace each. Brock blinked, nose bleeding, and for the first time his expression changed. Not from pain. From reassessment.
-
-Brock advanced again. Jack didn't step back this time.
-
-Brock's hook came. Jack used his head again, stopped the punch mid-path, and drove three shots into the liver in sequence. Each one deeper than the last, knuckles finding the muscle until it gave. Brock folded. Jack locked Brock's neck under his arm and squeezed, the weight of his own body working against him.
-
-Brock fought for about ten seconds. Good ten seconds. Then he stopped.
-
-Jack set him down on the ground carefully, which was a strange thing to do after strangling someone, but it was the way Jack did things.
-
 ---
 
-The annex went quiet.
+The complex went quiet.
 
 Five on the ground. Brock among them.
 
-Jack stood with his ribs throbbing, the headbutt had left a cut at the top of his head that bled slowly. Kim walked to his friend's side and looked at the five scattered across the floor.
+Kim got up from the concrete block, went over to his friend, and offered the pack. Jack took a cigarette and lit it with Kim's lighter.
 
-— I put down three.
+Kim hummed the ending of the song. Then turned to Jack slowly.
 
-— I put down three too. — Jack breathed deep. — The big one counts double, right?
+— What's this story about you being the leader?
 
-— That wasn't what we agreed.
+— Technical detail.
 
-— But isn't it you who says there are no rules?
+— I took down three.
 
-Kim offered his friend a cigarette. Jack took it. The two turned toward the concrete column where two elbows were still visibly trembling.
+— And I, two. — Jack blew out smoke. — But the big guy counts double, right?
 
-— You can come out now.
+— That's not what we agreed.
 
-Silence.
-
-— Nobody's going to hit you.
-
-Freddy came out from behind the column with the expression of someone who doesn't entirely believe that but has no better option. The black eye throbbed. The frustration of a whole night, of the procession through the hallway, of all the hired muscle on the ground, all of it fermenting behind his teeth.
-
-— I can't... can't... can't believe it. Those guys were se... se... serious. How do you... you... you do that? In an LDI battle I doubt you could pull anything like this!
-
-Kim and Jack looked at each other.
-
-Jack made an almost imperceptible signal with his eyebrow. Kim responded with a minimal nod.
-
-— Man, with all due respect. — Kim paused, genuinely concerned. — Do you stutter? There's nothing wrong with it, we'd apologize for making fun of you earlier. I thought it was just nerves.
-
-— I DON'T STUTTER, YOU IDIOT!
-
-Kim and Jack put their hands on their chests at the same time and let out a long, sincere sigh of relief.
-
-Jack watched the situation with the look of someone who sees the perfect opening. After Nina's epic rejection, there was finally something to give back.
-
-— Hey Kim, you gonna let this slide? This guy challenging you for real? If you need it I'll lend you my SBI. Or are you gonna run like a chicken, bro?
-
-Kim rolled his eyes.
-
-— I work, study, fight, drink and work again. Nonsense games don't fit in my schedule.
-
-Jack dug his hand into his bag and pulled out the SBI, dangling it like someone offering something inevitable.
-
-— Scared, are you? Didn't know this version of you, scaredy-cat JOAQUIM.
-
-Freddy came out from behind the column with the ironic smile of someone who saw the perfect opening.
-
-— Oh, no time for nonsense, huh? You're scared! Not my problem. But for someone known as the KING OF FIGHTS, you're looking more like the KING OF CHICKENS.
-
-Kim turned toward him slowly.
-
-— Look, I'm genuinely trying to be reasonable here, because your face is already broken. But don't push my patience. I have very little of it.
-
-Jack could barely hold back his satisfaction.
-
-— Go on Kim, show him you're not scared. — Jack couldn't hold it anymore and burst out laughing. — Take him down in LDI.
-
-Freddy approached with the artificial confidence of someone who has five hired fighters on the floor but hasn't completely processed that yet.
-
-— So, do you have the guts? If you win, I'll pay you two thousand DIX. A thousand for you, a thousand for your friend. If I win, you and your friend can't do anything to me, no matter what I do. That's only valid, of course, if your word is worth anything.
-
-Kim looked at the SBI in Jack's hand.
-
-He thought about the electricity bill. The sixty in DIX for Helena. The groceries. The week off he could take with that money — it was almost a month's wages.
-
-He extended his hand.
-
-— Show me the money and let's start.
-
-— Of course I'm recording this. — Jack raised his phone in the air. — Nothing better than having solid proof to spend that money without a guilty conscience. Kim, I get fifty percent.
-
-Kim looked at Jack. Jack smiled. Yeah, he knew what kind of friend he had.
-
-Freddy accessed his phone. The transfer programmed to settle the moment he lost.
-
-Jack placed the SBI in Kim's hands with the ceremony of someone handing over something that will change everything.
-
-— Welcome to Lutas de Ilusão.
-
-Kim put on the glove. Then the glasses.
-
-![](/assets/images/livro/04.png)
-
-The last thing he saw before activation was Jack with his phone already aimed, big smile taking a selfie.
-
-*This was a mistake.*
-
-He activated.
+— Huh. Aren't you the one who says there are no rules?
 
 ---
 
-In my world there is a game. A game called Lutas de Ilusão, focused solely on combat. Pure brutality, blood, suffering and glory — like the arena of the ancient Roman Colosseum. To me, this game was just a digital experience for cowards who don't want to feel real pain.
+Behind the column, Freddy was alone.
 
-It wouldn't take long for me to discover how wrong I was. About everything. But the biggest mistake was not realizing that the pain was real.
+His black eye throbbing. Sweat dripping. The five most expensive thugs in the region sprawled across the ground.
 
-**THE AGONY IS REAL.**
+— Sons of bitches. Useless. — He gritted his teeth. — You could never do this if it were in the LDI. There I'd wipe out your whole kind. I wouldn't leave a single piece!
 
-Welcome to Lutas de Ilusão.
+Jack heard.
+
+He scratched his chin with the cigarette in his mouth. A light bulb went off in his head.
+
+*There's a chance to mess with Kim.*
+
+*I'm gonna push his buttons. I know how to get under his skin.*
+
+— Hey, Kim! The guy's saying he'll finish you!
+
+Kim didn't even look.
+
+Jack started flapping his arms like chicken wings.
+
+— Scared? Gonna chicken out? Bawk, bawk, bawk! Huh, aren't you the hotshot? The second king of fights? Huh? Huh?
+
+The cigarette broke between Kim's fingers.
+
+— Second my ass.
+
+Freddy came out from behind the column. He'd found an opening and wasn't going to let it go.
+
+— So, blue cap. It's Kim, right? — He pulled out his phone. — I'll put up some money, if you want.
+
+— How much? — It was Jack who asked.
+
+— Two thousand in DIX. I'll set the transfer escrowed, with victory in the LDI as the requirement.
+
+— Oh, nice! — Jack opened a smile that didn't fit on his face. — So, Kim, just win and the money comes in. Fifty percent each, of course. Basic agency commission, my man.
+
+Kim blew out smoke.
+
+— I don't care about this virtual shit. If you want, just come feel reality.
+
+Freddy crossed his arms and smiled.
+
+— Seems like what your friend said. Scared, huh?
+
+Jack burst out laughing.
+
+Kim just stared at the ground.
+
+Two thousand. A thousand for him. The sixty DIX he owed Helena. The month's groceries. A whole week off work. It was almost a month's salary.
+
+— I accept.
+
+Jack closed his eyes. For a second, he was on a golden throne, crown and scepter, fireworks exploding behind him.
+
+*I did it.*
+
+*Kim is going to enter the world of Illusion Fight.*
+
+— Then it's set. — Freddy pocketed his phone. — We'll meet there. Get your SBI.
+
+Kim didn't move.
+
+Freddy raised his eyebrows.
+
+— I can't believe you don't have an SBI.
+
+— Hold on, Kim! — Jack was already opening his backpack. — I'll lend you mine.
+
+— No need. — Freddy raised his hand. — I have an old one here he can use. — He looked at Jack. — I want you to see your friend's fight.
+
+He took from his backpack a pair of glasses and two gloves with blue lights. Tossed them to Kim, who caught them in the air.
+
+— Get ready in there. Your friend won't help you. — Freddy bent down to grab his own SBI. — I know you're a starving kid, but don't come crying after the defeat.
+
+Jack helped put on the equipment. He fastened the glove on one side, then the other. Adjusted the glasses.
+
+— Kim, man, in there it's all about mental strength. — *Click.* — So relax and try not to fall flat on your face. — *Click.* — Calm down. I'll be there too, but in the stands.
+
+![](/assets/images/livro/04.png)
+
+The last thing Kim saw before activating was Jack with his phone pointed at him, taking a selfie with the widest smile in the world.
+
+*This was a mistake.*
+
+He activated it.
+
+---
+
+In my world there's a game. A game called Illusion Fight, focused only on battle. Pure brutality, blood, suffering and glory, like in the arena of the old Roman coliseum. That game, to me, was just a digital experience for cowards who don't want to feel pain in real life.
+
+In a short time I would discover how wrong I was. About everything. But the biggest mistake was not realizing that the pain was real.
+
+**THE PAIN IS REAL.**

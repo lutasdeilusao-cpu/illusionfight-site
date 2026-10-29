@@ -1,14 +1,66 @@
 # CAPÍTULO 11 — O Pulo do Gato
 
-Depois do ensaio, o Kim pegou a sacola escondida atrás do muro e os três foram pra base.
+A base era um estacionamento vazio no fim da rua.
 
-Um estacionamento vazio no fim da rua. Uns carros velhos largados, um Fusca sem rodas, uma caminhonete com árvore crescendo no motor, um hatch vermelho com a porta de trás aberta pra sempre. E o que sobrou de uma delegacia, a placa meio pintada. Os carros eram apreendidos do tempo em que ela funcionava.
+Uns carros velhos largados, um Fusca sem rodas, uma caminhonete com árvore crescendo no motor, um hatch vermelho com a porta de trás aberta pra sempre. E o que sobrou de uma delegacia, a placa meio pintada. Os carros eram apreendidos do tempo em que ela funcionava.
 
 Ninguém ia ali. Nem polícia. Nem a Helena.
 
-O Kim montou os copos no capô do hatch. O Jack cortou o limão com o canivete. Vodka, limão espremido com a mão, refrigerante. O Kim sentou no meio-fio.
+O Jack vinha na frente, a sacola balançando. Tuc, tuc, o tênis no asfalto.
 
-— Agora sim. — Olhou pros dois. — Me explica essa porra direito. LDI, SBI, SDR, SDA, sei lá o quê. Tudo.
+— Que dia, hein? — Ele, pro alto. — Briga nos fundos da escola, o Kim estreando no LDI e um monte de coisa estranha. Ganhamos uma amiga, ensaiamos com a banda e ainda impedimos um assalto. — Abriu os braços. — Parece que tem alguém lá em cima fodendo a nossa vida só pra divertir os outros. Já pensou se a gente for só personagem de quadrinho?
+
+Assobiou.
+
+— Tá falando com quem, Jack? — Kim.
+
+— Com ninguém. Esquece.
+
+Pôs a sacola no capô do hatch vermelho.
+
+A Nina vinha atrás, de braços cruzados. Ainda tinha farinha no cabelo rosa.
+
+— Vocês vão fingir que nada aconteceu?
+
+---
+
+— Tinha arma, gente! — Ela, as mãos no ar. — Três caras armados!
+
+O Jack sentou num bloco de concreto e acendeu um cigarro. Tsic.
+
+— Três caras mal armados. É diferente.
+
+O Kim encostou no hatch e abriu a vodka. Krik.
+
+— E se um deles acerta? — A Nina, agora pro Kim.
+
+— Não acertou.
+
+— Essa é a tua resposta?
+
+— É a única que eu tenho.
+
+A Nina sentou no meio-fio. O Jack sentou do lado dela.
+
+— A gente não ia deixar o moço ser assaltado.
+
+— Eu sei. — Ela olhou pra própria mão. — Só que minha mão ainda tá tremendo.
+
+O Kim estendeu a garrafa.
+
+— Então bebe, que passa. — O Jack.
+
+Ela bebeu. Um gole grande. Glup.
+
+Devolveu a garrafa. A mão ainda tremia. Menos.
+
+— Onde vocês aprenderam a brigar assim?
+
+— Na rua. — O Jack. — Sobrevivendo todo dia.
+
+O Kim montou os copos no capô. O Jack cortou o limão com o canivete. Vodka, limão espremido com a mão, refrigerante. O Kim sentou no meio-fio, do outro lado da Nina.
+
+— Vamos parar com essa conversa. — Olhou pros dois. — Eu quero saber tudo que vocês sabem sobre essa merda de LDI. LDI, SBI, SDR, SDA, sei lá o quê. Tudo.
 
 O Jack fez a cara de quem ia ter muito trabalho. Olhou pra Nina pedindo socorro. Ela fez que sim com o olho.
 
@@ -86,7 +138,7 @@ Ele falava sério. Não era pose. Pouca gente que ela conhecia queria de verdade
 
 O Jack pôs a mão na cara.
 
-— Tá. Depois a gente conversa sobre essa sua percepção da realidade. — Bebeu. — Continuando. No fim da tua primeira luta, você chegou na posição mil duzentos e um do ranking mundial. Quer dizer que, de todo mundo que joga no planeta, você tá chegando no top mil. Com uma luta. Eu, por outro lado, fui o único que apostou em você. Com isso, mais os meus pontos, eu fui pra dez mil setecentos e setenta e seis. Ou seja, eu ganhei...
+— Tá. Depois a gente conversa sobre essa sua percepção da realidade. — Bebeu. — Continuando. No fim da tua primeira luta, você chegou na posição mil duzentos e um do ranking mundial. Quer dizer que, de todo mundo que joga no planeta, você tá chegando no top mil. Com uma luta. Eu, por outro lado, fui um dos únicos que apostou em você. Com isso, mais os meus pontos, eu fui pra dez mil setecentos e setenta e seis. Ou seja, eu ganhei...
 
 — E eu também apostei no Kim. — A Nina baixou o copo, já meio tonta. — Só pela graça de apostar no azarão. Tô na oito mil setecentos e vinte e quatro. Um viva pra mim. Ippee ki yay!
 
@@ -152,11 +204,21 @@ A Nina, rindo, tentava chegar perto pra fazer carinho no pobre animal ferido. E 
 
 ---
 
-O resto da tarde foi bobagem.
+O resto da noite foi bobagem.
 
-O Jack contando briga antiga e história que ia lembrando. A Nina contando que tinha passado os últimos anos em Azuma, por causa do trabalho do pai, que ela chamou de consultoria, com uma pausa antes da palavra que o Kim registrou e não comentou. A garrafa esvaziando.
+O Jack contando briga antiga e história que ia lembrando. A garrafa esvaziando.
 
-Quando a luz da rua começou a ficar laranja e depois sumiu, os três levantaram. Meio tortos.
+Até que o Jack apertou a bochecha do Kim, rindo, e virou pra ela.
+
+— E a tua história, Nina? Qual é?
+
+A Nina ficou séria. Mexeu a garrafa quase vazia na mão.
+
+— Passei os últimos anos em Azuma. Pelo trabalho do meu pai. — Uma pausa. — Consultoria.
+
+A pausa antes da palavra o Kim registrou. E não comentou.
+
+Quando a garrafa acabou, os três levantaram. Meio tortos.
 
 — Pois é, rapeize. — Kim. — O papo tá bom, mas eu tenho que tomar meu rumo.
 
@@ -184,23 +246,59 @@ O Kim e o Jack sentaram no meio-fio da rua triste, olhando a esquina vazia.
 
 O Jack ainda estava sorrindo. Do nada, ficou sério.
 
-— Cara. Eu não quis perguntar com a Nina aqui, porque eu não sabia como você ia reagir. Mas antes, outra pergunta. O que você achou dela agora?
+— E aí, o que achou dela agora?
 
 O Kim coçou o queixo.
 
-— Sendo sincero, ela meio que mudou a minha primeira opinião. Mas tá em avaliação. — Pausa. — Eu nunca esperei fazer amizade com mais ninguém na vida, além de você e o Alan. Mas não vou fechar o coração.
+— Mudou minha primeira opinião. Mas tá em avaliação. — Pausa. — Nunca achei que ia ter outro amigo além de você. Mas não vou fechar a porta.
 
 Um meio sorriso, quase invisível, apareceu no rosto do Jack.
 
 Ele estava feliz de ver o amigo se abrindo pra coisa nova. O LDI. A Nina. E ele mesmo se sentia bem do lado dela. Como se conhecesse ela fazia anos.
 
-Aí a cara séria voltou.
+Aí a cara séria voltou. Apagou o cigarro no chão.
 
-— Cara. Eu sei que a gente zoou muito aquele velho moderninho. A gente riu pra caramba. Mas teve uma coisa que ele falou que eu tô ligado que mexeu com você. — Olhou pro Kim. — Ele falou alguma coisa da tua família, não foi?
+— Kim. Eu sinto que tem alguma coisa que você ainda não me contou.
 
-O Kim olhou pro Jack, sorrindo. Era inacreditável o quanto aquele cara conhecia ele. Não dava pra esconder nada.
+O Kim olhou pro Jack. Era inacreditável o quanto aquele cara conhecia ele. Não dava pra esconder nada.
 
-— Você é foda, velho. Beleza. Mexeu, sim. Ele disse que, igual o meu avô, eu sou fodinha. Neto do fodão. — Olhou pra rua. — Meu avô, Jack. Se ele sabe do meu avô, ele sabe do meu pai. Me deu vontade de perguntar pra Helena.
+— Tem. — Olhou pra rua. — Na luta. Antes de apagar. Tinha um velho. Um pajé. Ele falou comigo como se me conhecesse.
+
+---
+
+E contou.
+
+O escuro sem chão. O som de água pingando num ritmo que não era aleatório. O velho saindo das sombras devagar.
+
+— Barba branca comprida. Chapéu de penas. Óculos escuros redondinhos. Corrente de ouro com um cifrão. Um cajado dourado com uma pedra azul na ponta. E, mano, de tênis.
+
+O Jack ficou parado.
+
+— Aí ele veio com um papo de enigma que eu não entendi nada. Aí virou pro lado e começou a discutir com alguém que não tava lá. Perdeu a discussão. E virou de volta com uma voz completamente diferente: cheguei pra mitar. Cheguei pra divar, chavoso como sempre.
+
+O Jack abriu a boca. Fechou.
+
+— Falou que era o Pajé Yawanari, da tribo Xakaxi. Que era o dez de dez que ficou na responsa de proteger todos os poderes sagrados desse mundão. — Kim, sério. — E que o problema que eu tava passando era só uma pulga no cu do macaco.
+
+O Jack foi ao chão.
+
+Literalmente. Escorregou do meio-fio e caiu sentado no asfalto, rindo do riso que sai de um lugar fundo e não pede licença.
+
+— EU PERDI. Tô na Disney. Que viagem absurda!
+
+O Kim segurou a cara séria o máximo que deu. Até lembrar daquela barba, daqueles óculos, daquele cifrão no peito. O riso saiu antes que ele pudesse fazer alguma coisa.
+
+Mesmo lá, quase morrendo, ele já tinha pensado: se eu sair dessa vivo, vou rir muito do jeito que esse velho fala.
+
+---
+
+O Jack voltou pro meio-fio com a dignidade possível. Limpou o olho.
+
+E olhou pro amigo. Sério de novo.
+
+— Aquele velho falou da tua família, não foi?
+
+— É foda. Falou. — O Kim, de cabeça baixa, as mãos juntas. — Disse que eu era igual ao meu avô. Que, igual o meu avô, eu sou fodinha. Neto do fodão. — Olhou pra rua. — Se ele sabe do meu avô, sabe do meu pai. Deu vontade de perguntar pra Helena.
 
 O Jack coçou a cabeça. Ele sempre soube que aquilo era assunto sensível.
 

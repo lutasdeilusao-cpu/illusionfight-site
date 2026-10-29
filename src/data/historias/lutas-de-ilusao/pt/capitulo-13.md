@@ -100,59 +100,43 @@ O Kim e a Nina riram do jeito que ele contava.
 
 Os olhares do corredor estavam todos neles.
 
-E no meio do corredor, parado, tinha o diretor. Walter. Braços cruzados. O pé batendo no chão. Cara de quem não tinha dormido de raiva.
+E no meio do corredor, parado, tinha o diretor. Walter.
 
-— Será que um de vocês pode me explicar o que aconteceu ontem na frente da escola?
+Sozinho. Braços cruzados. O pé batendo no chão. Vermelho. Cara de quem não tinha dormido de raiva.
+
+— Será que um de vocês pode me explicar o que aconteceu ontem nos fundos da escola?
 
 O Jack coçou o queixo e sorriu.
 
-— Na frente da escola? Não faço ideia do que o senhor tá falando, diretor.
+— Nos fundos da escola? Não faço ideia do que o senhor tá falando, diretor.
 
 — É verdade. — O Kim. — Se o senhor der uma pista, talvez a gente lembre. Mas agora não vem nada.
 
-— Não brinquem com a minha paciência! Eu sei que vocês sabem o que aconteceu, porque vocês foram os autores do incidente.
+— Não brinquem com a minha paciência! A escola inteira tá falando. Eu ouvi de aluno, de professor, de funcionário. Briga no anexo. Faca, corrente, gente no chão. E todo boato que eu ouço termina no mesmo nome. — Apontou. — Kim. E Jack.
 
 O Jack abriu os braços.
 
-— Autores? Incidente?
+— Boato, diretor? O senhor vai acreditar em boato?
 
-— O senhor vai ter que ser mais específico. — Kim, com a mesma cara.
-
-O Walter passou a mão no rosto.
-
-— Ontem, depois da saída, vocês agrediram um colega da escola. E eu quero saber por quê.
-
-— Antes de mais nada, define "colega". — Jack.
-
-— Não me faça perder mais a paciência. Um aluno foi agredido por vocês ontem e eu quero saber por quê. Não é possível que vocês não lembrem de alguém que vocês atacaram.
+— Eu quero saber o que aconteceu. E quero saber por quê.
 
 O Jack ia responder. O Kim foi antes.
 
-— Fala o nome do aluno primeiro. Pra não ter confusão.
-
-— Samuel. Ele e os amigos dele foram agredidos por vocês.
-
-— Samuel, Samuel... — O Kim. — Ele é meio gordo?
+— Os caras que tavam no anexo são alunos daqui?
 
 O Walter piscou.
 
-— Aqui a gente não usa essa palavra, Kim. Mas sim, o Samuel é um pouco forte.
+— Isso não vem ao caso.
 
-A cara do Kim fechou.
+— Vem, sim. — O Kim. — Porque não são. São capanga pago. Os cinco mais caros da região. Quem pagou foi o Freddy, que é aluno, e que o senhor nunca chama aqui no corredor. Entraram de faca e corrente na mão, atrás da gente. — Inclinou a cabeça. — Então a pergunta que eu faria, se fosse o senhor, é como cinco caras armados entram numa escola sem ninguém ver.
 
-— Então o senhor tá falando do garoto que tava batendo em outro só pelo prazer de bater?
+O Walter abriu a boca. Fechou.
 
-— Sobre o que acontecia antes, eu não sei. — O Walter tirando o corpo fora. — O que eu sei é que o Samuel e os outros vieram até mim dizendo que foram agredidos por vocês.
+— Isso... isso vai ser apurado.
 
-O Jack abriu a boca de novo. O Kim levantou a mão e ele fechou.
+— Vai ser ótimo. — O Kim olhou o relógio do corredor. — Agora a gente tá começando a se atrasar. O senhor tem mais alguma coisa pra falar?
 
-— A questão é mais simples do que parece. A gente bateu nele dentro da escola?
-
-— Não, não foi dentro da escola, mas...
-
-— Como o senhor mesmo começou essa conversa, não foi dentro da escola. Problema que acontece lá fora, eles resolvem com a polícia. O senhor não é a polícia. — O Kim olhou o relógio do corredor. — Agora a gente tá começando a se atrasar. O senhor tem mais alguma coisa pra falar?
-
-O Walter ficou vermelho.
+O Walter ficou mais vermelho.
 
 — Tomem cuidado, vocês dois. Muito cuidado pra não perder as bolsas de vocês. Eu vou garantir que todo aluno dessa escola esteja sempre seguro. Não importam as consequências.
 
@@ -172,7 +156,9 @@ Mas aquele não ia ser um dia comum. O Jack tinha planos pro Kim. E sabia que n�
 
 Antes de chegarem à sala, o Ryan passou por eles. E voltou.
 
-— Então, senhores. Quero agradecer mais uma vez pelo que vocês fizeram por mim ontem. — Olhou pra Nina. — E agradecer a senhorita também.
+— Então, senhores. Quero agradecer mais uma vez pelo que vocês fizeram por mim. Naquele dia. No corredor.
+
+A Nina olhou pros dois. Os dois fizeram cara de quem não lembrava de nada.
 
 Os três se olharam com o mesmo sorriso.
 
@@ -184,7 +170,7 @@ Os três se olharam com o mesmo sorriso.
 
 Os três caíram na gargalhada.
 
-O Ryan não entendeu direito. Mas sabia que estava sendo zoado. E não ligou. Aqueles três tinham salvado a pele dele.
+O Ryan não entendeu direito. Mas sabia que estava sendo zoado. E não ligou. Aqueles dois tinham salvado a pele dele. A Sonata da Luta, o Arnold apagado no chão do corredor. Ele não ia esquecer.
 
 Ele se despediu. Deu dois passos. E voltou.
 
@@ -198,7 +184,7 @@ O Kim olhou de lado pra ele.
 
 O tom fez o Ryan travar. Ajoelhado, as mãos na caixa, paralisado.
 
-— Eu não sei o que você acha que aconteceu ontem. Mas o que eu sei é que você não me deve nada. Muito menos presente.
+— Eu não sei o que você acha que aconteceu naquele corredor. Mas o que eu sei é que você não me deve nada. Muito menos presente. Aquilo foi física. Quem deu o soco foi você.
 
 O Jack e a Nina caíram na risada da cara do Kim, que não sabia o que fazer com aquilo.
 
@@ -216,7 +202,7 @@ O Ryan sentiu os três em cima dele ao mesmo tempo.
 
 Os três fizeram que sim.
 
-— Ontem, depois que vocês me ajudaram, eu fui pra casa e fui dar uma olhada no PowWow. Um dos vídeos mais assistidos era o do Kim lutando contra o Thunderbolt. A luta foi impressionante e eu queria ver mais. Só que... desculpa falar isso... eu nunca vi você com um SBI. Imaginei que você não jogava. Ou que talvez não tivesse condição de comprar um. Mas a tua luta foi tão sensacional que seria um desperdício a gente não poder ver mais. Então eu comprei um pra você. Como agradecimento. Mas não é caridade. É investimento. Você é novato e desconhecido no jogo. Se você lutar de novo, eu vou ser avisado. E vou fazer uma aposta grande em você. Porque, se você ganhar, o retorno é muito alto.
+— Ontem eu fui dar uma olhada no PowWow. Um dos vídeos mais assistidos era o do Kim lutando contra o Thunderbolt. A luta foi impressionante e eu queria ver mais. Só que... desculpa falar isso... eu nunca vi você com um SBI. Imaginei que você não jogava. Ou que talvez não tivesse condição de comprar um. Mas a tua luta foi tão sensacional que seria um desperdício a gente não poder ver mais. Então eu comprei um pra você. Como agradecimento. Mas não é caridade. É investimento. Você é novato e desconhecido no jogo. Se você lutar de novo, eu vou ser avisado. E vou fazer uma aposta grande em você. Porque, se você ganhar, o retorno é muito alto.
 
 O Kim coçou a cabeça.
 

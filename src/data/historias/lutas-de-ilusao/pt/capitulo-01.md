@@ -56,9 +56,13 @@ Raiz gigante. Vagalume pra todo lado. Um cheiro de terra molhada que ele nunca t
 
 — É o seguinte. — O Kim apontou pra ele. — Ou você fala por bem, ou, maluco, eu vou te fazer falar por mal.
 
-— Oxe, criança, aquieta teu facho, que eu não sou tuas negas. — O velho riu de braços abertos. — Pra me enfrentar, tu vai ter que comer muito feijão com arroz.
+— Oxe, criança, aquieta teu facho, que eu não sou tuas negas.
 
-Bateu o cajado no chão.
+O velho se agachou e pegou uma folha do chão. Na palma da mão dele, a folha começou a fumegar. Depois queimou inteira.
+
+— Pra me enfrentar, tu vai ter que comer muito feijão com arroz.
+
+Esfarelou a cinza entre os dedos. O Kim ficou olhando.
 
 — O que eu vou te contar agora com certeza vai te ajudar nesse corre todo. É decisivo pra tua quest. Parça, se você não tiver essa informação, tipo assim... fodeu. Então foca no que eu vou te dizer, porque agora a pica é sua.
 
@@ -82,7 +86,7 @@ Um som vermelho, em onda, cortou a floresta.
 
 — Não! Agora não!
 
-— Gastou. A nossa cota.
+— Gastei. A nossa cota.
 
 — Faz parte, Kim. — O velho já estava virando pontinho de luz. — Eita, preula, não dá pra falar mais nada. Bem, padawan, cê vai ter que se virar com o que eu te dei.
 
@@ -230,23 +234,29 @@ Pôs a latinha na mochila, no meio dos saquinhos e do caderno.
 
 Abriu a porta.
 
----
+Lá fora o céu ainda estava roxo. A luz amarela da lâmpada em cima da porta, o quintal molhado, a cadeira de plástico encostada na parede.
 
-O Jack estava no segundo degrau da escada de fora, largado, como se fosse parte da paisagem.
+O Kim sentou no degrau da frente, a mochila do lado, e destravou o celular. Um vídeo de luta. Esperou.
 
-Dreads verdes. Pele mais escura que a do Kim. A mesma mochila laranja, a mesma plaquinha no pescoço. O celular na mão. Sempre o celular na mão.
+Não precisou esperar muito.
 
-— Mano, passa a breja. — Nem levantou o olho. — Tô vendo um vídeo do LDI aqui. Foda demais.
+O Jack apareceu pela rua com o passo solto, como se fosse parte da paisagem. Dreads verdes. Pele mais escura que a do Kim. A mesma mochila laranja, a mesma plaquinha no pescoço.
 
-— Cabeça de musgo. — O Kim desceu os degraus. — Caralho, Jack. Meio da madrugada, de manhã, de tarde e de noite. Cê não para de me encher, né?
+— Mano, passa a breja. Tô vendo um vídeo do LDI aqui. Foda demais. — Abriu os braços. — Véio ragubento.
 
-O Jack esticou o braço rápido como ladrão profissional e arrancou a lata da mochila do amigo. Abriu com um estalo. Virou um gole generoso.
+— Cabeça de musgo. — O Kim nem levantou o olho da tela. — Caralho, Jack. Meio da madrugada, de manhã, de tarde e de noite. Cê não para de me encher, né?
+
+Levantou. Abriu a mochila e entregou a lata pro amigo.
+
+O Jack abriu com um estalo. Virou um gole generoso.
 
 A cara dele se contorceu inteira.
 
 — Bleeeh! Que porra é essa? Tá quente, caralho!
 
-— Cê tava me devendo desde a última. — O Kim já estava andando. — Presente da dona Helena. Bora, cuzão.
+O Kim cruzou os braços. Quase sorriu.
+
+— Cê tava me devendo desde a última. Presente da dona Helena. Bora, cuzão.
 
 ---
 
@@ -376,7 +386,7 @@ O Jack pôs a mão no ombro dele, rindo.
 
 ---
 
-No banheiro, a troca foi rápida e calada. Camisa do uniforme por cima da camiseta preta. Boné pra dentro da mochila. A postura mudava junto com a roupa. Era o que precisava ser feito pra ficar.
+No vestiário, entre os armários, a troca foi rápida e calada. Camisa do uniforme por cima da camiseta preta. Boné pra dentro da mochila. A postura mudava junto com a roupa. Era o que precisava ser feito pra ficar.
 
 O corredor estava diferente.
 

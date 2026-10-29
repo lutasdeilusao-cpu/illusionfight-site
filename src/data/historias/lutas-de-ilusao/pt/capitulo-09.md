@@ -16,39 +16,47 @@ A Nina, com a boca ainda inchada, fez cara de poucos amigos.
 
 — Sou eu mesma, professora.
 
-— Ai, que bom! O trabalho de hoje não vai ser difícil pra você!
+— Ai, que bom! Hoje eu vou passar um trabalho, mas vai ser fácil pra você!
 
-— Que bom. Isso deve ser muito bom mesmo.
+— Que bom. Muito bom mesmo.
 
 ---
 
 A Romancista fechou a porta, toda empolgada, e explicou a tarefa. Um trabalho sobre o Iluminismo em Bravara. Analisar os autores da época e apresentar as conclusões. Em grupo de até três.
 
-O Jack abriu um sorriso enorme e olhou pra Nina. Oportunidade perfeita pra pôr ela no grupo. E pra chegar mais perto.
-
 O Kim também estava interessado. Não na Nina. No trabalho. O Kim era nerd. Rato de estudo. CDF de verdade.
 
 Naquela sala não tinha as mesas da aula do Máquina. Tinha bancadas pequenas, de dois ou três. A Nina estava sozinha numa. Pegou a bolsa e foi pra deles.
 
-— Então. Eu passei muito tempo fora de Bravara. Vou precisar me atualizar. Vocês vão me ajudar ou vão deixar a pobre garota inocente se virar sozinha?
+— O trabalho é de três. Vou fazer com vocês.
+
+Não era pergunta.
 
 O Jack ajeitou o cabelo. Preparou o charme.
 
-— A gente pode ajudar. Mas tudo nessa vida tem seu preço.
+— Tudo nessa vida tem seu preço.
 
-E mexeu as sobrancelhas.
+E mexeu as sobrancelhas. Heh.
 
-Quem visse não ia acreditar. A Nina riu e empurrou a cara dele.
+A Nina segurou o queixo dele com a mão, de perto, e olhou bem nos olhos.
 
-— Para com isso, seu doido. Que coisa ridícula.
+— Você não percebe quando não tem a mínima chance?
 
-Riram. Depois focaram no trabalho.
+Riram. O Kim não. O Kim já estava lendo.
 
 ---
 
-O Jack ainda tentou fazer uma graça em voz baixa. A Nina apontou pro trabalho. O Kim nem levantou os olhos.
+O Jack aguentou uns cinco minutos.
 
-Os três voltaram pros textos. Pela primeira vez naquele dia, não tinha ninguém tentando acertar a cara de ninguém.
+— Sua beleza não me deixa concentrar no trabalho.
+
+A Nina bateu a mão na bancada. Depois agarrou o Jack pela gola.
+
+— Jack, seu filho da puta, faz essa merda. Quero terminar logo e ir pra casa.
+
+O Jack levantou as duas mãos. E fez.
+
+Os três voltaram pros textos. A caneta riscando a tela, o tec, tec, tec. Pela primeira vez naquele dia, não tinha ninguém tentando acertar a cara de ninguém.
 
 Duas aulas de matemática com o Máquina. A de biologia com a professora Florista, que eles tinham passado no anexo. E agora duas seguidas com a Romancista.
 
@@ -64,27 +72,13 @@ O Kim fechou o tablet. Levantou. Estalou o pescoço pro lado.
 
 *Preciso muito de uma breja.*
 
----
+O Jack já estava do lado dele, batendo duas baquetas imaginárias no ar.
 
-Na saída, o Kim ainda estava cansado da luta. Das lutas. Nem sabia mais como contar aquela manhã.
+— Aê! Ensaio da banda hoje, bora!
 
-Desceu o corredor com os dois, passou pelo portão onde o Osvaldo acenou sem perguntar nada, e a rua de Marelia abriu na frente dos três com o sol de fim de tarde batendo torto na calçada.
+— Você não desiste, né? Caralho.
 
-— Deu quanto mesmo? — Kim pro Jack, andando.
-
-— Dois mil DIX. Certinho. Mil seu, mil meu. Já tá na conta.
-
-Kim parou de andar por meio segundo. Só meio segundo. Depois continuou.
-
-— Então eu não preciso ir pro ônibus hoje.
-
-O Jack abriu o sorriso de quem estava esperando exatamente essa conclusão.
-
-— Não precisa ir pro ônibus hoje. — Pausa calculada. — E sabe o que isso quer dizer.
-
-— Não.
-
-— Quer dizer que hoje a gente toca. Como a gente combinou.
+— Deu quanto mesmo a luta? Dois mil DIX. Certinho. Mil seu, mil meu. Já tá na conta. — O Jack sorriu. — Quer dizer que hoje você não precisa ir pro ônibus. Quer dizer que hoje a gente toca. Como a gente combinou.
 
 — A gente não combinou nada.
 
@@ -92,111 +86,19 @@ O Jack abriu o sorriso de quem estava esperando exatamente essa conclusão.
 
 O Kim olhou pra frente. Olhou pro Jack. Soltou o ar pelo nariz.
 
-— Tá bom, Jack. Tá bom. Você venceu. A gente toca.
+Não disse que sim. Também não disse que não. Pro Jack, era a mesma coisa.
 
 ---
 
-O Jack virou pra trás.
+No corredor, a Nina vinha dois passos atrás dos dois, olhando aquilo com a cara de quem estava entendendo alguma coisa sobre eles sem que ninguém tivesse explicado nada.
 
-A Nina vinha dois passos atrás dos dois, olhando aquilo com a cara de quem estava entendendo alguma coisa sobre os dois sem que ninguém tivesse explicado nada.
+O Jack virou pra trás, andando de costas.
 
-— E aí, Nina, qual é que é? — Jack andando de costas. — Eu e o Kim vamos arrumar uma vodka e uns cigarros e encher a cara. Bora colar com o pai? Vem ver as grandes habilidades do incrível Jack.
+— Hoje a gente vai ensaiar com a banda. Se quiser, tá convidada.
 
-A Nina abriu a boca pra responder.
+O Kim parou no meio do corredor.
 
-E um grito cortou a rua.
-
----
-
-Do lado do portão, o Ryan estava no chão.
-
-O mesmo garoto que o Kim e o Jack tinham ajudado no corredor uma semana antes.
-
-Sete em volta dele. Todos de uniforme da escola. Chutando. O garoto, menor e mais magro que qualquer um deles, encolhido, as mãos na cabeça.
-
-A Nina deu um passo pra frente.
-
-O Jack pôs a mão no ombro dela.
-
-Ela olhou pra ele. Ele fez que não com a cabeça, sem tirar o olho do Kim.
-
-O Kim já estava andando.
-
-Passou no meio dos sete como quem passa no meio de gente esperando ônibus. Agachou do lado do garoto.
-
-— Ryan. Lembra do corredor? Vai ficar aí deitado deixando eles fazerem o que quiserem?
-
-O garoto olhou pra ele com o rosto sujo de terra.
-
-— Eu não posso fazer nada. Eu nem sei o que eu fiz. Eu sou fraco demais. Não tenho como vencer eles.
-
-— E quem falou em vencer? — Kim. — Você só tem que dar trabalho o suficiente pra eles pararem de encher o saco. Se você não tomar a iniciativa da sua própria mudança, não adianta esperar que alguém faça por você.
-
-O Kim levantou. Foi saindo.
-
-Uma mão agarrou o ombro dele.
-
-— Ei, maluco. — Um dos sete. Mais forte que os outros, gordinho, relógio caro no pulso. — Não se mete na nossa treta. Você nunca viu a gente, não? Esse fracote aí me desrespeitou. Eu pedi pra ele comprar uma coisa pra mim e ele recusou.
-
-O Samuel.
-
-O Kim ia virar.
-
-Aí viu, pelo canto do olho, o garoto no chão começando a levantar.
-
-E deixou a mão do Samuel onde estava.
-
-— Todo dia vocês me enchem o saco. — O garoto, de pé, tremendo. — Todo dia vocês me batem. Eu nunca fiz nada pra vocês. Eu tô cansado.
-
-Um dos sete riu.
-
-— Que que cê tá falando, moleque? — O Samuel soltou o Kim e virou pro garoto. — Só porque esse babaca apareceu você acha que tem coragem? Eu vou te pôr de volta no teu lugar.
-
-O pé dele subiu pra chutar o rosto do garoto.
-
-E parou no ar.
-
-O Jack tinha chegado sem ninguém ver. Segurou o chute do Samuel com o próprio pé, sola contra sola, e ficou ali, tranquilo, olhando pro garoto.
-
-— E aí, vai ficar parado? Eu não vou segurar o pé dele o dia todo.
-
-O garoto entendeu.
-
-Meteu um chute nas pernas do Samuel.
-
-O Samuel gritou e foi pro chão segurando a canela. E chorou. Chorou de raiva e de vergonha, na frente de todo mundo.
-
-O Jack fez uma cara de *por essa eu não esperava*.
-
-Aí os outros seis vieram.
-
-Não durou. Uns poucos golpes do Kim, do Jack e da Nina, e a calçada estava cheia de garoto de uniforme gemendo.
-
----
-
-O garoto chegou perto dos três quando tudo acalmou.
-
-— Obrigado. — Limpando o nariz com a manga. — Eu não sei o que eu ia fazer sem vocês.
-
-— Vocês já se conhecem? — A Nina.
-
-— Do corredor. Semana passada. — O Jack.
-
-— Ryan. — Kim. — Hoje você deu sorte. Esses covardes só vão atrás de quem não dá trabalho. Você não precisa ganhar. Só tem que dar dor de cabeça suficiente pra eles desistirem.
-
-A Nina olhou pro Kim e sorriu sem querer.
-
-Aqueles dois não eram nada do que ela tinha imaginado.
-
-E o Kim e o Jack, olhando pra ela, lembraram do jeito que ela tinha entrado naquela briga. Sem hesitar. Ela não era como as outras garotas daquela escola.
-
-— Então? — Jack, como se nada tivesse acontecido. — Vem ou não vem?
-
-— Tá. — Nina. — Eu vou.
-
-O Kim parou no meio da calçada.
-
-— Mano. Você tá convidando gente pra minha casa sem pedir permissão?
+— Você não pode convidar gente pra minha casa.
 
 — Pô, é a nossa base, tá ligado? — Jack, como se fosse óbvio. — E ela já é de casa. Pelo amor de Deus, Kim. Para de ser um Velho Rabugento.
 
@@ -206,11 +108,21 @@ O Jack não respondeu.
 
 *Como se eu não conseguisse sempre.*
 
+A Nina não tinha dito que ia. Também não tinha dito que não ia.
+
+Saiu do portão junto com eles.
+
 ---
 
 O caminho era longo e o Jack preencheu tudo.
 
-— E aí, vocês tocam o quê? — Nina.
+— Vocês já sabem que música vão ensaiar? — Nina.
+
+— Claro que eu sei! — Jack.
+
+— Ele nunca sabe de nada. — Kim.
+
+— E vocês tocam o quê?
 
 — Ultimamente só as músicas que o Jack faz. — Kim.
 
@@ -224,6 +136,14 @@ A Nina olhou pro Jack.
 
 — E faz cinco anos que é verdade. Só falta o mundo perceber.
 
+— Vocês têm a letra? A cifra?
+
+— Te mando agora. — O Jack, já com o celular na mão.
+
+O celular dela fez bip.
+
+---
+
 A rua foi mudando.
 
 A Nina percebeu antes de perceber que estava percebendo. As calçadas foram ficando mais quebradas. As casas foram ficando menores, coladas umas nas outras, com reboco faltando e grade em toda janela. Um cachorro magro deitado no meio-fio. Uma criança descalça olhando os três passarem. Fio de luz embolado no poste como cabelo que ninguém penteia.
@@ -232,43 +152,9 @@ Era uma rua triste.
 
 Ela olhou pros dois.
 
-Nenhum dos dois parecia ver aquilo. O Jack continuava falando de música, de PowWow, de um show que ele tinha visto num vídeo. O Kim andava com as mãos no bolso, cumprimentando um senhor no portão com um movimento curto de cabeça. Os dois andavam naquela rua como quem anda dentro de casa.
+Nenhum dos dois parecia ver aquilo. O Kim andava na frente, com as mãos no bolso, cumprimentando um senhor no portão com um movimento curto de cabeça. Os dois andavam naquela rua como quem anda dentro de casa.
 
----
-
-A garagem era do lado da casa do Kim.
-
-Um portão de ferro com a pintura descascando. Por dentro, chão de cimento rachado, uma lâmpada pendurada por um fio, umas caixas de papelão empilhadas num canto. Uma cadeira de plástico com uma perna remendada com fita.
-
-E a bateria.
-
-Velha. A caixa rasgada e remendada. Um dos tons faltando, o espaço vazio no suporte como um dente que caiu. Os pratos amassados nas bordas.
-
-Na parede, pendurada num prego, uma guitarra. Velha também. O corpo arranhado, uma das tarraxas diferente das outras.
-
-O Kim tirou a guitarra do prego.
-
-A Nina viu.
-
-Não sabia explicar o que tinha visto. O jeito que ele segurou o braço da guitarra. O jeito que os ombros dele baixaram. O Kim que andava pela escola com cara de quem está pronto pra quebrar alguém mudou. Parecia outra pessoa. Mais novo, talvez.
-
-Ela achou estranho. Não comentou.
-
-— E aí, cadê? — Jack sentando no banquinho da bateria e girando uma baqueta. — Não vai servir um bagulhozinho, não? Monta umas bebidinhas pra gente, anfitrião.
-
-O Kim encostou a guitarra na parede.
-
-— Aqui não. Se a Helena acha bebida na garagem, ela bebe tudo e ainda leva meu cigarro. — Pegou a carteira. — Vou no seu Zé buscar alguma coisa. A gente toma depois, na base.
-
-E saiu.
-
----
-
-A garagem ficou em silêncio.
-
-O Jack ficou girando a baqueta. A Nina ficou em pé no meio do cimento rachado, as mãos nos bolsos da jaqueta, olhando a lâmpada, a fita na cadeira, o buraco na bateria.
-
-O Jack parou a baqueta.
+O Jack ficou um passo pra trás, do lado dela.
 
 Ele tinha notado. A Nina estava calada desde a metade da rua.
 
@@ -290,74 +176,40 @@ A Nina ficou olhando pro Jack.
 
 *Eu nunca imaginei que duas pessoas pudessem ter uma amizade assim.*
 
-Ela nunca tinha conseguido fazer amigo. Primeiro porque não gostava das pessoas em volta. Depois porque nunca ficava num lugar tempo suficiente pra achar alguém de quem gostasse. Ninguém nunca tinha construído um mundo com ela numa garagem caindo aos pedaços e chamado aquilo de base.
+Ela nunca tinha conseguido fazer amigo. Primeiro porque não gostava das pessoas em volta. Depois porque nunca ficava num lugar tempo suficiente pra achar alguém de quem gostasse.
 
 Era estranho ver uma amizade tão bonita de perto. Tão sincera.
 
 ---
 
-O Kim voltou com uma sacola.
+A garagem era do lado da casa do Kim.
 
-Uma garrafa de vodka barata, dois limões, um refrigerante e um saquinho de gelo que já estava suando. Deixou tudo do lado de fora do portão, escondido atrás do muro.
+O Jack chegou antes e puxou o portão de ferro com as duas mãos. Krrraaak. A pintura descascando caiu em lasca.
 
-— Isso é pra depois. — Pro Jack, antes que ele abrisse a boca. — Na base.
+— É uma garagem, Jack. — Kim.
 
-— Agora chega de enrolar. — Kim. — Me conta direitinho o que aconteceu naquele jogo depois que eu apaguei. E por falar nisso, você tá me devendo uma surra por ter me metido nessa encrenca.
+— Bem-vinda ao estúdio oficial da banda.
 
-O Jack riu.
+Por dentro, chão de cimento rachado, uma lâmpada pendurada por um fio, umas caixas de papelão empilhadas num canto. Uma cadeira de plástico com uma perna remendada com fita.
 
-— Se liga, cara. Eu não te meti em encrenca nenhuma. Você queria ganhar a grana e ganhou. Só não foi fácil.
+E a bateria.
 
-— Eu tô ligado que faz tempo que você quer que eu jogue essa porra. E você se aproveitou da situação.
+Velha. A caixa rasgada e remendada. Um dos tons faltando, o espaço vazio no suporte como um dente que caiu. Os pratos amassados nas bordas.
 
-A Nina olhava de um pro outro. Ela tinha assistido à luta inteira pelo SBI dela. E tinha ouvido, no anexo, que o Kim não lembrava de nada. Agora queria saber de onde tinha saído aquilo tudo.
+Na parede, pendurada num prego, uma guitarra. Velha também. O corpo arranhado, uma das tarraxas diferente das outras.
 
-O Jack girou a baqueta e contou. Em ordem, tudo. O cabelo prata, o fogo preto, a voz que não era do Kim, o rugido que derrubou a arena, o outro cara que saiu da poeira, o Freddy sendo comido pelos pés.
+O Kim tirou a guitarra do prego.
 
-— Eu achei que você tava possuído, Kim. De verdade. — O Jack olhando pro chão. — Aí o Narrador perguntou o nome. E você falou que era O Primordial. Kim Primordial. A arena inteira cantou. E antes de voltar ao normal, você disse que ia voltar.
+A Nina viu.
 
-A garagem ficou quieta.
+Não sabia explicar o que tinha visto. O jeito que ele segurou o braço da guitarra. O jeito que os ombros dele baixaram. O Kim que andava pela escola com cara de quem está pronto pra quebrar alguém mudou. Parecia outra pessoa. Mais novo, talvez.
 
-A Nina tinha parado de girar o celular na mão.
+Ela achou estranho. Não comentou.
 
-O Kim passou a mão no rosto, devagar.
+— E aí, cadê? — Jack sentando no banquinho da bateria e girando uma baqueta. — Não vai servir um bagulhozinho, não? Monta umas bebidinhas pra gente, anfitrião.
 
-— Daí em diante eu lembro. — Encostou a guitarra na caixa. — Hum. Não sei se eu devia contar isso pra vocês. Mas tá. Chega de draminha. Vai que vocês me ajudam.
+— Aqui não. Se a Helena acha bebida na garagem, ela bebe tudo e ainda leva meu cigarro. — O Kim, sem levantar os olhos da guitarra. — Depois a gente compra alguma coisa e toma na base.
 
----
+O Jack bateu as duas baquetas uma na outra.
 
-O Kim contou do Pajé.
-
-O escuro sem chão. O som de água pingando num ritmo que não era aleatório. O velho saindo das sombras devagar.
-
-— Barba branca comprida. Chapéu de penas. Óculos escuros redondinhos. Corrente de ouro com um cifrão. Um cajado dourado com uma pedra azul na ponta. E, mano, de tênis.
-
-O Jack ficou parado.
-
-— Aí ele veio com um papo de enigma que eu não entendi nada. Aí virou pro lado e começou a discutir com alguém que não tava lá. Perdeu a discussão. E virou de volta com uma voz completamente diferente: cheguei pra mitar. Cheguei pra divar, chavoso como sempre.
-
-O Jack abriu a boca. Fechou.
-
-— Falou que era o Pajé Yawanari, da tribo Xakaxi. Que era o dez de dez que ficou na responsa de proteger todos os poderes sagrados desse mundão. Que, igual o meu avô, eu era fodinha. Neto do fodão. — Kim, sério. — E que o problema que eu tava passando era só uma pulga no cu do macaco.
-
-O Jack foi ao chão.
-
-Literalmente. Escorregou do banquinho da bateria e caiu sentado no cimento, a baqueta ainda na mão por milagre, rindo do riso que sai de um lugar fundo e não pede licença.
-
-— EU PERDI. Tô na Disney. Que viagem absurda!
-
-A Nina segurou até a parte do parceiro imaginário. Depois dobrou ao meio, a mão no joelho, rindo tanto que esqueceu onde tinha deixado o celular.
-
-— Cheguei pra divar! — Ela, sem ar. — Chavoso como sempre! Puta que pariu!
-
-O Kim segurou a cara séria o máximo que deu. Até lembrar do *vixi, tá na hora de soltar o monstro* com aquela barba, aqueles óculos, aquele cifrão no peito. O riso saiu antes que ele pudesse fazer alguma coisa.
-
-Mesmo lá, quase morrendo, ele já tinha pensado: se eu sair dessa vivo, vou rir muito do jeito que esse velho fala.
-
-Os três ficaram assim um tempo. O Jack no chão. A Nina dobrada. O Kim encostado na parede com os olhos fechados.
-
----
-
-O Jack voltou pro banquinho com a dignidade possível. Bateu as duas baquetas uma na outra.
-
-— Agora chega de papo. A gente veio aqui pra quê?
+— Então chega de papo. A gente veio aqui pra quê?

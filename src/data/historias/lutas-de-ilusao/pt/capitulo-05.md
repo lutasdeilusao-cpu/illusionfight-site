@@ -8,7 +8,7 @@ Thunderbolt olhou para a tela holográfica que flutuava ao lado dele.
 
 Ele virou o rosto para Kim com a expressão de quem acabou de receber uma tarefa administrativa.
 
-Kim estava com o pescoço preso na mão de Thunderbolt. O olhar, pelo menos o que podia ser visto dele, era de fúria. Apoiado na própria força de vontade apenas. Os dedos fraturados da mão direita eram um mapa de inchaço e sangue coagulado. A respiração vinha em rajadas curtas, cada uma custando mais do que a anterior.
+Kim estava com o pescoço preso na mão de Thunderbolt. O olhar, pelo menos o que podia ser visto dele, era de fúria. Apoiado na própria força de vontade apenas. A mão direita esmagada era um mapa de inchaço e sangue coagulado. A respiração vinha em rajadas curtas, cada uma custando mais do que a anterior.
 
 Mas ainda olhava, firme.
 
@@ -18,7 +18,9 @@ Thunderbolt inclinou a cabeça levemente para o lado, avaliando.
 
 Não era admiração. Era curiosidade entomológica. O tipo que antecede o alfinete.
 
-Kim enrolou as pernas em torno do braço de Thunderbolt antes que o próximo golpe saísse, usando o impulso para soltar o próprio pescoço. Caiu mal, rolou, ficou de joelhos por um segundo. Thunderbolt não se moveu. Kim se levantou com a velocidade que restava, girou, saltou impulsionado para frente e com a mão esquerda desferiu um soco no rosto de Thunderbolt.
+Thunderbolt girou o braço e arremessou o Kim longe, como quem joga fora um saco de lixo.
+
+Kim caiu mal, rolou, ficou de joelhos por um segundo. Thunderbolt não se moveu. Kim se levantou com a velocidade que restava, girou, saltou impulsionado para frente e com a mão esquerda desferiu um soco no rosto de Thunderbolt.
 
 O impacto foi o de alguém soprando contra uma parede.
 
@@ -88,7 +90,9 @@ Nada.
 
 A frieza profissional de Thunderbolt rachou em algum lugar que não ficava visível, mas ficava audível na borda das palavras seguintes.
 
-— Eu quebrei seu joelho. Eu quebrei seus dedos. Eu posso continuar por quanto tempo for necessário. Implore e isso para.
+Ele apontou o dedo pro rosto do Kim. Com a outra mão fechada, o punho começou a carregar. Faísca azul subindo pelas juntas da armadura.
+
+— Eu quebrei seu joelho. Eu quebrei seus dedos. Eu posso continuar por quanto tempo for necessário. Implore, e isso para.
 
 Kim cuspiu sangue no concreto ao lado.
 
@@ -106,19 +110,19 @@ Kim olhou para Thunderbolt com o que restava de foco nos olhos e disse a única 
 
 Uma palavra. Sem adorno, sem discurso, sem performance.
 
-Thunderbolt ficou parado com ela por um segundo que durou demais.
+O punho do Thunderbolt zumbiu. *Bzzzt.*
 
-Kim puxou o ar que restava.
+Algo no rosto dele mudou. Não era raiva. Era uma coisa anterior à raiva, mais primitiva. O que aparece quando o mundo não se comporta do jeito que a gente precisava.
 
-— Eu nunca implorei e nunca vou implorar, cuzão.
+O soco veio.
 
-Algo no rosto do Thunderbolt mudou. Não era raiva. Era uma coisa anterior à raiva, mais primitiva. O que aparece quando o mundo não se comporta do jeito que a gente precisava.
-
-Ele pegou a mão direita do Kim de novo. O dedo anelar, desta vez. A mesma pegada do mindinho.
+Gigante. Carregado de raio. Acertou o rosto do Kim e o mundo estilhaçou como vidro.
 
 Nas arquibancadas, Jack gritou alguma coisa que ninguém ouviu.
 
 ---
+
+*Eu nunca implorei e nunca vou implorar, cuzão.*
 
 A consciência de Kim soltou as bordas.
 
@@ -158,11 +162,15 @@ O velho bufou.
 
 — Cheguei pra divar! — De repente a voz era outra. — Eita porra, tu tá zuado pra caralho, véi do céu. No limite, nos acréscimos do segundo tempo, é que você me aparece aqui?
 
-Virou pro lado. Falou com o nada.
+Kim ficou olhando aquele velho de chapéu de pena fazendo pose.
+
+— Esse velho tá chapado.
+
+Tentou se mexer. O joelho estalou e a dor subiu até os dentes.
+
+O velho virou pro lado. Falou com o nada.
 
 — Será que ele ainda sai dessa?
-
-Kim abriu a boca e fechou.
 
 O velho cruzou os braços e arqueou uma sobrancelha por cima dos óculos.
 
@@ -180,7 +188,9 @@ Os olhos atrás dos óculos se estreitaram. Mediram o Kim de cima a baixo.
 
 Kim olhou pro lado. Não tinha ninguém.
 
-*Avô? Esse velho conhece meu avô?*
+— Meu avô?
+
+*Esse velho conhece meu avô?*
 
 *Será que conhece meu pai?*
 
@@ -199,6 +209,14 @@ Virou de repente pro lado, como se alguém tivesse cochichado no ouvido dele.
 Kim estava com o joelho quebrado. Os dedos quebrados. O rosto desmontado. E um pajé de chapéu de penas, óculos escuros e corrente de cifrão discutindo com ninguém no escuro.
 
 O coração dele martelou nas costelas.
+
+O Pajé levou a mão ao ouvido de novo.
+
+— O quê? Hã, hã? — A outra mão foi pra testa. — Explicar o contrato? Se a gente não intervir, esse aqui vai de arrasta! — Bufou. — Tá bom, tá bom. Vou explicar o contrato pra ele.
+
+Virou pro Kim. Nas lentes escuras dos óculos, o Kim viu o próprio reflexo. Caído. Ensanguentado.
+
+— É o seguinte, parça. Preciso que você me diga o que quer. Agora não é hora de mentir. Uma vez em toda a sua vida. — A voz baixou. — Me diga, Kim. O que você quer?
 
 Mesmo no meio daquela confusão, uma coisa acendeu no peito. Desesperada.
 
@@ -248,29 +266,47 @@ Kim voltou.
 
 A arena se materializou em volta dele com a brutalidade de sempre. O chão frio. O barulho da plateia. O cheiro de sangue.
 
-Os dedos do Thunderbolt estavam fechados em volta da mão dele, no anelar. Prontos pra quebrar do mesmo jeito que tinham quebrado o mindinho.
+Kim estava caído. A mão robótica do Thunderbolt desceu do alto, enorme, e se fechou sobre a mão dele, esmagando ela inteira contra o chão. Eletricidade estalando entre os dedos de metal.
+
+Nas arquibancadas, Jack apertava os maços de dinheiro da aposta, desesperado.
 
 Só que alguma coisa tinha mudado.
 
 Uma energia nova corria pelas veias do Kim. O tempo esticou. Cada segundo virou uma eternidade limpa, onde cada respiração e cada batida do coração ficavam nítidas e na mão dele.
 
-Kim ergueu a cabeça. Devagar.
+Um brilho azul acendeu no olho dele.
 
-Thunderbolt parou.
+O peito pulsou. Azul.
+
+Kim fechou a mão quebrada em volta da mão de metal. E apertou de volta.
+
+Thunderbolt travou.
 
 Não foi decisão. Foi o instinto de mil e duzentas lutas dizendo que alguma coisa tinha mudado antes de qualquer coisa visível mudar. O mesmo rosto, o mesmo sangue descendo pela sobrancelha, a mesma perna dobrada no ângulo errado.
 
 Mas não eram os mesmos olhos.
 
-Thunderbolt soltou a mão. Recuou meio passo.
+Kim se levantou. Os dois olhos acesos em azul. Mão contra punho, uma queda de braço no meio da arena, o raio do Thunderbolt chiando contra a energia azul do Kim. Faísca pra todo lado.
 
-Não sabia por quê.
+E o Kim empurrou.
+
+A energia explodiu. Uma onda azul estilhaçou o chão em volta e jogou o Thunderbolt pra trás.
+
+— Que porra?!
+
+Kim ficou em guarda.
+
+— Agora é a minha vez.
 
 Nas arquibancadas, Jack parou de respirar.
 
 Tinha alguma coisa naquela imagem que ele conhecia de um lugar muito fundo. Não do LDI. Não das brigas de rua. De muito antes disso.
 
 *Lá vem.*
+
+Kim olhou pro alto. O cabelo começou a clarear.
+
+— O que é isso que eu tô sentindo? — A voz saiu baixa. — Por que eu me sinto tão bem?
 
 As chamas começaram nas costas do Kim.
 

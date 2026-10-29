@@ -1,217 +1,435 @@
 # CAPÍTULO 1 — El Guión
 
-Kim se despertó sin alarma.
+Kim dormía.
 
-No por disciplina. Por el hábito de quien duerme con la ligereza suficiente para oír la casa antes de que despierte. Se quedó quieto con los ojos abiertos mirando el techo, esperando que su cuerpo confirmara que estaba despierto de verdad.
+El cuarto oscuro, la respiración profunda, el brazo caído fuera de la cama.
 
-![](/assets/images/livro/01.png)
+— Uy, qué bonito se ve dormido. Tranquilo. Sosegado. — Una voz de viejo, demasiado cerca. — Ni parece la fiera que es.
 
-Lo confirmó.
+Luz. Un montón de bolitas doradas flotando alrededor de la cama.
 
-El celular seguía boca abajo en el colchón donde había caído a las 5:17, después de tres vibraciones que ignoró. Sabía exactamente cuántos mensajes nuevos había. Jack era predecible en eso.
+— Despierta, compa. ¡Porque tu vida está a punto de dar un giro de trescientos sesenta grados!
+
+Kim abrió los ojos y ya no estaba en el cuarto.
+
+Estrellas por todos lados. Nebulosa. Y, flotando frente a él, un viejo de barba blanca, sombrero de plumas, gafas oscuras y redondas, cadena de oro con un signo de dólar en el pecho y un bastón dorado con una piedra azul en la punta.
+
+Kim cruzó los brazos.
+
+— Si mi vida da un giro de trescientos sesenta grados, entonces va a quedar exactamente como está.
+
+El viejo se quedó quieto. Una interrogación encima de la cabeza. Dos. Cuatro.
+
+Después apuntó el dedo a la cara de Kim.
+
+— ¡Eres bien metidito a sabelotodo, carajo!
+
+Respiró. Se acomodó las gafas.
+
+— Es lo siguiente. Sin ofender, no lo tomes a pecho. — Se rascó la barba. — ¿Cómo voy a decirte esto sin hacerte quedar demasiado mal...? Si no eres el más indicado... mucho menos el más preparado... si no eres el tipo correcto para esto, ¿sabes?...
+
+Miró a la nada.
+
+— No es que tenga opción. — Pausa. — ¡Espera! Déjame ver si de verdad no tengo...
+
+Se quedó mirando a Kim de arriba a abajo.
+
+— Hum. Hum.
+
+Y apuntó el dedo de nuevo.
+
+— Sí. ¡Si no eres tú, pues tú mismo!
+
+El bastón brilló. El suelo de estrellas se volvió remolino y se tragó a Kim.
 
 ---
 
-Helena seguía en el sofá cuando Kim bajó.
+Cayó en un bosque.
 
-La mitad del cuerpo deslizándose hacia el suelo, camiseta arrugada, rostro marcado por el maquillaje de ayer y las ojeras de siempre. Tres latas vacías en el suelo a su alrededor, una cuarta volcada en el cojín. La fiesta había terminado tarde, como siempre.
+Raíces gigantes. Luciérnagas por todos lados. Un olor a tierra mojada que nunca había sentido en la ciudad. El viejo estaba ahí, apoyado en el bastón. Tenía tenis puestos. Unos tenis.
 
-Kim pasó sin detenerse.
+— He estado aguantando este muerto por un tiempo. Mucho, pero mucho tiempo. Y, chico, ahora tú vas a cargar con este paquete. — Levantó el dedo. — Pero tómalo en serio. Porque la cosa se va a poner loca.
 
-En la cocina, el fregadero estaba lleno de platos con restos resecos en los bordes. Abrió la cafetera, puso el café molido, encendió el fuego. El cigarrillo apareció entre sus dedos por costumbre antes de que decidiera encenderlo. La primera calada ardió familiar.
+— Habla ya, carajo. Me estás irritando.
 
-— Esta vez casi llegó al sofá. — Kim miró hacia la sala desde el pasillo. — Progreso.
+— Uy, de eso es lo que hablo. Siempre impaciente. ¡Salvaje!
 
-Los gemidos de Helena empezaron antes de que el café terminara. Su resaca siempre venía acompañada de un inventario: primero el celular, después la billetera, después la memoria de lo que había gastado. Kim conocía la secuencia de memoria.
+— Es lo siguiente. — Kim lo apuntó. — O hablas por las buenas, o, loco, te hago hablar por las malas.
 
-— Kim. — La voz venía de la sala, ronca.
+— Oye, chico, bájale a tus humos, que yo no soy una de tus chicas.
+
+El viejo se agachó y tomó una hoja del suelo. En la palma de su mano, la hoja empezó a humear. Después se quemó entera.
+
+— Para enfrentarme, vas a tener que comer mucho arroz con frijoles.
+
+Desmenuzó la ceniza entre los dedos. Kim se quedó mirando.
+
+— Lo que te voy a contar ahora seguro te va a ayudar en todo este rollo. Es decisivo para tu misión. Compa, si no tienes esa información, o sea... valiste. Así que concéntrate en lo que te voy a decir, porque ahora el muerto es tuyo.
+
+Kim esperó.
+
+— Porque sabes. Si no es el más indicado... mucho menos el más preparado...
+
+— El hijo de puta está en bucle. — Kim se lanzó. — ¡Yo mismo voy a matar a este viejo!
+
+El viejo levantó una mano. El puñetazo se detuvo en el aire, a un dedo de su cara.
+
+— Así es. Tú no eres el elegido. — La voz cambió. Se puso profunda. — Escucha con atención. Desde la era de tus ancestros...
+
+*Bip. Bip. Bip.*
+
+Un sonido rojo, en ondas, cortó el bosque.
+
+— ¿Qué es ese sonido?
+
+— Ah. — El viejo miró al cielo. — Es el despertador.
+
+— ¡No! ¡Ahora no!
+
+— Gasté. Nuestra cuota.
+
+— Así es la cosa, Kim. — El viejo ya se estaba volviendo un puntito de luz. — Uy, caramba, no se puede decir nada más. Bueno, padawan, vas a tener que arreglártelas con lo que te di.
+
+— ¡Pero no dijiste nada con nada, viejo holgazán de mierda!
+
+— Está bien. Nunca creí que pudieras con esto de todos modos. — Solo quedaba la voz. — Una lástima que no tengamos unos seiscientos años más. Quizás aparecería alguien mejor. El destino de tu vida, de tus amigos y del mundo está contigo...
+
+— ¡Hermano, si te vuelvo a topar, te mato!
+
+---
+
+05:15.
+
+Kim despertó sin saber de dónde había despertado.
+
+![](/assets/images/livro/01.png)
+
+Se sentó al borde de la cama. Se quedó mirando la nada.
+
+El celular en el colchón tenía tres mensajes de Jack. El primero de las 23:47. *Hermano, tienes que ver este video nuevo del LDI.* Ni lo abrió.
+
+*Vaya. Siento que tuve unos sueños sin sentido.*
+
+Intentó recordar. No vino nada.
+
+— A la mierda.
+
+El cuarto era el cuarto de un adolescente. Ropa sucia en la silla y en el suelo. Póster de banda descolorido en la pared descascarada. Botella vacía por el suelo. En la esquina, la guitarra eléctrica recargada en el amplificador pequeño, y sobre el amplificador unos audífonos. Para que las notas de la madrugada se quedaran solo con él. Así era como huía de la vida por las noches.
+
+En el baño, el espejo estaba rajado de un extremo al otro. La llave goteando.
+
+El reflejo de siempre, partido en tres. Cabello negro cayendo desordenado sobre los ojos, herencia de los antepasados. El rostro de rasgos marcados, indígena. La piel morena. La plaquita de metal en el cuello. Se cepilló los dientes, se mojó la cara, se puso la gorra azul. Aunque estuviera cansado, no salía sin la gorra.
+
+Tenía una cara seria que hacía que todos creyeran que vivía irritado.
+
+No era así. Solo no le sonreía a cualquiera.
+
+---
+
+La escalera de madera crujía en cada escalón. Bajó despacio.
+
+La casa era grande, vieja y destruida. Hacía muchos años que él y Helena habían invadido ese lugar. En el barrio decían que los dueños eran ricos y se habían ido cuando el barrio se hundió. Otros decían que habían muerto y nadie apareció a reclamar la herencia.
+
+Daba igual. Fue ahí donde Helena crió a Kim.
+
+Ella estaba en el sofá.
+
+La mitad del cuerpo deslizándose al suelo. El cabello morado desgreñado, el maquillaje de ayer corrido, las ojeras profundas. Latas vacías alrededor. Cenicero rebosando. La tele encendida en estática.
+
+Aun dormida, su cara estaba tensa.
+
+— Pues sí. — Para la sala vacía. — Y todavía es martes.
+
+Fue a la cocina de puntillas.
+
+— Voy a hacer un café antes de que la Medusa despierte. Espero que me dé tiempo.
+
+El fregadero era una torre de platos sucios. La cafetera vieja chirrió. El cigarro apareció entre sus dedos antes de que él lo decidiera, y la primera calada quemó familiar.
+
+Miró a la sala por el hueco de la puerta.
+
+— Al menos la Medusa llegó al sofá esta vez. — Soltó el humo. — Estamos evolucionando, gente.
+
+En el sofá, un gemido.
+
+— Uuugh...
+
+La Medusa despertó.
+
+---
+
+— Kim.
 
 — El café está listo.
 
-— No quiero café. Mándame un DIX.
+— A la mierda el café. Manda un DIX ahora.
 
-Kim bebió su propio café en silencio.
+Kim bebió el café en silencio.
 
-— ¿Me oíste?
+— ¿Oíste?
 
 — Te oí.
 
-— Entonces mándalo ya. Quedé esta noche y no tengo nada.
+— Entonces manda ya. Quedé de salir hoy en la noche y no tengo nada. — La voz subió. — ¿Dónde está, dónde está, carajo? ¡Manda mi dinero ya, maldita sea!
 
-Kim dejó el vaso en el fregadero. Entró a la sala y se quedó parado mirándola.
+— Doña Helena, estoy sin un peso. — Fue hasta la puerta de la sala. — Mire, ya pagué las cuentas. Agua, luz, teléfono y mercado.
 
-— Ya pagué las cuentas de este mes. Luz, agua, internet, mercado. Todo está al día.
+— Deja de hablar, engendro del diablo. Tengo resaca, carajo.
 
-— Perfecto. Ahora manda el DIX.
+— ¿Para qué quieres más dinero?
 
-— ¿Para qué?
+Ella se sentó despacio, la mano en la cabeza.
 
-Helena se sentó despacio, la cabeza claramente pulsando. La rabia llegó antes que la respuesta.
-
-— ¿Qué es esto? ¿Una auditoría?
+— Ungh. ¿Qué es esto? ¿Una auditoría?
 
 — Solo pregunté para qué.
 
-— Para salir, Kim. Para comprar cigarrillos, para tomarme una cerveza con mis amigas, para hacer lo que quiera con mi plata. ¿Satisfecho?
+— Para salir, Kim. Para comprar cigarros, para tomarme una cerveza con mis amigas, para hacer lo que quiera con mi dinero. ¿Satisfecho?
 
-— No es tu plata. Es mía.
+— No es tu dinero. Es mío.
 
-El silencio que siguió tenía textura.
+El silencio que vino después pesó.
 
-Helena se levantó más rápido de lo que su estado sugería, los ojos despertando de golpe.
+Helena se levantó más rápido de lo que su estado permitía.
 
-— ¿Tienes el descaro de vivir en mi casa, comer mi comida, usar mi luz y encima cuestionar lo que hago con lo que es mío por derecho? Me debes, chico. No lo olvides nunca. Hasta los dieciocho, me debes.
+— ¡Oye, demonio! No olvides lo que ya te dije. ¡Hasta los dieciocho, tú mantienes! ¡Todo lo que gaste, hasta el papel que use para limpiarme el culo, lo pagas tú! — El dedo en su cara. — Yo te crié. Te hice sobrevivir. Ahora estás pagando ese préstamo.
 
-— Pago las cuentas. Pago el mercado. Pago todo lo que gastas en esta casa cada mes. Eso es lo que debo.
+Kim recordaba aquel dedo.
 
-— No es ni la mitad de lo que debes.
+Tenía doce años la primera vez.
 
-Kim agarró la mochila de la silla. La abrió, revisó sus cosas, desbloqueó el celular con el pulgar y chequeó el saldo. La cerró.
+*Ahora, chico, te toca a ti. Si quieres sobrevivir, vas a tener que arreglártelas como yo me las arreglé. Hasta los dieciocho la vida va a ser así. Te mantienes y me pagas lo que debes. Después cada quien sigue su rumbo.*
+
+Ni siquiera sabía bien qué debía. Ni qué estaba aceptando.
+
+Pero así fue. A los doce, aprendió a sobrevivir.
+
+Abrió la mochila naranja. Las bolsitas de dulces, el cuaderno. Desbloqueó el celular.
 
 — Mando cincuenta.
 
 — Manda cien.
 
-— Sesenta y hasta ahí.
+— Sesenta. Y hasta aquí.
 
-— Hijo de puta. Esa actitud tuya solo puede venir del mierda de tu—
+— Hijo de puta. Esa actitud tuya solo puede venir del maldito de tu...
 
 — Doña Helena.
 
-La voz no subió. No hacía falta. Era el tono que cortaba la frase antes de que terminara. Los dos lo sabían desde hacía años.
+La voz no subió. No hizo falta. Era el tono que cerraba la frase antes de que ella terminara. Los dos lo sabían desde hacía años.
 
-Helena se quedó con la boca entreabierta, la rabia buscando otra salida. Encontró la lata cerrada que había sobrado de la noche anterior.
+Su boca quedó medio abierta, la rabia buscando otra salida. Encontró una latita cerrada de la noche anterior.
 
-El lanzamiento llegó antes de que Kim terminara de darse vuelta hacia la puerta. Extendió el brazo sin mirar y la atrapó en el aire, la examinó un segundo.
+El lanzamiento vino antes de que él terminara de girarse hacia la puerta. Kim estiró el brazo sin mirar y la atrapó en el aire.
 
-— Tu puntería está mejorando.
+— Mira que no vuelvas, pedazo de mierda.
 
-— No vuelvas más, basura.
+Él miró la lata.
 
-*El mismo guión, todas las mañanas. Al menos es consistente.*
+— Está mejorando el lanzamiento.
 
-Puso la lata en la mochila junto con los libros y salió.
+Puso la latita en la mochila, entre las bolsitas y el cuaderno.
 
----
+*Mismo guion, cada mañana. Al menos es consistente.*
 
-Jack estaba en el segundo escalón de la escalera de afuera.
+Abrió la puerta.
 
-Rastas verdes captando la luz de la mañana, el celular en la mano. Siempre el celular en la mano.
+Afuera el cielo aún estaba morado. La luz amarilla del bombillo encima de la puerta, el patio mojado, la silla de plástico recostada en la pared.
 
-— Mano, ¿viste el video que te mandé?
+Kim se sentó en el escalón del frente, la mochila a un lado, y desbloqueó el celular. Un video de pelea. Esperó.
 
-— Buenos días, Jack.
+No tuvo que esperar mucho.
 
-— El tipo hace algo que no vas a creer, es literalmente imposible de—
+Jack apareció por la calle con paso suelto, como si fuera parte del paisaje. Rastas verdes. Piel más oscura que la de Kim. La misma mochila naranja, la misma plaquita en el cuello.
 
-Kim sacó la lata de la mochila y se la puso en la mano antes de que terminara la frase.
+— Hermano, pasa la cerveza. Estoy viendo un video del LDI. Está buenísimo. — Abrió los brazos. — Viejo gruñón.
 
-Jack la abrió sin pensar, tomó un sorbo, e hizo una mueca inmediata.
+— Cabeza hueca. — Kim ni levantó la vista de la pantalla. — Carajo, Jack. A medianoche, en la mañana, en la tarde y en la noche. No dejas de fastidiarme, ¿verdad?
 
-— ¿Qué porquería es esta? ¡Está tibia!
+Se levantó. Abrió la mochila y le pasó la lata al amigo.
 
-— Regalo de Helena. Deja de mandarme cosas a las cinco de la mañana.
+Jack la abrió con un chasquido. Le dio un trago generoso.
 
-— Te va a gustar cuando entres. A todo el mundo le gusta.
+Su cara se contrajo entera.
 
-— Yo no voy a entrar.
+— ¡Bleeeh! ¿Qué mierda es esto? ¡Está caliente, carajo!
 
-— Eso dices, y sin embargo ya estás en mi banda.
+Kim cruzó los brazos. Casi sonrió.
 
-— No tienes una banda, y aunque la tuvieras, que no la tienes, yo no estoy en ella.
-
-— Okey, okey. Ensayo esta noche.
-
-Caminaron. La discusión sobre la banda duró dos cuadras, se convirtió en discusión sobre el LDI por una cuadra más, y murió cuando el primer colectivo apareció en la esquina.
+— Me lo debías desde la última. Regalo de doña Helena. Vamos, cabrón.
 
 ---
 
-Kim trabajaba en movimiento.
+La calle aún estaba mojada. El sol ni siquiera había salido del todo.
 
-La mochila iba al rincón del pasillo, las bolsitas de caramelos salían antes de que el colectivo retomara velocidad. Leía el vagón entero en diez segundos, descartaba la mitad de los pasajeros antes de dar el primer paso, y elegía su ruta según el tipo de mirada que encontraba.
+— Loco, en cuanto entres al LDI, no lo vas a soltar más.
 
-El ejecutivo con corbata mirando el celular, codo doblado. Demasiado ocupado para decir que no, suficientemente rápido para no perder tiempo. Abordaje directo, menos de quince segundos.
+— Deja esa mierda, hombre. Nunca voy a jugar esa porquería. Lo que tengo que hacer es trabajar y ganar dinero.
 
-La señora con la bolsa del mercado en el regazo. Tenía tiempo, tenía paciencia, le gustaba conversar. Dos comentarios sobre el día, después la oferta.
+— Sí, sí, ya sé. Eres un contreras. — Jack sonrió. — Dijiste lo mismo antes de que armáramos la banda.
 
-El universitario con auriculares, ojos cerrados, cabeza moviéndose levemente. Imposible. Siguiente.
+Kim se detuvo en media acera.
 
-Jack se quedaba cerca observando. En cinco años había intentado imitar el método de Kim unas tres veces y había fallado en las tres.
+— ¡Carajo, hermano! ¡No tienes ninguna maldita banda! Si tuvieras, sería más bien un dúo de música tropical. ¿Qué banda? ¡Deja de fastidiar, Jack, son las seis de la mañana!
 
-![](/assets/images/livro/02.png)
+— Está bien, está bien. Tienes razón.
 
-— El del traje va a comprar. — Jack habló bajo.
+Caminó tres pasos adelante. Lanzó por encima del hombro, sin voltear:
 
-— Mal. — Kim no se dio vuelta. — Va a hacer como que va a comprar y me va a dar mal el vuelto.
+— Ensayo después de clases. Sin excusas.
 
-El hombre del traje le dio mal el vuelto.
+La sangre de Kim subió. Fue tras su amigo con paso largo, y la pelea empezó de nuevo, calle abajo.
 
-— ¿Cómo sabías?
-
-— Los zapatos. Caros pero gastados. Plata justa pero no quiere que se note.
-
-Tres colectivos. Dieciocho bolsitas. El dinero del día calculado mentalmente mientras el último colectivo doblaba la esquina de la Elite Academy.
+La misma pelea de ayer. Y de mañana.
 
 ---
 
-Osvaldo estaba en el portón.
+El primer bus llegó con el chirrido del freno.
 
-Uniforme azul marino, el llavero tintineando cuando giró para abrir antes de que ninguno de los dos lo pidiera.
+Kim subió y se convirtió en otra persona.
 
-— Un día más.
+La mochila fue a un rincón, las bolsitas de colores salieron antes de que el bus arrancara. Leía el pasillo entero en diez segundos. Quién desviaba la mirada fingiendo ver el paisaje. Quién fruncía el ceño antes de que él llegara. Quién cerraba los ojos fingiendo un sueño imposible. Y quién miraba curioso, con una sonrisa escondida. Era a esos a los que se acercaba.
 
-— Gracias, Osvaldo. — Kim pasó.
+Una señora con la bolsa del mercado en el regazo.
 
-— Eres el mejor ser humano vivo. — Jack pasó.
+— Buenos días, señora. ¿Necesita ayuda con esa bolsa?
 
-— Vayan rápido antes de que alguien me vea.
+— Ay, joven, no hace falta, pero gracias por preguntar. — Ella ya abría su cartera. — Déme dos paquetes, por favor.
 
-En el baño, el cambio fue silencioso y rápido. Campera doblada, gorra guardada, uniforme puesto pieza por pieza. La postura cambiaba junto con la ropa. Era lo que había que hacer para quedarse.
+Jack, al lado, susurró:
 
-Salieron por el pasillo en dirección al aula.
+— El tipo de traje va a comprar unos diez paquetes.
 
-El pasillo se sentía diferente.
+Kim ni miró al del traje.
 
-Kim lo notó antes de entender por qué. Grupitos parados cerca de las paredes cuando deberían estar caminando. Conversaciones en un volumen demasiado bajo para ese horario.
+— Va a comprar uno. Y solo lo va a comprar para no sentirse inferior a la señora. Si ella no hubiera comprado, él ni siquiera compraría.
 
-Freddy estaba apoyado en la pared con un tipo al lado. Sin uniforme, campera de cuero, la postura de quien no pertenece a ese pasillo y no está fingiendo que sí. El ojo morado de Freddy era reciente, el moretón todavía vivo en los bordes. Dos más atrás, igualmente fuera de lugar.
+El hombre de traje compró uno.
 
-El tipo al lado de Freddy estaba mirando el celular cuando Freddy se enderezó al ver a Kim y Jack acercarse.
+— Hermano. Siempre me impresionan esos análisis tuyos.
 
-— Espera al tercer módulo. — El tipo habló bajo, sin apartar los ojos del celular.
+---
 
-— Pero están justo acá—
+En la parada, entre un bus y otro, Kim encendió un cigarro.
 
-— Tercer módulo.
+— Necesito mucho un mejor trabajo.
 
-Freddy cerró la boca. Los puños siguieron cerrados.
+— ¿En qué estás pensando?
 
-Kim y Jack pasaron.
+— No sé. Es prohibido trabajar en este país si no tienes la edad que el gobierno quiere. Así que voy a tener que conseguir algo ilegal. Tipo vender droga, armas, o decir algo polémico en el Z.
 
-No porque ignoraran. Porque genuinamente no conectaron la cara con ningún nombre, no registraron la presencia como amenaza, no hicieron ningún cálculo sobre esa mirada. El pasillo tenía otras cosas pasando y Freddy era solo una cara más enojada en una escuela llena de ellas.
+— Hermano. Sabes que estudiar es tu mejor oportunidad.
 
-Freddy los vio pasar sin que ninguno siquiera girara la cabeza. Sintió el calor subir.
+— Estoy bromeando, ¿no? — Soltó el humo. — Pero en serio. Necesito un plan nuevo. Estoy pensando en aprender a programar. La tecnología da dinero. Y quién sabe, con un DIU falso, un Documento de Identificación Universal, consigo trabajo en algún lado.
 
-— Hoy me la pagan. — Casi inaudible.
+— Buena. Quizás estudiamos juntos y hacemos el mismo plan.
 
-![](/assets/images/livro/03.png)
+---
 
-Jack giró la cara. No hacia Freddy, no exactamente. El movimiento de quien sintió algo sin saber qué. La mirada barrió el pasillo por medio segundo y se posó brevemente en la dirección de donde había venido la voz.
+En el tercer bus, Jack contó lo de la fiesta.
 
-Freddy dio un paso atrás.
+La del fin de semana, en la mansión del nuevo rico de la escuela, en su cumpleaños. Los dos habían llegado con el flyer en la mano: *acceso libre, sin necesidad de invitación*. Una hora después los estaban escoltando hasta la puerta.
 
-Jack ya había vuelto a mirar a Kim, retomando la frase en el punto exacto donde la había dejado.
+— Y yo le dije al niño rico — Jack puso voz grave — que solo me iba de ahí si me reembolsaba por la invitación fraudulenta. ¡La publicidad engañosa es un delito, mi compa! Si el flyer dice acceso libre, ¡entonces es libre!
 
-Los dos doblaron la esquina y desaparecieron.
+El bus entero se estaba riendo. Hasta la señora de la bolsa.
 
-El tipo al lado de Freddy guardó el celular. Lo miró sin ninguna expresión particular, de la manera en que se mira el trabajo cuando el trabajo todavía no empezó.
+— Él se acercó tranquilo pidiéndome que me fuera. Le dije: tranquilo, me voy, pero quiero el dinero de mi invitación. Él: ¿qué invitación? la fiesta fue gratis. Yo: exacto, gasté mi tiempo. — Jack giró un vaso imaginario. — Entonces él contó hasta tres. Como era el cumpleaños del tipo, dejé que me acertara. Solo bajé un poco la cabeza para que el golpe diera en la frente. Y dije: listo, ahora se arma la fiesta.
 
-Para él era otro martes cualquiera.
+— Yo estaba ahí comiendo tranquilo — dijo Kim. — Cuando me di cuenta, tenía unos cinco encima de mí. Sin haber hecho nada.
 
-Jack hablaba del fin de semana, de las bebidas, de las chicas. Kim escuchaba con la mitad de la atención. La otra mitad seguía en el pasillo, en un ojo morado que no había registrado conscientemente pero que quedó de alguna forma.
+— ¿Cuántos amigos suyos crees que había ahí? ¿Unos veinte?
 
-La puerta del aula estaba cerrada. Kim apoyó la mano en la manija.
+— Qué va. Me quedé al lado del bufet toda la fiesta. Incluso durante la pelea. Entre un golpe y otro me daba tiempo de comer otro bocadito. Unos treinta, treinta y cinco. Nunca lo sabremos. La policía llegó demasiado rápido.
 
-*Tarde como siempre. Tengo que conseguir otro esquema pronto.*
+— Tú sí que eres un muerto de hambre. Pero yo rompí más caras que tú. Esa cuenta es mía.
 
-La abrió.
+— Está bien. Pero los dos recibimos golpes en la cara. El conteo de golpes en la cara sigue empatado.
+
+Cinco buses después, el último dobló la esquina de Elite Academy.
+
+---
+
+Corrieron.
+
+Todas las mañanas era así. El bus los dejaba justo a tiempo, y la llegada se convertía en maratón.
+
+En el portón de hierro, Osvaldo esperaba.
+
+El portero. Pelo canoso, hombros de quien carga mucha historia, el uniforme azul marino arreglado con la misma dignidad de siempre.
+
+Fue Osvaldo quien había hablado con el dueño de la escuela. Quien había argumentado con la paciencia de quien ve potencial donde otros solo ven problemas. La beca del cincuenta por ciento de los dos era la fe de aquel hombre. Y la condición era dura: notas por encima del promedio y respeto a las reglas. Cualquier problema, perdían la beca.
+
+Él había conocido a Kim de niño, en la calle, con una guitarra vieja, maltratada, casi rota. Tocando las notas más desafinadas que Osvaldo había oído en su vida. Todos los días, el chico estaba ahí, practicando.
+
+Un día Osvaldo notó que la guitarra del chico tenía solo cuatro cuerdas.
+
+A la semana siguiente, le dio un juego de cuerdas. Fue la primera vez que los dos hablaron. El chico era malhumorado, desconfiado, cerrado. Osvaldo se ofreció a enseñarle unos acordes.
+
+Se convirtió en su profesor de música por tres años.
+
+Después se las arregló para meter a Kim en la escuela donde trabajaba. Kim solo aceptó con una condición: tenía que ser la misma escuela de su amigo Jack.
+
+— Un día más — dijo Osvaldo, ya abriendo el portón.
+
+— Gracias, Osvaldo — Jack pasó.
+
+— Buenos días, Osvaldo. — Kim. — Perdón por el atraso.
+
+— Buenos días, Kim.
+
+Jack le puso la mano en el hombro, riendo.
+
+— Eres el mejor ser humano vivo.
+
+— Anda, anda. — Osvaldo miró a los lados. — Si me pillan dejándolos entrar tarde, estoy frito.
+
+---
+
+En el vestuario, entre los casilleros, el cambio fue rápido y en silencio. Camisa del uniforme encima de la camiseta negra. Gorra adentro de la mochila. La postura cambiaba junto con la ropa. Era lo que había que hacer para quedarse.
+
+El pasillo estaba diferente.
+
+Kim lo notó antes de entender por qué. Un grupito parado cerca de la pared cuando debería estar caminando. Conversación demasiado baja para esa hora.
+
+— Hermano — dijo Jack —, vamos a tener que sacar unas canciones nuevas para la banda.
+
+— Deja de fastidiar, Jack.
+
+Apoyados en los casilleros, dos tipos miraban a los dos pasar.
+
+Uno era Freddy. Rubio, blazer de la escuela, un ojo morado aún vivo en los bordes. El otro no era de la escuela. Calvo, chaqueta de cuero, postura de quien no pertenece a ese pasillo y no finge que pertenece. Miraba el celular.
+
+Freddy dio un paso al frente. La mano del calvo se cerró en su muñeca sin apartar la vista de la pantalla.
+
+— Espera la tercera clase.
+
+— Pero están justo aquí...
+
+— Tercera clase.
+
+Freddy cerró la boca. El puño siguió cerrado.
+
+— No aguanto esperar.
+
+— Calma. A su tiempo. — El calvo guardó el celular. Miró a Freddy como se mira el trabajo cuando el trabajo aún no ha empezado. — Otro martes más.
+
+Kim y Jack miraron hacia atrás al mismo tiempo. Medio segundo. Después se volvieron y siguieron caminando.
+
+No relacionaron la cara con el nombre. No hicieron ningún cálculo. Freddy era solo una cara irritada más en una escuela llena de ellas.
+
+Pero el ojo morado se quedó. En algún rincón de la cabeza de Kim, se quedó.
+
+---
+
+La puerta del salón A-304 estaba cerrada.
+
+— Atrasados como siempre — dijo Kim.
+
+— No puedo esperar a que esta clase termine.
+
+Kim puso la mano en el picaporte.
+
+*Tengo que conseguir otro plan pronto.*
+
+Abrió.

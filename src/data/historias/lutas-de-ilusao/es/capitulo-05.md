@@ -2,233 +2,311 @@
 
 Thunderbolt miró la pantalla holográfica que flotaba a su lado.
 
-— NeoGuide. Siguiente elemento.
+— NeoGuide. Siguiente ítem.
 
-— Arrodillar.
+— Arrodillarse.
 
-Giró el rostro hacia Kim con la expresión de quien acaba de recibir una tarea administrativa.
+Volvió el rostro hacia Kim con la expresión de quien acaba de recibir una tarea administrativa.
 
-Kim seguía en el agarre de Thunderbolt, la garganta bloqueada. Lo que podía verse de sus ojos era pura furia. Sosteniéndose solo con fuerza de voluntad. Los dedos fracturados de la mano derecha eran un mapa de hinchazón y sangre coagulada. La respiración llegaba en ráfagas cortas, cada una costando más que la anterior.
+Kim tenía el cuello atrapado en la mano de Thunderbolt. La mirada, al menos lo que se podía ver de ella, era de furia. Sostenido apenas por su propia fuerza de voluntad. La mano derecha destrozada era un mapa de hinchazón y sangre coagulada. La respiración salía en ráfagas cortas, cada una costando más que la anterior.
 
-Pero seguía mirando. Firme.
+Pero todavía miraba, firme.
 
-Thunderbolt inclinó la cabeza levemente hacia un lado, evaluando.
+Thunderbolt inclinó ligeramente la cabeza hacia un lado, evaluando.
 
-— Admiro el espíritu. El tuyo y el del otro. Esa actitud puede funcionar en el colegio, pero voy a mostrarte que aquí las cosas son muy diferentes.
+— Admiro tu espíritu. El tuyo y el del otro. En la escuela, esa postura hasta funciona. Pero aquí adentro te voy a mostrar que las cosas son muy diferentes.
 
-No era admiración. Era curiosidad entomológica. La clase que antecede al alfiler.
+No era admiración. Era curiosidad entomológica. Del tipo que antecede al alfiler.
 
-Kim enrolló las piernas alrededor del brazo de Thunderbolt antes de que saliera el siguiente golpe, usando el impulso para soltar su propia garganta. Cayó mal, rodó, quedó de rodillas por un segundo. Thunderbolt no se movió. Kim se levantó con la velocidad que le quedaba, giró, saltó hacia adelante y con la mano izquierda descargó un puñetazo en el rostro de Thunderbolt.
+Thunderbolt giró el brazo y lanzó a Kim lejos, como quien tira una bolsa de basura.
 
-El impacto fue el de alguien soplando contra una pared.
+Kim cayó mal, rodó y quedó de rodillas por un segundo. Thunderbolt no se movió. Kim se levantó con la velocidad que le quedaba, giró, saltó impulsado hacia adelante y con la mano izquierda lanzó un puñetazo al rostro de Thunderbolt.
 
-Thunderbolt ni parpadeó. Se quedó parado con el puño todavía apoyado en su cara, mirando a Kim con una expresión que no era rabia. Era algo más frío.
+El impacto fue como soplar contra una pared.
 
-— ¿Ya terminaste?
+Thunderbolt ni pestañeó. Se quedó parado con el puño todavía pegado a su cara, mirando a Kim con una expresión que no era rabia. Era algo más frío.
 
-Kim dejó caer el brazo. La intensidad del golpe contra la coraza dura de Thunderbolt había dejado su mano izquierda ensangrentada hasta los nudillos.
+— ¿Terminaste?
+
+Kim dejó caer el brazo. La intensidad del golpe contra la coraza dura de Thunderbolt le había dejado la mano izquierda ensangrentada hasta los nudillos.
 
 — Bien.
 
-La patada lateral golpeó la rodilla de Kim sin aviso. El crujido resonó por toda la arena antes de que pudiera salir cualquier grito, y el grito no salió porque Kim se mordió la lengua hasta sangrar para evitarlo. La rodilla se dobló hacia adentro en un ángulo que las rodillas no doblan. Kim cayó al suelo por tercera vez, las manos en el concreto, la pierna derecha rechazando cualquier instrucción.
+La patada lateral impactó la rodilla de Kim sin aviso. El crujido estalló por toda la arena antes de que pudiera salir cualquier grito, y el grito no salió porque Kim se mordió la lengua hasta sangrar para no soltarlo. La rodilla se dobló hacia adentro en un ángulo en el que las rodillas no se doblan. Kim cayó al suelo por tercera vez, las manos en el concreto, la pierna derecha negándose a recibir cualquier instrucción.
 
-— NeoGuide. Marca arrodillar como completado.
+— NeoGuide. Marcar arrodillarse como completado.
 
-— Elemento marcado. Siguiente elemento: llorar.
+— Ítem marcado. Próximo ítem: llorar.
 
-Thunderbolt flexionó los dedos. En las gradas, el volumen había cambiado. No de entusiasmo. De otra cosa. Algunas personas habían dejado de gritar. Otras seguían gritando, pero el tono era diferente, más agudo, menos celebración.
+Thunderbolt flexionó los dedos. En las gradas, el volumen había cambiado. No era entusiasmo. Era otra cosa. Algunas personas habían dejado de gritar. Otras seguían gritando, pero el tono era distinto, más agudo, menos celebración.
 
-Jack no se había movido desde que la rodilla cedió.
+Jack no se había movido desde que la rodilla tronó.
 
 ---
 
 Lo que vino después no fue rápido.
 
-Thunderbolt trabajó con la metodología de quien tiene tiempo y no pretende desperdiciar ni un segundo. Cada puñetazo calculado para un punto específico, cada golpe mapeando el cuerpo de Kim como alguien que conoce la anatomía lo suficiente para causar daño sin terminar.
+Thunderbolt trabajó con la metodología de quien tiene tiempo y no piensa desperdiciar ni un segundo. Cada golpe calculado para un punto específico, cada impacto mapeando el cuerpo de Kim como alguien que conoce anatomía lo bastante bien para causar daño sin terminar la pelea.
 
-Puñetazo en el pómulo. La piel cedió, la hinchazón comenzó de inmediato.
+Puño en el pómulo. La piel cedió, la hinchazón comenzó de inmediato.
 
-Puñetazo en la ceja. La carne se abrió, la sangre bajó por el lado derecho.
+Puño en la ceja. La carne se abrió, la sangre bajó por el lado derecho.
 
-Golpe abierto en la sien. La visión se puso blanca por dos segundos.
+Golpe abierto en la sien. La visión se le puso blanca por dos segundos.
 
-Kim no lloraba. Pero la sangre mezclada con el sudor que corría por su frente, por la ceja abierta, por la nariz que había cedido en algún momento que no había registrado — todo bajaba por su cara en hilos que convergían y goteaban desde el mentón.
+Kim no lloraba. Pero la sangre mezclada con el sudor que corría por la frente, por la ceja abierta, por la nariz que había cedido en algún momento que él no registró — todo bajaba por el rostro en hilos que convergían y caían por la barbilla.
 
 Desde las gradas, de lejos, parecía llanto.
+
+Allá arriba, lejos de Jack, una chica de cabello rosa miraba sin pestañear. Brazos cruzados. Sin gritar nada.
 
 Thunderbolt miró al público.
 
 — NeoGuide.
 
-— Elemento llorar marcado como completado por interpretación visual. Siguiente elemento: implorar.
+— Ítem llorar marcado como completado por interpretación visual. Próximo ítem: suplicar.
 
-El silencio en las gradas era ahora el tipo que ocurre cuando una multitud se da cuenta colectivamente de que cruzó una línea sin saber cuándo.
+El silencio en las gradas era ahora del tipo que se produce cuando una multitud se da cuenta colectivamente de que cruzó una línea sin saber cuándo.
 
 ---
 
 Thunderbolt se agachó frente a Kim.
 
-Kim estaba de rodillas en el concreto, la rodilla derecha hinchada más allá del reconocimiento, el rostro un mapa de daño estratificado, las manos en el suelo sosteniendo el peso de lo que quedaba. La respiración llegaba en intervalos irregulares, cada una una negociación.
+Kim estaba de rodillas en el concreto, la rodilla derecha hinchada más allá de lo reconocible, el rostro un mapa de daño estratificado, las manos en el suelo sosteniendo el peso de lo que quedaba. La respiración venía en intervalos irregulares, cada una, una negociación.
 
-— Último elemento. — Bajo, solo para Kim.
+— Último ítem. — Bajo, solo para Kim.
 
 Kim levantó los ojos.
 
-No había súplica en esa mirada. No había miedo. Había algo más simple y más intratable que ambos, algo que Thunderbolt reconoció como problema antes de poder nombrar qué era.
+No había súplica en esa mirada. No había miedo. Había algo más simple y más intratable que las dos cosas, algo que Thunderbolt reconoció como problema antes de poder nombrar qué era.
 
-— Implora.
+— Suplica.
 
 Kim no respondió.
 
-— Implora. — Un poco más alto.
+— Suplica. — Un poco más alto.
 
 Nada.
 
-La frialdad profesional de Thunderbolt se agrietó en algún lugar que no era visible pero sí audible en el borde de las palabras siguientes.
+La frialdad profesional de Thunderbolt se agrietó en algún lugar que no era visible, pero se volvió audible en el borde de las palabras siguientes.
 
-— Te rompí la rodilla. Te rompí los dedos. Puedo seguir todo el tiempo que sea necesario. Implora y esto para.
+Apuntó con el dedo a la cara de Kim. Con la otra mano cerrada, el puño comenzó a cargarse. Chispas azules subiendo por las juntas de la armadura.
 
-Kim escupió sangre en el concreto a su lado.
+— Te rompí la rodilla. Te rompí los dedos. Puedo seguir todo el tiempo que sea necesario. Suplica, y esto se detiene.
 
-No era desafío performativo. Era solo lo que le quedaba al cuerpo para ofrecer.
+Kim escupió sangre en el concreto al lado.
+
+No era desafío performático. Era solo lo que el cuerpo tenía para ofrecer.
 
 La frialdad de Thunderbolt se agrietó un centímetro más.
 
-— IMPLORA.
+— SUPLICA.
 
 La arena estaba absolutamente en silencio.
 
-Kim miró a Thunderbolt con lo que quedaba de foco en sus ojos y dijo la única cosa que había para decir.
+Kim miró a Thunderbolt con el resto de enfoque que le quedaba en los ojos y dijo lo único que había para decir.
 
 — No.
 
-Una palabra. Sin adorno, sin discurso, sin performance. Solo la palabra.
+Una palabra. Sin adornos, sin discurso, sin performance.
 
-Thunderbolt se quedó parado con ella por un segundo que duró demasiado.
+El puño de Thunderbolt zumbó. *Bzzzt.*
 
-Luego algo en su rostro cambió. No rabia. Algo anterior a la rabia, más primitivo — el tipo de cosa que emerge cuando una persona se da cuenta de que el mundo no va a comportarse de la forma en que necesitaba que se comportara.
+Algo en su rostro cambió. No era rabia. Era una cosa anterior a la rabia, más primitiva. Lo que aparece cuando el mundo no se comporta como uno necesitaba.
 
-Levantó el puño.
+El golpe vino.
 
----
+Gigante. Cargado de rayo. Acertó en la cara de Kim y el mundo se hizo añicos como vidrio.
 
-La consciencia de Kim soltó los bordes.
-
-No fue de golpe. Fue en pedazos, cada uno yéndose separado de los otros como hojas que el viento se lleva de una en una. El dolor se quedó, pero se quedó lejos, al otro lado de un vidrio que se iba engrosando.
-
-Un pensamiento cruzó lo que quedaba de lucidez:
-
-*Nunca imploré y nunca voy a implorar, pedazo de basura.*
-
-Luego el vidrio se engrosó demasiado y la arena desapareció.
+En las gradas, Jack gritó algo que nadie escuchó.
 
 ---
 
-El lugar no tenía suelo confirmado.
+*Yo nunca supliqué y nunca voy a suplicar, cabrón.*
 
-Kim lo descubrió cuando intentó sentir dónde estaba pisando y no llegó a ninguna conclusión. Había oscuridad densa, presente, con peso propio. Había aire húmedo. Y había, en algún lugar distante, el sonido de agua goteando en un ritmo que no era aleatorio, pero tampoco era música.
+La conciencia de Kim soltó los bordes.
 
-*¿Estoy muerto!?*
+No fue de una vez. Fue en pedazos, cada uno yéndose por separado, como hojas que el viento se lleva una por una. El dolor se quedó, pero quedó lejos, del otro lado de un vidrio que se iba engrosando.
 
-Una forma humana apareció.
+*Voy a golpear la cara de Jack cuando esto termine.*
 
-Se materializó desde las sombras despacio, como si la oscuridad fuera tela abriéndose. Cabello blanco cayendo sobre los hombros. Una barba larga llegando al pecho. Vestiduras de lino con símbolos dorados que pulsaban. Sobre las vestiduras, un bombín negro levemente inclinado hacia un lado. En los ojos, gafas juliet espejadas que reflejaban la oscuridad circundante. En la mano derecha, un berimbau que sostenía con la naturalidad de quien no se da cuenta de que lo está haciendo.
+Después el vidrio se engrosó demasiado y la arena desapareció.
 
-La mano izquierda se extendió. Kim la tomó de forma instintiva y no planeada. El tacto era cálido y firme, demasiado humano para ese lugar.
+---
 
-El hombre abrió la boca.
+El lugar no tenía suelo.
 
-— He aquí que el halcón posa en la piedra que el río olvidó. El silencio entre los tambores es donde la serpiente danza. Cuando la lluvia le pregunta al viento, el árbol ya sabe la respuesta que el pez aún no ha escuchado.
+Kim lo descubrió cuando intentó sentir dónde estaba pisando y no llegó a ninguna conclusión. Oscuridad densa, con peso propio. Aire húmedo y helado pegado a la piel. Y, en algún lugar distante, o muy cerca, el sonido de agua goteando en un ritmo que no era aleatorio.
 
-Kim lo miró fijamente.
+*¿Morí?*
 
-— El ojo que se ve a sí mismo no necesita espejo. Pero el espejo que no refleja también es puerta. Pequeño saltamontes, el oso no le pregunta a la miel por qué es dulce.
+Una forma humana salió de las sombras.
 
-*Estoy muerto. Pero en serio, no esperaba esto ni del cielo ni del infierno. ¿QUÉ DEMONIOS ES ESTO?*
+Despacio, como si la oscuridad fuera una tela abriéndose. Un viejo. Barba blanca cayendo por el pecho. Un sombrero de plumas. Gafas oscuras y redondas, que no reflejaban nada. Un manto todo ornamentado, lleno de símbolos dorados pulsando como si respiraran. Una cadena de oro al cuello, con un signo de dólar colgando. Y, debajo de todo aquello, un par de tenis.
 
-— Espera que estoy tratando de crear atmósfera. — El hombre se giró bruscamente hacia un lado, gesticulando con el berimbau hacia la nada. — Déjame terminar. El ciervo que—
+En la mano, un bastón dorado con una piedra azul en la punta.
 
-Se detuvo. Estaba escuchando algo que Kim no podía oír.
+Había algo en aquel viejo que Kim conocía. Un sueño, tal vez. No logró recordar de dónde.
 
-— Sé que no entendió nada, pero es parte del proceso. — Pausa. — No, no voy a saltarme nada. Es tradición. — Otra pausa, más larga. — Está bien, está bien, precioso. Deja de fregar.
+El viejo extendió la mano. Kim la tomó sin pensar. El tacto era cálido, firme. Demasiado humano para aquel lugar.
 
-El hombre suspiró con la resignación de alguien que perdió un argumento ante una audiencia invisible. Cruzó los brazos, el berimbau balanceándose levemente en la mano. Cuando volvió a hablar, la voz era completamente otra.
+Y entonces el viejo habló. En una lengua que Kim nunca había oído y que, de algún modo, entendía.
 
-— ¡Vine a romperla! ¡Carajo, estás más destrozado que cadáver, bro! ¡En el descuento del segundo tiempo es que apareces aquí, ¿te crees el más del universo o qué?!
+— Hueles a pan en los días de lluvia. El agua cae cuando el mundo se aquieta. Pero respóndeme: cuando te sientas en contemplación, ¿notas que la mirada del ciervo siempre está a tus espaldas? ¿En el momento más cristalino de la oscuridad, cuando el sordo oyó lo que el ciego vio, mientras el paralítico caminaba distraído, prestando atención a lo que el mudo susurraba?
 
-Kim abrió la boca y la cerró. No sabía cómo reaccionar a eso.
+Kim se quedó mirándolo.
 
-— ¿Me crees un timador? ¡Estás en las nubes, Helloooo?
+El dolor de la pierna y de la mano regresó de golpe. Intentó incorporarse y el cuerpo no lo dejó. Retrocedió como pudo, arrastrándose, aunque sabía que allí no había a dónde huir.
 
-— ¿Quién diablos eres tú, loco?
+El viejo resopló.
 
-El hombre frunció el ceño con la expresión de quien está siendo injustamente subestimado. Se golpeó el pecho con orgullo, ajustó el bombín con el índice.
+— ¡Llegué para brillar! — De pronto la voz era otra. — ¡Carajo, estás hecho mierda, hermano! ¿Al límite, en el tiempo extra del segundo tiempo, y es cuando me vienes a aparecer aquí?
 
-— Bien, basta de rodeos. La leyenda ha llegado. Soy el Chamán de la tribu Xakaxi, me llamo Chamán Yawanari. Me he encargado de mantener el sello sagrado de todos los poderes ancestrales.
+Kim se quedó mirando a aquel viejo de sombrero de plumas haciendo pose.
 
-Evaluó a Kim de arriba abajo con ojos que contenían algo que no cabía en ojos normales.
+— Este viejo está drogado.
 
-— Y veo que, como tu abuelo, eres lo más. Nieto del crack. — Se giró hacia un lado. — Ah, y no le hagas caso a mi precioso aquí, ese siempre está en las nubes.
+Intentó moverse. La rodilla crujió y el dolor subió hasta los dientes.
 
-Kim miró hacia un lado. No había nadie.
+El viejo se volvió hacia un lado. Le habló a la nada.
 
-*Definitivamente estoy muerto y perdiendo la cabeza.*
+— ¿Será que todavía sale de esta?
 
-— Bro, tienes más poder del que imaginas. Pero hay más peligro a tu alrededor del que jamás podrías imaginar. Lo que estás pasando ahora es nada — una picadura de mosquito en algo mucho más grande.
+El viejo cruzó los brazos y arqueó una ceja por encima de las gafas.
 
-Se pasó la mano por la barba grisácea, una sonrisa traviesa en los labios.
+— Loco, ¿de verdad crees que te estoy viendo la cara? ¿Estás en Disney?
 
-— Si quieres, te doy una mano para soltar al Monstruo, y vas a llegar a nivel Super Saiyan de poder. — Se giró hacia un lado. — ¿Qué? Claro, ¿no ves que está liquidado? — Pausa. — Sé que lo otro es todo un desmadre, qué se le va a hacer. Sin esto, este chico terminó.
+— No sé quién eres — Kim alcanzó a decir. — Pero últimamente no tengo mucha suerte conociendo gente nueva.
 
-Kim tenía la pierna rota. Los dedos fracturados. El rostro destrozado. Y un chamán inmortal con bombín negro y gafas juliet espejadas hablando con amigos imaginarios en la oscuridad mientras sostenía un berimbau y citaba Dragon Ball.
+El viejo suspiró. Los hombros subieron y bajaron en todo un teatro de paciencia.
 
-Con la poca fuerza que le quedaba, reunió aire en los pulmones.
+— Cierto. Entonces es hora de que yo brille, con estilo como siempre. — Se golpeó el pecho. — ¡Llegué para impresionar! Soy chamán de la tribu Xakaxi. Me llamo Chamán Yawanari. Soy el diez de diez que quedó a cargo de proteger todos los poderes sagrados de este mundote.
 
-— Quiero golpear a ese hijo de puta. Y después a Jack.
+Los ojos detrás de las gafas se entrecerraron. Midieron a Kim de arriba abajo.
 
-La sonrisa de Yawanari se abrió despacio. Dientes amarillentos por el tiempo. Sus ojos encendiéndose con algo que no era exactamente luz pero funcionaba como ella.
+— Y veo que, igual que tu abuelo, eres bien cabroncito. Nieto del chingón. — Apuntó con el bastón al vacío del lado. — ¡Ah! Y no le hagas caso a mi amigo aquí al lado, no. Ese sí que está en Disney.
 
-— Lo pediste, lo tienes. Después no vengas a llorarme si sale mal.
+Kim miró hacia el lado. No había nadie.
 
-Depositó el berimbau en el aire a su lado, donde quedó suspendido sin nada que lo sostuviera. Sus dedos callosos se posaron en la espalda de Kim.
+— ¿Mi abuelo?
 
-Lo que vino después no fue suave. Una corriente partió del punto de contacto y recorrió todo el cuerpo — no eléctrica, no calor, algo anterior a esos dos conceptos, algo que el cuerpo de Kim reconocía sin que Kim supiera por qué. Todos los músculos se contrajeron a la vez, luego se relajaron en espasmos. El dolor se mezcló con otra cosa sin nombre.
+*Este viejo conoce a mi abuelo.*
 
-*Si sobrevivo a esto voy a estrangular a este tipo con mis propias manos.*
+*¿Será que conoce a mi papá?*
 
-Yawanari se alejó. Tomó el berimbau del aire. Se giró hacia un lado y murmuró a su compañero invisible.
+*Definitivamente estoy muerto. Y loco.*
 
-— Espero que no salga mal. — Luego a Kim. — No vengas con actitud si sale mal, chico. Vive con tus elecciones. Me piro. Chau. Ah, una última cosa — ¡déjenle su like!
+— Viejo. — El chamán se pasó la mano por la barba, con una sonrisa torcida en la boca. — Tienes más poder del que imaginas. Pero tienes más peligro a tu alrededor del que jamás podrías imaginar. Esta mierda que estás pasando ahora es solo una pulga en el culo del mono.
 
-Puso cara de pícaro, lengua afuera, dedos en V. Levantó la pierna derecha y estampó el pie en el suelo.
+Se acercó más.
 
-La onda de choque fue luminosa y total, blanca y dorada expandiéndose en capas desde el punto de contacto, arrasando con todo.
+— Si quieres, hasta te echo una mano para soltar eso, y te pones bien bestia. Tipo Super Saiyajin. ¿Pero de verdad tienes las bolas para dar la talla?
+
+Se volvió de repente hacia un lado, como si alguien le hubiera susurrado al oído.
+
+— ¿Qué? ¿Qué? — Pausa. — Claro que sí, ¿no ves que está jodido? — Otra pausa. — Ya sé, ya sé, el otro es complicado. ¿Pero qué se le va a hacer? Sin esto, ¡este aquí está cancelado!
+
+Kim estaba con la rodilla rota. Los dedos rotos. La cara desmontada. Y un chamán de sombrero de plumas, gafas oscuras y cadena de dólar discutiendo con nadie en la oscuridad.
+
+El corazón le martilló en las costillas.
+
+El chamán se llevó la mano al oído de nuevo.
+
+— ¿Qué? ¿Ah, ah? — La otra mano fue a la frente. — ¿Explicarle el contrato? ¡Si no intervenimos, este aquí va a estirar la pata! — Resopló. — Está bien, está bien. Voy a explicarle el contrato.
+
+Se volvió hacia Kim. En los lentes oscuros de las gafas, Kim vio su propio reflejo. Caído. Ensangrentado.
+
+— Así está la cosa, parce. Necesito que me digas qué quieres. Ahora no es hora de mentir. Una vez en toda tu vida. — La voz bajó. — Dime, Kim. ¿Qué quieres?
+
+Incluso en medio de aquella confusión, algo se encendió en el pecho. Desesperado.
+
+Juntó el aire que tenía y gritó desde adentro.
+
+— ¡QUIERO PODER!
+
+El grito resonó por la oscuridad como el rugido de un animal herido.
+
+La sonrisa del chamán se abrió despacio. Dientes amarillentos por el tiempo. Los ojos encendiéndose detrás de las gafas con una luz que no era exactamente luz.
+
+— Uy. Es hora de soltar al monstruo. — Se volvió a la nada de nuevo, todo animado. — Sí, sí, seguro que me entiende. ¿No es así como hablan hoy en día? ¡Estoy en sintonía con la nueva era, mi querido!
+
+Se arrodilló al lado de Kim con una ligereza que ningún viejo tiene. Levantó la mano.
+
+El aire comenzó a vibrar.
+
+Sus dedos se encendieron, uno por uno, como estrellas pequeñas. Una llama roja en el meñique. Una gota azul, cristalina, en el anular. Y los otros, cada uno de un color.
+
+Los dedos callosos se posaron en la espalda de Kim.
+
+La corriente bajó por todo el cuerpo. No era eléctrica. No era caliente. Era una cosa anterior a esas dos, que el cuerpo de Kim reconoció sin saber por qué. Salió del corazón en ondas. Las venas latieron. Era como si un río corriera por dentro de ellas.
+
+Los músculos se contrajeron todos a la vez. Después se soltaron en espasmos.
+
+El dolor cortaba como cuchilla. Pero debajo de él había otra cosa. Hueso rehaciéndose. Fuerza siendo forjada.
+
+*Si sobrevivo a esto, voy a estrangular a ese desgraciado con mis propias manos.*
+
+El chamán se alejó unos pasos y cruzó los brazos, mirando como quien observa un experimento.
+
+— Espero que no salga mal... — susurró a su amigo invisible. Después se volvió hacia Kim, la sonrisa torcida de vuelta. — Ni siquiera sirve que me guardes rencor si sale mal, muchacho. Vive con tus propias decisiones, que yo ya me voy. Chau.
+
+Plantó los pies. Cerró los ojos por un instante.
+
+Levantó la pierna derecha con la precisión de un bailarín y estampó el pie contra el suelo.
+
+La onda de choque vino blanca y dorada, en capas, una encima de la otra, barriendo todo. Kim cerró los ojos y alzó los brazos por instinto.
+
+La luz pulsó como un corazón gigante.
+
+Y se apagó.
 
 ---
 
 Kim volvió.
 
-La arena se materializó a su alrededor con la brutalidad de siempre. El suelo frío, el ruido del público, el olor a sangre y concreto. Thunderbolt estaba exactamente donde había quedado, el puño cerrado, listo para continuar.
+La arena se materializó a su alrededor con la brutalidad de siempre. El suelo frío. El ruido del público. El olor a sangre.
 
-El puño iba a bajar.
+Kim estaba caído. La mano robótica de Thunderbolt bajó desde lo alto, enorme, y se cerró sobre su mano, aplastándola entera contra el suelo. Electricidad crepitando entre los dedos de metal.
 
-Kim levantó la cabeza.
+En las gradas, Jack apretaba los fajos de dinero de la apuesta, desesperado.
 
-Thunderbolt se detuvo.
+Solo que algo había cambiado.
 
-No fue una decisión consciente. Fue el instinto de mil doscientas batallas diciéndole que algo había cambiado sin que nada visible hubiera cambiado todavía. Los ojos que lo miraban de vuelta no eran los mismos ojos de un segundo atrás. Tenían el mismo rostro, la misma sangre bajando desde la ceja, la misma pierna doblada en el ángulo equivocado.
+Una energía nueva corría por las venas de Kim. El tiempo se estiró. Cada segundo se volvió una eternidad limpia, donde cada respiración y cada latido del corazón se volvían nítidos y quedaban en su mano.
+
+Un brillo azul se encendió en su ojo.
+
+El pecho pulsó. Azul.
+
+Kim cerró la mano rota alrededor de la mano de metal. Y apretó de vuelta.
+
+Thunderbolt se trabó.
+
+No fue decisión. Fue el instinto de mil doscientas peleas diciéndole que algo había cambiado antes de que nada visible cambiara. El mismo rostro, la misma sangre bajando por la ceja, la misma pierna doblada en el ángulo equivocado.
 
 Pero no eran los mismos ojos.
 
-Thunderbolt retrocedió medio paso.
+Kim se levantó. Los dos ojos encendidos en azul. Mano contra puño, un pulso en medio de la arena, el rayo de Thunderbolt chisporroteando contra la energía azul de Kim. Chispas por todos lados.
 
-No sabía por qué.
+Y Kim empujó.
 
-En las gradas, Jack dejó de respirar. Luego soltó el aire despacio, los nudillos todavía blancos en la baranda.
+La energía explotó. Una onda azul destrozó el suelo alrededor y lanzó a Thunderbolt hacia atrás.
 
-Había algo en esa imagen — Kim de rodillas con el rostro destrozado y los ojos que ya no pertenecían a esa situación — que Jack reconocía desde un lugar muy profundo. No del IF. No de las peleas callejeras. De mucho antes que todo eso.
+— ¡¿Qué carajo?!
+
+Kim se puso en guardia.
+
+— Ahora es mi turno.
+
+En las gradas, Jack dejó de respirar.
+
+Había algo en aquella imagen que él conocía de un lugar muy profundo. No del LDI. No de las peleas callejeras. De mucho antes de eso.
 
 *Ahí viene.*
+
+Kim miró hacia lo alto. El cabello comenzó a aclararse.
+
+— ¿Qué es esto que estoy sintiendo? — La voz salió baja. — ¿Por qué me siento tan bien?
 
 Las llamas comenzaron en la espalda de Kim.
 

@@ -1,80 +1,84 @@
 # CHAPTER 5 — The List
 
-Thunderbolt glanced at the holographic screen floating beside him.
+Thunderbolt looked at the holographic screen floating beside him.
 
 — NeoGuide. Next item.
 
 — Kneel.
 
-He turned his face toward Kim with the expression of someone who just received an administrative task.
+He turned his face to Kim with the expression of someone who just received an administrative task.
 
-Kim was still in Thunderbolt's grip, his throat locked in place. What could be seen of his eyes was pure fury. Running on willpower alone. The fractured fingers of his right hand were a map of swelling and dried blood. His breathing came in short bursts, each one costing more than the last.
+Kim had his neck pinned in Thunderbolt's hand. The look in his eyes, at least what could be seen of it, was pure fury. Held upright by sheer will alone. His crushed right hand was a map of swelling and clotted blood. His breathing came in short bursts, each one costing more than the last.
 
-But he was still looking. Steady.
+But still he stared, steady.
 
-Thunderbolt tilted his head slightly, evaluating.
+Thunderbolt tilted his head slightly to the side, assessing.
 
-— I admire the spirit. Yours and the other one's. That attitude might work at school, but I'm going to show you things work very differently here.
+— I admire your spirit. Yours and the other guy's. In school, that attitude can get you somewhere. But in here, I'm going to show you things work very differently.
 
-It wasn't admiration. It was entomological curiosity. The kind that comes right before the pin.
+It wasn't admiration. It was entomological curiosity. The kind that comes before the pin.
 
-Kim wrapped his legs around Thunderbolt's arm before the next strike could land, using the momentum to free his own throat. He fell badly, rolled, ended up on one knee for a second. Thunderbolt didn't move. Kim got up with whatever speed he had left, turned, launched himself forward, and drove his left fist into Thunderbolt's face.
+Thunderbolt swung his arm and hurled Kim far, like someone tossing out a bag of trash.
 
-The impact was like blowing against a wall.
+Kim landed badly, rolled, stayed on his knees for a second. Thunderbolt didn't move. Kim got up with whatever speed he had left, spun, lunged forward and threw a punch at Thunderbolt's face with his left hand.
 
-Thunderbolt didn't even blink. He stood there with the fist still pressed against his face, looking at Kim with an expression that wasn't anger. It was something colder.
+The impact was like someone blowing against a wall.
 
-— That it?
+Thunderbolt didn't even blink. He stood still with the fist still pressed against his face, looking at Kim with an expression that wasn't anger. It was something colder.
+
+— Done?
 
 Kim let his arm drop. The force of the punch against Thunderbolt's hard shell had left his left hand bloody down to the knuckles.
 
 — Good.
 
-The side kick caught Kim's knee without warning. The crack echoed through the entire arena before any scream could follow, and the scream didn't come because Kim bit his tongue until it bled to keep it in. The knee bent inward at an angle knees don't bend. Kim went down for the third time, hands on the concrete, his right leg refusing every instruction.
+The side kick hit Kim's knee without warning. The crack erupted through the entire arena before any scream could come out, and the scream didn't come because Kim bit his tongue until it bled to keep it in. The knee bent inward at an angle knees don't bend. Kim went to the ground for the third time, hands on the concrete, his right leg refusing any instruction.
 
 — NeoGuide. Mark kneel as complete.
 
 — Item marked. Next item: cry.
 
-Thunderbolt flexed his fingers. In the stands, the volume had shifted. Not enthusiasm. Something else. Some people had stopped shouting. Others were still shouting, but the tone was different — sharper, less celebration.
+Thunderbolt flexed his fingers. In the stands, the volume had shifted. Not enthusiasm. Something else. Some people had stopped shouting. Others still shouted, but the tone was different, sharper, less celebration.
 
-Jack hadn't moved since the knee gave out.
+Jack hadn't moved since the knee popped.
 
 ---
 
 What came next wasn't fast.
 
-Thunderbolt worked with the methodology of someone who has time and has no intention of wasting a single second of it. Each punch calculated for a specific point, each strike mapping Kim's body the way someone does when they know enough anatomy to cause damage without ending things.
+Thunderbolt worked with the methodology of someone who has time and doesn't intend to waste a second of it. Each punch calculated for a specific point, each strike mapping Kim's body like someone who knows anatomy well enough to cause damage without ending things.
 
 Punch to the cheekbone. The skin gave, the swelling started immediately.
 
 Punch to the eyebrow. The flesh split, blood ran down the right side.
 
-Open-hand strike to the temple. Vision went white for two seconds.
+Open palm to the temple. Vision whited out for two seconds.
 
-Kim wasn't crying. But the blood mixed with sweat running down his forehead, from the split eyebrow, from the nose that had given at some point he hadn't registered — all of it ran down his face in streams that merged and dripped from his chin.
+Kim didn't cry. But the blood mixed with the sweat running down his forehead, down the split eyebrow, down the nose that had given way at some point he hadn't registered — it all ran down his face in streaks that converged and dripped from his chin.
 
-From the stands, from a distance, it looked like tears.
+From the stands, from a distance, it looked like crying.
 
-Thunderbolt glanced at the crowd.
+Up there, far from Jack, a girl with pink hair watched without blinking. Arms crossed. Not shouting anything.
+
+Thunderbolt looked at the crowd.
 
 — NeoGuide.
 
-— Item cry marked as complete by visual interpretation. Next item: beg.
+— Item cry marked complete by visual interpretation. Next item: beg.
 
 The silence in the stands was now the kind that happens when a crowd collectively realizes it crossed a line without knowing when.
 
 ---
 
-Thunderbolt crouched down in front of Kim.
+Thunderbolt crouched in front of Kim.
 
-Kim was on his knees on the concrete, his right knee swollen beyond recognition, his face a layered map of damage, his hands on the ground holding up what was left. His breathing came in irregular intervals, each one a negotiation.
+Kim was on his knees on the concrete, his right knee swollen beyond recognition, his face a map of layered damage, his hands on the ground holding up the weight of what remained. His breathing came at irregular intervals, each one a negotiation.
 
 — Last item. — Low, just for Kim.
 
 Kim raised his eyes.
 
-There was no pleading in that look. No fear. There was something simpler and more unmanageable than either of those, something Thunderbolt recognized as a problem before he could name what it was.
+There was no pleading in that look. No fear. There was something simpler and more intractable than both, something Thunderbolt recognized as a problem before he could name what it was.
 
 — Beg.
 
@@ -84,151 +88,225 @@ Kim didn't answer.
 
 Nothing.
 
-Thunderbolt's professional coldness cracked somewhere that wasn't visible but was audible at the edge of the words that followed.
+Thunderbolt's professional coldness cracked somewhere that wasn't visible, but was audible in the edge of the next words.
 
-— I broke your knee. I broke your fingers. I can keep going for as long as it takes. Beg and this stops.
+He pointed his finger at Kim's face. With his other hand closed, the fist began to charge. Blue sparks climbing through the joints of the armor.
+
+— I broke your knee. I broke your fingers. I can keep going for as long as it takes. Beg, and this stops.
 
 Kim spat blood onto the concrete beside him.
 
-It wasn't performative defiance. It was just what his body had left to offer.
+It wasn't performative defiance. It was just what the body had to offer.
 
 Thunderbolt's coldness cracked another centimeter.
 
 — BEG.
 
-The arena was absolutely quiet.
+The arena was absolutely silent.
 
-Kim looked at Thunderbolt with whatever focus remained in his eyes and said the only thing there was to say.
+Kim looked at Thunderbolt with what was left of focus in his eyes and said the only thing there was to say.
 
 — No.
 
-One word. No decoration, no speech, no performance. Just the word.
+One word. No flourish, no speech, no performance.
 
-Thunderbolt stood with it for a second that lasted too long.
+Thunderbolt's fist buzzed. *Bzzzt.*
 
-Then something in his face changed. Not anger. Something before anger, more primitive — the kind of thing that surfaces when a person realizes the world is not going to behave the way they needed it to.
+Something in his face changed. It wasn't anger. It was something before anger, more primal. What surfaces when the world doesn't behave the way you needed it to.
 
-He raised his fist.
+The punch came.
 
----
+Giant. Charged with lightning. It hit Kim's face and the world shattered like glass.
 
-Kim's consciousness let go of its edges.
-
-Not all at once. In pieces, each one leaving separately from the others like leaves the wind takes one at a time. The pain stayed, but stayed far away, on the other side of a glass that kept getting thicker.
-
-One thought crossed what remained of his clarity:
-
-*I never begged and I never will, you piece of trash.*
-
-Then the glass got too thick and the arena disappeared.
+In the stands, Jack shouted something nobody heard.
 
 ---
 
-The place had no confirmed floor.
+*I never begged and I never will, asshole.*
 
-Kim discovered that when he tried to feel where he was standing and couldn't reach a conclusion. There was dense darkness, present, with its own weight. There was humid air. And there was, somewhere in the distance, the sound of water dripping in a rhythm that wasn't random but also wasn't music.
+Kim's consciousness let go of the edges.
 
-*Am I dead!?*
+Not all at once. In pieces, each one drifting away separate from the others, like leaves the wind takes one at a time. The pain stayed, but it stayed far away, on the other side of glass that kept thickening.
 
-A human shape appeared.
+*I'm gonna punch Jack in the face when this is over.*
 
-It materialized from the shadows slowly, as if the dark were fabric coming apart. White hair falling over the shoulders. A long beard reaching down to the chest. Linen robes with golden symbols that pulsed. Over the robes, a black bowler hat tilted slightly to one side. On his eyes, mirrored juliet glasses reflecting the surrounding darkness back at itself. In his right hand, a berimbau he held with the naturalness of someone who doesn't notice they're doing it.
+Then the glass thickened too much and the arena disappeared.
 
-The left hand extended. Kim took it instinctively, without planning to. The touch was warm and firm, too human for that place.
+---
 
-The man opened his mouth.
+The place had no floor.
 
-— Behold the hawk that lands on the stone the river forgot. The silence between the drums is where the snake dances. When the rain asks the wind, the tree already knows the answer the fish has not yet heard.
+Kim discovered this when he tried to feel where he was standing and reached no conclusion. Dense darkness, with its own weight. Damp, freezing air clinging to his skin. And somewhere distant, or very close, the sound of water dripping in a rhythm that wasn't random.
 
-Kim stared at him.
+*Did I die?*
 
-— The eye that sees itself needs no mirror. But the mirror that reflects nothing is also a door. Little grasshopper, the bear does not ask the honey why it is sweet.
+A human shape emerged from the shadows.
 
-*I'm dead. But seriously, I wasn't expecting this from heaven OR hell. WHAT THE HELL IS THIS?*
+Slowly, as if the dark were fabric parting. An old man. White beard flowing down his chest. A feathered headdress. Round dark glasses that reflected nothing. A fully ornamented cloak, covered in golden symbols pulsing as if breathing. A gold chain around his neck, with a dollar sign hanging from it. And under all of it, a pair of sneakers.
 
-— Hold on, I'm trying to set the mood. — The man turned abruptly to the side, gesturing with the berimbau at nothing. — Let me finish. The deer that—
+In his hand, a golden staff with a blue stone at the tip.
 
-He stopped. He was listening to something Kim couldn't hear.
+There was something about that old man that Kim knew. A dream, maybe. He couldn't remember from where.
 
-— I know he didn't understand any of it, but it's part of the process. — Pause. — No, I'm not skipping ahead. It's tradition. — Another pause, longer. — Alright, alright, flashy. Get off my case.
+The old man extended his hand. Kim took it without thinking. The touch was warm, firm. Too human for that place.
 
-The man sighed with the resignation of someone who lost an argument to an invisible audience. He crossed his arms, the berimbau swaying lightly in his hand. When he spoke again, the voice was completely different.
+And then the old man spoke. In a language Kim had never heard and somehow understood.
 
-— I came to slay! Damn bro, you look worse than roadkill! On your last legs, in extra time, is when you show up here — think you're the main character or something?
+— You smell like bread on rainy days. Water falls when the world grows quiet. But answer me: when you sit in contemplation, do you notice that the deer's gaze is always at your back? In the most crystalline moment of darkness, when the deaf heard what the blind saw, while the paralyzed one walked distracted, paying attention to what the mute whispered?
 
-Kim opened his mouth and closed it. He had no idea how to respond to that.
+Kim just stared at him.
 
-— You think I'm playing you? You're out of your mind, Helloooo?
+The pain in his leg and hand came back all at once. He tried to get up and his body wouldn't let him. He backed away as best he could, dragging himself, even knowing there was nowhere to flee there.
 
-— Who the hell are you, man?
+The old man snorted.
 
-The man frowned with the expression of someone being unfairly underestimated. He tapped his chest with pride, adjusted the bowler hat with one finger.
+— I came to slay! — Suddenly the voice was different. — Holy shit, you're fucked up beyond belief, my dude. At the limit, in stoppage time, that's when you show up here?
 
-— Alright, enough. The legend has arrived. I am the Shaman of the Xakaxi tribe. My name is Shaman Yawanari. I've been holding it down to keep the sacred seal of all ancestral powers intact.
+Kim stared at that old man in a feathered headdress striking a pose.
 
-He looked Kim up and down with eyes that held something that didn't fit in normal eyes.
+— This old man is high.
 
-— And I can see that, just like your grandfather, you're the real deal. Grandson of the legend. — He turned to the side. — Oh, and don't mind my flashy friend over here, he's always on one.
+He tried to move. His knee cracked and the pain shot up to his teeth.
+
+The old man turned to the side. Spoke to nothing.
+
+— You think he still gets out of this one?
+
+The old man crossed his arms and arched an eyebrow over his glasses.
+
+— Bro, you really think I'm running a scam? You think this is Disneyland?
+
+— I don't know who you are — Kim managed to say. — But I haven't had much luck meeting new people lately.
+
+The old man sighed. His shoulders rose and fell in a whole theater of patience.
+
+— Fine. Then it's time for me to slay, dripped out as always. — He beat his chest. — I came to dominate! I'm a Shaman of the Xakaxi tribe. My name is Shaman Yawanari. I'm the ten out of ten tasked with protecting all the sacred powers of this big old world.
+
+The eyes behind the glasses narrowed. They measured Kim from top to bottom.
+
+— And I see that, like your grandfather, you're a tough little shit. Grandson of a badass. — He pointed with the staff to the empty space beside him. — Oh! And don't mind my friend here. That one's actually in Disneyland.
 
 Kim looked to the side. There was no one there.
 
-*I'm definitely dead and losing my mind.*
+— My grandfather?
 
-— Bro, you've got more power than you know. But there's more danger around you than you could ever imagine. What you're going through right now is nothing — a mosquito bite on the back of something much bigger.
+*This old man knows my grandfather?*
 
-He ran a hand over his grey beard, a mischievous smile on his lips.
+*Does he know my father?*
 
-— If you want, I can give you a hand to let the Monster loose, and you'll go Super Saiyan levels of powerful. — He turned to the side. — What? Of course, can't you see he's done? — Pause. — I know the other situation is a whole mess, but what can you do. Without this, this kid is finished.
+*I'm definitely dead. And crazy.*
 
-Kim had a broken leg. Fractured fingers. His face in pieces. And an immortal shaman with a black bowler hat and mirrored juliet glasses talking to imaginary friends in the dark while holding a berimbau and quoting Dragon Ball.
+— Dude. — The Shaman ran a hand through his beard, a crooked smile on his mouth. — You have more power than you realize. But you have more danger around you than you could ever imagine. This shit you're going through right now is just a flea on a monkey's ass.
 
-With what little strength remained, he gathered air into his lungs.
+He moved closer.
 
-— I want to punch that son of a b***. And then Jack.
+— If you want, I can give a little help to unleash that, and you'll go beast mode. Like Super Saiyan. But do you have the balls to handle it?
 
-Yawanari's smile opened slowly. Teeth yellowed by time. His eyes lighting up with something that wasn't exactly light but worked like it.
+He suddenly turned to the side, as if someone had whispered in his ear.
 
-— You asked for it, you got it. Don't come crying to me if it goes sideways.
+— What? What? — Pause. — Of course, can't you see he's fucked? — Another pause. — I know, I know, the other one is no joke. But what can you do? Without this, this one's canceled!
 
-He set the berimbau in the air beside him, where it hung suspended with nothing holding it. His calloused fingers rested on Kim's back.
+Kim had a broken knee. Broken fingers. A destroyed face. And a shaman in a feathered headdress, dark glasses, and a dollar-sign chain arguing with no one in the dark.
 
-What came next wasn't gentle. A current left from the point of contact and traveled through his entire body — not electric, not heat, something that predated both of those concepts, something Kim's body recognized without Kim knowing why. Every muscle contracted at once, then released in spasms. The pain mixed with something else that had no name.
+His heart hammered against his ribs.
 
-*If I survive this I'm going to strangle this guy with my bare hands.*
+The Shaman brought his hand to his ear again.
 
-Yawanari stepped back. Picked the berimbau out of the air. Turned to the side and murmured to his invisible partner.
+— What? Huh, huh? — The other hand went to his forehead. — Explain the contract? If we don't intervene, this one's going to bite it! — He snorted. — Fine, fine. I'll explain the contract to him.
 
-— Hope this doesn't go sideways. — Then to Kim. — Don't come at me with the attitude if it does, kid. Live with your choices. Out. Peace. Oh, one last thing — drop a like!
+He turned to Kim. In the dark lenses of the glasses, Kim saw his own reflection. Fallen. Bloodied.
 
-He made a face, tongue out, fingers in a V. Raised his right leg and stamped his foot on the ground.
+— Here's the deal, partner. I need you to tell me what you want. Now is not the time to lie. Once in your whole life. — His voice dropped. — Tell me, Kim. What do you want?
 
-The shockwave was luminous and total, white and gold expanding in layers from the point of contact, sweeping everything away.
+Even in the middle of that confusion, something sparked in his chest. Desperate.
+
+He gathered what air he had and screamed from the inside.
+
+— I WANT POWER!
+
+The shout echoed through the dark like the roar of a wounded animal.
+
+The Shaman's smile opened slowly. Teeth yellowed by time. His eyes lighting up behind the glasses with a light that wasn't quite light.
+
+— Whoa. Time to let the monster out. — He turned to nothing again, all excited. — Yes, yes, it's certain he understands me. Isn't that how they talk nowadays? I'm tuned into the new era, my dear!
+
+He knelt beside Kim with a lightness no old man has. Raised his hand.
+
+The air began to vibrate.
+
+His fingers lit up, one by one, like small stars. A red flame on the pinky. A blue, crystalline drop on the ring finger. And the others, each a different color.
+
+The calloused fingers touched Kim's back.
+
+The current ran through his entire body. It wasn't electric. It wasn't hot. It was something before those two, something Kim's body recognized without him knowing why. It left his heart in waves. His veins throbbed. It was like a river running through them.
+
+His muscles contracted all at once. Then released in spasms.
+
+The pain cut like a blade. But underneath it there was something else. Bone rebuilding. Strength being forged.
+
+*If I survive this, I'm going to strangle that bastard with my own hands.*
+
+The Shaman stepped back a few paces and crossed his arms, watching like someone observing an experiment.
+
+— Hope this doesn't go sideways... — he whispered to his invisible friend. Then turned to Kim, the crooked smile back. — No point holding a grudge against me if it goes bad, kid. Live with your choices, 'cause I'm out. Peace.
+
+He planted his feet. Closed his eyes for an instant.
+
+Raised his right leg with a dancer's precision and slammed his foot into the ground.
+
+The shockwave came white and golden, in layers, one on top of the other, sweeping through everything. Kim closed his eyes and raised his arms by instinct.
+
+The light pulsed like a giant heart.
+
+And went out.
 
 ---
 
 Kim came back.
 
-The arena materialized around him with its usual brutality. The cold floor, the noise of the crowd, the smell of blood and concrete. Thunderbolt was exactly where he'd been, fist closed, ready to pick up where he left off.
+The arena materialized around him with its usual brutality. The cold floor. The noise of the crowd. The smell of blood.
 
-The fist was coming down.
+Kim was on the ground. Thunderbolt's robotic hand came down from above, enormous, and closed over his hand, crushing it entirely against the floor. Electricity crackling between the metal fingers.
 
-Kim raised his head.
+In the stands, Jack was clutching the wads of betting money, desperate.
 
-Thunderbolt stopped.
+Except something had changed.
 
-It wasn't a conscious decision. It was the instinct of one thousand two hundred battles telling him something had changed without anything visible having changed yet. The eyes looking back at him were not the same eyes from a second ago. They had the same face, the same blood running down from the eyebrow, the same leg bent at the wrong angle.
+A new energy ran through Kim's veins. Time stretched. Each second became a clean eternity, where every breath and every heartbeat became sharp and within his grasp.
 
-But they were not the same eyes.
+A blue glow lit up in his eye.
 
-Thunderbolt took half a step back.
+His chest pulsed. Blue.
 
-He didn't know why.
+Kim closed his broken hand around the metal hand. And squeezed back.
 
-In the stands, Jack stopped breathing. Then let the air out slowly, his knuckles still white on the railing.
+Thunderbolt froze.
 
-There was something in that image — Kim on his knees with his face destroyed and eyes that no longer belonged to that situation — that Jack recognized from somewhere very deep. Not from IF. Not from street fights. From long before any of that.
+It wasn't a decision. It was the instinct of twelve hundred fights saying something had changed before anything visible changed. The same face, the same blood running down the eyebrow, the same leg bent at the wrong angle.
+
+But not the same eyes.
+
+Kim stood up. Both eyes burning blue. Hand against fist, an arm wrestle in the middle of the arena, Thunderbolt's lightning hissing against Kim's blue energy. Sparks everywhere.
+
+And Kim pushed.
+
+The energy exploded. A blue wave shattered the floor around them and threw Thunderbolt back.
+
+— What the fuck?!
+
+Kim dropped into a fighting stance.
+
+— Now it's my turn.
+
+In the stands, Jack stopped breathing.
+
+There was something in that image he knew from somewhere very deep. Not from LDI. Not from street fights. From way before that.
 
 *Here it comes.*
+
+Kim looked up. His hair began to lighten.
+
+— What is this I'm feeling? — His voice came out low. — Why do I feel so good?
 
 The flames started on Kim's back.
 

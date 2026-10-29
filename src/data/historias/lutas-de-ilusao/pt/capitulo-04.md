@@ -110,6 +110,8 @@ Jack estava na ilha. Com a expressão de quem começa a questionar decisões.
 
 Kim voltou os olhos para o lado oposto da arena.
 
+O ar ali rasgou. Um portal se abriu, um anel de luz rangendo, e alguma coisa pesada atravessou.
+
 O que estava lá não era mais o Freddy que havia tremido atrás de uma coluna de concreto no anexo. A armadura prateada pulsava com energia acumulada, descargas elétricas serpenteando pelas juntas como veias de luz azul. O capacete tinha uma faixa elétrica que percorria o topo e desaparecia atrás dos ombros. A lança em suas mãos vibrava com uma frequência que Kim podia quase sentir no peito mesmo à distância. As fendas do capacete brilhavam em vermelho vivo.
 
 *Parece que o ratinho ganhou uma aparência de Golias. Tenho que admitir, o visual é da hora. Mas não é o primeiro grandão que eu tenho que enfrentar.*
@@ -146,21 +148,27 @@ A frase foi cortada no meio.
 
 O punho de Thunderbolt enterrou no estômago de Kim com força que não era humana. O ar saiu inteiro de uma vez. Kim dobrou. O chute ascendente veio antes que ele chegasse ao chão, encontrou as costas, e Kim foi ao chão pela segunda vez, sem condição de interromper a queda.
 
-Thunderbolt posicionou um pé sobre as costas dele e se voltou para a plateia.
+Thunderbolt pisou na cabeça dele, prensando o rosto do Kim contra o chão, e se voltou para a plateia.
 
 — Desculpa, você ia dizer alguma coisa? Isso aqui é LDI! É pra isso que vocês estão aqui, não é?
 
 A multidão rugiu.
 
-Kim sentiu o peso do pé sobre as costas e ouviu tudo com o rosto contra o chão da arena.
+Kim sentiu o peso da bota na cabeça e ouviu tudo com o rosto esmagado contra o chão da arena. Esticou a mão, tentando alcançar o pé dele.
 
 *Caralho, porra. Isso aqui é um coliseu de gladiadores, não um jogo. Tenho que dar pelo menos um soco nesse merda.*
 
-Thunderbolt se abaixou e capturou a mão direita de Kim com dois dedos. A pressão começou baixa e subiu de forma constante, sem interrupção.
+Thunderbolt tirou a bota da cabeça dele e desceu ela em cima da mão direita.
 
-O estalo do mindinho cortou o ar.
+A pressão começou baixa e subiu de forma constante, sem interrupção.
 
-Kim mordeu o lábio inferior até sangrar. Não ia dar a Thunderbolt a satisfação do grito. Mas Thunderbolt intensificou, os dedos fraturados comprimidos com mais força ainda.
+*Crec.*
+
+Kim sentiu cada osso da mão ceder, um por um. Os dedos. As juntas. O que ligava uma coisa na outra.
+
+*Kraak.*
+
+Kim mordeu o lábio inferior até sangrar. Não ia dar a Thunderbolt a satisfação do grito. Mas Thunderbolt girou o calcanhar, moendo o que já estava quebrado.
 
 *Filho da puta. Eu vou acabar contigo, seu merda, e vou te fazer sofrer.*
 
@@ -168,7 +176,7 @@ A consciência começou a fragmentar nas bordas.
 
 *Maldito Jack. É o segundo da lista.*
 
-Thunderbolt soltou os dedos, agarrou o pescoço de Kim e o ergueu do chão. O corpo ficou suspenso, as pernas chutando o vazio. Com a mão direita livre, ele desferiu um tapa com o dorso que encontrou o rosto de Kim com um estalo que atravessou toda a arena.
+Thunderbolt tirou o pé, agarrou o pescoço de Kim e o ergueu do chão. O corpo ficou suspenso, as pernas chutando o vazio. Com a mão direita livre, ele desferiu um tapa com o dorso que encontrou o rosto de Kim com um estalo que atravessou toda a arena.
 
 A multidão se calou.
 
@@ -196,7 +204,7 @@ Era culpa.
 
 — Merda, o que eu fui fazer... Kim, aguenta. Meu mano, aguenta!
 
-Kim estava pendurado pela garganta com o rosto em sangue, os dedos da mão direita fraturados, sem forças, sentindo o que nunca havia sentido antes, derrotado, e em algum lugar no fundo de tudo aquilo, um pensamento persistia com a irracionalidade de algo que não podia ser apagado.
+Kim estava pendurado pela garganta com o rosto em sangue, a mão direita esmagada, sem forças, sentindo o que nunca havia sentido antes, derrotado, e em algum lugar no fundo de tudo aquilo, um pensamento persistia com a irracionalidade de algo que não podia ser apagado.
 
 *Acabar com a raça desse cara. Depois o Jack vai ter que pagar.*
 

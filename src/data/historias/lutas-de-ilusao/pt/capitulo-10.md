@@ -48,15 +48,11 @@ O Kim olhou pra ele.
 
 ---
 
-— Vocês têm a cifra dessa? — Nina, ajustando o baixo no colo. — A letra?
+A Nina ajustou o baixo no colo e abriu no celular o arquivo que o Jack tinha mandado no caminho. A letra. A cifra.
 
-O Kim e o Jack se olharam de novo.
+Ninguém nunca tinha pedido a cifra pro Jack. Ninguém nunca tinha estado ali pra pedir.
 
-Ninguém nunca tinha pedido a cifra. Ninguém nunca tinha estado ali pra pedir.
-
-— Tô escrevendo. — O Jack, já tirando o celular do bolso. — Peraí. Eu tenho tudo num arquivo. Te mando o link.
-
-O celular da Nina vibrou. Ela abriu, rolou a tela, voltou, rolou de novo. Os dedos dela foram pro braço do baixo e começaram a procurar as notas sem fazer som, em cima das cordas, como quem lê uma coisa em voz baixa.
+Ela rolou a tela, voltou, rolou de novo. Os dedos dela foram pro braço do baixo e começaram a procurar as notas sem fazer som, em cima das cordas, como quem lê uma coisa em voz baixa.
 
 Um minuto. Dois.
 
@@ -314,11 +310,9 @@ Ninguém falou nada.
 
 A lâmpada ainda balançava no fio. O suor escorria na testa do Jack. A Nina estava com os dedos vermelhos de tanto puxar a corda grossa. O Kim estava parado com a mão aberta em cima das cordas, abafando, olhando pro chão.
 
-Os três se olharam.
+Os três se olharam. Haaa. Sem fôlego, os três.
 
-— Mano. — O Jack, sem fôlego. — Isso foi muito foda.
-
-— Foi incrível. — A Nina. Ela estava rindo, e não sabia de quê. — Jack. Como é que você conseguiu coordenar uma música desse jeito? Como você sabia quem ia entrar onde?
+— Vocês sentiram isso? — A Nina. Ela estava rindo, e não sabia de quê. — Jack. Como é que você conseguiu coordenar uma música desse jeito? Como você sabia quem ia entrar onde?
 
 O Jack girou uma baqueta entre os dedos.
 
@@ -331,3 +325,129 @@ Ele olhou pro Kim. Olhou pra Nina.
 O Kim não disse nada.
 
 Pendurou a guitarra de volta no prego. Devagar. Do jeito que se guarda uma coisa que importa.
+
+---
+
+Já era noite quando saíram.
+
+A conveniência do posto ficava no caminho da base. Luz branca demais, geladeira zumbindo, um atendente atrás do balcão que nem levantou o olho do celular quando a porta fez ding-dong.
+
+Os três entraram rindo. A Nina ainda estava rindo do ensaio. O Kim e o Jack bateram cotovelo um no outro no corredor dos salgadinhos, sem motivo nenhum.
+
+Aí os dois pararam de rir ao mesmo tempo.
+
+No fundo da loja, perto das geladeiras, tinha dois caras. Um de capuz preto. O outro careca, tatuagem subindo pelo pescoço. Não estavam olhando prateleira. Estavam olhando a loja.
+
+O Kim e o Jack se olharam. Toc. Um toque de cotovelo, dessa vez de outro jeito.
+
+— Pega aquele de queijo. — A Nina, apontando um pacote, sem ter percebido nada.
+
+O Jack pegou. O Kim foi andando devagar pra geladeira do fundo.
+
+---
+
+Ding-dong.
+
+Entrou mais um. Boné, camisa da Argentina, mão no bolso.
+
+No fundo, os dois puxaram balaclava pela cabeça. O careca levantou a camiseta e a arma apareceu na cintura.
+
+O de capuz foi direto pro caixa.
+
+— Perdeu, perdeu! Ninguém se mexe!
+
+O atendente levantou as mãos. O celular caiu no balcão.
+
+O Kim, atrás da porta de vidro da geladeira, olhou pro Jack.
+
+O Jack já tinha uma lata de refrigerante na mão.
+
+Jogou. Não pro assaltante. Pro corredor, alto, girando.
+
+O Kim deu dois passos e chutou a lata no ar.
+
+Pah.
+
+A lata atravessou a loja e estourou na cara do de capuz. Klank. Ele foi pra trás, a arma escorregou pelo chão até debaixo da prateleira.
+
+---
+
+O careca atirou.
+
+Blam. Blam.
+
+Garrafa estourando na prateleira, vidro voando. O Kim já estava no chão, por cima do atendente, empurrando a cabeça do moço pra baixo do balcão.
+
+A Nina e o Jack caíram agachados atrás da prateleira de salgadinho.
+
+O Jack olhou pro lado. No outro corredor, agachado também, estava o de camisa da Argentina.
+
+— E aí, mano. Você não vai começar, não?
+
+— Quê? Do que você tá falando?
+
+— Boné, mão no bolso, entrou junto. Eu sei que você tá com eles.
+
+— Tá maluco? Eu vim comprar chiclete.
+
+— Chiclete fica no caixa. — O Jack, calmo. — Você tá no corredor da ração.
+
+O cara olhou em volta. Saco de ração de cachorro dos dois lados.
+
+E puxou a pistola da cintura.
+
+---
+
+O Kim viu de onde estava.
+
+Pegou a primeira coisa na prateleira. Um saco de farinha de cinco quilos. Arremessou por cima das gôndolas.
+
+O careca atirou no saco.
+
+Poof.
+
+A loja inteira ficou branca. Uma nuvem de farinha no ar, cobrindo luz, prateleira, gente. Do meio dela, tosse. Dos dois lados.
+
+Do meio do branco, a voz do Jack, tranquila:
+
+— E aí, galera. Última chance pra sair daqui inteiro. Se não aproveitar, a coisa vai ficar diferente.
+
+— Aparece, desgraçado!
+
+O careca girava a arma pra todo lado. Não via nada.
+
+— Bom. — O Jack. — A gente deu uma chance pra vocês.
+
+---
+
+O Kim saiu da farinha por baixo.
+
+Agachado, já dentro da guarda do careca. O punho subiu do chão até o queixo dele.
+
+Thok.
+
+O careca saiu do chão. A arma caiu no meio dos salgadinhos espalhados.
+
+O de capuz tentou levantar. O Jack chegou por trás, pegou o braço dele e torceu até o fim. Krak. O grito veio junto.
+
+O de camisa da Argentina saiu do corredor da ração atirando a esmo. A Nina deu uma rasteira, e quando ele caiu, um chute. O Jack terminou com uma joelhada na barriga. Whump.
+
+A farinha foi baixando devagar.
+
+Três caras no chão. Três armas longe. Um atendente branco de farinha, ainda debaixo do balcão.
+
+---
+
+O Jack bateu a farinha do cabelo verde. Pegou uma garrafa de vodka na prateleira de trás do caixa e um maço de cigarro, e pôs no balcão.
+
+O atendente levantou devagar.
+
+— Ô, moço. — O Jack. — A gente não vai ficar aqui pra esperar a polícia, não. A gente não gosta muito de polícia. Tem como você passar isso aqui?
+
+O moço olhou pros três caras no chão. Olhou pro Jack.
+
+Passou. Bip.
+
+O Kim pagou. A Nina pegou o salgadinho de queijo, que tinha sobrevivido.
+
+Os três saíram pelo pátio do posto. A sacola balançando na mão do Jack. A rua escura na frente.

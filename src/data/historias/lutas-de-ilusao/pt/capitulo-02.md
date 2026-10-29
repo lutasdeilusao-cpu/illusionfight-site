@@ -2,23 +2,33 @@
 
 A sala da Elite Academy não parecia uma sala de aula.
 
-As paredes respondiam ao toque. As mesas tinham superfície tátil. Os óculos de realidade aumentada aguardavam nos suportes como se respirassem. Kim e Jack entraram, encontraram os lugares de sempre, e a postura mudou pela segunda vez naquela manhã. Aqui não era só uniforme. Era concentração real.
+As paredes respondiam ao toque. As mesas tinham superfície tátil. Os óculos de realidade aumentada aguardavam nos suportes como se respirassem.
 
-A Máquina chegou antes que o sino terminasse.
+A Máquina já estava lá.
 
-Alto, esguio, terno cinza-chumbo sem uma dobra fora do lugar. Cumprimentou a turma com duas palavras e zero inflexão.
+Alto, esguio, terno cinza-chumbo sem uma dobra fora do lugar, óculos no rosto, de pé na frente do painel holográfico. Olhou os dois atrasados entrando e não disse nada.
 
-— Bom dia.
-
-A aula já havia começado.
-
-A caneta subiu e as equações apareceram no ar em camadas, cada uma construindo a próxima, o espaço entre as mesas virando quadro-negro tridimensional. Kim acompanhava com o tablet, os dedos se movendo rápido. Jack copiava com a concentração de quem sabe que não pode desperdiçar o que está na frente.
+Kim e Jack encontraram os lugares de sempre e puseram os óculos. A postura mudou pela segunda vez naquela manhã. Aqui não era só uniforme. Era concentração real.
 
 Fora daquela sala eram outros. Dentro, eram o que Osvaldo havia apostado que seriam.
 
-A aula tinha vinte minutos quando a porta abriu.
+A Máquina virou de costas pra turma, de frente pro painel.
 
-A Máquina não parou de escrever.
+— Vamos iniciar a aula de hoje.
+
+A porta abriu.
+
+*Zzzt.*
+
+O painel holográfico tremeu. Os diagramas se partiram em faixas, os globos piscaram, a imagem inteira travou e se desmanchou em ruído. No meio da interface, em letras vermelhas:
+
+**ERRO**
+
+A Máquina olhou pro painel. Olhou pra porta. O Kim olhou. O Jack olhou, e alguma coisa nos olhos dele derreteu na hora.
+
+Uma garota de cabelo rosa atravessou a sala por dentro da pane, como se o defeito fosse dela.
+
+A Máquina ergueu a caneta.
 
 — Nome.
 
@@ -37,6 +47,8 @@ Ela caminhou até lá e se acomodou com uma economia de movimento que tornava at
 Jack parou de respirar no ritmo normal.
 
 Kim registrou isso sem virar a cabeça.
+
+— Outra vez...
 
 ---
 
@@ -128,7 +140,7 @@ Freddy primeiro. O olho roxo ainda latejando, o blazer da escola fechado até em
 
 Atrás dele, o cara da jaqueta de couro. Careca, ombros largos, sem uniforme e sem pressa. Ele varreu a sala com os olhos e parou nas duas carteiras.
 
-— Boné azul e cabelo verde. Vocês dois, lá fora. Agora.
+— Boné azul e cabelo verde. Vocês dois, vem comigo.
 
 A sala ficou quieta do tipo errado.
 

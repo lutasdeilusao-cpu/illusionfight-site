@@ -1,6 +1,6 @@
 # CHAPTER 7 — The World Saw
 
-While Kim was still on his knees on the concrete of the annex, the world had already started to catch fire.
+While Kim was still on his knees on the annex concrete, the world had already started catching fire.
 
 Not everywhere at once. In waves. As always.
 
@@ -8,75 +8,77 @@ Not everywhere at once. In waves. As always.
 
 The Yohualticit tower had ninety floors.
 
-Yohu, for anyone under thirty. The company that had invented Illusion Fight and, with it, become the most powerful corporation on the planet. Holograms floating in the black marble hallway. Glass walkway over thirty meters of void. People in suits walking fast, without sound.
+Yohu, for anyone under thirty. The company that had invented Lutas de Ilusão and, with it, become the most powerful corporation on the planet. Hologram floating in the black marble corridor. Glass walkway over thirty meters of empty space. People in suits walking fast, silent.
 
-Until all the alarms in every department went off at once.
+Until all the alarms in all departments went off at once.
 
-Red light pulsing through the whole building. Scientists dropping experiments mid-way. Programmers pulling hands off keyboards. Assistants running with tablets across the Persian-carpet floors.
+Red light pulsing through the whole building. Scientist dropping an experiment midway. Programmer taking his hand off the keyboard. Assistant running with tablet over the Persian-carpet floors.
 
-In a regional office far away, a gray-haired engineer adjusted his augmented-reality glasses and read what was coming up in front of him.
+In a regional office, far away, a gray-haired engineer adjusted his augmented reality glasses and read what was coming up in front of him.
 
-— Global Code Red. — His voice low. — The system detected an anomaly.
+— Global Red Code. — Low voice. — The system detected an anomaly.
 
 He read it again, to be sure.
 
 — Primordial Blood.
 
-Nobody in the room really knew what that meant. Everyone understood the gravity anyway.
+No one in the room knew exactly what that meant. Everyone understood the gravity anyway.
 
 ---
 
-At central headquarters, in the Zairan District, the alert swept through the seventy-fifth floor.
+At the central headquarters, in the Zairan District, the alert swept through the seventy-fifth floor.
 
 *CRITICAL ALERT — PRIMORDIAL CODE DETECTED.*
 
-Chief engineer Nakamura stared at the data, fingers frozen over the control.
+Nakamura, a young curly-haired technician, stood staring at the data with his fingers frozen over the controller.
 
 — This is impossible. Primordial Blood. I never thought I'd see this code in my life.
 
-Three floors below, in the Valloria virtual reality sector, operators were climbing out of immersion capsules, pulling off their visors. Supervisor Chen Liu stared at the entire wall of screens. The neural graphs of players connected to LDI worldwide were spiking red.
+Three floors below, in Valloria's virtual reality sector, operators were coming out of the immersion capsules taking off their visors. Supervisor Chen Liu watched the entire wall of screens. The neural graphs of players connected to LDI worldwide had red spikes.
 
-— All neural monitors overloaded. — A technician, sweating. — The players are reacting to something they shouldn't even be able to feel.
+— All neural monitors overloading. — A technician, sweating. — Players are reacting to something they shouldn't even be able to feel.
 
 ---
 
-At the Marelia command center, operations manager Martinez loosened his tie.
+In the Marelia command center, the chief of operations adjusted her glasses.
 
-On the glass table, a map of the digital world. Red dots blinking across four continents, like open wounds.
+Curly hair tied up any old way. The whole team around her.
 
-— Someone explain to me how a Legendary code is active on four continents at the same time. — He looked at every face at the table. — And why all our security systems are screaming like it's the end of the world.
+On the glass table, a map of the digital world. Red dots blinking on four continents, like an open wound.
 
-A young analyst raised her hand.
+— Someone explain to me how a Legendary code is active on four continents at once. — She looked at each face at the table. — And why all our security systems are screaming like it's the end of the world.
 
-— Sir... the energy patterns are converging on a single point. It's as if something is calling the Primordial Blood.
+An analyst with glasses raised her hand.
+
+— Ma'am... the energy patterns are converging on a single point. It's as if something is calling the Primordial Blood.
 
 The room went silent. Even the machines seemed to lower their volume.
 
-Primordial Blood was legend. Something spoken of in low voices, only in the company's most closed circles.
+Primordial Blood was legend. Something spoken in low voices, only in the company's most closed circles.
 
-— Alpha Team, analysis of all epicenters. — Martinez. — Beta Team, isolate the suspicious codes. Nobody leaves here until we have answers.
+— Alpha team, analysis of all epicenters. — The chief. — Beta team, isolate the suspect codes. No one leaves here until we have answers.
 
 ---
 
 On a private island in the South Pacific, David Kronos watched everything.
 
-Holographic screens floating in the control room. Black marble wall, floor-to-ceiling glass, the ocean outside. He was reclined in a leather armchair that looked like a throne, impeccable white suit, long black hair tied in a low ponytail. Sun-burned skin. Steel-blue eyes.
+Holographic screens floating in the control room. Black marble wall, floor-to-ceiling glass, the ocean outside. He was reclined in a leather armchair that looked like a throne, impeccable white suit, long black hair tied in a low ponytail. Sun-tanned skin. Steel-blue eyes.
 
 In his right hand, a glass of red wine, swirling slowly.
 
-On one of the screens appeared a photo of a boy. His data flashing red.
+On one of the screens a boy's photo appeared. His data flashing red.
 
-And beneath the photo, in scarlet letters:
+And below the photo, in scarlet letters:
 
 *PRIMORDIAL BLOOD.*
 
 David smiled. A smile of triumph and obsession.
 
-— Finally. — Almost a whisper. — How I waited for this moment. The Primordial Blood within my reach. And this time nothing and no one will stop me from taking it.
+— Finally. — Almost a whisper. — How I waited for this moment. Primordial Blood within my reach. And this time nothing and no one will stop me from taking it.
 
 He raised the glass to the screen, as if toasting fate. Drank the red slowly.
 
-— I am the only one worthy of him. The only one who deserves him.
+— I am the only one worthy of it. The only one who deserves it.
 
 For an instant, something ancient shone in his eyes. As if a very old spirit lived in that modern body.
 
@@ -86,39 +88,39 @@ The ocean around the island was completely serene.
 
 ---
 
-And the video ran around the world.
+And the video ran the world.
 
-Forums boiling. Social media exploding. Fight clips being dissected frame by frame by millions of eyes. Lives popping up every minute, every influencer wanting a piece.
+Forums boiling. Social media exploding. Clip of the fight being dissected frame by frame by millions of eyes. Livestreams sprouting every minute, every influencer wanting a piece.
 
-Some swore it was a bug. Others, that it was a prodigy. Everyone wanted to know the same thing.
+Some swore it was a bug. Others, a prodigy. Everyone wanted to know the same thing.
 
-Who was Briguento 142536?
+Who was Brawler 142536?
 
 ---
 
-In Arenia, Sarah slowly rose from the blue velvet armchair. The apple tea still hot on the table. The silver bracelets trembling slightly on her wrist.
+In Arenia, Sarah stood slowly from the blue velvet armchair. The apple tea still hot on the table. Her silver bracelets trembling a little on her wrist.
 
 She paused the video on the final blow. The silk veil slipped as she leaned forward.
 
-It wasn't admiration. It was hunger for confrontation.
+It wasn't admiration. It was hunger for a fight.
 
-— He is not invincible. — In her own language, to no one.
+— He isn't invincible. — In her language, to no one.
 
-Outside, the call to prayer echoed through the ancient city. She was already putting together her strategy.
-
----
-
-In Draymoor, Alex got up from the computer and went to the fogged-up window.
-
-The usual rain beating against the glass. The tea cooling on the table. The chimneys of the old factories casting shadows on the gray sky.
-
-He had never seen anyone fight with that precision. It was like watching an artist painting with controlled violence.
-
-His heart beat in rhythm with the rain. Fast.
+Outside, the call to prayer echoed through the ancient city. She was already putting her strategy together.
 
 ---
 
-In Thessor, little Mia jumped off the couch.
+In Draymoor, Alex stepped away from the computer and went to the fogged-up window.
+
+The usual rain beating against the glass. The tea cooling on the table. The chimneys of the old factories drawing shadows in the gray sky.
+
+He had never seen anyone fight with that precision. It was like watching an artist paint with controlled violence.
+
+His heart beat to the rhythm of the rain. Fast.
+
+---
+
+In Thessor, little Mia jumped up from the couch.
 
 Nine years old. Still too young to fight in official LDI. Her grandmother making dinner in the kitchen, the smell reaching the living room.
 
@@ -126,23 +128,23 @@ She ran to her room, grabbed paper, and started drawing Kim. Next to him, hersel
 
 ---
 
-In Wendor, Jaret adjusted his glasses in the leather armchair.
+In Wendor, in an isolated cabin in the middle of the snow, Jaret pulled the chair close to the fireplace.
 
-Retired veteran. Fifteen below zero outside, the heater purring. Red-and-black plaid shirt. Gray beard. The hockey game playing without sound on TV.
+Retired veteran. Old, but still broad. Fifteen below outside, the fire crackling. Red and black flannel shirt. Gray beard. Old scars on the backs of his hands. The tablet on his lap.
 
-For decades he had thought the glory days were buried under the snow.
+For decades he had thought his glory days were buried under the snow.
 
 He watched the fight twice.
 
-*Maybe this old bear still has some fight left.*
+*Maybe there's still fight left in this old bear.*
 
 ---
 
-In Zylvaron, on the forty-seventh floor of a glass tower, Mikael stopped the investment presentation mid-way.
+In Zylvaron, on the forty-seventh floor of a glass tower, Mikael stopped the investment presentation midway.
 
 Air conditioning at twenty-three degrees. Down below, thirty-five. White shirt, silk tie, white orchid on the table.
 
-The video had arrived through the company chat. SDR number, analysis, performance graph. Everything turned into a blur.
+His phone buzzed on the table. *BRIGUENTO 142536 — SDR #1.201.* The speaker went on about projected returns for the next quarter. Chart, analysis, number. It all became a blur.
 
 Only one certainty remained.
 
@@ -152,13 +154,13 @@ He needed to face that boy.
 
 In Erendale, Isabella stopped in the middle of her ten-step skincare routine.
 
-Her decorated-nail fingers clenched until they marked her palm. The school uniform hanging beside the cosmetics. The gamer setup with custom mechanical keyboard.
+Her fingers, nails decorated, curled until they marked her palm. The school uniform hanging next to the cosmetics. The gamer setup with custom mechanical keyboard.
 
-Three years of specialized gaming courses. Hundreds of victories. And that boy made her look like a noob.
+Three years of a specialized gaming prep course. Hundreds of victories. And that boy made her look like a noob.
 
-Jealousy burned.
+Envy burned.
 
-— I will destroy him. — Through gritted teeth.
+— I'm going to destroy him. — Through her teeth.
 
 She was already imagining the revenge going viral.
 
@@ -166,30 +168,30 @@ She was already imagining the revenge going viral.
 
 In Valetis, Tira dried her hands on her apron.
 
-The meatballs cooling on the stove. The snow beginning to cover the pines outside. Eight below zero on the window thermometer.
+The meatballs cooling on the stove. Snow starting to cover the pine trees outside. Eight below on the window thermometer.
 
-Housewife. Mother of two. And, on afternoons when the kids were at daycare, one of the best LDI strategists nobody knew about.
+Homemaker. Mother of two. And, on the afternoons when the kids were at daycare, one of the best LDI strategists no one knew.
 
-She opened a spreadsheet and started separating Kim's moves. The ones before the turnaround in one column. The ones after, in the other.
+She opened a spreadsheet and started separating Kim's movements. The ones before the turnaround in one column. The ones after, in the other.
 
-The second column was almost empty. Nothing he did afterward fit into any category.
+The second column stayed almost empty. Nothing he did afterward fit into any category.
 
-She wrote a single line, beneath the table.
+She wrote one line at the bottom of the table.
 
-*If the player isn't the one controlling the power, then who is?*
+*If it's not the player controlling the power, then who is?*
 
 ---
 
-The Briguento 142536 profile became the eye of the hurricane.
+The profile Brawler 142536 became the eye of the storm.
 
-New followers by the thousands, then tens of thousands, every minute. The view counter spinning like an out-of-control roulette.
+New followers by the thousands, then tens of thousands, every minute. The view counter spinning like a runaway roulette wheel.
 
-In elite dojos, spread across the four corners of the world, old masters stopped training mid-session. The silence of the rooms was broken by whispers in dozens of languages.
+In elite dojos scattered across the four corners of the world, old masters stopped training mid-session. The silence of the rooms was broken by whispers in dozens of languages.
 
-A ghost had come out of anonymity and shattered, with half a dozen blows, everything known about that game.
+A ghost had come out of anonymity and shattered, with half a dozen moves, everything known about that game.
 
-In a few hours, Kim had crossed the distance from nobody to the center of the planet's attention.
+Within a few hours, Kim had crossed the distance between nobody and the center of the planet's attention.
 
 And he had no idea.
 
-He was in an abandoned annex behind a school in Marelia, next to his best friend, offering a cigarette to a girl with pink hair.
+He was at an abandoned complex next to the school, in Marelia, beside his best friend, offering a cigarette to a pink-haired girl.

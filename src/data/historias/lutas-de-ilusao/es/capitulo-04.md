@@ -1,169 +1,211 @@
 # CAPÍTULO 4 — Peleador 142536
 
-La oscuridad no fue gradual.
+O escuro não foi gradual.
 
-Fue como una luz que se apaga.
+Foi como uma luz que apagou.
 
-Kim perdió toda referencia de cuerpo, peso, suelo. Sus músculos no respondían porque no había músculos para responder. La oscuridad no estaba vacía. Era densa, presente, como estar sumergido en algo que no era agua.
+Kim ficou sem referência de corpo, sem peso, sem chão. Os músculos não respondiam porque não havia músculos para responder. A escuridão não era vazia. Era densa, presente, como estar submerso em algo que não era água.
 
-*Bueno. ¿Entonces es esto?*
+*Tá bom. Então é isso?*
 
-— Estás en estado de suspensión neural. — Voz femenina, sintética, absolutamente calma. — Este es un proceso estándar de transición antes de la inmersión completa. Mantente relajado.
+— Você está em estado de suspensão neural. — Voz feminina, sintética, absolutamente calma. — Este é um processo padrão de transição antes da imersão completa. Mantenha-se relaxado.
 
-*Relajado. Claro. Estoy flotando en la nada, en el éter, ¿cuáles son mis otras opciones? Activando modo tranquilo.*
+*Relaxado. Claro. Estou boiando no nada, no éter, quais são minhas outras opções? Modo relaxado ativar.*
 
-— Verificación completa. Eres un nuevo usuario. Será necesario crear tu avatar. Por favor, indica tu nombre.
+— Verificação concluída. Você é um novo usuário. Será necessário criar seu avatar. Por favor, informe seu nome.
 
 — Kim.
 
-— ¿Edad?
+— Idade?
 
-— Diecisiete.
+— Dezessete.
 
-— ¿Origen?
+— Origem?
 
-— Bravara. Marelia. Si necesitas el código postal... no me lo sé de memoria.
+— Bravara. Marelia. Se precisar do CEP... Eu não sei de cabeça.
 
-Una pausa de medio segundo. Kim sintió que ella no apreció la ironía.
+Uma pausa de meio segundo. Kim sentiu que ela não gostou da ironia.
 
-— Bienvenido al mundo de las Luchas de Ilusión, Kim.
+— Bem-vindo ao mundo das Lutas de Ilusão, Kim.
 
-El avatar se materializó frente a él como un reflejo que ganó volumen. Era él, cada detalle — las cicatrices en las manos, la gorra, la postura levemente inclinada hacia adelante. Sobre la cabeza del avatar, en letras naranjas que pulsaban, flotaba el nick.
+O avatar materializou na frente dele como um reflexo que ganhou volume. Era ele, cada detalhe, as cicatrizes nas mãos, o boné, a postura levemente inclinada para frente. Acima da cabeça do avatar, em letras laranja que pulsavam, flutuava o nick.
 
 *Peleador 142536*
 
-Kim lo miró fijamente por un segundo largo.
+Kim ficou olhando para aquilo por um segundo longo.
 
 ---
 
-El suelo desapareció.
+*Bem-vindo ao Illusion Fight.*
 
-Kim fue lanzado sin aviso, el cielo digital abriéndose debajo de él en rojo carmesí. Nubes doradas pasaban en franjas rápidas, torres que se curvaban en espiral como estructuras de ADN gigantes, ciudades enteras flotando en órbita lenta. El viento virtual golpeaba su cara con una presión que sus pulmones podían sentir aunque no hubiera explicación para ello.
+Ilhas flutuando. Castelos pendurados no céu. Cachoeira caindo de lugar nenhum. E, lá embaixo, entre as nuvens, um coliseu gigante.
 
-*Jack siempre dijo que podías sentir cosas aquí. Realmente es difícil distinguir estas sensaciones de las reales. ¿Será que se puede sentir dolor aquí?*
+— Que sensação é essa? — Kim. — Onde eu tô?
 
-La arena creció debajo de él. Un coliseo que se expandía a cada segundo, las gradas materializándose en capas, miles de avatares que eran catálogos de fantasías llevadas al límite.
+O chão sumiu.
 
-Kim recorrió las filas con los ojos mientras caía.
+Kim foi lançado sem aviso, o céu abrindo embaixo dele. Torres que se curvavam em espiral como DNA gigante, cidades inteiras flutuando em órbita lenta. O vento batia no rosto com uma pressão que os pulmões sentiam de verdade.
 
-Encontró rastas verdes.
+— Porra, o que é isso? Vento! Eu tô sentindo o vento! EU TÔ CAINDO, CARALHO!
 
-Jack estaba en la primera fila con el cuerpo de un hombre lobo digital y su rostro inconfundible, con la expresión de quien esperaba ver algún avatar épico y estaba procesando el hecho de haber apostado dinero en la versión normal y cotidiana de su propio amigo. Sobre su cabeza: *Jack Perrazo 987654321*.
+Do lado dele, no ar, apareceu uma mulher.
 
-*¿Eso es plata? ¿Se puede apostar plata aquí?*
+Um holograma. Cabelo azul comprido, olhos brancos acesos, uma roupa colada cheia de linha de circuito e uma capa transparente. Braços cruzados. Caindo junto com ele como quem está parada numa sala.
 
-El suelo llegó.
+A NeoGuide.
 
-El impacto subió por los pies, las rodillas, la columna. La superficie se deformó alrededor del punto de contacto. No hubo dolor. Hubo sensación, que era diferente pero no menos real.
+— Olá, Kim. Só pra avisar: não gostei muito da sua atitude quando a gente estava na suspensão. — Ela levantou um dedo. — Eu deveria ter te orientado sobre o processo de entrada...
 
-Kim se quedó en cuatro por un segundo. Se levantó. Miró sus propias manos.
+— Moça, eu vou morrer aqui! Sério que você quer conversar sobre isso agora?
 
-Todo el mundo tenía un visual loco y genial en este juego menos él. ¿Eh?
+— Tem razão. Agora não dá mais tempo. Boa sorte. — Ela tapou a boca com a mão, sumindo em pixel. — Ops. Cuidado pra não cair de cara!
+
+*O Jack sempre falou que dava pra sentir aqui. É difícil separar essas sensações das reais. Será que dá pra sentir dor também?*
+
+A arena cresceu embaixo dele. As arquibancadas se materializando em camadas, milhares de avatares que eram catálogo de fantasia levada ao limite. Um astronauta com cabeça de abóbora. Um homem-tubarão. Um coelho rosa. Um dinossauro de jaqueta.
+
+*Que lugar maluco. Eu nunca vou achar o Jack.*
+
+*Certo. Não tem como o Jack se destacar aqui no meio.*
+
+Aí, numa ponta da arquibancada, alguma coisa explodiu.
+
+Fogos. Dois canhões dourados nas costas de alguém disparando faísca pro alto. Uma coroa. Óculos em formato de estrela. Um casaco de lantejoula verde e dourado até o chão. Corrente de ouro com um cifrão no peito. E os dreads verdes.
+
+O Jack, de braços abertos, no meio da explosão, olhando pro céu e pensando alto.
+
+*Será que eu devia usar alguma coisa mais chamativa pra ele me ver?*
+
+*Tá. Esse é o Jack.*
+
+Acima da cabeça dele: *Jack Cachorrão 987654321*.
+
+O chão chegou.
+
+Kim caiu de cara.
+
+O chão quicou embaixo dele como gelatina. *Boing.* A arquibancada inteira veio abaixo.
+
+*VAI MORRER! VAI MORRER! VAI MORRER! BUUUUUUU!*
+
+Kim ficou de quatro por um segundo, recuperando o ar. Num canto da arena, a mulher de cabelo azul fez *shhh* com o dedo na boca e sumiu de novo.
+
+Ele levantou. Olhou pras próprias mãos.
+
+— Mano. Por que todo mundo tem um visual louco, menos eu?
 
 ---
 
-La figura que emergió del centro de la arena no era humana y no pretendía serlo.
+A figura que emergiu do centro da arena não era humana nem pretendia ser.
 
-Miembros demasiado largos para la proporción del torso, ojos que eran agujeros sin fondo, cabello grisáceo contrastando con mechones que caían por los hombros como algo con vida propia. El traje era una aberración de elegancia, púrpura sangrando hacia verde metálico. En sus manos esqueléticas, un arma-micrófono de hueso pulido y metal oscuro.
+Membros longos demais para a proporção do tronco, olhos que eram buracos sem fundo, cabelos grisalhos contrastando com mechas que desciam pelos ombros como algo com vida própria. O terno era uma aberração de elegância, púrpura sangrando para verde metálico. Nas mãos esqueléticas, uma arma-microfone de osso polido e metal escuro.
 
-La criatura levantó el micrófono y el público explotó.
+A criatura ergueu o microfone e a plateia explodiu.
 
-— ¡Damas y caballeros, bienvenidos a las Luchas de Ilusión! ¡Del lado izquierdo, nuestro valiente debutante, Peleador 142536! Historial inmaculado de cero victorias y cero derrotas. Como dicen los veteranos: cero derrotas vale más que mil lamentos. ¡Esperamos sinceramente que haya invertido en un buen seguro médico! ¡Del lado derecho, una leyenda! ¡El temible Rayo Celeste, Thunderbolt el Destructor! ¡Mil doscientas una victorias, trescientas cinco derrotas, posición 30.156 en el ranking SDR! ¡¡¡LAAAAS apuestas estáááán abiertaaaaas!!!
+— Senhoras e senhores, bem-vindos às Lutas de Ilusão! Do lado esquerdo, nosso corajoso estreante, Peleador 142536! Histórico imaculado de zero vitórias e zero derrotas. Como dizem os veteranos: zero derrotas vale mais que mil lamentos. Esperamos sinceramente que ele tenha investido em um bom seguro-saúde! Do lado direito, uma lenda! O temível Raio Celeste, Thunderbolt, o Destruidor! Mil duzentas e uma vitórias, trezentas e cinco derrotas, posição 30.156 no ranking SDR! AAAAASSSSS apostas estãoooo abertaaaaas!
 
-La arena se dividió en colores. Una ola arrolladora de azul eléctrico dominó las gradas, casi unánime. Una pequeña isla de color diferente marcaba a quienes habían apostado por el desvalido.
+A arena se dividiu em cores. Uma onda esmagadora de azul elétrico dominou as arquibancadas, quase unânime. Uma ilha pequena de cor diferente marcava os que haviam apostado no azarão.
 
-Jack estaba en la isla. Con la expresión de quien empieza a cuestionar sus decisiones.
+Jack estava na ilha. Com a expressão de quem começa a questionar decisões.
 
-Kim volvió los ojos hacia el lado opuesto de la arena.
+Kim voltou os olhos para o lado oposto da arena.
 
-Lo que estaba allí ya no era el Freddy que había temblado detrás de una columna de concreto en el anexo. La armadura plateada pulsaba con energía acumulada, descargas eléctricas serpenteando por las juntas como venas de luz azul. El casco tenía una franja eléctrica que recorría la parte superior y desaparecía detrás de los hombros. Las ranuras de la visera brillaban en rojo vivo.
+O ar ali rasgou. Um portal se abriu, um anel de luz rangendo, e alguma coisa pesada atravessou.
 
-La lanza en sus manos vibraba a una frecuencia que Kim casi podía sentir en el pecho desde el otro lado de la arena.
+O que estava lá não era mais o Freddy que havia tremido atrás de uma coluna de concreto no anexo. A armadura prateada pulsava com energia acumulada, descargas elétricas serpenteando pelas juntas como veias de luz azul. O capacete tinha uma faixa elétrica que percorria o topo e desaparecia atrás dos ombros. A lança em suas mãos vibrava com uma frequência que Kim podia quase sentir no peito mesmo à distância. As fendas do capacete brilhavam em vermelho vivo.
 
-*Parece que el ratoncito se consiguió un disfraz de Goliat. Hay que admitir, el look está brutal. Pero no es el primer grandote que tengo que enfrentar.*
+*Parece que o ratinho ganhou uma aparência de Golias. Tenho que admitir, o visual é da hora. Mas não é o primeiro grandão que eu tenho que enfrentar.*
 
-— Apuestas cerradas. Que comience la Lucha de Ilusión.
+— Apostas encerradas. Que a Luta de Ilusão comece.
 
-El rayo salió de las manos de Thunderbolt antes de que Kim pudiera registrarlo.
+O raio saiu das mãos de Thunderbolt antes que Kim pudesse perceber.
 
 ---
 
-El impacto fue eléctrico y físico al mismo tiempo.
+O impacto foi elétrico e físico ao mesmo tempo.
 
-Cada músculo se contrajo involuntariamente a la vez, las rodillas cedieron, y Kim fue arrojado contra la barrera de la arena con una fuerza que no correspondía a ningún juego que hubiera conocido. Se desplomó en el suelo, el pecho subiendo y bajando fuera de ritmo.
+Cada fibra muscular contraiu involuntariamente de uma vez, os joelhos cederam, e Kim foi arremessado contra a barreira da arena com força que não combinava com nenhum jogo que ele conhecia. Desabou no chão, o peito subindo e descendo fora de ritmo.
 
-**EL DOLOR ES REAL.**
+A DOR É REAL.
 
-No era el tipo de dolor que le describes a alguien. Era el tipo que ocupa todo el espacio disponible en la cabeza y no deja lugar para nada más. El sabor a sangre llegó justo después, metálico y profundo. El olor a pelo quemado era exactamente como imaginaba que sería.
+Não era o tipo de dor que você descreve para alguém. Era o tipo que ocupa todo o espaço disponível na cabeça e não deixa lugar para mais nada. O gosto de sangue chegou logo depois, metálico e fundo. O cheiro de pelo queimado era exatamente como imaginava que seria.
 
-*En ninguno de los videos que Jack me mostró vi esto. Los vi sufriendo, pero pensé que era actuación. Estas personas estaban sintiendo dolor de verdad. ¿Qué clase de loco juega a un juego para sentir DOLOR? Tres mil millones de personas, literalmente eligiendo sufrir. ¿Qué clase de mundo LOCO es este?*
+*Em nenhum vídeo que o Jack me mostrou eu vi isso. Eu vi eles sofrendo, mas achei que era interpretação. Essas pessoas estavam sentindo dor. Que tipo de maluco joga um jogo pra sentir DOR? Três bilhões de pessoas, literalmente escolhendo sofrer. Que tipo de mundo "MALUCO" é esse?*
 
-Logró sentarse. La barrera de la arena estaba fría contra su espalda.
+Conseguiu sentar. A barreira da arena estava fria nas costas.
 
-Thunderbolt caminó hacia él con pasos medidos. Era la caminata de alguien que sabe que el resultado ya está decidido y prefiere tomarse su tiempo para llegar.
+Thunderbolt caminhou na direção dele com passos medidos. Era a caminhada de alguém que sabe que o resultado já está decidido e prefere prolongar o caminho até lá.
 
-— El famoso Rey de las Peleas del colegio no puede mantener las piernas firmes.
+— O famoso Rei das Brigas da escola está com as pernas bambas.
 
-Kim intentó levantarse. Las piernas vacilaron. Llegó a la mitad del camino, apoyado en la barrera, los dientes apretados.
+Kim tentou se levantar. As pernas vacilaram. Ficou na metade do caminho, apoiado na barreira, os dentes cerrados.
 
-*No voy a perder aquí. No es la primera vez que siento esto, ni será la última. Puedo aguantarlo.*
+*Eu não vou perder aqui. Não é a primeira, nem a última vez que sinto isso, eu aguento.*
 
-— Sigue hablando, pedazo de—
+— Vai se achando, cuzão, eu vou—
 
-La frase fue cortada a la mitad.
+A frase foi cortada no meio.
 
-El puño de Thunderbolt se hundió en el estómago de Kim con una fuerza que no era humana. Todo el aire salió de una vez. Kim se dobló. La patada ascendente llegó antes de que tocara el suelo, conectó con su espalda, y Kim cayó por segunda vez sin nada que pudiera detener la caída.
+O punho de Thunderbolt enterrou no estômago de Kim com força que não era humana. O ar saiu inteiro de uma vez. Kim dobrou. O chute ascendente veio antes que ele chegasse ao chão, encontrou as costas, e Kim foi ao chão pela segunda vez, sem condição de interromper a queda.
 
-Thunderbolt colocó un pie sobre su espalda y se volvió hacia el público.
+Thunderbolt pisou na cabeça dele, prensando o rosto do Kim contra o chão, e se voltou para a plateia.
 
-— Perdona, ¿ibas a decir algo? Esto es LDI, baby. Para eso están aquí, ¿no?
+— Desculpa, você ia dizer alguma coisa? Isso aqui é LDI! É pra isso que vocês estão aqui, não é?
 
-La multitud rugió.
+A multidão rugiu.
 
-Kim sintió el peso de ese pie en la espalda y escuchó todo con la cara presionada contra el suelo de la arena.
+Kim sentiu o peso da bota na cabeça e ouviu tudo com o rosto esmagado contra o chão da arena. Esticou a mão, tentando alcançar o pé dele.
 
-*QUÉ MIERDA. Esto no es un juego, esto es un foso de gladiadores. Insano. Completamente insano. Necesito al menos darle un puñetazo a este tipo.*
+*Caralho, porra. Isso aqui é um coliseu de gladiadores, não um jogo. Tenho que dar pelo menos um soco nesse merda.*
 
-Thunderbolt se agachó y capturó la mano derecha de Kim entre dos dedos. La presión comenzó baja y subió de forma constante, sin interrupción.
+Thunderbolt tirou a bota da cabeça dele e desceu ela em cima da mão direita.
 
-El crujido del meñique cortó el aire.
+A pressão começou baixa e subiu de forma constante, sem interrupção.
 
-Kim se mordió el labio inferior hasta sangrar. No le iba a dar a Thunderbolt la satisfacción del grito. Pero Thunderbolt apretó más, los dedos fracturados comprimidos con aún más fuerza.
+*Crec.*
 
-*Hijo de puta. Te voy a destruir. Te voy a hacer sufrir.*
+Kim sentiu cada osso da mão ceder, um por um. Os dedos. As juntas. O que ligava uma coisa na outra.
 
-La consciencia empezó a fragmentarse en los bordes.
+*Kraak.*
 
-*Maldito Jack. Es el segundo en la lista.*
+Kim mordeu o lábio inferior até sangrar. Não ia dar a Thunderbolt a satisfação do grito. Mas Thunderbolt girou o calcanhar, moendo o que já estava quebrado.
 
-Thunderbolt soltó los dedos, agarró el cuello de Kim y lo levantó del suelo. Su cuerpo quedó suspendido, las piernas pateando el vacío. Con la mano libre, propinó un revés que conectó con la cara de Kim con un chasquido que atravesó toda la arena.
+*Filho da puta. Eu vou acabar contigo, seu merda, e vou te fazer sofrer.*
 
-La multitud enmudeció.
+A consciência começou a fragmentar nas bordas.
 
-El sonido había sido diferente a los golpes anteriores. Más humillante que brutal. Y el público que había pedido sangre desde el principio se quedó en silencio ante eso.
+*Maldito Jack. É o segundo da lista.*
 
-Kim dejó de forcejear. El dolor detonó en su cara, pero lo que perduró más tiempo fue otra cosa. Más profunda. Más difícil de nombrar.
+Thunderbolt tirou o pé, agarrou o pescoço de Kim e o ergueu do chão. O corpo ficou suspenso, as pernas chutando o vazio. Com a mão direita livre, ele desferiu um tapa com o dorso que encontrou o rosto de Kim com um estalo que atravessou toda a arena.
 
-— NeoGuide. Lista de tareas.
+A multidão se calou.
 
-— Lista abierta.
+O som havia sido diferente dos golpes anteriores. Mais humilhante do que brutal. E a plateia que havia pedido sangue desde o começo ficou quieta diante daquilo.
 
-— Agrega: golpear, humillar, arrodillar, llorar e implorar.
+Kim parou de se debater. A dor explodiu no rosto, mas o que ficou mais tempo foi outra coisa. Mais funda. Mais difícil de nomear.
 
-— Elementos añadidos.
+— NeoGuide. Lista de tarefas.
 
-— Marca golpear y humillar como completados.
+— Lista aberta.
 
-— Elementos marcados como completados. Próximo elemento: arrodillar.
+— Adicione: espancar, humilhar, ajoelhar, chorar e implorar.
 
-— Este va a tomar más tiempo. — Thunderbolt miró a Kim con la satisfacción de alguien cumpliendo una agenda bien planificada. — Pero no tengo prisa.
+— Itens adicionados.
 
-En las gradas, Jack tenía los puños apretados hasta que los nudillos se pusieron blancos. La expresión en su cara ya no era la de alguien que apostó mal.
+— Marque espancar e humilhar como concluídos.
 
-Era otra cosa.
+— Itens marcados como concluídos. Próximo item: ajoelhar.
 
-Kim colgaba por el cuello con la cara ensangrentada, los dedos de la mano derecha fracturados, sin fuerzas, sintiendo algo que nunca había sentido antes — y en algún lugar debajo de todo eso, un pensamiento persistía con la irracionalidad de algo que no podía apagarse.
+— Essa vai ser mais demorada. — Thunderbolt olhou para Kim com a satisfação de alguém cumprindo uma agenda bem planejada. — Mas eu não tenho pressa.
 
-*Destruir a este tipo. Después Jack tiene que pagar.*
+Nas arquibancadas, Jack estava com os punhos cerrados até os nós branquejarem. A coroa torta, os fogos apagados nas costas. A expressão no rosto dele não era mais a de quem apostou errado.
 
-La oscuridad empezó a avanzar por los bordes de su visión.
+Era culpa.
+
+— Merda, o que eu fui fazer... Kim, aguenta. Meu mano, aguenta!
+
+Kim estava pendurado pela garganta com o rosto em sangue, a mão direita esmagada, sem forças, sentindo o que nunca havia sentido antes, derrotado, e em algum lugar no fundo de tudo aquilo, um pensamento persistia com a irracionalidade de algo que não podia ser apagado.
+
+*Acabar com a raça desse cara. Depois o Jack vai ter que pagar.*
+
+O escuro começou a avançar pelas bordas da visão.

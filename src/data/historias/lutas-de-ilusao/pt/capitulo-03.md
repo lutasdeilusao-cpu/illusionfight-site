@@ -88,9 +88,9 @@ Michael.
 
 A sala inteira estava de pé agora. Ninguém gritava. Era o silêncio de quem já viu isso acontecer antes e sabe que o melhor é não estar no caminho.
 
-O Freddy encontrou a voz.
+O Freddy apertou os dentes.
 
-— Selvagens filhos da puta!
+*Selvagens filhos da puta!*
 
 O careca descruzou os braços. Pela primeira vez, alguma coisa no rosto dele fechou.
 
@@ -98,9 +98,7 @@ O careca descruzou os braços. Pela primeira vez, alguma coisa no rosto dele fec
 
 O Kim fechou o tablet. O Jack pegou a mochila. Os dois levantaram ao mesmo tempo.
 
-— Beleza, manos. — O Jack ergueu as mãos. — Mas espera a gente chegar lá fora.
-
-— A gente resolve isso lá fora — o Kim completou. — Não queremos bagunçar a sala.
+— Manos. — O Jack ergueu as mãos. — Esperem até a gente chegar lá fora... pra gente não bagunçar a classe.
 
 O careca ficou parado por um segundo. Depois deu um passo pro lado e abriu a porta.
 
@@ -166,7 +164,7 @@ Pareciam garotos comuns. O de boné tinha cara de passa-fome. O de cabelo verde 
 
 Mas na festa tinham sido os dois. Mais de trinta amigos dele no chão. O de boné derrubava um e voltava pra pegar salgadinho na mesa. O de cabelo verde brigava com a cerveja na mão, parecendo bêbado. Só tinha acabado porque a polícia chegou, e os dois sumiram do mesmo jeito que apareceram. Do nada.
 
-Os dois viraram no fim do corredor e entraram no banheiro.
+Os dois viraram no fim do corredor e entraram no vestiário.
 
 — Eles devem tá tentando fugir — o Freddy disse.
 
@@ -286,39 +284,49 @@ Foi rápido. Baixo. Direto no Anderson, a poeira levantando atrás. Ia fechar a 
 
 O Kim olhou pro lado.
 
+— Quê?!
+
 O pé do Anderson acertou a cara dele em cheio.
 
-O Kim voou de costas pelo pátio, arrastou no chão de pedra e parou longe.
+O Kim voou de costas pelo pátio, arrastou no chão de pedra e caiu deitado.
 
 Do outro lado, o Jack levantou os dois braços.
 
 — LEMBREI A MÚSICA!
 
+O Anderson já estava no ar. O facão enferrujado erguido com as duas mãos, o corpo inteiro caindo junto com a lâmina, direto no Kim no chão.
+
 — Filho da puta... — O Kim, deitado.
 
-Levantou. Cravou os dedos e a ponta do tênis no chão quebrado, o corpo baixo, igual um bicho antes do pulo. O olho mudou.
+Rolou.
+
+A lâmina desceu no lugar onde estava a cabeça dele e cravou no chão de pedra. *Tchank.* Ficou lá, de pé, tremendo.
+
+O Kim já estava agachado do lado dela. O olho tinha mudado.
 
 — Vamos tentar de novo. A resposta é...
 
-Saiu do chão.
+Fechou as duas mãos no cabo do facão.
 
 — Não...
 
-Fechou a distância.
+Usou o cabo de apoio, subiu o corpo e meteu o tênis em cima, o pé empurrando tudo pra frente.
 
 — Há...
 
-Parou na frente do Anderson. Virou o polegar pra baixo, devagar, igual imperador romano decidindo a vida de um gladiador.
+O punho veio de baixo pra cima e entrou no queixo do Anderson.
 
-— ...regras.
+— REGRAS!
 
-— Só pra você saber — o Kim disse, baixinho —, eu peguei bem leve com você lá na sala.
+O osso estalou.
 
-O punho já estava vindo.
+— Só pra você saber — o Kim disse, baixinho —, eu peguei bem leve com você lá na sala de aula.
+
+Puxou o braço de novo.
 
 — Dessa vez vai doer.
 
-O soco entrou no queixo de baixo pra cima. O Anderson saiu do chão, cuspindo sangue, e foi parar em cima de uma pilha de entulho. Não levantou.
+O segundo soco jogou o Anderson longe, cuspindo sangue, em cima de uma pilha de entulho. Não levantou.
 
 Um.
 
@@ -434,7 +442,7 @@ O taco voltou na horizontal. O Jack abaixou a cabeça e continuou conversando.
 
 — Se tiver cifra, até que rola.
 
-O Jack chutou uma pedra do chão no meio da frase. A pedra subiu, girou e acertou a testa do Michael. *Toc.*
+No meio da frase, o Kim pegou uma pedra do chão, ainda suja de sangue, e arremessou. A pedra atravessou o pátio e acertou a testa do Michael. *Toc.*
 
 — Suas cadelas covardes! — O Michael passou a mão na testa e viu o próprio sangue. — Que porra é essa?
 
@@ -459,6 +467,8 @@ Atrás da coluna, o Freddy apertava o próprio cabelo com as duas mãos.
 — Que porra de serviço é esse? — Saiu de trás da coluna, apontando pro Brock. — Faz alguma coisa, seu imundo!
 
 O Brock jogou o cigarro no chão.
+
+*Maldita terça-feira.*
 
 — Se eu intervir, vai custar o dobro.
 
@@ -591,6 +601,8 @@ O Kim nem olhou.
 O Jack começou a bater os braços como asa de galinha.
 
 — Tá com medo? Vai amarelar? Pó, pó, pó! Ué, não é o fodão? O segundo rei das brigas? Hein? Hein?
+
+O cigarro quebrou entre os dedos do Kim.
 
 — Segundo é o caralho.
 

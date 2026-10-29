@@ -30,7 +30,7 @@ Na sede central, no Distrito de Zairan, o alerta varreu o andar setenta e cinco.
 
 *ALERTA CRÍTICO — CÓDIGO PRIMORDIAL DETECTADO.*
 
-O engenheiro-chefe Nakamura ficou olhando os dados com os dedos parados em cima do controle.
+O Nakamura, um técnico jovem de cabelo cacheado, ficou olhando os dados com os dedos parados em cima do controle.
 
 — Isso é impossível. Sangue Primordial. Eu nunca achei que ia ver esse código na vida.
 
@@ -40,21 +40,23 @@ Três andares abaixo, no setor de realidade virtual de Valloria, os operadores s
 
 ---
 
-No centro de comando de Marelia, o gerente de operações Martinez afrouxou a gravata.
+No centro de comando de Marelia, a chefe de operações ajeitou os óculos.
+
+Cabelo cacheado preso de qualquer jeito. A equipe inteira em volta dela.
 
 Na mesa de vidro, um mapa do mundo digital. Pontos vermelhos piscando em quatro continentes, como ferida aberta.
 
-— Alguém me explica como um código Lendário tá ativo em quatro continentes ao mesmo tempo. — Ele olhou cada rosto da mesa. — E por que todos os nossos sistemas de segurança tão gritando como se fosse o fim do mundo.
+— Alguém me explica como um código Lendário tá ativo em quatro continentes ao mesmo tempo. — Ela olhou cada rosto da mesa. — E por que todos os nossos sistemas de segurança tão gritando como se fosse o fim do mundo.
 
-Uma analista jovem levantou a mão.
+Uma analista de óculos levantou a mão.
 
-— Senhor... os padrões de energia tão convergindo pra um ponto só. É como se alguma coisa estivesse chamando o Sangue Primordial.
+— Senhora... os padrões de energia tão convergindo pra um ponto só. É como se alguma coisa estivesse chamando o Sangue Primordial.
 
 A sala ficou em silêncio. Até as máquinas pareceram baixar o volume.
 
 O Sangue Primordial era lenda. Coisa que se falava baixo, só nos círculos mais fechados da empresa.
 
-— Equipe Alpha, análise de todos os epicentros. — Martinez. — Equipe Beta, isola os códigos suspeitos. Ninguém sai daqui até ter resposta.
+— Equipe Alpha, análise de todos os epicentros. — A chefe. — Equipe Beta, isola os códigos suspeitos. Ninguém sai daqui até ter resposta.
 
 ---
 
@@ -126,9 +128,9 @@ Ela correu pro quarto, pegou o papel e começou a desenhar o Kim. Do lado dele, 
 
 ---
 
-Em Wendor, o Jaret ajeitou os óculos na poltrona de couro.
+Em Wendor, numa cabana isolada no meio da neve, o Jaret puxou a cadeira pra perto da lareira.
 
-Veterano aposentado. Quinze graus negativos lá fora, o aquecedor ronronando. Camisa xadrez vermelha e preta. Barba grisalha. O jogo de hóquei passando sem som na TV.
+Veterano aposentado. Velho, mas ainda largo. Quinze graus negativos lá fora, o fogo estalando. Camisa xadrez vermelha e preta. Barba grisalha. Cicatriz velha nas costas das mãos. O tablet no colo.
 
 Por décadas ele tinha achado que os dias de glória estavam enterrados embaixo da neve.
 
@@ -142,7 +144,7 @@ Em Zylvaron, no quadragésimo sétimo andar de uma torre de vidro, o Mikael paro
 
 Ar-condicionado em vinte e três graus. Lá embaixo, trinta e cinco. Camisa branca, gravata de seda, orquídea branca na mesa.
 
-O vídeo tinha chegado pelo chat da empresa. Número do SDR, análise, gráfico de performance. Tudo virou borrão.
+O celular vibrou em cima da mesa. *BRIGUENTO 142536 — SDR #1.201.* O palestrante continuou falando do retorno projetado pro próximo trimestre. Gráfico, análise, número. Tudo virou borrão.
 
 Só sobrou uma certeza.
 
@@ -192,4 +194,4 @@ Em poucas horas, o Kim tinha atravessado a distância entre ninguém e o centro 
 
 E ele não fazia a menor ideia.
 
-Estava num anexo abandonado nos fundos de uma escola em Marelia, do lado do melhor amigo, oferecendo cigarro pra uma garota de cabelo rosa.
+Estava num complexo abandonado do lado da escola, em Marelia, do lado do melhor amigo, oferecendo cigarro pra uma garota de cabelo rosa.

@@ -10,6 +10,10 @@ A arena ficou muda.
 
 Depois veio o murmúrio. Arquibancada inteira, baixinho, como onda chegando.
 
+— Ele trocou de avatar?! — Um espectador de máscara, de pé.
+
+Bug. Cabelo branco. Que isso. O chat inteiro perguntando a mesma coisa.
+
 ---
 
 Thunderbolt sentiu o sangue gelar.
@@ -20,7 +24,11 @@ As chamas pareciam farejar o Thunderbolt.
 
 Não era medo comum. Era mais antigo. Era o que a presa sente quando entende que tem um predador na frente dela. Ele tentou recuar e o corpo se mexeu lento, como se estivesse andando dentro de melado.
 
-Aquilo não era mais um garoto.
+— Que merda de skin é essa? — O Thunderbolt, entre os dentes.
+
+Engoliu seco.
+
+— Isso não é um homem.
 
 O Kim apoiou o joelho no chão.
 
@@ -40,6 +48,8 @@ A plateia explodiu. Grito, aplauso, gente de pé. Todo mundo sentindo que estava
 
 Na arquibancada, o Jack olhava com fascínio e horror na mesma cara pálida.
 
+— Kim...? — Quase sem voz. — Que porra é essa, mano?!
+
 O amigo que ele conhecia tinha sumido. No lugar tinha uma coisa selvagem, que se mexia com a fluidez de um predador nato.
 
 ---
@@ -50,11 +60,17 @@ De quatro. Os dedos curvados, as unhas raspando a terra. A respiração funda, c
 
 Era o sorriso de quem já escolheu a presa.
 
+— Aonde vai, presa?
+
 E ele explodiu.
 
-Um borrão. O Thunderbolt, veterano de batalha que não acabava mais, não conseguiu nem piscar. O Kim já não estava onde devia estar.
+Um borrão. O Thunderbolt soltou o soco por instinto. Pegou ar.
 
-Estava agachado embaixo dele.
+— Onde ele foi?!
+
+— Aqui.
+
+Agachado embaixo dele.
 
 Uma mão na nuca do Thunderbolt. A outra na têmpora. Um toque quase gentil. E o gigante não conseguia se mexer, como marionete que alguém achou os fios.
 
@@ -64,7 +80,117 @@ Osso contra osso. O som correu a arena como trovão seco. A mandíbula do Thunde
 
 Um batimento de silêncio.
 
+O gigante desabou de costas. O chão tremeu com o peso da armadura.
+
+— BRUUUTAAAL! — O Narrador, lá de cima.
+
 Depois a arena inteira gritou junto.
+
+— Ele tá destruindo o cara! — O Jack, agarrado na grade.
+
+O Kim olhou o gigante no chão. Inclinou a cabeça.
+
+— Ainda não acabou.
+
+---
+
+O Thunderbolt levantou cuspindo sangue. Mil e duzentas lutas não deixavam ele ficar no chão.
+
+Abriu a mão de metal. A palma acendeu.
+
+*RAIO CELESTE.*
+
+— Seu inferior miserável... morre!
+
+O raio cruzou a arena e acertou o Kim no peito.
+
+A aura negra engoliu. Simples assim. Como bicho engolindo comida.
+
+O Kim riu.
+
+— Isso aí foi um ataque ou um carinho?
+
+— C-como...?!
+
+---
+
+O gigante abriu as duas mãos. Plantou os pés. Girou o quadril e soltou tudo de uma vez.
+
+*RAIO CELESTE x4.*
+
+— Cai! Cai! Cai!
+
+Quatro raios. Quatro trovões em sequência.
+
+As chamas em volta do Kim viraram cabeça de serpente. Quatro bocas abertas. Cada uma pegou um raio no ar e mastigou.
+
+Nhac. Nhac.
+
+O Thunderbolt ficou ofegante, os ombros subindo e descendo.
+
+— Só? — O Kim. — Pensei que ia ser divertido.
+
+---
+
+A lança veio.
+
+*ESTOCADA CELESTE.*
+
+— Fica parado, desgraçado!
+
+Estocada. Estocada. Estocada. O peso todo do corpo atrás de cada uma.
+
+O Kim só tirava o tronco do caminho. Esquerda. Direita. Deixava imagem atrasada no ar.
+
+— Esquerda... direita... tá lento, velho.
+
+Na última, ele pegou a ponta da lança com a mão nua.
+
+Cheirou o ar.
+
+— Hmm. Cheiro de medo.
+
+---
+
+O gigante puxou a lança de volta e girou o corpo inteiro num arco rente ao chão. Pra arrancar as pernas.
+
+*VARRIDA DE ARCO.*
+
+— Cai de uma vez!
+
+O Kim se abaixou colado na terra. A lâmina passou por cima da cabeça dele assobiando.
+
+— Agora!
+
+O soco veio em seguida. E outro. E outro.
+
+Nada. O Kim deixava rastro azul pela arena e aparecia sempre em outro lugar.
+
+Apareceu nas costas dele. Tranquilo.
+
+— Tá perdido? Tô aqui, ó.
+
+— Como você tá vendo isso?!
+
+— Vendo? Eu tô só andando.
+
+---
+
+O Thunderbolt cravou a lança no chão.
+
+*CHÃO VIVO.*
+
+— Frita, maldito!
+
+A eletricidade correu a arena inteira. O chão virou um tapete azul estalando.
+
+O Kim olhou pra baixo, incomodado.
+
+— Luz demais. Vou apagar.
+
+A aura escorreu do corpo dele pro chão e comeu a luz. Pedaço por pedaço. Até sobrar só escuro.
+
+— Pronto. Agora tá aconchegante.
 
 ---
 
@@ -82,15 +208,17 @@ Era como se uma fera antiga tivesse acordado atrás dos olhos do Kim.
 
 ---
 
-O Kim afrouxou a mão da cabeça do Thunderbolt. Desceu até o pescoço. E ergueu o gigante do chão como quem levanta uma folha.
+O Kim fechou a mão no pescoço do Thunderbolt. E ergueu o gigante do chão como quem levanta uma folha.
 
 Com a ponta do indicador, tocou o queixo destruído dele. Quase com carinho. O sangue grudou no dedo.
 
-— Faz tanto tempo. — A voz era do Kim. Mas carregava outra coisa por baixo. — Tanto tempo desde que eu senti sangue humano fresco. Esse calor. Essa vida. É tão gostoso. Toda existência depende disso... e é tão ridículo de fácil arrancar de vocês, mortais insignificantes.
+— Faz tanto tempo... — A voz era do Kim. Mas carregava outra coisa por baixo. — Desde que senti o calor do sangue humano.
 
 O Thunderbolt tentou falar. Da mandíbula estilhaçada só saiu som de garganta.
 
 O Kim levou o dedo à boca. Lambeu o sangue devagar, sorrindo.
+
+— E como é simples arrancá-lo de vocês, mortais.
 
 E se ergueu.
 
@@ -98,11 +226,15 @@ Das solas dos pés dele, chamas negras começaram a subir. Serpenteando em volta
 
 Grito. Lamento. Sussurro de sofrimento que não acabava.
 
-— O Sangue Primordial é realmente muito poderoso. — Os olhos dele correram a arena, agora com um brilho âmbar. — É quase impossível acreditar que exista um recipiente mortal capaz de conter tanto poder sem ser consumido por ele.
+— O Sangue Primordial é poderoso demais. — Os olhos dele correram a arena, agora com um brilho âmbar. — Quase nenhum recipiente aguenta.
 
 ---
 
-Ele ergueu a mão direita pro céu.
+Largou o Thunderbolt no chão. Ergueu a mão direita pro céu.
+
+— Vamos ver o quanto este corpo aguenta.
+
+— Kim...? — O Jack, lá da arquibancada.
 
 Um silêncio de antes da tragédia.
 
@@ -112,9 +244,15 @@ Um rugido que veio do fundo de alguma coisa muito mais velha que ele. A onda de 
 
 A arena, construída pras lutas mais pesadas, gemeu. Os pilares de mármore estouraram como vidro. As arquibancadas, lotadas um segundo antes, foram varridas como folha seca. Pedra e metal voando pra todo lado.
 
+O Jack se jogou atrás de um muro.
+
+— Puta merda!
+
 As câmeras dos SBIs tremeram e perderam o sinal.
 
 Milhões de pessoas assistindo pelo PowWow ficaram olhando pra uma tela de estática.
+
+*Cadê a live? Volta! Caiu?*
 
 ---
 
@@ -130,23 +268,69 @@ Pintura de guerra preta viva no rosto. Os olhos, duas esferas brancas sem íris.
 
 O Kim Primordial.
 
-*Ainda é o Briguento 142536?*
-
-A pergunta correu o chat do mundo inteiro. A regra era clara: trocar de avatar no meio de uma partida é proibido. Banimento na hora. E ali estava a prova de que aquilo tinha acontecido.
-
-Uns se afastaram da tela, como se o perigo pudesse atravessar. Outros ficaram travados. E uns poucos ficaram com uma cara estranha, concentrada, como se uma lembrança muito antiga estivesse tentando subir.
+— Finalmente...
 
 ---
 
+O Thunderbolt ainda estava vivo.
+
+De joelho no meio dos destroços, a armadura rachada, ele ergueu a lança pro céu. Em cima da arena, uma esfera de eletricidade do tamanho de um prédio começou a girar.
+
+*ÚLTIMO RECURSO — TRONO DO TROVÃO.*
+
+— Eu tava guardando isso pro topo do ranking... — A voz saindo rasgada da mandíbula quebrada. — Mas você vai sumir agora!
+
+A esfera desceu.
+
+O impacto apagou o centro da arena num clarão branco. O chão afundou. O Thunderbolt caiu de joelhos, sangrando, sem fôlego.
+
+— Hah... hah... virou pó.
+
+A poeira baixou.
+
+O Kim Primordial estava no mesmo lugar. Bocejando.
+
+— Haaam...
+
+Tirou a poeira do ombro com dois dedos.
+
+— Tudo bem. Agora é a minha vez. — Fechou os punhos. — Vou dar apenas uns soquinhos.
+
+Não deu pra ver. Só pra ouvir.
+
+Um estalo emendado no outro, tão rápido que virou um som só. A armadura do Thunderbolt amassando em cem lugares ao mesmo tempo. O corpo dele tremendo no ar, preso pelos golpes, sem conseguir cair.
+
+*50000 HIT COMBO.*
+
+— BRUUUTAAAL! — O Narrador, com as duas mãos na cabeça.
+
+O Kim parou. O Thunderbolt ficou pendurado no punho dele, ensanguentado, sem força nem pra gemer.
+
+O Kim Primordial olhou as próprias mãos. As linhas brilhando na pele.
+
 — Assim é melhor.
 
-O Kim Primordial olhou o próprio corpo de cima a baixo.
+---
 
-— Que trajes ridículos. — Puxou o casaco com desprezo. — Os controles dessa simulação devem ter alguma coisa a ver com isso.
+*Ainda é o Briguento 142536?*
+
+A pergunta correu o chat do mundo inteiro. *Troca de avatar dá ban!* A regra era clara: trocar de avatar no meio de uma partida é proibido. Banimento na hora. E ali estava a prova de que aquilo tinha acontecido.
+
+Uns se afastaram da tela, como se o perigo pudesse atravessar. Outros ficaram travados. E uns poucos ficaram com uma cara estranha, concentrada, como se uma lembrança muito antiga estivesse tentando subir.
+
+Fora do jogo, escondida na sombra do anexo, uma garota de cabelo rosa assistia pela tela. O rosto parado. O olho apertado.
+
+— Eu já vi isso... — A Nina, baixinho. — Onde?
+
+---
+
+Na arena, o Kim Primordial olhou o próprio corpo de cima a baixo.
+
+— Que trajes ridículos. — Puxou o casaco com desprezo. — Devem ser os controles dessa simulação.
 
 Voltou o olho pro Thunderbolt, ainda pendurado no punho dele.
 
-— Eu me preocupo com isso depois. É hora da minha refeição milenar.
+— Me preocupo com isso depois. É hora da minha refeição milenar.
 
 Ergueu o braço. Uma explosão abafada, e chamas negras brotaram da palma como flor venenosa abrindo.
 
@@ -158,11 +342,11 @@ A poucos metros, o Jack olhava aquilo com horror.
 
 Desde que a partida tinha tomado aquele rumo, um pavor tinha se instalado no peito dele. Agora ele tinha certeza.
 
-Aquela criatura não era o Kim.
+— Aquilo não é o Kim.
 
 ---
 
-— Essas pequenas criaturas têm uma fome que nunca se sacia. — O Kim Primordial, as chamas dançando entre os dedos. — Você mal vai servir pra abrir o apetite delas. Mas serve de aperitivo.
+— Essas pequenas criaturas têm uma fome que nunca se sacia. — O Kim Primordial, as chamas dançando entre os dedos. — Você mal serve de aperitivo.
 
 Riu. Um riso de garganta, primitivo.
 
@@ -198,7 +382,7 @@ As chamas voltaram pras mãos do Kim Primordial como bicho manso voltando pro do
 
 Inclinou a cabeça. Coçou a têmpora com o dedo, distraído. Pôs as mãos na cintura e olhou pro chão, procurando migalha.
 
-— Realmente. Não foi uma boa refeição.
+— Realmente... foi decepcionante.
 
 ---
 
@@ -213,6 +397,8 @@ Aí estourou. Uns gritando, uns de boca aberta, ainda tentando entender.
 E no meio de tudo, sozinho, o Jack aplaudia.
 
 Batendo palma no ritmo, um sorriso orgulhoso na cara. Ele tinha apostado todas as fichas no amigo.
+
+— Ganhei a aposta!
 
 ---
 
@@ -240,7 +426,7 @@ Um espasmo atravessou o corpo do Kim Primordial. As mãos contraíram sozinhas. 
 
 A voz que era de poder agora era de desespero.
 
-— Aquele alimento mirrado... maldito! Só me deu uns míseros minutos. Eu preciso... — Os dentes cerrados. — Eu vou voltar!
+— Aquele verme fraco... — Os dentes cerrados. — Só me deu alguns minutos! Eu vou voltar!
 
 A volta foi dor. Os músculos encolhendo. O cabelo escurecendo, perdendo o brilho, encurtando. A pele voltando pro tom de um adolescente qualquer.
 
@@ -249,6 +435,14 @@ Ele caiu de joelhos com as mãos no peito. Era como se cada célula estivesse se
 A plateia foi ficando quieta.
 
 O corpo desabou no chão da arena.
+
+Ninguém se mexeu.
+
+— Ele... morreu? — Alguém, na arquibancada.
+
+O Jack já estava pulando a grade. Correndo pelos destroços.
+
+— Kim!
 
 Uns segundos só de respiração ofegante.
 
@@ -268,15 +462,17 @@ Quase sem som.
 
 Número e informação dançando no canto da visão. Os gritos de "O Primordial" ainda ecoando na cabeça. Tudo um borrão de cor e barulho que o cérebro não conseguia organizar.
 
-Ele não lembrava de nada.
+*PONTUAÇÃO +9999. SYNC 47%. ERRO.*
 
-Nem do deus que tinha sido uns minutos antes.
+A arena começou a se desfazer em cubo. O corpo dele também.
 
 ---
 
 *Sua partida acaba de terminar. Sua pontuação foi atualizada. Você pode retirar o SBI em segurança.*
 
 A voz da NeoGuide, de longe.
+
+— Espera...!
 
 O anexo da escola voltou de uma vez.
 
@@ -288,9 +484,27 @@ Procurou o Jack com o olho.
 
 E o que viu o deixou sem chão.
 
-O Jack estava branco feito papel. Os olhos arregalados. As duas mãos erguidas na frente do corpo, como quem se defende de uma coisa que não dá pra ver. A boca soltando umas palavras que não formavam frase.
+O Jack estava no chão. Branco feito papel. Recuando de bunda, as mãos erguidas na frente do corpo.
 
-Kim tentou perguntar o que tinha acontecido. Da garganta só saiu um ruído rouco.
+— F-fica aí... não chega perto...
+
+— Jack... o que foi?
+
+— Quem... quem é você?
+
+No visor largado no chão, por um segundo, o reflexo do Kim brilhou com outros olhos.
+
+*...Eu vou voltar.*
+
+O Kim deu um passo.
+
+— Se acalma, Jack! Sou eu!
+
+— SAI DE MIM, SATANÁS!
+
+Kim parou. Olhou as próprias mãos.
+
+— O que... tá acontecendo comigo? — Ofegante. — Tô... sem força...
 
 ---
 
@@ -329,6 +543,10 @@ O Kim soltou um riso sem graça. Passou a mão na testa.
 Desde a luz que tinha explodido na frente dos olhos dele, era como se uma cortina tivesse descido sobre tudo. Uns pedaços soltos dançavam na borda da cabeça. Som distorcido. A sensação de não estar mandando no próprio corpo.
 
 Nada que desse pra chamar de lembrança.
+
+*...O Pri... mor... dial...*
+
+— Não lembro de nada.
 
 ---
 
