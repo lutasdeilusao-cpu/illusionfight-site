@@ -85,7 +85,6 @@ export default function HistoriasHub({ tipo = null }) {
           {!tipo && (
             <header className="ws-hub__cabeca">
               <h1 className="ws-hub__h1">{t('pages.historias.titulo')}</h1>
-              <p className="ws-hub__sub">{t('pages.historias.intro')}</p>
             </header>
           )}
 
@@ -112,6 +111,7 @@ export default function HistoriasHub({ tipo = null }) {
               capa={destaque.capa}
               eyebrow={t('pages.historias.destaque_eyebrow')}
               texto={localizado(destaque, 'tagline', locale)}
+              resumo={localizado(destaque, 'sinopse', locale) || localizado(destaque, 'resumo', locale)}
               selos={[t(`pages.contos.peso_${destaque.peso}`)]}
               compacto
               href={capHero ? destaque.rotaCap(capHero) : destaque.rota}

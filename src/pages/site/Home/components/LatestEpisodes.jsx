@@ -29,12 +29,13 @@ export default function LatestEpisodes() {
     const disponiveis = episodios
       .filter(ep => ep.paginas > 0)
       .filter(ep => ep.sempre_livre || emBeta(ep) || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE)
-      .sort((a, b) => ((b.data_publicacao || '').localeCompare(a.data_publicacao || '')))
-    return disponiveis[0]
+      .filter(ep => !ep.especial)
+      .sort((a, b) => b.numero - a.numero)
+    return disponiveis.slice(0, 3)
   }, [isAdmin, user, perfil])
 
-  const lista = episodios.filter(ep => ep.id !== featured?.id && !ep.especial && ep.paginas > 0)
-  const liberadoFeatured = !!featured
+  const lista = episodios.filter(ep => !featured.some(f => f.id === ep.id) && !ep.especial && ep.paginas > 0)
+  const liberadoFeatured = featured.length > 0
 
   return (
     <section ref={ref} className="episodes reveal" id="episodios">
@@ -45,9 +46,10 @@ export default function LatestEpisodes() {
           description={t('home.section_webtoon_hint')}
         />
 
-        {featured && (
+        {liberadoFeatured && (
           <div className="episodes-featured">
-            <div
+            {featured.map(featured => <div
+              key={featured.id}
               className={`episodes-featured-card${liberadoFeatured ? '' : ' episodes-featured-card--locked'}`}
               onClick={() => liberadoFeatured && navigate(`/webtoon/${featured.id}`)}
             >
@@ -67,7 +69,7 @@ export default function LatestEpisodes() {
                   </button>
                 )}
               </div>
-            </div>
+            </div>)}
           </div>
         )}
 

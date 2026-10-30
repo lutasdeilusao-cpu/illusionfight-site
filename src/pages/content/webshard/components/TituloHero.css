@@ -128,3 +128,5 @@
 .ws-hero--compacto .ws-hero__acoes { order: 2; margin-top: 0.3rem; }
 .ws-hero--compacto .ws-hero__selos { order: 3; }
 .ws-hero--compacto .ws-hero__texto { order: 4; }
+
+.ws-hero__resumo { display: none; }

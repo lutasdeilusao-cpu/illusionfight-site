@@ -75,6 +75,7 @@ export default function HistoriasUniversos({ historias }) {
               <span className="hist-obra__info">
                 {localizado(o, 'saga', locale) && <span className="hist-obra__saga">{localizado(o, 'saga', locale)}</span>}
                 <span className="hist-obra__tagline">{localizado(o, 'tagline', locale)}</span>
+                <span className="hist-obra__resumo">{localizado(o, 'sinopse', locale) || localizado(o, 'resumo', locale)}</span>
                 <Farol peso={o.peso} canon={o.canon} temas={[]} size="sm" showTemas={false} />
                 {!bloqueada && <span className="hist-obra__cta">{t('webShard.hub.ver_titulo')} ›</span>}
               </span>

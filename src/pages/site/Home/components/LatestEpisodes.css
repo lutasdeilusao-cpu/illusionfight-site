@@ -138,3 +138,5 @@
 /* Capítulo pronto mas ainda fechado pra quem vê: capa em preto e branco. */
 .episode-list-item--locked .episode-list-thumb img,
 .episodes-featured-card--locked .episodes-featured-img { filter: grayscale(1) brightness(0.5); }
+
+.episodes-featured-card:not(:first-child) { display: none; }

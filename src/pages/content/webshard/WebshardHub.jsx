@@ -13,6 +13,7 @@ import TituloCard from './components/TituloCard'
 import CapituloLinha from './components/CapituloLinha'
 import ContinuarLendo from './components/ContinuarLendo'
 import ManifestoFaixa from './components/ManifestoFaixa'
+import CarrosselLento from '../../../components/CarrosselLento/CarrosselLento'
 import './WebshardHub.css'
 
 /* /webtoon — a vitrine WEB SHARD. A rota e a palavra "webtoon" ficam (é o
@@ -59,7 +60,7 @@ export default function WebshardHub() {
           </header>
 
           {destaque && (
-            <TituloHero titulo={destaque} eyebrow={t('webShard.hub.destaque')} texto={localizado(destaque, 'tagline', locale)} compacto href={capHero ? rotaCapitulo(destaque, capHero) : rotaTitulo(destaque)}>
+            <TituloHero titulo={destaque} eyebrow={t('webShard.hub.destaque')} texto={localizado(destaque, 'tagline', locale)} resumo={localizado(destaque, 'sinopse', locale)} compacto href={capHero ? rotaCapitulo(destaque, capHero) : rotaTitulo(destaque)}>
               {capHero && (
                 <Link
                   to={rotaCapitulo(destaque, capHero)}
@@ -88,11 +89,11 @@ export default function WebshardHub() {
               <h2 className="ws-hub__h2">{t('webShard.hub.titulos')}</h2>
               <p className="ws-hub__hint">{t('webShard.hub.titulos_hint')}</p>
             </div>
-            <div className="ws-hub__estante if-stagger">
+            <CarrosselLento trilhoClassName="ws-hub__estante ws-hub__estante--carrossel if-stagger">
               {titulos.map((titulo, i) => (
                 <TituloCard key={titulo.id} titulo={titulo} indice={i + 1} oculto={titulo.visivel === 'admin' || titulo.visivel === 'so_admin'} bloqueado={!capitulosDe(titulo).some(liberado)} />
               ))}
-            </div>
+            </CarrosselLento>
           </section>
           )}
 

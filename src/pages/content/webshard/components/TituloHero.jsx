@@ -12,7 +12,7 @@ import './TituloHero.css'
  *  logo abaixo do nome, pra o "ler agora" caber na 1ª tela do celular — o
  *  painel mostrou quem chega do Google saindo sem ver botão nenhum (02/10/2026).
  *  `href`: a arte vira link (tocar na capa já leva pra leitura). */
-export default function TituloHero({ titulo, texto, eyebrow, as: Titulo = 'h2', children, capa: capaProp, nome: nomeProp, selos, compacto = false, href }) {
+export default function TituloHero({ titulo, texto, eyebrow, as: Titulo = 'h2', children, capa: capaProp, nome: nomeProp, selos, compacto = false, href, resumo }) {
   const { t, locale } = useLanguage()
   const capa = capaProp ?? imagemWebshard(titulo.capa)
   const nome = nomeProp ?? localizado(titulo, 'nome', locale)
@@ -39,6 +39,7 @@ export default function TituloHero({ titulo, texto, eyebrow, as: Titulo = 'h2', 
           )}
         </div>
         {texto && texto.split('\n\n').map((p, i) => <p key={i} className="ws-hero__texto">{p}</p>)}
+        {resumo && <p className="ws-hero__resumo">{resumo}</p>}
         {children && <div className="ws-hero__acoes">{children}</div>}
       </div>
     </section>

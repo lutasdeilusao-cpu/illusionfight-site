@@ -34,7 +34,6 @@
   html.is-wide .hero-show__arte { object-position: center 25%; }
 
   /* Vitrines */
-  html.is-wide .ws-hub__estante { grid-template-columns: repeat(4, 1fr); }
   html.is-wide .games-vitrine { grid-template-columns: repeat(3, 1fr); padding-inline: 1.5rem; }
   html.is-wide .games-hero { grid-column: 1 / -1; }
   html.is-wide .personagens-page__grid { grid-template-columns: repeat(6, 1fr); }
@@ -69,4 +68,25 @@
   html.is-wide .home-games__trunfo { min-height: 460px; height: 100%; }
 
   html.is-wide .carrossel-lento__trilho { grid-auto-columns: 210px !important; }
+
+  /* Lançamentos: os 3 últimos ocupam a largura */
+  html.is-wide .episodes-featured { grid-template-columns: repeat(3, minmax(0, 340px)); justify-content: center; gap: 1.25rem; }
+  html.is-wide .episodes-featured-card:not(:first-child) { display: block; }
+
+  /* Estantes */
+  html.is-wide .ws-hub__estante { grid-template-columns: repeat(4, 1fr); }
+  html.is-wide .ws-hub__estante--carrossel.carrossel-lento__trilho { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 285px !important; }
+
+  /* Listas de capítulo em duas colunas */
+  html.is-wide .ws-hub__lista { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1.5rem; }
+
+  /* Resumos */
+  html.is-wide .ws-hero__resumo { display: block; margin: 0; max-width: 62ch; color: var(--text-secondary); font: 400 .98rem/1.65 var(--font-body); }
+  html.is-wide .hist-obra__resumo { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; overflow: hidden; color: var(--text-secondary); font: 400 .92rem/1.6 var(--font-body); }
+  html.is-wide .hist-hub .ws-hub__cabeca { padding-bottom: 0; }
+
+  html.is-wide .ws-hero__resumo { order: 5; }
+  html.is-wide .hist-obra { display: grid; grid-template-columns: 240px 1fr; gap: 1.5rem; min-height: 0; max-height: 380px; }
+  html.is-wide .hist-obra__capa { aspect-ratio: 2 / 3; height: auto; max-height: 360px; }
+  html.is-wide .hist-obra__info { justify-content: center; }
 }
