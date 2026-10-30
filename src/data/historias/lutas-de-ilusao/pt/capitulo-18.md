@@ -384,23 +384,17 @@ A Nina sentou no meio-fio. Pôs o SBI. Antes de fechar os olhos, olhou pros dois
 
 — O tempo de eu acabar com ela.
 
-Do outro lado, a Mera sentou na calçada, cruzou as pernas e sorriu.
+Do outro lado, a Mera sentou na calçada, cruzou as pernas, pôs os óculos e sorriu.
 
-— NeoGuide. — As duas, ao mesmo tempo. — Confirmar luta.
+As duas apagaram ao mesmo tempo.
 
 ---
 
 Na tela do celular do Jack, a arena acendeu.
 
-A arquibancada já estava enchendo. Do centro, subiu aquela figura de membros compridos demais, o terno de cor doente, o microfone na mão, e a plateia gritou antes de ele abrir a boca.
+De um lado, o ar rasgou num anel de luz e ela atravessou em silêncio. Capuz curto. Capa até o meio das costas. A marca vermelha cortando o olho direito. Parou sem levantar poeira, a mão já no cabo da Angel.
 
-— Senhoras e senhores! — O Narrador abriu os braços, e os dedos não acabavam nunca. — O destino é um péssimo roteirista, e é por isso que eu amo o destino! Do lado esquerdo, Nina! Rank oito mil setecentos e vinte e quatro, a lâmina que ninguém ouve chegar!
-
-O ar rasgou. Um anel de luz se abriu e ela atravessou em silêncio. Capuz curto. Capa até o meio das costas. A marca vermelha cortando o olho direito. Parou sem levantar poeira, a mão já no cabo da Angel.
-
-— Do lado direito, vinda de Aurélia, uma visitante que apostou no próprio nome! Uma campeã que resolveu descobrir se aqui dentro também se apanha!
-
-O outro portal não rasgou. Estourou.
+Do outro lado, o portal não rasgou. Estourou.
 
 O chão tremeu antes de ela aparecer. A primeira coisa foi a bota, de couro e pele, afundando na pedra. Depois o resto. Peles de lobo nos ombros. Cota de malha até as coxas, cinto largo de ferro, braceletes gravados com runas. Um escudo redondo de madeira e metal nas costas. No cabelo violeta escuro, tranças grossas presas com anéis de ferro, descendo até a cintura. Uma faixa preta pintada atravessava os dois olhos, de lado a lado, e os olhos azuis olhavam lá de dentro.
 
@@ -412,12 +406,16 @@ Uma ninja. E uma viking.
 
 — Puta que pariu. — O Jack.
 
-O Kim não disse nada. Só chegou mais perto da tela.
-
-O contador de espectadores começou a subir.
+O Kim não disse nada. Só chegou mais perto da tela. O contador de espectadores começou a subir.
 
 A Mera sorriu pra Nina, do outro lado da arena, com o mesmo sorriso de um ginásio, pouco mais de um ano atrás.
 
 A Nina puxou um centímetro da lâmina.
 
-— Apostas encerradas. — O Narrador, quase num sussurro, e o mundo inteiro ouviu. — Que a Luta de Ilusão comece.
+Do centro da arena subiu aquela figura de membros compridos demais, o terno de cor doente, o microfone na mão. A plateia explodiu antes de ela abrir a boca.
+
+— Senhoras e senhores, bem-vindos às Lutas de Ilusão! Do lado esquerdo, a lâmina que ninguém ouve chegar! Nina! Mil oitocentas e quarenta e sete vitórias, trezentas e noventa e oito derrotas, posição 8.724 no ranking SDR! Do lado direito, vinda de Aurélia, a tempestade do norte que veio cobrar pedágio! A Viking! Mera! Duas mil e dezesseis vitórias, duzentas e setenta e quatro derrotas, posição 7.312 no ranking SDR! Como dizem os veteranos: dívida antiga se paga com juros!
+
+Abriu os braços. Os dedos não acabavam nunca.
+
+— AAAAASSSSS apostas estãoooo abertaaaaas!
