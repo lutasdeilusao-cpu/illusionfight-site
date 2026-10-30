@@ -7,6 +7,8 @@ Prazo = a data do ASSINANTE (o primeiro a receber). Conta grátis e público rec
 ## P0 — Lançamento 15/11/2026
 | Item | Estado | Falta |
 |---|---|---|
+| Reset de contas (01/11) | ❌ | script; lista de contas aprovada pelo Isaias |
+| Assinatura de ponta a ponta | ❓ | testar pagar, liberar e cancelar |
 | Livro caps 1–2 (15/11) | ✅ pt/en/es | — |
 | WEB SHARD 01 (15/11) | ✅ 54 págs pt/en/es | — |
 | Música 1 — abertura "Lutas de Ilusão" | ✅ | — |
@@ -33,7 +35,7 @@ Prazo = a data do ASSINANTE (o primeiro a receber). Conta grátis e público rec
 | 15/03 – 30/05 | Livro caps 7–12 | ✅ pt/en/es | — (base = delegacia abandonada; ensaio = garagem do Kim; cap 10 da banda é canon novo) |
 | 15/03 | WEB SHARD 04 | ✅ pt/en/es | — |
 | 15/04 | WEB SHARD 05 | 🟡 65 págs pt | EN/ES |
-| 15/05 | WEB SHARD 06 | 🟡 59 págs pt ("Em Produção") | conferir se fechou; EN/ES |
+| 15/05 | WEB SHARD 06 | 🟡 59 págs pt | revisão; EN/ES |
 | 15/03, 15/04, 15/05 | Músicas 4–6 | ❓ | escolher |
 
 ## P3 — 2º hiato (jun/2027)
@@ -45,7 +47,7 @@ Prazo = a data do ASSINANTE (o primeiro a receber). Conta grátis e público rec
 ## P4 — 3º ciclo (jul – set/2027)
 | 15/07 | Jogos Q3: Duelo, LDI Isométrico | 🟡 | terminar e liberar |
 | 15/07 – 30/09 | Livro caps 13–18 | ✅ pt/en/es | — |
-| 15/07, 15/08, 15/09 | WEB SHARD 07, 08, 09 | ❌ | produzir do zero (pt + EN/ES) |
+| 15/07, 15/08, 15/09 | WEB SHARD 07, 08, 09 | 🟡 58, 59 e 81 págs pt | revisão; EN/ES |
 | 15/07 – 15/09 | Músicas 7–9 | ❓ | escolher |
 
 ## P5 — 3º hiato (out/2027)

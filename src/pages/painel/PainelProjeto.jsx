@@ -22,8 +22,8 @@ const MANUAL = {
   ...Object.fromEntries([[1, 1], [3, 50], [4, 50], [5, 50], [6, 44], [7, 46], [8, 50], [9, 50]]
     .map(([n, velhas]) => [`mds:${n}`, { status: 'parcial', nota: `${velhas} págs a refazer em 960×1637` }])),
   'jogo:trumps': { status: 'pronto' },
-  'jogo:gangues': { status: 'pronto' },
-  'jogo:ldi': { status: 'pronto' },
+  'jogo:gangues': { status: 'parcial', nota: 'revisão pendente (LDI-12)' },
+  'jogo:ldi': { status: 'parcial', nota: 'revisão pendente (LDI-11)' },
 }
 
 const idiomas = base => ['pt', 'en', 'es'].filter(l => tem(base.replace('{l}', l)))
