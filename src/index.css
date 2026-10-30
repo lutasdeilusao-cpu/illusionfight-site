@@ -1,5 +1,6 @@
 /* Linguagem visual única do portal — tokens e primitivas. Ver §10.2 do SITE_MAP. */
 @import './styles/design-system.css';
+@import './styles/desktop.css';
 
 @font-face {
   font-family: 'Ethnocentric';
@@ -15,7 +16,7 @@
 
 :root {
   /* ── Visão única mobile ──
-     --app-w: largura máxima da coluna do portal. NUNCA existe visão desktop.
+     --app-w: largura máxima do portal; a visão desktop troca o valor em styles/desktop.css.
      --app-gutter: sobra de cada lado quando a tela é maior que a coluna;
      é 0 em telas estreitas, então overlays fixos coincidem com a coluna. */
   --app-w: 480px;
@@ -83,9 +84,8 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   VISÃO ÚNICA MOBILE — o portal não tem versão desktop.
-   Em qualquer plataforma o app vive numa coluna de no máximo
-   --app-w. De 320px (iPhone SE) a 430px (Pro Max) a coluna é
+   COLUNA DO APP — jogos, leitor e painel vivem numa coluna de
+   no máximo --app-w em qualquer tela; o portal alarga no desktop. De 320px (iPhone SE) a 430px (Pro Max) a coluna é
    100% da tela; acima disso ela trava em 480px e centraliza.
    Overlays `position: fixed` escapam do #root, então são
    confinados à mesma coluna por --app-gutter (ver abaixo).

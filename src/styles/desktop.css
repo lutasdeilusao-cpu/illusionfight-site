@@ -1,0 +1,72 @@
+/* Visão desktop do portal: vale de 900px pra cima, só com html.is-wide.
+   Jogos, leitor de quadrinho e painel continuam na coluna de celular. */
+@media (min-width: 900px) {
+  html.is-wide { --app-w: 1280px; }
+  html.is-leitura { --app-w: 760px; }
+
+  html.is-wide .navbar__hamburger,
+  html.is-wide .navbar__social,
+  html.is-wide .navbar__mobile-spacer { display: none; }
+  html.is-wide .navbar__inner { gap: 1rem; padding: 0 1.5rem; }
+  html.is-wide .navbar__links { display: flex; flex: 1; justify-content: center; gap: 1.1rem; }
+  html.is-wide .navbar__link { font-size: .78rem; white-space: nowrap; }
+  html.is-wide .navbar__link--agradecimentos { display: none; }
+  html.is-wide .navbar__search-btn,
+  html.is-wide .navbar__lang,
+  html.is-wide .navbar__auth-actions { display: flex; flex-shrink: 0; align-items: center; gap: .5rem; }
+
+  /* Rodapé: colunas abertas */
+  html.is-wide .footer__grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  html.is-wide .footer__list-wrap { max-height: none; }
+  html.is-wide .footer__chevron { display: none; }
+
+  /* Herói de título: arte ao lado do texto */
+  html.is-wide .ws-hero { display: grid; grid-template-columns: 340px 1fr; gap: 2.5rem; align-items: center; padding: 2rem 1.5rem; }
+  html.is-wide .ws-hero__arte { aspect-ratio: 2 / 3; min-height: 0; max-height: 510px; }
+  html.is-wide .ws-hero__arte img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  html.is-wide .ws-hero__conteudo { padding: 0; }
+  html.is-wide .ws-hero__nome { font-size: 2.8rem; }
+  html.is-wide .ws-hero__acoes { max-width: 460px; }
+
+  /* Home */
+  html.is-wide .home-page { max-width: none; }
+  html.is-wide .hero-show__palco { aspect-ratio: 21 / 9; }
+  html.is-wide .hero-show__arte { object-position: center 25%; }
+
+  /* Vitrines */
+  html.is-wide .ws-hub__estante { grid-template-columns: repeat(4, 1fr); }
+  html.is-wide .games-vitrine { grid-template-columns: repeat(3, 1fr); padding-inline: 1.5rem; }
+  html.is-wide .games-hero { grid-column: 1 / -1; }
+  html.is-wide .personagens-page__grid { grid-template-columns: repeat(6, 1fr); }
+
+  /* Páginas de texto e formulários não esticam */
+  html.is-wide .auth-card { max-width: 460px; margin-inline: auto; }
+  html.is-wide .custos__container,
+  html.is-wide .web-shard__container,
+  html.is-wide .autor .container,
+  html.is-wide .calendar-page > *:not(.calendar-grid),
+  html.is-wide .mu { max-width: 960px; margin-inline: auto; }
+  html.is-wide .assinar-card { max-width: 640px; margin-inline: auto; }
+
+  /* Calendário, música, planos, personagens */
+  html.is-wide .calendar-page { max-width: var(--app-w); padding-inline: 2rem; }
+  html.is-wide .calendar-page > *:not(.calendar-grid) { max-width: none; }
+  html.is-wide .calendar-levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  html.is-wide .mu .ws-hero { grid-template-columns: 420px 1fr; }
+  html.is-wide .mu .ws-hero__arte { aspect-ratio: 4 / 3; }
+  html.is-wide .assinar-plans { display: grid; grid-template-columns: repeat(2, minmax(0, 480px)); justify-content: center; gap: 1.5rem; align-items: start; }
+  html.is-wide .assinar-card { max-width: none; margin: 0; }
+  html.is-wide .personagens-page__grid { grid-template-columns: repeat(6, 1fr); }
+  html.is-wide .assinar-doacao, html.is-wide .assinar-newsletter, html.is-wide .assinar-pix { max-width: 760px; margin-inline: auto; }
+
+  html.is-wide body:has(.home-page) .footer { max-width: none; }
+
+  /* Jogos da Home lado a lado */
+  html.is-wide .home-games .container { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: stretch; }
+  html.is-wide .home-games .container > :first-child,
+  html.is-wide .home-games__todos { grid-column: 1 / -1; }
+  html.is-wide .home-games__gangues,
+  html.is-wide .home-games__trunfo { min-height: 460px; height: 100%; }
+
+  html.is-wide .carrossel-lento__trilho { grid-auto-columns: 210px !important; }
+}

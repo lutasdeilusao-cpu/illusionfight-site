@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793400809.237123,
-    "ast_hash": "c62f35666d5c21c890d4825b7d54e153",
+    "mtime": 1793400949.1186676,
+    "ast_hash": "be93938974ace7ec59bc8caf377e3afa",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793400809.2871666,
-    "ast_hash": "f9ec8bd91dce8b1d92327aff3c6d77f5",
+    "mtime": 1793400949.1672637,
+    "ast_hash": "d22c1179c9c0ef3b74378eae5027cc8a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -6325,13 +6325,13 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-13.md": {
-    "mtime": 1793395069.2614856,
-    "ast_hash": "38db30c03cd8f762b002a0159af51f28",
+    "mtime": 1793400930.6171224,
+    "ast_hash": "251370eabb32252c021a31b376802ff6",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-14.md": {
-    "mtime": 1793400809.1967123,
-    "ast_hash": "4c28bf2a767a43c7e5ba23dd15db6e13",
+    "mtime": 1793400930.6181152,
+    "ast_hash": "401ef3a10331fb8e8ee41fa0acf067d1",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-15.md": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793400817.45974,
+    "mtime": 1793400955.9489858,
     "ast_hash": "461fea17262f105cff0148a621a9a594",
     "semantic_hash": ""
   },
@@ -10255,8 +10255,8 @@
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-contos-de-ilusao-sonata.webp": {
-    "mtime": 1792696681.8209476,
-    "ast_hash": "0d5200a0deb7173da631b0d9dcbfdd78",
+    "mtime": 1793400948.9190898,
+    "ast_hash": "5cc12262cccb47ee3dd7393fdff59b93",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/EpisodioCard.jsx": {
@@ -10422,6 +10422,11 @@
   "src/data/historias/lutas-de-ilusao/pt/capitulo-30.md": {
     "mtime": 1793395067.7732515,
     "ast_hash": "3625fd8dc1a3342ae0ac8212b3a0fcf3",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-contos-de-ilusao-inocentes.webp": {
+    "mtime": 1793400949.0807743,
+    "ast_hash": "645a0406614a2ee82e4b8a68e6496ab7",
     "semantic_hash": ""
   }
 }
