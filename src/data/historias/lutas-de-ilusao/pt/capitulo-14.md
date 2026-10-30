@@ -140,11 +140,25 @@ Silêncio.
 
 O Kim olhou pro bolso.
 
-— Mas acho que agora eu posso comprar um, né?
+— Por falar nisso.
 
-O Jack riu. Foi uma risada curta, no escuro.
+Puxou o celular, abriu o DIX e digitou. O celular do Jack apitou no capô.
 
-— Velho. Agora você pode comprar a loja.
+O Jack olhou a tela. Olhou de novo.
+
+— Kim. O que é isso?
+
+— Novecentos e noventa e oito mil. Fica contigo. Eu deixei dois mil pras contas do mês.
+
+— Tá maluco?
+
+— Dinheiro na minha mão some, você sabe. A Helena fareja. E esse cara tá de olho na minha conta, não na tua. Você sempre cuidou da nossa grana. Continua cuidando.
+
+O Jack ficou um tempo sem falar. Depois guardou o celular devagar, como quem guarda uma coisa viva.
+
+— Velho. Eu vou mexer nisso aqui com calma.
+
+— Mexe. Eu nem quero saber.
 
 O Kim ia rir também. Veio um bocejo no lugar. O dia inteiro caiu de uma vez em cima dele: o saco, o motor, o lustre, o gosto daquela bebida.
 

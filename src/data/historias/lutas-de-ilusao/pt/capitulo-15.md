@@ -250,7 +250,7 @@ Edição limitada. E tinha uma coisa especial: dava pra levar numa loja da Corpo
 
 — Que plano?
 
-— Eu ia te levar hoje numa loja, pra gastar um pouco do teu milhão. Só que lá não tem isso aqui. Isso aqui é achado, velho.
+— Eu ia te levar hoje numa loja, pra comprar um com a grana que tá comigo. Só que lá não tem isso aqui. Isso aqui é achado, velho.
 
 A Nina pegou o SBI da mão dele e olhou com cuidado.
 
@@ -286,7 +286,7 @@ Foram andando. O Kim olhando o SBI de perto pela primeira vez. Na única luta de
 
 — O teu deve tá na faixa de sessenta, setenta mil. — A Nina.
 
-— Então eu devolvo. — O Kim. — Agora eu posso comprar o meu. Ninguém dá uma coisa dessas de graça, gente. Ontem me deram um milhão de graça e olha a minha porta.
+— Então eu devolvo. — O Kim. — A gente compra um com a grana. Ninguém dá uma coisa dessas de graça, gente. Ontem me deram um milhão de graça e olha a minha porta.
 
 — Kim. — O Jack parou na frente dele. — O Ryan não é o Kronos. O moleque tá te agradecendo. E esse bagulho é edição limitada, não tem na loja. Não seja burro. Aceita.
 
