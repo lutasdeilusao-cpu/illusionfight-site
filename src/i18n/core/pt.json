@@ -1898,21 +1898,16 @@
       "editar": "Editar tarefa",
       "titulo": "Título",
       "descricao": "Descrição",
-      "para": "Pra quem",
       "prazo": "Prazo",
       "prioridade": "Prioridade",
-      "status": "Coluna",
       "apagar": "Apagar",
-      "os_dois": "Os dois",
-      "pedido_por": "pediu: {n}",
-      "vazio": "Nada aqui.",
-      "voltar": "Voltar coluna",
-      "avancar": "Avançar coluna",
+      "pedido_por": "Pedido por",
       "col": {
         "fazer": "A fazer",
         "progresso": "Em progresso",
         "feito": "Feito",
-        "arquivo": "Arquivo"
+        "arquivo": "Arquivo",
+        "teste": "Em teste"
       },
       "prio": {
         "alta": "Alta",
@@ -1920,30 +1915,61 @@
         "baixa": "Baixa"
       },
       "filtro": {
-        "todas": "Todas",
-        "minhas": "Minhas",
-        "socio": "Do {socio}",
-        "pedi": "Pedi pro {socio}"
+        "tudo": "Tudo",
+        "comigo": "Comigo",
+        "revisar": "Pra revisar",
+        "pedi": "Que pedi",
+        "alta": "Alta"
       },
       "link": "Link (onde fazer a tarefa)",
-      "feedback": "Feedback",
-      "iniciar": "Iniciar",
-      "continuar": "Continuar",
       "arquivar": "Arquivar",
-      "desarquivar": "Desarquivar",
-      "feito_semana": "feito (7 dias)",
       "fim": {
-        "concluida": "Tarefa concluída",
-        "pergunta": "Quer deixar o feedback agora? Fica salvo na tarefa.",
+        "concluida": "Foi pra revisão",
+        "pergunta": "Quer deixar um comentário agora? Ele fica na atividade da tarefa.",
         "placeholder": "O que achou, o que tem que corrigir...",
-        "enviar": "Mandar feedback",
+        "enviar": "Comentar",
         "depois": "Depois"
       },
       "fechar": "Fechar",
       "descartar": "Descartar o que você mudou nesta tarefa?",
       "confirmar_apagar": "Apagar esta tarefa de vez?",
       "sem_descricao": "Sem descrição.",
-      "rascunho_recuperado": "Recuperamos o que você estava escrevendo. Confira e salve."
+      "rascunho_recuperado": "Recuperamos o que você estava escrevendo. Confira e salve.",
+      "responsavel": "Responsável",
+      "revisor": "Revisor",
+      "equipe": "Equipe",
+      "sem_revisor": "Sem revisor",
+      "onde": "Onde",
+      "atividade": "Atividade",
+      "criou": "Criou",
+      "comentar": "Escreva um comentário…",
+      "enviar": "Enviar",
+      "abrir_link": "Abrir",
+      "motivo_reprovar": "O que precisa mudar?",
+      "motivo_placeholder": "Explique o que tem que corrigir…",
+      "meu_foco": "Meu foco",
+      "buscar": "Buscar por título ou LDI-32",
+      "foco": {
+        "fazer": "Comigo",
+        "revisar": "Pra revisar",
+        "entregues": "Entregues 7d"
+      },
+      "acao": {
+        "comecar": "Começar",
+        "pra_teste": "Mandar pra teste",
+        "aprovar": "Aprovar",
+        "reprovar": "Reprovar",
+        "aguardando": "Revisão: {n}",
+        "arquivar": "Arquivar",
+        "reabrir": "Reabrir"
+      },
+      "vazio_col": {
+        "fazer": "Nada esperando. Toque em + pra criar uma tarefa.",
+        "progresso": "Ninguém trabalhando em nada agora.",
+        "teste": "Nada esperando revisão.",
+        "feito": "Nada entregue nos últimos 60 dias.",
+        "arquivo": "Arquivo vazio."
+      }
     }
   },
   "carrossel": {

@@ -1,8 +1,8 @@
 // Área do Administrador — rota escondida (ROTA_PAINEL), sem link em lugar
 // nenhum, fora do sitemap e do prerender. Quem não é admin vê a página de
 // "não encontrada", sem saber que existe um painel aqui.
-// Quatro seções (Tarefas, Projeto, Números, Dinheiro) + "Mais" (Creators, Logs);
-// Números e Mais têm sub-abas.
+// Quatro seções (Tarefas, Projeto, Números, Dinheiro) + "Mais" (Creators, Logs) numa barra fixa
+// na base da tela; Números e Mais têm sub-abas logo abaixo do título.
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useAuth } from '../../context/AuthContext'
@@ -96,24 +96,15 @@ export default function Painel() {
 
       <header className="painel-topo">
         <div>
-          <span className="painel-topo__eyebrow">{t('painel.eyebrow')}</span>
-          <h1>{t('painel.titulo')}</h1>
+          <span className="painel-topo__eyebrow">{t('painel.titulo')}</span>
+          <h1>{t(`painel.secao.${secao}`)}</h1>
         </div>
-        <button type="button" className={`painel-btn painel-atualizar${atualizado ? ' is-ok' : ''}`} onClick={() => setRecarga(r => r + 1)} aria-live="polite">
-          {atualizado ? `✓ ${t('painel.atualizado')}` : t('painel.atualizar')}
+        <button type="button" className={`painel-atualizar${atualizado ? ' is-ok' : ''}`} onClick={() => setRecarga(r => r + 1)}
+          aria-label={t('painel.atualizar')} aria-live="polite">
+          {atualizado ? '✓' : '↻'}
         </button>
       </header>
       {ip && <p className="painel-nota">{t('painel.ip_excluido', { ip })}</p>}
-
-      <nav className="painel-secoes" role="tablist">
-        {Object.keys(SECOES).map(s => (
-          <button key={s} type="button" role="tab" aria-selected={secao === s} className={secao === s ? 'is-ativa' : ''}
-            onClick={() => { setSecao(s); setAba(SECOES[s][0]); setErro(null) }}>
-            <i aria-hidden="true">{ICONE[s]}</i>
-            <span>{t(`painel.secao.${s}`)}</span>
-          </button>
-        ))}
-      </nav>
 
       {SECOES[secao].length > 1 && (
         <nav className="painel-abas" role="tablist">
@@ -166,6 +157,17 @@ export default function Painel() {
       {aba === 'tarefas' && <PainelTarefas t={t} locale={lc} />}
       {aba === 'steam' && <PainelSteam t={t} locale={lc} inicio={inicio} fim={fim} />}
       </div>
+
+      {/* Seções na base da tela, ao alcance do dedão. */}
+      <nav className="painel-nav" role="tablist" aria-label={t('painel.titulo')}>
+        {Object.keys(SECOES).map(s => (
+          <button key={s} type="button" role="tab" aria-selected={secao === s} className={secao === s ? 'is-ativa' : ''}
+            onClick={() => { setSecao(s); setAba(SECOES[s][0]); setErro(null); window.scrollTo({ top: 0 }) }}>
+            <i aria-hidden="true">{ICONE[s]}</i>
+            <span>{t(`painel.secao.${s}`)}</span>
+          </button>
+        ))}
+      </nav>
     </main>
   )
 }

@@ -1,127 +1,298 @@
-/* Kanban de tarefas dos sócios. Mobile only: uma coluna por vez, escolhida no topo. */
-.tarefas { display: grid; gap: 10px; }
-.tarefas-filtros { display: flex; flex-wrap: wrap; gap: 4px; }
+/* Quadro de tarefas (PainelTarefas + tarefas/*): kanban no jeito do Jira, mobile only.
+   Cor de cada coluna: a fazer = texto, em progresso = âmbar, em teste = violeta, feito = verde. */
+.tq {
+  --tq-fazer: var(--text-secondary);
+  --tq-progresso: var(--if-amber);
+  --tq-teste: var(--if-violet);
+  --tq-feito: var(--if-ok);
+  --tq-arquivo: var(--if-hair-strong);
+  --tq-corte: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  display: grid;
+  gap: 10px;
+}
 
-.tarefas-colunas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
-.tarefas-colunas button {
+/* Meu foco: o que é seu agora, sem separar por pessoa. */
+.tq-foco { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.tq-foco__item {
+  display: grid;
+  gap: 2px;
+  padding: 12px 10px;
+  text-align: left;
+  color: var(--text-secondary);
+  background: var(--if-panel);
+  border: 1px solid var(--if-hair-strong);
+  box-shadow: inset 2px 0 var(--if-cyan);
+  clip-path: var(--tq-corte);
+  cursor: pointer;
+}
+.tq-foco__item b { font: 700 1.6rem/1 var(--font-display); color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.tq-foco__item span { font: 700 .52rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.tq-foco__item.is-teste { box-shadow: inset 2px 0 var(--tq-teste); }
+.tq-foco__item.is-feito { box-shadow: inset 2px 0 var(--tq-feito); cursor: default; }
+.tq-foco__item.is-ativo { border-color: var(--if-cyan-45); background: var(--if-cyan-08); }
+
+.tq-busca input {
+  width: 100%;
+  padding: 11px 12px;
+  font: 600 .82rem var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--if-hair-strong);
+}
+.tq-busca input:focus { outline: none; border-color: var(--if-cyan-45); }
+
+.tq-filtros { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
+.tq-filtros::-webkit-scrollbar { display: none; }
+.tq-chip {
+  flex: none;
+  padding: 8px 12px;
+  font: 700 .58rem var(--font-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--if-hair-strong);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.tq-chip.is-ativo { color: var(--bg-primary); background: var(--if-cyan); border-color: var(--if-cyan); }
+
+/* Colunas: uma faixa que rola de lado; a ativa ganha a barra inferior na cor da coluna. */
+.tq-colunas {
+  position: sticky;
+  top: calc(var(--painel-topo-h, 104px) + env(safe-area-inset-top, 0px));
+  z-index: 4;
+  display: flex;
+  gap: 4px;
+  margin: 0 -14px;
+  padding: 6px 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--if-hair);
+}
+.tq-colunas::-webkit-scrollbar { display: none; }
+.tq-colunas button {
+  --c: var(--tq-fazer);
+  flex: none;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-  padding: 10px;
+  gap: 8px;
+  padding: 10px 12px;
   font: 700 .6rem var(--font-mono);
-  letter-spacing: .08em;
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--text-secondary);
   background: var(--bg-secondary);
   border: 1px solid var(--if-hair-strong);
-  border-top: 3px solid var(--cor);
   cursor: pointer;
 }
-.tarefas-colunas .is-fazer { --cor: var(--if-danger); }
-.tarefas-colunas .is-progresso { --cor: var(--if-amber); }
-.tarefas-colunas .is-feito { --cor: var(--if-cyan); }
-.tarefas-colunas .is-arquivo { --cor: var(--text-secondary); }
-.tarefas-colunas button b { font: 700 .9rem var(--font-display); color: var(--cor); }
-.tarefas-colunas button.is-ativa { color: var(--text-primary); background: color-mix(in srgb, var(--cor) 12%, var(--bg-secondary)); }
+.tq-colunas button b { min-width: 20px; padding: 2px 6px; font-size: .62rem; text-align: center; color: var(--bg-primary); background: var(--c); border-radius: 999px; }
+.tq-colunas .is-progresso { --c: var(--tq-progresso); }
+.tq-colunas .is-teste { --c: var(--tq-teste); }
+.tq-colunas .is-feito { --c: var(--tq-feito); }
+.tq-colunas .is-arquivo { --c: var(--text-muted, rgba(234, 255, 255, .35)); }
+.tq-colunas button.is-ativa { color: var(--text-primary); border-color: var(--c); box-shadow: inset 0 -2px var(--c); }
 
-.tarefas-lista { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
-.tarefa {
+.tq-lista-area { min-height: 40vh; touch-action: pan-y; }
+.tq-lista { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.tq-vazio { margin: 0; padding: 40px 12px; text-align: center; font-size: .82rem; color: var(--text-secondary); border: 1px dashed var(--if-hair-strong); }
+
+/* Cartão */
+.tq-cartao {
   display: grid;
-  grid-template-columns: 1fr auto;
-  background: var(--bg-secondary);
+  background: var(--if-panel);
   border: 1px solid var(--if-hair-strong);
-  border-left: 3px solid var(--if-hair-strong);
+  box-shadow: inset 3px 0 var(--if-hair-strong);
+  clip-path: var(--tq-corte);
+  animation: tq-entra .25s ease-out;
 }
-.tarefa.is-alta { border-left-color: var(--if-danger); }
-.tarefa.is-normal { border-left-color: var(--if-cyan-45); }
-.tarefa.is-atrasada { background: color-mix(in srgb, var(--if-danger) 10%, var(--bg-secondary)); }
-.tarefa__corpo {
-  display: grid;
-  gap: 4px;
+@keyframes tq-entra { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.tq-cartao.is-alta { box-shadow: inset 3px 0 var(--if-danger); }
+.tq-cartao.is-baixa { box-shadow: inset 3px 0 var(--if-teal); }
+.tq-cartao.is-atrasada { border-color: color-mix(in srgb, var(--if-danger) 45%, transparent); }
+.tq-cartao__corpo { display: grid; gap: 6px; padding: 12px 12px 10px 14px; text-align: left; color: inherit; background: none; border: 0; cursor: pointer; }
+.tq-cartao__topo { display: flex; align-items: center; gap: 8px; }
+.tq-chave { font: 700 .58rem var(--font-mono); letter-spacing: .1em; color: var(--if-cyan-72); }
+.tq-cartao__titulo { font: 700 .92rem/1.3 var(--font-body); color: var(--text-primary); }
+.tq-cartao__desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: .74rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+.tq-cartao__base { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.tq-selo { padding: 3px 7px; font: 700 .56rem var(--font-mono); letter-spacing: .06em; color: var(--text-secondary); background: var(--bg-secondary); border: 1px solid var(--if-hair); }
+.tq-selo.is-perigo { color: var(--if-danger); border-color: color-mix(in srgb, var(--if-danger) 45%, transparent); }
+.tq-cartao__pessoas { margin-left: auto; display: flex; align-items: center; gap: 4px; }
+.tq-cartao__pessoas i { font-style: normal; font-size: .62rem; color: var(--text-secondary); }
+.tq-cartao__acoes { display: flex; gap: 6px; padding: 0 12px 12px 14px; }
+
+.tq-prio { padding: 2px 6px; font: 700 .52rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; border: 1px solid currentColor; }
+.tq-prio.is-alta { color: var(--if-danger); }
+.tq-prio.is-normal { color: var(--text-secondary); }
+.tq-prio.is-baixa { color: var(--if-teal); }
+
+.tq-avatar {
+  --av: var(--if-cyan);
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  font: 700 .62rem var(--font-mono);
+  color: var(--bg-primary);
+  background: var(--av);
+  border-radius: 50%;
+}
+.tq-avatar.is-cor1 { --av: var(--if-amber); }
+.tq-avatar.is-cor2 { --av: var(--if-violet); }
+.tq-avatar.is-cor3 { --av: var(--if-pink); }
+.tq-avatar.is-pequeno { width: 22px; height: 22px; font-size: .52rem; }
+.tq-avatar.is-vazio { color: var(--text-secondary); background: var(--bg-secondary); border: 1px dashed var(--if-hair-strong); }
+
+/* Botões de ação: grandes, na base, ao alcance do dedão. */
+.tq-acao {
+  flex: 1;
+  min-height: 44px;
   padding: 10px 12px;
-  min-width: 0;
-  text-align: left;
-  color: var(--text-primary);
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-}
-.tarefa__corpo strong { font-size: .86rem; line-height: 1.25; }
-.tarefa__desc { font-size: .72rem; color: var(--text-secondary); display: -webkit-box; -webkit-line-clamp: 3; white-space: pre-line; -webkit-box-orient: vertical; overflow: hidden; }
-.tarefa__meta { display: flex; flex-wrap: wrap; gap: 8px; font: 600 .6rem var(--font-mono); color: var(--text-secondary); }
-.tarefa__para { font-style: normal; color: var(--if-cyan); }
-.tarefa.is-atrasada .tarefa__prazo { color: var(--if-danger); }
-.tarefa__feedback { font-size: .7rem; color: var(--if-teal); white-space: pre-wrap; }
-.tarefa__iniciar {
-  grid-column: 1 / -1;
-  padding: 10px;
+  display: inline-grid;
+  place-items: center;
   font: 700 .62rem var(--font-mono);
   letter-spacing: .12em;
   text-transform: uppercase;
+  text-decoration: none;
+  color: var(--if-cyan);
+  background: var(--if-cyan-08);
+  border: 1px solid var(--if-cyan-45);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  cursor: pointer;
+}
+.tq-acao:active { transform: scale(.97); }
+.tq-acao.is-primaria { color: var(--bg-primary); background: var(--if-cyan); }
+.tq-acao.is-perigo { flex: 0 0 auto; color: var(--if-danger); background: transparent; border-color: color-mix(in srgb, var(--if-danger) 45%, transparent); }
+.tq-acao.is-espera { color: var(--text-secondary); background: transparent; border-style: dashed; border-color: var(--if-hair-strong); cursor: default; }
+.tq-acao:disabled:not(.is-espera) { opacity: .45; cursor: default; }
+
+.tq-nova {
+  position: fixed;
+  right: calc(var(--app-gutter) + 16px);
+  bottom: calc(var(--painel-nav-h, 64px) + 16px + var(--radio-nina-h, 0px) + env(safe-area-inset-bottom, 0px));
+  z-index: 20;
+  width: 56px;
+  height: 56px;
+  font: 700 1.8rem/1 var(--font-display);
   color: var(--bg-primary);
   background: var(--if-cyan);
   border: 0;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .5);
   cursor: pointer;
 }
-.tarefa__arquivar {
-  grid-column: 1 / -1;
-  padding: 10px;
-  font: 700 .62rem var(--font-mono);
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  background: transparent;
-  border: 0;
-  border-top: 1px solid var(--if-cyan-45);
-  cursor: pointer;
-}
-.tarefa__arquivar:active { transform: scale(.98); }
-.tarefas-placar { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.tarefas-placar__pessoa {
+.tq-nova:active { transform: scale(.94); }
+
+/* Detalhe em tela cheia */
+.tq-folha {
+  position: fixed;
+  inset: 0 var(--app-gutter);
+  z-index: 1950;
   display: grid;
-  gap: 4px;
-  padding: 10px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--if-hair-strong);
-}
-.tarefas-placar__pessoa.is-eu { border-color: var(--if-cyan-45); }
-.tarefas-placar__pessoa b { font: 700 .9rem var(--font-display); }
-.tarefas-placar__pessoa span { display: flex; align-items: baseline; gap: 6px; font-size: .62rem; color: var(--text-secondary); }
-.tarefas-placar__pessoa i { min-width: 18px; font: 700 .9rem var(--font-display); font-style: normal; }
-.tarefas-placar .is-fazer { color: var(--if-danger); }
-.tarefas-placar .is-progresso { color: var(--if-amber); }
-.tarefas-placar .is-feito { color: var(--if-cyan); }
-.tarefa__acoes { display: grid; grid-template-rows: 1fr 1fr; border-left: 1px solid var(--if-hair-strong); }
-.tarefa__acoes button {
-  width: 44px;
-  font: 700 1.1rem var(--font-display);
-  color: var(--if-cyan);
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-}
-.tarefa__acoes button + button { border-top: 1px solid var(--if-hair-strong); }
-.tarefa__acoes button:disabled { color: var(--if-hair-strong); cursor: default; }
-
-.tarefas-nova { justify-self: stretch; padding: 12px; }
-
-.tarefa-form { display: grid; gap: 10px; }
-.tarefa-form__titulo { margin: 0; font: 700 .62rem var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--if-cyan); }
-.tarefa-form label { display: grid; gap: 4px; font: 700 .55rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-secondary); }
-.tarefa-form input, .tarefa-form select, .tarefa-form textarea {
-  min-width: 0;
-  padding: 8px;
-  font: 600 .78rem var(--font-body);
+  grid-template-rows: auto 1fr auto;
   color: var(--text-primary);
   background: var(--bg-primary);
-  border: 1px solid var(--if-hair-strong);
-  color-scheme: dark;
-  resize: vertical;
+  overscroll-behavior: none;
+  animation: tq-sobe .22s ease-out;
 }
-.tarefa-form__linha { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@keyframes tq-sobe { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.tq-folha__topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: calc(10px + env(safe-area-inset-top, 0px)) 14px 10px;
+  border-bottom: 1px solid var(--if-hair-strong);
+}
+.tq-folha__fechar, .tq-folha__editar {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  font: 700 1.1rem/1 var(--font-display);
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--if-hair-strong);
+  cursor: pointer;
+}
+.tq-folha__editar { margin-left: auto; color: var(--if-cyan); }
+.tq-status { padding: 4px 8px; font: 700 .56rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--bg-primary); background: var(--tq-fazer); }
+.tq-status.is-progresso { background: var(--if-amber); }
+.tq-status.is-teste { background: var(--if-violet); }
+.tq-status.is-feito { background: var(--if-ok); }
+.tq-status.is-arquivo { color: var(--text-secondary); background: var(--bg-secondary); }
 
-/* Fim de capítulo de uma tarefa: conclui e pergunta o feedback (TarefaFeedback). */
+.tq-folha__corpo { overflow-y: auto; overscroll-behavior: contain; padding: 16px 14px 24px; display: grid; gap: 14px; align-content: start; }
+.tq-folha__titulo { margin: 0; font: 700 1.25rem/1.25 var(--font-display); }
+.tq-campos { margin: 0; display: grid; border: 1px solid var(--if-hair-strong); }
+.tq-campos > div { display: grid; grid-template-columns: 38% 1fr; align-items: center; gap: 8px; padding: 9px 12px; border-bottom: 1px solid var(--if-hair); }
+.tq-campos > div:last-child { border-bottom: 0; }
+.tq-campos dt { font: 700 .54rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-secondary); }
+.tq-campos dd { margin: 0; display: flex; align-items: center; gap: 6px; font-size: .8rem; overflow-wrap: anywhere; }
+.tq-campos dd.is-perigo { color: var(--if-danger); }
+.tq-campos a { color: var(--if-cyan); }
+.tq-folha__texto { margin: 0; font-size: .86rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
+.tq-folha__texto.is-vazio { color: var(--text-secondary); }
+.tq-folha__secao { margin: 6px 0 0; font: 700 .58rem var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--if-cyan); }
+
+.tq-atividade { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.tq-atividade li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; }
+.tq-atividade__quem { font-size: .66rem; color: var(--text-secondary); }
+.tq-atividade__quem b { color: var(--text-primary); }
+.tq-atividade__status { display: block; font: 700 .58rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); }
+.tq-atividade__status b.is-progresso { color: var(--if-amber); }
+.tq-atividade__status b.is-teste { color: var(--if-violet); }
+.tq-atividade__status b.is-feito { color: var(--if-ok); }
+.tq-atividade p { margin: 6px 0 0; padding: 10px 12px; font-size: .82rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; background: var(--bg-secondary); border: 1px solid var(--if-hair); }
+
+.tq-folha__base { display: flex; gap: 8px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--bg-primary); border-top: 1px solid var(--if-hair-strong); }
+.tq-folha__base.is-coluna { flex-direction: column; }
+.tq-folha__acoes { display: flex; gap: 6px; }
+.tq-comentar { display: flex; align-items: end; gap: 6px; }
+.tq-comentar textarea {
+  flex: 1;
+  min-height: 44px;
+  max-height: 30vh;
+  padding: 11px 12px;
+  font: 600 .82rem var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--if-hair-strong);
+  resize: none;
+}
+.tq-comentar .tq-acao { flex: 0 0 auto; }
+.tq-comentar.is-reprovando { flex-wrap: wrap; }
+.tq-comentar.is-reprovando textarea { border-color: color-mix(in srgb, var(--if-danger) 55%, transparent); }
+.tq-comentar__aviso { flex-basis: 100%; font: 700 .56rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--if-danger); }
+
+.tq-folha__form { display: contents; }
+.tq-form label { display: grid; gap: 6px; font: 700 .55rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-secondary); }
+.tq-form input, .tq-form select, .tq-form textarea {
+  padding: 11px 12px;
+  font: 600 .86rem var(--font-body);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--if-hair-strong);
+  resize: none;
+}
+.tq-form input:focus, .tq-form select:focus, .tq-form textarea:focus { outline: none; border-color: var(--if-cyan-45); }
+.tq-form__linha { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tq-aviso { margin: 0; padding: 10px 12px; font-size: .74rem; color: var(--if-amber); border: 1px solid var(--if-amber-72); }
+.tq-apagar { justify-self: start; padding: 8px 0; font: 700 .58rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--if-danger); background: none; border: 0; cursor: pointer; }
+
+/* Fim de capítulo de uma tarefa (components/TarefaFeedback): pede o comentário. */
 .tarefa-fim {
   position: fixed;
   inset: 0 var(--app-gutter);
@@ -141,7 +312,7 @@
   border: 1px solid var(--if-cyan-45);
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
-.tarefa-fim__ok { font: 700 .6rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--if-cyan); }
+.tarefa-fim__ok { font: 700 .6rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--if-violet); }
 .tarefa-fim__caixa strong { font-size: .95rem; }
 .tarefa-fim__caixa p { margin: 0; font-size: .8rem; color: var(--text-secondary); }
 .tarefa-fim__caixa textarea {
@@ -166,98 +337,3 @@
 }
 .tarefa-fim button.is-primario { color: var(--bg-primary); background: var(--if-cyan); }
 .tarefa-fim button:disabled { opacity: .45; cursor: default; }
-
-/* Tarefa em tela cheia (PainelTarefaModal): leitura e edição; ações embaixo, no dedão. */
-.tarefa-modal {
-  position: fixed;
-  inset: 0 var(--app-gutter);
-  z-index: 1950;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  background: var(--bg-primary);
-  overscroll-behavior: none;
-}
-.tarefa-modal__form { display: grid; grid-template-rows: 1fr auto; min-height: 0; }
-.tarefa-modal__topo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 12px;
-  border-bottom: 1px solid var(--if-hair-strong);
-}
-.tarefa-modal__fechar {
-  width: 44px;
-  height: 44px;
-  font: 700 1.1rem var(--font-display);
-  color: var(--if-cyan);
-  background: var(--bg-secondary);
-  border: 1px solid var(--if-hair-strong);
-  cursor: pointer;
-}
-.tarefa-modal__rotulo { font: 700 .62rem var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--if-cyan); }
-.tarefa-modal__corpo {
-  display: grid;
-  align-content: start;
-  gap: 14px;
-  min-height: 0;
-  padding: 18px 16px 28px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-}
-.tarefa-modal__titulo { margin: 0; font: 800 1.45rem/1.2 var(--font-display); color: var(--text-primary); overflow-wrap: anywhere; }
-.tarefa-modal__chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.tarefa-modal__chip {
-  padding: 5px 9px;
-  font: 700 .62rem var(--font-mono);
-  letter-spacing: .06em;
-  color: var(--text-secondary);
-  background: var(--bg-secondary);
-  border: 1px solid var(--if-hair-strong);
-}
-.tarefa-modal__chip.is-alta { color: var(--if-danger); border-color: var(--if-danger); }
-.tarefa-modal__chip.is-atrasada { color: var(--if-danger); }
-.tarefa-modal__texto { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--text-primary); white-space: pre-wrap; overflow-wrap: anywhere; }
-.tarefa-modal__texto.is-vazio { color: var(--text-secondary); font-style: italic; }
-.tarefa-modal__feedback { display: grid; gap: 6px; padding: 12px; background: var(--if-cyan-08); border-left: 3px solid var(--if-teal); }
-.tarefa-modal__feedback h3 { margin: 0; font: 700 .58rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--if-teal); }
-.tarefa-modal__feedback p { margin: 0; font-size: .92rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
-.tarefa-modal__iniciar {
-  padding: 14px;
-  font: 700 .7rem var(--font-mono);
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--bg-primary);
-  background: var(--if-cyan);
-  border: 0;
-  cursor: pointer;
-}
-.tarefa-modal__base {
-  display: grid;
-  gap: 8px;
-  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--if-hair-strong);
-}
-.tarefa-modal__base--form { grid-template-columns: 1fr 2fr; }
-.tarefa-modal__base .painel-btn { min-height: 48px; }
-.tarefa-modal__status { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
-.tarefa-modal__status button {
-  min-height: 48px;
-  font: 700 .6rem var(--font-mono);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  background: var(--bg-primary);
-  border: 1px solid var(--if-hair-strong);
-  border-top: 3px solid var(--cor);
-  cursor: pointer;
-}
-.tarefa-modal__status .is-fazer { --cor: var(--if-danger); }
-.tarefa-modal__status .is-progresso { --cor: var(--if-amber); }
-.tarefa-modal__status .is-feito { --cor: var(--if-cyan); }
-.tarefa-modal__status .is-arquivo { --cor: var(--text-secondary); }
-.tarefa-modal__status .is-ativo { color: var(--text-primary); background: color-mix(in srgb, var(--cor) 18%, var(--bg-primary)); }
-.tarefa-modal__aviso { margin: 0; padding: 8px 10px; font-size: .78rem; color: var(--if-amber); background: var(--if-amber-16); }
-.tarefa-modal .tarefa-form textarea { resize: none; overflow: hidden; min-height: 96px; font-size: 1rem; line-height: 1.5; }
-.tarefa-modal .tarefa-form input, .tarefa-modal .tarefa-form select { min-height: 44px; font-size: 1rem; }
-.tarefa-modal__apagar { justify-self: start; margin-top: 12px; }

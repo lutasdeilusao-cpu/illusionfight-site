@@ -2,18 +2,32 @@
    canto chanfrado, eyebrow mono, barra ativa inset 2px. Mobile only. */
 .painel {
   --painel-cut: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  --painel-topo-h: 48px;
+  --painel-nav-h: 64px;
   min-height: 100vh;
-  padding: calc(76px + env(safe-area-inset-top, 0px)) 14px calc(90px + var(--radio-nina-h, 0px));
+  padding: calc(60px + env(safe-area-inset-top, 0px)) 14px calc(var(--painel-nav-h) + 96px + var(--radio-nina-h, 0px) + env(safe-area-inset-bottom, 0px));
   background: radial-gradient(120% 30% at 50% 0%, var(--if-cyan-08), transparent 60%), var(--bg-primary);
   color: var(--text-primary);
   display: grid;
-  gap: 14px;
+  gap: 12px;
   align-content: start;
 }
 
-.painel-topo { display: flex; align-items: end; justify-content: space-between; gap: 12px; }
-.painel-topo h1 { margin: 2px 0 0; font: 700 1.7rem/1 var(--font-display); }
-.painel-topo__eyebrow { font: 700 .55rem var(--font-mono); letter-spacing: .18em; text-transform: uppercase; color: var(--if-cyan-58); }
+.painel-topo { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px; }
+.painel-topo h1 { margin: 2px 0 0; font: 700 1.55rem/1 var(--font-display); }
+.painel-topo__eyebrow { font: 700 .52rem var(--font-mono); letter-spacing: .18em; text-transform: uppercase; color: var(--if-cyan-58); }
+.painel-atualizar {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  font: 700 1.1rem/1 var(--font-display);
+  color: var(--if-cyan);
+  background: var(--if-cyan-08);
+  border: 1px solid var(--if-cyan-45);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  cursor: pointer;
+}
+.painel-atualizar:active { transform: rotate(-90deg); }
 
 .painel-nota { margin: 0; font: 600 .62rem var(--font-mono); letter-spacing: .06em; color: var(--text-secondary); }
 .painel-erro { margin: 0; padding: 12px; color: var(--if-danger); border: 1px solid color-mix(in srgb, var(--if-danger) 45%, transparent); }
@@ -38,46 +52,66 @@
 .painel-btn.is-primario { color: var(--bg-primary); background: var(--if-cyan); }
 .painel-btn.is-perigo { margin-top: 10px; color: var(--if-danger); border-color: color-mix(in srgb, var(--if-danger) 45%, transparent); background: transparent; }
 
-.painel-secoes {
-  position: sticky;
-  top: calc(48px + env(safe-area-inset-top, 0px));
-  z-index: 5;
+/* Seções: barra fixa na base da tela, no alcance do dedão; confinada à coluna do app. */
+.painel-nav {
+  position: fixed;
+  left: var(--app-gutter);
+  right: var(--app-gutter);
+  bottom: calc(var(--radio-nina-h, 0px));
+  z-index: 30;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 4px;
-  padding: 6px 0;
-  background: var(--bg-primary);
+  height: calc(var(--painel-nav-h) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--if-glass);
+  backdrop-filter: var(--if-blur);
+  -webkit-backdrop-filter: var(--if-blur);
+  border-top: 1px solid var(--if-edge);
+  overscroll-behavior: none;
 }
-.painel-secoes button {
+.painel-nav button {
+  position: relative;
   display: grid;
   justify-items: center;
-  gap: 4px;
-  padding: 10px 2px 8px;
-  font: 700 .55rem var(--font-mono);
+  align-content: center;
+  gap: 5px;
+  font: 700 .52rem var(--font-mono);
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--text-secondary);
-  background: var(--bg-secondary);
-  border: 1px solid var(--if-hair-strong);
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  background: none;
+  border: 0;
   cursor: pointer;
 }
-.painel-secoes button i { font: 700 1.1rem/1 var(--font-display); font-style: normal; }
-.painel-secoes button.is-ativa { color: var(--if-cyan); border-color: var(--if-cyan-45); background: var(--if-cyan-08); box-shadow: inset 0 -2px var(--if-cyan); }
+.painel-nav button i { font: 700 1.2rem/1 var(--font-display); font-style: normal; }
+.painel-nav button.is-ativa { color: var(--if-cyan); }
+.painel-nav button.is-ativa::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: var(--if-cyan);
+  box-shadow: 0 0 10px var(--if-cyan);
+}
+.painel-nav button:active i { transform: scale(.88); }
 
-.painel-abas { display: flex; flex-wrap: wrap; gap: 4px; }
+/* Sub-abas: controle segmentado. */
+.painel-abas { display: flex; gap: 2px; padding: 3px; background: var(--bg-secondary); border: 1px solid var(--if-hair-strong); overflow-x: auto; scrollbar-width: none; }
 .painel-abas button {
-  flex: 1;
+  flex: 1 0 auto;
+  min-height: 38px;
   padding: 8px 10px;
   font: 700 .6rem var(--font-mono);
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--text-secondary);
-  background: var(--bg-secondary);
-  border: 1px solid var(--if-hair-strong);
+  background: none;
+  border: 0;
   cursor: pointer;
 }
-.painel-abas button.is-ativa { color: var(--if-cyan); box-shadow: inset 0 -2px var(--if-cyan); border-color: var(--if-cyan-45); }
+.painel-abas button.is-ativa { color: var(--bg-primary); background: var(--if-cyan); }
 
 .painel-controles { display: grid; gap: 8px; }
 .painel-periodos { display: flex; flex-wrap: wrap; gap: 4px; }

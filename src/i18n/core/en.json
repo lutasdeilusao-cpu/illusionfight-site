@@ -1898,21 +1898,16 @@
       "editar": "Edit task",
       "titulo": "Title",
       "descricao": "Description",
-      "para": "For",
       "prazo": "Due",
       "prioridade": "Priority",
-      "status": "Column",
       "apagar": "Delete",
-      "os_dois": "Both",
-      "pedido_por": "asked by: {n}",
-      "vazio": "Nothing here.",
-      "voltar": "Move back",
-      "avancar": "Move forward",
+      "pedido_por": "Requested by",
       "col": {
         "fazer": "To do",
         "progresso": "In progress",
         "feito": "Done",
-        "arquivo": "Archive"
+        "arquivo": "Archive",
+        "teste": "Testing"
       },
       "prio": {
         "alta": "High",
@@ -1920,30 +1915,61 @@
         "baixa": "Low"
       },
       "filtro": {
-        "todas": "All",
-        "minhas": "Mine",
-        "socio": "{socio}'s",
-        "pedi": "I asked {socio}"
+        "tudo": "All",
+        "comigo": "Mine",
+        "revisar": "To review",
+        "pedi": "I requested",
+        "alta": "High"
       },
       "link": "Link (where to do the task)",
-      "feedback": "Feedback",
-      "iniciar": "Start",
-      "continuar": "Continue",
       "arquivar": "Archive",
-      "desarquivar": "Unarchive",
-      "feito_semana": "done (7 days)",
       "fim": {
-        "concluida": "Task done",
-        "pergunta": "Want to leave your feedback now? It is saved on the task.",
+        "concluida": "Sent to review",
+        "pergunta": "Want to leave a comment now? It goes to the task activity.",
         "placeholder": "What you thought, what needs fixing...",
-        "enviar": "Send feedback",
+        "enviar": "Comment",
         "depois": "Later"
       },
       "fechar": "Close",
       "descartar": "Discard your changes to this task?",
       "confirmar_apagar": "Delete this task for good?",
       "sem_descricao": "No description.",
-      "rascunho_recuperado": "We recovered what you were writing. Check it and save."
+      "rascunho_recuperado": "We recovered what you were writing. Check it and save.",
+      "responsavel": "Assignee",
+      "revisor": "Reviewer",
+      "equipe": "Team",
+      "sem_revisor": "No reviewer",
+      "onde": "Where",
+      "atividade": "Activity",
+      "criou": "Created",
+      "comentar": "Write a comment…",
+      "enviar": "Send",
+      "abrir_link": "Open",
+      "motivo_reprovar": "What needs to change?",
+      "motivo_placeholder": "Explain what has to be fixed…",
+      "meu_foco": "My focus",
+      "buscar": "Search by title or LDI-32",
+      "foco": {
+        "fazer": "Mine",
+        "revisar": "To review",
+        "entregues": "Done 7d"
+      },
+      "acao": {
+        "comecar": "Start",
+        "pra_teste": "Send to testing",
+        "aprovar": "Approve",
+        "reprovar": "Reject",
+        "aguardando": "Review: {n}",
+        "arquivar": "Archive",
+        "reabrir": "Reopen"
+      },
+      "vazio_col": {
+        "fazer": "Nothing waiting. Tap + to create a task.",
+        "progresso": "Nobody is working on anything right now.",
+        "teste": "Nothing waiting for review.",
+        "feito": "Nothing delivered in the last 60 days.",
+        "arquivo": "Archive is empty."
+      }
     }
   },
   "carrossel": {

@@ -1898,21 +1898,16 @@
       "editar": "Editar tarea",
       "titulo": "Título",
       "descricao": "Descripción",
-      "para": "Para quién",
       "prazo": "Plazo",
       "prioridade": "Prioridad",
-      "status": "Columna",
       "apagar": "Borrar",
-      "os_dois": "Los dos",
-      "pedido_por": "pidió: {n}",
-      "vazio": "Nada aquí.",
-      "voltar": "Volver columna",
-      "avancar": "Avanzar columna",
+      "pedido_por": "Pedido por",
       "col": {
         "fazer": "Por hacer",
         "progresso": "En progreso",
         "feito": "Hecho",
-        "arquivo": "Archivo"
+        "arquivo": "Archivo",
+        "teste": "En prueba"
       },
       "prio": {
         "alta": "Alta",
@@ -1920,30 +1915,61 @@
         "baixa": "Baja"
       },
       "filtro": {
-        "todas": "Todas",
-        "minhas": "Mías",
-        "socio": "De {socio}",
-        "pedi": "Le pedí a {socio}"
+        "tudo": "Todo",
+        "comigo": "Conmigo",
+        "revisar": "Por revisar",
+        "pedi": "Que pedí",
+        "alta": "Alta"
       },
       "link": "Enlace (dónde hacer la tarea)",
-      "feedback": "Feedback",
-      "iniciar": "Empezar",
-      "continuar": "Continuar",
       "arquivar": "Archivar",
-      "desarquivar": "Desarchivar",
-      "feito_semana": "hecho (7 días)",
       "fim": {
-        "concluida": "Tarea terminada",
-        "pergunta": "¿Quieres dejar tu feedback ahora? Queda guardado en la tarea.",
+        "concluida": "Pasó a revisión",
+        "pergunta": "¿Quieres dejar un comentario ahora? Queda en la actividad de la tarea.",
         "placeholder": "Qué te pareció, qué hay que corregir...",
-        "enviar": "Enviar feedback",
+        "enviar": "Comentar",
         "depois": "Después"
       },
       "fechar": "Cerrar",
       "descartar": "¿Descartar lo que cambiaste en esta tarea?",
       "confirmar_apagar": "¿Borrar esta tarea definitivamente?",
       "sem_descricao": "Sin descripción.",
-      "rascunho_recuperado": "Recuperamos lo que estabas escribiendo. Revísalo y guarda."
+      "rascunho_recuperado": "Recuperamos lo que estabas escribiendo. Revísalo y guarda.",
+      "responsavel": "Responsable",
+      "revisor": "Revisor",
+      "equipe": "Equipo",
+      "sem_revisor": "Sin revisor",
+      "onde": "Dónde",
+      "atividade": "Actividad",
+      "criou": "Creó",
+      "comentar": "Escribe un comentario…",
+      "enviar": "Enviar",
+      "abrir_link": "Abrir",
+      "motivo_reprovar": "¿Qué hay que cambiar?",
+      "motivo_placeholder": "Explica qué hay que corregir…",
+      "meu_foco": "Mi foco",
+      "buscar": "Buscar por título o LDI-32",
+      "foco": {
+        "fazer": "Conmigo",
+        "revisar": "Por revisar",
+        "entregues": "Entregadas 7d"
+      },
+      "acao": {
+        "comecar": "Empezar",
+        "pra_teste": "Mandar a prueba",
+        "aprovar": "Aprobar",
+        "reprovar": "Rechazar",
+        "aguardando": "Revisión: {n}",
+        "arquivar": "Archivar",
+        "reabrir": "Reabrir"
+      },
+      "vazio_col": {
+        "fazer": "Nada esperando. Toca + para crear una tarea.",
+        "progresso": "Nadie está trabajando en nada ahora.",
+        "teste": "Nada esperando revisión.",
+        "feito": "Nada entregado en los últimos 60 días.",
+        "arquivo": "Archivo vacío."
+      }
     }
   },
   "carrossel": {
