@@ -140,7 +140,7 @@ O Jack pôs a mão na cara.
 
 — Tá. Depois a gente conversa sobre essa sua percepção da realidade. — Bebeu. — Continuando. No fim da tua primeira luta, você chegou na posição mil duzentos e um do ranking mundial. Quer dizer que, de todo mundo que joga no planeta, você tá chegando no top mil. Com uma luta. Eu, por outro lado, fui um dos únicos que apostou em você. Com isso, mais os meus pontos, eu fui pra dez mil setecentos e setenta e seis. Ou seja, eu ganhei...
 
-— E eu também apostei no Kim. — A Nina baixou o copo, já meio tonta. — Só pela graça de apostar no azarão. Tô na oito mil setecentos e vinte e quatro. Um viva pra mim. Ippee ki yay!
+— E eu também apostei no Kim. — A Nina baixou o copo, já meio tonta. — Só pela graça de apostar no azarão. Tô na oito mil setecentos e vinte e quatro. Um viva pra mim. Yippee-ki-yay!
 
 O Jack olhou pra ela surpreso. Respirou fundo. Tomou mais um gole.
 

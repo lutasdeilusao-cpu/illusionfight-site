@@ -74,7 +74,7 @@ A Nina veio quase correndo, a bolsa batendo no quadril.
 
 — Tô bem.
 
-— E aí! — O Jack já tinha voltado. Do nada, inteiro, a garrafa no alto, como se alguém tivesse trocado a fita. — Agora sim, a tropa ta completa! Vai, Kim, conta tudo de novo, que é pra ela ouvir também. E conta direito a parte do avião.
+— E aí! — O Jack já tinha voltado. Do nada, inteiro, a garrafa no alto, como se alguém tivesse trocado a fita. — Agora sim, a tropa tá completa! Vai, Kim, conta tudo de novo, que é pra ela ouvir também. E conta direito a parte do avião.
 
 O Kim olhou pra ele mais um segundo. Depois contou.
 
@@ -96,15 +96,19 @@ A Nina ouviu tudo de braços cruzados, séria, até chegar no número.
 
 — E mostrou o dedo. — O Jack, emocionado. — Conta do dedo.
 
-Pergunta que eu queria fazer e eu resolvi fazer quando a Nina estivesse aqui porque eu precisava fazer essa pergunta por que que você mostrou o dedo para o cara. O cara te deu um milhão. E você mostra o dedo para ele no final depois de ter. Simplesmente não entregar nada do que ele queria. Por que???
+O Jack parou de rir. Apontou a garrafa pro Kim.
 
-O que responde mano eu não sei porque eu só senti que sinceramente depois o cara me sequestrar na minha casa. Mexer com a Dona Helena o mínimo que ele merecia mesmo me pagando. Era ver o meu dedo enfiado bem no meio da cara dele.
+— Agora eu vou fazer a pergunta que eu guardei pra quando a Nina chegasse. O cara te deu um milhão. Você não entregou nada do que ele queria. E ainda mostrou o dedo. Por quê?
 
-Ele deu sorte muita sorte porque. Talvez eu tivesse feito coisa pior se eu não tivesse saído lá com grana. A grana me deixou mais calmo.
+O Kim pensou.
 
-Bem o Jack fala né conhecendo você. Você ter saído de lá sem ter dado um soco nesse cara realmente é um grande passo na direção de um novo homem parabéns Kim.
+— Sei lá, mano. O cara me sequestrou dentro da minha casa. Mexeu com a dona Helena. Mesmo me pagando, o mínimo que ele merecia era ver o meu dedo bem no meio da cara dele.
 
+Deu de ombros.
 
+— Ele deu sorte. Se eu não tivesse saído de lá com grana, talvez tivesse feito coisa pior. A grana me acalmou.
+
+— Conhecendo você... — O Jack levou a mão ao peito. — Sair de lá sem dar um soco nesse cara é um grande passo na direção de um novo homem. Parabéns, Kim.
 
 A Nina se dobrou de rir. Teve que sentar no para-choque. Riu até limpar os olhos, com a mão na barriga.
 
@@ -140,13 +144,11 @@ Silêncio.
 
 O Kim olhou pro bolso.
 
-— Mas a grana tá contigo. Dá pra comprar um, né?
+— Mas acho que agora eu posso comprar um, né?
 
 O Jack riu. Foi uma risada curta, no escuro.
 
-— Velho. Com o que tá comigo, dá pra comprar a loja. Eu vou mexer nisso com calma. Você fica com o do mês, igual sempre.
-
-— Mexe. Eu nem quero saber.
+— Velho. Agora você pode comprar a loja.
 
 O Kim ia rir também. Veio um bocejo no lugar. O dia inteiro caiu de uma vez em cima dele: o saco, o motor, o lustre, o gosto daquela bebida.
 
@@ -168,4 +170,20 @@ O Kim passou por ele sem olhar.
 
 Aquela linha tinha parado de rodar às dez.
 
-Chegar em casa o Jack o Kim recebe uma mensagem do Jack. E a mensagem está só assim transfere toda a grana para mim. Não deixa na sua conta transfere para mim agora antes. Antes que algo aconteça. O que não pensa muito. Na verdade pela primeira vez ele pensa mas. Aquele era o Jack ele podia confiar no Jack. Transferiu toda a grana para o Jack que mandou uma mensagem dizendo fiquei só com o básico fiquei com 2000 para eu poder pagar as contas do mês e. Fazer uma compra para casa o dia que manda Ok chegou aqui Valeu amanhã a gente se tromba e conversa. E aí ele entra em casa.
+Estava chegando na porta quando o celular vibrou.
+
+*transfere toda a grana pra mim. não deixa na tua conta. agora, antes que algo aconteça*
+
+O Kim nunca pensava muito numa hora dessas. Pela primeira vez, pensou.
+
+Mas aquele era o Jack.
+
+Transferiu.
+
+*fiquei só com o básico. 2000 pras contas do mês e uma compra pra casa*
+
+A resposta veio na hora.
+
+*ok chegou aqui. valeu. amanhã a gente se tromba e conversa*
+
+E ele entrou em casa.
