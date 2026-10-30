@@ -298,6 +298,20 @@ O Jack olhou pra loira. Olhou de novo. Achou que era a garota mais gata que já 
 
 A Mera nem olhou pra ele.
 
+A Nina sabia exatamente há quanto tempo não via aquela cara.
+
+Tinha dezesseis anos. Campeonato mundial amador. Fazia anos que ela treinava, tinha chegado lá sem perder pra ninguém e tinha certeza de que ia sair com o cinturão.
+
+Saiu com o nariz quebrado.
+
+Não foi uma derrota. Foi uma surra. A Mera bateu nela, round depois de round, sem pressa, sem raiva, como quem cumpre horário. A Nina nunca tinha apanhado assim. Lembrava do gosto. Lembrava do teto do ginásio.
+
+Foi naquela noite, numa maca, que ela entendeu que o corpo tinha limite. Que ainda faltava muito. E que existia um lugar onde o limite era outro.
+
+Uma semana depois, ela comprou o primeiro SBI.
+
+Ninguém sabia disso. Fazia anos que aquilo estava engasgado na garganta dela.
+
 — E você, Nina? Desistiu das competições?
 
 — Tô focando em outros objetivos.
@@ -344,7 +358,19 @@ O Kim achou aquilo pior que a raiva.
 
 — Agora eu entendi. Era isso que você queria desde o começo. — Tirou o dela da bolsa. — Tudo bem, Mera. Se você quer lutar, vamos lutar.
 
-— Opa! — O Jack esfregou as mãos. — Essa vai ser boa. Senta aí, Kim. A gente assiste pelo celular.
+O Jack chegou perto. Sem piada.
+
+— Nina. Você tem certeza? Essa mina veio aqui pra isso. Você não precisa...
+
+— Preciso.
+
+Ela não olhou pra ele.
+
+— Não é cobrança, Jack. Não é orgulho. É uma coisa que eu preciso fazer.
+
+O Jack olhou pra ela mais um instante. Levantou as duas mãos e deu um passo pra trás.
+
+— Então é isso. — Puxou o celular. — Senta aí, Kim. A gente assiste por aqui.
 
 — E a vodka?
 
@@ -360,11 +386,29 @@ A Nina sentou no meio-fio. Pôs o SBI. Antes de fechar os olhos, olhou pros dois
 
 Do outro lado, a Mera sentou na calçada, cruzou as pernas e sorriu.
 
+— NeoGuide. — As duas, ao mesmo tempo. — Aceitar desafio.
+
+---
+
 Na tela do celular do Jack, a arena acendeu.
 
-Duas figuras caíram do céu, uma de cada lado. A capa da Nina batendo no ar. A mão dela já no cabo da Angel.
+De um lado, uma sombra caiu em silêncio. Capuz curto. Capa até o meio das costas. A marca vermelha atravessando o olho direito. Pousou sem levantar poeira, a mão já no cabo da Angel.
+
+Do outro lado, o chão tremeu.
+
+Ela caiu como machado. Pousou de joelho, com um estouro, e a pedra rachou em volta dela. Levantou devagar. Peles nos ombros, couro e metal no peito, os braços nus cobertos de cicatriz pintada. O cabelo vermelho descia em tranças até a cintura. Uma faixa preta atravessava os dois olhos, de lado a lado, e os olhos azuis olhavam de dentro dela.
+
+Não tinha nada de garota de moletom.
+
+Uma ninja. E uma bárbara.
+
+— Puta que pariu. — O Jack.
 
 O contador de espectadores começou a subir.
+
+A Mera sorriu pra Nina, do outro lado da arena, com o mesmo sorriso de um ginásio, anos atrás.
+
+A Nina puxou um centímetro da lâmina.
 
 No meio da arena, em letras de luz, apareceu uma palavra só.
 

@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793395069.3741636,
-    "ast_hash": "579fee767ad105d45ab7beb8994d27c5",
+    "mtime": 1793396538.1798012,
+    "ast_hash": "004e021b2cc62823acf8759c1a36d162",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793395069.414164,
-    "ast_hash": "5e5eb5559c12050e0c2b35b50e4b5c8d",
+    "mtime": 1793396538.217768,
+    "ast_hash": "d42f30b50e3a495010e6d148533aa349",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7570,13 +7570,13 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-18.md": {
-    "mtime": 1793395069.2972543,
-    "ast_hash": "746b772e54265079b91c50799286c480",
+    "mtime": 1793396538.1558242,
+    "ast_hash": "425f247ad36863aa236b1cdf431c591e",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-19.md": {
-    "mtime": 1793395068.8213918,
-    "ast_hash": "407489d009f901a21798881e227c15b5",
+    "mtime": 1793396538.0447495,
+    "ast_hash": "1c2298fa26dff85a252541448f7b5052",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-20.md": {
@@ -9635,8 +9635,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-19.md": {
-    "mtime": 1793395068.852392,
-    "ast_hash": "ff743e8a4632771ec4b60de127cfd2e6",
+    "mtime": 1793396538.0839376,
+    "ast_hash": "5eacdfe512fc821c82de7b01a4f7c81d",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-20.md": {
@@ -9745,8 +9745,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-19.md": {
-    "mtime": 1793395068.8863916,
-    "ast_hash": "5741e445379735b01d8b550d09095c85",
+    "mtime": 1793396538.1179485,
+    "ast_hash": "c8e958991cacb6b4830c3a94c0cf218f",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-20.md": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793395078.2566206,
+    "mtime": 1793396558.2343867,
     "ast_hash": "461fea17262f105cff0148a621a9a594",
     "semantic_hash": ""
   },
