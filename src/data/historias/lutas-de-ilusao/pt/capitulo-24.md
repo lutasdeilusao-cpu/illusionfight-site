@@ -1,171 +1,191 @@
-# CAPÍTULO 24 — Uma Série Pela Primeira Vez
+# CAPÍTULO 24 — Rei da Briga
 
-O Duber cheirava a aromatizante de pinho e a cigarro escondido.
+Na trilha do meio, dois caras grandes estavam no chão e a Roxy tinha parado de olhar pra eles.
 
-Kim sentou atrás do motorista e encostou a cabeça no vidro. O corte da testa latejava no ritmo da rua. Ele tinha limpado o rosto com a camiseta antes de entrar no carro, mas o motorista olhou pelo retrovisor duas vezes e decidiu que não era da conta dele.
+Ela tirou a camiseta.
 
-Hoje ele não ia vender bala.
+Por baixo, faixas brancas enroladas em volta do peito, e tatuagem por todo lado. Os braços fechados de desenho. As costelas. Um dragão subindo pela barriga até o pescoço. Do bolso de trás da calça ela tirou dois socos ingleses com pontas de metal afiadas e encaixou um em cada mão.
 
-Ia trabalhar de noite. Se fosse pros ônibus agora, chegava em casa tarde demais, e perdia o tempo de deitar, tomar banho e se arrumar. Pela primeira vez em muito tempo ele tinha pegado um carro. Por causa dos mil DIX do Freddy e de duzentos que ainda nem tinha recebido.
+— Como você mesmo falou. — Abrindo e fechando os dedos dentro do metal. — Não tem regra na briga de rua, né?
 
-Aí ele lembrou que podia encontrar a mãe em casa.
+— Exatamente. — Kim. — Sem regra.
 
-Ficou com aquilo.
+Ela aqueceu uns segundos. Pulando no lugar, girando os ombros. Depois veio.
 
-De manhã ela tinha feito café. Tinha dançado na cozinha. Tinha abraçado ele no corredor. E ele não sabia o que esperar da tarde. Com a Helena nunca dava pra saber. Às vezes a calmaria era só o tempo que a tempestade levava pra juntar força.
+Os primeiros socos passaram raspando no rosto dele. Kim desviava. Ela era rápida. Mais rápida que os dois que ele tinha derrubado juntos.
 
-*Desde que eu entrei nessa merda de jogo, a minha vida tá diferente.*
+— Vai ficar só na defesa, moleque? — Sem parar de bater. — Eu tô só esquentando. Você não tem ideia do prazer que me dá arrebentar a cara de homem safado igual você.
 
-Tinha uma pessoa nova andando com eles. Isso não era ruim. Na verdade era bom. Era bom de um jeito que ele não ia admitir em voz alta. Mas era diferente.
+Kim não respondeu.
 
-Ele tinha descoberto coisa sobre o pai. Ou não tinha. Porque o velho maluco que falava com ele dentro do jogo não sabia conversar com ser humano. *Teu papis.* Pelo amor de Deus.
+Ele estava olhando pro chão.
 
-Tinha um vídeo dele rodando em rede social que ele nem sabia direito como funcionava. Isso preocupava. Ele tinha medo de não conseguir mais comer sossegado na praça de alimentação do shopping. Mesmo que ele quase nunca fosse ao shopping. Quem levava ele era o Jack.
+Tinha um galho. Grosso, seco, caído entre os pés dele. Kim esperou ela chegar mais perto. Esperou ela armar o próximo soco. Quando o peso dela foi pra frente, o pé direito dele chutou a ponta do galho.
 
-E pela primeira vez na vida, ele tinha perguntado pra mãe sobre o passado. E descoberto muito mais do que queria.
+O galho subiu e bateu de frente no joelho esquerdo da Roxy. Quebrou no impacto.
 
-De algum jeito, ele sentia que tudo aquilo estava ligado ao tal homem misterioso. O quarto da Helena. O velho do cajado. O Sangue Primordial. Alguém atrás dele. Alguém pagando pra tirar foto.
+Ela perdeu o equilíbrio.
 
-E tinha mais uma coisa. Uma coisa lá no fundo, que ele sentia toda vez que fechava os olhos e lembrava da arena. Uma coisa forte. Escura. Com fome.
+Kim não perdoou. Girou o corpo pra trás, a cintura dobrando quase em ângulo reto, e mandou o cotovelo no queixo dela.
 
-Ele não queria pensar naquilo.
+Um dente saiu voando.
 
-Aquilo ia atormentar ele muito em breve.
+Ela virou o rosto no último instante e segurou parte da força. Mas o sangue já estava descendo dentro da boca, aquele gosto amargo de metal. Ela ficou zonza.
 
----
-
-Perdido nisso, quase passou do ponto.
-
-Pagou, desceu, andou o pedaço de rua até a porta de casa. Ficou com a mão na maçaneta um segundo a mais do que precisava.
-
-Abriu.
-
-A casa estava arrumada.
-
-Não o arrumado de manhã, o de quem quer que pareça arrumado. Arrumado mesmo. A louça lavada. O chão varrido. Os cacos de ontem tinham sumido. O cinzeiro limpo.
-
-A Helena estava no sofá.
-
-Com as pernas dobradas embaixo do corpo, o controle na mão, a tela da Cineflix acesa na parede. Ela virou a cabeça quando ouviu a porta.
-
-— Ah. Você chegou. Que bom. — Olhou pra testa dele e decidiu não perguntar. — Não vai trabalhar mais hoje?
-
-— Hoje não, mãe. Só de noite. Vim descansar, tomar um banho e pôr uma roupa decente. Vou fazer segurança num clube.
-
-— Ah, então tá. Aproveita. Descansa. Toma banho. — Ela se levantou. — Eu fiz almoço. Se você quiser, eu esquento enquanto você toma banho. Depois você come. E se você não for dormir, a gente pode assistir alguma coisa junto. Eu tô vendo uma série muito boa. A Casa do Dinheiro.
-
-Kim ficou parado na porta.
-
-Ele nunca tinha sentado pra assistir nada com a mãe. Nunca. Nem quando era pequeno. Na lembrança dele, a televisão daquela casa era uma coisa que ficava ligada enquanto a Helena dormia no sofá.
-
-— Eu aceito. — Ouviu a própria voz dizer. — Se você esquentar a comida, vai ser ótimo. Depois do banho a gente assiste essa tal de La Casa do Dinheiro.
-
-A Helena deu um sorriso pequeno.
-
-Ele subiu as escadas.
-
-Ela foi pra cozinha.
+Kim já estava armando a joelhada.
 
 ---
 
-A água quente arrancou a poeira do parque, o sangue seco da testa, o cheiro do mato.
+Na trilha da esquerda, a Nina estava pulando no lugar.
 
-Kim ficou um tempo com as mãos na parede, a cabeça baixa, a água descendo.
+Quicando, leve, como se fosse um ringue e não um caminho de terra cheio de gente desmaiada. Pela primeira vez ela estava entendendo por que tinha gente que gostava tanto de brigar.
 
-Ontem ele tinha ficado ali debaixo daquele chuveiro com medo de saber. Hoje estava com medo de outra coisa. Medo de acostumar.
+Com um sorriso confiante, fez uma firula à Bruce Lee, passando o dedão no nariz, encarando os três que sobravam.
 
-Desceu de bermuda e camiseta limpa. A mesa estava posta. Um prato só. Arroz, feijão, um pedaço de carne, salada.
+Os três não queriam mais.
 
-Ele sentou. Comeu.
+Ela via isso na cara deles. Mas também via que o orgulho deles não ia deixar eles saírem sem tentar. E que eles tinham mais medo da chefe do que dela.
 
-A comida não estava boa. O arroz tinha passado um pouco do ponto. O feijão estava sem sal. A carne estava dura.
+O primeiro veio com um pedaço de madeira. Era um dos dois do começo, o que tinha tomado o chute no queixo. Nina segurou o pulso dele bem na base, travou o braço, e começou a usar ele como saco de pancada. Socos de direita, rápidos igual os do mestre Ip Man, curtos, um em cima do outro, sem parar, sem dar tempo de nada. O rosto dele foi ficando sem reação. Os joelhos foram cedendo. Mesmo depois que ele chegou no chão, apagado, ela ainda deu mais três antes de parar.
 
-Era a melhor comida que ele tinha comido na vida.
+Ela olhou pro cara da corrente. Sorriu.
 
-Fazia quase cinco anos que a Helena não fazia almoço. O café daquela manhã tinha sido o primeiro. Isso aqui era o segundo. Duas vezes no mesmo dia, depois de cinco anos de nenhuma.
+O cara da corrente olhou pra ela. Olhou pro amigo no chão. Jogou a corrente longe, pro lado direito, e saiu correndo.
 
-A Helena sentou do outro lado da mesa com um copo de refrigerante na mão. Não era cerveja. Ele reparou e não comentou.
+O último ficou parado no meio do caminho. Olhou pra Nina. Olhou pro amigo fugindo. Olhou pra Nina. Olhou pro amigo. Fez isso umas três vezes.
 
-— E aí. — Ela. — Como foi o dia?
+Depois correu também.
 
-E o Kim contou.
+Nina colocou as mãos nos joelhos e começou a rir. Não acreditava.
 
-Não sabia por quê. Nunca contava nada. Mas contou. O Walter no corredor. O Ryan com a caixa. A sala de treino, o machado, a Nina cortada no meio, o Jack dançando em cima do corpo dele. E a briga do parque. Ele contou a briga do parque rindo, os detalhes, a cara do cara do cano quando ele não caiu, a Roxy tirando a camiseta, o Jack aparecendo com o arranhãozinho no pescoço.
+Pelo jeito, tinha acabado.
 
-A Helena ouviu tudo.
+Ela pensou nos meninos. Pensou em ir correndo ajudar. Depois pensou melhor. Aqueles dois não iam precisar de ajuda nenhuma.
 
-Ela não aprovava. Ele via no jeito que ela apertava o copo. Mas ela não falou nada.
-
-Ela sorriu.
+Acendeu um cigarro e foi andando, devagar, procurar eles.
 
 ---
 
-Depois do almoço, os dois foram pra sala.
+A joelhada do Kim entrou na barriga da Roxy no meio de um salto.
 
-Sentaram no mesmo sofá. Cada um numa ponta. Os dois estranhos, os dois sem saber direito onde pôr as mãos. A Helena apertou o play.
+O sangue subiu pela garganta dela e saiu pela boca sem ela querer. Kim prendeu ela contra o tronco de uma árvore e segurou lá alguns segundos, o antebraço no peito dela, esperando.
 
-Em cinco minutos o Kim tinha esquecido que estava estranho.
+E ela, mesmo machucada daquele jeito, achou o único meio segundo de descuido.
 
-A série era boa. Um bando de gente com nome de cidade assaltando a casa da moeda. Um professor que planejava tudo. Gente que não podia confiar uma na outra e confiava mesmo assim.
+Saltou. Enrolou as duas pernas no braço dele e se dobrou, puxando o Kim pra frente com o peso todo.
 
-Ele não tinha costume de assistir nada. A rotina dele era escola, trabalho, casa, comida, estudo. A última vez que ele tinha visto alguma coisa só por ver foi antes dos doze anos. Antes da dívida. Por isso ele sempre ficava meio de fora quando o Jack falava de filme, de jogo, de música. Ele não sabia de nada daquilo. Não tinha tempo.
+Era o sinal.
 
-No fim do episódio, ele ficou olhando a tela preta.
+Os seis que ainda estavam em pé vieram todos de uma vez.
 
-— Gostei. — Kim. — Gostei muito. Queria continuar. Mas eu preciso dormir um pouco antes de encontrar o Jack.
+A primeira coisa que o Kim sentiu foi um cano de ferro nas costas.
 
-A Helena ficou olhando pra tela também.
+*VACILEI.*
 
-— Então eu não vou continuar. — Ela. — Eu só continuo se for com você.
+Pisou na barriga da Roxy pra soltar o braço. A dor nas costas subiu quente e acendeu alguma coisa nele. Virou.
 
-O Kim não respondeu.
+O cara do cano já estava armando o segundo golpe. Na cara. Não dava tempo de levantar os braços.
 
-Não tinha resposta pra aquilo.
+Kim não levantou os braços.
+
+Levantou o rosto.
+
+O cano bateu na testa dele e parou ali.
+
+O sangue desceu entre os olhos, pelo nariz, até o queixo. E o Kim continuou parado. Olhando pro cara. Como se nada tivesse acontecido.
+
+O cara do cano conhecia briga. Já tinha participado de muito massacre com aquele grupo. E sabia de uma coisa com certeza: não importa o tamanho, não importa a força, um cano de ferro na cara é um cano de ferro na cara. Ninguém fica de pé olhando pra você depois disso.
+
+— NÃO, SEU IDIOTA! — Roxy, do chão.
+
+Não deu tempo.
+
+Antes de ela terminar a frase, o Kim, com a cabeça ainda no mesmo lugar e o cano ainda encostado na testa, girou o corpo da cintura pra cima quase noventa graus e soltou o cruzado.
+
+Não pro lado.
+
+Pra baixo.
+
+O soco pegou o meio do rosto do cara e levou a cabeça dele até o chão. E não parou quando chegou no chão. O Kim continuou empurrando, a mão aberta agora, apertando a cabeça do cara contra a terra.
+
+No meio daquele segundo deu pra ver os olhos do cara revirando.
+
+Apagado. Um soco.
 
 ---
 
-Subiu pro quarto. Deitou de lado, olhando pra parede.
+Qualquer um que olhasse via.
 
-Cochilou pensando em como, apesar de tudo, muita coisa que estava mudando era boa.
+O Kim não desperdiçava golpe. Cada soco, cada chute, tinha um objetivo só: acabar com a briga. Nada sobrava. E não importava quem estava na frente dele. Ele usava cem por cento da força até contra uma formiga.
 
-A Nina era boa.
+Os Reis da Briga.
 
-O jogo, mesmo com tudo, era interessante.
+A Roxy, no chão, começou a entender por que chamavam eles assim.
 
-E aquilo lá embaixo, o sofá, a série, o "só continuo se for com você". Aquilo era especial. Aquilo ele ia guardar.
+A força dela sempre foi a quantidade. Ela sabia que os capangas dela não eram lutadores de verdade. Eram gente. Gente com taco. Mas gente suficiente. E com isso, o grupo dela nunca tinha perdido uma briga. Nunca tinha deixado de cumprir um contrato. Uma vez ou outra alguém dava trabalho. Mas nunca aquilo.
+
+Aquele garoto na frente dela não era normal.
+
+Com o sangue descendo pelo meio da cara, terminando um homem com a mão aberta no chão. Aquilo era uma força da natureza. Uma coisa que se respeita.
+
+Ela já tinha ouvido falar. Na rua todo mundo sabia que dava pra contar nos dedos as brigas que o Kim e o Jack tinham perdido. E que oitenta por cento delas tinham um nome só.
+
+Alan.
+
+O único rival de verdade dos dois. O nome que tinha juntado o Kim e o Jack. O único que já tinha vencido os dois.
+
+Roxy olhou pro Kim.
+
+*Se esse cara apanhou do Alan, como é o Alan?*
 
 ---
 
-Acordou às sete e meia sem alarme.
+O Kim foi pros cinco que sobravam.
 
-Vestiu o terno. O único que tinha. Preto, um pouco curto no braço, mas passado, sem uma dobra fora do lugar. Ajeitou a gravata no espelho do banheiro. O corte da testa tinha fechado numa linha fina.
+Rápido. Um de cada vez. Um golpe pra cada um.
 
-Parecia outro homem.
+O do taco tomou um soco no fígado e dobrou. A da corrente tomou um chute na lateral do joelho e não levantou. O da pedra soltou a pedra antes de tomar o soco e tomou o soco mesmo assim. Os dois últimos vieram juntos e foram juntos, um com o cotovelo na têmpora, o outro com a testa do Kim no nariz.
 
-Antes de sair, foi até o quarto da mãe. A Helena estava dormindo, encolhida de lado, o rosto calmo de um jeito que ele não lembrava de ter visto.
+A Roxy continuava no chão.
 
-Ele encostou no ombro dela de leve.
+Não estava com medo. Era outra coisa. Ver aquele garoto brigar era como ver um balé. Tudo no lugar. Tudo no tempo. Brutal, mas perfeito. Ela sabia que nunca mais ia ver aquilo na vida. Então ficou ali. Assistindo.
 
-— Dona Helena. Tô saindo, tá? Volto lá pelas três da manhã. Tudo bem?
+De longe, no meio do mato, veio a voz do Jack.
 
-Ela abriu os olhos devagar.
+— GALERA! PESSOAL! OI! SOU EU, O JACK!
 
-— Tudo bem... — A voz grossa de sono. — Mas não é meio complicado trabalhar até tão tarde e depois ir direto pra escola?
+O Kim ouviu. Não perdeu um milésimo de concentração.
 
-O Kim sorriu.
+Os punhos dele estavam vermelhos. Não era sangue dele.
 
-— Não é a primeira vez. Você sabe. Não precisa se preocupar. Eu sei me cuidar. Vou dar um jeito em tudo e vai ficar tudo bem.
+Ele virou e olhou pra Roxy.
 
-Ela fechou os olhos de novo, um meio sorriso no canto da boca.
+Ela entendeu. Ele tinha acabado. Agora era a vez dela.
 
-— Tá bom, senhor homenzinho. Se cuida. Te vejo amanhã. Até mais, filho.
+Medo e respeito ao mesmo tempo. Era o que ela sentia. E por baixo disso, uma vontade. A vontade de saber até onde ela ia contra aquilo.
 
-— Até mais, mãe.
+Ela se levantou. E foi.
 
-Ele fechou a porta do quarto devagar.
+O primeiro soco dela entrou. Ela ficou surpresa. Não parou. Mandou o segundo. O terceiro. O quarto. Uma sequência sem fim, com os socos ingleses, com tudo que ela tinha, golpe atrás de golpe.
 
-Desceu a escada.
+O Kim não revidou.
 
-Na sala, a tela da Cineflix estava parada no menu, o episódio dois esperando, a capa da série com aquelas máscaras sorrindo.
+Não desviou. Não se defendeu. Recebeu tudo, um por um, olhando pra ela.
 
-Ela não tinha continuado.
+E ela olhou nos olhos dele no meio da sequência.
+
+Ele não estava bravo.
+
+Ele estava frio.
+
+E mesmo ela atacando, ela em vantagem, ela batendo, um arrepio desceu pela espinha dela de cima até embaixo.
+
+Quando a mão dele fechou no pescoço dela, ela entendeu.
+
+Era impossível. Ele não revidou porque não precisava. Ele não desviou porque não precisava. Os golpes dela eram leves. Não faziam nada. Ela não valia nem um soco dele. Seria desperdício.
+
+A mão apertou.
+
+Ela entendeu que tinha perdido.
+
+E apagou.

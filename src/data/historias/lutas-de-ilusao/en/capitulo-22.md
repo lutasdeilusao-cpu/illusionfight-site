@@ -1,191 +1,143 @@
-# CHAPTER 22 — King of the Fight
+# CHAPTER 22 — The Kitten Has Claws
 
-On the middle trail, two big guys were on the ground and Roxy had stopped looking at them.
+— Hey there, little girl. — The one in front, with a smile he thought was charming. — What's it gonna be? The easy way or the hard way?
 
-She took off her shirt.
+— So, sweetheart. — Nina, sweet. — What would the easy way be? May I ask?
 
-Underneath, white wraps wound around her chest, and tattoos everywhere. Her arms covered in ink. Her ribs. A dragon climbing from her stomach to her neck. From the back pocket of her pants she pulled out two brass knuckles with sharp metal tips and slipped one onto each hand.
+— The easy way is we tell you what to do, you do it, and nothing happens to you beyond what's necessary. The hard way is we do whatever we want with you and you suffer plenty along the way. What's it gonna be?
 
-— Like you said yourself. — She flexed her fingers inside the metal. — There's no rules in a street fight, right?
+Nina smiled at him.
 
-— Exactly. — Kim. — No rules.
+— Let's go with the easy way. If you promise you won't hurt me, I'll do whatever you want.
 
-She warmed up for a few seconds. Bouncing in place, rolling her shoulders. Then she came.
+The one in front looked at the one beside him with the face of someone who'd won the lottery.
 
-The first punches skimmed past his face. Kim dodged. She was fast. Faster than the two he'd dropped together.
+— Come here, then. Closer. Let's see what you're hiding under that skirt. Because a girl wearing a skirt like that is asking for it.
 
-— You just gonna stay on defense, kid? — She kept hitting. — I'm just warming up. You have no idea the pleasure I get from busting up the face of a sleazy guy like you.
+The second one made a disappointed face.
 
-Kim didn't answer.
+— Ah, man. I thought you were gonna make her show her tits.
 
-He was looking at the ground.
+— Chill, bro. Start slow. We got time for everything.
 
-There was a branch. Thick, dry, fallen between his feet. Kim waited for her to get closer. Waited for her to load the next punch. When her weight shifted forward, his right foot kicked the tip of the branch.
+Nina came closer.
 
-The branch flew up and hit Roxy's left knee head-on. It broke on impact.
+Slowly. One step. Another. The seven of them looking at her the way she knew they would.
 
-She lost her balance.
+When she reached the exact distance, she grabbed the hem of her skirt with both hands and started lifting. Real slow. Every eye went there.
 
-Kim didn't show mercy. He twisted his body back, his waist bending almost at a right angle, and drove his elbow into her chin.
+The kick came up out of nowhere.
 
-A tooth went flying.
+Fast, clean, right between the first one's legs. He folded without a sound, mouth open, air gone all at once. Before he finished falling, her foot had already come back and gone up again, this time under the second one's chin, sending him backward flat on the ground.
 
-She turned her face at the last instant and took part of the force. But blood was already running inside her mouth, that bitter metal taste. She got dizzy.
+Two down. She adjusted her skirt.
 
-Kim was already chambering the knee.
+— So? — Taunting. — Anybody else wanna look under my skirt?
 
----
+She settled into a guard. A pretty stance, light, that didn't match what she'd just done.
 
-On the left trail, Nina was bouncing in place.
-
-Bouncing lightly, like it was a ring and not a dirt path full of knocked-out people. For the first time she was understanding why some people liked fighting so much.
-
-With a confident smile, she did a Bruce Lee move, swiping her thumb across her nose, staring down the three left.
-
-The three didn't want any more.
-
-She could see it on their faces. But she could also see their pride wouldn't let them leave without trying. And that they were more afraid of their boss than of her.
-
-The first one came with a piece of wood. He was one of the two from the beginning, the one who had taken the kick to the chin. Nina grabbed his wrist right at the base, locked his arm, and started using him as a punching bag. Right-hand punches, fast like Master Ip Man's, short, one after another, without stopping, without giving him time for anything. His face went slack. His knees buckled. Even after he hit the ground, out cold, she still threw three more before stopping.
-
-She looked at the guy with the chain. Smiled.
-
-The guy with the chain looked at her. Looked at his friend on the ground. Threw the chain far to the right and ran off.
-
-The last one stood frozen in the middle of the path. Looked at Nina. Looked at his friend running away. Looked at Nina. Looked at his friend. Did that about three times.
-
-Then he ran too.
-
-Nina put her hands on her knees and started laughing. She couldn't believe it.
-
-By the look of it, it was over.
-
-She thought about the boys. Thought about running to help. Then thought better. Those two weren't going to need any help.
-
-She lit a cigarette and walked slowly to find them.
+— The fun's just starting, boys. Who's next?
 
 ---
 
-Kim's knee caught Roxy in the stomach in the middle of a jump.
+The other five froze for a second.
 
-Blood surged up her throat and out her mouth against her will. Kim pinned her against a tree trunk and held her there for a few seconds, his forearm across her chest, waiting.
+Then the biggest one stepped forward. He was much bigger than the others. Tall, broad, the kind of guy who settles things just by being there. He slammed his closed fist into his other palm.
 
-And she, hurt like that, found the only half-second of carelessness.
+— Now you're fucked. We're not gonna go easy on you. And the boss is gonna love seeing what we do with you. She won't be happy at all about what you just did.
 
-She jumped. Wrapped both legs around his arm and folded, pulling Kim forward with her full weight.
+Nina just watched his legs.
 
-That was the signal.
+When he bent his right knee a little to take the first step, she exploded.
 
-The six still standing came all at once.
+She used his bent thigh as a stepping stone. Climbed. Wrapped her left leg around his neck, the right over it, and closed them like scissors. Threw her body back with all her weight.
 
-The first thing Kim felt was an iron pipe across his back.
+The giant went with her.
 
-*I GOT SLOPPY.*
+He fell like a building collapsing, on his back, with her locked around his neck. The ground shook a little.
 
-He stomped on Roxy's stomach to free his arm. The pain in his back rose hot and lit something in him. He turned.
+She squeezed.
 
-The guy with the pipe was already winding up the second swing. At his face. There was no time to raise his arms.
+He tried to pull her legs off with both hands. Couldn't. Tried again. He'd been caught mid-breath and the air he needed wasn't coming. Ten seconds. Twenty. Thirty. Forty. His hands went weak on her legs. Then they stopped.
 
-Kim didn't raise his arms.
+She let go.
 
-He raised his face.
-
-The pipe hit his forehead and stopped there.
-
-Blood ran down between his eyes, over his nose, to his chin. And Kim stayed still. Looking at the guy. Like nothing had happened.
-
-The guy with the pipe knew fighting. He'd been part of plenty of massacres with that group. And he knew one thing for sure: no matter the size, no matter the strength, an iron pipe to the face is an iron pipe to the face. Nobody stays on their feet looking at you after that.
-
-— NO, YOU IDIOT! — Roxy, from the ground.
-
-There wasn't time.
-
-Before she finished the sentence, Kim, with his head still in the same place and the pipe still touching his forehead, twisted his body from the waist up almost ninety degrees and threw the cross.
-
-Not to the side.
-
-Down.
-
-The punch caught the middle of the guy's face and drove his head to the ground. And it didn't stop when it hit the ground. Kim kept pushing, his hand open now, pressing the guy's head against the dirt.
-
-In the middle of that second you could see the guy's eyes rolling back.
-
-Out cold. One punch.
+The big man stayed on the ground, out cold, mouth open.
 
 ---
 
-Anyone watching could see it.
+Four were left standing. And the two from the beginning were starting to get up.
 
-Kim didn't waste a single strike. Every punch, every kick, had only one goal: end the fight. Nothing left over. And it didn't matter who was in front of him. He used a hundred percent of his strength even against an ant.
+The four were armed now. Two with a piece of iron pipe they'd found somewhere. One with two knives, one in each hand. One with a thick chain wrapped around his arm.
 
-The Fight Kings.
+Nina felt the danger for the first time.
 
-Roxy, on the ground, began to understand why they called them that.
+That was serious. It was the kind of situation where, no matter what she did, she could get really hurt. For a second she thought about screaming. Kim was close. Jack was close.
 
-Her strength had always been numbers. She knew her thugs weren't real fighters. They were people. People with bats. But enough people. And with that, her group had never lost a fight. Had never failed to fulfill a contract. Once in a while somebody gave trouble. But never this.
+But she'd known those two for two days and already knew one thing. If she called for help at the first fight, they'd remember it for the rest of their lives. They'd tease her forever. Even if one day she showed she was stronger than both of them put together, it would stay there. A stain.
 
-That boy in front of her wasn't normal.
+Out of pride, pure and simple, she wasn't going to scream.
 
-With blood running down the middle of his face, finishing a man with his bare hand on the ground. That was a force of nature. Something you respect.
+She'd rather take the risk. Even of dying.
 
-She'd heard. On the street everybody knew you could count on your fingers the fights Kim and Jack had lost. And that eighty percent of them had one name only.
+She looked at the ground around her. Looked at the terrain. Tried to think like Kim and Jack would think.
 
-Alan.
+*The ground is a weapon. Everything is a weapon.*
 
-The only real rival of the two. The name that had brought Kim and Jack together. The only one who had ever beaten them both.
+— So, you asshole. — She to the one with two knives, with a disgusted smile. — How about we start with you, you pig?
 
-Roxy looked at Kim.
+The guy lost it. Came running with both knives out in front.
 
-*If this guy lost to Alan, what's Alan like?*
+Nina didn't take her eyes off him. But her foot, which no one was watching, had sunk into some loose sand beside the path. When he got close, the foot came up fast and threw the sand straight into his face.
+
+The grains went right into his eyes.
+
+— BITCH! — He stopped, knives in the air, rubbing his eyes with the backs of his hands. — You'll pay for that! I'm blind!
+
+That was all the time she needed.
+
+There was a rock on the ground. Big. She kicked it with a precision that would make Ronaldinho jealous, and the rock flew straight into the two-knife guy's face. Hit his nose. The nose broke with a wet sound and blood sprayed.
+
+The other three hesitated a second, watching their friend scream.
+
+That was all she wanted.
 
 ---
 
-Kim went after the five left.
+She closed the distance with the first pipe guy, the one on the left.
 
-Fast. One at a time. One strike for each.
+He reacted on instinct and brought the pipe down. But she was already too close. Only the base of the pipe caught her shoulder, almost without force.
 
-The one with the bat took a punch to the liver and folded. The one with the chain took a kick to the side of the knee and didn't get up. The one with the rock dropped the rock before taking the punch and took the punch anyway. The last two came together and went down together, one with an elbow to the temple, the other with Kim's forehead to the nose.
+They came face to face.
 
-Roxy stayed on the ground.
+She smiled at him, eye to eye, and watched his scared face turn into a face of pain. She had stomped hard on his foot, and in the same motion of bringing her leg down on his foot, she brought her knee up between his legs. He howled, knelt slowly, dropped the pipe, and brought both hands to his groin, drool running from the corner of his mouth.
 
-She wasn't scared. It was something else. Watching that boy fight was like watching a ballet. Everything in place. Everything on time. Brutal, but perfect. She knew she'd never see that again in her life. So she stayed there. Watching.
+Behind her, footsteps.
 
-From far off, in the brush, Jack's voice came.
+The other pipe. She knew that rhythm of steps. It was someone coming from behind thinking they had the advantage.
 
-— GUYS! EVERYBODY! HI! IT'S ME, JACK!
+She waited.
 
-Kim heard. Didn't lose a millisecond of focus.
+Waited for him to get close. Waited for him to raise the pipe with both hands above his head to strike the top of her head.
 
-His fists were red. Not his blood.
+When the pipe started coming down, she took a step forward, grabbed by the hair the guy who was kneeling in front of her, ducked behind him, and lifted his face right into the path of the pipe.
 
-He turned and looked at Roxy.
+The pipe met his friend's face.
 
-She understood. He was done. Now it was her turn.
+The nose shattered. The front teeth broke and went down his throat. The guy holding the pipe stood still, staring at what he'd just done to his own friend, not believing it.
 
-Fear and respect at the same time. That's what she felt. And underneath that, a want. The want to know how far she could go against that.
+And didn't see Nina pick up the pipe the kneeling guy had dropped.
 
-She got up. And went.
+She rose in a short leap forward, kicked the kneeling guy backward—he was already out—and in the same spin hit the standing one in the chin with the pipe.
 
-Her first punch landed. She was surprised. She didn't stop. Threw the second. The third. The fourth. An endless sequence, with the brass knuckles, with everything she had, blow after blow.
+The blow lifted him off the ground.
 
-Kim didn't fight back.
+While he fell, slowly, the ones left standing saw Nina stopped in the middle of the path with the iron pipe in her hand like a Chinese sword. Left hand open in front. Right holding the pipe above her head. A kung fu stance. It wasn't street fighting. It was someone who had studied more than one art with someone very good.
 
-Didn't dodge. Didn't defend. He took everything, one by one, looking at her.
+She spun the pipe around her body.
 
-And she looked into his eyes in the middle of the sequence.
+Hit the two-knife guy, who was still blind, in the chin. The jaw came out of place. His head turned ninety degrees. Everyone saw he was already unconscious before he fell, but she hit him once more on the top of the head while he fell, just to be sure.
 
-He wasn't angry.
+During all this she didn't take her eyes off the three left standing.
 
-He was cold.
-
-And even with her attacking, her having the advantage, her landing punches, a chill ran down her spine from top to bottom.
-
-When his hand closed around her throat, she understood.
-
-It was impossible. He didn't fight back because he didn't need to. He didn't dodge because he didn't need to. Her blows were light. They did nothing. She wasn't even worth one punch from him. It would be a waste.
-
-The hand squeezed.
-
-She understood she had lost.
-
-And blacked out.
+And from the look of it, she was just getting started.

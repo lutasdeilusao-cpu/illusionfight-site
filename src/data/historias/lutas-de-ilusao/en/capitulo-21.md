@@ -1,155 +1,251 @@
-# CHAPTER 21 — It's Not That I Can't
+# CHAPTER 21 — No Deal
 
-On the other side of the park, in the brush on the right, Jack was getting annoyed.
+There were twenty-something of them. Twenty-two, twenty-four, depending on who was still behind the wall.
 
-He'd gone in too deep. It was his fault. Nobody could find him.
+Men and women. Some in caps, some in hoods, some bare-faced as if they weren't afraid of being recognized. Wood, chain, pipe. Here and there the glint of a blade in someone's hand.
 
-— HEY! — With both hands around his mouth. — I'M RIGHT HERE, YOU ASSHOLES! RIGHT HERE!
+In front of them, a girl.
 
-Finally they showed up. Seven. Four women and three men. Jack smiled, got up from the log where he was sitting and threw a few punches in the air to warm up.
+She wasn't the biggest in the group. She was one of the smallest. Hair shaved on the sides and long on top, falling to one side of her face. Dark glasses. An iron bar dragging on the ground behind her with a noise she made sure everyone heard.
 
-— Seven, huh? I bet most of them went after Kim. That's annoying. You shouldn't underestimate me like that. And the worst part is this fight is gonna go on Kim's tab. That makes me even more pissed off.
+She walked toward Jack.
 
-A girl with a punk look came forward. Mohawk, safety pin in her ear, combat boots. She sized Jack up from head to toe.
+Jack took two steps toward her.
 
-— Ah, sweetie. You're not much.
+Behind him, Nina had understood. She went back to stretching, now for real, squatting deep to warm up her legs.
 
-She pressed a finger to his chest.
+— Girl. — Kim to Nina, without taking his eyes off the group. — This is the kind of thing you don't need to get involved in.
 
-Jack looked at the finger. Then at her.
+Nina looked at him like someone hearing nonsense. She didn't answer.
 
-— Look. I'm not underestimating you. I hope you don't do that to me either. It'll be worse for you. And I'm warning you now: it doesn't matter who it is. Kid, young, old, man, woman. If you came to fight, you're going to get beat.
+Kim raised his hands.
 
-She smiled. Pulled a knife with her left hand and pressed the blade to his neck.
+— Fine. Suit yourself. Just don't cry later. When fire starts, it spreads everywhere.
 
-Jack didn't move.
+— Don't worry about me, Kim. — Nina, finishing her stretching. — I can defend myself. And you know that. Worry about yourself. And another thing: I'm still pissed about losing to you twice. These guys will be great training for the next time we go at each other.
 
-— I'll give you one more chance. I offered your boss a way to end this without anyone getting hurt. I offer you the same. Walk away now and nobody gets broken. This is the last chance before it really starts. Because the first rule of street fighting is that there are no rules.
+Kim respected that.
 
-— You're crazy. — She laughed. — Seven against one. And me with a knife at your neck. It'll be quick.
+But he knew something she didn't yet. She was good. Really good. But she'd never been in a real street fight. She didn't have the cunning. Cunning isn't learned in a gym. It's learned taking beatings in places where nobody shows up to help.
 
-Jack smiled.
-
-— Quoting V for Vendetta: what you have is a knife and the hope of getting to use it. If you can't... it's my turn.
-
-She pressed the knife.
-
-Jack's hand closed around her wrist before the blade went in. It closed with a strength she didn't expect from a guy his size. The pain made her hand open on its own. The knife fell.
-
-She jumped back, startled by his speed.
-
-He didn't give her time to think.
-
-— Kim would be pissed if he were here. — Already moving. — But I'll go easy so I don't mess up that pretty face.
-
-The punch hit her solar plexus, mid-inhale. The air didn't go in. She was thrown backward, flying into her friends, and spat blood before falling into their arms. Out cold.
-
-Jack rolled the arm he'd used. Took two steps back. Made a hand gesture.
-
-— So? Who's next?
+*These guys will teach her.*
 
 ---
 
-— Holy shit, man! — One of the guys. — You didn't even go easy because she's a girl! Are you crazy?
+Jack stopped two steps from the girl, hands in his pockets.
 
-— If you think I hit less hard because she's a lady, you come. I don't have time to waste.
+— I'm going to ask just one question. Only one. Can we settle this without me and my friend having to beat every one of you unconscious? Or not?
 
-The guy made a signal. The six spread into a circle around Jack.
+The girl lifted her glasses slightly with her left hand. She rested the iron bar on the ground. She spat next to Jack's sneaker.
 
-*At least this way I finish everyone at once.*
+— Not happening. — A hoarse, calm voice. — We're getting good money just to take some pictures of the beating you're going to take. And look. I love giving beatings. But I love it even more when they pay me for it.
 
-The first to come was the one with the chain. He wanted to use the chain's reach to avoid getting close. He spun and brought the chain down from above.
+Jack nodded slowly. Like someone washing his hands of it.
 
-Jack didn't dodge.
+Turned his back and went back to the two.
 
-He raised his bent left arm and let the chain hit. The chain wrapped around his forearm. Jack twisted his arm, wrapping it more. Took a step. Wrapped more. When it felt tight, he pulled.
+The girl went back to her group.
 
-The guy came along, pulled by his own chain.
+— Well? — Kim.
 
-And on the way he met Jack's right cross.
+Jack opened the biggest smile of the day.
 
-The guy's face stopped where the punch was. His legs kept going. They left the ground. For a moment the guy was horizontal in the air, and then he was sprawled on the ground next to Jack, who hadn't taken another step.
+— No deal!
 
-The other five looked at their friend on the ground.
+Kim lowered his head and laughed.
 
-That was their mistake.
+— I don't know why you still try.
 
----
+— I try because it's the right thing, man. That's how you live in society.
 
-When they looked up, Jack was already off to the side. The chain had fallen to the ground, and his foot hooked it and lifted his leg in a wide arc, the chain sweeping the air in a half-moon. One of the girls jumped back to get away and fell on top of a friend. Two more on the ground.
+— What deal? — Nina looking from one to the other.
 
-Three were left standing. Two girls and a boy, the boy in the middle.
+— Jack always offers to not fight. — Kim. — So everybody goes home in one piece. Usually nobody accepts. — Pause. — Actually, nobody's ever accepted.
 
-Jack spun around to get closer, his back to them. As he spun, the sole of his pivot foot scraped a rock and kicked it up behind him. Nobody saw.
+— But there's still going to be a first time. — Jack. — I believe.
 
-He was with his back to the boy in the middle, less than half a meter away. He bent at the waist and lowered his head. The boy's eyes went to the rock falling behind Jack.
+— Believe whatever you want. Did you record it?
 
-Jack came back hard. The back of his head hit the boy's face from back to front. At the same time, his left hand caught the rock in the air.
+— You think this is my first rodeo? — Jack took his phone from his pocket and showed the screen. The recording was still running. — It's right here. She said in plain words that she doesn't accept the deal.
 
-The two girls were coming, one from each side.
-
-He threw the rock at one's face. Her head snapped back. The rock hit her face and ricocheted straight into the other's face. Both stopped their charge.
-
-Jack took advantage. He picked the chain up off the ground, spun it above his head and let out as much chain as he could. It wrapped around the neck of the boy in the middle, who was a lot taller than him.
-
-Jack turned his back to the boy, pressed back-to-back. He pulled the chain over his shoulder and bent forward.
-
-The boy went up over Jack's back, flipped in the air and was thrown in front of him.
-
-Between the lack of air and the fall, there was nothing that boy could do but pass out.
+— All right then. — Kim. — Now the fun starts.
 
 ---
 
-Jack stood still in the middle of everyone and raised his hand.
+Jack looked at Nina. Looked at Kim.
 
-For some reason, everyone stopped.
+— She's coming with us?
 
-— Before I finish. I don't like hitting women. It's not to put you down. There's one in our gang. But it's not something I'm comfortable with. Sorry about the rock to both of your faces. It was instinct. You were going to attack me. So nobody else gets hurt, can this fight end here?
+— Looks like it, yes.
 
-The girl who was on the ground shouted.
+Jack looked at Nina again with a half-smile. *This girl really isn't normal.*
 
-— You son of a bitch! You think we're scared? You don't scare anybody! Our boss wants the money that was agreed on. And when she wants something, she gets it.
+— Did you really think I was going to leave all this fun just for you two? — Nina.
 
-— Not this time. — Jack said, with pity.
+— Yeah, yeah. — Jack. — Just know one thing: once the fire catches, it...
 
-The two girls behind him each drew a knife and jumped at him at the same time.
+— Spreads. — Nina cutting in. — I already noticed you guys have these rehearsed lines.
 
-Jack jumped back.
+Jack looked visibly crushed.
 
-That was all.
+— I wanted to finish. It's fine. What can you do. Everybody with their own upbringing. Upbringing comes from home. From the cradle. I didn't like that. That wasn't cool. Not cool.
 
-The two met mid-jump, and the knives went into the side of each other's stomachs. They stood looking at each other, both with apologetic faces.
+Nina laughed at the childish way he was taking it. And for a second the three of them were laughing with twenty-something armed people coming toward them.
 
-— Sorry, I didn't mean to...
+Then they stopped.
 
-Jack didn't let her finish. Kicked one's hand, the knife flew. Kicked the other's hand, the knife flew. While they watched the knives in the air, he reached them and trapped both by the neck, one in each arm, between his arm and forearm. He squeezed.
+The group was getting closer.
 
-When he felt their bodies give, he let go.
+Kim and Jack looked around at the same time. Looked at the red hatchback. At the cups on the ground. At the half-painted police station sign. At the parking lot that was their spot.
 
-The two went to the ground beside him.
+Looked at each other.
+
+They didn't need to say anything.
 
 ---
 
-Two were left.
+The two turned around at the same time and took off running.
 
-Jack crouched down slowly, knees bent, sitting on his own heels. He started drawing something in the dirt with his finger. He wasn't looking at them.
+Nina stood still.
 
-— You know... — Nonchalant. — I'm not trying to scare you.
+For a full second she stood in the middle of the parking lot, watching the two run to the back gate, not understanding what was happening. Then she ran after them.
 
-He lifted his head slowly.
+— YOU BASTARDS! — Running and shouting. — What are you doing? You're RUNNING AWAY? Is that what you warmed up for? To RUN AWAY?
 
-From under the brim of his cap, you could only see one of his eyes. And that eye had changed. It wasn't the eye of the Jack who told jokes on the bus. It was a sunken eye. Of an animal hidden in the brush. Of someone who keeps something inside and locks it away. A cold eye that sent a chill down the spine of anyone who looked.
+Kim and Jack looked back and laughed.
 
-— It's not that I can't. — In the same nonchalant voice. — I just don't want to.
+The group hadn't understood either. They stood still for a second, pieces of wood in the air. Then someone shouted something and the twenty-something of them ran after the three.
 
-The two who were left didn't move.
+And the three running ahead, talking, as if nobody was behind them.
 
-— So here's the thing. — Jack standing up, voice returning to normal as if nothing had happened. — Two options. Option A: you come here, we fight fair and square and you end up like everyone else. Option B: this bunch here needs a doctor. You grab your friends and vanish. A or B? And I'm serious.
+— Nina. — Jack, running sideways to be able to talk. — It's just that me and Kim are used to doing things without talking. Since you're new, we kinda went on autopilot and forgot to warn you. Next time we'll warn you. Now just run. You'll understand.
 
-The two didn't need to think.
+— But why are we running? You guys think you can't handle these guys? Honestly, I expected a lot more from you!
 
-They went straight to their friends on the ground, trying to wake one, lift another.
+— It's not about handling them. — Kim, not losing his breath. — It's the place. That parking lot is our spot. We don't fight at the spot. If we fight there, someone calls the police, and then we can never go back. It stops being our place. And it's open there. Lots of people see. Lots of people film.
 
-Jack watched that for a second. Then he turned his back and walked off through the brush, lighting a cigarette, hands in his pockets.
+Nina ran in silence for a while, understanding.
 
-— GUYS! — Shouting to nowhere. — PEOPLE! HEY! IT'S ME, JACK! IF YOU'RE AROUND, YELL! I'M GOING TO KEEP WALKING SLOW AND SHOUTING. DON'T MAKE ME WALK TOO FAR, 'CAUSE I'M TIRED AND I STILL HAVE TO WORK!
+Jack seemed to have known all that from the first second. She wondered if the two of them had planned that one day, sitting on the hatchback, or if it was that near-telepathy thing she saw between them all the time. To her it was a mystery. She had never had that with anyone.
+
+— There's a park nearby. — Kim. — Perfect. It's got trees, brush, paths. We can split them up and take one group at a time. We're also going to split up, so nobody has to fight everyone all at once, because that wears you out. — He looked at Nina. — I'm telling you because Jack already knows. Careful. Even split up, stay close. If you need help, shout. The entrance is on the right. Let's go.
+
+---
+
+The park was more woods than park.
+
+A fallen gate at the entrance. A dirt path that split into three right after the first benches. Big trees with roots sticking out of the ground. The city noise fading behind.
+
+The three ran in, the group getting closer behind.
+
+Midway, Kim looked at Jack and Nina.
+
+Kim went straight. Jack went right. Nina went left.
+
+— If you need help, shout. — Kim, before they separated. — Or call.
+
+The two nodded and disappeared into the trees.
+
+Kim ran about ten more steps.
+
+Stopped running.
+
+Started walking.
+
+Took the pack from his pocket. Lit a cigarette. Turned to face the path he'd come from and stood there, smoking, waiting.
+
+It didn't take long.
+
+The group arrived by the dirt path, panting, and stopped when they saw him standing there, smoking, as if waiting for a bus. The girl with the glasses came to the front.
+
+— Wow. They told me you guys were good fighters. I'm disappointed. I didn't think you'd run. Just so you know the name of who's going to finish you. Roxy.
+
+— It wasn't running away. — Kim letting out smoke. — It was a strategic relocation. You were going to wreck our spot. That place is ours.
+
+Roxy looked around.
+
+— Where's your little friend? And the girl? My boys are going to want to have fun with her. Maybe even me.
+
+Kim laughed.
+
+— They can try. But I guarantee she won't be easy prey. Actually, she might turn into the predator. — He pointed with the cigarette. — She went left. Jack went right. Be my guest. Her I don't know. But Jack, I'm sure he's already waiting for you somewhere.
+
+---
+
+Roxy made a sign with her head.
+
+The group split. Seven to the left. Seven to the right. Nine stayed with her.
+
+It was a mixed group, men and women, some with bats, some with chains, one with a rock in his hand like he'd just picked it up off the ground.
+
+Kim finished his cigarette unhurriedly.
+
+Looked into Roxy's eyes.
+
+Tossed the butt into the air.
+
+And in the half-second that everyone looked at the butt going up, he was already in the air, his body going toward Roxy in a leap that closed half the distance.
+
+She jumped back.
+
+Almost as fast as him.
+
+Kim landed where she'd been and stood still for a second, not understanding. No one did that. No one had ever gotten out of that leap.
+
+Roxy also looked surprised. She twisted her neck to the side. Handed her glasses to one of the guys behind her, without taking her eyes off Kim.
+
+— You're fast. And you look strong. I won't underestimate you. — She pointed with her chin. — You two. Get him.
+
+Two came out of the group. Big. Cautious.
+
+Kim looked at the two approaching slowly and said his usual line.
+
+— Do you guys know the first rule of street fighting?
+
+The first one came throwing a punch. Right. Kim dodged. Left. Kim dodged. In the momentum of the dodge, he spun his body half-turn behind the guy, reached over his head, caught the guy's nose between two fingers, and yanked back hard.
+
+No one had noticed the rock.
+
+A big, pointed rock beside the path. Kim had stood near it on purpose since he lit the cigarette. The guy lost his balance and fell backward with all his weight onto the point of the rock.
+
+The sound of the body was ugly. The scream was worse.
+
+The guy stayed on the ground unable to get up.
+
+Kim was still standing in the same position.
+
+— The thing is, there is no rule.
+
+---
+
+The second one kept looking at his friend on the ground.
+
+They had fought together many times. He knew how much that guy could take. And now the guy was on the ground moaning, and the kid who had done it wasn't even that big, didn't even seem that strong.
+
+Kim let out air through his nose.
+
+— Hmpf.
+
+And went.
+
+One step crossing in front of the other, right, left, like someone dribbling, getting close. The guy opened his arms to grab. Kim went under. Cocked a punch to the chin and, at the last instant, instead of the punch, kicked the guy's knee from the side.
+
+The knee bent where a knee doesn't bend.
+
+The roar cut through the park.
+
+The guy fell holding his broken leg, and Kim went back to the side of the rock, facing Roxy, waiting for the next one.
+
+Roxy hadn't moved. She was looking at the two on the ground with an expression of disappointment that wasn't aimed at Kim.
+
+---
+
+On the other side of the park, on the left-hand trail, Nina had one leg stretched against the trunk of a tree, stretching.
+
+Seven guys came up the dirt path.
+
+She'd expected it. She was a woman. She knew exactly what men did when they thought they'd found a girl alone in the woods. She had seen that smile on many men's faces before. She had never liked any of them.
+
+She took her leg off the tree.
+
+Cracked her neck.

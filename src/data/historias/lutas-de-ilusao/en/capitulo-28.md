@@ -1,165 +1,137 @@
-# CHAPTER 28 — Shaman King
+# CHAPTER 28 — Joaquim Leal Reis
 
-Shuntaro started walking toward him again. Slowly.
+Monday started like any Monday.
 
-This time Kim didn't go with him. He stayed back. He knew the yo-yos were in his pocket, ready. If he got caught again, there'd be no second chance.
+Jack and Kim met up, went to school and found Nina. Class. The three of them studying seriously, Kim paying attention, Jack faking it, Nina for real.
 
-Shuntaro saw him retreat and decided to attack.
+When the bell for the last class rang and the three were putting their things away, the hallway made a different noise.
 
-He took his hands out of his pockets slowly. The yo-yos started spinning, drawing a sideways figure eight in the air, an infinity with each hand, faster and faster, the sound rising until it became a whistle.
+A buzz. People talking low and fast. People running to the window.
 
-He crossed his arms in front of his chest and advanced.
+— Did you guys see who's out there? — A girl next to them, to her friend. — I can't believe he's here. What do you think he wants?
 
-Kim retreated. He had calculated the reach of the yo-yos at about two meters. He always stayed a little beyond.
+— He's much better-looking in person. — Her friend, pressed against the glass. — Do you think he came to challenge someone?
 
-Shuntaro smiled in a different way.
+Kim and Jack looked at each other.
 
-— Fatal Slices.
+— What are these people talking about? — Jack.
 
-He uncrossed his arms.
+— I have no idea. — Nina. — But it looks like there's someone important outside. You think it's a problem for you guys?
 
-On each of his fingers a ring appeared. From each ring came a string. And at the end of each string, a new yo-yo. Eight. Plus the two. Ten yo-yos, each wrapped in a thin layer of water with a serrated edge, like a blade.
+— I don't think so. — Kim. — We've had a few quiet days. We haven't done anything. It must be something else.
 
-He opened his arms and the ten came.
+They started down the hallway, trying to avoid the crowd gathering at the front door, to take another route to their favorite spot.
 
-Five meters of reach.
+And then the school loudspeaker crackled.
 
-Kim was cornered.
+— Attention. Could Mr. Joaquim Leal Reis please come forward? We need to speak urgently with Mr. Joaquim Leal Reis.
 
----
+Kim stopped in the middle of the hallway.
 
-Kim opened both hands. The hatchets appeared.
+He lowered his head.
 
-— Xakaxi. Shaman.
+Jack started laughing. Not a laugh. A fit. Leaning against the wall, hand on his stomach, out of breath.
 
-He brought the two together in front of his body and they became the double-bladed axe.
+Nina looked from one to the other.
 
-He watched the ten yo-yos coming. He raised the axe. And he slammed it into the ground with all his strength.
+— Who's Joaquim?
 
-The arena floor opened into a hole. Chunks of the floor flew up. And in the momentum of the blow, Kim threw himself forward, flying low, his face almost scraping the ground, under the ten strings.
+Jack couldn't answer. He just pointed at Kim.
 
-The yo-yos passed over him. Grazing. None hit.
+Nina looked at Kim. Kim had the face of someone who wanted the hallway floor to open and swallow him whole.
 
-And now he was close.
+— Please. — The loudspeaker again. — Mr. Joaquim Leal Reis. Present yourself immediately.
 
-Close was his specialty.
+Kim quickened his pace.
 
-He did a somersault on the ground and came up face to face with Shuntaro, who froze for half a second. Kim threw his right arm back and unleashed an uppercut straight to the chin.
+Too late.
 
-The impact was devastating.
+— IT'S HIM! — Someone from his class. — HE'S JOAQUIM! THERE!
 
-A tooth flew out of Shuntaro's mouth. He went up into the air.
-
-But Kim wasn't done. His left hand still held the axe's string, which had stayed on the ground behind him. He pulled. The axe came back spinning on the string, straight to cut Shuntaro in half, in the air.
-
-Shuntaro, still conscious, anchored the yo-yos into the ground and pulled himself down by the strings.
-
-The axe passed grazing. It lightly cut his forehead.
-
-He hit the ground hard. But the fight was far from over.
+Everyone turned.
 
 ---
 
-Shuntaro got up by pulling his own strings. Dizzy, but on his feet.
+In the middle of the crowd at the door, a path opened up.
 
-Kim came. He opened his hands, and the axe became the two hatchets again.
+And through it came a young man.
 
-Shuntaro started firing the yo-yos like jabs. One after another, fast, short. Kim knocked the yo-yos away with the hatchets and tried to get inside. Knocked and tried to get inside.
+Asian features, narrow eyes. Blond hair, long, almost to his shoulders. A white hoodie with black details on the zipper and pockets. White jeans. He walked with his hands in his pockets, slowly, with the air of someone who's used to being looked at everywhere he goes and stopped caring about it a long time ago.
 
-A high-level exchange began.
+Behind him, a quiet young man carrying a padded bag.
 
-Both focused. Both determined to finish the other. A hard, even exchange, where the first one to slip for a second would lose. Or take a blow that ended everything.
+The blond young man stopped in front of Kim. He took one hand out of his pocket.
 
-In the stands, Nina was wringing her hands. Jack, who was used to watching his friend fight since they were twelve, was seeing something new. For the first time Kim was fighting someone his own size. At a level Jack had never seen.
+— Hello. You must be Kim. The guy who impressed me. — A calm voice, with a slight accent. — I'm Shuntaro Chirasu. Rank nine hundred and ninety-eight in the Illusion Fight world ranking. It's a pleasure to meet you.
 
-And Jack was happy.
+He gave a bow. Short, natural, the way they do in his country. And held out his hand.
 
-He knew Kim. Kim was enjoying it. It wasn't easy for Kim to find someone to fight as an equal. You could almost see a smile on his face.
+Kim looked at Jack. Looked at Nina. He wasn't understanding anything. But he shook the hand.
 
-The arena was going crazy. A lot of people were screaming for Shuntaro. But in the middle of the blue, some voices started shouting something else.
+Shuntaro smiled.
 
-*BRAWL-ER. BRAWL-ER.*
+— I came from very far away. From Azuma. Just to fight you. It was nine hours of travel, and I'm very eager for this fight. — Pause. — Would you give me that honor, Mr. Joaquim?
 
----
-
-— Give up already. — Shuntaro, in the middle of the exchange, without stopping. — You're not going to beat me. It's impossible. I'm way faster than you.
-
-— You're really good. — Kim, without stopping. — For real. But there's one thing I don't know what it is. Giving up. — He knocked a yo-yo. — And just so you know. I haven't started yet.
-
-And he started getting faster.
-
-Each blow stronger. The yo-yos hitting the hatchets and bouncing back farther and farther. Shuntaro having to take a step back to give the weapon time to come back. One step. Another. The exchange began to tilt.
-
-In the stands, Nina stopped wringing her hands.
-
-— Jack.
-
-— I see it.
-
-— He's getting stronger. He started out weaker and he's getting stronger. — Her voice low. — It's the balanced one. What we talked about in the parking lot. He's balanced.
-
-Shuntaro was seeing it too.
-
-The Kim in front of him now wasn't the Kim from the start of the fight. He was stronger with every blow. Faster. The defense more exact. If he didn't watch out, this fight was going to end with him on the ground.
-
-Kim spun in close, face to face. So close their noses almost touched. He threw one hatchet to one side and the other to the other side, pulling the yo-yo strings to the limit, opening Shuntaro's arms.
-
-And he grabbed his head with both hands.
-
-Pulled it down while leaping.
-
-The knee met Shuntaro's nose. The bone gave. Blood ran down Kim's knee. Shuntaro's eyes closed in pain.
-
-Kim let go of his head. Shuntaro was falling backward. And Kim, still in the air, raised his hand.
-
-— Xakaxi! Shaman!
-
-The double-bladed axe appeared in his hand.
-
-He came down with everything, the axe above his head, to split Shuntaro in half.
+Jack had another fit.
 
 ---
 
-— REI. SHAMAN.
+Kim shrugged.
 
-Shuntaro shouted with his right arm in front of his body.
+It had been a few days since the Thunderbolt fight. He turned to the two of them.
 
-In front of his arm, something began to form. A saw. A huge circular saw, attached to his forearm like a shield, with points around it like a katar.
+— So? What do you guys think? I'm not really understanding what's happening. But it looks like this guy wants to fight. And you know I don't run from a fight.
 
-Kim's axe hit the saw.
+Nina had her phone in her hand, screen facing her, and her face changed.
 
-And stopped.
+— Kim. I don't know if it's a good idea. — Low. — I think you should fight people a little above you. Not way above. This guy is famous. I lived in Azuma for four years. Over there he's like... like a celebrity. He's been in LDI for six months. Six. And he's already in the top thousand in the world. He knows exactly what he's doing. That's my opinion.
 
-The whole arena went quiet at the impact. Kim hung in the air for an instant, the axe locked against the saw, staring at that weapon he hadn't seen coming.
+Jack, recovered, wiped his eye.
 
-That was the instant Shuntaro needed.
+— Nina. If you want to convince Kim not to fight, that's the worst possible strategy. Telling him the guy is super strong, super famous, super dangerous only makes him want it more. — He looked at Kim. — What I can tell you, Kim, is that the chances of you taking the biggest beating of your life are high. But I don't decide for you. If you want to get beat up, go. The guy is good.
 
-He threw a punch forward. The saw detached from his arm and came spinning.
+Kim looked at Shuntaro.
 
-Kim put the axe in front.
+He read his face. His posture. The way he held his shoulders. There was respect there. It wasn't provocation. And there was also the calm certainty of someone who knows he's stronger and doesn't need to say it.
 
-The saw hit the axe and carried Kim with it. It dragged Kim across the entire arena, his feet carving two grooves in the floor, sparks flying from the contact of the two weapons, until almost the far end of the arena.
+— Call me Kim. — Kim. — And another thing. You came from very far away expecting to get something. I don't think you're dumb enough to spend nine hours traveling to challenge just anyone. If you think it's worth fighting me, then let's fight.
 
-By a hair, Kim didn't lose his head.
+Shuntaro smiled for real for the first time.
+
+The hallway exploded.
+
+No one at that school had ever seen a live LDI fight from someone in the top thousand. Phones going up everywhere. People running to tell others.
 
 ---
 
-Shuntaro got up slowly.
+Right there, in front of the school, the crowd opened a circle.
 
-The saw came back spinning through the air and fitted onto his arm again. The saw-shield. He wiped the blood from his face with the other arm, calmly. When his face was clean, he spoke.
+Shuntaro called his assistant, who opened the padded bag and took out two SBIs. One of them was clearly on another level. You could see it in the finish, the weight, the light running along the edge.
 
-— Ouch. That hurts. — He said. — It's been a while since I got beat up this much in a fight. I shouldn't have slipped for even a second with you. You're the type who uses every opening to end the fight. Sorry. I didn't take you seriously from the start.
+Kim sat on the ground leaning against the school wall and took his out of his backpack. Jack and Nina helped him get it on.
 
-He cracked his arm. Popped his nose back into place with a snap. He clenched his hand, and the saw on his forearm spun.
+— Be careful. — Nina, adjusting the strap. — He uses his power load very well. Great technique. He's a strategist. He'll analyze you a lot before doing anything. If you can end it fast, end it. Don't let the fight drag on. The truth is your chances of winning are small. Given how much you've trained.
 
-— This is my Rei's Shaman form. One of the strongest weapons in this game. But it eats energy according to its power. I can't use it long in a fight. — He raised his arm. — Which only means one thing. I have to finish you fast.
+— Relax, girl. — Kim. — Don't worry. If I lose, I lost. What can you do. The fun is in trying. From what you guys are saying, he's way stronger than me. If I win, I move up some positions in the ranking. — Pause. — And besides Freddy's bet, this game hasn't paid me a cent yet. Maybe if I climb, I'll start earning something. In the end that's what matters, right?
 
-Kim, at the far end of the arena, stood still at that.
+— You're absolutely right, man. — Jack. — Until you're making your bread and egg, it's not worth it. So let's go get that bread and egg.
 
-*Why is he telling me this?*
+Jack sat down next to Kim with his own SBI in his hand. Nina sat on the other side.
 
-It was too much information. Information that gave an advantage. Nobody did that in a fight.
+— We're going to watch from inside. — Jack.
 
-That, with all certainty, put Kim at an advantage.
+---
 
-But…
+On the other side of the circle, Shuntaro was already seated, SBI in hand, assistant at his side.
+
+He looked at Kim over the crowd.
+
+— I hope we have a good fight. — Shuntaro. — But I didn't come this far to lose. Get ready.
+
+— There's no reason for me to start a fight if it isn't to win. — Kim. — I don't get into fights to lose.
+
+Shuntaro nodded. Satisfied.
+
+The two fitted their SBIs at the same time.
+
+And the front of Elite Academy, full of people, stood watching two boys sitting on the ground, eyes closed, not moving.

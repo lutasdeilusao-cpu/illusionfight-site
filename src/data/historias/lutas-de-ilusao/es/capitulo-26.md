@@ -1,137 +1,171 @@
-# CAPÍTULO 26 — Joaquim Leal Reis
+# CAPÍTULO 26 — Una Serie por Primera Vez
 
-El lunes comenzó igual que cualquier lunes.
+El Duber olía a aromatizante de pino y a cigarrillo escondido.
 
-Jack y Kim se encontraron, fueron a la escuela y encontraron a Nina. La clase. Los tres estudiando en serio, Kim prestando atención, Jack fingiendo, Nina de verdad.
+Kim se sentó detrás del chofer y apoyó la cabeza en la ventanilla. El corte de la frente le latía al ritmo de la calle. Se había limpiado la cara con la camiseta antes de subir al auto, pero el chofer lo miró por el retrovisor dos veces y decidió que no era asunto suyo.
 
-Cuando sonó el timbre de la última clase y los tres estaban guardando sus cosas, el pasillo hizo un ruido diferente.
+Hoy no iba a vender caramelos.
 
-Un zumbido. Gente hablando bajo y rápido. Gente corriendo hacia la ventana.
+Iba a trabajar de noche. Si se iba a los autobuses ahora, llegaba a casa demasiado tarde y perdía el tiempo de acostarse, bañarse y arreglarse. Por primera vez en mucho tiempo había tomado un auto. Por los mil DIX de Freddy y por doscientos que todavía ni había recibido.
 
-— ¿Vieron quién está ahí afuera? — Una chica al lado de ellos, a su amiga. — No puedo creer que esté aquí. ¿Qué será lo que quiere?
+Entonces recordó que podía encontrarse con su madre en casa.
 
-— Es mucho más guapo en persona. — La amiga, pegada al vidrio. — ¿Será que vino a desafiar a alguien?
+Se quedó con eso.
 
-Kim y Jack se miraron.
+Esa mañana ella había hecho café. Había bailado en la cocina. Lo había abrazado en el pasillo. Y él no sabía qué esperar de la tarde. Con Helena nunca se sabía. A veces la calma era solo el tiempo que la tormenta tardaba en juntar fuerzas.
 
-— ¿De qué está hablando esa gente? — Jack.
+*Desde que entré en esa mierda de juego, mi vida está diferente.*
 
-— No tengo idea. — Nina. — Pero parece que hay alguien importante ahí afuera. ¿Será que es problema para ustedes?
+Había una persona nueva andando con ellos. Eso no era malo. En realidad era bueno. Era bueno de una forma que él no iba a admitir en voz alta. Pero era diferente.
 
-— Creo que no. — Kim. — Tuvimos unos días tranquilos. No hicimos nada. Debe ser otra cosa.
+Había descubierto algo sobre su padre. O no. Porque el viejo loco que hablaba con él dentro del juego no sabía conversar con un ser humano. *Tu papi.* Por el amor de Dios.
 
-Fueron saliendo por el pasillo, tratando de esquivar a la multitud que se juntaba en la puerta principal, para tomar otro camino hasta su rincón preferido.
+Había un video suyo circulando en una red social que él ni siquiera sabía bien cómo funcionaba. Eso le preocupaba. Tenía miedo de no poder comer tranquilo en el patio de comidas del centro comercial. Aunque casi nunca iba al centro comercial. Quien lo llevaba era Jack.
 
-Y entonces sonó el altavoz de la escuela.
+Y por primera vez en la vida le había preguntado a su madre sobre el pasado. Y había descubierto mucho más de lo que quería.
 
-— Atención. Por favor, ¿el señor Joaquim Leal Reis podría presentarse? Necesitamos hablar con urgencia con el señor Joaquim Leal Reis.
+De algún modo, sentía que todo aquello estaba relacionado con el tal hombre misterioso. El cuarto de Helena. El viejo del bastón. La Sangre Primordial. Alguien detrás de él. Alguien pagando por tomarle fotos.
 
-Kim se detuvo en medio del pasillo.
+Y había algo más. Algo muy adentro, que sentía cada vez que cerraba los ojos y recordaba la arena. Algo fuerte. Oscuro. Con hambre.
 
-Bajó la cabeza.
+No quería pensar en eso.
 
-Jack empezó a reír. No una risa. Un ataque. Recostado en la pared, la mano en la barriga, sin aire.
-
-Nina miró de uno a otro.
-
-— ¿Quién es Joaquim?
-
-Jack no podía responder. Solo señaló a Kim.
-
-Nina miró a Kim. Kim tenía cara de querer que el suelo del pasillo se abriera y se lo tragara entero.
-
-— Por favor. — El altavoz de nuevo. — Señor Joaquim Leal Reis. Preséntese inmediatamente.
-
-Kim apretó el paso.
-
-Demasiado tarde.
-
-— ¡ES ÉL! — Alguien de su clase. — ¡JOAQUIM ES ÉL! ¡AHÍ!
-
-Todo el mundo se giró.
+Eso iba a atormentarlo muy pronto.
 
 ---
 
-En medio de la multitud de la puerta, un pasillo se fue abriendo.
+Perdido en eso, casi se pasó de la parada.
 
-Y por él vino un muchacho.
+Pagó, se bajó, caminó el tramo de calle hasta la puerta de su casa. Dejó la mano en la manija un segundo más de lo necesario.
 
-Rasgos asiáticos, ojos rasgados. Cabello rubio, largo, casi hasta los hombros. Una sudadera blanca con capucha, detalles negros en el cierre y en los bolsillos. Jeans blancos. Caminaba con las manos en los bolsillos, despacio, con el aire de quien está acostumbrado a que lo miren en cualquier lugar al que entra y hace tiempo dejó de importarle.
+Abrió.
 
-Detrás de él, un muchacho callado cargando una bolsa acolchada.
+La casa estaba ordenada.
 
-El muchacho rubio se detuvo frente a Kim. Sacó una mano del bolsillo.
+No era el orden de la mañana, el de quien quiere que parezca ordenado. Ordenado de verdad. Los platos lavados. El piso barrido. Los pedazos de ayer habían desaparecido. El cenicero limpio.
 
-— Hola. Debes ser Kim. El tipo que me impresionó. — Una voz tranquila, con un acento suave. — Soy Shuntaro Chirasu. Posición novecientos noventa y ocho del ranking mundial de las Luchas de Ilusión. Es un placer conocerte.
+Helena estaba en el sofá.
 
-Hizo una reverencia. Corta, natural, como se hace en su país. Y extendió la mano.
+Con las piernas dobladas bajo el cuerpo, el control en la mano, la pantalla de Cineflix encendida en la pared. Giró la cabeza al oír la puerta.
 
-Kim miró a Jack. Miró a Nina. No entendía nada. Pero estrechó la mano.
+— Ah. Llegaste. Qué bueno. — Miró su frente y decidió no preguntar. — ¿Ya no vas a trabajar hoy?
 
-Shuntaro sonrió.
+— Hoy no, mamá. Solo de noche. Vine a descansar, bañarme y ponerme ropa decente. Voy a trabajar de seguridad en un club.
 
-— Vengo de muy lejos. De Azuma. Solo para luchar contigo. Fueron nueve horas de viaje, y estoy muy ansioso por esta lucha. — Pausa. — ¿Me daría ese honor, señor Joaquim?
+— Ah, entonces está bien. Aprovecha. Descansa. Báñate. — Se levantó. — Hice el almuerzo. Si quieres, lo caliento mientras te bañas. Después comes. Y si no vas a dormir, podemos ver algo juntos. Estoy viendo una serie muy buena. La Casa del Dinero.
 
-Jack tuvo otro ataque.
+Kim se quedó parado en la puerta.
 
----
+Él nunca se había sentado a ver nada con su madre. Nunca. Ni siquiera cuando era pequeño. En su recuerdo, la televisión de esa casa era algo que quedaba encendido mientras Helena dormía en el sofá.
 
-Kim se encogió de hombros.
+— Acepto. — Oyó su propia voz decirlo. — Si calientas la comida, va a ser genial. Después del baño vemos esa tal La Casa del Dinero.
 
-Hacía unos días desde la lucha con Thunderbolt. Se volvió hacia los dos.
+Helena esbozó una sonrisa pequeña.
 
-— ¿Y entonces? ¿Qué opinan? No estoy entendiendo bien qué está pasando. Pero por lo visto este tipo quiere pelear. Y ustedes saben que yo no huyo de una pelea.
+Él subió las escaleras.
 
-Nina tenía el celular en la mano, la pantalla hacia ella, y su cara cambió.
-
-— Kim. No sé si es una buena idea. — Bajo. — Creo que tendrías que luchar con gente un poco por encima de ti. No muy por encima. Este tipo es famoso. Viví cuatro años en Azuma. Allá él es como... como un artista. Lleva seis meses en el LDI. Seis. Y ya está en el top mil del mundo. Sabe muy bien lo que hace. Esa es mi opinión.
-
-Jack, recuperado, se secó el ojo.
-
-— Nina. Si quieres convencer a Kim de que no luche, esa es la peor estrategia posible. Decir que el tipo es muy fuerte, muy famoso, muy peligroso, solo le da más ganas. — Miró a Kim. — Lo que te puedo decir, Kim, es que las probabilidades de que te lleves la mayor paliza de tu vida son altas. Pero yo no decido por ti. Si quieres que te golpeen, ve. El tipo es bueno.
-
-Kim miró a Shuntaro.
-
-Le leyó el rostro. La postura. La forma en que sostenía los hombros. Había respeto allí. No era provocación. Y también había la certeza tranquila de quien sabe que es más fuerte y no necesita decirlo.
-
-— Llámame Kim. — Kim. — Y otra cosa. Viniste de muy lejos esperando conseguir algo. No creo que seas tonto como para gastar nueve horas de viaje para desafiar a cualquiera. Si crees que vale la pena luchar conmigo, entonces luchemos.
-
-Shuntaro sonrió de verdad por primera vez.
-
-El pasillo explotó.
-
-Nadie en esa escuela había visto una lucha de LDI en vivo de alguien del top mil. Celulares levantándose por todos lados. Gente corriendo a avisar a otros.
+Ella fue a la cocina.
 
 ---
 
-Allí mismo, frente a la escuela, la multitud abrió un círculo.
+El agua caliente le arrancó el polvo del parque, la sangre seca de la frente, el olor del monte.
 
-Shuntaro llamó a su asistente, que abrió la bolsa acolchada y sacó dos SBIs. Uno de ellos era claramente de otro nivel. Se notaba en el acabado, en el peso, en la luz que corría por el borde.
+Kim se quedó un rato con las manos en la pared, la cabeza baja, el agua cayendo.
 
-Kim se sentó en el suelo recostado contra el muro de la escuela y sacó el suyo de la mochila. Jack y Nina ayudaron a ajustarlo.
+Ayer había estado ahí debajo de esa ducha con miedo de saber. Hoy tenía miedo de otra cosa. Miedo de acostumbrarse.
 
-— Ten cuidado. — Nina, ajustando la correa. — Él usa muy bien su carga de poder. Técnica excelente. Es estratega. Te va a analizar bastante antes de hacer cualquier cosa. Si puedes acabar rápido, acaba. No dejes que la lucha se alargue. La verdad es que tus posibilidades de ganar son pequeñas. Por lo mucho que has entrenado.
+Bajó con bermudas y camiseta limpia. La mesa estaba puesta. Un solo plato. Arroz, frijoles, un pedazo de carne, ensalada.
 
-— Tranquila, muchacha. — Kim. — No te preocupes. Si pierdo, perdí. Qué se le va a hacer. Lo divertido está en intentarlo. Por lo que ustedes dicen, él es mucho más fuerte que yo. Si gano, subo algunas posiciones en el ranking. — Pausa. — Y aparte de la apuesta de Freddy, este juego todavía no me ha pagado ni un centavo. Quién sabe, subiendo tal vez empiece a ganar algo. Al final eso es lo que importa, ¿no?
+Se sentó. Comió.
 
-— Tienes toda la razón, amigo. — Jack. — Mientras no ganes el pan con huevo, no vale la pena. Entonces vamos tras el pan con huevo.
+La comida no estaba buena. El arroz estaba un poco pasado. Los frijoles estaban sin sal. La carne estaba dura.
 
-Jack se sentó al lado de Kim con su SBI en la mano. Nina se sentó del otro lado.
+Era la mejor comida que había comido en su vida.
 
-— Vamos a mirar desde adentro. — Jack.
+Hacía casi cinco años que Helena no hacía almuerzo. El café de esa mañana había sido el primero. Esto era el segundo. Dos veces en el mismo día, después de cinco años sin ninguna.
+
+Helena se sentó al otro lado de la mesa con un vaso de refresco en la mano. No era cerveza. Él lo notó y no comentó.
+
+— Y bueno. — Ella. — ¿Cómo estuvo el día?
+
+Y Kim contó.
+
+No sabía por qué. Nunca contaba nada. Pero contó. Walter en el pasillo. Ryan con la caja. La sala de entrenamiento, el hacha, Nina partida por la mitad, Jack bailando encima de su cuerpo. Y la pelea del parque. Contó la pelea del parque riéndose, los detalles, la cara del tipo de la barra cuando él no cayó, Roxy quitándose la camiseta, Jack apareciendo con el rasguñito en el cuello.
+
+Helena escuchó todo.
+
+Ella no lo aprobaba. Él lo veía en la forma en que apretaba el vaso. Pero ella no dijo nada.
+
+Ella sonrió.
 
 ---
 
-Del otro lado del círculo, Shuntaro ya estaba sentado, el SBI en la mano, el asistente a su lado.
+Después del almuerzo, los dos fueron a la sala.
 
-Miró a Kim por encima de la multitud.
+Se sentaron en el mismo sofá. Cada uno en una punta. Los dos extraños, los dos sin saber bien dónde poner las manos. Helena le dio play.
 
-— Espero que tengamos una buena lucha. — Shuntaro. — Pero no vine de tan lejos para perder. Prepárate.
+En cinco minutos Kim ya se había olvidado de que se sentía raro.
 
-— No existe motivo para que yo empiece una lucha si no es para ganar. — Kim. — Yo no entro a una pelea para perder.
+La serie era buena. Una banda de gente con nombres de ciudad asaltando la casa de moneda. Un profesor que lo planeaba todo. Gente que no podía confiar la una en la otra y confiaba de todos modos.
 
-Shuntaro asintió con la cabeza. Satisfecho.
+Él no tenía costumbre de ver nada. Su rutina era escuela, trabajo, casa, comida, estudio. La última vez que había visto algo solo por ver había sido antes de los doce años. Antes de la deuda. Por eso siempre se quedaba medio afuera cuando Jack hablaba de películas, de juegos, de música. Él no sabía nada de eso. No tenía tiempo.
 
-Los dos encajaron los SBIs al mismo tiempo.
+Al final del episodio se quedó mirando la pantalla negra.
 
-Y el frente de la Elite Academy, lleno de gente, se quedó mirando a dos chicos sentados en el suelo, con los ojos cerrados, sin moverse.
+— Me gustó. — Kim. — Me gustó mucho. Quería continuar. Pero necesito dormir un poco antes de encontrarme con Jack.
+
+Helena se quedó mirando la pantalla también.
+
+— Entonces no voy a continuar. — Ella. — Solo continúo si es contigo.
+
+Kim no respondió.
+
+No tenía respuesta para eso.
+
+---
+
+Subió al cuarto. Se acostó de lado, mirando la pared.
+
+Dormitó pensando en que, a pesar de todo, muchas de las cosas que estaban cambiando eran buenas.
+
+Nina era buena.
+
+El juego, aun con todo, era interesante.
+
+Y eso de abajo, el sofá, la serie, el "solo continúo si es contigo". Eso era especial. Eso lo iba a guardar.
+
+---
+
+Se despertó a las siete y media sin alarma.
+
+Se puso el traje. El único que tenía. Negro, un poco corto de mangas, pero planchado, sin una arruga fuera de lugar. Se arregló la corbata en el espejo del baño. El corte de la frente se había cerrado en una línea fina.
+
+Parecía otro hombre.
+
+Antes de salir, fue al cuarto de su madre. Helena estaba durmiendo, encogida de lado, el rostro tranquilo de una manera que él no recordaba haber visto.
+
+Le tocó el hombro con suavidad.
+
+— Doña Helena. Ya me voy, ¿eh? Vuelvo como a las tres de la mañana. ¿Todo bien?
+
+Ella abrió los ojos despacio.
+
+— Todo bien... — La voz ronca por el sueño. — ¿Pero no es medio complicado trabajar hasta tan tarde y después ir directo a la escuela?
+
+Kim sonrió.
+
+— No es la primera vez. Lo sabes. No tienes que preocuparte. Sé cuidarme. Voy a arreglar todo y todo va a estar bien.
+
+Ella cerró los ojos de nuevo, una media sonrisa en la comisura de los labios.
+
+— Está bien, señor hombrecito. Cuídate. Te veo mañana. Hasta luego, hijo.
+
+— Hasta luego, mamá.
+
+Él cerró la puerta del cuarto despacio.
+
+Bajó la escalera.
+
+En la sala, la pantalla de Cineflix estaba detenida en el menú, el episodio dos esperando, la portada de la serie con esas máscaras sonriendo.
+
+Ella no había seguido viendo.

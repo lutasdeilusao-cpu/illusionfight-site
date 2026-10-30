@@ -1,331 +1,527 @@
-# CAPÍTULO 13 — Meu Bebê
+# CAPÍTULO 13 — O Bug
 
-O Kim acordou, escovou os dentes, tomou banho, se vestiu.
+Naquela noite o Kim dormiu bem.
 
-Quando abriu a porta do quarto, parou.
-
-Tinha um cheiro na casa.
-
-Ele farejou o ar igual cachorro, procurando de onde vinha. Cheiro bom. Cheiro de comida. Foi andando pela casa atrás dele e reparou outra coisa no caminho: a casa estava arrumada. Limpa.
-
-Chegou na porta da cozinha.
-
-A Helena estava no fogão. A música alta, tocando de verdade, não em fone: *Man! I Feel Like A Woman*, da Shena Twuin, o country que ela amava. E ela dançava. Mexia o quadril, cantava junto, virava os ovos na frigideira. Café com leite na mesa. Suco. Fruta cortada. A louça lavada.
-
-O Kim ficou parado na porta, sorrindo, só olhando.
-
-A música acabou. A Helena virou e deu de cara com ele.
-
-— Que que cê tá fazendo aí parado, seu doido? Quase me mata do coração!
-
-O Kim baixou a cabeça, sorrindo.
-
-— É que foi uma cena tão inusitada que eu resolvi não atrapalhar.
-
-Ela sorriu também.
-
-— Tá, chega de papinho e vem logo comer, senão você vai se atrasar pra escola, meu bebê.
-
-*Meu bebê.*
-
-O Kim sentou. Ela pôs um prato na frente dele e um café com leite bem quente. Sentou do outro lado. E os dois tomaram café da manhã juntos, conversando.
-
-No meio do café, o Kim ficou sério.
-
-— Mãe. Você não precisa fazer isso toda manhã só porque a gente teve aquela conversa...
-
-Ela olhou pra ele, confusa.
-
-— Você acha que eu tô fazendo isso por causa da nossa conversa? Que agora eu quero ser uma boa mãe? Deixa de ser besta, garoto! Eu faço o que eu quero, quando eu quero! Ninguém vai me dizer o que eu tenho que fazer.
-
-Quem fala o que quer ouve o que não quer. O Kim ficou quieto e terminou o café.
-
-Pegou o material. E aí veio outra coisa inusitada.
-
-A mãe chegou perto, abraçou ele e deu um beijo no rosto dele.
-
-— Tenha um bom dia, filho. Vê se não arruma problema na escola. E volta em segurança pra casa.
-
-O Kim ficou meio sem graça.
-
-— Obrigado, mãe. Eu vou tentar. Mas não prometo nada.
+Foi a última.
 
 ---
 
-O Jack estava na escada, do lado de fora.
+Ele abriu os olhos e o quarto estava cheio.
 
-E estava com uma cara confusa. Ele estava acostumado a ouvir a gritaria de toda manhã naquela casa. O que tinha acabado de ouvir pela porta era outra coisa.
+Levou um segundo pra entender a palavra. Cheio. O quarto dele, onde mal cabia ele mesmo.
 
-— E aí, cara, firmeza? Que que tá pegando?
+Tinha um homem na porta. Dois do lado da janela. Um encostado no armário. Dois aos pés da cama. Seis, pelo menos, foi o que deu pra contar.
 
-— Ué. Como assim? Não tô ligado do que você tá falando.
+Preto da cabeça aos pés. Capacete, colete, luva. E seis armas de verdade, todas olhando pra mesma coisa.
 
-— Tô falando desse papinho de "tenha um bom dia, não arruma problema, volta em segurança". Quem é que tá lá dentro? A voz era da tua mãe. A atitude, não.
+Pra ele.
 
-O Kim olhou pra baixo. Depois pra cima. Meio envergonhado.
+Ninguém tinha feito barulho. A escada daquela casa gemia até com gato. E eles tinham entrado, se espalhado e parado ali, esperando ele acordar, como quem espera o ônibus.
 
-— Ah, cara, é uma história tão longa... Mas a gente tem que começar a trampar. Bora, eu vou te contando no caminho.
+O Kim já tinha acordado com credor na porta. Com a Helena jogando coisa. Sabia o que era gente querendo machucar.
 
----
+Aquilo era outra coisa. Era gente trabalhando.
 
-E contou.
+*Isso é diferente.*
 
-Entre um ônibus e outro, entre um saquinho de bala e outro, o Kim contou tudo. A noite. A briga. A garrafa. A história inteira que a mãe tinha contado.
+Ele olhou de cano em cano.
 
-Na cara do Jack ele viu o mesmo ódio que tinha sentido naquela noite. O mesmo que ainda sentia toda vez que pensava naquilo.
+*E parece um problema grande. O que foi que eu aprontei agora?*
 
-Os dois eram assim. O sofrimento de um era o sofrimento do outro. Um laço do tamanho de irmão.
+Pensou na janela. No joelho. No homem mais perto. Fez a conta que sempre fazia.
 
-— Cara. — O Jack, no último ônibus, a voz baixa. — Sendo o mais sincero possível, eu não sei o que falar. Só que eu tô com raiva. Com mais raiva do que eu já senti na vida. O cara mais podre que a gente já enfrentou não chega perto. O que eu sinto é ódio desses filhos da puta que fizeram isso com você e com a tua mãe. — Ele olhou pela janela. — E eu me sinto um inútil. Porque eu sei que não tem nada que eu possa fazer pra mudar isso.
+Pela primeira vez na vida, a conta não fechou.
 
-O Kim entendia. Era exatamente o que ele estava sentindo.
+Levantou as mãos devagar.
 
-E era, quase palavra por palavra, o que ele tinha falado pra mãe.
+Foi rápido. Abraçadeira no pulso, abraçadeira no tornozelo, um saco preto na cabeça. Ninguém bateu nele. Ninguém disse uma palavra. Isso foi o que mais assustou.
 
----
+Lá de baixo veio uma voz que ele conhecia.
 
-Quando desceram perto da escola, a Nina estava no portão.
+— TIRA A MÃO DE MIM, SEU FILHO DA PUTA!
 
-Esperando por eles.
+Depois, um grito de homem.
 
-Era engraçado. Um dia. Ela tinha um dia ali e já parecia amiga de anos. Os três foram andando pelo corredor, contando o que cada um tinha feito depois de ir embora na noite anterior.
-
-— Caras. — O Jack foi o primeiro. — Depois que eu saí, eu fui pra casa. E juro, parecia que a cada passo a distância ficava maior. Quando eu cheguei, meu pai tava na porta me esperando. Ele tinha que me deixar a chave, porque eu perdi a minha. Ele olhou pra mim e já mandou: "Você tá bêbado, né?". Eu enrolei, enrolei, e no fim ele riu e falou: "Você não tem nada pra fazer amanhã, não?". Eu falei que não, que tinha arrumado uma grana e tava de folga. Aí ele: "Vai tomar um banho pra tirar essa cara de doido, deixei comida pronta". Tomei banho, bati aquela xepa, vi um filme e apaguei.
-
-O Kim e a Nina riram do jeito que ele contava.
-
-— O meu pai surtou. — A Nina. — Cheguei tarde e ainda bêbada, no primeiro dia de aula. Ele é superprotetor, então já dá pra imaginar a bronca. Mas eu tava tão bêbada que mal ouvi o sermão. Fui direto pro banho e apaguei. Só acordei no meio da noite pra comer alguma coisa. De manhã ele pediu pra eu não fazer isso de novo. — Ela deu de ombros. — Mas... sei lá.
+Pelo menos alguém naquela casa estava lutando.
 
 ---
 
-Os olhares do corredor estavam todos neles.
+Dois braços levantaram ele como quem carrega um tapete.
 
-E no meio do corredor, parado, tinha o diretor. Walter.
+Escada. Ar frio. Porta de carro. Banco de couro, couro bom demais pra aquela rua.
 
-Sozinho. Braços cruzados. O pé batendo no chão. Vermelho. Cara de quem não tinha dormido de raiva.
+O carro andou. Ele contou as curvas até perder a conta.
 
-— Será que um de vocês pode me explicar o que aconteceu ontem nos fundos da escola?
+Depois vieram vozes baixas, uma rampa de metal, um motor diferente. Enorme. Grave. O chão inteiro vibrando.
 
-O Jack coçou o queixo e sorriu.
+E a barriga do Kim ficou pra trás.
 
-— Nos fundos da escola? Não faço ideia do que o senhor tá falando, diretor.
+*Não.*
 
-— É verdade. — O Kim. — Se o senhor der uma pista, talvez a gente lembre. Mas agora não vem nada.
+Ele conhecia aquela sensação de um único lugar: cair do céu dentro do LDI. Só que lá ele podia bater a cara no chão e levantar.
 
-— Não brinquem com a minha paciência! A escola inteira tá falando. Eu ouvi de aluno, de professor, de funcionário. Briga no anexo. Faca, corrente, gente no chão. E todo boato que eu ouço termina no mesmo nome. — Apontou. — Kim. E Jack.
+*Não, não, não. Isso é um avião?*
 
-O Jack abriu os braços.
+O Kim encarava seis armas sem piscar. Mas nunca tinha entrado num avião. Altura, pra ele, era coisa que só existia pra derrubar.
 
-— Boato, diretor? O senhor vai acreditar em boato?
+Fechou as mãos amarradas e ficou quieto.
 
-— Eu quero saber o que aconteceu. E quero saber por quê.
+Uma hora. Três. Cinco. Dentro do saco não existia hora. Alguém encostou um canudo na boca dele. A fome veio e foi embora. A vontade de mijar veio e ficou.
 
-O Jack ia responder. O Kim foi antes.
+Quando o chão parou de tremer, ele respirou pela primeira vez.
 
-— Os caras que tavam no anexo são alunos daqui?
+Mais carro. Mais degraus. Um elevador que subiu por tempo demais.
 
-O Walter piscou.
+Uma cadeira. Cordas nos pulsos. Passos indo embora.
 
-— Isso não vem ao caso.
-
-— Vem, sim. — O Kim. — Porque não são. São capanga pago. Os cinco mais caros da região. Quem pagou foi o Freddy, que é aluno, e que o senhor nunca chama aqui no corredor. Entraram de faca e corrente na mão, atrás da gente. — Inclinou a cabeça. — Então a pergunta que eu faria, se fosse o senhor, é como cinco caras armados entram numa escola sem ninguém ver.
-
-O Walter abriu a boca. Fechou.
-
-— Isso... isso vai ser apurado.
-
-— Vai ser ótimo. — O Kim olhou o relógio do corredor. — Agora a gente tá começando a se atrasar. O senhor tem mais alguma coisa pra falar?
-
-O Walter ficou mais vermelho.
-
-— Tomem cuidado, vocês dois. Muito cuidado pra não perder as bolsas de vocês. Eu vou garantir que todo aluno dessa escola esteja sempre seguro. Não importam as consequências.
-
-E saiu pisando duro.
-
-A Nina olhou pros dois. Os dois continuavam sérios. Aí, devagar, o sorriso foi brotando na cara de um e depois do outro.
-
-Ela entendeu. Pra eles, aquilo era só mais um dia normal.
-
-Os três seguiram pelo corredor conversando, sem perceber que a escola inteira estava olhando pro Kim de celular na mão. Todo mundo ali sabia que o famoso Briguento das Lutas de Ilusão era ele.
+E o saco saiu.
 
 ---
 
-A dupla tinha virado trio.
+A luz doeu.
 
-Mas aquele não ia ser um dia comum. O Jack tinha planos pro Kim. E sabia que não ia ser fácil convencer. Só que, se tinha alguém no mundo que convencia o Kim a fazer o que ele não queria, era o Jack.
+Quando os olhos voltaram, o Kim achou que tinha morrido no avião.
 
-Antes de chegarem à sala, o Ryan passou por eles. E voltou.
+Tapete que engolia o pé. Lustre do tamanho do quarto dele. Madeira escura, quadro antigo, uma parede inteira coberta por cortina. Não era casa. Parecia quarto de hotel. Mas era o tipo de hotel em que aquela sala sozinha valia a rua inteira do Kim, com os moradores dentro.
 
-— Então, senhores. Quero agradecer mais uma vez pelo que vocês fizeram por mim. Naquele dia. No corredor.
+Na frente dele, outra cadeira. Vazia.
 
-A Nina olhou pros dois. Os dois fizeram cara de quem não lembrava de nada.
+Tentou virar a cabeça. A corda não deixou. O que tinha atrás dele, ele não ia saber.
 
-Os três se olharam com o mesmo sorriso.
+Mas ouviu.
 
-— Aqui está, senhor Kim. — O Jack, todo polido, estendendo uma garrafa invisível. — O vinho de 1944, safra de Levu.
+Uma porta. Pesada. Abrindo sem pressa.
 
-— Obrigado, meu caro companheiro. — O Kim, todo formal. — Aproveitarei esse caríssimo momento com a bela dama ao meu lado.
+Passos no tapete.
 
-— Oh, é um grande prazer. — A Nina, a mão na frente da boca, a voz fininha. — Será uma honra saborear esta bebida ao lado de dois senhores tão refinados.
+Um homem passou por ele sem olhar, deu a volta e sentou na cadeira da frente.
 
-Os três caíram na gargalhada.
+Terno branco, sem uma dobra. Pele morena clara. Cabelo preto, longo e liso. Podia ter trinta anos. Podia ter cinquenta. Só os olhos não tinham idade nenhuma, azuis e frios como lâmina guardada há muito tempo.
 
-O Ryan não entendeu direito. Mas sabia que estava sendo zoado. E não ligou. Aqueles dois tinham salvado a pele dele. A Sonata da Luta, o Arnold apagado no chão do corredor. Ele não ia esquecer.
+Ele cruzou as pernas e sorriu.
 
-Ele se despediu. Deu dois passos. E voltou.
+— Olá, Kim. É um prazer finalmente conhecê-lo.
 
-— Ah, é verdade. Isso aqui é pra você, Kim. Só um momento.
+O Kim não disse nada.
 
-Ajoelhou no chão e abriu a bolsa. Lá dentro, uma caixa embrulhada em papel de presente.
+— Me desculpe pelos modos. Eu estava com muita vontade de encontrar você e peço perdão por ter criado toda essa situação. Imagino que esteja assustado, desorientado. Deve ter muitas perguntas.
 
-O Kim olhou de lado pra ele.
+O Kim olhou pra ele. Só isso. Com o olhar parado de quem mede a distância até o nariz de alguém.
 
-— Cara. Pode parar aí mesmo. Nem pensa em continuar.
+O homem esperou. Não veio nada.
 
-O tom fez o Ryan travar. Ajoelhado, as mãos na caixa, paralisado.
+Então ele bateu palminhas. Duas. Leves.
 
-— Eu não sei o que você acha que aconteceu naquele corredor. Mas o que eu sei é que você não me deve nada. Muito menos presente. Aquilo foi física. Quem deu o soco foi você.
+— Soltem o rapaz. Ele não é um animal.
 
-O Jack e a Nina caíram na risada da cara do Kim, que não sabia o que fazer com aquilo.
+Dois seguranças vieram de trás. Terno preto, óculos escuros, ponto no ouvido. Pareciam ter sido comprados em caixa. Um deles abaixou pra cortar a corda, e o Kim viu a mão do sujeito.
 
-— Ah, mas se você não aceitar vai ser uma pena. — O Ryan. — Porque eu já tenho um igual. Não vou ter o que fazer com esse.
+Faixa nova. Sangue vazando.
 
-— E o que seria esse presente? — Jack.
+Tinha o formato exato de uma mordida.
 
-— Um SBI. Eu comprei um SBI pro Kim depois que eu vi um vídeo dele na internet.
+O Kim quase sorriu.
 
-— Que vídeo? — Nina. — Do que você tá falando?
+*Essa é a dona Helena.*
 
-O Ryan sentiu os três em cima dele ao mesmo tempo.
+Esfregou os pulsos. Abriu e fechou os dedos.
 
-— Acho melhor eu começar do começo. Pode ser?
+— Agora nos deem licença. Quero conversar só com o rapaz.
 
-Os três fizeram que sim.
+— Estaremos do outro lado da porta, senhor. Qualquer coisa, é só chamar.
 
-— Ontem eu fui dar uma olhada no PowWow. Um dos vídeos mais assistidos era o do Kim lutando contra o Thunderbolt. A luta foi impressionante e eu queria ver mais. Só que... desculpa falar isso... eu nunca vi você com um SBI. Imaginei que você não jogava. Ou que talvez não tivesse condição de comprar um. Mas a tua luta foi tão sensacional que seria um desperdício a gente não poder ver mais. Então eu comprei um pra você. Como agradecimento. Mas não é caridade. É investimento. Você é novato e desconhecido no jogo. Se você lutar de novo, eu vou ser avisado. E vou fazer uma aposta grande em você. Porque, se você ganhar, o retorno é muito alto.
+— Não haverá problema nenhum.
 
-O Kim coçou a cabeça.
+Agora o Kim podia virar. Virou. Viu os dois saindo, viu a porta, viu o tamanho dela. Guardou tudo.
 
-— Como você sabe que era eu? Não tinha o meu nome lá.
+A porta fechou.
 
-— Cara. — O Jack, sorrindo. — O teu avatar é igualzinho a você. Então essa ideia de ficar anônimo, pra quem já te conhece, já era.
+— Agora sim. — O homem abriu as mãos. — Agora podemos conversar de maneira civilizada. Aceita uma bebida? Tenho alguns sabores muito bons na minha coleção.
 
-E virou pro Ryan.
+O Kim olhou pra um lado. Olhou pro outro. Passou a mão no pulso uma última vez.
 
-— Mas peraí. Você falou de SBI de graça? Tipo, na faixa? Free?
+— Bem. Manda o que você tiver de mais caro.
 
-O Ryan fez que sim.
+O sorriso do homem parou um instante. Coisa de nada. Ele tinha esperado grito. Choro. Ameaça. Tinha uma resposta pronta pra cada um.
 
-O Jack juntou as mãos em gratidão e abraçou o garoto.
-
-— Então, meu senhor, muito obrigado por esse gesto gentil. Será que eu posso pegar o presente agora?
-
-O Ryan levantou do chão com a caixa. E o Jack pegou antes que o Kim tivesse tempo de recusar.
+— Claro. — Levantou. — Você tem toda a razão.
 
 ---
 
-A Nina já estava com o celular na mão, no PowWow.
+O armário de bebidas ocupava uma parede. O homem foi passando o dedo pelas garrafas, sem olhar pra trás.
 
-Lá estava o vídeo. O que ela tinha visto ao vivo. Entre os dez mais assistidos do mundo.
+— Você parece calmo. Eu diria que calmo demais. Não sei se eu estaria assim no seu lugar.
 
-Até ali, nenhum dos três tinha procurado os vídeos daquela luta. Na véspera tinham ido beber e voltado pra casa bêbados. A Nina não tinha aberto o PowWow. O Jack tinha apagado. E o Kim só queria esquecer o que tinha acontecido dentro do jogo.
+— Não tem muito o que possa fazer, não é mesmo? Me trouxeram sem perguntar se eu queria vir. Já que eu tô aqui, vou tomar uma bebida cara. E quem teve esse trabalho todo pra falar comigo deve ter alguma coisa importante pra dizer.
 
-Ela foi mostrando. Os cortes. Os vídeos curtos. Não era um vídeo só. Eram dezenas.
+O homem riu baixo. Escolheu uma garrafa.
 
-O Kim viu a própria cara do lado de um número de visualização enorme.
+— Você é mesmo um garoto curioso. Talvez esteja se fazendo de corajoso. Talvez não tenha entendido a sua situação. Mas pode ficar tranquilo: aqui não existe perigo nenhum à sua integridade física.
 
-O Jack abriu o sorriso mais largo do mundo. O amigo dele tinha estourado. Agora todo mundo ia ver o que ele sempre tinha visto.
+— Se não tem perigo nenhum... — O Kim. — Cadê a minha bebida?
 
-O Kim agarrou o pescoço do Jack.
+E o homem riu. Dessa vez de verdade, com a cabeça pra trás. Pareceu um pouco surpreso com o som.
 
-— Então, seu filho da puta, você não disse que eu ia poder ficar anônimo nessa porra?
+Serviu dois copos. Entregou um. Sentou com o outro.
 
-— Calma, cara. — O Jack, com a voz de quem está sufocando. — Você vai poder a partir da próxima luta. Como é que eu ia saber que você ia estourar logo na primeira? A gente dá um jeito, relaxa.
+— Eu não deveria servir álcool a um menor de idade. Mas acho que hoje não será problema.
 
-O Ryan ficou olhando aquilo sem entender. Talvez estivesse enganado, mas parecia que o Kim não estava nada feliz de ficar famoso.
+— Você também não deveria sequestrar ninguém. A bebida é o menor dos teus problemas.
 
-Bom. Não era problema dele. Ele não podia se atrasar pro cursinho.
+O Kim deu um gole.
 
-— Gente, desculpa, mas eu preciso ir. Espero que vocês gostem do presente. E que o Kim continue lutando. As tuas lutas são muito boas. Até mais.
+Aquilo desceu como se alguém tivesse acendido um pneu dentro da garganta dele. Os olhos encheram. Ele segurou a cara. Segurou com tudo que tinha.
 
-Saiu apressado pra um carro que esperava por ele.
+*Puta que pariu. Isso é ruim pra caralho. Quem paga por isso?*
 
-Os três ficaram ali. O Jack ainda preso no braço do Kim.
+— Bom. — A voz saiu um pouco mais fina. Ele limpou a garganta. — Por que eu tô aqui?
 
-— Kim. — A Nina, depois de um tempo. — Solta ele.
+— Essa pergunta destrava toda a nossa conversa. — O homem girou o copo. — Vamos começar por outra. Você sabe quem eu sou?
 
-O Kim revirou os olhos e soltou. O Jack puxou a gola da camiseta, conferindo a garganta.
+O Kim tomou outro gole. Sofreu em silêncio.
 
-— Cara. Você quase me matou dessa vez. Fiquei vendo estrela.
+— Não.
 
-— Para de ser besta, seu cuzão. Eu nem apertei direito.
+— Meu nome é David Kronos. Eu sou o fundador da Yohualticit, criadora do Lutas de Ilusão.
+
+Pela primeira vez, o olho do Kim abriu um pouco mais.
+
+— Certo. Agora quem tá curioso sou eu. Pelo que eu sei, você é um homem bem poderoso. O que um cara desses quer com um moleque que não tem nada?
+
+— Pois é. O que eu poderia querer com um garoto como você? — Kronos bebeu. — Acontece que você entrou no meu jogo, lutou uma partida e chamou a atenção do mundo inteiro. Inclusive a minha.
+
+— Teu jogo não é feito pra isso? A gente joga, cresce, fica famoso, ganha dinheiro. Me explicaram meio por cima.
+
+— É exatamente pra isso. Mas você fez muito mais rápido do que eu esperava.
+
+— Aí o problema é teu, né? Vai ver teu jogo tá com defeito. Como é que as pessoas chamam? — Estalou os dedos. — Bug.
+
+Kronos riu de novo, mais baixo.
+
+— Bug. Sim. É uma excelente definição. — O sorriso continuou na boca. Saiu dos olhos. — É isso que você é no meu jogo, Kim. Sabe o que você fez?
+
+— Não faço a menor ideia.
+
+Outro gole. Esse desceu sem careta. Ele já não sentia a garganta.
+
+— Você despertou algo muito especial. Algo totalmente inesperado. E eu gostaria muito de saber como.
+
+O Kim olhou pro copo.
+
+*Não sei do que esse cara tá falando. Deve ser aquilo que o Jack e a Nina me contaram, que eu não lembro.*
+
+Ia dizer isso.
+
+Só que o Kim tinha passado a vida vendendo bala em ônibus. Sabia reconhecer a hora em que o cliente abre a carteira.
+
+Levantou os olhos. Sério.
+
+— O que eu ganho se te contar tudo que eu sei?
+
+Silêncio.
+
+Kronos descruzou as pernas e se inclinou pra frente. Devagar. Conhecia aquele tom. Só não esperava ouvi-lo de um moleque descalço, de cueca, numa sala daquelas.
+
+— O que você quiser. Como já deve estar claro, eu sou um homem de muitas posses. Tudo que eu peço é saber como você fez o que fez. O que você quer?
+
+O Kim levantou. Andou até o meio do tapete. Deixou o homem esperar um pouco, porque tinha visto ele fazer isso.
+
+— Olha, cara. Eu tô vendo que você investiu muito tempo e muito dinheiro nesse encontro. Acho que não vai se importar de pagar uma boa quantia por tudo que eu sei. Não é mesmo?
+
+Kronos tirou o celular do bolso sem deixar de olhar pra ele.
+
+— Me dê o número.
+
+*O número.*
+
+O estômago do Kim caiu de novo. Pior que no avião.
+
+*Caralho. Puta que pariu. O número. Alto demais, ele ri da minha cara. Baixo demais, eu me mato pelo resto da vida. Quanto custa um avião? Quanto custa essa merda de lustre? Qual é o número, qual é o número, QUAL É O NÚMERO?*
+
+Por fora, o Kim coçou a orelha.
+
+— Um milhão. No DIX. Agora.
+
+Ele nunca tinha dito aquele número em voz alta. Nem de brincadeira.
+
+Kronos não piscou.
+
+— Feito.
+
+— Só que eu tô sem celular. Não vou ter como saber se você fez mesmo.
+
+— Ah. Seu celular. — Duas palminhas. A porta abriu na hora. — Traga o aparelho do rapaz.
+
+O segurança da mão enfaixada atravessou a sala e estendeu o celular de tela rachada do Kim, como quem entrega uma joia a um museu. O Kim olhou pra faixa. Olhou pro homem.
+
+— Tá doendo?
+
+O homem não respondeu. O maxilar respondeu.
+
+O Kim desbloqueou a tela.
+
+Kronos tocou uma vez com o polegar.
+
+O celular apitou. Um som pequeno. O mesmo que apitava pelo saquinho de bala.
+
+*Transferência recebida.*
+
+*DIX 1.000.000,00.*
+
+Ele contou os zeros. Contou de novo.
+
+Por fora, calma.
+
+Por dentro, ele estava enlouquecendo. Nem sabia dizer se aquele número era real. Nunca tinha visto tantos zeros na vida. Ainda mais na conta dele.
+
+*O Jack vai ficar louco.*
+
+Bem. Agora era hora de entregar o que o homem queria.
+
+Um leve sorriso.
+
+— Confirmado.
+
+— Ótimo. — Kronos apoiou o queixo na mão. Pela primeira vez, sem máscara nenhuma. Faminto. — Agora me conte, Kim. Como você libertou o Primordial?
+
+O Kim voltou. Sentou na cadeira. Olhou bem nos olhos dele.
+
+— Eu sou uma pessoa de palavra. — Muito sério. — Eu disse que ia contar tudo que eu sei sobre isso. E aqui vai.
+
+Tomou fôlego.
+
+— Eu não faço a menor ideia de como aconteceu.
+
+Kronos não se mexeu.
+
+— Não sei de nada. Simplesmente aconteceu. Eu nem lembro. Essa é a história toda. Agora eu quero ir pra casa. Muito obrigado.
 
 ---
 
-O Jack deu de ombros e rasgou o papel de presente inteiro.
+O homem que criou o maior jogo do planeta ficou olhando pra ele.
 
-Edição limitada. E tinha uma coisa especial: dava pra levar numa loja da Corporação Lutas de Ilusão e personalizar do jeito que quisesse. Nome, iluminação, as cores.
+Um segundo.
 
-— Cara. — O Jack, maravilhado. — Esse SBI é incrível! Muito melhor que o meu. E muito melhor do que o que a gente ia conseguir com o meu plano.
+Dois.
 
-— Que plano?
+Cinco.
 
-— Eu ia te levar hoje depois da aula numas lojas, pra ver se alguém topava trocar PUBLI contigo por um SBI. Só que, mesmo se desse certo, eles iam te dar um baratinho ou algum zuado que tivessem lá. Esse aqui foi um achado, velho.
+Em algum lugar do prédio, um ar-condicionado desligou.
 
-A Nina pegou o SBI da mão dele e olhou com cuidado.
+O Kim bebeu mais um gole. Fez *ah*.
 
-— O Jack tem razão. Edição limitada. Dá pra fazer alteração autorizada pela CLI. E você pode levar em qualquer loja que sai de graça. Parabéns.
-
-O Jack olhou pro Kim, todo feliz.
-
-— Você não quer trocar o teu pelo meu?
-
-O Kim coçou o queixo.
-
-— Tá beleza. Eu fico com o teu. Você fica com esse negócio aí.
-
-— Não. — A Nina, balançando a cabeça. — Você não pode aceitar uma coisa dessa. Você acabou de ganhar de presente e vai dar pro Jack? Deixa de ser besta, Kim.
-
-O Kim respirou pra responder. No meio da respiração, desistiu. Baixou a cabeça e, de muito mau humor, pegou a caixa da mão do Jack.
-
-— Tá bom. Tá bom. Você quer que eu fique com isso? Eu fico, né. Fazer o quê.
-
-— Sério? Tem hora que vocês dois parecem duas crianças.
-
-— Tá bom, mãe. — O Jack. — Tá bom, mãe. A gente promete se comportar.
-
-A Nina riu.
+Dez segundos.
 
 ---
 
-Foram andando. O Kim olhando o SBI de perto pela primeira vez. Na única luta dele, quem tinha posto o aparelho na cara dele foi o Jack, e ele estava mais preocupado com o adversário.
+— Você não está falando sério.
 
-— Que foi? — O Jack. — Tá impressionado?
+— Tô, sim. Prometi te contar tudo que eu sei, e é tudo que eu sei. Só sei que nada sei.
 
-— Isso aqui parece caro. Quanto será que custa um bagulho desse?
+Kronos fechou os olhos.
 
-— Ah, cara, o meu eu paguei uns quatro mil. E o meu é dos mais baratos.
+— Você não está citando Sócrates pra mim.
 
-— Eita porra, maluco. E quanto será que custa esse aqui?
+— Quem?
 
-— O teu deve tá na faixa de sessenta, setenta mil. — A Nina.
+E o David Kronos começou a rir. Sem som no começo. Depois com os ombros. Riu até precisar pôr o copo na mesa.
 
-O Kim pôs a mão no peito como se fosse ter um infarto e se segurou no Jack.
+Bateu palminhas. A porta abriu.
 
-— Não. Sério, gente. Para. A gente tem que devolver isso aqui. Não dá pra ficar. Sério mesmo! Mano, olha o valor disso! Não dá, não dá, não dá! A gente tem que resolver isso hoje. Vai dar rolo. Vai dar rolo!
+— Pois não, senhor.
 
-O Jack e a Nina riram gostoso.
+— Leve o rapaz de volta. Não temos mais nada a conversar.
 
-— Calma, cara! — A Nina. — Pra que esse drama? Pra eles isso deve ser tipo o troco do pão. Ele falou que já tinha um igual. Se ele não quisesse que você ficasse, não tinha te dado.
+O Kim virou o copo, matou a última gota, pôs em cima da mesa com cuidado, porque devia custar mais que a casa dele, e levantou.
 
-— Mas, mano, isso é caro demais! Ninguém em sã consciência dá isso de graça. Não existe! Com certeza ele vai querer alguma coisa em troca. E eu não tenho paciência pra quid pro quo quando eu não sei os termos do acordo antes.
+Foi andando na frente, o segurança atrás. Descalço. De cueca. Um milhão mais rico.
 
-O Jack conhecia o amigo. Sabia que ele não ia ficar em paz com aquilo.
+Na porta, parou. Olhou por cima do ombro.
 
-— Cara, tudo bem. Tudo bem. Hoje você usa esse aparelho, e amanhã a gente devolve pro cara. Pode ser?
+Kronos continuava lá, olhando pra ele com aquele sorriso.
 
-O Kim fez que sim.
+O Kim sorriu também. De leve. Levantou a mão.
 
-Guardaram a caixa e foram pra sala. O resto das aulas passou com o Kim tentando prestar atenção e o Jack olhando pra mochila do amigo de vez em quando.
+Dedo do meio.
 
-Só depois do último sinal saíram da escola e foram pra uma praça ali perto.
+E saiu.
+
+---
+
+A porta fechou.
+
+Kronos ficou um bom tempo olhando pra ela.
+
+— Garoto insolente.
+
+Pegou o copo que o Kim tinha deixado. Virou contra a luz.
+
+— Eu já vi todo tipo de gente ao longo desses séculos. E é a primeira vez que não sei definir. Burrice. Sabedoria. Arrogância. — O sorriso voltou, devagar. — E ainda saiu daqui com um milhão meu. Bela jogada.
+
+Pôs o copo na mesa.
+
+O sorriso acabou.
+
+— Bela jogada. Só que você me deu uma coisa preciosa, garoto. Mesmo sem querer.
+
+Abriu a cortina. Lá embaixo, uma cidade inteira, pequena demais pra ele.
+
+— O Primordial não veio por vontade sua. Você não buscou. Ele apareceu sozinho, na hora em que você se conectou ao Mundo de Ilusão. — Os olhos azuis refletiam as luzes. — Novas conexões vão me dar novas respostas.
+
+Pegou o celular. Os mesmos dedos que tinham dado um milhão a um moleque.
+
+*Quero o acompanhamento do DNA Soul do Kim.*
+
+*Todas as lutas monitoradas. Todos os dados enviados automaticamente na hora em que ele conectar.*
+
+*Equipe de investigação. Rastreamento dia e noite.*
+
+Parou um instante. Acrescentou:
+
+*Garantam que ele lute. Muitas e muitas vezes. Até a exaustão.*
+
+Enviou.
+
+— Pode ficar com o dinheiro, Kim. — Quase com carinho. — O que você vai me pagar, dinheiro nenhum compra. E tudo será meu.
+
+---
+
+Passava das oito da noite quando largaram ele na esquina de casa.
+
+Dessa vez nem o avião incomodou. Ele passou a viagem inteira com a mão fechada no celular.
+
+A porta da frente estava torta na dobradiça.
+
+Mal encostou nela, ela abriu por dentro.
+
+A Helena se jogou em cima dele. O cheiro de cigarro, o cabelo roxo na cara dele, os braços apertando até doer.
+
+— Kim. Kim, seu desgraçado. Você tá bem? O que aconteceu? Quem eram aqueles filhos da puta? Eu liguei pra polícia! Liguei três vezes! Fui até na delegacia, e o desgraçado do balcão anotou o teu nome como quem anota recado de padaria! Liguei até pro Jack! Ninguém sabia de nada, e ninguém tava nem aí!
+
+— Tô bem, dona Helena.
+
+Ele abraçou ela de volta. Ficaram assim, na porta torta.
+
+Uma noite antes, aquilo não teria acontecido.
+
+— Por que invadiram a nossa casa?
+
+— Eu não sei. Juro. Queriam me perguntar uma coisa.
+
+Ela afastou ele pelos ombros.
+
+— Entraram com fuzil na minha casa pra fazer uma *pergunta*?
+
+— Foi.
+
+— E tá tudo bem mesmo?
+
+— Tá. Inclusive, muito bem.
+
+Ela olhou aquela cara. Conhecia aquela cara desde que ele tinha o tamanho de uma mala. Ele estava em casa e estava em outro lugar.
+
+— Posso descansar um pouco?
+
+— Pode. — Limpou o rosto com o pulso, com raiva do próprio rosto. — Vou fazer alguma coisa pra você comer. E olha. Eu mordi um deles. Só pra você saber.
+
+— Eu sei. — O Kim sorriu. — Eu vi.
+
+---
+
+O celular tinha sessenta e três mensagens.
+
+Quarenta e nove do Jack, que começavam em *cadê vc* e terminavam em *se vc morreu eu te mato*. Catorze da Nina, cada vez mais curtas.
+
+Ele sentou na cama. Mandou:
+
+*to vivo. tenho que te contar uma coisa*
+
+O telefone tocou antes de ele soltar.
+
+— MANO. Cê sumiu o dia inteiro! Tô te mandando mensagem desde cedo! Que porra aconteceu?
+
+— Até a Helena me ligou, cara. A HELENA. Pela primeira vez na vida. Nem sabia que ela tinha o meu número. Eu tô preocupado de verdade.
+
+— Respira. Eu tô bem. Vou contar. Mas você vai achar que eu tô bêbado.
+
+— Tá bêbado?
+
+— Um pouco. Whisky de rico é horrível.
+
+E contou. Os seis. O saco. O avião, e o Jack gritou "VOCÊ ANDOU DE AVIÃO?" como se fosse a pior parte. O lustre. O terno branco.
+
+Do outro lado, silêncio.
+
+Em todos aqueles anos, aquilo não tinha acontecido nenhuma vez.
+
+— Peraí. *O* David Kronos. Tomou whisky com você.
+
+— Falou que eu sou um bug.
+
+— Maluco. Que doideira.
+
+— E me deu um milhão.
+
+Silêncio de novo. Mais longo.
+
+— Um milhão de quê?
+
+— DIX.
+
+— ...Kim.
+
+— Eu só testei. Aí ele mandou. Depois eu falei que não sabia de nada, mostrei o dedo e fui embora.
+
+O som que veio do telefone não era uma palavra.
+
+— ESTOUROU! Puta que pariu, mano, ESTOUROU! Estourou demais! Você mandou muito bem!
+
+O Kim riu.
+
+Depois parou.
+
+— Jack. Eu não sei o que aconteceu. E não sei por que esse cara tá atrás de mim. Ele levou um milhão na cara e riu. Ninguém faz isso.
+
+A voz do Jack mudou. Era a voz dos becos.
+
+— Beleza. Melhor a gente se trombar. Vou chamar a Nina. Na delegacia, a gente conversa direito.
+
+---
+
+Tomou banho até a água esfriar.
+
+Quando desceu, a Helena tinha feito ovo, arroz e um bife que ninguém sabia de onde tinha saído. O Kim parou na porta um segundo. Sentou. Ela sentou na frente, acendeu um cigarro, e ele entendeu que não ia sair dali sem falar.
+
+— Eles queriam mesmo só me perguntar uma coisa, dona Helena. São de uma empresa muito grande. O dono é um tal de David Kronos, não sei se você...
+
+O isqueiro parou na mão dela.
+
+— David Kronos? *Você* se encontrou com o David Kronos?
+
+Ele contou. Quase tudo. O número ficou de fora.
+
+Comeu. Levou o prato até a pia.
+
+— Vou dar uma saída, dona Helena. Vou encontrar o Jack pra resolver umas coisas.
+
+— Se for chegar tarde, me avisa.
+
+Ele parou.
+
+Ela nunca tinha falado aquilo. Soprou a fumaça olhando pro outro lado, como se não tivesse sido ela.
+
+— Aviso.
+
+Saiu.
+
+A noite de Marelia estava igual a todas. O mesmo cachorro. O mesmo poste piscando. Ele enfiou as mãos nos bolsos e foi andando pra delegacia, se sentindo, pela primeira vez na vida, um cara que tinha ganhado.
+
+Longe dali, uma tela acendeu.
+
+*BRIGUENTO 142536.*
+
+*RASTREAMENTO ATIVO.*
+
+Na esquina, um carro comum ligou o motor. Dois homens dentro. Na outra quadra, uma mulher fechou o jornal e começou a andar.
+
+Dentro do LDI e fora dele, o Kim nunca mais estaria sozinho.

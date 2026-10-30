@@ -304,6 +304,126 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
+      "label": "T1_PENDENCIAS.md",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias",
+      "community": 776,
+      "norm_label": "t1_pendencias.md"
+    },
+    {
+      "label": "Temporada 1 \u2014 o que falta (por prazo)",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "community": 776,
+      "norm_label": "temporada 1 \u2014 o que falta (por prazo)"
+    },
+    {
+      "label": "P0 \u2014 Lan\u00e7amento 15/11/2026",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias_p0_lan\u00e7amento_15_11_2026",
+      "community": 776,
+      "norm_label": "p0 \u2014 lancamento 15/11/2026"
+    },
+    {
+      "label": "P1 \u2014 at\u00e9 o 1\u00ba hiato (dez/2026 \u2013 fev/2027)",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias_p1_at\u00e9_o_1o_hiato_dez_2026_fev_2027",
+      "community": 776,
+      "norm_label": "p1 \u2014 ate o 1o hiato (dez/2026 \u2013 fev/2027)"
+    },
+    {
+      "label": "P2 \u2014 2\u00ba ciclo (mar \u2013 mai/2027)",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias_p2_2o_ciclo_mar_mai_2027",
+      "community": 776,
+      "norm_label": "p2 \u2014 2o ciclo (mar \u2013 mai/2027)"
+    },
+    {
+      "label": "P3 \u2014 2\u00ba hiato (jun/2027)",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias_p3_2o_hiato_jun_2027",
+      "community": 776,
+      "norm_label": "p3 \u2014 2o hiato (jun/2027)"
+    },
+    {
+      "label": "P4 \u2014 3\u00ba ciclo (jul \u2013 set/2027)",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias_p4_3o_ciclo_jul_set_2027",
+      "community": 776,
+      "norm_label": "p4 \u2014 3o ciclo (jul \u2013 set/2027)"
+    },
+    {
+      "label": "P5 \u2014 3\u00ba hiato (out/2027)",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias_p5_3o_hiato_out_2027",
+      "community": 776,
+      "norm_label": "p5 \u2014 3o hiato (out/2027)"
+    },
+    {
+      "label": "P6 \u2014 fim do ano (nov \u2013 dez/2027)",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias_p6_fim_do_ano_nov_dez_2027",
+      "community": 776,
+      "norm_label": "p6 \u2014 fim do ano (nov \u2013 dez/2027)"
+    },
+    {
+      "label": "Rotas do projeto (o que existe hoje)",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias_rotas_do_projeto_o_que_existe_hoje",
+      "community": 776,
+      "norm_label": "rotas do projeto (o que existe hoje)"
+    },
+    {
+      "label": "Tradu\u00e7\u00f5es em andamento (agentes)",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias_tradu\u00e7\u00f5es_em_andamento_agentes",
+      "community": 776,
+      "norm_label": "traducoes em andamento (agentes)"
+    },
+    {
+      "label": "Fora da T1 (sem data)",
+      "file_type": "document",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L85",
+      "_origin": "ast",
+      "id": "docs_t1_pendencias_fora_da_t1_sem_data",
+      "community": 776,
+      "norm_label": "fora da t1 (sem data)"
+    },
+    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
@@ -314,14 +434,114 @@
       "norm_label": "version.js"
     },
     {
+      "label": "PainelProjeto.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_painel_painelprojeto",
+      "community": 87,
+      "norm_label": "painelprojeto.jsx"
+    },
+    {
+      "label": "MD",
+      "file_type": "code",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "src_pages_painel_painelprojeto_md",
+      "community": 87,
+      "norm_label": "md"
+    },
+    {
+      "label": "tem()",
+      "file_type": "code",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "src_pages_painel_painelprojeto_tem",
+      "community": 87,
+      "norm_label": "tem()"
+    },
+    {
+      "label": "naT1()",
+      "file_type": "code",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "src_pages_painel_painelprojeto_nat1",
+      "community": 87,
+      "norm_label": "nat1()"
+    },
+    {
+      "label": "MANUAL",
+      "file_type": "code",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "src_pages_painel_painelprojeto_manual",
+      "community": 87,
+      "norm_label": "manual"
+    },
+    {
+      "label": "idiomas()",
+      "file_type": "code",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_pages_painel_painelprojeto_idiomas",
+      "community": 87,
+      "norm_label": "idiomas()"
+    },
+    {
+      "label": "grupos()",
+      "file_type": "code",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "src_pages_painel_painelprojeto_grupos",
+      "community": 87,
+      "norm_label": "grupos()"
+    },
+    {
+      "label": "pct()",
+      "file_type": "code",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "src_pages_painel_painelprojeto_pct",
+      "community": 87,
+      "norm_label": "pct()"
+    },
+    {
+      "label": "Barra()",
+      "file_type": "code",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L83",
+      "_origin": "ast",
+      "id": "src_pages_painel_painelprojeto_barra",
+      "community": 87,
+      "norm_label": "barra()"
+    },
+    {
+      "label": "PainelProjeto()",
+      "file_type": "code",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L87",
+      "_origin": "ast",
+      "id": "src_pages_painel_painelprojeto_painelprojeto",
+      "community": 87,
+      "norm_label": "painelprojeto()"
+    },
+    {
       "label": "Painel.jsx",
       "file_type": "code",
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_painel_painel",
       "community": 470,
-      "norm_label": "painel.jsx"
+      "norm_label": "painel.jsx",
+      "id": "src_pages_painel_painel"
     },
     {
       "label": "NotFound",
@@ -329,9 +549,9 @@
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "src_pages_painel_painel_notfound",
       "community": 470,
-      "norm_label": "notfound"
+      "norm_label": "notfound",
+      "id": "src_pages_painel_painel_notfound"
     },
     {
       "label": "SECOES",
@@ -339,9 +559,9 @@
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "src_pages_painel_painel_secoes",
       "community": 470,
-      "norm_label": "secoes"
+      "norm_label": "secoes",
+      "id": "src_pages_painel_painel_secoes"
     },
     {
       "label": "ICONE",
@@ -349,9 +569,9 @@
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "src_pages_painel_painel_icone",
       "community": 470,
-      "norm_label": "icone"
+      "norm_label": "icone",
+      "id": "src_pages_painel_painel_icone"
     },
     {
       "label": "COM_PERIODO",
@@ -359,9 +579,9 @@
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "src_pages_painel_painel_com_periodo",
       "community": 470,
-      "norm_label": "com_periodo"
+      "norm_label": "com_periodo",
+      "id": "src_pages_painel_painel_com_periodo"
     },
     {
       "label": "FILTROS",
@@ -369,9 +589,9 @@
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "src_pages_painel_painel_filtros",
       "community": 470,
-      "norm_label": "filtros"
+      "norm_label": "filtros",
+      "id": "src_pages_painel_painel_filtros"
     },
     {
       "label": "Painel()",
@@ -379,9 +599,9 @@
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L34",
       "_origin": "ast",
-      "id": "src_pages_painel_painel_painel",
       "community": 470,
-      "norm_label": "painel()"
+      "norm_label": "painel()",
+      "id": "src_pages_painel_painel_painel"
     },
     {
       "label": "PainelTarefas.jsx",
@@ -7312,106 +7532,6 @@
       "community": 443,
       "norm_label": "prototype()",
       "id": "src_pages_lab_prototype_prototype_prototype"
-    },
-    {
-      "label": "PainelProjeto.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 87,
-      "norm_label": "painelprojeto.jsx",
-      "id": "src_pages_painel_painelprojeto"
-    },
-    {
-      "label": "MD",
-      "file_type": "code",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 87,
-      "norm_label": "md",
-      "id": "src_pages_painel_painelprojeto_md"
-    },
-    {
-      "label": "tem()",
-      "file_type": "code",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 87,
-      "norm_label": "tem()",
-      "id": "src_pages_painel_painelprojeto_tem"
-    },
-    {
-      "label": "naT1()",
-      "file_type": "code",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 87,
-      "norm_label": "nat1()",
-      "id": "src_pages_painel_painelprojeto_nat1"
-    },
-    {
-      "label": "MANUAL",
-      "file_type": "code",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L20",
-      "_origin": "ast",
-      "community": 87,
-      "norm_label": "manual",
-      "id": "src_pages_painel_painelprojeto_manual"
-    },
-    {
-      "label": "idiomas()",
-      "file_type": "code",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 87,
-      "norm_label": "idiomas()",
-      "id": "src_pages_painel_painelprojeto_idiomas"
-    },
-    {
-      "label": "grupos()",
-      "file_type": "code",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L31",
-      "_origin": "ast",
-      "community": 87,
-      "norm_label": "grupos()",
-      "id": "src_pages_painel_painelprojeto_grupos"
-    },
-    {
-      "label": "pct()",
-      "file_type": "code",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L81",
-      "_origin": "ast",
-      "community": 87,
-      "norm_label": "pct()",
-      "id": "src_pages_painel_painelprojeto_pct"
-    },
-    {
-      "label": "Barra()",
-      "file_type": "code",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L83",
-      "_origin": "ast",
-      "community": 87,
-      "norm_label": "barra()",
-      "id": "src_pages_painel_painelprojeto_barra"
-    },
-    {
-      "label": "PainelProjeto()",
-      "file_type": "code",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L87",
-      "_origin": "ast",
-      "community": 87,
-      "norm_label": "painelprojeto()",
-      "id": "src_pages_painel_painelprojeto_painelprojeto"
     },
     {
       "label": "arenaLDI.js",
@@ -55634,126 +55754,6 @@
       "id": "docs_ldi_arena_gdd"
     },
     {
-      "label": "T1_PENDENCIAS.md",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "t1_pendencias.md",
-      "id": "docs_t1_pendencias"
-    },
-    {
-      "label": "Temporada 1 \u2014 o que falta (por prazo)",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "temporada 1 \u2014 o que falta (por prazo)",
-      "id": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo"
-    },
-    {
-      "label": "P0 \u2014 Lan\u00e7amento 15/11/2026",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L7",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "p0 \u2014 lancamento 15/11/2026",
-      "id": "docs_t1_pendencias_p0_lan\u00e7amento_15_11_2026"
-    },
-    {
-      "label": "P1 \u2014 at\u00e9 o 1\u00ba hiato (dez/2026 \u2013 fev/2027)",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "p1 \u2014 ate o 1o hiato (dez/2026 \u2013 fev/2027)",
-      "id": "docs_t1_pendencias_p1_at\u00e9_o_1o_hiato_dez_2026_fev_2027"
-    },
-    {
-      "label": "P2 \u2014 2\u00ba ciclo (mar \u2013 mai/2027)",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "p2 \u2014 2o ciclo (mar \u2013 mai/2027)",
-      "id": "docs_t1_pendencias_p2_2o_ciclo_mar_mai_2027"
-    },
-    {
-      "label": "P3 \u2014 2\u00ba hiato (jun/2027)",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L39",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "p3 \u2014 2o hiato (jun/2027)",
-      "id": "docs_t1_pendencias_p3_2o_hiato_jun_2027"
-    },
-    {
-      "label": "P4 \u2014 3\u00ba ciclo (jul \u2013 set/2027)",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L45",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "p4 \u2014 3o ciclo (jul \u2013 set/2027)",
-      "id": "docs_t1_pendencias_p4_3o_ciclo_jul_set_2027"
-    },
-    {
-      "label": "P5 \u2014 3\u00ba hiato (out/2027)",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L51",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "p5 \u2014 3o hiato (out/2027)",
-      "id": "docs_t1_pendencias_p5_3o_hiato_out_2027"
-    },
-    {
-      "label": "P6 \u2014 fim do ano (nov \u2013 dez/2027)",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L57",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "p6 \u2014 fim do ano (nov \u2013 dez/2027)",
-      "id": "docs_t1_pendencias_p6_fim_do_ano_nov_dez_2027"
-    },
-    {
-      "label": "Rotas do projeto (o que existe hoje)",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L61",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "rotas do projeto (o que existe hoje)",
-      "id": "docs_t1_pendencias_rotas_do_projeto_o_que_existe_hoje"
-    },
-    {
-      "label": "Tradu\u00e7\u00f5es em andamento (agentes)",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L79",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "traducoes em andamento (agentes)",
-      "id": "docs_t1_pendencias_tradu\u00e7\u00f5es_em_andamento_agentes"
-    },
-    {
-      "label": "Fora da T1 (sem data)",
-      "file_type": "document",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L83",
-      "_origin": "ast",
-      "community": 776,
-      "norm_label": "fora da t1 (sem data)",
-      "id": "docs_t1_pendencias_fora_da_t1_sem_data"
-    },
-    {
       "label": "MANUAL_BATALHA_LDI.md",
       "file_type": "document",
       "source_file": "docs/importantes/MANUAL_BATALHA_LDI.md",
@@ -65756,6 +65756,116 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_t1_pendencias",
+      "target": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "target": "docs_t1_pendencias_fora_da_t1_sem_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "target": "docs_t1_pendencias_p0_lan\u00e7amento_15_11_2026",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "target": "docs_t1_pendencias_p1_at\u00e9_o_1o_hiato_dez_2026_fev_2027",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "target": "docs_t1_pendencias_p2_2o_ciclo_mar_mai_2027",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "target": "docs_t1_pendencias_p3_2o_hiato_jun_2027",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "target": "docs_t1_pendencias_p4_3o_ciclo_jul_set_2027",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "target": "docs_t1_pendencias_p5_3o_hiato_out_2027",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "target": "docs_t1_pendencias_p6_fim_do_ano_nov_dez_2027",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "target": "docs_t1_pendencias_rotas_do_projeto_o_que_existe_hoje",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/T1_PENDENCIAS.md",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
+      "target": "docs_t1_pendencias_tradu\u00e7\u00f5es_em_andamento_agentes",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -65923,12 +66033,168 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto",
+      "target": "src_pages_painel_painelprojeto_barra",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto",
+      "target": "src_pages_painel_painelprojeto_grupos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto",
+      "target": "src_pages_painel_painelprojeto_idiomas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto",
+      "target": "src_pages_painel_painelprojeto_manual",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto",
+      "target": "src_pages_painel_painelprojeto_md",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto",
+      "target": "src_pages_painel_painelprojeto_nat1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto",
+      "target": "src_pages_painel_painelprojeto_painelprojeto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto",
+      "target": "src_pages_painel_painelprojeto_pct",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto",
+      "target": "src_pages_painel_painelprojeto_tem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto_tem",
+      "target": "src_pages_painel_painelprojeto_md"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto_idiomas",
+      "target": "src_pages_painel_painelprojeto_tem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto_grupos",
+      "target": "src_pages_painel_painelprojeto_nat1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto_grupos",
+      "target": "src_pages_painel_painelprojeto_idiomas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto_painelprojeto",
+      "target": "src_pages_painel_painelprojeto_grupos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/painel/PainelProjeto.jsx",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "src_pages_painel_painelprojeto_painelprojeto",
+      "target": "src_pages_painel_painelprojeto_pct",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painel",
-      "target": "src_pages_painel_painel_com_periodo",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painel_com_periodo"
     },
     {
       "relation": "contains",
@@ -65936,9 +66202,9 @@
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painel",
-      "target": "src_pages_painel_painel_filtros",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painel_filtros"
     },
     {
       "relation": "contains",
@@ -65946,9 +66212,9 @@
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painel",
-      "target": "src_pages_painel_painel_icone",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painel_icone"
     },
     {
       "relation": "contains",
@@ -65956,9 +66222,9 @@
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painel",
-      "target": "src_pages_painel_painel_notfound",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painel_notfound"
     },
     {
       "relation": "contains",
@@ -65966,9 +66232,9 @@
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painel",
-      "target": "src_pages_painel_painel_painel",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painel_painel"
     },
     {
       "relation": "contains",
@@ -65976,9 +66242,9 @@
       "source_file": "src/pages/painel/Painel.jsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_painel_painel",
-      "target": "src_pages_painel_painel_secoes",
-      "confidence_score": 1.0
+      "target": "src_pages_painel_painel_secoes"
     },
     {
       "relation": "contains",
@@ -74590,162 +74856,6 @@
       "weight": 1.0,
       "source": "src_pages_lab_prototype_prototype_prototype",
       "target": "src_pages_lab_prototype_prototype_admin_emails"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L83",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_barra"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_grupos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_idiomas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_manual"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_md"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_nat1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L87",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_painelprojeto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L81",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_pct"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_tem"
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "src_pages_painel_painelprojeto_tem",
-      "target": "src_pages_painel_painelprojeto_md"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto_idiomas",
-      "target": "src_pages_painel_painelprojeto_tem"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L32",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto_grupos",
-      "target": "src_pages_painel_painelprojeto_nat1"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L34",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto_grupos",
-      "target": "src_pages_painel_painelprojeto_idiomas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L88",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_grupos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/painel/PainelProjeto.jsx",
-      "source_location": "L97",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_painel_painelprojeto_painelprojeto",
-      "target": "src_pages_painel_painelprojeto_pct"
     },
     {
       "relation": "imports_from",
@@ -192623,116 +192733,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_t1_pendencias",
-      "target": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L83",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
-      "target": "docs_t1_pendencias_fora_da_t1_sem_data"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
-      "target": "docs_t1_pendencias_p0_lan\u00e7amento_15_11_2026"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
-      "target": "docs_t1_pendencias_p1_at\u00e9_o_1o_hiato_dez_2026_fev_2027"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
-      "target": "docs_t1_pendencias_p2_2o_ciclo_mar_mai_2027"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L39",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
-      "target": "docs_t1_pendencias_p3_2o_hiato_jun_2027"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L45",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
-      "target": "docs_t1_pendencias_p4_3o_ciclo_jul_set_2027"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L51",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
-      "target": "docs_t1_pendencias_p5_3o_hiato_out_2027"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L57",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
-      "target": "docs_t1_pendencias_p6_fim_do_ano_nov_dez_2027"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L61",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
-      "target": "docs_t1_pendencias_rotas_do_projeto_o_que_existe_hoje"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/T1_PENDENCIAS.md",
-      "source_location": "L79",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_t1_pendencias_temporada_1_o_que_falta_por_prazo",
-      "target": "docs_t1_pendencias_tradu\u00e7\u00f5es_em_andamento_agentes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/data/historias/autor/en/01.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -199062,5 +199062,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6e67f7988699acfd491096c095da801b5b2eb9a9"
+  "built_at_commit": "6fdd45126e6407446ee5eaa81cb7b1ef89f84fbb"
 }

@@ -1,221 +1,169 @@
-# CAPÍTULO 14 — Sala Privada
+# CAPÍTULO 14 — O Preço
 
-La plaza quedaba a dos cuadras de la escuela.
+O Jack já estava sentado no capô do hatch vermelho quando o Kim atravessou o estacionamento da delegacia.
 
-Un banco de cemento descascarado, un árbol que daba más sombra que fruta, un bebedero que no funcionaba desde siempre. A esa hora no había nadie. Solo una paloma y ellos tres.
+Garrafa de vodka na mão. Sorriso de orelha a orelha.
 
-— Entonces, amigo. — Jack. — Siendo bien sincero, llegó la hora de que conozcamos un poco de tu poder. Pensé en eso todo el día. Estoy loco por finalmente pelear contigo dentro del LDI.
+— Olha ele. O homem do dia. Quer que eu levante? Beijo o anel? Como é que se fala com um cara que andou de avião?
 
-Kim puso cara de confundido.
+— Vai se foder, Jack.
 
-— Pero yo no quiero pelear contigo. ¿Por qué pelearía contra ti?
+— Rolê louco, hein? Um dia desses eu saio de casa, sumo doze horas e volto milionário também.
 
-— No va a ser pelea oficial, imbécil. Estoy hablando de que entrenemos juntos. Dentro del juego.
+Estendeu a garrafa. O Kim pegou, deu um gole e olhou pro vidro com carinho. Era vodka barata. Tinha gosto de remédio de cavalo.
 
-— Ah, entonces está bien. Así está bien. ¿Y cómo entrenamos en este juego?
+Era a melhor coisa que ele tinha bebido o dia inteiro.
 
-— Normalmente entrenamos en una sala pública. — Nina. — Superpoblada. Te desafían todo el tiempo, gente estorbando, unos idiotas queriendo mostrar lo fuertes que creen que son. Pero ahora yo, tú y Jack podemos usar una sala privada de entrenamiento. Va a facilitar mucho que nos preparemos para las próximas peleas.
+— Então. Eu vou te contar direito...
 
-Kim se animó. Y la sonrisa se le cayó.
+— Não, não. Calma aí. — O Jack levantou a mão. — Não conta nada. Vamos esperar a Nina chegar.
 
-— Chicos, olvidé completamente una cosa. Me emocioné con todo esto, pero tengo que trabajar.
+— Por que a gente tá esperando essa menina?
 
-Jack rió.
+— Porque agora ela faz parte do grupo, né?
 
-— No, no tienes.
+O Kim fez a cara. Aquela de mau humor, que nunca funcionou com o Jack.
 
-— Sí, sí tengo.
+— Beleza.
 
-— No, no tienes.
+Sentou no capô. Ficou um tempo olhando o Fusca sem rodas, depois a garrafa.
 
-— Sí, sí tengo.
+— Então vou te contar outra coisa enquanto isso. Uma coisa que eu acho que ela não precisa saber.
 
-— Idiota. Te estoy diciendo que no tienes. Tenemos un trabajo de noche. Van a ser doscientos para cada uno. Ya está bien.
+O sorriso do Jack foi embora antes de ele terminar a frase. Fazia anos que os dois se liam assim.
 
-Kim se relajó.
+E o Kim contou.
 
-— Ah, en ese caso, bien. Perdón, Nina, por interrumpir. Puedes continuar. ¿Cómo abrimos esa tal sala privada? Parece muy top.
+A pergunta sobre o pai. A casa quebrada. A garrafa. O que a Helena tinha contado no sofá: que não era mãe dele de sangue, como ele tinha chegado até ela, de onde ela tinha fugido.
 
-Nina sonrió.
+Falou baixo, olhando pra frente. Não enfeitou nada.
 
-— Entonces, chico. Como te decía. Ahora podemos crear una sala privada. Vamos a hacerlo. Y empezar tu entrenamiento.
+Quando terminou, o Jack estava com os cotovelos nos joelhos. Tinha esquecido a vodka.
 
----
+— Mano. — Demorou pra continuar. — Que bagulho louco.
 
-Jack ya tenía su SBI en la mano. Nina sacó el suyo del bolso.
+— Pois é.
 
-Kim se quedó mirando la caja.
+— Quer dizer que agora você tem umas pistas do teu passado.
 
-— Ábrela ya. — Jack.
+— Que pistas, cara? Eu não faço a menor ideia de nada. Não sei nem por onde começar. Como é que eu vou descobrir alguma coisa?
 
-— La estoy abriendo.
+O Jack virou o rosto pra ele.
 
-— Llevas un minuto mirando la caja.
+Sem sorriso. Sem piada. Um olhar reto, pesado, calmo.
 
-— La estoy abriendo con cuidado. Mañana esto vuelve a Ryan.
+— Kim. Se acalma. Agora a gente tem uma direção. Talvez eu consiga fazer alguma coisa. Pegar umas informações. Deixa comigo.
 
-Jack y Nina intercambiaron una mirada que decía exactamente lo que ambos pensaban de eso.
+O Kim ficou olhando.
 
-Kim sacó el papel sin romperlo. Abrió la tapa. El SBI estaba encajado en una espuma negra, más delgado que el de Jack, más liviano, con una línea de luz apagada corriendo por el borde. Sacó el aparato con las dos manos, como si fuera algo que pudiera romperse solo con mirarlo.
+Conhecia aquela cara do Jack de um lugar só: de um segundo antes do primeiro soco. Fora de uma briga, nunca tinha visto.
 
-Jack y Nina se pusieron los suyos y quedaron de pie, listos. Kim fue copiando lo que hacían los dos.
+E outra coisa. Ele conhecia cada canto da vida do amigo. Sabia o que ele tinha no bolso, na geladeira e na conta.
 
-— Tú eres el que está más alto en el SDR de los tres. — Jack. — Así que tú abres la sala. Me muero por ver cómo es la sala privada de alguien que está allá arriba, qué recursos vamos a tener. Te doy una mano para crearla, ¿bien?
+*Que informação o Jack pode conseguir? Com quem?*
 
-— ¿Cómo la abro?
+Ia perguntar.
 
-— Loco, este SBI está buenísimo. — Jack mirando el aparato en la cara de Kim. — Ahora di: NeoGuide, acceder a recursos.
-
-El mundo se apagó.
+O portão de ferro gemeu.
 
 ---
 
-— NeoGuide. Acceder a recursos.
+A Nina veio quase correndo, a bolsa batendo no quadril.
 
-— Hola, Kim. Bienvenido de vuelta. — La voz tranquila de siempre, viniendo de ningún lugar. — Detecté que estás accediendo desde un nuevo SBI. Estoy transfiriendo tus configuraciones a este dispositivo. ¿Qué recurso deseas utilizar?
+— Ei. — Parou na frente do Kim e olhou ele de cima a baixo, procurando buraco. — Você tá bem? Tá machucado? Catorze mensagens, seu idiota.
 
-— Una tal sala de entrenamiento privada.
+— Tô bem.
 
-— ¿Deseas alguna configuración específica, o la sala estándar es suficiente?
+— E aí! — O Jack já tinha voltado. Do nada, inteiro, a garrafa no alto, como se alguém tivesse trocado a fita. — Agora sim, a tropa ta completa! Vai, Kim, conta tudo de novo, que é pra ela ouvir também. E conta direito a parte do avião.
 
-— No sé. La estándar.
+O Kim olhou pra ele mais um segundo. Depois contou.
 
-— Sala configurada. Dirigiendo.
+Os seis. O saco. A sala. O terno branco.
 
-El suelo desapareció.
+A Nina ouviu tudo de braços cruzados, séria, até chegar no número.
 
-Kim estaba cayendo de nuevo.
+— Peraí. Ele falou "me dê o número" e você pediu um milhão?
 
-La arena allá abajo no era muy diferente de la primera. Solo que vacía. Ninguna tribuna gritando, nadie mirando hacia arriba. No vio ni una sola persona mientras caía.
+— Pedi.
 
-*Tiene que haber una forma de aterrizar sin darme de cara.*
+— E ele pagou.
 
-— Kim. — NeoGuide dentro de su cabeza. — Hay dos solicitudes de entrada para tu sala privada. Ambos dicen ser tus amigos. ¿Puedo aprobar?
+— Pagou.
 
-— Puedes. Son mis amigos.
+— E aí você disse que não sabia de nada?
 
-El suelo llegó mientras respondía.
+— Eu disse que ia contar tudo que eu sabia. E contei.
 
-Se dio de cara.
+— E mostrou o dedo. — O Jack, emocionado. — Conta do dedo.
 
-Quedó a cuatro patas en el suelo de la arena con la mandíbula palpitando, la boca llena de un sabor a polvo que no existía.
+Pergunta que eu queria fazer e eu resolvi fazer quando a Nina estivesse aqui porque eu precisava fazer essa pergunta por que que você mostrou o dedo para o cara. O cara te deu um milhão. E você mostra o dedo para ele no final depois de ter. Simplesmente não entregar nada do que ele queria. Por que???
 
-— Otra vez. — Al suelo.
+O que responde mano eu não sei porque eu só senti que sinceramente depois o cara me sequestrar na minha casa. Mexer com a Dona Helena o mínimo que ele merecia mesmo me pagando. Era ver o meu dedo enfiado bem no meio da cara dele.
 
----
+Ele deu sorte muita sorte porque. Talvez eu tivesse feito coisa pior se eu não tivesse saído lá com grana. A grana me deixou mais calmo.
 
-El grito vino desde arriba.
+Bem o Jack fala né conhecendo você. Você ter saído de lá sem ter dado um soco nesse cara realmente é um grande passo na direção de um novo homem parabéns Kim.
 
-Kim levantó la cabeza y vio a alguien cayendo del cielo con los brazos abiertos, celebrando la caída como quien baja de una montaña rusa. El abrigo marrón oscuro golpeaba el aire hasta las rodillas. La bufanda roja ondeaba atrás. En la cabeza, un sombrero de copa extrañamente fijado, con binoculares sujetos encima. El brazo derecho entero era de metal dorado, con engranajes a la vista en las articulaciones, nada de alta tecnología: parecía pieza de máquina de vapor. Barba. Bigote. Un bastón de metal en la mano. Steampunk de pies a cabeza.
 
-El desconocido aterrizó con las rodillas flexionadas y los brazos abiertos, se puso de pie despacio, sacó pecho e hizo una seña con dos dedos en el ala del sombrero de copa.
 
-— ¿Y bien? ¿Otra vez caíste de cara?
+A Nina se dobrou de rir. Teve que sentar no para-choque. Riu até limpar os olhos, com a mão na barriga.
 
-Era la voz de Jack.
+— Seu maluco. Seu completo maluco. Você aplicou um golpe no David Kronos.
 
-— Tienes que aprender a caer, viejo. Después vemos un visual más interesante para tu avatar.
+Aos poucos, a risada foi parando.
 
-Kim se quedó mirando.
-
-— En la tribuna estabas con corona. Soltando fuegos artificiales por la espalda.
-
-— Skin de tribuna. — Jack, ajustándose la bufanda. — Para mirar voy de rey. Para pelear, es este.
-
-— Tienes barba.
-
-— Tengo presencia.
-
-— Tienes un sombrero de copa con binoculares.
-
-— Kim. Cada detalle tiene función. Vas a entender cuando—
-
-— Espera. — Jack señaló hacia arriba. — Vamos a esperarla.
+Quando acabou, ela continuava olhando pro chão. E não estava mais rindo.
 
 ---
 
-Nina cayó en silencio.
+— Kim. Escuta. — Ela pegou a garrafa do Jack, cheirou, fez uma careta e devolveu. — Você não sabe quem é esse cara. Eu não digo o nome. Eu digo o tamanho. O Kronos não é uma pessoa que dá pra menosprezar. Ninguém desse tamanho vai atrás de um garoto de escola. Ainda mais com uma equipe como essa.
 
-La capucha corta silbando en el aire, la capa hasta la mitad de la espalda, el cabello negro con mechones rojos que parecían fuego vivo. Una marca roja cruzando el ojo derecho, como una cicatriz que alguien dibujó con brasa. Un top de hombreras, las mangas de red bajando hasta mitones negros llenos de espinas. El abdomen al descubierto. Minifalda negra cargada de piezas de metal en la cintura, botas hasta casi la rodilla. Una katana envainada en la cadera izquierda.
+— Eu sei.
 
-Aterrizó junto a ellos en una pose que seguramente había ensayado en algún lugar.
+— Não sabe. Ele quer alguma coisa. E você fez alguma coisa muito importante, mesmo sem saber. Esse tal de Primordial, seja o que for, é crucial pra ele. Pra ele e pra empresa inteira. Você tem que tomar cuidado.
 
-— Perdón por la demora, chicos. Estaba eligiendo unos accesorios nuevos, aprovechando que los liberaron. Ayer no pude hacer nada. ¿De qué estaban hablando?
+— Eu concordo com ela. — O Jack, e dessa vez ele não estava brincando. — Esse cara não ia fazer o que fez à toa. E essa grana, velho, não foi de graça. Pode ter certeza.
 
-Jack miró hacia un lado. Miró hacia el otro.
+O Kim ficou um tempo sem falar.
 
-— Nada. Te estaba esperando para explicarle el LDI a Kim. Ahora desde adentro del LDI.
+Lembrou da risada. Do homem rindo com um milhão a menos.
 
-— ¿Cómo hago para tener un visual así? — Kim. Primera pregunta.
+— Eu entendo. — Passou a mão no rosto. — Eu entendo o tamanho da coisa. Só que eu não sei o que aconteceu, e não sei o que fazer. A partir de agora é melhor a gente ficar esperto. E tentar descobrir mais sobre isso.
 
-Jack y Nina sonrieron al mismo tiempo.
+— Então tem um jeito só. — O Jack. — Desde aquela luta, você nunca mais entrou no LDI. A gente precisa que você entre de novo. Se não fosse o dia de hoje, eu já ia tentar arrumar um SBI pra você.
 
-— El avatar es algo muy personal. — Jack. — Yo te enseño, pero después. Está la sala Fashion, entras cuando quieras y cambias cuantas veces quieras. Va a ser genial ver lo que vas a armar. Ahora no. La sala privada solo se libera dos horas por día, así que hoy es entrenamiento.
+— É verdade. — A Nina levantou a cabeça. Tinha uma coisa nova no olho dela, que era quase fome. — E agora eu tô morrendo de curiosidade. Eu quero ver o que abriu na tua conta. Quero ver as features que você liberou. Ninguém sobe daquele jeito numa luta só.
 
-— Segunda pregunta. Tú tienes un bastón. Ella tiene una espada. ¿Se puede usar arma en este juego?
+— Eu não tenho o aparelho.
 
-— Sí se puede. — Nina. — Depende de cada jugador. El propio Thunderbolt usa una lanza. Contra ti, solo la sacó después de que te apagaste. No sirvió de nada. El arma en el LDI es libre. Es una extensión de tu poder. Pero hay luchadores por ahí que prefieren ni usarla.
+Silêncio.
 
----
+O Kim olhou pro bolso.
 
-Jack levantó la mano con tres dedos.
+— Mas acho que agora eu posso comprar um, né?
 
-— Tres cosas. Uno: aquí todo es mente. El LDI se aferra a la fuerza mental de quien juega. Si crees que caer de doscientos metros es normal, caes y te pones de pie. Si dudas, caes como saco de cemento. Por eso te das de cara. Piensas demasiado en el suelo.
+O Jack riu. Foi uma risada curta, no escuro.
 
-— Dos. Todo avatar tiene un elemental. Primario o secundario. Secundario no es más débil, solo tiene más opciones de combinación. Thunderbolt usaba electricidad, que es secundario de la Luz. Lo que salió de ti en aquella pelea parecía Tinieblas, que es primario.
+— Velho. Agora você pode comprar a loja.
 
-— Tres. Lo más importante. Todo lo que sabes de pelea allá afuera funciona aquí. Solo que tienes que creer que aquí eres tan fuerte como allá. O más. Eso no está escrito en ningún lado. Nadie sabe bien cómo funciona el LDI. Pero es lo que yo hago y me funciona.
+O Kim ia rir também. Veio um bocejo no lugar. O dia inteiro caiu de uma vez em cima dele: o saco, o motor, o lustre, o gosto daquela bebida.
 
-— Yo también creo que todo está en la mente. — Nina. — Cuanto más fuerte creo que soy, más fuerte me pongo aquí adentro. Y la puntuación viene de eso también. La corporación dice que la fuerza mental de cada uno decide cuánto vale una pelea. Es la explicación oficial. Yo sé que no explica nada.
+— Gente. Tá tarde. Aconteceu muita coisa. Acho que eu vou pra casa descansar.
 
-Kim tenía cara de estar entendiendo la mitad.
+— Vai. — A Nina. — Amanhã a gente vê isso.
 
-— Tipos de sala. — Jack, cambiando de tema antes de que el amigo se trabara. — Hay sala de obstáculos, sala con desventaja elemental, sala con enemigo que ya enfrentaste. Hoy es la simple, la que elegiste. Vamos a probar tu elemental de Tinieblas. Y como ya mostraste que tienes mucho poder aquí adentro, Nina y yo vamos a pelear juntos contra ti.
+— É. — O Jack bateu duas vezes no ombro dele. — Vai dormir, milionário. E olha pros dois lados antes de atravessar.
 
-— Dos contra uno.
-
-— Una pelea no tiene que ser uno contra uno. Puede ser dos contra uno, diez contra uno, dos contra dos. Cualquier formato, siempre que todos acepten.
-
-— Se puede acordar al comienzo de la pelea, o antes de entrar, y después solo confirmar. — Nina.
-
-— Y no tiene que ser solo quién derriba a quién. Hay pelea por tiempo, por resistencia, por objetivo, battle royale. — Jack abrió los brazos. — Es por eso que este juego es lo que es. Pero lo tuyo, ya lo sabemos, es uno contra uno.
+Era pra ser piada.
 
 ---
 
-— Antes. — Kim. — Hay algo mal conmigo.
+Ele voltou a pé, pelo caminho de sempre.
 
-Los dos se detuvieron.
+Não tinha ninguém na rua. Só um homem no ponto de ônibus, de boné, mexendo no celular.
 
-— Me siento pesado. Me duele todo el cuerpo. Como si me hubieran golpeado ayer.
+O Kim passou por ele sem olhar.
 
-Jack puso exactamente la cara de quien olvidó avisar algo importante.
+Aquela linha tinha parado de rodar às dez.
 
-— Tiempo de recuperación. Olvidé decírtelo.
-
-— ¿Olvidaste decírmelo? ¿Qué tiene que ver eso con mi cuerpo ahora, Jack, hijo de puta?
-
-Nina rió.
-
-— Tranquilo, Kim. Tranquilo. Después de cada pelea necesitas recuperarte. No importa en qué posición del SDR estés. Saliste de aquella pelea destruido. Por el daño, unos cuatro días. Noventa y seis horas.
-
-— Y cada uno de esos días tienes que conectarte y quedarte al menos cinco minutos quieto, que es cuando el sistema cura al avatar. — Jack. — Hay cura más rápida y cura más demorada, depende de la pelea. Si entras en una pelea antes, entras con lo que recuperaste hasta ahí. En tu caso, casi nada. Poco poder, poca velocidad, poca fuerza. Es igual que pelear después de haberte llevado una paliza el día anterior.
-
-— Es exactamente así como me siento.
-
-— Tranquilo. Hay un truquito. Al menos por ahora. — Jack miró hacia arriba. — NeoGuide. Recuperación instantánea para la sala.
-
-— Acérquense al Círculo de Recuperación, que se activará ahora por toda la arena. Buena recuperación.
-
-Círculos verdes se encendieron en el suelo de la arena. Jack y Nina caminaron hacia ellos con la naturalidad de quien ya lo ha hecho cien veces. Kim se quedó quieto hasta que Jack hizo una señal con la cabeza.
-
-Franjas de luz verde subieron del suelo a su alrededor, girando como llamas frías. No era caliente ni eléctrico. Era como presión distribuida por todo el cuerpo de una vez, y por donde pasaba, el peso iba saliendo en capas.
-
-— Recuperación completa. Todos los miembros de esta sala han sido restaurados. Apagando.
-
-Kim miró sus manos. Las cerró. Las abrió. Saltó una vez. Dos. Saltó más alto de lo debido y aterrizó sin esfuerzo.
-
-— Me siento genial.
-
-— Entonces vamos. — Nina.
-
-— Ahora mismo.
+Chegar em casa o Jack o Kim recebe uma mensagem do Jack. E a mensagem está só assim transfere toda a grana para mim. Não deixa na sua conta transfere para mim agora antes. Antes que algo aconteça. O que não pensa muito. Na verdade pela primeira vez ele pensa mas. Aquele era o Jack ele podia confiar no Jack. Transferiu toda a grana para o Jack que mandou uma mensagem dizendo fiquei só com o básico fiquei com 2000 para eu poder pagar as contas do mês e. Fazer uma compra para casa o dia que manda Ok chegou aqui Valeu amanhã a gente se tromba e conversa. E aí ele entra em casa.

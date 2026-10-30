@@ -197,12 +197,12 @@
   {
     "id": "capitulo-13",
     "numero": 13,
-    "titulo": "Meu Bebê",
-    "titulo_en": "My Baby",
-    "titulo_es": "Mi Bebé",
-    "tagline_pt": "Café com leite, country alto e uma mãe que ninguém conhecia.",
-    "tagline_en": "Coffee with milk, loud country and a mom nobody knew.",
-    "tagline_es": "Café con leche, country a todo volumen y una madre que nadie conocía.",
+    "titulo": "O Bug",
+    "titulo_en": "The Bug",
+    "titulo_es": "El Bug",
+    "tagline_pt": "Seis armas no quarto, um whisky horrível e o homem mais poderoso do mundo.",
+    "tagline_en": "Six guns in the bedroom, a terrible whisky and the most powerful man in the world.",
+    "tagline_es": "Seis armas en el cuarto, un whisky horrible y el hombre más poderoso del mundo.",
     "liberacao": {
       "elite": "2027-07-15",
       "conta": "2027-07-30",
@@ -212,12 +212,12 @@
   {
     "id": "capitulo-14",
     "numero": 14,
-    "titulo": "Sala Privada",
-    "titulo_en": "Private Room",
-    "titulo_es": "Sala Privada",
-    "tagline_pt": "Duas horas por dia. Regras que ninguém tinha contado.",
-    "tagline_en": "Two hours a day. Rules nobody had mentioned.",
-    "tagline_es": "Dos horas al día. Reglas que nadie había contado.",
+    "titulo": "O Preço",
+    "titulo_en": "The Price",
+    "titulo_es": "El Precio",
+    "tagline_pt": "Vodka barata, um segredo e a pergunta que ninguém quer fazer: quanto custa um milhão?",
+    "tagline_en": "Cheap vodka, a secret and the question nobody wants to ask: what does a million cost?",
+    "tagline_es": "Vodka barato, un secreto y la pregunta que nadie quiere hacer: ¿cuánto cuesta un millón?",
     "liberacao": {
       "elite": "2027-07-30",
       "conta": "2027-08-15",
@@ -227,12 +227,12 @@
   {
     "id": "capitulo-15",
     "numero": 15,
-    "titulo": "Anjo e Vitória",
-    "titulo_en": "Angel and Victory",
-    "titulo_es": "Ángel y Victoria",
-    "tagline_pt": "Duas armas acordaram. A terceira apareceu sozinha.",
-    "tagline_en": "Two weapons woke up. The third showed up on its own.",
-    "tagline_es": "Dos armas despertaron. La tercera apareció sola.",
+    "titulo": "Meu Bebê",
+    "titulo_en": "My Baby",
+    "titulo_es": "Mi Bebé",
+    "tagline_pt": "Café com leite, country alto e uma mãe que ninguém conhecia.",
+    "tagline_en": "Coffee with milk, loud country and a mom nobody knew.",
+    "tagline_es": "Café con leche, country a todo volumen y una madre que nadie conocía.",
     "liberacao": {
       "elite": "2027-08-15",
       "conta": "2027-08-30",
@@ -242,12 +242,12 @@
   {
     "id": "capitulo-16",
     "numero": 16,
-    "titulo": "Xakixi, Xamã",
-    "titulo_en": "Xakixi, Shaman",
-    "titulo_es": "Xakixi, Chamán",
-    "tagline_pt": "Um fio de aço que ninguém viu.",
-    "tagline_en": "A steel wire nobody saw.",
-    "tagline_es": "Un hilo de acero que nadie vio.",
+    "titulo": "Sala Privada",
+    "titulo_en": "Private Room",
+    "titulo_es": "Sala Privada",
+    "tagline_pt": "Duas horas por dia. Regras que ninguém tinha contado.",
+    "tagline_en": "Two hours a day. Rules nobody had mentioned.",
+    "tagline_es": "Dos horas al día. Reglas que nadie había contado.",
     "liberacao": {
       "elite": "2027-08-30",
       "conta": "2027-09-15",
@@ -257,12 +257,12 @@
   {
     "id": "capitulo-17",
     "numero": 17,
-    "titulo": "Cuba de Pobre",
-    "titulo_en": "Poor Man's Cuba Libre",
-    "titulo_es": "Cuba Libre de Pobre",
-    "tagline_pt": "Vodka, limão e as regras do jogo.",
-    "tagline_en": "Vodka, lime and the rules of the game.",
-    "tagline_es": "Vodka, limón y las reglas del juego.",
+    "titulo": "Anjo e Vitória",
+    "titulo_en": "Angel and Victory",
+    "titulo_es": "Ángel y Victoria",
+    "tagline_pt": "Duas armas acordaram. A terceira apareceu sozinha.",
+    "tagline_en": "Two weapons woke up. The third showed up on its own.",
+    "tagline_es": "Dos armas despertaron. La tercera apareció sola.",
     "liberacao": {
       "elite": "2027-09-15",
       "conta": "2027-09-30",
@@ -272,12 +272,12 @@
   {
     "id": "capitulo-18",
     "numero": 18,
-    "titulo": "Fogo",
-    "titulo_en": "Fire",
-    "titulo_es": "Fuego",
-    "tagline_pt": "O cadastro diz uma coisa. A arena disse outra.",
-    "tagline_en": "The record says one thing. The arena said another.",
-    "tagline_es": "El registro dice una cosa. La arena dijo otra.",
+    "titulo": "Xakixi, Xamã",
+    "titulo_en": "Xakixi, Shaman",
+    "titulo_es": "Xakixi, Chamán",
+    "tagline_pt": "Um fio de aço que ninguém viu.",
+    "tagline_en": "A steel wire nobody saw.",
+    "tagline_es": "Un hilo de acero que nadie vio.",
     "liberacao": {
       "elite": "2027-09-30",
       "conta": "2027-11-15",
@@ -287,6 +287,36 @@
   {
     "id": "capitulo-19",
     "numero": 19,
+    "titulo": "Cuba de Pobre",
+    "titulo_en": "Poor Man's Cuba Libre",
+    "titulo_es": "Cuba Libre de Pobre",
+    "tagline_pt": "Vodka, limão e as regras do jogo.",
+    "tagline_en": "Vodka, lime and the rules of the game.",
+    "tagline_es": "Vodka, limón y las reglas del juego.",
+    "liberacao": {
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    }
+  },
+  {
+    "id": "capitulo-20",
+    "numero": 20,
+    "titulo": "Fogo",
+    "titulo_en": "Fire",
+    "titulo_es": "Fuego",
+    "tagline_pt": "O cadastro diz uma coisa. A arena disse outra.",
+    "tagline_en": "The record says one thing. The arena said another.",
+    "tagline_es": "El registro dice una cosa. La arena dijo otra.",
+    "liberacao": {
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    }
+  },
+  {
+    "id": "capitulo-21",
+    "numero": 21,
     "titulo": "Sem Acordo",
     "titulo_en": "No Deal",
     "titulo_es": "Sin Trato",
@@ -300,8 +330,8 @@
     }
   },
   {
-    "id": "capitulo-20",
-    "numero": 20,
+    "id": "capitulo-22",
+    "numero": 22,
     "titulo": "A Gatinha Tem Garras",
     "titulo_en": "The Kitten Has Claws",
     "titulo_es": "La Gatita Tiene Garras",
@@ -315,8 +345,8 @@
     }
   },
   {
-    "id": "capitulo-21",
-    "numero": 21,
+    "id": "capitulo-23",
+    "numero": 23,
     "titulo": "Não É Que Eu Não Consiga",
     "titulo_en": "It's Not That I Can't",
     "titulo_es": "No Es Que No Pueda",
@@ -330,8 +360,8 @@
     }
   },
   {
-    "id": "capitulo-22",
-    "numero": 22,
+    "id": "capitulo-24",
+    "numero": 24,
     "titulo": "Rei da Briga",
     "titulo_en": "King of the Brawl",
     "titulo_es": "Rey de la Pelea",
@@ -345,8 +375,8 @@
     }
   },
   {
-    "id": "capitulo-23",
-    "numero": 23,
+    "id": "capitulo-25",
+    "numero": 25,
     "titulo": "Duas Pessoas",
     "titulo_en": "Two People",
     "titulo_es": "Dos Personas",
@@ -360,8 +390,8 @@
     }
   },
   {
-    "id": "capitulo-24",
-    "numero": 24,
+    "id": "capitulo-26",
+    "numero": 26,
     "titulo": "Uma Série Pela Primeira Vez",
     "titulo_en": "A Show for the First Time",
     "titulo_es": "Una Serie por Primera Vez",
@@ -375,8 +405,8 @@
     }
   },
   {
-    "id": "capitulo-25",
-    "numero": 25,
+    "id": "capitulo-27",
+    "numero": 27,
     "titulo": "Risca a Faca",
     "titulo_en": "Risca a Faca",
     "titulo_es": "Risca a Faca",
@@ -390,8 +420,8 @@
     }
   },
   {
-    "id": "capitulo-26",
-    "numero": 26,
+    "id": "capitulo-28",
+    "numero": 28,
     "titulo": "Joaquim Leal Reis",
     "titulo_en": "Joaquim Leal Reis",
     "titulo_es": "Joaquim Leal Reis",
@@ -405,8 +435,8 @@
     }
   },
   {
-    "id": "capitulo-27",
-    "numero": 27,
+    "id": "capitulo-29",
+    "numero": 29,
     "titulo": "Ae Katu",
     "titulo_en": "Ae Katu",
     "titulo_es": "Ae Katu",
@@ -420,8 +450,8 @@
     }
   },
   {
-    "id": "capitulo-28",
-    "numero": 28,
+    "id": "capitulo-30",
+    "numero": 30,
     "titulo": "Rei Xamã",
     "titulo_en": "King Shaman",
     "titulo_es": "Rey Chamán",

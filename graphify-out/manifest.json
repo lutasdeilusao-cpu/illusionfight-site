@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793374159.7712102,
-    "ast_hash": "5b29058c7f135f011aea5ced31fbf5dc",
+    "mtime": 1793389109.5168483,
+    "ast_hash": "c87f69f60bcb5368aa5795b2a0e30969",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793374159.8137753,
-    "ast_hash": "81260b98c66eeb559182e735f0f50dd7",
+    "mtime": 1793389109.5604076,
+    "ast_hash": "b182ea8e593d6b3dc603691f527fba96",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9530,8 +9530,8 @@
     "semantic_hash": ""
   },
   "docs/T1_PENDENCIAS.md": {
-    "mtime": 1792781054.7010238,
-    "ast_hash": "1be9b50b9e2c8000608f19be882df490",
+    "mtime": 1793389109.4769194,
+    "ast_hash": "61384821ef9bda62da342672d40901cb",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/data/scenes/en/act1.json": {
@@ -9830,8 +9830,8 @@
     "semantic_hash": ""
   },
   "src/pages/painel/PainelProjeto.jsx": {
-    "mtime": 1793160473.8247893,
-    "ast_hash": "f9abc61ff3df7cea88deec2a02e4ec6a",
+    "mtime": 1793389097.4133997,
+    "ast_hash": "39ed1b1dbc057fac60c92b1cdbd0def9",
     "semantic_hash": ""
   },
   "src/pages/painel/PainelTarefas.jsx": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793374187.37274,
+    "mtime": 1793389143.0154276,
     "ast_hash": "461fea17262f105cff0148a621a9a594",
     "semantic_hash": ""
   },

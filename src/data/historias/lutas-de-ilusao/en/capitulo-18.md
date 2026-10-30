@@ -1,129 +1,253 @@
-# CHAPTER 18 — Fire
+# CHAPTER 18 — Xakaxi, Shaman
 
-Nina stopped mid-sentence and took a big gulp. The three of them were still on their first glass, which was a good sign for a day when nobody could end up on the floor.
+The light that came out of the hatchets wasn't light.
 
-— So—
+It was a black glow. Jack and Nina saw it from across the room, a thing that glowed without illuminating, and when it ended the two hatchets were no longer in Kim's hands.
 
-Kim raised his hand.
+There was an ax.
 
-Like a kid asking to speak to the teacher.
+Two blades, one on each side. Nothing giant. Between a meter ten and a meter twenty. Light enough for him to hold with one hand.
 
-Nina didn't even look at the hand.
+Kim switched the ax to his right hand. The pulley slid down the handle and seated under his fingers, with the steel wire attached to the end of the handle, exactly like on the hatchets.
 
-— Speak, my dear. Say what you want, for the love of the gods.
+He rested the ax on his shoulder, behind his head.
 
-— How do you guys get powers? Do you buy them like weapons? In packs?
+— Yeah, folks. — With a smile Jack knew from street fights. — Looks like the old man's on. Let's get started?
 
-Jack gave Nina a nod, like: good question. But he was the one who answered.
+Jack looked at Nina with the face of someone who'd just watched his own car get towed.
 
-— No. The first power comes with the avatar. The moment your avatar is created, the system defines your element. And with the element comes the first power. Get your SBI out and I'll show you.
+— He already knows how to transform. He hasn't even started and he already knows how to transform.
+
+— Jack. — Nina, serious. — If we don't work together right, we lose here.
+
+— You think I don't know, girl? You saw what the kid just did.
+
+— So what?
+
+— Quick rush. — Jack adjusting what was left of his top hat. — Before he gets used to that thing.
+
+Nina nodded.
+
+The two came together, almost side by side.
 
 ---
 
-Kim took the SBI out of his backpack. Jack took it from his hand, pressed two points on the edge, and said something low.
+Kim saw the two coming and did the most obvious thing there was.
 
-A hologram lit up in the air, in front of the three of them.
+He swung his arm and threw the ax.
 
-It was Kim. Small, the size of a handspan, spinning slowly in the air, colored, with his cap, the scars on his hands, his usual T-shirt. Next to the little figure, columns of information that went up and down.
+The ax went spinning through the air straight between the two. Jack and Nina looked at each other with the face of people who'd watched an amateur make the most predictable move in the world, gave each other space, and the ax tore through the gap between them without touching anyone.
 
-Kim and Jack had seen holograms before. Marelia had technology everywhere, even in the neighborhoods where technology arrived last. But it was the first time Kim saw himself spinning in the air.
+Nina saw the opening. Kim was still locked in the end of the throw, arm extended, all his weight forward.
 
-— Here you see everything. — Jack. — You can mess with the avatar, change clothes, buy accessories. There's a lot of free stuff, which is what I use. And there's paid stuff. Like Nina's cloak.
+She drew Angel.
 
-Nina straightened her back. Her cloak was from a limited-edition digital art collection. It was already worth much more than she had paid. She never intended to sell it. She just liked how it looked.
+— Expand!
 
-— This is how the game makes money. — Jack, running his finger over the columns. — But what matters now is your native power. Let's go basic. Energy and powers. Here. There's not much, but there's your element... — His finger stopped. — Wait.
+The blade came out in segments, snaking fast toward him.
 
-Kim looked at his friend.
+Nina didn't see the wire.
 
-Jack was standing still, staring at a line of the hologram with his mouth half open.
+There was no way to see it. It was a steel wire fine as hair, coming from Kim's hand, crossing the room at the height of her waist, going all the way to the ax already behind them both.
 
-— What's up, man?
+By the time she understood, she had understood too late.
 
-Jack looked at him with an expression Kim didn't know well. It wasn't fear. It was close.
+— NOOOO—
 
-— You're not seeing what I'm seeing?
+---
+
+Nina felt an impact in her back.
+
+Then she felt weightless.
+
+Then she was looking down from above.
+
+She floated above the room, weightless, bodiless, and down there on the arena floor was her. Two halves of her. Separated at the waist, blood spread in a wide radius, what was inside her spilling out, all with a realism she had forgotten LDI had.
+
+The ax came back spinning along the wire and seated into Kim's hand like a dog returning to its owner.
+
+Nina kept looking at it from above.
+
+She didn't know the weapon could do that. Nobody knew. Not even Kim, she was sure.
+
+She let out a half smile.
+
+*Fuck. I'll get you next time.*
+
+---
+
+Jack backed away slowly from Nina's body, like someone moving away from a bomb that had already gone off.
+
+— Fuck, man. That was cold. Cut the girl in half. Pulled a Solomon. She's gonna be pissed when we get back.
+
+— She comes back, right? — Kim. — It's a training room. She'll be back in a bit.
+
+— No, she doesn't. Died in a training room, she's out. She only comes back when a new room opens. Now she just watches.
+
+— I thought it was like respawn. Die, come back, die, come back.
+
+— It should be. But it isn't. Training is supposed to be light, nobody killing anybody, otherwise nobody trains. — Jack pointed up with his cane. — And in public rooms, to come back, there's a five-hour cooldown. That's why some groups go into a public room and kill everyone in there. Five hours of empty room. That's how people clear a public room to have a semi-private room just for themselves.
+
+Nina's voice came from somewhere in the room, the same way NeoGuide talked to them.
+
+— It's fine. It's fine. Nobody explained the room rules to you. It happens. — A pause. — But fuck, that ax is sick. Lucky for you I didn't know about that wire. Next time I'll be ready. Just you wait.
+
+Jack laughed out loud.
+
+— Didn't I say she was pissed? I said it.
+
+— I'M NOT PISSED. — Nina. — Stop talking about me and continue the fight.
+
+— See? So calm. — Jack to Kim. — An angel. Peace itself. A nun in the center of Nirvana. That's Nina now.
+
+Kim couldn't hold back a laugh.
+
+Jack turned serious. He looked at the ax in his friend's hand, at the steel wire he could only now really see, glinting when the light caught it.
+
+— Sorry, man. That little wire took me a while to see. If you hadn't chosen her, it would've been me. — Pause. — It's a really good gimmick for a weapon. I liked it. Congrats.
+
+— Thanks. — Kim looking at the ax. — I don't even know how I did that. I just didn't want to die to Nina's blade. So? Do we keep going or not?
+
+The two stood looking at each other with the same smile. The smile of five years fighting on the same side.
+
+— Now that it's just me and you, it's for real. — Jack. — You're starting to get the game. So I'm going to end this before the odds all swing your way. To come back after dying here, you only get back by opening another room. The five hours are for public rooms. Got it?
+
+— Got it. Show me what you do in this little game.
+
+---
+
+Jack held Vitória with both hands and crossed his arms, the weapon in front of his chest. He bent his spine slightly. He spread his legs, weight even on both feet.
+
+— First move.
+
+Stones began to rise from the ground around him.
+
+Small. Thousands. Rising from the arena floor without a sound and hanging still in the air, spinning slowly around him like he was a planet.
+
+Kim didn't know what that was going to do. He knew his friend wasn't playing around. He started walking backward, opening distance, making sure he had room to do something before that finished.
+
+— Second move.
+
+The stones began to crumble in the air.
+
+They didn't turn into sand. They turned into splinters, each stone breaking into smaller triangular pieces, the points thin and sharp. From the distance Kim was at, he couldn't see the points. He only saw the cloud of stone changing shape.
+
+He kept backing away.
+
+Jack smiled the way he smiled when he already knew how the story ended.
+
+— Third move. Vitória Finals.
+
+The splinters came all at once.
+
+Like a machine gun. Kim felt the first one enter his thigh and didn't have time to feel the second because the third and the fourth and the tenth were already entering. In the arm. In the belly. In the chest. Piercing, passing through, finding the organs inside. Blood rose up his throat and out his mouth. His legs failed. His body was a target and there was nowhere to hide.
+
+He didn't have time to think. Didn't have time to react.
+
+It was exactly how he imagined dying would be. Each hole opening, blood leaving, vision darkening from the edges to the center, slowly, with a calm that matched nothing.
+
+Kim fell.
+
+Up above, Jack raised his arms.
+
+— I WON! HEYYYYYYYYY!
+
+---
+
+Kim opened his eyes and he was above.
+
+Floating over the arena, bodiless. Down there, his own body, stretched on the floor, full of holes, blood pooling. And beside the body, Jack. Dancing.
+
+A ridiculous dance, elbows out and hips going side to side, spinning around his corpse.
+
+Beside Kim, in the air, Nina. Or Nina's avatar, whole again.
+
+He waved at her with the face of someone who understood nothing.
+
+She laughed.
+
+— You're not understanding what's happening, are you.
 
 Kim shook his head.
 
-— Your elemental. — Jack. — It's fire.
+— That bastard down there didn't end the match. So we're stuck here watching him do that little dance.
+
+Kim looked down.
+
+— HEY, BASTARD! WHY ARE YOU DANCING AROUND MY BODY?
+
+— Because it's too much fun, man! — Jack without stopping. — Very, very fun.
+
+— Talk looking at me and stop with this clowning!
+
+— First: let me finish my little dance, because this is going to become a short for PowWow, to see if it goes viral. Second: I don't know where you are. Whoever dies disappears. I only see your body here, all full of holes, guts hanging out, you know.
+
+Kim was horrified. It was his body. Too much like the real one. And his best friend was shaking his ass on top of it.
+
+— Calm down. — Nina. — He'll finish soon. A PowWow video is at most one minute. Wait a little more and he'll call NeoGuide.
+
+They waited.
+
+Down there, Jack struck the final pose for the video. He looked up, at nowhere.
+
+— NeoGuide. End match.
 
 ---
 
-Nina pulled the SBI from Jack's hand and brought the hologram closer to her face.
+The dark came again, as if the eyes closed on their own. And then the plaza.
 
-There it was. Primary elemental: Fire.
+The concrete bench. The afternoon light. The pigeon.
 
-— Guys. — Kim. — Can someone explain to me?
+Kim took the SBI off his head and stood still for a second, hands on his chest searching for the holes that weren't there. Beside him, Jack took his off with the satisfied face of someone who won. Nina took hers off slowly.
 
-— What came out of you in the first fight was Darkness. — Nina. — That's what everyone saw. Black flame. But here, on your SBI, your primary elemental is Fire.
+— Dude. — Kim. — What attack was that, man? I have a thousand questions to ask you guys. But what an attack. I hope I can do stuff like that someday.
 
-Jack raised a finger, like someone who had just figured something out.
+— It wasn't all that. — Nina. — Jack took advantage of you not knowing anything about the game. In a real fight he wouldn't be able to use that.
 
-— That's why I thought it was weird at the time. It looked like fire. But it was black. — He looked at Kim. — You used a different elemental in the transformation. And that can't happen. Nobody switches elementals. It's one of the few rules that nobody has ever broken. Officially, yours is fire.
+— You can't say that. — Jack offended. — You've never seen me fight.
 
-Kim looked at his little figure spinning in the air.
+— Three stages of charging standing still in the middle of the arena? Nobody would wait around, Jack. Anyone notices on the first move that you have to stand still waiting to charge. Only Kim, who didn't know that rule. He backed away and stood there watching you finish everything.
 
-Nothing in that game worked for him the way it should.
+— Charging? — Kim. — What do you mean charging? I'm lost.
 
-He was tired of trying to understand. He made a hand signal for Jack to go on. Jack knew that signal. It was Kim's fed-up signal.
+Jack smiled.
 
-— Okay. Straight to the point. — Jack returning to the hologram. — Here it says which attacks you can already use. Two. Both by voice command. You just need to understand how to make them come out. Both are instant, cost little, but also don't destroy much. The first is the basic of fire. A fireball.
+— Man, there are several types of attacks in LDI. Some are instant. Others need time to charge. The one I used on you has a very long charge. You saw: three stages. I have to wait for each one to be ready before the next, and only on the third do I release the attack. Normally that leaves me wide open. — He scratched his head. — Honestly, Nina's right. I took advantage of you not knowing how it works. But I'll teach you over time. Relax.
 
-— And the second?
+— Okay. That part I sort of understood. — Kim. — Now, why did I stay floating in the sky after you killed me?
 
-Jack stared for a while.
+— When you lose in LDI, you only leave the room when the winner ends the match, or when the system ends it on its own. — Nina. — You can't disconnect in the middle. It starts, it goes to the end. That's why nobody starts a match in an open place, or without a friend beside you watching your body out here. When we die in there, you become an observer. You can watch. But you can't interact with anything or anyone. Just wait. — She looked at him. — Do you play any games, Kim?
 
-— The second I've never seen. — Jack. — These attacks tend to be personalized. It's hard to repeat. It's not that it never repeats, but it's rare.
+— Of course. I play a lot. Whenever there's time left over between taking care of the house, taking care of my mom, working, and studying on a scholarship, I play nonstop. A real gamer. Very, very gamer. You can be sure.
 
----
+Jack laughed at the irony.
 
-Nina cut Jack off.
-
-— And there's a limit. In an official fight you can only take four active powers. You choose before the fight which ones go. You can change whenever you want, but changing the list has a cost.
-
-— And if I discover a new power in the middle of the fight?
-
-— Then it unlocks on its own. NeoGuide tells you. Only in your head, so nobody else knows. It tells you how long it takes, how much it costs, everything. And the new power takes the place of the last one on your list. — She breathed. — Is that clear? Was I clear?
-
-Kim nodded.
-
-Jack slapped his hands on his thighs and stood up.
-
-— Good. I think class is over. If we missed anything, we'll explain as it comes up. — He stretched, cracked his neck to the side. — And I think it's time to get up. There's a crew that's been waiting for us for a little while now.
+— You don't need to be sarcastic. — Nina sulky. — I get it.
 
 ---
 
-Kim already knew.
+Kim smiled at her face. But he was happy. He had liked the game. A lot of it felt real.
 
-He knew since leaving school. Since the second block, when two guys with caps of the same color crossed the street behind them and kept crossing. Since the market, when the same motorcycle passed twice slowly. Since they arrived at the parking lot and the shadows behind the back wall started moving occasionally, when the wind wasn't moving.
+Now it was his turn to respond.
 
-He had also seen that, when Jack stood up to explain the combat modes, the group back there stopped. They had planned to come in at that moment. Jack standing made them wait. And it gave time for the lesson to finish.
+— What I want to know — Nina — is how you manifested a unique-type weapon in the middle of a match. Even if it was training.
 
-The only one who hadn't noticed was Nina.
+Kim opened his hands, like the John Travolta meme.
 
-But that was normal. Eight out of ten days, Kim and Jack were being followed by someone who had already gotten beaten by them. It was the climate of Marelia for the two of them.
+— I don't know what happened. I just didn't want to die at that moment. That crazy weapon of yours was almost splitting me in half, I put my hands up in front and out of nowhere that thing appeared.
 
-Kim stood up slowly. Jack was warming up his shoulders.
+— That's not possible. It's against the rules of the game. Nobody manifests a weapon in the middle of a match that already started. Not even in training.
 
-— When did you see them? — Jack, without looking back.
+Kim crossed his arms.
 
-— Since school. — Kim opening his arms, stretching.
+— Look, Nina. I'm starting to like you a lot. You seem like a nice person. But when I say I don't know, it's because I don't know. I have no idea. And honestly, I don't care. What matters is that at least I didn't die to you.
 
-Nina stood up too, looking from one to the other. Jack twisted his neck. Kim rotated his wrists. She started stretching without yet knowing why, just because the two of them were doing it.
+The mood heated up.
 
-— Hey, guys! — Jack facing the back wall, hands cupped around his mouth. — You hiding back there. How long are you going to make us wait? If you want something, now's the time, because soon we have to go to work. Come closer and say what you want.
+The two were kind of aggressive. And Nina was too competitive to lose gracefully. She was sure that had been her chance for a rematch. And she had lost to him again. The second time.
 
-For a second nothing moved.
+She was furious.
 
-Then heads started to appear.
+Jack saw the storm brewing and did what he always did.
 
-From behind cars. From behind trees. From behind the walls of the old police station. One, two, five, ten. Twenty. Twenty-two, twenty-four. Pieces of wood in hand. Chains. The occasional knife.
-
-Nina understood.
-
-And stretched even more. Squatted, making sure her legs were warm.
-
-Looked at the two.
-
-The two were smiling.
+— Guys. Let's calm down, take a deep breath, and find something to drink, because my throat's dry. — Already getting up. — I still have a little cash, and I only work at night. Today we find a little store, grab a little vodka, and drink it slow. Appreciating every sip.

@@ -1,251 +1,187 @@
-# CAPÍTULO 19 — Sem Acordo
+# CAPÍTULO 19 — Cuba de Pobre
 
-Eram vinte e poucos. Vinte e dois, vinte e quatro, dependia de quem ainda estava atrás do muro.
+O Kim e a Nina olharam pro Jack e toparam.
 
-Homens e mulheres. Uns de boné, uns de capuz, uns de cara limpa como se não tivessem medo de serem reconhecidos. Madeira, corrente, cano. Um ou outro com o brilho de uma lâmina na mão.
+O Jack foi na frente até uma loja de bebida. Do jeito de sempre: um refrigerante, uns limões, uma vodka. Passaram no DIX. E foram pro canto sossegado deles, onde ninguém enchia o saco. Nem inimigo, nem gente querendo briga, nem polícia.
 
-Na frente deles, uma moça.
+Um estacionamento vazio. Uns carros velhos largados, um Fusca sem rodas, uma caminhonete com árvore crescendo no motor, um hatch vermelho com a porta de trás aberta pra sempre. E o que sobrou de uma delegacia, a placa meio pintada. Os carros eram apreendidos do tempo em que ela funcionava.
 
-Não era a maior do grupo. Era uma das menores. Cabelo raspado dos lados e comprido em cima, caindo pra um lado do rosto. Óculos escuros. Uma barra de ferro arrastando no chão atrás dela com um barulho que ela fazia questão que todo mundo ouvisse.
+Era o refúgio do Kim e do Jack. E, desde a noite da banda, da Nina também.
 
-Ela andou na direção do Jack.
+O Kim tirou os copos da mochila. O Jack cortou os limões com o canivete. A Nina abriu o refrigerante.
 
-O Jack deu dois passos na direção dela.
+Vodka primeiro. Limão espremido com a mão. Mexe com o dedo. Completa com refrigerante.
 
-Atrás dele, Nina tinha entendido. Voltou a se alongar, agora de verdade, se agachando fundo pra aquecer as pernas.
+— Cuba de pobre. — Jack levantando o copo.
 
-— Moça. — Kim pra Nina, sem tirar o olho do grupo. — Isso aqui é o tipo de coisa em que você não precisa se meter.
+Os três deram o primeiro gole quase juntos. Ajustaram a bebida, mais limão, menos limão. Todo mundo sabia, sem ninguém falar, que aquele não era dia de beber até cair. Deixaram os copos no chão.
 
-Nina olhou pra ele como quem ouve uma idiotice. Não respondeu.
+— Então. — Jack. — A gente tava falando das armas sensacionais que o Kim conseguiu spawnar no meio da partida. — Virou pra Nina. — Olha, Nina, eu não tô defendendo ele. Mas o Kim não sabe nada desse jogo. Ele não tem nem como saber fazer um hack pra puxar arma no meio da luta. Foi espontâneo. Como? Mistério. Igual muita coisa no LDI.
 
-Kim levantou as mãos.
+Tomou um gole leve. Virou pro Kim.
 
-— Tudo bem. Você que sabe. Só não vale chorar depois. Quando o fogo começa, ele se espalha pra todo lado.
+— E você. Eu sei que você ainda não tá acostumado. Mas aceita logo que a Nina já é praticamente da nossa crew. Da gangue. Do nosso grupo. Quanto antes você aceitar, mais fácil vai ser xingar ela no futuro sem ninguém levar pro coração. Igual eu te xingo e você me xinga. Tá certo?
 
-— Não se preocupa comigo, Kim. — Nina, terminando de alongar. — Eu sei me defender. E você sabe disso. Preocupa com você. E outra: eu tô puta até agora de ter perdido duas vezes pra você. Esses caras vão ser um ótimo treino pra próxima vez que a gente se pegar.
+O Kim e a Nina se olharam.
 
-Kim respeitou aquilo.
-
-Mas ele sabia uma coisa que ela ainda não sabia. Ela era boa. Era muito boa. Mas nunca tinha brigado na rua de verdade. Não tinha a malícia. A malícia não se aprende em academia. Se aprende apanhando em lugar onde ninguém aparece pra ajudar.
-
-*Esses caras vão ensinar.*
+Nenhum dos dois disse nada. Mas os dois beberam ao mesmo tempo, o que era a mesma coisa.
 
 ---
 
-O Jack parou a dois passos da moça, as mãos no bolso.
+— Agora a parte boa. — Jack. — O Kim descobriu o modo Xamã sozinho. Na primeira vez que pegou numa arma. E já usou como se fosse nível médio de arma. Isso é absurdo pra iniciante. Eu achei que ia ter muito mais trabalho. Se ele soubesse, por exemplo, que eu tinha que carregar o meu ataque...
 
-— Vou fazer só uma pergunta. Uma só. A gente consegue resolver isso sem eu e o meu amigo precisarmos bater em cada um de vocês até ficar todo mundo desacordado? Ou não?
+— Isso foi sacanagem, na real. — Kim. — Ambiente de treino. Era pra vocês me passarem tudo antes. E vocês já chegaram metendo poder em mim e eu não sabia usar nada. Todo jogo de luta deixa você aprender pelo menos um hadouken antes de te espancar.
 
-A moça levantou um pouco os óculos com a mão esquerda. Encostou a barra de ferro no chão. Cuspiu do lado do tênis do Jack.
+Nina e Jack riram da cara dele.
 
-— Não vai dar. — Uma voz rouca, calma. — A gente tá recebendo uma grana boa só pra tirar umas fotos da surra que vocês vão tomar. E olha. Eu adoro dar surra. Mas adoro mais ainda quando me pagam pra isso.
+— Tá. Então vamos do começo. — Jack ficou de pé, o copo na mão, como um professor de cursinho. — Modos de combate. São três. O primeiro é o de mãos livres. É o que todo mundo usa no começo. Foi o que você tentou na luta contra o Thunderbolt. O segundo é o modo de armas, que você acabou de usar. E o terceiro é o modo de poder, que é usar o seu elemental pra atacar.
 
-Jack fez que sim com a cabeça. Devagar. Como quem lava as mãos.
+— Que eu nunca usei.
 
-Virou as costas e voltou pros dois.
+— Usou. Na primeira luta. Com aquela transformação maluca. Que hoje não aconteceu. — Jack parou. — É verdade. Por que a gente não falou disso primeiro?
 
-A moça voltou pro grupo dela.
+Kim olhou pro copo.
 
-— E aí? — Kim.
+— Eu não lembro do que aconteceu depois que eu apaguei naquela luta. E hoje eu nem percebi que eu tava diferente. O que foi aquilo? Aquilo faz parte do jogo?
 
-O Jack abriu o maior sorriso do dia.
+— Eu não sei o que era. — Nina, mais baixo. — Nem sei se é permitido. Mas você é a única pessoa que eu já vi fazer coisa fora da regra assim. Eu não duvido nada que aquilo seja proibido pra todo mundo e só você consiga.
 
-— Sem acordo!
+— A corporação fala que o jogo é força mental. — Jack. — O que eu acho é que você tinha mais força mental do que o jogo esperava. E ele interpretou aquilo daquele jeito. Foi tão forte que nem você lembra.
 
-Kim abaixou a cabeça e riu.
+— Isso é o que eu não entendo. — Kim. — Como um jogo mede a minha força mental? Qual a diferença da minha pra sua?
 
-— Eu não sei por que você ainda tenta.
-
-— Eu tento porque é o certo, cara. É assim que se vive em sociedade.
-
-— Que acordo? — Nina olhando de um pro outro.
-
-— O Jack sempre oferece pra não ter briga. — Kim. — Pra todo mundo ir pra casa inteiro. Normalmente ninguém aceita. — Pausa. — Na verdade, nunca ninguém aceitou.
-
-— Mas ainda vai ter a primeira vez. — Jack. — Eu acredito.
-
-— Acredita no que você quiser. Gravou?
-
-— Tá achando que é minha primeira viagem? — Jack tirou o celular do bolso e mostrou a tela. A gravação ainda estava rodando. — Tá aqui. Ela falou com todas as letras que não aceita o acordo.
-
-— Então beleza. — Kim. — Agora começa a diversão.
+— Pra você, que tá de fora, parece complicado. — Jack. — E você ainda não tem experiência. Mas pra mim, e acho que pra Nina também, que já teve umas lutas, dá pra ver o quanto a nossa capacidade de energia muda. E a energia é tudo no LDI. Só que, como a gente não usa o corpo lá dentro, só a cabeça, a tua energia não vem de treino físico. Vem de força mental. Pura. Como a corporação calcula isso? Não faço ideia.
 
 ---
 
-Jack olhou pra Nina. Olhou pro Kim.
+Jack mexeu a bebida com o dedo e começou a andar na frente dos dois.
 
-— Ela vai com a gente?
+— Pensa comigo. Quando você começa uma briga, tá na melhor forma, né?
 
-— Pelo jeito, sim.
+— Claro. Por isso a gente aquece antes.
 
-Jack olhou pra Nina de novo com um meio sorriso. *Realmente, essa garota não é normal.*
+— Isso. Melhor forma. Aí a briga vai rolando e você vai cansando. O corpo vai gastando. Perdendo força.
 
-— Achou mesmo que eu ia deixar essa diversão toda só pra vocês dois? — Nina.
+— Óbvio. Vai direto ao ponto.
 
-— Tá, tá. — Jack. — Só sabe de uma coisa: depois que o fogo pega, ele...
+— Calma. Eu vou chegar lá. — Jack levantou a mão. — No LDI é igual. Começa no topo da energia e vai gastando. Gasta pra bater, gasta pra usar arma, gasta pra usar poder. Só que tem um modificador. Quanto mais forte a força mental, mais energia você tem pra gastar. E tem uns casos raros, que eu já vi, em que o cara tá no limite, acabado, e do nada acessa mais poder do que tinha no começo. Eu nunca entendi direito. Mas é visível quando você tá lá dentro.
 
-— Se espalha. — Nina cortando. — Já percebi que vocês têm essas frases combinadas.
+Nina abaixou o copo devagar. Tinha os olhos parados de quem acabou de juntar duas coisas.
 
-O Jack ficou visivelmente arrasado.
+— É verdade. — Por cima do Jack. — Eu nunca tinha pensado nisso. São dois tipos. Tem o explosivo. Solta muita energia de uma vez, um poder absurdo logo no começo, e depois fica fraco. E tem o equilibrado. A pessoa começa mais fraca e vai soltando o poder aos poucos, e vai ficando mais forte durante a luta. É um modificador. Como eu nunca pensei nisso?
 
-— Eu queria terminar. Tudo bem. Fazer o quê. Cada um com a sua educação. Educação vem de casa. Vem do berço. Não gostei. Não foi legal, não. Não foi legal.
+Jack sorriu, orgulhoso da conclusão. Modéstia nunca foi o forte dele.
 
-Nina riu do jeito criança que ele estava levando aquilo. E por um segundo os três estavam rindo com vinte e tantas pessoas armadas vindo na direção deles.
+— Como fazer pra treinar isso? Não me pergunte, meu querido. Isso eu não sei. — Ele parou na frente de Kim. — Mas eu sei de uma coisa. Desde a nossa primeira briga, eu vi que você era muito forte. Não por causa do corpo. Por causa da cabeça. Você é determinado de um jeito que eu nunca vi em ninguém. E no LDI isso vira poder. Eu sempre soube que no dia que você entrasse lá, você ia ser uma coisa pra se temer.
 
-Depois pararam.
+Levantou o copo. Ficou um pouco sem graça com o que tinha acabado de falar.
 
-O grupo se aproximava.
+Nina achou aquilo bonito. Levantou o copo também.
 
-Kim e Jack olharam em volta ao mesmo tempo. Olharam pro hatch vermelho. Pros copos no chão. Pra placa da delegacia meio pintada. Pro estacionamento que era o refúgio deles.
+Kim levantou o dele.
 
-Se olharam.
-
-Não precisaram falar nada.
+Os três brindaram.
 
 ---
 
-Os dois deram meia-volta ao mesmo tempo e saíram correndo.
+— Agora. Energia. — Jack, se recuperando. — Pra fazer coisa além do limite humano, você gasta energia. Velocidade, golpe forte, tudo. Só que não tem barra. Não tem número na tela. Você sente no corpo. O cansaço. A força indo embora. Igual na vida. — Tomou um gole. — Tô com a boca seca. Nina, fala do mãos livres.
 
-Nina ficou parada.
+— O mãos livres é o normal. — Nina. — É a arma que todo mundo já tem. É como vocês brigam todo dia, né, garotos? Gasta menos energia, porque você não tá usando nada além do que você já sabe, só que amplificado. Mas quanto mais sobre-humano você quiser ser, mais gasta. Tem jogador que gasta mais energia num soco de mãos livres do que outro gasta usando poder. Porque tá indo muito além do que faria. — Ela deu um gole. — Nossa. Falar tanto seca a garganta mesmo.
 
-Por um segundo inteiro ela ficou parada no meio do estacionamento, olhando os dois correndo pro portão do fundo, sem entender o que estava acontecendo. Depois saiu correndo atrás.
+— Então mãos livres é o melhor? — Kim. — Eu sou bom de mão e gasto menos.
 
-— SEUS DESGRAÇADOS! — Correndo e gritando. — O que vocês tão fazendo? Tão FUGINDO? É pra isso que vocês aqueceram? Pra FUGIR?
+Jack e Nina se olharam e riram. Eles gostavam daquela inocência dele.
 
-Kim e Jack olharam pra trás e riram.
+— Quem dera, cara. — Jack. — Se fosse só isso, os maiores lutadores do mundo seriam os campeões do LDI. Não são. Eu te venci hoje com um ataque que nem encosta em você. E com a Nina você sofreu. Calma. Não começa a se achar.
 
-O grupo também não tinha entendido. Ficou um segundo parado, os pedaços de madeira no ar. Depois alguém gritou alguma coisa e os vinte e tantos saíram correndo atrás dos três.
+Kim pensou. Ele tinha razão.
 
-E os três correndo na frente, conversando, como se não tivesse ninguém atrás.
+— Mas pra você, que já sabe brigar, faz sentido começar de mão livre. Pra ler o adversário e decidir quanto você quer gastar naquela luta. — Jack. — Só que cuidado com o explosivo. Se o cara solta tudo de uma vez logo no começo, você não tá preparado e se fode. Aguenta a primeira onda que depois ele fica fraco. E no mão livre, se você se empenhar, dá pra ter mais velocidade, mais força e pegar o adversário de surpresa. Faltou alguma coisa, Nina?
 
-— Nina. — Jack, correndo de lado pra conseguir falar. — É que eu e o Kim tamo acostumados a fazer as coisas sem falar. Como você é nova, a gente meio que foi no automático e esqueceu de avisar. Na próxima a gente avisa. Agora só corre. Você vai entender.
+— Não, meu querido. É isso, lindão.
 
-— Mas por que a gente tá correndo? Vocês acham que não dão conta desses caras? Sinceramente, eu esperava muito mais de vocês!
-
-— Não é sobre dar conta. — Kim, sem perder o fôlego. — É o lugar. Aquele estacionamento é o nosso refúgio. A gente não briga no refúgio. Se a gente briga lá, alguém chama a polícia, e aí a gente nunca mais pode voltar. Deixa de ser o nosso lugar. E lá é aberto. Muita gente vê. Muita gente filma.
-
-Nina correu um tempo calada, entendendo.
-
-O Jack parecia saber de tudo isso desde o primeiro segundo. Ela se perguntou se os dois tinham combinado aquilo um dia, sentados no hatch, ou se era aquela coisa de quase telepatia que ela via entre eles o tempo todo. Pra ela era um mistério. Ela nunca tinha tido isso com ninguém.
-
-— Tem um parque aqui perto. — Kim. — Perfeito. Tem árvore, tem mato, tem caminho. Dá pra separar eles e pegar um grupo de cada vez. A gente também vai se separar, pra ninguém ter que brigar com todo mundo junto, que cansa. — Ele olhou pra Nina. — Tô falando pra você porque o Jack já sabe. Cuidado. Mesmo separada, fica perto. Se precisar, grita. A entrada é na direita. Vamos.
+— Ui. Ela me chamou de lindão. — Jack com a mão no peito. — Então vamos pro modo de armas. A Nina é a pessoa perfeita pra isso. Manda, Nina.
 
 ---
 
-O parque era mais mato do que parque.
+Nina fez a cara de quem estava ficando entediada.
 
-Uma grade caída na entrada. Um caminho de terra que se dividia em três logo depois dos primeiros bancos. Árvores grandes, com raiz pra fora do chão. O barulho da cidade ficando pra trás.
+— Gente, isso tudo tá no manual. Ele abre o SBI e lê. Por que a gente tem que explicar tudo pra ele?
 
-Os três entraram correndo, o grupo cada vez mais perto atrás.
+— Pensa comigo, Nina. — Jack muito sério. — Imagina que num universo alternativo a gente não existe. E a nossa história tá sendo contada num livro. Se a gente não explicar pro Kim como funciona, quem tá lendo não vai entender nada. Então é por isso que a gente tem que explicar tudo direitinho.
 
-No meio do caminho, Kim olhou pro Jack e pra Nina.
+Kim e Nina olharam pro Jack como se ele tivesse ficado louco.
 
-Kim seguiu em frente. O Jack foi pra direita. A Nina, pra esquerda.
+A bebida estava mexendo com ele.
 
-— Se precisarem, gritem. — Kim, antes de se separarem. — Ou liguem.
+Jack fez um sinal com a mão pra ela continuar. Nina continuou, porque todo mundo sabe que não se contraria gente louca.
 
-Os dois fizeram que sim e sumiram nas árvores.
+— Começa comprando a arma. Todo mundo começa com uma arma inicial. Uma faquinha, a mesma pra todo mundo. É lixo. Você pode chamar a qualquer hora, mas com poucos movimentos ela come toda a sua energia e não faz nada. Aí você luta. No LDI, até quem perde ganha ponto. Uns cinco por cento do que o vencedor ganhou. Esses pontos você pode usar pra subir no SDR ou pra comprar item.
 
-Kim correu mais uns dez passos.
+— E compra a arma.
 
-Parou de correr.
+— Compra pacote. Você não escolhe a arma. Você compra um pacote com cinco armas diferentes, fechado, e escolhe uma às cegas. Uma chance em cinco de vir a que você queria. E os pacotes são caros, só avisando. Cada arma vem com um card que explica como ela funciona no modo normal e no modo Xamã. Aí você usa em luta oficial. — Ela olhou pra ele. — E não dá pra comprar nem sacar arma no meio da partida. Nem em treino. Por isso a gente tá impressionado. Você não comprou nada. E a arma apareceu.
 
-Começou a andar.
+Jack, que viu que aquele assunto ainda doía, entrou na frente.
 
-Tirou o maço do bolso. Acendeu um cigarro. Virou de frente pro caminho por onde tinha vindo e ficou ali, fumando, esperando.
+— E aí você dá nome. Eu tenho a minha Vitória. A Nina tem a Angel. Você tem a Xakaxi. Nome bonito, inclusive. Quando você define o nome, a arma se liga em você. O LDI reconhece. Sempre que você pensar no nome ou falar o nome, ela aparece. E quando você chama, ela fica com você a partida inteira. A primeira transformação em Xamã tem que ser falada, em voz alta, pra ela aprender. Depois disso é só pensar.
 
-Não demorou.
+— Ela lê o meu pensamento.
 
-O grupo chegou pelo caminho de terra, ofegante, e parou quando viu ele ali parado, fumando, como se estivesse esperando um ônibus. A moça dos óculos veio na frente.
+— Kim. O jogo inteiro lê o seu pensamento.
 
-— Nossa. Me falaram que vocês eram bons de briga. Tô decepcionada. Não achei que iam fugir. Só pra você saber o nome de quem vai acabar contigo. Roxy.
+Kim ficou um segundo com aquilo. Uma arma que lia a mente. Um jogo que lia a mente. Fazia o mesmo sentido que o resto.
 
-— Não foi fuga. — Kim soltando a fumaça. — Foi mudança estratégica de local. Vocês iam estragar o nosso refúgio. Aquele lugar é nosso.
+— E a arma divide a sua energia. — Jack continuou. — Quanto mais ela precisa pra atacar ou pra bloquear, mais ela tira de você. E você já gasta energia nos movimentos rápidos; com uma arma que puxa mais, o gasto aumenta. O Xamã tira mais ainda. Se você ficar no Xamã o tempo todo, seca rapidinho. Por isso ela volta pro normal quando não tá usando. Entendeu? O modo Xamã é tipo Super Saiyajin. O máximo da arma. Ficou claro?
 
-Roxy olhou pros lados.
+Kim assentiu.
 
-— Cadê o seu amiguinho? E a garota? Os meus meninos vão querer se divertir com ela. Talvez até eu.
+— Na nossa luta eu usei a Angel no Xamã. — Nina. — No Xamã ela estica como se fosse um braço, até uns três metros. E aí eu juntei com o meu elemental, que é Luz, e fiz o Luminus Blade. A arma com o poder junto. Pra garantir que eu ia te cortar no meio.
 
-Kim riu.
+— Disso eu lembro. — Kim. — Foi por muito pouco. Obrigado por me lembrar. — Pausa. — E foi aí que eu vi o velho sábio de novo. Aquele que fala por enigma.
 
-— Podem tentar. Mas eu garanto que ela não vai ser uma presa fácil. Na verdade, ela pode virar o predador. — Apontou com o cigarro. — Ela foi pra esquerda. O Jack foi pra direita. Fiquem à vontade. Dela eu não sei. Mas o Jack, eu tenho certeza que já tá esperando vocês em algum lugar.
+O Jack parou o copo no meio do caminho.
 
----
+— E aí, velho? Qual foi o rolo dessa vez?
 
-Roxy fez um sinal com a cabeça.
+— Ah, é. Eu ainda não contei. Eu tava com isso na cabeça, mas vocês começaram a falar de poder, de modo, e eu esqueci. No meio da nossa luta, quando a luz da Nina tava em cima de mim, eu falei de novo com aquele índio doido.
 
-O grupo se dividiu. Sete pra esquerda. Sete pra direita. Com ela, ficaram nove.
+A Nina pôs a mão no ombro dele.
 
-Era um grupo misturado, homem e mulher, uns com taco, uns com corrente, um com uma pedra na mão como quem acabou de pegar do chão.
+— Kim. Não me leva a mal. Mas você sabe que você tem ascendência indígena forte, né?
 
-Kim terminou o cigarro sem pressa.
+O Kim olhou pra ela com a cara de quem não estava entendendo a pergunta.
 
-Olhou nos olhos da Roxy.
+— Claro que eu sei. Eu não tô chamando ele de doido porque ele é índio. Eu tô chamando de doido porque ninguém fala do jeito que esse cara fala. Ninguém na face da Terra. Ele é igual a mim, só que doido. Eu não.
 
-Jogou a bituca pro alto.
+— Tá. — A Nina tirando a mão, aliviada. — Eu só falei pra ninguém achar que você tava falando mal de alguém pela origem dele.
 
-E no meio segundo em que todo mundo olhou pra bituca subindo, ele já estava no ar, o corpo indo na direção da Roxy num salto que fechou metade da distância.
+*A loucura do Jack pega.*
 
-Ela saltou pra trás.
+— Não esquenta. — Kim. — Gente babaca não é babaca por causa de cor, de raça, de origem, de gênero, de dinheiro. É babaca porque é babaca. Porque gosta. É babaca lá no fundo e inventa um motivo pra fingir que tem razão. Tem uns que se tocam e tentam mudar. Tem uns que morrem babaca. E tem uns que sabem que são e se escondem no meio de todo mundo, sem nome, pra continuar sendo.
 
-Quase tão rápido quanto ele.
+O Jack assentiu devagar.
 
-Kim pousou onde ela estava e ficou um segundo parado, sem entender. Ninguém fazia aquilo. Ninguém nunca tinha saído daquele salto.
+— Tá, galera. Vocês tão desviando do assunto. Bora continuar que eu quero terminar logo. Eu quero ir pra casa, tomar banho, descansar um pouco. E eu e você ainda vamos trampar hoje à noite, Kim. Provavelmente até umas duas da manhã na balada.
 
-Roxy também parecia surpresa. Torceu o pescoço pro lado. Entregou os óculos pra um dos caras atrás dela, sem tirar o olho do Kim.
+O Kim e a Nina calaram a boca.
 
-— Você é rápido. E parece forte. Não vou te subestimar. — Ela apontou com o queixo. — Vocês dois. Pega ele.
+— Então, Kim. Dá pra combinar os estilos. A Nina combinou arma com poder. Você pode combinar mão livre com poder. Ou mão livre com arma. E outras combinações que você talvez pense e eu não. O importante da arma é usar bem. Na maioria das vezes, na hora certa. Hoje eu e a Nina abusamos pra te mostrar. Mas em luta oficial, eu chamo a Vitória em momento específico. — Ele bebeu. — Eu sempre levo a luta no máximo de economia de energia. Eu sou muito forte, mas não tenho tanta energia mental assim pra gastar. Já percebi isso. Então eu equilibro e uso o poder no pontinho certo. Talvez seja uma coisa que você vai ter que descobrir em você. Cada avatar é diferente, igual cada pessoa é diferente. No LDI você tem que achar o ponto de equilíbrio do teu personagem. Beleza? Deu pra entender? Bora pro modo de poder?
 
-Dois saíram do grupo. Grandes. Cuidadosos.
+O Kim ia pedir pra ele continuar.
 
-Kim olhou pros dois se aproximando devagar e falou a frase de sempre.
+Mas a Nina já estava endireitando o corpo, os olhos acendendo pela primeira vez desde que tinham chegado.
 
-— Vocês sabem qual é a primeira regra da briga de rua?
+— Esse é comigo. — Nina. — Esse é o meu preferido.
 
-O primeiro chegou soltando soco. Direita. Kim desviou. Esquerda. Kim desviou. No embalo do desvio, girou o corpo meia volta por trás do cara, passou a mão por cima da cabeça dele, prendeu o nariz dele entre dois dedos e puxou pra trás com força.
+Os olhos dela tinham mudado. Era a primeira vez naquele dia que a Nina parecia ter a idade dela.
 
-Ninguém tinha reparado na pedra.
+— Se você é que nem eu, que cresceu vendo desenho, anime, filme de gente com superpoder... Essa é a minha teoria de por que o LDI é o que é. Ele deu superpoder pra qualquer pessoa. Em qualquer lugar do mundo. Qualquer um.
 
-Uma pedra grande, de ponta, do lado do caminho. Kim tinha ficado perto dela de propósito desde que acendeu o cigarro. O cara perdeu o equilíbrio e caiu de costas com o peso todo em cima da ponta da pedra.
+Kim estava inteiro prestando atenção.
 
-O barulho do corpo foi feio. O grito foi pior.
+— Quando você cria o avatar, o sistema te classifica num elemental. Primário ou secundário. E não tem diferença de força entre eles, porque, como o Jack falou, tudo vem da sua energia. A força do poder é quanto de energia ele tira de você e põe nele. Igual a arma. Você junta energia no poder e solta.
 
-O cara ficou no chão sem conseguir levantar.
+— E tem tipos.
 
-Kim continuava parado na mesma posição.
-
-— É que não existe regra.
-
----
-
-O segundo ficou olhando pro amigo no chão.
-
-Eles já tinham brigado juntos muitas vezes. Ele sabia o quanto aquele cara aguentava. E agora o cara estava no chão gemendo, e o garoto que tinha feito aquilo nem era tão grande, nem parecia tão forte.
-
-Kim soltou o ar pelo nariz.
-
-— Hmpf.
-
-E foi.
-
-Um passo cruzado na frente do outro, direita, esquerda, como quem dribla, chegando perto. O cara abriu os braços pra agarrar. Kim passou por baixo. Armou o soco no queixo e, no último instante, em vez do soco, chutou o joelho do cara de lado.
-
-O joelho dobrou pra onde joelho não dobra.
-
-O urro atravessou o parque.
-
-O cara caiu segurando a perna quebrada, e Kim voltou pro lado da pedra, de frente pra Roxy, esperando o próximo.
-
-Roxy não tinha se mexido. Estava olhando pros dois no chão com uma cara de decepção que não era com o Kim.
-
----
-
-Do outro lado do parque, na trilha da esquerda, a Nina estava com uma perna esticada no tronco de uma árvore, alongando.
-
-Sete caras chegaram pelo caminho de terra.
-
-Ela já esperava. Ela era mulher. Sabia exatamente o que homem fazia quando achava que tinha encontrado uma garota sozinha no mato. Já tinha visto aquele sorriso no rosto de muito homem antes. Nunca tinha gostado de nenhum.
-
-Tirou a perna da árvore.
-
-Estalou o pescoço.
+— Três. — Ela contando nos dedos. — Instantâneo. Média duração. Longa duração. Quanto mais tempo pra carregar, mais estrago costuma fazer. Só que mais tempo você fica aberto no meio da luta. E dependendo do poder, se você tomar um golpe no meio do carregamento, perde tudo. O poder e a energia que você já tinha posto nele. Por isso é muito arriscado usar poder de longa duração em luta de verdade.

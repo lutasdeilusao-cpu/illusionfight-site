@@ -1,293 +1,149 @@
-# CHAPTER 25 — Risca a Faca
+# CHAPTER 25 — Two People
 
-Kim reached the sidewalk at seven fifty-five.
+Kim let go of Roxy like someone drops a bag.
 
-Jack showed up at seven fifty-nine.
+He wiped the blood from his face with his forearm. Adjusted his cap. Lit a cigarette.
 
-Kim always got irritated with Jack's timing. Not because he arrived late. Because he arrived right on the dot. Always right on the dot. As if the clock were a suggestion he accepted at the last second.
+He looked around. Nine people on the ground. One of them holding her leg. Another groaning on her back on top of a rock.
 
-And then Kim looked at the suit.
+*They paid to take pictures.*
 
-Wrinkled. All of it. Collar crooked, the sleeve with a crease running across the elbow, the shirt tucked in only on one side.
+He looked at Roxy's phone, fallen in the dirt beside her hand, the screen lit. He didn't pick it up. He didn't need to.
 
-Kim's blood boiled a little.
+*Who pays to take pictures of a beatdown?*
 
-— Man. You told me to iron the suit. And look at the state of it. You didn't iron it, did you?
+He filed that away in the part of his head where he kept things to think about later.
 
-Jack yawned.
-
-— Stop worrying about details. — Genuinely sleepy. — You take everything way too seriously, Kim.
-
-They walked to the bus stop. Kim looking Jack up and down and shaking his head the whole way.
+And he headed toward Jack's voice.
 
 ---
 
-Minors can't work.
+Jack was coming through the brush smoking, in no hurry. The first one he found was Kim.
 
-It's Bravara law. Below a certain age, no work permit, no contract, no job. The law exists to protect children, and the law never asked any child how they were supposed to eat.
+He saw his friend smiling. Saw the cut in the middle of his forehead.
 
-So those who needed to made do. Some went into crime. Others sold stuff on the bus, did side gigs, offered services. And there were the places with bad reputations that couldn't hire adults properly, and that accepted the risk of putting to work those the law wouldn't allow.
+The two knew each other too well.
 
-Kim and Jack were those kinds.
+— What's up, man. — Kim. — Was it hard?
 
-They made less than a real security guard. Part of the pay went to cover the house's risk. But for Jack, making less was a lot better than making nothing.
+— Nah. Easy, as always. They sent a pretty weak little group to my side. Why?
 
-They got off the first bus in a neighborhood poorer than theirs. They caught a second, a bus falling to pieces, with the back seat tied up with wire, that went to an even worse place.
+— Because I'm seeing that little scratch on your neck.
 
-Through the window, the houses turned into ruins. Walls without plaster. Roofs without tiles. Streets without asphalt. And even so there was money moving around. You could see it. Nice cars parked in front of shacks. New motorcycles. People on corners who weren't there for no reason. The money in that place came from things the government said it didn't allow. And pretended not to see, because of deals with the region's businessmen.
+Jack ran his hand over his neck. Looked at his finger.
 
-Jack poked Kim's arm.
+— Whoa. It scratched? I didn't even see. I thought she hadn't landed anything. It's fine. It's just a scratch.
 
-— The name of the place is Risca a Faca.
+— I'm worried about Nina. — Kim, changing the subject. — Our fights are heavy. And I don't know what kind of people went over there. I just know it was all men. And men are a complicated animal.
 
-Kim cracked his neck, looking out the window.
+— THAT'S TRUE! — Nina's voice coming from far away. — MEN ARE A DAMN DISGRACE. THE TRUE PLAGUE OF HUMANITY. BELIEVE IT!
 
-— Risca a Faca. — He repeated. — Get ready. Today it's going to be worth every cent.
+The two laughed. They knew that voice well enough to know she was pissed and in one piece.
 
-— Calm down. Positive thinking. Maybe everything goes right and nothing goes wrong.
+She came through the brush with a cigarette in her mouth.
 
-— You're being redundant. If everything went right, it's because nothing went wrong.
+— What's up, Nina. — Jack. — You good? Chill? No injuries? Nothing broken? What's the situation?
 
-— You're going to complain all night? If you keep this up, it's going to be an awful night.
+— Great. As you can see. Chill, nothing broken, no injuries. I just got my skirt dirty. Dolce & Gabbana. I'll have it cleaned later. — She looked at the two of them. — And you two, by the looks of it, all good too.
 
-— I'm just warning you. — Kim. — But you know what? I only want one thing. To see the money first.
+Kim looked her up and down.
 
-Jack thought.
+She noticed.
 
-— Yeah. You're right about that. Money first.
+— What, Kim? You think I'm hot now?
 
----
+Kim froze.
 
-They got off on a dirt street.
+She said it with such naturalness that it caught him completely off guard, and the face he made made Nina laugh out loud.
 
-On the corner, a girl leaning against a light pole was waiting for a client. Further ahead, two guys exchanged something with closed fists. A car drove by slowly with the music way too loud. And in the middle of that, Kim and Jack, in suits and ties, walking like they were going to a wedding.
+— Of course not, girl, get a grip. I'm checking if you're okay.
 
-The club was a warehouse with an iron door and a neon sign with half the letters burned out.
+Jack let out a laugh that startled birds.
 
-At the door, a big man. Very big. He saw the two arriving and broke into a smile.
+— Kim is shy. He's not used to this kind of joke. But do it more, Nina, do it more. Let's add fuel to that fire. I want to see this guy completely embarrassed.
 
-— So you really came. — Spreading his arms. — I swore you wouldn't show. Good thing. I was almost working the door by myself.
+— Stop being an asshole, Jack. The only thing I wanted was to see if she was okay. I already said that.
 
-— I told you I'd come. — Jack. — Word of a man. Just one thing. You'll have to pay upfront.
+— I'm great. — Nina laughing. — It was a refreshing fight. Though on my side there were only failed, weak pervs. And two cowards. I can't forget the cowards.
 
-The big man scowled.
-
-— That's not what we agreed. Why change now?
-
-— My friend here is kind of a complainer, you know? — Jack pointing at Kim with his thumb. — He's suspicious. If you pay now, everybody stays calm.
-
-— The suspicious one will be me. What if I pay and you disappear before it's over? That's not happening.
-
-Jack shrugged.
-
-— Then fine. That's it. If you don't want to, someone else will. I'm not going to beg for two hundred. Come on, Kim. Let's go have a beer.
-
-And he turned his back.
-
-The big man stood watching the two walk away down the dirt street. He looked at the club door. He looked at the line already starting to form. He did the math on how many fights he'd have to break up alone that night.
-
-— Hold on, friend! — Going after them. — You're not even going to negotiate? Let's do this: half now, half at the end. How about that?
-
-Jack turned slowly.
-
-— Okay. I accept. But now the price went up. Three hundred to stay until two.
-
-— You're a hard one, huh? — The big man ran a hand over his head. — But I'm out of options. If you do good work, we'll settle up. A hundred now. Two hundred at the end.
-
-Jack looked at Kim.
-
-Kim didn't say anything. Just looked back. And the look said everything: *it's good, Jack. It worked out. Close the deal.*
-
-Jack turned to the big man and held out his hand.
-
-— Deal. We have an agreement.
-
-The big man shook his hand, gave the hundred to Jack, walked into the club smiling and went straight to his room in the back. He wouldn't have to work the door. He wouldn't have to break up fights. He'd never seen those two work. But he'd heard about them.
+— There's always a coward. — Kim, recovering his composure. — Always. Get used to it. Sometimes there's more than one. When they see the leader going down, they bail.
 
 ---
 
-The night started calm.
+Jack had a smile that Kim knew.
 
-Jack stayed at the door. Name list, pat-down, who gets in, who doesn't. Every once in a while he found a weapon during the pat-down. There, it was more formality than security. They didn't have authorization to take anyone's weapon or hold it. They just checked and let them through.
+Kim remembered that, in Jack's group, at least three girls had gone after him.
 
-Jack was good at that. He talked to everyone. He solved problems before they became problems. He joked with anyone who was nervous. And every time a woman came alone, he found a way to flirt.
+— What did you pull? — Kim, hand on his forehead. — Quoting the great and powerful preppy boy: you bastard! You're a piece of shit when it comes to women. And I know at least three went after you.
 
-By the end of the night, he had a few phone numbers in his cell phone.
+Jack crossed his arms, the shameless smile on his face.
 
-One of them would bring a lot more problem than solution. But that's a matter for later.
+— They really came to get me. And I got them good.
 
-For Kim, it was harder.
+— Dude. Please. Tell me you didn't pull anything.
 
-Kim talked fine with Jack. With the rest of the world, he didn't know how. He didn't like talking to people he didn't know. Maybe he didn't even know how. And that bothered him in a way he didn't say.
+— Of course not! You doubting me, Kim? — Offended. — It was a fight like any other. You know our rules. The only consideration I had was not hurting their faces. — Pause. — Okay, one rock. But it was instinct. Something I'm sure you didn't have with yours. Other than that, it was equal to equal. Whoever came to fight got beat like anyone else.
 
-So he stayed next to Jack, arms crossed, watching the line. And it was there that he told him.
+Nina stood watching the two of them.
 
-Going home. The tidy house. The unsalted lunch. The show.
+Kim was serious. Centered. Quiet. Even shy. Jack was open, playful, full of jokes, extroverted. They were the opposite of each other. And they were brothers. Kim trusted Jack's word completely. Jack trusted Kim's word completely.
 
-Jack stopped patting down a guy in the middle of the search.
+It was the kind of friendship she had always wanted with someone.
 
-— Hold up. You watched a series?
+And had never managed to have.
 
-— I did.
-
-— You. Kim. Watched a series. With your mom.
-
-— One episode.
-
-— Which one?
-
-— House of Money.
-
-Jack let go of the guy in the search and stared at his friend open-mouthed.
-
-— Man. That's one of my favorite shows. I've been talking about that show for two years. Two years, Kim. And you never wanted to know.
-
-— Now I do.
-
-Jack sat with that. It was the first time in five years Kim had talked about starting a series. Kim, excited, told the whole first episode, the professor, the plan, the part he thought was smartest. Jack listened with the smile of someone discovering something new about a person he thought he knew completely.
-
-LDI. Now the series. Common ground they'd never had.
+She had never connected with anyone the way she was starting to connect with those two. They talked a lot of bullshit. But Jack was right about one thing. Making Kim embarrassed was very funny.
 
 ---
 
-— And that Indian? — Jack, riding the moment, while the traffic at the door slowed. — Did you find out who he is? Why does he appear to you in the fights?
+— Kim. — Jack, looking at his phone. — Let's go home. It's almost time. I want to rest a bit. Eight o'clock in front of your house. The club owner is gonna put us on security. Two hundred each. Get the little suit, clean, no B.O. So we arrive presentable. It goes until about two. Could stretch until three.
 
-— I don't know. — Kim. — It's the second time. And always in there. Never out here.
+— I know how it is, Jack. It's not the first time I've worked with you. I know very well the places you get. I bet there'll be a fight every five minutes. Because they only take us when the club is really bad and nobody else wants it.
 
-— Very weird. I've never seen anyone talk about that. And I'm on every forum. There are people who think LDI is a mind control tool to take over the world. There are people who think David Kronos is an alien disguised as a human. There are people who think the game was made by an evil spirit for humanity to destroy itself.
+— Of course the club is bad! — Jack laughing. — It's terrible! If it wasn't, there'd be no work for us. If the club was good, there'd be a line of people wanting it. The important thing is at the end of the night there's two hundred in each of our pockets. You in or you out?
 
-Kim laughed.
+— I'm in. You know I'm in. Let's go home. We meet around eight, cool?
 
-To him that was a joke. Forums were a place for people with nothing to do.
+— Cool. Eight o'clock, it's a deal. I'm gonna head out the other side of the park. I have to pick up some things for my dad. You two go that way. See you tonight.
 
-But a little sliver of something crossed his mind. He'd been seeing weird things since he entered that game. An old man in a feather hat speaking slang. A power with a name in letters no one could read. Someone behind him.
+And Jack left.
 
-The Indian was strange. But it wasn't as bizarre as Jack's theories.
-
-*Yet.*
-
-He went back to looking at the line.
+Kim and Nina were alone for the first time.
 
 ---
 
-The first trouble came near midnight.
+They had known each other for two days. They had never been alone.
 
-Kim and Jack looked at each other at the same time. Jack stayed at the door. Kim went in.
+They started walking toward the park gate.
 
-Inside, the club was smoke and bass and red light. Kim took off his suit jacket as he walked, folded it over his arm, looking for where the circle was. He found it easily. Where there's a fight, people form a circle.
+In silence.
 
-In the middle, six men. Big, tall, drunk, two on each side holding back the ones in front.
+Nina took the chance to look at Kim sideways. And she slowly understood something she hadn't expected. He was much more closed off than he seemed. It took them about seven, eight minutes to find the exit, and Kim didn't say a word. Not one. He stayed quiet the whole way.
 
-— Are you crazy messing with my woman? — The first one, being held back. — I'm going to kill you!
+*Is he really that shy about talking to a girl?*
 
-— What's up, coward? She's the one who came onto me! Come on, I'll finish you!
+That made her curious. If he had ever dated anyone. It was strange. With Jack around, he talked. Joked. Cursed. Without Jack, it was like a wall rose from the ground between them.
 
-Kim stepped into the middle of the circle.
+At the park gate, Kim gave a nod.
 
-— Here's the deal. — With his hands in his pockets. — I don't know what the problem is. But if you want to settle something, settle it outside. Anyone who lays a hand on someone in here is going to get beaten. And it won't be just one. It'll be everyone. So if nobody wants to get beaten, it's better to settle it outside.
+— Nina. I'm gonna grab a Duber over there and go home. Bye.
 
-And then what always happened happened.
+Or maybe not?
 
-All the anger changed direction. The six forgot why they were fighting and looked at Kim.
+And he went.
 
-The first one shook off his friends and got close. He was a lot taller than Kim. The alcohol breath reached him first.
+Nina stood at the gate with her mouth half open.
 
-— You're pretty cocky, shorty. How old are you? Your mom let you out of the house at this hour?
+It was as if he had two people inside. The other one wasn't so different from this one. But this one was much more inward. All the imposing presence, the seriousness, the guy who had dropped nine people in the brush, had vanished the instant Jack left his side.
 
-— Here's the thing. — Kim. — I'm not going to stand around talking. Out of consideration for the house, I'm asking you to back off, go back to your spot and enjoy the night. Now, if it's trouble you want, take it outside.
+And she was going to call a Duber too. They could have waited together.
 
-— And if I don't want to?
-
-— If you don't do anything stupid, everything's fine. If you do, I can't guarantee your safety.
-
-The man put his hand on Kim's shoulder.
-
-Kim looked at the hand. Then at him.
-
-The man brought his face close.
-
-— You better stay in your corner. That guy over there messed with my girlfriend and he's going to get beaten. I don't want to hit a kid today. If you stay quiet, maybe you won't get beaten too.
-
-Kim cracked a half-smile.
-
-— Better take that hand off my shoulder. For your own good.
-
-The man laughed. He turned his face to his friends to see if they'd heard that. They had. They were laughing too.
-
-When he turned back, his hand was hurting.
-
-Kim had grabbed his hand off his shoulder, fast, and was twisting it. Not the wrist. The fingers. Just the fingers. The man screamed. His friends stepped forward.
-
-Kim raised the other hand. The friends stopped.
-
-— Friend. Let's stay calm. Go back to your night and don't cause me any more trouble. Please.
-
-He let go.
-
-The man turned red. He wound up a punch. A big punch, the kind meant to hit the whole face.
-
-Kim saw the punch coming and did something none of the six understood.
-
-He moved closer.
-
-He shortened the distance until his face was almost pressed against the man's hand. And he let the punch land. Up close. Without space to build force.
-
-The fist hit the middle of Kim's face.
-
-— I didn't want to do this. — The man, his fist still there. — But you gave me no choice. Who told you to mess with me?
-
-And then he looked.
-
-His fist was in the middle of Kim's face. And Kim's eyes were open. Wide open. Looking at him.
-
-— Now are you satisfied? — Kim, calm. — We're even. I hurt you. You hit me. It's settled. Go back to your spot and enjoy the night as if nothing happened.
-
-The man stood still.
-
-He didn't understand. The punch had landed. The kid hadn't moved his head. He hadn't even blinked.
-
-— Okay. — With disgust, pulling his hand back. — Fine. I'm done with you. I'm going back to my spot.
-
-And he went back.
-
-Kim went to the other group.
-
-— And you gentlemen? Can you go back to your spots and continue the night with no more trouble?
-
-The three had watched everything. They nodded yes and left without saying a word.
-
-Kim put his suit jacket back on and went back to the door.
+She made a mental note: tomorrow, when she was alone with Jack, she would ask who Kim really was.
 
 ---
 
-Jack watched Kim coming and didn't even ask.
+On the other side of the street, waiting for the car, Kim was thinking.
 
-He knew. Kim took that job seriously. Whenever he could, he avoided fights. And if a fight happened, it was because there was no other way.
+*Man. I didn't talk to her at all after Jack left. It's like we're strangers. She must have thought I was kind of weird.*
 
-The second trouble was Jack's. They took turns. Jack had another way of resolving things. More talking. More joking. Sometimes a courtesy, a drink on the house, a "let me talk to her." It was important that they be seen as the ones who solve problems. Not as the ones who cause problems. That was how they got called back.
-
-At two in the morning, the big man appeared at the door.
-
-— I've never had such a calm night. — Counting the money. — I'm happy to pay you. I don't know what you did and I don't want to know. But I want to work with you again.
-
-The rest in hand. Three hundred each, counting the advance.
-
-They went out onto the dirt street with the early morning cold hitting their suits. They caught the falling-apart bus, then the other. Jack fell asleep within two blocks, his head against the glass.
-
-Kim stayed awake, the money in his pocket, the city passing by.
-
----
-
-The rest of the week was quiet.
-
-The trio didn't meet up. They were the first calm days since the three had met.
-
-Kim sold candy. Jack got a new side gig, then another. Nina sent messages in the group every now and then, a photo, a voice note complaining about her dad, a question about the ax that nobody knew how to answer.
-
-Everything seemed calm.
-
-Too calm, Kim thought on Sunday night, lying looking at the ceiling, hearing Helena laugh by herself at something on TV downstairs.
-
-Everything seemed peaceful.
-
-Until a Monday.
+*But screw it. I don't care.*

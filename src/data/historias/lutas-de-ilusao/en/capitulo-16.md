@@ -1,253 +1,221 @@
-# CHAPTER 16 — Xakaxi, Shaman
+# CHAPTER 16 — Private Room
 
-The light that came out of the hatchets wasn't light.
+The square was two blocks from the school.
 
-It was a black glow. Jack and Nina saw it from across the room, a thing that glowed without illuminating, and when it ended the two hatchets were no longer in Kim's hands.
+A peeling cement bench, a tree that gave more shade than fruit, a drinking fountain that hadn't worked in forever. At that hour there was nobody. Just a pigeon and the three of them.
 
-There was an ax.
+— So, man. — Jack. — Being real honest, it's time we got to know a little of your power. I thought about this all day. I'm dying to finally fight you inside the LDI.
 
-Two blades, one on each side. Nothing giant. Between a meter ten and a meter twenty. Light enough for him to hold with one hand.
+Kim made a confused face.
 
-Kim switched the ax to his right hand. The pulley slid down the handle and seated under his fingers, with the steel wire attached to the end of the handle, exactly like on the hatchets.
+— But I don't want to fight you. Why would I fight you?
 
-He rested the ax on his shoulder, behind his head.
+— It won't be an official fight, you asshole. I'm talking about us training together. Inside the game.
 
-— Yeah, folks. — With a smile Jack knew from street fights. — Looks like the old man's on. Let's get started?
+— Ah, okay then. That's fine. So how do we train in this game?
 
-Jack looked at Nina with the face of someone who'd just watched his own car get towed.
+— Usually we train in a public room. — Nina. — Overcrowded. You keep getting challenged all the time, people getting in the way, assholes trying to show how strong they think they are. But now me, you, and Jack can use a private training room. It'll make it way easier to get ready for the next fights.
 
-— He already knows how to transform. He hasn't even started and he already knows how to transform.
+Kim got excited. Then the smile dropped.
 
-— Jack. — Nina, serious. — If we don't work together right, we lose here.
+— Guys, I completely forgot something. I got hyped with all this, but I have to work.
 
-— You think I don't know, girl? You saw what the kid just did.
+Jack laughed.
 
-— So what?
+— No, you don't.
 
-— Quick rush. — Jack adjusting what was left of his top hat. — Before he gets used to that thing.
+— Yes, I do.
 
-Nina nodded.
+— No, you don't.
 
-The two came together, almost side by side.
+— Yes, I do.
 
----
+— You moron. I'm telling you, you don't. We have a night gig. It'll pay two hundred each. That's good enough.
 
-Kim saw the two coming and did the most obvious thing there was.
+Kim relaxed.
 
-He swung his arm and threw the ax.
+— Ah, in that case, cool. Sorry, Nina, for interrupting. Go on. How do we open this private room? Sounds pretty dope.
 
-The ax went spinning through the air straight between the two. Jack and Nina looked at each other with the face of people who'd watched an amateur make the most predictable move in the world, gave each other space, and the ax tore through the gap between them without touching anyone.
+Nina smiled.
 
-Nina saw the opening. Kim was still locked in the end of the throw, arm extended, all his weight forward.
-
-She drew Angel.
-
-— Expand!
-
-The blade came out in segments, snaking fast toward him.
-
-Nina didn't see the wire.
-
-There was no way to see it. It was a steel wire fine as hair, coming from Kim's hand, crossing the room at the height of her waist, going all the way to the ax already behind them both.
-
-By the time she understood, she had understood too late.
-
-— NOOOO—
+— So, kid. Like I was saying. Now we can create a private room. Let's do it. And start your training.
 
 ---
 
-Nina felt an impact in her back.
+Jack already had his SBI in his hand. Nina took hers out of her bag.
 
-Then she felt weightless.
+Kim kept looking at the box.
 
-Then she was looking down from above.
+— Hurry up and open it. — Jack.
 
-She floated above the room, weightless, bodiless, and down there on the arena floor was her. Two halves of her. Separated at the waist, blood spread in a wide radius, what was inside her spilling out, all with a realism she had forgotten LDI had.
+— I'm opening it.
 
-The ax came back spinning along the wire and seated into Kim's hand like a dog returning to its owner.
+— You've been staring at the box for a minute.
 
-Nina kept looking at it from above.
+— I'm opening it carefully. Tomorrow this goes back to Ryan.
 
-She didn't know the weapon could do that. Nobody knew. Not even Kim, she was sure.
+Jack and Nina exchanged a look that said exactly what they both thought about that.
 
-She let out a half smile.
+Kim removed the paper without tearing it. Opened the lid. The SBI was nestled in black foam, thinner than Jack's, lighter, with an unlit strip of light running along the edge. He took out the device with both hands, like it was something that could break just from being looked at.
 
-*Fuck. I'll get you next time.*
+Jack and Nina put theirs on and stood up, ready. Kim copied what the two of them did.
 
----
+— You're the highest in the SDR out of the three of us. — Jack. — So you open the room. I'm dying to see what a private room looks like for someone up there, what resources we'll have. I'll give you a hand creating it, okay?
 
-Jack backed away slowly from Nina's body, like someone moving away from a bomb that had already gone off.
+— How do I open it?
 
-— Fuck, man. That was cold. Cut the girl in half. Pulled a Solomon. She's gonna be pissed when we get back.
+— Dude, this SBI is sick. — Jack looking at the device on Kim's face. — Now say: NeoGuide, access resources.
 
-— She comes back, right? — Kim. — It's a training room. She'll be back in a bit.
-
-— No, she doesn't. Died in a training room, she's out. She only comes back when a new room opens. Now she just watches.
-
-— I thought it was like respawn. Die, come back, die, come back.
-
-— It should be. But it isn't. Training is supposed to be light, nobody killing anybody, otherwise nobody trains. — Jack pointed up with his cane. — And in public rooms, to come back, there's a five-hour cooldown. That's why some groups go into a public room and kill everyone in there. Five hours of empty room. That's how people clear a public room to have a semi-private room just for themselves.
-
-Nina's voice came from somewhere in the room, the same way NeoGuide talked to them.
-
-— It's fine. It's fine. Nobody explained the room rules to you. It happens. — A pause. — But fuck, that ax is sick. Lucky for you I didn't know about that wire. Next time I'll be ready. Just you wait.
-
-Jack laughed out loud.
-
-— Didn't I say she was pissed? I said it.
-
-— I'M NOT PISSED. — Nina. — Stop talking about me and continue the fight.
-
-— See? So calm. — Jack to Kim. — An angel. Peace itself. A nun in the center of Nirvana. That's Nina now.
-
-Kim couldn't hold back a laugh.
-
-Jack turned serious. He looked at the ax in his friend's hand, at the steel wire he could only now really see, glinting when the light caught it.
-
-— Sorry, man. That little wire took me a while to see. If you hadn't chosen her, it would've been me. — Pause. — It's a really good gimmick for a weapon. I liked it. Congrats.
-
-— Thanks. — Kim looking at the ax. — I don't even know how I did that. I just didn't want to die to Nina's blade. So? Do we keep going or not?
-
-The two stood looking at each other with the same smile. The smile of five years fighting on the same side.
-
-— Now that it's just me and you, it's for real. — Jack. — You're starting to get the game. So I'm going to end this before the odds all swing your way. To come back after dying here, you only get back by opening another room. The five hours are for public rooms. Got it?
-
-— Got it. Show me what you do in this little game.
+The world went dark.
 
 ---
 
-Jack held Vitória with both hands and crossed his arms, the weapon in front of his chest. He bent his spine slightly. He spread his legs, weight even on both feet.
+— NeoGuide. Access resources.
 
-— First move.
+— Hello, Kim. Welcome back. — The calm voice as always, coming from nowhere. — I detected that you are accessing from a new SBI. Transferring your settings to this device. Which resource would you like to use?
 
-Stones began to rise from the ground around him.
+— A private training room.
 
-Small. Thousands. Rising from the arena floor without a sound and hanging still in the air, spinning slowly around him like he was a planet.
+— Do you want any specific configuration, or is the standard room enough?
 
-Kim didn't know what that was going to do. He knew his friend wasn't playing around. He started walking backward, opening distance, making sure he had room to do something before that finished.
+— I don't know. The standard.
 
-— Second move.
+— Room configured. Redirecting.
 
-The stones began to crumble in the air.
+The floor disappeared.
 
-They didn't turn into sand. They turned into splinters, each stone breaking into smaller triangular pieces, the points thin and sharp. From the distance Kim was at, he couldn't see the points. He only saw the cloud of stone changing shape.
+Kim was falling again.
 
-He kept backing away.
+The arena down below wasn't much different from the first one. Just empty. No stands screaming, nobody looking up. He didn't see a single person while he fell.
 
-Jack smiled the way he smiled when he already knew how the story ended.
+*There has to be a way to land without smashing my face.*
 
-— Third move. Vitória Finals.
+— Kim. — NeoGuide inside his head. — There are two entry requests for your private room. Both say they are your friends. May I approve?
 
-The splinters came all at once.
+— Yes. They're my friends.
 
-Like a machine gun. Kim felt the first one enter his thigh and didn't have time to feel the second because the third and the fourth and the tenth were already entering. In the arm. In the belly. In the chest. Piercing, passing through, finding the organs inside. Blood rose up his throat and out his mouth. His legs failed. His body was a target and there was nowhere to hide.
+The ground arrived while he was answering.
 
-He didn't have time to think. Didn't have time to react.
+He landed face-first.
 
-It was exactly how he imagined dying would be. Each hole opening, blood leaving, vision darkening from the edges to the center, slowly, with a calm that matched nothing.
+He stayed on all fours on the arena floor with his chin throbbing, his mouth full of a taste of dust that didn't exist.
 
-Kim fell.
-
-Up above, Jack raised his arms.
-
-— I WON! HEYYYYYYYYY!
+— Again. — To the floor.
 
 ---
 
-Kim opened his eyes and he was above.
+The shout came from above.
 
-Floating over the arena, bodiless. Down there, his own body, stretched on the floor, full of holes, blood pooling. And beside the body, Jack. Dancing.
+Kim lifted his head and saw someone plummeting from the sky with his arms open, celebrating the fall like someone coming down a roller coaster. The dark brown overcoat flapped in the air down to his knees. The red scarf fluttered behind. On his head, a top hat strangely stuck on, with binoculars strapped on top. His whole right arm was golden metal, exposed gears at the joints, nothing high-tech: it looked like a steam engine part. Beard. Mustache. A metal cane in his hand. Steampunk from head to toe.
 
-A ridiculous dance, elbows out and hips going side to side, spinning around his corpse.
+The stranger landed with knees bent and arms wide, stood up slowly, puffed out his chest and touched two fingers to the brim of his top hat.
 
-Beside Kim, in the air, Nina. Or Nina's avatar, whole again.
+— What's up. Smashed your face again?
 
-He waved at her with the face of someone who understood nothing.
+It was Jack's voice.
 
-She laughed.
+— You have to learn how to fall, old man. Later we'll find a more interesting look for your avatar.
 
-— You're not understanding what's happening, are you.
+Kim kept staring.
 
-Kim shook his head.
+— In the stands you were wearing a crown. Shooting fireworks from your back.
 
-— That bastard down there didn't end the match. So we're stuck here watching him do that little dance.
+— Spectator skin. — Jack adjusting his scarf. — To watch, I go as a king. To fight, this is it.
 
-Kim looked down.
+— You have a beard.
 
-— HEY, BASTARD! WHY ARE YOU DANCING AROUND MY BODY?
+— I have presence.
 
-— Because it's too much fun, man! — Jack without stopping. — Very, very fun.
+— You have a top hat with binoculars.
 
-— Talk looking at me and stop with this clowning!
+— Kim. Every detail has a function. You'll understand when—
 
-— First: let me finish my little dance, because this is going to become a short for PowWow, to see if it goes viral. Second: I don't know where you are. Whoever dies disappears. I only see your body here, all full of holes, guts hanging out, you know.
-
-Kim was horrified. It was his body. Too much like the real one. And his best friend was shaking his ass on top of it.
-
-— Calm down. — Nina. — He'll finish soon. A PowWow video is at most one minute. Wait a little more and he'll call NeoGuide.
-
-They waited.
-
-Down there, Jack struck the final pose for the video. He looked up, at nowhere.
-
-— NeoGuide. End match.
+— Wait. — Jack pointed up. — Let's wait for her.
 
 ---
 
-The dark came again, as if the eyes closed on their own. And then the plaza.
+Nina fell in silence.
 
-The concrete bench. The afternoon light. The pigeon.
+The short hood hissing in the air, the cape to the middle of her back, the black hair with red lights that looked like living fire. A red mark crossing her right eye, like a scar someone drew with ember. A shouldered top, the fishnet sleeves going down to black fingerless gloves full of spikes. Her midriff bare. Black miniskirt loaded with metal pieces at the waist, combat boots up to almost the knee. A katana sheathed on her left hip.
 
-Kim took the SBI off his head and stood still for a second, hands on his chest searching for the holes that weren't there. Beside him, Jack took his off with the satisfied face of someone who won. Nina took hers off slowly.
+She landed beside them in a pose she had definitely rehearsed somewhere.
 
-— Dude. — Kim. — What attack was that, man? I have a thousand questions to ask you guys. But what an attack. I hope I can do stuff like that someday.
+— Sorry for the delay, boys. I was picking out some new accessories, taking advantage of the new unlocks. Yesterday I couldn't do anything. What were you guys talking about?
 
-— It wasn't all that. — Nina. — Jack took advantage of you not knowing anything about the game. In a real fight he wouldn't be able to use that.
+Jack looked to one side. Looked to the other.
 
-— You can't say that. — Jack offended. — You've never seen me fight.
+— Nothing. Was waiting for you to explain the LDI to Kim. Now from inside the LDI.
 
-— Three stages of charging standing still in the middle of the arena? Nobody would wait around, Jack. Anyone notices on the first move that you have to stand still waiting to charge. Only Kim, who didn't know that rule. He backed away and stood there watching you finish everything.
+— How do I get a look like that? — Kim. First question.
 
-— Charging? — Kim. — What do you mean charging? I'm lost.
+Jack and Nina smiled at the same time.
 
-Jack smiled.
+— Avatars are very personal. — Jack. — I'll teach you, but later. There's the Fashion room, you go in whenever you want and change as many times as you want. It'll be cool to see what you put together. Not now. The private room only unlocks two hours a day, so today is training.
 
-— Man, there are several types of attacks in LDI. Some are instant. Others need time to charge. The one I used on you has a very long charge. You saw: three stages. I have to wait for each one to be ready before the next, and only on the third do I release the attack. Normally that leaves me wide open. — He scratched his head. — Honestly, Nina's right. I took advantage of you not knowing how it works. But I'll teach you over time. Relax.
+— Second question. You have a cane. She has a sword. Can you use weapons in this game?
 
-— Okay. That part I sort of understood. — Kim. — Now, why did I stay floating in the sky after you killed me?
-
-— When you lose in LDI, you only leave the room when the winner ends the match, or when the system ends it on its own. — Nina. — You can't disconnect in the middle. It starts, it goes to the end. That's why nobody starts a match in an open place, or without a friend beside you watching your body out here. When we die in there, you become an observer. You can watch. But you can't interact with anything or anyone. Just wait. — She looked at him. — Do you play any games, Kim?
-
-— Of course. I play a lot. Whenever there's time left over between taking care of the house, taking care of my mom, working, and studying on a scholarship, I play nonstop. A real gamer. Very, very gamer. You can be sure.
-
-Jack laughed at the irony.
-
-— You don't need to be sarcastic. — Nina sulky. — I get it.
+— You can. — Nina. — It depends on each player. Thunderbolt himself uses a spear. Against you, he only pulled it after you blacked out. It didn't help. Weapons in the LDI are free. They're an extension of your power. But there are fighters out there who prefer not to use them.
 
 ---
 
-Kim smiled at her face. But he was happy. He had liked the game. A lot of it felt real.
+Jack raised his hand with three fingers.
 
-Now it was his turn to respond.
+— Three things. One: everything here is mental. The LDI latches onto the mental strength of whoever plays. If you believe that falling from two hundred meters is normal, you fall and stay on your feet. If you hesitate, you fall like a bag of cement. That's why you smash your face. You think too much about the ground.
 
-— What I want to know — Nina — is how you manifested a unique-type weapon in the middle of a match. Even if it was training.
+— Two. Every avatar has an elemental. Primary or secondary. Secondary isn't weaker, it just has more combination options. Thunderbolt used electricity, which is secondary to Light. What came out of you in that fight looked like Darkness, which is primary.
 
-Kim opened his hands, like the John Travolta meme.
+— Three. Most important. Everything you know about fighting out there works here. You just have to believe that here you're as strong as out there. Or stronger. That's not written anywhere. Nobody really knows how the LDI works. But it's what I do and it works for me.
 
-— I don't know what happened. I just didn't want to die at that moment. That crazy weapon of yours was almost splitting me in half, I put my hands up in front and out of nowhere that thing appeared.
+— I also think it's all in the head. — Nina. — The stronger I believe I am, the stronger I become in here. And the scoring comes from that too. The corporation says everyone's mental strength decides how much a fight is worth. That's the official explanation. I know it doesn't explain anything.
 
-— That's not possible. It's against the rules of the game. Nobody manifests a weapon in the middle of a match that already started. Not even in training.
+Kim had the face of someone understanding half of it.
 
-Kim crossed his arms.
+— Room types. — Jack, changing the subject before his friend froze. — There's an obstacle room, a room with elemental disadvantage, a room with an enemy you already faced. Today is the simple one, the one you chose. We're going to test your darkness elemental. And since you already showed you have a lot of power in here, Nina and I are going to fight together against you.
 
-— Look, Nina. I'm starting to like you a lot. You seem like a nice person. But when I say I don't know, it's because I don't know. I have no idea. And honestly, I don't care. What matters is that at least I didn't die to you.
+— Two against one.
 
-The mood heated up.
+— A fight doesn't have to be one-on-one. It can be two-on-one, ten-on-one, two-on-two. Any format, as long as everyone agrees.
 
-The two were kind of aggressive. And Nina was too competitive to lose gracefully. She was sure that had been her chance for a rematch. And she had lost to him again. The second time.
+— You can arrange it at the start of the fight, or before entering, and then just confirm. — Nina.
 
-She was furious.
+— And it doesn't have to be only about who knocks down who. There are timed fights, endurance fights, objective fights, battle royale. — Jack opened his arms. — That's why this game is what it is. But your thing, we already know, is one-on-one.
 
-Jack saw the storm brewing and did what he always did.
+---
 
-— Guys. Let's calm down, take a deep breath, and find something to drink, because my throat's dry. — Already getting up. — I still have a little cash, and I only work at night. Today we find a little store, grab a little vodka, and drink it slow. Appreciating every sip.
+— Before. — Kim. — There's something wrong with me.
+
+The two stopped.
+
+— I feel heavy. My whole body hurts. Like I got beat up yesterday.
+
+Jack made the exact face of someone who forgot to mention something important.
+
+— Recovery time. I forgot to tell you.
+
+— You forgot to tell me? What does that have to do with my body right now, Jack, you son of a bitch?
+
+Nina laughed.
+
+— Easy, Kim. Easy. After every fight you need to recover. No matter what position in the SDR you're in. You came out of that fight destroyed. For the damage, about four days. Ninety-six hours.
+
+— And each of those days you have to log in and stay still for at least five minutes, which is when the system heals the avatar. — Jack. — There's faster healing and slower healing, depends on the fight. If you enter a fight before that, you enter with what you recovered up to that point. In your case, almost nothing. Little power, little speed, little strength. It's like fighting after taking a beating the day before.
+
+— That's exactly how I feel.
+
+— Easy. There's a little trick. At least for now. — Jack looked up. — NeoGuide. Instant recovery for the room.
+
+— Approach the Recovery Circle, which will now be activated throughout the arena. Good recovery.
+
+Green circles lit up on the arena floor. Jack and Nina walked to them with the ease of people who had done it a hundred times. Kim stayed put until Jack gave a nod.
+
+Bands of green light rose from the floor around him, spinning like cold flames. It wasn't hot or electric. It was like pressure distributed through the whole body at once, and wherever it passed, the weight left in layers.
+
+— Recovery complete. All members of this room have been restored. Shutting down.
+
+Kim looked at his hands. Closed them. Opened them. Bounced once. Twice. Jumped higher than he should have and landed effortlessly.
+
+— I feel great.
+
+— Then let's go. — Nina.
+
+— Right now, let's go.

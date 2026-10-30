@@ -1,199 +1,331 @@
-# CHAPTER 15 — Angel and Victory
+# CHAPTER 15 — My Baby
 
-Jack and Nina had never fought together in the LDI.
+Kim woke up, brushed his teeth, showered, got dressed.
 
-They exchanged a look and jumped back at the same time, each to one side, opening distance and angle. Kim jumped too, half a second behind, and kept the same distance.
+When he opened his bedroom door, he stopped.
 
-— Kim. — Jack raised his hand. — Here's the deal. We're going all out. You do what you can to defend yourself. This game is about feeling. I can't explain to you how you'll find your power. But I know you will.
+There was a smell in the house.
 
-— You can come all out. I'm not losing to you guys.
+He sniffed the air like a dog, trying to find where it came from. Good smell. Food smell. He walked through the house following it and noticed another thing along the way: the house was tidy. Clean.
 
-Jack took the cane with his left hand and held it horizontal in front of his body. His right hand, the metal one, slid along its length from end to end.
+He reached the kitchen door.
 
-— Vitória. — Jack. — Shaman.
+Helena was at the stove. Music loud, playing for real, not in headphones: *Man! I Feel Like A Woman*, by Shena Twuin, the country she loved. And she was dancing. Moving her hips, singing along, flipping the eggs in the frying pan. Coffee with milk on the table. Juice. Cut fruit. Dishes washed.
 
-The cane broke into three parts linked by chains, a metal San Tien Kwan, with the curved cane handle at one end and a spear tip at the other. A golden-brown energy ran through the links.
+Kim stood in the doorway, smiling, just watching.
 
-On the other side, Nina laid the sheathed katana flat on her left palm. She closed her right hand on the hilt.
+The song ended. Helena turned and came face to face with him.
 
-— Angel. Shaman.
+— What are you doing standing there, you crazy? You almost gave me a heart attack!
 
-She pulled.
+Kim lowered his head, smiling.
 
-The blade came out in segments. Small blades attached to each other by a wire, stretching to almost two meters, and she whipped the air with it. The crack echoed through the empty room. The blade slid back into the sheath by itself, whole again. She held the sword beside her face.
+— It was such an unusual scene that I decided not to interrupt.
 
-Kim stared at the two of them for a second.
+She smiled too.
 
-None of that was what he expected.
+— Okay, enough chit-chat and come eat, or you'll be late for school, my baby.
 
-Jack moved first.
+*My baby.*
 
-Slow at first. Then faster. His right hand holding the spear tip, his left spinning the cane handle in a full three-sixty, the metal whistling in the air louder and louder. Kim prepared for mid-range, which was where that weapon would do damage.
+Kim sat down. She put a plate in front of him and a very hot coffee with milk. Sat on the other side. And the two had breakfast together, talking.
 
-At the exact distance of the strike, Jack jumped back.
+In the middle of coffee, Kim got serious.
 
-Kim followed the jump with his eyes.
+— Mom. You don't have to do this every morning just because we had that conversation...
 
-And didn't hear Nina.
+She looked at him, confused.
 
-She came from behind like a bullet, the katana extended straight for his heart. Kim turned his shoulder at the last possible instant. The blade ripped through his shirt and opened the flesh from his chest to his shoulder.
+— You think I'm doing this because of our conversation? That now I want to be a good mother? Stop being silly, boy! I do what I want, when I want! Nobody's going to tell me what I have to do.
 
-The blood came hot. The pain came whole.
+Those who say what they want hear what they don't want. Kim stayed quiet and finished his coffee.
 
-One second slower and it would have been his heart.
+He grabbed his school stuff. And then came another unusual thing.
 
-Kim dropped to one knee with his hand on his chest, pressing. *The whistle. Jack spun that to cover her steps. The jump was to make me look at him.* The two had set that up without saying it out loud. The first play had been perfect.
+His mother came close, hugged him and kissed his cheek.
 
-Jack was still in the air. He clicked the weapon back together into a cane and hurled it downward like a dart. Kim threw himself backward. The tip drove into the floor where he'd been and opened a wide hole, dust rising.
+— Have a good day, son. Try not to get into trouble at school. And come home safe.
 
-*Whew.*
+Kim got a little embarrassed.
 
-He started to get up. Heard a step behind him. Dodged right by instinct and Jack's kick grazed his ear. The two separated, got on guard, traded a few feeling-out punches.
-
-— Having fun? — Jack smiling. — Didn't I tell you it was sick? We wasted years not doing this.
-
-— Very. — Kim with blood running down his belly. — By the way, why is pain so real in this game?
-
-He moved in with a knee to the diaphragm. Jack had known that knee for years. Blocked with his elbow and, with an open hand, struck directly at the chest wound.
-
-Kim saw white.
-
-— Nobody knows how they do it. — Jack as Kim stumbled backward. — But the sensation here is almost the same as there. Broken leg is broken leg. It won't hold you, it hurts, it takes you out of the fight. Keep that in mind.
-
-Jack's face turned serious. His eyebrows rose slightly.
-
-He didn't need to say it. Kim had already heard. Nina's footsteps, almost silent, behind him again.
-
-He leaped to the side.
-
-She already knew. Aimed the sword at where he would land.
-
-— Expand!
-
-The blade opened from the base in segments, like a metal snake, and came slithering after him.
-
-*Holy shit. Holy shit. Holy shit.*
-
-Kim threw himself to the side again. Barely made it.
-
-Nina smiled in a way that was not at all friendly.
-
-— Harden!
-
-The segments locked. The whip became a rigid, giant blade, longer than the room seemed to hold.
-
-— Angel Luminus Blade!
-
-The blade lit up.
-
-A white light so strong it hurt to look at. Nina twisted her body in the air, the entire blade descending in an arc that caught Kim and half the room. Jack saw he was inside the radius and ran to the other side.
-
-Kim had nowhere to go.
-
-He raised both hands in front of his body. It was all that was left.
-
-And something appeared in them.
+— Thanks, Mom. I'll try. But I'm not promising anything.
 
 ---
 
-The shock was so great the air trembled.
+Jack was on the stairs, outside.
 
-The blade of light struck something Kim was holding, and the two forces stayed there, pushing against each other. Nina twisted her body with all her weight to drag the blade forward, and Kim was dragged backward, his feet carving two furrows in the floor, but he didn't fall.
+And he had a confused look. He was used to hearing shouting every morning from that house. What he had just heard through the door was something else.
 
-The light was so much he couldn't see what he was holding.
+— So, man, you good? What's going on?
 
-And in the middle of the light, it began to darken.
+— What? What do you mean? I don't know what you're talking about.
 
-He knew that place. He'd been there before.
+— I'm talking about that little "have a good day, don't get into trouble, come home safe" talk. Who's in there? The voice was your mom's. The attitude, not so much.
 
-It was there the Pajé had spoken to him in that disconnected way. *No, no, no... no, yes, yes, yes, yes.*
+Kim looked down. Then up. A little embarrassed.
 
-The floorless dark. The sound of water dripping in a rhythm that wasn't random, but wasn't music either. Kim kept his arms raised, in the same defensive position, and turned his head slowly.
-
-Beside him, sitting on nothing, an old man with a long white beard, feather hat and round dark glasses. The dollar-sign chain on his chest. The golden staff floating beside him with no one holding it.
-
-— Hello! — Pajé Yawanari opened his arms. — What's up, kid, you good? Smooth sailing? What's the word?
-
-— My God. — Kim. — I swore you were a delusion. That I'd invented you because I was getting beat up.
-
-— Yo. You thought I wasn't real? — The Pajé put his hand on his chest. — I'm offended. I feel oppressed, man.
-
-Kim's arms were shaking. He felt, even from there, that at any moment the blade would pass through and cut him in half.
-
-— Talk fast. What do you want? Why are you here? And what do you know about my father?
-
-The Pajé turned his face to the side and started talking to someone who wasn't there.
-
-— Nah, man, he's worried... He's involved, you know? It's the nephew... But I don't think now's the time. Are you crazy? It's not the time to talk to him about that. — Pause. — No. No. I know. I KNOW.
-
-He turned back to Kim.
-
-— So, dude. Now's not the moment to talk about your pops, okay? The time and place will come. I came here to warn you. Shit's getting crazy. They're after you. And when they get here, they're gonna want to take that thing you call a body. So take care of the Primordial Blood responsibility, or you're gonna get fucked. — He slapped his own leg, like someone ending a meeting. — That's the only reason I called you here.
-
-Kim was getting weaker and weaker. The light started to return at the edges.
-
-The Pajé faded with it, and before disappearing for good, he jutted his chin toward Kim's hands.
-
-— Man. That weapon you chose is top-tier. Enjoy it. If you learn to use it right, it'll serve you well.
+— Ah, man, it's such a long story... But we gotta start working. Come on, I'll tell you on the way.
 
 ---
 
-The light returned.
+And he told.
 
-The weight of the blade returned with it, and Kim saw what he was holding.
+Between one bus and another, between one bag of candy and another, Kim told everything. The night. The fight. The bottle. The whole story his mother had told.
 
-A small axe.
+On Jack's face he saw the same hatred he had felt that night. The same he still felt every time he thought about it.
 
-Small, with the handle wrapped in something that looked like too much technology for such an old-shaped weapon. The blade held back Nina's Luminus Blade, but the edge of his blade was thin, and the Luminus Blade was wide and heavy and was winning.
+The two were like that. One's suffering was the other's suffering. A bond the size of brothers.
 
-Kim decided to risk it.
+— Man. — Jack, on the last bus, voice low. — Being as sincere as possible, I don't know what to say. But I'm angry. More angry than I've ever felt in my life. The worst guy we've ever faced doesn't come close. What I feel is hatred for those sons of bitches who did this to you and your mom. — He looked out the window. — And I feel useless. Because I know there's nothing I can do to change it.
 
-He bent his body backward into a bridge, his back almost touching the floor, and let the blade pass over him.
+Kim understood. It was exactly what he was feeling.
 
-It passed.
+And it was, almost word for word, what he had told his mother.
 
-And kept passing, along the path that was now clear, straight toward Jack, who hadn't run far enough. Jack threw his cane up in defense. Deflected the bulk of the blow. The tip of the light caught the top hat.
+---
 
-A piece of the top hat fell to the floor.
+When they got off near school, Nina was at the gate.
 
-Kim let out his breath. Before he could say anything, Jack shouted.
+Waiting for them.
 
-— FUCK, NINA. You cut my top hat. Do you know how much LT I'm gonna spend to fix this? Or did you forget we're on the same team?
+It was funny. One day. She had been there one day and already seemed like a friend of years. The three walked through the hallway, telling what each had done after leaving the night before.
 
-— My bad. I'll give you the LT. — Nina without taking her eyes off Kim. — Jack. He manifested a custom weapon. In the middle of the fight.
+— Guys. — Jack went first. — After I left, I went home. And I swear, it felt like with every step the distance got longer. When I got there, my dad was at the door waiting for me. He had to give me the key, because I lost mine. He looked at me and immediately said, "You're drunk, aren't you?". I stalled, stalled, and in the end he laughed and said, "You have nothing to do tomorrow, do you?". I said no, that I'd made some cash and was off. Then he: "Go take a shower to get that crazy look off your face, I left food ready". I showered, ate that meal, watched a movie and passed out.
 
-Jack stopped looking at the top hat.
+Kim and Nina laughed at the way he told it.
 
-— He what?
+— My dad freaked out. — Nina. — I got home late and still drunk, on the first day of school. He's overprotective, so you can imagine the lecture. But I was so drunk I barely heard the sermon. I went straight to shower and passed out. I only woke up in the middle of the night to eat something. In the morning he asked me not to do that again. — She shrugged. — But... I don't know.
 
-— Those weapons are one-of-a-kind. I never managed to draw one. I spent an absurd amount on packs before I found Angel.
+---
 
-— Without spending points? First try? — Jack scratching the beard that wasn't his. — He's high on the SDR... Maybe in a training room the system unlocks it on its own. But it's not an official fight, so... I don't know. I didn't see how it happened.
+All the hallway eyes were on them.
 
-Kim realized the two were talking about him. He took a step toward them.
+And in the middle of the hallway, standing, was the principal. Walter.
 
-Both looked at him at the same time. And jumped back, opening distance again.
+Alone. Arms crossed. Foot tapping on the floor. Red. Face of someone who hadn't slept from anger.
 
-*The fight isn't over.* Kim thought that was very unfair. They could chat and he couldn't. Then he remembered: in a street fight, the only rule is there are no rules.
+— Can one of you explain to me what happened yesterday behind the school?
 
-He was dying to tell them what had just happened. But there was no time, and he wasn't going to mess up the fight.
+Jack scratched his chin and smiled.
 
-He used the time and really looked at the weapon.
+— Behind the school? I have no idea what you're talking about, principal.
 
-The shape was of an old small axe, one of those stone-blade ones he'd seen in schoolbooks. But the blade wasn't stone. It was some strange metal, and the edge wasn't sharp. It wasn't made to cut. It was made to hit. The handle molded to his four fingers as if it had been cast from his hand. Just below his hand, a small pulley with a steel wire wrapped around it, attached to the end of the handle.
+— It's true. — Kim. — If you give us a hint, maybe we'll remember. But right now nothing's coming.
 
-On his belt, which he didn't remember having, hanging on the left side, another identical small axe.
+— Don't play with my patience! The whole school is talking. I heard from students, teachers, staff. Fight in the annex. Knife, chain, people on the ground. And every rumor I hear ends with the same name. — He pointed. — Kim. And Jack.
 
-And on the handle of the one in his hand, engraved in the metal, a word.
+Jack opened his arms.
 
-*Xakaxi.*
+— Rumor, principal? You're going to believe a rumor?
 
-Kim remembered Jack sliding his hand along the cane. Nina pulling the sword from the sheath. The name and the word both had said.
+— I want to know what happened. And I want to know why.
 
-He pulled the second small axe from his belt. The pulley fitted under his hand by itself.
+Jack was going to answer. Kim went first.
 
-He extended his left arm to the side. Raised his right.
+— The guys who were in the annex, are they students here?
 
-He struck one blade against the other.
+Walter blinked.
 
-— Xakaxi. — Kim. — Shaman.
+— That's not relevant.
+
+— Yes, it is. — Kim. — Because they aren't. They're paid thugs. The five most expensive in the region. The one who paid was Freddy, who is a student, and who you never call here in the hallway. They came in with knife and chain in hand, after us. — He tilted his head. — So the question I would ask, if I were you, is how five armed guys enter a school without anyone seeing.
+
+Walter opened his mouth. Closed it.
+
+— That... that will be investigated.
+
+— That'll be great. — Kim looked at the hallway clock. — Now we're starting to be late. Do you have anything else to say?
+
+Walter got redder.
+
+— Be careful, you two. Very careful not to lose your scholarships. I will ensure that every student in this school is always safe. No matter the consequences.
+
+And left stomping hard.
+
+Nina looked at the two. The two remained serious. Then, slowly, a smile started to bloom on one face and then the other.
+
+She understood. For them, that was just another normal day.
+
+The three continued down the hallway talking, not noticing that the whole school was looking at Kim with phones in hand. Everyone there knew that the famous Brawler from Illusion Fight was him.
+
+---
+
+The duo had become a trio.
+
+But that wasn't going to be an ordinary day. Jack had plans for Kim. And he knew it wasn't going to be easy to convince. But if there was anyone in the world who could convince Kim to do what he didn't want, it was Jack.
+
+Before they reached the classroom, Ryan passed by them. And came back.
+
+— So, gentlemen. I want to thank you once again for what you did for me. That day. In the hallway.
+
+Nina looked at the two. The two made faces as if they didn't remember anything.
+
+The three looked at each other with the same smile.
+
+— Here you go, Mr. Kim. — Jack, all polite, extending an invisible bottle. — The 1944 wine, Levu vintage.
+
+— Thank you, my dear companion. — Kim, all formal. — I will enjoy this precious moment with the beautiful lady by my side.
+
+— Oh, it's a great pleasure. — Nina, hand in front of her mouth, a thin voice. — It will be an honor to savor this drink alongside two such refined gentlemen.
+
+The three burst out laughing.
+
+Ryan didn't quite understand. But he knew he was being teased. And he didn't mind. Those two had saved his skin. The Sonata of the Fight, Arnold knocked out on the hallway floor. He wasn't going to forget.
+
+He said goodbye. Took two steps. And came back.
+
+— Ah, right. This here is for you, Kim. Just a moment.
+
+He knelt on the floor and opened his bag. Inside, a box wrapped in gift paper.
+
+Kim looked sideways at him.
+
+— Dude. You can stop right there. Don't even think about continuing.
+
+The tone made Ryan freeze. Kneeling, hands on the box, paralyzed.
+
+— I don't know what you think happened in that hallway. But what I know is that you don't owe me anything. Much less a gift. That was physics. The one who threw the punch was you.
+
+Jack and Nina burst out laughing at Kim's face, who didn't know what to do with that.
+
+— Ah, but if you don't accept it, it'll be a shame. — Ryan. — Because I already have one just like it. I won't have anything to do with this one.
+
+— And what would this gift be? — Jack.
+
+— An SBI. I bought an SBI for Kim after I saw a video of him on the internet.
+
+— What video? — Nina. — What are you talking about?
+
+Ryan felt the three on him at the same time.
+
+— I think I'd better start from the beginning. Is that okay?
+
+The three nodded.
+
+— Yesterday I went to check out PowWow. One of the most watched videos was Kim fighting Thunderbolt. The fight was impressive and I wanted to see more. But... sorry to say this... I've never seen you with an SBI. I imagined you didn't play. Or maybe couldn't afford to buy one. But your fight was so sensational that it would be a waste for us not to be able to see more. So I bought one for you. As thanks. But it's not charity. It's investment. You're a rookie and unknown in the game. If you fight again, I'll be notified. And I'll place a big bet on you. Because if you win, the return is very high.
+
+Kim scratched his head.
+
+— How do you know it was me? My name wasn't there.
+
+— Man. — Jack, smiling. — Your avatar looks exactly like you. So this idea of staying anonymous, for those who already know you, is over.
+
+And turned to Ryan.
+
+— But wait. You said free SBI? Like, for free? Free?
+
+Ryan nodded.
+
+Jack clasped his hands in gratitude and hugged the boy.
+
+— Then, my good sir, thank you very much for this kind gesture. Could I take the gift now?
+
+Ryan got up from the floor with the box. And Jack grabbed it before Kim had time to refuse.
+
+---
+
+Nina already had her phone in hand, on PowWow.
+
+There was the video. The one she had seen live. Among the ten most watched in the world.
+
+Until then, none of the three had looked for videos of that fight. The night before they had gone drinking and come home drunk. Nina hadn't opened PowWow. Jack had passed out. And Kim just wanted to forget what had happened in the game.
+
+She started showing. The clips. The short videos. It wasn't just one video. There were dozens.
+
+Kim saw his own face next to a huge view count.
+
+Jack opened the widest smile in the world. His friend had blown up. Now everyone was going to see what he had always seen.
+
+Kim grabbed Jack's neck.
+
+— So, you son of a bitch, didn't you say I could stay anonymous in this shit?
+
+— Calm down, man. — Jack, with the voice of someone suffocating. — You can from the next fight. How was I supposed to know you'd blow up on the very first one? We'll figure it out, relax.
+
+Ryan stood there watching without understanding. Maybe he was mistaken, but it seemed like Kim wasn't happy at all about getting famous.
+
+Well. It wasn't his problem. He couldn't be late for his prep course.
+
+— Guys, sorry, but I have to go. I hope you like the gift. And that Kim keeps fighting. Your fights are really good. See you.
+
+He left hurriedly to a car that was waiting for him.
+
+The three stayed there. Jack still caught in Kim's grip.
+
+— Kim. — Nina, after a while. — Let him go.
+
+Kim rolled his eyes and let go. Jack pulled the collar of his shirt, checking his throat.
+
+— Man. You almost killed me this time. I was seeing stars.
+
+— Stop being silly, you asshole. I didn't even squeeze hard.
+
+---
+
+Jack shrugged and tore all the gift paper.
+
+Limited edition. And it had a special thing: you could take it to an Illusion Fight Corporation store and customize it however you wanted. Name, lighting, the colors.
+
+— Man. — Jack, amazed. — This SBI is incredible! Way better than mine. And way better than what we'd get with my plan.
+
+— What plan?
+
+— I was going to take you today after class to some stores, to see if anyone would trade PUBLI with you for an SBI. But even if it worked, they'd give you a cheap one or some messed-up one they had there. This one here was a find, man.
+
+Nina took the SBI from his hand and looked carefully.
+
+— Jack's right. Limited edition. You can get an authorized alteration by CLI. And you can take it to any store and it's free. Congratulations.
+
+Jack looked at Kim, all happy.
+
+— Don't you want to trade yours for mine?
+
+Kim scratched his chin.
+
+— Alright. I'll keep yours. You keep that thing.
+
+— No. — Nina, shaking her head. — You can't accept something like that. You just got it as a gift and you're going to give it to Jack? Stop being silly, Kim.
+
+Kim took a breath to answer. Mid-breath, he gave up. Lowered his head and, in a very bad mood, took the box from Jack's hand.
+
+— Fine. Fine. You want me to keep this? I'll keep it, I guess. What to do.
+
+— Seriously? Sometimes you two act like a couple of kids.
+
+— Okay, Mom. — Jack. — Okay, Mom. We promise to behave.
+
+Nina laughed.
+
+---
+
+They walked on. Kim looking at the SBI up close for the first time. In his only fight, Jack had put the device on his face, and he was more worried about the opponent.
+
+— What? — Jack. — You impressed?
+
+— This looks expensive. How much does a thing like this cost?
+
+— Ah, man, mine I paid about four thousand. And mine is one of the cheapest.
+
+— Holy shit, dude. And how much does this one here cost?
+
+— Yours must be in the range of sixty, seventy thousand. — Nina.
+
+Kim put his hand on his chest as if having a heart attack and held onto Jack.
+
+— No. Seriously, guys. Stop. We have to return this. Can't keep it. Seriously! Bro, look at the value of this! Can't, can't, can't! We have to sort this out today. It's gonna be trouble. It's gonna be trouble!
+
+Jack and Nina laughed heartily.
+
+— Calm down, dude! — Nina. — What's with the drama? For them this must be like change from buying bread. He said he already had one just like it. If he didn't want you to have it, he wouldn't have given it to you.
+
+— But, bro, this is way too expensive! Nobody in their right mind gives this away for free. No way! For sure he's going to want something in return. And I don't have patience for quid pro quo when I don't know the terms of the deal beforehand.
+
+Jack knew his friend. He knew he wasn't going to be at peace with that.
+
+— Man, it's fine. It's fine. Today you use this device, and tomorrow we return it to the guy. Okay?
+
+Kim nodded.
+
+They put the box away and went to class. The rest of the classes went by with Kim trying to pay attention and Jack glancing at his friend's backpack from time to time.
+
+Only after the last bell did they leave school and go to a square nearby.

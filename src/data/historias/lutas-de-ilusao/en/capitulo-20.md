@@ -1,143 +1,129 @@
-# CHAPTER 20 — The Kitten Has Claws
+# CHAPTER 20 — Fire
 
-— Hey there, little girl. — The one in front, with a smile he thought was charming. — What's it gonna be? The easy way or the hard way?
+Nina stopped mid-sentence and took a big gulp. The three of them were still on their first glass, which was a good sign for a day when nobody could end up on the floor.
 
-— So, sweetheart. — Nina, sweet. — What would the easy way be? May I ask?
+— So—
 
-— The easy way is we tell you what to do, you do it, and nothing happens to you beyond what's necessary. The hard way is we do whatever we want with you and you suffer plenty along the way. What's it gonna be?
+Kim raised his hand.
 
-Nina smiled at him.
+Like a kid asking to speak to the teacher.
 
-— Let's go with the easy way. If you promise you won't hurt me, I'll do whatever you want.
+Nina didn't even look at the hand.
 
-The one in front looked at the one beside him with the face of someone who'd won the lottery.
+— Speak, my dear. Say what you want, for the love of the gods.
 
-— Come here, then. Closer. Let's see what you're hiding under that skirt. Because a girl wearing a skirt like that is asking for it.
+— How do you guys get powers? Do you buy them like weapons? In packs?
 
-The second one made a disappointed face.
+Jack gave Nina a nod, like: good question. But he was the one who answered.
 
-— Ah, man. I thought you were gonna make her show her tits.
-
-— Chill, bro. Start slow. We got time for everything.
-
-Nina came closer.
-
-Slowly. One step. Another. The seven of them looking at her the way she knew they would.
-
-When she reached the exact distance, she grabbed the hem of her skirt with both hands and started lifting. Real slow. Every eye went there.
-
-The kick came up out of nowhere.
-
-Fast, clean, right between the first one's legs. He folded without a sound, mouth open, air gone all at once. Before he finished falling, her foot had already come back and gone up again, this time under the second one's chin, sending him backward flat on the ground.
-
-Two down. She adjusted her skirt.
-
-— So? — Taunting. — Anybody else wanna look under my skirt?
-
-She settled into a guard. A pretty stance, light, that didn't match what she'd just done.
-
-— The fun's just starting, boys. Who's next?
+— No. The first power comes with the avatar. The moment your avatar is created, the system defines your element. And with the element comes the first power. Get your SBI out and I'll show you.
 
 ---
 
-The other five froze for a second.
+Kim took the SBI out of his backpack. Jack took it from his hand, pressed two points on the edge, and said something low.
 
-Then the biggest one stepped forward. He was much bigger than the others. Tall, broad, the kind of guy who settles things just by being there. He slammed his closed fist into his other palm.
+A hologram lit up in the air, in front of the three of them.
 
-— Now you're fucked. We're not gonna go easy on you. And the boss is gonna love seeing what we do with you. She won't be happy at all about what you just did.
+It was Kim. Small, the size of a handspan, spinning slowly in the air, colored, with his cap, the scars on his hands, his usual T-shirt. Next to the little figure, columns of information that went up and down.
 
-Nina just watched his legs.
+Kim and Jack had seen holograms before. Marelia had technology everywhere, even in the neighborhoods where technology arrived last. But it was the first time Kim saw himself spinning in the air.
 
-When he bent his right knee a little to take the first step, she exploded.
+— Here you see everything. — Jack. — You can mess with the avatar, change clothes, buy accessories. There's a lot of free stuff, which is what I use. And there's paid stuff. Like Nina's cloak.
 
-She used his bent thigh as a stepping stone. Climbed. Wrapped her left leg around his neck, the right over it, and closed them like scissors. Threw her body back with all her weight.
+Nina straightened her back. Her cloak was from a limited-edition digital art collection. It was already worth much more than she had paid. She never intended to sell it. She just liked how it looked.
 
-The giant went with her.
+— This is how the game makes money. — Jack, running his finger over the columns. — But what matters now is your native power. Let's go basic. Energy and powers. Here. There's not much, but there's your element... — His finger stopped. — Wait.
 
-He fell like a building collapsing, on his back, with her locked around his neck. The ground shook a little.
+Kim looked at his friend.
 
-She squeezed.
+Jack was standing still, staring at a line of the hologram with his mouth half open.
 
-He tried to pull her legs off with both hands. Couldn't. Tried again. He'd been caught mid-breath and the air he needed wasn't coming. Ten seconds. Twenty. Thirty. Forty. His hands went weak on her legs. Then they stopped.
+— What's up, man?
 
-She let go.
+Jack looked at him with an expression Kim didn't know well. It wasn't fear. It was close.
 
-The big man stayed on the ground, out cold, mouth open.
+— You're not seeing what I'm seeing?
 
----
+Kim shook his head.
 
-Four were left standing. And the two from the beginning were starting to get up.
-
-The four were armed now. Two with a piece of iron pipe they'd found somewhere. One with two knives, one in each hand. One with a thick chain wrapped around his arm.
-
-Nina felt the danger for the first time.
-
-That was serious. It was the kind of situation where, no matter what she did, she could get really hurt. For a second she thought about screaming. Kim was close. Jack was close.
-
-But she'd known those two for two days and already knew one thing. If she called for help at the first fight, they'd remember it for the rest of their lives. They'd tease her forever. Even if one day she showed she was stronger than both of them put together, it would stay there. A stain.
-
-Out of pride, pure and simple, she wasn't going to scream.
-
-She'd rather take the risk. Even of dying.
-
-She looked at the ground around her. Looked at the terrain. Tried to think like Kim and Jack would think.
-
-*The ground is a weapon. Everything is a weapon.*
-
-— So, you asshole. — She to the one with two knives, with a disgusted smile. — How about we start with you, you pig?
-
-The guy lost it. Came running with both knives out in front.
-
-Nina didn't take her eyes off him. But her foot, which no one was watching, had sunk into some loose sand beside the path. When he got close, the foot came up fast and threw the sand straight into his face.
-
-The grains went right into his eyes.
-
-— BITCH! — He stopped, knives in the air, rubbing his eyes with the backs of his hands. — You'll pay for that! I'm blind!
-
-That was all the time she needed.
-
-There was a rock on the ground. Big. She kicked it with a precision that would make Ronaldinho jealous, and the rock flew straight into the two-knife guy's face. Hit his nose. The nose broke with a wet sound and blood sprayed.
-
-The other three hesitated a second, watching their friend scream.
-
-That was all she wanted.
+— Your elemental. — Jack. — It's fire.
 
 ---
 
-She closed the distance with the first pipe guy, the one on the left.
+Nina pulled the SBI from Jack's hand and brought the hologram closer to her face.
 
-He reacted on instinct and brought the pipe down. But she was already too close. Only the base of the pipe caught her shoulder, almost without force.
+There it was. Primary elemental: Fire.
 
-They came face to face.
+— Guys. — Kim. — Can someone explain to me?
 
-She smiled at him, eye to eye, and watched his scared face turn into a face of pain. She had stomped hard on his foot, and in the same motion of bringing her leg down on his foot, she brought her knee up between his legs. He howled, knelt slowly, dropped the pipe, and brought both hands to his groin, drool running from the corner of his mouth.
+— What came out of you in the first fight was Darkness. — Nina. — That's what everyone saw. Black flame. But here, on your SBI, your primary elemental is Fire.
 
-Behind her, footsteps.
+Jack raised a finger, like someone who had just figured something out.
 
-The other pipe. She knew that rhythm of steps. It was someone coming from behind thinking they had the advantage.
+— That's why I thought it was weird at the time. It looked like fire. But it was black. — He looked at Kim. — You used a different elemental in the transformation. And that can't happen. Nobody switches elementals. It's one of the few rules that nobody has ever broken. Officially, yours is fire.
 
-She waited.
+Kim looked at his little figure spinning in the air.
 
-Waited for him to get close. Waited for him to raise the pipe with both hands above his head to strike the top of her head.
+Nothing in that game worked for him the way it should.
 
-When the pipe started coming down, she took a step forward, grabbed by the hair the guy who was kneeling in front of her, ducked behind him, and lifted his face right into the path of the pipe.
+He was tired of trying to understand. He made a hand signal for Jack to go on. Jack knew that signal. It was Kim's fed-up signal.
 
-The pipe met his friend's face.
+— Okay. Straight to the point. — Jack returning to the hologram. — Here it says which attacks you can already use. Two. Both by voice command. You just need to understand how to make them come out. Both are instant, cost little, but also don't destroy much. The first is the basic of fire. A fireball.
 
-The nose shattered. The front teeth broke and went down his throat. The guy holding the pipe stood still, staring at what he'd just done to his own friend, not believing it.
+— And the second?
 
-And didn't see Nina pick up the pipe the kneeling guy had dropped.
+Jack stared for a while.
 
-She rose in a short leap forward, kicked the kneeling guy backward—he was already out—and in the same spin hit the standing one in the chin with the pipe.
+— The second I've never seen. — Jack. — These attacks tend to be personalized. It's hard to repeat. It's not that it never repeats, but it's rare.
 
-The blow lifted him off the ground.
+---
 
-While he fell, slowly, the ones left standing saw Nina stopped in the middle of the path with the iron pipe in her hand like a Chinese sword. Left hand open in front. Right holding the pipe above her head. A kung fu stance. It wasn't street fighting. It was someone who had studied more than one art with someone very good.
+Nina cut Jack off.
 
-She spun the pipe around her body.
+— And there's a limit. In an official fight you can only take four active powers. You choose before the fight which ones go. You can change whenever you want, but changing the list has a cost.
 
-Hit the two-knife guy, who was still blind, in the chin. The jaw came out of place. His head turned ninety degrees. Everyone saw he was already unconscious before he fell, but she hit him once more on the top of the head while he fell, just to be sure.
+— And if I discover a new power in the middle of the fight?
 
-During all this she didn't take her eyes off the three left standing.
+— Then it unlocks on its own. NeoGuide tells you. Only in your head, so nobody else knows. It tells you how long it takes, how much it costs, everything. And the new power takes the place of the last one on your list. — She breathed. — Is that clear? Was I clear?
 
-And from the look of it, she was just getting started.
+Kim nodded.
+
+Jack slapped his hands on his thighs and stood up.
+
+— Good. I think class is over. If we missed anything, we'll explain as it comes up. — He stretched, cracked his neck to the side. — And I think it's time to get up. There's a crew that's been waiting for us for a little while now.
+
+---
+
+Kim already knew.
+
+He knew since leaving school. Since the second block, when two guys with caps of the same color crossed the street behind them and kept crossing. Since the market, when the same motorcycle passed twice slowly. Since they arrived at the parking lot and the shadows behind the back wall started moving occasionally, when the wind wasn't moving.
+
+He had also seen that, when Jack stood up to explain the combat modes, the group back there stopped. They had planned to come in at that moment. Jack standing made them wait. And it gave time for the lesson to finish.
+
+The only one who hadn't noticed was Nina.
+
+But that was normal. Eight out of ten days, Kim and Jack were being followed by someone who had already gotten beaten by them. It was the climate of Marelia for the two of them.
+
+Kim stood up slowly. Jack was warming up his shoulders.
+
+— When did you see them? — Jack, without looking back.
+
+— Since school. — Kim opening his arms, stretching.
+
+Nina stood up too, looking from one to the other. Jack twisted his neck. Kim rotated his wrists. She started stretching without yet knowing why, just because the two of them were doing it.
+
+— Hey, guys! — Jack facing the back wall, hands cupped around his mouth. — You hiding back there. How long are you going to make us wait? If you want something, now's the time, because soon we have to go to work. Come closer and say what you want.
+
+For a second nothing moved.
+
+Then heads started to appear.
+
+From behind cars. From behind trees. From behind the walls of the old police station. One, two, five, ten. Twenty. Twenty-two, twenty-four. Pieces of wood in hand. Chains. The occasional knife.
+
+Nina understood.
+
+And stretched even more. Squatted, making sure her legs were warm.
+
+Looked at the two.
+
+The two were smiling.

@@ -1,191 +1,143 @@
-# CAPÍTULO 22 — Rei da Briga
+# CAPÍTULO 22 — A Gatinha Tem Garras
 
-Na trilha do meio, dois caras grandes estavam no chão e a Roxy tinha parado de olhar pra eles.
+— E aí, garotinha. — O da frente, com um sorriso que ele achava charmoso. — Qual vai ser? Do jeito fácil ou do jeito difícil?
 
-Ela tirou a camiseta.
+— Então, meu amor. — Nina, doce. — Qual seria o jeito fácil? Posso saber?
 
-Por baixo, faixas brancas enroladas em volta do peito, e tatuagem por todo lado. Os braços fechados de desenho. As costelas. Um dragão subindo pela barriga até o pescoço. Do bolso de trás da calça ela tirou dois socos ingleses com pontas de metal afiadas e encaixou um em cada mão.
+— O jeito fácil é a gente fala o que você tem que fazer, você faz, e não acontece nada com você além do necessário. O jeito difícil é a gente faz o que a gente quiser com você e você sofre bastante no processo. Qual vai ser?
 
-— Como você mesmo falou. — Abrindo e fechando os dedos dentro do metal. — Não tem regra na briga de rua, né?
+Nina sorriu pra ele.
 
-— Exatamente. — Kim. — Sem regra.
+— Vamos pelo jeito fácil. Se vocês prometerem que não vão me machucar, eu faço o que vocês quiserem.
 
-Ela aqueceu uns segundos. Pulando no lugar, girando os ombros. Depois veio.
+O da frente olhou pro do lado com a cara de quem ganhou na loteria.
 
-Os primeiros socos passaram raspando no rosto dele. Kim desviava. Ela era rápida. Mais rápida que os dois que ele tinha derrubado juntos.
+— Vem cá, então. Chega mais. Vamos ver o que você tá guardando embaixo dessa saia. Porque quem usa uma saia dessas tá querendo.
 
-— Vai ficar só na defesa, moleque? — Sem parar de bater. — Eu tô só esquentando. Você não tem ideia do prazer que me dá arrebentar a cara de homem safado igual você.
+O segundo fez uma cara de decepção.
 
-Kim não respondeu.
+— Ah, cara. Eu achei que você ia mandar ela mostrar os peitos.
 
-Ele estava olhando pro chão.
+— Calma, mano. Começa devagar. Tem tempo pra tudo.
 
-Tinha um galho. Grosso, seco, caído entre os pés dele. Kim esperou ela chegar mais perto. Esperou ela armar o próximo soco. Quando o peso dela foi pra frente, o pé direito dele chutou a ponta do galho.
+Nina foi chegando.
 
-O galho subiu e bateu de frente no joelho esquerdo da Roxy. Quebrou no impacto.
+Devagar. Um passo. Outro. Os sete olhando pra ela do jeito que ela sabia que iam olhar.
 
-Ela perdeu o equilíbrio.
+Quando ela chegou na distância exata, segurou a barra da saia com as duas mãos e começou a levantar. Bem devagar. Os olhos de todos foram pra lá.
 
-Kim não perdoou. Girou o corpo pra trás, a cintura dobrando quase em ângulo reto, e mandou o cotovelo no queixo dela.
+O chute subiu do nada.
 
-Um dente saiu voando.
+Rápido, seco, certeiro, no meio das pernas do primeiro. Ele dobrou sem som, a boca aberta, o ar sumindo inteiro. Antes que ele terminasse de cair, o pé dela já tinha voltado e subido de novo, agora no queixo do segundo, que foi pra trás de costas no chão.
 
-Ela virou o rosto no último instante e segurou parte da força. Mas o sangue já estava descendo dentro da boca, aquele gosto amargo de metal. Ela ficou zonza.
+Dois no chão. Ela ajeitou a saia.
 
-Kim já estava armando a joelhada.
+— E aí? — Provocando. — Mais alguém quer olhar embaixo da minha saia?
 
----
+Assumiu a guarda. Uma postura bonita, leve, que não combinava com o que tinha acabado de fazer.
 
-Na trilha da esquerda, a Nina estava pulando no lugar.
-
-Quicando, leve, como se fosse um ringue e não um caminho de terra cheio de gente desmaiada. Pela primeira vez ela estava entendendo por que tinha gente que gostava tanto de brigar.
-
-Com um sorriso confiante, fez uma firula à Bruce Lee, passando o dedão no nariz, encarando os três que sobravam.
-
-Os três não queriam mais.
-
-Ela via isso na cara deles. Mas também via que o orgulho deles não ia deixar eles saírem sem tentar. E que eles tinham mais medo da chefe do que dela.
-
-O primeiro veio com um pedaço de madeira. Era um dos dois do começo, o que tinha tomado o chute no queixo. Nina segurou o pulso dele bem na base, travou o braço, e começou a usar ele como saco de pancada. Socos de direita, rápidos igual os do mestre Ip Man, curtos, um em cima do outro, sem parar, sem dar tempo de nada. O rosto dele foi ficando sem reação. Os joelhos foram cedendo. Mesmo depois que ele chegou no chão, apagado, ela ainda deu mais três antes de parar.
-
-Ela olhou pro cara da corrente. Sorriu.
-
-O cara da corrente olhou pra ela. Olhou pro amigo no chão. Jogou a corrente longe, pro lado direito, e saiu correndo.
-
-O último ficou parado no meio do caminho. Olhou pra Nina. Olhou pro amigo fugindo. Olhou pra Nina. Olhou pro amigo. Fez isso umas três vezes.
-
-Depois correu também.
-
-Nina colocou as mãos nos joelhos e começou a rir. Não acreditava.
-
-Pelo jeito, tinha acabado.
-
-Ela pensou nos meninos. Pensou em ir correndo ajudar. Depois pensou melhor. Aqueles dois não iam precisar de ajuda nenhuma.
-
-Acendeu um cigarro e foi andando, devagar, procurar eles.
+— A brincadeira só começou, garotos. Quem é o próximo?
 
 ---
 
-A joelhada do Kim entrou na barriga da Roxy no meio de um salto.
+Os outros cinco ficaram um segundo sem reação.
 
-O sangue subiu pela garganta dela e saiu pela boca sem ela querer. Kim prendeu ela contra o tronco de uma árvore e segurou lá alguns segundos, o antebraço no peito dela, esperando.
+Depois o maior deles passou pra frente. Era bem maior que os outros. Alto, largo, o tipo de cara que resolve as coisas só por estar presente. Bateu o punho fechado na palma da outra mão.
 
-E ela, mesmo machucada daquele jeito, achou o único meio segundo de descuido.
+— Agora você se ferrou. A gente não vai ter dó. E a chefe vai adorar ver o que a gente vai fazer com você. Ela não vai ficar nada feliz com o que você fez.
 
-Saltou. Enrolou as duas pernas no braço dele e se dobrou, puxando o Kim pra frente com o peso todo.
+Nina ficou olhando pras pernas dele.
 
-Era o sinal.
+Quando ele dobrou um pouco o joelho direito pra dar o primeiro passo, ela explodiu.
 
-Os seis que ainda estavam em pé vieram todos de uma vez.
+Usou a coxa dobrada dele como degrau. Subiu. Passou a perna esquerda em volta do pescoço dele, a direita por cima, e fechou as duas como uma tesoura. Jogou o corpo pra trás com todo o peso.
 
-A primeira coisa que o Kim sentiu foi um cano de ferro nas costas.
+O gigante foi junto.
 
-*VACILEI.*
+Caiu como prédio caindo, de costas, com ela agarrada no pescoço. O chão tremeu um pouco.
 
-Pisou na barriga da Roxy pra soltar o braço. A dor nas costas subiu quente e acendeu alguma coisa nele. Virou.
+Ela apertou.
 
-O cara do cano já estava armando o segundo golpe. Na cara. Não dava tempo de levantar os braços.
+Ele tentou puxar as pernas dela com as duas mãos. Não conseguiu. Tentou de novo. Tinha sido pego no meio de uma respiração e o ar que ele precisava não estava vindo. Dez segundos. Vinte. Trinta. Quarenta. As mãos dele foram ficando fracas nas pernas dela. Depois pararam.
 
-Kim não levantou os braços.
+Ela soltou.
 
-Levantou o rosto.
-
-O cano bateu na testa dele e parou ali.
-
-O sangue desceu entre os olhos, pelo nariz, até o queixo. E o Kim continuou parado. Olhando pro cara. Como se nada tivesse acontecido.
-
-O cara do cano conhecia briga. Já tinha participado de muito massacre com aquele grupo. E sabia de uma coisa com certeza: não importa o tamanho, não importa a força, um cano de ferro na cara é um cano de ferro na cara. Ninguém fica de pé olhando pra você depois disso.
-
-— NÃO, SEU IDIOTA! — Roxy, do chão.
-
-Não deu tempo.
-
-Antes de ela terminar a frase, o Kim, com a cabeça ainda no mesmo lugar e o cano ainda encostado na testa, girou o corpo da cintura pra cima quase noventa graus e soltou o cruzado.
-
-Não pro lado.
-
-Pra baixo.
-
-O soco pegou o meio do rosto do cara e levou a cabeça dele até o chão. E não parou quando chegou no chão. O Kim continuou empurrando, a mão aberta agora, apertando a cabeça do cara contra a terra.
-
-No meio daquele segundo deu pra ver os olhos do cara revirando.
-
-Apagado. Um soco.
+O grandão ficou no chão, apagado, a boca aberta.
 
 ---
 
-Qualquer um que olhasse via.
+Sobravam quatro de pé. E os dois do começo começando a levantar.
 
-O Kim não desperdiçava golpe. Cada soco, cada chute, tinha um objetivo só: acabar com a briga. Nada sobrava. E não importava quem estava na frente dele. Ele usava cem por cento da força até contra uma formiga.
+Os quatro agora estavam armados. Dois com um pedaço de cano de ferro que tinham achado em algum lugar. Um com duas facas, uma em cada mão. Um com uma corrente grossa enrolada no braço.
 
-Os Reis da Briga.
+Nina sentiu o perigo pela primeira vez.
 
-A Roxy, no chão, começou a entender por que chamavam eles assim.
+Aquilo era sério. Era o tipo de situação em que, não importava o que ela fizesse, dava pra sair muito machucada. Por um segundo ela pensou em gritar. O Kim estava perto. O Jack estava perto.
 
-A força dela sempre foi a quantidade. Ela sabia que os capangas dela não eram lutadores de verdade. Eram gente. Gente com taco. Mas gente suficiente. E com isso, o grupo dela nunca tinha perdido uma briga. Nunca tinha deixado de cumprir um contrato. Uma vez ou outra alguém dava trabalho. Mas nunca aquilo.
+Mas ela conhecia aqueles dois fazia dois dias e já sabia de uma coisa. Se ela pedisse ajuda na primeira briga, eles iam lembrar disso pro resto da vida. Iam zoar ela pra sempre. Mesmo que um dia ela mostrasse que era mais forte que os dois juntos, aquilo ia ficar lá. Uma mancha.
 
-Aquele garoto na frente dela não era normal.
+Por orgulho, puro e simples, ela não ia gritar.
 
-Com o sangue descendo pelo meio da cara, terminando um homem com a mão aberta no chão. Aquilo era uma força da natureza. Uma coisa que se respeita.
+Preferia correr o risco. Até de morrer.
 
-Ela já tinha ouvido falar. Na rua todo mundo sabia que dava pra contar nos dedos as brigas que o Kim e o Jack tinham perdido. E que oitenta por cento delas tinham um nome só.
+Olhou o chão em volta. Olhou o terreno. Tentou pensar como o Kim e o Jack pensariam.
 
-Alan.
+*O chão é arma. Tudo é arma.*
 
-O único rival de verdade dos dois. O nome que tinha juntado o Kim e o Jack. O único que já tinha vencido os dois.
+— E aí, seu babaca. — Ela pro das duas facas, com um sorriso de nojo. — Que tal a gente começar por você, seu porco?
 
-Roxy olhou pro Kim.
+O cara perdeu a cabeça. Veio correndo com as duas facas na frente.
 
-*Se esse cara apanhou do Alan, como é o Alan?*
+Nina não tirou o olho dele. Mas o pé dela, que ninguém estava olhando, tinha afundado num pouco de areia solta do lado do caminho. Quando ele chegou perto, o pé subiu rápido e jogou a areia inteira na cara dele.
+
+Os grãos entraram direto nos olhos.
+
+— VADIA! — Ele parou, as facas no ar, esfregando os olhos com as costas das mãos. — Você vai me pagar! Eu tô cego!
+
+Era o tempo que ela precisava.
+
+Tinha uma pedra no chão. Grande. Ela deu um chute nela com uma precisão de fazer o Ronaldinho sentir inveja, e a pedra foi voando direto no meio da cara do das duas facas. Acertou o nariz. O nariz quebrou com um barulho molhado e o sangue espirrou.
+
+Os outros três hesitaram um segundo, olhando o amigo gritar.
+
+Era tudo que ela queria.
 
 ---
 
-O Kim foi pros cinco que sobravam.
+Ela fechou a distância com o primeiro dos canos, o da esquerda.
 
-Rápido. Um de cada vez. Um golpe pra cada um.
+Ele reagiu por instinto e desceu o cano. Mas ela já estava perto demais. Só a base do cano pegou no ombro dela, quase sem força.
 
-O do taco tomou um soco no fígado e dobrou. A da corrente tomou um chute na lateral do joelho e não levantou. O da pedra soltou a pedra antes de tomar o soco e tomou o soco mesmo assim. Os dois últimos vieram juntos e foram juntos, um com o cotovelo na têmpora, o outro com a testa do Kim no nariz.
+Ficaram cara a cara.
 
-A Roxy continuava no chão.
+Ela sorriu pra ele, olho no olho, e ficou vendo a cara de susto dele virar cara de dor. Tinha pisado no pé dele com força, e no mesmo movimento de baixar a perna sobre o pé, subiu o joelho no meio das pernas dele. Ele urrou, ajoelhou devagar, soltou o cano e levou as mãos pro meio das pernas, a baba escorrendo do canto da boca.
 
-Não estava com medo. Era outra coisa. Ver aquele garoto brigar era como ver um balé. Tudo no lugar. Tudo no tempo. Brutal, mas perfeito. Ela sabia que nunca mais ia ver aquilo na vida. Então ficou ali. Assistindo.
+Atrás dela, passos.
 
-De longe, no meio do mato, veio a voz do Jack.
+O outro cano. Ela conhecia aquele ritmo de passo. Era alguém chegando pelas costas achando que estava em vantagem.
 
-— GALERA! PESSOAL! OI! SOU EU, O JACK!
+Ela esperou.
 
-O Kim ouviu. Não perdeu um milésimo de concentração.
+Esperou ele chegar perto. Esperou ele levantar o cano com as duas mãos acima da cabeça pra dar o golpe no topo da cabeça dela.
 
-Os punhos dele estavam vermelhos. Não era sangue dele.
+Quando o cano começou a descer, ela deu um passo à frente, agarrou pelo cabelo o cara que estava ajoelhado na frente dela, se abaixou atrás dele e levantou o rosto dele bem no caminho do cano.
 
-Ele virou e olhou pra Roxy.
+O cano encontrou o rosto do amigo.
 
-Ela entendeu. Ele tinha acabado. Agora era a vez dela.
+O nariz despedaçou. Os dentes da frente quebraram e desceram pela garganta. O cara que segurava o cano ficou parado, olhando pro que tinha acabado de fazer com o próprio amigo, sem acreditar.
 
-Medo e respeito ao mesmo tempo. Era o que ela sentia. E por baixo disso, uma vontade. A vontade de saber até onde ela ia contra aquilo.
+E não viu a Nina pegar do chão o cano que o ajoelhado tinha soltado.
 
-Ela se levantou. E foi.
+Ela levantou num salto curto pra frente, chutou de costas o ajoelhado, que já estava apagado, e no mesmo giro acertou o cano no queixo do que estava de pé.
 
-O primeiro soco dela entrou. Ela ficou surpresa. Não parou. Mandou o segundo. O terceiro. O quarto. Uma sequência sem fim, com os socos ingleses, com tudo que ela tinha, golpe atrás de golpe.
+O golpe levantou ele do chão.
 
-O Kim não revidou.
+Enquanto ele caía, devagar, os que sobravam viram a Nina parada no meio do caminho com o cano de ferro na mão como se fosse uma espada chinesa. A mão esquerda espalmada pra frente. A direita segurando o cano acima da cabeça. Uma postura de kung-fu. Não era de briga de rua. Era de alguém que tinha estudado mais de uma arte com alguém muito bom.
 
-Não desviou. Não se defendeu. Recebeu tudo, um por um, olhando pra ela.
+Ela girou o cano em volta do corpo.
 
-E ela olhou nos olhos dele no meio da sequência.
+Acertou o das duas facas, que ainda estava cego, no queixo. O queixo saiu do lugar. A cabeça dele virou noventa graus. Todo mundo viu que ele já estava apagado antes de cair, mas ela deu mais um golpe no topo da cabeça dele enquanto ele caía, só pra garantir.
 
-Ele não estava bravo.
+Durante tudo isso ela não tirou o olho dos três que sobravam.
 
-Ele estava frio.
-
-E mesmo ela atacando, ela em vantagem, ela batendo, um arrepio desceu pela espinha dela de cima até embaixo.
-
-Quando a mão dele fechou no pescoço dela, ela entendeu.
-
-Era impossível. Ele não revidou porque não precisava. Ele não desviou porque não precisava. Os golpes dela eram leves. Não faziam nada. Ela não valia nem um soco dele. Seria desperdício.
-
-A mão apertou.
-
-Ela entendeu que tinha perdido.
-
-E apagou.
+E pelo jeito, ela estava só começando.

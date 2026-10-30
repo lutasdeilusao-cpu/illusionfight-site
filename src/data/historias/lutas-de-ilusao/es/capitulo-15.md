@@ -1,199 +1,331 @@
-# CAPÍTULO 15 — Ángel y Victoria
+# CAPÍTULO 15 — Mi Bebé
 
-Jack y Nina nunca habían luchado juntos en el LDI.
+Kim se despertó, se cepilló los dientes, se bañó, se vistió.
 
-Se miraron y saltaron hacia atrás al mismo tiempo, cada uno por su lado, abriendo distancia y ángulo. Kim saltó también, medio segundo más tarde, y mantuvo la misma distancia.
+Cuando abrió la puerta del cuarto, se detuvo.
 
-— Kim. — Jack levantó la mano. — Ahora es así. Vamos con todo. Tú haz lo que puedas para defenderte. Este juego es para sentir. No sé explicarte cómo vas a encontrar tu poder. Pero sé que lo vas a encontrar.
+Había un olor en la casa.
 
-— Pueden venir con todo. No voy a perder contra ustedes.
+Olfateó el aire como un perro, buscando de dónde venía. Buen olor. Olor a comida. Fue caminando por la casa siguiéndolo y notó otra cosa en el camino: la casa estaba ordenada. Limpia.
 
-Jack tomó el bastón con la mano izquierda y lo puso horizontal frente a su cuerpo. La mano derecha, la de metal, se deslizó por todo su largo de punta a punta.
+Llegó a la puerta de la cocina.
 
-— Vitória. — Jack. — Chamán.
+Helena estaba frente al fogón. La música alta, sonando de verdad, no en auriculares: *Man! I Feel Like A Woman*, de Shena Twuin, el country que ella amaba. Y bailaba. Movía las caderas, cantaba, volteaba los huevos en la sartén. Café con leche en la mesa. Jugo. Fruta cortada. Los platos lavados.
 
-El bastón se deshizo en tres partes unidas por eslabones, un San Tien Kwan de metal, con el mango curvo de bastón en un extremo y una punta de lanza en el otro. Una energía marrón dorada recorrió los eslabones.
+Kim se quedó parado en la puerta, sonriendo, solo mirando.
 
-Del otro lado, Nina colocó la katana envainada en la palma de la mano izquierda. Cerró la derecha en la empuñadura.
+La música terminó. Helena se giró y se encontró con él.
 
-— Angel. Chamán.
+— ¿Qué haces ahí parado, loco? ¡Casi me matas del susto!
 
-Tiró.
+Kim bajó la cabeza, sonriendo.
 
-La hoja salió en segmentos. Pequeñas hojas unidas entre sí por un hilo, estirándose hasta casi dos metros, y ella azotó el aire con eso. El chasquido resonó en la sala vacía. La hoja volvió sola a la vaina, entera de nuevo. Dejó la espada al lado del rostro.
+— Es que fue una escena tan inusual que decidí no interrumpir.
 
-Kim se quedó un segundo mirando a los dos.
+Ella sonrió también.
 
-Nada de aquello era lo que esperaba.
+— Ya, basta de charla y ven a comer, si no vas a llegar tarde a la escuela, mi bebé.
 
-Jack avanzó primero.
+*Mi bebé.*
 
-Despacio al principio. Después más rápido. La mano derecha sujetando la punta de lanza, la izquierda girando el mango del bastón en trescientos sesenta grados, el metal silbando en el aire cada vez más alto. Kim se preparó para la distancia media, que era donde esa arma haría daño.
+Kim se sentó. Ella puso un plato frente a él y un café con leche bien caliente. Se sentó del otro lado. Y los dos desayunaron juntos, conversando.
 
-En la distancia exacta del golpe, Jack saltó hacia atrás.
+En medio del café, Kim se puso serio.
 
-Kim siguió el salto con los ojos.
+— Mamá. No necesitas hacer esto todas las mañanas solo porque tuvimos aquella conversación...
 
-Y no oyó a Nina.
+Ella lo miró, confundida.
 
-Ella vino por detrás como una bala, la katana estirada directamente al corazón. Kim giró el hombro en el último instante que existía. La hoja rasgó la camisa y abrió la carne del pecho hasta el hombro.
+— ¿Crees que estoy haciendo esto por nuestra conversación? ¿Que ahora quiero ser una buena madre? ¡Deja de ser tonto, muchacho! ¡Hago lo que quiero, cuando quiero! Nadie me va a decir lo que tengo que hacer.
 
-La sangre vino caliente. El dolor vino entero.
+Quien dice lo que quiere escucha lo que no quiere. Kim se quedó callado y terminó el café.
 
-Un segundo más lento y habría sido el corazón.
+Tomó sus cosas. Y entonces vino otra cosa inusual.
 
-Kim cayó sobre una rodilla con la mano en el pecho, apretando. *El silbido. Jack giró eso para cubrir los pasos de ella. El salto fue para que yo lo mirara a él.* Los dos habían montado eso sin ponerse de acuerdo en voz alta. La primera jugada había sido perfecta.
+La madre se acercó, lo abrazó y le dio un beso en la mejilla.
 
-Jack todavía estaba en el aire. Juntó el arma de nuevo en bastón y la lanzó de arriba hacia abajo como un dardo. Kim se lanzó hacia atrás. La punta se clavó en el suelo donde él estaba y abrió un agujero ancho, el polvo subiendo.
+— Ten un buen día, hijo. Trata de no meterte en problemas en la escuela. Y vuelve a casa sano y salvo.
 
-*Uf.*
+Kim se quedó un poco avergonzado.
 
-Empezó a levantarse. Oyó un paso detrás. Esquivó hacia la derecha por instinto y la patada de Jack pasó rozándole la oreja. Los dos se alejaron, se pusieron en guardia, intercambiaron unos golpes de lectura.
-
-— ¿Te estás divirtiendo? — Jack sonriendo. — ¿No te dije que era jodidamente bueno? Perdimos años no haciendo esto.
-
-— Mucho. — Kim con la sangre corriéndole por el vientre. — Además, ¿por qué el dolor en este juego es tan real?
-
-Avanzó con un rodillazo al diafragma. Jack conocía esa rodilla desde hacía años. Bloqueó con el codo y, con la mano abierta, golpeó directamente el corte del pecho.
-
-Kim vio blanco.
-
-— Nadie sabe cómo lo hacen. — Jack mientras Kim se tambaleaba hacia atrás. — Pero la sensación aquí es casi igual a la de allá. Pierna rota es pierna rota. No sostiene, duele, te saca de la pelea. Tenlo en cuenta.
-
-El rostro de Jack se puso serio. Las cejas se alzaron un poco.
-
-No hacía falta hablar. Kim ya lo había oído. Los pasos de Nina, casi sin sonido, detrás de él otra vez.
-
-Saltó hacia un lado.
-
-Ella ya lo sabía. Apuntó la espada hacia donde él iba a caer.
-
-— ¡Expandir!
-
-La hoja se abrió desde la base en gajos, como una serpiente de metal, y vino serpenteando tras él.
-
-*Ay, mierda. Ay, mierda. Ay, mierda.*
-
-Kim se lanzó hacia un lado otra vez. Pasó por poco.
-
-Nina sonrió de una manera que no era nada simpática.
-
-— ¡Endurecer!
-
-Los gajos se trabaron. El látigo se convirtió en una hoja rígida y gigante, más larga de lo que la sala parecía contener.
-
-— ¡Angel Luminus Blade!
-
-La hoja se encendió.
-
-Una luz blanca tan fuerte que dolía mirarla. Nina giró el cuerpo en el aire con la hoja entera bajando en un arco que alcanzaba a Kim y a la mitad de la sala. Jack vio que estaba dentro del radio y salió corriendo hacia el otro lado.
-
-Kim no tenía adónde ir.
-
-Levantó las dos manos frente al cuerpo. Era lo único que le quedaba.
-
-Y algo apareció en ellas.
+— Gracias, mamá. Voy a intentarlo. Pero no prometo nada.
 
 ---
 
-El choque fue tan grande que el aire tembló.
+Jack estaba en la escalera, afuera.
 
-La hoja de luz golpeó algo que Kim estaba sosteniendo, y las dos fuerzas quedaron ahí, una empujando a la otra. Nina giraba el cuerpo con todo el peso para arrastrar la hoja hacia adelante, y Kim era arrastrado hacia atrás, los pies abriendo dos surcos en el suelo, pero no caía.
+Y tenía una cara de confusión. Estaba acostumbrado a oír los gritos de todas las mañanas en esa casa. Lo que acababa de oír por la puerta era otra cosa.
 
-La luz era tanta que no veía lo que sostenía.
+— ¿Y bien, amigo, todo bien? ¿Qué está pasando?
 
-Y en medio de la luz, empezó a oscurecerse.
+— ¿Eh? ¿Cómo así? No tengo idea de qué estás hablando.
 
-Conocía aquello. Ya había estado allí.
+— Estoy hablando de esa charla de "ten un buen día, no te metas en problemas, vuelve sano y salvo". ¿Quién está ahí adentro? La voz era de tu madre. La actitud, no.
 
-Fue allí donde el Pajé le había hablado de aquella manera inconexa. *No, no, no... no, sí, sí, sí, sí.*
+Kim miró hacia abajo. Luego hacia arriba. Un poco avergonzado.
 
-La oscuridad sin suelo. El sonido de agua goteando en un ritmo que no era aleatorio, pero tampoco era música. Kim seguía con los brazos levantados, en la misma posición de defensa, y giró la cabeza despacio.
-
-A su lado, sentado en la nada, un viejo de barba blanca larga, sombrero de plumas y gafas oscuras redondas. La cadena de signo de dinero en el pecho. El bastón dorado flotando a su lado sin que nadie lo sostuviera.
-
-— ¡Hello! — el Pajé Yawanari abrió los brazos. — ¿Y entonces, chico, todo bien? ¿Suave en la nave? ¿Qué onda?
-
-— Dios mío. — Kim. — Juraba que eras un delirio. Que te había inventado porque me estaban dando una paliza.
-
-— Oye. ¿Pensaste que no era real? — el Pajé se puso la mano en el pecho. — Estoy ofendido. Me siento oprimido, viejo.
-
-Los brazos de Kim estaban temblando. Sentía, incluso desde allí, que en cualquier momento la hoja iba a pasar y partirlo por la mitad.
-
-— Habla rápido. ¿Qué quieres? ¿Por qué estás aquí? ¿Y qué sabes de mi padre?
-
-El Pajé giró el rostro hacia un lado y empezó a hablar con alguien que no estaba allí.
-
-— No, pues, él está preocupado... Está metido, ¿sabes? Es el sobrinito... Pero creo que no es el momento. ¿Estás loco? No es el momento de hablar de eso con él. — Pausa. — No. No. Lo sé. Lo SÉ.
-
-Se giró de vuelta hacia Kim.
-
-— Entonces, loco. Ahora no es el momento de hablar de tu papi, ¿vale? Va a llegar la hora y el lugar. Vine aquí para alertarte. La cosa se está poniendo loca. Están detrás de ti. Y cuando lleguen, van a querer llevarse eso que tú llamas cuerpo. Así que cuida la responsabilidad de la Sangre Primordial, si no te vas a joder. — Se dio una palmada en la pierna, como quien cierra una reunión. — Es solo por eso que te llamé aquí.
-
-Kim estaba cada vez más débil. La luz empezó a volver por los bordes.
-
-El Pajé fue desapareciendo con ella, y antes de desaparecer del todo, señaló con la barbilla hacia las manos de Kim.
-
-— Pues. Esa arma que elegiste es top. Aprovéchala. Si aprendes a usarla bien, te va a servir mucho.
+— Ah, amigo, es una historia tan larga... Pero tenemos que empezar a trabajar. Vamos, te voy contando en el camino.
 
 ---
 
-La luz volvió.
+Y contó.
 
-El peso de la hoja volvió con ella, y Kim vio lo que estaba sosteniendo.
+Entre un autobús y otro, entre una bolsita de dulces y otra, Kim contó todo. La noche. La pelea. La botella. Toda la historia que la madre le había contado.
 
-Una pequeña hacha.
+En la cara de Jack vio el mismo odio que había sentido esa noche. El mismo que aún sentía cada vez que pensaba en eso.
 
-Pequeña, con el mango envuelto en algo que parecía demasiada tecnología para un arma tan antigua en su forma. La hoja de la pequeña hacha sostenía la Luminus Blade de Nina, pero su filo era fino, y la Luminus Blade era ancha y pesada y estaba ganando.
+Los dos eran así. El sufrimiento de uno era el sufrimiento del otro. Un lazo del tamaño de hermanos.
 
-Kim decidió arriesgarse.
+— Amigo. — Jack, en el último autobús, con la voz baja. — Siendo lo más sincero posible, no sé qué decir. Solo que estoy enojado. Más enojado de lo que jamás he estado en mi vida. El tipo más despreciable que hemos enfrentado no se le compara. Lo que siento es odio hacia esos hijos de puta que les hicieron eso a ti y a tu madre. — Miró por la ventana. — Y me siento un inútil. Porque sé que no hay nada que pueda hacer para cambiar eso.
 
-Dobló el cuerpo hacia atrás en un puente, la espalda casi tocando el suelo, y dejó que la hoja pasara por encima de él.
+Kim entendía. Era exactamente lo que él estaba sintiendo.
 
-Pasó.
+Y era, casi palabra por palabra, lo que le había dicho a su madre.
 
-Y siguió pasando, por el camino que ahora estaba libre, directo hacia Jack, que no había corrido lo suficientemente lejos. Jack puso el bastón al frente en defensa. Desvió lo grueso del golpe. La punta de luz alcanzó el sombrero de copa.
+---
 
-Un pedazo del sombrero cayó al suelo.
+Cuando bajaron cerca de la escuela, Nina estaba en la puerta.
 
-Kim soltó el aire. Antes de que dijera algo, Jack gritó.
+Esperándolos.
 
-— ¡MIERDA, NINA! ¡Cortaste mi sombrero de copa! ¿Sabes cuánto LT voy a gastar para arreglar esto? ¿O olvidaste que estamos en el mismo equipo?
+Era gracioso. Un día. Tenía un día allí y ya parecía amiga de años. Los tres fueron caminando por el pasillo, contando lo que cada uno había hecho después de irse la noche anterior.
 
-— Perdón. Te doy los LT. — Nina sin quitar los ojos de Kim. — Jack. Manifestó un arma personalizada. En medio de la pelea.
+— Chicos. — Jack fue el primero. — Después de irme, me fui a casa. Y juro que a cada paso la distancia se hacía más grande. Cuando llegué, mi papá estaba en la puerta esperándome. Tenía que dejarme la llave, porque perdí la mía. Me miró y soltó: "Estás borracho, ¿no?". Le di vueltas y vueltas, y al final se rió y dijo: "¿No tienes nada que hacer mañana, no?". Le dije que no, que había conseguido algo de dinero y estaba libre. Entonces él: "Ve a bañarte para quitarte esa cara de loco, dejé comida lista". Me bañé, me di un buen banquete, vi una película y me quedé frito.
 
-Jack dejó de mirar el sombrero.
+Kim y Nina se rieron por cómo lo contaba.
 
-— ¿Él qué?
+— Mi papá se volvió loco. — Nina. — Llegué tarde y además borracha, en el primer día de clases. Él es sobreprotector, así que ya te imaginarás el regaño. Pero yo estaba tan borracha que apenas escuché el sermón. Fui directo a bañarme y me quedé frita. Solo me desperté en medio de la noche para comer algo. En la mañana me pidió que no lo hiciera de nuevo. — Se encogió de hombros. — Pero... no sé.
 
-— Esas armas son de lote único. Nunca logré sacar una. Gasté una barbaridad en paquetes hasta encontrar la Angel.
+---
 
-— ¿Sin gastar puntos? ¿A la primera? — Jack rascándose la barba que no era suya. — Está alto en el SDR... Tal vez en sala de entrenamiento el sistema lo libere solo. Pero no es pelea oficial, así que... no sé. No vi cómo fue.
+Las miradas del pasillo estaban todas puestas en ellos.
 
-Kim notó que los dos estaban hablando de él. Dio un paso hacia ellos.
+Y en medio del pasillo, parado, estaba el director. Walter.
 
-Los dos lo miraron al mismo tiempo. Y saltaron hacia atrás, abriendo distancia de nuevo.
+Solo. Brazos cruzados. El pie golpeando el suelo. Rojo. Cara de quien no había dormido de rabia.
 
-*La pelea no había terminado.* Kim pensó que eso era muy injusto. Ellos podían quedarse charlando y él no. Luego recordó: en una pelea callejera, la única regla era que no había reglas.
+— ¿Alguno de ustedes puede explicarme qué pasó ayer en el fondo de la escuela?
 
-Estaba loco por contar lo que acababa de pasar. Pero no tenía tiempo, y no iba a estorbar la pelea.
+Jack se rascó la barbilla y sonrió.
 
-Aprovechó el tiempo y miró de verdad el arma.
+— ¿En el fondo de la escuela? No tengo idea de qué está hablando, director.
 
-La forma era de hacha antigua, de esas con hoja de piedra que había visto en un libro de la escuela. Pero la hoja no era de piedra. Era de un metal extraño, y el filo no estaba afilado. No estaba hecha para cortar. Estaba hecha para golpear. El mango se moldeaba a sus cuatro dedos como si lo hubieran sacado de su mano con un molde. Justo debajo de la mano, una polea pequeña con un cable de acero enrollado, sujeto al final del mango.
+— Es verdad. — Kim. — Si nos da una pista, tal vez recordemos. Pero ahora no se nos ocurre nada.
 
-En el cinturón, que no recordaba tener, colgada del lado izquierdo, otra hacha igual.
+— ¡No jueguen con mi paciencia! Toda la escuela está hablando. Lo oí de alumnos, de profesores, de personal. Pelea en el anexo. Cuchillos, cadenas, gente en el suelo. Y cada rumor que escucho termina en el mismo nombre. — Señaló. — Kim. Y Jack.
 
-Y en el mango de la que estaba en su mano, grabada en el metal, una palabra.
+Jack abrió los brazos.
 
-*Xakaxi.*
+— ¿Rumor, director? ¿Va a creer en rumores?
 
-Kim recordó a Jack deslizando la mano por el bastón. A Nina sacando la espada de la vaina. El nombre y la palabra que los dos habían dicho.
+— Quiero saber qué pasó. Y quiero saber por qué.
 
-Sacó la segunda hacha del cinturón. La polea se encajó debajo de la mano sola.
+Jack iba a responder. Kim se adelantó.
 
-Extendió el brazo izquierdo hacia un lado. Levantó el derecho.
+— ¿Los tipos que estaban en el anexo son alumnos de aquí?
 
-Golpeó una hoja contra la otra.
+Walter parpadeó.
 
-— Xakaxi. — Kim. — Chamán.
+— Eso no viene al caso.
+
+— Sí viene. — Kim. — Porque no lo son. Son matones pagados. Los cinco más caros de la región. Quien pagó fue Freddy, que es alumno, y a quien usted nunca llama aquí al pasillo. Entraron con cuchillos y cadenas en la mano, detrás de nosotros. — Inclinó la cabeza. — Entonces la pregunta que yo haría, si fuera usted, es cómo cinco tipos armados entran a una escuela sin que nadie los vea.
+
+Walter abrió la boca. La cerró.
+
+— Eso... eso será investigado.
+
+— Será excelente. — Kim miró el reloj del pasillo. — Ahora estamos empezando a llegar tarde. ¿Tiene algo más que decir?
+
+Walter se puso más rojo.
+
+— Tengan cuidado, ustedes dos. Mucho cuidado de no perder sus becas. Voy a garantizar que cada alumno de esta escuela esté siempre seguro. No importan las consecuencias.
+
+Y salió pisando fuerte.
+
+Nina miró a los dos. Los dos seguían serios. Entonces, lentamente, la sonrisa fue apareciendo en la cara de uno y luego del otro.
+
+Ella entendió. Para ellos, aquello era solo un día más normal.
+
+Los tres siguieron por el pasillo conversando, sin darse cuenta de que toda la escuela estaba mirando a Kim con el celular en la mano. Todos allí sabían que el famoso Peleador de Luchas de Ilusión era él.
+
+---
+
+El dúo se había convertido en trío.
+
+Pero ese no iba a ser un día común. Jack tenía planes para Kim. Y sabía que no iba a ser fácil convencerlo. Solo que, si había alguien en el mundo que convencía a Kim de hacer lo que no quería, era Jack.
+
+Antes de llegar al aula, Ryan pasó junto a ellos. Y volvió.
+
+— Entonces, señores. Quiero agradecerles una vez más por lo que hicieron por mí. Ese día. En el pasillo.
+
+Nina miró a los dos. Los dos pusieron cara de quien no recordaba nada.
+
+Los tres se miraron con la misma sonrisa.
+
+— Aquí tiene, señor Kim. — Jack, muy pulido, extendiendo una botella invisible. — El vino de 1944, cosecha de Levu.
+
+— Gracias, mi querido compañero. — Kim, muy formal. — Aprovecharé este carísimo momento con la bella dama a mi lado.
+
+— Oh, es un gran placer. — Nina, con la mano frente a la boca, la voz finita. — Será un honor saborear esta bebida junto a dos señores tan refinados.
+
+Los tres soltaron una carcajada.
+
+Ryan no entendió bien. Pero sabía que estaba siendo objeto de burla. Y no le importó. Esos dos le habían salvado el pellejo. La Sonata de la Lucha, Arnold noqueado en el suelo del pasillo. No lo iba a olvidar.
+
+Se despidió. Dio dos pasos. Y volvió.
+
+— Ah, es verdad. Esto es para ti, Kim. Solo un momento.
+
+Se arrodilló en el suelo y abrió la mochila. Adentro, una caja envuelta en papel de regalo.
+
+Kim lo miró de reojo.
+
+— Amigo. Puedes parar ahí mismo. Ni pienses en continuar.
+
+El tono hizo que Ryan se quedara congelado. Arrodillado, las manos en la caja, paralizado.
+
+— No sé qué crees que pasó en ese pasillo. Pero lo que sé es que no me debes nada. Mucho menos un regalo. Eso fue física. Quien dio el golpe fuiste tú.
+
+Jack y Nina se rieron de la cara de Kim, que no sabía qué hacer con eso.
+
+— Ah, pero si no lo aceptas será una pena. — Ryan. — Porque yo ya tengo uno igual. No voy a tener qué hacer con este.
+
+— ¿Y cuál sería ese regalo? — Jack.
+
+— Un SBI. Compré un SBI para Kim después de ver un video de él en internet.
+
+— ¿Qué video? — Nina. — ¿De qué estás hablando?
+
+Ryan sintió a los tres encima de él al mismo tiempo.
+
+— Creo que mejor empiezo desde el principio. ¿Puede ser?
+
+Los tres asintieron.
+
+— Ayer le eché un vistazo a PowWow. Uno de los videos más vistos era el de Kim luchando contra Thunderbolt. La pelea fue impresionante y quería ver más. Solo que... disculpa decirlo... nunca te vi con un SBI. Imaginé que no jugabas. O que tal vez no tenías posibilidades de comprar uno. Pero tu pelea fue tan sensacional que sería un desperdicio que no pudiéramos ver más. Entonces compré uno para ti. Como agradecimiento. Pero no es caridad. Es inversión. Eres novato y desconocido en el juego. Si vuelves a luchar, me avisarán. Y haré una apuesta grande por ti. Porque, si ganas, el retorno es muy alto.
+
+Kim se rascó la cabeza.
+
+— ¿Cómo sabes que era yo? No estaba mi nombre allí.
+
+— Amigo. — Jack, sonriendo. — Tu avatar es idéntico a ti. Así que esa idea de permanecer anónimo, para quien ya te conoce, se acabó.
+
+Y se giró hacia Ryan.
+
+— Pero espera. ¿Hablaste de un SBI gratis? ¿O sea, regalado? ¿Free?
+
+Ryan asintió.
+
+Jack juntó las manos en gratitud y abrazó al chico.
+
+— Entonces, mi señor, muchas gracias por ese gesto amable. ¿Puedo tomar el regalo ahora?
+
+Ryan se levantó del suelo con la caja. Y Jack la tomó antes de que Kim tuviera tiempo de rechazarla.
+
+---
+
+Nina ya estaba con el celular en la mano, en PowWow.
+
+Ahí estaba el video. El que ella había visto en vivo. Entre los diez más vistos del mundo.
+
+Hasta ese momento, ninguno de los tres había buscado los videos de esa pelea. La noche anterior habían ido a beber y habían vuelto a casa borrachos. Nina no había abierto PowWow. Jack se había quedado frito. Y Kim solo quería olvidar lo que había pasado dentro del juego.
+
+Ella fue mostrando. Los cortes. Los videos cortos. No era un solo video. Eran decenas.
+
+Kim vio su propia cara junto a un número enorme de visualizaciones.
+
+Jack abrió la sonrisa más amplia del mundo. Su amigo había explotado. Ahora todo el mundo iba a ver lo que él siempre había visto.
+
+Kim agarró el cuello de Jack.
+
+— Entonces, hijo de puta, ¿no dijiste que iba a poder permanecer anónimo en esta mierda?
+
+— Tranquilo, amigo. — Jack, con voz de quien se está asfixiando. — Vas a poder a partir de la próxima pelea. ¿Cómo iba a saber que ibas a explotar justo en la primera? Le encontramos una solución, relájate.
+
+Ryan se quedó mirando aquello sin entender. Tal vez se equivocaba, pero parecía que Kim no estaba nada feliz de volverse famoso.
+
+Bueno. No era su problema. No podía llegar tarde al curso preparatorio.
+
+— Chicos, disculpen, pero necesito irme. Espero que les guste el regalo. Y que Kim siga luchando. Tus peleas son muy buenas. Hasta luego.
+
+Salió apresurado hacia un auto que lo esperaba.
+
+Los tres se quedaron allí. Jack aún atrapado en el brazo de Kim.
+
+— Kim. — Nina, después de un rato. — Suéltalo.
+
+Kim puso los ojos en blanco y lo soltó. Jack se ajustó el cuello de la camiseta, revisándose la garganta.
+
+— Amigo. Casi me matas esta vez. Estuve viendo estrellas.
+
+— Deja de ser tonto, imbécil. Ni siquiera apreté fuerte.
+
+---
+
+Jack se encogió de hombros y rasgó todo el papel de regalo.
+
+Edición limitada. Y tenía algo especial: se podía llevar a una tienda de la Corporación Luchas de Ilusión y personalizarlo como quisiera. Nombre, iluminación, los colores.
+
+— Amigo. — Jack, maravillado. — ¡Este SBI es increíble! Mucho mejor que el mío. Y mucho mejor que lo que íbamos a conseguir con mi plan.
+
+— ¿Qué plan?
+
+— Iba a llevarte hoy después de clases a unas tiendas, para ver si alguien aceptaba intercambiar PUBLI contigo por un SBI. Solo que, incluso si funcionaba, te iban a dar uno barato o alguno dañado que tuvieran allí. Este fue un hallazgo, viejo.
+
+Nina tomó el SBI de su mano y lo miró con cuidado.
+
+— Jack tiene razón. Edición limitada. Se puede hacer una alteración autorizada por la CLI. Y puedes llevarlo a cualquier tienda que sale gratis. Felicidades.
+
+Jack miró a Kim, todo feliz.
+
+— ¿No quieres cambiar el tuyo por el mío?
+
+Kim se rascó la barbilla.
+
+— Está bien. Me quedo con el tuyo. Tú te quedas con esa cosa.
+
+— No. — Nina, negando con la cabeza. — No puedes aceptar algo así. ¿Acabas de recibirlo de regalo y se lo vas a dar a Jack? Deja de ser tonto, Kim.
+
+Kim respiró para responder. A mitad de la respiración, se rindió. Bajó la cabeza y, de muy mal humor, tomó la caja de la mano de Jack.
+
+— Está bien. Está bien. ¿Quieres que me quede con esto? Me quedo, pues. Qué se le va a hacer.
+
+— ¿En serio? Hay momentos en que ustedes dos parecen dos niños.
+
+— Está bien, mamá. — Jack. — Está bien, mamá. Prometemos portarnos bien.
+
+Nina rió.
+
+---
+
+Fueron caminando. Kim mirando el SBI de cerca por primera vez. En su única pelea, quien le había puesto el aparato en la cara fue Jack, y él estaba más preocupado por el adversario.
+
+— ¿Qué pasó? — Jack. — ¿Estás impresionado?
+
+— Esto parece caro. ¿Cuánto costará una cosa de estas?
+
+— Ah, amigo, por el mío pagué unos cuatro mil. Y el mío es de los más baratos.
+
+— ¡Mierda, loco! ¿Y cuánto costará este?
+
+— El tuyo debe estar en el rango de sesenta, setenta mil. — Nina.
+
+Kim se llevó la mano al pecho como si fuera a tener un infarto y se agarró de Jack.
+
+— No. En serio, chicos. Paren. Tenemos que devolver esto. No podemos quedárnoslo. ¡En serio! ¡Hermano, mira el valor de esto! ¡No se puede, no se puede, no se puede! Tenemos que resolver esto hoy. ¡Va a traer problemas! ¡Va a traer problemas!
+
+Jack y Nina se rieron con ganas.
+
+— ¡Tranquilo, amigo! — Nina. — ¿Para qué tanto drama? Para ellos esto debe ser una miseria. Él dijo que ya tenía uno igual. Si no quisiera que te lo quedaras, no te lo habría dado.
+
+— Pero, hermano, ¡esto es demasiado caro! Nadie en su sano juicio regala algo así. ¡No existe! Seguro va a querer algo a cambio. Y no tengo paciencia para un quid pro quo cuando no conozco los términos del acuerdo de antemano.
+
+Jack conocía a su amigo. Sabía que no iba a quedarse tranquilo con eso.
+
+— Amigo, está bien. Está bien. Hoy usas este aparato, y mañana se lo devolvemos al tipo. ¿Puede ser?
+
+Kim asintió.
+
+Guardaron la caja y fueron al aula. El resto de las clases transcurrió con Kim intentando prestar atención y Jack mirando la mochila de su amigo de vez en cuando.
+
+Solo después del último timbre salieron de la escuela y fueron a una plaza cercana.

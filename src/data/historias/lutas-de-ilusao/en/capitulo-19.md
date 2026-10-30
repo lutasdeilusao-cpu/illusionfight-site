@@ -1,251 +1,187 @@
-# CHAPTER 19 — No Deal
+# CHAPTER 19 — Poor Man's Cuba
 
-There were twenty-something of them. Twenty-two, twenty-four, depending on who was still behind the wall.
+Kim and Nina looked at Jack and went along with it.
 
-Men and women. Some in caps, some in hoods, some bare-faced as if they weren't afraid of being recognized. Wood, chain, pipe. Here and there the glint of a blade in someone's hand.
+Jack went ahead to a liquor store. Same as always: a soda, some lemons, a vodka. They paid with DIX. And went to their quiet corner, where nobody hassled them. Not enemies, not people looking for a fight, not cops.
 
-In front of them, a girl.
+An empty parking lot. A few old abandoned cars, a Beetle with no wheels, a pickup with a tree growing out of the engine, a red hatchback with the back door open forever. And what was left of a police station, its sign half painted over. The cars were impounded from back when it was open.
 
-She wasn't the biggest in the group. She was one of the smallest. Hair shaved on the sides and long on top, falling to one side of her face. Dark glasses. An iron bar dragging on the ground behind her with a noise she made sure everyone heard.
+It was Kim and Jack's refuge. And, since the night of the band, Nina's too.
 
-She walked toward Jack.
+Kim took the cups from his backpack. Jack cut the lemons with his pocketknife. Nina opened the soda.
 
-Jack took two steps toward her.
+Vodka first. Lemon squeezed by hand. Stir with your finger. Top it off with soda.
 
-Behind him, Nina had understood. She went back to stretching, now for real, squatting deep to warm up her legs.
+— Poor man's Cuba. — Jack lifting his cup.
 
-— Girl. — Kim to Nina, without taking his eyes off the group. — This is the kind of thing you don't need to get involved in.
+The three took their first sip almost together. They adjusted their drinks, more lemon, less lemon. Everyone knew, without anyone saying it, that today wasn't a day to drink until they fell over. They set their cups on the ground.
 
-Nina looked at him like someone hearing nonsense. She didn't answer.
+— So. — Jack. — We were talking about the crazy weapons Kim managed to spawn mid-match. — He turned to Nina. — Look, Nina, I'm not defending him. But Kim doesn't know anything about this game. He has no way of knowing how to hack a weapon into the middle of a fight. It was spontaneous. How? Mystery. Same as a lot of stuff in LDI.
 
-Kim raised his hands.
+He took a light sip. Turned to Kim.
 
-— Fine. Suit yourself. Just don't cry later. When fire starts, it spreads everywhere.
+— And you. I know you're still not used to it. But just accept that Nina is practically part of our crew. The gang. Our group. The sooner you accept it, the easier it'll be to trash-talk her later without anyone taking it to heart. Same way I trash-talk you and you trash-talk me. Got it?
 
-— Don't worry about me, Kim. — Nina, finishing her stretching. — I can defend myself. And you know that. Worry about yourself. And another thing: I'm still pissed about losing to you twice. These guys will be great training for the next time we go at each other.
+Kim and Nina looked at each other.
 
-Kim respected that.
-
-But he knew something she didn't yet. She was good. Really good. But she'd never been in a real street fight. She didn't have the cunning. Cunning isn't learned in a gym. It's learned taking beatings in places where nobody shows up to help.
-
-*These guys will teach her.*
+Neither said anything. But they both drank at the same time, which was the same thing.
 
 ---
 
-Jack stopped two steps from the girl, hands in his pockets.
+— Now the good part. — Jack. — Kim discovered Shaman mode on his own. First time he ever picked up a weapon. And he already used it like it was mid-tier weapon skill. That's insane for a beginner. I thought I'd have way more work. If he knew, for example, that I had to charge my attack...
 
-— I'm going to ask just one question. Only one. Can we settle this without me and my friend having to beat every one of you unconscious? Or not?
+— That was messed up, honestly. — Kim. — Training environment. You were supposed to fill me in on everything first. And you guys already came at me throwing powers when I didn't know how to use any of it. Every fighting game at least lets you learn a hadouken before it beats the crap out of you.
 
-The girl lifted her glasses slightly with her left hand. She rested the iron bar on the ground. She spat next to Jack's sneaker.
+Nina and Jack laughed in his face.
 
-— Not happening. — A hoarse, calm voice. — We're getting good money just to take some pictures of the beating you're going to take. And look. I love giving beatings. But I love it even more when they pay me for it.
+— Okay. So let's go from the top. — Jack stood up, cup in hand, like a prep-course teacher. — Combat modes. There are three. The first is freehand. It's what everyone uses at the start. It's what you tried in the fight against Thunderbolt. The second is weapons mode, which you just used. And the third is power mode, which is using your elemental to attack.
 
-Jack nodded slowly. Like someone washing his hands of it.
+— Which I never used.
 
-Turned his back and went back to the two.
+— You did. In the first fight. With that crazy transformation. That didn't happen today. — Jack paused. — Actually, why didn't we talk about that first?
 
-The girl went back to her group.
+Kim looked at his cup.
 
-— Well? — Kim.
+— I don't remember what happened after I blacked out in that fight. And today I didn't even notice I was different. What was that? Is that part of the game?
 
-Jack opened the biggest smile of the day.
+— I don't know what it was. — Nina, lower. — I don't even know if it's allowed. But you're the only person I've ever seen do something outside the rules like that. I wouldn't doubt that it's forbidden for everyone and only you can do it.
 
-— No deal!
+— The corporation says the game is mental strength. — Jack. — What I think is that you had more mental strength than the game expected. And it interpreted that in that way. It was so strong that even you don't remember.
 
-Kim lowered his head and laughed.
+— That's what I don't get. — Kim. — How does a game measure my mental strength? What's the difference between mine and yours?
 
-— I don't know why you still try.
-
-— I try because it's the right thing, man. That's how you live in society.
-
-— What deal? — Nina looking from one to the other.
-
-— Jack always offers to not fight. — Kim. — So everybody goes home in one piece. Usually nobody accepts. — Pause. — Actually, nobody's ever accepted.
-
-— But there's still going to be a first time. — Jack. — I believe.
-
-— Believe whatever you want. Did you record it?
-
-— You think this is my first rodeo? — Jack took his phone from his pocket and showed the screen. The recording was still running. — It's right here. She said in plain words that she doesn't accept the deal.
-
-— All right then. — Kim. — Now the fun starts.
+— For you, being on the outside, it seems complicated. — Jack. — And you still don't have experience. But for me, and I think for Nina too, who's already had a few fights, you can see how much our energy capacity changes. And energy is everything in LDI. Except, since we don't use our bodies in there, only our minds, your energy doesn't come from physical training. It comes from mental strength. Pure. How the corporation calculates that? I have no idea.
 
 ---
 
-Jack looked at Nina. Looked at Kim.
+Jack stirred his drink with his finger and started walking in front of the two.
 
-— She's coming with us?
+— Think with me. When you start a fight, you're at your best, right?
 
-— Looks like it, yes.
+— Sure. That's why we warm up first.
 
-Jack looked at Nina again with a half-smile. *This girl really isn't normal.*
+— That's it. Best form. Then the fight goes on and you get tired. The body wears down. Losing strength.
 
-— Did you really think I was going to leave all this fun just for you two? — Nina.
+— Obviously. Get to the point.
 
-— Yeah, yeah. — Jack. — Just know one thing: once the fire catches, it...
+— Easy. I'll get there. — Jack raised his hand. — In LDI it's the same. You start at full energy and you spend it. You spend it to hit, spend it to use a weapon, spend it to use a power. But there's a modifier. The stronger your mental strength, the more energy you have to spend. And there are rare cases, which I've seen, where the guy is at his limit, done, and out of nowhere accesses more power than he had at the start. I never fully understood it. But it's visible when you're inside.
 
-— Spreads. — Nina cutting in. — I already noticed you guys have these rehearsed lines.
+Nina lowered her cup slowly. She had the still eyes of someone who'd just connected two things.
 
-Jack looked visibly crushed.
+— It's true. — Over Jack. — I never thought about that. There are two types. There's the explosive kind. It releases a lot of energy at once, insane power right at the start, and then it gets weak. And there's the balanced kind. The person starts weaker and releases the power little by little, and gets stronger as the fight goes on. It's a modifier. How did I never think of that?
 
-— I wanted to finish. It's fine. What can you do. Everybody with their own upbringing. Upbringing comes from home. From the cradle. I didn't like that. That wasn't cool. Not cool.
+Jack smiled, proud of the conclusion. Modesty was never his strong suit.
 
-Nina laughed at the childish way he was taking it. And for a second the three of them were laughing with twenty-something armed people coming toward them.
+— How to train that? Don't ask me, my dear. That I don't know. — He stopped in front of Kim. — But I do know one thing. Since our first fight, I saw you were really strong. Not because of your body. Because of your head. You're determined in a way I've never seen in anyone. And in LDI that becomes power. I always knew that the day you went in there, you'd be something to be feared.
 
-Then they stopped.
+He raised his cup. Got a little embarrassed about what he'd just said.
 
-The group was getting closer.
+Nina found that beautiful. She raised her cup too.
 
-Kim and Jack looked around at the same time. Looked at the red hatchback. At the cups on the ground. At the half-painted police station sign. At the parking lot that was their spot.
+Kim raised his.
 
-Looked at each other.
-
-They didn't need to say anything.
+The three toasted.
 
 ---
 
-The two turned around at the same time and took off running.
+— Now. Energy. — Jack, recovering. — To do stuff beyond human limits, you spend energy. Speed, heavy hits, everything. But there's no bar. No number on the screen. You feel it in your body. The tiredness. The strength leaving. Just like in life. — He took a sip. — My mouth's dry. Nina, talk about freehand.
 
-Nina stood still.
+— Freehand is the normal one. — Nina. — It's the weapon everyone already has. It's how you guys fight every day, right, boys? It uses less energy, because you're not using anything beyond what you already know, just amplified. But the more superhuman you want to be, the more it costs. There are players who spend more energy on a freehand punch than another spends using a power. Because they're going way beyond what they'd do. — She took a sip. — Damn. Talking this much really dries your throat.
 
-For a full second she stood in the middle of the parking lot, watching the two run to the back gate, not understanding what was happening. Then she ran after them.
+— So freehand is the best? — Kim. — I'm good with my hands and I spend less.
 
-— YOU BASTARDS! — Running and shouting. — What are you doing? You're RUNNING AWAY? Is that what you warmed up for? To RUN AWAY?
+Jack and Nina looked at each other and laughed. They liked that innocence of his.
 
-Kim and Jack looked back and laughed.
+— I wish, man. — Jack. — If it were just that, the best fighters in the world would be the LDI champions. They're not. I beat you today with an attack that doesn't even touch you. And with Nina you suffered. Easy. Don't start getting cocky.
 
-The group hadn't understood either. They stood still for a second, pieces of wood in the air. Then someone shouted something and the twenty-something of them ran after the three.
+Kim thought about it. He had a point.
 
-And the three running ahead, talking, as if nobody was behind them.
+— But for you, who already knows how to fight, it makes sense to start freehand. To read the opponent and decide how much you want to spend in that fight. — Jack. — But careful with the explosive type. If the guy unleashes everything at once right at the start, you're not ready and you get fucked. Survive the first wave, because after that he gets weak. And in freehand, if you commit, you can get more speed, more strength, and catch your opponent by surprise. Did I miss anything, Nina?
 
-— Nina. — Jack, running sideways to be able to talk. — It's just that me and Kim are used to doing things without talking. Since you're new, we kinda went on autopilot and forgot to warn you. Next time we'll warn you. Now just run. You'll understand.
+— No, my dear. That's it, handsome.
 
-— But why are we running? You guys think you can't handle these guys? Honestly, I expected a lot more from you!
-
-— It's not about handling them. — Kim, not losing his breath. — It's the place. That parking lot is our spot. We don't fight at the spot. If we fight there, someone calls the police, and then we can never go back. It stops being our place. And it's open there. Lots of people see. Lots of people film.
-
-Nina ran in silence for a while, understanding.
-
-Jack seemed to have known all that from the first second. She wondered if the two of them had planned that one day, sitting on the hatchback, or if it was that near-telepathy thing she saw between them all the time. To her it was a mystery. She had never had that with anyone.
-
-— There's a park nearby. — Kim. — Perfect. It's got trees, brush, paths. We can split them up and take one group at a time. We're also going to split up, so nobody has to fight everyone all at once, because that wears you out. — He looked at Nina. — I'm telling you because Jack already knows. Careful. Even split up, stay close. If you need help, shout. The entrance is on the right. Let's go.
+— Ooh. She called me handsome. — Jack with his hand on his chest. — So let's move to weapons mode. Nina is the perfect person for this. Go ahead, Nina.
 
 ---
 
-The park was more woods than park.
+Nina made the face of someone getting bored.
 
-A fallen gate at the entrance. A dirt path that split into three right after the first benches. Big trees with roots sticking out of the ground. The city noise fading behind.
+— Guys, all this is in the manual. He opens SBI and reads. Why do we have to explain everything to him?
 
-The three ran in, the group getting closer behind.
+— Think with me, Nina. — Jack very serious. — Imagine that in an alternate universe we don't exist. And our story is being told in a book. If we don't explain to Kim how it works, whoever's reading won't understand anything. So that's why we have to explain everything properly.
 
-Midway, Kim looked at Jack and Nina.
+Kim and Nina looked at Jack like he'd lost his mind.
 
-Kim went straight. Jack went right. Nina went left.
+The drink was getting to him.
 
-— If you need help, shout. — Kim, before they separated. — Or call.
+Jack gestured for her to continue. Nina continued, because everyone knows you don't argue with crazy people.
 
-The two nodded and disappeared into the trees.
+— Start by buying a weapon. Everyone starts with a starter weapon. A little knife, the same for everyone. It's trash. You can call it anytime, but with a few moves it eats all your energy and does nothing. Then you fight. In LDI, even whoever loses earns points. About five percent of what the winner earned. Those points you can use to climb the SDR or to buy items.
 
-Kim ran about ten more steps.
+— And you buy the weapon.
 
-Stopped running.
+— Buy a pack. You don't choose the weapon. You buy a pack with five different weapons, sealed, and you pick one blind. One in five chance of getting the one you wanted. And the packs are expensive, just so you know. Each weapon comes with a card that explains how it works in normal mode and in Shaman mode. Then you use it in an official fight. — She looked at him. — And you can't buy or draw a weapon mid-match. Not even in training. That's why we're impressed. You didn't buy anything. And the weapon appeared.
 
-Started walking.
+Jack, seeing that subject still stung, stepped in.
 
-Took the pack from his pocket. Lit a cigarette. Turned to face the path he'd come from and stood there, smoking, waiting.
+— Then you name it. I have my Vitória. Nina has Angel. You have Xakaxi. Nice name, by the way. When you set the name, the weapon binds to you. LDI recognizes it. Whenever you think the name or say the name, it appears. And when you call it, it stays with you the whole match. The first transformation into Shaman has to be spoken out loud, so it learns. After that you just think it.
 
-It didn't take long.
+— It reads my mind.
 
-The group arrived by the dirt path, panting, and stopped when they saw him standing there, smoking, as if waiting for a bus. The girl with the glasses came to the front.
+— Kim. The whole game reads your mind.
 
-— Wow. They told me you guys were good fighters. I'm disappointed. I didn't think you'd run. Just so you know the name of who's going to finish you. Roxy.
+Kim sat with that for a second. A weapon that read your mind. A game that read your mind. It made as much sense as everything else.
 
-— It wasn't running away. — Kim letting out smoke. — It was a strategic relocation. You were going to wreck our spot. That place is ours.
+— And the weapon divides your energy. — Jack continued. — The more it needs to attack or block, the more it takes from you. And you already spend energy on fast movements; with a weapon that draws more, the cost goes up. Shaman takes even more. If you stay in Shaman the whole time, you dry up quick. That's why it goes back to normal when you're not using it. Got it? Shaman mode is like Super Saiyan. The weapon's max. Clear?
 
-Roxy looked around.
+Kim nodded.
 
-— Where's your little friend? And the girl? My boys are going to want to have fun with her. Maybe even me.
+— In our fight I used Angel in Shaman mode. — Nina. — In Shaman it stretches like an arm, up to about three meters. Then I combined it with my elemental, which is Light, and made the Luminus Blade. The weapon with the power together. To make sure I'd cut you in half.
 
-Kim laughed.
+— That I remember. — Kim. — It was way too close. Thanks for reminding me. — Pause. — And that's when I saw the old wise man again. The one who speaks in riddles.
 
-— They can try. But I guarantee she won't be easy prey. Actually, she might turn into the predator. — He pointed with the cigarette. — She went left. Jack went right. Be my guest. Her I don't know. But Jack, I'm sure he's already waiting for you somewhere.
+Jack stopped his cup halfway.
 
----
+— So, old man? What was the deal this time?
 
-Roxy made a sign with her head.
+— Oh, right. I haven't told you yet. It was on my mind, but you guys started talking about powers, modes, and I forgot. In the middle of our fight, when Nina's light was on top of me, I talked again with that crazy Indian.
 
-The group split. Seven to the left. Seven to the right. Nine stayed with her.
+Nina put her hand on his shoulder.
 
-It was a mixed group, men and women, some with bats, some with chains, one with a rock in his hand like he'd just picked it up off the ground.
+— Kim. Don't take this the wrong way. But you know you have strong indigenous ancestry, right?
 
-Kim finished his cigarette unhurriedly.
+Kim looked at her with the face of someone not understanding the question.
 
-Looked into Roxy's eyes.
+— Of course I know. I'm not calling him crazy because he's Indian. I'm calling him crazy because nobody talks the way this guy talks. Nobody on the face of the Earth. He's like me, just crazy. I'm not.
 
-Tossed the butt into the air.
+— Okay. — Nina pulled her hand back, relieved. — I only said it so nobody thinks you're badmouthing someone because of his background.
 
-And in the half-second that everyone looked at the butt going up, he was already in the air, his body going toward Roxy in a leap that closed half the distance.
+*Jack's craziness is contagious.*
 
-She jumped back.
+— Don't sweat it. — Kim. — Assholes aren't assholes because of color, race, background, gender, money. They're assholes because they're assholes. Because they like it. They're assholes deep down and they make up a reason to pretend they're right. Some of them realize it and try to change. Some of them die assholes. And there are some who know they are and hide in the middle of everyone, unnamed, to keep being.
 
-Almost as fast as him.
+Jack nodded slowly.
 
-Kim landed where she'd been and stood still for a second, not understanding. No one did that. No one had ever gotten out of that leap.
+— Okay, guys. You're getting off topic. Let's keep going, I want to finish soon. I want to go home, take a shower, rest a bit. And you and I are still working tonight, Kim. Probably until about two in the morning at the club.
 
-Roxy also looked surprised. She twisted her neck to the side. Handed her glasses to one of the guys behind her, without taking her eyes off Kim.
+Kim and Nina shut up.
 
-— You're fast. And you look strong. I won't underestimate you. — She pointed with her chin. — You two. Get him.
+— So, Kim. You can combine styles. Nina combined weapon with power. You can combine freehand with power. Or freehand with weapon. And other combinations you might think of that I don't. The important thing with a weapon is using it well. Most of the time, at the right moment. Today Nina and I overused it to show you. But in an official fight, I call Vitória at a specific moment. — He drank. — I always take the fight with maximum energy economy. I'm very strong, but I don't have that much mental energy to spend. I already noticed that. So I balance and use the power at the exact right point. Maybe it's something you'll have to figure out in yourself. Each avatar is different, just like each person is different. In LDI you have to find the balance point of your character. Cool? Got it? Let's get to power mode?
 
-Two came out of the group. Big. Cautious.
+Kim was about to ask him to continue.
 
-Kim looked at the two approaching slowly and said his usual line.
+But Nina was already straightening up, her eyes lighting up for the first time since they'd arrived.
 
-— Do you guys know the first rule of street fighting?
+— This one's mine. — Nina. — This is my favorite.
 
-The first one came throwing a punch. Right. Kim dodged. Left. Kim dodged. In the momentum of the dodge, he spun his body half-turn behind the guy, reached over his head, caught the guy's nose between two fingers, and yanked back hard.
+Her eyes had changed. It was the first time that day that Nina seemed her age.
 
-No one had noticed the rock.
+— If you're like me, who grew up watching cartoons, anime, movies with people with superpowers... That's my theory for why LDI is what it is. It gave superpowers to anyone. Anywhere in the world. Anyone.
 
-A big, pointed rock beside the path. Kim had stood near it on purpose since he lit the cigarette. The guy lost his balance and fell backward with all his weight onto the point of the rock.
+Kim was completely paying attention.
 
-The sound of the body was ugly. The scream was worse.
+— When you create the avatar, the system classifies you into an elemental. Primary or secondary. And there's no difference in strength between them, because, like Jack said, everything comes from your energy. The power's strength is how much energy it takes from you and puts into it. Same as the weapon. You gather energy into the power and release it.
 
-The guy stayed on the ground unable to get up.
+— And there are types.
 
-Kim was still standing in the same position.
-
-— The thing is, there is no rule.
-
----
-
-The second one kept looking at his friend on the ground.
-
-They had fought together many times. He knew how much that guy could take. And now the guy was on the ground moaning, and the kid who had done it wasn't even that big, didn't even seem that strong.
-
-Kim let out air through his nose.
-
-— Hmpf.
-
-And went.
-
-One step crossing in front of the other, right, left, like someone dribbling, getting close. The guy opened his arms to grab. Kim went under. Cocked a punch to the chin and, at the last instant, instead of the punch, kicked the guy's knee from the side.
-
-The knee bent where a knee doesn't bend.
-
-The roar cut through the park.
-
-The guy fell holding his broken leg, and Kim went back to the side of the rock, facing Roxy, waiting for the next one.
-
-Roxy hadn't moved. She was looking at the two on the ground with an expression of disappointment that wasn't aimed at Kim.
-
----
-
-On the other side of the park, on the left-hand trail, Nina had one leg stretched against the trunk of a tree, stretching.
-
-Seven guys came up the dirt path.
-
-She'd expected it. She was a woman. She knew exactly what men did when they thought they'd found a girl alone in the woods. She had seen that smile on many men's faces before. She had never liked any of them.
-
-She took her leg off the tree.
-
-Cracked her neck.
+— Three. — She counted on her fingers. — Instant. Medium duration. Long duration. The longer it takes to charge, the more damage it usually does. But the longer you're open in the middle of the fight. And depending on the power, if you take a hit in the middle of charging, you lose everything. The power and the energy you'd already put into it. That's why it's very risky to use long-duration powers in a real fight.

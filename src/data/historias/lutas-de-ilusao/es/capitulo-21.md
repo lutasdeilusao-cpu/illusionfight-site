@@ -1,155 +1,251 @@
-# CAPÍTULO 21 — No Es Que No Pueda
+# CAPÍTULO 21 — Sin Acuerdo
 
-Al otro lado del parque, en medio de la maleza de la derecha, Jack se estaba poniendo irritado.
+Eran veintitantos. Veintidós, veinticuatro, dependía de quién seguía detrás del muro.
 
-Se había metido demasiado profundo. Era su culpa. Nadie lo encontraba.
+Hombres y mujeres. Unos con gorra, otros con capucha, otros con la cara descubierta como si no tuvieran miedo de que los reconocieran. Madera, cadenas, tubos. Uno que otro con el brillo de una navaja en la mano.
 
-— ¡EH! — Con las manos alrededor de la boca. — ¡ESTOY AQUÍ, IMBÉCILES! ¡AQUÍ MISMO!
+Al frente de ellos, una muchacha.
 
-Finalmente aparecieron. Siete. Cuatro mujeres y tres hombres. Jack sonrió, se levantó del tronco donde estaba sentado y lanzó unos puñetazos al aire para calentar.
+No era la más grande del grupo. Era una de las más pequeñas. Cabello rapado a los lados y largo arriba, cayéndole hacia un lado de la cara. Lentes oscuros. Una barra de hierro arrastrándose en el suelo detrás de ella con un ruido que se aseguraba de que todos oyeran.
 
-— Siete, ¿eh? Apuesto a que la mayoría fue detrás de Kim. Qué fastidio. No deberían subestimarme así. Y lo peor es que esta pelea se la van a anotar a Kim. Eso me enfurece todavía más.
+Caminó hacia Jack.
 
-Una chica de look punk vino al frente. Mohicano, alfiler en la oreja, botas militares. Midió a Jack de arriba abajo.
+Jack dio dos pasos hacia ella.
 
-— Ah, querido. No eres gran cosa.
+Detrás de él, Nina ya había entendido. Volvió a estirar, ahora de verdad, agachándose profundo para calentar las piernas.
 
-Le presionó un dedo en el pecho.
+— Chica. — Kim a Nina, sin quitarle el ojo al grupo. — Esto es el tipo de cosa en la que no necesitas meterte.
 
-Jack miró el dedo. Luego a ella.
+Nina lo miró como quien oye una estupidez. No respondió.
 
-— Mira. No los estoy subestimando. Espero que ustedes tampoco lo hagan conmigo. Será peor para ustedes. Y les aviso de una vez: no importa quién sea. Niño, joven, viejo, hombre, mujer. Si vino a pelear, va a recibir una paliza.
+Kim levantó las manos.
 
-Ella sonrió. Sacó un cuchillo con la mano izquierda y le puso la hoja en el cuello.
+— Está bien. Tú sabrás. Solo no vengas a llorar después. Cuando el fuego empieza, se esparce por todos lados.
 
-Jack no se movió.
+— No te preocupes por mí, Kim. — Nina, terminando de estirar. — Yo sé defenderme. Y tú lo sabes. Preocúpate por ti. Y otra cosa: sigo emputada por haberte perdido dos veces. Estos tipos van a ser un buen entrenamiento para la próxima vez que nos enfrentemos.
 
-— Te voy a dar una oportunidad más. Le ofrecí a su jefa terminar con esto sin que nadie saliera lastimado. Se lo ofrezco también a ustedes. Váyanse ahora y nadie sale roto. Es la última oportunidad antes de que empiece de verdad. Porque la primera regla de la pelea callejera es que no hay reglas.
+Kim respetó eso.
 
-— Estás loco. — Ella riendo. — Siete contra uno. Y yo con un cuchillo en tu cuello. Va a ser rápido.
+Pero sabía algo que ella aún no sabía. Era buena. Era muy buena. Pero nunca se había peleado en la calle de verdad. No tenía la malicia. La malicia no se aprende en un gimnasio. Se aprende recibiendo golpes en un lugar donde nadie aparece a ayudar.
 
-Jack sonrió.
-
-— Citando a V de Vendetta: lo que tienes es un cuchillo y la esperanza de poder usarlo. Si no puedes... es mi turno.
-
-Ella presionó el cuchillo.
-
-La mano de Jack se cerró sobre la muñeca de ella antes de que la hoja entrara. Cerró con una fuerza que ella no esperaba en un tipo de ese tamaño. El dolor hizo que la mano de ella se abriera sola. El cuchillo cayó.
-
-Ella saltó hacia atrás, asustada por la velocidad.
-
-Él no le dio tiempo de pensar.
-
-— Kim se pondría furioso si estuviera aquí. — Ya avanzando. — Pero voy a ser suave para no arruinar esta carita.
-
-El puñetazo fue al plexo solar, en medio de la inhalación de ella. El aire no entró. Ella salió despedida hacia atrás, volando encima de sus amigos, y escupió sangre antes de caer en los brazos de ellos. Noqueada.
-
-Jack hizo girar el brazo que había usado. Dio dos pasos hacia atrás. Hizo una seña con la mano.
-
-— ¿Y entonces? ¿Quién sigue?
+*Estos tipos se lo van a enseñar.*
 
 ---
 
-— ¡Carajo, hermano! — Uno de los chicos. — ¡No te contuviste ni porque es mujer! ¿Estás loco?
+Jack se detuvo a dos pasos de la muchacha, las manos en los bolsillos.
 
-— Si crees que le pegué menos fuerte porque es una dama, ven tú. No tengo tiempo que perder.
+— Voy a hacer una sola pregunta. Una sola. ¿Podemos resolver esto sin que mi amigo y yo tengamos que golpear a cada uno de ustedes hasta que queden todos inconscientes? ¿O no?
 
-El chico hizo una seña. Los seis se abrieron en círculo alrededor de Jack.
+La muchacha se subió un poco los lentes con la mano izquierda. Apoyó la barra de hierro en el suelo. Escupió al lado del tenis de Jack.
 
-*Por lo menos así acabo con todos de una vez.*
+— No va a poder ser. — Una voz ronca, tranquila. — Nos están pagando buen dinero solo por tomar unas fotos de la paliza que ustedes van a recibir. Y mira. A mí me encanta dar palizas. Pero me encanta más cuando me pagan por hacerlo.
 
-El primero en venir fue el de la cadena. Quería usar la distancia de la cadena para no acercarse. La giró y descargó la cadena desde arriba.
+Jack asintió con la cabeza. Despacio. Como quien se lava las manos.
 
-Jack no esquivó.
+Dio la espalda y volvió con los otros dos.
 
-Levantó el brazo izquierdo doblado y dejó que la cadena le pegara. La cadena se le enrolló en el antebrazo. Jack giró el brazo, enrollándola más. Dio un paso. La enrolló más. Cuando la sintió firme, tiró.
+La muchacha volvió con su grupo.
 
-El tipo vino junto, arrastrado por su propia cadena.
+— ¿Y? — Kim.
 
-Y en el camino se encontró con el cruzado de derecha de Jack.
+Jack soltó la sonrisa más grande del día.
 
-La cara del tipo se detuvo donde estaba el puño. Las piernas siguieron. Se despegaron del suelo. Por un instante el tipo quedó horizontal en el aire, y después estaba tendido en el suelo al lado de Jack, que no había dado ni un paso más.
+— ¡Sin acuerdo!
 
-Los otros cinco miraron a su amigo en el suelo.
+Kim bajó la cabeza y se rio.
 
-Ese fue su error.
+— No sé por qué todavía lo intentas.
 
----
+— Lo intento porque es lo correcto, viejo. Así se vive en sociedad.
 
-Cuando levantaron la mirada, Jack ya estaba de costado. La cadena había caído al suelo, y su pie se enredó en ella y levantó la pierna en un arco amplio, la cadena barriendo el aire en media luna. Una de las chicas saltó hacia atrás para escapar y cayó encima de un amigo. Dos más al suelo.
+— ¿Qué acuerdo? — Nina mirando a uno y al otro.
 
-Quedaban tres de pie. Dos chicas y un chico, el chico en el medio.
+— Jack siempre ofrece evitar la pelea. — Kim. — Para que todos se vayan a su casa enteros. Normalmente nadie acepta. — Pausa. — En realidad, nunca nadie ha aceptado.
 
-Jack giró de espaldas para acercarse. Mientras giraba, la planta del pie que le servía de apoyo raspó una piedra y la lanzó por los aires, detrás de él. Nadie la vio.
+— Pero todavía va a haber una primera vez. — Jack. — Yo creo.
 
-Estaba de espaldas al chico del medio, a menos de medio metro. Dobló la cintura y agachó la cabeza. Los ojos del chico siguieron la piedra que caía detrás de Jack.
+— Cree en lo que quieras. ¿Grabaste?
 
-Jack volvió con todo. La nuca le impactó en la cara al chico de atrás hacia adelante. Al mismo tiempo, la mano izquierda atrapó la piedra en el aire.
+— ¿Crees que es mi primer viaje? — Jack sacó el celular del bolsillo y mostró la pantalla. La grabación seguía corriendo. — Aquí está. Ella dijo con todas las letras que no acepta el acuerdo.
 
-Las dos chicas venían, una por cada lado.
-
-Lanzó la piedra a la cara de una. La cabeza de ella se fue hacia atrás. La piedra le golpeó en la cara y rebotó directo en la cara de la otra. Las dos se detuvieron.
-
-Jack aprovechó. Agarró la cadena del suelo, la giró por encima de la cabeza y soltó toda la cadena que pudo. Se le enrolló en el cuello al chico del medio, que era bastante más alto que él.
-
-Jack se puso de espaldas al chico, espalda contra espalda. Tiró de la cadena por encima del hombro y se inclinó hacia delante.
-
-El chico subió por la espalda de Jack, giró en el aire y salió despedido delante de él.
-
-Entre la falta de aire y la caída, no había nada que ese chico pudiera hacer excepto desmayarse.
+— Entonces perfecto. — Kim. — Ahora empieza la diversión.
 
 ---
 
-Jack se quedó parado en medio de todos y levantó la mano.
+Jack miró a Nina. Miró a Kim.
 
-Por alguna razón, todos se detuvieron.
+— ¿Ella viene con nosotros?
 
-— Antes de que yo termine. No me gusta golpear mujeres. No es para menospreciarlas. Hay una en nuestra pandilla. Pero no es algo que me haga sentir cómodo. Perdón por la piedra en la cara de las dos. Fue instinto. Me iban a atacar. Para que nadie salga más lastimado, ¿se puede terminar esta pelea aquí?
+— Por lo visto, sí.
 
-La chica que estaba en el suelo gritó.
+Jack miró a Nina de nuevo con una media sonrisa. *En serio, esta chica no es normal.*
 
-— ¡Hijo de puta! ¿Crees que tenemos miedo? ¡No metes miedo a nadie! Nuestra jefa quiere el dinero que acordaron. Y cuando ella quiere algo, lo consigue.
+— ¿De verdad creíste que iba a dejar toda esta diversión solo para ustedes dos? — Nina.
 
-— Esta vez no. — Jack, con lástima.
+— Está bien, está bien. — Jack. — Solo tienes que saber una cosa: después de que el fuego prende, se...
 
-Las dos chicas detrás de él sacaron un cuchillo cada una y saltaron sobre él al mismo tiempo.
+— Esparce. — Nina lo interrumpió. — Ya me di cuenta de que ustedes tienen esas frases ensayadas.
 
-Jack dio un salto hacia atrás.
+Jack quedó visiblemente devastado.
 
-Solo eso.
+— Quería terminarla. Está bien. Qué se le va a hacer. Cada uno con su educación. La educación viene de casa. Viene de la cuna. No me gustó. No estuvo bien. No estuvo nada bien.
 
-Las dos se encontraron en medio del salto y los cuchillos se clavaron en el costado de la barriga una de la otra. Se quedaron mirándose, las dos, con cara de querer pedir perdón.
+Nina se rio de la forma infantil en que él se lo estaba tomando. Y por un segundo los tres estuvieron riéndose con veintitantas personas armadas acercándose a ellos.
 
-— Perdón, no quería...
+Después pararon.
 
-Jack no la dejó terminar. Pateó la mano de una y el cuchillo voló. Pateó la mano de la otra y el cuchillo voló. Mientras ellas miraban los cuchillos en el aire, él se acercó y las atrapó a las dos por el cuello, una en cada brazo, entre el brazo y el antebrazo. Apretó.
+El grupo se aproximaba.
 
-Cuando sintió que los cuerpos se aflojaban, las soltó.
+Kim y Jack miraron alrededor al mismo tiempo. Miraron el hatch rojo. Los vasos en el suelo. El letrero de la comisaría medio pintado. El estacionamiento que era su refugio.
 
-Las dos quedaron en el suelo a su lado.
+Se miraron.
+
+No necesitaron decir nada.
 
 ---
 
-Quedaban dos.
+Los dos giraron al mismo tiempo y salieron corriendo.
 
-Jack se agachó despacio, las rodillas flexionadas, sentado sobre sus propios talones. Empezó a dibujar algo en la tierra con el dedo. No los miraba.
+Nina se quedó parada.
 
-— Saben... — Despreocupado. — No estoy tratando de asustarlos.
+Durante un segundo entero se quedó parada en medio del estacionamiento, mirando a los dos correr hacia la puerta del fondo, sin entender lo que estaba pasando. Después salió corriendo detrás.
 
-Levantó la cabeza despacio.
+— ¡DESGRACIADOS! — Corriendo y gritando. — ¿Qué están haciendo? ¿Están HUYENDO? ¿Para eso calentaron? ¿Para HUIR?
 
-Por debajo del ala de la gorra, solo se le veía uno de los ojos. Y el ojo había cambiado. No era el ojo del Jack que contaba chistes en el autobús. Era un ojo hundido. De animal escondido en la maleza. De alguien que guarda algo adentro y lo mantiene encerrado. Un ojo frío, que helaba la espina dorsal de quien lo miraba.
+Kim y Jack miraron hacia atrás y se rieron.
 
-— No es que no pueda. — Con la misma voz despreocupada. — Solo que no quiero.
+El grupo tampoco había entendido. Se quedó un segundo parado, los pedazos de madera en el aire. Después alguien gritó algo y los veintitantos salieron corriendo detrás de los tres.
 
-Los dos que quedaban no se movieron.
+Y los tres corriendo adelante, conversando, como si no hubiera nadie atrás.
 
-— Entonces es así. — Jack se levantó, la voz volviendo a la normalidad como si nada hubiera pasado. — Dos opciones. Opción A: vienen aquí, peleamos de igual a igual y quedan igual que todos los demás. Opción B: toda esta gente aquí necesita un médico. Recogen a sus amigos y desaparecen. ¿A o B? Y les hablo en serio.
+— Nina. — Jack, corriendo de lado para poder hablar. — Es que Kim y yo estamos acostumbrados a hacer las cosas sin hablar. Como tú eres nueva, medio que fuimos en automático y se nos olvidó avisarte. La próxima te avisamos. Ahora solo corre. Ya vas a entender.
 
-Los dos no tuvieron que pensarlo.
+— ¿Pero por qué estamos corriendo? ¿Creen que no pueden con estos tipos? Sinceramente, ¡yo esperaba mucho más de ustedes!
 
-Fueron directo hacia sus amigos en el suelo, intentando despertar a uno, levantar a otro.
+— No se trata de poder. — Kim, sin perder el aliento. — Es el lugar. Ese estacionamiento es nuestro refugio. No peleamos en el refugio. Si peleamos ahí, alguien llama a la policía, y después nunca podríamos volver. Deja de ser nuestro lugar. Y ahí es abierto. Mucha gente ve. Mucha gente graba.
 
-Jack observó aquello un segundo. Luego dio la espalda y se fue caminando por la maleza, encendiendo un cigarrillo, las manos en los bolsillos.
+Nina corrió un rato en silencio, entendiendo.
 
-— ¡GENTE! — Gritando hacia ningún lado. — ¡CHICOS! ¡HOLA! ¡SOY YO, JACK! ¡SI ESTÁN POR AHÍ, GRITEN! VOY A SEGUIR CAMINANDO DESPACIO Y GRITANDO. ¡NO ME HAGAN CAMINAR MUCHO, QUE ESTOY CANSADO Y TODAVÍA TENGO QUE TRABAJAR!
+Jack parecía saber todo eso desde el primer segundo. Ella se preguntó si los dos lo habían planeado algún día, sentados en el hatch, o si era esa cosa de casi telepatía que ella veía entre ellos todo el tiempo. Para ella era un misterio. Nunca había tenido eso con nadie.
+
+— Hay un parque aquí cerca. — Kim. — Perfecto. Hay árboles, hay maleza, hay caminos. Podemos separarlos y agarrar a un grupo a la vez. Nosotros también nos vamos a separar, para que nadie tenga que pelear con todos juntos, que cansa. — Miró a Nina. — Te lo digo a ti porque Jack ya lo sabe. Cuidado. Aunque estés separada, quédate cerca. Si necesitas algo, grita. La entrada es a la derecha. Vamos.
+
+---
+
+El parque era más maleza que parque.
+
+Una reja caída en la entrada. Un camino de tierra que se dividía en tres justo después de las primeras bancas. Árboles grandes, con raíces fuera del suelo. El ruido de la ciudad quedando atrás.
+
+Los tres entraron corriendo, el grupo cada vez más cerca detrás.
+
+A mitad del camino, Kim miró a Jack y a Nina.
+
+Kim siguió de frente. Jack fue a la derecha. Nina, a la izquierda.
+
+— Si necesitan algo, griten. — Kim, antes de separarse. — O llamen.
+
+Los dos asintieron y desaparecieron entre los árboles.
+
+Kim corrió unos diez pasos más.
+
+Dejó de correr.
+
+Empezó a caminar.
+
+Sacó la cajetilla del bolsillo. Encendió un cigarrillo. Se giró de frente al camino por donde había venido y se quedó ahí, fumando, esperando.
+
+No tardó.
+
+El grupo llegó por el camino de tierra, jadeando, y se detuvo cuando lo vio ahí parado, fumando, como si estuviera esperando un autobús. La muchacha de los lentes vino al frente.
+
+— Vaya. Me dijeron que ustedes eran buenos peleando. Estoy decepcionada. No pensé que fueran a huir. Solo para que sepas el nombre de quien va a acabar contigo. Roxy.
+
+— No fue huida. — Kim soltando el humo. — Fue un cambio estratégico de ubicación. Ustedes iban a arruinar nuestro refugio. Ese lugar es nuestro.
+
+Roxy miró a los lados.
+
+— ¿Dónde está tu amiguito? ¿Y la chica? Mis muchachos van a querer divertirse con ella. Quizás hasta yo.
+
+Kim se rio.
+
+— Pueden intentarlo. Pero les garantizo que ella no va a ser una presa fácil. De hecho, podría convertirse en el depredador. — Señaló con el cigarrillo. — Ella fue a la izquierda. Jack fue a la derecha. Siéntanse libres. De ella no sé. Pero de Jack, tengo la certeza de que ya los está esperando en algún lugar.
+
+---
+
+Roxy hizo una señal con la cabeza.
+
+El grupo se dividió. Siete a la izquierda. Siete a la derecha. Con ella, quedaron nueve.
+
+Era un grupo mixto, hombres y mujeres, unos con bates, otros con cadenas, uno con una piedra en la mano como quien acaba de recogerla del suelo.
+
+Kim terminó el cigarrillo sin prisa.
+
+Miró a los ojos de Roxy.
+
+Lanzó la colilla al aire.
+
+Y en el medio segundo en que todos miraron la colilla subiendo, él ya estaba en el aire, el cuerpo yendo hacia Roxy en un salto que cerró la mitad de la distancia.
+
+Ella saltó hacia atrás.
+
+Casi tan rápido como él.
+
+Kim aterrizó donde ella estaba y se quedó un segundo parado, sin entender. Nadie hacía eso. Nadie nunca había esquivado ese salto.
+
+Roxy también parecía sorprendida. Torció el cuello hacia un lado. Le entregó los lentes a uno de los tipos detrás de ella, sin quitarle el ojo a Kim.
+
+— Eres rápido. Y pareces fuerte. No voy a subestimarte. — Señaló con la barbilla. — Ustedes dos. Agárrenlo.
+
+Dos salieron del grupo. Grandes. Cuidadosos.
+
+Kim miró a los dos acercándose despacio y dijo la frase de siempre.
+
+— ¿Saben cuál es la primera regla de una pelea callejera?
+
+El primero llegó lanzando un puñetazo. Derecha. Kim lo esquivó. Izquierda. Kim lo esquivó. Con el impulso de la esquiva, giró el cuerpo media vuelta por detrás del tipo, le pasó la mano por encima de la cabeza, le agarró la nariz entre dos dedos y la jaló hacia atrás con fuerza.
+
+Nadie se había fijado en la piedra.
+
+Una piedra grande, con punta, al lado del camino. Kim se había quedado cerca de ella a propósito desde que encendió el cigarrillo. El tipo perdió el equilibrio y cayó de espaldas con todo el peso sobre la punta de la piedra.
+
+El sonido del cuerpo fue feo. El grito fue peor.
+
+El tipo quedó en el suelo sin poder levantarse.
+
+Kim seguía parado en la misma posición.
+
+— Es que no existe ninguna regla.
+
+---
+
+El segundo se quedó mirando a su amigo en el suelo.
+
+Ya habían peleado juntos muchas veces. Sabía cuánto aguantaba ese tipo. Y ahora el tipo estaba en el suelo gimiendo, y el chico que había hecho eso ni siquiera era tan grande, ni parecía tan fuerte.
+
+Kim soltó el aire por la nariz.
+
+— Hmpf.
+
+Y fue.
+
+Un paso cruzado frente al otro, derecha, izquierda, como quien regatea, acercándose. El tipo abrió los brazos para agarrarlo. Kim pasó por debajo. Armó el puñetazo al mentón y, en el último instante, en lugar del puñetazo, le pateó la rodilla de lado.
+
+La rodilla se dobló hacia donde la rodilla no se dobla.
+
+El bramido atravesó el parque.
+
+El tipo cayó agarrándose la pierna rota, y Kim volvió al lado de la piedra, de frente a Roxy, esperando al siguiente.
+
+Roxy no se había movido. Estaba mirando a los dos en el suelo con una cara de decepción que no era con Kim.
+
+---
+
+Del otro lado del parque, en el sendero de la izquierda, Nina estaba con una pierna estirada sobre el tronco de un árbol, estirando.
+
+Siete tipos llegaron por el camino de tierra.
+
+Ya lo esperaba. Era mujer. Sabía exactamente lo que un hombre hacía cuando creía que había encontrado a una chica sola en el monte. Ya había visto esa sonrisa en la cara de muchos hombres antes. Nunca le había gustado ninguno.
+
+Bajó la pierna del árbol.
+
+Se hizo sonar el cuello.

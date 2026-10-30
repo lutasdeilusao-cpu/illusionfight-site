@@ -1,293 +1,149 @@
-# CAPÍTULO 25 — Risca a Faca
+# CAPÍTULO 25 — Dos Personas
 
-Kim llegó a la acera a las siete y cincuenta y cinco.
+Kim soltó a Roxy como quien suelta una bolsa.
 
-Jack apareció a las siete y cincuenta y nueve.
+Se limpió la sangre de la cara con el antebrazo. Se acomodó la gorra. Encendió un cigarrillo.
 
-Kim siempre se irritaba con los horarios de Jack. No porque llegara tarde. Porque llegaba justo. Siempre justo. Como si el reloj fuera una sugerencia que él aceptaba en el último segundo.
+Miró alrededor. Nueve personas en el suelo. Una de ellas agarrándose la pierna. Otra gimiendo boca arriba sobre una piedra.
 
-Y entonces Kim miró el traje.
+*Pagaron para sacar fotos.*
 
-Arrugado. Entero. El cuello torcido, la manga con una arruga que atravesaba el codo, la camisa metida en el pantalón de un solo lado.
+Miró el celular de Roxy, caído en la tierra al lado de su mano, con la pantalla encendida. No lo recogió. No lo necesitaba.
 
-La sangre de Kim hirvió un poquito.
+*¿Quién paga por sacar fotos de una paliza?*
 
-— Hombre. Tú me mandaste planchar el traje. Y mira el estado de esto. ¿No lo planchaste, no?
+Guardó aquello en un lugar de la cabeza donde guardaba las cosas que iba a pensar después.
 
-Jack bostezó.
-
-— Deja de preocuparte por detalles. — Con sueño de verdad. — Te tomas todo demasiado en serio, Kim.
-
-Se fueron caminando a la parada. Kim mirando a Jack de arriba abajo y sacudiendo la cabeza todo el camino.
+Y fue en dirección a la voz de Jack.
 
 ---
 
-Un menor no puede trabajar.
+Jack venía por el monte fumando, sin prisa. El primero que encontró fue Kim.
 
-Es la ley de Bravara. Por debajo de cierta edad, nada de carné, nada de contrato, nada de empleo. La ley existe para proteger a los niños, y la ley nunca le preguntó a ningún niño cómo iba a comer.
+Vio al amigo sonriendo. Vio el corte en medio de la frente.
 
-Entonces, quien lo necesitaba se las arreglaba. Unos entraban en el crimen. Otros vendían cosas en el autobús, hacían trabajos informales, ofrecían servicios. Y estaban los lugares de mala reputación, que no conseguían contratar a adultos como debían, y que aceptaban el riesgo de poner a trabajar a quien la ley no lo permitía.
+Los dos se conocían demasiado.
 
-Kim y Jack eran de esos.
+— ¿Qué tal, amigo? — Kim. — ¿Fue difícil?
 
-Ganaban menos que un guardia de seguridad de verdad. Una parte del pago se iba para cubrir el riesgo del local. Pero para Jack, ganar menos era mucho mejor que no ganar nada.
+— No. Fácil, como siempre. Mandaron un grupito bien débil para mi lado. ¿Por qué?
 
-Bajaron del primer autobús en un barrio más pobre que el suyo. Tomaron un segundo, un autobús cayéndose a pedazos, con el asiento de atrás atado con alambre, que llevaba a un lugar todavía peor.
+— Porque estoy viendo ese rasguñito en tu cuello.
 
-Por la ventana, las casas se iban convirtiendo en ruinas. Muros sin revoque. Techos sin tejas. Calles sin asfalto. Y aun así había dinero circulando. Se podía ver. Buenos autos parados en la puerta de las casuchas. Motos nuevas. Gente en la esquina que no estaba ahí por casualidad. El dinero de ese lugar venía de cosas que el gobierno decía que no permitía. Y fingía que no veía, por los acuerdos con los empresarios de la región.
+Jack se pasó la mano por el cuello. Miró el dedo.
 
-Jack le dio un toque en el brazo a Kim.
+— ¡Huy! ¿Te rasguñó? Ni lo vi. Pensé que ella no había logrado nada. Está bien. Es solo un rasguño.
 
-— El nombre del lugar es Risca a Faca.
+— Estoy preocupado es por Nina. — Kim, cambiando de tema. — Nuestras peleas son pesadas. Y no sé qué tipo de gente fue para allá. Solo sé que eran todos hombres. Y el hombre es un bicho complicado.
 
-Kim hizo crujir el cuello, mirando por la ventana.
+— ¡ES VERDAD! — La voz de Nina viniendo de lejos. — ¡EL HOMBRE ES UNA DESGRACIA! ¡LA VERDADERA PLAGA DE LA HUMANIDAD! ¡PUEDES CREERLO!
 
-— Risca a Faca. — Repitió. — Prepárate. Hoy va a valer cada centavo.
+Los dos rieron. Conocían esa voz lo suficiente para saber que estaba enojada y estaba entera.
 
-— Tranquilo. Pensamiento positivo. Puede que todo salga bien y nada salga mal.
+Ella llegó por el monte con el cigarrillo en la boca.
 
-— Estás siendo redundante. Si todo salió bien, es porque nada salió mal.
+— ¿Qué tal, Nina? — Jack. — ¿Todo bien? ¿Tranquila? ¿Ninguna herida? ¿Nada roto? ¿Cuál es la situación?
 
-— ¿Vas a quejarte toda la noche? Si sigues así, va a ser una noche pésima.
+— Óptima. Como están viendo. Tranquila, nada roto, ninguna herida. Solo ensucié mi falda. De Dolce & Gabbana. Después la mando a lavar. — Miró a los dos. — Y ustedes, por lo visto, todo bien también.
 
-— Solo te estoy avisando. — Kim. — ¿Pero quieres saber? Yo solo quiero una cosa. Ver la plata antes.
+Kim la miró de arriba abajo.
 
-Jack pensó.
+Ella se dio cuenta.
 
-— Sí. En eso tienes razón. Plata antes.
+— ¿Qué pasó, Kim? ¿Me estás viendo sexy ahora?
 
----
+Kim se quedó helado.
 
-Bajaron en una calle de tierra.
+Ella lo dijo con una naturalidad que lo agarró completamente desprevenido, y la cara que puso hizo reír a Nina en voz alta.
 
-En la esquina, una chica apoyada en un poste esperaba clientes. Más adelante, dos tipos intercambiaban algo con la mano cerrada. Un auto pasó despacio con la música demasiado alta. Y en medio de todo eso, Kim y Jack, de traje y corbata, caminando como si fueran a una boda.
+— Claro que no, niña, date cuenta. Estoy viendo si estás bien.
 
-La discoteca era un galpón con una puerta de hierro y un letrero de neón con la mitad de las letras quemadas.
+Jack soltó una carcajada que espantó a los pajaritos.
 
-En la puerta, un hombre grande. Muy grande. Vio a los dos llegar y sonrió.
+— Kim es tímido. No está acostumbrado a ese tipo de broma. Pero sigue, Nina, sigue. Vamos a echar leña al fuego. Quiero ver a este tipo completamente avergonzado.
 
-— Entonces sí vinieron. — Abriendo los brazos. — Juraba que no iban a aparecer. Menos mal. Ya estaba casi haciendo la puerta yo solo.
+— Deja de ser cabrón, Jack. Lo único que quería era ver si ella estaba bien. Ya lo dije.
 
-— Yo dije que venía. — Jack. — Palabra de hombre. Solo hay una cosa. Vas a tener que pagar antes.
+— Estoy óptima. — Nina riendo. — Fue una pelea revitalizante. Aunque de mi lado solo había tarados fracasados y débiles. Y dos cobardes. No puedo olvidar a los cobardes.
 
-El hombre grande frunció el ceño.
-
-— No fue eso lo que acordamos. ¿Por qué cambiar ahora?
-
-— Mi amigo aquí es medio quejón, ¿sabes? — Jack señalando a Kim con el pulgar. — Está desconfiado. Si pagas ahora, todos nos quedamos tranquilos.
-
-— El que va a quedar desconfiado soy yo. ¿Y si pago y ustedes desaparecen antes de terminar? No va a pasar.
-
-Jack se encogió de hombros.
-
-— Entonces ya. Hablamos. Si tú no quieres, hay quien quiera. Yo no voy a mendigar por doscientos. Vamos, Kim. Vamos a tomar una cerveza.
-
-Y les dio la espalda.
-
-El hombre grande se quedó mirando a los dos irse por la calle de tierra. Miró la puerta de la discoteca. Miró la fila que ya comenzaba a formarse. Hizo la cuenta de cuántas peleas iba a tener que separar solo esa noche.
-
-— ¡Tranquilo, amigo! — Yendo detrás. — ¿Ni van a negociar? Hagamos así: mitad ahora, mitad a la salida. ¿Qué tal?
-
-Jack se giró despacio.
-
-— De acuerdo. Acepto. Pero ahora el precio subió. Trescientos por quedarnos hasta las dos.
-
-— Eres difícil, ¿eh? — El hombre grande se pasó la mano por la cabeza. — Pero estoy sin opción. Si hacen un buen trabajo, nos arreglamos. Cien ahora. Doscientos a la salida.
-
-Jack miró a Kim.
-
-Kim no dijo nada. Solo le devolvió la mirada. Y la mirada lo decía todo: *está bien, Jack. Salió bien. Puedes cerrar.*
-
-Jack se giró hacia el hombre grande y extendió la mano.
-
-— Trato hecho. Tenemos un acuerdo.
-
-El hombre grande le estrechó la mano, le dio los cien a Jack, entró en la discoteca sonriendo y se fue directo a su oficina al fondo. No iba a necesitar quedarse en la puerta. No iba a necesitar separar peleas. Nunca había visto a esos dos trabajando. Pero había oído hablar.
+— Siempre hay un cobarde. — Kim, recuperando la pose. — Siempre. Acostúmbrate. A veces hay más de uno. Cuando ven al líder cayendo, se largan.
 
 ---
 
-La noche comenzó tranquila.
+Jack tenía una sonrisa que Kim conocía.
 
-Jack se quedó en la puerta. Lista de nombres, registro, quién entra, quién no entra. De vez en cuando encontraba un arma en el registro. Ahí, eso era más formalidad que seguridad. No tenían autorización para quitarle el arma a nadie ni para guardarla. Solo revisaban y dejaban pasar.
+Kim recordó que, al grupo de Jack, habían ido al menos tres chicas.
 
-Jack era bueno en eso. Hablaba con todo el mundo. Resolvía los problemas antes de que se convirtieran en problemas. Hacía bromas con los que estaban nerviosos. Y cada vez que llegaba una mujer sola, se las arreglaba para coquetear.
+— ¿Qué hiciste? — Kim, con la mano en la frente. — Citando al gran y poderoso niño bien: ¡desgraciado! Eres una carroña cuando se trata de mujeres. Y sé que fueron al menos tres detrás de ti.
 
-Al final de la noche, tenía algunos números de teléfono en el celular.
+Jack cruzó los brazos, la sonrisa pícara en la cara.
 
-Uno de ellos le iba a traer mucho más problemas que soluciones. Pero eso es tema para después.
+— Vinieron a agarrarme de verdad. Y yo las agarré bien.
 
-Para Kim, era más difícil.
+— Hermano. Por favor. Dime que no hiciste nada.
 
-Kim hablaba bien con Jack. Con el resto del mundo, no sabía. No le gustaba conversar con gente que no conocía. Quizás ni siquiera supiera cómo. Y eso le molestaba de una forma que él no decía.
+— ¡Claro que no! ¿Me estás desconociendo, Kim? — Ofendido. — Fue pelea como cualquier otra. Tú sabes nuestras reglas. La única consideración que tuve fue no lastimarles la cara. — Pausa. — Está bien, una piedra. Pero fue instinto. Cosa que estoy seguro que tú no tuviste con la tuya. De resto, fue de igual a igual. Quien vino a pelear, recibió golpes como cualquiera.
 
-Así que se quedaba al lado de Jack, con los brazos cruzados, mirando la fila. Y fue ahí que contó.
+Nina se quedó mirando a los dos.
 
-La vuelta a casa. La casa ordenada. El almuerzo sin sal. La serie.
+Kim era serio. Centrado. Callado. Tímido, incluso. Jack era abierto, bromista, lleno de chistes, extrovertido. Eran lo contrario el uno del otro. Y eran hermanos. Kim confiaba por completo en la palabra de Jack. Jack confiaba por completo en la palabra de Kim.
 
-Jack dejó de registrar a un tipo en medio del registro.
+Era el tipo de amistad que ella siempre quiso tener con alguien.
 
-— Espera. ¿Viste una serie?
+Y nunca lo había conseguido.
 
-— Vi.
-
-— Tú. Kim. Viste una serie. Con tu madre.
-
-— Un episodio.
-
-— ¿Cuál?
-
-— La Casa del Dinero.
-
-Jack soltó al tipo del registro y se quedó mirando al amigo con la boca abierta.
-
-— Hombre. Es una de mis series preferidas. Hablo de esa serie desde hace dos años. Dos años, Kim. Y tú nunca quisiste saber.
-
-— Ahora sí quiero.
-
-Jack se quedó con eso. Era la primera vez en cinco años que Kim hablaba de empezar una serie. Kim, entusiasmado, contó todo el primer episodio, el profesor, el plan, la parte que él consideró más inteligente. Jack escuchó con la sonrisa de quien está descubriendo algo nuevo sobre una persona que creía conocer por completo.
-
-El LDI. Ahora la serie. Algo en común que nunca habían tenido.
+Ella nunca se había conectado con nadie de la forma en que estaba empezando a conectarse con esos dos. Hablaban muchas tonterías. Pero Jack tenía razón en una cosa. Dejar a Kim avergonzado era muy divertido.
 
 ---
 
-— ¿Y aquel indio? — Jack, aprovechando el ritmo, mientras el movimiento de la puerta se calmaba. — ¿Ya descubriste quién es? ¿Por qué se te aparece en las peleas?
+— Kim. — Jack, mirando el celular. — Vamos a casa. Se acerca la hora. Quiero descansar un poco. A las ocho frente a tu casa. El dueño de la discoteca nos va a dejar en la seguridad. Doscientos para cada uno. Agarra el trajecito, limpio, sin mal olor. Para que lleguemos presentables. Va hasta las dos. Puede estirarse hasta las tres.
 
-— No sé. — Kim. — Es la segunda vez. Y siempre ahí adentro. Nunca aquí afuera.
+— Ya sé cómo es, Jack. No es la primera vez que trabajo contigo. Conozco muy bien los lugares que consigues. Apuesto a que va a haber pelea cada cinco minutos. Porque solo nos aceptan cuando el lugar es muy malo y nadie más quiere.
 
-— Muy raro. Yo nunca vi a nadie hablar de eso. Y estoy en todos los foros que existen. Hay gente que cree que el LDI es una herramienta de control mental para dominar el mundo. Hay gente que cree que David Kronos es un alienígena disfrazado de humano. Hay gente que cree que el juego fue hecho por un espíritu del mal para que la humanidad se destruya sola.
+— ¡Claro que el lugar es malo! — Jack riendo. — ¡Es pésimo! Si no fuera así, no habría trabajo para nosotros. Si el lugar fuera bueno, habría fila de gente queriendo. Lo importante es que al final de la noche hay doscientos en el bolsillo de cada uno. ¿Estás dentro o fuera?
 
-Kim rió.
+— Estoy dentro. Sabes que estoy dentro. Vamos a casa. Nos encontramos a las ocho, ¿vale?
 
-Para él, eso era una broma. Los foros eran lugar de gente sin nada que hacer.
+— Vale. A las ocho, trato hecho. Yo voy a salir por el otro lado del parque. Tengo que recoger unas cosas para mi papá. Ustedes vayan por ahí. Nos vemos de noche.
 
-Pero una punzada de algo le pasó por la cabeza. Estaba viendo cosas raras desde que entró en ese juego. Un viejo con sombrero de plumas hablando en jerga. Un poder con nombre en letras que nadie sabía leer. Alguien detrás de él.
+Y Jack se fue.
 
-El indio era raro. Pero no era tan bizarro como las teorías de Jack.
-
-*Todavía.*
-
-Volvió a mirar la fila.
+Kim y Nina se quedaron solos por primera vez.
 
 ---
 
-El primer lío vino cerca de la medianoche.
+Se conocían desde hacía dos días. Nunca habían estado solos.
 
-Kim y Jack se miraron al mismo tiempo. Jack se quedó en la puerta. Kim entró.
+Fueron caminando hacia la puerta del parque.
 
-Adentro, la discoteca era humo y graves y luz roja. Kim se fue quitando el saco mientras caminaba, lo dobló en el brazo, buscando dónde estaba el círculo. Lo encontró fácil. Donde hay pelea, hay gente formando un círculo.
+En silencio.
 
-En el medio, seis hombres. Grandes, altos, borrachos, dos de cada lado sujetando a los que estaban al frente.
+Nina aprovechó para mirar a Kim de reojo. Y fue entendiendo despacio algo que no esperaba. Él era mucho más cerrado de lo que parecía. Tardaron unos siete, ocho minutos en encontrar la salida, y Kim no dijo una palabra. Ninguna. Se quedó callado todo el camino.
 
-— ¿Estás loco por meterte con mi mujer? — El primero, siendo sujetado. — ¡Te voy a matar!
+*¿Será que le da tanta vergüenza conversar con una chica?*
 
-— ¿Qué pasa, cobarde? ¡Ella fue la que vino a coquetear conmigo! ¡Ven, que acabo contigo!
+Aquello le dio curiosidad. Si alguna vez había tenido novia. Era extraño. Con Jack al lado, hablaba. Bromeaba. Insultaba. Sin Jack, era como si una pared se levantara del suelo entre los dos.
 
-Kim entró en el medio del círculo.
+En la puerta del parque, Kim hizo un gesto con la cabeza.
 
-— Mira. — Con las manos en los bolsillos. — No sé cuál es el problema. Pero si quieren resolver algo, resuélvanlo afuera. Quien le ponga una mano encima a alguien aquí adentro va a recibir una paliza. Y no va a ser uno solo. Van a ser todos. Así que, si nadie quiere una paliza, mejor resuélvanlo afuera.
+— Nina. Voy a tomar un Duber allí y me voy a casa. Chao.
 
-Y entonces pasó lo que siempre pasaba.
+¿O será que no?
 
-Toda la rabia cambió de dirección. Los seis olvidaron por qué estaban peleando y miraron a Kim.
+Y se fue.
 
-El primero se soltó de sus amigos y se acercó. Era mucho más alto que Kim. El aliento a alcohol llegó antes que él.
+Nina se quedó parada en la puerta con la boca medio abierta.
 
-— Eres muy atrevido, pequeñito. ¿Cuántos años tienes? ¿Tu madre te deja salir de casa a esta hora?
+Era como si tuviera dos personas dentro. La otra no era tan diferente de esta. Pero esta era mucho más hacia adentro. Toda la imponencia, la seriedad, el tipo que había derribado a nueve personas en el monte, había desaparecido en el instante en que Jack se alejó.
 
-— Mira. — Kim. — No voy a seguir charlando. En consideración al local, te estoy pidiendo que te alejes, vuelvas a tu lugar y disfrutes la noche. Ahora, si es lío lo que quieres, ve afuera.
+Y ella iba a pedir un Duber también. Podrían haber esperado juntos.
 
-— ¿Y si no quiero?
-
-— Si no haces nada idiota, todo queda bien. Si lo haces, no garantizo tu seguridad.
-
-El hombre puso la mano en el hombro de Kim.
-
-Kim miró la mano. Luego a él.
-
-El hombre acercó la cara.
-
-— Mejor te quedas en tu lugar. Aquel se metió con mi novia y va a recibir una paliza. Yo no quiero golpear a un niño hoy. Si te quedas callado, quizás no te toca una paliza a ti también.
-
-Kim esbozó una media sonrisa.
-
-— Mejor quita esa mano de mi hombro. Por tu propio bien.
-
-El hombre rió. Giró la cara hacia sus amigos para ver si habían escuchado eso. Lo habían escuchado. Estaban riendo también.
-
-Cuando giró de vuelta, la mano le estaba doliendo.
-
-Kim le había agarrado la mano del hombro, rápido, y se la estaba torciendo. No la muñeca. Los dedos. Solo los dedos. El hombre gritó. Sus amigos dieron un paso al frente.
-
-Kim levantó la otra mano. Los amigos se detuvieron.
-
-— Amigo. Vamos a calmarnos. Vuelve a tu noche y no me causes más problemas. Por favor.
-
-Lo soltó.
-
-El hombre se puso rojo. Armó el puño. Un puñetazo grande, de quien quiere acertar en toda la cara.
-
-Kim vio el puñetazo venir e hizo algo que ninguno de los seis entendió.
-
-Se acercó más.
-
-Acortó la distancia hasta que su cara quedó casi pegada a la mano del hombre. Y dejó que el puñetazo llegara. De cerca. Sin espacio para tomar fuerza.
-
-El puño golpeó en medio de la cara de Kim.
-
-— No quería hacer esto. — El hombre, con el puño todavía ahí. — Pero no me dejaste opción. ¿Quién te manda meterte conmigo?
-
-Y entonces él miró.
-
-Su puño estaba en medio de la cara de Kim. Y los ojos de Kim estaban abiertos. Bien abiertos. Mirándolo.
-
-— ¿Ahora estás satisfecho? — Kim, tranquilo. — Estamos a mano. Yo te lastimé. Tú me golpeaste. Está resuelto. Vuelve a tu lugar y disfruta la noche como si nada hubiera pasado.
-
-El hombre se quedó quieto.
-
-No entendía. El puñetazo había entrado. El chico no había movido la cabeza. Ni siquiera había parpadeado.
-
-— Está bien. — Con asco, retirando la mano. — Está bien, me cansé de ti. Voy a volver a mi lugar.
-
-Y volvió.
-
-Kim fue hacia el otro grupo.
-
-— ¿Y ustedes? ¿Pueden volver a sus lugares y continuar la noche sin más problemas?
-
-Los tres habían visto todo. Asintieron con la cabeza y se fueron sin decir nada.
-
-Kim se puso el saco de nuevo y volvió a la puerta.
+Se marcó en la cabeza: mañana, cuando estuviera sola con Jack, iba a preguntar quién era Kim de verdad.
 
 ---
 
-Jack miró a Kim llegar y ni siquiera preguntó.
+Al otro lado de la calle, esperando el auto, Kim pensaba.
 
-Él sabía. Kim se tomaba ese trabajo en serio. Siempre que podía, evitaba las peleas. Y si una pelea ocurría, era porque no había otra forma.
+*Vaya. No conversé nada con ella después de que Jack se fue. Parece hasta que somos extraños. Debe haberme encontrado medio raro.*
 
-El segundo lío fue de Jack. Se turnaban. Jack tenía otra forma de resolver. Más charla. Más bromas. A veces una cortesía, una bebida por cuenta de la casa, un "déjame que yo hablo con ella". Era importante que los vieran como quienes resuelven problemas. No como quienes causan problemas. Así los volvían a llamar.
-
-A las dos de la mañana, el hombre grande apareció en la puerta.
-
-— Nunca tuve una noche tan tranquila. — Contando el dinero. — Les pago con gusto. No sé qué hicieron y no quiero saber. Pero quiero trabajar con ustedes de nuevo.
-
-El resto en la mano. Trescientos para cada uno, contando el adelanto.
-
-Salieron a la calle de tierra con el frío de la madrugada golpeando el traje. Tomaron el autobús cayéndose a pedazos, luego el otro. Jack se durmió en la segunda cuadra, la cabeza contra el vidrio.
-
-Kim se quedó despierto, el dinero en el bolsillo, la ciudad pasando.
-
----
-
-El resto de la semana fue tranquilo.
-
-El trío no se encontró. Fueron los primeros días tranquilos desde que los tres se habían conocido.
-
-Kim vendió caramelos. Jack consiguió un trabajo informal nuevo, después otro. Nina mandaba mensajes al grupo de vez en cuando, una foto, un audio quejándose de su padre, una pregunta sobre el hacha que nadie sabía responder.
-
-Todo parecía tranquilo.
-
-Demasiado tranquilo, pensó Kim el domingo por la noche, acostado mirando el techo, oyendo a Helena reír sola de algo en la televisión allá abajo.
-
-Todo parecía tranquilo.
-
-Hasta un lunes.
+*Pero que se joda. No me importa.*

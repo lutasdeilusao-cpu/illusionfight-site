@@ -1,171 +1,191 @@
-# CHAPTER 24 — A Series for the First Time
+# CHAPTER 24 — King of the Fight
 
-The Duber smelled like pine air freshener and a hidden cigarette.
+On the middle trail, two big guys were on the ground and Roxy had stopped looking at them.
 
-Kim sat behind the driver and leaned his head against the window. The cut on his forehead throbbed in rhythm with the street. He had wiped his face with his T-shirt before getting in the car, but the driver glanced at him in the rearview mirror twice and decided it was none of his business.
+She took off her shirt.
 
-Today he wasn't going to sell candy.
+Underneath, white wraps wound around her chest, and tattoos everywhere. Her arms covered in ink. Her ribs. A dragon climbing from her stomach to her neck. From the back pocket of her pants she pulled out two brass knuckles with sharp metal tips and slipped one onto each hand.
 
-He was going to work at night. If he took the bus now, he'd get home too late and miss the time to lie down, shower, and get ready. For the first time in a long time, he had taken a car. Because of the thousand DIX from Freddy and the two hundred he hadn't even received yet.
+— Like you said yourself. — She flexed her fingers inside the metal. — There's no rules in a street fight, right?
 
-Then he remembered he might find his mother home.
+— Exactly. — Kim. — No rules.
 
-He sat with that.
+She warmed up for a few seconds. Bouncing in place, rolling her shoulders. Then she came.
 
-That morning she had made coffee. She had danced in the kitchen. She had hugged him in the hallway. And he didn't know what to expect from the afternoon. With Helena you never knew. Sometimes the calm was just the time the storm took to gather strength.
+The first punches skimmed past his face. Kim dodged. She was fast. Faster than the two he'd dropped together.
 
-*Ever since I got into this shit game, my life's been different.*
-
-There was a new person hanging around with them. That wasn't bad. Actually, it was good. Good in a way he wasn't going to admit out loud. But it was different.
-
-He had found out something about his father. Or maybe he hadn't. Because the crazy old man who talked to him inside the game didn't know how to have a conversation with a human being. *Your daddy.* For God's sake.
-
-There was a video of him going around on social media that he didn't even really know how it worked. That worried him. He was afraid he wouldn't be able to eat in peace in the mall food court anymore. Even though he almost never went to the mall. Jack was the one who took him.
-
-And for the first time in his life, he had asked his mother about the past. And discovered far more than he wanted.
-
-Somehow, he felt all of that was connected to that mysterious man. Helena's room. The old man with the staff. The Primordial Blood. Someone after him. Someone paying to take photos.
-
-And there was something else. Something deep down that he felt every time he closed his eyes and remembered the arena. Something strong. Dark. Hungry.
-
-He didn't want to think about that.
-
-That would torment him very soon.
-
----
-
-Lost in thought, he almost missed his stop.
-
-He paid, got out, walked the short stretch of street to his front door. He held his hand on the doorknob a second longer than he needed to.
-
-He opened it.
-
-The house was tidy.
-
-Not the morning tidy, the kind that just looks tidy. Really tidy. Dishes washed. Floor swept. Yesterday's shards were gone. The ashtray clean.
-
-Helena was on the couch.
-
-Her legs tucked under her, the remote in her hand, the Cineflix screen lit up on the wall. She turned her head when she heard the door.
-
-— Ah. You're home. Good. — She looked at his forehead and decided not to ask. — You're not going to work anymore today?
-
-— Not today, Mom. Only at night. I came to rest, take a shower, and put on decent clothes. I'm going to work security at a club.
-
-— Ah, okay then. Enjoy. Rest. Take your shower. — She stood up. — I made lunch. If you want, I'll heat it up while you shower. Then you eat. And if you're not going to sleep, we can watch something together. I'm watching a really good series. House of Money.
-
-Kim stood still in the doorway.
-
-He had never sat down to watch anything with his mother. Never. Not even when he was little. In his memory, the TV in that house was something that stayed on while Helena slept on the couch.
-
-— I accept. — He heard his own voice say. — If you heat up the food, that'll be great. After my shower we can watch that House of Money thing.
-
-Helena gave a small smile.
-
-He went up the stairs.
-
-She went to the kitchen.
-
----
-
-The hot water washed away the park dust, the dried blood from his forehead, the smell of the brush.
-
-Kim stayed there a while with his hands on the wall, head down, water running down.
-
-Yesterday he had stood under that shower afraid of knowing. Today he was afraid of something else. Afraid of getting used to it.
-
-He came down in clean shorts and a T-shirt. The table was set. Just one plate. Rice, beans, a piece of meat, salad.
-
-He sat. He ate.
-
-The food wasn't good. The rice was a little overcooked. The beans had no salt. The meat was tough.
-
-It was the best food he had ever eaten in his life.
-
-It had been almost five years since Helena had made lunch. That morning's coffee had been the first. This was the second. Twice in the same day, after five years of none.
-
-Helena sat on the other side of the table with a glass of soda in her hand. It wasn't beer. He noticed and didn't say anything.
-
-— So. — She said. — How was your day?
-
-And Kim told her.
-
-He didn't know why. He never told anything. But he told. Walter in the hallway. Ryan with the box. The training room, the axe, Nina sliced in half, Jack dancing on top of his body. And the fight at the park. He told the park fight laughing, the details, the look on the face of the guy with the pipe when he didn't go down, Roxy taking off her shirt, Jack showing up with the little scratch on his neck.
-
-Helena listened to all of it.
-
-She didn't approve. He could see it in the way she gripped the glass. But she didn't say anything.
-
-She smiled.
-
----
-
-After lunch, the two of them went to the living room.
-
-They sat on the same couch. Each at one end. Both awkward, both not quite knowing where to put their hands. Helena pressed play.
-
-Within five minutes Kim had forgotten it was awkward.
-
-The series was good. A bunch of people with city names robbing the mint. A professor who planned everything. People who couldn't trust each other and trusted each other anyway.
-
-He wasn't in the habit of watching anything. His routine was school, work, home, food, studying. The last time he had watched something just to watch was before he was twelve. Before the debt. That was why he always felt left out when Jack talked about movies, games, music. He didn't know any of that. He didn't have time.
-
-At the end of the episode, he kept staring at the black screen.
-
-— I liked it. — Kim. — I really liked it. I wanted to keep going. But I need to sleep a little before meeting Jack.
-
-Helena kept staring at the screen too.
-
-— Then I won't keep going. — She said. — I'll only keep going if it's with you.
+— You just gonna stay on defense, kid? — She kept hitting. — I'm just warming up. You have no idea the pleasure I get from busting up the face of a sleazy guy like you.
 
 Kim didn't answer.
 
-There was no answer to that.
+He was looking at the ground.
+
+There was a branch. Thick, dry, fallen between his feet. Kim waited for her to get closer. Waited for her to load the next punch. When her weight shifted forward, his right foot kicked the tip of the branch.
+
+The branch flew up and hit Roxy's left knee head-on. It broke on impact.
+
+She lost her balance.
+
+Kim didn't show mercy. He twisted his body back, his waist bending almost at a right angle, and drove his elbow into her chin.
+
+A tooth went flying.
+
+She turned her face at the last instant and took part of the force. But blood was already running inside her mouth, that bitter metal taste. She got dizzy.
+
+Kim was already chambering the knee.
 
 ---
 
-He went up to his room. Lay on his side, facing the wall.
+On the left trail, Nina was bouncing in place.
 
-He dozed off thinking about how, despite everything, much of what was changing was good.
+Bouncing lightly, like it was a ring and not a dirt path full of knocked-out people. For the first time she was understanding why some people liked fighting so much.
 
-Nina was good.
+With a confident smile, she did a Bruce Lee move, swiping her thumb across her nose, staring down the three left.
 
-The game, even with all that, was interesting.
+The three didn't want any more.
 
-And that down there, the couch, the series, the "I'll only keep going if it's with you." That was special. That he would hold onto.
+She could see it on their faces. But she could also see their pride wouldn't let them leave without trying. And that they were more afraid of their boss than of her.
+
+The first one came with a piece of wood. He was one of the two from the beginning, the one who had taken the kick to the chin. Nina grabbed his wrist right at the base, locked his arm, and started using him as a punching bag. Right-hand punches, fast like Master Ip Man's, short, one after another, without stopping, without giving him time for anything. His face went slack. His knees buckled. Even after he hit the ground, out cold, she still threw three more before stopping.
+
+She looked at the guy with the chain. Smiled.
+
+The guy with the chain looked at her. Looked at his friend on the ground. Threw the chain far to the right and ran off.
+
+The last one stood frozen in the middle of the path. Looked at Nina. Looked at his friend running away. Looked at Nina. Looked at his friend. Did that about three times.
+
+Then he ran too.
+
+Nina put her hands on her knees and started laughing. She couldn't believe it.
+
+By the look of it, it was over.
+
+She thought about the boys. Thought about running to help. Then thought better. Those two weren't going to need any help.
+
+She lit a cigarette and walked slowly to find them.
 
 ---
 
-He woke at seven thirty without an alarm.
+Kim's knee caught Roxy in the stomach in the middle of a jump.
 
-He put on the suit. The only one he had. Black, a little short in the sleeves, but pressed, without a wrinkle out of place. He straightened his tie in the bathroom mirror. The cut on his forehead had closed into a thin line.
+Blood surged up her throat and out her mouth against her will. Kim pinned her against a tree trunk and held her there for a few seconds, his forearm across her chest, waiting.
 
-He looked like another man.
+And she, hurt like that, found the only half-second of carelessness.
 
-Before leaving, he went to his mother's room. Helena was asleep, curled on her side, her face calm in a way he didn't remember seeing.
+She jumped. Wrapped both legs around his arm and folded, pulling Kim forward with her full weight.
 
-He touched her shoulder lightly.
+That was the signal.
 
-— Dona Helena. I'm heading out, okay? I'll be back around three in the morning. All right?
+The six still standing came all at once.
 
-She opened her eyes slowly.
+The first thing Kim felt was an iron pipe across his back.
 
-— All right... — Her voice thick with sleep. — But isn't it kind of hard to work so late and then go straight to school?
+*I GOT SLOPPY.*
 
-Kim smiled.
+He stomped on Roxy's stomach to free his arm. The pain in his back rose hot and lit something in him. He turned.
 
-— It's not the first time. You know that. You don't need to worry. I know how to take care of myself. I'll sort everything out and it'll all be fine.
+The guy with the pipe was already winding up the second swing. At his face. There was no time to raise his arms.
 
-She closed her eyes again, a half smile at the corner of her mouth.
+Kim didn't raise his arms.
 
-— Okay, little mister man. Take care. I'll see you tomorrow. Bye, son.
+He raised his face.
 
-— See you, Mom.
+The pipe hit his forehead and stopped there.
 
-He closed the bedroom door slowly.
+Blood ran down between his eyes, over his nose, to his chin. And Kim stayed still. Looking at the guy. Like nothing had happened.
 
-He went down the stairs.
+The guy with the pipe knew fighting. He'd been part of plenty of massacres with that group. And he knew one thing for sure: no matter the size, no matter the strength, an iron pipe to the face is an iron pipe to the face. Nobody stays on their feet looking at you after that.
 
-In the living room, the Cineflix screen was paused on the menu, episode two waiting, the series cover with those smiling masks.
+— NO, YOU IDIOT! — Roxy, from the ground.
 
-She hadn't kept watching.
+There wasn't time.
+
+Before she finished the sentence, Kim, with his head still in the same place and the pipe still touching his forehead, twisted his body from the waist up almost ninety degrees and threw the cross.
+
+Not to the side.
+
+Down.
+
+The punch caught the middle of the guy's face and drove his head to the ground. And it didn't stop when it hit the ground. Kim kept pushing, his hand open now, pressing the guy's head against the dirt.
+
+In the middle of that second you could see the guy's eyes rolling back.
+
+Out cold. One punch.
+
+---
+
+Anyone watching could see it.
+
+Kim didn't waste a single strike. Every punch, every kick, had only one goal: end the fight. Nothing left over. And it didn't matter who was in front of him. He used a hundred percent of his strength even against an ant.
+
+The Fight Kings.
+
+Roxy, on the ground, began to understand why they called them that.
+
+Her strength had always been numbers. She knew her thugs weren't real fighters. They were people. People with bats. But enough people. And with that, her group had never lost a fight. Had never failed to fulfill a contract. Once in a while somebody gave trouble. But never this.
+
+That boy in front of her wasn't normal.
+
+With blood running down the middle of his face, finishing a man with his bare hand on the ground. That was a force of nature. Something you respect.
+
+She'd heard. On the street everybody knew you could count on your fingers the fights Kim and Jack had lost. And that eighty percent of them had one name only.
+
+Alan.
+
+The only real rival of the two. The name that had brought Kim and Jack together. The only one who had ever beaten them both.
+
+Roxy looked at Kim.
+
+*If this guy lost to Alan, what's Alan like?*
+
+---
+
+Kim went after the five left.
+
+Fast. One at a time. One strike for each.
+
+The one with the bat took a punch to the liver and folded. The one with the chain took a kick to the side of the knee and didn't get up. The one with the rock dropped the rock before taking the punch and took the punch anyway. The last two came together and went down together, one with an elbow to the temple, the other with Kim's forehead to the nose.
+
+Roxy stayed on the ground.
+
+She wasn't scared. It was something else. Watching that boy fight was like watching a ballet. Everything in place. Everything on time. Brutal, but perfect. She knew she'd never see that again in her life. So she stayed there. Watching.
+
+From far off, in the brush, Jack's voice came.
+
+— GUYS! EVERYBODY! HI! IT'S ME, JACK!
+
+Kim heard. Didn't lose a millisecond of focus.
+
+His fists were red. Not his blood.
+
+He turned and looked at Roxy.
+
+She understood. He was done. Now it was her turn.
+
+Fear and respect at the same time. That's what she felt. And underneath that, a want. The want to know how far she could go against that.
+
+She got up. And went.
+
+Her first punch landed. She was surprised. She didn't stop. Threw the second. The third. The fourth. An endless sequence, with the brass knuckles, with everything she had, blow after blow.
+
+Kim didn't fight back.
+
+Didn't dodge. Didn't defend. He took everything, one by one, looking at her.
+
+And she looked into his eyes in the middle of the sequence.
+
+He wasn't angry.
+
+He was cold.
+
+And even with her attacking, her having the advantage, her landing punches, a chill ran down her spine from top to bottom.
+
+When his hand closed around her throat, she understood.
+
+It was impossible. He didn't fight back because he didn't need to. He didn't dodge because he didn't need to. Her blows were light. They did nothing. She wasn't even worth one punch from him. It would be a waste.
+
+The hand squeezed.
+
+She understood she had lost.
+
+And blacked out.

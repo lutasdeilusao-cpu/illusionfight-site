@@ -1,143 +1,129 @@
-# CAPÍTULO 20 — A Gatinha Tem Garras
+# CAPÍTULO 20 — Fogo
 
-— E aí, garotinha. — O da frente, com um sorriso que ele achava charmoso. — Qual vai ser? Do jeito fácil ou do jeito difícil?
+A Nina parou no meio das palavras e tomou um gole grande. Os três ainda estavam no primeiro copo, o que era um bom sinal pra um dia em que ninguém podia acabar no chão.
 
-— Então, meu amor. — Nina, doce. — Qual seria o jeito fácil? Posso saber?
+— Então—
 
-— O jeito fácil é a gente fala o que você tem que fazer, você faz, e não acontece nada com você além do necessário. O jeito difícil é a gente faz o que a gente quiser com você e você sofre bastante no processo. Qual vai ser?
+Kim levantou a mão.
 
-Nina sorriu pra ele.
+Igual criança pedindo pra falar com a professora.
 
-— Vamos pelo jeito fácil. Se vocês prometerem que não vão me machucar, eu faço o que vocês quiserem.
+Nina nem olhou pra mão.
 
-O da frente olhou pro do lado com a cara de quem ganhou na loteria.
+— Fala, meu querido. Fala o que você quer, pelo amor dos deuses.
 
-— Vem cá, então. Chega mais. Vamos ver o que você tá guardando embaixo dessa saia. Porque quem usa uma saia dessas tá querendo.
+— Como vocês conseguem os poderes? Vocês compram igual arma? Em pacote?
 
-O segundo fez uma cara de decepção.
+Jack fez um aceno pra Nina, tipo: boa pergunta. Mas foi ele que respondeu.
 
-— Ah, cara. Eu achei que você ia mandar ela mostrar os peitos.
-
-— Calma, mano. Começa devagar. Tem tempo pra tudo.
-
-Nina foi chegando.
-
-Devagar. Um passo. Outro. Os sete olhando pra ela do jeito que ela sabia que iam olhar.
-
-Quando ela chegou na distância exata, segurou a barra da saia com as duas mãos e começou a levantar. Bem devagar. Os olhos de todos foram pra lá.
-
-O chute subiu do nada.
-
-Rápido, seco, certeiro, no meio das pernas do primeiro. Ele dobrou sem som, a boca aberta, o ar sumindo inteiro. Antes que ele terminasse de cair, o pé dela já tinha voltado e subido de novo, agora no queixo do segundo, que foi pra trás de costas no chão.
-
-Dois no chão. Ela ajeitou a saia.
-
-— E aí? — Provocando. — Mais alguém quer olhar embaixo da minha saia?
-
-Assumiu a guarda. Uma postura bonita, leve, que não combinava com o que tinha acabado de fazer.
-
-— A brincadeira só começou, garotos. Quem é o próximo?
+— Não. O primeiro poder vem junto com o avatar. Na hora que o seu avatar é criado, o sistema define o seu elemento. E com o elemento vem o primeiro poder. Pega o seu SBI aí que eu te mostro.
 
 ---
 
-Os outros cinco ficaram um segundo sem reação.
+Kim tirou o SBI da mochila. Jack pegou da mão dele, apertou dois pontos na borda e falou alguma coisa baixo.
 
-Depois o maior deles passou pra frente. Era bem maior que os outros. Alto, largo, o tipo de cara que resolve as coisas só por estar presente. Bateu o punho fechado na palma da outra mão.
+Um holograma acendeu no ar, na frente dos três.
 
-— Agora você se ferrou. A gente não vai ter dó. E a chefe vai adorar ver o que a gente vai fazer com você. Ela não vai ficar nada feliz com o que você fez.
+Era o Kim. Pequeno, do tamanho de um palmo, girando devagar no ar, colorido, com o boné, as cicatrizes nas mãos, a camiseta de sempre. Do lado do bonequinho, colunas de informação que subiam e desciam.
 
-Nina ficou olhando pras pernas dele.
+Kim e Jack já tinham visto holograma antes. Marelia tinha tecnologia em todo canto, mesmo nos bairros onde a tecnologia chegava por último. Mas era a primeira vez que o Kim via ele mesmo girando no ar.
 
-Quando ele dobrou um pouco o joelho direito pra dar o primeiro passo, ela explodiu.
+— Aqui você vê tudo. — Jack. — Dá pra mexer no avatar, trocar roupa, comprar acessório. Tem muita coisa de graça, que é o que eu uso. E tem a paga. Tipo a capa da Nina.
 
-Usou a coxa dobrada dele como degrau. Subiu. Passou a perna esquerda em volta do pescoço dele, a direita por cima, e fechou as duas como uma tesoura. Jogou o corpo pra trás com todo o peso.
+Nina endireitou as costas. A capa dela era de uma coleção de arte digital de edição única. Já valia muito mais do que ela tinha pagado. Ela não pretendia vender nunca. Só gostava de como ficava.
 
-O gigante foi junto.
+— Isso é o jeito do jogo ganhar dinheiro. — Jack, passando o dedo nas colunas. — Mas o que interessa agora é o seu poder nativo. Vamos no básico. Energia e poderes. Aqui. Não tem muita coisa, mas tem o seu elemento... — O dedo parou. — Pera.
 
-Caiu como prédio caindo, de costas, com ela agarrada no pescoço. O chão tremeu um pouco.
+Kim olhou pro amigo.
 
-Ela apertou.
+Jack estava parado olhando pra uma linha do holograma com a boca meio aberta.
 
-Ele tentou puxar as pernas dela com as duas mãos. Não conseguiu. Tentou de novo. Tinha sido pego no meio de uma respiração e o ar que ele precisava não estava vindo. Dez segundos. Vinte. Trinta. Quarenta. As mãos dele foram ficando fracas nas pernas dela. Depois pararam.
+— Que foi, cara?
 
-Ela soltou.
+Jack olhou pra ele com uma cara que Kim conhecia pouco. Medo não era. Era parecido.
 
-O grandão ficou no chão, apagado, a boca aberta.
+— Você não tá vendo o que eu tô vendo?
 
----
+Kim balançou a cabeça.
 
-Sobravam quatro de pé. E os dois do começo começando a levantar.
-
-Os quatro agora estavam armados. Dois com um pedaço de cano de ferro que tinham achado em algum lugar. Um com duas facas, uma em cada mão. Um com uma corrente grossa enrolada no braço.
-
-Nina sentiu o perigo pela primeira vez.
-
-Aquilo era sério. Era o tipo de situação em que, não importava o que ela fizesse, dava pra sair muito machucada. Por um segundo ela pensou em gritar. O Kim estava perto. O Jack estava perto.
-
-Mas ela conhecia aqueles dois fazia dois dias e já sabia de uma coisa. Se ela pedisse ajuda na primeira briga, eles iam lembrar disso pro resto da vida. Iam zoar ela pra sempre. Mesmo que um dia ela mostrasse que era mais forte que os dois juntos, aquilo ia ficar lá. Uma mancha.
-
-Por orgulho, puro e simples, ela não ia gritar.
-
-Preferia correr o risco. Até de morrer.
-
-Olhou o chão em volta. Olhou o terreno. Tentou pensar como o Kim e o Jack pensariam.
-
-*O chão é arma. Tudo é arma.*
-
-— E aí, seu babaca. — Ela pro das duas facas, com um sorriso de nojo. — Que tal a gente começar por você, seu porco?
-
-O cara perdeu a cabeça. Veio correndo com as duas facas na frente.
-
-Nina não tirou o olho dele. Mas o pé dela, que ninguém estava olhando, tinha afundado num pouco de areia solta do lado do caminho. Quando ele chegou perto, o pé subiu rápido e jogou a areia inteira na cara dele.
-
-Os grãos entraram direto nos olhos.
-
-— VADIA! — Ele parou, as facas no ar, esfregando os olhos com as costas das mãos. — Você vai me pagar! Eu tô cego!
-
-Era o tempo que ela precisava.
-
-Tinha uma pedra no chão. Grande. Ela deu um chute nela com uma precisão de fazer o Ronaldinho sentir inveja, e a pedra foi voando direto no meio da cara do das duas facas. Acertou o nariz. O nariz quebrou com um barulho molhado e o sangue espirrou.
-
-Os outros três hesitaram um segundo, olhando o amigo gritar.
-
-Era tudo que ela queria.
+— O seu elemental. — Jack. — É fogo.
 
 ---
 
-Ela fechou a distância com o primeiro dos canos, o da esquerda.
+Nina puxou o SBI da mão do Jack e aproximou o holograma do rosto.
 
-Ele reagiu por instinto e desceu o cano. Mas ela já estava perto demais. Só a base do cano pegou no ombro dela, quase sem força.
+Estava lá. Elemental principal: Fogo.
 
-Ficaram cara a cara.
+— Gente. — Kim. — Dá pra alguém me explicar?
 
-Ela sorriu pra ele, olho no olho, e ficou vendo a cara de susto dele virar cara de dor. Tinha pisado no pé dele com força, e no mesmo movimento de baixar a perna sobre o pé, subiu o joelho no meio das pernas dele. Ele urrou, ajoelhou devagar, soltou o cano e levou as mãos pro meio das pernas, a baba escorrendo do canto da boca.
+— O que saiu de você na primeira luta era Trevas. — Nina. — Foi o que todo mundo viu. Chama negra. Mas aqui, no seu SBI, o seu elemental principal é Fogo.
 
-Atrás dela, passos.
+Jack levantou o dedo, como quem acabou de entender uma coisa.
 
-O outro cano. Ela conhecia aquele ritmo de passo. Era alguém chegando pelas costas achando que estava em vantagem.
+— É por isso que eu achei esquisito naquela hora. Parecia fogo. Mas era preto. — Ele olhou pro Kim. — Você usou outro elemental na transformação. E isso não pode. Ninguém troca de elemental. É uma das poucas regras que ninguém nunca quebrou. Oficialmente, o seu é fogo.
 
-Ela esperou.
+Kim olhou pro bonequinho dele girando no ar.
 
-Esperou ele chegar perto. Esperou ele levantar o cano com as duas mãos acima da cabeça pra dar o golpe no topo da cabeça dela.
+Nada naquele jogo funcionava com ele do jeito que devia.
 
-Quando o cano começou a descer, ela deu um passo à frente, agarrou pelo cabelo o cara que estava ajoelhado na frente dela, se abaixou atrás dele e levantou o rosto dele bem no caminho do cano.
+Ele estava cansado de tentar entender. Fez um sinal com a mão pro Jack seguir em frente. Jack conhecia aquele sinal. Era o sinal do Kim de saco cheio.
 
-O cano encontrou o rosto do amigo.
+— Tá. Direto ao ponto. — Jack voltando ao holograma. — Aqui diz que ataques você já pode usar. Dois. Os dois por comando de voz. Você só precisa entender como fazer sair. Os dois são instantâneos, gastam pouco, mas também não destroem muito. O primeiro é o básico do fogo. Uma bola de fogo.
 
-O nariz despedaçou. Os dentes da frente quebraram e desceram pela garganta. O cara que segurava o cano ficou parado, olhando pro que tinha acabado de fazer com o próprio amigo, sem acreditar.
+— E o segundo?
 
-E não viu a Nina pegar do chão o cano que o ajoelhado tinha soltado.
+Jack ficou um tempo olhando.
 
-Ela levantou num salto curto pra frente, chutou de costas o ajoelhado, que já estava apagado, e no mesmo giro acertou o cano no queixo do que estava de pé.
+— O segundo eu nunca vi. — Jack. — Esses ataques costumam ser personalizados. É difícil repetir. Não é que nunca repete, mas é raro.
 
-O golpe levantou ele do chão.
+---
 
-Enquanto ele caía, devagar, os que sobravam viram a Nina parada no meio do caminho com o cano de ferro na mão como se fosse uma espada chinesa. A mão esquerda espalmada pra frente. A direita segurando o cano acima da cabeça. Uma postura de kung-fu. Não era de briga de rua. Era de alguém que tinha estudado mais de uma arte com alguém muito bom.
+A Nina cortou o Jack.
 
-Ela girou o cano em volta do corpo.
+— E tem limite. Em luta oficial você só pode levar quatro poderes ativos. Você escolhe antes da luta quais vão. Pode trocar sempre que quiser, mas trocar a lista tem custo.
 
-Acertou o das duas facas, que ainda estava cego, no queixo. O queixo saiu do lugar. A cabeça dele virou noventa graus. Todo mundo viu que ele já estava apagado antes de cair, mas ela deu mais um golpe no topo da cabeça dele enquanto ele caía, só pra garantir.
+— E se eu descobrir um poder novo no meio da luta?
 
-Durante tudo isso ela não tirou o olho dos três que sobravam.
+— Aí ele destrava sozinho. A NeoGuide te avisa. Só na sua cabeça, pra ninguém mais saber. Te fala quanto tempo leva, quanto gasta, tudo. E o poder novo entra no lugar do último da sua lista. — Ela respirou. — Ficou claro? Eu fui clara?
 
-E pelo jeito, ela estava só começando.
+Kim assentiu.
+
+Jack bateu as mãos nas coxas e se levantou.
+
+— Bom. Acho que acabou a aula. Se faltou alguma coisa a gente vai explicando conforme for aparecendo. — Ele se espreguiçou, estalou o pescoço pro lado. — E acho que tá na hora de levantar. Tem uma galerinha esperando a gente faz um tempinho.
+
+---
+
+Kim já sabia.
+
+Sabia desde a saída da escola. Desde o segundo quarteirão, quando dois caras com boné da mesma cor atravessaram a rua atrás deles e continuaram atravessando. Desde o mercado, quando a mesma moto passou duas vezes devagar. Desde que eles chegaram no estacionamento e as sombras atrás do muro do fundo começaram a se mexer de vez em quando, quando o vento não estava se mexendo.
+
+Ele também tinha visto que, quando o Jack ficou de pé pra explicar os modos de combate, o grupo lá atrás parou. Tinham planejado entrar naquela hora. O Jack de pé fez eles esperarem. E deu tempo da aula terminar.
+
+A única que não tinha percebido era a Nina.
+
+Mas isso era normal. Oito em cada dez dias, o Kim e o Jack estavam sendo seguidos por alguém que já tinha apanhado deles. Era o clima de Marelia pros dois.
+
+Kim se levantou devagar. Jack aquecia os ombros.
+
+— Quando você viu? — Jack, sem olhar pra trás.
+
+— Desde a escola. — Kim abrindo os braços, alongando.
+
+Nina se levantou também, olhando de um pro outro. Jack torceu o pescoço. Kim girou os pulsos. Ela começou a se alongar sem saber ainda por quê, só porque os dois estavam fazendo.
+
+— Ô, rapaziada! — Jack de frente pro muro do fundo, as mãos em concha na boca. — Vocês aí escondidos. Vão fazer a gente esperar até quando? Se querem alguma coisa, é agora, porque daqui a pouco a gente tem que ir trabalhar. Chega mais e fala o que vocês querem.
+
+Durante um segundo nada se mexeu.
+
+Depois as cabeças começaram a aparecer.
+
+De trás dos carros. De trás das árvores. De trás das paredes da delegacia velha. Uma, duas, cinco, dez. Vinte. Vinte e duas, vinte e quatro. Pedaços de madeira na mão. Correntes. Uma ou outra faca.
+
+A Nina entendeu.
+
+E se alongou mais ainda. Agachou, garantindo as pernas quentes.
+
+Olhou pros dois.
+
+Os dois estavam sorrindo.

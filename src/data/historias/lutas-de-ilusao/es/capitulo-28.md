@@ -1,165 +1,137 @@
-# CAPÍTULO 28 — Rey Chamán
+# CAPÍTULO 28 — Joaquim Leal Reis
 
-Shuntaro volvió a caminar hacia él. Despacio.
+El lunes comenzó igual que cualquier lunes.
 
-Esta vez Kim no fue con él. Se mantuvo lejos. Sabía que los yoyós estaban en el bolsillo, listos. Si lo atrapaba de nuevo, no tendría una segunda oportunidad.
+Jack y Kim se encontraron, fueron a la escuela y encontraron a Nina. La clase. Los tres estudiando en serio, Kim prestando atención, Jack fingiendo, Nina de verdad.
 
-Shuntaro lo vio retroceder y decidió atacar.
+Cuando sonó el timbre de la última clase y los tres estaban guardando sus cosas, el pasillo hizo un ruido diferente.
 
-Sacó las manos del bolsillo despacio. Los yoyós empezaron a girar, dibujando ochos horizontales en el aire, un infinito con cada mano, cada vez más rápido, el sonido subiendo hasta volverse un silbido.
+Un zumbido. Gente hablando bajo y rápido. Gente corriendo hacia la ventana.
 
-Cruzó los brazos frente al pecho y avanzó.
+— ¿Vieron quién está ahí afuera? — Una chica al lado de ellos, a su amiga. — No puedo creer que esté aquí. ¿Qué será lo que quiere?
 
-Kim retrocedía. Había calculado el alcance de los yoyós en unos dos metros. Siempre se mantenía un poco más allá.
+— Es mucho más guapo en persona. — La amiga, pegada al vidrio. — ¿Será que vino a desafiar a alguien?
 
-Shuntaro sonrió de una manera diferente.
+Kim y Jack se miraron.
 
-— Fatal Slices.
+— ¿De qué está hablando esa gente? — Jack.
 
-Descruzó los brazos.
+— No tengo idea. — Nina. — Pero parece que hay alguien importante ahí afuera. ¿Será que es problema para ustedes?
 
-En cada dedo suyo apareció un anillo. De cada anillo salió un hilo. Y en la punta de cada hilo, un yoyó nuevo. Ocho. Más los dos. Diez yoyós, cada uno envuelto en una capa fina de agua con el borde dentado, como una cuchilla.
+— Creo que no. — Kim. — Tuvimos unos días tranquilos. No hicimos nada. Debe ser otra cosa.
 
-Abrió los brazos y los diez vinieron.
+Fueron saliendo por el pasillo, tratando de esquivar a la multitud que se juntaba en la puerta principal, para tomar otro camino hasta su rincón preferido.
 
-Cinco metros de alcance.
+Y entonces sonó el altavoz de la escuela.
 
-Kim estaba acorralado.
+— Atención. Por favor, ¿el señor Joaquim Leal Reis podría presentarse? Necesitamos hablar con urgencia con el señor Joaquim Leal Reis.
 
----
+Kim se detuvo en medio del pasillo.
 
-Kim abrió las dos manos. Las hachitas aparecieron.
+Bajó la cabeza.
 
-— Xakaxi. Chamán.
+Jack empezó a reír. No una risa. Un ataque. Recostado en la pared, la mano en la barriga, sin aire.
 
-Juntó las dos frente al cuerpo y se convirtieron en el hacha de doble hoja.
+Nina miró de uno a otro.
 
-Miró los diez yoyós venir. Levantó el hacha. Y la golpeó contra el suelo con toda la fuerza.
+— ¿Quién es Joaquim?
 
-El suelo de la arena se abrió en un agujero. Pedazos de piso subieron al aire. Y con el impulso del golpe, Kim se lanzó hacia adelante, volando bajo, la cara casi rozando el suelo, por debajo de los diez hilos.
+Jack no podía responder. Solo señaló a Kim.
 
-Los yoyós pasaron por encima de él. Rozando. Ninguno lo golpeó.
+Nina miró a Kim. Kim tenía cara de querer que el suelo del pasillo se abriera y se lo tragara entero.
 
-Y ahora estaba cerca.
+— Por favor. — El altavoz de nuevo. — Señor Joaquim Leal Reis. Preséntese inmediatamente.
 
-Estar cerca era su especialidad.
+Kim apretó el paso.
 
-Dio una voltereta en el suelo y se levantó cara a cara con Shuntaro, que se quedó medio segundo sin reacción. Kim echó el brazo derecho hacia atrás y lanzó un uppercut directo a la mandíbula.
+Demasiado tarde.
 
-El impacto fue devastador.
+— ¡ES ÉL! — Alguien de su clase. — ¡JOAQUIM ES ÉL! ¡AHÍ!
 
-Un diente salió volando de la boca de Shuntaro. Él subió al aire.
-
-Pero Kim no había terminado. Su mano izquierda todavía sostenía el hilo del hacha, que había quedado en el suelo atrás. Tiró. El hacha volvió girando por el hilo, directo a cortar a Shuntaro por la mitad, en el aire.
-
-Shuntaro, aún consciente, clavó los yoyós en el suelo y se tiró hacia abajo con los hilos.
-
-El hacha pasó rozando. Le cortó levemente la frente.
-
-Golpeó el suelo con fuerza. Pero la pelea estaba lejos de terminar.
+Todo el mundo se giró.
 
 ---
 
-Shuntaro se levantó jalando sus propios hilos. Aturdido, pero de pie.
+En medio de la multitud de la puerta, un pasillo se fue abriendo.
 
-Kim se acercó. Abrió las manos, y el hacha se convirtió en las dos hachitas de nuevo.
+Y por él vino un muchacho.
 
-Shuntaro empezó a lanzar los yoyós como jabs. Uno tras otro, rápido, corto. Kim golpeaba los yoyós con las hachitas e intentaba entrar. Golpeaba e intentaba entrar.
+Rasgos asiáticos, ojos rasgados. Cabello rubio, largo, casi hasta los hombros. Una sudadera blanca con capucha, detalles negros en el cierre y en los bolsillos. Jeans blancos. Caminaba con las manos en los bolsillos, despacio, con el aire de quien está acostumbrado a que lo miren en cualquier lugar al que entra y hace tiempo dejó de importarle.
 
-Un intercambio de alto nivel comenzó.
+Detrás de él, un muchacho callado cargando una bolsa acolchada.
 
-Los dos concentrados. Los dos decididos a acabar con el otro. Un intercambio duro y equilibrado, en el que el primero que dudara un segundo iba a perder. O iba a recibir un golpe que terminaba con todo.
+El muchacho rubio se detuvo frente a Kim. Sacó una mano del bolsillo.
 
-En las gradas, Nina apretaba las manos. Jack, que estaba acostumbrado a ver a su amigo pelear desde los doce años, estaba viendo algo nuevo. Por primera vez, Kim estaba peleando con alguien de su mismo tamaño. En un nivel que Jack nunca había visto.
+— Hola. Debes ser Kim. El tipo que me impresionó. — Una voz tranquila, con un acento suave. — Soy Shuntaro Chirasu. Posición novecientos noventa y ocho del ranking mundial de las Luchas de Ilusión. Es un placer conocerte.
 
-Y Jack estaba feliz.
+Hizo una reverencia. Corta, natural, como se hace en su país. Y extendió la mano.
 
-Él conocía a Kim. Kim estaba disfrutando aquello. No era fácil para Kim encontrar a alguien para pelear de igual a igual. Se podía ver, casi, una sonrisa en su rostro.
+Kim miró a Jack. Miró a Nina. No entendía nada. Pero estrechó la mano.
 
-La arena estaba enloqueciendo. Mucha gente gritaba por Shuntaro. Pero en medio del azul, unas voces empezaron a gritar otra cosa.
+Shuntaro sonrió.
 
-*PE-LEA-DOR. PE-LEA-DOR.*
+— Vengo de muy lejos. De Azuma. Solo para luchar contigo. Fueron nueve horas de viaje, y estoy muy ansioso por esta lucha. — Pausa. — ¿Me daría ese honor, señor Joaquim?
 
----
-
-— Ríndete de una vez. — Shuntaro, en medio del intercambio, sin parar. — No vas a vencerme. Es imposible. Soy mucho más rápido que tú.
-
-— Eres muy bueno. — Kim, sin parar. — De verdad. Pero hay una cosa que no sé qué es. Rendirme. — Golpeó un yoyó. — Y solo para avisarte. Todavía no he empezado.
-
-Y empezó a volverse más rápido.
-
-Cada golpe más fuerte. Los yoyós golpeando las hachitas y volviendo cada vez más lejos. Shuntaro teniendo que dar un paso atrás para dar tiempo a que el arma volviera. Un paso. Otro. El intercambio empezó a inclinarse.
-
-En las gradas, Nina dejó de apretar las manos.
-
-— Jack.
-
-— Lo estoy viendo.
-
-— Se está volviendo más fuerte. Empezó más débil y se está volviendo más fuerte. — Su voz baja. — Es el equilibrado. Lo que hablamos en el estacionamiento. Es equilibrado.
-
-Shuntaro también lo estaba viendo.
-
-El Kim que estaba frente a él ahora no era el Kim del comienzo de la pelea. Era más fuerte con cada golpe. Más rápido. La defensa más exacta. Si no tenía cuidado, esa pelea iba a terminar con él en el suelo.
-
-Kim giró de frente, pegado. Tan cerca que las narices casi se tocaron. Lanzó una hachita hacia un lado y la otra hacia el otro, jalando los hilos de los yoyós hasta el límite, abriendo los brazos de Shuntaro.
-
-Y agarró su cabeza con las dos manos.
-
-La jaló hacia abajo mientras saltaba.
-
-La rodilla encontró la nariz de Shuntaro. El hueso cedió. La sangre bajó por la rodilla de Kim. Los ojos de Shuntaro se cerraron de dolor.
-
-Kim soltó su cabeza. Shuntaro fue cayendo hacia atrás. Y Kim, aún en el aire, levantó la mano.
-
-— ¡Xakaxi! ¡Chamán!
-
-El hacha de doble hoja apareció en su mano.
-
-Bajó con todo, el hacha por encima de la cabeza, para partir a Shuntaro por la mitad.
+Jack tuvo otro ataque.
 
 ---
 
-— REI. CHAMÁN.
+Kim se encogió de hombros.
 
-Shuntaro gritó con el brazo derecho frente al cuerpo.
+Hacía unos días desde la lucha con Thunderbolt. Se volvió hacia los dos.
 
-Frente a su brazo, algo empezó a formarse. Una sierra. Una sierra enorme, circular, sujeta al antebrazo como un escudo, con puntas alrededor como una katar.
+— ¿Y entonces? ¿Qué opinan? No estoy entendiendo bien qué está pasando. Pero por lo visto este tipo quiere pelear. Y ustedes saben que yo no huyo de una pelea.
 
-El hacha de Kim golpeó la sierra.
+Nina tenía el celular en la mano, la pantalla hacia ella, y su cara cambió.
 
-Y se detuvo.
+— Kim. No sé si es una buena idea. — Bajo. — Creo que tendrías que luchar con gente un poco por encima de ti. No muy por encima. Este tipo es famoso. Viví cuatro años en Azuma. Allá él es como... como un artista. Lleva seis meses en el LDI. Seis. Y ya está en el top mil del mundo. Sabe muy bien lo que hace. Esa es mi opinión.
 
-La arena entera quedó en silencio por el impacto. Kim quedó un instante suspendido en el aire, el hacha trabada en la sierra, mirando aquella arma que no había visto llegar.
+Jack, recuperado, se secó el ojo.
 
-Fue el instante que Shuntaro necesitaba.
+— Nina. Si quieres convencer a Kim de que no luche, esa es la peor estrategia posible. Decir que el tipo es muy fuerte, muy famoso, muy peligroso, solo le da más ganas. — Miró a Kim. — Lo que te puedo decir, Kim, es que las probabilidades de que te lleves la mayor paliza de tu vida son altas. Pero yo no decido por ti. Si quieres que te golpeen, ve. El tipo es bueno.
 
-Lanzó un puñetazo hacia adelante. La sierra se soltó de su brazo y vino girando.
+Kim miró a Shuntaro.
 
-Kim puso el hacha al frente.
+Le leyó el rostro. La postura. La forma en que sostenía los hombros. Había respeto allí. No era provocación. Y también había la certeza tranquila de quien sabe que es más fuerte y no necesita decirlo.
 
-La sierra golpeó el hacha y se llevó a Kim consigo. Arrastró a Kim por toda la arena, los pies abriendo dos surcos en el suelo, chispas saliendo del contacto de las dos armas, hasta casi el fondo de la arena.
+— Llámame Kim. — Kim. — Y otra cosa. Viniste de muy lejos esperando conseguir algo. No creo que seas tonto como para gastar nueve horas de viaje para desafiar a cualquiera. Si crees que vale la pena luchar conmigo, entonces luchemos.
 
-Por muy poco Kim no perdió la cabeza.
+Shuntaro sonrió de verdad por primera vez.
+
+El pasillo explotó.
+
+Nadie en esa escuela había visto una lucha de LDI en vivo de alguien del top mil. Celulares levantándose por todos lados. Gente corriendo a avisar a otros.
 
 ---
 
-Shuntaro se levantó despacio.
+Allí mismo, frente a la escuela, la multitud abrió un círculo.
 
-La sierra volvió girando por el aire y se encajó en su brazo de nuevo. El escudo-sierra. Limpió la sangre del rostro con el otro brazo, con calma. Cuando el rostro estuvo limpio, habló.
+Shuntaro llamó a su asistente, que abrió la bolsa acolchada y sacó dos SBIs. Uno de ellos era claramente de otro nivel. Se notaba en el acabado, en el peso, en la luz que corría por el borde.
 
-— Ay. Qué dolor. — Él. — Hacía tiempo que no me golpeaban tanto en una pelea. No debí haber dudado ni un segundo contigo. Eres del tipo que usa cada brecha para terminar la pelea. Perdón. No te tomé en serio desde el principio.
+Kim se sentó en el suelo recostado contra el muro de la escuela y sacó el suyo de la mochila. Jack y Nina ayudaron a ajustarlo.
 
-Hizo crujir el brazo. Se puso la nariz de nuevo en su lugar con un chasquido. Apretó la mano, y la sierra del antebrazo giró.
+— Ten cuidado. — Nina, ajustando la correa. — Él usa muy bien su carga de poder. Técnica excelente. Es estratega. Te va a analizar bastante antes de hacer cualquier cosa. Si puedes acabar rápido, acaba. No dejes que la lucha se alargue. La verdad es que tus posibilidades de ganar son pequeñas. Por lo mucho que has entrenado.
 
-— Esta es la forma Chamán de mi Rei. Una de las armas más fuertes de este juego. Pero consume energía del tamaño de su poder. No puedo usarla mucho tiempo en una pelea. — Levantó el brazo. — Lo que solo quiere decir una cosa. Tengo que terminar contigo rápido.
+— Tranquila, muchacha. — Kim. — No te preocupes. Si pierdo, perdí. Qué se le va a hacer. Lo divertido está en intentarlo. Por lo que ustedes dicen, él es mucho más fuerte que yo. Si gano, subo algunas posiciones en el ranking. — Pausa. — Y aparte de la apuesta de Freddy, este juego todavía no me ha pagado ni un centavo. Quién sabe, subiendo tal vez empiece a ganar algo. Al final eso es lo que importa, ¿no?
 
-Kim, allá en el fondo de la arena, se quedó quieto con aquello.
+— Tienes toda la razón, amigo. — Jack. — Mientras no ganes el pan con huevo, no vale la pena. Entonces vamos tras el pan con huevo.
 
-*¿Por qué me está contando esto?*
+Jack se sentó al lado de Kim con su SBI en la mano. Nina se sentó del otro lado.
 
-Era demasiada información. Información que daba ventaja. Nadie hacía eso en una pelea.
+— Vamos a mirar desde adentro. — Jack.
 
-Aquello, con toda certeza, dejaba a Kim en ventaja.
+---
 
-Pero…
+Del otro lado del círculo, Shuntaro ya estaba sentado, el SBI en la mano, el asistente a su lado.
+
+Miró a Kim por encima de la multitud.
+
+— Espero que tengamos una buena lucha. — Shuntaro. — Pero no vine de tan lejos para perder. Prepárate.
+
+— No existe motivo para que yo empiece una lucha si no es para ganar. — Kim. — Yo no entro a una pelea para perder.
+
+Shuntaro asintió con la cabeza. Satisfecho.
+
+Los dos encajaron los SBIs al mismo tiempo.
+
+Y el frente de la Elite Academy, lleno de gente, se quedó mirando a dos chicos sentados en el suelo, con los ojos cerrados, sin moverse.

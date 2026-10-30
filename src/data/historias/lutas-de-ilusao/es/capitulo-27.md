@@ -1,191 +1,293 @@
-# CAPÍTULO 27 — Ae Katu
+# CAPÍTULO 27 — Risca a Faca
 
-La arena era la misma de la primera pelea. Solo que más grande.
+Kim llegó a la acera a las siete y cincuenta y cinco.
 
-Las tribunas subían en capas que Kim no recordaba haber visto, avatares de todo tipo, de todo tamaño, de todo color, unos encima de otros. El cielo carmesí. Las ciudades flotando en órbita lenta. Y el ruido.
+Jack apareció a las siete y cincuenta y nueve.
 
-El ruido era otro.
+Kim siempre se irritaba con los horarios de Jack. No porque llegara tarde. Porque llegaba justo. Siempre justo. Como si el reloj fuera una sugerencia que él aceptaba en el último segundo.
 
-Nadie allí estaba por causa de Kim. El público, aún más grande que el de la primera vez, gritaba un solo nombre.
+Y entonces Kim miró el traje.
 
-*SHUN-TA-RO. SHUN-TA-RO.*
+Arrugado. Entero. El cuello torcido, la manga con una arruga que atravesaba el codo, la camisa metida en el pantalón de un solo lado.
 
-El nuevo favorito de las Luchas de Ilusión.
+La sangre de Kim hirvió un poquito.
 
-Kim estaba cayendo. Y esta vez no estaba pensando en el suelo.
+— Hombre. Tú me mandaste planchar el traje. Y mira el estado de esto. ¿No lo planchaste, no?
 
-Cayó en la arena como héroe de dibujos animados. Aterrizó de rodillas, un puño en el suelo, y se levantó despacio en una pose que hizo callar a la mitad de la tribuna.
+Jack bostezó.
 
-Y esta vez el aspecto era otro. Su ranking le había liberado la personalización, y la había usado. Sin camisa. Un collar en el pecho. Los ojos con un toque azulado. Cuentas gruesas en las muñecas. Jeans roto. Tenis blancos. Y en la cabeza una gorra con dos palabras bordadas al frente.
+— Deja de preocuparte por detalles. — Con sueño de verdad. — Te tomas todo demasiado en serio, Kim.
 
-*Ae katu.*
-
-En una lengua ancestral, quería decir poder.
-
-En la tribuna, en una pequeña isla de color diferente, un rey de corona y rastas verdes levantó los dos brazos, los fuegos artificiales estallando a sus espaldas.
-
-— ¡ESO, CARAJO!
-
-Al lado del rey, una chica de capa corta y cabello de fuego no levantó nada. Solo sonrió.
+Se fueron caminando a la parada. Kim mirando a Jack de arriba abajo y sacudiendo la cabeza todo el camino.
 
 ---
 
-Shuntaro no cayó del cielo.
+Un menor no puede trabajar.
 
-Al otro lado de la arena, una compuerta gigante se abrió con un estruendo, y él salió caminando por ella. Entrada personalizada. Cosa que solo se habilita para quienes están entre los mil mejores del mundo. El público se vino abajo.
+Es la ley de Bravara. Por debajo de cierta edad, nada de carné, nada de contrato, nada de empleo. La ley existe para proteger a los niños, y la ley nunca le preguntó a ningún niño cómo iba a comer.
 
-Su avatar recordaba a un samurái antiguo. El semblante concentrado. Las manos en los bolsillos.
+Entonces, quien lo necesitaba se las arreglaba. Unos entraban en el crimen. Otros vendían cosas en el autobús, hacían trabajos informales, ofrecían servicios. Y estaban los lugares de mala reputación, que no conseguían contratar a adultos como debían, y que aceptaban el riesgo de poner a trabajar a quien la ley no lo permitía.
 
-Llegó al centro de la arena, sacó las manos de los bolsillos y chasqueó los dedos. Un yoyó apareció en su mano. Lo lanzó, y el yoyó bajó y subió, y cuando subió vino junto un hilo fino de agua, girando con él, brillando.
+Kim y Jack eran de esos.
 
-Kim se encogió de hombros. Esperó.
+Ganaban menos que un guardia de seguridad de verdad. Una parte del pago se iba para cubrir el riesgo del local. Pero para Jack, ganar menos era mucho mejor que no ganar nada.
 
----
+Bajaron del primer autobús en un barrio más pobre que el suyo. Tomaron un segundo, un autobús cayéndose a pedazos, con el asiento de atrás atado con alambre, que llevaba a un lugar todavía peor.
 
-El Narrador salió del suelo como siempre, los miembros demasiado largos, el traje púrpura escurriendo hacia verde, el micrófono de hueso en la mano.
+Por la ventana, las casas se iban convirtiendo en ruinas. Muros sin revoque. Techos sin tejas. Calles sin asfalto. Y aun así había dinero circulando. Se podía ver. Buenos autos parados en la puerta de las casuchas. Motos nuevas. Gente en la esquina que no estaba ahí por casualidad. El dinero de ese lugar venía de cosas que el gobierno decía que no permitía. Y fingía que no veía, por los acuerdos con los empresarios de la región.
 
-— ¡SEÑORAS Y SEÑORES! — La arena tembló. — ¡Hoy tenemos un regalo! ¡Del lado izquierdo, aquel que llegó sin avisar, aquel que hizo que el sistema olvidara anotarlo, aquel que la arena llamó El Primordial! ¡Una victoria! ¡Cero derrotas! ¡Posición mil cuatrocientos veintitrés! ¡PELEADOR! ¡UNO! ¡CUATRO! ¡DOS! ¡CINCO! ¡TRES! ¡SEIS!
+Jack le dio un toque en el brazo a Kim.
 
-La mitad de la arena abucheó. La otra mitad gritó. Nadie se quedó callado.
+— El nombre del lugar es Risca a Faca.
 
-— ¡Del lado derecho! ¡El chico de Azuma! ¡Seis meses en LDI y ningún mes perdido! ¡Elemental Agua! ¡Posición novecientos noventa y ocho! ¡SHUNTARO CHIRASU!
+Kim hizo crujir el cuello, mirando por la ventana.
 
-La arena explotó.
+— Risca a Faca. — Repitió. — Prepárate. Hoy va a valer cada centavo.
 
-— ¡AAAAS APUESTAS ESTÁAAAAN ABIERTAAAAS!
+— Tranquilo. Pensamiento positivo. Puede que todo salga bien y nada salga mal.
 
-La tribuna se volvió azul. Casi toda. Un mar de azul para el lado de Shuntaro.
+— Estás siendo redundante. Si todo salió bien, es porque nada salió mal.
 
-Y una isla pequeña de otro color en medio de eso. El rey de corona. La chica de capa.
+— ¿Vas a quejarte toda la noche? Si sigues así, va a ser una noche pésima.
 
----
+— Solo te estoy avisando. — Kim. — ¿Pero quieres saber? Yo solo quiero una cosa. Ver la plata antes.
 
-— Está usando un yoyó. — Jack, en la tribuna. — Y además controla el agua. ¿Qué opinas?
+Jack pensó.
 
-— Sabes lo que pienso. — Nina. — Ya lo dije. Kim va a perder feo. No debería estar jugando con ese tipo.
-
-— Nina, entiendo. Pero te preocupas demasiado. Recuerda que, cuando nadie lo esperaba, él ya había dominado el modo de armas. Tal vez tenga una oportunidad. Tranquila, chica.
-
-— Estoy tranquila. Solo estoy preocupada.
+— Sí. En eso tienes razón. Plata antes.
 
 ---
 
-— Apuestas cerradas. — El Narrador. — ¡Que comience la Lucha de Ilusión!
+Bajaron en una calle de tierra.
 
-Shuntaro no se movió. Se quedó mirando a Kim.
+En la esquina, una chica apoyada en un poste esperaba clientes. Más adelante, dos tipos intercambiaban algo con la mano cerrada. Un auto pasó despacio con la música demasiado alta. Y en medio de todo eso, Kim y Jack, de traje y corbata, caminando como si fueran a una boda.
 
-— Fuiste impresionante en tu primera pelea. — Él. — Llegaste a mil doscientos uno. Y caíste. Estás en mil cuatrocientos veintitrés. Porque no peleaste ninguna otra vez, y el ranking avanza todos los días. Eso muestra que no tomas este juego en serio como deberías. — Hizo girar el yoyó. — Si quieres llegar arriba, a los torneos, te lo aconsejo. No como adversario. Como amigo. Toma el LDI en serio.
+La discoteca era un galpón con una puerta de hierro y un letrero de neón con la mitad de las letras quemadas.
 
-Kim torció las muñecas. Chasqueó los dedos. Se tronó el cuello.
+En la puerta, un hombre grande. Muy grande. Vio a los dos llegar y sonrió.
 
-— ¿Vinimos aquí a pelear o a charlar con lecciones de moral? Lo que hago con mi vida es mi problema. Ocúpate de lo tuyo.
+— Entonces sí vinieron. — Abriendo los brazos. — Juraba que no iban a aparecer. Menos mal. Ya estaba casi haciendo la puerta yo solo.
 
-— No tengo nada contra ti como persona. — Shuntaro, sin cambiar el tono. — Pero como jugador, te voy a enseñar algo que no vas a olvidar. No es fácil estar aquí.
+— Yo dije que venía. — Jack. — Palabra de hombre. Solo hay una cosa. Vas a tener que pagar antes.
 
-Chasqueó los dedos. El yoyó quedó en la mano derecha, girando. La izquierda volvió al bolsillo.
+El hombre grande frunció el ceño.
 
-Y empezó a caminar en dirección a Kim. Despacio.
+— No fue eso lo que acordamos. ¿Por qué cambiar ahora?
 
-Kim caminó también. Despacio. Abrió la mano rápido, y apareció en ella una hachita.
+— Mi amigo aquí es medio quejón, ¿sabes? — Jack señalando a Kim con el pulgar. — Está desconfiado. Si pagas ahora, todos nos quedamos tranquilos.
 
-*Calma. Vamos con calma.*
+— El que va a quedar desconfiado soy yo. ¿Y si pago y ustedes desaparecen antes de terminar? No va a pasar.
 
----
+Jack se encogió de hombros.
 
-Kim miraba el yoyó.
+— Entonces ya. Hablamos. Si tú no quieres, hay quien quiera. Yo no voy a mendigar por doscientos. Vamos, Kim. Vamos a tomar una cerveza.
 
-Parecía un juguete. Una bola de metal en un hilo. Pero él sabía, por el entrenamiento con Vitória y Angel, que nadie debía subestimar un arma en el LDI.
+Y les dio la espalda.
 
-Tal vez fue eso. Tal vez miró demasiado el yoyó.
+El hombre grande se quedó mirando a los dos irse por la calle de tierra. Miró la puerta de la discoteca. Miró la fila que ya comenzaba a formarse. Hizo la cuenta de cuántas peleas iba a tener que separar solo esa noche.
 
-A dos pasos, Shuntaro avanzó. Pero dejó el brazo derecho atrás. Kim reaccionó al brazo que venía. Y no vio la mano izquierda saliendo del bolsillo, ya con otro yoyó.
+— ¡Tranquilo, amigo! — Yendo detrás. — ¿Ni van a negociar? Hagamos así: mitad ahora, mitad a la salida. ¿Qué tal?
 
-El segundo yoyó vino al estómago.
+Jack se giró despacio.
 
-— Multiple Water Balls.
+— De acuerdo. Acepto. Pero ahora el precio subió. Trescientos por quedarnos hasta las dos.
 
-Los dos yoyós se cubrieron de agua girando tan rápido que parecían bolas de energía azul. Kim saltó hacia atrás para quitar fuerza al golpe y giró sobre un pie, poniendo la hachita frente a la barriga.
+— Eres difícil, ¿eh? — El hombre grande se pasó la mano por la cabeza. — Pero estoy sin opción. Si hacen un buen trabajo, nos arreglamos. Cien ahora. Doscientos a la salida.
 
-— Dodge.
+Jack miró a Kim.
 
-El yoyó cambió de dirección en el aire.
+Kim no dijo nada. Solo le devolvió la mirada. Y la mirada lo decía todo: *está bien, Jack. Salió bien. Puedes cerrar.*
 
-Esquivó la hachita, subió y golpeó de lleno la barbilla de Kim.
+Jack se giró hacia el hombre grande y extendió la mano.
 
-El golpe no fue tan fuerte como parecía. Pero el segundo yoyó ya venía, un segundo después del primero, en dirección al rostro.
+— Trato hecho. Tenemos un acuerdo.
 
-Kim levantó la mano para defenderse.
-
-— Tie.
-
-El hilo se enrolló.
-
-En su cuello. Y en la mano que había levantado, atrapando la mano contra el cuello. Un hilo fino, fuerte, apretando y cortando la piel.
-
-Y con el otro yoyó, Shuntaro comenzó.
-
-— Hit. Hit. Hit.
-
-Un golpe por cada palabra. En las costillas. En el brazo. En el rostro. En el estómago.
-
-Kim estaba perdido. El tipo controlaba el arma con una precisión que no dejaba espacio para nada. Ninguna defensa. Ninguna esquiva. Cada golpe por sí solo no era tan fuerte. Pero uno tras otro, sin parar, aquello empezó a cobrar factura.
-
-El cuello atrapado. La mano atrapada.
+El hombre grande le estrechó la mano, le dio los cien a Jack, entró en la discoteca sonriendo y se fue directo a su oficina al fondo. No iba a necesitar quedarse en la puerta. No iba a necesitar separar peleas. Nunca había visto a esos dos trabajando. Pero había oído hablar.
 
 ---
 
-En la tribuna, Jack estaba riendo.
+La noche comenzó tranquila.
 
-No se podía saber si se estaba divirtiendo o si estaba nervioso.
+Jack se quedó en la puerta. Lista de nombres, registro, quién entra, quién no entra. De vez en cuando encontraba un arma en el registro. Ahí, eso era más formalidad que seguridad. No tenían autorización para quitarle el arma a nadie ni para guardarla. Solo revisaban y dejaban pasar.
 
-— ¡Ese idiota cayó en el juego del tipo! ¡Está recibiendo una tras otra! ¡Mejor que haga algo rápido, si no va a ser perfect!
+Jack era bueno en eso. Hablaba con todo el mundo. Resolvía los problemas antes de que se convirtieran en problemas. Hacía bromas con los que estaban nerviosos. Y cada vez que llegaba una mujer sola, se las arreglaba para coquetear.
 
-Nina no decía nada. Estaba mirando a Kim sangrar. Los verdugones subiendo. Los cortes abriéndose.
+Al final de la noche, tenía algunos números de teléfono en el celular.
 
-— Era eso lo que temía. — Ella, en voz baja. — Ese tipo no llegó adonde está por casualidad. Kim no tiene madurez todavía para pelear con alguien de ese nivel. Esos tipos saben cómo empezar y terminar una pelea.
+Uno de ellos le iba a traer mucho más problemas que soluciones. Pero eso es tema para después.
 
-Jack dejó de reír. La miró.
+Para Kim, era más difícil.
 
-— Nina, no puedo creer que ya te hayas rendido con él.
+Kim hablaba bien con Jack. Con el resto del mundo, no sabía. No le gustaba conversar con gente que no conocía. Quizás ni siquiera supiera cómo. Y eso le molestaba de una forma que él no decía.
 
-— No me rendí, yo—
+Así que se quedaba al lado de Jack, con los brazos cruzados, mirando la fila. Y fue ahí que contó.
 
-— Todavía no entiendes a Kim. Tal vez esta pelea te lo muestre. Lo que le falta de cerebro a Kim, lo compensa con terquedad. Solo muestra lo mejor de él cuando sucede lo peor. Ese es Kim. Esta pelea apenas está empezando y—
+La vuelta a casa. La casa ordenada. El almuerzo sin sal. La serie.
 
-Allá abajo, Kim pasó la pierna por encima del hilo que le atrapaba el cuello.
+Jack dejó de registrar a un tipo en medio del registro.
+
+— Espera. ¿Viste una serie?
+
+— Vi.
+
+— Tú. Kim. Viste una serie. Con tu madre.
+
+— Un episodio.
+
+— ¿Cuál?
+
+— La Casa del Dinero.
+
+Jack soltó al tipo del registro y se quedó mirando al amigo con la boca abierta.
+
+— Hombre. Es una de mis series preferidas. Hablo de esa serie desde hace dos años. Dos años, Kim. Y tú nunca quisiste saber.
+
+— Ahora sí quiero.
+
+Jack se quedó con eso. Era la primera vez en cinco años que Kim hablaba de empezar una serie. Kim, entusiasmado, contó todo el primer episodio, el profesor, el plan, la parte que él consideró más inteligente. Jack escuchó con la sonrisa de quien está descubriendo algo nuevo sobre una persona que creía conocer por completo.
+
+El LDI. Ahora la serie. Algo en común que nunca habían tenido.
 
 ---
 
-Con el hilo debajo de la rodilla, ganó holgura. Forzó la mano atrapada contra el hilo. Pasó la cabeza por el lazo.
+— ¿Y aquel indio? — Jack, aprovechando el ritmo, mientras el movimiento de la puerta se calmaba. — ¿Ya descubriste quién es? ¿Por qué se te aparece en las peleas?
 
-Y saltó lejos con todo lo que tenía.
+— No sé. — Kim. — Es la segunda vez. Y siempre ahí adentro. Nunca aquí afuera.
 
-Cayó lejos. Arrodillado. La pierna estirada, temblando. Escupió sangre en el suelo de la arena. Empezó a levantarse.
+— Muy raro. Yo nunca vi a nadie hablar de eso. Y estoy en todos los foros que existen. Hay gente que cree que el LDI es una herramienta de control mental para dominar el mundo. Hay gente que cree que David Kronos es un alienígena disfrazado de humano. Hay gente que cree que el juego fue hecho por un espíritu del mal para que la humanidad se destruya sola.
 
-— Como iba diciendo. — Jack, en la tribuna, acomodándose en el asiento. — La pelea apenas está empezando. Y Kim apenas se está calentando.
+Kim rió.
 
-Shuntaro se quedó mirando, un poco sorprendido. No esperaba que Kim saliera de aquello. Se arregló el cabello con calma. Volvió a meter las manos en los bolsillos. Sonrió.
+Para él, eso era una broma. Los foros eran lugar de gente sin nada que hacer.
 
-— Impresionante. Bravo. Felicidades por salir de eso. — Él. — Para ser justo, lograste posicionarte para defenderte más de una vez. Tienes buen instinto. Por eso elegí inmovilizarte.
+Pero una punzada de algo le pasó por la cabeza. Estaba viendo cosas raras desde que entró en ese juego. Un viejo con sombrero de plumas hablando en jerga. Un poder con nombre en letras que nadie sabía leer. Alguien detrás de él.
 
-Kim estaba respirando rápido. Se pasó la mano por el rostro. Miró la sangre en su mano. Miró a Shuntaro.
+El indio era raro. Pero no era tan bizarro como las teorías de Jack.
 
-Sonrió.
+*Todavía.*
 
-Y se dio una palmada en la cara.
+Volvió a mirar la fila.
 
-— La cagué. Qué rabia. — Y tenía rabia de verdad. — Es diferente pelear con alguien así. Perdón por no haberte tomado en serio. — Se enderezó. — Pero creo que en este intercambio ya hablamos suficiente. Mi respuesta es esta: no tomo este juego en serio. Pero tomo cualquier pelea muy en serio. Es hora de mostrártelo con la mano.
+---
 
-Shuntaro abrió una sonrisa enorme. Se quedó moviéndose en el lugar, emocionado.
+El primer lío vino cerca de la medianoche.
 
-— Finalmente. Entonces vas a mostrar ese poder. El de la primera pelea. Todos estamos esperando eso. Yo y mucha gente arriba del ranking que está viendo hoy solo por eso. Muéstralo. Para vencerte en tu mejor forma.
+Kim y Jack se miraron al mismo tiempo. Jack se quedó en la puerta. Kim entró.
 
-Kim entendió que hablaba del Primordial.
+Adentro, la discoteca era humo y graves y luz roja. Kim se fue quitando el saco mientras caminaba, lo dobló en el brazo, buscando dónde estaba el círculo. Lo encontró fácil. Donde hay pelea, hay gente formando un círculo.
 
-Y no recordaba cómo lo había hecho. No sabía si podía hacerlo de nuevo.
+En el medio, seis hombres. Grandes, altos, borrachos, dos de cada lado sujetando a los que estaban al frente.
 
-— Hombre. Si estás hablando de aquel Primordial... — Kim. — No tengo ni idea de cómo sucedió aquello. Siendo sincero, ni lo recuerdo.
+— ¿Estás loco por meterte con mi mujer? — El primero, siendo sujetado. — ¡Te voy a matar!
 
-La sonrisa de Shuntaro desapareció.
+— ¿Qué pasa, cobarde? ¡Ella fue la que vino a coquetear conmigo! ¡Ven, que acabo contigo!
 
-— Qué lástima. — Él. — Tu única oportunidad de vencerme estaba en ese poder. Sin él, esta pelea terminó.
+Kim entró en el medio del círculo.
+
+— Mira. — Con las manos en los bolsillos. — No sé cuál es el problema. Pero si quieren resolver algo, resuélvanlo afuera. Quien le ponga una mano encima a alguien aquí adentro va a recibir una paliza. Y no va a ser uno solo. Van a ser todos. Así que, si nadie quiere una paliza, mejor resuélvanlo afuera.
+
+Y entonces pasó lo que siempre pasaba.
+
+Toda la rabia cambió de dirección. Los seis olvidaron por qué estaban peleando y miraron a Kim.
+
+El primero se soltó de sus amigos y se acercó. Era mucho más alto que Kim. El aliento a alcohol llegó antes que él.
+
+— Eres muy atrevido, pequeñito. ¿Cuántos años tienes? ¿Tu madre te deja salir de casa a esta hora?
+
+— Mira. — Kim. — No voy a seguir charlando. En consideración al local, te estoy pidiendo que te alejes, vuelvas a tu lugar y disfrutes la noche. Ahora, si es lío lo que quieres, ve afuera.
+
+— ¿Y si no quiero?
+
+— Si no haces nada idiota, todo queda bien. Si lo haces, no garantizo tu seguridad.
+
+El hombre puso la mano en el hombro de Kim.
+
+Kim miró la mano. Luego a él.
+
+El hombre acercó la cara.
+
+— Mejor te quedas en tu lugar. Aquel se metió con mi novia y va a recibir una paliza. Yo no quiero golpear a un niño hoy. Si te quedas callado, quizás no te toca una paliza a ti también.
+
+Kim esbozó una media sonrisa.
+
+— Mejor quita esa mano de mi hombro. Por tu propio bien.
+
+El hombre rió. Giró la cara hacia sus amigos para ver si habían escuchado eso. Lo habían escuchado. Estaban riendo también.
+
+Cuando giró de vuelta, la mano le estaba doliendo.
+
+Kim le había agarrado la mano del hombro, rápido, y se la estaba torciendo. No la muñeca. Los dedos. Solo los dedos. El hombre gritó. Sus amigos dieron un paso al frente.
+
+Kim levantó la otra mano. Los amigos se detuvieron.
+
+— Amigo. Vamos a calmarnos. Vuelve a tu noche y no me causes más problemas. Por favor.
+
+Lo soltó.
+
+El hombre se puso rojo. Armó el puño. Un puñetazo grande, de quien quiere acertar en toda la cara.
+
+Kim vio el puñetazo venir e hizo algo que ninguno de los seis entendió.
+
+Se acercó más.
+
+Acortó la distancia hasta que su cara quedó casi pegada a la mano del hombre. Y dejó que el puñetazo llegara. De cerca. Sin espacio para tomar fuerza.
+
+El puño golpeó en medio de la cara de Kim.
+
+— No quería hacer esto. — El hombre, con el puño todavía ahí. — Pero no me dejaste opción. ¿Quién te manda meterte conmigo?
+
+Y entonces él miró.
+
+Su puño estaba en medio de la cara de Kim. Y los ojos de Kim estaban abiertos. Bien abiertos. Mirándolo.
+
+— ¿Ahora estás satisfecho? — Kim, tranquilo. — Estamos a mano. Yo te lastimé. Tú me golpeaste. Está resuelto. Vuelve a tu lugar y disfruta la noche como si nada hubiera pasado.
+
+El hombre se quedó quieto.
+
+No entendía. El puñetazo había entrado. El chico no había movido la cabeza. Ni siquiera había parpadeado.
+
+— Está bien. — Con asco, retirando la mano. — Está bien, me cansé de ti. Voy a volver a mi lugar.
+
+Y volvió.
+
+Kim fue hacia el otro grupo.
+
+— ¿Y ustedes? ¿Pueden volver a sus lugares y continuar la noche sin más problemas?
+
+Los tres habían visto todo. Asintieron con la cabeza y se fueron sin decir nada.
+
+Kim se puso el saco de nuevo y volvió a la puerta.
+
+---
+
+Jack miró a Kim llegar y ni siquiera preguntó.
+
+Él sabía. Kim se tomaba ese trabajo en serio. Siempre que podía, evitaba las peleas. Y si una pelea ocurría, era porque no había otra forma.
+
+El segundo lío fue de Jack. Se turnaban. Jack tenía otra forma de resolver. Más charla. Más bromas. A veces una cortesía, una bebida por cuenta de la casa, un "déjame que yo hablo con ella". Era importante que los vieran como quienes resuelven problemas. No como quienes causan problemas. Así los volvían a llamar.
+
+A las dos de la mañana, el hombre grande apareció en la puerta.
+
+— Nunca tuve una noche tan tranquila. — Contando el dinero. — Les pago con gusto. No sé qué hicieron y no quiero saber. Pero quiero trabajar con ustedes de nuevo.
+
+El resto en la mano. Trescientos para cada uno, contando el adelanto.
+
+Salieron a la calle de tierra con el frío de la madrugada golpeando el traje. Tomaron el autobús cayéndose a pedazos, luego el otro. Jack se durmió en la segunda cuadra, la cabeza contra el vidrio.
+
+Kim se quedó despierto, el dinero en el bolsillo, la ciudad pasando.
+
+---
+
+El resto de la semana fue tranquilo.
+
+El trío no se encontró. Fueron los primeros días tranquilos desde que los tres se habían conocido.
+
+Kim vendió caramelos. Jack consiguió un trabajo informal nuevo, después otro. Nina mandaba mensajes al grupo de vez en cuando, una foto, un audio quejándose de su padre, una pregunta sobre el hacha que nadie sabía responder.
+
+Todo parecía tranquilo.
+
+Demasiado tranquilo, pensó Kim el domingo por la noche, acostado mirando el techo, oyendo a Helena reír sola de algo en la televisión allá abajo.
+
+Todo parecía tranquilo.
+
+Hasta un lunes.
