@@ -250,7 +250,7 @@ Ela estava revoltada.
 
 O Jack viu o tempo fechando e fez o que ele sempre fazia.
 
-— Gente. Vamos se acalmar, respirar fundo e achar alguma coisa pra beber, que eu tô com a garganta seca. — Já se levantando. — Eu ainda tenho um trocadinho, e só vou trabalhar à noite. Hoje a gente acha uma lojinha, pega uma vodkinha, e bebe com calma. Apreciando cada gole.
+— Gente. Vamos se acalmar, respirar fundo e achar alguma coisa pra beber, que eu tô com a garganta seca. — Já se levantando. — Hoje quem paga é o milionário. A gente acha uma lojinha, pega uma vodkinha, e bebe com calma. Apreciando cada gole.
 
 ---
 

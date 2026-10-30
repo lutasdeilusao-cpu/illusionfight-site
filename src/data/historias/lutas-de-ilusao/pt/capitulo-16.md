@@ -16,29 +16,9 @@ O Kim fez cara de confuso.
 
 — Normalmente a gente treina numa sala pública. — A Nina. — Superlotada. Você fica sendo desafiado o tempo todo, gente atrapalhando, uns babacas querendo mostrar o quanto eles acham que são fortes. Mas agora eu, você e o Jack podemos usar uma sala privada de treino. Vai facilitar muito pra gente se preparar pras próximas lutas.
 
-O Kim se animou. E o sorriso caiu.
+O Kim se animou.
 
-— Gente, eu esqueci completamente de uma coisa. Eu fiquei empolgado com tudo isso, mas eu tenho que trabalhar.
-
-O Jack riu.
-
-— Não, não tem, não.
-
-— Sim, eu tenho, sim.
-
-— Não, não tem, não.
-
-— Sim, eu tenho, sim.
-
-— Sua anta. Você tem um milhão na conta.
-
-— Que eu não vou tocar. Não sei de onde veio esse dinheiro nem o que vem atrás dele. Bala nunca invadiu minha casa.
-
-— Tá. Então a gente tem um trampo à noite. Vai dar duzentos pra cada. Já tá bom.
-
-O Kim relaxou.
-
-— Ah, nesse caso, beleza. Desculpa, Nina, por interromper. Pode continuar. Como a gente abre essa tal de sala privada? Parece muito top.
+— E como a gente abre essa tal de sala privada?
 
 A Nina sorriu.
 
