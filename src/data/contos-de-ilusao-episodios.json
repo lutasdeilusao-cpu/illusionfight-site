@@ -24,5 +24,31 @@
       "publico": "2099-02-15"
     },
     "data_publicacao": "2099-02-15"
+  },
+  {
+    "id": "inocentes",
+    "numero": 2,
+    "so_admin": true,
+    "titulo_pt": "Inocentes Até Que se Prove o Contrário",
+    "titulo_en": "Innocent Until Proven Guilty",
+    "titulo_es": "Inocentes Hasta Que se Demuestre lo Contrario",
+    "frase_pt": "Somos inocentes até que se prove o contrário.",
+    "publicado": true,
+    "paginas": 67,
+    "idiomas": [
+      "pt"
+    ],
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "pasta": "contos-de-ilusao/inocentes",
+    "liberacao": {
+      "elite": "2099-01-15",
+      "conta": "2099-01-30",
+      "publico": "2099-02-15"
+    },
+    "data_publicacao": "2099-02-15"
   }
 ]
