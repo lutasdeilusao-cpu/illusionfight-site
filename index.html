@@ -27,7 +27,7 @@
          (ver Gangues.css .gang-log-area) — aqui é a mesma causa. */
       html.ldi-intro-on { overflow: hidden; overscroll-behavior: none; }
       /* `inset:0` cobria o viewport físico inteiro em telas largas — o
-         portal é mobile only (coluna de 480px, ver AGENTS.md/index.css
+         celular usa a coluna de 480px, ver AGENTS.md/index.css
          --app-w/--app-gutter), mas essa vinheta roda ANTES do bundle CSS
          carregar, então não dá pra usar var(--app-gutter) (pode ainda não
          existir nesse instante) — mesma fórmula, só que literal aqui.
@@ -52,6 +52,7 @@
       @keyframes ldi-sweep { from { left: -40%; opacity: 1; } to { left: 110%; opacity: 1; } }
       @keyframes ldi-bar { to { transform: scaleX(1); } }
       @keyframes ldi-out { to { opacity: 0; transform: scale(1.04); } }
+      @media (min-width: 900px) { #ldi-intro { left: 0; right: 0; } #ldi-intro .ldi-intro__logo { width: 190px; height: 190px; } #ldi-intro .ldi-intro__word { font-size: 2.8rem; } }
       @media (prefers-reduced-motion: reduce) { #ldi-intro.ldi-intro--play .ldi-intro__logo, #ldi-intro.ldi-intro--play .ldi-intro__word, #ldi-intro.ldi-intro--play .ldi-intro__word::after, #ldi-intro.ldi-intro--play .ldi-intro__bar::before { animation: none; opacity: 1; } }
     </style>
 
