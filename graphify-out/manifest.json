@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793360853.801758,
-    "ast_hash": "c55ae6ee692819d34f59c07a55172130",
+    "mtime": 1793371595.1370206,
+    "ast_hash": "551fdf971b188f602f0cc3b46abfe743",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793360853.8283052,
-    "ast_hash": "167fe0bfc53313617fb9eabc95758d9f",
+    "mtime": 1793371595.1810558,
+    "ast_hash": "44430becc4acd3b203b0925328bcc5e2",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3595,18 +3595,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1793160442.7641535,
-    "ast_hash": "88f209e501219152443d0d5ec8bb15e0",
+    "mtime": 1793367883.2580485,
+    "ast_hash": "497ace3a67a35e23ad6e3d5ad699a2e3",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1793160442.8054178,
-    "ast_hash": "81d1cdb507434e6fc34b6fbdf843e949",
+    "mtime": 1793367883.261047,
+    "ast_hash": "25d129d5c81e8535c097d14a04ee1666",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1793160442.7267637,
-    "ast_hash": "55f52011079ee4a1e8607dce352c99bb",
+    "mtime": 1793367883.254047,
+    "ast_hash": "a65013821a4c5802fb697d7cc8b4d416",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5015,8 +5015,8 @@
     "semantic_hash": ""
   },
   "src/pages/painel/Painel.jsx": {
-    "mtime": 1793121717.8833473,
-    "ast_hash": "85626b836b0f8c498adb7cb33815e786",
+    "mtime": 1793367839.626917,
+    "ast_hash": "4e93d52cd4cbabc3aeeff3a2e2e4992f",
     "semantic_hash": ""
   },
   "src/pages/painel/PainelBlocos.jsx": {
@@ -9835,8 +9835,8 @@
     "semantic_hash": ""
   },
   "src/pages/painel/PainelTarefas.jsx": {
-    "mtime": 1793139066.161311,
-    "ast_hash": "1f7bc457182af87483fab53f14a09ddd",
+    "mtime": 1793367769.4678912,
+    "ast_hash": "151d64d1724e01d4d7600875994d94cf",
     "semantic_hash": ""
   },
   "supabase/migrations/058_admin_tarefas.sql": {
@@ -9909,11 +9909,6 @@
     "ast_hash": "3ca3a85b95efc4a67a7355b2707d9139",
     "semantic_hash": ""
   },
-  "src/pages/painel/PainelTarefaModal.jsx": {
-    "mtime": 1793139066.1603,
-    "ast_hash": "8ff39490eec07f9253b3969ea45808f7",
-    "semantic_hash": ""
-  },
   "src/assets/webshard/cap-lutas-de-ilusao-especial-6-pt.webp": {
     "mtime": 1792531871.5913868,
     "ast_hash": "f8f4acb5fcc11756397c5eb84d97a751",
@@ -9950,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793360888.4552674,
+    "mtime": 1793371629.2291062,
     "ast_hash": "461fea17262f105cff0148a621a9a594",
     "semantic_hash": ""
   },
@@ -10377,6 +10372,26 @@
   "docs/WEBSHARD/REGRAS_CRITICAS.md": {
     "mtime": 1793297098.1949563,
     "ast_hash": "f045437cb3e71f494c5f7b986fb0da59",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/tarefas/TarefaCartao.jsx": {
+    "mtime": 1793367704.5759132,
+    "ast_hash": "b50082e83683cc306c6ce4f782bf10b6",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/tarefas/TarefaDetalhe.jsx": {
+    "mtime": 1793367741.645242,
+    "ast_hash": "d0c2c910209d4c56ffc77d98e335c735",
+    "semantic_hash": ""
+  },
+  "src/pages/painel/tarefas/tarefasFluxo.js": {
+    "mtime": 1793367692.5655544,
+    "ast_hash": "c5d30880ab77874021f1a81a84bcfbcc",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/062_admin_tarefas_fluxo.sql": {
+    "mtime": 1793367619.466713,
+    "ast_hash": "f70768ba126a6427e46f6a298902cb06",
     "semantic_hash": ""
   }
 }

@@ -104,6 +104,16 @@ export default function Painel() {
           {atualizado ? '✓' : '↻'}
         </button>
       </header>
+      {/* Seções logo abaixo do título: sempre à vista. */}
+      <nav className="painel-nav" role="tablist" aria-label={t('painel.titulo')}>
+        {Object.keys(SECOES).map(s => (
+          <button key={s} type="button" role="tab" aria-selected={secao === s} className={secao === s ? 'is-ativa' : ''}
+            onClick={() => { setSecao(s); setAba(SECOES[s][0]); setErro(null); window.scrollTo({ top: 0 }) }}>
+            <i aria-hidden="true">{ICONE[s]}</i>
+            <span>{t(`painel.secao.${s}`)}</span>
+          </button>
+        ))}
+      </nav>
       {ip && <p className="painel-nota">{t('painel.ip_excluido', { ip })}</p>}
 
       {SECOES[secao].length > 1 && (
@@ -158,16 +168,6 @@ export default function Painel() {
       {aba === 'steam' && <PainelSteam t={t} locale={lc} inicio={inicio} fim={fim} />}
       </div>
 
-      {/* Seções na base da tela, ao alcance do dedão. */}
-      <nav className="painel-nav" role="tablist" aria-label={t('painel.titulo')}>
-        {Object.keys(SECOES).map(s => (
-          <button key={s} type="button" role="tab" aria-selected={secao === s} className={secao === s ? 'is-ativa' : ''}
-            onClick={() => { setSecao(s); setAba(SECOES[s][0]); setErro(null); window.scrollTo({ top: 0 }) }}>
-            <i aria-hidden="true">{ICONE[s]}</i>
-            <span>{t(`painel.secao.${s}`)}</span>
-          </button>
-        ))}
-      </nav>
     </main>
   )
 }

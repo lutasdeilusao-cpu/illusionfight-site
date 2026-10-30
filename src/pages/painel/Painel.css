@@ -3,7 +3,7 @@
 .painel {
   --painel-cut: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
   --painel-topo-h: 48px;
-  --painel-nav-h: 64px;
+  --painel-nav-h: 0px;
   min-height: 100vh;
   padding: calc(60px + env(safe-area-inset-top, 0px)) 14px calc(var(--painel-nav-h) + 96px + var(--radio-nina-h, 0px) + env(safe-area-inset-bottom, 0px));
   background: radial-gradient(120% 30% at 50% 0%, var(--if-cyan-08), transparent 60%), var(--bg-primary);
@@ -54,20 +54,12 @@
 
 /* Seções: barra fixa na base da tela, no alcance do dedão; confinada à coluna do app. */
 .painel-nav {
-  position: fixed;
-  left: var(--app-gutter);
-  right: var(--app-gutter);
-  bottom: calc(var(--radio-nina-h, 0px));
-  z-index: 30;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  height: calc(var(--painel-nav-h) + env(safe-area-inset-bottom, 0px));
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  gap: 4px;
+  padding: 4px;
   background: var(--if-glass);
-  backdrop-filter: var(--if-blur);
-  -webkit-backdrop-filter: var(--if-blur);
-  border-top: 1px solid var(--if-edge);
-  overscroll-behavior: none;
+  border: 1px solid var(--if-edge);
 }
 .painel-nav button {
   position: relative;
@@ -81,10 +73,11 @@
   color: var(--text-secondary);
   background: none;
   border: 0;
+  min-height: 56px;
   cursor: pointer;
 }
 .painel-nav button i { font: 700 1.2rem/1 var(--font-display); font-style: normal; }
-.painel-nav button.is-ativa { color: var(--if-cyan); }
+.painel-nav button.is-ativa { color: var(--if-cyan); background: var(--if-cyan-08); }
 .painel-nav button.is-ativa::before {
   content: '';
   position: absolute;
