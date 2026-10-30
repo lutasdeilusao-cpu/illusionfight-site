@@ -140,23 +140,11 @@ Silêncio.
 
 O Kim olhou pro bolso.
 
-— Por falar nisso.
+— Mas a grana tá contigo. Dá pra comprar um, né?
 
-Puxou o celular, abriu o DIX e digitou. O celular do Jack apitou no capô.
+O Jack riu. Foi uma risada curta, no escuro.
 
-O Jack olhou a tela. Olhou de novo.
-
-— Kim. O que é isso?
-
-— Novecentos e noventa e oito mil. Fica contigo. Eu deixei dois mil pras contas do mês.
-
-— Tá maluco?
-
-— Dinheiro na minha mão some, você sabe. A Helena fareja. E esse cara tá de olho na minha conta, não na tua. Você sempre cuidou da nossa grana. Continua cuidando.
-
-O Jack ficou um tempo sem falar. Depois guardou o celular devagar, como quem guarda uma coisa viva.
-
-— Velho. Eu vou mexer nisso aqui com calma.
+— Velho. Com o que tá comigo, dá pra comprar a loja. Eu vou mexer nisso com calma. Você fica com o do mês, igual sempre.
 
 — Mexe. Eu nem quero saber.
 

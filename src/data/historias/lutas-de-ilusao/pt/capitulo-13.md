@@ -390,6 +390,24 @@ Passava das oito da noite quando largaram ele na esquina de casa.
 
 Dessa vez nem o avião incomodou. Ele passou a viagem inteira com a mão fechada no celular.
 
+Na calçada, antes de entrar, abriu as mensagens. Sessenta e três. Quarenta e nove do Jack, que começavam em *cadê vc* e terminavam em *se vc morreu eu te mato*. Catorze da Nina, cada vez mais curtas.
+
+*to vivo. caiu uma grana na minha conta*
+
+A resposta veio antes de ele guardar o celular.
+
+*NÃO ENTRA EM CASA COM ISSO NA CONTA*
+
+*manda pra mim. deixa só o do mês. igual sempre*
+
+Era a regra deles desde sempre. Grana na mão do Kim durava até a Helena sentir o cheiro.
+
+Ele deixou dois mil pras contas e mandou o resto.
+
+*DIX 998.000,00. Transferência enviada.*
+
+Do outro lado da cidade, alguém deve ter caído da cadeira.
+
 A porta da frente estava torta na dobradiça.
 
 Mal encostou nela, ela abriu por dentro.
@@ -428,17 +446,9 @@ Ela olhou aquela cara. Conhecia aquela cara desde que ele tinha o tamanho de uma
 
 ---
 
-O celular tinha sessenta e três mensagens.
+Ele sentou na cama. O telefone tocou antes de ele tirar a camisa.
 
-Quarenta e nove do Jack, que começavam em *cadê vc* e terminavam em *se vc morreu eu te mato*. Catorze da Nina, cada vez mais curtas.
-
-Ele sentou na cama. Mandou:
-
-*to vivo. tenho que te contar uma coisa*
-
-O telefone tocou antes de ele soltar.
-
-— MANO. Cê sumiu o dia inteiro! Tô te mandando mensagem desde cedo! Que porra aconteceu?
+— MANO. Novecentos e noventa e oito mil?! Cê sumiu o dia inteiro! Tô te mandando mensagem desde cedo! Que porra aconteceu?
 
 — Até a Helena me ligou, cara. A HELENA. Pela primeira vez na vida. Nem sabia que ela tinha o meu número. Eu tô preocupado de verdade.
 
@@ -460,15 +470,7 @@ Em todos aqueles anos, aquilo não tinha acontecido nenhuma vez.
 
 — Maluco. Que doideira.
 
-— E me deu um milhão.
-
-Silêncio de novo. Mais longo.
-
-— Um milhão de quê?
-
-— DIX.
-
-— ...Kim.
+— E a grana, Kim?
 
 — Eu só testei. Aí ele mandou. Depois eu falei que não sabia de nada, mostrei o dedo e fui embora.
 
