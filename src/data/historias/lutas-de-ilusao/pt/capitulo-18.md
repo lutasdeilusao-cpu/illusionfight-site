@@ -396,7 +396,7 @@ De um lado, o ar rasgou num anel de luz e ela atravessou em silêncio. Capuz cur
 
 Do outro lado, o portal não rasgou. Estourou.
 
-O chão tremeu antes de ela aparecer. A primeira coisa foi a bota, de couro e pele, afundando na pedra. Depois o resto. Peles de lobo nos ombros. Cota de malha até as coxas, cinto largo de ferro, braceletes gravados com runas. Um escudo redondo de madeira e metal nas costas. No cabelo violeta escuro, tranças grossas presas com anéis de ferro, descendo até a cintura. Uma faixa preta pintada atravessava os dois olhos, de lado a lado, e os olhos azuis olhavam lá de dentro.
+O chão tremeu antes de ela aparecer. A primeira coisa foi a bota, de couro e pele, afundando na pedra. Depois o resto. Peles de lobo nos ombros. Cota de malha até as coxas, cinto largo de ferro, braceletes gravados com runas. Um escudo redondo de madeira e metal nas costas. E, deitado no ombro, como quem carrega uma enxada pra roça, um machado longo, de cabo alto como ela, a lâmina larga marcada de runas. No cabelo violeta escuro, tranças grossas presas com anéis de ferro, descendo até a cintura. Uma faixa preta pintada atravessava os dois olhos, de lado a lado, e os olhos azuis olhavam lá de dentro.
 
 Bateu o punho fechado no peito uma vez. A arquibancada inteira sentiu.
 
@@ -414,7 +414,7 @@ A Nina puxou um centímetro da lâmina.
 
 Do centro da arena subiu aquela figura de membros compridos demais, o terno de cor doente, o microfone na mão. A plateia explodiu antes de ela abrir a boca.
 
-— Senhoras e senhores, bem-vindos às Lutas de Ilusão! Do lado esquerdo, a lâmina que ninguém ouve chegar! Nina! Mil oitocentas e quarenta e sete vitórias, trezentas e noventa e oito derrotas, posição 8.724 no ranking SDR! Do lado direito, vinda de Aurélia, a tempestade do norte que veio cobrar pedágio! A Viking! Mera! Duas mil e dezesseis vitórias, duzentas e setenta e quatro derrotas, posição 7.312 no ranking SDR! Como dizem os veteranos: dívida antiga se paga com juros!
+— Senhoras e senhores, bem-vindos às Lutas de Ilusão! Do lado esquerdo, a Morte Silenciosa! Nina! Mil oitocentas e quarenta e sete vitórias, trezentas e noventa e oito derrotas, posição 8.724 no ranking SDR! Do lado direito, vinda de Aurélia, a Bárbara Sangrenta! Mera! Duas mil e dezesseis vitórias, duzentas e setenta e quatro derrotas, posição 7.312 no ranking SDR! Como dizem os veteranos: dívida antiga se paga com juros!
 
 Abriu os braços. Os dedos não acabavam nunca.
 
