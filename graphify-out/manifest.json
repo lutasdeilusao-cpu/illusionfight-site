@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793399369.7585435,
-    "ast_hash": "bc684fe819c8ef0dd407a58905f9da5d",
+    "mtime": 1793400585.5174935,
+    "ast_hash": "32867858d1d98b072d4e36bba56fae84",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793399369.8070576,
-    "ast_hash": "62a6ff8d245741be617cdf571a3f3494",
+    "mtime": 1793400585.5625656,
+    "ast_hash": "001914a7b13f44d691f498d6e9d1850b",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -6340,8 +6340,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-16.md": {
-    "mtime": 1793395069.2654896,
-    "ast_hash": "a9c588c90a718421a001feac009e88c8",
+    "mtime": 1793400576.0086234,
+    "ast_hash": "578e16e49931788ccc26ed6ef27d4b35",
     "semantic_hash": ""
   },
   "src/data/historias/obras/mar-de-cinzas/pt/00.md": {
@@ -7570,8 +7570,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-18.md": {
-    "mtime": 1793399369.6535738,
-    "ast_hash": "b568048ca4e3572fdab4e097ef92b329",
+    "mtime": 1793400576.0076237,
+    "ast_hash": "5290d1a8540ec096710f36c3bb913301",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-19.md": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793399405.8601403,
+    "mtime": 1793400603.7523987,
     "ast_hash": "461fea17262f105cff0148a621a9a594",
     "semantic_hash": ""
   },

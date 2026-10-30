@@ -98,7 +98,7 @@ Ele levantou. Olhou pras próprias mãos.
 
 A figura que emergiu do centro da arena não era humana nem pretendia ser.
 
-Membros longos demais para a proporção do tronco, olhos que eram buracos sem fundo, cabelos grisalhos contrastando com mechas que desciam pelos ombros como algo com vida própria. O terno era uma aberração de elegância, púrpura sangrando para verde metálico. Nas mãos esqueléticas, uma arma-microfone de osso polido e metal escuro.
+Membros longos demais para a proporção do tronco, olhos que eram buracos sem fundo, cabelos grisalhos contrastando com mechas que desciam pelos ombros como algo com vida própria. O terno era uma aberração de elegância, púrpura sangrando para verde metálico. O corpo inteiro era feito de tentáculos, e num deles estava uma arma-microfone de osso polido e metal escuro.
 
 A criatura ergueu o microfone e a plateia explodiu.
 

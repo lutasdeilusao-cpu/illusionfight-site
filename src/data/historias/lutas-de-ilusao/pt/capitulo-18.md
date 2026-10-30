@@ -394,28 +394,30 @@ Na tela do celular do Jack, a arena acendeu.
 
 De um lado, o ar rasgou num anel de luz e ela atravessou em silêncio. Capuz curto. Capa até o meio das costas. A marca vermelha cortando o olho direito. Parou sem levantar poeira, a mão já no cabo da Angel.
 
-Do outro lado, o portal não rasgou. Estourou.
+Do centro da arena emergiu aquela figura grande demais pra ser gente, o corpo inteiro feito de tentáculos se enrolando dentro de um terno de cor doente. Um deles segurava o microfone. A plateia explodiu antes de ela abrir a boca.
+
+— Senhoras e senhores, bem-vindos às Lutas de Ilusão! Do lado esquerdo, a Morte Silenciosa! Nina! Mil oitocentas e quarenta e sete vitórias, trezentas e noventa e oito derrotas, posição 8.724 no ranking SDR!
+
+Um tentáculo apontou pro outro lado.
+
+— E do lado direito, vinda de Aurélia...
+
+O ar rasgou. O portal não abriu. Estourou.
 
 O chão tremeu antes de ela aparecer. A primeira coisa foi a bota, de couro e pele, afundando na pedra. Depois o resto. Peles de lobo nos ombros. Cota de malha até as coxas, cinto largo de ferro, braceletes gravados com runas. Um escudo redondo de madeira e metal nas costas. E, deitado no ombro, como quem carrega uma enxada pra roça, um machado longo, de cabo alto como ela, a lâmina larga marcada de runas. No cabelo violeta escuro, tranças grossas presas com anéis de ferro, descendo até a cintura. Uma faixa preta pintada atravessava os dois olhos, de lado a lado, e os olhos azuis olhavam lá de dentro.
 
-Bateu o punho fechado no peito uma vez. A arquibancada inteira sentiu.
-
 Não tinha sobrado nada da garota de moletom.
-
-Uma ninja. E uma viking.
 
 — Puta que pariu. — O Jack.
 
-O Kim não disse nada. Só chegou mais perto da tela. O contador de espectadores começou a subir.
+— ...a Bárbara Sangrenta! Mera! Duas mil e dezesseis vitórias, duzentas e setenta e quatro derrotas, posição 7.312 no ranking SDR! Como dizem os veteranos: dívida antiga se paga com juros!
 
 A Mera sorriu pra Nina, do outro lado da arena, com o mesmo sorriso de um ginásio, pouco mais de um ano atrás.
 
 A Nina puxou um centímetro da lâmina.
 
-Do centro da arena subiu aquela figura de membros compridos demais, o terno de cor doente, o microfone na mão. A plateia explodiu antes de ela abrir a boca.
+O Kim não disse nada. Só chegou mais perto da tela. O contador de espectadores começou a subir.
 
-— Senhoras e senhores, bem-vindos às Lutas de Ilusão! Do lado esquerdo, a Morte Silenciosa! Nina! Mil oitocentas e quarenta e sete vitórias, trezentas e noventa e oito derrotas, posição 8.724 no ranking SDR! Do lado direito, vinda de Aurélia, a Bárbara Sangrenta! Mera! Duas mil e dezesseis vitórias, duzentas e setenta e quatro derrotas, posição 7.312 no ranking SDR! Como dizem os veteranos: dívida antiga se paga com juros!
-
-Abriu os braços. Os dedos não acabavam nunca.
+Os tentáculos do Narrador se abriram pro céu.
 
 — AAAAASSSSS apostas estãoooo abertaaaaas!
