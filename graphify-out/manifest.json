@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793401860.322063,
-    "ast_hash": "49df0558b76a817e0a46d545e0b9dd9d",
+    "mtime": 1793402406.7203486,
+    "ast_hash": "09999d6377792b8c950bb23d7eb735fb",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793401860.3670416,
-    "ast_hash": "1e5ebe104b05b03e23a3225c866034aa",
+    "mtime": 1793402406.766347,
+    "ast_hash": "bd6504967d7212952a5c276d7a3643e8",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3570,8 +3570,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/LatestEpisodes.jsx": {
-    "mtime": 1791808433.879,
-    "ast_hash": "248110e024eb4d0d08be313bf160af9a",
+    "mtime": 1793402359.6297362,
+    "ast_hash": "4ba5f3a524cea0b6a6cb47a78c704af9",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/MusicSection.jsx": {
@@ -4545,8 +4545,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardHub.jsx": {
-    "mtime": 1792796453.3470404,
-    "ast_hash": "c7b6355f81a5163a7dda765caa14ba5b",
+    "mtime": 1793402359.6467917,
+    "ast_hash": "5e93df0945ff7b9403f258ec99c65ddf",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardLeitor.jsx": {
@@ -4600,8 +4600,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/TituloHero.jsx": {
-    "mtime": 1792207875.3571177,
-    "ast_hash": "2c8cde291954b47f50868540596ca0f6",
+    "mtime": 1793402359.6264296,
+    "ast_hash": "70d3f87a160c44906f7717422666800c",
     "semantic_hash": ""
   },
   "supabase/migrations/042_webshard_reacoes.sql": {
@@ -4680,13 +4680,13 @@
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriasHub.jsx": {
-    "mtime": 1791758188.8128736,
-    "ast_hash": "d10196fd4a15364595741b7bc3bd7061",
+    "mtime": 1793402359.62773,
+    "ast_hash": "549510615796e1c2d5e8f6b7a1da69a4",
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriasUniversos.jsx": {
-    "mtime": 1792596089.0545814,
-    "ast_hash": "3ff21aa8c59c028322aad921ab76c679",
+    "mtime": 1793402406.6777263,
+    "ast_hash": "b705c047254458c4009143e980ddd63a",
     "semantic_hash": ""
   },
   "src/assets/obras/mar-de-cinzas/cap-01.webp": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793401867.2150776,
+    "mtime": 1793402427.599524,
     "ast_hash": "461fea17262f105cff0148a621a9a594",
     "semantic_hash": ""
   },

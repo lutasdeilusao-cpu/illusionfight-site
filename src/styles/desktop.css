@@ -30,8 +30,6 @@
 
   /* Home */
   html.is-wide .home-page { max-width: none; }
-  html.is-wide .hero-show__palco { aspect-ratio: 21 / 9; }
-  html.is-wide .hero-show__arte { object-position: center 25%; }
 
   /* Vitrines */
   html.is-wide .games-vitrine { grid-template-columns: repeat(3, 1fr); padding-inline: 1.5rem; }
@@ -89,4 +87,16 @@
   html.is-wide .hist-obra { display: grid; grid-template-columns: 240px 1fr; gap: 1.5rem; min-height: 0; max-height: 380px; }
   html.is-wide .hist-obra__capa { aspect-ratio: 2 / 3; height: auto; max-height: 360px; }
   html.is-wide .hist-obra__info { justify-content: center; }
+
+  /* Banner: arte inteira à direita, texto respirando à esquerda */
+  html.is-wide .hero-show__palco { aspect-ratio: auto; height: min(86vh, 760px); }
+  html.is-wide .hero-show__arte { left: auto; right: 0; width: 56%; object-fit: cover; object-position: 50% 20%; }
+  html.is-wide .hero-show__veu { background:
+    linear-gradient(to bottom, rgb(5 8 10 / .6), transparent 18%),
+    linear-gradient(to right, var(--bg-primary) 44%, rgb(11 13 15 / .75) 54%, transparent 72%); }
+  html.is-wide .hero-show__conteudo { left: 3.5rem; right: auto; top: 50%; bottom: auto; width: 42%; transform: translateY(-46%); }
+  html.is-wide .hero-show__titulo { font-size: 3.2rem; line-height: 1.05; }
+  html.is-wide .hero-show__sub { font-size: 1.1rem; line-height: 1.6; }
+  html.is-wide .hero-show__acoes { justify-content: flex-start; gap: .75rem; margin-top: 1rem; }
+  html.is-wide .hero-show__btn { flex: 0 0 auto; width: auto; min-width: 180px; padding-inline: 2rem; }
 }
