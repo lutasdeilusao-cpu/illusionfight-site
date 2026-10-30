@@ -284,7 +284,7 @@ O Jack olhou pra loira. Olhou de novo. Achou que era a garota mais gata que já 
 
 — Passeando.
 
-— Você não devia estar em Aurelia? Defendendo título?
+— Você não devia estar em Aurélia? Defendendo título?
 
 — Tirei férias. Resolvi conhecer Bravara. E olha só, que coincidência.
 
@@ -398,7 +398,7 @@ A arquibancada já estava enchendo. Do centro, subiu aquela figura de membros co
 
 O ar rasgou. Um anel de luz se abriu e ela atravessou em silêncio. Capuz curto. Capa até o meio das costas. A marca vermelha cortando o olho direito. Parou sem levantar poeira, a mão já no cabo da Angel.
 
-— Do lado direito, vinda de Aurelia, uma visitante que apostou no próprio nome! Uma campeã que resolveu descobrir se aqui dentro também se apanha!
+— Do lado direito, vinda de Aurélia, uma visitante que apostou no próprio nome! Uma campeã que resolveu descobrir se aqui dentro também se apanha!
 
 O outro portal não rasgou. Estourou.
 
