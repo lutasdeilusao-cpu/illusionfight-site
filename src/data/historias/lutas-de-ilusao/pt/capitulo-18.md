@@ -284,7 +284,7 @@ O Jack olhou pra loira. Olhou de novo. Achou que era a garota mais gata que já 
 
 — Passeando.
 
-— Você não devia estar no teu país? Defendendo título?
+— Você não devia estar em Aurelia? Defendendo título?
 
 — Tirei férias. Resolvi conhecer Bravara. E olha só, que coincidência.
 
@@ -292,7 +292,7 @@ O Jack olhou pra loira. Olhou de novo. Achou que era a garota mais gata que já 
 
 — E aí, Nina. — O Jack, baixo. — Quem é a tua amiga?
 
-— Ela não é minha amiga. É a Mera. Campeã mundial de Muay Thai.
+— Ela não é minha amiga. É a Mera. Campeã mundial amadora de Muay Thai.
 
 — Ô, uma campeã. Olha só.
 
@@ -300,7 +300,7 @@ A Mera nem olhou pra ele.
 
 A Nina sabia exatamente há quanto tempo não via aquela cara.
 
-Tinha dezesseis anos. Campeonato mundial amador. Fazia anos que ela treinava, tinha chegado lá sem perder pra ninguém e tinha certeza de que ia sair com o cinturão.
+Tinha dezesseis anos. Idade pra profissional, ninguém ali tinha. Era o campeonato mundial amador, o topo pra quem ainda era de menor. Fazia anos que ela treinava, tinha chegado lá sem perder pra ninguém e tinha certeza de que ia sair com o cinturão.
 
 Saiu com o nariz quebrado.
 
@@ -310,7 +310,7 @@ Foi naquela noite, numa maca, que ela entendeu que o corpo tinha limite. Que ain
 
 Uma semana depois, ela comprou o primeiro SBI.
 
-Ninguém sabia disso. Fazia anos que aquilo estava engasgado na garganta dela.
+Ninguém sabia disso. Fazia pouco mais de um ano que aquilo estava engasgado na garganta dela.
 
 — E você, Nina? Desistiu das competições?
 
@@ -348,7 +348,7 @@ Ela voltou devagar. Parou a um palmo da loira.
 
 — Então arruma um ringue.
 
-— Pra quê? — A Mera tirou um SBI do bolso do moletom. Branco, sem um risco. — Vamos lutar no próprio LDI. Eu também andei cuidando de outros objetivos. Tava procurando uma oponentezinha pra me ajudar a subir no ranking.
+— Pra quê? — A Mera enfiou a mão no bolsão da frente do moletom, aquele de canguru, e tirou um par de óculos e duas luvas. SBI branco, sem um risco. — Vamos lutar no próprio LDI. Eu também andei cuidando de outros objetivos. Tava procurando uma oponentezinha pra me ajudar a subir no ranking.
 
 Silêncio.
 
@@ -386,30 +386,38 @@ A Nina sentou no meio-fio. Pôs o SBI. Antes de fechar os olhos, olhou pros dois
 
 Do outro lado, a Mera sentou na calçada, cruzou as pernas e sorriu.
 
-— NeoGuide. — As duas, ao mesmo tempo. — Aceitar desafio.
+— NeoGuide. — As duas, ao mesmo tempo. — Confirmar luta.
 
 ---
 
 Na tela do celular do Jack, a arena acendeu.
 
-De um lado, uma sombra caiu em silêncio. Capuz curto. Capa até o meio das costas. A marca vermelha atravessando o olho direito. Pousou sem levantar poeira, a mão já no cabo da Angel.
+A arquibancada já estava enchendo. Do centro, subiu aquela figura de membros compridos demais, o terno de cor doente, o microfone na mão, e a plateia gritou antes de ele abrir a boca.
 
-Do outro lado, o chão tremeu.
+— Senhoras e senhores! — O Narrador abriu os braços, e os dedos não acabavam nunca. — O destino é um péssimo roteirista, e é por isso que eu amo o destino! Do lado esquerdo, Nina! Rank oito mil setecentos e vinte e quatro, a lâmina que ninguém ouve chegar!
 
-Ela caiu como machado. Pousou de joelho, com um estouro, e a pedra rachou em volta dela. Levantou devagar. Peles nos ombros, couro e metal no peito, os braços nus cobertos de cicatriz pintada. O cabelo vermelho descia em tranças até a cintura. Uma faixa preta atravessava os dois olhos, de lado a lado, e os olhos azuis olhavam de dentro dela.
+O ar rasgou. Um anel de luz se abriu e ela atravessou em silêncio. Capuz curto. Capa até o meio das costas. A marca vermelha cortando o olho direito. Parou sem levantar poeira, a mão já no cabo da Angel.
 
-Não tinha nada de garota de moletom.
+— Do lado direito, vinda de Aurelia, uma visitante que apostou no próprio nome! Uma campeã que resolveu descobrir se aqui dentro também se apanha!
 
-Uma ninja. E uma bárbara.
+O outro portal não rasgou. Estourou.
+
+O chão tremeu antes de ela aparecer. A primeira coisa foi a bota, de couro e pele, afundando na pedra. Depois o resto. Peles de lobo nos ombros. Cota de malha até as coxas, cinto largo de ferro, braceletes gravados com runas. Um escudo redondo de madeira e metal nas costas. No cabelo violeta escuro, tranças grossas presas com anéis de ferro, descendo até a cintura. Uma faixa preta pintada atravessava os dois olhos, de lado a lado, e os olhos azuis olhavam lá de dentro.
+
+Bateu o punho fechado no peito uma vez. A arquibancada inteira sentiu.
+
+Não tinha sobrado nada da garota de moletom.
+
+Uma ninja. E uma viking.
 
 — Puta que pariu. — O Jack.
 
+O Kim não disse nada. Só chegou mais perto da tela.
+
 O contador de espectadores começou a subir.
 
-A Mera sorriu pra Nina, do outro lado da arena, com o mesmo sorriso de um ginásio, anos atrás.
+A Mera sorriu pra Nina, do outro lado da arena, com o mesmo sorriso de um ginásio, pouco mais de um ano atrás.
 
 A Nina puxou um centímetro da lâmina.
 
-No meio da arena, em letras de luz, apareceu uma palavra só.
-
-*LUTEM.*
+— Apostas encerradas. — O Narrador, quase num sussurro, e o mundo inteiro ouviu. — Que a Luta de Ilusão comece.

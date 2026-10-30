@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793398057.9842353,
-    "ast_hash": "a67b070cf838e13488408289edd2fda7",
+    "mtime": 1793398456.0120046,
+    "ast_hash": "154261d22dc8abaf0a21e4ddb0cdd241",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793398058.0227857,
-    "ast_hash": "70afb6ac4328763feeef8c9082e3edbb",
+    "mtime": 1793398456.057094,
+    "ast_hash": "de6d0347ddbeba3200232ee56fb00ade",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3595,18 +3595,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1793367883.2580485,
-    "ast_hash": "497ace3a67a35e23ad6e3d5ad699a2e3",
+    "mtime": 1793398455.9740055,
+    "ast_hash": "b8c4a12cbff659482fab1d874f344462",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1793367883.261047,
-    "ast_hash": "25d129d5c81e8535c097d14a04ee1666",
+    "mtime": 1793398455.9750082,
+    "ast_hash": "070597c35d5c1667a071f4a659beb4cb",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1793367883.254047,
-    "ast_hash": "a65013821a4c5802fb697d7cc8b4d416",
+    "mtime": 1793398455.970996,
+    "ast_hash": "a1a28b11d72aef5ce8469bd73f7ec349",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -9835,8 +9835,8 @@
     "semantic_hash": ""
   },
   "src/pages/painel/PainelTarefas.jsx": {
-    "mtime": 1793367769.4678912,
-    "ast_hash": "151d64d1724e01d4d7600875994d94cf",
+    "mtime": 1793398455.9657998,
+    "ast_hash": "df04ae9596183834357440dea04472c9",
     "semantic_hash": ""
   },
   "supabase/migrations/058_admin_tarefas.sql": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793398082.639118,
+    "mtime": 1793398475.8217568,
     "ast_hash": "461fea17262f105cff0148a621a9a594",
     "semantic_hash": ""
   },
@@ -10375,13 +10375,13 @@
     "semantic_hash": ""
   },
   "src/pages/painel/tarefas/TarefaCartao.jsx": {
-    "mtime": 1793367704.5759132,
-    "ast_hash": "b50082e83683cc306c6ce4f782bf10b6",
+    "mtime": 1793398455.966801,
+    "ast_hash": "c9e27165eac75b68b8c2d2a72346ca38",
     "semantic_hash": ""
   },
   "src/pages/painel/tarefas/TarefaDetalhe.jsx": {
-    "mtime": 1793367741.645242,
-    "ast_hash": "d0c2c910209d4c56ffc77d98e335c735",
+    "mtime": 1793398455.9680448,
+    "ast_hash": "b7b520bf1b77a77dd8c9187c601e6e1f",
     "semantic_hash": ""
   },
   "src/pages/painel/tarefas/tarefasFluxo.js": {
