@@ -27,6 +27,7 @@ function Formulario({ tarefa, pessoas, eu, t, onCancelar, onSalvar, onApagar }) 
   const rascunho = ler(tarefa.id)
   const [form, setForm] = useState(rascunho || tarefa)
   const [salvando, setSalvando] = useState(false)
+  const [falha, setFalha] = useState(null)
   const mudar = k => e => {
     const novo = { ...form, [k]: e.target.value }
     if (k === 'para' && (!form.revisor || form.revisor === revisorSugerido(form.para, pessoas, eu))) novo.revisor = revisorSugerido(novo.para, pessoas, eu)
@@ -38,8 +39,8 @@ function Formulario({ tarefa, pessoas, eu, t, onCancelar, onSalvar, onApagar }) 
     limpar(tarefa.id); onCancelar()
   }
   const salvar = async e => {
-    e.preventDefault(); setSalvando(true)
-    try { await onSalvar(form); limpar(tarefa.id) } catch { setSalvando(false) }
+    e.preventDefault(); setSalvando(true); setFalha(null)
+    try { limpar(tarefa.id); await onSalvar(form) } catch (err) { gravar(tarefa.id, form); setSalvando(false); setFalha(err.message) }
   }
   const apagar = async () => {
     if (!window.confirm(t('painel.tarefas.confirmar_apagar'))) return
@@ -49,6 +50,7 @@ function Formulario({ tarefa, pessoas, eu, t, onCancelar, onSalvar, onApagar }) 
     <form className="tq-folha__form" onSubmit={salvar}>
       <div className="tq-folha__corpo tq-form">
         {rascunho && <p className="tq-aviso">{t('painel.tarefas.rascunho_recuperado')}</p>}
+        {falha && <p className="painel-erro" role="alert">{t('painel.tarefas.erro_salvar')} {falha}</p>}
         <label>{t('painel.tarefas.titulo')}<input value={form.titulo} onChange={mudar('titulo')} required autoFocus={!tarefa.id} /></label>
         <label>{t('painel.tarefas.descricao')}<TextoLongo value={form.descricao || ''} onChange={mudar('descricao')} /></label>
         <div className="tq-form__linha">

@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793396538.1798012,
-    "ast_hash": "004e021b2cc62823acf8759c1a36d162",
+    "mtime": 1793398057.9842353,
+    "ast_hash": "a67b070cf838e13488408289edd2fda7",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793396538.217768,
-    "ast_hash": "d42f30b50e3a495010e6d148533aa349",
+    "mtime": 1793398058.0227857,
+    "ast_hash": "70afb6ac4328763feeef8c9082e3edbb",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7570,8 +7570,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-18.md": {
-    "mtime": 1793396538.1558242,
-    "ast_hash": "425f247ad36863aa236b1cdf431c591e",
+    "mtime": 1793398057.947572,
+    "ast_hash": "0a5980448b8c749520fb94784822624a",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-19.md": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793396558.2343867,
+    "mtime": 1793398082.639118,
     "ast_hash": "461fea17262f105cff0148a621a9a594",
     "semantic_hash": ""
   },

@@ -1947,6 +1947,8 @@
       "abrir_link": "Abrir",
       "motivo_reprovar": "¿Qué hay que cambiar?",
       "motivo_placeholder": "Explica qué hay que corregir…",
+      "criada": "Tarea {n} creada.",
+      "erro_salvar": "No se pudo guardar. Tu texto sigue aquí.",
       "meu_foco": "Mi foco",
       "buscar": "Buscar por título o LDI-32",
       "foco": {

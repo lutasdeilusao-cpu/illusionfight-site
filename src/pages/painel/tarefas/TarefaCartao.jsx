@@ -10,12 +10,12 @@ export function Avatar({ pessoa, pequeno }) {
   )
 }
 
-export default function TarefaCartao({ x, eu, pessoa, t, data, onAbrir, onAcao }) {
+export default function TarefaCartao({ x, nova, eu, pessoa, t, data, onAbrir, onAcao }) {
   const acao = acaoDe(x, eu)
   const tarde = atrasada(x)
   const rev = revisorDe(x)
   return (
-    <li className={`tq-cartao is-${x.prioridade}${tarde ? ' is-atrasada' : ''}`}>
+    <li className={`tq-cartao is-${x.prioridade}${tarde ? ' is-atrasada' : ''}${nova ? ' is-nova' : ''}`}>
       <button type="button" className="tq-cartao__corpo" onClick={() => onAbrir(x)}>
         <span className="tq-cartao__topo">
           <span className="tq-chave">{chave(x)}</span>

@@ -337,3 +337,6 @@
 }
 .tarefa-fim button.is-primario { color: var(--bg-primary); background: var(--if-cyan); }
 .tarefa-fim button:disabled { opacity: .45; cursor: default; }
+
+.tq-aviso-criada { margin: 0; padding: 10px 12px; font: 700 .68rem var(--font-mono); color: var(--if-ok); border: 1px solid var(--if-ok); }
+.tq-cartao.is-nova { box-shadow: 0 0 0 1px var(--if-ok); }

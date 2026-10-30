@@ -21,6 +21,7 @@ export default function PainelTarefas({ t, locale }) {
   const [busca, setBusca] = useState('')
   const [aberta, setAberta] = useState(null)
   const [erro, setErro] = useState(null)
+  const [criada, setCriada] = useState(null)
   const barra = useRef(null)
   const toque = useRef(null)
 
@@ -39,7 +40,7 @@ export default function PainelTarefas({ t, locale }) {
   const termo = busca.trim().toLowerCase()
   const visiveis = useMemo(() => (tarefas || []).filter(x => FILTROS[filtro](x, eu)
     && (!termo || `${x.titulo} ${x.descricao || ''} ldi-${x.id}`.toLowerCase().includes(termo))), [tarefas, filtro, termo, eu])
-  const daColuna = visiveis.filter(x => colunaDe(x) === coluna).sort(ordenar)
+  const daColuna = visiveis.filter(x => colunaDe(x) === coluna).sort((a, b) => (b.id === criada) - (a.id === criada) || ordenar(a, b))
 
   const todas = tarefas || []
   const foco = {
@@ -63,9 +64,14 @@ export default function PainelTarefas({ t, locale }) {
     }
     carregar()
   }
-  const salvar = async f => { await rpc('admin_tarefa_salvar', { p: f }); carregar() }
+  // Tarefa nova vai pro topo da coluna dela, com aviso, pra quem criou ver que foi.
+  const salvar = async f => {
+    const id = await rpc('admin_tarefa_salvar', { p: f })
+    await carregar()
+    if (!f.id) { setCriada(Number(id)); setFiltro('tudo'); setBusca(''); setColuna(f.status || 'fazer'); window.scrollTo({ top: 0 }) }
+  }
   const apagar = async id => { await rpc('admin_tarefa_apagar', { p_id: id }); carregar() }
-  const nova = () => setAberta({ ...VAZIA, para: eu || '', revisor: revisorSugerido(eu, pessoas, eu), status: coluna === 'arquivo' ? 'fazer' : coluna })
+  const nova = () => setAberta({ ...VAZIA, para: revisorSugerido(eu, pessoas, eu), revisor: eu || '', status: coluna === 'arquivo' ? 'fazer' : coluna })
 
   // Deslizar o dedo na lista troca de coluna.
   const inicioToque = e => { toque.current = { x: e.touches[0].clientX, y: e.touches[0].clientY } }
@@ -122,11 +128,13 @@ export default function PainelTarefas({ t, locale }) {
         ) : (
           <ul className="tq-lista">
             {daColuna.map(x => (
-              <TarefaCartao key={x.id} x={x} eu={eu} pessoa={pessoa} t={t} data={data} onAbrir={setAberta} onAcao={agir} />
+              <TarefaCartao key={x.id} x={x} nova={x.id === criada} eu={eu} pessoa={pessoa} t={t} data={data} onAbrir={setAberta} onAcao={agir} />
             ))}
           </ul>
         )}
       </div>
+
+      {criada && <p className="tq-aviso-criada" role="status">{t('painel.tarefas.criada', { n: `LDI-${criada}` })}</p>}
 
       <button type="button" className="tq-nova" onClick={nova} aria-label={t('painel.tarefas.nova')}>+</button>
 

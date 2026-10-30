@@ -1947,6 +1947,8 @@
       "abrir_link": "Open",
       "motivo_reprovar": "What needs to change?",
       "motivo_placeholder": "Explain what has to be fixed…",
+      "criada": "Task {n} created.",
+      "erro_salvar": "Could not save. Your text is still here.",
       "meu_foco": "My focus",
       "buscar": "Search by title or LDI-32",
       "foco": {

@@ -1947,6 +1947,8 @@
       "abrir_link": "Abrir",
       "motivo_reprovar": "O que precisa mudar?",
       "motivo_placeholder": "Explique o que tem que corrigir…",
+      "criada": "Tarefa {n} criada.",
+      "erro_salvar": "Não deu pra salvar. Seu texto continua aqui.",
       "meu_foco": "Meu foco",
       "buscar": "Buscar por título ou LDI-32",
       "foco": {
