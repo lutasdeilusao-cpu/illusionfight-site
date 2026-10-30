@@ -136,7 +136,7 @@ Kim se quedó un segundo con eso. Un arma que leía la mente. Un juego que leía
 
 Kim asintió.
 
-— En nuestra pelea usé a Angel en Chamán. — Nina. — En Chamán se estira como si fuera un brazo, hasta unos tres metros. Y entonces lo combiné con mi elemental, que es Luz, e hice el Luminus Blade. El arma con el poder junto. Para asegurarme de que te iba a cortar por la mitad.
+— En nuestra pelea usé a Angel en Chamán. — Nina. — En Chamán se estira como si fuera un brazo, hasta unos dos metros. Y entonces lo combiné con mi elemental, que es Luz, e hice el Luminus Blade. El arma con el poder junto. Para asegurarme de que te iba a cortar por la mitad.
 
 — De eso me acuerdo. — Kim. — Fue por muy poco. Gracias por recordármelo. — Pausa. — Y fue ahí cuando vi al viejo sabio de nuevo. Ese que habla con enigmas.
 

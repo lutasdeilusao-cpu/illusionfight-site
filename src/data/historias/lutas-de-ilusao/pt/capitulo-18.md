@@ -251,3 +251,121 @@ Ela estava revoltada.
 O Jack viu o tempo fechando e fez o que ele sempre fazia.
 
 — Gente. Vamos se acalmar, respirar fundo e achar alguma coisa pra beber, que eu tô com a garganta seca. — Já se levantando. — Eu ainda tenho um trocadinho, e só vou trabalhar à noite. Hoje a gente acha uma lojinha, pega uma vodkinha, e bebe com calma. Apreciando cada gole.
+
+---
+
+Saíram da praça discutindo se limão era despesa ou investimento.
+
+Por isso nenhum dos dois viu.
+
+Uma garota de moletom vinha na direção contrária, touca na cabeça, mãos no bolso. Tinha a calçada inteira pra passar. Passou pelo ombro da Nina.
+
+Forte. De propósito.
+
+A Nina virou com tudo.
+
+— Qual é que foi, menina?
+
+A garota parou. Pele branca. Olhos muito azuis. Virou devagar, com um meio sorriso.
+
+— Ué. Não se lembra de mim, Nina?
+
+Levou a mão à touca e puxou. O cabelo loiro caiu nos ombros.
+
+A Nina parou de respirar por um segundo. O Kim viu. Nunca tinha visto aquilo.
+
+— Mera.
+
+— Ah. Então lembra.
+
+O Jack olhou pra loira. Olhou de novo. Achou que era a garota mais gata que já tinha passado por Marelia. O Kim não olhou pra ela. Olhou pras mãos, pros ombros, pro jeito de apoiar o peso. Conhecia aquele jeito de ficar parada.
+
+— O que você tá fazendo aqui?
+
+— Passeando.
+
+— Você não devia estar no teu país? Defendendo título?
+
+— Tirei férias. Resolvi conhecer Bravara. E olha só, que coincidência.
+
+— Esse tipo de coincidência não existe.
+
+— E aí, Nina. — O Jack, baixo. — Quem é a tua amiga?
+
+— Ela não é minha amiga. É a Mera. Campeã mundial de Muay Thai.
+
+— Ô, uma campeã. Olha só.
+
+A Mera nem olhou pra ele.
+
+— E você, Nina? Desistiu das competições?
+
+— Tô focando em outros objetivos.
+
+— Então desistiu. Depois de perder pra mim.
+
+— Eu não desisti. Eu disse que tô focando em outros objetivos.
+
+— Que objetivos?
+
+— Não é da tua conta.
+
+— Fiquei sabendo que você evoluiu muito no LDI.
+
+A Nina virou as costas.
+
+— Vamos embora, gente.
+
+— Ué. Vai fugir de novo? — A Mera não levantou a voz. — Tudo bem. Eu também fugiria, depois da nossa última luta.
+
+A Nina parou.
+
+O Jack, que conhecia o som de uma coisa prestes a quebrar, deu um passo pro lado e puxou o Kim junto.
+
+Ela voltou devagar. Parou a um palmo da loira.
+
+— É isso, então. Você veio atrás de mim porque quer arrumar problema.
+
+— Arrumar problema com você, Nina? Eu já ganhei de você. Que problema você pode ser?
+
+— Chega. Você quer brigar? É isso que você quer?
+
+— Eu tô passeando. Mas aceito um convite.
+
+— Então arruma um ringue.
+
+— Pra quê? — A Mera tirou um SBI do bolso do moletom. Branco, sem um risco. — Vamos lutar no próprio LDI. Eu também andei cuidando de outros objetivos. Tava procurando uma oponentezinha pra me ajudar a subir no ranking.
+
+Silêncio.
+
+A Nina olhou pro SBI. Depois pra ela. E, devagar, o rosto dela foi ficando calmo.
+
+O Kim achou aquilo pior que a raiva.
+
+— Agora eu entendi. Era isso que você queria desde o começo. — Tirou o dela da bolsa. — Tudo bem, Mera. Se você quer lutar, vamos lutar.
+
+— Opa! — O Jack esfregou as mãos. — Essa vai ser boa. Senta aí, Kim. A gente assiste pelo celular.
+
+— E a vodka?
+
+— A vodka espera.
+
+A Nina sentou no meio-fio. Pôs o SBI. Antes de fechar os olhos, olhou pros dois.
+
+— Vocês vão ter que me esperar.
+
+— Quanto tempo?
+
+— O tempo de eu acabar com ela.
+
+Do outro lado, a Mera sentou na calçada, cruzou as pernas e sorriu.
+
+Na tela do celular do Jack, a arena acendeu.
+
+Duas figuras caíram do céu, uma de cada lado. A capa da Nina batendo no ar. A mão dela já no cabo da Angel.
+
+O contador de espectadores começou a subir.
+
+No meio da arena, em letras de luz, apareceu uma palavra só.
+
+*LUTEM.*

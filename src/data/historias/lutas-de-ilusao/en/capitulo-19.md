@@ -136,7 +136,7 @@ Kim sat with that for a second. A weapon that read your mind. A game that read y
 
 Kim nodded.
 
-— In our fight I used Angel in Shaman mode. — Nina. — In Shaman it stretches like an arm, up to about three meters. Then I combined it with my elemental, which is Light, and made the Luminus Blade. The weapon with the power together. To make sure I'd cut you in half.
+— In our fight I used Angel in Shaman mode. — Nina. — In Shaman it stretches like an arm, up to about two meters. Then I combined it with my elemental, which is Light, and made the Luminus Blade. The weapon with the power together. To make sure I'd cut you in half.
 
 — That I remember. — Kim. — It was way too close. Thanks for reminding me. — Pause. — And that's when I saw the old wise man again. The one who speaks in riddles.
 

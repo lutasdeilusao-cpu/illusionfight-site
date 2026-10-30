@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793389109.5168483,
-    "ast_hash": "c87f69f60bcb5368aa5795b2a0e30969",
+    "mtime": 1793395069.3741636,
+    "ast_hash": "579fee767ad105d45ab7beb8994d27c5",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793389109.5604076,
-    "ast_hash": "b182ea8e593d6b3dc603691f527fba96",
+    "mtime": 1793395069.414164,
+    "ast_hash": "5e5eb5559c12050e0c2b35b50e4b5c8d",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -5070,8 +5070,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao.json": {
-    "mtime": 1792451105.9478602,
-    "ast_hash": "5e7a7cc6b764e8f4b20a164e64ac416c",
+    "mtime": 1793395069.2604856,
+    "ast_hash": "ef5415dd395c806cb88512f6d7ab4c37",
     "semantic_hash": ""
   },
   "src/data/historias/obras.json": {
@@ -5080,8 +5080,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/en/01.md": {
-    "mtime": 1791654429.6496127,
-    "ast_hash": "3826cebe78436262a5f7294621c7a140",
+    "mtime": 1793395069.3022544,
+    "ast_hash": "7418ae154285bb5dd77bca976e5eafc2",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/en/02.md": {
@@ -5090,8 +5090,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/en/03.md": {
-    "mtime": 1791654429.6496127,
-    "ast_hash": "4386901e300f753d7ec46ba43aad0a92",
+    "mtime": 1793395069.303254,
+    "ast_hash": "874425fc6fd69144f127a27e1b3f3d5f",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/en/04.md": {
@@ -5115,8 +5115,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/es/01.md": {
-    "mtime": 1791654429.6496127,
-    "ast_hash": "2e114584aae04add53b040ff98e6ec33",
+    "mtime": 1793395069.3042543,
+    "ast_hash": "46f563244b9800528438750cec0aaad4",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/es/02.md": {
@@ -5125,8 +5125,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/es/03.md": {
-    "mtime": 1791654429.6506279,
-    "ast_hash": "df269d6a581a2e6a8c14bf1c39efb96b",
+    "mtime": 1793395069.3052542,
+    "ast_hash": "df5d0f36596b3f693de0ce82c101b84b",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/es/04.md": {
@@ -5150,8 +5150,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/pt/01.md": {
-    "mtime": 1791654429.6506279,
-    "ast_hash": "9b63733ca0ffb319bc66c2eafb365a4e",
+    "mtime": 1793395069.3062537,
+    "ast_hash": "2a8da79ff87b1f12eefbbb9c9904bbfc",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/pt/02.md": {
@@ -5160,8 +5160,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/pt/03.md": {
-    "mtime": 1791654429.6506279,
-    "ast_hash": "94d880cabd51bc631b4b6c6d8ccad626",
+    "mtime": 1793395069.3072536,
+    "ast_hash": "e50c8dbcc35a65375be9be76a588da25",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/pt/04.md": {
@@ -5880,8 +5880,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/06/en/11.md": {
-    "mtime": 1791654429.6541133,
-    "ast_hash": "82aa07c9da379671bfdb673cbdb41c15",
+    "mtime": 1793395069.3232596,
+    "ast_hash": "d48cb476776935a02cf05351e8f04e64",
     "semantic_hash": ""
   },
   "src/data/historias/contos/06/es/01.md": {
@@ -5935,8 +5935,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/06/es/11.md": {
-    "mtime": 1791654429.6541133,
-    "ast_hash": "b48e7ed26178251ba798f1db745478c5",
+    "mtime": 1793395069.3252597,
+    "ast_hash": "3ab40173f58dd10fa3b5fd5128b0b1b4",
     "semantic_hash": ""
   },
   "src/data/historias/contos/06/pt/01.md": {
@@ -5990,8 +5990,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos/06/pt/11.md": {
-    "mtime": 1791654429.6551187,
-    "ast_hash": "1b54bafad4ce43f89395b553651410f2",
+    "mtime": 1793395069.3272588,
+    "ast_hash": "7f2a12853dd35526e08cf00547ca3076",
     "semantic_hash": ""
   },
   "src/data/historias/contos/07/en/01.md": {
@@ -6325,23 +6325,23 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-13.md": {
-    "mtime": 1793305628.4487543,
-    "ast_hash": "1b69126d46f8e80d25f9b2879ade0ee5",
+    "mtime": 1793395069.2614856,
+    "ast_hash": "38db30c03cd8f762b002a0159af51f28",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-14.md": {
-    "mtime": 1793309913.367159,
-    "ast_hash": "8140afc60577e5187797210426695009",
+    "mtime": 1793395069.263486,
+    "ast_hash": "671444908ab478bfb3a0ccb16d91b97e",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-15.md": {
-    "mtime": 1793311868.9258194,
-    "ast_hash": "8345d5d01332c5429b24149b3510957c",
+    "mtime": 1793395069.2644858,
+    "ast_hash": "b7f69205a1f71dd65ebb825ab3c7ed59",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-16.md": {
-    "mtime": 1793309913.3538451,
-    "ast_hash": "0b3e19e95e44777481592b35dd2edd0a",
+    "mtime": 1793395069.2654896,
+    "ast_hash": "a9c588c90a718421a001feac009e88c8",
     "semantic_hash": ""
   },
   "src/data/historias/obras/mar-de-cinzas/pt/00.md": {
@@ -7565,63 +7565,63 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-17.md": {
-    "mtime": 1793311523.8196642,
-    "ast_hash": "c04ed59422764e65b108af868a0e3459",
+    "mtime": 1793395069.0185366,
+    "ast_hash": "db419ce75294957c8580084546ac69af",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-18.md": {
-    "mtime": 1791659249.2654283,
-    "ast_hash": "9bc1574f9244c392936b93cf6b8b1195",
+    "mtime": 1793395069.2972543,
+    "ast_hash": "746b772e54265079b91c50799286c480",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-19.md": {
-    "mtime": 1791658260.9773765,
-    "ast_hash": "30fa3dac0a775a671b94f5af43aa4eeb",
+    "mtime": 1793395068.8213918,
+    "ast_hash": "407489d009f901a21798881e227c15b5",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-20.md": {
-    "mtime": 1791658301.0266104,
-    "ast_hash": "fc7afccc937df4f83d413f2d610bc64d",
+    "mtime": 1793395068.729566,
+    "ast_hash": "63895c206925bd01bf45e2f3693317ba",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-21.md": {
-    "mtime": 1791658301.0266104,
-    "ast_hash": "8d950db6ce02ec037b7167ed3f4ab12b",
+    "mtime": 1793395068.6434872,
+    "ast_hash": "e91acdefb682120d280f779d0abf587f",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-22.md": {
-    "mtime": 1791658311.0692482,
-    "ast_hash": "f25a99829197843490585d44ed618af2",
+    "mtime": 1793395068.5512638,
+    "ast_hash": "f3dca313e4a6e0b7089ee5b1190b1f43",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-23.md": {
-    "mtime": 1793308555.9631016,
-    "ast_hash": "ad1536f2ffd61914c822c3703cbdaa68",
+    "mtime": 1793395068.4560945,
+    "ast_hash": "42fcc321043e802fbaf4a4be45274a07",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-24.md": {
-    "mtime": 1793308555.9631016,
-    "ast_hash": "f98d8fac96b52f87cbc1a13d3eabc53e",
+    "mtime": 1793395068.3585396,
+    "ast_hash": "be2368185fa2a592ea6fe94f2c83b089",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-25.md": {
-    "mtime": 1793309913.376963,
-    "ast_hash": "5abd90b7bc01e2da2593d5b448b15a8b",
+    "mtime": 1793395068.25578,
+    "ast_hash": "968c4a1bf1d2b7d2d375bd09e32b9005",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-26.md": {
-    "mtime": 1793309913.3780568,
-    "ast_hash": "c727ffe6a3f703683b2ed76d75fb46ec",
+    "mtime": 1793395068.1601896,
+    "ast_hash": "55c1e1f78870500004e05a2d48bd5c19",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-27.md": {
-    "mtime": 1793308578.9388103,
-    "ast_hash": "b13b56a516426b2ee93ba92886baad72",
+    "mtime": 1793395068.0636897,
+    "ast_hash": "7238f5900ec9f0392890f5bb4ed848c8",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-28.md": {
-    "mtime": 1793311523.8219075,
-    "ast_hash": "d12be317588146c3dda8063ba064f69c",
+    "mtime": 1793395067.9710548,
+    "ast_hash": "8be9f4a8b60779c342ba6960de7d2959",
     "semantic_hash": ""
   },
   "src/components/Leitor/LeitorMusica.jsx": {
@@ -9605,83 +9605,83 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-13.md": {
-    "mtime": 1793311869.0984306,
-    "ast_hash": "2169462769ba80735e2ee832706b5942",
+    "mtime": 1793395069.278728,
+    "ast_hash": "38db30c03cd8f762b002a0159af51f28",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-14.md": {
-    "mtime": 1793311827.4182131,
-    "ast_hash": "fa548a7e25734c92d8d05c411cfb252b",
+    "mtime": 1793395069.2892554,
+    "ast_hash": "671444908ab478bfb3a0ccb16d91b97e",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-15.md": {
-    "mtime": 1793311762.7837877,
-    "ast_hash": "4694197bcbeb4781c4e9602de5a8969e",
+    "mtime": 1793395069.2283812,
+    "ast_hash": "cc0150af76e41133b485fbdaabd31248",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-16.md": {
-    "mtime": 1793311762.7877328,
-    "ast_hash": "bf357d4f80ff2219951d721ecf0475ab",
+    "mtime": 1793395069.1389353,
+    "ast_hash": "df4c0459289efeb64d690d9c86ba0741",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-17.md": {
-    "mtime": 1793311762.7897499,
-    "ast_hash": "0754f4302b6bfb89d2066bb903dc046c",
+    "mtime": 1793395069.048421,
+    "ast_hash": "bfb7900cce535dc6d4fa1fdf3278d06e",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-18.md": {
-    "mtime": 1793311762.7927082,
-    "ast_hash": "08836b9b7f47c9866cd43d3c5ef12cb2",
+    "mtime": 1793395068.9512556,
+    "ast_hash": "d1f1ec7ebc9de46bdf8afec3575f11c2",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-19.md": {
-    "mtime": 1793311762.795728,
-    "ast_hash": "7e9fda88c78c0d1250aff5eaafa574e2",
+    "mtime": 1793395068.852392,
+    "ast_hash": "ff743e8a4632771ec4b60de127cfd2e6",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-20.md": {
-    "mtime": 1791951309.6004336,
-    "ast_hash": "04fdbfbd9b588d95c47261d3e4a7cfb3",
+    "mtime": 1793395068.7580967,
+    "ast_hash": "7dfb27cbd718514217e8b2199b1d3b78",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-21.md": {
-    "mtime": 1791951309.6276622,
-    "ast_hash": "7dc684d03fb2af0747f28cfd0b70feaf",
+    "mtime": 1793395068.671492,
+    "ast_hash": "69e64651c90c8b0130793081a11ed124",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-22.md": {
-    "mtime": 1791951309.6516702,
-    "ast_hash": "4554a4383be0446d8b959b266b063f8d",
+    "mtime": 1793395068.5814872,
+    "ast_hash": "2faf5685e43b83539963fe7e2f295027",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-23.md": {
-    "mtime": 1793311656.2494657,
-    "ast_hash": "08c28bf2ce0259b15b07d708bfc754b4",
+    "mtime": 1793395068.4883249,
+    "ast_hash": "31e996e10459250ab8c19113ac23404f",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-24.md": {
-    "mtime": 1793310660.0947056,
-    "ast_hash": "115c94848c18dacc8d6349749416f065",
+    "mtime": 1793395068.3950944,
+    "ast_hash": "073f4ce7ba118d2c9051f067482b5ee3",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-25.md": {
-    "mtime": 1793311684.5126095,
-    "ast_hash": "7237f5cbd9fa620aa479b03c4e9482e0",
+    "mtime": 1793395068.292019,
+    "ast_hash": "aab25431f5421056d51c1349929edf4b",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-26.md": {
-    "mtime": 1793310660.1393664,
-    "ast_hash": "23f796c59da30842a6b051ad76fa3cbd",
+    "mtime": 1793395068.1897178,
+    "ast_hash": "a723e5b2478d4851a04fb1451eb8d7b5",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-27.md": {
-    "mtime": 1793310660.169922,
-    "ast_hash": "f1cba24163d0b62ed8eb9db622dc6f90",
+    "mtime": 1793395068.0967376,
+    "ast_hash": "b36c407f4f5aa05a6d0d4842f4da6887",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/en/capitulo-28.md": {
-    "mtime": 1793311608.3017473,
-    "ast_hash": "342c77d81cee43b1d5f4d54a37942090",
+    "mtime": 1793395068.003568,
+    "ast_hash": "86d8e4c78b8e3c811d0e9f19b71ea248",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-07.md": {
@@ -9715,83 +9715,83 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-13.md": {
-    "mtime": 1793311795.1231294,
-    "ast_hash": "5caaa19969118ddf4420ff54f0e14ca9",
+    "mtime": 1793395069.2797298,
+    "ast_hash": "38db30c03cd8f762b002a0159af51f28",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-14.md": {
-    "mtime": 1793311827.501253,
-    "ast_hash": "d8f281fbb1b72eea02c54504773e47b5",
+    "mtime": 1793395069.2912545,
+    "ast_hash": "671444908ab478bfb3a0ccb16d91b97e",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-15.md": {
-    "mtime": 1793311869.0223408,
-    "ast_hash": "ede6f9012e3f47d35486b242d596fdcc",
+    "mtime": 1793395069.258487,
+    "ast_hash": "636bc29631eea597e6a615e623f6b352",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-16.md": {
-    "mtime": 1793311762.7887504,
-    "ast_hash": "7bf69b4977d76f67f68ff0dedc32503e",
+    "mtime": 1793395069.1688454,
+    "ast_hash": "35ec7ff10ff6f4f3a8284df1a84a9594",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-17.md": {
-    "mtime": 1793311762.7910123,
-    "ast_hash": "929f8b35bfac1c68dce6b93275c83754",
+    "mtime": 1793395069.0811899,
+    "ast_hash": "e446e836814065f3791651a6c45e4e15",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-18.md": {
-    "mtime": 1793311762.7947273,
-    "ast_hash": "cabb5eae01f3761a3d74ab3c060c3540",
+    "mtime": 1793395068.9838276,
+    "ast_hash": "17953eb3caba18bd3f893188f4b96ab8",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-19.md": {
-    "mtime": 1793311762.7977252,
-    "ast_hash": "75cf477eb6a142af47412d43b1ae4cd7",
+    "mtime": 1793395068.8863916,
+    "ast_hash": "5741e445379735b01d8b550d09095c85",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-20.md": {
-    "mtime": 1791951310.131684,
-    "ast_hash": "27fb6941766ef38c6a01056ba9749759",
+    "mtime": 1793395068.7903917,
+    "ast_hash": "6789eeb678616987ba68cf8a96d56321",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-21.md": {
-    "mtime": 1793311762.798723,
-    "ast_hash": "d094a29c5be6535cdac1e75fb3c6b057",
+    "mtime": 1793395068.7000067,
+    "ast_hash": "de52e0e0b4170b879953b1f60d2890ec",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-22.md": {
-    "mtime": 1791951310.1786575,
-    "ast_hash": "dca4d1f63351a25731126f8052044803",
+    "mtime": 1793395068.6114874,
+    "ast_hash": "f543a17c94970235c5ec19c293af5086",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-23.md": {
-    "mtime": 1793311656.4012537,
-    "ast_hash": "169095ffe5fb6b2489603a7fab2831b4",
+    "mtime": 1793395068.5193286,
+    "ast_hash": "f9c6046841c6fbf660c8ec0d3026e2c5",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-24.md": {
-    "mtime": 1793311667.2046142,
-    "ast_hash": "44799c726da68c19fdc5f2e2980ff594",
+    "mtime": 1793395068.4260945,
+    "ast_hash": "369aa6de5b39db267418587ca05b4389",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-25.md": {
-    "mtime": 1793311684.6700146,
-    "ast_hash": "e29612d5ce0ba73edab3feb74312456a",
+    "mtime": 1793395068.3238761,
+    "ast_hash": "ae240a45a7c8c94a538c13c19002209e",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-26.md": {
-    "mtime": 1793310660.1573718,
-    "ast_hash": "057b8de6b1c8165cbc4770501ffe4b7a",
+    "mtime": 1793395068.2197707,
+    "ast_hash": "d301959a94e2356213910ef2f3467aae",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-27.md": {
-    "mtime": 1793311706.5811882,
-    "ast_hash": "93e0be2512587aa33a1514877321966f",
+    "mtime": 1793395068.1302505,
+    "ast_hash": "95219c980bce541778df4d570b0a9da3",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/es/capitulo-28.md": {
-    "mtime": 1793311706.6702106,
-    "ast_hash": "d6e6e63ded5edf5a7cae8af11b95deee",
+    "mtime": 1793395068.033568,
+    "ast_hash": "31b6f43c7236f586fd311510e0216f36",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/golpe/GanguesDadosRodada.jsx": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793389143.0154276,
+    "mtime": 1793395078.2566206,
     "ast_hash": "461fea17262f105cff0148a621a9a594",
     "semantic_hash": ""
   },
@@ -10392,6 +10392,36 @@
   "supabase/migrations/062_admin_tarefas_fluxo.sql": {
     "mtime": 1793367619.466713,
     "ast_hash": "f70768ba126a6427e46f6a298902cb06",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-29.md": {
+    "mtime": 1793395067.9062564,
+    "ast_hash": "b74229c6cf95b53841ebdef2d69d7194",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/en/capitulo-30.md": {
+    "mtime": 1793395067.8102531,
+    "ast_hash": "7f2214a8a95ea06a394ad9adb9dac64e",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-29.md": {
+    "mtime": 1793395067.9351864,
+    "ast_hash": "007de40021e7fc3c03ea0f59f4f5306c",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/es/capitulo-30.md": {
+    "mtime": 1793395067.840251,
+    "ast_hash": "48a47476f2323a95510658bf7d3a4623",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-29.md": {
+    "mtime": 1793395067.8742535,
+    "ast_hash": "519fd8032e8bdb7396ed1c3d8cbf9457",
+    "semantic_hash": ""
+  },
+  "src/data/historias/lutas-de-ilusao/pt/capitulo-30.md": {
+    "mtime": 1793395067.7732515,
+    "ast_hash": "3625fd8dc1a3342ae0ac8212b3a0fcf3",
     "semantic_hash": ""
   }
 }

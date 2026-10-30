@@ -136,7 +136,7 @@ Kim ficou um segundo com aquilo. Uma arma que lia a mente. Um jogo que lia a men
 
 Kim assentiu.
 
-— Na nossa luta eu usei a Angel no Xamã. — Nina. — No Xamã ela estica como se fosse um braço, até uns três metros. E aí eu juntei com o meu elemental, que é Luz, e fiz o Luminus Blade. A arma com o poder junto. Pra garantir que eu ia te cortar no meio.
+— Na nossa luta eu usei a Angel no Xamã. — Nina. — No Xamã ela estica como se fosse um braço, até uns dois metros. E aí eu juntei com o meu elemental, que é Luz, e fiz o Luminus Blade. A arma com o poder junto. Pra garantir que eu ia te cortar no meio.
 
 — Disso eu lembro. — Kim. — Foi por muito pouco. Obrigado por me lembrar. — Pausa. — E foi aí que eu vi o velho sábio de novo. Aquele que fala por enigma.
 
