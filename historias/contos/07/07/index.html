@@ -27,7 +27,7 @@
          (ver Gangues.css .gang-log-area) — aqui é a mesma causa. */
       html.ldi-intro-on { overflow: hidden; overscroll-behavior: none; }
       /* `inset:0` cobria o viewport físico inteiro em telas largas — o
-         portal é mobile only (coluna de 480px, ver AGENTS.md/index.css
+         celular usa a coluna de 480px, ver AGENTS.md/index.css
          --app-w/--app-gutter), mas essa vinheta roda ANTES do bundle CSS
          carregar, então não dá pra usar var(--app-gutter) (pode ainda não
          existir nesse instante) — mesma fórmula, só que literal aqui.
@@ -52,6 +52,7 @@
       @keyframes ldi-sweep { from { left: -40%; opacity: 1; } to { left: 110%; opacity: 1; } }
       @keyframes ldi-bar { to { transform: scaleX(1); } }
       @keyframes ldi-out { to { opacity: 0; transform: scale(1.04); } }
+      @media (min-width: 900px) { #ldi-intro { left: 0; right: 0; } #ldi-intro .ldi-intro__logo { width: 190px; height: 190px; } #ldi-intro .ldi-intro__word { font-size: 2.8rem; } }
       @media (prefers-reduced-motion: reduce) { #ldi-intro.ldi-intro--play .ldi-intro__logo, #ldi-intro.ldi-intro--play .ldi-intro__word, #ldi-intro.ldi-intro--play .ldi-intro__word::after, #ldi-intro.ldi-intro--play .ldi-intro__bar::before { animation: none; opacity: 1; } }
     </style>
 
@@ -196,7 +197,7 @@
       "keywords": "illusion fight, lutas de ilusão, web shard, webtoon, jogos táticos, arena virtual, ficção científica"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-DnCGr6g5.js"></script>
+    <script type="module" crossorigin src="/assets/index-OVgOIvdx.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-GZhdek4G.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-zJ_50EbN.js">
     <link rel="modulepreload" crossorigin href="/assets/supabase-ByYxoL3g.js">
@@ -207,7 +208,7 @@
     <link rel="modulepreload" crossorigin href="/assets/AuthContext-Dz9d7C0i.js">
     <link rel="modulepreload" crossorigin href="/assets/creator-BdqIZyP7.js">
     <link rel="stylesheet" crossorigin href="/assets/index-CX1Gq7kH.css">
-      <meta name="ldi-build" content="/assets/index-DnCGr6g5.js">
+      <meta name="ldi-build" content="/assets/index-OVgOIvdx.js">
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Chapter","name":"The Chains — Chapter 7 — Through a Straw","description":"Jack breaks the first one, Kim takes the gun from the second. Then they split up: one goes up, the other goes down.","url":"https://illusionfight.com/historias/contos/07/07/","inLanguage":"en","datePublished":"2099-01-01","isAccessibleForFree":true,"isPartOf":{"@type":"Book","name":"The Chains","author":{"@type":"Person","name":"Isaias Leal","url":"https://illusionfight.com/autor/"},"url":"https://illusionfight.com/historias/contos/07/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Illusion Fight","item":"https://illusionfight.com/"},{"@type":"ListItem","position":2,"name":"The Chains","item":"https://illusionfight.com/historias/contos/07/"},{"@type":"ListItem","position":3,"name":"The Chains — Chapter 7 — Through a Straw","item":"https://illusionfight.com/historias/contos/07/07/"}]}]}</script>
   </head>
   <body>
