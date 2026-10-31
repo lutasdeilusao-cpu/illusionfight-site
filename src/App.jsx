@@ -116,11 +116,11 @@ function AnalyticsPageView() {
   return null
 }
 
-// Portal alarga no desktop; jogos, painel e laboratório ficam na coluna de celular.
+// Portal e painel alargam no desktop; jogos e laboratório ficam na coluna de celular.
 function ModoTela({ leitura }) {
   const { pathname } = useLocation()
   useEffect(() => {
-    const coluna = /^\/(games\/.|prototype|admin|preview-privado)/.test(pathname)
+    const coluna = /^\/(games\/.|prototype|preview-privado)/.test(pathname)
     const texto = leitura && pathname.startsWith('/historias')
     const raiz = document.documentElement
     raiz.classList.toggle('is-wide', !coluna && !leitura)

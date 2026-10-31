@@ -1,4 +1,5 @@
-// Seção "Tarefas": quadro kanban no jeito do Jira, mobile only.
+// Seção "Tarefas": quadro kanban no jeito do Jira.
+// No celular, uma coluna por vez; de 900px pra cima, todas lado a lado.
 // Fluxo a fazer → em progresso → em teste → feito → arquivo (regras em tarefas/tarefasFluxo.js).
 // Dados só pelas RPCs admin_* (migrations 058–062); a tabela não tem policy.
 import { useEffect, useMemo, useRef, useState } from 'react'
@@ -10,6 +11,7 @@ import { COLUNAS, FILTROS, VAZIA, colunaDe, ordenar, primeiroNome, revisorDe, re
 import './PainelTarefas.css'
 
 const SEMANA = 7 * 86400000
+const LARGO = '(min-width: 900px)'
 
 export default function PainelTarefas({ t, locale }) {
   const { user } = useAuth()
@@ -24,11 +26,19 @@ export default function PainelTarefas({ t, locale }) {
   const [criada, setCriada] = useState(null)
   const barra = useRef(null)
   const toque = useRef(null)
+  const [largo, setLargo] = useState(() => window.matchMedia(LARGO).matches)
 
   const carregar = () => rpc('admin_tarefas_listar').then(setTarefas).catch(e => setErro(e.faltaMigration ? t('painel.falta_migration') : e.message))
   useEffect(() => {
     carregar()
     rpc('admin_pessoas').then(ps => setPessoas(ps.map((p, i) => ({ ...p, curto: primeiroNome(p.nome), cor: i % 4 })))).catch(() => {})
+  }, [])
+
+  useEffect(() => {
+    const m = window.matchMedia(LARGO)
+    const mudar = () => setLargo(m.matches)
+    m.addEventListener('change', mudar)
+    return () => m.removeEventListener('change', mudar)
   }, [])
 
   // A coluna ativa fica sempre à vista na barra que rola de lado.
@@ -40,7 +50,7 @@ export default function PainelTarefas({ t, locale }) {
   const termo = busca.trim().toLowerCase()
   const visiveis = useMemo(() => (tarefas || []).filter(x => FILTROS[filtro](x, eu)
     && (!termo || `${x.titulo} ${x.descricao || ''} ldi-${x.id}`.toLowerCase().includes(termo))), [tarefas, filtro, termo, eu])
-  const daColuna = visiveis.filter(x => colunaDe(x) === coluna).sort((a, b) => (b.id === criada) - (a.id === criada) || ordenar(a, b))
+  const daColuna = c => visiveis.filter(x => colunaDe(x) === c).sort((a, b) => (b.id === criada) - (a.id === criada) || ordenar(a, b))
 
   const todas = tarefas || []
   const foco = {
@@ -87,6 +97,18 @@ export default function PainelTarefas({ t, locale }) {
 
   const data = d => new Date(`${d}T12:00:00`).toLocaleDateString(locale, { day: '2-digit', month: 'short' })
 
+  const lista = c => {
+    const itens = daColuna(c)
+    if (!itens.length) return <p className="tq-vazio">{t(`painel.tarefas.vazio_col.${c}`)}</p>
+    return (
+      <ul className="tq-lista">
+        {itens.map(x => (
+          <TarefaCartao key={x.id} x={x} nova={x.id === criada} eu={eu} pessoa={pessoa} t={t} data={data} onAbrir={setAberta} onAcao={agir} />
+        ))}
+      </ul>
+    )
+  }
+
   if (erro) return <p className="painel-erro">{erro}</p>
   if (!tarefas) return <p className="painel-vazio">{t('painel.carregando')}</p>
 
@@ -113,26 +135,31 @@ export default function PainelTarefas({ t, locale }) {
         ))}
       </div>
 
-      <nav className="tq-colunas" role="tablist" ref={barra}>
-        {COLUNAS.map(c => (
-          <button key={c} type="button" role="tab" aria-selected={coluna === c} className={`is-${c}${coluna === c ? ' is-ativa' : ''}`} onClick={() => setColuna(c)}>
-            <span>{t(`painel.tarefas.col.${c}`)}</span>
-            <b>{visiveis.filter(x => colunaDe(x) === c).length}</b>
-          </button>
-        ))}
-      </nav>
-
-      <div className="tq-lista-area" onTouchStart={inicioToque} onTouchEnd={fimToque}>
-        {!daColuna.length ? (
-          <p className="tq-vazio">{t(`painel.tarefas.vazio_col.${coluna}`)}</p>
-        ) : (
-          <ul className="tq-lista">
-            {daColuna.map(x => (
-              <TarefaCartao key={x.id} x={x} nova={x.id === criada} eu={eu} pessoa={pessoa} t={t} data={data} onAbrir={setAberta} onAcao={agir} />
+      {largo ? (
+        <div className="tq-quadro">
+          {COLUNAS.map(c => (
+            <section key={c} className={`tq-quadro__col is-${c}`}>
+              <h3><span>{t(`painel.tarefas.col.${c}`)}</span><b>{daColuna(c).length}</b></h3>
+              {lista(c)}
+            </section>
+          ))}
+        </div>
+      ) : (
+        <>
+          <nav className="tq-colunas" role="tablist" ref={barra}>
+            {COLUNAS.map(c => (
+              <button key={c} type="button" role="tab" aria-selected={coluna === c} className={`is-${c}${coluna === c ? ' is-ativa' : ''}`} onClick={() => setColuna(c)}>
+                <span>{t(`painel.tarefas.col.${c}`)}</span>
+                <b>{daColuna(c).length}</b>
+              </button>
             ))}
-          </ul>
-        )}
-      </div>
+          </nav>
+
+          <div className="tq-lista-area" onTouchStart={inicioToque} onTouchEnd={fimToque}>
+            {lista(coluna)}
+          </div>
+        </>
+      )}
 
       {criada && <p className="tq-aviso-criada" role="status">{t('painel.tarefas.criada', { n: `LDI-${criada}` })}</p>}
 

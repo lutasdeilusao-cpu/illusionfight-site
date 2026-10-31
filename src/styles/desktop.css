@@ -1,5 +1,5 @@
 /* Visão desktop do portal: vale de 900px pra cima, só com html.is-wide.
-   Jogos, leitor de quadrinho e painel continuam na coluna de celular. */
+   Jogos e leitor de quadrinho continuam na coluna de celular. */
 @media (min-width: 900px) {
   html.is-wide { --app-w: 1280px; }
   html.is-leitura { --app-w: 760px; }
@@ -99,4 +99,8 @@
   html.is-wide .hero-show__sub { font-size: 1.1rem; line-height: 1.6; }
   html.is-wide .hero-show__acoes { justify-content: flex-start; gap: .75rem; margin-top: 1rem; }
   html.is-wide .hero-show__btn { flex: 0 0 auto; width: auto; min-width: 180px; padding-inline: 2rem; }
+
+  /* Painel: conteúdo com respiro e detalhe da tarefa numa folha central */
+  html.is-wide .painel { padding-inline: 1.5rem; }
+  html.is-wide .tq-folha { left: calc(50% - 360px); right: calc(50% - 360px); }
 }

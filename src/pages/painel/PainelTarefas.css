@@ -1,4 +1,4 @@
-/* Quadro de tarefas (PainelTarefas + tarefas/*): kanban no jeito do Jira, mobile only.
+/* Quadro de tarefas (PainelTarefas + tarefas/*): kanban no jeito do Jira.
    Cor de cada coluna: a fazer = texto, em progresso = âmbar, em teste = violeta, feito = verde. */
 .tq {
   --tq-fazer: var(--text-secondary);
@@ -73,6 +73,10 @@
   border-bottom: 1px solid var(--if-hair);
 }
 .tq-colunas::-webkit-scrollbar { display: none; }
+/* Com mouse a faixa não rola: as colunas quebram linha e ficam todas à vista. */
+@media (hover: hover) and (pointer: fine) {
+  .tq-colunas { flex-wrap: wrap; overflow-x: visible; }
+}
 .tq-colunas button {
   --c: var(--tq-fazer);
   flex: none;
@@ -94,6 +98,17 @@
 .tq-colunas .is-feito { --c: var(--tq-feito); }
 .tq-colunas .is-arquivo { --c: var(--text-muted, rgba(234, 255, 255, .35)); }
 .tq-colunas button.is-ativa { color: var(--text-primary); border-color: var(--c); box-shadow: inset 0 -2px var(--c); }
+
+/* Desktop: todas as colunas lado a lado, cada uma com a sua lista. */
+.tq-quadro { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; align-items: start; }
+.tq-quadro__col { --c: var(--tq-fazer); display: grid; gap: 8px; align-content: start; min-height: 60vh; padding: 8px; background: var(--if-panel); border-top: 2px solid var(--c); }
+.tq-quadro__col.is-progresso { --c: var(--tq-progresso); }
+.tq-quadro__col.is-teste { --c: var(--tq-teste); }
+.tq-quadro__col.is-feito { --c: var(--tq-feito); }
+.tq-quadro__col.is-arquivo { --c: var(--text-muted, rgba(234, 255, 255, .35)); }
+.tq-quadro__col h3 { display: flex; align-items: center; justify-content: space-between; margin: 0; font: 700 .6rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-secondary); }
+.tq-quadro__col h3 b { min-width: 20px; padding: 2px 6px; text-align: center; color: var(--bg-primary); background: var(--c); border-radius: 999px; }
+.tq-quadro__col .tq-vazio { padding: 24px 8px; }
 
 .tq-lista-area { min-height: 40vh; touch-action: pan-y; }
 .tq-lista { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }

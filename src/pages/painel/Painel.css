@@ -1,5 +1,5 @@
 /* Painel de administrador — mesma linguagem da navbar (design-system.css):
-   canto chanfrado, eyebrow mono, barra ativa inset 2px. Mobile only. */
+   canto chanfrado, eyebrow mono, barra ativa inset 2px. */
 .painel {
   --painel-cut: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
   --painel-topo-h: 48px;
