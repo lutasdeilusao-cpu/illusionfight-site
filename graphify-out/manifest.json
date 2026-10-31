@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793402645.8921106,
-    "ast_hash": "0990f83b1babfa2168d2a1ee5149e2d9",
+    "mtime": 1793403038.2159615,
+    "ast_hash": "88c2373e89d8a00125f203b82a5ab54d",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793402645.9348521,
-    "ast_hash": "c4ed8cbf1b9c48dcbb9aeefdb79dae96",
+    "mtime": 1793403038.2734935,
+    "ast_hash": "e73429bf0813ac7aa92ec07a5c2e5b07",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -6315,8 +6315,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-11.md": {
-    "mtime": 1793305585.5716515,
-    "ast_hash": "01aec7994560dc384b402a193a2964f7",
+    "mtime": 1793403038.1746771,
+    "ast_hash": "c61a747a15143b26f2c2561f696dc82a",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-12.md": {
@@ -6325,13 +6325,13 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-13.md": {
-    "mtime": 1793400930.6171224,
-    "ast_hash": "251370eabb32252c021a31b376802ff6",
+    "mtime": 1793403038.1726773,
+    "ast_hash": "38db30c03cd8f762b002a0159af51f28",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-14.md": {
-    "mtime": 1793400930.6181152,
-    "ast_hash": "401ef3a10331fb8e8ee41fa0acf067d1",
+    "mtime": 1793403038.1736777,
+    "ast_hash": "853624fa44de263b21bd6c99b6396af2",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-15.md": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793402652.5181034,
+    "mtime": 1793403047.0277708,
     "ast_hash": "461fea17262f105cff0148a621a9a594",
     "semantic_hash": ""
   },
