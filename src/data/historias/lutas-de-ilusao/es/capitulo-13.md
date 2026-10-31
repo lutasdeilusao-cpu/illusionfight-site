@@ -236,7 +236,7 @@ Kronos tirou o celular do bolso sem deixar de olhar pra ele.
 
 O estômago do Kim caiu de novo. Pior que no avião.
 
-*Caralho. Puta que pariu. O número. Alto demais, ele ri da minha cara. Baixo demais, eu me mato pelo resto da vida. Quanto custa um avião? Quanto custa essa merda de lustre? Qual é o número, qual é o número, QUAL É O NÚMERO?*
+*Caralho. Puta que pariu. O número. Eu preciso de um número. Só um número. Se eu pedir alto demais, ele não vai aceitar. Mas se eu pedir baixo demais, vou me arrepender pra sempre. Quanto custa um avião? Quanto custa essa merda de lustre? Qual é o número, qual é o número, QUAL É O NÚMERO?*
 
 Por fora, o Kim coçou a orelha.
 
