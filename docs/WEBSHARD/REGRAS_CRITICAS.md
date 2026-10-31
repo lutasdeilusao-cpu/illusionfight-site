@@ -255,3 +255,5 @@ Serve para teste e poucas páginas; lote continua no Codex. Automatizar o site p
 
 Refs ficam em `C:\webshard_refs`, sem acento no caminho. O navegador integrado do VS Code pela extensão não sobe arquivo e trava nessa página.
 
+**Lote pelo ChatGPT: todo job passa por `prepara_lote.py <de> <até>`** (pasta `PRODUCAO/ferramentas` do conto). Ele monta um anexo único com uma página aprovada + `Baloes_LetreiroOficial.png`, soma as fichas de quem aparece (pessoas antes do cenário, 5 anexos no total) e fixa fonte e cores no fim de todo prompt. Fonte descrita só em palavras sai diferente no ChatGPT e a cor varia. Revisar a primeira página do lote antes de deixar correr.
+
