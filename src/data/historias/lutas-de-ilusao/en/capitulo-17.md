@@ -1,4 +1,4 @@
-# CHAPTER 17 — Angel and Victory
+# CHAPTER 17 — Angel and Vitória
 
 Jack and Nina had never fought together in the LDI.
 

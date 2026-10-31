@@ -1,4 +1,4 @@
-# CAPÍTULO 12 — Lo Que Hace Una Niña de Doce Años
+# CAPÍTULO 12 — Los Doce Años
 
 El patio estaba como siempre. Destruido.
 

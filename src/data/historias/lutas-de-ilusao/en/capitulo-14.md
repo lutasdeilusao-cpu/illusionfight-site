@@ -1,4 +1,4 @@
-# CAPÍTULO 14 — O Preço
+# CAPÍTULO 14 — The Price
 
 O Jack já estava sentado no capô do hatch vermelho quando o Kim atravessou o estacionamento da delegacia.
 

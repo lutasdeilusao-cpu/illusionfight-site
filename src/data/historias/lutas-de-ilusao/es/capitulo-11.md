@@ -1,4 +1,4 @@
-# CAPÍTULO 11 — El truco
+# CAPÍTULO 11 — La Preparación
 
 La base era un estacionamiento vacío al final de la calle.
 

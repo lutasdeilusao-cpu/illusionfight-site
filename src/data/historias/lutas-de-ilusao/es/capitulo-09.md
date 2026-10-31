@@ -1,4 +1,4 @@
-# CAPÍTULO 9 — La Base
+# CAPÍTULO 9 — El Estudio de la Banda
 
 En el pasillo había murmullo. Gente cuchicheando, mirando, apuntando con el celular.
 

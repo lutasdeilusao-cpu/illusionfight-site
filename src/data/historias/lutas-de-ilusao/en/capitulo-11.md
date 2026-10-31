@@ -1,4 +1,4 @@
-# CHAPTER 11 — The Trick
+# CHAPTER 11 — The Preparation
 
 The base was an empty parking lot at the end of the street.
 

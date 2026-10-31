@@ -1,4 +1,4 @@
-# CHAPTER 9 — The Base
+# CHAPTER 9 — The Band Studio
 
 In the hallway there was a buzz. People whispering, looking, pointing their phones.
 

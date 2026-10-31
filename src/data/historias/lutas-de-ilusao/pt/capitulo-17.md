@@ -1,4 +1,4 @@
-# CAPÍTULO 17 — Anjo e Vitória
+# CAPÍTULO 17 — A Angel e a Vitória
 
 O Jack e a Nina nunca tinham lutado juntos no LDI.
 

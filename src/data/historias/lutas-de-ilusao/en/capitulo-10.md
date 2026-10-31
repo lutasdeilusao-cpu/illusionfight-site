@@ -1,4 +1,4 @@
-# CHAPTER 10 — Illusion Fight
+# CHAPTER 10 — The LDI Song
 
 Kim picked up the guitar again and started tuning.
 

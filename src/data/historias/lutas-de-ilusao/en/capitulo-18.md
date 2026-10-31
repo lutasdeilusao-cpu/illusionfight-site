@@ -1,4 +1,4 @@
-# CHAPTER 18 — Xakaxi, Shaman
+# CHAPTER 18 — Shaman Mode
 
 The light that came out of the hatchets wasn't light.
 

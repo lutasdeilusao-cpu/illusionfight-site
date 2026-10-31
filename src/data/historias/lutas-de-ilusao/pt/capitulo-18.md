@@ -1,4 +1,4 @@
-# CAPÍTULO 18 — Xakaxi, Xamã
+# CAPÍTULO 18 — O Modo Xamã
 
 A luz que saiu das machadinhas não era luz.
 

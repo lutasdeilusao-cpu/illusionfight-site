@@ -1,4 +1,4 @@
-# CAPÍTULO 12 — O Que Uma Garota de Doze Anos Faz
+# CAPÍTULO 12 — Os Doze Anos
 
 O quintal estava do jeito de sempre. Destruído.
 

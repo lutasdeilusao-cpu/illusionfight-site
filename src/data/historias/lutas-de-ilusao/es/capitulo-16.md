@@ -1,4 +1,4 @@
-# CAPÍTULO 16 — Sala Privada
+# CAPÍTULO 16 — El Entrenamiento
 
 La plaza quedaba a dos cuadras de la escuela.
 

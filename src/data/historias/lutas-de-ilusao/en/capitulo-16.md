@@ -1,4 +1,4 @@
-# CHAPTER 16 — Private Room
+# CHAPTER 16 — The Training
 
 The square was two blocks from the school.
 

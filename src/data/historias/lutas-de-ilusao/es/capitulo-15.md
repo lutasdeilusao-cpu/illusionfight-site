@@ -1,4 +1,4 @@
-# CAPÍTULO 15 — Mi Bebé
+# CAPÍTULO 15 — El SBI
 
 Kim se despertó, se cepilló los dientes, se bañó, se vistió.
 

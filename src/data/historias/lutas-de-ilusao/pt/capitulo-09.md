@@ -1,4 +1,4 @@
-# CAPÍTULO 9 — A Base
+# CAPÍTULO 9 — O Estúdio da Banda
 
 No corredor tinha burburinho. Gente cochichando, olhando, apontando o celular.
 

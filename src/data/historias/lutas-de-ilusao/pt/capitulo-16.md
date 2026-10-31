@@ -1,4 +1,4 @@
-# CAPÍTULO 16 — Sala Privada
+# CAPÍTULO 16 — O Treino
 
 A praça ficava a duas quadras da escola.
 

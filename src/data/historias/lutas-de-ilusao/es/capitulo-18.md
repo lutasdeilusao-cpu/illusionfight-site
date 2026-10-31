@@ -1,4 +1,4 @@
-# CAPÍTULO 18 — Xakaxi, Chamán
+# CAPÍTULO 18 — El Modo Chamán
 
 La luz que salió de las hachuelas no era luz.
 

@@ -1,4 +1,4 @@
-# CAPÍTULO 13 — O Bug
+# CAPÍTULO 13 — El Bug
 
 Naquela noite o Kim dormiu bem.
 

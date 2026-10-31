@@ -1,4 +1,4 @@
-# CAPÍTULO 10 — Lutas de Ilusão
+# CAPÍTULO 10 — A Música LDI
 
 O Kim pegou a guitarra de novo e começou a afinar.
 
