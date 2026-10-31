@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793409695.3435745,
-    "ast_hash": "41fad2194fc9426c8e406269ddf9c7e3",
+    "mtime": 1793411176.2257054,
+    "ast_hash": "4eb44aefc6b38a0f1950a8ec1341093b",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793409695.3805737,
-    "ast_hash": "375448dc034dde025abe18bbc57af4fc",
+    "mtime": 1793411176.2644255,
+    "ast_hash": "985be8b6e0fe05b274e73c10b4b312f8",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -6325,8 +6325,8 @@
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-13.md": {
-    "mtime": 1793403038.1726773,
-    "ast_hash": "38db30c03cd8f762b002a0159af51f28",
+    "mtime": 1793411167.512705,
+    "ast_hash": "c0f162351c50780dafd115d6d454d34a",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao/pt/capitulo-14.md": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793409708.1611505,
+    "mtime": 1793411186.4054267,
     "ast_hash": "461fea17262f105cff0148a621a9a594",
     "semantic_hash": ""
   },
@@ -10370,8 +10370,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/REGRAS_CRITICAS.md": {
-    "mtime": 1793409695.312474,
-    "ast_hash": "8b613ce2688d2d6b82ab94a54dcc4af8",
+    "mtime": 1793411115.2386172,
+    "ast_hash": "2fd091768e03f8e6eb85ea80745c64fc",
     "semantic_hash": ""
   },
   "src/pages/painel/tarefas/TarefaCartao.jsx": {
