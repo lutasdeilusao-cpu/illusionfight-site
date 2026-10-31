@@ -66,7 +66,7 @@
       #ldi-rotate-lock { display: none; }
       @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
         #root, #ldi-intro { display: none !important; }
-        #ldi-rotate-lock {
+        html.ldi-jogo #ldi-rotate-lock {
           display: flex;
           position: fixed;
           inset: 0;
@@ -196,6 +196,7 @@
     </script>
   </head>
   <body>
+    <script>document.documentElement.classList.toggle('ldi-jogo',/^\/((pt|es)\/)?games\/./.test(location.pathname))</script>
     <div id="ldi-rotate-lock" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <rect x="6" y="2" width="12" height="20" rx="2"></rect>

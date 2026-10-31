@@ -125,6 +125,7 @@ function ModoTela({ leitura }) {
     const raiz = document.documentElement
     raiz.classList.toggle('is-wide', !coluna && !leitura)
     raiz.classList.toggle('is-leitura', Boolean(texto))
+    raiz.classList.toggle('ldi-jogo', pathname.startsWith('/games/') && pathname.length > 7)
   }, [pathname, leitura])
   return null
 }
