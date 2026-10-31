@@ -118,6 +118,7 @@ O prompt final é gerado por script a partir do roteiro (`montar.py`, `v3.py`). 
   - "ALL CAPS", "FOLHA DOS AUTOS" e nomes de arquivo.
   
   Tudo isso é reescrito em linguagem de desenho ("o painel de cima é um pouco maior", "a palavra X bem maior"), sem números, colchetes ou asteriscos. Margem nunca vai em pixels: "margem larga" desenhou moldura preta.
+- **Borda branca é proibida.** "Margem", "longe das bordas" e "área livre" desenham moldura branca em volta da arte. O prompt diz que a arte vai até as quatro bordas, sem moldura.
 - **Título, capítulo ou número de página** saem escritos no topo. Nenhuma linha do prompt diz isso.
 - **"Lente" e "câmera"** viram uma câmera fotográfica na cena. Usar "ponto de vista" e "visto do nível do chão". "Câmera lenta" vira "slow motion". "Glass" desenhou vidro de verdade.
 - **Nome de pessoa** em parêntese ou em olhar ("(a Nina)", "olhando o Freddy fora do quadro") puxa a pessoa pra uma página em que ela não está.
@@ -130,6 +131,7 @@ O prompt final é gerado por script a partir do roteiro (`montar.py`, `v3.py`). 
 - **Roupa.** Sem ela, saíram o Kim de boné na festa, o Jack de regata verde e o armário da comitiva sem camisa. Toda página traz a roupa de cada um, tirada da ficha. Ficha de grupo é descrita da esquerda pra direita, posição por posição.
 - **Objeto.** "Copo" virou caneca de café; o material vai escrito em TODA página onde o objeto aparece. Coisa local se explica: "coxinha (salgadinho brasileiro frito, dourado, em forma de gota)", senão vira coxa de frango.
 - **Pose e identidade.** "Quem está sentado" virou duas meninas. Página só com a ficha de rosto do Kim, sem dizer quem é, deu um Kim com cara de menina. Descrever a pessoa mesmo quando só o rosto aparece e mandar "copiar o rosto exatamente das fichas X e Y". Idade vai escrita nos closes ("menino de 13 anos, rosto de criança"), senão o rosto envelhece.
+- **Quem está de costas não tem rosto no prompt.** Nada de boca, olhos ou reação de quem o ponto de vista vê por trás: o modelo gira a cabeça do personagem para mostrar. Em soco, a câmera fica atrás de um e mostra só o rosto do outro.
 - **Texto.** Sem contagem, aparecem balão inventado, carimbo que não existe e caixa repetida. Cada página:
   - diz quantos balões e caixas tem;
   - lista cada texto UMA vez, com acento;
@@ -255,5 +257,5 @@ Serve para teste e poucas páginas; lote continua no Codex. Automatizar o site p
 
 Refs ficam em `C:\webshard_refs`, sem acento no caminho. O navegador integrado do VS Code pela extensão não sobe arquivo e trava nessa página.
 
-**Lote pelo ChatGPT: todo job passa por `prepara_lote.py <de> <até>`** (pasta `PRODUCAO/ferramentas` do conto). Ele monta um anexo único com uma página aprovada + `Baloes_LetreiroOficial.png`, soma as fichas de quem aparece (pessoas antes do cenário, 5 anexos no total) e fixa fonte e cores no fim de todo prompt. Fonte descrita só em palavras sai diferente no ChatGPT e a cor varia. Revisar a primeira página do lote antes de deixar correr.
+**Lote pelo ChatGPT: todo job passa por `prepara_lote.py <de> <até>`** (pasta `PRODUCAO/ferramentas` do conto). Ele monta um anexo único com uma página aprovada + `Baloes_LetreiroOficial.png`, soma as fichas de quem aparece (pessoas antes do cenário, até 8 anexos no navegador; o Codex continua com 5) e fixa fonte e cores no fim de todo prompt. Fonte descrita só em palavras sai diferente no ChatGPT e a cor varia. Revisar a primeira página do lote antes de deixar correr.
 

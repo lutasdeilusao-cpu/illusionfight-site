@@ -220,7 +220,7 @@ Levantou os olhos. Sério.
 
 Silêncio.
 
-Kronos descruzou as pernas e se inclinou pra frente. Devagar. Conhecia aquele tom. Só não esperava ouvi-lo de um moleque descalço, de cueca, numa sala daquelas.
+Kronos descruzou as pernas e se inclinou pra frente. Devagar. Conhecia aquele tom. Só não esperava ouvi-lo de um moleque descalço, de camiseta branca e samba-canção, numa sala daquelas.
 
 — O que você quiser. Como já deve estar claro, eu sou um homem de muitas posses. Tudo que eu peço é saber como você fez o que fez. O que você quer?
 
@@ -334,7 +334,7 @@ Bateu palminhas. A porta abriu.
 
 O Kim virou o copo, matou a última gota, pôs em cima da mesa com cuidado, porque devia custar mais que a casa dele, e levantou.
 
-Foi andando na frente, o segurança atrás. Descalço. De cueca. Um milhão mais rico.
+Foi andando na frente, o segurança atrás. Descalço. De samba-canção. Um milhão mais rico.
 
 Na porta, parou. Olhou por cima do ombro.
 
