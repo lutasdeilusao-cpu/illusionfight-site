@@ -1,7 +1,7 @@
-# Graph Report - SiteLDI  (2026-10-30)
+# Graph Report - SiteLDI  (2026-10-31)
 
 ## Corpus Check
-- 1393 files · ~4,556,879 words
+- 1393 files · ~4,557,044 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `42078293`
+- Built from commit: `c851bef0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1880,7 +1880,7 @@ Cohesion: 0.56
 Nodes (10): generate(), mark_pending(), pause(), pending(), prepare(), Halloween loop 1: prepare English prompts and reuse the existing serial Codex en, run(), state() (+2 more)
 
 ## Knowledge Gaps
-- **2620 isolated node(s):** `🔴 SEMPRE NA MAIN — NUNCA ABRIR BRANCH`, `Mandatory workflow for every code change`, `Stack`, `Environment`, `🤖 Custom Agents` (+2615 more)
+- **2620 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2615 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **364 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1893,7 +1893,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `Phase2Customize.jsx` to `LeitorMusica.jsx`, `Community 0`, `TopTrumpsSP.jsx`, `useGanguesTeclado`, `TypewriterPhrase.jsx`, `Community 3`, `criaturas.js`, `Community 9`, `useTamagoshiStore.js`, `PuzzleDecoder.jsx`, `Community 20`, `PuzzleForça.jsx`, `AuthContext.jsx`, `useSharedLobbyMachine.js`, `MazeRafael.jsx`, `criaturas.js`?**
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
-- **What connects `🔴 SEMPRE NA MAIN — NUNCA ABRIR BRANCH`, `Mandatory workflow for every code change`, `Stack` to the rest of the system?**
+- **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
   _2620 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._

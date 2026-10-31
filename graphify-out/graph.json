@@ -4,216 +4,6 @@
   "graph": {},
   "nodes": [
     {
-      "label": "AGENTS.md",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "agents",
-      "community": 75,
-      "norm_label": "agents.md"
-    },
-    {
-      "label": "AGENTS.md \u2014 Illusion Fight Site",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "agents_agents_md_illusion_fight_site",
-      "community": 75,
-      "norm_label": "agents.md \u2014 illusion fight site"
-    },
-    {
-      "label": "\ud83d\udd34 SEMPRE NA MAIN \u2014 NUNCA ABRIR BRANCH",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "agents_sempre_na_main_nunca_abrir_branch",
-      "community": 75,
-      "norm_label": "\ud83d\udd34 sempre na main \u2014 nunca abrir branch"
-    },
-    {
-      "label": "Mandatory workflow for every code change",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "agents_mandatory_workflow_for_every_code_change",
-      "community": 75,
-      "norm_label": "mandatory workflow for every code change"
-    },
-    {
-      "label": "Stack",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L40",
-      "_origin": "ast",
-      "id": "agents_stack",
-      "community": 75,
-      "norm_label": "stack"
-    },
-    {
-      "label": "Environment",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "agents_environment",
-      "community": 75,
-      "norm_label": "environment"
-    },
-    {
-      "label": "\ud83e\udd16 Custom Agents",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L61",
-      "_origin": "ast",
-      "id": "agents_custom_agents",
-      "community": 75,
-      "norm_label": "\ud83e\udd16 custom agents"
-    },
-    {
-      "label": "Deploy commands (must run in this order)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L69",
-      "_origin": "ast",
-      "id": "agents_deploy_commands_must_run_in_this_order",
-      "community": 75,
-      "norm_label": "deploy commands (must run in this order)"
-    },
-    {
-      "label": "SPA on GitHub Pages",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L79",
-      "_origin": "ast",
-      "id": "agents_spa_on_github_pages",
-      "community": 75,
-      "norm_label": "spa on github pages"
-    },
-    {
-      "label": "Version constants (every game has its own)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L83",
-      "_origin": "ast",
-      "id": "agents_version_constants_every_game_has_its_own",
-      "community": 75,
-      "norm_label": "version constants (every game has its own)"
-    },
-    {
-      "label": "Conduct rules",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L115",
-      "_origin": "ast",
-      "id": "agents_conduct_rules",
-      "community": 75,
-      "norm_label": "conduct rules"
-    },
-    {
-      "label": "Decis\u00f5es e Hurdles Documentados",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L128",
-      "_origin": "ast",
-      "id": "agents_decis\u00f5es_e_hurdles_documentados",
-      "community": 75,
-      "norm_label": "decisoes e hurdles documentados"
-    },
-    {
-      "label": "\ud83d\udd34 Proibido hist\u00f3rico de mudan\u00e7as no produto",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L286",
-      "_origin": "ast",
-      "id": "agents_proibido_hist\u00f3rico_de_mudan\u00e7as_no_produto",
-      "community": 75,
-      "norm_label": "\ud83d\udd34 proibido historico de mudancas no produto"
-    },
-    {
-      "label": "\ud83d\udd34 Produ\u00e7\u00e3o de quadrinho: `docs/WEBSHARD/REGRAS_CRITICAS.md` PRIMEIRO, toda vez",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L304",
-      "_origin": "ast",
-      "id": "agents_produ\u00e7\u00e3o_de_quadrinho_docs_webshard_regras_criticas_md_primeiro_toda_vez",
-      "community": 75,
-      "norm_label": "\ud83d\udd34 producao de quadrinho: `docs/webshard/regras_criticas.md` primeiro, toda vez"
-    },
-    {
-      "label": "Trabalho bra\u00e7al vai pros modelos de fora (economia de token)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L318",
-      "_origin": "ast",
-      "id": "agents_trabalho_bra\u00e7al_vai_pros_modelos_de_fora_economia_de_token",
-      "community": 75,
-      "norm_label": "trabalho bracal vai pros modelos de fora (economia de token)"
-    },
-    {
-      "label": "Regra Anti-Over-Engineering",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L332",
-      "_origin": "ast",
-      "id": "agents_regra_anti_over_engineering",
-      "community": 75,
-      "norm_label": "regra anti-over-engineering"
-    },
-    {
-      "label": "Regra de Tamanho de Arquivo",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L336",
-      "_origin": "ast",
-      "id": "agents_regra_de_tamanho_de_arquivo",
-      "community": 75,
-      "norm_label": "regra de tamanho de arquivo"
-    },
-    {
-      "label": "Seguran\u00e7a \u00e9 h\u00e1bito, n\u00e3o fase",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L344",
-      "_origin": "ast",
-      "id": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase",
-      "community": 75,
-      "norm_label": "seguranca e habito, nao fase"
-    },
-    {
-      "label": "Este documento \u00e9 trabalho em progresso",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L352",
-      "_origin": "ast",
-      "id": "agents_este_documento_\u00e9_trabalho_em_progresso",
-      "community": 75,
-      "norm_label": "este documento e trabalho em progresso"
-    },
-    {
-      "label": "Architecture notes",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L356",
-      "_origin": "ast",
-      "id": "agents_architecture_notes",
-      "community": 75,
-      "norm_label": "architecture notes"
-    },
-    {
-      "label": "graphify",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L376",
-      "_origin": "ast",
-      "id": "agents_graphify",
-      "community": 75,
-      "norm_label": "graphify"
-    },
-    {
       "label": "SITE_MAP.md",
       "file_type": "document",
       "source_file": "SITE_MAP.md",
@@ -514,654 +304,214 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "App.jsx",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
+      "label": "REGRAS_CRITICAS.md",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_app",
-      "community": 6,
-      "norm_label": "app.jsx"
+      "id": "docs_webshard_regras_criticas",
+      "community": 204,
+      "norm_label": "regras_criticas.md"
     },
     {
-      "label": "Home",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L20",
+      "label": "REGRAS CR\u00cdTICAS DE PRODU\u00c7\u00c3O DE QUADRINHO",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L1",
       "_origin": "ast",
-      "id": "src_app_home",
-      "community": 6,
-      "norm_label": "home"
+      "id": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "community": 204,
+      "norm_label": "regras criticas de producao de quadrinho"
     },
     {
-      "label": "Musicas",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L21",
+      "label": "1. As tr\u00eas leis",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L18",
       "_origin": "ast",
-      "id": "src_app_musicas",
-      "community": 6,
-      "norm_label": "musicas"
+      "id": "docs_webshard_regras_criticas_1_as_tr\u00eas_leis",
+      "community": 204,
+      "norm_label": "1. as tres leis"
     },
     {
-      "label": "Personagens",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "src_app_personagens",
-      "community": 6,
-      "norm_label": "personagens"
-    },
-    {
-      "label": "PersonagemDetalhe",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L23",
-      "_origin": "ast",
-      "id": "src_app_personagemdetalhe",
-      "community": 6,
-      "norm_label": "personagemdetalhe"
-    },
-    {
-      "label": "HistoriasHub",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
+      "label": "2. Atitude",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "src_app_historiashub",
-      "community": 6,
-      "norm_label": "historiashub"
+      "id": "docs_webshard_regras_criticas_2_atitude",
+      "community": 204,
+      "norm_label": "2. atitude"
     },
     {
-      "label": "HistoriaTitulo",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L25",
+      "label": "3. Roteiro",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L33",
       "_origin": "ast",
-      "id": "src_app_historiatitulo",
-      "community": 6,
-      "norm_label": "historiatitulo"
+      "id": "docs_webshard_regras_criticas_3_roteiro",
+      "community": 460,
+      "norm_label": "3. roteiro"
     },
     {
-      "label": "LivroCapitulo",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L26",
+      "label": "Texto",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L35",
       "_origin": "ast",
-      "id": "src_app_livrocapitulo",
-      "community": 6,
-      "norm_label": "livrocapitulo"
+      "id": "docs_webshard_regras_criticas_texto",
+      "community": 460,
+      "norm_label": "texto"
     },
     {
-      "label": "ContoCapitulo",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L27",
-      "_origin": "ast",
-      "id": "src_app_contocapitulo",
-      "community": 6,
-      "norm_label": "contocapitulo"
-    },
-    {
-      "label": "ObraCapitulo",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "src_app_obracapitulo",
-      "community": 6,
-      "norm_label": "obracapitulo"
-    },
-    {
-      "label": "AutorCapitulo",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L29",
-      "_origin": "ast",
-      "id": "src_app_autorcapitulo",
-      "community": 6,
-      "norm_label": "autorcapitulo"
-    },
-    {
-      "label": "Assinar",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "src_app_assinar",
-      "community": 6,
-      "norm_label": "assinar"
-    },
-    {
-      "label": "Autor",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L31",
-      "_origin": "ast",
-      "id": "src_app_autor",
-      "community": 6,
-      "norm_label": "autor"
-    },
-    {
-      "label": "WebshardHub",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L32",
-      "_origin": "ast",
-      "id": "src_app_webshardhub",
-      "community": 6,
-      "norm_label": "webshardhub"
-    },
-    {
-      "label": "WebtoonCompare",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L36",
-      "_origin": "ast",
-      "id": "src_app_webtooncompare",
-      "community": 6,
-      "norm_label": "webtooncompare"
-    },
-    {
-      "label": "WebshardRota",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L37",
-      "_origin": "ast",
-      "id": "src_app_webshardrota",
-      "community": 6,
-      "norm_label": "webshardrota"
-    },
-    {
-      "label": "UniversoLDI",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "src_app_universoldi",
-      "community": 6,
-      "norm_label": "universoldi"
-    },
-    {
-      "label": "UniversosHub",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L39",
-      "_origin": "ast",
-      "id": "src_app_universoshub",
-      "community": 6,
-      "norm_label": "universoshub"
-    },
-    {
-      "label": "Universo",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L40",
-      "_origin": "ast",
-      "id": "src_app_universo",
-      "community": 6,
-      "norm_label": "universo"
-    },
-    {
-      "label": "Quiz",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L41",
-      "_origin": "ast",
-      "id": "src_app_quiz",
-      "community": 6,
-      "norm_label": "quiz"
-    },
-    {
-      "label": "Games",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L42",
-      "_origin": "ast",
-      "id": "src_app_games",
-      "community": 6,
-      "norm_label": "games"
-    },
-    {
-      "label": "MiniGames",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L43",
-      "_origin": "ast",
-      "id": "src_app_minigames",
-      "community": 6,
-      "norm_label": "minigames"
-    },
-    {
-      "label": "TopTrumpsSP",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L44",
-      "_origin": "ast",
-      "id": "src_app_toptrumpssp",
-      "community": 6,
-      "norm_label": "toptrumpssp"
-    },
-    {
-      "label": "TopTrumpsMP",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
+      "label": "Estrutura do cap\u00edtulo",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
       "source_location": "L45",
       "_origin": "ast",
-      "id": "src_app_toptrumpsmp",
-      "community": 6,
-      "norm_label": "toptrumpsmp"
+      "id": "docs_webshard_regras_criticas_estrutura_do_cap\u00edtulo",
+      "community": 460,
+      "norm_label": "estrutura do capitulo"
     },
     {
-      "label": "MultiplayerLobby",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L46",
-      "_origin": "ast",
-      "id": "src_app_multiplayerlobby",
-      "community": 6,
-      "norm_label": "multiplayerlobby"
-    },
-    {
-      "label": "Leaderboard",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L47",
-      "_origin": "ast",
-      "id": "src_app_leaderboard",
-      "community": 6,
-      "norm_label": "leaderboard"
-    },
-    {
-      "label": "Login",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L48",
-      "_origin": "ast",
-      "id": "src_app_login",
-      "community": 6,
-      "norm_label": "login"
-    },
-    {
-      "label": "Cadastro",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
+      "label": "P\u00e1gina",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
       "source_location": "L49",
       "_origin": "ast",
-      "id": "src_app_cadastro",
-      "community": 6,
-      "norm_label": "cadastro"
+      "id": "docs_webshard_regras_criticas_p\u00e1gina",
+      "community": 460,
+      "norm_label": "pagina"
     },
     {
-      "label": "Perfil",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L50",
-      "_origin": "ast",
-      "id": "src_app_perfil",
-      "community": 6,
-      "norm_label": "perfil"
-    },
-    {
-      "label": "Painel",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L51",
-      "_origin": "ast",
-      "id": "src_app_painel",
-      "community": 6,
-      "norm_label": "painel"
-    },
-    {
-      "label": "Creators",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L52",
-      "_origin": "ast",
-      "id": "src_app_creators",
-      "community": 6,
-      "norm_label": "creators"
-    },
-    {
-      "label": "CreatorsDestaques",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "src_app_creatorsdestaques",
-      "community": 6,
-      "norm_label": "creatorsdestaques"
-    },
-    {
-      "label": "Prototype",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L54",
-      "_origin": "ast",
-      "id": "src_app_prototype",
-      "community": 6,
-      "norm_label": "prototype"
-    },
-    {
-      "label": "SRGRM",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L55",
-      "_origin": "ast",
-      "id": "src_app_srgrm",
-      "community": 6,
-      "norm_label": "srgrm"
-    },
-    {
-      "label": "ArenaTestbed",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L56",
-      "_origin": "ast",
-      "id": "src_app_arenatestbed",
-      "community": 6,
-      "norm_label": "arenatestbed"
-    },
-    {
-      "label": "LDILobby",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L57",
-      "_origin": "ast",
-      "id": "src_app_ldilobby",
-      "community": 6,
-      "norm_label": "ldilobby"
-    },
-    {
-      "label": "LDIGame",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
+      "label": "Geografia e olhar",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
       "source_location": "L58",
       "_origin": "ast",
-      "id": "src_app_ldigame",
-      "community": 6,
-      "norm_label": "ldigame"
+      "id": "docs_webshard_regras_criticas_geografia_e_olhar",
+      "community": 460,
+      "norm_label": "geografia e olhar"
     },
     {
-      "label": "LDIBatalhaLab",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L59",
-      "_origin": "ast",
-      "id": "src_app_ldibatalhalab",
-      "community": 6,
-      "norm_label": "ldibatalhalab"
-    },
-    {
-      "label": "JackCandy",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L60",
-      "_origin": "ast",
-      "id": "src_app_jackcandy",
-      "community": 6,
-      "norm_label": "jackcandy"
-    },
-    {
-      "label": "GanguesRoute",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L61",
-      "_origin": "ast",
-      "id": "src_app_ganguesroute",
-      "community": 6,
-      "norm_label": "ganguesroute"
-    },
-    {
-      "label": "ArenaTaticsRoute",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L62",
-      "_origin": "ast",
-      "id": "src_app_arenataticsroute",
-      "community": 6,
-      "norm_label": "arenataticsroute"
-    },
-    {
-      "label": "PP",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L63",
-      "_origin": "ast",
-      "id": "src_app_pp",
-      "community": 6,
-      "norm_label": "pp"
-    },
-    {
-      "label": "DueloRoute",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L64",
-      "_origin": "ast",
-      "id": "src_app_dueloroute",
-      "community": 6,
-      "norm_label": "dueloroute"
-    },
-    {
-      "label": "Tamagoshi",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L65",
-      "_origin": "ast",
-      "id": "src_app_tamagoshi",
-      "community": 6,
-      "norm_label": "tamagoshi"
-    },
-    {
-      "label": "KernelPanic",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L66",
-      "_origin": "ast",
-      "id": "src_app_kernelpanic",
-      "community": 6,
-      "norm_label": "kernelpanic"
-    },
-    {
-      "label": "SlidingRafael",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L67",
-      "_origin": "ast",
-      "id": "src_app_slidingrafael",
-      "community": 6,
-      "norm_label": "slidingrafael"
-    },
-    {
-      "label": "CodigoPerdido",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
+      "label": "Continuidade",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
       "source_location": "L68",
       "_origin": "ast",
-      "id": "src_app_codigoperdido",
-      "community": 6,
-      "norm_label": "codigoperdido"
+      "id": "docs_webshard_regras_criticas_continuidade",
+      "community": 460,
+      "norm_label": "continuidade"
     },
     {
-      "label": "MazeRafael",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L69",
-      "_origin": "ast",
-      "id": "src_app_mazerafael",
-      "community": 6,
-      "norm_label": "mazerafael"
-    },
-    {
-      "label": "GlitchRafael",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L70",
-      "_origin": "ast",
-      "id": "src_app_glitchrafael",
-      "community": 6,
-      "norm_label": "glitchrafael"
-    },
-    {
-      "label": "BulletHellRafael",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L71",
-      "_origin": "ast",
-      "id": "src_app_bullethellrafael",
-      "community": 6,
-      "norm_label": "bullethellrafael"
-    },
-    {
-      "label": "StabilizerRafael",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L72",
-      "_origin": "ast",
-      "id": "src_app_stabilizerrafael",
-      "community": 6,
-      "norm_label": "stabilizerrafael"
-    },
-    {
-      "label": "Loja",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L73",
-      "_origin": "ast",
-      "id": "src_app_loja",
-      "community": 6,
-      "norm_label": "loja"
-    },
-    {
-      "label": "Custos",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L74",
-      "_origin": "ast",
-      "id": "src_app_custos",
-      "community": 6,
-      "norm_label": "custos"
-    },
-    {
-      "label": "WebShard",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L75",
-      "_origin": "ast",
-      "id": "src_app_webshard",
-      "community": 6,
-      "norm_label": "webshard"
-    },
-    {
-      "label": "Calendario",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L76",
-      "_origin": "ast",
-      "id": "src_app_calendario",
-      "community": 6,
-      "norm_label": "calendario"
-    },
-    {
-      "label": "NotFound",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L77",
-      "_origin": "ast",
-      "id": "src_app_notfound",
-      "community": 6,
-      "norm_label": "notfound"
-    },
-    {
-      "label": "SearchModal",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L78",
-      "_origin": "ast",
-      "id": "src_app_searchmodal",
-      "community": 6,
-      "norm_label": "searchmodal"
-    },
-    {
-      "label": "LDINotification",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L79",
-      "_origin": "ast",
-      "id": "src_app_ldinotification",
-      "community": 6,
-      "norm_label": "ldinotification"
-    },
-    {
-      "label": "RadioNina",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L80",
-      "_origin": "ast",
-      "id": "src_app_radionina",
-      "community": 6,
-      "norm_label": "radionina"
-    },
-    {
-      "label": "UnifiedNotification",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
+      "label": "4. C\u00e2mera (o erro mais caro)",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
       "source_location": "L81",
       "_origin": "ast",
-      "id": "src_app_unifiednotification",
-      "community": 6,
-      "norm_label": "unifiednotification"
+      "id": "docs_webshard_regras_criticas_4_c\u00e2mera_o_erro_mais_caro",
+      "community": 204,
+      "norm_label": "4. camera (o erro mais caro)"
     },
     {
-      "label": "SoAdmin()",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L90",
+      "label": "5. Prompt",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L109",
       "_origin": "ast",
-      "id": "src_app_soadmin",
-      "community": 6,
-      "norm_label": "soadmin()"
+      "id": "docs_webshard_regras_criticas_5_prompt",
+      "community": 464,
+      "norm_label": "5. prompt"
     },
     {
-      "label": "LegacyLivroRedirect()",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L97",
+      "label": "O que o modelo desenha se estiver no texto",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L113",
       "_origin": "ast",
-      "id": "src_app_legacylivroredirect",
-      "community": 6,
-      "norm_label": "legacylivroredirect()"
+      "id": "docs_webshard_regras_criticas_o_que_o_modelo_desenha_se_estiver_no_texto",
+      "community": 464,
+      "norm_label": "o que o modelo desenha se estiver no texto"
     },
     {
-      "label": "AnalyticsPageView()",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L103",
+      "label": "O que o modelo inventa se N\u00c3O estiver no texto",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L130",
       "_origin": "ast",
-      "id": "src_app_analyticspageview",
-      "community": 6,
-      "norm_label": "analyticspageview()"
+      "id": "docs_webshard_regras_criticas_o_que_o_modelo_inventa_se_n\u00e3o_estiver_no_texto",
+      "community": 464,
+      "norm_label": "o que o modelo inventa se nao estiver no texto"
     },
     {
-      "label": "ModoTela()",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L120",
+      "label": "O que n\u00e3o chega ao modelo",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L143",
       "_origin": "ast",
-      "id": "src_app_modotela",
-      "community": 6,
-      "norm_label": "modotela()"
+      "id": "docs_webshard_regras_criticas_o_que_n\u00e3o_chega_ao_modelo",
+      "community": 464,
+      "norm_label": "o que nao chega ao modelo"
     },
     {
-      "label": "App()",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L133",
+      "label": "Antes da fila",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L147",
       "_origin": "ast",
-      "id": "src_app_app",
-      "community": 62,
-      "norm_label": "app()"
+      "id": "docs_webshard_regras_criticas_antes_da_fila",
+      "community": 464,
+      "norm_label": "antes da fila"
+    },
+    {
+      "label": "6. Fichas e refer\u00eancias",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "docs_webshard_regras_criticas_6_fichas_e_refer\u00eancias",
+      "community": 204,
+      "norm_label": "6. fichas e referencias"
+    },
+    {
+      "label": "7. Revis\u00e3o do roteiro",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L178",
+      "_origin": "ast",
+      "id": "docs_webshard_regras_criticas_7_revis\u00e3o_do_roteiro",
+      "community": 204,
+      "norm_label": "7. revisao do roteiro"
+    },
+    {
+      "label": "8. Storyboard e produ\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L200",
+      "_origin": "ast",
+      "id": "docs_webshard_regras_criticas_8_storyboard_e_produ\u00e7\u00e3o",
+      "community": 204,
+      "norm_label": "8. storyboard e producao"
+    },
+    {
+      "label": "9. Ferramentas, fila e truques de imagem",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L226",
+      "_origin": "ast",
+      "id": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem",
+      "community": 204,
+      "norm_label": "9. ferramentas, fila e truques de imagem"
+    },
+    {
+      "label": "Gerar pelo site do ChatGPT (Chrome conectado)",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L248",
+      "_origin": "ast",
+      "id": "docs_webshard_regras_criticas_gerar_pelo_site_do_chatgpt_chrome_conectado",
+      "community": 204,
+      "norm_label": "gerar pelo site do chatgpt (chrome conectado)"
     },
     {
       "label": "version.js",
@@ -1172,6 +522,866 @@
       "id": "src_config_version",
       "community": 58,
       "norm_label": "version.js"
+    },
+    {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "agents.md",
+      "id": "agents"
+    },
+    {
+      "label": "AGENTS.md \u2014 Illusion Fight Site",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "agents.md \u2014 illusion fight site",
+      "id": "agents_agents_md_illusion_fight_site"
+    },
+    {
+      "label": "\ud83d\udd34 SEMPRE NA MAIN \u2014 NUNCA ABRIR BRANCH",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L3",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "\ud83d\udd34 sempre na main \u2014 nunca abrir branch",
+      "id": "agents_sempre_na_main_nunca_abrir_branch"
+    },
+    {
+      "label": "Mandatory workflow for every code change",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "mandatory workflow for every code change",
+      "id": "agents_mandatory_workflow_for_every_code_change"
+    },
+    {
+      "label": "Stack",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L40",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "stack",
+      "id": "agents_stack"
+    },
+    {
+      "label": "Environment",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L53",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "environment",
+      "id": "agents_environment"
+    },
+    {
+      "label": "\ud83e\udd16 Custom Agents",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "\ud83e\udd16 custom agents",
+      "id": "agents_custom_agents"
+    },
+    {
+      "label": "Deploy commands (must run in this order)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L69",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "deploy commands (must run in this order)",
+      "id": "agents_deploy_commands_must_run_in_this_order"
+    },
+    {
+      "label": "SPA on GitHub Pages",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L79",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "spa on github pages",
+      "id": "agents_spa_on_github_pages"
+    },
+    {
+      "label": "Version constants (every game has its own)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L83",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "version constants (every game has its own)",
+      "id": "agents_version_constants_every_game_has_its_own"
+    },
+    {
+      "label": "Conduct rules",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L115",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "conduct rules",
+      "id": "agents_conduct_rules"
+    },
+    {
+      "label": "Decis\u00f5es e Hurdles Documentados",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L128",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "decisoes e hurdles documentados",
+      "id": "agents_decis\u00f5es_e_hurdles_documentados"
+    },
+    {
+      "label": "\ud83d\udd34 Proibido hist\u00f3rico de mudan\u00e7as no produto",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L286",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "\ud83d\udd34 proibido historico de mudancas no produto",
+      "id": "agents_proibido_hist\u00f3rico_de_mudan\u00e7as_no_produto"
+    },
+    {
+      "label": "\ud83d\udd34 Produ\u00e7\u00e3o de quadrinho: `docs/WEBSHARD/REGRAS_CRITICAS.md` PRIMEIRO, toda vez",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L304",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "\ud83d\udd34 producao de quadrinho: `docs/webshard/regras_criticas.md` primeiro, toda vez",
+      "id": "agents_produ\u00e7\u00e3o_de_quadrinho_docs_webshard_regras_criticas_md_primeiro_toda_vez"
+    },
+    {
+      "label": "Trabalho bra\u00e7al vai pros modelos de fora (economia de token)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L318",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "trabalho bracal vai pros modelos de fora (economia de token)",
+      "id": "agents_trabalho_bra\u00e7al_vai_pros_modelos_de_fora_economia_de_token"
+    },
+    {
+      "label": "Regra Anti-Over-Engineering",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L332",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "regra anti-over-engineering",
+      "id": "agents_regra_anti_over_engineering"
+    },
+    {
+      "label": "Regra de Tamanho de Arquivo",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L336",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "regra de tamanho de arquivo",
+      "id": "agents_regra_de_tamanho_de_arquivo"
+    },
+    {
+      "label": "Seguran\u00e7a \u00e9 h\u00e1bito, n\u00e3o fase",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L344",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "seguranca e habito, nao fase",
+      "id": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase"
+    },
+    {
+      "label": "Este documento \u00e9 trabalho em progresso",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L352",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "este documento e trabalho em progresso",
+      "id": "agents_este_documento_\u00e9_trabalho_em_progresso"
+    },
+    {
+      "label": "Architecture notes",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L356",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "architecture notes",
+      "id": "agents_architecture_notes"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L376",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "graphify",
+      "id": "agents_graphify"
+    },
+    {
+      "label": "App.jsx",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "app.jsx",
+      "id": "src_app"
+    },
+    {
+      "label": "Home",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "home",
+      "id": "src_app_home"
+    },
+    {
+      "label": "Musicas",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "musicas",
+      "id": "src_app_musicas"
+    },
+    {
+      "label": "Personagens",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L22",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "personagens",
+      "id": "src_app_personagens"
+    },
+    {
+      "label": "PersonagemDetalhe",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L23",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "personagemdetalhe",
+      "id": "src_app_personagemdetalhe"
+    },
+    {
+      "label": "HistoriasHub",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L24",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "historiashub",
+      "id": "src_app_historiashub"
+    },
+    {
+      "label": "HistoriaTitulo",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L25",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "historiatitulo",
+      "id": "src_app_historiatitulo"
+    },
+    {
+      "label": "LivroCapitulo",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L26",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "livrocapitulo",
+      "id": "src_app_livrocapitulo"
+    },
+    {
+      "label": "ContoCapitulo",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L27",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "contocapitulo",
+      "id": "src_app_contocapitulo"
+    },
+    {
+      "label": "ObraCapitulo",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L28",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "obracapitulo",
+      "id": "src_app_obracapitulo"
+    },
+    {
+      "label": "AutorCapitulo",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L29",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "autorcapitulo",
+      "id": "src_app_autorcapitulo"
+    },
+    {
+      "label": "Assinar",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "assinar",
+      "id": "src_app_assinar"
+    },
+    {
+      "label": "Autor",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L31",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "autor",
+      "id": "src_app_autor"
+    },
+    {
+      "label": "WebshardHub",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L32",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "webshardhub",
+      "id": "src_app_webshardhub"
+    },
+    {
+      "label": "WebtoonCompare",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L36",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "webtooncompare",
+      "id": "src_app_webtooncompare"
+    },
+    {
+      "label": "WebshardRota",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L37",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "webshardrota",
+      "id": "src_app_webshardrota"
+    },
+    {
+      "label": "UniversoLDI",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L38",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "universoldi",
+      "id": "src_app_universoldi"
+    },
+    {
+      "label": "UniversosHub",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L39",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "universoshub",
+      "id": "src_app_universoshub"
+    },
+    {
+      "label": "Universo",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L40",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "universo",
+      "id": "src_app_universo"
+    },
+    {
+      "label": "Quiz",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L41",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "quiz",
+      "id": "src_app_quiz"
+    },
+    {
+      "label": "Games",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L42",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "games",
+      "id": "src_app_games"
+    },
+    {
+      "label": "MiniGames",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L43",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "minigames",
+      "id": "src_app_minigames"
+    },
+    {
+      "label": "TopTrumpsSP",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L44",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "toptrumpssp",
+      "id": "src_app_toptrumpssp"
+    },
+    {
+      "label": "TopTrumpsMP",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L45",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "toptrumpsmp",
+      "id": "src_app_toptrumpsmp"
+    },
+    {
+      "label": "MultiplayerLobby",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L46",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "multiplayerlobby",
+      "id": "src_app_multiplayerlobby"
+    },
+    {
+      "label": "Leaderboard",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L47",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "leaderboard",
+      "id": "src_app_leaderboard"
+    },
+    {
+      "label": "Login",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L48",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "login",
+      "id": "src_app_login"
+    },
+    {
+      "label": "Cadastro",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L49",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "cadastro",
+      "id": "src_app_cadastro"
+    },
+    {
+      "label": "Perfil",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L50",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "perfil",
+      "id": "src_app_perfil"
+    },
+    {
+      "label": "Painel",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L51",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "painel",
+      "id": "src_app_painel"
+    },
+    {
+      "label": "Creators",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L52",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "creators",
+      "id": "src_app_creators"
+    },
+    {
+      "label": "CreatorsDestaques",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L53",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "creatorsdestaques",
+      "id": "src_app_creatorsdestaques"
+    },
+    {
+      "label": "Prototype",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L54",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "prototype",
+      "id": "src_app_prototype"
+    },
+    {
+      "label": "SRGRM",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L55",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "srgrm",
+      "id": "src_app_srgrm"
+    },
+    {
+      "label": "ArenaTestbed",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L56",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "arenatestbed",
+      "id": "src_app_arenatestbed"
+    },
+    {
+      "label": "LDILobby",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L57",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "ldilobby",
+      "id": "src_app_ldilobby"
+    },
+    {
+      "label": "LDIGame",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L58",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "ldigame",
+      "id": "src_app_ldigame"
+    },
+    {
+      "label": "LDIBatalhaLab",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L59",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "ldibatalhalab",
+      "id": "src_app_ldibatalhalab"
+    },
+    {
+      "label": "JackCandy",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L60",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "jackcandy",
+      "id": "src_app_jackcandy"
+    },
+    {
+      "label": "GanguesRoute",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L61",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "ganguesroute",
+      "id": "src_app_ganguesroute"
+    },
+    {
+      "label": "ArenaTaticsRoute",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L62",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "arenataticsroute",
+      "id": "src_app_arenataticsroute"
+    },
+    {
+      "label": "PP",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L63",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "pp",
+      "id": "src_app_pp"
+    },
+    {
+      "label": "DueloRoute",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L64",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "dueloroute",
+      "id": "src_app_dueloroute"
+    },
+    {
+      "label": "Tamagoshi",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L65",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "tamagoshi",
+      "id": "src_app_tamagoshi"
+    },
+    {
+      "label": "KernelPanic",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L66",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "kernelpanic",
+      "id": "src_app_kernelpanic"
+    },
+    {
+      "label": "SlidingRafael",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L67",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "slidingrafael",
+      "id": "src_app_slidingrafael"
+    },
+    {
+      "label": "CodigoPerdido",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L68",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "codigoperdido",
+      "id": "src_app_codigoperdido"
+    },
+    {
+      "label": "MazeRafael",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L69",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "mazerafael",
+      "id": "src_app_mazerafael"
+    },
+    {
+      "label": "GlitchRafael",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L70",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "glitchrafael",
+      "id": "src_app_glitchrafael"
+    },
+    {
+      "label": "BulletHellRafael",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L71",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "bullethellrafael",
+      "id": "src_app_bullethellrafael"
+    },
+    {
+      "label": "StabilizerRafael",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L72",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "stabilizerrafael",
+      "id": "src_app_stabilizerrafael"
+    },
+    {
+      "label": "Loja",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L73",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "loja",
+      "id": "src_app_loja"
+    },
+    {
+      "label": "Custos",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L74",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "custos",
+      "id": "src_app_custos"
+    },
+    {
+      "label": "WebShard",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L75",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "webshard",
+      "id": "src_app_webshard"
+    },
+    {
+      "label": "Calendario",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L76",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "calendario",
+      "id": "src_app_calendario"
+    },
+    {
+      "label": "NotFound",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L77",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "notfound",
+      "id": "src_app_notfound"
+    },
+    {
+      "label": "SearchModal",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L78",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "searchmodal",
+      "id": "src_app_searchmodal"
+    },
+    {
+      "label": "LDINotification",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L79",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "ldinotification",
+      "id": "src_app_ldinotification"
+    },
+    {
+      "label": "RadioNina",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L80",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "radionina",
+      "id": "src_app_radionina"
+    },
+    {
+      "label": "UnifiedNotification",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L81",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "unifiednotification",
+      "id": "src_app_unifiednotification"
+    },
+    {
+      "label": "SoAdmin()",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L90",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "soadmin()",
+      "id": "src_app_soadmin"
+    },
+    {
+      "label": "LegacyLivroRedirect()",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L97",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "legacylivroredirect()",
+      "id": "src_app_legacylivroredirect"
+    },
+    {
+      "label": "AnalyticsPageView()",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L103",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "analyticspageview()",
+      "id": "src_app_analyticspageview"
+    },
+    {
+      "label": "ModoTela()",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L120",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "modotela()",
+      "id": "src_app_modotela"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L133",
+      "_origin": "ast",
+      "community": 62,
+      "norm_label": "app()",
+      "id": "src_app_app"
     },
     {
       "label": "PainelTarefas.jsx",
@@ -1612,216 +1822,6 @@
       "community": 219,
       "norm_label": "16. pendencias de formato",
       "id": "docs_webshard_webshard_guia_de_producao_16_pend\u00eancias_de_formato"
-    },
-    {
-      "label": "REGRAS_CRITICAS.md",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 204,
-      "norm_label": "regras_criticas.md",
-      "id": "docs_webshard_regras_criticas"
-    },
-    {
-      "label": "REGRAS CR\u00cdTICAS DE PRODU\u00c7\u00c3O DE QUADRINHO",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 204,
-      "norm_label": "regras criticas de producao de quadrinho",
-      "id": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho"
-    },
-    {
-      "label": "1. As tr\u00eas leis",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L18",
-      "_origin": "ast",
-      "community": 204,
-      "norm_label": "1. as tres leis",
-      "id": "docs_webshard_regras_criticas_1_as_tr\u00eas_leis"
-    },
-    {
-      "label": "2. Atitude",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L24",
-      "_origin": "ast",
-      "community": 204,
-      "norm_label": "2. atitude",
-      "id": "docs_webshard_regras_criticas_2_atitude"
-    },
-    {
-      "label": "3. Roteiro",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L33",
-      "_origin": "ast",
-      "community": 460,
-      "norm_label": "3. roteiro",
-      "id": "docs_webshard_regras_criticas_3_roteiro"
-    },
-    {
-      "label": "Texto",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L35",
-      "_origin": "ast",
-      "community": 460,
-      "norm_label": "texto",
-      "id": "docs_webshard_regras_criticas_texto"
-    },
-    {
-      "label": "Estrutura do cap\u00edtulo",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L45",
-      "_origin": "ast",
-      "community": 460,
-      "norm_label": "estrutura do capitulo",
-      "id": "docs_webshard_regras_criticas_estrutura_do_cap\u00edtulo"
-    },
-    {
-      "label": "P\u00e1gina",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L49",
-      "_origin": "ast",
-      "community": 460,
-      "norm_label": "pagina",
-      "id": "docs_webshard_regras_criticas_p\u00e1gina"
-    },
-    {
-      "label": "Geografia e olhar",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L58",
-      "_origin": "ast",
-      "community": 460,
-      "norm_label": "geografia e olhar",
-      "id": "docs_webshard_regras_criticas_geografia_e_olhar"
-    },
-    {
-      "label": "Continuidade",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L68",
-      "_origin": "ast",
-      "community": 460,
-      "norm_label": "continuidade",
-      "id": "docs_webshard_regras_criticas_continuidade"
-    },
-    {
-      "label": "4. C\u00e2mera (o erro mais caro)",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L81",
-      "_origin": "ast",
-      "community": 204,
-      "norm_label": "4. camera (o erro mais caro)",
-      "id": "docs_webshard_regras_criticas_4_c\u00e2mera_o_erro_mais_caro"
-    },
-    {
-      "label": "5. Prompt",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L109",
-      "_origin": "ast",
-      "community": 464,
-      "norm_label": "5. prompt",
-      "id": "docs_webshard_regras_criticas_5_prompt"
-    },
-    {
-      "label": "O que o modelo desenha se estiver no texto",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L113",
-      "_origin": "ast",
-      "community": 464,
-      "norm_label": "o que o modelo desenha se estiver no texto",
-      "id": "docs_webshard_regras_criticas_o_que_o_modelo_desenha_se_estiver_no_texto"
-    },
-    {
-      "label": "O que o modelo inventa se N\u00c3O estiver no texto",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L129",
-      "_origin": "ast",
-      "community": 464,
-      "norm_label": "o que o modelo inventa se nao estiver no texto",
-      "id": "docs_webshard_regras_criticas_o_que_o_modelo_inventa_se_n\u00e3o_estiver_no_texto"
-    },
-    {
-      "label": "O que n\u00e3o chega ao modelo",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L142",
-      "_origin": "ast",
-      "community": 464,
-      "norm_label": "o que nao chega ao modelo",
-      "id": "docs_webshard_regras_criticas_o_que_n\u00e3o_chega_ao_modelo"
-    },
-    {
-      "label": "Antes da fila",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L146",
-      "_origin": "ast",
-      "community": 464,
-      "norm_label": "antes da fila",
-      "id": "docs_webshard_regras_criticas_antes_da_fila"
-    },
-    {
-      "label": "6. Fichas e refer\u00eancias",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L150",
-      "_origin": "ast",
-      "community": 204,
-      "norm_label": "6. fichas e referencias",
-      "id": "docs_webshard_regras_criticas_6_fichas_e_refer\u00eancias"
-    },
-    {
-      "label": "7. Revis\u00e3o do roteiro",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L177",
-      "_origin": "ast",
-      "community": 204,
-      "norm_label": "7. revisao do roteiro",
-      "id": "docs_webshard_regras_criticas_7_revis\u00e3o_do_roteiro"
-    },
-    {
-      "label": "8. Storyboard e produ\u00e7\u00e3o",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L199",
-      "_origin": "ast",
-      "community": 204,
-      "norm_label": "8. storyboard e producao",
-      "id": "docs_webshard_regras_criticas_8_storyboard_e_produ\u00e7\u00e3o"
-    },
-    {
-      "label": "9. Ferramentas, fila e truques de imagem",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L225",
-      "_origin": "ast",
-      "community": 204,
-      "norm_label": "9. ferramentas, fila e truques de imagem",
-      "id": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem"
-    },
-    {
-      "label": "Gerar pelo site do ChatGPT (Chrome conectado)",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L247",
-      "_origin": "ast",
-      "community": 204,
-      "norm_label": "gerar pelo site do chatgpt (chrome conectado)",
-      "id": "docs_webshard_regras_criticas_gerar_pelo_site_do_chatgpt_chrome_conectado"
     },
     {
       "label": "capitulo-13.md",
@@ -65608,206 +65608,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "agents",
-      "target": "agents_agents_md_illusion_fight_site",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L356",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_architecture_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L115",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_conduct_rules",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L61",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_custom_agents",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L128",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_decis\u00f5es_e_hurdles_documentados",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L69",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_deploy_commands_must_run_in_this_order",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L53",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_environment",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L352",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_este_documento_\u00e9_trabalho_em_progresso",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L376",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_graphify",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_mandatory_workflow_for_every_code_change",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L304",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_produ\u00e7\u00e3o_de_quadrinho_docs_webshard_regras_criticas_md_primeiro_toda_vez",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L286",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_proibido_hist\u00f3rico_de_mudan\u00e7as_no_produto",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L332",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_regra_anti_over_engineering",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L336",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_regra_de_tamanho_de_arquivo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L344",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_sempre_na_main_nunca_abrir_branch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L79",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_spa_on_github_pages",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_stack",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L318",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_trabalho_bra\u00e7al_vai_pros_modelos_de_fora_economia_de_token",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L83",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_version_constants_every_game_has_its_own",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "SITE_MAP.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -66096,666 +65896,214 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "references",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L103",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_analyticspageview",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L133",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_app",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L62",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_arenataticsroute",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L56",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_arenatestbed",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L30",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_assinar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L31",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_autor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_autorcapitulo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L71",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_bullethellrafael",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_cadastro",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L76",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_calendario",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_codigoperdido",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_contocapitulo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L52",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_creators",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L53",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_creatorsdestaques",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L74",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_custos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L64",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_dueloroute",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L42",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_games",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L61",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_ganguesroute",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L70",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_glitchrafael",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_historiashub",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_historiatitulo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_home",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L60",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_jackcandy",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L66",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_kernelpanic",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L59",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldibatalhalab",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L58",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldigame",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L57",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldilobby",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L79",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldinotification",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L47",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_leaderboard",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L97",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_legacylivroredirect",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L26",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_livrocapitulo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L48",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_login",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L73",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_loja",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L69",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_mazerafael",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L43",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_minigames",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L120",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_modotela",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L46",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_multiplayerlobby",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_musicas",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L77",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_notfound",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L28",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_obracapitulo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_painel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L50",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_perfil",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_personagemdetalhe",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
+      "source_file": "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md",
       "source_location": "L22",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_personagens",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "docs_webshard_especiais_halloween_roteiro_oficial",
+      "target": "docs_webshard_regras_criticas"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L63",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L1",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_pp",
+      "source": "docs_webshard_regras_criticas",
+      "target": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L54",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L18",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_prototype",
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_1_as_tr\u00eas_leis",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L41",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L24",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_quiz",
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_2_atitude",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L80",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L33",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_radionina",
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_3_roteiro",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L78",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_searchmodal",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L67",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_slidingrafael",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L90",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_soadmin",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L55",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_srgrm",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L72",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_stabilizerrafael",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L65",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_tamagoshi",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L45",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_toptrumpsmp",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L44",
-      "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_toptrumpssp",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
       "source_location": "L81",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_unifiednotification",
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_4_c\u00e2mera_o_erro_mais_caro",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L40",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L109",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_universo",
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_5_prompt",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L38",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L151",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_universoldi",
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_6_fichas_e_refer\u00eancias",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L39",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L178",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_universoshub",
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_7_revis\u00e3o_do_roteiro",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L75",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L200",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_webshard",
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_8_storyboard_e_produ\u00e7\u00e3o",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L32",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L226",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_webshardhub",
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L37",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L68",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_webshardrota",
+      "source": "docs_webshard_regras_criticas_3_roteiro",
+      "target": "docs_webshard_regras_criticas_continuidade",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L36",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L45",
       "weight": 1.0,
-      "source": "src_app",
-      "target": "src_app_webtooncompare",
+      "source": "docs_webshard_regras_criticas_3_roteiro",
+      "target": "docs_webshard_regras_criticas_estrutura_do_cap\u00edtulo",
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/main.jsx",
-      "source_location": "L19",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L58",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_main",
-      "target": "src_app"
+      "source": "docs_webshard_regras_criticas_3_roteiro",
+      "target": "docs_webshard_regras_criticas_geografia_e_olhar",
+      "confidence_score": 1.0
     },
     {
-      "relation": "imports",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/main.jsx",
-      "source_location": "L19",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L49",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_main",
-      "target": "src_app_app"
+      "source": "docs_webshard_regras_criticas_3_roteiro",
+      "target": "docs_webshard_regras_criticas_p\u00e1gina",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "docs_webshard_regras_criticas_3_roteiro",
+      "target": "docs_webshard_regras_criticas_texto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "docs_webshard_regras_criticas_5_prompt",
+      "target": "docs_webshard_regras_criticas_antes_da_fila",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "docs_webshard_regras_criticas_5_prompt",
+      "target": "docs_webshard_regras_criticas_o_que_n\u00e3o_chega_ao_modelo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "docs_webshard_regras_criticas_5_prompt",
+      "target": "docs_webshard_regras_criticas_o_que_o_modelo_desenha_se_estiver_no_texto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "docs_webshard_regras_criticas_5_prompt",
+      "target": "docs_webshard_regras_criticas_o_que_o_modelo_inventa_se_n\u00e3o_estiver_no_texto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L248",
+      "weight": 1.0,
+      "source": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem",
+      "target": "docs_webshard_regras_criticas_gerar_pelo_site_do_chatgpt_chrome_conectado",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -66921,6 +66269,868 @@
       "confidence_score": 1.0,
       "source": "src_pages_lab_prototype_srgrm_srgrm",
       "target": "src_config_version"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents",
+      "target": "agents_agents_md_illusion_fight_site"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L356",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_architecture_notes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L115",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_conduct_rules"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_custom_agents"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L128",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_decis\u00f5es_e_hurdles_documentados"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_deploy_commands_must_run_in_this_order"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_environment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L352",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_este_documento_\u00e9_trabalho_em_progresso"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L376",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_mandatory_workflow_for_every_code_change"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L304",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_produ\u00e7\u00e3o_de_quadrinho_docs_webshard_regras_criticas_md_primeiro_toda_vez"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L286",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_proibido_hist\u00f3rico_de_mudan\u00e7as_no_produto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L332",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_regra_anti_over_engineering"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L336",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_regra_de_tamanho_de_arquivo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L344",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_sempre_na_main_nunca_abrir_branch"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_spa_on_github_pages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_stack"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L318",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_trabalho_bra\u00e7al_vai_pros_modelos_de_fora_economia_de_token"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_version_constants_every_game_has_its_own"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L103",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_analyticspageview"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L133",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_app"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_arenataticsroute"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_arenatestbed"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_assinar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_autor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_autorcapitulo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L71",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_bullethellrafael"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_cadastro"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_calendario"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_codigoperdido"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_contocapitulo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_creators"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_creatorsdestaques"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_custos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_dueloroute"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_games"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_ganguesroute"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_glitchrafael"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_historiashub"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_historiatitulo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_home"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_jackcandy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_kernelpanic"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldibatalhalab"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldigame"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldilobby"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldinotification"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_leaderboard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_legacylivroredirect"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_livrocapitulo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_login"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_loja"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_mazerafael"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_minigames"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L120",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_modotela"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_multiplayerlobby"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_musicas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_notfound"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_obracapitulo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_painel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_perfil"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_personagemdetalhe"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_personagens"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_pp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_prototype"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_quiz"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_radionina"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L78",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_searchmodal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_slidingrafael"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L90",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_soadmin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_srgrm"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_stabilizerrafael"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L65",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_tamagoshi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_toptrumpsmp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_toptrumpssp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_unifiednotification"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_universo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_universoldi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_universoshub"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_webshard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_webshardhub"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_webshardrota"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "src_app_webtooncompare"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main",
+      "target": "src_app"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main",
+      "target": "src_app_app"
     },
     {
       "relation": "contains",
@@ -67351,216 +67561,6 @@
       "confidence_score": 1.0,
       "source": "docs_webshard_webshard_guia_de_producao_15_tradu\u00e7\u00e3o_en_e_es",
       "target": "docs_webshard_webshard_guia_de_producao_15_6_pend\u00eancias_do_cap\u00edtulo_01"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_especiais_halloween_roteiro_oficial",
-      "target": "docs_webshard_regras_criticas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas",
-      "target": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_1_as_tr\u00eas_leis"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_2_atitude"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_3_roteiro"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L81",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_4_c\u00e2mera_o_erro_mais_caro"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L109",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_5_prompt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L150",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_6_fichas_e_refer\u00eancias"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L177",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_7_revis\u00e3o_do_roteiro"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L199",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_8_storyboard_e_produ\u00e7\u00e3o"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L225",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L68",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_3_roteiro",
-      "target": "docs_webshard_regras_criticas_continuidade"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L45",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_3_roteiro",
-      "target": "docs_webshard_regras_criticas_estrutura_do_cap\u00edtulo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L58",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_3_roteiro",
-      "target": "docs_webshard_regras_criticas_geografia_e_olhar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L49",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_3_roteiro",
-      "target": "docs_webshard_regras_criticas_p\u00e1gina"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L35",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_3_roteiro",
-      "target": "docs_webshard_regras_criticas_texto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L146",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_5_prompt",
-      "target": "docs_webshard_regras_criticas_antes_da_fila"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L142",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_5_prompt",
-      "target": "docs_webshard_regras_criticas_o_que_n\u00e3o_chega_ao_modelo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L113",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_5_prompt",
-      "target": "docs_webshard_regras_criticas_o_que_o_modelo_desenha_se_estiver_no_texto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L129",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_5_prompt",
-      "target": "docs_webshard_regras_criticas_o_que_o_modelo_inventa_se_n\u00e3o_estiver_no_texto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L247",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem",
-      "target": "docs_webshard_regras_criticas_gerar_pelo_site_do_chatgpt_chrome_conectado"
     },
     {
       "relation": "contains",
@@ -197940,5 +197940,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "420782933d5fed4a8addd3c8ce8249b2b2d00f6c"
+  "built_at_commit": "c851bef0fde035b923cc52e4dd555d166dbfe41c"
 }
