@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793463558.9216616,
-    "ast_hash": "d1a4c817e90797d7b5b8ca4b5def850e",
+    "mtime": 1793469440.8656123,
+    "ast_hash": "164f6825a3f7d2bd6fc89c562554f586",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1793233548.626706,
-    "ast_hash": "342cae38bfb39f7618daa3727e7b177a",
+    "mtime": 1793469456.666149,
+    "ast_hash": "8e10e5a5176fd8bb3e732e5e6cadddb2",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793463558.9216616,
-    "ast_hash": "cb027532fc873db64ae236838b189610",
+    "mtime": 1793469440.8666086,
+    "ast_hash": "70d62fda336e6eddcc275e9eb5c12148",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9945,8 +9945,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793463600.7546282,
-    "ast_hash": "d20e3d137e3e3e378497bd7cf65d6865",
+    "mtime": 1793469487.3509345,
+    "ast_hash": "5a86a36a9c7f32bd6982d99937a174dc",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
