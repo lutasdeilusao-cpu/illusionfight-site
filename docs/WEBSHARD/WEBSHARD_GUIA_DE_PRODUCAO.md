@@ -177,6 +177,7 @@ Personagem novo com fala ganha cor antes da página: escolher um tom que não se
 Ordem: capa → aviso de idade → divulgação → história → **gancho em glitch** → divulgação → créditos. Na linha principal, são 4 páginas de abertura e 3 de encerramento.
 
 - **Capa:** usar a arte oficial quando existir (`Personagens/Capas_Contos/` nos contos).
+- **Logos oficiais da capa:** ficam em `MARKETING/Sociais Bases/Logos/`. Toda capa ANEXA `LogoEnglish.png` (topo) e `LogoSquareEn.png` (selo IF, canto inferior direito), e o prompt manda copiar exatamente como no arquivo. Capa de outro capítulo não serve de referência de logo.
 - **Gancho em glitch (última página da história, obrigatório):**
   - Modelos: `MAIN/02/PT/63.png`, `MAIN/03/PT/62.png` e `MAIN/06/PT/57.png` (anexar duas delas).
   - A página inteira "trava": faixas horizontais deslocadas, aberração cromática vermelho/ciano, scan lines, pixels quebrados.
@@ -251,7 +252,7 @@ Ordem: capa → aviso de idade → divulgação → história → **gancho em gl
 | Casa do Kim | `Cenarios/CasaKim.png`, `SalaKim.png`, `CozinhaKim.png`, `QuartoKim.png` | Fachada (três janelas em cima, quarto do Kim à esquerda, garagem, janela baixa da Helena, rua rachada) e interiores |
 | Base (delegacia) | `Cenarios/BaseDelegacia_Planta_2Angulos.png` | Estacionamento e base do trio |
 | HIT COMBO | `Objetos/HitCombo.png` | Overlay oficial (§10) |
-| Logos | `LogoEnglish.png`, `LogoSquareEn.png` | Nunca redesenhar a marca |
+| Logos | `MARKETING/Sociais Bases/Logos/LogoEnglish.png`, `LogoSquareEn.png` | Nunca redesenhar a marca |
 
 - **Arena:** a luta se enquadra contra o CHÃO e a PAREDE, sem plateia no mesmo quadro e sem diminuir o lugar. A plateia entra só em estilhaço de reação ou numa panorâmica só dela. `Coliseu_Noite.png` e `Coliseu_Destruido.png` são estados específicos e não substituem a arena oficial.
 - **Elite Academy:** portão de ferro com o nome dourado no arco.
