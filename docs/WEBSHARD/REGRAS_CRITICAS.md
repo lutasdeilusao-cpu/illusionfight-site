@@ -119,6 +119,7 @@ O prompt final é gerado por script a partir do roteiro (`montar.py`, `v3.py`). 
   
   Tudo isso é reescrito em linguagem de desenho ("o painel de cima é um pouco maior", "a palavra X bem maior"), sem números, colchetes ou asteriscos. Margem nunca vai em pixels: "margem larga" desenhou moldura preta.
 - **Borda branca é proibida.** "Margem", "longe das bordas" e "área livre" desenham moldura branca em volta da arte. O prompt diz que a arte vai até as quatro bordas, sem moldura.
+- **Toda página passa por `LAB-NVIDIA/checa_borda.py` antes de ir pra pasta `PT`.** O script acha faixa clara e lisa nas quatro beiras. Página marcada não entra. Olho humano se acostuma com borda; o script não.
 - **Título, capítulo ou número de página** saem escritos no topo. Nenhuma linha do prompt diz isso.
 - **"Lente" e "câmera"** viram uma câmera fotográfica na cena. Usar "ponto de vista" e "visto do nível do chão". "Câmera lenta" vira "slow motion". "Glass" desenhou vidro de verdade.
 - **Nome de pessoa** em parêntese ou em olhar ("(a Nina)", "olhando o Freddy fora do quadro") puxa a pessoa pra uma página em que ela não está.

@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793470431.2027826,
-    "ast_hash": "f2c576d930e1612e10c6d426c8c265c2",
+    "mtime": 1793475133.0311313,
+    "ast_hash": "c2c7bdcfc1960c96e077db31a5cca520",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793470431.2037833,
-    "ast_hash": "85621edcf5b852c26a60816f71f20006",
+    "mtime": 1793475133.032258,
+    "ast_hash": "647c26dd7d00449f608461db7d9d5b0f",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9935,8 +9935,8 @@
     "semantic_hash": ""
   },
   "src/data/contos-de-ilusao-episodios.json": {
-    "mtime": 1793470431.2017832,
-    "ast_hash": "742eebd1c3b546ba4ad1add808c14a6b",
+    "mtime": 1793475133.0297012,
+    "ast_hash": "4421668dc561b3e1a658f30549ae9d64",
     "semantic_hash": ""
   },
   "src/assets/webshard/capa-contos-de-ilusao.webp": {
@@ -9945,8 +9945,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793470438.7336688,
-    "ast_hash": "53c6fcca01ae5f83554c785e14d467af",
+    "mtime": 1793475167.0441759,
+    "ast_hash": "9d8c465dea094fc65cd9dcf7ecc31af5",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
