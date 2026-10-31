@@ -252,6 +252,54 @@
     ]
   },
   {
+    "id": "10",
+    "numero": 10,
+    "so_admin": true,
+    "titulo_pt": "O Bug de Ilusão",
+    "titulo_en": "The Bug of Illusion",
+    "titulo_es": "El Bug de Ilusión",
+    "publicado": false,
+    "data_publicacao": "2099-12-30",
+    "liberacao": {
+      "elite": "2099-12-15",
+      "conta": "2099-12-30",
+      "publico": "2099-12-30"
+    },
+    "idiomas": [
+      "pt"
+    ],
+    "paginas": 60,
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ]
+  },
+  {
+    "id": "11",
+    "numero": 11,
+    "so_admin": true,
+    "titulo_pt": "Capítulo 11",
+    "titulo_en": "Chapter 11",
+    "titulo_es": "Capítulo 11",
+    "publicado": false,
+    "data_publicacao": "2099-12-30",
+    "liberacao": {
+      "elite": "2099-12-15",
+      "conta": "2099-12-30",
+      "publico": "2099-12-30"
+    },
+    "idiomas": [
+      "pt"
+    ],
+    "paginas": 6,
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ]
+  },
+  {
     "id": "especial-1",
     "numero": 1,
     "so_admin": true,
