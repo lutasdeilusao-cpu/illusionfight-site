@@ -304,216 +304,6 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "REGRAS_CRITICAS.md",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas",
-      "community": 204,
-      "norm_label": "regras_criticas.md"
-    },
-    {
-      "label": "REGRAS CR\u00cdTICAS DE PRODU\u00c7\u00c3O DE QUADRINHO",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "community": 204,
-      "norm_label": "regras criticas de producao de quadrinho"
-    },
-    {
-      "label": "1. As tr\u00eas leis",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_1_as_tr\u00eas_leis",
-      "community": 204,
-      "norm_label": "1. as tres leis"
-    },
-    {
-      "label": "2. Atitude",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_2_atitude",
-      "community": 204,
-      "norm_label": "2. atitude"
-    },
-    {
-      "label": "3. Roteiro",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L33",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_3_roteiro",
-      "community": 460,
-      "norm_label": "3. roteiro"
-    },
-    {
-      "label": "Texto",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L35",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_texto",
-      "community": 460,
-      "norm_label": "texto"
-    },
-    {
-      "label": "Estrutura do cap\u00edtulo",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L45",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_estrutura_do_cap\u00edtulo",
-      "community": 460,
-      "norm_label": "estrutura do capitulo"
-    },
-    {
-      "label": "P\u00e1gina",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L49",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_p\u00e1gina",
-      "community": 460,
-      "norm_label": "pagina"
-    },
-    {
-      "label": "Geografia e olhar",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L58",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_geografia_e_olhar",
-      "community": 460,
-      "norm_label": "geografia e olhar"
-    },
-    {
-      "label": "Continuidade",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L68",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_continuidade",
-      "community": 460,
-      "norm_label": "continuidade"
-    },
-    {
-      "label": "4. C\u00e2mera (o erro mais caro)",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L81",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_4_c\u00e2mera_o_erro_mais_caro",
-      "community": 204,
-      "norm_label": "4. camera (o erro mais caro)"
-    },
-    {
-      "label": "5. Prompt",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L109",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_5_prompt",
-      "community": 464,
-      "norm_label": "5. prompt"
-    },
-    {
-      "label": "O que o modelo desenha se estiver no texto",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L113",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_o_que_o_modelo_desenha_se_estiver_no_texto",
-      "community": 464,
-      "norm_label": "o que o modelo desenha se estiver no texto"
-    },
-    {
-      "label": "O que o modelo inventa se N\u00c3O estiver no texto",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L130",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_o_que_o_modelo_inventa_se_n\u00e3o_estiver_no_texto",
-      "community": 464,
-      "norm_label": "o que o modelo inventa se nao estiver no texto"
-    },
-    {
-      "label": "O que n\u00e3o chega ao modelo",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L143",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_o_que_n\u00e3o_chega_ao_modelo",
-      "community": 464,
-      "norm_label": "o que nao chega ao modelo"
-    },
-    {
-      "label": "Antes da fila",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L147",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_antes_da_fila",
-      "community": 464,
-      "norm_label": "antes da fila"
-    },
-    {
-      "label": "6. Fichas e refer\u00eancias",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L151",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_6_fichas_e_refer\u00eancias",
-      "community": 204,
-      "norm_label": "6. fichas e referencias"
-    },
-    {
-      "label": "7. Revis\u00e3o do roteiro",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L178",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_7_revis\u00e3o_do_roteiro",
-      "community": 204,
-      "norm_label": "7. revisao do roteiro"
-    },
-    {
-      "label": "8. Storyboard e produ\u00e7\u00e3o",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L200",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_8_storyboard_e_produ\u00e7\u00e3o",
-      "community": 204,
-      "norm_label": "8. storyboard e producao"
-    },
-    {
-      "label": "9. Ferramentas, fila e truques de imagem",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L226",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem",
-      "community": 204,
-      "norm_label": "9. ferramentas, fila e truques de imagem"
-    },
-    {
-      "label": "Gerar pelo site do ChatGPT (Chrome conectado)",
-      "file_type": "document",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L248",
-      "_origin": "ast",
-      "id": "docs_webshard_regras_criticas_gerar_pelo_site_do_chatgpt_chrome_conectado",
-      "community": 204,
-      "norm_label": "gerar pelo site do chatgpt (chrome conectado)"
-    },
-    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
@@ -522,6 +312,776 @@
       "id": "src_config_version",
       "community": 58,
       "norm_label": "version.js"
+    },
+    {
+      "label": "capitulo-09.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-09.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_09",
+      "community": 784,
+      "norm_label": "capitulo-09.md"
+    },
+    {
+      "label": "CHAPTER 9 \u2014 The Band Studio",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-09.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_09_chapter_9_the_band_studio",
+      "community": 784,
+      "norm_label": "chapter 9 \u2014 the band studio"
+    },
+    {
+      "label": "capitulo-10.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-10.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_10",
+      "community": 785,
+      "norm_label": "capitulo-10.md"
+    },
+    {
+      "label": "CHAPTER 10 \u2014 The LDI Song",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-10.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_10_chapter_10_the_ldi_song",
+      "community": 785,
+      "norm_label": "chapter 10 \u2014 the ldi song"
+    },
+    {
+      "label": "capitulo-11.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-11.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_11",
+      "community": 786,
+      "norm_label": "capitulo-11.md"
+    },
+    {
+      "label": "CHAPTER 11 \u2014 The Preparation",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-11.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_11_chapter_11_the_preparation",
+      "community": 786,
+      "norm_label": "chapter 11 \u2014 the preparation"
+    },
+    {
+      "label": "capitulo-12.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-12.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_12",
+      "community": 787,
+      "norm_label": "capitulo-12.md"
+    },
+    {
+      "label": "CHAPTER 12 \u2014 The Twelve Years",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-12.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_12_chapter_12_the_twelve_years",
+      "community": 787,
+      "norm_label": "chapter 12 \u2014 the twelve years"
+    },
+    {
+      "label": "capitulo-13.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-13.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_13",
+      "community": 788,
+      "norm_label": "capitulo-13.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 13 \u2014 The Bug",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-13.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_13_cap\u00edtulo_13_the_bug",
+      "community": 788,
+      "norm_label": "capitulo 13 \u2014 the bug"
+    },
+    {
+      "label": "capitulo-14.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-14.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_14",
+      "community": 789,
+      "norm_label": "capitulo-14.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 14 \u2014 The Price",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-14.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_14_cap\u00edtulo_14_the_price",
+      "community": 789,
+      "norm_label": "capitulo 14 \u2014 the price"
+    },
+    {
+      "label": "capitulo-15.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-15.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_15",
+      "community": 790,
+      "norm_label": "capitulo-15.md"
+    },
+    {
+      "label": "CHAPTER 15 \u2014 The SBI",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-15.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_15_chapter_15_the_sbi",
+      "community": 790,
+      "norm_label": "chapter 15 \u2014 the sbi"
+    },
+    {
+      "label": "capitulo-16.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-16.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_16",
+      "community": 791,
+      "norm_label": "capitulo-16.md"
+    },
+    {
+      "label": "CHAPTER 16 \u2014 The Training",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-16.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_16_chapter_16_the_training",
+      "community": 791,
+      "norm_label": "chapter 16 \u2014 the training"
+    },
+    {
+      "label": "capitulo-17.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-17.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_17",
+      "community": 792,
+      "norm_label": "capitulo-17.md"
+    },
+    {
+      "label": "CHAPTER 17 \u2014 Angel and Vit\u00f3ria",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-17.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_17_chapter_17_angel_and_vit\u00f3ria",
+      "community": 792,
+      "norm_label": "chapter 17 \u2014 angel and vitoria"
+    },
+    {
+      "label": "capitulo-18.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-18.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_18",
+      "community": 793,
+      "norm_label": "capitulo-18.md"
+    },
+    {
+      "label": "CHAPTER 18 \u2014 Shaman Mode",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-18.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_18_chapter_18_shaman_mode",
+      "community": 793,
+      "norm_label": "chapter 18 \u2014 shaman mode"
+    },
+    {
+      "label": "capitulo-09.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-09.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_09",
+      "community": 806,
+      "norm_label": "capitulo-09.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 9 \u2014 El Estudio de la Banda",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-09.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_09_cap\u00edtulo_9_el_estudio_de_la_banda",
+      "community": 806,
+      "norm_label": "capitulo 9 \u2014 el estudio de la banda"
+    },
+    {
+      "label": "capitulo-10.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-10.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_10",
+      "community": 807,
+      "norm_label": "capitulo-10.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 10 \u2014 La M\u00fasica LDI",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-10.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_10_cap\u00edtulo_10_la_m\u00fasica_ldi",
+      "community": 807,
+      "norm_label": "capitulo 10 \u2014 la musica ldi"
+    },
+    {
+      "label": "capitulo-11.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-11.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_11",
+      "community": 808,
+      "norm_label": "capitulo-11.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 11 \u2014 La Preparaci\u00f3n",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-11.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_11_cap\u00edtulo_11_la_preparaci\u00f3n",
+      "community": 808,
+      "norm_label": "capitulo 11 \u2014 la preparacion"
+    },
+    {
+      "label": "capitulo-12.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-12.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_12",
+      "community": 809,
+      "norm_label": "capitulo-12.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 12 \u2014 Los Doce A\u00f1os",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-12.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_12_cap\u00edtulo_12_los_doce_a\u00f1os",
+      "community": 809,
+      "norm_label": "capitulo 12 \u2014 los doce anos"
+    },
+    {
+      "label": "capitulo-13.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-13.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_13",
+      "community": 810,
+      "norm_label": "capitulo-13.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 13 \u2014 El Bug",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-13.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_13_cap\u00edtulo_13_el_bug",
+      "community": 810,
+      "norm_label": "capitulo 13 \u2014 el bug"
+    },
+    {
+      "label": "capitulo-14.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-14.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_14",
+      "community": 811,
+      "norm_label": "capitulo-14.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 14 \u2014 El Precio",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-14.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_14_cap\u00edtulo_14_el_precio",
+      "community": 811,
+      "norm_label": "capitulo 14 \u2014 el precio"
+    },
+    {
+      "label": "capitulo-15.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-15.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_15",
+      "community": 812,
+      "norm_label": "capitulo-15.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 15 \u2014 El SBI",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-15.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_15_cap\u00edtulo_15_el_sbi",
+      "community": 812,
+      "norm_label": "capitulo 15 \u2014 el sbi"
+    },
+    {
+      "label": "capitulo-16.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-16.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_16",
+      "community": 813,
+      "norm_label": "capitulo-16.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 16 \u2014 El Entrenamiento",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-16.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_16_cap\u00edtulo_16_el_entrenamiento",
+      "community": 813,
+      "norm_label": "capitulo 16 \u2014 el entrenamiento"
+    },
+    {
+      "label": "capitulo-17.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-17.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_17",
+      "community": 814,
+      "norm_label": "capitulo-17.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 17 \u2014 Angel y Vit\u00f3ria",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-17.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_17_cap\u00edtulo_17_angel_y_vit\u00f3ria",
+      "community": 814,
+      "norm_label": "capitulo 17 \u2014 angel y vitoria"
+    },
+    {
+      "label": "capitulo-18.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-18.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_18",
+      "community": 815,
+      "norm_label": "capitulo-18.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 18 \u2014 El Modo Cham\u00e1n",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-18.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_18_cap\u00edtulo_18_el_modo_cham\u00e1n",
+      "community": 815,
+      "norm_label": "capitulo 18 \u2014 el modo chaman"
+    },
+    {
+      "label": "capitulo-09.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-09.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_09",
+      "community": 646,
+      "norm_label": "capitulo-09.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 9 \u2014 O Est\u00fadio da Banda",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-09.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_09_cap\u00edtulo_9_o_est\u00fadio_da_banda",
+      "community": 646,
+      "norm_label": "capitulo 9 \u2014 o estudio da banda"
+    },
+    {
+      "label": "capitulo-10.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-10.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_10",
+      "community": 647,
+      "norm_label": "capitulo-10.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 10 \u2014 A M\u00fasica LDI",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-10.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_10_cap\u00edtulo_10_a_m\u00fasica_ldi",
+      "community": 647,
+      "norm_label": "capitulo 10 \u2014 a musica ldi"
+    },
+    {
+      "label": "capitulo-11.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-11.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_11",
+      "community": 648,
+      "norm_label": "capitulo-11.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 11 \u2014 A Prepara\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-11.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_11_cap\u00edtulo_11_a_prepara\u00e7\u00e3o",
+      "community": 648,
+      "norm_label": "capitulo 11 \u2014 a preparacao"
+    },
+    {
+      "label": "capitulo-12.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-12.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_12",
+      "community": 649,
+      "norm_label": "capitulo-12.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 12 \u2014 Os Doze Anos",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-12.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_12_cap\u00edtulo_12_os_doze_anos",
+      "community": 649,
+      "norm_label": "capitulo 12 \u2014 os doze anos"
+    },
+    {
+      "label": "capitulo-15.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-15.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_15",
+      "community": 652,
+      "norm_label": "capitulo-15.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 15 \u2014 O SBI",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-15.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_15_cap\u00edtulo_15_o_sbi",
+      "community": 652,
+      "norm_label": "capitulo 15 \u2014 o sbi"
+    },
+    {
+      "label": "capitulo-16.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-16.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_16",
+      "community": 653,
+      "norm_label": "capitulo-16.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 16 \u2014 O Treino",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-16.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_16_cap\u00edtulo_16_o_treino",
+      "community": 653,
+      "norm_label": "capitulo 16 \u2014 o treino"
+    },
+    {
+      "label": "capitulo-17.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-17.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_17",
+      "community": 445,
+      "norm_label": "capitulo-17.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 17 \u2014 A Angel e a Vit\u00f3ria",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-17.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_17_cap\u00edtulo_17_a_angel_e_a_vit\u00f3ria",
+      "community": 445,
+      "norm_label": "capitulo 17 \u2014 a angel e a vitoria"
+    },
+    {
+      "label": "capitulo-18.md",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-18.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_18",
+      "community": 553,
+      "norm_label": "capitulo-18.md"
+    },
+    {
+      "label": "CAP\u00cdTULO 18 \u2014 O Modo Xam\u00e3",
+      "file_type": "document",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-18.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_18_cap\u00edtulo_18_o_modo_xam\u00e3",
+      "community": 553,
+      "norm_label": "capitulo 18 \u2014 o modo xama"
+    },
+    {
+      "label": "REGRAS_CRITICAS.md",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 204,
+      "norm_label": "regras_criticas.md",
+      "id": "docs_webshard_regras_criticas"
+    },
+    {
+      "label": "REGRAS CR\u00cdTICAS DE PRODU\u00c7\u00c3O DE QUADRINHO",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 204,
+      "norm_label": "regras criticas de producao de quadrinho",
+      "id": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho"
+    },
+    {
+      "label": "1. As tr\u00eas leis",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "community": 204,
+      "norm_label": "1. as tres leis",
+      "id": "docs_webshard_regras_criticas_1_as_tr\u00eas_leis"
+    },
+    {
+      "label": "2. Atitude",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "community": 204,
+      "norm_label": "2. atitude",
+      "id": "docs_webshard_regras_criticas_2_atitude"
+    },
+    {
+      "label": "3. Roteiro",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L33",
+      "_origin": "ast",
+      "community": 460,
+      "norm_label": "3. roteiro",
+      "id": "docs_webshard_regras_criticas_3_roteiro"
+    },
+    {
+      "label": "Texto",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "community": 460,
+      "norm_label": "texto",
+      "id": "docs_webshard_regras_criticas_texto"
+    },
+    {
+      "label": "Estrutura do cap\u00edtulo",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "community": 460,
+      "norm_label": "estrutura do capitulo",
+      "id": "docs_webshard_regras_criticas_estrutura_do_cap\u00edtulo"
+    },
+    {
+      "label": "P\u00e1gina",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L49",
+      "_origin": "ast",
+      "community": 460,
+      "norm_label": "pagina",
+      "id": "docs_webshard_regras_criticas_p\u00e1gina"
+    },
+    {
+      "label": "Geografia e olhar",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L58",
+      "_origin": "ast",
+      "community": 460,
+      "norm_label": "geografia e olhar",
+      "id": "docs_webshard_regras_criticas_geografia_e_olhar"
+    },
+    {
+      "label": "Continuidade",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L68",
+      "_origin": "ast",
+      "community": 460,
+      "norm_label": "continuidade",
+      "id": "docs_webshard_regras_criticas_continuidade"
+    },
+    {
+      "label": "4. C\u00e2mera (o erro mais caro)",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L81",
+      "_origin": "ast",
+      "community": 204,
+      "norm_label": "4. camera (o erro mais caro)",
+      "id": "docs_webshard_regras_criticas_4_c\u00e2mera_o_erro_mais_caro"
+    },
+    {
+      "label": "5. Prompt",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L109",
+      "_origin": "ast",
+      "community": 464,
+      "norm_label": "5. prompt",
+      "id": "docs_webshard_regras_criticas_5_prompt"
+    },
+    {
+      "label": "O que o modelo desenha se estiver no texto",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L113",
+      "_origin": "ast",
+      "community": 464,
+      "norm_label": "o que o modelo desenha se estiver no texto",
+      "id": "docs_webshard_regras_criticas_o_que_o_modelo_desenha_se_estiver_no_texto"
+    },
+    {
+      "label": "O que o modelo inventa se N\u00c3O estiver no texto",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L130",
+      "_origin": "ast",
+      "community": 464,
+      "norm_label": "o que o modelo inventa se nao estiver no texto",
+      "id": "docs_webshard_regras_criticas_o_que_o_modelo_inventa_se_n\u00e3o_estiver_no_texto"
+    },
+    {
+      "label": "O que n\u00e3o chega ao modelo",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L143",
+      "_origin": "ast",
+      "community": 464,
+      "norm_label": "o que nao chega ao modelo",
+      "id": "docs_webshard_regras_criticas_o_que_n\u00e3o_chega_ao_modelo"
+    },
+    {
+      "label": "Antes da fila",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L147",
+      "_origin": "ast",
+      "community": 464,
+      "norm_label": "antes da fila",
+      "id": "docs_webshard_regras_criticas_antes_da_fila"
+    },
+    {
+      "label": "6. Fichas e refer\u00eancias",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L151",
+      "_origin": "ast",
+      "community": 204,
+      "norm_label": "6. fichas e referencias",
+      "id": "docs_webshard_regras_criticas_6_fichas_e_refer\u00eancias"
+    },
+    {
+      "label": "7. Revis\u00e3o do roteiro",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L178",
+      "_origin": "ast",
+      "community": 204,
+      "norm_label": "7. revisao do roteiro",
+      "id": "docs_webshard_regras_criticas_7_revis\u00e3o_do_roteiro"
+    },
+    {
+      "label": "8. Storyboard e produ\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L200",
+      "_origin": "ast",
+      "community": 204,
+      "norm_label": "8. storyboard e producao",
+      "id": "docs_webshard_regras_criticas_8_storyboard_e_produ\u00e7\u00e3o"
+    },
+    {
+      "label": "9. Ferramentas, fila e truques de imagem",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L226",
+      "_origin": "ast",
+      "community": 204,
+      "norm_label": "9. ferramentas, fila e truques de imagem",
+      "id": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem"
+    },
+    {
+      "label": "Gerar pelo site do ChatGPT (Chrome conectado)",
+      "file_type": "document",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L248",
+      "_origin": "ast",
+      "community": 204,
+      "norm_label": "gerar pelo site do chatgpt (chrome conectado)",
+      "id": "docs_webshard_regras_criticas_gerar_pelo_site_do_chatgpt_chrome_conectado"
     },
     {
       "label": "AGENTS.md",
@@ -2274,126 +2834,6 @@
       "id": "src_data_historias_contos_06_pt_11_cap\u00edtulo_11_vers\u00e3o_oficial"
     },
     {
-      "label": "capitulo-13.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-13.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 788,
-      "norm_label": "capitulo-13.md",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_13"
-    },
-    {
-      "label": "CAP\u00cdTULO 13 \u2014 O Bug",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-13.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 788,
-      "norm_label": "capitulo 13 \u2014 o bug",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_13_cap\u00edtulo_13_o_bug"
-    },
-    {
-      "label": "capitulo-14.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-14.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 789,
-      "norm_label": "capitulo-14.md",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_14"
-    },
-    {
-      "label": "CAP\u00cdTULO 14 \u2014 O Pre\u00e7o",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-14.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 789,
-      "norm_label": "capitulo 14 \u2014 o preco",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_14_cap\u00edtulo_14_o_pre\u00e7o"
-    },
-    {
-      "label": "capitulo-15.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-15.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 790,
-      "norm_label": "capitulo-15.md",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_15"
-    },
-    {
-      "label": "CHAPTER 15 \u2014 My Baby",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-15.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 790,
-      "norm_label": "chapter 15 \u2014 my baby",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_15_chapter_15_my_baby"
-    },
-    {
-      "label": "capitulo-16.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-16.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 791,
-      "norm_label": "capitulo-16.md",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_16"
-    },
-    {
-      "label": "CHAPTER 16 \u2014 Private Room",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-16.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 791,
-      "norm_label": "chapter 16 \u2014 private room",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_16_chapter_16_private_room"
-    },
-    {
-      "label": "capitulo-17.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-17.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 792,
-      "norm_label": "capitulo-17.md",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_17"
-    },
-    {
-      "label": "CHAPTER 17 \u2014 Angel and Victory",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-17.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 792,
-      "norm_label": "chapter 17 \u2014 angel and victory",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_17_chapter_17_angel_and_victory"
-    },
-    {
-      "label": "capitulo-18.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-18.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 793,
-      "norm_label": "capitulo-18.md",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_18"
-    },
-    {
-      "label": "CHAPTER 18 \u2014 Xakaxi, Shaman",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-18.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 793,
-      "norm_label": "chapter 18 \u2014 xakaxi, shaman",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_18_chapter_18_xakaxi_shaman"
-    },
-    {
       "label": "capitulo-19.md",
       "file_type": "document",
       "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-19.md",
@@ -2632,126 +3072,6 @@
       "community": 490,
       "norm_label": "chapter 30 \u2014 shaman king",
       "id": "src_data_historias_lutas_de_ilusao_en_capitulo_30_chapter_30_shaman_king"
-    },
-    {
-      "label": "capitulo-13.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-13.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 810,
-      "norm_label": "capitulo-13.md",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_13"
-    },
-    {
-      "label": "CAP\u00cdTULO 13 \u2014 O Bug",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-13.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 810,
-      "norm_label": "capitulo 13 \u2014 o bug",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_13_cap\u00edtulo_13_o_bug"
-    },
-    {
-      "label": "capitulo-14.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-14.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 811,
-      "norm_label": "capitulo-14.md",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_14"
-    },
-    {
-      "label": "CAP\u00cdTULO 14 \u2014 O Pre\u00e7o",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-14.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 811,
-      "norm_label": "capitulo 14 \u2014 o preco",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_14_cap\u00edtulo_14_o_pre\u00e7o"
-    },
-    {
-      "label": "capitulo-15.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-15.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 812,
-      "norm_label": "capitulo-15.md",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_15"
-    },
-    {
-      "label": "CAP\u00cdTULO 15 \u2014 Mi Beb\u00e9",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-15.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 812,
-      "norm_label": "capitulo 15 \u2014 mi bebe",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_15_cap\u00edtulo_15_mi_beb\u00e9"
-    },
-    {
-      "label": "capitulo-16.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-16.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 813,
-      "norm_label": "capitulo-16.md",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_16"
-    },
-    {
-      "label": "CAP\u00cdTULO 16 \u2014 Sala Privada",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-16.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 813,
-      "norm_label": "capitulo 16 \u2014 sala privada",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_16_cap\u00edtulo_16_sala_privada"
-    },
-    {
-      "label": "capitulo-17.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-17.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 814,
-      "norm_label": "capitulo-17.md",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_17"
-    },
-    {
-      "label": "CAP\u00cdTULO 17 \u2014 \u00c1ngel y Victoria",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-17.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 814,
-      "norm_label": "capitulo 17 \u2014 angel y victoria",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_17_cap\u00edtulo_17_\u00e1ngel_y_victoria"
-    },
-    {
-      "label": "capitulo-18.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-18.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 815,
-      "norm_label": "capitulo-18.md",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_18"
-    },
-    {
-      "label": "CAP\u00cdTULO 18 \u2014 Xakaxi, Cham\u00e1n",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-18.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 815,
-      "norm_label": "capitulo 18 \u2014 xakaxi, chaman",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_18_cap\u00edtulo_18_xakaxi_cham\u00e1n"
     },
     {
       "label": "capitulo-19.md",
@@ -3012,86 +3332,6 @@
       "community": 651,
       "norm_label": "capitulo 14 \u2014 o preco",
       "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_14_cap\u00edtulo_14_o_pre\u00e7o"
-    },
-    {
-      "label": "capitulo-15.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-15.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 652,
-      "norm_label": "capitulo-15.md",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_15"
-    },
-    {
-      "label": "CAP\u00cdTULO 15 \u2014 Meu Beb\u00ea",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-15.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 652,
-      "norm_label": "capitulo 15 \u2014 meu bebe",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_15_cap\u00edtulo_15_meu_beb\u00ea"
-    },
-    {
-      "label": "capitulo-16.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-16.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 653,
-      "norm_label": "capitulo-16.md",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_16"
-    },
-    {
-      "label": "CAP\u00cdTULO 16 \u2014 Sala Privada",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-16.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 653,
-      "norm_label": "capitulo 16 \u2014 sala privada",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_16_cap\u00edtulo_16_sala_privada"
-    },
-    {
-      "label": "capitulo-17.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-17.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 445,
-      "norm_label": "capitulo-17.md",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_17"
-    },
-    {
-      "label": "CAP\u00cdTULO 17 \u2014 Anjo e Vit\u00f3ria",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-17.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 445,
-      "norm_label": "capitulo 17 \u2014 anjo e vitoria",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_17_cap\u00edtulo_17_anjo_e_vit\u00f3ria"
-    },
-    {
-      "label": "capitulo-18.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-18.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 553,
-      "norm_label": "capitulo-18.md",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_18"
-    },
-    {
-      "label": "CAP\u00cdTULO 18 \u2014 Xakaxi, Xam\u00e3",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-18.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 553,
-      "norm_label": "capitulo 18 \u2014 xakaxi, xama",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_18_cap\u00edtulo_18_xakaxi_xam\u00e3"
     },
     {
       "label": "capitulo-19.md",
@@ -9022,66 +9262,6 @@
       "community": 161,
       "norm_label": "4. estrutura aplicada",
       "id": "docs_ldi_revisao_livro_cap07_em_diante_4_estrutura_aplicada"
-    },
-    {
-      "label": "capitulo-09.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-09.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 784,
-      "norm_label": "capitulo-09.md",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_09"
-    },
-    {
-      "label": "CHAPTER 9 \u2014 The Base",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-09.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 784,
-      "norm_label": "chapter 9 \u2014 the base",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_09_chapter_9_the_base"
-    },
-    {
-      "label": "capitulo-09.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-09.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 806,
-      "norm_label": "capitulo-09.md",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_09"
-    },
-    {
-      "label": "CAP\u00cdTULO 9 \u2014 La Base",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-09.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 806,
-      "norm_label": "capitulo 9 \u2014 la base",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_09_cap\u00edtulo_9_la_base"
-    },
-    {
-      "label": "capitulo-09.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-09.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 646,
-      "norm_label": "capitulo-09.md",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_09"
-    },
-    {
-      "label": "CAP\u00cdTULO 9 \u2014 A Base",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-09.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 646,
-      "norm_label": "capitulo 9 \u2014 a base",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_09_cap\u00edtulo_9_a_base"
     },
     {
       "label": "LobbyLDI.jsx",
@@ -61314,66 +61494,6 @@
       "id": "src_data_historias_lutas_de_ilusao_en_capitulo_08_chapter_8_the_scorpion_strike"
     },
     {
-      "label": "capitulo-10.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-10.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 785,
-      "norm_label": "capitulo-10.md",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_10"
-    },
-    {
-      "label": "CHAPTER 10 \u2014 Illusion Fight",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-10.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 785,
-      "norm_label": "chapter 10 \u2014 illusion fight",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_10_chapter_10_illusion_fight"
-    },
-    {
-      "label": "capitulo-11.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-11.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 786,
-      "norm_label": "capitulo-11.md",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_11"
-    },
-    {
-      "label": "CHAPTER 11 \u2014 The Trick",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-11.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 786,
-      "norm_label": "chapter 11 \u2014 the trick",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_11_chapter_11_the_trick"
-    },
-    {
-      "label": "capitulo-12.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-12.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 787,
-      "norm_label": "capitulo-12.md",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_12"
-    },
-    {
-      "label": "CHAPTER 12 \u2014 What a Twelve-Year-Old Girl Does",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-12.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 787,
-      "norm_label": "chapter 12 \u2014 what a twelve-year-old girl does",
-      "id": "src_data_historias_lutas_de_ilusao_en_capitulo_12_chapter_12_what_a_twelve_year_old_girl_does"
-    },
-    {
       "label": "capitulo-01.md",
       "file_type": "document",
       "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-01.md",
@@ -61514,66 +61634,6 @@
       "id": "src_data_historias_lutas_de_ilusao_es_capitulo_08_cap\u00edtulo_8_el_golpe_del_escorpi\u00f3n"
     },
     {
-      "label": "capitulo-10.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-10.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 807,
-      "norm_label": "capitulo-10.md",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_10"
-    },
-    {
-      "label": "CAP\u00cdTULO 10 \u2014 Luchas de Ilusi\u00f3n",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-10.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 807,
-      "norm_label": "capitulo 10 \u2014 luchas de ilusion",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_10_cap\u00edtulo_10_luchas_de_ilusi\u00f3n"
-    },
-    {
-      "label": "capitulo-11.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-11.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 808,
-      "norm_label": "capitulo-11.md",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_11"
-    },
-    {
-      "label": "CAP\u00cdTULO 11 \u2014 El truco",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-11.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 808,
-      "norm_label": "capitulo 11 \u2014 el truco",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_11_cap\u00edtulo_11_el_truco"
-    },
-    {
-      "label": "capitulo-12.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-12.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 809,
-      "norm_label": "capitulo-12.md",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_12"
-    },
-    {
-      "label": "CAP\u00cdTULO 12 \u2014 Lo Que Hace Una Ni\u00f1a de Doce A\u00f1os",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-12.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 809,
-      "norm_label": "capitulo 12 \u2014 lo que hace una nina de doce anos",
-      "id": "src_data_historias_lutas_de_ilusao_es_capitulo_12_cap\u00edtulo_12_lo_que_hace_una_ni\u00f1a_de_doce_a\u00f1os"
-    },
-    {
       "label": "capitulo-01.md",
       "file_type": "document",
       "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-01.md",
@@ -61692,66 +61752,6 @@
       "community": 645,
       "norm_label": "capitulo 8 \u2014 o golpe do escorpiao",
       "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_08_cap\u00edtulo_8_o_golpe_do_escorpi\u00e3o"
-    },
-    {
-      "label": "capitulo-10.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-10.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 647,
-      "norm_label": "capitulo-10.md",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_10"
-    },
-    {
-      "label": "CAP\u00cdTULO 10 \u2014 Lutas de Ilus\u00e3o",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-10.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 647,
-      "norm_label": "capitulo 10 \u2014 lutas de ilusao",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_10_cap\u00edtulo_10_lutas_de_ilus\u00e3o"
-    },
-    {
-      "label": "capitulo-11.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-11.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 648,
-      "norm_label": "capitulo-11.md",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_11"
-    },
-    {
-      "label": "CAP\u00cdTULO 11 \u2014 O Pulo do Gato",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-11.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 648,
-      "norm_label": "capitulo 11 \u2014 o pulo do gato",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_11_cap\u00edtulo_11_o_pulo_do_gato"
-    },
-    {
-      "label": "capitulo-12.md",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-12.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 649,
-      "norm_label": "capitulo-12.md",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_12"
-    },
-    {
-      "label": "CAP\u00cdTULO 12 \u2014 O Que Uma Garota de Doze Anos Faz",
-      "file_type": "document",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-12.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 649,
-      "norm_label": "capitulo 12 \u2014 o que uma garota de doze anos faz",
-      "id": "src_data_historias_lutas_de_ilusao_pt_capitulo_12_cap\u00edtulo_12_o_que_uma_garota_de_doze_anos_faz"
     },
     {
       "label": "00.md",
@@ -65896,216 +65896,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_webshard_especiais_halloween_roteiro_oficial",
-      "target": "docs_webshard_regras_criticas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas",
-      "target": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_1_as_tr\u00eas_leis",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_2_atitude",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L33",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_3_roteiro",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L81",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_4_c\u00e2mera_o_erro_mais_caro",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L109",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_5_prompt",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L151",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_6_fichas_e_refer\u00eancias",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L178",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_7_revis\u00e3o_do_roteiro",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L200",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_8_storyboard_e_produ\u00e7\u00e3o",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L226",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
-      "target": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_3_roteiro",
-      "target": "docs_webshard_regras_criticas_continuidade",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L45",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_3_roteiro",
-      "target": "docs_webshard_regras_criticas_estrutura_do_cap\u00edtulo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L58",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_3_roteiro",
-      "target": "docs_webshard_regras_criticas_geografia_e_olhar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_3_roteiro",
-      "target": "docs_webshard_regras_criticas_p\u00e1gina",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L35",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_3_roteiro",
-      "target": "docs_webshard_regras_criticas_texto",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L147",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_5_prompt",
-      "target": "docs_webshard_regras_criticas_antes_da_fila",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L143",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_5_prompt",
-      "target": "docs_webshard_regras_criticas_o_que_n\u00e3o_chega_ao_modelo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L113",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_5_prompt",
-      "target": "docs_webshard_regras_criticas_o_que_o_modelo_desenha_se_estiver_no_texto",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L130",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_5_prompt",
-      "target": "docs_webshard_regras_criticas_o_que_o_modelo_inventa_se_n\u00e3o_estiver_no_texto",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L248",
-      "weight": 1.0,
-      "source": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem",
-      "target": "docs_webshard_regras_criticas_gerar_pelo_site_do_chatgpt_chrome_conectado",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -66269,6 +66059,496 @@
       "confidence_score": 1.0,
       "source": "src_pages_lab_prototype_srgrm_srgrm",
       "target": "src_config_version"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-09.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_09",
+      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_09_chapter_9_the_band_studio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-10.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_10",
+      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_10_chapter_10_the_ldi_song",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-11.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_11",
+      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_11_chapter_11_the_preparation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-12.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_12",
+      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_12_chapter_12_the_twelve_years",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-13.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_13",
+      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_13_cap\u00edtulo_13_the_bug",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-14.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_14",
+      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_14_cap\u00edtulo_14_the_price",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-15.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_15",
+      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_15_chapter_15_the_sbi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-16.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_16",
+      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_16_chapter_16_the_training",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-17.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_17",
+      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_17_chapter_17_angel_and_vit\u00f3ria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-18.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_18",
+      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_18_chapter_18_shaman_mode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-09.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_09",
+      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_09_cap\u00edtulo_9_el_estudio_de_la_banda",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-10.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_10",
+      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_10_cap\u00edtulo_10_la_m\u00fasica_ldi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-11.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_11",
+      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_11_cap\u00edtulo_11_la_preparaci\u00f3n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-12.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_12",
+      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_12_cap\u00edtulo_12_los_doce_a\u00f1os",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-13.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_13",
+      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_13_cap\u00edtulo_13_el_bug",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-14.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_14",
+      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_14_cap\u00edtulo_14_el_precio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-15.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_15",
+      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_15_cap\u00edtulo_15_el_sbi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-16.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_16",
+      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_16_cap\u00edtulo_16_el_entrenamiento",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-17.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_17",
+      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_17_cap\u00edtulo_17_angel_y_vit\u00f3ria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-18.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_18",
+      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_18_cap\u00edtulo_18_el_modo_cham\u00e1n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-09.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_09",
+      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_09_cap\u00edtulo_9_o_est\u00fadio_da_banda",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-10.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_10",
+      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_10_cap\u00edtulo_10_a_m\u00fasica_ldi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-11.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_11",
+      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_11_cap\u00edtulo_11_a_prepara\u00e7\u00e3o",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-12.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_12",
+      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_12_cap\u00edtulo_12_os_doze_anos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-15.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_15",
+      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_15_cap\u00edtulo_15_o_sbi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-16.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_16",
+      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_16_cap\u00edtulo_16_o_treino",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-17.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_17",
+      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_17_cap\u00edtulo_17_a_angel_e_a_vit\u00f3ria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-18.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_18",
+      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_18_cap\u00edtulo_18_o_modo_xam\u00e3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_especiais_halloween_roteiro_oficial",
+      "target": "docs_webshard_regras_criticas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas",
+      "target": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_1_as_tr\u00eas_leis"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_2_atitude"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_3_roteiro"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_4_c\u00e2mera_o_erro_mais_caro"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_5_prompt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_6_fichas_e_refer\u00eancias"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L178",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_7_revis\u00e3o_do_roteiro"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L200",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_8_storyboard_e_produ\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L226",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
+      "target": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_3_roteiro",
+      "target": "docs_webshard_regras_criticas_continuidade"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_3_roteiro",
+      "target": "docs_webshard_regras_criticas_estrutura_do_cap\u00edtulo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_3_roteiro",
+      "target": "docs_webshard_regras_criticas_geografia_e_olhar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_3_roteiro",
+      "target": "docs_webshard_regras_criticas_p\u00e1gina"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_3_roteiro",
+      "target": "docs_webshard_regras_criticas_texto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L147",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_5_prompt",
+      "target": "docs_webshard_regras_criticas_antes_da_fila"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L143",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_5_prompt",
+      "target": "docs_webshard_regras_criticas_o_que_n\u00e3o_chega_ao_modelo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_5_prompt",
+      "target": "docs_webshard_regras_criticas_o_que_o_modelo_desenha_se_estiver_no_texto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L130",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_5_prompt",
+      "target": "docs_webshard_regras_criticas_o_que_o_modelo_inventa_se_n\u00e3o_estiver_no_texto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
+      "source_location": "L248",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem",
+      "target": "docs_webshard_regras_criticas_gerar_pelo_site_do_chatgpt_chrome_conectado"
     },
     {
       "relation": "contains",
@@ -68087,66 +68367,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-13.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_13",
-      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_13_cap\u00edtulo_13_o_bug"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-14.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_14",
-      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_14_cap\u00edtulo_14_o_pre\u00e7o"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-15.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_15",
-      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_15_chapter_15_my_baby"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-16.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_16",
-      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_16_chapter_16_private_room"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-17.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_17",
-      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_17_chapter_17_angel_and_victory"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-18.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_18",
-      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_18_chapter_18_xakaxi_shaman"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-19.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -68263,66 +68483,6 @@
       "confidence_score": 1.0,
       "source": "src_data_historias_lutas_de_ilusao_en_capitulo_30",
       "target": "src_data_historias_lutas_de_ilusao_en_capitulo_30_chapter_30_shaman_king"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-13.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_13",
-      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_13_cap\u00edtulo_13_o_bug"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-14.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_14",
-      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_14_cap\u00edtulo_14_o_pre\u00e7o"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-15.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_15",
-      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_15_cap\u00edtulo_15_mi_beb\u00e9"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-16.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_16",
-      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_16_cap\u00edtulo_16_sala_privada"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-17.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_17",
-      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_17_cap\u00edtulo_17_\u00e1ngel_y_victoria"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-18.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_18",
-      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_18_cap\u00edtulo_18_xakaxi_cham\u00e1n"
     },
     {
       "relation": "contains",
@@ -68453,46 +68613,6 @@
       "confidence_score": 1.0,
       "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_14",
       "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_14_cap\u00edtulo_14_o_pre\u00e7o"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-15.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_15",
-      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_15_cap\u00edtulo_15_meu_beb\u00ea"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-16.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_16",
-      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_16_cap\u00edtulo_16_sala_privada"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-17.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_17",
-      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_17_cap\u00edtulo_17_anjo_e_vit\u00f3ria"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-18.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_18",
-      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_18_cap\u00edtulo_18_xakaxi_xam\u00e3"
     },
     {
       "relation": "contains",
@@ -77518,36 +77638,6 @@
       "confidence_score": 1.0,
       "source": "docs_ldi_revisao_livro_cap07_em_diante_3_o_que_se_perdeu_e_\u00e9_importante",
       "target": "docs_ldi_revisao_livro_cap07_em_diante_treino_na_sala_privada_original_cap_9"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-09.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_09",
-      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_09_chapter_9_the_base"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-09.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_09",
-      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_09_cap\u00edtulo_9_la_base"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-09.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_09",
-      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_09_cap\u00edtulo_9_a_base"
     },
     {
       "relation": "contains",
@@ -194391,36 +194481,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-10.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_10",
-      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_10_chapter_10_illusion_fight"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-11.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_11",
-      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_11_chapter_11_the_trick"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/en/capitulo-12.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_en_capitulo_12",
-      "target": "src_data_historias_lutas_de_ilusao_en_capitulo_12_chapter_12_what_a_twelve_year_old_girl_does"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-01.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -194491,36 +194551,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-10.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_10",
-      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_10_cap\u00edtulo_10_luchas_de_ilusi\u00f3n"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-11.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_11",
-      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_11_cap\u00edtulo_11_el_truco"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/es/capitulo-12.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_es_capitulo_12",
-      "target": "src_data_historias_lutas_de_ilusao_es_capitulo_12_cap\u00edtulo_12_lo_que_hace_una_ni\u00f1a_de_doce_a\u00f1os"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-02.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -194567,36 +194597,6 @@
       "confidence_score": 1.0,
       "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_08",
       "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_08_cap\u00edtulo_8_o_golpe_do_escorpi\u00e3o"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-10.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_10",
-      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_10_cap\u00edtulo_10_lutas_de_ilus\u00e3o"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-11.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_11",
-      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_11_cap\u00edtulo_11_o_pulo_do_gato"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/historias/lutas-de-ilusao/pt/capitulo-12.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_data_historias_lutas_de_ilusao_pt_capitulo_12",
-      "target": "src_data_historias_lutas_de_ilusao_pt_capitulo_12_cap\u00edtulo_12_o_que_uma_garota_de_doze_anos_faz"
     },
     {
       "relation": "contains",
@@ -197940,5 +197940,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c851bef0fde035b923cc52e4dd555d166dbfe41c"
+  "built_at_commit": "b7004102173a62f66d50c4fdffc4b615c831598d"
 }
