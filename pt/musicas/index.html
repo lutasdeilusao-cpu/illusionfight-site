@@ -66,7 +66,7 @@
       #ldi-rotate-lock { display: none; }
       @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
         #root, #ldi-intro { display: none !important; }
-        #ldi-rotate-lock {
+        html.ldi-jogo #ldi-rotate-lock {
           display: flex;
           position: fixed;
           inset: 0;
@@ -197,7 +197,7 @@
       "keywords": "illusion fight, lutas de ilusão, web shard, webtoon, jogos táticos, arena virtual, ficção científica"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-BPDyTCA0.js"></script>
+    <script type="module" crossorigin src="/assets/index-CDWc-bYa.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-GZhdek4G.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-zJ_50EbN.js">
     <link rel="modulepreload" crossorigin href="/assets/supabase-ByYxoL3g.js">
@@ -208,10 +208,11 @@
     <link rel="modulepreload" crossorigin href="/assets/AuthContext-Dz9d7C0i.js">
     <link rel="modulepreload" crossorigin href="/assets/creator-BdqIZyP7.js">
     <link rel="stylesheet" crossorigin href="/assets/index-CCjLENhV.css">
-      <meta name="ldi-build" content="/assets/index-BPDyTCA0.js">
+      <meta name="ldi-build" content="/assets/index-CDWc-bYa.js">
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Músicas de Lutas de Ilusão","description":"Ouça grátis a trilha original de Lutas de Ilusão: as aberturas do anime, as músicas da banda do Kim e do Jack e as exclusivas da Rádio Nina.","url":"https://illusionfight.com/pt/musicas/","inLanguage":"pt-BR"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Illusion Fight","item":"https://illusionfight.com/pt/"},{"@type":"ListItem","position":2,"name":"Músicas de Lutas de Ilusão","item":"https://illusionfight.com/pt/musicas/"}]}]}</script>
   </head>
   <body>
+    <script>document.documentElement.classList.toggle('ldi-jogo',/^\/((pt|es)\/)?games\/./.test(location.pathname))</script>
     <div id="ldi-rotate-lock" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <rect x="6" y="2" width="12" height="20" rx="2"></rect>
