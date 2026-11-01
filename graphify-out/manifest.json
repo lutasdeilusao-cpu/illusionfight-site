@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793504241.41867,
-    "ast_hash": "1220b22c21a68c4df5c169039cafff15",
+    "mtime": 1793504475.523301,
+    "ast_hash": "e23ee248ca27ac271af7bc5e4b99a76c",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1793502768.6523638,
-    "ast_hash": "42d602ea7f637a6ba2593fdfe1283626",
+    "mtime": 1793504475.5223038,
+    "ast_hash": "214332cff8b3cab63e85bfbc08cbe7c7",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2480,8 +2480,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1793413683.5328035,
-    "ast_hash": "729660cf8b2331e3830c0ceebea07588",
+    "mtime": 1793504312.8384826,
+    "ast_hash": "a8e92ff2e41716b5e4014633cdca9e3f",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793504241.420672,
-    "ast_hash": "3e04c0036c542e616d12fa50bbccf696",
+    "mtime": 1793504475.5243032,
+    "ast_hash": "db87d37caee6643aff3bd7be3d729991",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9945,8 +9945,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793504255.5622094,
-    "ast_hash": "38940d9c4727221e16fbe5b579e4caeb",
+    "mtime": 1793504485.5225012,
+    "ast_hash": "cd6c02ca30d77ecd215e5b9c0fae98c9",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
@@ -10370,8 +10370,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/REGRAS_CRITICAS.md": {
-    "mtime": 1793503422.1012082,
-    "ast_hash": "b6dab66110f57fd755b6f4058d3feb75",
+    "mtime": 1793504312.8364673,
+    "ast_hash": "d5961864418b45ab30d917134590c2cd",
     "semantic_hash": ""
   },
   "src/pages/painel/tarefas/TarefaCartao.jsx": {
