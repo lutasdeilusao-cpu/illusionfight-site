@@ -225,6 +225,8 @@ Depois de cada revisão, checagem mecânica por script:
 
 ## 10. Checklist antes de gastar cota
 
+Vale para qualquer quadrinho, ferramenta, chat ou agente. Quem chega sem contexto segue esta ordem: (1) ler as três leis do §1; (2) ler o guia do produto; (3) escrever o prompt página a página; (4) ler cada prompt imaginando a imagem que sairia e conferir contra esta lista; (5) rodar as travas de ficha; (6) gerar uma página, olhar o resultado e só então soltar o lote; (7) conferir borda e repetidas antes da pasta `PT`. Nenhuma imagem é gerada sem autorização do Isaias, e o erro de imagem se corrige no prompt, nunca gerando de novo o mesmo texto.
+
 **Estilhaço é narração**
 - O estilhaço conta o que o painel não conta: um golpe na lembrança, um perigo que o personagem não vê, um detalhe, o tempo passando. Nunca repete o painel.
 - Quantidade, tamanho, forma e lugar mudam por página, decididos cena a cena. Página de pausa pode não ter nenhum. Nunca sortear.
