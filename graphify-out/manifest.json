@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793502768.6523638,
-    "ast_hash": "6d47ee41fb0ee78a94000a5aaac1d619",
+    "mtime": 1793503673.8022788,
+    "ast_hash": "d0c7406a7659c530ea1429f288a9aec2",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793502768.6533592,
-    "ast_hash": "1ddcbc0b25be2daaf483cd8ab089b4b8",
+    "mtime": 1793503673.8057923,
+    "ast_hash": "99e61d6152f359147d8cce3796498d21",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9945,8 +9945,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793502780.8416946,
-    "ast_hash": "4291589fb89dfddae02a3596fb3bc53d",
+    "mtime": 1793503688.7762332,
+    "ast_hash": "521be80d7cab4052432594d0473b733c",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
@@ -10320,8 +10320,8 @@
     "semantic_hash": ""
   },
   "src/data/o-deus-o-mortal-e-o-nada-episodios.json": {
-    "mtime": 1793076654.6743686,
-    "ast_hash": "c2e0e5c1e1b9aaa31d7cade70d3d3660",
+    "mtime": 1793503673.8007636,
+    "ast_hash": "bbceb1bd84b64539f5f1d42a42b81666",
     "semantic_hash": ""
   },
   "src/assets/webshard/cap-o-deus-o-mortal-e-o-nada-01.webp": {
@@ -10370,8 +10370,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/REGRAS_CRITICAS.md": {
-    "mtime": 1793501431.2466378,
-    "ast_hash": "fbfb1ec3c1e8d88ccafa4ddc140dfc42",
+    "mtime": 1793503422.1012082,
+    "ast_hash": "b6dab66110f57fd755b6f4058d3feb75",
     "semantic_hash": ""
   },
   "src/pages/painel/tarefas/TarefaCartao.jsx": {
