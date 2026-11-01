@@ -223,6 +223,34 @@ Depois de cada revisão, checagem mecânica por script:
 - **Numeração só com números** (`01.png`, `02.png`…), na ordem final.
 - **A cota do Codex acaba no meio** (umas 40 a 50 imagens por janela). Quando volta está no log (`resets_in_seconds`). Retomar de onde parou; agendar a retomada pede permissão do Isaias.
 
+## 10. Checklist antes de gastar cota
+
+**Estilhaço é narração**
+- O estilhaço conta o que o painel não conta: um golpe na lembrança, um perigo que o personagem não vê, um detalhe, o tempo passando. Nunca repete o painel.
+- Quantidade, tamanho, forma e lugar mudam por página, decididos cena a cena. Página de pausa pode não ter nenhum. Nunca sortear.
+- É sobreposto de verdade e pode ser o foco da página. Pedir "pequeno no canto" faz ele sumir.
+- Estilhaço não cobre rosto, balão nem caixa de texto.
+
+**O que entra no painel**
+- Cada painel mostra só o pedaço do lugar logo atrás da ação. A ficha dá a aparência; o cômodo nunca entra inteiro. Visão aérea de quarto com porta e cama aperta tudo.
+- Objeto que o painel não cita fica fora, e objeto citado aparece: "colchão" no prompt desenhou colchão onde não devia.
+- Dano e rosto só no painel cujo ângulo mostra aquilo. Escrever a orelha perdida de quem está de costas faz o modelo torcer a cabeça.
+- Mão em duas ações vai descrita braço por braço. Em golpe e movimento, o que atrapalha fica fora do quadro: a cena não precisa mostrar tudo.
+- Quem fala está no painel do balão. Sem a pessoa, o balão sai de um estilhaço com ela ou vem da borda com cauda.
+- Palavra ambígua vira outra coisa: "taco" de chão virou taco de bilhar. Escrever "chão de madeira".
+- Visão de muito longe ou movimento rápido usa desenho simples, à moda de anime, com pouco detalhe.
+
+**Ficha e estilo**
+- Personagem citado sem ficha é inventado pelo modelo. Rodar `trava_fichas.py` (pasta `MAIN/11/PRODUCAO/ferramentas`) antes da fila.
+- Comic no cotidiano e no humor; semirrealista em briga e emoção séria. A troca acontece entre cenas, nunca balão a balão.
+- O semirrealista usa só `Personagens/Estilo/AncoraSemiRealista1.png` e `2.png`, com a ordem de copiar traço, cor e acabamento, sem as pessoas nem os efeitos delas.
+- Anexo de um estilo puxa a imagem para ele: cenário em pixel art deixou o semirrealista em pixel art.
+
+**Depois de gerar**
+- Página só entra na pasta `PT` depois de `LAB-NVIDIA/checa_borda.py` e de checar arquivos repetidos com `md5sum`. Olho humano se acostuma com borda e não vê duplicata.
+- Robô de navegador guarda a URL de cada conversa, aceita só imagem nova, volta à URL se a aba mudar, baixa as duas opções quando houver (`PT_opcoes/NN_b.png`) e segue adiante em recusa ou falha.
+- Revisar a primeira página de todo lote antes de soltar o resto. Refazer sempre com a página anterior guardada em `_descartadas/`.
+
 ## 9. Ferramentas, fila e truques de imagem
 
 O repositório é público: aqui só vai NOME de chave. As chaves ficam em `SiteLDI/.env.local`, lidas por `LAB-NVIDIA/chaves.py`.
