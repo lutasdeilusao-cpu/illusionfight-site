@@ -228,7 +228,7 @@ Bom. Não era problema dele. Ele não podia se atrasar pro cursinho.
 
 — Gente, desculpa, mas eu preciso ir. Espero que vocês gostem do presente. E que o Kim continue lutando. As tuas lutas são muito boas. Até mais.
 
-Saiu apressado pra um carro que esperava por ele.
+Saiu apressado pelo corredor.
 
 Os três ficaram ali. O Jack ainda preso no braço do Kim.
 

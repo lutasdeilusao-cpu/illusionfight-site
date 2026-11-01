@@ -56,7 +56,7 @@ Kim kept looking at the box.
 
 Jack and Nina exchanged a look that said exactly what they both thought about that.
 
-Kim removed the paper without tearing it. Opened the lid. The SBI was nestled in black foam, thinner than Jack's, lighter, with an unlit strip of light running along the edge. He took out the device with both hands, like it was something that could break just from being looked at.
+Kim opened the lid. The SBI was nestled in black foam, thinner than Jack's, lighter, with an unlit strip of light running along the edge. He took out the device with both hands, like it was something that could break just from being looked at.
 
 Jack and Nina put theirs on and stood up, ready. Kim copied what the two of them did.
 

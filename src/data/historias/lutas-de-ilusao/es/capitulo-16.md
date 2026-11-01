@@ -56,7 +56,7 @@ Kim se quedó mirando la caja.
 
 Jack y Nina intercambiaron una mirada que decía exactamente lo que ambos pensaban de eso.
 
-Kim sacó el papel sin romperlo. Abrió la tapa. El SBI estaba encajado en una espuma negra, más delgado que el de Jack, más liviano, con una línea de luz apagada corriendo por el borde. Sacó el aparato con las dos manos, como si fuera algo que pudiera romperse solo con mirarlo.
+Kim abrió la tapa. El SBI estaba encajado en una espuma negra, más delgado que el de Jack, más liviano, con una línea de luz apagada corriendo por el borde. Sacó el aparato con las dos manos, como si fuera algo que pudiera romperse solo con mirarlo.
 
 Jack y Nina se pusieron los suyos y quedaron de pie, listos. Kim fue copiando lo que hacían los dos.
 

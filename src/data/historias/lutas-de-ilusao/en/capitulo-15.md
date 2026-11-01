@@ -248,7 +248,7 @@ Well. It wasn't his problem. He couldn't be late for his prep course.
 
 — Guys, sorry, but I have to go. I hope you like the gift. And that Kim keeps fighting. Your fights are really good. See you.
 
-He left hurriedly to a car that was waiting for him.
+He hurried off down the hall.
 
 The three stayed there. Jack still caught in Kim's grip.
 

@@ -38,7 +38,7 @@ O Kim ficou olhando a caixa.
 
 — Tô abrindo com cuidado. Isso custa mais que a minha casa.
 
-Kim tirou o papel sem rasgar. Abriu a tampa. O SBI estava encaixado numa espuma preta, mais fino que o de Jack, mais leve, com uma linha de luz apagada correndo pela borda. Ele tirou o aparelho com as duas mãos, como se fosse uma coisa que podia quebrar só de olhar.
+Kim abriu a tampa. O SBI estava encaixado numa espuma preta, mais fino que o de Jack, mais leve, com uma linha de luz apagada correndo pela borda. Ele tirou o aparelho com as duas mãos, como se fosse uma coisa que podia quebrar só de olhar.
 
 O Jack e a Nina colocaram os deles e ficaram de pé, prontos. O Kim foi copiando o que os dois faziam.
 

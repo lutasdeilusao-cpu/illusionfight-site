@@ -248,7 +248,7 @@ Bueno. No era su problema. No podía llegar tarde al curso preparatorio.
 
 — Chicos, disculpen, pero necesito irme. Espero que les guste el regalo. Y que Kim siga luchando. Tus peleas son muy buenas. Hasta luego.
 
-Salió apresurado hacia un auto que lo esperaba.
+Salió apresurado por el pasillo.
 
 Los tres se quedaron allí. Jack aún atrapado en el brazo de Kim.
 
