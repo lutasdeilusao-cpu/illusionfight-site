@@ -15,6 +15,25 @@ Ferramentas, fila e os truques de imagem estão no fim deste arquivo (§9).
 
 ---
 
+
+## ERROS JÁ COMETIDOS: LER E RELER ANTES DE GERAR QUALQUER IMAGEM
+
+Estes erros gastaram a cota de três contas premium numa noite só. Ler esta lista inteira, mais de uma vez, antes de gerar. Reler antes de cada fila e depois de cada correção.
+
+1. **Prompt que não chegou.** Reescrevi a chamada do Codex de memória e passei o prompt como argumento. Ele foi cortado na primeira quebra de linha, e saíram pôsteres sem texto. O prompt vai SEMPRE pela entrada padrão. Copiar o script que funciona, nunca reescrever.
+2. **Fila solta sem teste.** Rodei várias páginas sem abrir a primeira. Sempre gerar UMA, abrir, conferir texto, personagem e estilo, e só então seguir.
+3. **Fila antiga viva.** Disse que estava corrigido com um processo velho ainda rodando o script errado. Antes de dizer "corrigido", listar os processos e parar os antigos. Nunca duas gerações do mesmo trabalho ao mesmo tempo.
+4. **Página repetida copiada.** Refiz aviso e divulgação como cópia do Lutas de Ilusão. Página repetida é ORIGINAL de cada obra: mantém a função e o texto obrigatório, com o mundo daquela obra. A página de outra obra não vai como anexo.
+5. **Personagem sem ficha de expressão.** Kim, Jack e Nina saíram errados porque a expressão não foi anexada. Personagem principal SEMPRE leva ficha de corpo + ficha de expressão. Rodar `trava_fichas.py` antes de gastar.
+6. **Página antiga anexada à toa.** Anexei duas páginas de estilo em todo prompt, e os personagens delas contaminaram a cena. Página anterior só vai quando a continuidade da mesma cena exige. No resto: balão, fichas e lugar.
+7. **Mexer no que não foi pedido.** Tirei capa aprovada, tirei 54 a 56 boas, descartei 05 a 08 quando a ordem era a partir da 09. Fazer só o pedido, no número pedido. Na dúvida sobre QUAL página, perguntar antes.
+8. **Ficha de lugar traz objeto.** A porta da ficha apareceu num plano onde não fazia sentido. Olhar a ficha antes de anexar: o que está nela pode aparecer.
+9. **Destino errado.** Um teste do capítulo 12 sobrescreveu uma página aprovada do 11. Conferir o `dest` de todo job antes de rodar.
+10. **Resumo sem ler.** Resumi o roteiro lendo só o começo das páginas e inventei fala. Ler o roteiro inteiro contra o livro, frase por frase, e comparar continuidade: objeto, lugar e quem tem o quê.
+11. **Arquivo solto na raiz.** Deixei capa e página fora de `PT`. Toda página aprovada fica em `PT`, com o número final; o que sobra vai para `_descartadas`.
+12. **Regra errada no guia.** Uma regra antiga proibia corpo inteiro e produziu páginas paradas. Quando o resultado sai igual e ruim, procurar a causa no guia e nos prompts.
+13. **Afirmar sem conferir.** Disse "corrigido" e "no ar" sem provar. Só afirmar depois de abrir a imagem ou conferir o site.
+
 ## 1. As três leis
 
 1. **Imagem errada é prompt errado.** O modelo desenha exatamente o que está escrito. Se a página saiu errada, a correção é no texto do prompt ou na ficha que ele anexa. Gerar de novo o mesmo prompt não é correção.

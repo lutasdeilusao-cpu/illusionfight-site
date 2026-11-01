@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793503905.7945924,
-    "ast_hash": "f008d9d52487656c3a5e54871bf62bee",
+    "mtime": 1793504241.41867,
+    "ast_hash": "1220b22c21a68c4df5c169039cafff15",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793503905.7945924,
-    "ast_hash": "073a1a07c3fb782aed1fcb2c07774d34",
+    "mtime": 1793504241.420672,
+    "ast_hash": "3e04c0036c542e616d12fa50bbccf696",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793503917.170039,
+    "mtime": 1793504255.5622094,
     "ast_hash": "38940d9c4727221e16fbe5b579e4caeb",
     "semantic_hash": ""
   },
@@ -10320,7 +10320,7 @@
     "semantic_hash": ""
   },
   "src/data/o-deus-o-mortal-e-o-nada-episodios.json": {
-    "mtime": 1793503905.7935915,
+    "mtime": 1793504241.4176676,
     "ast_hash": "bbceb1bd84b64539f5f1d42a42b81666",
     "semantic_hash": ""
   },

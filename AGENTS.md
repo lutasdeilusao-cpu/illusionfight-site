@@ -303,6 +303,8 @@ Histórico de mudanças não existe no produto, de maneira alguma (Isaias, 03/10
 
 ## 🔴 Produção de quadrinho: `docs/WEBSHARD/REGRAS_CRITICAS.md` PRIMEIRO, toda vez
 
+**OBRIGATÓRIO antes de gerar qualquer imagem de quadrinho: ler `docs/WEBSHARD/REGRAS_CRITICAS.md` e ler e reler várias vezes a seção "ERROS JÁ COMETIDOS", no começo dele. Esses erros já gastaram a cota de três contas premium numa noite.**
+
 Qualquer trabalho em quadrinho (WEB SHARD da linha principal e dos contos, Mundo das Sombras, Mar de Cinzas, Heróis da Cidade, especiais) começa lendo `docs/WEBSHARD/REGRAS_CRITICAS.md`. São as regras mais críticas do projeto, e elas vencem qualquer outro guia. Ao instruir um agente para produzir quadrinho, mande ele ler esse arquivo antes de tudo.
 
 Ordem de leitura (só dois documentos):
