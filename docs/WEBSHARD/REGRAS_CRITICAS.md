@@ -259,6 +259,19 @@ Vale para qualquer quadrinho, ferramenta, chat ou agente. Quem chega sem context
 - Robô de navegador guarda a URL de cada conversa, aceita só imagem nova, volta à URL se a aba mudar, baixa as duas opções quando houver (`PT_opcoes/NN_b.png`) e segue adiante em recusa ou falha.
 - Revisar a primeira página de todo lote antes de soltar o resto. Refazer sempre com a página anterior guardada em `_descartadas/`.
 
+## 11. Trava antes de gastar cota
+
+Vale para toda produção de imagem, em qualquer ferramenta.
+
+- **Só o pedido.** Mexer apenas no que o Isaias mandou. Reclamação de uma página não autoriza tocar em outra, nem mover capa, nem apagar. Uma coisa aprovada só muda com ordem dele.
+- **Primeira imagem antes da fila.** Script novo, modelo novo ou tipo de página novo: gerar UMA, abrir, olhar e só então soltar o resto.
+- **Provar que o prompt chegou.** No Codex o prompt vai SEMPRE pela entrada padrão (`-` + `input=`). Passado como argumento, ele é cortado na primeira quebra de linha e o modelo desenha só com os anexos: sai pôster sem texto. Página sem texto ou sem a cena pedida = parar a fila na hora e achar a causa.
+- **Copiar script que já funciona**, sem reescrever a chamada de memória.
+- **Anexo vira cena.** O modelo desenha o que vê na ficha. Antes de anexar, olhar a ficha: porta, móvel ou janela que a cena não usa vai aparecer. Em plano aberto, escolher a ficha cujo pedaço combina com o quadro, ou não anexar o lugar.
+- **Página repetida usa a página real de modelo** como 1ª imagem (aviso, divulgação, redes, créditos), mais as fichas de quem entra. Nunca descrever de memória.
+- **Fila com número fixo:** renumerar só depois que a fila parar.
+- **Conferir o destino** de todo job antes de rodar, e reler o roteiro INTEIRO contra a fonte, nunca só o começo da página.
+
 ## 9. Ferramentas, fila e truques de imagem
 
 O repositório é público: aqui só vai NOME de chave. As chaves ficam em `SiteLDI/.env.local`, lidas por `LAB-NVIDIA/chaves.py`.
