@@ -507,7 +507,7 @@
       "label": "9. Ferramentas, fila e truques de imagem",
       "file_type": "document",
       "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L254",
+      "source_location": "L256",
       "_origin": "ast",
       "id": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem",
       "community": 204,
@@ -517,7 +517,7 @@
       "label": "Gerar pelo site do ChatGPT (Chrome conectado)",
       "file_type": "document",
       "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L276",
+      "source_location": "L278",
       "_origin": "ast",
       "id": "docs_webshard_regras_criticas_gerar_pelo_site_do_chatgpt_chrome_conectado",
       "community": 204,
@@ -66019,7 +66019,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L254",
+      "source_location": "L256",
       "weight": 1.0,
       "source": "docs_webshard_regras_criticas_regras_cr\u00edticas_de_produ\u00e7\u00e3o_de_quadrinho",
       "target": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem",
@@ -66119,7 +66119,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WEBSHARD/REGRAS_CRITICAS.md",
-      "source_location": "L276",
+      "source_location": "L278",
       "weight": 1.0,
       "source": "docs_webshard_regras_criticas_9_ferramentas_fila_e_truques_de_imagem",
       "target": "docs_webshard_regras_criticas_gerar_pelo_site_do_chatgpt_chrome_conectado",
@@ -197960,5 +197960,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5267494a5ce2cbfed196385f37d379712aafec95"
+  "built_at_commit": "25d46ccd2d7c6da5123f96d0fd44b9455607af74"
 }

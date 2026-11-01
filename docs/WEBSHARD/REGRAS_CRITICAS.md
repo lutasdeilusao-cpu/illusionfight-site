@@ -80,7 +80,11 @@ Ferramentas, fila e os truques de imagem estão no fim deste arquivo (§9).
 
 ## 4. Câmera (o erro mais caro)
 
-- **Proibido:** corpo inteiro, pessoa em pé parada de frente e centralizada, e a mesma pose em páginas seguidas. No conto 06 foram 53 páginas descartadas, todas com a pose da ficha.
+- **Proibido:** pessoa em pé parada de frente e centralizada, e a mesma pose em páginas seguidas. No conto 06 foram 53 páginas descartadas, todas com a pose da ficha.
+- **Corpo inteiro é permitido quando tem ação ou presença:** salto, queda, golpe, chegada, sempre em diagonal ou com câmera baixa ou alta. O problema é a pose parada, não o corpo inteiro. Cortar todo mundo na cintura deixa a página tão parada quanto a pose de ficha.
+- **A câmera tem motivo:** de baixo para quem domina a cena, de cima para quem foi derrubado ou está sozinho.
+- **Contraste de distância na mesma página:** um painel muito perto e outro bem longe. Olhos em tira estreita fazem a reação; objeto em close faz o gesto pequeno.
+- **Primeiro plano agressivo:** punho, mão, pé ou nuca bem perto da câmera, com a outra pessoa pequena ao fundo.
 - **Por que acontece:**
   - "Plano americano" e "plano médio" fazem o Codex desenhar a pessoa em pé, de frente, inteira.
   - Ângulo só de passagem ("lente na altura do peito") é ignorado.
@@ -91,7 +95,7 @@ Ferramentas, fila e os truques de imagem estão no fim deste arquivo (§9).
   - **lente**: grande-angular perto, que dá urgência, ou teleobjetiva longe, que espia;
   - **primeiro plano**: algo desfocado entre o ponto de vista e a ação.
 - **O enquadramento abre o painel** ("ENQUADRAMENTO OBRIGATÓRIO — …") e diz o corte do corpo em palavras de corpo: "da cintura pra cima", "só cabeça e ombros enchem o painel". "Close" sozinho o modelo abre.
-- **Termos que saem do texto:** "plano americano", "plano médio", "plano geral", "da cabeça às coxas", "em pé" (vira "em movimento") e plano geral disfarçado ("o Kim pequeno no fundo do quadro").
+- **Termos que saem do texto:** "plano americano", "plano médio", "plano geral", "da cabeça às coxas", "em pé" (vira "em movimento") e plano geral sem motivo. Figura pequena ao fundo só vale em duas situações: com primeiro plano forte na frente, ou quando o tamanho conta a história (solidão, escala do lugar).
 - **O corpo está em ação:** girado, inclinado, com o peso deslocado, e a pose muda de um painel pro outro.
 - **Pouco fundo.** O lugar aparece em pedaços atrás da ação. A ficha de ambiente mostra o lugar inteiro, mas isso não manda abrir a câmera. Cenário que a cena não usa puxa a câmera pra abrir.
 - **No máximo dois personagens em foco por painel.**
@@ -241,6 +245,8 @@ Vale para qualquer quadrinho, ferramenta, chat ou agente. Quem chega sem context
 - Quem fala está no painel do balão. Sem a pessoa, o balão sai de um estilhaço com ela ou vem da borda com cauda.
 - Palavra ambígua vira outra coisa: "taco" de chão virou taco de bilhar. Escrever "chão de madeira".
 - Visão de muito longe ou movimento rápido usa desenho simples, à moda de anime, com pouco detalhe.
+
+- Ângulo sempre variado: visão de pássaro, debaixo do pé, a partir do queixo, pelo ombro, através de objeto, teleobjetiva, de longe. Close seguido de close, ou todo mundo da cintura para cima, deixa a página parada.
 
 **Ficha e estilo**
 - Personagem citado sem ficha é inventado pelo modelo. Rodar `trava_fichas.py` (pasta `MAIN/11/PRODUCAO/ferramentas`) antes da fila.

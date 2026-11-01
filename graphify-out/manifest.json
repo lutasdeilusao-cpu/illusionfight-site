@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793492785.9376695,
-    "ast_hash": "a327a10d5062d519a7cbdd1f5b6b724c",
+    "mtime": 1793492992.3644333,
+    "ast_hash": "e31a4966573ee91061259b994c035551",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793492785.9396627,
-    "ast_hash": "fe52bb8e3200eab7d6012a84cc9d91b6",
+    "mtime": 1793492992.3644333,
+    "ast_hash": "28841f0b013b9dfddfaf70a3b1d5393d",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793492794.344375,
+    "mtime": 1793493001.9886706,
     "ast_hash": "f316d046e8c231e2314a5dd4c4a544ec",
     "semantic_hash": ""
   },
@@ -10370,8 +10370,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/REGRAS_CRITICAS.md": {
-    "mtime": 1793492785.9376695,
-    "ast_hash": "3dbb75caef9cdfc9ebcbbc789e5b7346",
+    "mtime": 1793492992.3644333,
+    "ast_hash": "62e25be27692d097f0a4fea8563ff0b4",
     "semantic_hash": ""
   },
   "src/pages/painel/tarefas/TarefaCartao.jsx": {
