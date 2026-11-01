@@ -281,7 +281,7 @@ Ordem: capa → aviso de idade → divulgação → história → **gancho em gl
 
 ## 9. Câmera, corpo e golpe
 
-As regras de câmera estão em `REGRAS_CRITICAS.md` §4 (corpo cortado na cintura, plano de câmera antes do prompt, quatro coisas por painel). No LDI vale ainda:
+As regras de câmera estão em `REGRAS_CRITICAS.md` §4 (câmera com motivo, contraste de distância, plano de câmera antes do prompt, quatro coisas por painel). No LDI vale ainda:
 
 - **Golpe:** descrever qual braço ou perna atua, onde fica o peso, o giro do quadril, a trajetória e o contato. O desenho tem que ser inequívoco mesmo que o nome do golpe varie.
 
