@@ -350,7 +350,7 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793509124.3344712,
+    "mtime": 1793544302.3715394,
     "ast_hash": "07cdc451f9b3d04dff8646243557b0ac",
     "semantic_hash": ""
   },
@@ -2480,8 +2480,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1793504312.8384826,
-    "ast_hash": "a8e92ff2e41716b5e4014633cdca9e3f",
+    "mtime": 1793544302.2149496,
+    "ast_hash": "0e45317fcedaefe5977b72f8daefdf71",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2520,7 +2520,7 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793509124.3434713,
+    "mtime": 1793544315.1432114,
     "ast_hash": "bdb300086622bb00067416ee6d52cc61",
     "semantic_hash": ""
   },
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793509176.0256884,
+    "mtime": 1793544355.4207935,
     "ast_hash": "82e9018480e34cc6cee09b54e4f31641",
     "semantic_hash": ""
   },
@@ -10370,8 +10370,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/REGRAS_CRITICAS.md": {
-    "mtime": 1793504312.8364673,
-    "ast_hash": "d5961864418b45ab30d917134590c2cd",
+    "mtime": 1793544315.1093848,
+    "ast_hash": "3500fe324ed5e07ef302cc02db04bd00",
     "semantic_hash": ""
   },
   "src/pages/painel/tarefas/TarefaCartao.jsx": {
@@ -10427,6 +10427,31 @@
   "src/assets/webshard/cap-contos-de-ilusao-inocentes.webp": {
     "mtime": 1793400949.0807743,
     "ast_hash": "645a0406614a2ee82e4b8a68e6496ab7",
+    "semantic_hash": ""
+  },
+  ".claude/hooks/trava_imagem.py": {
+    "mtime": 1793544302.130726,
+    "ast_hash": "328ae268b8ea4023fc7f6ca4baa8e978",
+    "semantic_hash": ""
+  },
+  ".claude/settings.json": {
+    "mtime": 1793544315.1083689,
+    "ast_hash": "76cd7694c4b35befa0067c45bf07f1a7",
+    "semantic_hash": ""
+  },
+  ".claude/rules/gangues.md": {
+    "mtime": 1793544302.2139485,
+    "ast_hash": "d74467497411a63e42474ca4bd1288d4",
+    "semantic_hash": ""
+  },
+  ".claude/rules/lendas.md": {
+    "mtime": 1793544302.2139485,
+    "ast_hash": "a40e983ff4228c2a9fddca337978c4c4",
+    "semantic_hash": ""
+  },
+  "docs/QA/PLAYTEST_TEMPLATE.md": {
+    "mtime": 1793544302.3075402,
+    "ast_hash": "c934d89e4a89f3e86035c6e59926513b",
     "semantic_hash": ""
   }
 }
