@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793492992.3644333,
-    "ast_hash": "e31a4966573ee91061259b994c035551",
+    "mtime": 1793501431.2486382,
+    "ast_hash": "04f9b9abaa2684f69a0afee0a1070e19",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793492992.3644333,
-    "ast_hash": "28841f0b013b9dfddfaf70a3b1d5393d",
+    "mtime": 1793501431.2496383,
+    "ast_hash": "d12081d0f9bb6df85fff952708050657",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7135,8 +7135,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1793491750.0939016,
-    "ast_hash": "f92ab89eb4f92c844bc4f26c21425b04",
+    "mtime": 1793501431.2476385,
+    "ast_hash": "4ca923b835de70c8c0f517926649bf24",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesBagEquip.jsx": {
@@ -9945,7 +9945,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793493001.9886706,
+    "mtime": 1793501443.76159,
     "ast_hash": "f316d046e8c231e2314a5dd4c4a544ec",
     "semantic_hash": ""
   },
@@ -10370,8 +10370,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/REGRAS_CRITICAS.md": {
-    "mtime": 1793492992.3644333,
-    "ast_hash": "62e25be27692d097f0a4fea8563ff0b4",
+    "mtime": 1793501431.2466378,
+    "ast_hash": "fbfb1ec3c1e8d88ccafa4ddc140dfc42",
     "semantic_hash": ""
   },
   "src/pages/painel/tarefas/TarefaCartao.jsx": {
