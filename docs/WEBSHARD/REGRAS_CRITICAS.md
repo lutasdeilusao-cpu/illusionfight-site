@@ -280,6 +280,8 @@ Vale para qualquer quadrinho, ferramenta, chat ou agente. Quem chega sem context
 
 ## 11. Trava antes de gastar cota
 
+`.claude/hooks/trava_imagem.py` barra sozinho: Codex sem prompt pela entrada padrão, fila do navegador sem a ficha de expressão, página de estilo anexada, destino que já existe e fila sem teste aprovado. Depois de aprovar a primeira imagem, criar `<jobs>.json.teste_ok` ao lado da fila.
+
 Vale para toda produção de imagem, em qualquer ferramenta.
 
 - **Só o pedido.** Mexer apenas no que o Isaias mandou. Reclamação de uma página não autoriza tocar em outra, nem mover capa, nem apagar. Uma coisa aprovada só muda com ordem dele.
