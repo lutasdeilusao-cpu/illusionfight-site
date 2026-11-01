@@ -322,7 +322,7 @@ A obra tem dois acabamentos, com contraste proposital:
 - **Cotidiano e humor:** comic expressivo, com volume e luz de cinema, sem virar anime chapado, chibi ou 3D.
 - **Ação ou emoção séria:** virada drástica para o **semirrealista quase realista**, com volume, textura e atuação contida. O primeiro ataque sério pode marcar a virada.
 
-Rosto, roupa, ferimento e geografia não mudam quando o acabamento muda. A ficha fixa a aparência; a página fixa o acabamento. **O bloco de estilo vai escrito por extenso em toda página** (o modelo não conhece este guia), com uma página aprovada ou a âncora `Personagens/Estilo/AncoraSemiRealista1.png` anexada.
+Rosto, roupa, ferimento e geografia não mudam quando o acabamento muda. A ficha fixa a aparência; a página fixa o acabamento. **O bloco de estilo vai escrito por extenso em toda página** (o modelo não conhece este guia), com as âncoras `Personagens/Estilo/AncoraSemiRealista1.png` e `AncoraSemiRealista2.png` anexadas.
 
 Bloco do semirrealista:
 
