@@ -242,7 +242,7 @@ Qualquer trabalho em quadrinho (WEB SHARD da linha principal e dos contos, Mundo
 
 Ordem de leitura (só dois documentos):
 1. `REGRAS_CRITICAS.md` (inclui ferramentas, fila e fichas);
-2. o guia do produto (`WEBSHARD_GUIA_DE_PRODUCAO.md`, `MDS_GUIA_DE_PRODUCAO.md`, `HDC_GUIA_DE_PRODUCAO.md`, `Especiais/`).
+2. o guia do produto (`LDI_GUIA_DE_PRODUCAO.md`, `MDS_GUIA_DE_PRODUCAO.md`, `HDC_GUIA_DE_PRODUCAO.md`, `Especiais/`).
 
 Onde vai o aprendizado novo:
 - erro de produção, ferramenta ou truque de imagem, em `REGRAS_CRITICAS.md`;

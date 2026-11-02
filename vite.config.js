@@ -15,8 +15,8 @@ export default defineConfig({
       })
       this.emitFile({
         type: 'asset',
-        fileName: 'docs/webshard/WEBSHARD_GUIA_DE_PRODUCAO.md',
-        source: readFileSync(new URL('./docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md', import.meta.url), 'utf8'),
+        fileName: 'docs/webshard/LDI_GUIA_DE_PRODUCAO.md',
+        source: readFileSync(new URL('./docs/WEBSHARD/LDI_GUIA_DE_PRODUCAO.md', import.meta.url), 'utf8'),
       })
     },
   }],

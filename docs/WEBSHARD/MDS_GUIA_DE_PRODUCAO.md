@@ -4,7 +4,7 @@ Guia de produção das páginas do Mundo das Sombras (MDS).
 
 > **Antes deste guia, leia `REGRAS_CRITICAS.md`** (mesma pasta): as três leis, a câmera, o prompt, as fichas e a revisão valem aqui. Este guia traz só o que é próprio do MDS.
 
-O formato de todo WEB SHARD (página, safe area, publicação) está no `WEBSHARD_GUIA_DE_PRODUCAO.md`. A história, os capítulos e o elenco estão no `MDS_PLANEJAMENTO.md` (`WEBSHARD/MUNDO DAS SOMBRAS/PRODUCAO/`). Pasta de trabalho: `BRANDS/Lutas de Ilusão/WEBSHARD/MUNDO DAS SOMBRAS/`.
+O formato de todo WEB SHARD (página, safe area, publicação) está no `LDI_GUIA_DE_PRODUCAO.md`. A história, os capítulos e o elenco estão no `MDS_PLANEJAMENTO.md` (`WEBSHARD/MUNDO DAS SOMBRAS/PRODUCAO/`). Pasta de trabalho: `BRANDS/Lutas de Ilusão/WEBSHARD/MUNDO DAS SOMBRAS/`.
 
 ---
 
@@ -73,7 +73,7 @@ As regras de câmera estão em `REGRAS_CRITICAS.md` §4: corpo cortado na cintur
 - **O livro não é legenda.** O texto do livro é a fonte da cena, não a lista de caixas. Uma página tem em geral de 0 a 3 textos; o que a imagem já conta sai do texto.
 - **Pelo menos 3 páginas de silêncio** por capítulo.
 - **Fonte padrão, uma só no quadrinho inteiro:** comic bold condensada, **reta (nunca itálico)**, caixa alta, grande, com a palavra-chave de cada caixa um pouco maior. É a fonte das páginas aprovadas do cap. 1.
-- **A referência de letra vai sempre anexada.** Descrição em palavras não basta (mesma lição do Lutas de Ilusão, `WEBSHARD_GUIA_DE_PRODUCAO.md` §4.2). `FICHAS/MDS_Padrao_Pagina.png` traz as páginas aprovadas e os recortes de balão e narração do cap. 1 (o recorte sozinho está em `FICHAS/MDS_Letreiro.png`). O `v3.py` anexa em toda página; se passar de 5 referências, sai a página anterior.
+- **A referência de letra vai sempre anexada.** Descrição em palavras não basta (mesma lição do Lutas de Ilusão, `LDI_GUIA_DE_PRODUCAO.md` §4.2). `FICHAS/MDS_Padrao_Pagina.png` traz as páginas aprovadas e os recortes de balão e narração do cap. 1 (o recorte sozinho está em `FICHAS/MDS_Letreiro.png`). O `v3.py` anexa em toda página; se passar de 5 referências, sai a página anterior.
 - **Cada personagem que fala tem a SUA cor** (tabela §7), a mesma em todos os capítulos: **balão branco puro, letra e contorno grosso na cor dele**, cauda apontando para ele. Nunca dois personagens com a mesma cor de fala (a exceção são os possuídos, que dividem o cinza do balão de contorno duplo: a voz sai em dois tons). Personagem novo com fala ganha cor antes da página e entra na tabela.
 - **Narração sem caixa:** letras brancas flutuando numa nuvem pequena de fumaça da cor do narrador, num canto escuro do painel, nunca sobre rosto ou ação.
 - **Tela de fumaça da Falha/Nefeli:** letras prateadas no ar, nunca balão. **Voz do Iluminado:** dourada, itálico, sem balão. **Sussurro das sombras:** vermelho-escuro irregular na borda do painel.

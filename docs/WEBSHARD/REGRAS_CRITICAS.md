@@ -5,7 +5,7 @@
 Cada regra saiu de um erro real que custou páginas e cota. Os guias de cada produto dizem COMO é o produto; este arquivo diz onde a produção já errou.
 
 São só dois documentos por trabalho: este arquivo e o guia do produto.
-- `WEBSHARD_GUIA_DE_PRODUCAO.md`: Lutas de Ilusão (linha principal e contos) e o formato de todo WEB SHARD. Modelo pronto de produção: `WEBSHARD/LUTAS DE ILUSAO/CONTOS/06-inocentes/PRODUCAO/`;
+- `LDI_GUIA_DE_PRODUCAO.md`: Lutas de Ilusão (linha principal e contos) e o formato de todo WEB SHARD. Modelo pronto de produção: `WEBSHARD/LUTAS DE ILUSAO/CONTOS/06-inocentes/PRODUCAO/`;
 - `MDS_GUIA_DE_PRODUCAO.md`: Mundo das Sombras;
 - `BRANDS/Lutas de Ilusão/WEBSHARD/MAR DE CINZAS/MDC_GUIA_DE_PRODUCAO.md`: Mar de Cinzas;
 - `HDC_GUIA_DE_PRODUCAO.md`: Heróis da Cidade;
@@ -66,10 +66,7 @@ Estes erros gastaram a cota de três contas premium numa noite só. Ler esta lis
 - Antes de gerar capa, procurar arte oficial (`Personagens/Capas_Contos/`).
 
 ### Página
-- **No máximo 2 painéis mais os estilhaços.** Painel único só em pausa dramática ou glitch. Página de ação nunca tem painel único.
-- **Um corte só por página**, com proporção (60/40, 65/35…), grau e lado definidos. A página nunca repete o lado e a proporção da anterior.
-  - Com 2 painéis só existe uma emenda. Escrever "A desce pra direita, B desce pra esquerda" obriga o modelo a adivinhar.
-- **O balão fica no painel de quem fala.** Balão de alguém num painel em que ele não aparece é erro.
+- **No máximo 4 painéis mais os estilhaços.** Painel único só em pausa dramática ou glitch. Página de ação nunca tem painel único.
 - **A leitura desce.** Balões alternando entre os painéis criam leitura em zigue-zague. Na mesma altura, a leitura vai da esquerda pra direita.
 - **O estilhaço tem função** (tempo, reação, causa/consequência, olhar ou detalhe que conta) e não repete o que um painel já mostra.
 - **Onomatopeia em toda página de cena**: som de ambiente, passo, gole, mastigação. Faltou em 24 páginas da parte 1 e em 27 da parte 2 do conto 06.
@@ -110,14 +107,14 @@ Estes erros gastaram a cota de três contas premium numa noite só. Ler esta lis
 - **O plano de câmera é escrito ANTES dos prompts:** um enquadramento por painel, pra todas as páginas, escolhido pelo que acontece na página. Painéis vizinhos nunca repetem enquadramento, inclusive o último de uma página e o primeiro da seguinte.
 - **Todo painel diz quatro coisas:**
   - **altura** do ponto de vista: no chão, na cintura, no olho, no teto;
-  - **ângulo**: contra-plongée, plongée, holandês, sobre o ombro, subjetiva;
-  - **lente**: grande-angular perto, que dá urgência, ou teleobjetiva longe, que espia;
+  - **ângulo**: contra-plongée, plongée, holandês, sobre o ombro, subjetiva,etc.. Sempre Angulos cinematograficos;
+  - **lente**: grande-angular perto, que dá urgência, ou teleobjetiva longe, que espia, etc...;
   - **primeiro plano**: algo desfocado entre o ponto de vista e a ação.
 - **O enquadramento abre o painel** ("ENQUADRAMENTO OBRIGATÓRIO — …") e diz o corte do corpo em palavras de corpo: "da cintura pra cima", "só cabeça e ombros enchem o painel". "Close" sozinho o modelo abre.
 - **Termos que saem do texto:** "plano americano", "plano médio", "plano geral", "da cabeça às coxas", "em pé" (vira "em movimento") e plano geral sem motivo. Figura pequena ao fundo só vale em duas situações: com primeiro plano forte na frente, ou quando o tamanho conta a história (solidão, escala do lugar).
 - **O corpo está em ação:** girado, inclinado, com o peso deslocado, e a pose muda de um painel pro outro.
 - **Pouco fundo.** O lugar aparece em pedaços atrás da ação. A ficha de ambiente mostra o lugar inteiro, mas isso não manda abrir a câmera. Cenário que a cena não usa puxa a câmera pra abrir.
-- **No máximo dois personagens em foco por painel.**
+- **Evitar mais de 3 personagens em foco se for encessário epça para mostrar mais eprsonagens com menos qualidade e menos detalhe.**
 - **Os 13 enquadramentos que funcionaram:**
   - detalhe macro e close extremo;
   - close grande-angular;
@@ -128,10 +125,6 @@ Estes erros gastaram a cota de três contas premium numa noite só. Ler esta lis
   - grande-angular baixa e teleobjetiva;
   - subjetiva.
 - **O storyboard testa a câmera, não só o texto.** Conferir a variedade de enquadramento entre as páginas, não só se cada página está certa.
-
-## 5. Prompt
-
-O prompt final é gerado por script a partir do roteiro (`montar.py`, `v3.py`). O roteiro cru nunca vai pro modelo.
 
 ### O que o modelo desenha se estiver no texto
 - **Marcação de produção.** Já saíram desenhados na arte:
