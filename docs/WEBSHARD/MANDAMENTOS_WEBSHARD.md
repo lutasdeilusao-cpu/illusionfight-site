@@ -17,7 +17,7 @@ Valem para todo WEB SHARD do portal e vencem qualquer outro guia.
 ## Câmera
 
 7. **Todo painel tem ângulo de cinema único.** Nenhum enquadramento se repete entre painéis vizinhos, inclusive do último painel de uma página para o primeiro da seguinte. Um ângulo usado não volta no mesmo capítulo sem motivo.
-8. **O plano de câmera é escrito antes dos prompts**, um enquadramento por painel, escolhido pelo que acontece na cena. Repertório de partida, a ampliar: detalhe macro, close extremo, close grande-angular, contra-plongée extremo, plongée alto, zenital, holandês, sobre o ombro, perfis frente a frente, quadro dentro do quadro, grande-angular baixa, teleobjetiva, subjetiva.
+8. **Toda página começa pelo plano de câmera dela**: antes de escrever o resto do prompt, um enquadramento por painel e a direção do corte, escolhidos pelo que acontece na página e diferentes da página anterior e da seguinte. Repertório de partida, a ampliar: detalhe macro, close extremo, close grande-angular, contra-plongée extremo, plongée alto, zenital, holandês, sobre o ombro, perfis frente a frente, quadro dentro do quadro, grande-angular baixa, teleobjetiva, subjetiva.
 9. **Corpo inteiro só com ação ou presença** (salto, queda, golpe, chegada), em diagonal ou com câmera baixa ou alta. Pose parada de ficha é proibida, e cortar todo mundo na cintura também deixa a página parada.
 10. **Poucos personagens por painel.** Quanto mais gente no quadro, menos detalhe em cada um. Menos é mais, também no fundo.
 

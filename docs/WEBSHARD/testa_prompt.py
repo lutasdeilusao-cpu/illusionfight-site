@@ -11,7 +11,7 @@ from pathlib import Path
 # Personagens e cores vêm do próprio prompt: cada linha de PERSONAGENS é "Nome: ... Cor: <cor>."
 CORES = {}
 
-SECOES = ['REFERÊNCIAS', 'ESTILO', 'PERSONAGENS', 'LUGAR E GEOGRAFIA', 'COMPOSIÇÃO',
+SECOES = ['PLANO DE CÂMERA', 'REFERÊNCIAS', 'ESTILO', 'PERSONAGENS', 'LUGAR E GEOGRAFIA', 'COMPOSIÇÃO',
           'PAINEL 1', 'ESTILHAÇOS', 'TEXTOS']
 ABERTURA = 'Criar UMA página de quadrinho vertical e alta, no tamanho 960×1637.'
 NEGACOES = r'\b(sem|não|nao|nunca|nenhum|nenhuma|nada|jamais)\b'
@@ -26,7 +26,7 @@ def secoes(txt):
     """Divide o prompt em blocos pelo título em caixa alta no começo da linha."""
     blocos, atual = {}, None
     for linha in txt.splitlines():
-        m = re.match(r'^(REFERÊNCIAS|ESTILO|PERSONAGENS|LUGAR E GEOGRAFIA|COMPOSIÇÃO|PAINEL \d+[^\n]*|ESTILHAÇOS|TEXTOS)\s*$', linha)
+        m = re.match(r'^(PLANO DE CÂMERA|REFERÊNCIAS|ESTILO|PERSONAGENS|LUGAR E GEOGRAFIA|COMPOSIÇÃO|PAINEL \d+[^\n]*|ESTILHAÇOS|TEXTOS)\s*$', linha)
         if m:
             atual = m.group(1)
             blocos[atual] = []
@@ -137,8 +137,24 @@ def testa(arq):
             erros7.append('último painel repete o 1º da página seguinte')
     r('M7', not erros7, f'ângulos {cams}' + (f' — {erros7}' if erros7 else ''))
     # M8
-    plano = arq.parent.parent / 'PLANO_CAMERA.md'
-    r('M8', plano.exists(), f'plano de câmera do capítulo escrito antes ({plano.name})')
+    plano = b.get('PLANO DE CÂMERA', '')
+    erros8 = []
+    if not plano:
+        erros8.append('falta o bloco PLANO DE CÂMERA no topo')
+    else:
+        if not re.search(r'Corte:.*(sobe|desce)', plano):
+            erros8.append('plano sem direção do corte')
+        if not re.search(r'Estilhaços:', plano):
+            erros8.append('plano sem estilhaços')
+        for i, (k, v) in enumerate(pn, 1):
+            m = re.search(rf'^Painel {i}:\s*(.+?)\.?\s*$', plano, re.M)
+            if not m:
+                erros8.append(f'painel {i} fora do plano')
+            elif camera(v) and m.group(1).split(',')[0].strip().lower() != camera(v):
+                erros8.append(f'painel {i}: plano "{m.group(1)}" e câmera "{camera(v)}" diferentes')
+        if corte(corpo) and not re.search(rf'Corte:.*{corte(corpo)[0]}', plano):
+            erros8.append('direção do corte no plano diferente da composição')
+    r('M8', not erros8, 'plano de câmera da página no topo, igual aos painéis' + (f' — {erros8}' if erros8 else ''))
     # M9
     erros9 = [k for k, v in pn if re.search(r'corpo inteiro', v, re.I) and not re.search(ACAO, v, re.I)]
     r('M9', not erros9, 'corpo inteiro só com ação' + (f' — {erros9}' if erros9 else ''))

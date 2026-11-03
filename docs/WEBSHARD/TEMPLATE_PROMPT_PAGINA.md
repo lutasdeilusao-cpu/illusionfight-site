@@ -9,20 +9,6 @@ Cada bloco atende a mandamentos de [MANDAMENTOS_WEBSHARD.md](MANDAMENTOS_WEBSHAR
 
 ---
 
-## Antes do prompt: plano de câmera do capítulo [M7] [M8]
-
-Preencha a tabela do capítulo inteiro antes de escrever qualquer página. Ela só fica pronta quando passar nestas checagens:
-- nenhum enquadramento repetido em painéis vizinhos, incluindo do último painel de uma página para o primeiro da seguinte;
-- nenhuma direção de corte igual entre páginas seguidas [M6];
-- nenhuma página com mais de 3 painéis ou menos de 2 estilhaços [M3] [M4].
-
-| Pág. | Painéis | Corte (direção) | P1 enquadramento | P2 enquadramento | P3 enquadramento | Estilhaços (função) |
-|---|---|---|---|---|---|---|
-| 05 | 2 | desce da esquerda para a direita | contra-plongée extremo | sobre o ombro | — | 2: tempo, reação |
-| 06 | 3 | sobe da esquerda para a direita | zenital | close grande-angular | teleobjetiva | 3: causa, olhar, detalhe |
-
----
-
 ## O prompt
 
 ```
@@ -31,6 +17,15 @@ Criar UMA página de quadrinho vertical e alta, no tamanho 960×1637.
 
 >> [M2] Arte até as beiras. Nunca escrever "margem", "área livre", "longe das bordas".
 A pintura vai até as quatro beiras da imagem, de ponta a ponta.
+
+PLANO DE CÂMERA
+>> [M7] [M8] Escrito primeiro. Um enquadramento por painel, pelo que acontece na página.
+>> Conferir com a página anterior e a seguinte: o 1º painel desta e o último da anterior são diferentes, e a direção do corte também [M6].
+Corte: diagonal que {sobe/desce} da {esquerda/direita} para a {direita/esquerda}.
+Painel 1: {enquadramento}.
+Painel 2: {enquadramento}.
+Painel 3: {enquadramento}.   >> opcional
+Estilhaços: {quantos} — {funções}.
 
 REFERÊNCIAS
 >> Uma linha por anexo: o que ele governa (rosto, roupa, cenário, fonte, arma).
@@ -61,7 +56,7 @@ Entre o painel 1 e o painel 2: {borda da obra: linha de neon, fumaça...} {cor d
 A leitura desce e, na mesma altura, vai da esquerda para a direita. [M14]
 
 PAINEL 1 — {quem domina}
->> [M7] Enquadramento da tabela, único.
+>> [M7] O mesmo enquadramento do PLANO DE CÂMERA.
 >> [M22] A câmera tem que fechar com a imagem: lado do ombro, quem fica na frente, para onde se olha.
 >> [M9] Corpo inteiro só com ação ou presença, em diagonal ou câmera baixa/alta.
 Câmera: {enquadramento}, {altura}, {lente}, {de que lado da cena}.
@@ -109,7 +104,7 @@ Leia o prompt pronto do começo ao fim, como se fosse a IA:
 - [ ] 2 ou mais estilhaços, cada um com função própria [M4]
 - [ ] Cor de cada borda é a de quem domina o painel [M5]
 - [ ] Direção do corte diferente da página anterior [M6]
-- [ ] Enquadramentos batem com a tabela e não repetem o vizinho [M7] [M8]
+- [ ] Plano de câmera no topo, igual aos painéis, sem repetir o vizinho [M7] [M8]
 - [ ] Corpo inteiro só com ação [M9]
 - [ ] Poucos personagens por painel, fundo enxuto [M10]
 - [ ] Fonte, balão branco, cor de quem fala e destaque [M11] [M12]
