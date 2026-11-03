@@ -2,7 +2,7 @@
 
 Guia de Lutas de Ilusão / Illusion Fight. É também o guia de formato de todo WEB SHARD: página, safe area, letreiro, publicação e tradução.
 
-> **Antes deste guia, leia `REGRAS_CRITICAS.md`** (mesma pasta). Ele é a base de toda produção de página e vence este guia quando há conflito. Ferramentas, formatos de ficha e fila também estão lá.
+> **Antes deste guia, leia `MANDAMENTOS_WEBSHARD.md`** (mesma pasta). Ele é a base de toda produção de página e vence este guia quando há conflito. Ferramentas, formatos de ficha e fila também estão lá.
 
 Guias dos outros títulos: `MDS_GUIA_DE_PRODUCAO.md` (Mundo das Sombras), `HDC_GUIA_DE_PRODUCAO.md` (Heróis da Cidade) e `Especiais/` (especiais).
 
@@ -68,7 +68,7 @@ Páginas-modelo do capítulo 01:
 7. Definir quem conduz a cena e a cor do neon.
 8. Rever a página reduzida ao tamanho do celular.
 
-- **Corte:** diagonal de 8 a 15 graus, nunca reto. Um corte só por página, com proporção e lado definidos, sem repetir a página anterior (`REGRAS_CRITICAS.md` §3).
+- **Corte:** diagonal de 8 a 15 graus, nunca reto. Um corte só por página, com proporção e lado definidos, sem repetir a página anterior (`MANDAMENTOS_WEBSHARD.md` §3).
 - **Separação:** borda fina, nunca faixa larga. O fundo acompanha o tema da cena, nunca preto ou branco chapado.
 - **Movimento:** cada painel declara o novo estado da ação (gesto, postura, deslocamento, contato ou consequência). Não repetir a mesma pose na mesma posição com outra fala.
 
@@ -101,7 +101,7 @@ O texto é curto para poder ser grande. Quando falta espaço:
 2. separar a batida em outra página;
 3. reorganizar balões e composição.
 
-Diminuir a letra até caber não é opção. Na adaptação de um conto, toda fala entra literal (`REGRAS_CRITICAS.md` §3): o que se ajusta é o número de páginas.
+Diminuir a letra até caber não é opção. Na adaptação de um conto, toda fala entra literal (`MANDAMENTOS_WEBSHARD.md` §3): o que se ajusta é o número de páginas.
 
 ### 4.2 Forma
 - **Uma fonte só para todo o elenco:** comic bold condensada, reta, caixa alta, em balão branco puro.
@@ -281,7 +281,7 @@ Ordem: capa → aviso de idade → divulgação → história → **gancho em gl
 
 ## 9. Câmera, corpo e golpe
 
-As regras de câmera estão em `REGRAS_CRITICAS.md` §4 (câmera com motivo, contraste de distância, plano de câmera antes do prompt, quatro coisas por painel). No LDI vale ainda:
+As regras de câmera estão em `MANDAMENTOS_WEBSHARD.md` §4 (câmera com motivo, contraste de distância, plano de câmera antes do prompt, quatro coisas por painel). No LDI vale ainda:
 
 - **Golpe:** descrever qual braço ou perna atua, onde fica o peso, o giro do quadril, a trajetória e o contato. O desenho tem que ser inequívoco mesmo que o nome do golpe varie.
 
