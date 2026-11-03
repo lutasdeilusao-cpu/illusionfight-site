@@ -30,7 +30,7 @@ Preencha a tabela do capítulo inteiro antes de escrever qualquer página. Ela s
 Criar UMA página de quadrinho vertical e alta, no tamanho 960×1637.
 
 >> [M2] Arte até as beiras. Nunca escrever "margem", "área livre", "longe das bordas".
-A pintura vai até as quatro beiras da imagem, sem moldura.
+A pintura vai até as quatro beiras da imagem, de ponta a ponta.
 
 REFERÊNCIAS
 >> Uma linha por anexo: o que ele governa (rosto, roupa, cenário, fonte, arma).
@@ -43,7 +43,7 @@ PERSONAGENS
 >> Só quem aparece. Aparência vem da ficha.
 >> [M19] Quem está de costas em TODOS os painéis: escrever só nuca, costas, roupa vista por trás. Nada de rosto, olho, boca, expressão ou detalhe da frente.
 >> [M18] Tudo em positivo: "rua seca", "três patas", nunca "sem chuva".
-{Nome}: {aparência curta}. {Regra fixa do personagem, ex.: Kim tem a boca reta.}
+{Nome}: {aparência curta}. {Regra fixa do personagem, ex.: boca reta.} Cor: {cor da voz e da borda dele}.
 
 LUGAR E GEOGRAFIA
 >> [M20] Geografia fixa da cena, a mesma em toda página dela.
@@ -56,8 +56,8 @@ COMPOSIÇÃO
 >> [M6] Corte diagonal, direção diferente da página anterior.
 >> [M5] Borda colorida no estilo da obra (LDI = neon, MDS = fumaça). Cor = quem domina o painel.
 {N} painéis separados por cortes diagonais {direção}.
-Entre o painel 1 e o painel 2: linha de neon {cor de quem domina o painel 1}.
-{Entre o painel 2 e o painel 3: linha de neon {cor}.}
+Entre o painel 1 e o painel 2: {borda da obra: linha de neon, fumaça...} {cor de quem domina o painel 1}.
+{Entre o painel 2 e o painel 3: {borda da obra} {cor de quem domina o painel 2}.}
 A leitura desce e, na mesma altura, vai da esquerda para a direita. [M14]
 
 PAINEL 1 — {quem domina}
