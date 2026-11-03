@@ -238,18 +238,18 @@ Histórico de mudanças não existe no produto, de maneira alguma (Isaias, 03/10
 
 Construir, corrigir e revisar prompt e roteiro é trabalho de leitura e escrita à mão, página por página, feito pelo agente principal. Nunca usar script para montar, preencher, corrigir ou revisar esse texto. O revisor do Codex confere o prompt pronto e não substitui a leitura.
 
-## 🔴 Produção de quadrinho: `docs/WEBSHARD/REGRAS_CRITICAS.md` PRIMEIRO, toda vez
+## 🔴 Produção de quadrinho: `docs/WEBSHARD/MANDAMENTOS_WEBSHARD.md` PRIMEIRO, toda vez
 
-**OBRIGATÓRIO antes de gerar qualquer imagem de quadrinho: ler `docs/WEBSHARD/REGRAS_CRITICAS.md` e ler e reler várias vezes a seção "ERROS JÁ COMETIDOS", no começo dele. Esses erros já gastaram a cota de três contas premium numa noite.**
+**OBRIGATÓRIO antes de gerar qualquer imagem de quadrinho: ler e reler `docs/WEBSHARD/MANDAMENTOS_WEBSHARD.md`. São os mandamentos do WEB SHARD e vencem qualquer outro guia.**
 
-Qualquer trabalho em quadrinho (WEB SHARD da linha principal e dos contos, Mundo das Sombras, Mar de Cinzas, Heróis da Cidade, especiais) começa lendo `docs/WEBSHARD/REGRAS_CRITICAS.md`. São as regras mais críticas do projeto, e elas vencem qualquer outro guia. Ao instruir um agente para produzir quadrinho, mande ele ler esse arquivo antes de tudo.
+Qualquer trabalho em quadrinho (WEB SHARD da linha principal e dos contos, Mundo das Sombras, Mar de Cinzas, Heróis da Cidade, especiais) começa lendo `docs/WEBSHARD/MANDAMENTOS_WEBSHARD.md`. São as regras mais críticas do projeto, e elas vencem qualquer outro guia. Ao instruir um agente para produzir quadrinho, mande ele ler esse arquivo antes de tudo.
 
 Ordem de leitura (só dois documentos):
-1. `REGRAS_CRITICAS.md` (inclui ferramentas, fila e fichas);
+1. `MANDAMENTOS_WEBSHARD.md` (inclui ferramentas, fila e fichas);
 2. o guia do produto (`LDI_GUIA_DE_PRODUCAO.md`, `MDS_GUIA_DE_PRODUCAO.md`, `HDC_GUIA_DE_PRODUCAO.md`, `Especiais/`).
 
 Onde vai o aprendizado novo:
-- erro de produção, ferramenta ou truque de imagem, em `REGRAS_CRITICAS.md`;
+- erro de produção, ferramenta ou truque de imagem, em `MANDAMENTOS_WEBSHARD.md`;
 - regra de um produto só, no guia dele.
 
 Cada regra fica num lugar só: os outros arquivos apontam pra ela.

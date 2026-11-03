@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793579267.471426,
-    "ast_hash": "531af56477279ffb921d30f6155ddcde",
+    "mtime": 1793673171.2137728,
+    "ast_hash": "65d9c837ea964056de6661109c93f0cb",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2480,8 +2480,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1793579267.0530703,
-    "ast_hash": "bed220e5bdf38b1015012d8b70fd6853",
+    "mtime": 1793673229.015359,
+    "ast_hash": "64fba4290ef804c1ef23eeb6f360378a",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793579267.5303795,
-    "ast_hash": "1e3df608d100b614be48f21cccdda9d8",
+    "mtime": 1793673217.659168,
+    "ast_hash": "d18aa0b4f184ef9c947f4d279fa35954",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7210,8 +7210,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/HDC_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1793579267.0938406,
-    "ast_hash": "a828f94e70cff18f59e5b22a1cdcde6f",
+    "mtime": 1793673217.702168,
+    "ast_hash": "a80beb9eae9a24a23693aafd3163629c",
     "semantic_hash": ""
   },
   "src/data/herois-episodios.json": {
@@ -9885,8 +9885,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md": {
-    "mtime": 1793579267.074296,
-    "ast_hash": "eac577234cd9ad8c4225c9124dfe4915",
+    "mtime": 1793673217.677169,
+    "ast_hash": "6bcc01cdba57aaead385645500fb59c4",
     "semantic_hash": ""
   },
   "scripts/halloween_producao.py": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793579327.7848382,
+    "mtime": 1793673215.4164693,
     "ast_hash": "f7759aedee16ec6f64e1e2d0d73793fa",
     "semantic_hash": ""
   },
@@ -10330,8 +10330,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1793579267.1203618,
-    "ast_hash": "146943ef1a4eeadad4b915b4359c2999",
+    "mtime": 1793673217.743332,
+    "ast_hash": "c28e4a8bfff8fcd6766e081c385cbb42",
     "semantic_hash": ""
   },
   "supabase/migrations/061_admin_tarefas_arquivo.sql": {
@@ -10362,11 +10362,6 @@
   "src/assets/webshard/cap-lutas-de-ilusao-especial-9.webp": {
     "mtime": 1793233548.625703,
     "ast_hash": "c66d5159900811adf0cb7dc4aed737aa",
-    "semantic_hash": ""
-  },
-  "docs/WEBSHARD/REGRAS_CRITICAS.md": {
-    "mtime": 1793579267.1353614,
-    "ast_hash": "3917817fc5eae9bc94843f26e6fc1ce3",
     "semantic_hash": ""
   },
   "src/pages/painel/tarefas/TarefaCartao.jsx": {
@@ -10425,8 +10420,8 @@
     "semantic_hash": ""
   },
   ".claude/hooks/trava_imagem.py": {
-    "mtime": 1793544302.130726,
-    "ast_hash": "328ae268b8ea4023fc7f6ca4baa8e978",
+    "mtime": 1793673224.3164227,
+    "ast_hash": "ac71b4c12b7b02177b1709c1d2fb9c97",
     "semantic_hash": ""
   },
   ".claude/settings.json": {
@@ -10450,8 +10445,18 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/LDI_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1793579225.3874261,
-    "ast_hash": "4ca923b835de70c8c0f517926649bf24",
+    "mtime": 1793673217.7131748,
+    "ast_hash": "9911dc91db3007f3f873781c6a6f109f",
+    "semantic_hash": ""
+  },
+  "docs/WEBSHARD/FERRAMENTA_CHATGPT.md": {
+    "mtime": 1793673159.213761,
+    "ast_hash": "048585394886539d5c7c73e5376c9d81",
+    "semantic_hash": ""
+  },
+  "docs/WEBSHARD/MANDAMENTOS_WEBSHARD.md": {
+    "mtime": 1793673152.5778377,
+    "ast_hash": "f7384112f6b50c26ea959c3a9f742391",
     "semantic_hash": ""
   }
 }

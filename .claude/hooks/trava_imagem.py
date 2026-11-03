@@ -6,7 +6,7 @@ EXPRESSAO = {'Kim': 'KimExpressionSheet.png', 'Jack': 'JackExpressionSheet.png',
 
 
 def bloqueia(motivo):
-    print(f'TRAVA DE IMAGEM: {motivo}\nLer docs/WEBSHARD/REGRAS_CRITICAS.md, seção ERROS JÁ COMETIDOS.', file=sys.stderr)
+    print(f'TRAVA DE IMAGEM: {motivo}\nLer docs/WEBSHARD/MANDAMENTOS_WEBSHARD.md.', file=sys.stderr)
     sys.exit(2)
 
 

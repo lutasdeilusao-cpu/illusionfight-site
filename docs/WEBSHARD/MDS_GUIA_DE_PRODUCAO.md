@@ -2,7 +2,7 @@
 
 Guia de produção das páginas do Mundo das Sombras (MDS).
 
-> **Antes deste guia, leia `REGRAS_CRITICAS.md`** (mesma pasta): as três leis, a câmera, o prompt, as fichas e a revisão valem aqui. Este guia traz só o que é próprio do MDS.
+> **Antes deste guia, leia `MANDAMENTOS_WEBSHARD.md`** (mesma pasta): as três leis, a câmera, o prompt, as fichas e a revisão valem aqui. Este guia traz só o que é próprio do MDS.
 
 O formato de todo WEB SHARD (página, safe area, publicação) está no `LDI_GUIA_DE_PRODUCAO.md`. A história, os capítulos e o elenco estão no `MDS_PLANEJAMENTO.md` (`WEBSHARD/MUNDO DAS SOMBRAS/PRODUCAO/`). Pasta de trabalho: `BRANDS/Lutas de Ilusão/WEBSHARD/MUNDO DAS SOMBRAS/`.
 
@@ -40,7 +40,7 @@ O formato de todo WEB SHARD (página, safe area, publicação) está no `LDI_GUI
 
 ## 3. Câmera
 
-As regras de câmera estão em `REGRAS_CRITICAS.md` §4: corpo cortado na cintura, as quatro coisas de todo painel, nenhum enquadramento repetido entre vizinhos e ninguém olhando o leitor. No MDS vale ainda:
+As regras de câmera estão em `MANDAMENTOS_WEBSHARD.md` §4: corpo cortado na cintura, as quatro coisas de todo painel, nenhum enquadramento repetido entre vizinhos e ninguém olhando o leitor. No MDS vale ainda:
 
 - **"Close-up of MINUS"** (câmera na altura do rosto, de frente ou de lado) é câmera de novela e é proibido.
 - **O primeiro plano** sai do mundo do MDS: a orelha do cachorro, revistas penduradas, as grades do portão.
