@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793673171.2137728,
-    "ast_hash": "65d9c837ea964056de6661109c93f0cb",
+    "mtime": 1793673279.27526,
+    "ast_hash": "32793e57097721dd8054951b2b90ccbb",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793673217.659168,
-    "ast_hash": "d18aa0b4f184ef9c947f4d279fa35954",
+    "mtime": 1793673279.2877872,
+    "ast_hash": "08a7c0e751459e0c951a30a6c8d03cc2",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793673215.4164693,
+    "mtime": 1793673286.1606393,
     "ast_hash": "f7759aedee16ec6f64e1e2d0d73793fa",
     "semantic_hash": ""
   },
