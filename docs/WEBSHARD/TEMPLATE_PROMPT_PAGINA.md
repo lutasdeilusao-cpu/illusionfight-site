@@ -74,10 +74,11 @@ Câmera: {enquadramento diferente do painel 2}.
 {Ação e olhares.}
 
 ESTILHAÇOS
->> [M4] No mínimo 2. Cada um com função (tempo, reação, causa e consequência, olhar, detalhe) e sem repetir o que um painel mostra. Variar quantidade, lugar e uso entre páginas.
-{N} estilhaços irregulares sobre os cortes, com contorno fino de neon:
-- Estilhaço 1, {posição}: {o que mostra} — {função}.
-- Estilhaço 2, {posição}: {o que mostra} — {função}.
+>> [M4] De 1 a 5; a mesma quantidade nunca em 3 páginas seguidas.
+>> Lugar = (alto/meio/baixo) + (à esquerda/no centro/à direita). Lugares diferentes entre si e diferentes dos da página anterior. Pode cair em qualquer parte da página.
+>> "Conta:" explica o que o estilhaço acrescenta à história. Ele nunca repete o que um painel mostra.
+Estilhaços irregulares, inclinados, com sombra e contorno fino de neon, espalhados pela página, cada um no lugar indicado, deixando rostos, mãos e textos à mostra:
+- Estilhaço 1, {no alto/no meio/embaixo} {à esquerda/no centro/à direita}, contorno {cor}: {o que mostra}. Função: {tempo/reação/causa/consequência/olhar/detalhe}. Conta: {o que acrescenta à história}.
 
 TEXTOS
 >> [M11] Fonte única da obra, pela ficha de letreiro.
@@ -101,7 +102,7 @@ Leia o prompt pronto do começo ao fim, como se fosse a IA:
 - [ ] Só um número de pixels, o 960×1637 [M1]
 - [ ] Nenhuma palavra de margem ou borda branca [M2]
 - [ ] De 1 a 3 painéis, e ação sem painel único [M3]
-- [ ] 2 ou mais estilhaços, cada um com função própria [M4]
+- [ ] De 1 a 5 estilhaços, em lugares novos, cada um com função e "Conta:" [M4]
 - [ ] Cor de cada borda é a de quem domina o painel [M5]
 - [ ] Direção do corte diferente da página anterior [M6]
 - [ ] Plano de câmera no topo, igual aos painéis, sem repetir o vizinho [M7] [M8]

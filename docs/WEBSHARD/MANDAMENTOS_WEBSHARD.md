@@ -10,14 +10,19 @@ Valem para todo WEB SHARD do portal e vencem qualquer outro guia.
 ## Painéis e estilhaços
 
 3. **No máximo 3 painéis por página.** Painel único só em pausa dramática ou glitch. Página de ação nunca tem painel único.
-4. **Toda página tem no mínimo 2 estilhaços.** Movimento (golpe entrando, celular sendo roubado) é contado pelos estilhaços. Cada estilhaço tem função: tempo, reação, causa e consequência, olhar ou detalhe. Ele nunca repete o que um painel já mostra. A quantidade, o lugar e o uso variam de página para página.
+4. **Estilhaço conta a história e muda de lugar.**
+   - De 1 a 5 por página. A mesma quantidade nunca aparece em 3 páginas seguidas.
+   - Cada estilhaço tem um lugar na página: alto, meio ou baixo, à esquerda, no centro ou à direita. Ele pode cair em qualquer parte da página, não só no corte entre painéis.
+   - Na mesma página, cada estilhaço ocupa um lugar diferente, e nenhum repete um lugar usado na página anterior.
+   - Cada estilhaço diz a função (tempo, reação, causa, consequência, olhar ou detalhe) e explica o que acrescenta à história. Ele nunca repete o que um painel já mostra.
+   - Movimento (golpe entrando, celular sendo roubado) é contado pelos estilhaços.
 5. **A borda entre painéis é sempre colorida, no estilo da obra.** Lutas de Ilusão usa neon; Mundo das Sombras usa fumaça. A cor da borda é a do personagem que domina aquele painel.
 6. **Os cortes são diagonais e mudam de direção de uma página para a seguinte.** O painel pode ser fechado como um retângulo inteiro, mas o corte nunca é reto e nunca repete a direção da página anterior. Corte repetido deixa a leitura parada.
 
 ## Câmera
 
 7. **Todo painel tem ângulo de cinema único.** Nenhum enquadramento se repete entre painéis vizinhos, inclusive do último painel de uma página para o primeiro da seguinte. Um ângulo usado não volta no mesmo capítulo sem motivo.
-8. **Toda página começa pelo plano de câmera dela**: antes de escrever o resto do prompt, um enquadramento por painel e a direção do corte, escolhidos pelo que acontece na página e diferentes da página anterior e da seguinte. Repertório de partida, a ampliar: detalhe macro, close extremo, close grande-angular, contra-plongée extremo, plongée alto, zenital, holandês, sobre o ombro, perfis frente a frente, quadro dentro do quadro, grande-angular baixa, teleobjetiva, subjetiva.
+8. **Toda página começa pelo plano de câmera dela**: antes de escrever o resto do prompt, um enquadramento por painel e a direção do corte, escolhidos pelo que acontece na página e diferentes da página anterior e da seguinte. Repertório aprovado, a ampliar: detalhe macro, close extremo, close grande-angular, contra-plongée extremo, plongée alto, zenital, holandês, sobre o ombro, perfis frente a frente, quadro dentro do quadro (através de objeto), grande-angular baixa, teleobjetiva, subjetiva, plano geral, plano americano, contraluz, reflexo, plano em profundidade (primeiro plano desfocado e fundo nítido, ou o contrário) e rasante (câmera no nível do chão). O "Câmera:" de todo painel começa por um desses nomes. Nenhum enquadramento se repete dentro de 13 painéis seguidos, e dois enquadramentos que já apareceram juntos numa página não aparecem juntos de novo no capítulo.
 9. **Corpo inteiro só com ação ou presença** (salto, queda, golpe, chegada), em diagonal ou com câmera baixa ou alta. Pose parada de ficha é proibida, e cortar todo mundo na cintura também deixa a página parada.
 10. **Poucos personagens por painel.** Quanto mais gente no quadro, menos detalhe em cada um. Menos é mais, também no fundo.
 

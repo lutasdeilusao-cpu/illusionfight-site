@@ -324,6 +324,30 @@
     ]
   },
   {
+    "id": "13",
+    "numero": 13,
+    "so_admin": true,
+    "titulo_pt": "Capítulo 13",
+    "titulo_en": "Chapter 13",
+    "titulo_es": "Capítulo 13",
+    "publicado": false,
+    "data_publicacao": "2099-12-30",
+    "liberacao": {
+      "elite": "2099-12-15",
+      "conta": "2099-12-30",
+      "publico": "2099-12-30"
+    },
+    "idiomas": [
+      "pt"
+    ],
+    "paginas": 81,
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ]
+  },
+  {
     "id": "especial-1",
     "numero": 1,
     "so_admin": true,

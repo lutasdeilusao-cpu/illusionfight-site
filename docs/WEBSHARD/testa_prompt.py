@@ -1,12 +1,27 @@
 """Testa um prompt de página do WEB SHARD contra MANDAMENTOS_WEBSHARD.md e TEMPLATE_PROMPT_PAGINA.md.
 
 Uso: python testa_prompt.py <p_NNN.txt> [mais arquivos...]
-Os vizinhos (p_NNN-1 e p_NNN+1 na mesma pasta) entram na conferência de ângulo e de corte.
+Os ângulos de câmera de todas as páginas da pasta ficam guardados em _angulos.json, na própria pasta.
+Todo "Câmera:" começa por um dos enquadramentos aprovados (REPERTORIO, mandamento 8).
+Nenhum enquadramento se repete dentro de uma janela de painéis seguidos do tamanho do repertório
+(13 painéis, umas 6 a 7 páginas). Quem repete é a página de número maior.
+Estilhaços: de 1 a 5, quantidade igual em 3 páginas seguidas reprova, lugar (alto/meio/baixo + esquerda/centro/direita)
+diferente entre si e da página anterior, com função e "Conta:". Ficam guardados em _estilhacos.json.
+Dois enquadramentos que já apareceram juntos numa página anterior do capítulo não aparecem juntos de novo.
+A direção do corte é comparada com a página anterior e a seguinte.
 Sai com código 1 se algum prompt falhar.
 """
+import json
 import re
 import sys
 from pathlib import Path
+
+# Enquadramentos aprovados (mandamento 8). Entrou um novo nos mandamentos, entra aqui.
+REPERTORIO = ['detalhe macro', 'close extremo', 'close grande-angular', 'contra-plongée extremo',
+              'plongée alto', 'zenital', 'holandês', 'sobre o ombro', 'perfis frente a frente',
+              'quadro dentro do quadro', 'grande-angular baixa', 'teleobjetiva', 'subjetiva',
+              'plano geral', 'plano americano', 'contraluz', 'reflexo', 'plano em profundidade', 'rasante']
+JANELA = 13  # painéis seguidos sem repetir enquadramento
 
 # Personagens e cores vêm do próprio prompt: cada linha de PERSONAGENS é "Nome: ... Cor: <cor>."
 CORES = {}
@@ -18,7 +33,7 @@ NEGACOES = r'\b(sem|não|nao|nunca|nenhum|nenhuma|nada|jamais)\b'
 BORDA_BRANCA = r'margem|margens|área livre|area livre|longe das bordas|moldura branca|borda branca'
 ROSTO = r'\b(rosto|olho|olhos|boca|sorri\w*|express\w*|sobrancelha\w*|nariz|barba|marca no olho)\b'
 FUNCOES = r'tempo|reação|reacao|causa|consequência|consequencia|olhar|detalhe'
-ACAO = r'salt\w*|ca[ií]\w*|queda|golpe\w*|soco|chut\w*|chega\w*|pous\w*|corre\w*|investe\w*|lan[çc]\w*'
+ACAO = r'avan[çc]\w*|salt\w*|ca[ií]\w*|queda|golpe\w*|soco|chut\w*|chega\w*|pous\w*|corre\w*|investe\w*|lan[çc]\w*'
 LEITOR = r'olh\w* (para|pro|ao) (o )?(leitor|lente|câmera|camera)'
 
 
@@ -45,7 +60,7 @@ def camera(texto):
 
 
 def corte(txt):
-    m = re.search(r'corte diagonal que (sobe|desce) da (esquerda|direita)', txt)
+    m = re.search(r'cortes? diagona(?:l|is) que (sobe|desce)m? da (esquerda|direita)', txt)
     return m.groups() if m else None
 
 
@@ -60,6 +75,49 @@ def vizinho(arq, passo):
         return None
     v = arq.with_name('p_%03d.txt' % (int(m.group(1)) + passo))
     return v.read_text(encoding='utf-8') if v.exists() else None
+
+
+def tipo(cam):
+    """O enquadramento aprovado com que o "Câmera:" começa, ou None se estiver fora do repertório."""
+    for t in sorted(REPERTORIO, key=len, reverse=True):
+        if cam and cam.startswith(t):
+            return t
+    return None
+
+
+def lugar(linha):
+    """Lugar do estilhaço na página: 'alto-esquerda', 'meio-centro', 'baixo-direita'..."""
+    cab = linha.split(':')[0].lower()
+    v = 'alto' if re.search(r'\b(alto|topo)\b', cab) else 'baixo' if re.search(r'\b(embaixo|baixo)\b', cab) else 'meio' if 'meio' in cab else None
+    h = 'esquerda' if 'esquerda' in cab else 'direita' if 'direita' in cab else 'centro' if 'centro' in cab else None
+    return f'{v}-{h}' if v and h else None
+
+
+def estilhacos(txt):
+    return re.findall(r'^- Estilhaço \d+.*$', secoes(txt).get('ESTILHAÇOS', ''), re.M)
+
+
+def registro_est(pasta):
+    """Quantidade e lugares dos estilhaços de cada página da pasta, gravados em _estilhacos.json."""
+    reg = {}
+    for f in sorted(pasta.glob('p_*.txt')):
+        es = estilhacos(f.read_text(encoding='utf-8'))
+        if es and all(lugar(e) for e in es):
+            reg[f.stem[2:]] = [lugar(e) for e in es]
+    (pasta / '_estilhacos.json').write_text(json.dumps(reg, ensure_ascii=False, indent=1), encoding='utf-8')
+    return reg
+
+
+def registro(pasta):
+    """Lê os ângulos de todas as páginas da pasta que já seguem o template e grava em _angulos.json."""
+    reg = {}
+    for f in sorted(pasta.glob('p_*.txt')):
+        pn = paineis(secoes(f.read_text(encoding='utf-8')))
+        tipos = [tipo(camera(v)) for _, v in pn]
+        if tipos and all(tipos):
+            reg[f.stem[2:]] = tipos
+    (pasta / '_angulos.json').write_text(json.dumps(reg, ensure_ascii=False, indent=1), encoding='utf-8')
+    return reg
 
 
 def testa(arq):
@@ -93,9 +151,27 @@ def testa(arq):
     unico_ok = n != 1 or re.search(r'pausa dramática|glitch', b.get('COMPOSIÇÃO', ''), re.I)
     r('M3', 1 <= n <= 3 and bool(unico_ok), f'{n} painel(is); painel único só com pausa dramática ou glitch')
     # M4
-    est = re.findall(r'^- Estilhaço \d+.*$', b.get('ESTILHAÇOS', ''), re.M)
-    sem_funcao = [e[:40] for e in est if not re.search(r'Função:\s*(' + FUNCOES + ')', e, re.I)]
-    r('M4', len(est) >= 2 and not sem_funcao, f'{len(est)} estilhaço(s), cada um com função' + (f' — sem função: {sem_funcao}' if sem_funcao else ''))
+    est = estilhacos(corpo)
+    erros4 = []
+    if not 1 <= len(est) <= 5:
+        erros4.append(f'{len(est)} estilhaços; o limite é de 1 a 5')
+    lugares = [lugar(e) for e in est]
+    erros4 += [f'estilhaço {i + 1} sem lugar (alto/meio/baixo + esquerda/centro/direita)' for i, l in enumerate(lugares) if not l]
+    erros4 += [f'dois estilhaços no mesmo lugar: {l}' for l in {l for l in lugares if l and lugares.count(l) > 1}]
+    erros4 += [f'estilhaço {i + 1} sem função' for i, e in enumerate(est) if not re.search(r'Função:\s*(' + FUNCOES + ')', e, re.I)]
+    for i, e in enumerate(est):
+        m = re.search(r'Conta:\s*(.+)$', e)
+        if not m or len(m.group(1).split()) < 6:
+            erros4.append(f'estilhaço {i + 1} sem "Conta:" explicando o que acrescenta à história')
+    reg_e = registro_est(arq.parent)
+    ant_pags = [k for k in sorted(reg_e) if k < arq.stem[2:]]
+    if ant_pags:
+        repetidos = sorted(set(lugares) & set(reg_e[ant_pags[-1]]) - {None})
+        if repetidos:
+            erros4.append(f'lugar repetido da página {ant_pags[-1]}: {repetidos}')
+    if len(ant_pags) >= 2 and len(reg_e[ant_pags[-1]]) == len(reg_e[ant_pags[-2]]) == len(est):
+        erros4.append(f'{len(est)} estilhaços pela 3ª página seguida ({ant_pags[-2]}, {ant_pags[-1]})')
+    r('M4', not erros4, f'{len(est)} estilhaço(s) em {lugares}' + (f' — {erros4}' if erros4 else ''))
     # M5
     comp = b.get('COMPOSIÇÃO', '')
     erros5 = []
@@ -125,17 +201,29 @@ def testa(arq):
     r('M6', not erros6, f'corte diagonal {c}' + (f' — {erros6}' if erros6 else ''))
     # M7
     cams = [camera(v) for _, v in pn]
+    tipos = [tipo(c) for c in cams]
     erros7 = [f'{pn[i][0]} sem "Câmera:"' for i, x in enumerate(cams) if not x]
-    erros7 += [f'painéis {i + 1} e {i + 2} repetem "{cams[i]}"' for i in range(len(cams) - 1) if cams[i] and cams[i] == cams[i + 1]]
-    if ant and cams and cams[0]:
-        pa = paineis(secoes(ant))
-        if pa and camera(pa[-1][1]) == cams[0]:
-            erros7.append('1º painel repete o último da página anterior')
-    if prox and cams and cams[-1]:
-        pp = paineis(secoes(prox))
-        if pp and camera(pp[0][1]) == cams[-1]:
-            erros7.append('último painel repete o 1º da página seguinte')
-    r('M7', not erros7, f'ângulos {cams}' + (f' — {erros7}' if erros7 else ''))
+    erros7 += [f'painel {i + 1} fora do repertório: "{c}"' for i, c in enumerate(cams) if c and not tipos[i]]
+    eu = arq.stem[2:]
+    reg = registro(arq.parent)
+    meus = {frozenset((a, b)) for i, a in enumerate(tipos) for b in tipos[i + 1:] if a and b and a != b}
+    for pag, ts in sorted(reg.items()):
+        if pag < eu:
+            for par in meus & {frozenset((a, b)) for i, a in enumerate(ts) for b in ts[i + 1:]}:
+                erros7.append(f'par {" + ".join(sorted(par))} já usado junto na página {pag}')
+    antes = []  # (página, painel, enquadramento) de todas as páginas anteriores, em ordem
+    for pag, ts in sorted(reg.items()):
+        if pag < eu:
+            antes += [(pag, i + 1, t) for i, t in enumerate(ts)]
+    for i, t in enumerate(tipos):
+        if not t:
+            continue
+        janela = antes[-(JANELA - 1 - i):] if JANELA - 1 - i > 0 else []
+        janela += [(eu, j + 1, tipos[j]) for j in range(i)]
+        for pag, pnl, tt in janela:
+            if tt == t:
+                erros7.append(f'painel {i + 1} repete "{t}" da página {pag} painel {pnl}')
+    r('M7', not erros7, f'enquadramentos {tipos} (janela de {JANELA} painéis)' + (f' — {erros7}' if erros7 else ''))
     # M8
     plano = b.get('PLANO DE CÂMERA', '')
     erros8 = []
@@ -150,7 +238,7 @@ def testa(arq):
             m = re.search(rf'^Painel {i}:\s*(.+?)\.?\s*$', plano, re.M)
             if not m:
                 erros8.append(f'painel {i} fora do plano')
-            elif camera(v) and m.group(1).split(',')[0].strip().lower() != camera(v):
+            elif camera(v) and tipo(m.group(1).split(',')[0].strip().lower()) != tipo(camera(v)):
                 erros8.append(f'painel {i}: plano "{m.group(1)}" e câmera "{camera(v)}" diferentes')
         if corte(corpo) and not re.search(rf'Corte:.*{corte(corpo)[0]}', plano):
             erros8.append('direção do corte no plano diferente da composição')
