@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793573077.8383665,
-    "ast_hash": "cd80b3e8174f441c7da89984794780d7",
+    "mtime": 1793579267.471426,
+    "ast_hash": "531af56477279ffb921d30f6155ddcde",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2210,8 +2210,8 @@
     "semantic_hash": "31db883e4c2a874f607640a28016b53b"
   },
   "vite.config.js": {
-    "mtime": 1792416639.2230172,
-    "ast_hash": "379e3b27bbf905e0b1d21acb03c7a49b",
+    "mtime": 1793579320.7248924,
+    "ast_hash": "c5275ac257206cd738d73a0b4cec07de",
     "semantic_hash": ""
   },
   "public/arena/sfx/combat/dagger_hit.wav": {
@@ -2480,8 +2480,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1793544302.2149496,
-    "ast_hash": "0e45317fcedaefe5977b72f8daefdf71",
+    "mtime": 1793579267.0530703,
+    "ast_hash": "bed220e5bdf38b1015012d8b70fd6853",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793573077.8905106,
-    "ast_hash": "b591ff2f4248512088e1dd063641c6e9",
+    "mtime": 1793579267.5303795,
+    "ast_hash": "1e3df608d100b614be48f21cccdda9d8",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7134,11 +7134,6 @@
     "ast_hash": "0511baa860ceaccd1feebf31fcf8850a",
     "semantic_hash": ""
   },
-  "docs/WEBSHARD/WEBSHARD_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1793501431.2476385,
-    "ast_hash": "4ca923b835de70c8c0f517926649bf24",
-    "semantic_hash": ""
-  },
   "src/pages/games/Gangues/components/cena/GanguesBagEquip.jsx": {
     "mtime": 1791397313.3539383,
     "ast_hash": "7174cd73eeb8bde35366224f851e08a5",
@@ -7215,8 +7210,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/HDC_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1793289088.7380764,
-    "ast_hash": "bde75adbbfc26dc8b7ffe63c4b66b32a",
+    "mtime": 1793579267.0938406,
+    "ast_hash": "a828f94e70cff18f59e5b22a1cdcde6f",
     "semantic_hash": ""
   },
   "src/data/herois-episodios.json": {
@@ -9890,8 +9885,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/Especiais/HALLOWEEN_ROTEIRO_OFICIAL.md": {
-    "mtime": 1793297132.0935092,
-    "ast_hash": "6f0a8c81d3443dc53f4ee0ab0e2335f2",
+    "mtime": 1793579267.074296,
+    "ast_hash": "eac577234cd9ad8c4225c9124dfe4915",
     "semantic_hash": ""
   },
   "scripts/halloween_producao.py": {
@@ -9945,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793573088.062704,
+    "mtime": 1793579327.7848382,
     "ast_hash": "f7759aedee16ec6f64e1e2d0d73793fa",
     "semantic_hash": ""
   },
@@ -10335,8 +10330,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/MDS_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1793289078.4655926,
-    "ast_hash": "d96ec4df5bbcfe878244efd8da073036",
+    "mtime": 1793579267.1203618,
+    "ast_hash": "146943ef1a4eeadad4b915b4359c2999",
     "semantic_hash": ""
   },
   "supabase/migrations/061_admin_tarefas_arquivo.sql": {
@@ -10370,8 +10365,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/REGRAS_CRITICAS.md": {
-    "mtime": 1793544315.1093848,
-    "ast_hash": "3500fe324ed5e07ef302cc02db04bd00",
+    "mtime": 1793579267.1353614,
+    "ast_hash": "3917817fc5eae9bc94843f26e6fc1ce3",
     "semantic_hash": ""
   },
   "src/pages/painel/tarefas/TarefaCartao.jsx": {
@@ -10452,6 +10447,11 @@
   "docs/QA/PLAYTEST_TEMPLATE.md": {
     "mtime": 1793544302.3075402,
     "ast_hash": "c934d89e4a89f3e86035c6e59926513b",
+    "semantic_hash": ""
+  },
+  "docs/WEBSHARD/LDI_GUIA_DE_PRODUCAO.md": {
+    "mtime": 1793579225.3874261,
+    "ast_hash": "4ca923b835de70c8c0f517926649bf24",
     "semantic_hash": ""
   }
 }

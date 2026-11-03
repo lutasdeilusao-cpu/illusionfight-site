@@ -161,7 +161,7 @@ Personagem novo com fala ganha cor antes da página: escolher um tom que não se
 
 ## 6. Página: tamanho e área segura
 
-- **Página:** 960 × 1637 px, cerca de 1:1,705 (não é 9:16). Página dupla do Codex: 768 × 1024 cada metade.
+- **Página:** 960 × 1637 px.
 - **Outros formatos:** ficha e cenário em 1536 × 1024 no Codex; vídeo em 1080 × 1920 (não substitui a página).
 - **Área segura:** ~100 px nos lados e ~80 px em cima e embaixo, ou seja, uma região de ~760 × 1477 px (x de 100 a 860, y de 80 a 1557).
   - Texto, rosto principal e ponto decisivo da ação ficam dentro dela.
