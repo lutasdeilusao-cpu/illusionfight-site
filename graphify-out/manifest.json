@@ -320,8 +320,8 @@
     "semantic_hash": "d6bb1dd52ef6512e98fb5b769da4cb8b"
   },
   "src/components/TrialBanner.jsx": {
-    "mtime": 1790742000.0300586,
-    "ast_hash": "d97d2d332e635b3be79d399abd5d20a0",
+    "mtime": 1793721525.7738705,
+    "ast_hash": "d193949fbf6d81e0ae6b49f02a411151",
     "semantic_hash": ""
   },
   "src/components/TypewriterPhrase.jsx": {
@@ -335,8 +335,8 @@
     "semantic_hash": ""
   },
   "src/config/launch.js": {
-    "mtime": 1791321404.919712,
-    "ast_hash": "9410a69a855fb24978792fe1419f6221",
+    "mtime": 1793721687.8464513,
+    "ast_hash": "23a1e04654ce80724ffacf8c6928106b",
     "semantic_hash": ""
   },
   "src/config/site.js": {
@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793713699.4066124,
-    "ast_hash": "7b4e6621b40727497032e7f97d9cd458",
+    "mtime": 1793893673.203977,
+    "ast_hash": "87f12f6c92a398bc537cbfa9241a227e",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1793713690.2801242,
-    "ast_hash": "939acc1f58ca4085b30c0864a6e8ac08",
+    "mtime": 1793828708.4989488,
+    "ast_hash": "1148dd22f2c29d796c19ac67103df71f",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -1970,8 +1970,8 @@
     "semantic_hash": "a1ecac2dadfb877fae8a9d609f31c7a4"
   },
   "src/pages/platform/Assinar.jsx": {
-    "mtime": 1792499005.898343,
-    "ast_hash": "025d7902a20ac98a7e4dfc9683efa2d6",
+    "mtime": 1793721528.3666718,
+    "ast_hash": "b7a71c64db17a630cb553a7bca6d0f41",
     "semantic_hash": ""
   },
   "src/pages/platform/Cadastro.jsx": {
@@ -2480,8 +2480,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1793673229.015359,
-    "ast_hash": "64fba4290ef804c1ef23eeb6f360378a",
+    "mtime": 1793721885.991032,
+    "ast_hash": "17d39473078f8c6cab63bdcb5c74ee2c",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793713699.4865034,
-    "ast_hash": "7694056f7f18e969bded89e4c55345d1",
+    "mtime": 1793893673.235021,
+    "ast_hash": "311cc4986e5048932933589880696561",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3295,8 +3295,8 @@
     "semantic_hash": ""
   },
   "src/components/RadioNina/radio-nina.config.json": {
-    "mtime": 1791332303.878936,
-    "ast_hash": "26a986fb9e32881bf9e0b871a127d735",
+    "mtime": 1793721676.9528396,
+    "ast_hash": "a82c9faa09f1ffe12c892a9f4d9b4eaa",
     "semantic_hash": ""
   },
   "src/components/RadioNina/radio-nina.i18n.json": {
@@ -3345,8 +3345,8 @@
     "semantic_hash": ""
   },
   "src/data/season-one-schedule.js": {
-    "mtime": 1792451114.7769618,
-    "ast_hash": "c69022dc1deb895914bc3c7fa3902108",
+    "mtime": 1793721743.5370262,
+    "ast_hash": "13967375ac19b69ef9e9d38f191ce4ab",
     "semantic_hash": ""
   },
   "src/data/universo-index.json": {
@@ -3525,8 +3525,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Calendario/Calendario.jsx": {
-    "mtime": 1792451200.6564958,
-    "ast_hash": "6e94b850e07a6be84daeef2bbadb3c4e",
+    "mtime": 1793721874.5253038,
+    "ast_hash": "b83c5efa496f056b70eb02f8c22e3cb6",
     "semantic_hash": ""
   },
   "src/assets/obras/mundo-das-sombras/cap-01.webp": {
@@ -3595,18 +3595,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1793398455.9740055,
-    "ast_hash": "b8c4a12cbff659482fab1d874f344462",
+    "mtime": 1793721822.1195364,
+    "ast_hash": "6e11167ccddb527547307d1604acaa02",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1793398455.9750082,
-    "ast_hash": "070597c35d5c1667a071f4a659beb4cb",
+    "mtime": 1793721822.1215365,
+    "ast_hash": "990818be646daee2e117075705658c21",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1793398455.970996,
-    "ast_hash": "a1a28b11d72aef5ce8469bd73f7ec349",
+    "mtime": 1793721822.1180663,
+    "ast_hash": "ff5294de52b9d92b17361a5c328b4b50",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5065,18 +5065,18 @@
     "semantic_hash": ""
   },
   "src/data/historias/contos.json": {
-    "mtime": 1792451105.9168544,
-    "ast_hash": "847ed1e14456a02b86274355afc47c14",
+    "mtime": 1793721743.5070422,
+    "ast_hash": "a53f28a44bf0aab71edcc769d6d6cdbd",
     "semantic_hash": ""
   },
   "src/data/historias/lutas-de-ilusao.json": {
-    "mtime": 1793489401.3889754,
-    "ast_hash": "08ee6951ba54886ade69d637370f921e",
+    "mtime": 1793721676.9518397,
+    "ast_hash": "868a6ff421287c2b43d08a3b47856d49",
     "semantic_hash": ""
   },
   "src/data/historias/obras.json": {
-    "mtime": 1792451105.9768758,
-    "ast_hash": "adcf4351366a99274bce83f72192d9f8",
+    "mtime": 1793721743.50804,
+    "ast_hash": "baefb33f12ca218bc77c0de3dea4fb41",
     "semantic_hash": ""
   },
   "src/data/historias/contos/01/en/01.md": {
@@ -6460,8 +6460,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/HeroSlideshow.jsx": {
-    "mtime": 1790790906.3683581,
-    "ast_hash": "9e9d210b9412e642dbe7ada447c7911f",
+    "mtime": 1793721509.3482933,
+    "ast_hash": "0c090f92981ede18f53a8c2143538d28",
     "semantic_hash": ""
   },
   "supabase/migrations/045_painel_sem_rota_admin.sql": {
@@ -6960,18 +6960,18 @@
     "semantic_hash": ""
   },
   "src/i18n/creators/en.json": {
-    "mtime": 1791645682.8252378,
-    "ast_hash": "a73e6b4e5c2a18286abc7669e4f8f762",
+    "mtime": 1793721573.0755668,
+    "ast_hash": "cf2af3a98d908adff0b7613d2a5e034c",
     "semantic_hash": ""
   },
   "src/i18n/creators/es.json": {
-    "mtime": 1791645682.8262384,
-    "ast_hash": "7a612ee3ea33352b02c2c0ea6434cfa1",
+    "mtime": 1793721573.0768456,
+    "ast_hash": "05fa418d796b3d10c9b9aeca104a0a09",
     "semantic_hash": ""
   },
   "src/i18n/creators/pt.json": {
-    "mtime": 1791645682.8242328,
-    "ast_hash": "7f137fa49e0eba2ed46e86ba8a450037",
+    "mtime": 1793721573.0745597,
+    "ast_hash": "5d999f4dcfcd215a60f1f7ffdd4d6097",
     "semantic_hash": ""
   },
   "src/lib/creator.js": {
@@ -9940,8 +9940,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793713755.2914324,
-    "ast_hash": "92aa5630a1b858b05a30d9fc4ed8b660",
+    "mtime": 1793893741.634369,
+    "ast_hash": "007741d720847e13a0aefa0aea3b0295",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
@@ -10449,24 +10449,29 @@
     "ast_hash": "9911dc91db3007f3f873781c6a6f109f",
     "semantic_hash": ""
   },
-  "docs/WEBSHARD/FERRAMENTA_CHATGPT.md": {
-    "mtime": 1793673159.213761,
-    "ast_hash": "048585394886539d5c7c73e5376c9d81",
-    "semantic_hash": ""
-  },
   "docs/WEBSHARD/MANDAMENTOS_WEBSHARD.md": {
-    "mtime": 1793676065.3499484,
-    "ast_hash": "04e734ab14c59c1acfed01e0904f96f0",
+    "mtime": 1793893600.4030216,
+    "ast_hash": "7b4e08a56d8356998c0952e383823cfe",
     "semantic_hash": ""
   },
   "docs/WEBSHARD/TEMPLATE_PROMPT_PAGINA.md": {
-    "mtime": 1793676157.5034711,
-    "ast_hash": "eeb267f0bc3e9f1ea4c61bca0f7f17f5",
+    "mtime": 1793893603.7826571,
+    "ast_hash": "3972ce6294b65f3849278cd86465d77e",
     "semantic_hash": ""
   },
   "docs/WEBSHARD/testa_prompt.py": {
-    "mtime": 1793676065.350951,
-    "ast_hash": "156a49e3d4b110033c4df6625c12a0e9",
+    "mtime": 1793841439.8569813,
+    "ast_hash": "c0bf86efb039e20e6ab6ba00d202b6ea",
+    "semantic_hash": ""
+  },
+  "docs/WEBSHARD/FERRAMENTAS_AUTOMACAO.md": {
+    "mtime": 1793892475.0991368,
+    "ast_hash": "5c21a649cf4ef4dcc9fb5314d0500cef",
+    "semantic_hash": ""
+  },
+  "docs/WEBSHARD/SHORTS_GUIA_DE_PRODUCAO.md": {
+    "mtime": 1793888359.4771204,
+    "ast_hash": "92543f512b5b2b266ea0c1b09e4a1413",
     "semantic_hash": ""
   }
 }
