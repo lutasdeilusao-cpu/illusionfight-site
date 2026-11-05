@@ -6,7 +6,7 @@ Todo "Câmera:" começa por um dos enquadramentos aprovados (REPERTORIO, mandame
 Nenhum enquadramento se repete dentro de uma janela de painéis seguidos do tamanho do repertório
 (13 painéis, umas 6 a 7 páginas). Quem repete é a página de número maior.
 Estilhaços: de 1 a 5, quantidade igual em 3 páginas seguidas reprova, lugar (alto/meio/baixo + esquerda/centro/direita)
-diferente entre si e da página anterior, com função e "Conta:". Ficam guardados em _estilhacos.json.
+diferente entre si e da página anterior, com função e sem "Conta:". Ficam guardados em _estilhacos.json.
 Dois enquadramentos que já apareceram juntos numa página anterior do capítulo não aparecem juntos de novo.
 A direção do corte é comparada com a página anterior e a seguinte.
 Sai com código 1 se algum prompt falhar.
@@ -20,7 +20,7 @@ from pathlib import Path
 REPERTORIO = ['detalhe macro', 'close extremo', 'close grande-angular', 'contra-plongée extremo',
               'plongée alto', 'zenital', 'holandês', 'sobre o ombro', 'perfis frente a frente',
               'quadro dentro do quadro', 'grande-angular baixa', 'teleobjetiva', 'subjetiva',
-              'plano geral', 'plano americano', 'contraluz', 'reflexo', 'plano em profundidade', 'rasante']
+              'plano geral', 'plano inteiro', 'plano americano', 'contraluz', 'reflexo', 'plano em profundidade', 'rasante']
 JANELA = 13  # painéis seguidos sem repetir enquadramento
 
 # Personagens e cores vêm do próprio prompt: cada linha de PERSONAGENS é "Nome: ... Cor: <cor>."
@@ -159,10 +159,7 @@ def testa(arq):
     erros4 += [f'estilhaço {i + 1} sem lugar (alto/meio/baixo + esquerda/centro/direita)' for i, l in enumerate(lugares) if not l]
     erros4 += [f'dois estilhaços no mesmo lugar: {l}' for l in {l for l in lugares if l and lugares.count(l) > 1}]
     erros4 += [f'estilhaço {i + 1} sem função' for i, e in enumerate(est) if not re.search(r'Função:\s*(' + FUNCOES + ')', e, re.I)]
-    for i, e in enumerate(est):
-        m = re.search(r'Conta:\s*(.+)$', e)
-        if not m or len(m.group(1).split()) < 6:
-            erros4.append(f'estilhaço {i + 1} sem "Conta:" explicando o que acrescenta à história')
+    erros4 += [f'estilhaço {i + 1} tem "Conta:" (a IA desenha a frase como caixa de narração)' for i, e in enumerate(est) if 'Conta:' in e]
     reg_e = registro_est(arq.parent)
     ant_pags = [k for k in sorted(reg_e) if k < arq.stem[2:]]
     if ant_pags:
@@ -269,6 +266,31 @@ def testa(arq):
     falas = re.findall(r'^- .*$', tx, re.M)
     sem_lugar = [f[:40] for f in falas if not (re.search(r'Painel \d', f) and re.search(r'esquerda|direita|centro|acima|abaixo|alto|baixo|ao longo', f, re.I))]
     r('M14', 'A leitura desce' in comp and not sem_lugar, 'ordem de leitura e lugar de cada texto' + (f' — sem lugar: {sem_lugar}' if sem_lugar else ''))
+    # M14: balão do lado de quem fala (quem aparece no painel recebe o balão do lado dele)
+    geo14 = b.get('LUGAR E GEOGRAFIA', '')
+    blocos14 = {k.split()[1]: v for k, v in paineis(b)}
+
+    def lado(texto, nome):
+        # lado em que o personagem está: o nome seguido de até 3 palavras e "à esquerda/direita da imagem", sem ser alvo de olhar
+        m = re.search(rf'(?<!para )(?<!para o )(?<!para a )\b{nome}\b(?: (?!olha\b|para\b|e\b)[^\s.,;]+){{0,3}} (à|a) (esquerda|direita) da imagem', texto, re.I)
+        return {'esquerda': 'esq', 'direita': 'dir'}[m.group(2).lower()] if m else None
+    erros14 = []
+    for f in falas:
+        m = re.match(r'^- Painel (\d+), ([^,]+), ([^,]+),', f)
+        if not m or 'fora do quadro' in f or 'onomatopeia' in f:
+            continue
+        pn14, pos, quem = m.group(1), m.group(2).lower(), m.group(3).strip()
+        if quem.lower() not in CORES:
+            continue
+        bloco = blocos14.get(pn14, '')
+        if re.search(rf'\b{quem}\b[^.\n]*de costas', bloco, re.I) and 'boca' in f:
+            erros14.append(f'P{pn14} {quem} de costas com cauda na boca')
+            continue
+        lq = lado(bloco, quem) or lado(geo14, quem)
+        lb = 'esq' if 'esquerda' in pos else 'dir' if 'direita' in pos else None
+        if lq and lb and lq != lb:
+            erros14.append(f'P{pn14} balão de {quem} à {pos} com {quem} do outro lado')
+    r('M14', not erros14, 'balão do lado de quem fala' + (f' — {erros14}' if erros14 else ''))
     # M15
     erros15 = [f[:40] for f in falas if 'fora do quadro' in f and 'borda' not in f]
     r('M15', not erros15, 'fala de fora do quadro com cauda pela borda' + (f' — {erros15}' if erros15 else ''))
@@ -282,15 +304,46 @@ def testa(arq):
     r('M18', not neg, 'tudo em positivo' + (f' — negações: {neg}' if neg else ''))
     # M19
     erros19 = []
-    for p in CORES:
-        if re.search(rf'\b{p}\b[^.\n]*(de costas|só de costas)', instr, re.I):
-            for frase in re.split(r'(?<=[.:])\s+|\n', instr):
-                if re.search(rf'\b{p}\b', frase, re.I) and re.search(ROSTO, frase, re.I) and not re.search(r'\bolha\b', frase):
-                    erros19.append(f'{p}: "{frase.strip()[:60]}"')
+    # cada painel é julgado sozinho: de costas ou no fundo = sem rosto, sem olhar e sem "de frente para a câmera"
+    for bloco in re.split(r'\n(?=PAINEL \d)', instr.split('\nESTILHAÇOS')[0]):
+        if not bloco.startswith('PAINEL'):
+            continue
+        for p in CORES:
+            if re.search(rf'\b{p}\b[^.\n]*de costas', bloco, re.I):
+                for frase in re.split(r'(?<=[.:])\s+|\n', bloco):
+                    if re.search(rf'\b{p}\b', frase, re.I) and re.search(ROSTO, frase, re.I) and not re.search(r'\bolha\b', frase):
+                        erros19.append(f'{p}: "{frase.strip()[:60]}"')
+            longe = re.search(rf'\b{p}\b(?: (?!e\b)[^\s.,;]+){{0,2}}? (de costas|para o fundo|no fundo|ao fundo|pequen[oa]|mais distante|distante|longe)\b', bloco, re.I)
+            if longe and re.search(rf'\b{p} olha\b', bloco, re.I):
+                erros19.append(f'{p} de costas/no fundo com "olha para"')
+            if re.search(rf'\b{p}\b[^.\n]*(para trás|para o fundo|se afasta)[^.\n]*de frente para a câmera', bloco, re.I):
+                erros19.append(f'{p}: afastando-se e "de frente para a câmera" na mesma pose')
     r('M19', not erros19, 'quem está de costas sem rosto' + (f' — {erros19}' if erros19 else ''))
+    # "punho" a IA lê como punho de roupa e põe luva; escrever "mão fechada"
+    pun = re.findall(r'[^.\n]*\bpunhos?\b[^.\n]*', instr, re.I)
+    r('M19', not pun, 'mão fechada, nunca "punho" (vira luva)' + (f' — {[p.strip()[:50] for p in pun]}' if pun else ''))
     # M20
     geo = b.get('LUGAR E GEOGRAFIA', '')
     r('M20', 'esquerda da imagem' in geo and 'direita da imagem' in geo, 'geografia fixa: esquerda e direita da imagem')
+    # M20: lugar só pelo nome da ficha, dito uma vez no LUGAR; nada de cenário depois
+    lug = re.findall(r'^Lugar:.*$', geo, re.M)
+    lug_ok = len(lug) == 1 and re.fullmatch(r'Lugar: [^.]+ da ficha \w+\.', lug[0].strip()) is not None
+    r('M20', lug_ok, 'uma linha "Lugar: <lugar> da ficha <Ficha>." e mais nada' + ('' if lug_ok else f' — achou {lug or "nenhuma"}'))
+    cenario = r'\b(chão|piso|céu|horizonte|mureta|cenário|arena)\b|^Fundo:'
+    depois = '\n'.join(v for k, v in b.items() if k.startswith('PAINEL') or k in ('ESTILHAÇOS', 'COMPOSIÇÃO'))
+    # a linha "Câmera:" pode usar o piso como régua de altura ("rente ao piso", "de cima, apontada para o piso")
+    depois = re.sub(r'^Câmera:.*$', '', depois, flags=re.M)
+    achou = sorted({m.group(0) for m in re.finditer(cenario, sem_falas(depois), re.I | re.M)})
+    r('M20', not achou, 'cenário citado só no LUGAR, nunca em painel ou estilhaço' + (f' — achou: {achou}' if achou else ''))
+    fora = [i + 1 for i, e in enumerate(est) if n > 1 and 'dentro do painel' not in e]
+    r('M20', not fora, 'estilhaço inteiro dentro de um painel, nunca em cima do corte' + (f' — estilhaço(s) {fora} sem "inteiro dentro do painel N"' if fora else ''))
+    pecas = r'\b(bainha|guarda|cabo|lâmina|haste|ponteira|empunhadura|punho)\b'
+    erros_arma = []
+    for k, v in list(pn) + [(f'estilhaço {i + 1}', e) for i, e in enumerate(est)]:
+        ps = {m.group(1).lower() for m in re.finditer(pecas, sem_falas(v), re.I)}
+        if len(ps) >= 4:
+            erros_arma.append(f'{k}: {sorted(ps)}')
+    r('M20', not erros_arma, 'arma pela ficha e estado simples, sem peça por peça' + (f' — {erros_arma}' if erros_arma else ''))
     # M21
     olhares = re.findall(r'[^.\n]*\bolh(a|am|ando)\b[^.\n]*', instr)
     frases = [f for f in re.findall(r'[^.\n]*\bolh(?:a|am|ando)\b[^.\n]*', instr)]

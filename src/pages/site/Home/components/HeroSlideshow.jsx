@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
-import { LAUNCH_DATE } from '../../../../config/launch'
+import { LAUNCH_DATE, LAUNCH_ANO } from '../../../../config/launch'
 import { trackEvent } from '../../../../lib/analytics'
 import banner01 from '../../../../assets/images/banners/banner-01.webp'
 import banner02 from '../../../../assets/images/banners/banner-02.webp'
@@ -91,7 +91,7 @@ export default function HeroSlideshow() {
 
   const slide = SLIDES[ativo]
   const pausado = segurando || foraDaTela
-  const faltam = Math.max(0, Math.ceil((new Date(`${LAUNCH_DATE}T00:00:00-03:00`) - Date.now()) / DIA))
+  const faltam = LAUNCH_DATE ? Math.max(0, Math.ceil((new Date(`${LAUNCH_DATE}T00:00:00-03:00`) - Date.now()) / DIA)) : 0
   const clique = (posicao, destino) => () =>
     trackEvent('hero_cta_click', { slide_index: ativo, slide_key: slide.key, cta_position: posicao, destination: destino })
 
@@ -144,6 +144,12 @@ export default function HeroSlideshow() {
               <span className="hero-show__contagem">
                 <b>{faltam}</b>
                 {t('hero.faltam')}
+              </span>
+            )}
+            {!LAUNCH_DATE && (
+              <span className="hero-show__contagem">
+                {t('hero.lancamento_em')}
+                <b>{LAUNCH_ANO}</b>
               </span>
             )}
           </div>

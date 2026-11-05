@@ -56,9 +56,9 @@
         "resumo_en": "A penumbra called Flaw watches baby Minus be touched — and, for the first time in ages, be seen back. Years later, his shield cracks.",
         "resumo_es": "Una penumbra llamada Falla ve al bebé Minus ser tocado — y, por primera vez en eras, ser mirado de vuelta. Años después, su escudo se agrieta.",
         "liberacao": {
-          "elite": "2027-02-15",
-          "conta": "2027-02-28",
-          "publico": "2099-01-01"
+          "elite": "2107-02-15",
+          "conta": "2107-02-28",
+          "publico": "2199-01-01"
         },
         "creator": true
       },
@@ -72,9 +72,9 @@
         "resumo_en": "Four years on the streets. Minus learns to cross the threshold between the world of the impure and the world of shadows — and Flaw follows.",
         "resumo_es": "Cuatro años en la calle. Minus aprende a cruzar el umbral entre el mundo de los impuros y el de las sombras — y Falla lo sigue.",
         "liberacao": {
-          "elite": "2027-02-28",
-          "conta": "2027-06-30",
-          "publico": "2099-01-01"
+          "elite": "2107-02-28",
+          "conta": "2107-06-30",
+          "publico": "2199-01-01"
         },
         "creator": true
       },
@@ -88,9 +88,9 @@
         "resumo_en": "The mark becomes a weapon. Blue chains erupt from Minus’s arm as the Illuminated close in.",
         "resumo_es": "La marca se vuelve arma. Cadenas azules brotan del brazo de Minus mientras los Iluminados cierran el cerco.",
         "liberacao": {
-          "elite": "2027-06-15",
-          "conta": "2027-10-30",
-          "publico": "2099-01-01"
+          "elite": "2107-06-15",
+          "conta": "2107-10-30",
+          "publico": "2199-01-01"
         },
         "creator": true
       },
@@ -104,9 +104,9 @@
         "resumo_en": "Years training a shadow-dog. And a second marked person shows up on the radar.",
         "resumo_es": "Años entrenando a una sombra-perro. Y aparece una segunda persona marcada en el radar.",
         "liberacao": {
-          "elite": "2027-10-15",
-          "conta": "2099-01-01",
-          "publico": "2099-01-01"
+          "elite": "2107-10-15",
+          "conta": "2199-01-01",
+          "publico": "2199-01-01"
         }
       },
       {

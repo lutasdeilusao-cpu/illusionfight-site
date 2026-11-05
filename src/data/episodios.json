@@ -13,7 +13,7 @@
     "frase_en": "The invitation to the dream.",
     "frase_es": "La invitación al sueño.",
     "publicado": true,
-    "data_publicacao": "2026-12-15",
+    "data_publicacao": "2106-12-15",
     "paginas": 54,
     "idiomas": [
       "pt",
@@ -30,11 +30,11 @@
     "conquista_ao_terminar": "episodio_zero",
     "aviso_autor": "introducao",
     "liberacao": {
-      "elite": "2026-11-15",
-      "conta": "2026-11-30",
-      "publico": "2026-12-15"
+      "elite": "2106-11-15",
+      "conta": "2106-11-30",
+      "publico": "2106-12-15"
     },
-    "beta_ate": "2026-11-09"
+    "beta_ate": "2106-11-09"
   },
   {
     "id": "02",
@@ -51,7 +51,7 @@
     "frase_en": "Same script, every morning.",
     "frase_es": "El mismo guion, todas las mañanas.",
     "publicado": true,
-    "data_publicacao": "2027-01-15",
+    "data_publicacao": "2107-01-15",
     "paginas": 65,
     "idiomas": [
       "pt",
@@ -64,9 +64,9 @@
       1637
     ],
     "liberacao": {
-      "elite": "2026-12-15",
-      "conta": "2026-12-30",
-      "publico": "2027-01-15"
+      "elite": "2106-12-15",
+      "conta": "2106-12-30",
+      "publico": "2107-01-15"
     }
   },
   {
@@ -84,7 +84,7 @@
     "frase_en": "Every fight has a soundtrack.",
     "frase_es": "Toda pelea tiene banda sonora.",
     "publicado": true,
-    "data_publicacao": "2027-03-15",
+    "data_publicacao": "2107-03-15",
     "paginas": 65,
     "idiomas": [
       "pt",
@@ -97,9 +97,9 @@
       1637
     ],
     "liberacao": {
-      "elite": "2027-01-15",
-      "conta": "2027-01-30",
-      "publico": "2027-03-15"
+      "elite": "2107-01-15",
+      "conta": "2107-01-30",
+      "publico": "2107-03-15"
     }
   },
   {
@@ -113,7 +113,7 @@
     "descricao_pt": "No LDI pela primeira vez, Kim descobre na pele que a dor é real.",
     "frase_pt": "A dor é real.",
     "publicado": true,
-    "data_publicacao": "2027-04-15",
+    "data_publicacao": "2107-04-15",
     "paginas": 64,
     "idiomas": [
       "pt",
@@ -126,9 +126,9 @@
       1637
     ],
     "liberacao": {
-      "elite": "2027-03-15",
-      "conta": "2027-03-30",
-      "publico": "2027-04-15"
+      "elite": "2107-03-15",
+      "conta": "2107-03-30",
+      "publico": "2107-04-15"
     }
   },
   {
@@ -142,11 +142,11 @@
     "idiomas": [
       "pt"
     ],
-    "data_publicacao": "2027-05-15",
+    "data_publicacao": "2107-05-15",
     "liberacao": {
-      "elite": "2027-04-15",
-      "conta": "2027-04-30",
-      "publico": "2027-05-15"
+      "elite": "2107-04-15",
+      "conta": "2107-04-30",
+      "publico": "2107-05-15"
     },
     "paginas": 65,
     "formato": "webp",
@@ -163,11 +163,11 @@
     "titulo_en": "The World Saw the Illusion",
     "titulo_es": "El Mundo Vio la Ilusión",
     "publicado": true,
-    "data_publicacao": "2027-07-15",
+    "data_publicacao": "2107-07-15",
     "liberacao": {
-      "elite": "2027-05-15",
-      "conta": "2027-05-30",
-      "publico": "2027-07-15"
+      "elite": "2107-05-15",
+      "conta": "2107-05-30",
+      "publico": "2107-07-15"
     },
     "idiomas": [
       "pt"
@@ -187,11 +187,11 @@
     "titulo_en": "A Friend of Illusion",
     "titulo_es": "Una Amiga de Ilusión",
     "publicado": false,
-    "data_publicacao": "2027-08-15",
+    "data_publicacao": "2107-08-15",
     "liberacao": {
-      "elite": "2027-07-15",
-      "conta": "2027-07-30",
-      "publico": "2027-08-15"
+      "elite": "2107-07-15",
+      "conta": "2107-07-30",
+      "publico": "2107-08-15"
     },
     "idiomas": [
       "pt"
@@ -211,11 +211,11 @@
     "titulo_en": "The Band of Illusion",
     "titulo_es": "La Banda de Ilusión",
     "publicado": false,
-    "data_publicacao": "2027-09-15",
+    "data_publicacao": "2107-09-15",
     "liberacao": {
-      "elite": "2027-08-15",
-      "conta": "2027-08-30",
-      "publico": "2027-09-15"
+      "elite": "2107-08-15",
+      "conta": "2107-08-30",
+      "publico": "2107-09-15"
     },
     "idiomas": [
       "pt"
@@ -235,11 +235,11 @@
     "titulo_en": "A Mother of Illusion",
     "titulo_es": "Una Madre de Ilusión",
     "publicado": false,
-    "data_publicacao": "2027-11-15",
+    "data_publicacao": "2107-11-15",
     "liberacao": {
-      "elite": "2027-09-15",
-      "conta": "2027-09-30",
-      "publico": "2027-11-15"
+      "elite": "2107-09-15",
+      "conta": "2107-09-30",
+      "publico": "2107-11-15"
     },
     "idiomas": [
       "pt"
@@ -340,7 +340,7 @@
     "idiomas": [
       "pt"
     ],
-    "paginas": 81,
+    "paginas": 82,
     "formato": "webp",
     "proporcao": [
       960,
@@ -356,11 +356,11 @@
     "titulo_en": "WEB SHARD Special — Hiatus 1",
     "titulo_es": "WEB SHARD Especial — Pausa 1",
     "publicado": false,
-    "data_publicacao": "2027-02-15",
+    "data_publicacao": "2107-02-15",
     "liberacao": {
-      "elite": "2027-02-15",
-      "conta": "2099-01-01",
-      "publico": "2099-01-01"
+      "elite": "2107-02-15",
+      "conta": "2199-01-01",
+      "publico": "2199-01-01"
     }
   },
   {
@@ -372,11 +372,11 @@
     "titulo_en": "WEB SHARD Special — Hiatus 2",
     "titulo_es": "WEB SHARD Especial — Pausa 2",
     "publicado": false,
-    "data_publicacao": "2027-06-15",
+    "data_publicacao": "2107-06-15",
     "liberacao": {
-      "elite": "2027-06-15",
-      "conta": "2099-01-01",
-      "publico": "2099-01-01"
+      "elite": "2107-06-15",
+      "conta": "2199-01-01",
+      "publico": "2199-01-01"
     }
   },
   {
@@ -388,11 +388,11 @@
     "titulo_en": "WEB SHARD Special — Hiatus 3",
     "titulo_es": "WEB SHARD Especial — Pausa 3",
     "publicado": false,
-    "data_publicacao": "2027-10-15",
+    "data_publicacao": "2107-10-15",
     "liberacao": {
-      "elite": "2027-10-15",
-      "conta": "2099-01-01",
-      "publico": "2099-01-01"
+      "elite": "2107-10-15",
+      "conta": "2199-01-01",
+      "publico": "2199-01-01"
     }
   },
   {

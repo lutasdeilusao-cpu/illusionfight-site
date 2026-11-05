@@ -5,7 +5,11 @@ import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { resolveAccessLevel } from '../../../lib/releaseAccess'
 import { SEASON_ONE_COMPLETION, SEASON_ONE_DROPS, SEASONS_OVERVIEW, GAMES_ROADMAP, HIATOS } from '../../../data/season-one-schedule'
+import { LAUNCH_DATE, LAUNCH_ANO } from '../../../config/launch'
 import './Calendario.css'
+
+// Sem data de lançamento marcada, o calendário mostra só a ordem dos lançamentos.
+const ADIADO = !LAUNCH_DATE
 
 // Defasagem em dias até o capítulo abrir e quantos capítulos cada nível tem
 // no dia do lançamento, por aba (nas histórias o assinante começa com 2;
@@ -19,6 +23,7 @@ const NIVEIS_DROP = ['subscriber', 'account', 'public']
 const channels = ['chapters', 'webtoon', 'games', 'music', 'partners']
 
 function formatDate(date, locale) {
+  if (ADIADO) return String(LAUNCH_ANO)
   return new Intl.DateTimeFormat(locale === 'pt' ? 'pt-BR' : locale === 'es' ? 'es-ES' : 'en-US', {
     day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC',
   }).format(new Date(`${date}T12:00:00Z`))
@@ -167,9 +172,10 @@ export default function Calendario() {
       <div className="calendar-grid" aria-hidden="true" />
       <motion.header className="calendar-hero" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
         <span className="calendar-kicker">{t('calendar.kicker')}</span>
-        <h1>{t('calendar.title')}</h1>
+        <h1>{t(ADIADO ? 'calendar.title_adiado' : 'calendar.title')}</h1>
         <p className="calendar-manifesto">{t('calendar.manifesto')}</p>
         <div className="calendar-cadence"><span className="calendar-pulse" />{t('calendar.cadence')}</div>
+        {ADIADO && <p className="calendar-adiado">{t('calendar.adiado', { ano: LAUNCH_ANO })}</p>}
       </motion.header>
 
       <nav className="calendar-channels" aria-label={t('calendar.channels_label')}>
@@ -219,7 +225,7 @@ export default function Calendario() {
         </div>
       </section>
 
-      <section className="calendar-section" aria-labelledby="completion-title">
+      {!ADIADO && <section className="calendar-section" aria-labelledby="completion-title">
         <div className="calendar-section-heading"><span>02</span><h2 id="completion-title">{t('calendar.completion_title')}</h2></div>
         <div className="calendar-completion">
           {SEASON_ONE_COMPLETION[channel].map(obra => (
@@ -231,11 +237,12 @@ export default function Calendario() {
             </article>
           ))}
         </div>
-      </section>
+      </section>}
 
       <section className="calendar-section" aria-labelledby="drops-title">
-        <div className="calendar-section-heading"><span>03</span><h2 id="drops-title">{t('calendar.drops_title')}</h2></div>
+        <div className="calendar-section-heading"><span>{ADIADO ? '02' : '03'}</span><h2 id="drops-title">{t('calendar.drops_title')}</h2></div>
 
+        {!ADIADO && <>
         <ul className="calendar-legenda" aria-label={t('calendar.legenda')}>
           {NIVEIS_DROP.map(nivel => <li key={nivel}><span className={`calendar-day-dot is-${nivel}`} />{t(`calendar.level_${nivel}`)}</li>)}
           {channel !== 'games' ? <li><span className="calendar-day-dot is-hiato" />{t('calendar.legenda_hiato')}</li> : null}
@@ -288,6 +295,7 @@ export default function Calendario() {
             )
           })}
         </div>
+        </>}
 
         <div className="calendar-drops">
           {drops.map((drop, index) => {
@@ -295,17 +303,17 @@ export default function Calendario() {
             const souEu = { subscriber: access === 'elite', account: access === 'conta', public: access === 'publico' }
             return <article className={`calendar-drop is-${state}`} key={drop.date}>
               <div className="calendar-drop-date"><span>DROP {String(drop.number).padStart(2, '0')}</span><time>{formatDate(drop.date, locale)}</time></div>
-              {(state === 'current' || state === 'next') && <span className="calendar-drop-state">{t(`calendar.${state}`)}</span>}
+              {!ADIADO && (state === 'current' || state === 'next') && <span className="calendar-drop-state">{t(`calendar.${state}`)}</span>}
               {NIVEIS_DROP.map(nivel => drop[nivel].length > 0 && (
                 <div key={nivel} className={`calendar-drop-line${souEu[nivel] ? ' is-you' : ''}`}><b>{t(`calendar.level_${nivel}`)}</b><span>{textoLista(t, drop[nivel], locale)}</span></div>
               ))}
             </article>
           })}
         </div>
-        <div className="calendar-finale"><span>{formatDate(SEASONS_OVERVIEW[1].start, locale)}</span><strong>{t('calendar.finale')}</strong></div>
+        {!ADIADO && <div className="calendar-finale"><span>{formatDate(SEASONS_OVERVIEW[1].start, locale)}</span><strong>{t('calendar.finale')}</strong></div>}
       </section>
 
-      <section className="calendar-section" aria-labelledby="seasons-title">
+      {!ADIADO && <section className="calendar-section" aria-labelledby="seasons-title">
         <div className="calendar-section-heading"><span>04</span><h2 id="seasons-title">{t('calendar.seasons_title')}</h2></div>
         <p className="calendar-seasons-disclaimer">{t('calendar.seasons_disclaimer')}</p>
         <div className="calendar-seasons">
@@ -319,7 +327,7 @@ export default function Calendario() {
             </article>
           ))}
         </div>
-      </section>
+      </section>}
       </>}
     </main>
   )

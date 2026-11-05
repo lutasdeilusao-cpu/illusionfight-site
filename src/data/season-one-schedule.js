@@ -17,12 +17,12 @@ import obras from './historias/obras.json'
 import contos from './historias/contos.json'
 import episodios from './episodios.json'
 
-export const T1 = { inicio: '2026-11-15', fim: '2028-01-31' }
+export const T1 = { inicio: '2106-11-15', fim: '2108-01-31' }
 // Mês de hiato (YYYY-MM): aparece como faixa no topo do mês, nunca como dia.
 export const HIATOS = [
-  { n: 1, mes: '2027-02' },
-  { n: 2, mes: '2027-06' },
-  { n: 3, mes: '2027-10' },
+  { n: 1, mes: '2107-02' },
+  { n: 2, mes: '2107-06' },
+  { n: 3, mes: '2107-10' },
 ]
 const NIVEIS = [['subscriber', 'elite'], ['account', 'conta'], ['public', 'publico']]
 const naT1 = data => data >= T1.inicio && data <= T1.fim
@@ -53,7 +53,7 @@ const itensWebshard = episodios
 
 // Músicas: 1 por mês nos meses de lançamento (9 na T1), exclusiva da Rádio
 // Nina pro assinante no dia 15; conta grátis 1 mês depois, público 2 meses depois.
-const MESES_LANCAMENTO = ['2026-11', '2026-12', '2027-01', '2027-03', '2027-04', '2027-05', '2027-07', '2027-08', '2027-09']
+const MESES_LANCAMENTO = ['2106-11', '2106-12', '2107-01', '2107-03', '2107-04', '2107-05', '2107-07', '2107-08', '2107-09']
 const maisMeses = (mes, n) => {
   const [a, m] = mes.split('-').map(Number)
   const total = a * 12 + (m - 1) + n
@@ -76,7 +76,7 @@ export const MUSICAS_T1 = MESES_LANCAMENTO.map((mes, i) => ({
 // YouTube (data ainda a definir).
 export const CLIPES_T1 = HIATOS.map(h => ({
   n: h.n,
-  liberacao: { elite: `${h.mes}-15`, conta: '2099-01-01', publico: '2099-01-01' },
+  liberacao: { elite: `${h.mes}-15`, conta: '2199-01-01', publico: '2199-01-01' },
 }))
 
 export const SEASON_ONE_DROPS = {
@@ -104,17 +104,17 @@ export const SEASON_ONE_COMPLETION = {
 
 // Jogos por quadrimestre: cada um entra no começo do ciclo dele.
 export const GAMES_ROADMAP = [
-  { fase: 'q1', data: '2026-11-15', jogos: ['trumps', 'gangues', 'ldi'] },
-  { fase: 'q2', data: '2027-03-15', jogos: ['tama', 'jack', 'tatics'] },
-  { fase: 'q3', data: '2027-07-15', jogos: ['duelo', 'isometrico'] },
+  { fase: 'q1', data: '2106-11-15', jogos: ['trumps', 'gangues', 'ldi'] },
+  { fase: 'q2', data: '2107-03-15', jogos: ['tama', 'jack', 'tatics'] },
+  { fase: 'q3', data: '2107-07-15', jogos: ['duelo', 'isometrico'] },
 ]
 
 // Panorama: só a T1 é garantida; as próximas são a mesma cadência projetada.
 export const SEASONS_OVERVIEW = [
-  { season: 'T1', start: '2026-11-15', end: '2027-10-30', note: 'note_t1', confirmada: true },
-  { season: 'T2', start: '2027-11-15', end: '2028-10-30', confirmada: false },
-  { season: 'T3', start: '2028-11-15', end: '2029-10-30', confirmada: false },
-  { season: 'T4', start: '2029-11-15', end: '2030-10-30', confirmada: false },
-  { season: 'T5', start: '2030-11-15', end: '2031-10-30', confirmada: false },
-  { season: 'T6', start: '2031-11-15', end: '2032-10-30', confirmada: false },
+  { season: 'T1', start: '2106-11-15', end: '2107-10-30', note: 'note_t1', confirmada: true },
+  { season: 'T2', start: '2107-11-15', end: '2108-10-30', confirmada: false },
+  { season: 'T3', start: '2108-11-15', end: '2109-10-30', confirmada: false },
+  { season: 'T4', start: '2109-11-15', end: '2110-10-30', confirmada: false },
+  { season: 'T5', start: '2110-11-15', end: '2111-10-30', confirmada: false },
+  { season: 'T6', start: '2111-11-15', end: '2112-10-30', confirmada: false },
 ]

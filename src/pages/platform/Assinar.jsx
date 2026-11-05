@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { iniciarCheckout, getPriceDisplay } from '../../lib/stripe'
-import { LAUNCH_DATE, ADMIN_EMAILS } from '../../config/launch'
+import { LAUNCH_DATE, LAUNCH_ANO, ADMIN_EMAILS } from '../../config/launch'
 import planos from '../../data/planos.json'
 import { trackEvent } from '../../lib/analytics'
 import { runtimePlatform } from '../../lib/runtimePlatform'
@@ -20,7 +20,7 @@ export default function Assinar() {
 
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
   const hoje = new Date().toISOString().split('T')[0]
-  const isPreLaunch = !isAdmin && hoje < LAUNCH_DATE
+  const isPreLaunch = !isAdmin && (!LAUNCH_DATE || hoje < LAUNCH_DATE)
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -169,7 +169,7 @@ export default function Assinar() {
                     <span className="assinar-card__cta assinar-card__cta--disabled">{p[ctaTextKey]}</span>
                   ) : isPreLaunch && p.id !== 'ranqueado' ? (
                     <span className="assinar-card__cta assinar-card__cta--disabled assinar-card__cta--gate">
-                      {t('assinar.gate.pre_lancamento', { date: new Date(`${LAUNCH_DATE}T12:00:00`).toLocaleDateString(locale, { day: 'numeric', month: 'long' }) })}
+                      {t('assinar.gate.pre_lancamento', { date: LAUNCH_DATE ? new Date(`${LAUNCH_DATE}T12:00:00`).toLocaleDateString(locale, { day: 'numeric', month: 'long' }) : LAUNCH_ANO })}
                     </span>
                   ) : (
                     <button

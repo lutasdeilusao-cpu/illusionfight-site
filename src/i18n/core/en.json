@@ -173,7 +173,7 @@
       "cta": "MAKE A DONATION"
     },
     "gate": {
-      "pre_lancamento": "Subscriptions open on {{date}}"
+      "pre_lancamento": "Subscriptions open: {{date}}"
     },
     "pix": {
       "title": "Prefer to contribute via PIX?",
@@ -732,7 +732,7 @@
       "tema_horror_cosmico": "Cosmic horror",
       "tema_resistencia": "Resistance",
       "farol_vazio": "No story matches that filter. Try another weight.",
-      "aviso_fechamento": "Enjoy them now: the short stories stay open until October 31. On November 1 the portal closes to get ready for the November 15 launch, and they come back little by little, subscribers first."
+      "aviso_fechamento": "Enjoy them now: the short stories stay open until October 31. On November 1 the portal closes to get ready for the launch, now set for 2027, and they come back little by little, subscribers first."
     },
     "webtoon": {
       "titulo": "WEB SHARD",
@@ -1029,7 +1029,7 @@
   },
   "custos": {
     "title": "How this project exists",
-    "intro": "Illusion Fight is an independent project. One person, 23 years of development, launching in 2026. No investor. No team. Just a developer who works a full-time job from 9 to 6, then spends nights and weekends building this. Holidays, late nights, every free hour — man, that's just how it goes.",
+    "intro": "Illusion Fight is an independent project. One person, 23 years of development, launching in 2027. No investor. No team. Just a developer who works a full-time job from 9 to 6, then spends nights and weekends building this. Holidays, late nights, every free hour — man, that's just how it goes.",
     "s1": {
       "title": "What it costs to keep this running",
       "sub": "Current infrastructure",
@@ -1255,7 +1255,9 @@
     "kicker": "Release protocol — S1",
     "title": "The future has a date.",
     "manifesto": "Nothing here stays locked forever. Every chapter becomes free for everyone. The only difference is when.",
-    "cadence": "Three months of releases, one month of rest. Subscribers get a new chapter every 15 days (and start with two); free accounts read it 15 days later, everyone 30 days later. WEB SHARD: one a month. First drop: 11/15/2026.",
+    "title_adiado": "THE FUTURE ARRIVES IN 2027.",
+    "adiado": "Launch postponed to {ano}. Dates for every chapter, song and game come out once the launch is scheduled; for now, this is the order.",
+    "cadence": "Three months of releases, one month of rest. Subscribers get a new chapter every 15 days (and start with two); free accounts read it 15 days later, everyone 30 days later. WEB SHARD: one a month. First drop: 2027, date to be confirmed.",
     "levels_title": "Choose when to enter",
     "you": "You are here",
     "level_subscriber": "Subscriber",
@@ -1436,7 +1438,8 @@
       "cta1": "Visit store",
       "cta2": "Support"
     },
-    "faltam": "days to launch"
+    "faltam": "days to launch",
+    "lancamento_em": "Launching in "
   },
   "episodes": {
     "title": "EPISODES",

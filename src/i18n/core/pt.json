@@ -732,7 +732,7 @@
       "tema_horror_cosmico": "Horror cósmico",
       "tema_resistencia": "Resistência",
       "farol_vazio": "Nenhuma história com esse filtro. Tenta outro peso.",
-      "aviso_fechamento": "Aproveite: os contos ficam abertos até 31 de outubro. No dia 1º de novembro o portal fecha pra preparar o lançamento de 15 de novembro, e eles voltam aos poucos, primeiro pra quem assina."
+      "aviso_fechamento": "Aproveite: os contos ficam abertos até 31 de outubro. No dia 1º de novembro o portal fecha pra preparar o lançamento, que fica pra 2027, e eles voltam aos poucos, primeiro pra quem assina."
     },
     "webtoon": {
       "titulo": "WEB SHARD",
@@ -1029,7 +1029,7 @@
   },
   "custos": {
     "title": "Como esse projeto existe",
-    "intro": "Illusion Fight é um projeto independente. Uma pessoa, 23 anos de desenvolvimento, lançando em 2026. Não tem investidor. Não tem equipe. Tem um desenvolvedor que trabalha das 9h às 18h numa empresa, e depois disso vira noites e fins de semana inteiros construindo isso aqui. Feriado, madrugada, final de semana — mano, é o que é.",
+    "intro": "Illusion Fight é um projeto independente. Uma pessoa, 23 anos de desenvolvimento, lançando em 2027. Não tem investidor. Não tem equipe. Tem um desenvolvedor que trabalha das 9h às 18h numa empresa, e depois disso vira noites e fins de semana inteiros construindo isso aqui. Feriado, madrugada, final de semana — mano, é o que é.",
     "s1": {
       "title": "O que custa manter isso funcionando",
       "sub": "Infraestrutura atual",
@@ -1255,7 +1255,9 @@
     "kicker": "Protocolo de lançamento — T1",
     "title": "O futuro já tem data.",
     "manifesto": "Nada aqui é permanente. Todo capítulo fica gratuito para todo mundo. A única diferença é quando.",
-    "cadence": "Três meses de lançamento e um de descanso. Assinante recebe capítulo novo a cada 15 dias (e começa com dois); conta grátis lê 15 dias depois, público 30 dias depois. WEB SHARD: um por mês. Primeiro drop: 15/11/2026.",
+    "title_adiado": "O FUTURO CHEGA EM 2027.",
+    "adiado": "Lançamento adiado pra {ano}. As datas de cada capítulo, música e jogo saem quando o lançamento for marcado; por enquanto, esta é a ordem.",
+    "cadence": "Três meses de lançamento e um de descanso. Assinante recebe capítulo novo a cada 15 dias (e começa com dois); conta grátis lê 15 dias depois, público 30 dias depois. WEB SHARD: um por mês. Primeiro drop: 2027, data a confirmar.",
     "levels_title": "Escolha quando entrar",
     "you": "Você está aqui",
     "level_subscriber": "Assinante",
@@ -1436,7 +1438,8 @@
       "cta1": "Ver loja",
       "cta2": "Apoiar"
     },
-    "faltam": "dias pro lançamento"
+    "faltam": "dias pro lançamento",
+    "lancamento_em": "Lançamento em "
   },
   "episodes": {
     "title": "EPISÓDIOS",

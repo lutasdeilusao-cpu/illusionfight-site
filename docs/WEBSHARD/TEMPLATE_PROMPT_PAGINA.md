@@ -28,8 +28,9 @@ Painel 3: {enquadramento}.   >> opcional
 Estilhaços: {quantos} — {funções}.
 
 REFERÊNCIAS
->> Uma linha por anexo: o que ele governa (rosto, roupa, cenário, fonte, arma).
-{arquivo.png}: {o que essa ficha governa nesta página}.
+>> [M24] Uma linha por anexo, numerada na ordem em que foi anexado, com a função dele (rosto, roupa, cenário, fonte, arma). Os painéis citam a ref pelo número.
+Ref 1 = {arquivo.png}: {o que essa ficha governa nesta página}.
+Ref 2 = {arquivo.png}: {função}.
 
 ESTILO
 {estilo da obra, igual em todas as páginas}
@@ -43,8 +44,8 @@ PERSONAGENS
 LUGAR E GEOGRAFIA
 >> [M20] Geografia fixa da cena, a mesma em toda página dela.
 Kim à {ESQUERDA/DIREITA} da imagem, {Nome} à {ESQUERDA/DIREITA} da imagem.
-{Cenário: só o fragmento atrás da ação.}
->> [M10] Fundo enxuto. Mais gente no quadro = menos detalhe em cada um.
+Lugar: {o lugar} da ficha {FichaDoCenario}.
+>> [M20] Só essa linha: sem chão, céu, horizonte ou mureta. O cenário não volta a ser citado em painel nem estilhaço; a IA monta o fundo pelo ângulo da câmera.
 
 COMPOSIÇÃO
 >> [M3] 1 a 3 painéis. Painel único só em pausa dramática ou glitch. Ação nunca é painel único.
@@ -76,9 +77,10 @@ Câmera: {enquadramento diferente do painel 2}.
 ESTILHAÇOS
 >> [M4] De 1 a 5; a mesma quantidade nunca em 3 páginas seguidas.
 >> Lugar = (alto/meio/baixo) + (à esquerda/no centro/à direita). Lugares diferentes entre si e diferentes dos da página anterior. Pode cair em qualquer parte da página.
->> "Conta:" explica o que o estilhaço acrescenta à história. Ele nunca repete o que um painel mostra.
+>> O estilhaço mostra algo que nenhum painel mostra. O que ele acrescenta à história fica no _estilhacos.json, nunca no prompt: frase de explicação vira caixa de narração.
 Estilhaços irregulares, inclinados, com sombra e contorno fino de neon, espalhados pela página, cada um no lugar indicado, deixando rostos, mãos e textos à mostra:
-- Estilhaço 1, {no alto/no meio/embaixo} {à esquerda/no centro/à direita}, contorno {cor}: {o que mostra}. Função: {tempo/reação/causa/consequência/olhar/detalhe}. Conta: {o que acrescenta à história}.
+>> [M20] Estilhaço inteiro dentro de um painel, nunca em cima do corte. Arma: dizer a ficha onde ela está e um estado simples ("desembainhada, na mão direita, pelo cabo"), nunca peça por peça.
+- Estilhaço 1, {no alto/no meio/embaixo} {à esquerda/no centro/à direita}, inteiro dentro do painel {N}, contorno {cor}: {o que mostra}. Função: {tempo/reação/causa/consequência/olhar/detalhe}.
 
 TEXTOS
 >> [M11] Fonte única da obra, pela ficha de letreiro.
@@ -87,10 +89,24 @@ TEXTOS
 >> [M14] Pergunta à esquerda, resposta à direita. Balões alternando entre painéis criam zigue-zague.
 >> [M15] Quem fala pode estar fora do quadro: a cauda sai pela borda do lado dele.
 >> [M16] Onomatopeia sempre que a cena tiver som.
+>> [M27] Fala inteira entre aspas, exatamente como sai, com acento e pontuação. Nome incomum soletrado na 1ª vez ("DIX, D-I-X"). Página com muito texto ou letra pequena: qualidade média ou alta.
 Todas as falas na fonte de {arquivo do letreiro}. Balão de fundo branco, borda e letra na cor de quem fala, tamanho grande. Somente estes textos, cada um uma vez:
 - Painel {N}, {lado}, {Nome} ({cor}): "{FALA COM *DESTAQUE*}"
 - Painel {N}, {lado}, {Nome} fora do quadro à {lado}, cauda pela borda {lado} ({cor}): "{FALA}"
 - Painel {N}, onomatopeia {grande/pequena}, {cor}: "{SOM}"
+```
+
+---
+
+## Prompt de correção [M25] [M26]
+
+Uma mudança por correção. Mais de uma: corrigir uma, conferir e mandar o resultado como nova entrada para a próxima.
+
+```
+>> A página a corrigir é a Ref 1; as fichas seguem numeradas depois dela [M24].
+Ref 1 = {página a corrigir}. Ref 2 = {ficha}: {função}.
+Altere só isto na Ref 1: {a única mudança, em positivo}.
+Fica igual: personagens, poses, câmera, luz, cores, balões e textos, {os outros painéis e estilhaços}.
 ```
 
 ---
@@ -102,7 +118,7 @@ Leia o prompt pronto do começo ao fim, como se fosse a IA:
 - [ ] Só um número de pixels, o 960×1637 [M1]
 - [ ] Nenhuma palavra de margem ou borda branca [M2]
 - [ ] De 1 a 3 painéis, e ação sem painel único [M3]
-- [ ] De 1 a 5 estilhaços, em lugares novos, cada um com função e "Conta:" [M4]
+- [ ] De 1 a 5 estilhaços, em lugares novos, cada um com função, sem "Conta:" [M4]
 - [ ] Cor de cada borda é a de quem domina o painel [M5]
 - [ ] Direção do corte diferente da página anterior [M6]
 - [ ] Plano de câmera no topo, igual aos painéis, sem repetir o vizinho [M7] [M8]
@@ -119,3 +135,6 @@ Leia o prompt pronto do começo ao fim, como se fosse a IA:
 - [ ] Todo olhar com lado [M21]
 - [ ] Câmera fecha com a imagem [M22]
 - [ ] Ninguém olhando para a lente [M23]
+- [ ] Toda ref numerada com função [M24]
+- [ ] Correção: "altere só" + lista do que fica, uma mudança só [M25] [M26]
+- [ ] Falas entre aspas, exatas; nome incomum soletrado; qualidade média/alta se tem muito texto [M27]

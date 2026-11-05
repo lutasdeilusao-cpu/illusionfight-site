@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { BETA_ACTIVE } from '../config/trial'
-import { LAUNCH_DATE, ADMIN_EMAILS } from '../config/launch'
+import { LAUNCH_DATE, LAUNCH_ANO, ADMIN_EMAILS } from '../config/launch'
 import { useLanguage } from '../context/LanguageContext'
 import { useAuth } from '../context/AuthContext'
 import './TrialBanner.css'
 
-// Meia-noite de Brasília do dia do lançamento.
-const ALVO = new Date(`${LAUNCH_DATE}T00:00:00-03:00`).getTime()
+// Meia-noite de Brasília do dia do lançamento; sem data marcada, a faixa mostra só o ano.
+const ALVO = LAUNCH_DATE ? new Date(`${LAUNCH_DATE}T00:00:00-03:00`).getTime() : null
 
 function restante(agora) {
   const ms = Math.max(0, ALVO - agora)
@@ -26,12 +26,26 @@ export default function TrialBanner({ hidden }) {
   const ativo = BETA_ACTIVE && !hidden && !isAdmin
 
   useEffect(() => {
-    if (!ativo) return undefined
+    if (!ativo || !ALVO) return undefined
     const id = setInterval(() => setAgora(Date.now()), 1000)
     return () => clearInterval(id)
   }, [ativo])
 
   if (!ativo) return null
+
+  if (!ALVO) {
+    return (
+      <aside className="trial-banner" aria-label={t('beta.eyebrow')}>
+        <div className="trial-banner__info">
+          <span className="trial-banner__eyebrow">
+            <i className="trial-banner__pulso" aria-hidden="true" />
+            {t('beta.eyebrow')}
+          </span>
+          <span className="trial-banner__data">{t('beta.lancamento')} · {LAUNCH_ANO}</span>
+        </div>
+      </aside>
+    )
+  }
 
   const r = restante(agora)
   const data = new Intl.DateTimeFormat(locale === 'en' ? 'en-US' : locale === 'es' ? 'es-ES' : 'pt-BR', {

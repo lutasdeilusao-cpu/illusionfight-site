@@ -299,7 +299,7 @@
       "eyebrow": "FICHA TÉCNICA",
       "copiar_tudo": "Copiar ficha inteira",
       "descricao_titulo": "DESCRIÇÃO CURTA",
-      "descricao": "Illusion Fight é um universo de ação gratuito criado por Isaias Leal: livros, webtoon, jogos e trilha original, tudo conectado em illusionfight.com, em português, inglês e espanhol. A demo está na Steam e o universo participa do Steam Next Fest, de 19 a 26 de outubro. A Season 1 sai em 15 de novembro de 2026.",
+      "descricao": "Illusion Fight é um universo de ação gratuito criado por Isaias Leal: livros, webtoon, jogos e trilha original, tudo conectado em illusionfight.com, em português, inglês e espanhol. A demo está na Steam e o universo participa do Steam Next Fest, de 19 a 26 de outubro. A Season 1 sai em 2027.",
       "itens": {
         "nome": {
           "rotulo": "Nome",
@@ -331,7 +331,7 @@
         },
         "lancamento": {
           "rotulo": "Lançamento",
-          "valor": "Season 1 em 15 de novembro de 2026"
+          "valor": "Season 1 em 2027, data a confirmar"
         },
         "site": {
           "rotulo": "Site",
@@ -380,7 +380,7 @@
         },
         "lancamento": {
           "p": "Quando é o lançamento?",
-          "r": "A Season 1 sai em 15 de novembro de 2026. Antes disso, o universo está no Steam Next Fest, de 19 a 26 de outubro."
+          "r": "A Season 1 sai em 2027; a data ainda vai ser confirmada."
         },
         "steam": {
           "p": "O que tem na Steam?",
@@ -418,7 +418,7 @@
         },
         "temporada": {
           "nome": "A Temporada 1 e a agenda",
-          "fala": "A Season 1 começa em 15 de novembro de 2026, com capítulos saindo em sequência. A cada três meses de lançamentos tem um mês de hiato, o mês de descanso. Nesse mês entra o conteúdo extra do mesmo autor: O Mundo das Sombras e Mar de Cinzas. É por isso que eles existem ao lado da linha principal: sempre tem história nova, e você tem pauta o ano inteiro."
+          "fala": "A Season 1 começa em 2027, com capítulos saindo em sequência. A cada três meses de lançamentos tem um mês de hiato, o mês de descanso. Nesse mês entra o conteúdo extra do mesmo autor: O Mundo das Sombras e Mar de Cinzas. É por isso que eles existem ao lado da linha principal: sempre tem história nova, e você tem pauta o ano inteiro."
         },
         "games": {
           "nome": "Games",

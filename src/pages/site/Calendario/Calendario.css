@@ -5,6 +5,7 @@
 .calendar-hero h1 { margin: 12px 0 14px; font: 800 clamp(2.1rem, calc(10 * var(--app-vw) / 100), 3.4rem)/.92 var(--font-display); letter-spacing: -.04em; text-transform: uppercase; text-shadow: 0 0 28px rgba(24,218,251,.26); }
 .calendar-manifesto { margin: 0; color: #b9cbd1; font: 500 1rem/1.55 var(--font-body); }
 .calendar-cadence { display: flex; align-items: center; gap: 9px; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.08); color: #fff; font: 700 .74rem/1.4 var(--font-mono); }
+.calendar-adiado { margin-top: 12px; padding: 10px 12px; border-left: 2px solid var(--if-amber); background: rgba(255,174,50,.08); color: var(--if-amber); font: 700 .74rem/1.45 var(--font-mono); }
 .calendar-pulse { width: 8px; height: 8px; flex: none; border-radius: 50%; background: var(--if-amber); box-shadow: 0 0 0 0 rgba(255,174,50,.5); animation: calendarPulse 2s infinite; }
 .calendar-section { margin-top: 54px; }
 .calendar-channels { display: grid; grid-template-columns: repeat(5, minmax(68px, 1fr)); gap: 7px; margin: 18px -8px 0; padding: 8px; overflow-x: auto; scrollbar-width: none; }
