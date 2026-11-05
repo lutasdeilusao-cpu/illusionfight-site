@@ -233,6 +233,13 @@ Ordem: capa → aviso de idade → divulgação → história → **gancho em gl
   - Das fichas de expressão, usar só os rostos, ignorando a roupa e as legendas.
 - **Void:** fora do cânone oficial até decisão do autor; nunca em capa ou material promocional.
 - **Kim Primordial:** não tem ficha aprovada; não inventar uma. As formas Noir, Primordial e Sombrio do Kim não entram sem pedido.
+- **Armas do Kim (Xakaxi):**
+  - **Machado xamã (duplo):** em pé ao lado do Kim, tem **60% da altura dele**. Escrever essa medida em todo prompt que mostra o machado. O Kim usa o machado inteiro com **uma mão só**, a direita: segurar, girar, lançar, puxar. A outra mão fica solta.
+  - **Duas mãos** só quando ele tem duas machadinhas, uma em cada mão.
+  - **Fio do machado:** só aparece quando o machado está lançado. Machado na mão = sem fio no prompt.
+  - **Onde fica a mão:** "segura pelo cabo" não basta; a IA põe a mão logo abaixo das lâminas. Escrever a posição de cada parte: "a mão fechada na ponta de baixo do cabo, o cabo subindo da mão e a cabeça com as lâminas lá no alto, acima da mão". No estilhaço da mão, descrever só o cabo de madeira saindo da mão, sem lâmina.
+  - **Estilhaço com o machado:** o machado inteiro não cabe num estilhaço. Se o prompt cita "o machado", a IA encolhe o machado para caber e o Kim aparece segurando pela lâmina. No estilhaço vai só o pedaço que cabe (a mão e o cabo, ou só a lâmina), e o resto sai pela borda.
+- **Arma em modo especial** (Angel Expandir, machado xamã): anexar o recorte do desenho da arma tirado da ficha e mandar copiar dele. Descrever só o que se vê; palavra de outro objeto vira esse objeto ("corrente" desenha corrente, "ponta curva" desenha gancho).
 
 ### 8.3 Regras de cena da linha principal
 - **Rosto sempre pela ficha de expressões.** Toda página com protagonista anexa a ficha de rosto e manda copiar o rosto; sem isso sai rosto genérico de anime.
