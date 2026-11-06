@@ -168,6 +168,11 @@ Tudo em `C:\webshard_refs\shorts\`:
 - A notificação do Windows e o `agendador.log` (linha `PUBLICO ...`) mostram os dois links públicos.
 - Rascunho no YouTube se publica com `node ytdraft.cjs <id>`.
 
+**Causa real do rascunho no YouTube (descoberta pelo Isaias em 06/11/2026):** na última etapa (Visibilidade), se **Público** não estiver marcado, o botão final vira **"Salvar"** em vez de "Publicar", e o vídeo fica rascunho/privado. Os scripts clicavam em Avançar 3× e no Público por coordenada, sem confirmar nada. Agora `posta.cjs`, `ytdraft.cjs` e `ytfinish.cjs` usam `__garantePublico()`:
+1. Clica em Avançar (`element.click()`) até o rádio `PUBLIC` existir. Se não chegar na etapa Visibilidade, para com erro.
+2. Marca Público até ele ficar com `aria-checked="true"`.
+3. **Só clica no botão final se o texto for "Publicar".** Se for "Salvar", não clica e devolve erro. O vigia tenta de novo 15 min depois, com o mesmo `yt_id` e sem reenviar o vídeo.
+
 **Rascunho no YouTube (corrigido em 05/11/2026):** o diálogo de upload às vezes só **salva como rascunho** em vez de publicar.
 - Se o vídeo não estiver público em cerca de 1 min, o `posta.cjs` publica **o mesmo rascunho** com o `ytdraft.cjs`.
 - O `posta.cjs` imprime `YTID <id>` e o agendador guarda o id em `fila.json` (`yt_id`). Na tentativa seguinte, ele **só publica esse rascunho, nunca sobe o vídeo de novo**. Em 05/11 subir de novo criou um rascunho duplicado.
