@@ -126,6 +126,15 @@ Tudo em `C:\webshard_refs\shorts\`:
 
 **Agendador do Windows:** tarefa `ShortsLDI_Postagem`, que roda **só nos horários: 09:00, 09:05, 09:10, 09:15 e 21:00, 21:05, 21:10, 21:15** (mudado de 12h/20h em 05/11/2026: 9h e 21h rendem mais) (pythonw, sem janela). Cada execução faz uma tentativa por rede. Se a 4ª falhar, chama o Claude.
 
+**Vigia (`vigia.py`, tarefa `ShortsLDI_Vigia`, desde 06/11/2026):** roda **a cada 15 min a partir de 09:15 e de 21:15** (09:15, 09:30, 09:45…).
+- Confere se o último item vencido da fila saiu nas **3 redes** (TikTok, YouTube e X).
+- Se saiu, sai calado: na prática fica "desligado" até o próximo horário.
+- Se falta alguma rede, chama a publicação de novo (`agendador.main()`) **só para o que faltou**. Antes, volta o status `falhou` para `pendente`.
+- Se ainda faltar, avisa no Windows e tenta de novo 15 min depois, até sair.
+- Nunca roda junto com outra postagem: espera `agendador.lock` e `posta.lock` sumirem. Nos primeiros 14 min depois do horário, não faz nada, pra deixar o agendador trabalhar.
+- As duas tarefas estão com **"Ativar o computador para executar"** (WakeToRun) e "executar assim que possível após perder o horário".
+- O log fica no `agendador.log`, em linhas que começam com `VIGIA:`.
+
 **PC dormindo (05/11/2026):** se a tampa estiver fechada no horário, a tarefa não roda. Ela está com "Executar assim que possível após perder o horário" ligado: quando o PC acorda, posta o item que ficou para trás. Pra postar na hora, rode `python agendador.py` em `C:\webshard_refs\shorts\`.
 
 **Aviso "Ainda estamos verificando seu conteúdo" (05/11/2026):** com o vídeo recém-subido, o YouTube abre esse aviso ao clicar em Publicar. O `posta.cjs` e o `ytdraft.cjs` agora clicam em "Publicar mesmo assim" sozinhos.
