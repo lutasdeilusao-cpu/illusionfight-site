@@ -44,7 +44,7 @@ python make_short.py "C:/Users/isaia/Downloads/BRANDS" "<saida>.mp4"
 
 ---
 
-## 3. Postar shorts no TikTok, no YouTube e no X
+## 3. Postar shorts no TikTok, no YouTube, no X e no LinkedIn
 
 Scripts em `C:\webshard_refs\shorts\`, testados na postagem do short 01 em 04/11/2026. Eles usam **CDP cru** (`cdp.cjs`, WebSocket nativo do Node 22), sem Playwright.
 
@@ -110,7 +110,28 @@ Conta **@IllusionFightIF**, logada no Chrome 9222. Comando: `node posta.cjs <vid
 - **Parar uma tarefa no Claude Code (TaskStop) mata o shell, não o `node`.** Um `posta.cjs` órfão continuou rodando e publicou um vídeo **sem texto** quando o upload de outro teste ficou pronto. Depois de parar, confira no PowerShell: `Get-CimInstance Win32_Process -Filter "Name='node.exe'" | ? CommandLine -match 'posta'`.
 - O perfil do X tem posts antigos em inglês. Os shorts vão com o texto em português do TikTok.
 
-**Postar atrasado no X** (itens que já saíram no TikTok/YouTube): `python x_atrasados.py <id> <id> ...`. Posta um por vez, para no primeiro erro e grava `x` no `fila.json`. Usado em 06/11 para os 4 primeiros (01 e 02, com e sem fala). O vídeo e o meta ficam em `postar_x_<id>.mp4` e `meta_x_<id>.json`.
+**Postar atrasado numa rede nova** (itens que já saíram nas outras): `python x_atrasados.py [x|linkedin] <id> <id> ...`. Posta um por vez, para no primeiro erro e grava `x` no `fila.json`. Usado em 06/11 para os 4 primeiros (01 e 02, com e sem fala). O vídeo e o meta ficam em `postar_x_<id>.mp4` e `meta_x_<id>.json`.
+
+### LinkedIn (Page "Illusion Fight | LDI", desde 06/11/2026)
+
+A Page é `linkedin.com/company/134514160`. O LinkedIn fica logado no Chrome 9222 com a conta do Isaias, que é admin da Page. Comando: `node posta.cjs <video> <meta> linkedin`.
+
+**Texto:** usa `meta.li_caption`. Se o campo não existir, usa a `tt_caption` sem o `#fyp`.
+
+| Passo | O que o script faz | Como confirma |
+|---|---|---|
+| 1 | Abre `…/company/134514160/admin/dashboard/` | O botão **Create** aparece. Se não aparecer, o LinkedIn está deslogado. |
+| 2 | Create → **Start a post** | O compositor abre já como "Illusion Fight \| LDI · Post to Anyone". |
+| 3 | **Add media** e anexa o arquivo em `input#media-editor-file-selector__file-input` (`DOM.setFileInputFiles`) | Abre o "Editor" com o `<video>` e o botão **Next** habilitado. |
+| 4 | **Next** | Volta ao compositor com o vídeo. |
+| 5 | Texto: `focus()` + `Input.insertText` no `.ql-editor` **de dentro do diálogo que tem o vídeo** | Lê de volta e o texto precisa ser idêntico. ⚠ As caixas de comentário do feed também são `.ql-editor`. Se a busca pegar a errada, a conferência falha mesmo com o texto certo. |
+| 6 | Confere vídeo + texto + **Post** habilitado, depois `element.click()` | Espera o aviso **"Post successful. View post"**. O upload do vídeo acontece **depois** do clique, leva uns 20s, e **não pode sair da página** antes do aviso. |
+| 7 | O link vem do `href` do "View post" (`/feed/update/urn:li:ugcPost:<id>/`) | Prova pública: a URL abre **sem login** (200) e contém o começo do texto. |
+
+**Detalhes:**
+- A aba é achada por `://www.linkedin.com/`, e não só por `linkedin.com`, porque há iframes de rastreio (demdex) com "linkedin.com" na URL.
+- O LinkedIn tem detecção de robô (PerimeterX, `li.protechts.net`). O script faz 1 post por vez e com pausas. Não rode em rajada.
+- Um vídeo levou ~45s ponta a ponta. Os 5 atrasados (01 e 02 com/sem fala, 03 sem fala) foram postados em 06/11 com `python x_atrasados.py linkedin <ids>`.
 
 ## 4. Postagem automática agendada (tipo cron)
 
@@ -120,14 +141,14 @@ Tudo em `C:\webshard_refs\shorts\`:
 |---|---|
 | `fila.json` | A agenda: cada item tem data e hora, short, versão (com/sem fala), arquivo, textos (`meta`) e status por rede (`pendente` / `ok` com link / `falhou`). |
 | `fila_gerar.py` | Gera a fila e os textos. Regenerar **zera os status**, então só rode pra uma fila nova. |
-| `posta.cjs <video> <meta> <tiktok\|youtube\|x>` | Posta em uma rede e **confere na tela**. Só devolve `OK <link>` se a publicação foi confirmada. Espera o upload terminar e confere legenda, título, descrição e Público antes de publicar. |
-| `agendador.py` | O "cron". Pega o próximo item vencido e garante o Chrome 9222 aberto (abre com o perfil logado se estiver fechado). Posta nas **três redes (TikTok, YouTube e X)**, uma de cada vez, com 4 tentativas por rede. Item antigo sem `x` na fila ganha `x: pendente` sozinho. Se falhar, **chama o Claude Code** (`claude -p`) pra diagnosticar e consertar, e mostra notificação no Windows. Faz uma postagem por execução. |
+| `posta.cjs <video> <meta> <tiktok\|youtube\|x\|linkedin>` | Posta em uma rede e **confere na tela**. Só devolve `OK <link>` se a publicação foi confirmada. Espera o upload terminar e confere legenda, título, descrição e Público antes de publicar. |
+| `agendador.py` | O "cron". Pega o próximo item vencido e garante o Chrome 9222 aberto (abre com o perfil logado se estiver fechado). Posta nas **quatro redes (TikTok, YouTube, X e LinkedIn)**, uma de cada vez, com 4 tentativas por rede. Item antigo sem `x`/`linkedin` na fila ganha `pendente` sozinho. Se falhar, **chama o Claude Code** (`claude -p`) pra diagnosticar e consertar, e mostra notificação no Windows. Faz uma postagem por execução. |
 | `agendador.log` | Histórico de tudo que rodou. |
 
 **Agendador do Windows:** tarefa `ShortsLDI_Postagem`, que roda **só nos horários: 09:00, 09:05, 09:10, 09:15 e 21:00, 21:05, 21:10, 21:15** (mudado de 12h/20h em 05/11/2026: 9h e 21h rendem mais) (pythonw, sem janela). Cada execução faz uma tentativa por rede. Se a 4ª falhar, chama o Claude.
 
 **Vigia (`vigia.py`, tarefa `ShortsLDI_Vigia`, desde 06/11/2026):** roda **a cada 15 min a partir de 09:15 e de 21:15** (09:15, 09:30, 09:45…).
-- Confere se o último item vencido da fila saiu nas **3 redes** (TikTok, YouTube e X).
+- Confere se o último item vencido da fila saiu nas **4 redes** (TikTok, YouTube, X e LinkedIn).
 - Se saiu, sai calado: na prática fica "desligado" até o próximo horário.
 - Se falta alguma rede, chama a publicação de novo (`agendador.main()`) **só para o que faltou**. Antes, volta o status `falhou` para `pendente`.
 - Se ainda faltar, avisa no Windows e tenta de novo 15 min depois, até sair.
@@ -154,8 +175,8 @@ Tudo em `C:\webshard_refs\shorts\`:
 - Nunca deixe um `node` antigo rodando na mesma aba: dois scripts brigando pela aba travam o Studio.
 - `lista_yt.cjs` lista os últimos shorts do canal com a visibilidade, pra encontrar rascunhos.
 
-**Calendário atual (teste A/B):** um short por dia, de 04/11 a 15/11/2026, às **09h00 e 21h00** (horário de Brasília; até 05/11 era 12h/20h), nas três redes. As versões com e sem fala revezam o horário a cada dia. A ordem é 01–04, 06, 05, 07–12 (o 05 vai depois porque revela o final do Capítulo 1). Horários escolhidos pela sobreposição dos picos do TikTok e do YouTube Shorts no Brasil (almoço 12h–14h, noite 20h–22h).
+**Calendário atual (teste A/B):** um short por dia, de 04/11 a 15/11/2026, às **09h00 e 21h00** (horário de Brasília; até 05/11 era 12h/20h), nas quatro redes. As versões com e sem fala revezam o horário a cada dia. A ordem é 01–04, 06, 05, 07–12 (o 05 vai depois porque revela o final do Capítulo 1). Horários escolhidos pela sobreposição dos picos do TikTok e do YouTube Shorts no Brasil (almoço 12h–14h, noite 20h–22h).
 
-**Requisitos:** o perfil `perfil_cdp` precisa estar logado no TikTok, no YouTube e no X, e o PC ligado com o usuário logado (o Chrome precisa de tela).
+**Requisitos:** o perfil `perfil_cdp` precisa estar logado no TikTok, no YouTube, no X e no LinkedIn, e o PC ligado com o usuário logado (o Chrome precisa de tela).
 
 **Conferir:** `agendador.log`, os status em `fila.json`, ou o painel de cada rede. Pra pausar: desative a tarefa `ShortsLDI_Postagem` no Agendador de Tarefas.
