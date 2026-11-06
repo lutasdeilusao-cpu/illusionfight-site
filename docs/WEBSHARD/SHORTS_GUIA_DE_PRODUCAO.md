@@ -205,6 +205,12 @@ Cada short pode ter duas versões: **sem fala** (padrão) e **com fala**, em que
 | Helena (mãe do Kim) | Ana Alice – Friendly & Clear | Mãe brava, grita de outro cômodo. Escolhida pelo Isaias em 04/11/2026. |
 | Pajé | Grandfather Joe – Gentle, warm & wise | Xamã idoso, debochado, gíria de quebrada e nordestina; vai do místico ao grito. Escolhido em 04/11/2026. |
 | Osvaldo | Spuds Oxley – Grandpa | Porteiro idoso, gentil, medroso de bronca. Escolhido em 04/11/2026. |
+| Fred (valentão loiro) | Lax – Funny, Sarcastic and Smooth | Debochado, provocador. |
+| Brock (valentão careca) | Dontae Brown | Grandalhão, intimidador. |
+| Professor máquina | Cliff – Warm, Authoritative Narrator | Voz de autoridade, didática. |
+| Figurante: mulher idosa | Lucinda – Earthy and Wise | Só para figurante sem voz oficial própria. |
+
+**Preferência de voz:** vozes em inglês falando português costumam soar mais limpas que as vozes brasileiras da biblioteca, que em geral são mal gravadas. Um sotaque leve não é problema.
 
 Roteiro do Short 01 (`_gerador/voz/01/voz_01.txt`):
 ```
@@ -230,12 +236,22 @@ Scripts em `C:\webshard_refs\shorts\`:
 | Passo | Script | O que faz |
 |---|---|---|
 | 1 | `node el_voz.cjs "<busca>" "<nome exato>"` | Seleciona a voz (ex.: `"Elio Youthful" "Elio – Youthful & Warm International Voice"`). O nome precisa ser **exato**, inclusive travessões. Se a voz já estiver selecionada, não faz nada. Ao final, confere no painel. |
-| 2 | conferir | Modelo **Eleven v4**. |
+| 2 | conferir + `node el_lang2.cjs Portuguese` | Modelo **Eleven v4**. O script troca o idioma de **Auto** para **Portuguese** e confere a troca no fim. Isso evita frase curta com sotaque espanhol ou inglês. |
 | 3 | `node el3.cjs roteiro.txt` | **Limpa o editor** (o ElevenLabs guarda o roteiro anterior, mesmo depois de recarregar), **confere que ficou vazio**, cola o roteiro e **confere que o editor ficou idêntico ao arquivo**. Se algo não bater, para. |
 | 4 | `node el5.cjs take.mp3` | Clica em **Generate speech** (ou **Regenerate speech**) e salva o áudio **direto da resposta de rede da API** (`text-to-dialogue/stream`). O player usa streaming, então a URL `blob:` não serve. |
 | 5 | `python cortar_falas.py take.mp3 <N> <pasta> <prefixo>` | Corta em N falas: descarta respiração e ruído, e junta trechos pelos menores intervalos até sobrar N. Imprime a duração e o pico de cada fala. |
 
 O roteiro inteiro é gerado numa geração só, pra entonação ficar contínua. Se uma fala sair ruim, gere outro take (`take2`) ou troque só a tag.
+
+**Corte alinhado ao roteiro (preferido quando há falas com "..." no meio):** `python cortar_alinhado.py take.mp3 roteiro.txt <pasta> <prefixo>`. Ele lê as falas do roteiro e, entre todos os silêncios ≥ 0,2s, escolhe os cortes que mais combinam com a duração esperada de cada fala (nº de caracteres ÷ velocidade do take). Assim uma pausa longa dentro da frase não vira corte. O script marca as falas suspeitas, e essas precisam ser ouvidas.
+
+**Lote de vários shorts (ex.: cap. 2, `cap2_falas.py`):**
+1. Liste todas as falas como `(short, página, personagem, tag, texto)` em ordem de leitura.
+2. `python cap2_falas.py roteiros` gera **um roteiro por personagem** (`voz/cap2_<personagem>.txt`), já com o triplo `[pause]` e a frase de contexto em português no fim (descartada no corte).
+3. Para cada personagem: `el_voz` → `el3` → `el5` → `cortar_alinhado`.
+4. `python cap2_falas.py distribuir` copia os cortes para a pasta de cada short e escreve o mapa `FALAS` em cada roteiro.
+
+Para um capítulo novo, copie o `cap2_falas.py` e troque a lista.
 
 ### 8.3 Cortar as falas
 
