@@ -44,7 +44,7 @@ python make_short.py "C:/Users/isaia/Downloads/BRANDS" "<saida>.mp4"
 
 ---
 
-## 3. Postar shorts no TikTok e no YouTube
+## 3. Postar shorts no TikTok, no YouTube e no X
 
 Scripts em `C:\webshard_refs\shorts\`, testados na postagem do short 01 em 04/11/2026. Eles usam **CDP cru** (`cdp.cjs`, WebSocket nativo do Node 22), sem Playwright.
 
@@ -86,6 +86,32 @@ Se o diálogo de upload fechar, o vídeo fica como **Rascunho** em Conteúdo →
 - **Aba do YouTube sem responder:** durante o processamento do vídeo é normal. Espere alguns minutos e rode o script de novo.
 - **Conferência:** antes de publicar, os scripts leem de volta do DOM a legenda, o título, a descrição e se Público está marcado. Se algo não bater, eles param.
 
+### X / Twitter (`x.com`, desde 06/11/2026)
+
+Conta **@IllusionFightIF**, logada no Chrome 9222. Comando: `node posta.cjs <video> <meta> x`.
+
+**Texto:** usa `meta.x_caption`. Se o campo não existir, usa a `tt_caption` sem o `#fyp`.
+
+**Ordem obrigatória:** cada passo só começa depois que o anterior foi confirmado na tela.
+
+| Passo | O que o script faz | Como confirma |
+|---|---|---|
+| 1 | Abre `x.com/home` (composer da timeline) | O editor `[data-testid=tweetTextarea_0]` e o `input[data-testid=fileInput]` existem. |
+| 2 | Anexa o vídeo com `DOM.setFileInputFiles` | Espera o anexo mostrar **"<arquivo>.mp4: Ready"**. Antes disso aparece "Uploading (x%)" e depois "Processing". Leva uns 25s para 56 MB. |
+| 3 | Escreve o texto | `element.focus()` + `Input.insertText`. O clique real **não** foca o editor do X. Depois lê o texto de volta, que precisa ser idêntico ao meta. |
+| 4 | Confere de novo, logo antes de postar | Texto certo, vídeo em "Ready" e botão `tweetButtonInline` habilitado. **Nunca posta sem texto.** |
+| 5 | Clica em **Post** com `element.click()` | O clique por coordenada (CDP `Input.dispatchMouseEvent`) é **ignorado** pelo X nesse botão. Espera o aviso "post enviado" ou o editor vazio sem anexo. Até a confirmação **não navega**, porque sair da página cancela o envio. |
+| 6 | Acha o link | Vai ao perfil e procura o post pelo começo do texto, ignorando o fixado. Exige `<time>` **depois do clique**: as versões com e sem fala têm o mesmo texto, e sem essa trava o script pegava o post antigo. |
+| 7 | Prova pública | `publish.twitter.com/oembed?url=<link>` responde 200. Só então devolve `OK <link>`. |
+
+**Regras aprendidas na marra (06/11/2026):**
+- **Nunca avance de passo sem confirmar o anterior.** Um clique em Postar com o upload em andamento não faz nada. Quem recarrega achando que postou perde o envio.
+- **Um script por aba.** O `posta.cjs` cria `posta.lock` e recusa rodar se já existir outro. Nenhum script de diagnóstico que navegue a aba (ex.: `xlist.cjs`) pode rodar enquanto outro posta.
+- **Parar uma tarefa no Claude Code (TaskStop) mata o shell, não o `node`.** Um `posta.cjs` órfão continuou rodando e publicou um vídeo **sem texto** quando o upload de outro teste ficou pronto. Depois de parar, confira no PowerShell: `Get-CimInstance Win32_Process -Filter "Name='node.exe'" | ? CommandLine -match 'posta'`.
+- O perfil do X tem posts antigos em inglês. Os shorts vão com o texto em português do TikTok.
+
+**Postar atrasado no X** (itens que já saíram no TikTok/YouTube): `python x_atrasados.py <id> <id> ...`. Posta um por vez, para no primeiro erro e grava `x` no `fila.json`. Usado em 06/11 para os 4 primeiros (01 e 02, com e sem fala). O vídeo e o meta ficam em `postar_x_<id>.mp4` e `meta_x_<id>.json`.
+
 ## 4. Postagem automática agendada (tipo cron)
 
 Tudo em `C:\webshard_refs\shorts\`:
@@ -94,11 +120,17 @@ Tudo em `C:\webshard_refs\shorts\`:
 |---|---|
 | `fila.json` | A agenda: cada item tem data e hora, short, versão (com/sem fala), arquivo, textos (`meta`) e status por rede (`pendente` / `ok` com link / `falhou`). |
 | `fila_gerar.py` | Gera a fila e os textos. Regenerar **zera os status**, então só rode pra uma fila nova. |
-| `posta.cjs <video> <meta> <tiktok\|youtube>` | Posta em uma rede e **confere na tela**. Só devolve `OK <link>` se a publicação foi confirmada. Espera o upload terminar e confere legenda, título, descrição e Público antes de publicar. |
-| `agendador.py` | O "cron". Pega o próximo item vencido e garante o Chrome 9222 aberto (abre com o perfil logado se estiver fechado). Posta nas duas redes, com 3 tentativas por rede. Se falhar, **chama o Claude Code** (`claude -p`) pra diagnosticar e consertar, e mostra notificação no Windows. Faz uma postagem por execução. |
+| `posta.cjs <video> <meta> <tiktok\|youtube\|x>` | Posta em uma rede e **confere na tela**. Só devolve `OK <link>` se a publicação foi confirmada. Espera o upload terminar e confere legenda, título, descrição e Público antes de publicar. |
+| `agendador.py` | O "cron". Pega o próximo item vencido e garante o Chrome 9222 aberto (abre com o perfil logado se estiver fechado). Posta nas **três redes (TikTok, YouTube e X)**, uma de cada vez, com 4 tentativas por rede. Item antigo sem `x` na fila ganha `x: pendente` sozinho. Se falhar, **chama o Claude Code** (`claude -p`) pra diagnosticar e consertar, e mostra notificação no Windows. Faz uma postagem por execução. |
 | `agendador.log` | Histórico de tudo que rodou. |
 
-**Agendador do Windows:** tarefa `ShortsLDI_Postagem`, que roda **só nos horários: 12:00, 12:05, 12:10, 12:15 e 20:00, 20:05, 20:10, 20:15** (pythonw, sem janela). Cada execução faz uma tentativa por rede. Se a 4ª falhar, chama o Claude.
+**Agendador do Windows:** tarefa `ShortsLDI_Postagem`, que roda **só nos horários: 09:00, 09:05, 09:10, 09:15 e 21:00, 21:05, 21:10, 21:15** (mudado de 12h/20h em 05/11/2026: 9h e 21h rendem mais) (pythonw, sem janela). Cada execução faz uma tentativa por rede. Se a 4ª falhar, chama o Claude.
+
+**PC dormindo (05/11/2026):** se a tampa estiver fechada no horário, a tarefa não roda. Ela está com "Executar assim que possível após perder o horário" ligado: quando o PC acorda, posta o item que ficou para trás. Pra postar na hora, rode `python agendador.py` em `C:\webshard_refs\shorts\`.
+
+**Aviso "Ainda estamos verificando seu conteúdo" (05/11/2026):** com o vídeo recém-subido, o YouTube abre esse aviso ao clicar em Publicar. O `posta.cjs` e o `ytdraft.cjs` agora clicam em "Publicar mesmo assim" sozinhos.
+
+**Envio interrompido (05/11/2026):** o link `Z9wpATXYLoY` passou no oEmbed (200) mas não tinha vídeo: o upload foi cortado quando a aba saiu da página no meio do envio. Regras: **nunca navegar a aba do Studio com upload em andamento**; a prova pública do YouTube agora exige também `playabilityStatus OK` na página `watch?v=<id>`. O "Retomar o envio" recusa o arquivo ("Arquivo incorreto"), então o jeito é excluir e repostar. `ytfinish.cjs <meta>` termina um upload já aberto no diálogo, sem navegar.
 
 **Prova de publicação (obrigatória):** um post só vira `ok` com o **link público verificado de fora, sem login**:
 - **YouTube:** `youtube.com/oembed?url=<link>` precisa responder 200. Rascunho e privado respondem 403. O link `youtube.com/shorts/<id>` aparece no diálogo **antes** de publicar, então ter o link não prova nada.
@@ -113,8 +145,8 @@ Tudo em `C:\webshard_refs\shorts\`:
 - Nunca deixe um `node` antigo rodando na mesma aba: dois scripts brigando pela aba travam o Studio.
 - `lista_yt.cjs` lista os últimos shorts do canal com a visibilidade, pra encontrar rascunhos.
 
-**Calendário atual (teste A/B):** um short por dia, de 04/11 a 15/11/2026, às **12h00 e 20h00** (horário de Brasília). As versões com e sem fala revezam o horário a cada dia. A ordem é 01–04, 06, 05, 07–12 (o 05 vai depois porque revela o final do Capítulo 1). Horários escolhidos pela sobreposição dos picos do TikTok e do YouTube Shorts no Brasil (almoço 12h–14h, noite 20h–22h).
+**Calendário atual (teste A/B):** um short por dia, de 04/11 a 15/11/2026, às **09h00 e 21h00** (horário de Brasília; até 05/11 era 12h/20h), nas três redes. As versões com e sem fala revezam o horário a cada dia. A ordem é 01–04, 06, 05, 07–12 (o 05 vai depois porque revela o final do Capítulo 1). Horários escolhidos pela sobreposição dos picos do TikTok e do YouTube Shorts no Brasil (almoço 12h–14h, noite 20h–22h).
 
-**Requisitos:** o perfil `perfil_cdp` precisa estar logado no TikTok e no YouTube, e o PC ligado com o usuário logado (o Chrome precisa de tela).
+**Requisitos:** o perfil `perfil_cdp` precisa estar logado no TikTok, no YouTube e no X, e o PC ligado com o usuário logado (o Chrome precisa de tela).
 
 **Conferir:** `agendador.log`, os status em `fila.json`, ou o painel de cada rede. Pra pausar: desative a tarefa `ShortsLDI_Postagem` no Agendador de Tarefas.
