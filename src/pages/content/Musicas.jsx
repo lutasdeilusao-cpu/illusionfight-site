@@ -54,7 +54,7 @@ function OndeOuvir({ musica, capa, tocando, onTocar, onFechar, t, trava, locale 
       <button type="button" className="mu-folha__fundo" onClick={onFechar} aria-label={t('pages.musicas.fechar')} />
       <div className="mu-folha__card">
         <div className="mu-folha__topo">
-          <img src={capa} alt="" width="96" height="96" />
+          <img src={capa} alt="" width="64" height="96" />
           <div>
             <span className="if-eyebrow">{t('pages.musicas.onde_ouvir')}</span>
             <strong>{musica.titulo}</strong>
@@ -177,7 +177,7 @@ export default function Musicas() {
               </div>
               <article className={`mu-destaque if-panel${eDaVez(destaque.arquivo) ? ' is-ativa' : ''}${travaDe(destaque.arquivo) ? ' is-travada' : ''}`} style={{ '--mu-cor': destaque.cor }}>
                 <button type="button" className="mu-destaque__capa" onClick={() => (travaDe(destaque.arquivo) ? setAberta(0) : destaque.arquivo && tocar(destaque.arquivo))} aria-label={`${t('pages.musicas.tocar')} ${destaque.titulo}`}>
-                  <img src={capaDe(0)} alt="" width="300" height="300" />
+                  <img src={capaDe(0)} alt="" width="300" height="450" />
                   <span className="mu-destaque__play" aria-hidden="true">{travaDe(destaque.arquivo) ? '🔒' : tocandoEsta(destaque.arquivo) ? '⏸' : '▶'}</span>
                 </button>
                 <div className="mu-destaque__info">
@@ -212,7 +212,7 @@ export default function Musicas() {
                       <span className="mu-faixa__num" aria-hidden="true">
                         {trava ? '🔒' : tocandoEsta(m.arquivo) ? <Equalizador ativo /> : <><b>{i + 1}</b><i>▶</i></>}
                       </span>
-                      <img className="mu-faixa__capa" src={capaDe(i)} alt="" width="48" height="48" loading="lazy" decoding="async" />
+                      <img className="mu-faixa__capa" src={capaDe(i)} alt="" width="48" height="72" loading="lazy" decoding="async" />
                       <span className="mu-faixa__texto">
                         <strong>{m.titulo}</strong>
                         <small>{m.arquivo ? m.artista : t('pages.musicas.so_plataformas')}</small>
@@ -238,7 +238,7 @@ export default function Musicas() {
                   <li key={f.key} className={`mu-faixa${eDaVez(f.key) ? ' is-ativa' : ''}`}>
                     <button type="button" className="mu-faixa__tocar" onClick={() => tocar(f.key)} aria-label={`${t('pages.musicas.tocar')} ${f.titulo}`}>
                       <span className="mu-faixa__num" aria-hidden="true">{tocandoEsta(f.key) ? <Equalizador ativo /> : <><b>{i + 1}</b><i>▶</i></>}</span>
-                      <img className="mu-faixa__capa" src={capaDaFaixa(f.key)} alt="" width="48" height="48" loading="lazy" decoding="async" />
+                      <img className="mu-faixa__capa" src={capaDaFaixa(f.key)} alt="" width="48" height="72" loading="lazy" decoding="async" />
                       <span className="mu-faixa__texto">
                         <strong>{f.titulo}</strong>
                         <small>{t('pages.musicas.radio_titulo')}</small>
@@ -250,7 +250,7 @@ export default function Musicas() {
                   <li key={f.key} className="mu-faixa is-travada">
                     <Link to="/assinar" className="mu-faixa__tocar">
                       <span className="mu-faixa__num" aria-hidden="true">🔒</span>
-                      <img className="mu-faixa__capa" src={capaDaFaixa(f.key)} alt="" width="48" height="48" loading="lazy" decoding="async" />
+                      <img className="mu-faixa__capa" src={capaDaFaixa(f.key)} alt="" width="48" height="72" loading="lazy" decoding="async" />
                       <span className="mu-faixa__texto">
                         <strong>{f.titulo}</strong>
                         <small>{t('pages.musicas.trava_libera', { data: dataCurta(travaDe(f.key)?.liberaEm || '2099-01-01', locale) })}</small>

@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1794082995.763044,
-    "ast_hash": "20b3dcc2169b11631e7b236f271bf191",
+    "mtime": 1794084528.7637787,
+    "ast_hash": "f50e493bb0b63e381d0bb10f3a6b78d1",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1794082995.8828804,
-    "ast_hash": "1ea3f5319b61843776a85e29ba9d664e",
+    "mtime": 1794084548.635533,
+    "ast_hash": "1d126d9c1dea7832ba6a6bc06a893bcf",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7805,8 +7805,8 @@
     "semantic_hash": ""
   },
   "src/components/CarrosselLento/CarrosselLento.jsx": {
-    "mtime": 1792427165.3587308,
-    "ast_hash": "bbe5c01bd97dd8bd8f0f2c883d6fe98f",
+    "mtime": 1794084448.9414046,
+    "ast_hash": "8219855a891b2d2f1dfab049f9b38986",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/fundos.js": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1794083120.2719352,
+    "mtime": 1794084600.424296,
     "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },

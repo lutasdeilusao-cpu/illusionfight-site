@@ -1,5 +1,5 @@
 // Capa de cada música e de cada faixa da Rádio Nina: src/assets/images/music/capas/<nome>.webp.
-// Toda versão tem capa própria (geradas por LAB-NVIDIA/capas_musicas.py):
+// Toda versão tem capa própria, em retrato 2:3 (formato de card):
 // - música do catálogo: <id>.webp (a "Tudo que vejo é freeze" do catálogo usa freeze.webp);
 // - faixa só da rádio: o nome do arquivo em slug; se o slug for igual ao id de
 //   uma música do catálogo (outra versão, mesmo nome), usa <slug>-radio.webp.

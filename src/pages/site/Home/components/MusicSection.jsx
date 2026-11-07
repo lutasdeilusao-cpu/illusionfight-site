@@ -33,17 +33,17 @@ export default function MusicSection() {
               <div key={`${m.id}-${i}`} className="music-item">
                 {m.arquivo && travaDe(m.arquivo) ? (
                   <Link to="/musicas" className="music-circle is-travada" aria-label={`🔒 ${m.titulo}`}>
-                    <img src={m._img} alt="" width="300" height="300" loading="lazy" decoding="async" />
+                    <img src={m._img} alt="" width="300" height="450" loading="lazy" decoding="async" />
                     <span className="music-circle__play" aria-hidden="true">🔒</span>
                   </Link>
                 ) : m.arquivo ? (
                   <button type="button" className={`music-circle${faixaAtual?.key === m.arquivo ? ' is-ativa' : ''}`} onClick={() => tocar(m)} aria-label={`${t('pages.musicas.tocar')} ${m.titulo}`}>
-                    <img src={m._img} alt="" width="300" height="300" loading="lazy" decoding="async" />
+                    <img src={m._img} alt="" width="300" height="450" loading="lazy" decoding="async" />
                     <span className="music-circle__play" aria-hidden="true">{tocandoEsta(m.arquivo) ? '⏸' : '▶'}</span>
                   </button>
                 ) : (
                   <Link to="/musicas" className="music-circle" aria-label={m.titulo}>
-                    <img src={m._img} alt="" width="300" height="300" loading="lazy" decoding="async" />
+                    <img src={m._img} alt="" width="300" height="450" loading="lazy" decoding="async" />
                   </Link>
                 )}
                 <p className="music-title">{m.titulo}</p>

@@ -14,6 +14,11 @@ import logoGanguesEs from './Gangues/assets/logos/logo-es.png'
 import trinca from './Gangues/assets/personagens/trinca/corpo-frente.webp'
 import navalha from './Gangues/assets/personagens/navalha/corpo-frente.webp'
 import marreta from './Gangues/assets/personagens/marreta/corpo-frente.webp'
+import arteTrunfo from '../../assets/images/games/supertrunfo.webp'
+import arteLendas from '../../assets/images/games/lendas.webp'
+import proximoTama from '../../assets/images/games/proximo-tama.webp'
+import proximoJack from '../../assets/images/games/proximo-jack.webp'
+import proximoTatics from '../../assets/images/games/proximo-tatics.webp'
 import './Games.css'
 
 // Área de jogos da Temporada 1: os três jogos do lançamento em destaque, com
@@ -22,7 +27,6 @@ import './Games.css'
 const LOGO_GANGUES = { pt: logoGanguesPt, en: logoGanguesEn, es: logoGanguesEs }
 const LUTADORES = [navalha, trinca, marreta]
 const CARTAS = [4, 9, 14]
-const NOTAS_LUTA = ['👊', '🦶', '✋', '💨']
 
 // Os três jogos da T1.
 const VITRINE = ['gangues', 'ldi', 'toptrumps']
@@ -46,7 +50,7 @@ const FORA = [
   { id: 'stabilizer_rafael', nomeKey: 'site.games.nomes.stabilizer_rafael', rota: '/games/stabilizer-rafael' },
 ]
 
-const PROXIMOS = ['tama', 'jack', 'tatics']
+const PROXIMOS = [{ id: 'tama', arte: proximoTama }, { id: 'jack', arte: proximoJack }, { id: 'tatics', arte: proximoTatics }]
 
 export default function Games() {
   const { t, locale } = useLanguage()
@@ -94,9 +98,7 @@ export default function Games() {
         </a>
 
         <a href={ROTA.ldi} className="games-card games-card--lendas" onClick={jogar('ldi')}>
-          <div className="games-card__ritmo" aria-hidden="true">
-            {NOTAS_LUTA.map((icone, i) => <span key={i} className={`games-card__nota games-card__nota--${i}`}>{icone}</span>)}
-          </div>
+          <img className="games-card__fundo" src={arteLendas} alt="" loading="lazy" decoding="async" width="1024" height="1536" />
           <div className="games-card__info">
             <span className="games-card__nome">{t(NOME.ldi)}</span>
             <p>{t('site.games.vitrine.lendas')}</p>
@@ -108,6 +110,7 @@ export default function Games() {
         </a>
 
         <a href={ROTA.toptrumps} className="games-card games-card--trunfo" onClick={jogar('toptrumps')}>
+          <img className="games-card__fundo" src={arteTrunfo} alt="" loading="lazy" decoding="async" width="1024" height="1536" />
           <div className="games-card__leque" aria-hidden="true">
             {CARTAS.map(id => <img key={id} src={getTopTrumpsCardImage(id)} alt="" loading="lazy" decoding="async" />)}
           </div>
@@ -122,7 +125,7 @@ export default function Games() {
         <section className="games-proximos">
           <p className="if-eyebrow">{t('site.games.vitrine.proximos_eyebrow')}</p>
           <h2>{t('site.games.vitrine.proximos_titulo')}</h2>
-          <ul>{PROXIMOS.map(id => <li key={id}>{t(`calendar.game_${id}`)}</li>)}</ul>
+          <ul>{PROXIMOS.map(p => <li key={p.id}><img src={p.arte} alt="" loading="lazy" decoding="async" width="320" height="480" /><span>{t(`calendar.game_${p.id}`)}</span></li>)}</ul>
           <Link to="/calendario" className="games-proximos__link">{t('site.games.vitrine.ver_calendario')} →</Link>
         </section>
         {veEmAndamento && (

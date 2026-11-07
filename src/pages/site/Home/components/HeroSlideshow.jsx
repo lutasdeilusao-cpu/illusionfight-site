@@ -17,19 +17,16 @@ const LOGO = { pt: logoPt, en: logoEn, es: logoEs }
 const DIA = 86400000
 const ARRASTE_MIN = 45
 
-/* Abertura da Home — banner rotativo (Isaias, 30/09/2026: "o slideshow tem
-   que manter... faz ele novo, faz melhor"). Cada slide casa a arte com o
-   texto pelo CONTEÚDO da imagem: Kim sozinho na calçada da loja de doces =
-   livro ("vende bala"), trio em pose = WEB SHARD, fliperama = jogos, banda =
-   músicas, trio no tablet = loja/apoio. O tempo de cada slide mora no CSS
-   (animação da barrinha do topo, --hero-tempo): quando ela termina, o slide
-   avança — segurar o dedo pausa a barrinha e, com ela, a troca. */
+/* Banner rotativo da Home. Cada arte mostra a área do link: livro, quadrinhos,
+   jogos, músicas e apoio. O tempo de cada slide mora no CSS (animação da
+   barrinha do topo, --hero-tempo): quando ela termina, o slide avança —
+   segurar o dedo pausa a barrinha e, com ela, a troca. */
 const SLIDES = [
-  { key: 'slide1', arte: banner01, w: 960, h: 1440, foco: 'kim', link1: '/historias/lutas-de-ilusao', link2: '/universos/lutas-de-ilusao' },
-  { key: 'slide2', arte: banner02, w: 941, h: 1672, foco: 'trio', link1: '/webtoon', link2: null },
-  { key: 'slide3', arte: banner03, w: 941, h: 1672, foco: 'arcade', link1: '/games', link2: null },
-  { key: 'slide4', arte: banner04, w: 940, h: 1672, foco: 'banda', link1: '/musicas', link2: null },
-  { key: 'slide5', arte: banner05, w: 960, h: 1440, foco: 'tablet', link1: '/loja', link2: '/assinar' },
+  { key: 'slide1', arte: banner01, w: 1024, h: 1536, foco: 'kim', link1: '/historias/lutas-de-ilusao', link2: '/universos/lutas-de-ilusao' },
+  { key: 'slide2', arte: banner02, w: 1024, h: 1536, foco: 'trio', link1: '/webtoon', link2: null },
+  { key: 'slide3', arte: banner03, w: 1024, h: 1536, foco: 'arcade', link1: '/games', link2: null },
+  { key: 'slide4', arte: banner04, w: 1024, h: 1536, foco: 'banda', link1: '/musicas', link2: null },
+  { key: 'slide5', arte: banner05, w: 1024, h: 1536, foco: 'apoio', link1: '/assinar', link2: null },
 ]
 const TOTAL = SLIDES.length
 
