@@ -212,13 +212,142 @@ Cada short pode ter duas versões: **sem fala** (padrão) e **com fala**, em que
 
 **Preferência de voz:** vozes em inglês falando português costumam soar mais limpas que as vozes brasileiras da biblioteca, que em geral são mal gravadas. Um sotaque leve não é problema.
 
-Roteiro do Short 01 (`_gerador/voz/01/voz_01.txt`):
+#### Vozes oficiais: busca exata no ElevenLabs
+
+Use estes nomes **exatamente assim** no `el_voz.cjs` (`node el_voz.cjs "<busca>" "<nome exato>"`). O travessão é `–` (meia-risca), não hífen.
+
+| Personagem | Busca | Nome exato da voz | Status |
+|---|---|---|---|
+| Kim | `Aaditya` | Aaditya – Dramatic TV Narrator | Oficial (Isaias) |
+| Jack | `Elio Youthful` | Elio – Youthful & Warm International Voice | Oficial (Isaias) |
+| Helena | `Ana Alice` | Ana Alice – Friendly & Clear | Oficial, 04/11/2026 |
+| Pajé | `Grandfather Joe` | Grandfather Joe – Gentle, warm & wise | Oficial, 04/11/2026 |
+| Osvaldo | `Spuds Oxley` | Spuds Oxley – Grandpa | Oficial, 04/11/2026 (ainda não usado em short) |
+| Fred | `Lax` | Lax – Funny, Sarcastic and Smooth | Usada no Short 12 |
+| Brock | `Dontae` | Dontae Brown | Usada no Short 12 |
+| Professor máquina | `Cliff` | Cliff – Warm, Authoritative Narrator | Usada no Short 12 |
+| Senhora (figurante) | `Lucinda` | Lucinda – Earthy and Wise | Usada no Short 11 |
+
+Antes de gerar, confira no painel a **voz**, o modelo **Eleven v4** e o idioma **Portuguese**.
+
+#### Elenco de cada short (o que já foi dublado)
+
+| Short | Quem fala | Arquivos (`_gerador\voz\NN\`) | Roteiro (`C:\webshard_refs\shorts\voz\`) |
+|---|---|---|---|
+| 01 A Primeira Corrente | Kim | `fala1–4.wav` | `_gerador\voz\01\voz_01.txt` |
+| 02 Só Um Braço | Kim | `kim1–4.wav` | `kim_02.txt` |
+| 03 Que Porra É Essa | Kim (12), Jack (1) | `kim1–12`, `jack1` | `kim_03.txt` / `kim_03_livre.txt`, `jack_todos.txt` |
+| 04 Não Há Regras | Kim | `kim1–7` | `kim_04.txt` |
+| 05 Era Só Um Sonho | Kim, Jack, Helena | `kim1–4`, `jack2–7`, `helena1` | `kim_05.txt`, `jack_todos.txt`, `mae_05.txt` |
+| 06 Morra Jack | Kim, Jack | `kim1`, `jack1` | `kim_06.txt`, `jack_todos.txt` |
+| 07 Você Não É o Escolhido | Pajé (11), Kim | `p<pág>_paje<n>`, `p8_kim1` | `cap2_paje.txt`, `cap2_kim.txt` |
+| 08 O Despertador | Pajé (14), Kim (8) | `p<pág>_paje<n>`, `p<pág>_kim<n>` | idem |
+| 09 A Medusa Acordou | Kim, Helena | `p33–36_*` | `cap2_kim.txt`, `cap2_helena.txt` |
+| 10 Até os 18 | Helena (10), Kim (9) | `p38–43_*` | idem |
+| 11 A Análise do Kim | Kim, Jack, Senhora | `p52–53_*` | `c11_kim.txt`, `c11_jack.txt`, `c11_senhora.txt` |
+| 12 Quem É Essa Garota | Kim, Jack, Fred, Brock, Professor | `p57–61_*` | `c12_*.txt` |
+
+Nome do arquivo de fala: `p<página>_<personagem><n>.wav`. O número da página diz onde a fala entra, e o `n` é a ordem da fala desse personagem no capítulo. Os shorts 01–06 usam o formato antigo, sem página.
+
+#### Como dirigir cada personagem: exemplos reais que funcionaram
+
+A tag vai **em inglês, entre colchetes, antes da frase**. Use 2 ou 3 palavras: emoção + jeito de falar + ação física, se tiver. Uma emoção por frase. CAIXA ALTA marca a palavra que leva o soco, e reticências dão peso e pausa.
+
+**Kim: sério, frio, sarcasmo seco.** O humor vem do conteúdo, nunca do tom.
 ```
 [exhausted, bloodied, a slow smirk] Já que é um sonho... então eu acho que não preciso pegar leve. [pause] [pause] [pause]
 [quietly, almost to himself] Faz tempo. [pause] [pause] [pause]
 [dark, determined, building] Mas eu acho que tá na hora... de libertar uma das CORRENTES. [pause] [pause] [pause]
 [low, dangerous, grinning] Minha vez. [pause]
 ```
+(Short 01. Essa fala é sozinho, em clímax; `smirk`/`grinning` só passam aqui, e nunca diante de outros.)
+```
+[serious, catching his breath, analyzing] Mudou... ficou mais forte, mais rápido... [pause] [pause] [pause]
+[cold, decided] Esse vale uma CORRENTE. [pause] [pause] [pause]
+[cold, flat, done playing] Cansei de brincar. Vou te dar um braço... pra pagar o que eu ARRANQUEI de você. [pause] [pause] [pause]
+[low, flat, menacing] Mas é só um braço... [pause]
+```
+(Short 02: ameaça fria. É o tom-padrão do Kim em luta.)
+```
+[serious, low, determined] Não importa se é sonho, game ou realidade... [pause] [pause] [pause]
+[cold, rhythmic] Velho... jovem... homem... mulher... [pause] [pause] [pause]
+[shouting, charging] OU GOSMA! [pause] [pause] [pause]
+[cold, deadpan, dodging] Sabe qual é a única regra da briga de rua? [pause] [pause] [pause]
+[roaring] NÃO HÁ REGRAS! [pause] [pause] [pause]
+[dry sarcasm, mid-punch] Espero que tenha um bom plano DENTÁRIO. [pause]
+```
+(Short 04: crescendo com uma lista ritmada, o grito na virada e a piada seca no soco.)
+
+**Kim sozinho em situação absurda:** aqui ele pode soltar mais. Há duas versões do Short 03: `kim_03.txt` (tom sério, tags `serious`/`deadpan`) e `kim_03_livre.txt` (abaixo). O take aprovado (`kim_03.mp3`) foi gerado logo depois da versão livre, então provavelmente é ela. O Isaias aprovou esse tom mais solto para o Kim sozinho:
+```
+[panicked, falling, shouting] QUE PORRA É ESSA? [pause] [pause] [pause]
+[breathing hard, to himself] Aquieta, coração. [pause] [pause] [pause]
+[calming down, certain] Com toda a certeza... isso é um sonho. [pause] [pause] [pause]
+[through gritted teeth] Cabeça de musgo. [pause] [pause] [pause]
+[furious, shouting] EU VOU MATAR ESSE CARA! [pause] [pause] [pause]
+[confused, sarcastic] Eita, tá brotando petróleo do c...
+```
+Outros registros do Kim que funcionaram: `[polite, calm, serious]` com a senhora no ônibus, `[quiet, analytical, deadpan, whispering to his friend]` nas análises, `[exhausted, flat]` e `[furious scream]` no fim do cap. 1, e `[annoyed, flat]` / `[dry, bored, thinking]` na escola.
+
+**Jack: teatral, animado, debochado, leve.**
+```
+[excited, filming with his phone] Isso vai ficar demais no meu perfil na PowWow! [pause] [pause] [pause]
+[cheerful, sing-song, getting closer] Kim... Kim... Kim... [pause] [pause] [pause]
+[laughing, happy] Sorria para a selfie, meu mano! [pause] [pause] [pause]
+[sheepish, apologetic] Hum... desculpa, Kim, estamos ficando sem tempo. [pause] [pause] [pause]
+[teasing, signature line] E como eu sempre digo: você deveria começar a jogar Lutas de Ilusões. [pause]
+```
+Também: `[playful, whispering, betting]` e `[impressed, laughing softly]` (Short 11). "PowWow" saiu errado; o retake usou `Pau-Uau` (`jack_01b.txt`).
+
+**Helena tem dois modos.**
+- Mãe brava gritando de outro cômodo (Short 05): `[angry mother, shouting from another room] VAI DORMIR, CRIA DO DIABO! [pause]`
+- De ressaca, rude (cap. 2):
+```
+[hungover, raspy, cold] Kim. [pause] [pause] [pause]
+[hungover, rude] Foda-se o café, manda um dix agora. [pause] [pause] [pause]
+[angry, hungover, shouting] Cadê, cadê, caralho? Manda logo a minha grana, porra! [pause] [pause] [pause]
+[angry, mocking] O que é isso? Auditoria? [pause] [pause] [pause]
+[furious, screaming, pointing] Ô, demônio! ...
+```
+
+**Pajé: místico que vira malandro.** O contraste é a graça.
+```
+[mysterious, warm, old wise shaman] Acorda, parça... porque sua vida tá prestes a dar um giro de trezentos e sessenta graus! [pause] [pause] [pause]
+[outraged, shouting, old man] Você é bem metidinho a espertinho, né, Caralho! [pause] [pause] [pause]
+[hesitant, trying to be polite] É o seguinte... sem ofensa, não leva pro coração! [pause] [pause] [pause]
+[casual, a bit mocking] Muito menos o mais preparado... [pause] [pause] [pause]
+[laid back, street slang] Se não é o cara certo pra isso, tá ligado... [pause]
+```
+Número escrito por extenso ("trezentos e sessenta") para a voz não ler errado.
+
+**Figurantes e coadjuvantes (Short 11 e 12):**
+```
+Senhora (Lucinda):  [sweet, kind old lady, smiling] Ai, meu jovem, não precisa não, mas obrigada por perguntar. Me dá dois pacotes, por favor.
+Fred (Lax):         [impatient, angry, whispering] Mas eles estão bem aqui— / [frustrated, impatient] Eu não aguento esperar.
+Brock (Dontae):     [calm, cold, deep voice] Espera a terceira aula. / [firm, cold] Terceira aula.
+Professor (Cliff):  [robotic, synthetic teacher voice, neutral] Vamos iniciar a aula de hoje.
+```
+
+#### Frase de contexto no fim do take (obrigatória em take curto)
+
+Todo roteiro de personagem termina com **uma frase extra em português, com a tag `Brazilian Portuguese`**, que é **descartada no corte**. Ela segura o sotaque das falas curtas. Exemplos usados: `[calm, Brazilian Portuguese] Mais uma terça-feira normal nesse ônibus. [pause]`, `[cheerful, Brazilian Portuguese] Bora, que hoje o dia vai ser bom demais. [pause]`, `[breathing hard, Brazilian Portuguese] Eu juro que dessa vez você não escapa, cabeça de musgo. [pause]`. No corte, peça **N+1 falas** e jogue fora a última.
+
+#### Tags que funcionam (biblioteca)
+
+| Quero… | Tags |
+|---|---|
+| Ameaça fria | `cold, flat, menacing` · `low, dangerous` · `cold, decided` |
+| Sarcasmo seco | `deadpan, dry sarcasm` · `dry, bored` · `dry, annoyed` |
+| Grito | `furious, shouting` · `roaring` · `furious scream` · `screaming, fed up` |
+| Pânico | `panicked, falling, shouting` · `breathing hard, to himself` |
+| Cansaço/ferido | `exhausted, bloodied` · `catching his breath` · `exhausted, flat` |
+| Pensando/analisando | `serious, suspicious, thinking` · `quiet, analytical` · `whispering to his friend` |
+| Alegre/brincalhão | `excited` · `cheerful, sing-song` · `laughing, happy` · `playful, teasing` |
+| Sem graça | `sheepish, apologetic` · `hesitant, embarrassed` |
+| Idoso | `old wise shaman` · `old man` · `sweet, kind old lady` |
+| Voz de máquina | `robotic, synthetic teacher voice, neutral` |
+
+**Ação física na tag ajuda a entonação:** `mid-punch`, `dodging`, `charging`, `throwing`, `pointing`, `filming with his phone`, `walking`, `falling`.
 
 **Pronúncia e sotaque (aprendido na prática):**
 - **Frase curta e solta sai com sotaque errado** (ex.: "MORRA JACK" saiu espanhol), porque o idioma está em Auto e falta contexto. Coloque **uma frase extra em português depois** no mesmo take (`[pause]` triplo entre elas) e descarte essa frase no corte.
