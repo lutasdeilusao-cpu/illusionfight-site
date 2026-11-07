@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
@@ -6,6 +6,7 @@ import { useScrollReveal } from '../../../hooks/useScrollReveal'
 import HeroSlideshow from './components/HeroSlideshow'
 import { PraVoce } from '../../../components/Recomendacoes/Recomendacoes'
 import LatestEpisodes from './components/LatestEpisodes'
+import EscolhaCaminho from './components/EscolhaCaminho'
 import DeferredSection from '../../../components/DeferredSection'
 import './Home.css'
 
@@ -14,28 +15,51 @@ const HomeHistorias = lazy(() => import('./components/HomeHistorias'))
 const MusicSection = lazy(() => import('./components/MusicSection'))
 const NowLive = lazy(() => import('./components/NowLive'))
 
+const DESKTOP = '(min-width: 900px)'
+
+function useDesktop() {
+  const [desktop, setDesktop] = useState(() => typeof window !== 'undefined' && window.matchMedia(DESKTOP).matches)
+  useEffect(() => {
+    const mq = window.matchMedia(DESKTOP)
+    const mudou = () => setDesktop(mq.matches)
+    mq.addEventListener('change', mudou)
+    return () => mq.removeEventListener('change', mudou)
+  }, [])
+  return desktop
+}
+
 export default function Home() {
   const newsletterRef = useScrollReveal()
   const { t, locale } = useLanguage()
   const ogLocale = locale === 'en' ? 'en_US' : locale === 'es' ? 'es_ES' : 'pt_BR'
+  const desktop = useDesktop()
+
+  const meta = (
+    <Helmet>
+      <title>{t('home.meta_title')}</title>
+      <meta name="description" content={t('home.meta_description')} />
+      <meta property="og:title" content={t('home.meta_title')} />
+      <meta property="og:description" content={t('home.og_description')} />
+      <meta property="og:url" content="https://illusionfight.com/" />
+      <meta property="og:image" content="https://illusionfight.com/og/home.jpg" />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content={ogLocale} />
+    </Helmet>
+  )
+
+  // Celular: a inicial é só a escolha de caminho (4 cards).
+  if (!desktop) {
+    return (
+      <div className="home-page home-page--caminho">
+        {meta}
+        <EscolhaCaminho />
+      </div>
+    )
+  }
 
   return (
     <div className="home-page">
-      <Helmet>
-        <title>{t('home.meta_title')}</title>
-        <meta name="description" content={t('home.meta_description')} />
-        <meta property="og:title" content={t('home.meta_title')} />
-        <meta property="og:description" content={t('home.og_description')} />
-        <meta property="og:url" content="https://illusionfight.com/" />
-        <meta property="og:image" content="https://illusionfight.com/og/home.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content={ogLocale} />
-      </Helmet>
-      {/* Home redesenhada (v10.314.0, Isaias 30/09/2026: "a porta de entrada tem
-          que ser épica"). A abertura continua sendo o banner rotativo de 5 artes
-          (Isaias: "tem que manter o banner") → os 2 jogos com arte (Gangues, Super
-          Trunfo) → Histórias (capa oficial dos Contos + capítulos liberados) →
-          WEB SHARD (só capítulo que existe) → músicas → apoio → redes. */}
+      {meta}
       <HeroSlideshow />
       {/* Quem volta: continuar de onde parou, porque você leu X, novidades. */}
       <PraVoce />

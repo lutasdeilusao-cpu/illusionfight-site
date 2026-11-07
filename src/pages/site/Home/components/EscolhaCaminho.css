@@ -1,0 +1,139 @@
+.caminho {
+  display: flex;
+  flex-direction: column;
+  height: calc(100svh - 64px);
+  padding: 12px 0 14px;
+  gap: 10px;
+}
+
+.caminho__topo {
+  padding: 0 16px;
+}
+
+.caminho__eyebrow {
+  font: 700 .55rem var(--font-mono);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+}
+
+.caminho__titulo {
+  margin: 4px 0 0;
+  font: 700 1.6rem/1.1 var(--font-display);
+  text-transform: uppercase;
+  color: var(--if-ink);
+}
+
+.caminho__trilho {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.caminho__trilho::-webkit-scrollbar {
+  display: none;
+}
+
+.caminho__card {
+  position: relative;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  padding: 0 16px;
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+.caminho__arte {
+  position: absolute;
+  inset: 0 16px;
+  width: calc(100% - 32px);
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+}
+
+.caminho__info {
+  position: relative;
+  align-self: flex-end;
+  width: 100%;
+  min-height: 52%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 20px 18px 18px;
+  background: linear-gradient(to top, var(--bg-primary) 40%, transparent);
+}
+
+.caminho__num {
+  font: 700 .6rem var(--font-mono);
+  letter-spacing: .18em;
+  color: var(--if-cyan);
+}
+
+.caminho__nome {
+  margin: 0;
+  font: 700 2.4rem/1 var(--font-display);
+  text-transform: uppercase;
+  color: var(--if-ink);
+}
+
+.caminho__desc {
+  margin: 0;
+  font: 400 .95rem/1.4 var(--font-body);
+  color: var(--if-ink);
+  opacity: .85;
+}
+
+.caminho__cta {
+  margin-top: 8px;
+  align-self: stretch;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 1rem var(--font-display);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: var(--if-amber);
+  color: var(--bg-primary);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+
+.caminho__pontos {
+  display: flex;
+  gap: 6px;
+  padding: 0 16px;
+}
+
+.caminho__ponto {
+  flex: 1;
+  min-height: 44px;
+  border: 1px solid var(--if-cyan-20);
+  background: transparent;
+  color: var(--if-cyan-58);
+  font: 700 .6rem var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.caminho__ponto.is-ativo {
+  color: var(--if-ink);
+  border-color: var(--if-cyan);
+  box-shadow: inset 0 -2px var(--if-cyan);
+}
+
+/* Aviso de cookies aberto: a escolha cabe acima dele. */
+html.ldi-cookie-on .caminho {
+  height: calc(100svh - 64px - 170px);
+}
+
+html.ldi-cookie-on .caminho__desc {
+  display: none;
+}

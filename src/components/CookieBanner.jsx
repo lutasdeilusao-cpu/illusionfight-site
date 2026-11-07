@@ -12,6 +12,12 @@ export default function CookieBanner() {
     if (!accepted) setVisible(true)
   }, [])
 
+  // Avisa as telas de altura fixa (inicial do celular) que o aviso ocupa o rodapé.
+  useEffect(() => {
+    document.documentElement.classList.toggle('ldi-cookie-on', visible)
+    return () => document.documentElement.classList.remove('ldi-cookie-on')
+  }, [visible])
+
   const handleAccept = () => {
     localStorage.setItem('ldi-cookies-accepted', 'true')
     updateAnalyticsConsent(true)

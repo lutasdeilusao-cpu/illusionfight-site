@@ -3,7 +3,7 @@
     "compartilhar": "Share this page",
     "link_copiado": "Link copied!",
     "links": {
-      "webtoon": "WEB SHARD",
+      "webtoon": "Comics",
       "historias": "Stories",
       "musicas": "Music",
       "games": "Games",
@@ -120,7 +120,7 @@
       {
         "title": "Navigation",
         "links": [
-          "WEB SHARD",
+          "Comics",
           "Stories",
           "Music",
           "World"
@@ -735,7 +735,7 @@
       "aviso_fechamento": "Enjoy them now: the short stories stay open until October 31. On November 1 the portal closes to get ready for the launch, now set for 2027, and they come back little by little, subscribers first."
     },
     "webtoon": {
-      "titulo": "WEB SHARD",
+      "titulo": "Comics",
       "meta_title": "WEB SHARD — Read Illusion Fight Free Online",
       "meta_desc": "Read Illusion Fight online for free — the first title in WEB SHARD, the vertical web comic and manga format in composite pages.",
       "seo_intro": "Illusion Fight is the first title in WEB SHARD, the new vertical web comic and manga format in composite pages, published free in episodes right here on the site. If you're into manga, manhwa or other action webcomics, you'll recognize the pacing — this time with an all-Brazilian cast and universe.",
@@ -1125,8 +1125,8 @@
       "cta": "Read Illusion Fight now"
     },
     "hub": {
-      "eyebrow": "WEB SHARD",
-      "titulo": "WEB SHARD",
+      "eyebrow": "Comics",
+      "titulo": "Comics",
       "subtitulo": "Vertical comics in composed pages, made for reading on your phone. Free, right here.",
       "destaque": "Featured",
       "ler_agora": "Start reading",
@@ -1161,7 +1161,7 @@
     },
     "titulo": {
       "meta_title": "{nome} — WEB SHARD | Illusion Fight",
-      "voltar": "‹ WEB SHARD",
+      "voltar": "‹ Comics",
       "comecar": "Read chapter {n}",
       "continuar": "Continue ch. {n}",
       "capitulos": "Chapters",
@@ -1279,7 +1279,7 @@
     "finale": "Season 2 begins",
     "channels_label": "Calendar channels",
     "channel_chapters": "Chapters",
-    "channel_webtoon": "WEB SHARD",
+    "channel_webtoon": "Comics",
     "channel_games": "Games",
     "channel_music": "Music",
     "channel_partners": "Partners",
@@ -1355,7 +1355,7 @@
   },
   "home": {
     "section_latest": "New releases",
-    "section_webtoon": "WEB SHARD",
+    "section_webtoon": "Comics",
     "section_webtoon_hint": "New episodes and releases",
     "section_worlds": "Worlds",
     "section_characters": "Featured characters",
@@ -1393,6 +1393,27 @@
       "caps": "{n} ch.",
       "livro_titulo": "Illusion Fight — main story",
       "historias_todas": "All stories"
+    },
+    "caminho": {
+      "eyebrow": "Illusion Fight",
+      "titulo": "Choose your path",
+      "entrar": "Enter",
+      "quadrinhos": {
+        "nome": "Comics",
+        "desc": "Read free, chapter by chapter, made for your phone screen."
+      },
+      "jogos": {
+        "nome": "Games",
+        "desc": "Play free in your browser: gang fights, cards and more."
+      },
+      "historias": {
+        "nome": "Stories",
+        "desc": "The book and short stories of the universe, wherever you are."
+      },
+      "musicas": {
+        "nome": "Music",
+        "desc": "Songs by Kim, Jack and Nina's band on Radio Nina."
+      }
     }
   },
   "hero": {
@@ -1414,7 +1435,7 @@
       "cta2": "Learn more"
     },
     "slide2": {
-      "tag": "WEB SHARD",
+      "tag": "Comics",
       "titulo": "A picture is worth a thousand words.",
       "subtitulo": "Monthly release here on the portal — one week ahead of any other platform. Early access for those who arrived first.",
       "cta1": "Read episode"

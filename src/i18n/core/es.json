@@ -3,7 +3,7 @@
     "compartilhar": "Compartir esta página",
     "link_copiado": "¡Enlace copiado!",
     "links": {
-      "webtoon": "WEB SHARD",
+      "webtoon": "Cómics",
       "historias": "Historias",
       "musicas": "Música",
       "games": "Games",
@@ -120,7 +120,7 @@
       {
         "title": "Navegación",
         "links": [
-          "WEB SHARD",
+          "Cómics",
           "Historias",
           "Músicas",
           "Mundo"
@@ -735,7 +735,7 @@
       "aviso_fechamento": "Aprovecha: los cuentos quedan abiertos hasta el 31 de octubre. El 1 de noviembre el portal cierra para preparar el lanzamiento, que queda para 2027, y vuelven poco a poco, primero para quien está suscrito."
     },
     "webtoon": {
-      "titulo": "WEB SHARD",
+      "titulo": "Cómics",
       "meta_title": "WEB SHARD — Lee Lutas de Ilusão Online Gratis | Illusion Fight",
       "meta_desc": "Lee Lutas de Ilusão online y gratis — la primera obra en WEB SHARD, el formato de web cómic y manga vertical en páginas compuestas.",
       "seo_intro": "Lutas de Ilusão es la primera obra en WEB SHARD, el nuevo formato de web cómic y manga vertical en páginas compuestas, publicado gratis en capítulos aquí mismo en el sitio. Si te gustan el manga, el manhwa u otros webcomics de acción, vas a reconocer el ritmo — pero con un universo y un elenco 100% brasileños.",
@@ -1125,8 +1125,8 @@
       "cta": "Leer Lutas de Ilusão ahora"
     },
     "hub": {
-      "eyebrow": "WEB SHARD",
-      "titulo": "WEB SHARD",
+      "eyebrow": "Cómics",
+      "titulo": "Cómics",
       "subtitulo": "Cómics verticales en páginas compuestas, hechos para leer en el celular. Gratis, aquí mismo.",
       "destaque": "Destacado",
       "ler_agora": "Empezar a leer",
@@ -1161,7 +1161,7 @@
     },
     "titulo": {
       "meta_title": "{nome} — WEB SHARD | Illusion Fight",
-      "voltar": "‹ WEB SHARD",
+      "voltar": "‹ Cómics",
       "comecar": "Leer el capítulo {n}",
       "continuar": "Seguir el cap. {n}",
       "capitulos": "Capítulos",
@@ -1279,7 +1279,7 @@
     "finale": "Empieza la Temporada 2",
     "channels_label": "Canales del calendario",
     "channel_chapters": "Capítulos",
-    "channel_webtoon": "WEB SHARD",
+    "channel_webtoon": "Cómics",
     "channel_games": "Games",
     "channel_music": "Música",
     "channel_partners": "Socios",
@@ -1355,7 +1355,7 @@
   },
   "home": {
     "section_latest": "Lanzamientos",
-    "section_webtoon": "WEB SHARD",
+    "section_webtoon": "Cómics",
     "section_webtoon_hint": "Nuevos episodios y lanzamientos",
     "section_worlds": "Mundos",
     "section_characters": "Personajes destacados",
@@ -1393,6 +1393,27 @@
       "caps": "{n} caps.",
       "livro_titulo": "Lucha de Ilusión — historia principal",
       "historias_todas": "Todas las historias"
+    },
+    "caminho": {
+      "eyebrow": "Lutas de Ilusão",
+      "titulo": "Elige tu camino",
+      "entrar": "Entrar",
+      "quadrinhos": {
+        "nome": "Cómics",
+        "desc": "Lee gratis, capítulo por capítulo, hecho para la pantalla del celular."
+      },
+      "jogos": {
+        "nome": "Juegos",
+        "desc": "Juega gratis en el navegador: peleas de pandillas, cartas y más."
+      },
+      "historias": {
+        "nome": "Historias",
+        "desc": "El libro y los cuentos del universo, para leer donde estés."
+      },
+      "musicas": {
+        "nome": "Música",
+        "desc": "Las canciones de la banda de Kim, Jack y Nina en Radio Nina."
+      }
     }
   },
   "hero": {
@@ -1414,7 +1435,7 @@
       "cta2": "Saber más"
     },
     "slide2": {
-      "tag": "WEB SHARD",
+      "tag": "Cómics",
       "titulo": "Una imagen vale más que mil palabras.",
       "subtitulo": "Lanzamiento mensual aquí en el portal — una semana antes que en cualquier otra plataforma. Acceso anticipado para quienes llegaron primero.",
       "cta1": "Leer episodio"
