@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1793893673.203977,
-    "ast_hash": "87f12f6c92a398bc537cbfa9241a227e",
+    "mtime": 1793903166.2970848,
+    "ast_hash": "4050344758a2a834146a092285a4ac0b",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1793828708.4989488,
-    "ast_hash": "1148dd22f2c29d796c19ac67103df71f",
+    "mtime": 1793896974.920484,
+    "ast_hash": "0e51dde8a57549106c3bd965ecf0a848",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1793893673.235021,
-    "ast_hash": "311cc4986e5048932933589880696561",
+    "mtime": 1793903166.3505154,
+    "ast_hash": "d03075a5ca946819ee3a60865264e814",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9940,8 +9940,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1793893741.634369,
-    "ast_hash": "007741d720847e13a0aefa0aea3b0295",
+    "mtime": 1793903214.8107605,
+    "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesPerseguidor.jsx": {
@@ -10445,8 +10445,8 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/LDI_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1793673217.7131748,
-    "ast_hash": "9911dc91db3007f3f873781c6a6f109f",
+    "mtime": 1793902385.3645816,
+    "ast_hash": "e5f2fb8416a0f0c49953e2f1a8796e11",
     "semantic_hash": ""
   },
   "docs/WEBSHARD/MANDAMENTOS_WEBSHARD.md": {
@@ -10465,13 +10465,13 @@
     "semantic_hash": ""
   },
   "docs/WEBSHARD/FERRAMENTAS_AUTOMACAO.md": {
-    "mtime": 1793892475.0991368,
-    "ast_hash": "5c21a649cf4ef4dcc9fb5314d0500cef",
+    "mtime": 1794009738.230196,
+    "ast_hash": "34c73b99f5013415529bbbff80f061b5",
     "semantic_hash": ""
   },
   "docs/WEBSHARD/SHORTS_GUIA_DE_PRODUCAO.md": {
-    "mtime": 1793888359.4771204,
-    "ast_hash": "92543f512b5b2b266ea0c1b09e4a1413",
+    "mtime": 1794021084.8923151,
+    "ast_hash": "aba8154de423db0f9729ecd1bff4fd6a",
     "semantic_hash": ""
   }
 }

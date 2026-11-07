@@ -58,9 +58,6 @@ export default function Perfil() {
 
   return (
     <section className="perfil-page">
-      <div className="perfil-acoes">
-        <button className="if-btn perfil-logout" onClick={logout}>{t('site.perfil.sair')}</button>
-      </div>
 
       {/* Header fixo */}
       <div className="perfil-header">
@@ -119,6 +116,9 @@ export default function Perfil() {
             </div>
           )
         })}
+      </div>
+      <div className="perfil-acoes">
+        <button className="if-btn perfil-logout" onClick={logout}>{t('site.perfil.sair')}</button>
       </div>
     </section>
   )

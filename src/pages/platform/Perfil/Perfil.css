@@ -694,7 +694,7 @@
 .perfil-acoes {
   display: flex;
   justify-content: center;
-  margin: 0 0 0.75rem;
+  margin: 1.5rem 0 0;
   position: relative;
   z-index: 1;
 }

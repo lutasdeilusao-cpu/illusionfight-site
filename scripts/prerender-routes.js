@@ -358,7 +358,7 @@ function pageHtml(baseHtml, route) {
   const heroImage = route.base === '' ? baseHtml.match(/<link data-home-hero-preload[^>]+href="([^"]+)"/i)?.[1] || '' : ''
   let html = baseHtml
   if (route.base !== '') html = html.replace(/\s*<link data-home-hero-preload[^>]*>/i, '')
-  html = replace(html, /<html lang="[^"]*">/i, `<html lang="${HTML_LANG[L]}">`)
+  html = replace(html, /<html lang="[^"]*"( translate="no")?>/i, `<html lang="${HTML_LANG[L]}" translate="no">`)
   html = replace(html, /<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`)
   html = replace(html, /<meta name="description" content="[^"]*">/i, `<meta name="description" content="${description}">`)
   if (route.indexable === false) html = replace(html, /<meta name="robots" content="[^"]*">/i, '<meta name="robots" content="noindex, follow">')
