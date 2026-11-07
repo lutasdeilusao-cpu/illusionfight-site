@@ -145,9 +145,9 @@ Tudo em `C:\webshard_refs\shorts\`:
 | `agendador.py` | O "cron". Pega o próximo item vencido e garante o Chrome 9222 aberto (abre com o perfil logado se estiver fechado). Posta nas **quatro redes (TikTok, YouTube, X e LinkedIn)**, uma de cada vez, com 4 tentativas por rede. Item antigo sem `x`/`linkedin` na fila ganha `pendente` sozinho. Se falhar, **chama o Claude Code** (`claude -p`) pra diagnosticar e consertar, e mostra notificação no Windows. Faz uma postagem por execução. |
 | `agendador.log` | Histórico de tudo que rodou. |
 
-**Agendador do Windows:** tarefa `ShortsLDI_Postagem`, que roda **só nos horários: 09:00, 09:05, 09:10, 09:15 e 20:15, 20:20, 20:25, 20:30** (mudado de 12h/20h em 05/11/2026: 9h e 21h rendem mais) (pythonw, sem janela). Cada execução faz uma tentativa por rede. Se a 4ª falhar, chama o Claude.
+**Agendador do Windows:** tarefa `ShortsLDI_Postagem`, que roda **só nos horários: 14:00, 14:05, 14:10, 14:15 e 20:15, 20:20, 20:25, 20:30** (histórico: 12h/20h até 05/11; 9h/21h em 06/11; **desde 07/11: 14h e 20h15**, porque 9h e 12h não renderam) (pythonw, sem janela). Cada execução faz uma tentativa por rede. Se a 4ª falhar, chama o Claude.
 
-**Vigia (`vigia.py`, tarefa `ShortsLDI_Vigia`, desde 06/11/2026):** roda **a cada 15 min a partir de 09:15 e de 20:30** (09:15, 09:30, 09:45… / 20:30, 20:45…).
+**Vigia (`vigia.py`, tarefa `ShortsLDI_Vigia`, desde 06/11/2026):** roda **a cada 15 min a partir de 14:15 e de 20:30** (14:15, 14:30… / 20:30, 20:45…).
 - Confere se o último item vencido da fila saiu nas **4 redes** (TikTok, YouTube, X e LinkedIn).
 - Se saiu, sai calado: na prática fica "desligado" até o próximo horário.
 - Se falta alguma rede, chama a publicação de novo (`agendador.main()`) **só para o que faltou**. Antes, volta o status `falhou` para `pendente`.
@@ -180,7 +180,7 @@ Tudo em `C:\webshard_refs\shorts\`:
 - Nunca deixe um `node` antigo rodando na mesma aba: dois scripts brigando pela aba travam o Studio.
 - `lista_yt.cjs` lista os últimos shorts do canal com a visibilidade, pra encontrar rascunhos.
 
-**Calendário atual (teste A/B):** um short por dia, de 04/11 a 15/11/2026, às **09h00 e 20h15** (horário de Brasília; até 05/11 era 12h/20h, em 06/11 foi 21h, desde 07/11 é 20h15), nas quatro redes. As versões com e sem fala revezam o horário a cada dia. A ordem é 01–04, 06, 05, 07–12 (o 05 vai depois porque revela o final do Capítulo 1). Horários escolhidos pela sobreposição dos picos do TikTok e do YouTube Shorts no Brasil (almoço 12h–14h, noite 20h–22h).
+**Calendário atual (teste A/B):** um short por dia, de 04/11 a 15/11/2026, às **14h00 e 20h15** (horário de Brasília, desde 07/11; antes 12h/20h e depois 9h/21h, e 9h e 12h não renderam), nas quatro redes. As versões com e sem fala revezam o horário a cada dia. A ordem é 01–04, 06, 05, 07–12 (o 05 vai depois porque revela o final do Capítulo 1). Horários escolhidos pela sobreposição dos picos do TikTok e do YouTube Shorts no Brasil (almoço 12h–14h, noite 20h–22h).
 
 **Requisitos:** o perfil `perfil_cdp` precisa estar logado no TikTok, no YouTube, no X e no LinkedIn, e o PC ligado com o usuário logado (o Chrome precisa de tela).
 
