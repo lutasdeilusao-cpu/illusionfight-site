@@ -24,6 +24,13 @@
   color: var(--if-ink);
 }
 
+.caminho__palco {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
 .caminho__trilho {
   flex: 1;
   min-height: 0;
@@ -136,4 +143,39 @@ html.ldi-cookie-on .caminho {
 
 html.ldi-cookie-on .caminho__desc {
   display: none;
+}
+
+.caminho__seta {
+  position: absolute;
+  top: 38%;
+  width: 40px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--if-cyan-45);
+  background: var(--bg-primary);
+  color: var(--if-cyan);
+  font: 700 2rem/1 var(--font-display);
+  cursor: pointer;
+  opacity: .85;
+  animation: caminho-seta 1.6s ease-in-out infinite;
+}
+
+.caminho__seta--esq {
+  left: 4px;
+  --seta-dx: -4px;
+}
+
+.caminho__seta--dir {
+  right: 4px;
+  --seta-dx: 4px;
+}
+
+@keyframes caminho-seta {
+  50% { transform: translateX(var(--seta-dx)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caminho__seta { animation: none; }
 }

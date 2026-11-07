@@ -41,6 +41,7 @@ export default function EscolhaCaminho() {
         <h1 className="caminho__titulo">{t('home.caminho.titulo')}</h1>
       </header>
 
+      <div className="caminho__palco">
       <div className="caminho__trilho" ref={trilhoRef} onScroll={aoRolar}>
         {CAMINHOS.map((c, i) => (
           <Link
@@ -58,6 +59,9 @@ export default function EscolhaCaminho() {
             </div>
           </Link>
         ))}
+      </div>
+      <button type="button" className="caminho__seta caminho__seta--esq" aria-label={t('home.caminho.anterior')} onClick={() => irPara((ativo + CAMINHOS.length - 1) % CAMINHOS.length)}>‹</button>
+      <button type="button" className="caminho__seta caminho__seta--dir" aria-label={t('home.caminho.proximo')} onClick={() => irPara((ativo + 1) % CAMINHOS.length)}>›</button>
       </div>
 
       <nav className="caminho__pontos" aria-label={t('home.caminho.titulo')}>

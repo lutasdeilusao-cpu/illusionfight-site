@@ -1396,7 +1396,7 @@
     },
     "caminho": {
       "eyebrow": "Illusion Fight",
-      "titulo": "Choose your path",
+      "titulo": "Choose your destiny",
       "entrar": "Enter",
       "quadrinhos": {
         "nome": "Comics",
@@ -1413,7 +1413,9 @@
       "musicas": {
         "nome": "Music",
         "desc": "Songs by Kim, Jack and Nina's band on Radio Nina."
-      }
+      },
+      "anterior": "Previous",
+      "proximo": "Next"
     }
   },
   "hero": {

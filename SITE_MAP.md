@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.470.0**.
+> `SITE_VERSION` **10.470.1**.
 > Última atualização: 23/10/2026.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
@@ -251,7 +251,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 - Acesso: `LoginGate`, `GameSessionRoute` (mede a sessão de cada jogo), `SoAdmin` (rota só de admin, em `App.jsx`), `GuestNotice`. Não existe ficha no produto: todo jogo abre direto; sem conta, o progresso some ao recarregar ou fechar.
 - Loja: `/loja` mostra os produtos físicos de `produtos.json` (todos "Em breve"). `ShopSection` + `ProdutoDigitalCard` (starter pack de DIX, skin, de `loja-digital.json`) existem, mas não estão montados em nenhuma página.
 - Notificações: `AchievementToast`, `LDINotification`, `UnifiedNotification`.
-- Home/conteúdo: no celular a inicial é só `EscolhaCaminho` (4 cards em carrossel: Quadrinhos, Jogos, Histórias, Músicas); de 900px pra cima, `src/pages/site/Home/` em ordem: `HeroSlideshow` (banner rotativo de 5 artes, obrigatório), `PraVoce` (recomendados), `HomeGames`, `HomeHistorias`, `LatestEpisodes` (WEB SHARD), `MusicSection`, apoio, `NowLive`. A Home só mostra o que já dá para ler ou jogar; as vitrines consomem os catálogos oficiais.
+- Home/conteúdo: no celular a inicial é só `EscolhaCaminho` (4 cards em carrossel com setas laterais: Quadrinhos, Jogos, Histórias, Músicas); de 900px pra cima, `src/pages/site/Home/` em ordem: `HeroSlideshow` (banner rotativo de 5 artes, obrigatório), `PraVoce` (recomendados), `HomeGames`, `HomeHistorias`, `LatestEpisodes` (WEB SHARD), `MusicSection`, apoio, `NowLive`. A Home só mostra o que já dá para ler ou jogar; as vitrines consomem os catálogos oficiais.
 - Histórias: `HistoriaCapLinha` (`src/pages/content/historias/`) — linha de capítulo em texto sobre o `.ws-cap` do WEB SHARD.
 - Farol (`src/components/Farol/`) — badge de peso (leve/média/pesada), canonicidade e tags de temática. Dados em `historias/contos.json` / `historias/obras.json` (`peso`, `canon`, `temas[]`, `selo`); labels em `pages.contos.peso_*` / `tema_*` (temas incluem `sobrenatural`, `opressao`, `horror_cosmico`, `resistencia`). Usado em `historias/HistoriasHub.jsx` (estante + filtro por peso) e `historias/HistoriaTitulo.jsx`.
 - Universo: `src/lib/mdComponents.jsx` (`readerMdComponents`) transforma links `/...` do markdown em `<Link>` do React Router — usado por todos os leitores (livro, conto, obra) para as citações cruzadas.
@@ -421,7 +421,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.470.0** |
+| `SITE_VERSION` | Site global | **10.470.1** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.32.0 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |

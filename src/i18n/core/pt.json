@@ -1396,7 +1396,7 @@
     },
     "caminho": {
       "eyebrow": "Lutas de Ilusão",
-      "titulo": "Escolha seu caminho",
+      "titulo": "Escolha seu destino",
       "entrar": "Entrar",
       "quadrinhos": {
         "nome": "Quadrinhos",
@@ -1413,7 +1413,9 @@
       "musicas": {
         "nome": "Músicas",
         "desc": "As músicas da banda do Kim, do Jack e da Nina na Rádio Nina."
-      }
+      },
+      "anterior": "Anterior",
+      "proximo": "Próximo"
     }
   },
   "hero": {

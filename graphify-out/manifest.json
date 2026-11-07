@@ -180,8 +180,8 @@
     "semantic_hash": "c9a05f245d2710d938b2cabf215f71e9"
   },
   "src/components/CookieBanner.jsx": {
-    "mtime": 1787852555.6548302,
-    "ast_hash": "4ff62070e6b6d791742e545166fbc033",
+    "mtime": 1794082444.2409742,
+    "ast_hash": "97a56d97417f64edaa2eac8aefeeb43d",
     "semantic_hash": ""
   },
   "src/components/Footer.jsx": {
@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1794080681.7675717,
-    "ast_hash": "c8694d614efef4397591add9a56f644e",
+    "mtime": 1794082309.6609235,
+    "ast_hash": "d3d18f6a7a0a79da3729aa2744cb2887",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1794080681.7755759,
-    "ast_hash": "89f2cf079a33d294fd131db8d0007127",
+    "mtime": 1794082309.74729,
+    "ast_hash": "639c4e5f1efab1b4c5b3ed0553d56192",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3565,8 +3565,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/Home.jsx": {
-    "mtime": 1791758200.190007,
-    "ast_hash": "071323669af2b9e61cca17d1f3de5581",
+    "mtime": 1794082290.6910317,
+    "ast_hash": "765e520415290d20ee745cf5f2f6b720",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/LatestEpisodes.jsx": {
@@ -3595,18 +3595,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1793721822.1195364,
-    "ast_hash": "6e11167ccddb527547307d1604acaa02",
+    "mtime": 1794082309.34884,
+    "ast_hash": "2e7616d945c41ed0768f414f130e2143",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1793721822.1215365,
-    "ast_hash": "990818be646daee2e117075705658c21",
+    "mtime": 1794082309.3572545,
+    "ast_hash": "2a2d73880d59e49d1e17c098412f0f62",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1793721822.1180663,
-    "ast_hash": "ff5294de52b9d92b17361a5c328b4b50",
+    "mtime": 1794082309.340253,
+    "ast_hash": "0ad005868d18bd3ac398f2a4b0b7685b",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1794080738.6087263,
+    "mtime": 1794082550.238311,
     "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },
@@ -10472,6 +10472,11 @@
   "docs/WEBSHARD/SHORTS_GUIA_DE_PRODUCAO.md": {
     "mtime": 1794021084.8923151,
     "ast_hash": "aba8154de423db0f9729ecd1bff4fd6a",
+    "semantic_hash": ""
+  },
+  "src/pages/site/Home/components/EscolhaCaminho.jsx": {
+    "mtime": 1794082260.608546,
+    "ast_hash": "98e0d98859a72e6d1e23192b5fb520ab",
     "semantic_hash": ""
   }
 }
