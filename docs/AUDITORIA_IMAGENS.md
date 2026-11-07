@@ -11,7 +11,8 @@ As imagens do portal são feitas no ChatGPT, pelo robô do navegador (`C:\websha
 | Área | Arquivo | Conteúdo |
 |---|---|---|
 | Inicial (cards "Escolha seu destino") e banner rotativo do desktop | `assets/images/banners/banner-01..05.webp` | Histórias, Quadrinhos, Jogos, Músicas, Apoio |
-| Rádio Nina (avatar do convite, /musicas, recomendações) | `assets/images/characters/nina-balloon.png` | Nina de fone no estúdio |
+| Rádio Nina (avatar do convite e de /musicas) | `assets/images/characters/nina-balloon.png` | Rosto da Nina de fone |
+| Rádio Nina nos Recomendados | `assets/images/characters/nina-radio.webp` (600×900) | Nina de fone no estúdio |
 | Capa de cada música e faixa da rádio | `assets/images/music/capas/<id>.webp` (600×900) | Cena que traduz o título |
 | Card do LDI Lendas em /games | `assets/images/games/lendas.webp` | Lutador no pentagrama das Veias |
 | Card do Super Trunfo em /games | `assets/images/games/supertrunfo.webp` | Mesa com cartas do Kim, Jack e Nina |

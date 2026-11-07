@@ -13,11 +13,11 @@ import { localizado, miniaturaCapitulo, tituloLegado } from '../../lib/webshard/
 import { miniaturaCapHistoria, numeroCapHistoria } from '../../lib/historias/catalogo'
 import { lerHistorico, aoMudarHistorico } from '../../lib/historias/historico'
 import { recomendarDepoisDe, extrasDe, praVoce, recomendadosPraVoce } from '../../lib/historias/recomendacoes'
-import ninaImg from '../../assets/images/characters/nina-balloon.png'
+import ninaRadio from '../../assets/images/characters/nina-radio.webp'
+import arteTrunfo from '../../assets/images/games/supertrunfo.webp'
 import miniGanguesPt from '../../pages/games/Gangues/assets/miniaturas/recomendacao-pt.webp'
 import miniGanguesEn from '../../pages/games/Gangues/assets/miniaturas/recomendacao-en.webp'
 import miniGanguesEs from '../../pages/games/Gangues/assets/miniaturas/recomendacao-es.webp'
-import { getTopTrumpsCardImage } from '../../lib/topTrumpsCardImages'
 import CarrosselLento from '../CarrosselLento/CarrosselLento'
 import './Recomendacoes.css'
 
@@ -26,10 +26,10 @@ import './Recomendacoes.css'
 const MINI_GANGUES = { pt: miniGanguesPt, en: miniGanguesEn, es: miniGanguesEs }
 const CAPA_EXTRA = {
   gangues: locale => MINI_GANGUES[locale] || MINI_GANGUES.pt,
-  trunfo: () => getTopTrumpsCardImage(9),
+  trunfo: () => arteTrunfo,
   // capa oficial do capítulo 01 do WEB SHARD, no idioma de quem vê
   webshard: locale => miniaturaCapitulo(tituloLegado(), { id: '01' }, locale),
-  radio: () => ninaImg,
+  radio: () => ninaRadio,
 }
 
 function useHistorico() {
