@@ -87,6 +87,14 @@ export default function CarrosselLento({ children, trilhoClassName = '', interva
     }
   }
 
+  // Roda do mouse: listener nativo não-passivo (o onWheel do React é passivo e não deixa cancelar a rolagem).
+  useEffect(() => {
+    const el = trilho.current
+    if (!el) return undefined
+    el.addEventListener('wheel', onWheel, { passive: false })
+    return () => el.removeEventListener('wheel', onWheel)
+  })
+
   useEffect(() => {
     if (!intervalo || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return undefined
     const id = setInterval(() => {
@@ -109,7 +117,6 @@ export default function CarrosselLento({ children, trilhoClassName = '', interva
         onPointerLeave={fimDrag}
         onClickCapture={onClickCapture}
         onDragStart={e => e.preventDefault()}
-        onWheel={onWheel}
       >
         {children}
       </div>

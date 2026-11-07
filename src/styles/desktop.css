@@ -51,7 +51,8 @@
   html.is-wide .calendar-levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   html.is-wide .mu .ws-hero { grid-template-columns: 420px 1fr; }
   html.is-wide .mu .ws-hero__arte { aspect-ratio: 4 / 3; }
-  html.is-wide .assinar-plans { display: grid; grid-template-columns: repeat(2, minmax(0, 480px)); justify-content: center; gap: 1.5rem; align-items: start; }
+  html.is-wide .perfil-page { padding-top: calc(48px + 1.5rem); }
+  html.is-wide .assinar-plans__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 480px)); justify-content: center; gap: 1.5rem; align-items: start; }
   html.is-wide .assinar-card { max-width: none; margin: 0; }
   html.is-wide .personagens-page__grid { grid-template-columns: repeat(6, 1fr); }
   html.is-wide .assinar-doacao, html.is-wide .assinar-newsletter, html.is-wide .assinar-pix { max-width: 760px; margin-inline: auto; }
