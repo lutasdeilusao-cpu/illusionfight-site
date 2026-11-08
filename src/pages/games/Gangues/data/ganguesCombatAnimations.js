@@ -1,4 +1,5 @@
 import { sfx } from '../../../../lib/sfx'
+import CATALOGO from './ldi_gangues_30_personagens_v1.json'
 // Máquina de animação de combate — registro de dados + cache/preload.
 // Cada personagem com folha própria (ataque normal e dano) fica em
 // DADOS_POR_SLUG; o painel do golpe (components/golpe/) toca a animação.
@@ -43,12 +44,20 @@ function som(nome) {
 }
 
 // character_template_id (catálogo dos 30 recrutáveis) -> slug da pasta.
-const TEMPLATE_SLUG = {
-  1: 'trinca',
-  2: 'fenda',
-  3: 'muro',
-  4: 'catraca',
-  5: 'faisca',
+const TEMPLATE_SLUG = Object.fromEntries(CATALOGO.characters.map(c => [c.id, c.slug]))
+
+// Personagem com folha mas sem dados próprios em DADOS_POR_SLUG usa este
+// padrão: grade 4×4 de 724×724 (quadro 181×181), impacto no quadro 9
+// (ataque) e nos quadros 3 e 10 (dano), com os sons genéricos.
+const DADOS_PADRAO = {
+  ataqueNormal: {
+    frameW: 181, frameH: 181, cols: 4, rows: 4, frames: 16, frameMs: 80,
+    sons: { golpes: [{ frame: 9, arquivo: som('soco-leve') }] },
+  },
+  dano: {
+    frameW: 181, frameH: 181, cols: 4, rows: 4, frames: 16, frameMs: 80,
+    sons: { golpes: [{ frame: 3, arquivo: som('dano-leve') }, { frame: 10, arquivo: som('dano-leve') }] },
+  },
 }
 
 // Dados de animação por slug e por tipo — grade, timing e sons. `golpes`
@@ -234,7 +243,7 @@ const DADOS_POR_SLUG = {
 export function getGanguesAnimacao(characterTemplateId, tipo) {
   const slug = TEMPLATE_SLUG[characterTemplateId]
   const sheet = slug && SHEETS_POR_TIPO[tipo]?.[slug]
-  const dados = slug && DADOS_POR_SLUG[slug]?.[tipo]
+  const dados = slug && (DADOS_POR_SLUG[slug]?.[tipo] || DADOS_PADRAO[tipo])
   if (!sheet || !dados) return null
   return { slug, sheet, ...dados }
 }

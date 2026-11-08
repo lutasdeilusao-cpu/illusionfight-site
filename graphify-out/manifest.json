@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1794149101.1023276,
-    "ast_hash": "db9f2969e925bf348c3787a89bee1b09",
+    "mtime": 1794155774.9458187,
+    "ast_hash": "9a6c73d8eeee6faac52abccd0234900a",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1794149112.265635,
-    "ast_hash": "ff91df60417a630ed4711bb0887a4c1a",
+    "mtime": 1794155774.9788957,
+    "ast_hash": "6e21872de91774a87edfe05aaa08f4b9",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4075,8 +4075,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesPortraits.js": {
-    "mtime": 1789690963.5812566,
-    "ast_hash": "fddd0c20f0901f2648ae04f7463d7758",
+    "mtime": 1794155774.9124956,
+    "ast_hash": "545c6a9d82543195c12ead9d95cc5535",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesAlbum.jsx": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1794149165.605396,
+    "mtime": 1794155816.5971897,
     "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },
@@ -10517,6 +10517,276 @@
   "src/assets/images/autor/capa.webp": {
     "mtime": 1794096640.3935256,
     "ast_hash": "8f3a4759b07fbfe8a6fbdfa18b46bad6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/boca/corpo-costas.webp": {
+    "mtime": 1794155759.588531,
+    "ast_hash": "8ed37ca8f162b80b3cf65b2e493ab001",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/boca/corpo-frente.webp": {
+    "mtime": 1794155759.6005435,
+    "ast_hash": "1c3625d4d1a30d0ab0cc04beb6c8ba64",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/boca/corpo-lado.webp": {
+    "mtime": 1794155759.6126757,
+    "ast_hash": "afc9cefc43ea0209f11a1ee305b0f34d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/brasa/corpo-costas.webp": {
+    "mtime": 1794155759.6467283,
+    "ast_hash": "b947fc045b1ffb97e4bd3f2de03537b2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/brasa/corpo-frente.webp": {
+    "mtime": 1794155759.659729,
+    "ast_hash": "25460a644291334900626a596a35b42f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/brasa/corpo-lado.webp": {
+    "mtime": 1794155759.6711495,
+    "ast_hash": "cad46e3d7911ea761ddfdec5c71125e5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/chuva/corpo-costas.webp": {
+    "mtime": 1794155759.7043777,
+    "ast_hash": "beea116c234dbc3ae288da7cbdc8e340",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/chuva/corpo-frente.webp": {
+    "mtime": 1794155759.7183776,
+    "ast_hash": "4e93c0422d7c5e6d0da59f004fd3a305",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/chuva/corpo-lado.webp": {
+    "mtime": 1794155759.7283916,
+    "ast_hash": "84bf735891e8a06f623971e70bb72de2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/cinza/corpo-costas.webp": {
+    "mtime": 1794155759.760176,
+    "ast_hash": "115305eaf586818540f26e0b487d06ac",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/cinza/corpo-frente.webp": {
+    "mtime": 1794155759.7750757,
+    "ast_hash": "27aaf3b9251f805737c1d3e5af9102b6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/cinza/corpo-lado.webp": {
+    "mtime": 1794155759.7880769,
+    "ast_hash": "c7f0def1135af70c7dd88ff88a9fe4b7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/concreto/corpo-costas.webp": {
+    "mtime": 1794155759.8184059,
+    "ast_hash": "c9b9386efd2f0902820c586f4e449f99",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/concreto/corpo-frente.webp": {
+    "mtime": 1794155759.8307333,
+    "ast_hash": "b4bc0f8e28ee6522a10dd3dae748dc02",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/concreto/corpo-lado.webp": {
+    "mtime": 1794155759.8413937,
+    "ast_hash": "1049cf4f49b7b75e167db1e3eade5f5b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/espelho/corpo-costas.webp": {
+    "mtime": 1794155759.8801925,
+    "ast_hash": "3c5e78718b89b2098fbfd87d160b9c67",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/espelho/corpo-frente.webp": {
+    "mtime": 1794155759.8902736,
+    "ast_hash": "eadc1809a475e1a36cf7f06ab5eee7b0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/espelho/corpo-lado.webp": {
+    "mtime": 1794155759.904221,
+    "ast_hash": "62eb19d3d457907199ad7f8899609d96",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ferro/corpo-costas.webp": {
+    "mtime": 1794155759.9367251,
+    "ast_hash": "2accb1247a3985378e258235f41156c5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ferro/corpo-frente.webp": {
+    "mtime": 1794155759.9491582,
+    "ast_hash": "a19177ee3371393115f3378a1a8960aa",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ferro/corpo-lado.webp": {
+    "mtime": 1794155759.9582372,
+    "ast_hash": "3c8b9df89d888b7391057769a92c4eaa",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/guarda/corpo-costas.webp": {
+    "mtime": 1794155759.9929872,
+    "ast_hash": "5dd28dd0a6b1ec3b9e8337928f234353",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/guarda/corpo-frente.webp": {
+    "mtime": 1794155760.002993,
+    "ast_hash": "81943c02cd052175ecd94ff3f0139dff",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/guarda/corpo-lado.webp": {
+    "mtime": 1794155760.0155313,
+    "ast_hash": "548f2ebd21e7b203f68419eb34ac8fd1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/isca/corpo-costas.webp": {
+    "mtime": 1794155760.0525277,
+    "ast_hash": "d7a4f1e4ea2fec502f0cfd924fc37f30",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/isca/corpo-frente.webp": {
+    "mtime": 1794155760.0625272,
+    "ast_hash": "e19a3c9fad1504482e349dfbbc3f97a9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/isca/corpo-lado.webp": {
+    "mtime": 1794155760.068085,
+    "ast_hash": "e5a87684f14e1d31cb4e2c73239f81cd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/mare/corpo-costas.webp": {
+    "mtime": 1794155760.1026182,
+    "ast_hash": "c555cbe2d433c132fb3b774f433b5971",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/mare/corpo-frente.webp": {
+    "mtime": 1794155760.1156182,
+    "ast_hash": "9e3dfb36d413eecd0d4332e782de29ec",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/mare/corpo-lado.webp": {
+    "mtime": 1794155760.1247084,
+    "ast_hash": "e1c90e2433abb9a029f6421b06f3472f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/nevoa/corpo-costas.webp": {
+    "mtime": 1794155760.162217,
+    "ast_hash": "6e555134bf5e8e1e8b6611779dcde79a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/nevoa/corpo-frente.webp": {
+    "mtime": 1794155760.1736143,
+    "ast_hash": "c61b62c721fba856410df4a1f9555d24",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/nevoa/corpo-lado.webp": {
+    "mtime": 1794155760.1857512,
+    "ast_hash": "884a555bd1f7e69d5fadb69db0c8b193",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ombro/corpo-costas.webp": {
+    "mtime": 1794155760.2190466,
+    "ast_hash": "a3ee53c67421534c1fe45d38feac6165",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ombro/corpo-frente.webp": {
+    "mtime": 1794155760.2290442,
+    "ast_hash": "86d30d5d8b69badf5345d2c13cb8bbef",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ombro/corpo-lado.webp": {
+    "mtime": 1794155760.2380514,
+    "ast_hash": "72a03f6f7075432a656f7f572e4a59f2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/osso/corpo-costas.webp": {
+    "mtime": 1794155760.2693305,
+    "ast_hash": "20bdeba21ae3d70afbd4b6173a82be11",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/osso/corpo-frente.webp": {
+    "mtime": 1794155760.2807682,
+    "ast_hash": "60393b8c0d18217a7e8d7694a8fa579e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/osso/corpo-lado.webp": {
+    "mtime": 1794155760.2929351,
+    "ast_hash": "19d65f21295857392a37940e369b5156",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/racha/corpo-costas.webp": {
+    "mtime": 1794155760.3252647,
+    "ast_hash": "a38b66f18eab8fcbc38805f4d202a1b4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/racha/corpo-frente.webp": {
+    "mtime": 1794155760.3322785,
+    "ast_hash": "c6f130110c023b32bda9df2b8f5c880b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/racha/corpo-lado.webp": {
+    "mtime": 1794155760.343305,
+    "ast_hash": "510a161bb330e0070389731963e0ce2b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/raiz/corpo-costas.webp": {
+    "mtime": 1794155760.3796206,
+    "ast_hash": "3ea2ff1b09b1c1fc87705d5b609dadaa",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/raiz/corpo-frente.webp": {
+    "mtime": 1794155760.3906014,
+    "ast_hash": "2bf6f1618ee6724304a30efaf61c4aa9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/raiz/corpo-lado.webp": {
+    "mtime": 1794155760.3966277,
+    "ast_hash": "eba4e13a1bec79a4a47419f2d8befd56",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/rebote/corpo-costas.webp": {
+    "mtime": 1794155760.4302337,
+    "ast_hash": "33e6b32c006ee5f0ecdee3cf59db8842",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/rebote/corpo-frente.webp": {
+    "mtime": 1794155760.4422314,
+    "ast_hash": "512a4082cf32bbf9c5f551382e5346a8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/rebote/corpo-lado.webp": {
+    "mtime": 1794155760.448231,
+    "ast_hash": "1152d1ebd702de87427e281513aaae2f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/touro/corpo-costas.webp": {
+    "mtime": 1794155760.4849384,
+    "ast_hash": "71e59203faf1ccabba38b828c0278b52",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/touro/corpo-frente.webp": {
+    "mtime": 1794155760.4995785,
+    "ast_hash": "3858b1ad1d4d76366e280add0012aaae",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/touro/corpo-lado.webp": {
+    "mtime": 1794155760.5085783,
+    "ast_hash": "1c96f7f3f43f43fb9b31be8ffb59270a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/trovao/corpo-costas.webp": {
+    "mtime": 1794155760.5445833,
+    "ast_hash": "0bb2511d15ff419c0973a0b24279dc4e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/trovao/corpo-frente.webp": {
+    "mtime": 1794155760.5559776,
+    "ast_hash": "b66c8bc7aeb83c9a5467c03b26301974",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/trovao/corpo-lado.webp": {
+    "mtime": 1794155760.564024,
+    "ast_hash": "ad91c9868b8f4769ce3be73d17f441f1",
     "semantic_hash": ""
   }
 }
