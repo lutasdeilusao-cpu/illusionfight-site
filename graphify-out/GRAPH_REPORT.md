@@ -1,7 +1,7 @@
-# Graph Report - SiteLDI  (2026-11-07)
+# Graph Report - SiteLDI  (2026-11-08)
 
 ## Corpus Check
-- 1404 files · ~4,679,479 words
+- 1404 files · ~4,905,832 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bbf682f4`
+- Built from commit: `46a74b2b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1956,7 +1956,7 @@ Cohesion: 0.56
 Nodes (10): generate(), mark_pending(), pause(), pending(), prepare(), Halloween loop 1: prepare English prompts and reuse the existing serial Codex en, run(), state() (+2 more)
 
 ## Knowledge Gaps
-- **2649 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+2644 more)
+- **2649 isolated node(s):** `Decisões: lendas`, `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta` (+2644 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **370 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1964,12 +1964,12 @@ Nodes (10): generate(), mark_pending(), pause(), pending(), prepare(), Halloween
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `PuzzleForça.jsx` to `Community 0`, `Community 1`, `SlidingRafael.jsx`, `GanguesClube.jsx`, `GanguesCenaAtores.jsx`, `Community 8`, `Community 9`, `useGanguesI18n`, `endBattle`, `RestaurarSaude.jsx`, `Community 20`, `AuthContext.jsx`, `ganguesEffectThemes.js`, `px`, `RestaurarSaude.jsx`, `LDINotification.jsx`, `PuzzleStealthGrid.jsx`, `useTamagoshiStore.js`, `TopTrumpsMP.jsx`, `GanguesClubeResultado.jsx`, `FichaGateRoute.jsx`, `getElem`, `useTamagoshiStore.js`, `PainelSessoes.jsx`, `Alimentar.jsx`, `PuzzleForça.jsx`, `react`, `EventosContext.jsx`, `Cadastro.jsx`, `Phase2Customize.jsx`, `GanguesClubeResultado.jsx`, `CityOverworld.jsx`, `runtimePlatform.js`, `Perfil.jsx`, `TypewriterPhrase.jsx`, `levelProgression.js`, `UnifiedNotification.jsx`, `ganguesEncontroAleatorio.js`, `ganguesSpecialEffects.js`, `criaturas.js`, `classTree.js`, `PuzzleStealthGrid.jsx`, `persistente.js`, `GanguesVictory.jsx`, `PerfilColecao.jsx`, `useGameStore.js`, `GanguesClubeResultado.jsx`, `reacoes.js`, `Universo.jsx`, `particles.js`, `Phase0Start.jsx`, `Phase1SheetBuilder.jsx`, `ganguesEquip.js`, `Community 94`, `Community 95`, `ganguesEquip.js`, `Community 97`, `analytics.js`, `useGanguesTeclado`, `Tamagoshi.jsx`, `criaturas.js`, `CreatorsPorta.jsx`, `useTamagoshiStore.js`, `Alimentar.jsx`, `RestaurarSaude.jsx`, `main.jsx`, `PuzzleAnagrama.jsx`, `GanguesFarmAusente.jsx`?**
-  _High betweenness centrality (0.079) - this node is a cross-community bridge._
-- **Why does `useReader()` connect `Phase2Customize.jsx` to `Community 0`, `TopTrumpsMP.jsx`, `useGanguesTeclado`, `SlidingRafael.jsx`, `Community 3`, `Community 8`, `GanguesClubeResultado.jsx`, `useTamagoshiStore.js`, `CityOverworld.jsx`, `GanguesVictory.jsx`, `Community 20`, `Alimentar.jsx`, `PuzzleForça.jsx`, `Universo.jsx`, `Phase1SheetBuilder.jsx`, `criaturas.js`, `LDINotification.jsx`?**
-  _High betweenness centrality (0.017) - this node is a cross-community bridge._
+  _High betweenness centrality (0.073) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `Community 1` to `GanguesCenaAtores.jsx`, `endBattle`, `Community 20`, `PuzzleForça.jsx`, `AuthContext.jsx`, `px`, `RestaurarSaude.jsx`, `LDINotification.jsx`, `getElem`, `PuzzleForça.jsx`, `CityOverworld.jsx`, `runtimePlatform.js`, `TopTrumpsCard.jsx`, `TypewriterPhrase.jsx`, `criaturas.js`, `ganguesSpecialEffects.js`, `GanguesVictory.jsx`, `useGameStore.js`, `particles.js`, `Phase0Start.jsx`, `Phase1SheetBuilder.jsx`, `Community 94`, `Community 95`, `Community 97`, `useGanguesTeclado`, `useTamagoshiStore.js`, `GanguesCenaEncontros.jsx`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
-- **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
+  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+- **Why does `useReader()` connect `Phase2Customize.jsx` to `Community 0`, `TopTrumpsMP.jsx`, `useGanguesTeclado`, `SlidingRafael.jsx`, `Community 3`, `Community 8`, `GanguesClubeResultado.jsx`, `useTamagoshiStore.js`, `CityOverworld.jsx`, `GanguesVictory.jsx`, `Community 20`, `Alimentar.jsx`, `PuzzleForça.jsx`, `Universo.jsx`, `Phase1SheetBuilder.jsx`, `criaturas.js`, `LDINotification.jsx`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **What connects `Decisões: lendas`, `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)` to the rest of the system?**
   _2649 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._

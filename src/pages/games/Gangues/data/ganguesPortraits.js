@@ -8,10 +8,9 @@
 // mesmo campo `.slug` do catálogo (ldi_gangues_30_personagens_v1.json),
 // já existia lá, não inventei nome novo.
 //
-// import.meta.glob descobre sozinho o que existir na pasta — hoje 12 dos
-// 30 personagens têm arte (os 12 oficiais, ids 1-12: trinca, fenda, muro,
-// catraca, faisca, cicatriz, marreta, mira, navalha, ponto, sangue, troco).
-// Quem não tem retrato ainda cai no fallback (inicial do nome), já tratado
+// import.meta.glob descobre sozinho o que existir na pasta: os 30 personagens
+// têm cabeça (neutro.png) e corpo (frente, costas e lado). Personagem sem
+// retrato cai no fallback (inicial do nome), tratado
 // em cada componente que consome getGanguesPortrait().
 import { getGanguesCharacter } from './ganguesCharacters.js'
 

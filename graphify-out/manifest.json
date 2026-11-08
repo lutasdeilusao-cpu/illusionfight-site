@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1794096640.482706,
-    "ast_hash": "340ff1597632a9d1cb1e6ed20be5dd66",
+    "mtime": 1794149101.1023276,
+    "ast_hash": "db9f2969e925bf348c3787a89bee1b09",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1794096640.496739,
-    "ast_hash": "99103fa120f01f9801dfe99c232c78e9",
+    "mtime": 1794149112.265635,
+    "ast_hash": "ff91df60417a630ed4711bb0887a4c1a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -6900,8 +6900,8 @@
     "semantic_hash": ""
   },
   "docs/Games/LDILendas/LDI_LENDAS_GDD.md": {
-    "mtime": 1791918646.6428246,
-    "ast_hash": "321fae5fa0b9d826869def46b7a1c6fb",
+    "mtime": 1794149112.3423634,
+    "ast_hash": "7f19791103b2f8ec909b11260a62d870",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/components/Diario.jsx": {
@@ -8635,478 +8635,478 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.1-1.webp": {
-    "mtime": 1791918425.700724,
-    "ast_hash": "dc8780b98187e2a3fb70ac6b95bdbef7",
+    "mtime": 1794149066.4088805,
+    "ast_hash": "7eafdb7d6cc347c455d9827ace4e5c81",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.1b-1.webp": {
-    "mtime": 1791918425.7267272,
-    "ast_hash": "2a711ce3d27070e527436cc4cc4167ad",
+    "mtime": 1794149066.8817322,
+    "ast_hash": "8ee04e8b024775ce88920c86f546f6bc",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.1-2.webp": {
-    "mtime": 1791919664.8459575,
-    "ast_hash": "70cd6cd1a0ddeb69692721f805bb931e",
+    "mtime": 1794149066.5583243,
+    "ast_hash": "a0148842c6fd4010e300419a734c494c",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.1-3.webp": {
-    "mtime": 1791919664.8669574,
-    "ast_hash": "492637019a91ce3a66d139b0dbc3d3bc",
+    "mtime": 1794149066.7246115,
+    "ast_hash": "b0686f9b436a948a334cb614bd3f9900",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.2-1.webp": {
-    "mtime": 1791922577.0027888,
-    "ast_hash": "b5f2365332058dcf90fdea3ec711bf02",
+    "mtime": 1794149067.6617289,
+    "ast_hash": "e6c23c5a4a7fc2748f77ec0ac03da94d",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.2-2.webp": {
-    "mtime": 1791922575.536016,
-    "ast_hash": "6cf43b572048e1f1d0b439cd36bf05f0",
+    "mtime": 1794149067.9785504,
+    "ast_hash": "969b552783c1c769dcb630410acf59da",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3-1.webp": {
-    "mtime": 1791922575.855165,
-    "ast_hash": "09f2604ad5d5e0da3b6cddfc0f972eb3",
+    "mtime": 1794149068.2976756,
+    "ast_hash": "fff48186c4593ff82042ebacfdc9f2b3",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3-2.webp": {
-    "mtime": 1791922587.2775018,
-    "ast_hash": "d0fff72b1c5fdda47ee5bb761f05df94",
+    "mtime": 1794149068.4648786,
+    "ast_hash": "7964d0816ce4751b804cac04fc85a0ad",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3-3.webp": {
-    "mtime": 1791922587.270502,
-    "ast_hash": "1de416b03c9ce5567e89fee58ee8363d",
+    "mtime": 1794149068.7951398,
+    "ast_hash": "3222ec61992aaa0fdc8b691e8709b72d",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3a-1.webp": {
-    "mtime": 1791922587.4455125,
-    "ast_hash": "24e7b4d9de668e5c6e18bcfb045409eb",
+    "mtime": 1794149068.953129,
+    "ast_hash": "7103f85f654b14e2822333718a300c35",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3b-1.webp": {
-    "mtime": 1791922598.926184,
-    "ast_hash": "85fbfcd407fbb551751b702477e023eb",
+    "mtime": 1794149069.2800634,
+    "ast_hash": "3629087f511149efc015593c6699baa7",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3c-1.webp": {
-    "mtime": 1791922596.2196643,
-    "ast_hash": "ac3d8538dfe2ed8c7b082098c1e2f219",
+    "mtime": 1794149069.594035,
+    "ast_hash": "0f8b4b1a0ba95660796339ab3081367f",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3d-1.webp": {
-    "mtime": 1791922597.4658196,
-    "ast_hash": "bcd8248de6c49439c8cc96348bb556b6",
+    "mtime": 1794149069.9275744,
+    "ast_hash": "2616d63cf78f84c51203e1046f6ce031",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3d-2.webp": {
-    "mtime": 1791922607.131188,
-    "ast_hash": "94293f7f84b440655d937915df03cc7f",
+    "mtime": 1794149070.2527761,
+    "ast_hash": "23597e8f327730181a4a82c516d83f32",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3d-briga-1.webp": {
-    "mtime": 1791922608.2834578,
-    "ast_hash": "bb40425fcb934e9cb401414a608dfaf0",
+    "mtime": 1794149070.5759594,
+    "ast_hash": "8ecaf3d20b4f702f988c8eeaebcb3c27",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3d-luta-1.webp": {
-    "mtime": 1791922609.4242764,
-    "ast_hash": "9ae215f985db40d9d754da63a7a378fb",
+    "mtime": 1794149070.738203,
+    "ast_hash": "9f82149f07ea63753f095fb9dad6101b",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3d-pos-1.webp": {
-    "mtime": 1791922617.043424,
-    "ast_hash": "d2f6e1aea067fa1c40d9e144622ea4ab",
+    "mtime": 1794149071.0609286,
+    "ast_hash": "6647b8b9545d4e3704ffe13767b570b0",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3e-1.webp": {
-    "mtime": 1791922618.8594687,
-    "ast_hash": "1b3f06d0391b52aae03511979f4db93d",
+    "mtime": 1794149071.3708658,
+    "ast_hash": "5c1daac3d13e3a40909c436b108f8a67",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3f-1.webp": {
-    "mtime": 1791922619.3217533,
-    "ast_hash": "1c5691c62d07db8b492ddff7ee6b6b69",
+    "mtime": 1794149071.676298,
+    "ast_hash": "cd0d85b90223ac6fd58d28d5f9158c63",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3f-2.webp": {
-    "mtime": 1791922627.376663,
-    "ast_hash": "fd9e914c2fda8034f75b815dce708ea9",
+    "mtime": 1794149071.9888377,
+    "ast_hash": "a0f465435fdd61fdce8edecd21d0a807",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4-1.webp": {
-    "mtime": 1791941683.943488,
-    "ast_hash": "c9e635afdd6345d265c774c7c533d400",
+    "mtime": 1794149072.1518888,
+    "ast_hash": "f028807fdc423148f9ff876fa23b55c6",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4-2.webp": {
-    "mtime": 1791941732.7075458,
-    "ast_hash": "1ac84d6d6c77209b55d01994b01b9a7d",
+    "mtime": 1794149072.4508505,
+    "ast_hash": "641950dcff32f437585c3f0ac6426463",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4-3.webp": {
-    "mtime": 1791922629.8542557,
-    "ast_hash": "927c05d2a50f132e4dd51d30815d9c67",
+    "mtime": 1794149072.7366705,
+    "ast_hash": "2412c4e525e19d0fb35736d75ac7edc4",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4a-1.webp": {
-    "mtime": 1791922638.6900828,
-    "ast_hash": "d40a6d754c7c72665504120767501975",
+    "mtime": 1794149072.8942003,
+    "ast_hash": "038e7ecb7a6d0a25bbcb19452865c552",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4a-briga-1.webp": {
-    "mtime": 1791922637.9413705,
-    "ast_hash": "4c3996b874ba871cfcb85e6c2034ef21",
+    "mtime": 1794149073.2092574,
+    "ast_hash": "92c1d8ab3a7b2545786a8d732976f10b",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4b-1.webp": {
-    "mtime": 1791941733.9357064,
-    "ast_hash": "4869b607d66a0d64469ddc6c3e9ec9dd",
+    "mtime": 1794149073.3577657,
+    "ast_hash": "5d5f9ffa4ab268211f05c2d20bdffbd9",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4c-1.webp": {
-    "mtime": 1791919753.3309596,
-    "ast_hash": "5eaba5afa415eb4272fb8b80ed27b0d6",
+    "mtime": 1794149073.663878,
+    "ast_hash": "7b9c95162d7dbbbbc879f7dec3451550",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4t-1.webp": {
-    "mtime": 1791922648.106589,
-    "ast_hash": "4c9310843be0696ac63c0de594ba6633",
+    "mtime": 1794149073.9743714,
+    "ast_hash": "6fd415289471f26edacefb2374306b06",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4t-2.webp": {
-    "mtime": 1791922649.8495674,
-    "ast_hash": "c670db0928a67faefae6e77c7cc66c4b",
+    "mtime": 1794149074.2888315,
+    "ast_hash": "96585c6dbd90ac5e3a6b8ee2907ae2b7",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5-1.webp": {
-    "mtime": 1791922650.0900788,
-    "ast_hash": "7208876db852bdd0db96f20a52b63d9c",
+    "mtime": 1794149074.4420757,
+    "ast_hash": "f3faafd27eb64acb4c267eb39084da4c",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5-2.webp": {
-    "mtime": 1791941743.7090924,
-    "ast_hash": "1ee1e5e1d41e764b3b43a4cc9c92bab8",
+    "mtime": 1794149074.60682,
+    "ast_hash": "215236045c3dadd09e1b783da1e0d289",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5-3.webp": {
-    "mtime": 1791919763.334369,
-    "ast_hash": "5e15324ab4b71d0a985303e1762f92bb",
+    "mtime": 1794149074.9224553,
+    "ast_hash": "959576b8a7e8f9ddb325897e996a7489",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5-briga-1.webp": {
-    "mtime": 1791919768.6240716,
-    "ast_hash": "d7b31253d8cd14c72c4678a8945945ce",
+    "mtime": 1794149075.0736306,
+    "ast_hash": "86413a187f3ad6d8a4be6642e26fbf20",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5a-1.webp": {
-    "mtime": 1791922660.9463964,
-    "ast_hash": "2f25439c55c45b326626d9b6267445fd",
+    "mtime": 1794149075.3825955,
+    "ast_hash": "f342af384f13e4cbc6fcd42939c713d5",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5a-briga-1.webp": {
-    "mtime": 1791919775.2975166,
-    "ast_hash": "ade0a7fdba65931609c8b3fc698790f0",
+    "mtime": 1794149075.7065084,
+    "ast_hash": "363391914a10203d1c6febab70addd1d",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5a-briga-2.webp": {
-    "mtime": 1791922660.608086,
-    "ast_hash": "2df760770f02ee872499ff5d450451a6",
+    "mtime": 1794149075.8661277,
+    "ast_hash": "3aa769e67c4ea178cd9814781d8d5629",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5t-1.webp": {
-    "mtime": 1791922671.2431517,
-    "ast_hash": "ebfeeabc8bb63837c38a6df7b5b2df55",
+    "mtime": 1794149076.0249722,
+    "ast_hash": "7a33cfa0b05a9619fd14a2c2c4ad553e",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5t-2.webp": {
-    "mtime": 1791922670.29167,
-    "ast_hash": "efb523fba598eeb792341415ff1e662b",
+    "mtime": 1794149076.3372529,
+    "ast_hash": "d14bb5c2d4a6abbdbecf6f36e033aea9",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.veia-1.webp": {
-    "mtime": 1791922669.6447716,
-    "ast_hash": "8724efb275fb3ef58a1318948632cf5d",
+    "mtime": 1794149076.487877,
+    "ast_hash": "77d31756ac5f10de7b2bef12073b9f56",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.veia-2.webp": {
-    "mtime": 1791919675.7308767,
-    "ast_hash": "937dc9a8e02c93f5814f3c7bf76f6330",
+    "mtime": 1794149076.7886133,
+    "ast_hash": "00274b8961592c2498b8ffe3a1f4ed42",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.1-1.webp": {
-    "mtime": 1791919795.6449022,
-    "ast_hash": "6197f6f50b00c34f2b069bf153ec99d2",
+    "mtime": 1794149077.0922592,
+    "ast_hash": "480d78bf96d8051f0567a2f3b67c0f1c",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.1a-1.webp": {
-    "mtime": 1791919800.289724,
-    "ast_hash": "f75608b6e7a0ec54b4d745cff575e7d8",
+    "mtime": 1794149077.4032464,
+    "ast_hash": "80e1e2f87bc21809a46fbb4e74e185ff",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.1b-1.webp": {
-    "mtime": 1791922680.85392,
-    "ast_hash": "d793dbaba283cc7ca8c06b8b3ea3e754",
+    "mtime": 1794149077.7049222,
+    "ast_hash": "27b603665ef2ff3fb021343993410690",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.1c-1.webp": {
-    "mtime": 1791919806.6706152,
-    "ast_hash": "b90c728222b9200aac99aefad70d008f",
+    "mtime": 1794149078.0001526,
+    "ast_hash": "c50080ac6cde7e5a011d29a30775357f",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.1d-1.webp": {
-    "mtime": 1791919811.8578124,
-    "ast_hash": "bf38e14afb47e9a04f01e1faa692b95a",
+    "mtime": 1794149078.3061426,
+    "ast_hash": "e6e7c50a1437b07bfc465e5696e1b64f",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.1d-2.webp": {
-    "mtime": 1791919812.5438871,
-    "ast_hash": "3ba4a76ccf109693c9f6581d3d016ba8",
+    "mtime": 1794149078.6094568,
+    "ast_hash": "ae2b7c36f751388828a41b953801e691",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.2-1.webp": {
-    "mtime": 1791919817.8171408,
-    "ast_hash": "7bd6eba1909e15f7f5a8b47a94a4e5c1",
+    "mtime": 1794149078.7711837,
+    "ast_hash": "85dac12e295251dff76b544c6ea6014c",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.2b-1.webp": {
-    "mtime": 1791919822.053438,
-    "ast_hash": "820742710ca4018efa23dfafdc76707e",
+    "mtime": 1794149079.0622427,
+    "ast_hash": "928f38f3defdb51cbe578c1dc7d56e63",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.2b-2.webp": {
-    "mtime": 1791919821.8863733,
-    "ast_hash": "4a658ba96d49338f92710d16fc9538bf",
+    "mtime": 1794149079.226217,
+    "ast_hash": "684d73927f31176869425ccfc90ab2aa",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.3-1.webp": {
-    "mtime": 1791919827.6188343,
-    "ast_hash": "12131cd46d41e8448d2af19835ae3950",
+    "mtime": 1794149079.3727212,
+    "ast_hash": "dd71b8ea025ca9051ed4efd820868715",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.4fim-1.webp": {
-    "mtime": 1791919831.002063,
-    "ast_hash": "9187e8c51a87c079244ac369e50279a2",
+    "mtime": 1794149079.674907,
+    "ast_hash": "b6a4975b239b2b6b4a97d8cbb10dcff7",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.4fim-2.webp": {
-    "mtime": 1791919831.4401288,
-    "ast_hash": "50e44add2dd7b58e78f50c438ac8172b",
+    "mtime": 1794149079.8156562,
+    "ast_hash": "5b122390b0538e8c11bb95a87fd24069",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.fim-1.webp": {
-    "mtime": 1791919839.2316024,
-    "ast_hash": "791b6c3c1788caaf174a2699bcf7026f",
+    "mtime": 1794149080.1283062,
+    "ast_hash": "db5ca3cfc5f6d346dc3dc1847b189246",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.fim-2.webp": {
-    "mtime": 1791919841.4485657,
-    "ast_hash": "d9cc302b47152daee177f7ba2f41182a",
+    "mtime": 1794149080.2814686,
+    "ast_hash": "10cd7a89c0d49c6d0e194d12dd54f936",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.1-1.webp": {
-    "mtime": 1791919843.4497712,
-    "ast_hash": "7fcc7ba5805759e0f721b8d0ec937d9f",
+    "mtime": 1794149080.437865,
+    "ast_hash": "cdab8696e302aa8d7e1aa66a15655bae",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.1-2.webp": {
-    "mtime": 1791919848.6818008,
-    "ast_hash": "a8ea854742d239b4c2b2ecf6f0e4f018",
+    "mtime": 1794149080.7318742,
+    "ast_hash": "9bb5b288ccb29b95c26943dfb76d3e5c",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.1-3.webp": {
-    "mtime": 1791919852.6616488,
-    "ast_hash": "935f3e7f31455a5526280deb931d0944",
+    "mtime": 1794149081.0511177,
+    "ast_hash": "2d53bc3d6ffd45665085f01a9799b3e3",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.2-briga-1.webp": {
-    "mtime": 1791919860.6781013,
-    "ast_hash": "b83dd60eb3251a5ac60681479c8384f6",
+    "mtime": 1794149081.2174194,
+    "ast_hash": "c3febd284b53ce4007ba31680203454d",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.2_descanso-1.webp": {
-    "mtime": 1791941756.8566637,
-    "ast_hash": "4f84f2a8e8120a4c091e04230bacf5ec",
+    "mtime": 1794149081.3720663,
+    "ast_hash": "d07460969b69b414a32a2a1dd957dc0b",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.2_dia8-1.webp": {
-    "mtime": 1791919855.3698308,
-    "ast_hash": "fd8be7e64cb8b6ca54db050bc9010abb",
+    "mtime": 1794149081.664564,
+    "ast_hash": "0aacfb9755efee0b032c0f541d2f8ec7",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.2_investiga-1.webp": {
-    "mtime": 1791919862.2255156,
-    "ast_hash": "cf68f70ee2ca74b2648b1af53c84c490",
+    "mtime": 1794149081.9827454,
+    "ast_hash": "3febecb826ba6d2fedd1c26e2c8ede9e",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.2_trabalho-1.webp": {
-    "mtime": 1791919865.748996,
-    "ast_hash": "006a63c74d26c9474105c90a4bf1a812",
+    "mtime": 1794149082.304685,
+    "ast_hash": "b5e14abacb64bcaa04e5dfd2a7c1e471",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.3-briga-1.webp": {
-    "mtime": 1791919876.4191332,
-    "ast_hash": "e84b8869d99b20e12ceab39e06f4dc1d",
+    "mtime": 1794149082.6484606,
+    "ast_hash": "0bd68ba7bd468ee3d3ec05af46ca635a",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.3_dia9-1.webp": {
-    "mtime": 1791919872.7838044,
-    "ast_hash": "1b0bbaef38018f20899c34afaf9259f9",
+    "mtime": 1794149082.801866,
+    "ast_hash": "07a5207b6f3d8e7841767d2834ccfe28",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.3_investiga-1.webp": {
-    "mtime": 1791919882.10851,
-    "ast_hash": "1a735fc1a5dc866534eeff30f40e2683",
+    "mtime": 1794149082.9674308,
+    "ast_hash": "0f26b6cf7519c08f2c8080b7fd47577f",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.3_sbi-1.webp": {
-    "mtime": 1791919883.5660996,
-    "ast_hash": "d2602e80c1957bcb1cb9b7f0c9fdb44a",
+    "mtime": 1794149083.2913644,
+    "ast_hash": "36665c19e91ba93d74dfa1dd704fe63e",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.4_dia10-1.webp": {
-    "mtime": 1791919889.2621458,
-    "ast_hash": "4b7ff83f0063a5daa0f630baddf52e25",
+    "mtime": 1794149083.595357,
+    "ast_hash": "2e649f537b9d99a905d92596f25a80ed",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.4_dia10-2.webp": {
-    "mtime": 1791919891.4662335,
-    "ast_hash": "a3505f227bf4dbf5d95e473a2cd19d82",
+    "mtime": 1794149083.9037697,
+    "ast_hash": "d1d94cf883287a8e54f742525393eb6e",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.4_puzzle-1.webp": {
-    "mtime": 1791941683.8794956,
-    "ast_hash": "03dddd879011fd473851c36da415e202",
+    "mtime": 1794149084.1977904,
+    "ast_hash": "a7aa282f2f570912d73bf2293f5926e1",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.4_puzzle_fail-1.webp": {
-    "mtime": 1791941693.3541508,
-    "ast_hash": "b436375f83cca8a11934d010cdf14596",
+    "mtime": 1794149084.4669485,
+    "ast_hash": "7ba2882e242fb064aae716a7786fba87",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.4_puzzle_ok-1.webp": {
-    "mtime": 1791941693.2330682,
-    "ast_hash": "78bf59372ba1c8f08f017b2db91090f6",
+    "mtime": 1794149084.766332,
+    "ast_hash": "da19fa566ad96dc1f4a12cb415e6b66a",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.5_dia11-1.webp": {
-    "mtime": 1791919906.854521,
-    "ast_hash": "47fdc33b276bf1b1aec81cf0e1661d70",
+    "mtime": 1794149085.06686,
+    "ast_hash": "5a237ce870e1558288acdb387c871e45",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.6-briga-1.webp": {
-    "mtime": 1791919916.9016764,
-    "ast_hash": "0474a6ef2807ba7028f63c7b0a8e0698",
+    "mtime": 1794149085.3736742,
+    "ast_hash": "435654d150ad78ff46b674f1a43c7f5d",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.6_dia12-1.webp": {
-    "mtime": 1791919910.8282585,
-    "ast_hash": "27926b59ccb202a9e2f828e0334bd1d3",
+    "mtime": 1794149085.5282197,
+    "ast_hash": "c890c52f97531ffee209dd1187810bb6",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.7_preparacao-1.webp": {
-    "mtime": 1791919912.8251042,
-    "ast_hash": "d75fe692e08f2f1e1462a494708775e1",
+    "mtime": 1794149085.8418734,
+    "ast_hash": "fa127d8053f5ba42303a1cc5f42c9d58",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.8_captura_ok-1.webp": {
-    "mtime": 1791919921.8881645,
-    "ast_hash": "dc02fd3c8b00ff6fc2837c91907a8196",
+    "mtime": 1794149086.1386118,
+    "ast_hash": "a8d4190444f481f8530f1a7db6dbf714",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.treino-1.webp": {
-    "mtime": 1791919923.9262052,
-    "ast_hash": "9124abf0d61fb07ddaddb24718f44809",
+    "mtime": 1794149086.448095,
+    "ast_hash": "03679b70211f68f9cc3d08791f7f5826",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.treino-2.webp": {
-    "mtime": 1791919927.9072244,
-    "ast_hash": "7dccc8e1b10a03b6ab281131ab4a40ea",
+    "mtime": 1794149086.7523994,
+    "ast_hash": "86b5c7b21aa1aa52249520d92fc58504",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1-1.webp": {
-    "mtime": 1791919932.1331549,
-    "ast_hash": "73f4d07ec4a1256507fa349d901afe8d",
+    "mtime": 1794149086.904231,
+    "ast_hash": "138f27278a196f2f2ee8538f7889c3b4",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1-2.webp": {
-    "mtime": 1791919933.9069674,
-    "ast_hash": "5cf1b76fa418848a5a7d5b1be7eee5ab",
+    "mtime": 1794149087.050703,
+    "ast_hash": "a0148511e60a26873ae3cb29eb1a019d",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1-3.webp": {
-    "mtime": 1791919938.8783321,
-    "ast_hash": "e42bf7769ce365dfbd48ee57f81059bc",
+    "mtime": 1794149087.3625836,
+    "ast_hash": "65cb566ca694b639db2aea254901bddd",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1a-briga-1.webp": {
-    "mtime": 1791919945.4529479,
-    "ast_hash": "5407da431d03dccc035b5f3449514a9a",
+    "mtime": 1794149087.5160213,
+    "ast_hash": "16fc59c24aa62ca297d43e8eadce219d",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1a_combate-1.webp": {
-    "mtime": 1791941696.4986384,
-    "ast_hash": "e45b0abaaef08f98255b436437cf170e",
+    "mtime": 1794149087.6710582,
+    "ast_hash": "82c1a576b0af52370ee8616a26a5bca6",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1b_exposicao-1.webp": {
-    "mtime": 1791919949.7603106,
-    "ast_hash": "ca6cd51c85d5ab1dd6b6a7e31f9c5c4a",
+    "mtime": 1794149087.9733696,
+    "ast_hash": "5a47acb46e73a67f5684026c306c5dc2",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1c_acordo-1.webp": {
-    "mtime": 1791919956.3140955,
-    "ast_hash": "d21ccaf867056a9a8378bbe4d9826d57",
+    "mtime": 1794149088.286938,
+    "ast_hash": "f60fcb50fbf22b55d7c620b0869c36d1",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1c_acordo-2.webp": {
-    "mtime": 1791919961.924681,
-    "ast_hash": "b0fe49171c2715caebf8e4f0b2f6fb8d",
+    "mtime": 1794149088.5973241,
+    "ast_hash": "c1a598524f2da7ddebed76068981ef18",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1c_negociacao-1.webp": {
-    "mtime": 1791919952.6076913,
-    "ast_hash": "d565c1d2194fdac586ca8163ef50b500",
+    "mtime": 1794149088.9121974,
+    "ast_hash": "8b802365b27d1c7b7c740de395917bf9",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1d-briga-1.webp": {
-    "mtime": 1791919966.3496256,
-    "ast_hash": "baffc772e2c797afc380d23f92af1781",
+    "mtime": 1794149089.2255864,
+    "ast_hash": "97b813a487f7b81a113f3838edb70bb2",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1d_despreparado-1.webp": {
-    "mtime": 1791919963.2289364,
-    "ast_hash": "7396fac4a844baed541d68bb0e810174",
+    "mtime": 1794149089.5482564,
+    "ast_hash": "39076a9e40c2fe26fa4336ef2ecb25de",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.2_derrota-1.webp": {
-    "mtime": 1791919985.285762,
-    "ast_hash": "48b4ced4273d0454271b0eb91ac8d4ab",
+    "mtime": 1794149089.862089,
+    "ast_hash": "d6e951789b0329fd48a6e527de71cf58",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.2_derrota-2.webp": {
-    "mtime": 1791919987.8584342,
-    "ast_hash": "7a255ef43e79f93959879c87b17e20da",
+    "mtime": 1794149090.0277193,
+    "ast_hash": "328368073b371807350089cf9c7ca795",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.2_vitoria-1.webp": {
-    "mtime": 1791919974.3853908,
-    "ast_hash": "d9988d32ba8e734ef33ccf1de9b44357",
+    "mtime": 1794149090.3649447,
+    "ast_hash": "83e87486eb47a4d780b7eebf93665bb3",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.2_vitoria-2.webp": {
-    "mtime": 1791919973.1009831,
-    "ast_hash": "59d2c0f273a65107394063ac28975da5",
+    "mtime": 1794149090.6798937,
+    "ast_hash": "7568bd29f1b4d2922e734fa4feae0fd8",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.2_vitoria_desperado-1.webp": {
-    "mtime": 1791919977.2653377,
-    "ast_hash": "05ff6de225e3a492312d24701b62c31b",
+    "mtime": 1794149090.8549967,
+    "ast_hash": "87170fdd2d9198a2c3691cb64de00c52",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.2_vitoria_desperado-2.webp": {
-    "mtime": 1791919983.443567,
-    "ast_hash": "b36f83ba1a10400a6058b244cd8e851c",
+    "mtime": 1794149091.186725,
+    "ast_hash": "b508ed9497ced00caec3c7194bff0fdb",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/sfx/escolha-1.mp3": {
@@ -9140,318 +9140,318 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.1b-1b.webp": {
-    "mtime": 1791925691.8577757,
-    "ast_hash": "a7ad0e0d019eb1703b142405095c52d5",
+    "mtime": 1794149067.0300527,
+    "ast_hash": "ce999f2dd95ce6377a2d725c69acf00c",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.2-1b.webp": {
-    "mtime": 1791941722.6585176,
-    "ast_hash": "8a5f293fffe4a8a33f0d813ce7eaa7a0",
+    "mtime": 1794149067.8172667,
+    "ast_hash": "01297fa52c9f510558b8ab7117955d48",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.2-2b.webp": {
-    "mtime": 1791925585.0076458,
-    "ast_hash": "9a08b358cd33ee571df4bc42b5751204",
+    "mtime": 1794149068.1344562,
+    "ast_hash": "16e836daec096b3e3108b5ce9e21a183",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3-2b.webp": {
-    "mtime": 1791925596.5986793,
-    "ast_hash": "5c42518852dda533dde6c1e16ef7df1d",
+    "mtime": 1794149068.629731,
+    "ast_hash": "a16cf9059181c1c63d936341cdcfd233",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3a-1b.webp": {
-    "mtime": 1791925603.9993577,
-    "ast_hash": "7feb8916d587295e69cd3d45f5a9a96b",
+    "mtime": 1794149069.1148603,
+    "ast_hash": "e2493344ff95ccdc3d41f9777a8407ae",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3b-1b.webp": {
-    "mtime": 1791925605.6414225,
-    "ast_hash": "999475fce3b3e03d344693b0a9098947",
+    "mtime": 1794149069.4418757,
+    "ast_hash": "50cb7e2e1fb3025dbbc082bea690ef9b",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3c-1b.webp": {
-    "mtime": 1791925607.1157353,
-    "ast_hash": "e3ae0def4faf8218fa9fc63a01f96dbb",
+    "mtime": 1794149069.7562635,
+    "ast_hash": "6d1c058989eda31b5042aab1432b0bfc",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3d-1b.webp": {
-    "mtime": 1791925613.3827684,
-    "ast_hash": "b7b0ff17022558b6330d5596c3303f9c",
+    "mtime": 1794149070.087877,
+    "ast_hash": "1362e96b971c83c322b030aba4d8abc4",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3d-2b.webp": {
-    "mtime": 1791925617.0673938,
-    "ast_hash": "a488e58bb12ca2d6c295072a32404b14",
+    "mtime": 1794149070.414023,
+    "ast_hash": "90fe4be4e817ef68cc1759773552de65",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3d-luta-1b.webp": {
-    "mtime": 1791925619.6638281,
-    "ast_hash": "29bec57e65c787b28cb3c85d16aa31ad",
+    "mtime": 1794149070.8991737,
+    "ast_hash": "81ebb3fb467857708b5cac41186a207e",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3d-pos-1b.webp": {
-    "mtime": 1791925622.8120575,
-    "ast_hash": "3588f5728e9a794c89c357b059efadeb",
+    "mtime": 1794149071.2206788,
+    "ast_hash": "3f774d272cbc3bdae58cee3a2589fdf3",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3e-1b.webp": {
-    "mtime": 1791925627.136878,
-    "ast_hash": "235d5cb78e79369a898530e4dfb7cdd5",
+    "mtime": 1794149071.5161686,
+    "ast_hash": "42ef1ed8820e7b0e63d50f7098bb5f92",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.3f-1b.webp": {
-    "mtime": 1791925629.6955156,
-    "ast_hash": "3e2115bee335f4faf2e7a0949b7e0134",
+    "mtime": 1794149071.8361979,
+    "ast_hash": "90fd8ec1d4fca42167262af8d5be98d4",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4-1b.webp": {
-    "mtime": 1791941722.8515346,
-    "ast_hash": "d8dcf49b65ef5a10b84a41226d6d13dc",
+    "mtime": 1794149072.2981813,
+    "ast_hash": "180ffd48d642237d95d0c62cbc191525",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4-2b.webp": {
-    "mtime": 1791941731.5504012,
-    "ast_hash": "9c313c9011eaf5840ad5e46c74400152",
+    "mtime": 1794149072.5859494,
+    "ast_hash": "13163b68d3fed987a25f4dbb35bdf032",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4a-1b.webp": {
-    "mtime": 1791925639.5513706,
-    "ast_hash": "68ebd94f53807734b976eb581b006668",
+    "mtime": 1794149073.046024,
+    "ast_hash": "5d1ecd068c42d46268bf4337ec6c360f",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4b-1b.webp": {
-    "mtime": 1791941743.105762,
-    "ast_hash": "80ab0ab430b7f1018007f62e0b5b1d71",
+    "mtime": 1794149073.5018501,
+    "ast_hash": "898ad4b01effd574f2e8da60713013d9",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4c-1b.webp": {
-    "mtime": 1791925648.1500237,
-    "ast_hash": "b159199ebda0143e8811173044a6b999",
+    "mtime": 1794149073.8158298,
+    "ast_hash": "6e175ec2f01eeca4445f6fb6a602a9e4",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.4t-1b.webp": {
-    "mtime": 1791941755.2960494,
-    "ast_hash": "c53c44ae2270241a51f583e8498708b0",
+    "mtime": 1794149074.1296017,
+    "ast_hash": "2d5a8d1ab8ea99aa653c31d9c4679228",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5-2b.webp": {
-    "mtime": 1791941745.5726163,
-    "ast_hash": "0a7cdd97307a8e6b255088548230f526",
+    "mtime": 1794149074.7660737,
+    "ast_hash": "0722e083746a64571612b4c0ae22fb1c",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5-briga-1b.webp": {
-    "mtime": 1791925652.4656756,
-    "ast_hash": "c3bf4f8aa920b2a61a3957849ade7206",
+    "mtime": 1794149075.2276695,
+    "ast_hash": "2e2597a06d7f5ba43e1f8788e3322a6b",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5a-1b.webp": {
-    "mtime": 1791925659.4686213,
-    "ast_hash": "dedef905d68a8c95287107bdbaa6dace",
+    "mtime": 1794149075.534493,
+    "ast_hash": "cc84236d06411cd09773b61739fb351a",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.5t-1b.webp": {
-    "mtime": 1791925663.250161,
-    "ast_hash": "53004e0865a0feeba602507fe188c5b0",
+    "mtime": 1794149076.1841805,
+    "ast_hash": "c287797e1e639db0ce9656f20da510c2",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.veia-1b.webp": {
-    "mtime": 1791925593.329919,
-    "ast_hash": "cf9ff51f048927dcfcdd4f55d8ede9c5",
+    "mtime": 1794149076.6307464,
+    "ast_hash": "eb228191793f717c94e8ff698fd1901c",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.veia-2b.webp": {
-    "mtime": 1791925595.0487463,
-    "ast_hash": "160d6bd802b8b802fb1e52d9f3e0abc2",
+    "mtime": 1794149076.9285789,
+    "ast_hash": "fd73f444ccd0ff5e1b51f2dc5784ad5d",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.1-1b.webp": {
-    "mtime": 1791941710.6938412,
-    "ast_hash": "1d97d023fc1731106611d61dfbe2f0b5",
+    "mtime": 1794149077.2480874,
+    "ast_hash": "09145d19983cd7522062c6c2d4fae5b5",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.1a-1b.webp": {
-    "mtime": 1791941709.1311705,
-    "ast_hash": "781cc6f2e673dfb3a65d4f22a45652ed",
+    "mtime": 1794149077.5552042,
+    "ast_hash": "2827f9cbee5fe8cba5a43c877f54d826",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.1b-1b.webp": {
-    "mtime": 1791941707.9024885,
-    "ast_hash": "9745fbb4d9d7b6fbea8748fff04c71f2",
+    "mtime": 1794149077.8505797,
+    "ast_hash": "d5b22405e8f61d3a0c15217cc680807c",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.1c-1b.webp": {
-    "mtime": 1791941719.9525957,
-    "ast_hash": "2c6b88b26b41117c3d3752188a4d6ff7",
+    "mtime": 1794149078.1540966,
+    "ast_hash": "649134aa5c5202376e5f118848ddc4d6",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.1d-1b.webp": {
-    "mtime": 1791925682.5993776,
-    "ast_hash": "4a6b63eb7f352ab6ed76df28f1d58c05",
+    "mtime": 1794149078.4603498,
+    "ast_hash": "ef1de5bbe9d3c9a3057366efecd39f41",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.2-1b.webp": {
-    "mtime": 1791925685.5143127,
-    "ast_hash": "2fc839f908e33395b4910b9de6e4b883",
+    "mtime": 1794149078.9235568,
+    "ast_hash": "4add50ea8e342f9b6331639050b650b2",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.3-1b.webp": {
-    "mtime": 1791925691.355028,
-    "ast_hash": "52a1d62b254eb0504ae4c9c5bd546c99",
+    "mtime": 1794149079.5250812,
+    "ast_hash": "8cb958ec87dc13dc13daa975ae0e96a1",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/2.4fim-2b.webp": {
-    "mtime": 1791925692.9412255,
-    "ast_hash": "ee2d1bdddf2160a78f8321730f92492c",
+    "mtime": 1794149079.9614232,
+    "ast_hash": "b358b427110dedb6192e9ef2e085640c",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.1-1b.webp": {
-    "mtime": 1791925694.9901774,
-    "ast_hash": "6c6b0b2ce0ac780e9ee4ccb8816748fb",
+    "mtime": 1794149080.5783365,
+    "ast_hash": "8a6b9267dd094dd7ecbf228d0403c9c1",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.1-2b.webp": {
-    "mtime": 1791925702.6266334,
-    "ast_hash": "2590e012d427fec043ab7d1389765acc",
+    "mtime": 1794149080.890074,
+    "ast_hash": "4ac120f85c94018795dfa55224f76693",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.2_descanso-1b.webp": {
-    "mtime": 1791941765.879064,
-    "ast_hash": "e8aff5d89290cd9bf4bbf6b2c6be89cd",
+    "mtime": 1794149081.5117245,
+    "ast_hash": "91c00c6d956e817993e9db27ef01eb38",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.2_dia8-1b.webp": {
-    "mtime": 1791925706.0841787,
-    "ast_hash": "92cef2da3a7bc78ff4a14ef5ac0e513c",
+    "mtime": 1794149081.8262987,
+    "ast_hash": "54bdc1a672bca786191bc533e65ce94e",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.2_investiga-1b.webp": {
-    "mtime": 1791941755.376049,
-    "ast_hash": "b5a0821a5d6e44b2b830c9e69087a150",
+    "mtime": 1794149082.135249,
+    "ast_hash": "befce3e4e1f910e5b32cd5aad62fa5e8",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.2_trabalho-1b.webp": {
-    "mtime": 1791941685.5641806,
-    "ast_hash": "7e7b799822d8f2c8d77e36b524e7d796",
+    "mtime": 1794149082.4773312,
+    "ast_hash": "752ac50f54b43a597e201b0c8409a6b7",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.3_investiga-1b.webp": {
-    "mtime": 1791941766.181056,
-    "ast_hash": "f9dceb94295d8cfd104e615b63ddbec7",
+    "mtime": 1794149083.1316693,
+    "ast_hash": "b34086e9a049eeffb6f430ecb992cfe7",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.3_sbi-1b.webp": {
-    "mtime": 1791941767.3672464,
-    "ast_hash": "a3745fa6c3908e07519636093d6ef5a8",
+    "mtime": 1794149083.4335656,
+    "ast_hash": "72b5cd5d59c74f0f87aa6a9967ed1d2a",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.4_dia10-1b.webp": {
-    "mtime": 1791925721.8931599,
-    "ast_hash": "5809d19020bc2de9fbd124a95f558557",
+    "mtime": 1794149083.7524862,
+    "ast_hash": "e153a54569d3bfe58b8cbede961a763f",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.4_dia10-2b.webp": {
-    "mtime": 1791925726.2889094,
-    "ast_hash": "84f54150115b6c6d7b66824ed1241b56",
+    "mtime": 1794149084.0465267,
+    "ast_hash": "43040f86b0db6c140dac9f83b8596b17",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.4_puzzle-1b.webp": {
-    "mtime": 1791941778.3102837,
-    "ast_hash": "33c3629eb69cdedefaf4c8a0159deefe",
+    "mtime": 1794149084.3336241,
+    "ast_hash": "74260350199afaec4e4e47cddced9af7",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.4_puzzle_fail-1b.webp": {
-    "mtime": 1791925733.0266645,
-    "ast_hash": "6c68d2255abd82b9857b6c34d6ce2d82",
+    "mtime": 1794149084.6220846,
+    "ast_hash": "51a5cecf895839332802fbe6b36648b8",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.4_puzzle_ok-1b.webp": {
-    "mtime": 1791941777.4705594,
-    "ast_hash": "c0b6b84a470665a471a01a01adff1a43",
+    "mtime": 1794149084.90832,
+    "ast_hash": "15d6f2a562d48b3cf300246d4f889645",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.5_dia11-1b.webp": {
-    "mtime": 1791925746.642724,
-    "ast_hash": "725a27d2de4992af9976bcb19107345c",
+    "mtime": 1794149085.215773,
+    "ast_hash": "c715826f28feec9cdf234c1fecbe8494",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.6_dia12-1b.webp": {
-    "mtime": 1791925741.9231262,
-    "ast_hash": "c1dacd4c7a546785aa7e8bca92e8dbbd",
+    "mtime": 1794149085.6758199,
+    "ast_hash": "fe544dc71a341ec73378a0331a1b2986",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.7_preparacao-1b.webp": {
-    "mtime": 1791925748.7820375,
-    "ast_hash": "29b59c612568e0d6ffbddcc381197756",
+    "mtime": 1794149085.9962413,
+    "ast_hash": "78ef0351deee8f33149a05e89901b4c1",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.8_captura_ok-1b.webp": {
-    "mtime": 1791925753.6180818,
-    "ast_hash": "b3944388bf0f544675c418a1708a0a1e",
+    "mtime": 1794149086.2916276,
+    "ast_hash": "091d30c457a3a66902f87eeda49b6d7b",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/3.treino-1b.webp": {
-    "mtime": 1791925757.645333,
-    "ast_hash": "080b49cefd1eab2d3115387851e7b2b6",
+    "mtime": 1794149086.599108,
+    "ast_hash": "79a09239aabad49767ebae20bfd71728",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1-2b.webp": {
-    "mtime": 1791925758.1827993,
-    "ast_hash": "05ca6937f1128b0f9a7047bdfcdc2bc9",
+    "mtime": 1794149087.2072117,
+    "ast_hash": "5539223d828002f9e019cc3df9d541bc",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1a_combate-1b.webp": {
-    "mtime": 1791925764.198901,
-    "ast_hash": "3d1a5f5f4734e4c4cc7f36860350e469",
+    "mtime": 1794149087.8226967,
+    "ast_hash": "ac26c07f679761c88af54b09d382a520",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1b_exposicao-1b.webp": {
-    "mtime": 1791925768.635899,
-    "ast_hash": "e3a18a490a8aad8b6e5dc60640b083cd",
+    "mtime": 1794149088.1335492,
+    "ast_hash": "a4b8dcdf6dbbb755dc05079fd33e3823",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1c_acordo-1b.webp": {
-    "mtime": 1791925774.786597,
-    "ast_hash": "d593bcaec83fbf3b1d9a31c78c75baa8",
+    "mtime": 1794149088.4456038,
+    "ast_hash": "2f01d88834afab062f0ee8959b8d4e29",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1c_acordo-2b.webp": {
-    "mtime": 1791925778.1477015,
-    "ast_hash": "cc6e1949d55621c5f6360abb27465403",
+    "mtime": 1794149088.7512696,
+    "ast_hash": "8279ce38e30a8e4a4c1d4dd91fe05e84",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1c_negociacao-1b.webp": {
-    "mtime": 1791925768.2908535,
-    "ast_hash": "49430782d2a07c9d6ae8a8e10da5aff7",
+    "mtime": 1794149089.0669284,
+    "ast_hash": "651d2fef91217e3f5f5e75e3aa6fdc1f",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1d-briga-1b.webp": {
-    "mtime": 1791925785.2659955,
-    "ast_hash": "feacce696094c98aa1b9ec37f2569e13",
+    "mtime": 1794149089.3927255,
+    "ast_hash": "f7202e1c5fc1cba4be7ba9aa985be703",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.1d_despreparado-1b.webp": {
-    "mtime": 1791925778.553318,
-    "ast_hash": "9d361368ec939db13c0d053a696de8e7",
+    "mtime": 1794149089.6922705,
+    "ast_hash": "df2c506523353a337176ea0a8b1d1eaf",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.2_derrota-2b.webp": {
-    "mtime": 1791925798.3781211,
-    "ast_hash": "8f6076534048aa5cd895f749227931bd",
+    "mtime": 1794149090.196414,
+    "ast_hash": "52c6f9f7a05eb77ced18cc5498ba6abf",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.2_vitoria-1b.webp": {
-    "mtime": 1791925788.0322187,
-    "ast_hash": "953083c67347fad0178698383cbe290a",
+    "mtime": 1794149090.5209162,
+    "ast_hash": "9effaa6d93dcfbfe649fbfd9424765ca",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.2_vitoria_desperado-1b.webp": {
-    "mtime": 1791925789.8567607,
-    "ast_hash": "4817eeb0b6940da613f258d24062b70d",
+    "mtime": 1794149091.0176868,
+    "ast_hash": "928f47fa2679bdb2cd7d997e37363f2b",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/4.2_vitoria_desperado-2b.webp": {
-    "mtime": 1791925797.02096,
-    "ast_hash": "d03e73ee297f42a0be1eff5dd81365d5",
+    "mtime": 1794149091.344514,
+    "ast_hash": "d5ccdb8db16f326ab3746f12e0c5b8a4",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/tutorial.js": {
@@ -9460,18 +9460,18 @@
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.1c-1.webp": {
-    "mtime": 1791929664.5327947,
-    "ast_hash": "2d43ab9a652f27559428aab98b225b09",
+    "mtime": 1794149067.1850111,
+    "ast_hash": "c74c8047639586800667c709c465d086",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.1c-2.webp": {
-    "mtime": 1791929664.5449653,
-    "ast_hash": "c68e79644f2c8d135da32067e71bd83d",
+    "mtime": 1794149067.341765,
+    "ast_hash": "4dc01d886623d322ef5f8c78c3a512c1",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/arte/1.1c-3.webp": {
-    "mtime": 1791929665.3016915,
-    "ast_hash": "290cd7521156bcb4ac6c9107a2a7079c",
+    "mtime": 1794149067.4888651,
+    "ast_hash": "75a6e76388084016532a06ab5d3020a4",
     "semantic_hash": ""
   },
   "src/pages/games/LDI/batalha/bolso.js": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1794097036.4694436,
+    "mtime": 1794149165.605396,
     "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },
@@ -10435,8 +10435,8 @@
     "semantic_hash": ""
   },
   ".claude/rules/lendas.md": {
-    "mtime": 1793544302.2139485,
-    "ast_hash": "a40e983ff4228c2a9fddca337978c4c4",
+    "mtime": 1794149112.3505926,
+    "ast_hash": "921fbeee3db6c2884267193ca38b66cb",
     "semantic_hash": ""
   },
   "docs/QA/PLAYTEST_TEMPLATE.md": {

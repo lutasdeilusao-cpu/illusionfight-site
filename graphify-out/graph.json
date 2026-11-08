@@ -4,6 +4,26 @@
   "graph": {},
   "nodes": [
     {
+      "label": "lendas.md",
+      "file_type": "document",
+      "source_file": ".claude/rules/lendas.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_rules_lendas",
+      "community": 486,
+      "norm_label": "lendas.md"
+    },
+    {
+      "label": "Decis\u00f5es: lendas",
+      "file_type": "document",
+      "source_file": ".claude/rules/lendas.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "claude_rules_lendas_decis\u00f5es_lendas",
+      "community": 486,
+      "norm_label": "decisoes: lendas"
+    },
+    {
       "label": "SITE_MAP.md",
       "file_type": "document",
       "source_file": "SITE_MAP.md",
@@ -304,34 +324,204 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "AUDITORIA_IMAGENS.md",
+      "label": "LDI_LENDAS_GDD.md",
       "file_type": "document",
-      "source_file": "docs/AUDITORIA_IMAGENS.md",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "docs_auditoria_imagens",
-      "community": 484,
-      "norm_label": "auditoria_imagens.md"
+      "id": "docs_games_ldilendas_ldi_lendas_gdd",
+      "community": 710,
+      "norm_label": "ldi_lendas_gdd.md"
     },
     {
-      "label": "Imagens do portal",
+      "label": "LENDAS DO LDI \u2014 GDD (Game Design Document)",
       "file_type": "document",
-      "source_file": "docs/AUDITORIA_IMAGENS.md",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "docs_auditoria_imagens_imagens_do_portal",
-      "community": 484,
-      "norm_label": "imagens do portal"
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "community": 710,
+      "norm_label": "lendas do ldi \u2014 gdd (game design document)"
     },
     {
-      "label": "Onde cada imagem mora",
+      "label": "1. O que \u00e9",
       "file_type": "document",
-      "source_file": "docs/AUDITORIA_IMAGENS.md",
-      "source_location": "L9",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L11",
       "_origin": "ast",
-      "id": "docs_auditoria_imagens_onde_cada_imagem_mora",
-      "community": 484,
-      "norm_label": "onde cada imagem mora"
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_1_o_que_\u00e9",
+      "community": 710,
+      "norm_label": "1. o que e"
+    },
+    {
+      "label": "2. Telas e rotas",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_2_telas_e_rotas",
+      "community": 710,
+      "norm_label": "2. telas e rotas"
+    },
+    {
+      "label": "3. As Veias",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
+      "community": 710,
+      "norm_label": "3. as veias"
+    },
+    {
+      "label": "3.1 Habilidades",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_1_habilidades",
+      "community": 710,
+      "norm_label": "3.1 habilidades"
+    },
+    {
+      "label": "3.2 Como a Veia muda o jogo",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_2_como_a_veia_muda_o_jogo",
+      "community": 710,
+      "norm_label": "3.2 como a veia muda o jogo"
+    },
+    {
+      "label": "4. Motor da hist\u00f3ria",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria",
+      "community": 710,
+      "norm_label": "4. motor da historia"
+    },
+    {
+      "label": "4.1 Como o texto \u00e9 escrito (a voz)",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_4_1_como_o_texto_\u00e9_escrito_a_voz",
+      "community": 710,
+      "norm_label": "4.1 como o texto e escrito (a voz)"
+    },
+    {
+      "label": "4.2 Graphic novel interativa",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L146",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_4_2_graphic_novel_interativa",
+      "community": 710,
+      "norm_label": "4.2 graphic novel interativa"
+    },
+    {
+      "label": "5. A Temporada 1",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L159",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_5_a_temporada_1",
+      "community": 710,
+      "norm_label": "5. a temporada 1"
+    },
+    {
+      "label": "6. Di\u00e1rio",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L187",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_6_di\u00e1rio",
+      "community": 710,
+      "norm_label": "6. diario"
+    },
+    {
+      "label": "7. Minijogos",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L195",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_7_minijogos",
+      "community": 710,
+      "norm_label": "7. minijogos"
+    },
+    {
+      "label": "8. Salvamento",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L212",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_8_salvamento",
+      "community": 710,
+      "norm_label": "8. salvamento"
+    },
+    {
+      "label": "9. Idiomas",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L222",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_9_idiomas",
+      "community": 710,
+      "norm_label": "9. idiomas"
+    },
+    {
+      "label": "10. Dire\u00e7\u00e3o aprovada (**planejado**)",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L239",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_10_dire\u00e7\u00e3o_aprovada_planejado",
+      "community": 710,
+      "norm_label": "10. direcao aprovada (**planejado**)"
+    },
+    {
+      "label": "11. Batalha do pentagrama (prot\u00f3tipo)",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L250",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo",
+      "community": 710,
+      "norm_label": "11. batalha do pentagrama (prototipo)"
+    },
+    {
+      "label": "11.2 As lutas da hist\u00f3ria",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L324",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_11_2_as_lutas_da_hist\u00f3ria",
+      "community": 710,
+      "norm_label": "11.2 as lutas da historia"
+    },
+    {
+      "label": "11.1 Campanha do pentagrama",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L344",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_11_1_campanha_do_pentagrama",
+      "community": 710,
+      "norm_label": "11.1 campanha do pentagrama"
+    },
+    {
+      "label": "12. Arquivos",
+      "file_type": "document",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L372",
+      "_origin": "ast",
+      "id": "docs_games_ldilendas_ldi_lendas_gdd_12_arquivos",
+      "community": 710,
+      "norm_label": "12. arquivos"
     },
     {
       "label": "version.js",
@@ -344,14 +534,44 @@
       "norm_label": "version.js"
     },
     {
+      "label": "AUDITORIA_IMAGENS.md",
+      "file_type": "document",
+      "source_file": "docs/AUDITORIA_IMAGENS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 484,
+      "norm_label": "auditoria_imagens.md",
+      "id": "docs_auditoria_imagens"
+    },
+    {
+      "label": "Imagens do portal",
+      "file_type": "document",
+      "source_file": "docs/AUDITORIA_IMAGENS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 484,
+      "norm_label": "imagens do portal",
+      "id": "docs_auditoria_imagens_imagens_do_portal"
+    },
+    {
+      "label": "Onde cada imagem mora",
+      "file_type": "document",
+      "source_file": "docs/AUDITORIA_IMAGENS.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "community": 484,
+      "norm_label": "onde cada imagem mora",
+      "id": "docs_auditoria_imagens_onde_cada_imagem_mora"
+    },
+    {
       "label": "Musicas.jsx",
       "file_type": "code",
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_musicas",
       "community": 405,
-      "norm_label": "musicas.jsx"
+      "norm_label": "musicas.jsx",
+      "id": "src_pages_content_musicas"
     },
     {
       "label": "capaDe()",
@@ -359,9 +579,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "src_pages_content_musicas_capade",
       "community": 405,
-      "norm_label": "capade()"
+      "norm_label": "capade()",
+      "id": "src_pages_content_musicas_capade"
     },
     {
       "label": "mmss()",
@@ -369,9 +589,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "src_pages_content_musicas_mmss",
       "community": 405,
-      "norm_label": "mmss()"
+      "norm_label": "mmss()",
+      "id": "src_pages_content_musicas_mmss"
     },
     {
       "label": "num()",
@@ -379,9 +599,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "src_pages_content_musicas_num",
       "community": 405,
-      "norm_label": "num()"
+      "norm_label": "num()",
+      "id": "src_pages_content_musicas_num"
     },
     {
       "label": "Equalizador()",
@@ -389,9 +609,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "src_pages_content_musicas_equalizador",
       "community": 405,
-      "norm_label": "equalizador()"
+      "norm_label": "equalizador()",
+      "id": "src_pages_content_musicas_equalizador"
     },
     {
       "label": "dataCurta()",
@@ -399,9 +619,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "src_pages_content_musicas_datacurta",
       "community": 405,
-      "norm_label": "datacurta()"
+      "norm_label": "datacurta()",
+      "id": "src_pages_content_musicas_datacurta"
     },
     {
       "label": "Cadeado()",
@@ -409,9 +629,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L36",
       "_origin": "ast",
-      "id": "src_pages_content_musicas_cadeado",
       "community": 405,
-      "norm_label": "cadeado()"
+      "norm_label": "cadeado()",
+      "id": "src_pages_content_musicas_cadeado"
     },
     {
       "label": "OndeOuvir()",
@@ -419,9 +639,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L46",
       "_origin": "ast",
-      "id": "src_pages_content_musicas_ondeouvir",
       "community": 405,
-      "norm_label": "ondeouvir()"
+      "norm_label": "ondeouvir()",
+      "id": "src_pages_content_musicas_ondeouvir"
     },
     {
       "label": "Musicas()",
@@ -429,9 +649,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L91",
       "_origin": "ast",
-      "id": "src_pages_content_musicas_musicas",
       "community": 405,
-      "norm_label": "musicas()"
+      "norm_label": "musicas()",
+      "id": "src_pages_content_musicas_musicas"
     },
     {
       "label": "HomeGames.jsx",
@@ -439,9 +659,9 @@
       "source_file": "src/pages/site/Home/components/HomeGames.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_homegames",
       "community": 522,
-      "norm_label": "homegames.jsx"
+      "norm_label": "homegames.jsx",
+      "id": "src_pages_site_home_components_homegames"
     },
     {
       "label": "LOGO_GANGUES",
@@ -449,9 +669,9 @@
       "source_file": "src/pages/site/Home/components/HomeGames.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_homegames_logo_gangues",
       "community": 522,
-      "norm_label": "logo_gangues"
+      "norm_label": "logo_gangues",
+      "id": "src_pages_site_home_components_homegames_logo_gangues"
     },
     {
       "label": "LUTADORES",
@@ -459,9 +679,9 @@
       "source_file": "src/pages/site/Home/components/HomeGames.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_homegames_lutadores",
       "community": 522,
-      "norm_label": "lutadores"
+      "norm_label": "lutadores",
+      "id": "src_pages_site_home_components_homegames_lutadores"
     },
     {
       "label": "HomeGames()",
@@ -469,9 +689,9 @@
       "source_file": "src/pages/site/Home/components/HomeGames.jsx",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_homegames_homegames",
       "community": 522,
-      "norm_label": "homegames()"
+      "norm_label": "homegames()",
+      "id": "src_pages_site_home_components_homegames_homegames"
     },
     {
       "label": "Recomendacoes.jsx",
@@ -5682,26 +5902,6 @@
       "community": 483,
       "norm_label": "decisoes: gangues",
       "id": "claude_rules_gangues_decis\u00f5es_gangues"
-    },
-    {
-      "label": "lendas.md",
-      "file_type": "document",
-      "source_file": ".claude/rules/lendas.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 486,
-      "norm_label": "lendas.md",
-      "id": "claude_rules_lendas"
-    },
-    {
-      "label": "Decis\u00f5es: lendas",
-      "file_type": "document",
-      "source_file": ".claude/rules/lendas.md",
-      "source_location": "L6",
-      "_origin": "ast",
-      "community": 486,
-      "norm_label": "decisoes: lendas",
-      "id": "claude_rules_lendas_decis\u00f5es_lendas"
     },
     {
       "label": "PLAYTEST_TEMPLATE.md",
@@ -50164,206 +50364,6 @@
       "id": "docs_games_ldiduelo_gdd"
     },
     {
-      "label": "LDI_LENDAS_GDD.md",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "ldi_lendas_gdd.md",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd"
-    },
-    {
-      "label": "LENDAS DO LDI \u2014 GDD (Game Design Document)",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "lendas do ldi \u2014 gdd (game design document)",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document"
-    },
-    {
-      "label": "1. O que \u00e9",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L11",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "1. o que e",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_1_o_que_\u00e9"
-    },
-    {
-      "label": "2. Telas e rotas",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "2. telas e rotas",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_2_telas_e_rotas"
-    },
-    {
-      "label": "3. As Veias",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L38",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "3. as veias",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias"
-    },
-    {
-      "label": "3.1 Habilidades",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L55",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "3.1 habilidades",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_1_habilidades"
-    },
-    {
-      "label": "3.2 Como a Veia muda o jogo",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L79",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "3.2 como a veia muda o jogo",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_3_2_como_a_veia_muda_o_jogo"
-    },
-    {
-      "label": "4. Motor da hist\u00f3ria",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L91",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "4. motor da historia",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria"
-    },
-    {
-      "label": "4.1 Como o texto \u00e9 escrito (a voz)",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L112",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "4.1 como o texto e escrito (a voz)",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_4_1_como_o_texto_\u00e9_escrito_a_voz"
-    },
-    {
-      "label": "4.2 Graphic novel interativa",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L146",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "4.2 graphic novel interativa",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_4_2_graphic_novel_interativa"
-    },
-    {
-      "label": "5. A Temporada 1",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L161",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "5. a temporada 1",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_5_a_temporada_1"
-    },
-    {
-      "label": "6. Di\u00e1rio",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L189",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "6. diario",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_6_di\u00e1rio"
-    },
-    {
-      "label": "7. Minijogos",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L197",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "7. minijogos",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_7_minijogos"
-    },
-    {
-      "label": "8. Salvamento",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L214",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "8. salvamento",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_8_salvamento"
-    },
-    {
-      "label": "9. Idiomas",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L224",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "9. idiomas",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_9_idiomas"
-    },
-    {
-      "label": "10. Dire\u00e7\u00e3o aprovada (**planejado**)",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L241",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "10. direcao aprovada (**planejado**)",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_10_dire\u00e7\u00e3o_aprovada_planejado"
-    },
-    {
-      "label": "11. Batalha do pentagrama (prot\u00f3tipo)",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L252",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "11. batalha do pentagrama (prototipo)",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo"
-    },
-    {
-      "label": "11.2 As lutas da hist\u00f3ria",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L326",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "11.2 as lutas da historia",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_11_2_as_lutas_da_hist\u00f3ria"
-    },
-    {
-      "label": "11.1 Campanha do pentagrama",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L346",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "11.1 campanha do pentagrama",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_11_1_campanha_do_pentagrama"
-    },
-    {
-      "label": "12. Arquivos",
-      "file_type": "document",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L374",
-      "_origin": "ast",
-      "community": 710,
-      "norm_label": "12. arquivos",
-      "id": "docs_games_ldilendas_ldi_lendas_gdd_12_arquivos"
-    },
-    {
       "label": "IasLDITatics.md",
       "file_type": "document",
       "source_file": "docs/Games/LDITatics/IasLDITatics.md",
@@ -66348,6 +66348,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": ".claude/rules/lendas.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "claude_rules_lendas",
+      "target": "claude_rules_lendas_decis\u00f5es_lendas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "SITE_MAP.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -66638,21 +66648,191 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/AUDITORIA_IMAGENS.md",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
       "source_location": "L1",
       "weight": 1.0,
-      "source": "docs_auditoria_imagens",
-      "target": "docs_auditoria_imagens_imagens_do_portal",
+      "source": "docs_games_ldilendas_ldi_lendas_gdd",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/AUDITORIA_IMAGENS.md",
-      "source_location": "L9",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L239",
       "weight": 1.0,
-      "source": "docs_auditoria_imagens_imagens_do_portal",
-      "target": "docs_auditoria_imagens_onde_cada_imagem_mora",
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_10_dire\u00e7\u00e3o_aprovada_planejado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L250",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L372",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_12_arquivos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_1_o_que_\u00e9",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_2_telas_e_rotas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_4_2_graphic_novel_interativa",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L159",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_5_a_temporada_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L187",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_6_di\u00e1rio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L195",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_7_minijogos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L212",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_8_salvamento",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_9_idiomas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_1_habilidades",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_2_como_a_veia_muda_o_jogo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_4_1_como_o_texto_\u00e9_escrito_a_voz",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L344",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_11_1_campanha_do_pentagrama",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
+      "source_location": "L324",
+      "weight": 1.0,
+      "source": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo",
+      "target": "docs_games_ldilendas_ldi_lendas_gdd_11_2_as_lutas_da_hist\u00f3ria",
       "confidence_score": 1.0
     },
     {
@@ -66823,12 +67003,32 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "docs/AUDITORIA_IMAGENS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_auditoria_imagens",
+      "target": "docs_auditoria_imagens_imagens_do_portal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/AUDITORIA_IMAGENS.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_auditoria_imagens_imagens_do_portal",
+      "target": "docs_auditoria_imagens_onde_cada_imagem_mora"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_cadeado",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_cadeado"
     },
     {
       "relation": "contains",
@@ -66836,9 +67036,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_capade",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_capade"
     },
     {
       "relation": "contains",
@@ -66846,9 +67046,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_datacurta",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_datacurta"
     },
     {
       "relation": "contains",
@@ -66856,9 +67056,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_equalizador",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_equalizador"
     },
     {
       "relation": "contains",
@@ -66866,9 +67066,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_mmss",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_mmss"
     },
     {
       "relation": "contains",
@@ -66876,9 +67076,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_musicas",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_musicas"
     },
     {
       "relation": "contains",
@@ -66886,9 +67086,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_num",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_num"
     },
     {
       "relation": "contains",
@@ -66896,9 +67096,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_ondeouvir",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_ondeouvir"
     },
     {
       "relation": "calls",
@@ -66907,9 +67107,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L180",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas_musicas",
-      "target": "src_pages_content_musicas_capade",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_capade"
     },
     {
       "relation": "calls",
@@ -66918,9 +67118,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas_musicas",
-      "target": "src_pages_content_musicas_mmss",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_mmss"
     },
     {
       "relation": "calls",
@@ -66929,9 +67129,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas_ondeouvir",
-      "target": "src_pages_content_musicas_num",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_num"
     },
     {
       "relation": "calls",
@@ -66940,9 +67140,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas_cadeado",
-      "target": "src_pages_content_musicas_datacurta",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_datacurta"
     },
     {
       "relation": "calls",
@@ -66951,9 +67151,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L256",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas_musicas",
-      "target": "src_pages_content_musicas_datacurta",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_datacurta"
     },
     {
       "relation": "contains",
@@ -66961,9 +67161,9 @@
       "source_file": "src/pages/site/Home/components/HomeGames.jsx",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_homegames",
-      "target": "src_pages_site_home_components_homegames_homegames",
-      "confidence_score": 1.0
+      "target": "src_pages_site_home_components_homegames_homegames"
     },
     {
       "relation": "contains",
@@ -66971,9 +67171,9 @@
       "source_file": "src/pages/site/Home/components/HomeGames.jsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_homegames",
-      "target": "src_pages_site_home_components_homegames_logo_gangues",
-      "confidence_score": 1.0
+      "target": "src_pages_site_home_components_homegames_logo_gangues"
     },
     {
       "relation": "contains",
@@ -66981,9 +67181,9 @@
       "source_file": "src/pages/site/Home/components/HomeGames.jsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_homegames",
-      "target": "src_pages_site_home_components_homegames_lutadores",
-      "confidence_score": 1.0
+      "target": "src_pages_site_home_components_homegames_lutadores"
     },
     {
       "relation": "imports_from",
@@ -73364,16 +73564,6 @@
       "confidence_score": 1.0,
       "source": "claude_rules_gangues",
       "target": "claude_rules_gangues_decis\u00f5es_gangues"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".claude/rules/lendas.md",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "claude_rules_lendas",
-      "target": "claude_rules_lendas_decis\u00f5es_lendas"
     },
     {
       "relation": "contains",
@@ -185359,196 +185549,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L241",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_10_dire\u00e7\u00e3o_aprovada_planejado"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L252",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L374",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_12_arquivos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_1_o_que_\u00e9"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_2_telas_e_rotas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L146",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_4_2_graphic_novel_interativa"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L91",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L161",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_5_a_temporada_1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L189",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_6_di\u00e1rio"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L197",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_7_minijogos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L214",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_8_salvamento"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L224",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_lendas_do_ldi_gdd_game_design_document",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_9_idiomas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L55",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_1_habilidades"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L79",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_3_as_veias",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_3_2_como_a_veia_muda_o_jogo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L112",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_4_motor_da_hist\u00f3ria",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_4_1_como_o_texto_\u00e9_escrito_a_voz"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L346",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_11_1_campanha_do_pentagrama"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/LDILendas/LDI_LENDAS_GDD.md",
-      "source_location": "L326",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_ldilendas_ldi_lendas_gdd_11_batalha_do_pentagrama_prot\u00f3tipo",
-      "target": "docs_games_ldilendas_ldi_lendas_gdd_11_2_as_lutas_da_hist\u00f3ria"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "docs/Games/LDITatics/RELATORIO_CLASSES_COMPLETO.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -197878,5 +197878,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "bbf682f49c4ae0677fcc4d0f93ba50fb6a2eed94"
+  "built_at_commit": "46a74b2b9d5f136c0aa5c7ee32c39ef4c9727156"
 }
