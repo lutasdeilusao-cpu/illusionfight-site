@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1794155774.9458187,
-    "ast_hash": "9a6c73d8eeee6faac52abccd0234900a",
+    "mtime": 1794161578.7098663,
+    "ast_hash": "26b0c58092375e11311046faa9981974",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1794155774.9788957,
-    "ast_hash": "6e21872de91774a87edfe05aaa08f4b9",
+    "mtime": 1794161578.7509012,
+    "ast_hash": "ce4837c195c9ae673eb95c1f76c29ae0",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4060,8 +4060,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesCombatAnimations.js": {
-    "mtime": 1791093985.5421076,
-    "ast_hash": "f5044d0417ef94c05069d42a2d840537",
+    "mtime": 1794156324.4868882,
+    "ast_hash": "a0f20a4bd19d35f2d2da115986ec7b15",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesEnemyPortraits.js": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1794155816.5971897,
+    "mtime": 1794161629.7323813,
     "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },
@@ -10787,6 +10787,256 @@
   "src/pages/games/Gangues/assets/personagens/trovao/corpo-lado.webp": {
     "mtime": 1794155760.564024,
     "ast_hash": "ad91c9868b8f4769ce3be73d17f441f1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/boca/ataque-normal.webp": {
+    "mtime": 1794161537.5346353,
+    "ast_hash": "b0b8a8d84eee227d38ddf39fd295479e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/boca/dano.webp": {
+    "mtime": 1794161537.5856063,
+    "ast_hash": "2b9f35b68c5f30d20f7fca112dc0f591",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/brasa/ataque-normal.webp": {
+    "mtime": 1794161537.641275,
+    "ast_hash": "ac9ba7d8127ebb71cb10395393d8e4d8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/brasa/dano.webp": {
+    "mtime": 1794161537.6955857,
+    "ast_hash": "aba14328a621d798de68ceaf45ebe8a7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/chuva/ataque-normal.webp": {
+    "mtime": 1794161537.746071,
+    "ast_hash": "96b9e3ecadc0b0fd2c586c97b74f0268",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/chuva/dano.webp": {
+    "mtime": 1794161537.7922237,
+    "ast_hash": "ab83aa878dd5789e42504f88b72cb060",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/cicatriz/ataque-normal.webp": {
+    "mtime": 1794161537.8437736,
+    "ast_hash": "54c92e82101c34a31f7ac9c36bba4d43",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/cicatriz/dano.webp": {
+    "mtime": 1794161537.8933105,
+    "ast_hash": "1636b81534b7370e8c24f60503fa2ac5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/cinza/ataque-normal.webp": {
+    "mtime": 1794161537.9497423,
+    "ast_hash": "75d041f3c16b964fabd98ebf4d6af767",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/cinza/dano.webp": {
+    "mtime": 1794161538.0009148,
+    "ast_hash": "848797300cc148373bab3360d9ecc9fc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/concreto/ataque-normal.webp": {
+    "mtime": 1794161538.0450983,
+    "ast_hash": "530c839a32d4d96ff2fd2e5207c1778a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/concreto/dano.webp": {
+    "mtime": 1794161538.1010463,
+    "ast_hash": "49fb7eb54bcefc29a0de2e87bacff78a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/espelho/ataque-normal.webp": {
+    "mtime": 1794161538.1559486,
+    "ast_hash": "2eed0adc1bec63f56b1f0e5075f34b63",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/espelho/dano.webp": {
+    "mtime": 1794161538.2075913,
+    "ast_hash": "ebb916b417953fe167afed607fa7e954",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ferro/ataque-normal.webp": {
+    "mtime": 1794161538.2608082,
+    "ast_hash": "dc9218f16727dee808279daa3eaf3f65",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ferro/dano.webp": {
+    "mtime": 1794161538.3311193,
+    "ast_hash": "bd162c1937e7e7425ebd213559e25780",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/guarda/ataque-normal.webp": {
+    "mtime": 1794161538.3821943,
+    "ast_hash": "5340d165c178fb03da3d0a0399e1ef07",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/guarda/dano.webp": {
+    "mtime": 1794161538.4322283,
+    "ast_hash": "ae7746ba2e3a8f98c17bd1a6ecc6b00b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/isca/ataque-normal.webp": {
+    "mtime": 1794161538.4838636,
+    "ast_hash": "f9b87804e7bc9c2ac89138b00dfad5b5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/isca/dano.webp": {
+    "mtime": 1794161538.540998,
+    "ast_hash": "c312b84e8ced8b5dd5b3f4a7c11d9697",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/mare/ataque-normal.webp": {
+    "mtime": 1794161538.589389,
+    "ast_hash": "a5b831f2f7de3e9da6ae871aebdfb8f5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/mare/dano.webp": {
+    "mtime": 1794161538.6459188,
+    "ast_hash": "161e9f0a95434ec20af55bb61d5ff31a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/marreta/ataque-normal.webp": {
+    "mtime": 1794161538.7010722,
+    "ast_hash": "5c6a42016853218fea1396be041c9101",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/marreta/dano.webp": {
+    "mtime": 1794161538.752732,
+    "ast_hash": "e4162840dd17ba17317c8f1e849ab0d1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/mira/ataque-normal.webp": {
+    "mtime": 1794161538.8279638,
+    "ast_hash": "91a98196537d4f0a062ac77cf8ebc2fb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/mira/dano.webp": {
+    "mtime": 1794161538.881247,
+    "ast_hash": "ce79c2f471e9b4582a9dcbe3ab71f14c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/navalha/ataque-normal.webp": {
+    "mtime": 1794161538.9364414,
+    "ast_hash": "457d7a5862630b1b7e824df43f0cb990",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/navalha/dano.webp": {
+    "mtime": 1794161538.9889765,
+    "ast_hash": "50cbd39a7adfd36fb35a77e082fcd6d5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/nevoa/ataque-normal.webp": {
+    "mtime": 1794161539.049179,
+    "ast_hash": "671b7dc92286b35bb947706122c5f712",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/nevoa/dano.webp": {
+    "mtime": 1794161539.1068778,
+    "ast_hash": "4f14527e9edd5762bdad2ad2d9be600a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ombro/ataque-normal.webp": {
+    "mtime": 1794161539.1634471,
+    "ast_hash": "45c089253c5e36fc4407b439758d75b1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ombro/dano.webp": {
+    "mtime": 1794161539.225183,
+    "ast_hash": "96fa40253bd06751c943a475e8af2277",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/osso/ataque-normal.webp": {
+    "mtime": 1794161539.2796342,
+    "ast_hash": "faa51dd898f28bff48027d7f9232a2c4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/osso/dano.webp": {
+    "mtime": 1794161539.3342137,
+    "ast_hash": "6598fb741db8a5df751f2bf6cd9881c7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ponto/ataque-normal.webp": {
+    "mtime": 1794161539.3857818,
+    "ast_hash": "fd4e88d08c9c68f13932a62c5e7d8aec",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/ponto/dano.webp": {
+    "mtime": 1794161539.4404347,
+    "ast_hash": "ad4f568f474dcc963c560d9cdb03df8e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/racha/ataque-normal.webp": {
+    "mtime": 1794161539.4898317,
+    "ast_hash": "865bf0d9d5315c5788b43a69bd8099bb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/racha/dano.webp": {
+    "mtime": 1794161539.5358992,
+    "ast_hash": "25efac883b2bf9e5f3b2d3cd6d8efd1b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/raiz/ataque-normal.webp": {
+    "mtime": 1794161539.5838351,
+    "ast_hash": "548d5b397120daaf3dc5ebd3598aa58a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/raiz/dano.webp": {
+    "mtime": 1794161539.63616,
+    "ast_hash": "b9a97451135899346415304419123c3c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/rebote/ataque-normal.webp": {
+    "mtime": 1794161539.6887825,
+    "ast_hash": "a0d660d6c168cbad74dd98478b86fee0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/rebote/dano.webp": {
+    "mtime": 1794161539.7427735,
+    "ast_hash": "89091008b050613d4143673eea2c5698",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/sangue/ataque-normal.webp": {
+    "mtime": 1794161539.7880883,
+    "ast_hash": "c51822825eb2e7731ca2e4d5fa55632e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/sangue/dano.webp": {
+    "mtime": 1794161539.8340516,
+    "ast_hash": "41ea9191a1469d1bf77677b9027217fd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/touro/ataque-normal.webp": {
+    "mtime": 1794161539.8835225,
+    "ast_hash": "665e2b2e1864dd5093f819036585a0ae",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/touro/dano.webp": {
+    "mtime": 1794161539.9388433,
+    "ast_hash": "f83a17d7e61a2c69df74563e5c45e307",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/troco/ataque-normal.webp": {
+    "mtime": 1794161539.989468,
+    "ast_hash": "de2ac1ccbcd8ca6887048763535535aa",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/troco/dano.webp": {
+    "mtime": 1794161540.046924,
+    "ast_hash": "372eacd8258f7b915437a0aa8e6d06f8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/trovao/ataque-normal.webp": {
+    "mtime": 1794161540.1045604,
+    "ast_hash": "fdde6fe3975c2be805d0aabe21310357",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/personagens/trovao/dano.webp": {
+    "mtime": 1794161540.1585703,
+    "ast_hash": "3b578b37b82b0162e506a2b991270da2",
     "semantic_hash": ""
   }
 }
