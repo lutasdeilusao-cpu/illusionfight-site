@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useScrollReveal } from '../../../../hooks/useScrollReveal'
 import { trackEvent } from '../../../../lib/analytics'
-import { getTopTrumpsCardImage } from '../../../../lib/topTrumpsCardImages'
 import HomeSectionHeading from './HomeSectionHeading'
 import parede from '../../../games/Gangues/assets/backgrounds/parede-oficial.jpg'
 import logoGanguesPt from '../../../games/Gangues/assets/logos/logo-pt.png'
@@ -11,15 +10,14 @@ import logoGanguesEs from '../../../games/Gangues/assets/logos/logo-es.png'
 import trinca from '../../../games/Gangues/assets/personagens/trinca/corpo-frente.webp'
 import navalha from '../../../games/Gangues/assets/personagens/navalha/corpo-frente.webp'
 import marreta from '../../../games/Gangues/assets/personagens/marreta/corpo-frente.webp'
+import arteTrunfo from '../../../../assets/images/games/supertrunfo.webp'
 import './HomeGames.css'
 
 const LOGO_GANGUES = { pt: logoGanguesPt, en: logoGanguesEn, es: logoGanguesEs }
 const LUTADORES = [navalha, trinca, marreta]
-// Cartas de palco (o "Show" de Kim, Jack e Nina no catálogo do Super Trunfo).
-const CARTAS = [4, 9, 14]
 
 /** Os dois jogos-vitrine com arte própria: LDI Gangues (os lutadores de
- *  corpo inteiro na parede oficial) e LDI Super Trunfo (as cartas em leque). */
+ *  corpo inteiro na parede oficial) e LDI Super Trunfo (a mesa com as cartas do elenco). */
 export default function HomeGames() {
   const { t, locale } = useLanguage()
   const ref = useScrollReveal()
@@ -47,9 +45,7 @@ export default function HomeGames() {
         </Link>
 
         <Link to="/games/toptrumps" className="home-games__trunfo" onClick={() => trackEvent('home_game', { game_id: 'toptrumps' })}>
-          <div className="home-games__leque" aria-hidden="true">
-            {CARTAS.map(id => <img key={id} src={getTopTrumpsCardImage(id)} alt="" loading="lazy" decoding="async" />)}
-          </div>
+          <img className="home-games__trunfo-arte" src={arteTrunfo} alt="" loading="lazy" decoding="async" width="1024" height="1536" />
           <div className="home-games__trunfo-info">
             <span className="home-games__nome">{t('site.games.nomes.trumps')}</span>
             <p>{t('home.nova.trunfo_texto')}</p>

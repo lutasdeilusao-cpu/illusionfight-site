@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1794093737.217522,
-    "ast_hash": "6226329c83499a992b98be39f8bcca78",
+    "mtime": 1794095278.8774965,
+    "ast_hash": "280c047581219c6bf9779ac1f7ea4abc",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1794093737.2281086,
-    "ast_hash": "b4b31a87d055c95a5add101f824533da",
+    "mtime": 1794095278.891497,
+    "ast_hash": "72445387e98ebf89f6084cd274a918d6",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -5055,8 +5055,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/HomeGames.jsx": {
-    "mtime": 1790772768.4434319,
-    "ast_hash": "8c9ed0ba7ffabebf68a4d6fc087dc59f",
+    "mtime": 1794095346.8991232,
+    "ast_hash": "7021577da6dd397878380d526284bc81",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/HomeHistorias.jsx": {
@@ -6670,8 +6670,8 @@
     "semantic_hash": ""
   },
   "src/components/Recomendacoes/Recomendacoes.jsx": {
-    "mtime": 1792427188.55953,
-    "ast_hash": "66bfd314b0d91e82766020f4d3f1d4eb",
+    "mtime": 1794095278.8177977,
+    "ast_hash": "a7c45bc4418d97568eeeae5a00a86f6c",
     "semantic_hash": ""
   },
   "src/lib/historias/historico.js": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1794093901.2804258,
+    "mtime": 1794095330.2356503,
     "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },
@@ -10480,8 +10480,8 @@
     "semantic_hash": ""
   },
   "docs/AUDITORIA_IMAGENS.md": {
-    "mtime": 1794093747.6624668,
-    "ast_hash": "5e3c822765eb59cce385cd441e99ec36",
+    "mtime": 1794095278.9570463,
+    "ast_hash": "3283fe749da8fb6dccd0e920c35d401e",
     "semantic_hash": ""
   },
   "src/assets/images/games/lendas.webp": {
@@ -10507,6 +10507,11 @@
   "src/assets/images/games/supertrunfo.webp": {
     "mtime": 1794093720.8652108,
     "ast_hash": "ebed67f6e1c74c3998af043e44b16283",
+    "semantic_hash": ""
+  },
+  "src/assets/images/characters/nina-radio.webp": {
+    "mtime": 1794095268.7559605,
+    "ast_hash": "37fc1111127630a56cf0e808d8744c39",
     "semantic_hash": ""
   }
 }

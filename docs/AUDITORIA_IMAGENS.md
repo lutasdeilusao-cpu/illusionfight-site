@@ -16,6 +16,10 @@ As imagens do portal são feitas no ChatGPT, pelo robô do navegador (`C:\websha
 | Capa de cada música e faixa da rádio | `assets/images/music/capas/<id>.webp` (600×900) | Cena que traduz o título |
 | Card do LDI Lendas em /games | `assets/images/games/lendas.webp` | Lutador no pentagrama das Veias |
 | Card do Super Trunfo em /games | `assets/images/games/supertrunfo.webp` | Mesa com cartas do Kim, Jack e Nina |
+| Card do Super Trunfo na Home | `assets/images/games/supertrunfo.webp` | A mesma arte, de fundo do card |
+| Cabeçalho da Rádio Nina em /musicas | `assets/images/characters/nina-radio.webp` | Nina no estúdio |
+| Personagens (/personagens) | `public/assets/images/characters/<id>.png` (544×816) | Corpo inteiro, pela ficha oficial |
+| Capa das Histórias do Autor | `assets/images/autor/capa.webp` | O autor entregando de bike na chuva |
 | Próximos jogos em /games | `assets/images/games/proximo-<id>.webp` (320×480) | Tama, Jack Dream Beer, Arena |
 
 Fora do escopo: capas de capítulo, capas de obra (Mundo das Sombras, Mar de Cinzas), WEB SHARD e Loja.

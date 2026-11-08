@@ -6,7 +6,7 @@ import { useRadio } from '../../components/RadioNina/RadioNinaContext'
 import musicas from '../../data/musicas.json'
 import { platformIconMap } from '../../components/PlatformIcons'
 import { capaDaMusica, capaDaFaixa } from '../../lib/capaMusica'
-import arteBanda from '../../assets/images/banners/banner-04.webp'
+import arteRadio from '../../assets/images/characters/nina-radio.webp'
 import ninaImg from '../../assets/images/characters/nina-balloon.png'
 import './Musicas.css'
 
@@ -133,7 +133,7 @@ export default function Musicas() {
           {/* ── 1. A Rádio Nina ── */}
           <section className={`mu-radio${noAr ? ' is-no-ar' : ''}${tocando ? ' is-tocando' : ''}`} aria-label={t('pages.musicas.radio_titulo')}>
             <div className="mu-radio__arte">
-              <img src={arteBanda} alt="" fetchpriority="high" decoding="async" />
+              <img src={arteRadio} alt="" fetchpriority="high" decoding="async" />
             </div>
             <div className="mu-radio__conteudo">
               <span className="mu-radio__selo">

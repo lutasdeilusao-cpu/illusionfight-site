@@ -33,7 +33,7 @@
 
 .autor__capa {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 2 / 3;
   overflow: hidden;
   border: 1px solid var(--if-edge);
   clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
