@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1794095278.8774965,
-    "ast_hash": "280c047581219c6bf9779ac1f7ea4abc",
+    "mtime": 1794096640.482706,
+    "ast_hash": "340ff1597632a9d1cb1e6ed20be5dd66",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -620,8 +620,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/Musicas.jsx": {
-    "mtime": 1794090239.1448047,
-    "ast_hash": "26d3b785755262bea1ae4755176b2a74",
+    "mtime": 1794095807.297853,
+    "ast_hash": "ceba2671b0ca656d0ebd675de8a09a0e",
     "semantic_hash": ""
   },
   "src/pages/content/PersonagemDetalhe.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1794095278.891497,
-    "ast_hash": "72445387e98ebf89f6084cd274a918d6",
+    "mtime": 1794096640.496739,
+    "ast_hash": "99103fa120f01f9801dfe99c232c78e9",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1794095330.2356503,
+    "mtime": 1794097036.4694436,
     "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },
@@ -10480,8 +10480,8 @@
     "semantic_hash": ""
   },
   "docs/AUDITORIA_IMAGENS.md": {
-    "mtime": 1794095278.9570463,
-    "ast_hash": "3283fe749da8fb6dccd0e920c35d401e",
+    "mtime": 1794096640.6311665,
+    "ast_hash": "f1e8e053af1b258e21f0a1f61a4834d8",
     "semantic_hash": ""
   },
   "src/assets/images/games/lendas.webp": {
@@ -10512,6 +10512,11 @@
   "src/assets/images/characters/nina-radio.webp": {
     "mtime": 1794095268.7559605,
     "ast_hash": "37fc1111127630a56cf0e808d8744c39",
+    "semantic_hash": ""
+  },
+  "src/assets/images/autor/capa.webp": {
+    "mtime": 1794096640.3935256,
+    "ast_hash": "8f3a4759b07fbfe8a6fbdfa18b46bad6",
     "semantic_hash": ""
   }
 }
