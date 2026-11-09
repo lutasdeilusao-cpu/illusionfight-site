@@ -53,6 +53,8 @@ export default function GanguesRoute() {
   // comentário grande em TutorialProgressContext.jsx).
   const { definirSaveAtivo } = useTutorialProgress()
   useEffect(() => { definirSaveAtivo(store._saveId) }, [store._saveId, definirSaveAtivo])
+  // Dentro do jogo a página é sempre a coluna de celular.
+  useEffect(() => { const h = document.documentElement; h.classList.add('ldi-jogo'); h.classList.remove('is-wide') }, [])
   // App no fundo com automático ligado: o jogo segue rodando (ver o hook).
   useGanguesManterVivo()
   const [fase, setFase] = useState('lobby')

@@ -1,7 +1,7 @@
 /* Escalação — painel ancorado embaixo (alcance do dedão), mesma linguagem
    do menu de ação: canto chanfrado, âmbar pra ação, ciano pra quem luta. */
 .gang-esc-overlay {
-  position: fixed; top: 0; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 9990;
+  position: fixed; top: 0; bottom: 0; left: var(--gang-gutter); right: var(--gang-gutter); z-index: 9990;
   display: flex; flex-direction: column; justify-content: flex-end;
   overscroll-behavior: none;
 }

@@ -3,7 +3,7 @@
 .gang-clube {
   --terr-cor: var(--gang-vermelho-450);
   position: fixed;
-  inset: 0 var(--app-gutter);
+  inset: 0 var(--gang-gutter);
   padding-bottom: var(--radio-nina-h, 0px);
   display: flex;
   flex-direction: column;
@@ -121,7 +121,7 @@
 
 /* ---- base das cenas (sala + desfecho) ---- */
 .gang-clube-cena {
-  position: fixed; inset: 0 var(--app-gutter); z-index: 20;
+  position: fixed; inset: 0 var(--gang-gutter); z-index: 20;
   padding-bottom: var(--radio-nina-h, 0px);
   display: flex; align-items: center; justify-content: center;
   background: #04040a; color: #f0eef0; overflow: hidden;

@@ -145,7 +145,7 @@
 /* Pergunta de início de luta (Sim/Não pra já começar em Briga em Multidão) —
    backdrop sólido, acima de TUDO (dado/KO/resultado usam 9999). */
 .gang-multidao-prompt-overlay {
-  position: fixed; inset: 0 var(--app-gutter); z-index: 10000;
+  position: fixed; inset: 0 var(--gang-gutter); z-index: 10000;
   display: flex; align-items: center; justify-content: center;
   background: rgba(5, 8, 12, 0.88); padding: 20px; overscroll-behavior: none;
 }

@@ -16,7 +16,7 @@
    `.gang-modes > * { position: relative; z-index: 1 }` (fim de GanguesModes.css)
    tem a MESMA especificidade (0-1-0) e vence por vir depois na cascata —
    troca o `position` de `fixed` pra `relative` mas os `left/right:
-   var(--app-gutter)` continuam lá, e pra um elemento `relative` isso
+   var(--gang-gutter)` continuam lá, e pra um elemento `relative` isso
    desloca a caixa pro lado em vez de ancorar no viewport, jogando o
    diálogo pra fora da coluna. Subir a especificidade aqui resolve sem
    mexer na regra genérica de `.gang-modes` (que serve outros filhos). */
@@ -27,9 +27,9 @@
      de tela larga (bug real reportado pelo Isaias, 14/09/2026, com
      DevTools em 825px: a parede de tijolo esticava até a borda da janela
      em vez de ficar confinada na coluna). Corrigido com left/right:
-     var(--app-gutter), o mesmo bloco pronto que todo overlay fixed do
+     var(--gang-gutter), o mesmo bloco pronto que todo overlay fixed do
      site usa (ver index.css e outros exemplos aqui em Gangues.css). */
-  position: fixed; top: 0; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 9999; cursor: pointer;
+  position: fixed; top: 0; bottom: 0; left: var(--gang-gutter); right: var(--gang-gutter); z-index: 9999; cursor: pointer;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 24px 18px calc(24px + env(safe-area-inset-bottom));
   overscroll-behavior: none;

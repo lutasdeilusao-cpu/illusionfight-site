@@ -25,7 +25,7 @@
 
 /* ── Toast de recompensa ── */
 .gang-cena-toast {
-  position: fixed; left: var(--app-gutter); right: var(--app-gutter);
+  position: fixed; left: var(--gang-gutter); right: var(--gang-gutter);
   bottom: 68px; z-index: 950;
   margin: 0 auto; width: max-content; max-width: 90%;
   display: flex; align-items: center; gap: 10px;
@@ -70,7 +70,7 @@
 }
 /* ── Modal de encontro ── */
 .gang-cena-modal {
-  position: fixed; inset: 0 var(--app-gutter); z-index: 1010; /* acima da Rádio Nina (topo=1001) — o modal não pode ficar por baixo dela, senão o ✕ some */
+  position: fixed; inset: 0 var(--gang-gutter); z-index: 1010; /* acima da Rádio Nina (topo=1001) — o modal não pode ficar por baixo dela, senão o ✕ some */
   display: grid; place-items: center;
   padding:
     calc(1.4rem + var(--radio-nina-top-h, 0px)) 1.4rem
@@ -194,7 +194,7 @@
 /* ── Aviso da briga automática (v3.70.0) ── carimbo de 2,5s antes da luta:
    eyebrow mono + frase de rua, canto chanfrado, na cor do território.
    Não bloqueia toque (é só aviso — a luta vem de qualquer jeito). */
-.gang-briga-auto-aviso{position:fixed;left:var(--app-gutter);right:var(--app-gutter);top:19%;z-index:950;margin:0 auto;width:max-content;max-width:calc(var(--app-vw) * .86);display:grid;gap:6px;padding:12px 18px;text-align:center;pointer-events:none;border:1px solid var(--if-danger);background:linear-gradient(160deg,var(--gang-noite-850),var(--gang-noite-950));box-shadow:0 0 40px -6px color-mix(in srgb,var(--if-danger) 60%,transparent),6px 6px 0 var(--gang-preto);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)}
+.gang-briga-auto-aviso{position:fixed;left:var(--gang-gutter);right:var(--gang-gutter);top:19%;z-index:950;margin:0 auto;width:max-content;max-width:calc(var(--app-vw) * .86);display:grid;gap:6px;padding:12px 18px;text-align:center;pointer-events:none;border:1px solid var(--if-danger);background:linear-gradient(160deg,var(--gang-noite-850),var(--gang-noite-950));box-shadow:0 0 40px -6px color-mix(in srgb,var(--if-danger) 60%,transparent),6px 6px 0 var(--gang-preto);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)}
 .gang-briga-auto-aviso span{font:700 .56rem var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--if-danger)}
 .gang-briga-auto-aviso b{font:900 1.05rem/1.25 var(--font-title);color:var(--gang-branco);text-shadow:2px 2px 0 var(--gang-preto)}
 

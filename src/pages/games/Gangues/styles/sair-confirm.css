@@ -8,7 +8,7 @@
    Mesmo padrão visual do `.gang-xp-confirm` (GanguesProgressionFlow.css)
    — modal central com scrim, dois botões (cancelar/confirmar). */
 .gang-sair-confirm-overlay {
-  position: fixed; inset: 0 var(--app-gutter); z-index: 10000;
+  position: fixed; inset: 0 var(--gang-gutter); z-index: 10000;
   display: grid; place-items: center; padding: 1.5rem;
   background: rgba(2, 5, 8, .82); backdrop-filter: blur(6px); overscroll-behavior: none;
 }

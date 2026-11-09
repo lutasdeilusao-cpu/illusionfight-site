@@ -21,6 +21,7 @@
      é 0 em telas estreitas, então overlays fixos coincidem com a coluna. */
   --app-w: 480px;
   --app-gutter: max(0px, calc((100vw - var(--app-w)) / 2));
+  --gang-gutter: max(0px, calc((100vw - 480px) / 2));
   /* Largura real da coluna. Use no lugar das unidades vw: `vw` mede o
      viewport, então num desktop daria a tela toda em vez da coluna. */
   --app-vw: min(100vw, var(--app-w));

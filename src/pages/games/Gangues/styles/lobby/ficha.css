@@ -17,7 +17,7 @@
    servir pra nada ("tá sobrando espaço lá em cima"). Centralizado, a
    folga que sobra se divide em cima E embaixo — usa o espaço em vez de
    empilhar ele todo de um lado. */
-.gang-sheet-modal { position: fixed; z-index: 1200; inset: 0 var(--app-gutter); display: grid; align-items: center; padding: 10px; }
+.gang-sheet-modal { position: fixed; z-index: 1200; inset: 0 var(--gang-gutter); display: grid; align-items: center; padding: 10px; }
 .gang-sheet-modal__scrim { position: absolute; inset: 0; border: 0; background: color-mix(in srgb, var(--bg-primary) 88%, transparent); backdrop-filter: blur(7px); }
 .gang-sheet-modal__card {
   --corte: polygon(0 3%, 8% 0, 92% 1%, 100% 4%, 99% 55%, 100% 92%, 92% 100%, 8% 99%, 0 94%);

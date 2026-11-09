@@ -107,7 +107,7 @@
 
 /* Pergunta "entrar no território?" — cartão no meio da coluna; tocar fora cancela. */
 .gang-world__pergunta-bg {
-  position:fixed; inset:0 var(--app-gutter); z-index:210; display:flex; align-items:center; justify-content:center;
+  position:fixed; inset:0 var(--gang-gutter); z-index:210; display:flex; align-items:center; justify-content:center;
   padding:16px; background:rgba(0,0,0,.55); overscroll-behavior:none; touch-action:none;
 }
 .gang-world__pergunta { box-sizing:border-box; width:100%; max-width:420px; margin:0; animation:gang-pergunta-sobe .18s ease-out; }

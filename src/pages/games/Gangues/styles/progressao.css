@@ -62,7 +62,7 @@ button.gang-skill-node:hover { border-color: var(--if-teal); }
   background: var(--if-amber); color: #1a1204; font: 800 7px 'Rajdhani', sans-serif; letter-spacing: 1px; text-transform: uppercase;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 6px 100%);
 }
-.gang-skill-sheet { position: fixed; inset: 0 var(--app-gutter); z-index: 1200; display: flex; align-items: flex-end; justify-content: center; overscroll-behavior: none; }
+.gang-skill-sheet { position: fixed; inset: 0 var(--gang-gutter); z-index: 1200; display: flex; align-items: flex-end; justify-content: center; overscroll-behavior: none; }
 .gang-skill-sheet__scrim { position: absolute; inset: 0; border: 0; background: rgba(2,5,8,0.8); backdrop-filter: blur(4px); }
 .gang-skill-sheet__card {
   position: relative; width: 100%; max-width: var(--app-w);

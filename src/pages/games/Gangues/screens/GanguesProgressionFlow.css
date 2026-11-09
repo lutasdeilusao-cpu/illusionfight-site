@@ -1,5 +1,5 @@
 .gang-progression-prompt {
-  position: fixed; inset: 0 var(--app-gutter); z-index: 1200; display: grid; place-items: center;
+  position: fixed; inset: 0 var(--gang-gutter); z-index: 1200; display: grid; place-items: center;
   padding: 16px; background: rgba(0, 0, 0, .82); backdrop-filter: blur(8px); overscroll-behavior: none;
 }
 .gang-progression-prompt__card {

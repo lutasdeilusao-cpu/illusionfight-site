@@ -1,6 +1,6 @@
 /* Opções do LDI Gangues — painel por cima de tudo (portal pro <body>),
    preso à coluna do portal (inset com --app-gutter), linguagem da navbar. */
-.gang-opcoes { position: fixed; inset: 0 var(--app-gutter); z-index: 1100; display: flex; align-items: flex-end; overscroll-behavior: none; }
+.gang-opcoes { position: fixed; inset: 0 var(--gang-gutter); z-index: 1100; display: flex; align-items: flex-end; overscroll-behavior: none; }
 .gang-opcoes__fundo { position: absolute; inset: 0; border: 0; background: rgba(0, 0, 0, 0.72); cursor: pointer; }
 .gang-opcoes__card {
   position: relative; display: flex; flex-direction: column; gap: 14px; width: 100%; max-height: 88vh; overflow-y: auto;

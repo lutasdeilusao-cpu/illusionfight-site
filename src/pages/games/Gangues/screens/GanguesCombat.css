@@ -84,7 +84,7 @@
    todo fixed do jogo, nunca a janela crua. Liga/desliga sozinha a cada
    render (React refaz o cálculo em tempo real conforme o PV muda). ══ */
 .gang-critico-vinheta {
-  position: fixed; inset: 0 var(--app-gutter); left: var(--app-gutter); right: var(--app-gutter);
+  position: fixed; inset: 0 var(--gang-gutter); left: var(--gang-gutter); right: var(--gang-gutter);
   z-index: 10050; pointer-events: none;
   animation: gang-critico-vinheta-pulso 0.9s ease-in-out infinite;
   overscroll-behavior:none;

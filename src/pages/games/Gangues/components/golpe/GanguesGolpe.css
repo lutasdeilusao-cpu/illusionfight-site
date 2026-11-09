@@ -1,6 +1,6 @@
 /* O momento do golpe: painel embaixo, a luta visível atrás. */
 .golpe {
-  position: fixed; inset: 0 var(--app-gutter); z-index: 9999;
+  position: fixed; inset: 0 var(--gang-gutter); z-index: 9999;
   display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
   background: linear-gradient(to bottom, rgba(2, 5, 8, 0.15), rgba(2, 5, 8, 0.7) 55%);
   overscroll-behavior: none; touch-action: none;

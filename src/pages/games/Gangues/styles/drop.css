@@ -42,7 +42,7 @@
 .gang-equip-cards .gang-equip-card-slot--btn { width: 22px; height: 22px; padding: 0; cursor: pointer; font-size: 0.7rem; line-height: 1; color: var(--if-violet); }
 .gang-equip-cards .gang-equip-card-slot--cheio { border-color: var(--if-violet); background: color-mix(in srgb, var(--if-violet) 18%, transparent); }
 .gang-equip-cartas-texto { display: block; font: 700 0.5rem var(--font-mono); color: var(--if-violet); }
-.gang-carta-encaixe { position: fixed; inset: 0 var(--app-gutter); z-index: 1300; display: flex; align-items: flex-end; justify-content: center; overscroll-behavior: none; }
+.gang-carta-encaixe { position: fixed; inset: 0 var(--gang-gutter); z-index: 1300; display: flex; align-items: flex-end; justify-content: center; overscroll-behavior: none; }
 .gang-carta-encaixe__scrim { position: absolute; inset: 0; border: 0; background: rgba(2, 6, 9, 0.78); backdrop-filter: blur(3px); }
 .gang-carta-encaixe__card {
   position: relative; width: 100%; max-height: 78dvh; overflow-y: auto; overscroll-behavior: contain;
@@ -69,7 +69,7 @@
 
 /* Troféus: aviso de desbloqueio */
 .gang-trofeu-toast {
-  position: fixed; top: 12px; left: calc(var(--app-gutter) + 12px); right: calc(var(--app-gutter) + 12px); z-index: 1600;
+  position: fixed; top: 12px; left: calc(var(--gang-gutter) + 12px); right: calc(var(--gang-gutter) + 12px); z-index: 1600;
   display: flex; align-items: center; gap: 10px; padding: 10px 12px; cursor: pointer; text-align: left;
   border: 1px solid var(--if-amber); background: var(--if-panel); box-shadow: 0 0 26px -6px var(--if-amber);
   clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);

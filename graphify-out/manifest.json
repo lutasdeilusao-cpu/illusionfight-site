@@ -160,7 +160,7 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1794195558.2790377,
+    "mtime": 1794214439.6989036,
     "ast_hash": "2db8b3afdd190ade72b7b2cca902bca6",
     "semantic_hash": ""
   },
@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1794195557.857,
-    "ast_hash": "cc0d6cc2bc67857884fc93b57c7bc01f",
+    "mtime": 1794214439.0586333,
+    "ast_hash": "3a3513511c17ad21c9a962d1e45ef647",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1794195557.8969965,
-    "ast_hash": "c32d7734c4efc4bbb89e6f0f26ea5439",
+    "mtime": 1794214439.106918,
+    "ast_hash": "ca5ea2ff5ed540752f45a6170c88af09",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3740,8 +3740,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesActionOrb.jsx": {
-    "mtime": 1791954964.2495341,
-    "ast_hash": "7c64e9bf5fb6f284ff822952596687fa",
+    "mtime": 1794214319.4504182,
+    "ast_hash": "c73f13fa21668019e0775e98c6710786",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesItens.js": {
@@ -3755,13 +3755,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesLoja.jsx": {
-    "mtime": 1791397608.2562437,
-    "ast_hash": "7ba5e55e73fc6b791c1b89995a096b7f",
+    "mtime": 1794214319.2567286,
+    "ast_hash": "476582b64fe1313575896231e354b50e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesEquipPanel.jsx": {
-    "mtime": 1791089451.0010648,
-    "ast_hash": "f65e68369239f5c67c659e6f8a0d9053",
+    "mtime": 1794214319.3050082,
+    "ast_hash": "a52afd9958fc91d40b87b78efdd3316c",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesEquip.js": {
@@ -3775,8 +3775,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesSkillGrid.jsx": {
-    "mtime": 1791030833.67582,
-    "ast_hash": "3482fce93bf26b377be51177277e2bf2",
+    "mtime": 1794214408.4640663,
+    "ast_hash": "dbbfe50cdd4aeb8cd22eae748370ecdc",
     "semantic_hash": ""
   },
   "docs/Games/Gangues/LDI_GANGUES_GDD.md": {
@@ -3905,8 +3905,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/pois.js": {
-    "mtime": 1791943585.1478436,
-    "ast_hash": "a229eeabeca45559f77154515ab924fb",
+    "mtime": 1794214182.1422865,
+    "ast_hash": "2881abb3235f8be4f05278eb835fd3eb",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/pools.js": {
@@ -3915,13 +3915,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx": {
-    "mtime": 1792313325.7585857,
-    "ast_hash": "bf9a6e9e3237c91ec3e17e425a89aef7",
+    "mtime": 1794214281.7268803,
+    "ast_hash": "0fd6ab4d15d847bbc1ec68fe21e26de4",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaBagSheet.jsx": {
-    "mtime": 1791397298.8902571,
-    "ast_hash": "8d832d4bef96bc854e9c4f6866717361",
+    "mtime": 1794214391.8586369,
+    "ast_hash": "78de752c86097ad6caee05d1cb18bdba",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaEncontros.jsx": {
@@ -3960,8 +3960,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesCombatRoster.jsx": {
-    "mtime": 1791400318.7906623,
-    "ast_hash": "6400ae7d6eb59fefec117a0088120941",
+    "mtime": 1794214319.3480551,
+    "ast_hash": "3596b7f57d14d9d84bf7d5f836cc8abc",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesCombatTopBar.jsx": {
@@ -4035,8 +4035,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesRepRecompensaModal.jsx": {
-    "mtime": 1789402540.9155533,
-    "ast_hash": "f3045808f02c82f4d941140b48506dd5",
+    "mtime": 1794214319.3225527,
+    "ast_hash": "8284c29f16a7ee8ce9517cc77211f3e1",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesRetratoImg.jsx": {
@@ -4070,8 +4070,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesNpcPortraits.js": {
-    "mtime": 1789420256.1829684,
-    "ast_hash": "a864ec3613a9a91cd7db79a786fa63c5",
+    "mtime": 1794214270.5189815,
+    "ast_hash": "35e8114bb4ad09e92d32651e5d6671cf",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesPortraits.js": {
@@ -4080,8 +4080,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesAlbum.jsx": {
-    "mtime": 1791090154.2733524,
-    "ast_hash": "ce0d498d839c984ee7c9eaf00c0158ac",
+    "mtime": 1794214319.4194274,
+    "ast_hash": "816759a4003d85d532eb7cbfa4643af0",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesBatalha.jsx": {
@@ -4855,8 +4855,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesFerreiro.jsx": {
-    "mtime": 1791088207.953197,
-    "ast_hash": "00e83fbd2a145c736ad14fb5777318de",
+    "mtime": 1794214319.241076,
+    "ast_hash": "4ef826cee012783a8756c62a871802f9",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/feira/index.js": {
@@ -4875,8 +4875,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/feira/pois.js": {
-    "mtime": 1791088305.3070278,
-    "ast_hash": "e051cffe75b41069612a80f79d72e427",
+    "mtime": 1794214182.4027588,
+    "ast_hash": "75714f7631ebb379c1b2e3ab9be305ce",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/feira/pools.js": {
@@ -4940,8 +4940,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/baixada/pois.js": {
-    "mtime": 1791088292.1670296,
-    "ast_hash": "27f7d4d20962d5a3a2e4070a907de757",
+    "mtime": 1794214182.5770464,
+    "ast_hash": "b8351b06f100614761dea20242cff60a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/baixada/pools.js": {
@@ -6505,8 +6505,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/vila/pois.js": {
-    "mtime": 1791088292.1700299,
-    "ast_hash": "488cb57608a86aa1ebd9495a182af5b8",
+    "mtime": 1794214182.740918,
+    "ast_hash": "df35217c28070433c53e2e86b46a6743",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/vila/pools.js": {
@@ -6570,8 +6570,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/morro/pois.js": {
-    "mtime": 1790816795.597054,
-    "ast_hash": "bc88cf264d53a8f5ffe2fec1dfe7d11a",
+    "mtime": 1794214182.905532,
+    "ast_hash": "1952400662566530f04d74a36c1cc570",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/morro/pools.js": {
@@ -6615,8 +6615,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/alto/pois.js": {
-    "mtime": 1790816795.597054,
-    "ast_hash": "8bff3a2b60b85c07c2c7e5fda1011777",
+    "mtime": 1794214183.0268557,
+    "ast_hash": "39d5e71871e7c60479e555d0cc04f3b1",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/alto/pools.js": {
@@ -6645,8 +6645,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/laje/pois.js": {
-    "mtime": 1790816795.597054,
-    "ast_hash": "1ccbea916c11e5e7ae8b9303a424d559",
+    "mtime": 1794214183.1413226,
+    "ast_hash": "a9b4ca7956e2ff6470f7631a3ae5d0c0",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/laje/pools.js": {
@@ -6815,18 +6815,18 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesLojaVenda.jsx": {
-    "mtime": 1791397376.4975133,
-    "ast_hash": "d8e68ecb421036a3c5815ae59863ab84",
+    "mtime": 1794214319.2757297,
+    "ast_hash": "15946fd23cc588ae7e24adba84b9f6e5",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesDropLista.jsx": {
-    "mtime": 1791088782.3069644,
-    "ast_hash": "e63d141235d6925d30fb99ac179cc496",
+    "mtime": 1794214319.1538565,
+    "ast_hash": "c7cd2b074560ee898a3c51f7ed7dfa38",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesDrops.js": {
-    "mtime": 1791089350.928606,
-    "ast_hash": "edf49978db99aa3235f8e490943a07d2",
+    "mtime": 1794214333.014669,
+    "ast_hash": "2cb89e986bb0d74c39a67adf5f150dca",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesDrop.js": {
@@ -6835,8 +6835,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesCartaEncaixe.jsx": {
-    "mtime": 1791089421.274973,
-    "ast_hash": "9402cfd0935e17976572653bdbb10b8d",
+    "mtime": 1794214391.7967021,
+    "ast_hash": "f2535800c564b17b2658db6ec552d62e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesCartas.js": {
@@ -6850,13 +6850,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesTrofeus.jsx": {
-    "mtime": 1791090120.364134,
-    "ast_hash": "552d73f4ac01e7f273907b1927bd3886",
+    "mtime": 1794214319.375081,
+    "ast_hash": "5d93f16dcc42e3dea5147927180ed0c9",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesTrofeusLista.jsx": {
-    "mtime": 1791090140.2203188,
-    "ast_hash": "f1e987c0b74fccad8d189dcc85488816",
+    "mtime": 1794214319.3984244,
+    "ast_hash": "9ff8794e2c67aa934d266202519a30d3",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesTrofeus.js": {
@@ -6895,8 +6895,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/resultado/ResultadoRecompensa.jsx": {
-    "mtime": 1791943741.7303658,
-    "ast_hash": "d7a1e7fc87d6962a843c4665c5261e70",
+    "mtime": 1794214319.1548662,
+    "ast_hash": "021b7bb1178aca0f03bda8c9e610f81d",
     "semantic_hash": ""
   },
   "docs/Games/LDILendas/LDI_LENDAS_GDD.md": {
@@ -7135,8 +7135,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesBagEquip.jsx": {
-    "mtime": 1791397313.3539383,
-    "ast_hash": "7174cd73eeb8bde35366224f851e08a5",
+    "mtime": 1794214319.2129095,
+    "ast_hash": "de56ea37dabc8e26c1dd0e4c68b1b59b",
     "semantic_hash": ""
   },
   "public/og/creators.jpg": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1794195565.6185982,
+    "mtime": 1794214497.7943153,
     "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },
@@ -11042,6 +11042,2016 @@
   "docs/Games/TopTrumps/SUPER_TRUNFO_ESTADO_ATUAL.md": {
     "mtime": 1794164139.4868524,
     "ast_hash": "5d5fb8cd92d2b3cd180e0be0fb9e6b0c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/GanguesIcone.jsx": {
+    "mtime": 1794214385.3919702,
+    "ast_hash": "90fe5bc402a860cb4cb7866100850950",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/ganguesArte.js": {
+    "mtime": 1794214292.6335518,
+    "ast_hash": "86fef063d74859daba437e08c38b338f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/carta/amuleto.webp": {
+    "mtime": 1794214199.8973486,
+    "ast_hash": "3fb012746b5862a430d2bee5ec043877",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/carta/arma.webp": {
+    "mtime": 1794214199.989008,
+    "ast_hash": "cf504f68c189a8420818c362d306ae1d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/carta/bracos.webp": {
+    "mtime": 1794214200.0875912,
+    "ast_hash": "32abdeb83f49673c7204031802c9e619",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/carta/cabeca.webp": {
+    "mtime": 1794214200.1797056,
+    "ast_hash": "1742a438f0e5ca47e22e1fd71e8f74fe",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/carta/corpo.webp": {
+    "mtime": 1794214200.2701902,
+    "ast_hash": "da9b2c786cd2736d97a9551aa58f7b53",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/carta/pes.webp": {
+    "mtime": 1794214200.365245,
+    "ast_hash": "4997b9d1b0ca8690af90c957849d8dd9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/133.webp": {
+    "mtime": 1794214200.3808582,
+    "ast_hash": "5af1d881c0ad99b108626350ac6f9aab",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/134.webp": {
+    "mtime": 1794214200.3918643,
+    "ast_hash": "dfde874896d5504977b298e5a178fa70",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/135.webp": {
+    "mtime": 1794214200.398868,
+    "ast_hash": "a308c74e468f46888efb2a07dc7b4cd3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/138.webp": {
+    "mtime": 1794214200.4098642,
+    "ast_hash": "960f982ec67e26826d3f81093a7af425",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/139.webp": {
+    "mtime": 1794214200.4198647,
+    "ast_hash": "1dc6725aea1a406b4fa1f52f0a60ef1f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/140.webp": {
+    "mtime": 1794214200.4280572,
+    "ast_hash": "00eb37b2bcd3d6bdb50cb08360e3e457",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/141.webp": {
+    "mtime": 1794214200.4395466,
+    "ast_hash": "bd91688959c2caab5169ce9c2fb53aac",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/201.webp": {
+    "mtime": 1794214200.4498494,
+    "ast_hash": "6fe953e3181582554ac369d0e2d6e91c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/202.webp": {
+    "mtime": 1794214200.459769,
+    "ast_hash": "fb2cbac45c2e7abc1af0741614a8db4c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/203.webp": {
+    "mtime": 1794214200.472942,
+    "ast_hash": "abe4ad3570e370d6c0fae42ed56b9d80",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/204.webp": {
+    "mtime": 1794214200.4880228,
+    "ast_hash": "34eaccb4938a22e0cbf9faa9beded1e4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/205.webp": {
+    "mtime": 1794214200.5007915,
+    "ast_hash": "447b0847e902b804f9a455ff92a4b96a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/206.webp": {
+    "mtime": 1794214200.5143237,
+    "ast_hash": "7255ee06afa9cc08059a1129800a3f1c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/207.webp": {
+    "mtime": 1794214200.5263233,
+    "ast_hash": "a0800977918e2291688ad899f1eed3e1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/208.webp": {
+    "mtime": 1794214200.5403218,
+    "ast_hash": "ab142b11442db18d8c04b0a49b062b8c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/209.webp": {
+    "mtime": 1794214200.5554109,
+    "ast_hash": "24eea3b6d8cb5cc65d422fdfcb4522bc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/210.webp": {
+    "mtime": 1794214200.5685012,
+    "ast_hash": "4d6634c860aa0bad7411696a8a6db63b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/211.webp": {
+    "mtime": 1794214200.5826397,
+    "ast_hash": "f3a737108c36b2d0dd7fae199b9057ec",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/212.webp": {
+    "mtime": 1794214200.5926397,
+    "ast_hash": "8543e76a66861c7f4d8c850e7d110b71",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/213.webp": {
+    "mtime": 1794214200.6026392,
+    "ast_hash": "8b0e31b2ac506341f5417b1a11c87403",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/214.webp": {
+    "mtime": 1794214200.6166396,
+    "ast_hash": "ffac265da73ef318c62a61db9765eb4a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/215.webp": {
+    "mtime": 1794214200.6297307,
+    "ast_hash": "b5a9ead3fc25abee4835fd453b4aa620",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/216.webp": {
+    "mtime": 1794214200.64424,
+    "ast_hash": "9194d5ac0dd492d76e3eec0eec9a425a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/217.webp": {
+    "mtime": 1794214200.6561308,
+    "ast_hash": "238bd7477dd4e73df4c56e8f76df2154",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/218.webp": {
+    "mtime": 1794214200.6661322,
+    "ast_hash": "c955d6e0dac716c6b45e9f1ff86857c9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/219.webp": {
+    "mtime": 1794214200.6811354,
+    "ast_hash": "302d1e9d4c9d1ca0acbf7f2583848395",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/220.webp": {
+    "mtime": 1794214200.6926503,
+    "ast_hash": "b543c32c1ea273e08256d07f96e3f27c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/221.webp": {
+    "mtime": 1794214200.7080045,
+    "ast_hash": "fac31d6267325aba88db72b94e777589",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/222.webp": {
+    "mtime": 1794214200.7225418,
+    "ast_hash": "2b2ba72af8f7257c4371296ca8bac4c6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/223.webp": {
+    "mtime": 1794214200.7376223,
+    "ast_hash": "76d168d415a5c16d06495942962a6378",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/224.webp": {
+    "mtime": 1794214200.7489681,
+    "ast_hash": "bd92de49798533cb092d7c53b0836d96",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/225.webp": {
+    "mtime": 1794214200.7579715,
+    "ast_hash": "4cc2bbd3469bf444078c35a80924c979",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/226.webp": {
+    "mtime": 1794214200.770896,
+    "ast_hash": "b4267c29600a8e6b23c5699d03b2acea",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/227.webp": {
+    "mtime": 1794214200.7864075,
+    "ast_hash": "39e452f8ba5d9459931093218e658694",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/228.webp": {
+    "mtime": 1794214200.7984076,
+    "ast_hash": "3b5106b06a64bbf8ee5addb2ee30d959",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/229.webp": {
+    "mtime": 1794214200.8108244,
+    "ast_hash": "25d3c0e85f5b60446253fd2e1d991736",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/230.webp": {
+    "mtime": 1794214200.8238244,
+    "ast_hash": "ef16b057865b915623d0456f2af7aacb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/231.webp": {
+    "mtime": 1794214200.8348324,
+    "ast_hash": "e13a6286a4af71b050b54c0b7c60f36b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/232.webp": {
+    "mtime": 1794214200.848827,
+    "ast_hash": "31948213c49d94337e0447d59a2404f4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/233.webp": {
+    "mtime": 1794214200.8641558,
+    "ast_hash": "d9e9bc5fbde2886b638b1a88603e39b4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/234.webp": {
+    "mtime": 1794214200.879159,
+    "ast_hash": "a8bcddb0715cce98ec5b996cb7847ac6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/235.webp": {
+    "mtime": 1794214200.8917005,
+    "ast_hash": "1925f4a4abc97868a4ca45962bd992bf",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/236.webp": {
+    "mtime": 1794214200.902703,
+    "ast_hash": "d42d4f31f97912c80cab3917752df214",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/237.webp": {
+    "mtime": 1794214200.9167812,
+    "ast_hash": "4d22c2f29ee8edfee095071a5f3ea14c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/238.webp": {
+    "mtime": 1794214200.9277842,
+    "ast_hash": "2e1b856cbd631dbc2b422cc065b4dd95",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/301.webp": {
+    "mtime": 1794214200.9392955,
+    "ast_hash": "0bc32d1d39ce41d99d8031347c2d5cba",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/302.webp": {
+    "mtime": 1794214200.952305,
+    "ast_hash": "d33d1e74f1e1bacd58a9a41c4a62fd4a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/303.webp": {
+    "mtime": 1794214200.966307,
+    "ast_hash": "8531aa132eff969e8e7b56c9b836956f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/304.webp": {
+    "mtime": 1794214200.979827,
+    "ast_hash": "0f419e05178e776e3994f566886fa220",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/305.webp": {
+    "mtime": 1794214200.9928257,
+    "ast_hash": "cb25123f29bf9acb09f0aa3fcc9c31e0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/306.webp": {
+    "mtime": 1794214201.0068457,
+    "ast_hash": "57995197bc27c31c4b37c9e371e983f3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/307.webp": {
+    "mtime": 1794214201.0186937,
+    "ast_hash": "fc5071b1251cbc4dccc5e22cc1fd3a7d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/308.webp": {
+    "mtime": 1794214201.032693,
+    "ast_hash": "9fb516e52d079b27a9153a09dd8fde26",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/309.webp": {
+    "mtime": 1794214201.048705,
+    "ast_hash": "feffb58990eadd1e47a2c101fef17931",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/310.webp": {
+    "mtime": 1794214201.0616927,
+    "ast_hash": "c1409686bc272a3ce4078ed0656ada92",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/311.webp": {
+    "mtime": 1794214201.0747259,
+    "ast_hash": "60cc62062b3cfac6ce088e677f8252bf",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/312.webp": {
+    "mtime": 1794214201.0867176,
+    "ast_hash": "d33dcddf4ea8b780ee8220f046e0fa40",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/313.webp": {
+    "mtime": 1794214201.1003468,
+    "ast_hash": "c9cc1d202d1ce2f969d4ec011dcfce88",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/314.webp": {
+    "mtime": 1794214201.1120927,
+    "ast_hash": "dad1d78125511cbaedf750996fb25fbf",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/315.webp": {
+    "mtime": 1794214201.1280496,
+    "ast_hash": "6c67a69ae00c8c966f93e39f96c51741",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/316.webp": {
+    "mtime": 1794214201.1431026,
+    "ast_hash": "48c968411019b2e8732dfff42a5b37da",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/317.webp": {
+    "mtime": 1794214201.155102,
+    "ast_hash": "caaf223d675fff30465061a28584a416",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/318.webp": {
+    "mtime": 1794214201.1681147,
+    "ast_hash": "9aa2d02f8da6de9ee17028d00a50bc27",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/401.webp": {
+    "mtime": 1794214201.1801884,
+    "ast_hash": "42cf5e01f2c6bca8c5553e9561606927",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/402.webp": {
+    "mtime": 1794214201.1911914,
+    "ast_hash": "4cfffdc153ca9ddff30ff332a59ebf56",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/403.webp": {
+    "mtime": 1794214201.2057016,
+    "ast_hash": "1f3ad7bee36eed8eaddaf25eece5f916",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/404.webp": {
+    "mtime": 1794214201.2197,
+    "ast_hash": "4f25cfa1147a1ed35e439eb8073bb317",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/405.webp": {
+    "mtime": 1794214201.2347076,
+    "ast_hash": "fd616fc973d5d46174fd31e5a3dbe55d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/406.webp": {
+    "mtime": 1794214201.2482283,
+    "ast_hash": "6f4d4553bbf591acf601bce835ec6a9e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/407.webp": {
+    "mtime": 1794214201.2612393,
+    "ast_hash": "a3780004dc0b742e30bfa94aac57a9b8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/408.webp": {
+    "mtime": 1794214201.2762434,
+    "ast_hash": "0ef529ba80ecc3b439fcfee4f4b98a90",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/409.webp": {
+    "mtime": 1794214201.2927494,
+    "ast_hash": "250c87c162ffd077c94765aac4bccbcd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/410.webp": {
+    "mtime": 1794214201.3083942,
+    "ast_hash": "205d3ec23a99b80b52c524042ba96246",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/411.webp": {
+    "mtime": 1794214201.323103,
+    "ast_hash": "6799945e0acf85eb2d05e80a13452355",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/412.webp": {
+    "mtime": 1794214201.337102,
+    "ast_hash": "292e4a71697caf48c3ecb69310ada44e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/413.webp": {
+    "mtime": 1794214201.3491035,
+    "ast_hash": "82bf87c76888de899383e5e1274cfe59",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/414.webp": {
+    "mtime": 1794214201.3641026,
+    "ast_hash": "df0aaac864b155fc281e442d614f136d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/415.webp": {
+    "mtime": 1794214201.3791173,
+    "ast_hash": "ebbebbac7866055a64284381b47e7c7b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/416.webp": {
+    "mtime": 1794214201.3916342,
+    "ast_hash": "92540faa01e676769b7dfd5db48db469",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/417.webp": {
+    "mtime": 1794214201.4029167,
+    "ast_hash": "181993ce20dbd623bede77ec180f6b7f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/418.webp": {
+    "mtime": 1794214201.4159088,
+    "ast_hash": "f38594f985d60441fcb0a6e1215d5344",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/501.webp": {
+    "mtime": 1794214201.4279292,
+    "ast_hash": "ddde0b10f17ddba8e1bb1b18f7cd988f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/502.webp": {
+    "mtime": 1794214201.4394414,
+    "ast_hash": "0510522cbf02d8c30178f36356b4f9bc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/503.webp": {
+    "mtime": 1794214201.4556904,
+    "ast_hash": "1828af9b89415b40126f9107bc2b21a2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/504.webp": {
+    "mtime": 1794214201.4696958,
+    "ast_hash": "20a2d70ef381067cc5a0ef68b60c2402",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/505.webp": {
+    "mtime": 1794214201.482694,
+    "ast_hash": "e086c5b175542fb0b67c43762237ecb7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/506.webp": {
+    "mtime": 1794214201.4966905,
+    "ast_hash": "38a86a497371ddc69b4193a73e95c5b2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/507.webp": {
+    "mtime": 1794214201.5109465,
+    "ast_hash": "c6ced05408838485b66de20a49f465fe",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/508.webp": {
+    "mtime": 1794214201.5251737,
+    "ast_hash": "a42abbdee5e1c16e010c98bbb1b8301b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/509.webp": {
+    "mtime": 1794214201.5405858,
+    "ast_hash": "35cfb060c6800de8430c8837ffafa51e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/510.webp": {
+    "mtime": 1794214201.5545855,
+    "ast_hash": "94e643afd5ad26863659d9a6a8cf2346",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/511.webp": {
+    "mtime": 1794214201.5696094,
+    "ast_hash": "623d21e4b73ca00f408d11a233953082",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/512.webp": {
+    "mtime": 1794214201.5845277,
+    "ast_hash": "aa31a4fb8404ddc33cf0e1ac65ebbf53",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/513.webp": {
+    "mtime": 1794214201.5965188,
+    "ast_hash": "9b3c6978e8a4439134e15145a2b15f44",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/514.webp": {
+    "mtime": 1794214201.6105983,
+    "ast_hash": "132710aa72db6d806eeea7f55cea8dbf",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/515.webp": {
+    "mtime": 1794214201.6275992,
+    "ast_hash": "ebc1c854884a772a3c4699170d42f5f6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/516.webp": {
+    "mtime": 1794214201.6410892,
+    "ast_hash": "5b7df210eb2f566bc452fc07930df241",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/517.webp": {
+    "mtime": 1794214201.652998,
+    "ast_hash": "50f71ce76f02f1cc6d62671886023758",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/518.webp": {
+    "mtime": 1794214201.6690001,
+    "ast_hash": "ffdd66d85921245ea043daaada48f131",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/601.webp": {
+    "mtime": 1794214201.677001,
+    "ast_hash": "4eb82b9dd52390441f17ef8ae604a1f0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/602.webp": {
+    "mtime": 1794214201.6885376,
+    "ast_hash": "c58f87ef43cc66eb7583eeedea12ed4b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/603.webp": {
+    "mtime": 1794214201.7038317,
+    "ast_hash": "2231c4fc8fb35be248fb1b407d134513",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/604.webp": {
+    "mtime": 1794214201.7173498,
+    "ast_hash": "66c1952cf2bfa9e3982f70a3f57fc6a5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/605.webp": {
+    "mtime": 1794214201.7301416,
+    "ast_hash": "f97955e32de6659c6a5eddd1affc99ac",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/606.webp": {
+    "mtime": 1794214201.7460704,
+    "ast_hash": "998def6c5f9d556668478deefbc1a2bc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/607.webp": {
+    "mtime": 1794214201.7620673,
+    "ast_hash": "4a23ecae461fef08fe0ea37f5940b0c5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/608.webp": {
+    "mtime": 1794214201.7720737,
+    "ast_hash": "97a49c712f6b37d8dcf2f3c350fa3919",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/609.webp": {
+    "mtime": 1794214201.7876027,
+    "ast_hash": "2ec8a96075870cd7c06bce35d25342b0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/610.webp": {
+    "mtime": 1794214201.804612,
+    "ast_hash": "e6c4cd748b9e9c4a986037f3226e7865",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/611.webp": {
+    "mtime": 1794214201.8196077,
+    "ast_hash": "1caa31f1dd63e34e225a19e3ad834073",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/612.webp": {
+    "mtime": 1794214201.832918,
+    "ast_hash": "07cdad68b4b84b05a08bd73059baf488",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/613.webp": {
+    "mtime": 1794214201.8479092,
+    "ast_hash": "73dde352f1c468c0266b8c29e414ffa3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/614.webp": {
+    "mtime": 1794214201.8569083,
+    "ast_hash": "eaf0060f450251b3af8f5fd4b23c2bfc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/615.webp": {
+    "mtime": 1794214201.8699088,
+    "ast_hash": "b431583b3829868f2a73e5a4012cd3b5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/616.webp": {
+    "mtime": 1794214201.885912,
+    "ast_hash": "cea1294c383b870bfaade1d831171e33",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/617.webp": {
+    "mtime": 1794214201.9007785,
+    "ast_hash": "a8d9a57aaca60fc5671c0d9c78211dcd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/618.webp": {
+    "mtime": 1794214201.9126863,
+    "ast_hash": "6d881dc81f5356846c49e41a6532ff4c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/701.webp": {
+    "mtime": 1794214201.924081,
+    "ast_hash": "318c4a2bfacda2f765ff0c09b047fe81",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/702.webp": {
+    "mtime": 1794214201.9364948,
+    "ast_hash": "6e4ae6bafa5888a69383a2bdbbaa791e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/703.webp": {
+    "mtime": 1794214201.9522696,
+    "ast_hash": "03830fc3b2e35bb74f94f0fda939dad4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/704.webp": {
+    "mtime": 1794214201.9702759,
+    "ast_hash": "30936ba0d970fc5c9522e13437af225a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/705.webp": {
+    "mtime": 1794214201.984337,
+    "ast_hash": "a64d25636da1ea590dd001c34fc53d8d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/706.webp": {
+    "mtime": 1794214201.9970853,
+    "ast_hash": "c63739da7c4506d402faecf971191d56",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/707.webp": {
+    "mtime": 1794214202.011086,
+    "ast_hash": "ad4961ecae31c269f60e197aa100ec60",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/708.webp": {
+    "mtime": 1794214202.0261,
+    "ast_hash": "c19111c876d1bf8d52465b201860c998",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/709.webp": {
+    "mtime": 1794214202.0396316,
+    "ast_hash": "454272203613438832dcd0a09c625dd8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/710.webp": {
+    "mtime": 1794214202.0556314,
+    "ast_hash": "7cac1c1bbdc1d9e8d78551975122cf4c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/711.webp": {
+    "mtime": 1794214202.0696313,
+    "ast_hash": "6e960065fa4a4613c097078793c4ce73",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/712.webp": {
+    "mtime": 1794214202.0816252,
+    "ast_hash": "41f1f82eab9b18efa3bfad34f181d1c2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/713.webp": {
+    "mtime": 1794214202.0896528,
+    "ast_hash": "bbfcd63c28eb9fc3340d78c1af3fa21d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/714.webp": {
+    "mtime": 1794214202.1018653,
+    "ast_hash": "abf4a7bd58d20eda0ac57dc7bebc238a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/715.webp": {
+    "mtime": 1794214202.1161034,
+    "ast_hash": "6af6ad9db97b288305b4441bc6dbf847",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/716.webp": {
+    "mtime": 1794214202.13313,
+    "ast_hash": "758ff923953b8f455e8e82c2bb4d1f04",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/717.webp": {
+    "mtime": 1794214202.1461282,
+    "ast_hash": "3276dd682aaa5229e59ec94ca1e2d060",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/equip/718.webp": {
+    "mtime": 1794214202.1601286,
+    "ast_hash": "35dec3f84171c00d93d8cff9a9086313",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/estrutura/barreira.webp": {
+    "mtime": 1794214199.8071215,
+    "ast_hash": "8d00985f06c188820ea68ef68945ed0d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/estrutura/muro.webp": {
+    "mtime": 1794214202.7329237,
+    "ast_hash": "ddbdcf6fb62a1e479b80dd929ba94670",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/estrutura/portao-aberto.webp": {
+    "mtime": 1794214205.478929,
+    "ast_hash": "a8a09018b4d9bef836431482bd56033e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/estrutura/trem.webp": {
+    "mtime": 1794214207.3804743,
+    "ast_hash": "8fb27ef8e9910dd0f91b6d2b562f5d26",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/1.webp": {
+    "mtime": 1794214202.1781309,
+    "ast_hash": "c0b711bf430874591d311050425a664b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/10.webp": {
+    "mtime": 1794214202.1951904,
+    "ast_hash": "5580b1af83ff8313116349815b5c6170",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/11.webp": {
+    "mtime": 1794214202.2093399,
+    "ast_hash": "f3a9092b5162dc3024bb8b6feb3740ff",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/12.webp": {
+    "mtime": 1794214202.2263396,
+    "ast_hash": "d1acfa6315c0f7f3396a644da83e1ec3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/13.webp": {
+    "mtime": 1794214202.2463465,
+    "ast_hash": "8c9299260616d7d07333fef29cb5175d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/14.webp": {
+    "mtime": 1794214202.264564,
+    "ast_hash": "6daa6e82e4f8ecd45d86f08b50117ed7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/15.webp": {
+    "mtime": 1794214202.2855668,
+    "ast_hash": "ebc506f6235fb671db2a482857710418",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/16.webp": {
+    "mtime": 1794214202.3025794,
+    "ast_hash": "d97910250fe18e312b0c8aa8810be866",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/18.webp": {
+    "mtime": 1794214202.3208983,
+    "ast_hash": "0e2ad9b8750e42988ee0e6c1e67e7b66",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/2.webp": {
+    "mtime": 1794214202.3388982,
+    "ast_hash": "81dd33e063fff056edf84a86fd490bac",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/20.webp": {
+    "mtime": 1794214202.3578982,
+    "ast_hash": "c867e85daa0224d6be26666fc7c37666",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/21.webp": {
+    "mtime": 1794214202.3809135,
+    "ast_hash": "ef5a0e6e9415ca0dd41133ff8cb78079",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/22.webp": {
+    "mtime": 1794214202.407081,
+    "ast_hash": "2b02c7da78c6f4571b13e706dbf0c9f7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/3.webp": {
+    "mtime": 1794214202.4300947,
+    "ast_hash": "ba4537e775a46c92fbd4094dc5564028",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/30.webp": {
+    "mtime": 1794214202.454514,
+    "ast_hash": "fd57f822d200d271e963cfbceaddb1e2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/31.webp": {
+    "mtime": 1794214202.4735122,
+    "ast_hash": "26f9474c832591f91941a09fbccec4b2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/32.webp": {
+    "mtime": 1794214202.498522,
+    "ast_hash": "ca576ed87d7d037c780e8e1222f99381",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/33.webp": {
+    "mtime": 1794214202.514089,
+    "ast_hash": "f77bb76b5c484195b1ff42d78abdb976",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/34.webp": {
+    "mtime": 1794214202.5286615,
+    "ast_hash": "9569de49e39c3b5edcc22bed299ed908",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/35.webp": {
+    "mtime": 1794214202.546661,
+    "ast_hash": "8ffd839c75005c6fffb5e7ffad7f1a2c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/36.webp": {
+    "mtime": 1794214202.561661,
+    "ast_hash": "1830c0149ce2e1dfadf47bd118769729",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/37.webp": {
+    "mtime": 1794214202.5768085,
+    "ast_hash": "0f2b2e09c7135a84fc85da7301085dbd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/38.webp": {
+    "mtime": 1794214202.592085,
+    "ast_hash": "c12bc13d098557a45f4bd8018bca6042",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/39.webp": {
+    "mtime": 1794214202.6110787,
+    "ast_hash": "e38db4bb6376b9afc6c67525c50289f8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/4.webp": {
+    "mtime": 1794214202.6250906,
+    "ast_hash": "7d684499fb499d3e5a4907a80bd79cdf",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/41.webp": {
+    "mtime": 1794214202.640595,
+    "ast_hash": "a87a2e53e21d18e287fa9f3ce1ed9ec6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/5.webp": {
+    "mtime": 1794214202.6596081,
+    "ast_hash": "852f67cc112b9748234239c17164b47c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/6.webp": {
+    "mtime": 1794214202.673602,
+    "ast_hash": "f2e6fa44de135bce97dc9bca63120911",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/item/8.webp": {
+    "mtime": 1794214202.6905978,
+    "ast_hash": "d915158d807aa3ecbacf5bbdef7fb129",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/0.webp": {
+    "mtime": 1794214204.9791207,
+    "ast_hash": "d99947215f892ac151857465ac25b43b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/1.webp": {
+    "mtime": 1794214204.9958847,
+    "ast_hash": "3384a50c43bd0ae6f0c603e99de2da1c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/10.webp": {
+    "mtime": 1794214205.0118022,
+    "ast_hash": "4b66f4618433da9f4faf63a17a8edcb3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/11.webp": {
+    "mtime": 1794214205.035876,
+    "ast_hash": "e8cd5f12231864f3f81b5e15bea97c61",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/12.webp": {
+    "mtime": 1794214205.054109,
+    "ast_hash": "afd0bd551db2d4dbbbcef3498ab3c60a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/13.webp": {
+    "mtime": 1794214205.0721965,
+    "ast_hash": "0a89a912965c27c68430bbcb234d8f27",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/14.webp": {
+    "mtime": 1794214205.0901978,
+    "ast_hash": "4d67cc92edda0c4c67ab6b0a272dc80e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/15.webp": {
+    "mtime": 1794214205.1094334,
+    "ast_hash": "71c2045a6e7010c859cb8f6af0a2ba14",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/16.webp": {
+    "mtime": 1794214205.1351836,
+    "ast_hash": "2ce0e4ad4793477dd9f21a8f8745d817",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/17.webp": {
+    "mtime": 1794214205.1552713,
+    "ast_hash": "7a335bb485ec8f31e8b1d20254ea8ca0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/18.webp": {
+    "mtime": 1794214205.1761937,
+    "ast_hash": "e40b7f9dd59c34c0fd715dcc548770df",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/19.webp": {
+    "mtime": 1794214205.1954744,
+    "ast_hash": "01907a4dd0484339833190a9c91e1f76",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/2.webp": {
+    "mtime": 1794214205.2126865,
+    "ast_hash": "49749a2117243475413e07de7e725ff3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/20.webp": {
+    "mtime": 1794214205.2306862,
+    "ast_hash": "019b630898539b4d536c14b9392eb12b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/21.webp": {
+    "mtime": 1794214205.25077,
+    "ast_hash": "1d3bc26d4ef1afb02c50bef07623c177",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/22.webp": {
+    "mtime": 1794214205.269085,
+    "ast_hash": "bb4055963df04ba4b5ac907c6effe767",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/23.webp": {
+    "mtime": 1794214205.2890882,
+    "ast_hash": "a27e009526c82f4a9eceba27459f01f3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/24.webp": {
+    "mtime": 1794214205.3136408,
+    "ast_hash": "11811bc1746c91b716be9ebf77c876dc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/3.webp": {
+    "mtime": 1794214205.3308876,
+    "ast_hash": "5ebcad6d05fb113e5a416123eecbe8cc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/4.webp": {
+    "mtime": 1794214205.3550208,
+    "ast_hash": "db62df5682512ad40966f0dce33172a4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/5.webp": {
+    "mtime": 1794214205.3730133,
+    "ast_hash": "408e29b1d59964637da503940ab9962d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/6.webp": {
+    "mtime": 1794214205.395394,
+    "ast_hash": "e36a54011ea6ca36c3e9bac45a511dee",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/7.webp": {
+    "mtime": 1794214205.4104023,
+    "ast_hash": "f3171e6eb79870411556b48aae445644",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/8.webp": {
+    "mtime": 1794214205.4264338,
+    "ast_hash": "110c54b99bf6eee7b8440e06cf5166d5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/pino/9.webp": {
+    "mtime": 1794214205.4414325,
+    "ast_hash": "dbace5165a3f47f66628022bfd2e3a16",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/slot/amuleto.webp": {
+    "mtime": 1794214205.4955199,
+    "ast_hash": "a1638c3672d039dd63430437ec75b460",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/slot/arma.webp": {
+    "mtime": 1794214205.5115235,
+    "ast_hash": "e8595f52e7caa92ef6099cc74d7ab4cf",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/slot/bracos.webp": {
+    "mtime": 1794214205.5292342,
+    "ast_hash": "561fa2759170097a9ccf43b5a2fc1bae",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/slot/cabeca.webp": {
+    "mtime": 1794214205.5442686,
+    "ast_hash": "fa32fa6304c1816d780879820133ee76",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/slot/corpo.webp": {
+    "mtime": 1794214205.560276,
+    "ast_hash": "ed4f46c5c4ceb91145356f82bfbb6f3c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/slot/pes.webp": {
+    "mtime": 1794214205.576276,
+    "ast_hash": "8630a36fde22024ab9692d3156dde85a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/status/1.webp": {
+    "mtime": 1794214205.594282,
+    "ast_hash": "742922c345694a6b30941b65563e49c4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/status/2.webp": {
+    "mtime": 1794214205.6123285,
+    "ast_hash": "1260035eabc7c32c665ec43e0f1ff0d7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/status/3.webp": {
+    "mtime": 1794214205.6274292,
+    "ast_hash": "cd7e800abe1b5b807ba546942790b396",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/status/4.webp": {
+    "mtime": 1794214205.645846,
+    "ast_hash": "86dfc05bf174f3b659af6cab014778a3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/status/5.webp": {
+    "mtime": 1794214205.663842,
+    "ast_hash": "13a31bb9fbbc6110848aaadc1934b0cd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/status/6.webp": {
+    "mtime": 1794214205.6795306,
+    "ast_hash": "3e08dc43d3e0a3632fa34df734275622",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/status/7.webp": {
+    "mtime": 1794214205.706142,
+    "ast_hash": "44163923f86c7cb60d4ca212ed339c9c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/status/8.webp": {
+    "mtime": 1794214205.7255726,
+    "ast_hash": "1a4b910a60d502280d89f74df9391254",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/status/9.webp": {
+    "mtime": 1794214205.7488406,
+    "ast_hash": "48e7556190b6119ccb40320cd386a31d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/absorver_impacto.webp": {
+    "mtime": 1794214205.7658424,
+    "ast_hash": "05f8018ae551a259c0b5bcfdd6f52ed3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/alvo_facil.webp": {
+    "mtime": 1794214205.7783525,
+    "ast_hash": "3f6f74223a6773c8c2bf42a348358cc1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/aparar.webp": {
+    "mtime": 1794214205.7913728,
+    "ast_hash": "a0f4f1d18d6c2a4b262284efc5cd2f6b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/avalanche_de_socos.webp": {
+    "mtime": 1794214205.8068807,
+    "ast_hash": "7c7d944025e2924a8b8db9b7fd57454e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/bastiao.webp": {
+    "mtime": 1794214205.8228855,
+    "ast_hash": "6001054865554b6b6035f586da3eff2d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/bola_de_fogo.webp": {
+    "mtime": 1794214205.8363936,
+    "ast_hash": "0fa1e55266dd4a0f2654d5b215f61c89",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/brasa_viva.webp": {
+    "mtime": 1794214205.851401,
+    "ast_hash": "436efac58860f7ed3fad67e3fe33e184",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/britadeira.webp": {
+    "mtime": 1794214205.8663936,
+    "ast_hash": "28671a72c9f6f17d6bef752aac03e14d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/cadeia_de_raios.webp": {
+    "mtime": 1794214205.8813934,
+    "ast_hash": "e77ae4a28ee7835bd6d4ac67d431cf46",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/carne_dura.webp": {
+    "mtime": 1794214205.8973944,
+    "ast_hash": "fa45600623a136276da9b7fa6f14edcf",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/casca_de_rua.webp": {
+    "mtime": 1794214205.910398,
+    "ast_hash": "6f8d22fa284bf87186beeab70602db8f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/casca_dura.webp": {
+    "mtime": 1794214205.9269078,
+    "ast_hash": "4db4c16be75550f93fa215c7a639680b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/casco_robusto.webp": {
+    "mtime": 1794214205.9423313,
+    "ast_hash": "2726747c937dfc8009d8bd723e513fcb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/centro_das_atencoes.webp": {
+    "mtime": 1794214205.9573324,
+    "ast_hash": "dae43b2f4c997b2b6d75e2116317f1d3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/chama_eterna.webp": {
+    "mtime": 1794214205.9723313,
+    "ast_hash": "c7ed8cc148fc58bb8a9400091af4e604",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/cinzas_ao_vento.webp": {
+    "mtime": 1794214205.9853349,
+    "ast_hash": "7daaca221eb42976a8b9bf5cf452875c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/cobertura.webp": {
+    "mtime": 1794214205.9998424,
+    "ast_hash": "c0f36d7f7213b17f20fb58ce64eae616",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/colapso_mental.webp": {
+    "mtime": 1794214206.013842,
+    "ast_hash": "b00ed3f8ff8fa8e122e71d281e32131d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/combustao.webp": {
+    "mtime": 1794214206.029842,
+    "ast_hash": "0c6d6d3cc431774a8dfb8590fce37d39",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/contragolpe.webp": {
+    "mtime": 1794214206.0448422,
+    "ast_hash": "81b570ac2292d1bc7ff8b8ae3c2d283b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/contragolpe_defensivo.webp": {
+    "mtime": 1794214206.059842,
+    "ast_hash": "872d5e52acf16a837f5cd8a9868c87ef",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/correnteza.webp": {
+    "mtime": 1794214206.0748425,
+    "ast_hash": "ad3e6ae6b58b2a28f1ffccbbae291469",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/corte_preciso.webp": {
+    "mtime": 1794214206.0888424,
+    "ast_hash": "879266e3d9d7ca34156c3aebba04b95c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/danca_da_lamina.webp": {
+    "mtime": 1794214206.1028423,
+    "ast_hash": "baa42c30d902d829f991d521bca6b95c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/descarga.webp": {
+    "mtime": 1794214206.1178536,
+    "ast_hash": "32ea398e97c4bd11db875352ad2886b2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/distorcao.webp": {
+    "mtime": 1794214206.1350656,
+    "ast_hash": "c4f78595e67fee1bcfbc3636707f66b6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/duplo_ilusorio.webp": {
+    "mtime": 1794214206.150564,
+    "ast_hash": "f27fa74cb9df7f70db7816d3cbae8ccb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/efeito_bumerangue.webp": {
+    "mtime": 1794214206.161567,
+    "ast_hash": "a16b595a858ee8fb92de6ced0e268561",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/eletricidade_estatica.webp": {
+    "mtime": 1794214206.1755638,
+    "ast_hash": "5a4437dc653a8443a84f5522fbb75640",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/escudo_humano.webp": {
+    "mtime": 1794214206.1905687,
+    "ast_hash": "7cd0a9c102550d91cba5253d1c704021",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/escudo_vivo.webp": {
+    "mtime": 1794214206.205536,
+    "ast_hash": "7d5c65acec81de49e6c76ab3e41c363d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/espelho_quebrado.webp": {
+    "mtime": 1794214206.2209885,
+    "ast_hash": "cd57871fae60cec3ed6c6e7d1fde8f43",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/estilhaco_terrestre.webp": {
+    "mtime": 1794214206.2369826,
+    "ast_hash": "71b0c6bf89521541b07692137025807a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/execucao.webp": {
+    "mtime": 1794214206.2519855,
+    "ast_hash": "4dcdc401b31ad526ffe34a0fadb19553",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/explosao_termica.webp": {
+    "mtime": 1794214206.2674973,
+    "ast_hash": "fd76895f1ee9498bff8fed831c3ca706",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/fenda_no_chao.webp": {
+    "mtime": 1794214206.2832012,
+    "ast_hash": "a690b591aa9d50545c67787bac47860b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/fim_de_linha.webp": {
+    "mtime": 1794214206.3000057,
+    "ast_hash": "17dc7473d582748ac1c2f090d53928b0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/firme_no_chao.webp": {
+    "mtime": 1794214206.3144403,
+    "ast_hash": "477c800fcd038d027cb90ca7674b8c4b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/fluidez.webp": {
+    "mtime": 1794214206.3289535,
+    "ast_hash": "c8745e38e7032713b0bd0d7494eeac32",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/fluxo_restaurador.webp": {
+    "mtime": 1794214206.3433678,
+    "ast_hash": "85526b9e1464425aac80a2a8ed773a87",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/foco_cirurgico.webp": {
+    "mtime": 1794214206.358765,
+    "ast_hash": "8b9a3549126676ca9aa6df86f239b020",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/folego_final.webp": {
+    "mtime": 1794214206.3723881,
+    "ast_hash": "e62a423ccdeeb08a31b4d3a553431faf",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/fratura_de_ilusao.webp": {
+    "mtime": 1794214206.3874097,
+    "ast_hash": "378e766d0b16387f1eb04daf5a731613",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/fundacao.webp": {
+    "mtime": 1794214206.4019125,
+    "ast_hash": "354b7ceb9db9cdcaa6b558961b46e0f4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/furia_cega.webp": {
+    "mtime": 1794214206.4182296,
+    "ast_hash": "b0279a4b495e5af780140d53505728bd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/giro_de_catraca.webp": {
+    "mtime": 1794214206.432233,
+    "ast_hash": "0245db3a6e3cb10981de42614c5594a8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/golpe_certeiro.webp": {
+    "mtime": 1794214206.446729,
+    "ast_hash": "962f216c8fc915a3e09fc22fdb579b7e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/grito_de_guerra.webp": {
+    "mtime": 1794214206.4607315,
+    "ast_hash": "8734848c75136391086e0f41ca1abd8c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/grito_de_rua.webp": {
+    "mtime": 1794214206.4757314,
+    "ast_hash": "a34753b2f1526281b46f5f8770a32add",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/guarda_compartilhada.webp": {
+    "mtime": 1794214206.4917316,
+    "ast_hash": "5480e898eb27e2abe33529741d1f00d7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/ignorar_a_dor.webp": {
+    "mtime": 1794214206.5057392,
+    "ast_hash": "01555285b408884339ac59eb3755c322",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/inferno_de_rua.webp": {
+    "mtime": 1794214206.521756,
+    "ast_hash": "716f88f007a7cb4e0de3ffd3a002b495",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/inquebravel.webp": {
+    "mtime": 1794214206.5353422,
+    "ast_hash": "d51ed6757b2a6b8d38dd5ebb48397152",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/instinto_de_sangue.webp": {
+    "mtime": 1794214206.5489986,
+    "ast_hash": "a4c0a4703897f3a5f8390760a0d5a308",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/interceptar.webp": {
+    "mtime": 1794214206.5639985,
+    "ast_hash": "ddc29a8639a5b0ba22449d9b7cf65572",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/investida.webp": {
+    "mtime": 1794214206.5779984,
+    "ast_hash": "17cddc949442b1b5f90b2830d4b3174b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/jato_pressurizado.webp": {
+    "mtime": 1794214206.5940032,
+    "ast_hash": "05856b8b689bfb9463af225a6b887198",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/juro_composto.webp": {
+    "mtime": 1794214206.6098492,
+    "ast_hash": "00ab3ae4e935d1bd69b26301d4d93b2c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/leitura_de_combate.webp": {
+    "mtime": 1794214206.6258569,
+    "ast_hash": "493efe5aca6aa948976fd9e660772e17",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/linha_de_frente.webp": {
+    "mtime": 1794214206.641365,
+    "ast_hash": "6782d97a30083932d33d3b25a2eed836",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/marca.webp": {
+    "mtime": 1794214206.6560955,
+    "ast_hash": "3af02dd069da57a187af3275096d11b2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/marca_de_guerra.webp": {
+    "mtime": 1794214206.6840966,
+    "ast_hash": "e02a9f8c39d7a2053b73e825dc982bd4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/marcar_alvo.webp": {
+    "mtime": 1794214206.6680956,
+    "ast_hash": "5b920b36e59804601fb80227e572265b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/mare_alta.webp": {
+    "mtime": 1794214206.6994264,
+    "ast_hash": "fc155f26e3fc56e61200d59fadeafe77",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/marreta.webp": {
+    "mtime": 1794214206.7144308,
+    "ast_hash": "f61cb7731b9eff27d6667bc28d74518e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/mente_nebulosa.webp": {
+    "mtime": 1794214206.7296138,
+    "ast_hash": "6d8b3b9ee4f7297d4e03c3b55d79eedc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/muralha_impenetravel.webp": {
+    "mtime": 1794214206.7472837,
+    "ast_hash": "f459f3e6d236a85755982c8bebfb9c46",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/neblina.webp": {
+    "mtime": 1794214206.7622755,
+    "ast_hash": "c6f851e216c7f2fa183a7ddb24c34b2c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/no_meu_ombro.webp": {
+    "mtime": 1794214206.7761996,
+    "ast_hash": "8c157c07dd1f73b9c3a2c4adcf751f98",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/onda_de_choque.webp": {
+    "mtime": 1794214206.7922175,
+    "ast_hash": "24b81aa12f984b6aa203a6e903ed4fab",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/osso_duro.webp": {
+    "mtime": 1794214206.8087516,
+    "ast_hash": "77e4ae75751f2a0046c0d516d15e5ea5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/passo_eletrico.webp": {
+    "mtime": 1794214206.824743,
+    "ast_hash": "af824a52207743f3609c88538bf5714a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/pele_de_aco.webp": {
+    "mtime": 1794214206.8417416,
+    "ast_hash": "0f05112638ca3e602b8c2bddf4033aa3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/pele_de_ferro.webp": {
+    "mtime": 1794214206.8577337,
+    "ast_hash": "c79d34d2da6a4232eab2b442383ea2c9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/pele_de_pedra.webp": {
+    "mtime": 1794214206.8727424,
+    "ast_hash": "48eda672d9a1644a1ac5c9dad7a1810b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/peso_bruto.webp": {
+    "mtime": 1794214206.8869436,
+    "ast_hash": "6d6c124e9fb2224a9e2d883d4027ffbe",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/ponto_de_pressao.webp": {
+    "mtime": 1794214206.901947,
+    "ast_hash": "f2f6b113ff8c2c02336777c39494b107",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/ponto_fatal.webp": {
+    "mtime": 1794214206.916973,
+    "ast_hash": "96a21f9e52ed35743b6bb2bd999a62a0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/postura_defensiva.webp": {
+    "mtime": 1794214206.9324963,
+    "ast_hash": "a54fca62f6e55e5469b7c6b8dcc5d946",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/postura_firme.webp": {
+    "mtime": 1794214206.9485738,
+    "ast_hash": "06dc71b25afa87825e9b59850bd6fdbb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/precisao_absoluta.webp": {
+    "mtime": 1794214206.9635737,
+    "ast_hash": "6036c282121df9262ba9ad88d58fb73f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/provocacao.webp": {
+    "mtime": 1794214206.977574,
+    "ast_hash": "37c0e3a1f3090ebfa7ff464f3dd1a171",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/quebra_de_realidade.webp": {
+    "mtime": 1794214206.994578,
+    "ast_hash": "8bc9cf3113932efe88841e16a21f8f2f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/raio_curto.webp": {
+    "mtime": 1794214207.0076494,
+    "ast_hash": "b45302ed3fd005bc8f362e0f1843edae",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/raiz_prendente.webp": {
+    "mtime": 1794214207.0421555,
+    "ast_hash": "eb8b97d507d0a06802150ab84f9ec016",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/raizes_profundas.webp": {
+    "mtime": 1794214207.0246463,
+    "ast_hash": "d5cc3c49acdf05121f476100f8d9fb9b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/recusar_queda.webp": {
+    "mtime": 1794214207.0571604,
+    "ast_hash": "e7ff0d3fed80ded352b12cf399bb596a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/reflexo_defensivo.webp": {
+    "mtime": 1794214207.0723293,
+    "ast_hash": "613ce9f3246f845de7eac84ec0c83b8a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/reflexo_falso.webp": {
+    "mtime": 1794214207.088321,
+    "ast_hash": "7ff07660a24992b136886502b9572e08",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/resposta_automatica.webp": {
+    "mtime": 1794214207.1023293,
+    "ast_hash": "2b27362dc425b8a7d20de6dd5304e4c7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/retorno_de_impacto.webp": {
+    "mtime": 1794214207.1163242,
+    "ast_hash": "f16e5cf97bdd5018425c7198b7f41fb2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/retribuicao_final.webp": {
+    "mtime": 1794214207.134847,
+    "ast_hash": "687933ce532a775ed69cd659d235ff0d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/ruptura_do_solo.webp": {
+    "mtime": 1794214207.151373,
+    "ast_hash": "ae24909a79f28ce08cae39a243eed0a4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/sangue_fervente.webp": {
+    "mtime": 1794214207.1673784,
+    "ast_hash": "c89b6dcf340dcf69a2365569bd0f8fce",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/segunda_respiracao.webp": {
+    "mtime": 1794214207.1838856,
+    "ast_hash": "c5f1a06947371e238da362117f3cbc54",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/soco_de_ferro.webp": {
+    "mtime": 1794214207.2003927,
+    "ast_hash": "359822ab30c8228a3f24d040ac000bd6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/tempestade_total.webp": {
+    "mtime": 1794214207.2179053,
+    "ast_hash": "9dce9510f1e649f33550d7800d5baa9b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/temporal.webp": {
+    "mtime": 1794214207.2349052,
+    "ast_hash": "cda95bb8d8bcd9003549777a9c171e52",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/tiro_certeiro.webp": {
+    "mtime": 1794214207.2500014,
+    "ast_hash": "db11da360d9aedd6fc6424336501480d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/tremor.webp": {
+    "mtime": 1794214207.2671824,
+    "ast_hash": "67de1fa293f57d0fa6b88a0113823a9e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/trovoada.webp": {
+    "mtime": 1794214207.2842011,
+    "ast_hash": "4662ed744bc099d6fb41d16bf00acee1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/ultima_investida.webp": {
+    "mtime": 1794214207.3007069,
+    "ast_hash": "4d94ce3e57ebaed9d3efc6a6a4fa57cb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/ultimo_bastiao.webp": {
+    "mtime": 1794214207.3177109,
+    "ast_hash": "bc0a435553dd923b22e7d0321cc76caa",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/veu_de_nevoa.webp": {
+    "mtime": 1794214207.3337226,
+    "ast_hash": "fd18e4788aba6cd279d3f18279de147d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/talento/voz_de_comando.webp": {
+    "mtime": 1794214207.3474717,
+    "ast_hash": "26bad301235fa5e23cc5aa07f4ad531c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/album.webp": {
+    "mtime": 1794214207.4059887,
+    "ast_hash": "3446ed62a3109549cc66afdca9aad9dc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/album_chefes.webp": {
+    "mtime": 1794214207.4309924,
+    "ast_hash": "4e5bd3a753bc6d8b3074155d06d1a335",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/aprimorar.webp": {
+    "mtime": 1794214207.4500263,
+    "ast_hash": "13e05e96e7c27644e67c7e4d364bcba1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/banca.webp": {
+    "mtime": 1794214207.470027,
+    "ast_hash": "c3f2baf83798a0a940a1caabd942d110",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/carta_chefe.webp": {
+    "mtime": 1794214207.5163605,
+    "ast_hash": "b697abdb4946c47464c7b5e4a0f5d0cc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/carta_encaixada.webp": {
+    "mtime": 1794214207.544549,
+    "ast_hash": "7171a9d65fb43340ca4da2bd6ccf7dba",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/cartas.webp": {
+    "mtime": 1794214207.494367,
+    "ast_hash": "7203fb9da450bcfd5008d86d3a5b2039",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/chefe_perfeito.webp": {
+    "mtime": 1794214207.5667582,
+    "ast_hash": "e8ed157d0d23e9b3b823a1166702bb00",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/clube.webp": {
+    "mtime": 1794214207.5907607,
+    "ast_hash": "216c36d8fbb22552eeacda967e30d99e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/dominar.webp": {
+    "mtime": 1794214207.6092691,
+    "ast_hash": "d53c6da94efdcb51fa5fe39027e89b04",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/drops.webp": {
+    "mtime": 1794214207.629087,
+    "ast_hash": "59816ca23f8787339664878591d1e47a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/elenco.webp": {
+    "mtime": 1794214207.6476026,
+    "ast_hash": "5b60df5b9e2b2a8020fc1388b9d03346",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/grana.webp": {
+    "mtime": 1794214207.6655948,
+    "ast_hash": "fd7439670ca4c42df1924fcf19e53d2e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/inimigos.webp": {
+    "mtime": 1794214207.6905947,
+    "ast_hash": "82cc020912ea290e0536a4af802eb16c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/itens.webp": {
+    "mtime": 1794214207.7175982,
+    "ast_hash": "3864e411e60282cebcb840046705b21c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/nivel.webp": {
+    "mtime": 1794214207.7367818,
+    "ast_hash": "f821cfb668e6341056cf83340a632273",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/peca_dois_encaixes.webp": {
+    "mtime": 1794214207.7541811,
+    "ast_hash": "7f1c893dc8e77a994c717cbe5b19d80c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/peca_encaixe.webp": {
+    "mtime": 1794214207.7720912,
+    "ast_hash": "5a893cbbac56aa917c61806f139a78b5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/primeira_carta.webp": {
+    "mtime": 1794214207.798192,
+    "ast_hash": "912355e62146807697f3b94f81bfeb74",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/primeira_vitoria.webp": {
+    "mtime": 1794214207.8187017,
+    "ast_hash": "7004f613388fe0bb999c542d8321abb2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/rep.webp": {
+    "mtime": 1794214207.8377018,
+    "ast_hash": "81dc57fba7ed5a2d01fac72c071f19e3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/revanche.webp": {
+    "mtime": 1794214207.8556998,
+    "ast_hash": "fec2f9d9a72ac711e6e81806562ac248",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/vendas.webp": {
+    "mtime": 1794214207.8757,
+    "ast_hash": "94edd1bef78fa21a1acbf3de30d67e38",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/vitorias.webp": {
+    "mtime": 1794214207.8957243,
+    "ast_hash": "6b67d37c723356db6ec9f4edfa6fe23a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/zerar.webp": {
+    "mtime": 1794214207.9196553,
+    "ast_hash": "faeac056235b0d154bb72df47e579f15",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/arte/trofeu/zerar_de_novo.webp": {
+    "mtime": 1794214207.938843,
+    "ast_hash": "b161f3436838163c9dc87c664aec4596",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/agulha/neutro.webp": {
+    "mtime": 1794214202.7719223,
+    "ast_hash": "4c83c3e0b70636ab62a6306a6b75202f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/alfaiate_do_bonde/neutro.webp": {
+    "mtime": 1794214202.813447,
+    "ast_hash": "0d6aea223f48bcc69d552d6f29428c0a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/aluguel_vencido/neutro.webp": {
+    "mtime": 1794214202.858445,
+    "ast_hash": "d00cc040a0cc7e31b9190349063584e2",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/bigode/neutro.webp": {
+    "mtime": 1794214202.9024596,
+    "ast_hash": "c47ed50c191a3f46f4e3b50bf114b67a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/boleto_vencido/neutro.webp": {
+    "mtime": 1794214202.9469845,
+    "ast_hash": "a56e067ab6c23332657d8dae3ea0d9fc",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/conta_do_morro/neutro.webp": {
+    "mtime": 1794214203.035005,
+    "ast_hash": "50d5d0742976feb461d8d060a3be8e59",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/conta_fechada/neutro.webp": {
+    "mtime": 1794214203.0785556,
+    "ast_hash": "01564386a883bb000c7e1cabc3394792",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/contador_do_movimento/neutro.webp": {
+    "mtime": 1794214202.9934976,
+    "ast_hash": "045c4227a99743114640d2e66894adc5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/costura_fina/neutro.webp": {
+    "mtime": 1794214203.116172,
+    "ast_hash": "68034d4fa15c81745da49662292e756c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/divida_do_alto/neutro.webp": {
+    "mtime": 1794214203.6956036,
+    "ast_hash": "f96e97126c31cf7e79c618a9b01acc1d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dona_cida/neutro.webp": {
+    "mtime": 1794214203.1611612,
+    "ast_hash": "f45ef349b7c18f1d8a623cc6fe2193cf",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dona_da_birosca_do_pe_do_morro/neutro.webp": {
+    "mtime": 1794214203.2080903,
+    "ast_hash": "74416f409572aef122cd4fa9add6e559",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dona_da_venda/neutro.webp": {
+    "mtime": 1794214203.2543468,
+    "ast_hash": "385f2aa601319166c498736e473cc9db",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dona_lurdes/neutro.webp": {
+    "mtime": 1794214203.299606,
+    "ast_hash": "8a182f3374a7b7c97a20eed6d92224cd",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dona_neide/neutro.webp": {
+    "mtime": 1794214203.344346,
+    "ast_hash": "cef54faccb64501c5dead93d32f07326",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dona_regina/neutro.webp": {
+    "mtime": 1794214203.393239,
+    "ast_hash": "a187bbea52def6b4cef4bb40373f4bdb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dono_da_birosca_da_laje/neutro.webp": {
+    "mtime": 1794214203.4373987,
+    "ast_hash": "643c21c8b986b9d206230529a0993280",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dono_da_birosca_do_alto/neutro.webp": {
+    "mtime": 1794214203.472129,
+    "ast_hash": "e709e6cbf7d39eb7a1d5767627a142df",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dono_da_birosca_do_terreo/neutro.webp": {
+    "mtime": 1794214203.5066416,
+    "ast_hash": "629047c71735cd179cec3aa8ab6248ba",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dono_da_loja_da_laje/neutro.webp": {
+    "mtime": 1794214203.543645,
+    "ast_hash": "ff3dfef9d0e36189afff528043d3e29e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dono_da_loja_da_pista/neutro.webp": {
+    "mtime": 1794214203.5864635,
+    "ast_hash": "a37031493cde03364803d4f0d06d924f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dono_da_pensao_do_trilho/neutro.webp": {
+    "mtime": 1794214203.621793,
+    "ast_hash": "7beeca875cec749f968378e5ca1c8821",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/dono_do_emporio/neutro.webp": {
+    "mtime": 1794214203.6615794,
+    "ast_hash": "dd03ee3d53d1458cfa7d350941800b45",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/engrenagem/neutro.webp": {
+    "mtime": 1794214203.7294178,
+    "ast_hash": "12cc130edc1c878f2caf29eb53b0bfc9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/ferreiro_do_alto/neutro.webp": {
+    "mtime": 1794214203.7638054,
+    "ast_hash": "0e37911420bc832e13dec9993bd2c7ce",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/fiapo/neutro.webp": {
+    "mtime": 1794214203.8058696,
+    "ast_hash": "8f63f95124a7219a10ee3b51ff834534",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/fiapo_do_bonde_do_retalho/neutro.webp": {
+    "mtime": 1794214203.8433812,
+    "ast_hash": "534b3149d5d3c7f73a1af027b8c07b1a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/filha_da_regina/neutro.webp": {
+    "mtime": 1794214203.885382,
+    "ast_hash": "a91a8a2bcfa9381cc2b00656a54e19c4",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/fio_cortado/neutro.webp": {
+    "mtime": 1794214203.9291818,
+    "ast_hash": "3e48b72f906340af7dcb81e4431f91d5",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/juro_alto/neutro.webp": {
+    "mtime": 1794214203.966214,
+    "ast_hash": "97615ba2a7d0fbc91da98292003dcadb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/marimbondo/neutro.webp": {
+    "mtime": 1794214204.0082648,
+    "ast_hash": "04661572c18068ace828c59ec3d5411c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/moleque_da_frente_da_escada/neutro.webp": {
+    "mtime": 1794214204.0509422,
+    "ast_hash": "57c299d700a3fc1b538cf60ced1f9c0b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/moleque_da_roda/neutro.webp": {
+    "mtime": 1794214204.0961459,
+    "ast_hash": "5563f83542d0211b5136fe724b78aa96",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/morador_do_pe_do_morro/neutro.webp": {
+    "mtime": 1794214204.1325428,
+    "ast_hash": "851302c9492c6df72b6fd80d4b54535c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/o_camelo/neutro.webp": {
+    "mtime": 1794214204.1748683,
+    "ast_hash": "c82c23be57161800f1ca0d74db417c46",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/o_turco/neutro.webp": {
+    "mtime": 1794214204.2093208,
+    "ast_hash": "8fe663ceecfe333998c997573836e77f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/ponto_da_laje/neutro.webp": {
+    "mtime": 1794214204.2527747,
+    "ast_hash": "d8f6bf55fcde4566c732101d8c89e738",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/presa/neutro.webp": {
+    "mtime": 1794214204.291956,
+    "ast_hash": "ceb010f59364c2b83a89bfc307dc337f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/primo_do_nato/neutro.webp": {
+    "mtime": 1794214204.332292,
+    "ast_hash": "57551f16116f471eadd2b20bc769541a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/quarto_nome/neutro.webp": {
+    "mtime": 1794214204.374297,
+    "ast_hash": "897b114e414912c17d231fed949552f7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/quase_cupula/neutro.webp": {
+    "mtime": 1794214204.4110248,
+    "ast_hash": "98fc6c9ac4ff5f6aa26e9d28fe55fcc3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/resto_de_faca/neutro.webp": {
+    "mtime": 1794214204.4427507,
+    "ast_hash": "e9d68956cad32ceadcdde39c72a37539",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/retalho_solto/neutro.webp": {
+    "mtime": 1794214204.4838042,
+    "ast_hash": "a079c284d1b6f5196ed8d3a5baa45a99",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/serralheiro_do_morro/neutro.webp": {
+    "mtime": 1794214204.5253286,
+    "ast_hash": "f095923e57602b8d7d029cad9fbe17f8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/seu_aziz/neutro.webp": {
+    "mtime": 1794214204.5690925,
+    "ast_hash": "77e457e8e3c58bfd7a45fe8805b28a81",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/seu_nando/neutro.webp": {
+    "mtime": 1794214204.6040494,
+    "ast_hash": "4ad8b796a190462a5abf5571fe2c54ea",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/seu_nono/neutro.webp": {
+    "mtime": 1794214204.6445756,
+    "ast_hash": "420acb12e30a0a033ead99058d5b800b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/sindica_do_brecho/neutro.webp": {
+    "mtime": 1794214204.681497,
+    "ast_hash": "61ff20ca24058c5bc0b14b3353f3125b",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/tia_da_creche/neutro.webp": {
+    "mtime": 1794214204.7273066,
+    "ast_hash": "f93f0eef66140d9cfd8c26edbb052b6c",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/tio_dado/neutro.webp": {
+    "mtime": 1794214204.7654285,
+    "ast_hash": "651bbe8804b9ea4c8b4bcfc80857480f",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/toninho_do_radio/neutro.webp": {
+    "mtime": 1794214204.809625,
+    "ast_hash": "8fe82dea77e3b1c79b37261bac2c17a8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/verme/neutro.webp": {
+    "mtime": 1794214204.8461463,
+    "ast_hash": "75f80223a86996118409372ce5fdd1b1",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/vizinho_barulhento/neutro.webp": {
+    "mtime": 1794214204.8900685,
+    "ast_hash": "0fedb7d8a6e521448cdf28ac150819f3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/ze_da_lojinha/neutro.webp": {
+    "mtime": 1794214204.9615223,
+    "ast_hash": "5126ed1c4cf85da6e76f42d888793c68",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/assets/npcs/zelador/neutro.webp": {
+    "mtime": 1794214204.9254143,
+    "ast_hash": "78ed6c6c148cfc53839292795b789e2c",
     "semantic_hash": ""
   }
 }
