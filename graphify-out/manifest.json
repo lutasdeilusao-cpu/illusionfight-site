@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1794161578.7098663,
-    "ast_hash": "26b0c58092375e11311046faa9981974",
+    "mtime": 1794164147.2380226,
+    "ast_hash": "3a20685823063591e88fd9c93bd7c411",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1794161578.7509012,
-    "ast_hash": "ce4837c195c9ae673eb95c1f76c29ae0",
+    "mtime": 1794164147.2724366,
+    "ast_hash": "0b3febc40c4e17fd4d2348f3a9c1d541",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1794161629.7323813,
+    "mtime": 1794164177.6069195,
     "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },
@@ -11037,6 +11037,11 @@
   "src/pages/games/Gangues/assets/personagens/trovao/dano.webp": {
     "mtime": 1794161540.1585703,
     "ast_hash": "3b578b37b82b0162e506a2b991270da2",
+    "semantic_hash": ""
+  },
+  "docs/Games/TopTrumps/SUPER_TRUNFO_ESTADO_ATUAL.md": {
+    "mtime": 1794164139.4868524,
+    "ast_hash": "5d5fb8cd92d2b3cd180e0be0fb9e6b0c",
     "semantic_hash": ""
   }
 }

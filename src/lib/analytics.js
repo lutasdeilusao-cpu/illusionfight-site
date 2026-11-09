@@ -41,8 +41,9 @@ function desligarAnalytics() {
 }
 
 export function setAnalyticsUser(user, perfil) {
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return
+  if (typeof window === 'undefined') return
   if (perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')) { desligarAnalytics(); return }
+  if (typeof window.gtag !== 'function') return
   window.gtag('set', 'user_properties', {
     account_type: user ? 'authenticated' : 'guest',
     subscription_tier: String(perfil?.tier || 'guest').toLowerCase(),

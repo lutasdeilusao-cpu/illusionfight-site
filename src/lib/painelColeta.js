@@ -36,8 +36,12 @@ const ROBO = /bot|crawl|spider|slurp|mediapartners|lighthouse|headless|pagespeed
 const APARELHO_DE_ROBO = /Nexus 5X Build\/MMB29P/
 const ehRobo = () => typeof navigator !== 'undefined' && (navigator.webdriver || ROBO.test(navigator.userAgent || '') || APARELHO_DE_ROBO.test(navigator.userAgent || ''))
 
+// Só o site oficial conta: localhost, preview e cópia local nunca entram.
+const HOST_OFICIAL = /(^|\.)illusionfight\.com$/
+const foraDoSite = () => typeof location === 'undefined' || !HOST_OFICIAL.test(location.hostname)
+
 function desligado() {
-  if (ehRobo()) return true
+  if (foraDoSite() || ehRobo()) return true
   if (ler(localStorage, 'ldi-analytics-off') === '1') return true
   return typeof location !== 'undefined' && location.pathname.startsWith(ROTA_PAINEL)
 }
