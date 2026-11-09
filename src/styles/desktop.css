@@ -93,6 +93,8 @@
   html.is-wide .hist-obra__info { justify-content: center; }
 
   /* Banner: arte inteira à direita, texto respirando à esquerda */
+  /* desce a altura do menu fixo (48px): logo e selo do topo não ficam mais cortados embaixo dele */
+  html.is-wide .hero-show { margin-top: 48px; }
   html.is-wide .hero-show__palco { aspect-ratio: auto; height: min(86vh, 760px); }
   html.is-wide .hero-show__arte { left: auto; right: 0; width: 56%; object-fit: cover; object-position: 50% 20%; }
   html.is-wide .hero-show__veu { background:
