@@ -160,7 +160,7 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1794214439.6989036,
+    "mtime": 1794227306.5540154,
     "ast_hash": "2db8b3afdd190ade72b7b2cca902bca6",
     "semantic_hash": ""
   },
@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1794214439.0586333,
-    "ast_hash": "3a3513511c17ad21c9a962d1e45ef647",
+    "mtime": 1794227306.0256453,
+    "ast_hash": "0483b957fe2c1d59ef03fd68dcb5a712",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1794214439.106918,
-    "ast_hash": "ca5ea2ff5ed540752f45a6170c88af09",
+    "mtime": 1794227306.0659447,
+    "ast_hash": "5e67b48eb2a9e49342d4bf5ab90e7bbf",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3105,8 +3105,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesRoute.jsx": {
-    "mtime": 1791943585.1498425,
-    "ast_hash": "e71bc6086cd1114cd917284aefd90e46",
+    "mtime": 1794227255.9514365,
+    "ast_hash": "bc51dad3c91ac37fe6ed0dd30077817a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/gangues-enemies.json": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1794214497.7943153,
+    "mtime": 1794227314.8868454,
     "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },
