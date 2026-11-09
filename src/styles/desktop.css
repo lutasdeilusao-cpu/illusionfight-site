@@ -3,6 +3,8 @@
 @media (min-width: 900px) {
   html.is-wide { --app-w: 1280px; }
   html.is-leitura { --app-w: 760px; }
+  /* Dentro de jogo é sempre a coluna de celular, mesmo se is-wide ficar ligado. */
+  html.ldi-jogo { --app-w: 480px; }
 
   html.is-wide .navbar__hamburger,
   html.is-wide .navbar__social,
