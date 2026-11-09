@@ -7,6 +7,9 @@ import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEq
 import { GANGUES_ITENS_LISTA, GANGUES_GRUPOS_ITEM, grupoDoItem, textoEfeitoItem } from '../../data/ganguesItens.js'
 import GanguesBagEquip from './GanguesBagEquip'
 import { GANGUES_CARTAS_LISTA, nomeCarta, textoCarta } from '../../data/ganguesCartas.js'
+import GanguesIcone, { GanguesCartaArte } from '../GanguesIcone'
+import { arteDoId, arteCarta } from '../../data/ganguesArte'
+import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits'
 
 // Bolsa da gangue — o que o bando tem de item (consumível + equipamento
 // guardado). É a MESMA fonte que a loja abastece e que o combate lê pra usar
@@ -73,7 +76,7 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
       <div className="gang-bag-lista">{listaConsumiveis.map(it => (
         <Fragment key={it.id}>
         <div className="gang-bag-row">
-          <span>{it.icone}</span><strong>{t(it.nome)}<small className="gang-bag-efeito">{textoEfeitoItem(t, it)}</small></strong>
+          <span><GanguesIcone arte={arteDoId(it.id)} emoji={it.icone} /></span><strong>{t(it.nome)}<small className="gang-bag-efeito">{textoEfeitoItem(t, it)}</small></strong>
           {podeUsar(it) && time.length > 0 && <button className="gang-bag-usar" onClick={() => setUsando(u => u?.id === it.id ? null : it)}>{t('games.gangues.bag.usar')}</button>}
           <b>×{it.qtd}</b>
         </div>
@@ -96,7 +99,7 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
     {aba === 'cartas' && <>
       <div className="gang-bag-lista">{cartas.map(c => (
         <div key={c.id} className="gang-bag-row">
-          <span>🃏</span>
+          <span><GanguesCartaArte moldura={arteCarta(c.slot)} rosto={getGanguesEnemyPortraitById(c.enemyId)} /></span>
           <strong>{nomeCarta(t, c)}<small className="gang-bag-efeito">{t(`games.gangues.equip.slots.${c.slot}`)} · {textoCarta(t, c)}</small></strong>
           <b>×{store.inventario[c.id]}</b>
         </div>

@@ -7,6 +7,8 @@ import { getGanguesCarta, nomeCarta, textoCarta } from '../data/ganguesCartas.js
 import GanguesCartaEncaixe from './GanguesCartaEncaixe'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesEquipPanel.css'
+import GanguesIcone from './GanguesIcone'
+import { arteEquip, arteSlot } from '../data/ganguesArte'
 
 /** Encaixes de carta da peça. Com `onEncaixar`, cada encaixe vazio vira botão. */
 function CardSlots({ t, peca, onEncaixar }) {
@@ -75,7 +77,7 @@ export default function GanguesEquipPanel({ member }) {
           return (
             <li key={slot}>
               <button className={`gang-equip-slot${def ? ' is-filled' : ''}`} onClick={() => { sfx.click?.(); setSlotAberto(slot) }}>
-                <span className="gang-equip-slot__icone">{def ? def.icone : icone}</span>
+                <span className="gang-equip-slot__icone">{def ? <GanguesIcone arte={arteEquip(def.id)} emoji={def.icone} /> : <GanguesIcone arte={arteSlot(slot)} emoji={icone} />}</span>
                 <span className="gang-equip-slot__info">
                   <small>{t(`games.gangues.equip.slots.${slot}`)}</small>
                   <strong>{def ? nomePeca(t, def, equipada) : t('games.gangues.equip.vazio')}</strong>
@@ -104,7 +106,7 @@ export default function GanguesEquipPanel({ member }) {
               const def = getGanguesEquip(equipment[slotAberto].itemId)
               return (
                 <div className="gang-equip-picker__equipada">
-                  <span className="gang-equip-slot__icone">{def.icone}</span>
+                  <span className="gang-equip-slot__icone"><GanguesIcone arte={arteEquip(def.id)} emoji={def.icone} /></span>
                   <span className="gang-equip-slot__info">
                     <strong>{nomePeca(t, def, peca)}</strong>
                     <em>{textoBonusEquip(t, def, aprim)}</em>
@@ -120,7 +122,7 @@ export default function GanguesEquipPanel({ member }) {
               {disponiveisDoSlot(slotAberto).length === 0 && <p className="gang-equip-picker__vazio">{t('games.gangues.equip.sem_itens')}</p>}
               {disponiveisDoSlot(slotAberto).map(({ inst, def }) => (
                 <div key={inst.uid} className={`gang-equip-oferta gang-equip-oferta--${def.raridade}`}>
-                  <span className="gang-equip-slot__icone">{def.icone}</span>
+                  <span className="gang-equip-slot__icone"><GanguesIcone arte={arteEquip(def.id)} emoji={def.icone} /></span>
                   <span className="gang-equip-slot__info">
                     <strong>{nomePeca(t, def, inst)}</strong>
                     <small>{t(`games.gangues.equip.raridade.${def.raridade}`)}</small>

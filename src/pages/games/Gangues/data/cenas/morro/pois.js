@@ -48,6 +48,7 @@ export const POIS_MORRO = [
   {
     // O morador do pé do Morro: explica os portões (cada conversa, um boato).
     id: 'morador',
+    arteNpc: 'morador_do_pe_do_morro',
     tipo: 'papo',
     opcional: true,
     repetivel: true,
@@ -68,6 +69,7 @@ export const POIS_MORRO = [
   },
   {
     id: 'birosca_morro',
+    arteNpc: 'dona_da_birosca_do_pe_do_morro',
     tipo: 'descanso',
     opcional: true,
     repetivel: true,
@@ -77,6 +79,7 @@ export const POIS_MORRO = [
   {
     // O agiota do Morro (Conta do Morro, 1410 — guarda quem deve favor à Zefa).
     id: 'fiado_da_zefa',
+    arteNpc: 'conta_do_morro',
     tipo: 'agiota',
     opcional: true,
     repetivel: true,
@@ -87,6 +90,7 @@ export const POIS_MORRO = [
   },
   {
     id: 'venda',
+    arteNpc: 'dona_da_venda',
     tipo: 'loja',
     opcional: true,
     repetivel: true,
@@ -95,6 +99,7 @@ export const POIS_MORRO = [
   },
   {
     id: 'serralheria_morro',
+    arteNpc: 'serralheiro_do_morro',
     tipo: 'ferreiro',
     opcional: true,
     repetivel: true,
@@ -104,6 +109,7 @@ export const POIS_MORRO = [
   {
     // A creche da Zefa: intocável até pra rival. Um papo, e um descanso de graça.
     id: 'creche',
+    arteNpc: 'tia_da_creche',
     tipo: 'papo',
     opcional: true,
     repetivel: true,

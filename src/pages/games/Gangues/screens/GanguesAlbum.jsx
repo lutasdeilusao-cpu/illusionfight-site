@@ -16,6 +16,8 @@ import { GANGUES_TROFEUS, estadoDosTrofeus } from '../data/ganguesTrofeus.js'
 import GanguesTrofeusLista from '../components/GanguesTrofeusLista'
 import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import './GanguesAlbum.css'
+import GanguesIcone from '../components/GanguesIcone'
+import { arteDoId } from '../data/ganguesArte'
 
 const ATTRS = ['A', 'H', 'D', 'PV', 'PM']
 const SECOES = ['inimigos', 'itens', 'cartas', 'trofeus']
@@ -209,7 +211,7 @@ export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
                 : textoEfeitoItem(t, item)
               return (
                 <li key={item.id} className="gang-album__card">
-                  <span className="gang-album__portrait">{item.icone}</span>
+                  <span className="gang-album__portrait"><GanguesIcone arte={arteDoId(item.id)} emoji={item.icone} /></span>
                   <div className="gang-album__body">
                     <strong>{t(item.nome)}</strong>
                     <small>

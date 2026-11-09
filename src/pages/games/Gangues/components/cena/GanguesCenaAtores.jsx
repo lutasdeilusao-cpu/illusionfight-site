@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { npcDoPino, artePino, artePinoDoPonto } from '../../data/ganguesArte'
+import GanguesIcone from '../GanguesIcone'
 import { AnimatePresence, motion } from 'framer-motion'
 import { STEP_MS } from '../../engine/ganguesCenaMotor.js'
 import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
@@ -64,7 +66,7 @@ export function ZonaChao({ p, active }) {
   if (!z || !w || ehPersonagem(p) || p.estado !== 'disponivel') return null
   if (w.x >= z.x && w.x <= z.x + z.w && w.y >= z.y && w.y <= z.y + z.h) return null
   const farol = farolDe(p)
-  return <div className={`gang-cena-zona-chao ${farol}${active ? ' is-perto' : ''}`} style={{ left: z.x, top: z.y, width: z.w, height: z.h }} aria-hidden="true"><span>{ICONE[p.tipo] || '●'}</span></div>
+  return <div className={`gang-cena-zona-chao ${farol}${active ? ' is-perto' : ''}`} style={{ left: z.x, top: z.y, width: z.w, height: z.h }} aria-hidden="true"><span><GanguesIcone arte={artePino(p.tipo)} emoji={ICONE[p.tipo] || '●'} /></span></div>
 }
 
 const ICONE = { treta: '✊', parada: '🔧', papo: '●', corre: '!', achado: '◆', descanso: '☕', loja: '🏪', agiota: '💰', banca: '🎲', jogo: '🎱' }
@@ -98,7 +100,9 @@ export function inimigoDoPino(p) {
   return liderDaLuta(p.id)
 }
 
-function retratoDoPino(p) {
+function retratoDoPino(p, comArteNpc = true) {
+  const arteNpc = comArteNpc && getGanguesNpcPortrait(npcDoPino(p))
+  if (arteNpc) return arteNpc
   if (p.npcSlug) return getGanguesNpcPortrait(p.npcSlug)
   const inimigo = inimigoDoPino(p)
   if (inimigo) return getGanguesEnemyPortraitById(inimigo)
@@ -127,7 +131,7 @@ export function ehPersonagem(p) {
   // "Balcão do Aperto", e de novo pro agiota: "esse vai ficar parado"),
   // não personagem que anda por aí; continuam no grupo dos "pinos
   // estáticos de ação" (achado/parada/corre/nav).
-  return Boolean(retratoDoPino(p) || inimigoDoPino(p)) && !p.ehChefe && p.tipo !== 'loja' && p.tipo !== 'agiota' && p.tipo !== 'banca'
+  return Boolean(retratoDoPino(p, false) || inimigoDoPino(p)) && !p.ehChefe && p.tipo !== 'loja' && p.tipo !== 'agiota' && p.tipo !== 'banca'
 }
 
 // Comportamento de movimento de um personagem na cena (26/09/2026). Pedido
@@ -270,7 +274,7 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado, longeDe }) {
   // Inimigo sem cara ainda: bolinha com a 1ª letra do nome (a cara entra depois, sem mexer aqui).
   const inimigo = inimigoDoPino(p)
   const letra = inimigo && !retrato ? (t(`games.gangues.enemy_names.${inimigo}`) || '?')[0] : null
-  const personagem = Boolean(retrato || letra) && !p.ehChefe && p.tipo !== 'loja'
+  const personagem = Boolean((retrato && retratoDoPino(p, false)) || letra) && !p.ehChefe && p.tipo !== 'loja'
   // Movimento (5ª leva, 26/09/2026 — o Isaias jogou e achou forçado todo
   // mundo andando em vaivém contínuo): cada personagem tem UM comportamento
   // fixo — parado, inquieto, patrulha (h/v) ou ronda. Quem decide é
@@ -289,7 +293,7 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado, longeDe }) {
   return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.fuga ? 'is-fuga' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo && !ignorado ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehSaidaBairro || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato || letra ? 'gang-world-npc--retrato' : ''} ${movClasse}`} style={{ left: p.world.x, top: p.world.y }}>
     <span ref={spanRef} style={movStyle}>
       <span className={personagem ? 'gang-world-npc-passo' : undefined}>
-        {retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : letra ? <b className="gang-world-npc-letra">{letra}</b> : icone}
+        {retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : letra ? <b className="gang-world-npc-letra">{letra}</b> : <GanguesIcone arte={artePinoDoPonto(p)} emoji={icone} />}
       </span>
     </span>
     {p.estado !== 'trancado' || p.ehPassagem || p.ehChefe ? <small>{nome}</small> : null}

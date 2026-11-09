@@ -17,7 +17,8 @@ import { GANGUES_INIMIGOS, GANGUES_INIMIGOS_LISTA, cargoSlugDeInimigo } from './
 import { GANGUES_EQUIP_LISTA, aprimTeto } from './ganguesEquip.js'
 import { getGanguesItem } from './ganguesItens.js'
 
-import { GANGUES_CARTA_BASE, cartaDoInimigo } from './ganguesCartas.js'
+import { GANGUES_CARTA_BASE, cartaDoInimigo, getGanguesCarta } from './ganguesCartas.js'
+import { arteItem, arteEquip, arteCarta } from './ganguesArte'
 export { GANGUES_CARTA_BASE, cartaDoInimigo }
 
 // Raridade de peça que cada território derruba (1 Pista … 7 Laje).
@@ -131,14 +132,14 @@ export const chaveDrop = (enemyId, linha) => `${enemyId}:${linha.tipo}:${linha.i
 export function infoDoDrop(t, linha) {
   if (linha.tipo === 'carta') {
     const enemyId = linha.id - GANGUES_CARTA_BASE
-    return { icone: '🃏', nome: t('games.gangues.drop.carta_nome', { inimigo: t(`games.gangues.enemy_names.${enemyId}`) }), tag: t('games.gangues.drop.tag_carta') }
+    return { icone: '🃏', arte: arteCarta(getGanguesCarta(linha.id)?.slot), nome: t('games.gangues.drop.carta_nome', { inimigo: t(`games.gangues.enemy_names.${enemyId}`) }), tag: t('games.gangues.drop.tag_carta') }
   }
   if (linha.tipo === 'equip') {
     const def = GANGUES_EQUIP_LISTA.find(d => d.id === linha.id)
     const v = linha.variante
     const extra = v ? ` [${v.encaixes}]${v.aprim ? ` +${v.aprim}` : ''}` : ''
-    return { icone: def?.icone || '❔', nome: `${t(def?.nome || '')}${extra}`, tag: t(v && (v.encaixes > 1 || v.aprim) ? 'games.gangues.drop.tag_equip_especial' : 'games.gangues.drop.tag_equip') }
+    return { icone: def?.icone || '❔', arte: arteEquip(linha.id), nome: `${t(def?.nome || '')}${extra}`, tag: t(v && (v.encaixes > 1 || v.aprim) ? 'games.gangues.drop.tag_equip_especial' : 'games.gangues.drop.tag_equip') }
   }
   const item = getGanguesItem(linha.id)
-  return { icone: item?.icone || '❔', nome: t(item?.nome || ''), tag: t('games.gangues.drop.tag_item') }
+  return { icone: item?.icone || '❔', arte: arteItem(linha.id), nome: t(item?.nome || ''), tag: t('games.gangues.drop.tag_item') }
 }

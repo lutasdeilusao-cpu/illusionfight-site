@@ -13,6 +13,8 @@ import GanguesLojaVenda from './GanguesLojaVenda'
 import { Candidato } from './GanguesBagEquip'
 import PuzzleAnagrama from '../../../../../components/Puzzles/PuzzleAnagrama'
 import '../../../../../components/Puzzles/Puzzles.css'
+import GanguesIcone from '../GanguesIcone'
+import { arteDoId } from '../../data/ganguesArte'
 
 // Loja da cena. Duas portas no topo: COMPRAR e VENDER. Comprar separa o
 // catálogo por categoria; tocar num item abre a ficha dele com o "quem
@@ -46,7 +48,7 @@ function FichaItem({ item, store, t, onClose, avisar }) {
       <button className="gang-loja-det__scrim" onClick={onClose} aria-label={t('games.gangues.cena.fechar')} />
       <div className="gang-loja-det__card">
         <button className="gang-loja-det__x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>×</button>
-        <span className="gang-loja-det__icone">{item.icone}</span>
+        <span className="gang-loja-det__icone"><GanguesIcone arte={arteDoId(item.id)} emoji={item.icone} /></span>
         <h4 className="gang-loja-det__nome">{t(item.nome)}</h4>
         <p className="gang-loja-det__tag">
           {item._equip
@@ -166,7 +168,7 @@ export default function GanguesLoja({ poi, onClose }) {
               return (
                 <div key={item.id} className="gloja-item">
                   <button className="gloja-item__info" onClick={() => { sfx.click?.(); setFicha(item) }}>
-                    <span className="gloja-item__icone">{item.icone}</span>
+                    <span className="gloja-item__icone"><GanguesIcone arte={arteDoId(item.id)} emoji={item.icone} /></span>
                     <span className="gloja-item__texto">
                       <strong>{t(item.nome)}</strong>
                       <small className="gloja-item__da">{(item._equip ? textoBonusEquip(t, item) : textoEfeitoItem(t, item)) || '—'}</small>

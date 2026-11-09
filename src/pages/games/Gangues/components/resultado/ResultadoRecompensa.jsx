@@ -4,6 +4,7 @@ import { getGanguesProgression, ganguesXpMaxForSheet } from '../../data/ganguesL
 import { getGanguesPortraitByTemplateId } from '../../data/ganguesPortraits.js'
 import { infoDoDrop } from '../../data/ganguesDrops.js'
 import GanguesRetratoImg from '../GanguesRetratoImg'
+import GanguesIcone from '../GanguesIcone'
 
 /* O que a gangue ganhou: AP de cada lutador com a barra do nível, grana,
    reputação e o que caiu do bando. */
@@ -46,7 +47,7 @@ export default function ResultadoRecompensa({ t, rewardSummary, roster }) {
             const info = infoDoDrop(t, d)
             return (
               <motion.div key={`${d.enemyId}-${d.tipo}-${d.id}-${i}`} className={`gang-reward-drop gang-reward-drop--${d.tipo}`} initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.6 + i * 0.12, type: 'spring', stiffness: 260, damping: 16 }}>
-                <b>{info.icone}</b><strong>{info.nome}</strong><span>{info.tag}</span>
+                <b><GanguesIcone arte={info.arte} emoji={info.icone} /></b><strong>{info.nome}</strong><span>{info.tag}</span>
               </motion.div>
             )
           })}

@@ -1,6 +1,8 @@
 import { createPortal } from 'react-dom'
 import { getGanguesItem } from '../data/ganguesItens.js'
 import '../screens/GanguesProgressionFlow.css'
+import GanguesIcone from './GanguesIcone'
+import { arteDoId } from '../data/ganguesArte'
 
 // Modal BLOQUEANTE (mesma linguagem visual do prompt de level-up, ver
 // `.gang-progression-prompt` em GanguesProgressionFlow.css) pra recompensa
@@ -23,7 +25,7 @@ export default function GanguesRepRecompensaModal({ t, marco, onClose }) {
         <p>{t('games.gangues.cena.rep_recompensa.sub')}</p>
         {item && (
           <div className="gang-rep-recompensa-item">
-            <b>{item.icone}</b>
+            <b><GanguesIcone arte={arteDoId(item.id)} emoji={item.icone} /></b>
             <span>{t(item.nome)}</span>
           </div>
         )}

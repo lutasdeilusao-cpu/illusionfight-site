@@ -5,6 +5,8 @@ import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import GanguesRetratoImg from './GanguesRetratoImg'
 import { GANGUES_STATUS } from '../engine/ganguesStatus.js'
+import GanguesIcone from './GanguesIcone'
+import { arteStatus } from '../data/ganguesArte'
 
 // Roster compacto: quadradinho (avatar + anel de PV) + nome curto e PM
 // sempre visíveis embaixo — com 6 personagens em campo, "quem é quem" tem
@@ -72,7 +74,7 @@ const GanguesCombatRoster = forwardRef(function GanguesCombatRoster({ members, s
               <span className="gang-mini-status">
                 {member.statuses.map(s => (
                   <button key={s.id} type="button" onClick={() => setStatusAberto(a => (a === `${member.key}:${s.id}` ? null : `${member.key}:${s.id}`))}>
-                    {GANGUES_STATUS[s.id]?.icone}{s.turnos}
+                    <GanguesIcone arte={arteStatus(s.id)} emoji={GANGUES_STATUS[s.id]?.icone} />{s.turnos}
                   </button>
                 ))}
               </span>

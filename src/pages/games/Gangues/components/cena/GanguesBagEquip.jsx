@@ -8,6 +8,8 @@ import {
   caminhoAceitaGangues, nivelMinEquip, nomePeca, normalizeGanguesEquipment, textoBonusEquip,
 } from '../../data/ganguesEquip.js'
 import GanguesRetratoImg from '../GanguesRetratoImg'
+import GanguesIcone from '../GanguesIcone'
+import { arteEquip } from '../../data/ganguesArte'
 
 // Aba Equipamento da bolsa: filtra por lugar do corpo, lista as peças numa
 // linha cada, e tocar numa peça abre o detalhe com o "em quem?" comparando a
@@ -53,7 +55,7 @@ export function Candidato({ t, member, def, peca, acao }) {
       <div className="gang-bagq-cand__info">
         <strong>{member.sheet_name || '?'} <small>NV {nivel}</small></strong>
         <small className="gang-bagq-cand__agora">
-          {defAtual ? <>{defAtual.icone} {nomePeca(t, defAtual, noSlot)} · {textoBonusEquip(t, defAtual, noSlot.aprim || 0) || '—'}</> : t('games.gangues.bag.slot_vazio')}
+          {defAtual ? <><GanguesIcone arte={arteEquip(defAtual.id)} emoji={defAtual.icone} /> {nomePeca(t, defAtual, noSlot)} · {textoBonusEquip(t, defAtual, noSlot.aprim || 0) || '—'}</> : t('games.gangues.bag.slot_vazio')}
         </small>
         {!motivo && <span className="gang-troca-deltas">
           {deltas.length ? deltas.map(([label, de, para]) => (
@@ -107,7 +109,7 @@ export default function GanguesBagEquip({ store, t, onFeito }) {
       const aberto = aberta === chave
       return <div key={chave} className={`gang-bagq-peca${aberto ? ' is-aberta' : ''}`}>
         <button className="gang-bagq-peca__linha" aria-expanded={aberto} onClick={() => { sfx.select?.(); setAberta(aberto ? null : chave) }}>
-          <span className="gang-bagq-peca__icone">{def.icone}</span>
+          <span className="gang-bagq-peca__icone"><GanguesIcone arte={arteEquip(def.id)} emoji={def.icone} /></span>
           <span className="gang-bagq-peca__nome">
             <strong>{nomePeca(t, def, peca)}</strong>
             <small>{textoBonusEquip(t, def, peca?.aprim || 0) || '—'}</small>

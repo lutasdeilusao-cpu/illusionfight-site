@@ -1,5 +1,7 @@
 import { GANGUES_TROFEUS, GANGUES_TROFEUS_GRUPOS, progressoDoTrofeu, textoTrofeu } from '../data/ganguesTrofeus.js'
 import './GanguesTrofeusLista.css'
+import GanguesIcone from './GanguesIcone'
+import { arteTrofeu } from '../data/ganguesArte'
 
 /* Troféus do save, por grupo, com barra de progresso. Usado na Coleção do jogo
    e na aba Gangues do perfil. `estado` = estadoDosTrofeus(...). */
@@ -18,7 +20,7 @@ export default function GanguesTrofeusLista({ t, estado }) {
               const { nome, desc } = textoTrofeu(t, tr)
               return (
                 <li key={tr.id} className={`gang-trofeu${on ? ' is-on' : ''}`}>
-                  <span className="gang-trofeu__icone">{on ? tr.icone : '🔒'}</span>
+                  <span className="gang-trofeu__icone">{on ? <GanguesIcone arte={arteTrofeu(tr.tipo)} emoji={tr.icone} /> : '🔒'}</span>
                   <span className="gang-trofeu__info">
                     <strong>{nome}</strong>
                     <small>{desc}</small>

@@ -6,6 +6,8 @@ import { useGanguesStore } from '../store/useGanguesStore'
 import { estadoDosTrofeus, trofeusNovos, textoTrofeu } from '../data/ganguesTrofeus.js'
 import { getGanguesItem } from '../data/ganguesItens.js'
 import { sfx } from '../../../../lib/sfx'
+import GanguesIcone from './GanguesIcone'
+import { arteTrofeu } from '../data/ganguesArte'
 
 const estadoDoStore = s => estadoDosTrofeus({ storyProgress: s.storyProgress, roster: s.roster, grana: s.grana, rep: s.rep, campaignClears: s.campaignClears, inventario: s.inventario, equipamentos: s.equipamentos })
 
@@ -57,7 +59,7 @@ export default function GanguesTrofeus() {
         return (
           <motion.button key={atual.id} type="button" className="gang-trofeu-toast" onClick={() => setFila(f => f.slice(1))}
             initial={{ y: -40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -40, opacity: 0 }}>
-            <span className="gang-trofeu-toast__icone">{atual.icone}</span>
+            <span className="gang-trofeu-toast__icone"><GanguesIcone arte={arteTrofeu(atual.tipo)} emoji={atual.icone} /></span>
             <span className="gang-trofeu-toast__info">
               <small>{t('games.gangues.trofeus.desbloqueou')}</small>
               <strong>{nome}</strong>

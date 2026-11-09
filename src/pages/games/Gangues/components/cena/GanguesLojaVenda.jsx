@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { getGanguesItem, precoVendaItem, textoEfeitoItem, grupoDoItem, GANGUES_GRUPOS_ITEM } from '../../data/ganguesItens.js'
 import { getGanguesEquip, precoVendaEquip, nomePeca, textoBonusEquip } from '../../data/ganguesEquip.js'
 import { sfx } from '../../../../../lib/sfx'
+import GanguesIcone from '../GanguesIcone'
+import { arteItem, arteEquip } from '../../data/ganguesArte'
 
 /* VENDER da loja: o que a gangue tem guardado e a loja compra, a 25% do
    preço (precoVendaItem / precoVendaEquip). Separado como a bolsa (cura,
@@ -13,11 +15,11 @@ export default function GanguesLojaVenda({ store, t, avisar }) {
   const consumiveis = Object.entries(store.inventario)
     .map(([id, qtd]) => ({ item: getGanguesItem(id), qtd }))
     .filter(({ item, qtd }) => item && qtd > 0 && precoVendaItem(item) > 0)
-    .map(({ item, qtd }) => ({ chave: `i${item.id}`, icone: item.icone, nome: t(item.nome), da: textoEfeitoItem(t, item) || t('games.gangues.loja.material'), qtd, preco: precoVendaItem(item), grupo: grupoDoItem(item), item }))
+    .map(({ item, qtd }) => ({ chave: `i${item.id}`, icone: item.icone, arte: arteItem(item.id), nome: t(item.nome), da: textoEfeitoItem(t, item) || t('games.gangues.loja.material'), qtd, preco: precoVendaItem(item), grupo: grupoDoItem(item), item }))
   const pecas = Object.values(store.equipamentos.reduce((acc, eq) => {
     const def = getGanguesEquip(eq.itemId); if (!def) return acc
     const chave = `e${eq.itemId}-${eq.encaixe ? 1 : 0}-${eq.aprim || 0}`
-    acc[chave] = acc[chave] || { chave, icone: def.icone, nome: nomePeca(t, def, eq), da: `${t(`games.gangues.equip.slots.${def.slot}`)} · ${textoBonusEquip(t, def, eq.aprim || 0) || '—'}`, qtd: 0, preco: precoVendaEquip(def, eq.aprim), grupo: 'equip', uids: [] }
+    acc[chave] = acc[chave] || { chave, icone: def.icone, arte: arteEquip(def.id), nome: nomePeca(t, def, eq), da: `${t(`games.gangues.equip.slots.${def.slot}`)} · ${textoBonusEquip(t, def, eq.aprim || 0) || '—'}`, qtd: 0, preco: precoVendaEquip(def, eq.aprim), grupo: 'equip', uids: [] }
     acc[chave].qtd++; acc[chave].uids.push(eq.uid); return acc
   }, {}))
   const todos = [...consumiveis, ...pecas].sort((a, b) => b.preco - a.preco)
@@ -52,7 +54,7 @@ export default function GanguesLojaVenda({ store, t, avisar }) {
       {lista.map(linha => (
         <div key={linha.chave} className="gloja-item gloja-item--venda">
           <span className="gloja-item__info">
-            <span className="gloja-item__icone">{linha.icone}</span>
+            <span className="gloja-item__icone"><GanguesIcone arte={linha.arte} emoji={linha.icone} /></span>
             <span className="gloja-item__texto">
               <strong>{linha.nome}</strong>
               <small className="gloja-item__da">{linha.da}</small>

@@ -80,6 +80,7 @@ export const POIS_ALTO = [
   },
   {
     id: 'birosca_alto',
+    arteNpc: 'dono_da_birosca_do_alto',
     tipo: 'descanso',
     opcional: true,
     repetivel: true,
@@ -89,6 +90,7 @@ export const POIS_ALTO = [
   {
     // O agiota do Alto (Dívida do Alto, 1412 — trabalha direto pro Contador).
     id: 'divida_do_alto',
+    arteNpc: 'divida_do_alto',
     tipo: 'agiota',
     opcional: true,
     repetivel: true,
@@ -99,6 +101,7 @@ export const POIS_ALTO = [
   },
   {
     id: 'emporio',
+    arteNpc: 'dono_do_emporio',
     tipo: 'loja',
     opcional: true,
     repetivel: true,
@@ -107,6 +110,7 @@ export const POIS_ALTO = [
   },
   {
     id: 'ferraria_alto',
+    arteNpc: 'ferreiro_do_alto',
     tipo: 'ferreiro',
     opcional: true,
     repetivel: true,

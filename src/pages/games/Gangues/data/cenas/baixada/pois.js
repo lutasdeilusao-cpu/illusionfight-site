@@ -101,6 +101,7 @@ export const POIS_BAIXADA = [
   {
     // Dona Cida (DENTRO da padaria, só depois do folgado): o café do velho.
     id: 'dona_cida',
+    arteNpc: 'dona_cida',
     tipo: 'papo',
     i18n: 'games.gangues.cena.baixada.dona_cida',
     escolhas: [{ id: 'pega_cafe', recompensa: { item: BAIXADA_CAFE_ID, qtd: 1 }, revela: ['veio_cafe'] }],
@@ -131,6 +132,7 @@ export const POIS_BAIXADA = [
     // destranca o Ferrugem, igual o rádio pirata faz pra Baixada
     // (`__flags.vila`, ver `precisaInformante`).
     id: 'informante_vila',
+    arteNpc: 'dona_lurdes',
     tipo: 'papo',
     opcional: true,
     repetivel: true,
@@ -140,6 +142,7 @@ export const POIS_BAIXADA = [
   {
     // Birosca da Dona Lurdes — descanso de baixo da linha.
     id: 'birosca',
+    arteNpc: 'dona_lurdes',
     tipo: 'descanso',
     opcional: true,
     repetivel: true,
@@ -149,6 +152,7 @@ export const POIS_BAIXADA = [
   {
     // A pensão do outro lado da linha — descanso de cima.
     id: 'birosca_2',
+    arteNpc: 'dono_da_pensao_do_trilho',
     tipo: 'descanso',
     opcional: true,
     repetivel: true,
@@ -171,6 +175,7 @@ export const POIS_BAIXADA = [
     // O depósito do Seu Nono: o RARO dos 3 caminhos (GDD §9.7) — nada que a
     // Pista ou a Feira vendem, fora os consumíveis.
     id: 'deposito',
+    arteNpc: 'seu_nono',
     tipo: 'loja',
     opcional: true,
     repetivel: true,
@@ -182,6 +187,7 @@ export const POIS_BAIXADA = [
     // Só aparece depois do recado do Morro (`__flags.morro`, Vila) e abre um
     // dos portões da escadaria (BARREIRAS_MORRO, data/cenas/morro/mundo.js).
     id: 'aval_morro_baixada',
+    arteNpc: 'dona_lurdes',
     tipo: 'papo',
     opcional: true,
     i18n: 'games.gangues.cena.aval.aval_morro_baixada',

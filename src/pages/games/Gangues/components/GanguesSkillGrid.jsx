@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { describeGanguesSpecialEffect, describeGanguesSpecialCost } from '../engine/ganguesSpecialEffects.js'
 import { getGanguesSpecialUnlockLevel } from '../data/ganguesCharacters.js'
+import GanguesIcone from './GanguesIcone'
+import { arteTalento } from '../data/ganguesArte'
 
 /* Talentos do personagem, em DUAS partes (Isaias, 30/09/2026: "tá meio
    confuso... você só pode levar dois poderes pra batalha, tem que equipar...
@@ -51,6 +53,7 @@ export default function GanguesSkillGrid({ character, unlockedIds = [], levelsBy
         {equipado && <span className="gang-skill-node-badge">{t(node.base ? 'games.gangues.skill_info.sempre' : 'games.gangues.progression.equipped_badge')}</span>}
         <button type="button" className="gang-skill-node-open" onClick={() => setAberta(node)}>
           {!node.base && <span>NV {node.nvReq}</span>}
+          <GanguesIcone arte={arteTalento(node.id)} emoji={null} className="gang-skill-node-arte" />
           <strong className="gang-skill-node-name">{t(`games.gangues.progression.skills.${node.id}`)}</strong>
           <span className="gang-skill-node-kind">{node.aberto ? kindLabel(node.kind) : '🔒'}</span>
           {node.aberto && <small className="gang-skill-node-efeito">{efeito(node)}</small>}

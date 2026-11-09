@@ -1,5 +1,6 @@
 import { dropsDoInimigo, infoDoDrop } from '../data/ganguesDrops.js'
 import { faltamPraGarantia } from '../engine/ganguesDrop.js'
+import GanguesIcone from './GanguesIcone'
 
 const pct = chance => `${(chance * 100).toLocaleString(document.documentElement.lang || 'pt-BR', { maximumFractionDigits: 2 })}%`
 
@@ -14,7 +15,7 @@ export default function GanguesDropLista({ enemyId, contadores = {}, t }) {
         const info = infoDoDrop(t, linha)
         return (
           <li key={`${linha.tipo}-${linha.id}`} className={`gang-drop-linha gang-drop-linha--${linha.tipo}`}>
-            <b>{info.icone}</b>
+            <b><GanguesIcone arte={info.arte} emoji={info.icone} /></b>
             <span className="gang-drop-linha__nome">{info.nome}</span>
             <span className="gang-drop-linha__chance">{pct(linha.chance)}</span>
             <small className="gang-drop-linha__garantia">{t('games.gangues.drop.garantia', { n: faltamPraGarantia(enemyId, linha, contadores) })}{linha.tipo === 'equip' ? ` · ${t('games.gangues.drop.variante')}` : ''}</small>

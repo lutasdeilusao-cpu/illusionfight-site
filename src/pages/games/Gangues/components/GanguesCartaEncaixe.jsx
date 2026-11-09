@@ -4,6 +4,9 @@ import { useGanguesStore } from '../store/useGanguesStore'
 import { GANGUES_CARTAS_LISTA, nomeCarta, textoCarta } from '../data/ganguesCartas.js'
 import { nomePeca } from '../data/ganguesEquip.js'
 import { sfx } from '../../../../lib/sfx'
+import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits'
+import { GanguesCartaArte } from './GanguesIcone'
+import { arteCarta } from '../data/ganguesArte'
 
 /* Encaixar carta num encaixe vazio de uma peça. Lista as cartas da gangue que
    servem no espaço da peça; escolher pede confirmação, porque a carta fica
@@ -30,7 +33,7 @@ export default function GanguesCartaEncaixe({ t, def, peca, alvo, indice, onClos
         <p className="gang-carta-encaixe__sub">{t('games.gangues.carta.so_espaco', { espaco: t(`games.gangues.equip.slots.${def.slot}`) })}</p>
         {escolhida ? (
           <div className="gang-carta-encaixe__confirma">
-            <span className="gang-carta-encaixe__icone">🃏</span>
+            <span className="gang-carta-encaixe__icone"><GanguesCartaArte moldura={arteCarta(escolhida.slot)} rosto={getGanguesEnemyPortraitById(escolhida.enemyId)} /></span>
             <strong>{nomeCarta(t, escolhida)}</strong>
             <em>{textoCarta(t, escolhida)}</em>
             <p>{t('games.gangues.carta.pra_sempre')}</p>
@@ -45,7 +48,7 @@ export default function GanguesCartaEncaixe({ t, def, peca, alvo, indice, onClos
           <div className="gang-carta-encaixe__lista">
             {cartas.map(c => (
               <button key={c.id} className="gang-carta-encaixe__item" onClick={() => { sfx.click?.(); setEscolhida(c) }}>
-                <span className="gang-carta-encaixe__icone">🃏</span>
+                <span className="gang-carta-encaixe__icone"><GanguesCartaArte moldura={arteCarta(c.slot)} rosto={getGanguesEnemyPortraitById(c.enemyId)} /></span>
                 <span className="gang-carta-encaixe__info">
                   <strong>{nomeCarta(t, c)} ×{inventario[c.id]}</strong>
                   <em>{textoCarta(t, c)}</em>

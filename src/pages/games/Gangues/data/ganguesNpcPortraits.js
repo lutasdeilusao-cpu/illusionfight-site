@@ -10,11 +10,11 @@
 // expressões (piscando, sorrindo...) depois sem mexer aqui. Hoje só existe
 // `nego_veio/neutro.png` (pedido do Isaias, 14/09/2026: "essa cabecinha
 // tem que aparecer... já deixa preparado pra receber animações").
-const ARQUIVOS_NEUTRO = import.meta.glob('../assets/npcs/*/neutro.png', { eager: true, import: 'default' })
+const ARQUIVOS_NEUTRO = import.meta.glob('../assets/npcs/*/neutro.{png,webp}', { eager: true, import: 'default' })
 
 const NPC_PORTRAITS = { neutro: {} }
 for (const [caminho, url] of Object.entries(ARQUIVOS_NEUTRO)) {
-  const slug = caminho.match(/npcs\/([^/]+)\/neutro\.png$/)?.[1]
+  const slug = caminho.match(/npcs\/([^/]+)\/neutro\.(png|webp)$/)?.[1]
   if (slug) NPC_PORTRAITS.neutro[slug] = url
 }
 

@@ -67,6 +67,7 @@ export const POIS_VILA = [
   {
     // O vizinho barulhento do pátio: cada conversa sorteia um boato.
     id: 'vizinho',
+    arteNpc: 'vizinho_barulhento',
     tipo: 'papo',
     opcional: true,
     repetivel: true,
@@ -96,6 +97,7 @@ export const POIS_VILA = [
   {
     // Birosca do Térreo — descanso de baixo.
     id: 'birosca_vila',
+    arteNpc: 'dono_da_birosca_do_terreo',
     tipo: 'descanso',
     opcional: true,
     repetivel: true,
@@ -105,6 +107,7 @@ export const POIS_VILA = [
   {
     // O agiota da Vila (Aluguel Vencido, 1408): a MESMA caderneta global.
     id: 'aluguel_vencido',
+    arteNpc: 'aluguel_vencido',
     tipo: 'agiota',
     opcional: true,
     repetivel: true,
@@ -117,6 +120,7 @@ export const POIS_VILA = [
     // O Brechó da Síndica: o PESADO dos 3 caminhos (GDD §9.7). 405 e 412 só
     // caem dos Generais.
     id: 'brecho',
+    arteNpc: 'sindica_do_brecho',
     tipo: 'loja',
     opcional: true,
     repetivel: true,
@@ -126,6 +130,7 @@ export const POIS_VILA = [
   {
     // A Oficina do Zelador — aprimoramento até +6.
     id: 'oficina_zelador',
+    arteNpc: 'zelador',
     tipo: 'ferreiro',
     opcional: true,
     repetivel: true,
@@ -144,6 +149,7 @@ export const POIS_VILA = [
   {
     // A Dona Neide entrega a chave do elevador pra quem chegou até o 5º.
     id: 'dona_neide',
+    arteNpc: 'dona_neide',
     tipo: 'papo',
     opcional: true,
     i18n: 'games.gangues.cena.vila.dona_neide',

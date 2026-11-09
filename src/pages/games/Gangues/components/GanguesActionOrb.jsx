@@ -6,6 +6,8 @@ import { describeGanguesSpecialEffect } from '../engine/ganguesSpecialEffects.js
 import GangTip from './GangTip'
 import useGanguesTeclado, { clicarOpcao } from '../hooks/useGanguesTeclado'
 import './GanguesActionOrb.css'
+import GanguesIcone from './GanguesIcone'
+import { arteItem } from '../data/ganguesArte'
 
 const POS_KEY = 'ldi-gangues-orb-pos'
 const ANCHORS = ['right-top', 'right-mid', 'right-bottom', 'left-top', 'left-mid', 'left-bottom']
@@ -182,7 +184,7 @@ export default function GanguesActionOrb({
                   }}
                 >
                   <span className="gang-orb-talento__topo">
-                    <strong>{item.icone} {t(item.nome)}</strong>
+                    <strong><GanguesIcone arte={arteItem(item.id)} emoji={item.icone} /> {t(item.nome)}</strong>
                     <em className="gang-orb-custo">{t('games.gangues.orb.item_qtd', { n: item.quantidade })}</em>
                   </span>
                   <small>{textoEfeitoItem(t, item)}</small>

@@ -79,6 +79,7 @@ export const POIS_PISTA = [
     // Carvão se enfia. Obrigatório pro portão — sem a peça o time não tem
     // fôlego pro chefe. (Seu Nando: GDD §8, a oficina já é cena decorativa.)
     id: 'oficina',
+    arteNpc: 'seu_nando',
     tipo: 'papo',
     i18n: 'games.gangues.cena.pista.oficina',
     escolhas: [
@@ -91,6 +92,7 @@ export const POIS_PISTA = [
     // oficina DEPOIS da quest da sucata (`precisa: 'oficina'` no interior).
     // O Nando faz só o +1 (`tetoAprim`); até +4 é a Serralheria da Feira.
     id: 'bancada_nando',
+    arteNpc: 'seu_nando',
     tipo: 'ferreiro',
     opcional: true,
     repetivel: true,
@@ -247,6 +249,7 @@ export const POIS_PISTA = [
     // A partir daí é a loja permanente da Pista: equipa a gangue pra Feira
     // e pro farm. `pos_portao` = GanguesCena só mostra o pino com bossAberto.
     id: 'loja',
+    arteNpc: 'dono_da_loja_da_pista',
     tipo: 'loja',
     opcional: true,
     repetivel: true,
@@ -316,6 +319,7 @@ export const POIS_PISTA = [
     // entrada; agora fica no trecho aberto da rua (posicoes.js), sem
     // prédio por perto.
     id: 'loja_pocoes',
+    arteNpc: 'ze_da_lojinha',
     tipo: 'loja',
     opcional: true,
     repetivel: true,
@@ -346,6 +350,7 @@ export const POIS_PISTA = [
     // porque `refsInternos()` exclui qualquer POI referenciado por um
     // interior da lista do exterior (ganguesCenaMotor.js).
     id: 'agiota',
+    arteNpc: 'marimbondo',
     tipo: 'agiota',
     opcional: true,
     repetivel: true,
@@ -363,6 +368,7 @@ export const POIS_PISTA = [
     // NPC). Mora dentro da birosca (interiores.js), igual o agiota. Regra em
     // data/ganguesApostas.js. Retrato emprestado do "Troco Certo" (1402).
     id: 'banca',
+    arteNpc: 'tio_dado',
     tipo: 'banca',
     opcional: true,
     repetivel: true,
@@ -378,6 +384,7 @@ export const POIS_PISTA = [
     // (interiores.birosca_2) — o jogador entra pela porta. É a "franquia"
     // pós-muro: descansa/paga sem voltar tunelando.
     id: 'descanso_2',
+    arteNpc: 'primo_do_nato',
     tipo: 'descanso',
     opcional: true,
     repetivel: true,
@@ -423,6 +430,7 @@ export const POIS_PISTA = [
     // Só aparece depois do recado do Morro (`__flags.morro`, Vila) e abre um
     // dos portões da escadaria (BARREIRAS_MORRO, data/cenas/morro/mundo.js).
     id: 'aval_morro_pista',
+    arteNpc: 'marimbondo',
     tipo: 'papo',
     opcional: true,
     i18n: 'games.gangues.cena.aval.aval_morro_pista',

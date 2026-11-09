@@ -102,6 +102,7 @@ export const POIS_LAJE = [
   },
   {
     id: 'birosca_laje',
+    arteNpc: 'dono_da_birosca_da_laje',
     tipo: 'descanso',
     opcional: true,
     repetivel: true,
@@ -111,6 +112,7 @@ export const POIS_LAJE = [
   {
     // O agiota da Laje (Ponto da Laje, 1220 — o último ponto de venda do topo).
     id: 'ponto_da_laje',
+    arteNpc: 'ponto_da_laje',
     tipo: 'agiota',
     opcional: true,
     repetivel: true,
@@ -121,6 +123,7 @@ export const POIS_LAJE = [
   },
   {
     id: 'loja_laje',
+    arteNpc: 'dono_da_loja_da_laje',
     tipo: 'loja',
     opcional: true,
     repetivel: true,
@@ -129,6 +132,7 @@ export const POIS_LAJE = [
   },
   {
     id: 'alfaiataria',
+    arteNpc: 'alfaiate_do_bonde',
     tipo: 'ferreiro',
     opcional: true,
     repetivel: true,

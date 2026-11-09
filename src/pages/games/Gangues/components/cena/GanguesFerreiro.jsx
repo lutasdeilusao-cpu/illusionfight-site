@@ -8,6 +8,8 @@ import {
 } from '../../data/ganguesEquip.js'
 import GanguesDialogoEncontro from './GanguesDialogoEncontro'
 import './GanguesFerreiro.css'
+import GanguesIcone from '../GanguesIcone'
+import { arteEquip } from '../../data/ganguesArte'
 
 /* Encontro FERREIRO — aprimoramento de equipamento (27/09/2026, plano em
    docs/Games/Gangues/PLANO_ITENS_RANGE.md §3). Lista toda peça da gangue que
@@ -63,7 +65,7 @@ export default function GanguesFerreiro({ poi, onClose }) {
           const podePagar = custo && store.grana >= custo.grana && sucata >= custo.sucata
           return (
             <li key={peca.key} className="gang-ferreiro__peca">
-              <span className="gang-ferreiro__icone">{peca.def.icone}</span>
+              <span className="gang-ferreiro__icone"><GanguesIcone arte={arteEquip(peca.def.id)} emoji={peca.def.icone} /></span>
               <span className="gang-ferreiro__info">
                 <strong>{t(peca.def.nome)}{peca.aprim ? ` +${peca.aprim}` : ''}</strong>
                 <small>{peca.dono || t('games.gangues.ferreiro.na_mochila')}</small>

@@ -36,6 +36,7 @@ export const POIS_FEIRA = [
     // A banca do Turco: onde o nome de todo mundo vai pra caderneta. Se a
     // gangue já deve ao agiota, o Turco SABE (fala própria — `falaDevedor`).
     id: 'banca_turco',
+    arteNpc: 'o_turco',
     tipo: 'papo',
     i18n: 'games.gangues.cena.feira.banca_turco',
     retratoEnemyId: 1305,
@@ -135,6 +136,7 @@ export const POIS_FEIRA = [
     // pega a frequência do Acerto de Contas: revela o 1º General e o rádio
     // pirata (a ponte pra Baixada).
     id: 'radio',
+    arteNpc: 'toninho_do_radio',
     tipo: 'papo',
     i18n: 'games.gangues.cena.feira.radio',
     escolhas: [
@@ -147,6 +149,7 @@ export const POIS_FEIRA = [
     // O Camelô — os consumíveis novos (e a válvula 3). Pechincha: acertou o
     // anagrama, leva com desconto nesta visita.
     id: 'camelo',
+    arteNpc: 'o_camelo',
     tipo: 'loja',
     opcional: true,
     repetivel: true,
@@ -178,6 +181,7 @@ export const POIS_FEIRA = [
   },
   {
     id: 'favor_devedor',
+    arteNpc: 'boleto_vencido',
     tipo: 'papo',
     opcional: true,
     repetivel: true,
@@ -221,6 +225,7 @@ export const POIS_FEIRA = [
     // boato da Feira + a ponte pra Baixada — destranca o chefe de lá, igual o
     // Duda faz pra Feira (`__flags.baixada`, ver `precisaInformante`).
     id: 'radio_pirata',
+    arteNpc: 'toninho_do_radio',
     tipo: 'papo',
     opcional: true,
     repetivel: true,
@@ -234,6 +239,7 @@ export const POIS_FEIRA = [
     // sem grana, ela cura igual e a gangue fica devendo 1 favor (ver
     // `fiadoFavor` em GanguesDescanso.jsx e storyProgress.__regina).
     id: 'pensao',
+    arteNpc: 'dona_regina',
     tipo: 'descanso',
     opcional: true,
     repetivel: true,
@@ -245,6 +251,7 @@ export const POIS_FEIRA = [
     // O agiota da Feira (Juro Alto, 1404, do Acerto de Contas): MESMA
     // caderneta global do Marimbondo, degrau maior — empréstimo de 300.
     id: 'juro_alto',
+    arteNpc: 'juro_alto',
     tipo: 'agiota',
     opcional: true,
     repetivel: true,
@@ -292,6 +299,7 @@ export const POIS_FEIRA = [
   },
   {
     id: 'mercearia',
+    arteNpc: 'seu_aziz',
     tipo: 'loja',
     opcional: true,
     repetivel: true,
@@ -311,6 +319,7 @@ export const POIS_FEIRA = [
   },
   {
     id: 'pensao_2',
+    arteNpc: 'filha_da_regina',
     tipo: 'descanso',
     opcional: true,
     repetivel: true,
@@ -323,6 +332,7 @@ export const POIS_FEIRA = [
     // Só aparece depois do recado do Morro (`__flags.morro`, Vila) e abre um
     // dos portões da escadaria (BARREIRAS_MORRO, data/cenas/morro/mundo.js).
     id: 'aval_morro_feira',
+    arteNpc: 'juro_alto',
     tipo: 'papo',
     opcional: true,
     i18n: 'games.gangues.cena.aval.aval_morro_feira',
