@@ -160,7 +160,7 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1794182941.8895972,
+    "mtime": 1794184961.2452116,
     "ast_hash": "2db8b3afdd190ade72b7b2cca902bca6",
     "semantic_hash": ""
   },
@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1794182941.3239572,
-    "ast_hash": "a1d3c7f30f6dceea18ddaa7c5dece40a",
+    "mtime": 1794184960.7222795,
+    "ast_hash": "d164df21c96c45f5f8b20ddb846118f5",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2520,8 +2520,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1794182941.3550088,
-    "ast_hash": "3eb9a4886263dab6022c97570b74927d",
+    "mtime": 1794184960.7804332,
+    "ast_hash": "0da282e459fd32b9095f325d9a058d9c",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -7840,63 +7840,63 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-birosca_0.webp": {
-    "mtime": 1791895521.4391773,
-    "ast_hash": "9bb67d5ef9272c8a967ef841d06e18d5",
+    "mtime": 1794184919.7409847,
+    "ast_hash": "b15a271348f7a3b032808df79b7295f0",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-birosca_1.webp": {
-    "mtime": 1791895521.5146866,
-    "ast_hash": "dad9290ab841dde595c5aa5c61c71235",
+    "mtime": 1794184919.8680604,
+    "ast_hash": "16c755f8b4e09cf2e4c7808778227168",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-birosca_2_0.webp": {
-    "mtime": 1791895521.6378613,
-    "ast_hash": "a2bebcd1ce12c23cf1e3e6082277976d",
+    "mtime": 1794184920.00168,
+    "ast_hash": "4d97455b5a4c87a86628aea0b8ed2e75",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-galpao_0.webp": {
-    "mtime": 1791895521.74944,
-    "ast_hash": "2799f51efc4a7ac0ddc9a54039ab3e18",
+    "mtime": 1794184920.1677096,
+    "ast_hash": "0feaab550c4406ab82856fae571defa1",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-galpao_1.webp": {
-    "mtime": 1791895521.856316,
-    "ast_hash": "f761ddbd044c18889ebb7161675c493d",
+    "mtime": 1794184920.329007,
+    "ast_hash": "365a9efd3e74f6173207f25603ed2f59",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-galpao_2.webp": {
-    "mtime": 1791895521.9368231,
-    "ast_hash": "6f60252694af5dc9ec8e16b3b03209f4",
+    "mtime": 1794184920.4740293,
+    "ast_hash": "ee590c56422a4ce8f8064e7581e186d4",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-galpao_3.webp": {
-    "mtime": 1791895522.0912442,
-    "ast_hash": "c303bd8b3ab6c5af184762a97d70a80e",
+    "mtime": 1794184920.6608703,
+    "ast_hash": "e6579f11c40c4f7ff5845c09b58614ec",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-loja_0.webp": {
-    "mtime": 1791895522.7888224,
-    "ast_hash": "8116d4bc0960ed52cddb3957d155e90b",
+    "mtime": 1794184920.8039467,
+    "ast_hash": "df134c855a62dd94be43f1befe13cd80",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-oficina_0.webp": {
-    "mtime": 1791895522.9077377,
-    "ast_hash": "6f43473a7b77c70d91fb0a628176ac99",
+    "mtime": 1794184920.936709,
+    "ast_hash": "51f4f34fa114b29d05a66b2112fa6453",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-tunel_0.webp": {
-    "mtime": 1791895523.0032597,
-    "ast_hash": "c66afb80fff88c22307cc7c5ff5ed52d",
+    "mtime": 1794184921.073236,
+    "ast_hash": "e2dea883d40adfc87521650b28cf35f1",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-tunel_1.webp": {
-    "mtime": 1791895523.1457877,
-    "ast_hash": "ae76b50dba89ced8f14603561df8df22",
+    "mtime": 1794184921.2147548,
+    "ast_hash": "9aa48fc5f1fce7691799836711a19b92",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/pista-int-tunel_2.webp": {
-    "mtime": 1791895523.2433105,
-    "ast_hash": "c14717242b8d64d4052fca4b86908338",
+    "mtime": 1794184921.3459225,
+    "ast_hash": "55bab9adb72dcf476bf883070cfe181b",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/feira/fundos.js": {
@@ -7930,73 +7930,73 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-galeria_0.webp": {
-    "mtime": 1791896857.2112327,
-    "ast_hash": "3927ef2c2a915f81c7f466cb2347e7fe",
+    "mtime": 1794184914.1848729,
+    "ast_hash": "db682775a842dd021a404b1392b595e7",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-galeria_1.webp": {
-    "mtime": 1791896857.3388524,
-    "ast_hash": "29552f32ffa4c40db42112bc115fa3fc",
+    "mtime": 1794184914.3319094,
+    "ast_hash": "de16eda6519f670e3bc931e22a941457",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-galeria_2.webp": {
-    "mtime": 1791896857.4536543,
-    "ast_hash": "9daf422207edbe792fc4649117ac6f0b",
+    "mtime": 1794184914.4725294,
+    "ast_hash": "3606e522c44e920f649fd4b1990cc4b0",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-mercadao_0.webp": {
-    "mtime": 1791896857.8359222,
-    "ast_hash": "e0bea8b017739529d9df979561e4ac62",
+    "mtime": 1794184914.808472,
+    "ast_hash": "d3f97bd3eab48018b1e5554f9117f4aa",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-mercadao_1.webp": {
-    "mtime": 1791896858.1687307,
+    "mtime": 1794184948.2723787,
     "ast_hash": "e759c730c9de2af5075f76f7bee71336",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-mercadao_2.webp": {
-    "mtime": 1791896858.6234324,
+    "mtime": 1794184948.27538,
     "ast_hash": "54aea7642cf63ba0b42f07d4e576aab1",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-mercadao_3.webp": {
-    "mtime": 1791896858.7509468,
-    "ast_hash": "5843642cb4bd21bc8c8ca0ae0d2e7ebc",
+    "mtime": 1794184915.6409445,
+    "ast_hash": "b537c7d110f513d6ecfa24448d868608",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-mercadao_4.webp": {
-    "mtime": 1791896858.921993,
-    "ast_hash": "367bf32a4dbadc9e50d25792e7115b62",
+    "mtime": 1794184915.8346229,
+    "ast_hash": "2a4e9827ed531959cd16a974e6d9c9ca",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-mercearia_0.webp": {
-    "mtime": 1791896859.0422058,
-    "ast_hash": "c9a59b0cdd22c76aeb47eb264534f103",
+    "mtime": 1794184915.9768481,
+    "ast_hash": "660e564f1f1e0fc1af8172a385df5c58",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-pensao_0.webp": {
-    "mtime": 1791896859.2123342,
-    "ast_hash": "d2e512df3a65d12436149bf6574a3554",
+    "mtime": 1794184916.1303508,
+    "ast_hash": "d3f65755d8889e84237fb217d44629ba",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-pensao_1.webp": {
-    "mtime": 1791896859.3271513,
-    "ast_hash": "975ccde8baaa3f57f943041ca5342b9c",
+    "mtime": 1794184916.2558374,
+    "ast_hash": "ab762c0aefc5722a6603fd00227e88cc",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-pensao_2_0.webp": {
-    "mtime": 1791896859.459986,
-    "ast_hash": "9f0bfdb715ce5bb0872b2c173922bb41",
+    "mtime": 1794184916.3927372,
+    "ast_hash": "d06fef068f9f57a92157aacbd3511457",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-radio_0.webp": {
-    "mtime": 1791896859.60371,
-    "ast_hash": "53e6d1eb5420aa4e5ff9c2e1e86e8f64",
+    "mtime": 1794184916.5243573,
+    "ast_hash": "c3a6c370dad06266e8a67b5d7bdd9f9e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/feira-int-serralheria_0.webp": {
-    "mtime": 1791896859.739017,
-    "ast_hash": "a14e15716d29f50dd8602a19b8ef3db1",
+    "mtime": 1794184916.6548166,
+    "ast_hash": "5270ad6789be0209f1b4d9c907869fdc",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/alto/fundos.js": {
@@ -8050,48 +8050,48 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/alto-int-birosca_0.webp": {
-    "mtime": 1791898241.0593932,
-    "ast_hash": "8ae748ea5fffebca2d63a4d0436143ad",
+    "mtime": 1794184912.243398,
+    "ast_hash": "43cf82da035ff77c5d11601365a01df2",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/alto-int-birosca_1.webp": {
-    "mtime": 1791898241.143412,
-    "ast_hash": "2d13d14fc0ac04de530c47fbbc0e96c4",
+    "mtime": 1794184912.3715775,
+    "ast_hash": "3193761f8c789dba140564ae968abf96",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/alto-int-emporio_0.webp": {
-    "mtime": 1791898241.356125,
-    "ast_hash": "06001c42093100efb40d3ec06a9a507c",
+    "mtime": 1794184912.5112045,
+    "ast_hash": "fb7538e56933bd4d3934d0b438a44a85",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/alto-int-escritorio_0.webp": {
-    "mtime": 1791898241.589761,
-    "ast_hash": "e12d75dd6dcf0c2e4ada18a3165edfcb",
+    "mtime": 1794184912.6483617,
+    "ast_hash": "b4999b6133bd59bd2b2880252c8397fa",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/alto-int-escritorio_1.webp": {
-    "mtime": 1791898241.6907687,
-    "ast_hash": "43bb8d4bea4b06c8dfbb79d689d4f96a",
+    "mtime": 1794184912.7922812,
+    "ast_hash": "017e631d26dc71f3b65394c1e13086ce",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/alto-int-escritorio_2.webp": {
-    "mtime": 1791898241.8153296,
-    "ast_hash": "418b6718e54a19f6c7b0d7fac383bf0d",
+    "mtime": 1794184912.9468174,
+    "ast_hash": "59824c282748dd6cf08fe73fe4e1da11",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/alto-int-escritorio_3.webp": {
-    "mtime": 1791898241.9531004,
-    "ast_hash": "75a77d520232686ddaa7d61ff805ff83",
+    "mtime": 1794184913.1051207,
+    "ast_hash": "29891fbd284e8925827790b3f96460e3",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/alto-int-oficina_0.webp": {
-    "mtime": 1791898241.2440917,
-    "ast_hash": "38af2363d10655f88fa9d8cf2841563c",
+    "mtime": 1794184913.2336702,
+    "ast_hash": "f2fa91c9cba7c1ea443f474b1e3d8f49",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/alto-int-sala_cinco_0.webp": {
-    "mtime": 1791898241.4800842,
-    "ast_hash": "74aa3270aba5e2443f1eb13856d34d65",
+    "mtime": 1794184913.3803108,
+    "ast_hash": "7ac0ab57bed31ec1c6464eb72964c403",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/baixada-bloco-1.webp": {
@@ -8120,28 +8120,28 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/baixada-int-birosca_0.webp": {
-    "mtime": 1791898231.452475,
-    "ast_hash": "630ad82f4231d14d4a85ec95f9c0c58a",
+    "mtime": 1794184913.5189135,
+    "ast_hash": "c156d362ad325c306583c2b269707937",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/baixada-int-birosca_1.webp": {
-    "mtime": 1791898231.5576122,
-    "ast_hash": "0dae885d495cd30c1fbc3483b8897990",
+    "mtime": 1794184913.6481977,
+    "ast_hash": "446bab34ee2dc45cda1c3065cb018ba4",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/baixada-int-birosca_2_0.webp": {
-    "mtime": 1791898231.765771,
-    "ast_hash": "25918fd71e23f31f42d81b6045b82a50",
+    "mtime": 1794184913.7853608,
+    "ast_hash": "31ea5cdcfb9b2d6e7300f44ebf7817f0",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/baixada-int-deposito_0.webp": {
-    "mtime": 1791898231.8499923,
-    "ast_hash": "be5b4ff64335d0ddf996388ca5ee6a6a",
+    "mtime": 1794184913.9153194,
+    "ast_hash": "37f497ce819f56f9a6812e7cd09d31e5",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/baixada-int-padaria_0.webp": {
-    "mtime": 1791898231.6631334,
-    "ast_hash": "792d465137fe548587473b705ebbe0ad",
+    "mtime": 1794184914.0458848,
+    "ast_hash": "40a794a7a081edc378e264f045325a6c",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-bloco-1.webp": {
@@ -8170,68 +8170,68 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-birosca_0.webp": {
-    "mtime": 1791898244.052609,
-    "ast_hash": "610a045079960a49c8e811f1ee5ba9cb",
+    "mtime": 1794184916.8026314,
+    "ast_hash": "92c8a984d6232b0823423c6d52c0ed6f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-birosca_1.webp": {
-    "mtime": 1791898244.1407769,
-    "ast_hash": "3382ec3f85a7af71d73c26ba052a67d2",
+    "mtime": 1794184916.9275658,
+    "ast_hash": "9836efcca9ea77d29bbd9517b992f725",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-loja_0.webp": {
-    "mtime": 1791898244.3381584,
-    "ast_hash": "620bdfaa1f848f0538274b518c3c45c9",
+    "mtime": 1794184917.0658593,
+    "ast_hash": "2d4a4ee329a8e6d849a3685a856a93b2",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-oficina_0.webp": {
-    "mtime": 1791898244.236865,
-    "ast_hash": "9519a2f97463b22e4cd534f723afeeb2",
+    "mtime": 1794184917.197486,
+    "ast_hash": "35d669cda75f53de42b19a01326a1781",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_0.webp": {
-    "mtime": 1791898244.4484043,
-    "ast_hash": "f4f8e803152ab9a8f2acc0fb3df3ecfd",
+    "mtime": 1794184917.349504,
+    "ast_hash": "a8ffd215ce5180430559082c5634512a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_1.webp": {
-    "mtime": 1791898244.536494,
-    "ast_hash": "cc38543a5fbba205dce17d34a2f8e1a8",
+    "mtime": 1794184917.4932828,
+    "ast_hash": "4719afcc9b371b5419daac36432e595e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_2.webp": {
-    "mtime": 1791898244.6591654,
-    "ast_hash": "dcab507c85a344400583e89e4ae1a20a",
+    "mtime": 1794184917.6388657,
+    "ast_hash": "5caeec87965c1ccce54f269db68b1509",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_3.webp": {
-    "mtime": 1791898244.792297,
-    "ast_hash": "58bc62a858edad0cc26b596ea571bd20",
+    "mtime": 1794184917.7795727,
+    "ast_hash": "2f44300062ab4514f0c3042cb37eee3f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_4.webp": {
-    "mtime": 1791898244.9134495,
-    "ast_hash": "f7b7734aba5da92d0c91571d5c2388af",
+    "mtime": 1794184917.9233,
+    "ast_hash": "8fbcc3af9274600daef237342bd10aea",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-sala_costura_5.webp": {
-    "mtime": 1791898245.0120761,
-    "ast_hash": "a6d39d32d0185f8d4dbc088f1a63a198",
+    "mtime": 1794184918.074776,
+    "ast_hash": "e583c733e5253ff343f2bb694c67ca5e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-topo_0.webp": {
-    "mtime": 1791898245.2055209,
-    "ast_hash": "da917b4e33f0005620c6bffce73e89d5",
+    "mtime": 1794184918.2526925,
+    "ast_hash": "18f5caadab430ebb7740d750c0dfe739",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-topo_1.webp": {
-    "mtime": 1791898245.4056108,
-    "ast_hash": "7fb881aa718e5cad1ea5a797d7b19c30",
+    "mtime": 1794184918.4310331,
+    "ast_hash": "7877e12b70b80d1cbae3df8e3acaa01c",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/laje-int-topo_2.webp": {
-    "mtime": 1791898245.5339174,
-    "ast_hash": "652a7b074cfc292cd5709f6adad03742",
+    "mtime": 1794184918.6047318,
+    "ast_hash": "c5369667531630f67c49016d115df710",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/morro-bloco-1.webp": {
@@ -8260,38 +8260,38 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/morro-int-birosca_0.webp": {
-    "mtime": 1791898238.2488346,
-    "ast_hash": "961925a67c719760c6a56caab122c220",
+    "mtime": 1794184918.7493753,
+    "ast_hash": "1d5c3905f1f0225b4309a7c4d587eb07",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/morro-int-birosca_1.webp": {
-    "mtime": 1791898238.3373601,
-    "ast_hash": "838861b0e666b6a4c42b15dfa6fdc652",
+    "mtime": 1794184918.8762155,
+    "ast_hash": "64adf398e6327f025367389b8adc5399",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/morro-int-boca_0.webp": {
-    "mtime": 1791898238.7344978,
-    "ast_hash": "a91e9fdc4ae0ad6c909600cdeba3b0e0",
+    "mtime": 1794184919.0136924,
+    "ast_hash": "15abc292da73df458494048f06cd418f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/morro-int-boca_1.webp": {
-    "mtime": 1791898238.870801,
-    "ast_hash": "97a1d90478b7ebd499f36bdac7145780",
+    "mtime": 1794184919.1783633,
+    "ast_hash": "0760a1ad5b34c7bcd2852439c63380cd",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/morro-int-creche_0.webp": {
-    "mtime": 1791898238.638399,
-    "ast_hash": "76b089e640357888f1462bcce8221ee3",
+    "mtime": 1794184919.3156426,
+    "ast_hash": "a3a7fdce87606df65636898a1d20057c",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/morro-int-oficina_0.webp": {
-    "mtime": 1791898238.4591599,
-    "ast_hash": "5163a50fdacb39355656aa57b073ce0b",
+    "mtime": 1794184919.4497738,
+    "ast_hash": "6c8758726c916e4ef6975faa61cb5986",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/morro-int-venda_0.webp": {
-    "mtime": 1791898238.5531044,
-    "ast_hash": "02c674ac1b1827e1ffabe7b9cd7d7587",
+    "mtime": 1794184919.593038,
+    "ast_hash": "a80fd22b1494469c68eda5ee1f2b38ee",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-bloco-1.webp": {
@@ -8320,78 +8320,78 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-birosca_0.webp": {
-    "mtime": 1791898233.941205,
-    "ast_hash": "b3f66e7d980437d7216fbc746f5b27ec",
+    "mtime": 1794184921.49539,
+    "ast_hash": "b78ff40fdf036c078f255a029797037a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-birosca_1.webp": {
-    "mtime": 1791898234.0228286,
-    "ast_hash": "faf55877b2b8d1bf7ebc7c74c25ff65a",
+    "mtime": 1794184921.6185534,
+    "ast_hash": "0dfa0bb15533119631b39a1635cbf1cb",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_0.webp": {
-    "mtime": 1791898234.3878074,
-    "ast_hash": "8ad628e0fff5d07f814e30ca5db6f6ad",
+    "mtime": 1794184921.7502766,
+    "ast_hash": "3cbed77847d4175929f076b056666af7",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_1.webp": {
-    "mtime": 1791898234.5137053,
-    "ast_hash": "8f6ecd9a9c82cd684efd9fc9ac5f2bb7",
+    "mtime": 1794184921.9215395,
+    "ast_hash": "06e2f008f0e3100775f33c024fa18ebc",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_10.webp": {
-    "mtime": 1791898236.109643,
-    "ast_hash": "e569e9a12010dd74e2eb06cf4c64caf4",
+    "mtime": 1794184922.0965137,
+    "ast_hash": "c57d3225a79c9cb72f8a36c3e47f85c4",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_2.webp": {
-    "mtime": 1791898234.6852355,
-    "ast_hash": "569c161c91501f185c259fc6a5c03cc7",
+    "mtime": 1794184922.2596257,
+    "ast_hash": "e59ca6b7f5fcebb82418dc5ab1b8cc0e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_3.webp": {
-    "mtime": 1791898234.8389795,
-    "ast_hash": "d927d3189cf27b4492134999322d1fe6",
+    "mtime": 1794184922.4220452,
+    "ast_hash": "9f7df34af89894ace1529d7193250615",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_4.webp": {
-    "mtime": 1791898235.0406504,
-    "ast_hash": "2cf6081f302f92ec38153e0abc11ae54",
+    "mtime": 1794184922.5892737,
+    "ast_hash": "199ecccf22053b3672f70cdcb93e1b13",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_5.webp": {
-    "mtime": 1791898235.222849,
-    "ast_hash": "3c553c4b6d8d2c83922e54140d2058fd",
+    "mtime": 1794184922.7570572,
+    "ast_hash": "12436c12727a1aaebc774d93edd4dfb2",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_6.webp": {
-    "mtime": 1791898235.386105,
-    "ast_hash": "cd2c1d8f36b4bf5f081612958d3fbedb",
+    "mtime": 1794184922.9292753,
+    "ast_hash": "a3badfe145307024474e49c7af86ea9c",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_7.webp": {
-    "mtime": 1791898235.5448847,
-    "ast_hash": "657c87e43b308967809a263374165689",
+    "mtime": 1794184923.1106424,
+    "ast_hash": "aab4648cf8130be790e2839d98d00a9f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_8.webp": {
-    "mtime": 1791898235.717423,
-    "ast_hash": "7f0ea11347d0bf53d41fc2a1992ed643",
+    "mtime": 1794184923.280177,
+    "ast_hash": "90b3e63dc18ed5a452602282ceacd8d7",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-bloco_a_9.webp": {
-    "mtime": 1791898235.9124653,
-    "ast_hash": "77f69f889336e26a496a95dec5a7e6b1",
+    "mtime": 1794184923.4525552,
+    "ast_hash": "57a9db7425a3b21cc1ecf2e8fa54e3a1",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-brecho_0.webp": {
-    "mtime": 1791898234.272801,
-    "ast_hash": "1394ee3db5da918566cc0285ad3b388e",
+    "mtime": 1794184923.5929675,
+    "ast_hash": "1831f20600c9562c20cbd74f0f95a301",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/vila-int-oficina_0.webp": {
-    "mtime": 1791898234.1337893,
-    "ast_hash": "3a60e8a8ed2dd74e14dbcdf497948df1",
+    "mtime": 1794184923.7229018,
+    "ast_hash": "41049af77d1219c37101cfea50b4186e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/assets/backgrounds/mapa-marelia.webp": {
@@ -9940,7 +9940,7 @@
     "semantic_hash": ""
   },
   "src/data/webshard-hashes.json": {
-    "mtime": 1794182993.258844,
+    "mtime": 1794184969.3460324,
     "ast_hash": "316b686b4ded285009b63cac974730bb",
     "semantic_hash": ""
   },

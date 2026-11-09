@@ -38,16 +38,18 @@ const LAB_VAO = 110
 const LAB_FILEIRAS_Y = [660, 440, 220]
 const LAB_FILEIRA_H = 56
 const LONAS = ['#c8453a', '#3a7bc8', '#d9a12a', '#4a9a5a', '#8a4ac8']
-function fileiraDeBarracas(y, gap, lona) {
-  const x = gap === 'esq' ? 14 + LAB_VAO : 14
-  const w = LAB_W - 28 - LAB_VAO
+function fileiraDeBarracas(y, gap, lona, rect) {
+  const x = rect ? rect.x : (gap === 'esq' ? 14 + LAB_VAO : 14)
+  const w = rect ? rect.w : LAB_W - 28 - LAB_VAO
+  const h = rect ? rect.h : LAB_FILEIRA_H
+  if (rect) y = rect.y
   const n = Math.round(w / 64)
   const bw = w / n
   return {
-    collider: { x, y, w, h: LAB_FILEIRA_H },
+    collider: { x, y, w, h },
     cenario: Array.from({ length: n }, (_, i) => ({
-      tipo: 'barraca', x: Math.round(x + bw * i + bw / 2), y: y + LAB_FILEIRA_H / 2,
-      w: Math.round(bw - 6), h: LAB_FILEIRA_H - 10, lona: LONAS[(lona + i) % LONAS.length],
+      tipo: 'barraca', x: Math.round(x + bw * i + bw / 2), y: y + h / 2,
+      w: Math.round(bw - 6), h: h - 10, lona: LONAS[(lona + i) % LONAS.length],
     })),
   }
 }
@@ -56,8 +58,11 @@ function fileiraDeBarracas(y, gap, lona) {
 function noVao(k, gaps) {
   return { x: gaps[k] === 'esq' ? 14 + LAB_VAO / 2 : LAB_W - 14 - LAB_VAO / 2, y: LAB_FILEIRAS_Y[k] - 70 }
 }
-function salaLabirinto({ id, gaps, lona, entrada, voltaPara, briga1, briga2, extras = [], passagem }) {
-  const fileiras = gaps.map((g, k) => fileiraDeBarracas(LAB_FILEIRAS_Y[k], g, lona + k))
+// `arte` (opcional): fileiras e vãos medidos na ilustração do cômodo, quando
+// a arte não segue o zigue-zague padrão — a colisão acompanha o desenho.
+function salaLabirinto({ id, gaps, lona, entrada, voltaPara, briga1, briga2, extras = [], passagem, arte }) {
+  const fileiras = gaps.map((g, k) => fileiraDeBarracas(LAB_FILEIRAS_Y[k], g, lona + k, arte?.fileiras[k]))
+  const vao = k => arte?.vaos[k] || noVao(k, gaps)
   const treta = b => ({ ...b, tipo: 'treta', repetivel: true, i18n: `games.gangues.cena.feira.mercadao.${b.id}`, recompensa: { rep: 3 } })
   // A passagem fica em cima, do lado do último vão (o jogador chega por ali).
   const ultimo = gaps[gaps.length - 1]
@@ -76,8 +81,8 @@ function salaLabirinto({ id, gaps, lona, entrada, voltaPara, briga1, briga2, ext
     ],
     cenario: [{ tipo: 'chao-galpao' }, ...fileiras.flatMap(f => f.cenario)],
     pois: [
-      { poi: treta(briga1), pos: noVao(0, gaps) },
-      { poi: treta(briga2), pos: noVao(1, gaps), precisa: briga1.id },
+      { poi: treta(briga1), pos: vao(0) },
+      { poi: treta(briga2), pos: vao(1), precisa: briga1.id },
       ...extras,
     ],
     passagem: { x: pgX, y: 34, w: 80, h: 24, para: passagem, precisa: briga2.id, label: 'avancar' },
@@ -250,7 +255,11 @@ export const INTERIORES_FEIRA = {
         passagem: 1,
       }),
       salaLabirinto({
-        id: 'lonas', gaps: ['dir', 'esq', 'dir'], lona: 2, voltaPara: 0,
+        id: 'lonas', gaps: ['esq', 'dir', 'dir'], lona: 2, voltaPara: 0,
+        arte: {
+          fileiras: [{ x: 122, y: 556, w: 318, h: 92 }, { x: 20, y: 390, w: 315, h: 84 }, { x: 20, y: 172, w: 312, h: 86 }],
+          vaos: [{ x: 70, y: 500 }, { x: 390, y: 330 }],
+        },
         briga1: { id: 'barraca_3', nivelRec: 31, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 31, chanceDupla: 0.4 } },
         briga2: { id: 'barraca_4', nivelRec: 31, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 31, chanceDupla: 0.5 } },
         // O estoque escondido do Turco fica num canto do labirinto (opcional).
@@ -258,7 +267,11 @@ export const INTERIORES_FEIRA = {
         passagem: 2,
       }),
       salaLabirinto({
-        id: 'praca', gaps: ['esq', 'dir', 'esq'], lona: 4, voltaPara: 1,
+        id: 'praca', gaps: ['esq', 'esq', 'esq'], lona: 4, voltaPara: 1,
+        arte: {
+          fileiras: [{ x: 70, y: 636, w: 363, h: 92 }, { x: 83, y: 418, w: 355, h: 85 }, { x: 90, y: 205, w: 347, h: 82 }],
+          vaos: [{ x: 50, y: 570 }, { x: 50, y: 350 }],
+        },
         briga1: { id: 'barraca_5', nivelRec: 31, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 31, chanceDupla: 0.5 } },
         briga2: { id: 'barraca_6', nivelRec: 32, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 32, chanceDupla: 0.6 } },
         passagem: 3,
