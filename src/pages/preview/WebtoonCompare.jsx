@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import './WebtoonCompare.css'
+import { SITE_CDN } from '../../lib/siteCdn'
 
 // Página de comparação PRIVADA — só acessível por quem tem o link direto
 // (/preview-privado/webtoon-00-comparar). Não tem link em nenhum lugar do
@@ -41,7 +42,7 @@ export default function WebtoonCompare() {
         {paginas('novo').map(n => (
           <figure key={n} className="webtoon-compare__pagina">
             <figcaption>pág. {n}</figcaption>
-            <img src={`/preview-privado/paginas/novo/${String(n).padStart(2, '0')}.png`} alt={`Webtoon 00 novo — página ${n}`} loading="lazy" />
+            <img src={`${SITE_CDN}/preview-privado/paginas/novo/${String(n).padStart(2, '0')}.png`} alt={`Webtoon 00 novo — página ${n}`} loading="lazy" />
           </figure>
         ))}
       </section>
@@ -51,7 +52,7 @@ export default function WebtoonCompare() {
         {paginas('antigo').map(n => (
           <figure key={n} className="webtoon-compare__pagina">
             <figcaption>pág. {n}</figcaption>
-            <img src={`/preview-privado/paginas/antigo/${String(n).padStart(2, '0')}.png`} alt={`Webtoon 00 antigo — página ${n}`} loading="lazy" />
+            <img src={`${SITE_CDN}/preview-privado/paginas/antigo/${String(n).padStart(2, '0')}.png`} alt={`Webtoon 00 antigo — página ${n}`} loading="lazy" />
           </figure>
         ))}
       </section>

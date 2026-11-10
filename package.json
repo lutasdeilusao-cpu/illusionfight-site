@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build && node scripts/prerender-routes.js && node scripts/gerar-presskit.cjs && node scripts/tirar-webtoon-dist.cjs",
     "preview": "vite preview",
-    "predeploy": "node scripts/gangues-css-audit.cjs && npm run build && node scripts/restaurar-preview-privado.cjs",
+    "predeploy": "node scripts/gangues-css-audit.cjs && npm run build && node scripts/restaurar-preview-privado.cjs && python scripts/site-r2.py",
     "audit:gangues-css": "node scripts/gangues-css-audit.cjs",
     "deploy": "node scripts/deploy-gh-pages.cjs",
     "migration": "node scripts/run-migration.js",

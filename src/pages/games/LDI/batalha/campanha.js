@@ -12,14 +12,16 @@
 //   superDele: a cada `cada` frases ele solta um super; você defende as `notas`
 //   (vermelhas) e toma `dano` × a fração que deixou passar.
 // Nomes e falas no i18n (games.ldi.batalha.inimigos.<id>).
-import luta01 from './musica/luta-01.mp3?url'
-import luta02 from './musica/luta-02.mp3?url'
-import luta03 from './musica/luta-03.mp3?url'
-import luta04 from './musica/luta-04.mp3?url'
-import luta05 from './musica/luta-05.mp3?url'
-import luta06 from './musica/luta-06.mp3?url'
-import luta07 from './musica/luta-07.mp3?url'
-import luta08 from './musica/luta-08.mp3?url'
+// Músicas de luta servidas pelo R2 (scripts/site-r2.py) — fora do pacote do Pages.
+import { SITE_CDN } from '../../../../lib/siteCdn'
+const luta01 = `${SITE_CDN}/musica/ldi/luta-01.mp3`
+const luta02 = `${SITE_CDN}/musica/ldi/luta-02.mp3`
+const luta03 = `${SITE_CDN}/musica/ldi/luta-03.mp3`
+const luta04 = `${SITE_CDN}/musica/ldi/luta-04.mp3`
+const luta05 = `${SITE_CDN}/musica/ldi/luta-05.mp3`
+const luta06 = `${SITE_CDN}/musica/ldi/luta-06.mp3`
+const luta07 = `${SITE_CDN}/musica/ldi/luta-07.mp3`
+const luta08 = `${SITE_CDN}/musica/ldi/luta-08.mp3`
 // (a 02 e a 04 batem em 154 e 141; a luta anda na metade, senão as notas grudam)
 // Toda música toca um pouco acelerada (VELOCIDADE); o bpm da luta acompanha.
 const VELOCIDADE = 1.08

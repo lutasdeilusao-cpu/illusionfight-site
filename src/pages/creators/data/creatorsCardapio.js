@@ -1,3 +1,5 @@
+import { SITE_CDN } from '../../../lib/siteCdn'
+import { SITE_VERSION } from '../../../config/version'
 // Cardápio da área Creator: cada assunto que a NeoGuide serve.
 // Textos no i18n da área (creators.<assunto>.*); aqui só estrutura, rota e arte.
 import bannerLivro from '../../../assets/images/banners/banner-01.webp'
@@ -94,7 +96,7 @@ export const ARTES = [
 ]
 
 /** Press kit completo (artes + textos de imprensa), gerado no build. */
-export const PRESSKIT = '/presskit/illusion-fight-presskit.zip'
+export const PRESSKIT = `${SITE_CDN}/presskit/illusion-fight-presskit.zip?v=${SITE_VERSION}`
 
 /** Kit completo em alta resolução (todas as artes), no Google Drive. */
 export const PRESSKIT_DRIVE = 'https://drive.google.com/drive/folders/1y4u-eWtHDGlZWXeDKCZHaVaYthv8iYGx?usp=sharing'

@@ -6,11 +6,11 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.478.10'
+export const SITE_VERSION = '10.478.11'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2'
-export const LDI_VERSION       = '3.33.0'
+export const LDI_VERSION       = '3.33.1'
 export const JACK_VERSION      = '5.3.3'
 export const GANGUES_VERSION   = '3.122.4'
 
