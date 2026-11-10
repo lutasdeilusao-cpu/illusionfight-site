@@ -187,6 +187,7 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
                 key={`${position}-${character.id}`}
                 className={`gang-fighter-card gang-fighter-card--${position} gang-fighter-card--${character.combat_path}${selected ? ' gang-fighter-card--selected' : ''}`}
                 onClick={isCurrent ? () => openSheet(character) : () => move(position === 'prev' ? -1 : 1)}
+                {...(isCurrent ? { role: 'button', tabIndex: 0, 'data-nav-inicio': '' } : {})}
                 initial={{ opacity: 0, scale: .9 }} animate={{ opacity: 1, scale: 1 }}
               >
                 <span className="gang-fighter-card__number">#{String(character.id).padStart(2, '0')}</span>

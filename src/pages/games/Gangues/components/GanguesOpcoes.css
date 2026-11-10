@@ -64,3 +64,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) { .gang-opcoes__card { animation: none; } }
+
+/* par Teclado | Mouse (modo de controle, só no computador) */
+.gang-opcoes__par { display: inline-flex; gap: 6px; flex: none; }

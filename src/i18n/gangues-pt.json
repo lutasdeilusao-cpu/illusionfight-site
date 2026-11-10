@@ -4405,6 +4405,16 @@
         "texto": "Teu progresso some quando você fecha ou recarrega a página. Se quiser salvar o progresso, crie uma conta: é grátis.",
         "criar": "Criar conta",
         "depois": "Agora não"
+      },
+      "controle": {
+        "titulo": "Como você quer jogar?",
+        "texto": "Você está no computador. Escolha se vai jogar no teclado ou no mouse — dá pra trocar depois nas Opções.",
+        "teclado": "Teclado",
+        "teclado_dica": "Setas pra escolher, Enter pra confirmar, Esc pra voltar",
+        "mouse": "Mouse",
+        "mouse_dica": "Clique nos botões e use o analógico na tela",
+        "rodape": "Atalho: T = teclado · M = mouse",
+        "opcao": "Jogar com"
       }
     }
   }

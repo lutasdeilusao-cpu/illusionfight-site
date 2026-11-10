@@ -7508,6 +7508,16 @@
         "texto": "Tu progreso se pierde cuando cierras o recargas la página. Si quieres guardar tu progreso, crea una cuenta: es gratis.",
         "criar": "Crear cuenta",
         "depois": "Ahora no"
+      },
+      "controle": {
+        "titulo": "¿Cómo quieres jugar?",
+        "texto": "Estás en la computadora. Elige teclado o mouse — puedes cambiarlo después en Opciones.",
+        "teclado": "Teclado",
+        "teclado_dica": "Flechas para elegir, Enter para confirmar, Esc para volver",
+        "mouse": "Mouse",
+        "mouse_dica": "Haz clic en los botones y usa el joystick en pantalla",
+        "rodape": "Atajo: T = teclado · M = mouse",
+        "opcao": "Jugar con"
       }
     }
   }

@@ -6,3 +6,18 @@
   outline: 2px solid var(--if-cyan);
   outline-offset: 2px;
 }
+
+/* MODO TECLADO (10/11/2026, ver hooks/ganguesControle.js): o seletor tem que
+   saltar aos olhos — contorno grosso + brilho, inclusive nos painéis que
+   abrem em portal fora do .gang-page (Opções, pergunta de controle). */
+html.gang-teclado :focus {
+  outline: 3px solid var(--if-cyan) !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(24, 218, 251, 0.18), 0 0 18px rgba(24, 218, 251, 0.55) !important;
+}
+/* elementos recortados (clip-path) cortariam o contorno: troca pro brilho de dentro */
+html.gang-teclado [class*="gang"]:focus { clip-path: none !important; }
+
+/* sem analógico e sem botão de interagir: anda nas setas/WASD, interage no E */
+html.gang-teclado .gang-world-stick,
+html.gang-teclado .gang-world-interagir { display: none !important; }

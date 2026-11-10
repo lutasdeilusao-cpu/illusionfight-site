@@ -1,0 +1,122 @@
+// Navegação por setas no modo teclado (ver ganguesControle.js). As setas pulam
+// pro botão mais próximo naquela direção, em QUALQUER tela do jogo, sem cada
+// tela precisar declarar nada; Enter/Espaço apertam o botão em foco (nativo do
+// navegador) e o resto dos atalhos segue em useGanguesTeclado.
+//
+// Escopo: se tem um modal/diálogo aberto, a navegação fica presa dentro dele
+// (o último aberto). Na rua/clube sem modal as setas ANDAM com o boneco — aí
+// os botões do HUD seguem no Tab e nos atalhos (I, F, B, Esc).
+import { useEffect } from 'react'
+
+const FOCAVEIS = 'button:not([disabled]), a[href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [role="button"], [role="switch"], [role="tab"], [role="option"], [tabindex]:not([tabindex="-1"])'
+// Camadas que ficam por cima da tela. As que são só o fundo escuro (irmão do
+// cartão) contam pelo pai.
+const MODAIS = '[role="dialog"], [aria-modal="true"], .gang-cena-modal, .gang-modes-party-modal, .gang-world__pergunta-bg, .gang-aviso-conta, .gang-dlg-stage, .gang-tip-card, .gang-dados-rodada, .gang-controle-pergunta, .gang-orb-panel, .gang-opcoes'
+const FUNDOS = '.gang-story-vs-bg, .gang-esc-bg'
+const MUNDO = '.gang-cena-worldpage, .gang-clube'
+
+const visivel = el => {
+  const r = el.getBoundingClientRect()
+  if (r.width < 4 || r.height < 4) return false
+  if (el.checkVisibility && !el.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })) return false
+  // fundo que cobre a tela inteira (botão invisível de "fechar ao tocar fora")
+  if (r.height >= window.innerHeight * .9) return false
+  if (/scrim|fundo|backdrop|-bg|overlay/i.test(String(el.className))) return false
+  return true
+}
+
+const aberta = el => { const r = el.getBoundingClientRect(); return r.width > 4 && r.height > 4 && (!el.checkVisibility || el.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })) }
+
+function escopo() {
+  const camadas = [...document.querySelectorAll(MODAIS), ...[...document.querySelectorAll(FUNDOS)].map(f => f.parentElement)].filter(Boolean).filter(aberta)
+  if (!camadas.length) return null
+  // a mais "de cima": a última na ordem do documento
+  camadas.sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1))
+  return camadas[camadas.length - 1]
+}
+
+const candidatos = raiz => [...raiz.querySelectorAll(FOCAVEIS)].filter(el => !el.closest('[aria-hidden="true"], [inert]') && visivel(el))
+
+const centro = el => { const r = el.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2, r } }
+
+function proximo(atual, lista, dir) {
+  const a = centro(atual)
+  let melhor = null, nota = Infinity
+  for (const el of lista) {
+    if (el === atual || atual.contains(el)) continue
+    const c = centro(el)
+    const dx = c.x - a.x, dy = c.y - a.y
+    let frente, lado
+    if (dir === 'right') { frente = dx; lado = dy } else if (dir === 'left') { frente = -dx; lado = dy }
+    else if (dir === 'down') { frente = dy; lado = dx } else { frente = -dy; lado = dx }
+    if (frente <= 2) continue
+    const n = frente + Math.abs(lado) * 2.2
+    if (n < nota) { nota = n; melhor = el }
+  }
+  return melhor
+}
+
+// Onde o seletor nasce: campo de texto (tela de nome) > conteúdo da tela >
+// faixas de topo (aviso de conta sem login, Opções) só se não tiver mais nada.
+const SECUNDARIOS = '.guest-notice, .gang-opcoes-abrir, .gang-voltar-btn'
+const primeiro = lista => {
+  // a tela pode marcar onde o seletor começa (ex.: o card do meio do recrutamento)
+  const marcado = lista.find(el => el.hasAttribute('data-nav-inicio'))
+  if (marcado) return marcado
+  const campo = lista.find(el => el.tagName === 'INPUT' && (el.type === 'text' || el.type === 'search' || !el.type))
+  if (campo) return campo
+  const miolo = lista.filter(el => !el.closest(SECUNDARIOS) && !/voltar|back|sair/i.test(String(el.className)))
+  return ordenar(miolo.length ? miolo : lista)
+}
+const ordenar = lista => [...lista].sort((a, b) => { const A = centro(a), B = centro(b); return Math.abs(A.y - B.y) > 8 ? A.y - B.y : A.x - B.x })[0]
+
+const DIRS = { arrowup: 'up', arrowdown: 'down', arrowleft: 'left', arrowright: 'right' }
+
+export default function useGanguesNavTeclado(ativo) {
+  useEffect(() => {
+    if (!ativo) return
+    const onKey = e => {
+      if (e.defaultPrevented || e.ctrlKey || e.altKey || e.metaKey) return
+      // Enter/Espaço num "botão" que não é <button> (div com role=button): o
+      // navegador não clica sozinho — clica aqui.
+      if ((e.key === 'Enter' || e.key === ' ') && !e.repeat) {
+        const f = document.activeElement
+        if (f && f.matches?.('[role="button"], [role="option"], [role="tab"]') && !/^(BUTTON|A|INPUT|SELECT|TEXTAREA)$/.test(f.tagName)) { e.preventDefault(); e.stopImmediatePropagation(); f.click() }
+        return
+      }
+      const dir = DIRS[e.key.toLowerCase()]
+      if (!dir) return
+      const foco = document.activeElement
+      // campos que usam as setas pra si: ←/→ no texto e no slider ficam com eles
+      if (foco && (dir === 'left' || dir === 'right') && (foco.tagName === 'TEXTAREA' || (foco.tagName === 'INPUT' && foco.type !== 'checkbox' && foco.type !== 'radio' && foco.type !== 'button'))) return
+      if (foco?.tagName === 'SELECT' || foco?.tagName === 'TEXTAREA') return
+      const camada = escopo()
+      // rua/clube sem nada aberto: setas = andar
+      if (!camada && document.querySelector(MUNDO)) return
+      const raiz = camada || document.body
+      const lista = candidatos(raiz)
+      if (!lista.length) return
+      e.preventDefault()
+      e.stopImmediatePropagation()
+      const dentro = foco && foco !== document.body && raiz.contains(foco) && lista.includes(foco)
+      const alvo = dentro ? proximo(foco, lista, dir) : primeiro(lista)
+      if (!alvo) return
+      alvo.focus({ focusVisible: true })
+      alvo.scrollIntoView?.({ block: 'nearest', inline: 'nearest' })
+    }
+    // Seletor sempre visível: tela nova ou modal novo sem nada em foco (o
+    // botão focado sumiu, abriu um diálogo por cima) → foca o primeiro botão.
+    // Na rua sem modal não mexe (o foco num botão do HUD roubaria o Enter).
+    const vigia = setInterval(() => {
+      const foco = document.activeElement
+      const camada = escopo()
+      if (!camada && document.querySelector(MUNDO)) return
+      const raiz = camada || document.body
+      if (foco && foco !== document.body && raiz.contains(foco)) return
+      const lista = candidatos(raiz)
+      if (lista.length) primeiro(lista).focus({ focusVisible: true, preventScroll: true })
+    }, 350)
+    window.addEventListener('keydown', onKey, { capture: true })
+    return () => { clearInterval(vigia); window.removeEventListener('keydown', onKey, { capture: true }) }
+  }, [ativo])
+}

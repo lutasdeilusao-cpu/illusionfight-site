@@ -31,6 +31,10 @@ export default function useGanguesTeclado(mapa, ativo = true, prioridade = 0) {
       if (e.defaultPrevented || e.ctrlKey || e.altKey || e.metaKey || e.repeat) return
       if (digitando(e.target)) return
       const tecla = teclaDe(e)
+      // Modo teclado (ganguesControle.js): com um botão em foco, Enter/Espaço
+      // apertam ESSE botão — o seletor visível manda. Só os atalhos de tela
+      // (prioridade 0); diálogos/modais com prioridade seguem donos do Enter.
+      if (prioridade === 0 && (tecla === 'enter' || tecla === 'espaco') && document.documentElement.classList.contains('gang-teclado') && e.target?.matches?.('button, a[href], [role="button"], [role="switch"], [role="tab"], [role="option"]')) return
       const fn = mapaRef.current[tecla] || (/^[1-9]$/.test(tecla) && mapaRef.current.numero)
       if (!fn) return
       const r = fn(e, tecla)

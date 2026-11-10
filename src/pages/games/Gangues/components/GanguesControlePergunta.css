@@ -1,0 +1,24 @@
+/* Pergunta mouse × teclado (só no computador, uma vez). Mesma linguagem das
+   Opções; presa à coluna do jogo. */
+.gang-controle-pergunta { position: fixed; inset: 0 var(--gang-gutter); z-index: 1200; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.82); }
+.gang-controle-pergunta__card {
+  display: grid; gap: 12px; width: 100%; max-width: 420px; padding: 20px 18px;
+  border-top: 1px solid var(--if-edge); background: var(--if-glow-corner), var(--if-panel); color: var(--if-ink);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+.gang-controle-pergunta__eyebrow { color: var(--if-cyan-58); font: 700 0.55rem var(--font-mono); letter-spacing: 0.18em; }
+.gang-controle-pergunta h2 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.gang-controle-pergunta p { margin: 0; font-size: 0.86rem; line-height: 1.45; color: var(--text-secondary); }
+.gang-controle-pergunta__opcoes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.gang-controle-pergunta__opcoes button {
+  display: grid; justify-items: center; gap: 4px; min-height: 120px; padding: 14px 8px;
+  border: 1px solid var(--if-hair-strong); background: rgba(0, 0, 0, 0.3); color: var(--if-ink); cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.gang-controle-pergunta__opcoes b { font-size: 1.8rem; line-height: 1; }
+.gang-controle-pergunta__opcoes strong { font: 700 0.9rem var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; }
+.gang-controle-pergunta__opcoes small { font-size: 0.7rem; line-height: 1.35; color: var(--text-muted); }
+.gang-controle-pergunta__opcoes button:hover,
+.gang-controle-pergunta__opcoes button:focus { outline: 3px solid var(--if-cyan); outline-offset: 3px; }
+.gang-controle-pergunta__opcoes button:focus-visible { border-color: var(--if-cyan); background: var(--if-cyan-08); }
+.gang-controle-pergunta__rodape { font-size: 0.72rem !important; color: var(--text-muted) !important; }

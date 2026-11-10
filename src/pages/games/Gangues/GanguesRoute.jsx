@@ -31,6 +31,10 @@ import { ajustarPontosFixo, GANGUES_FRUSTRACAO_LIMIAR } from './data/ganguesDifi
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
 import { montarBandoFixo } from './data/ganguesBandoFixo.js'
+import GanguesControlePergunta from './components/GanguesControlePergunta'
+import { useModoControle, noComputador } from './hooks/ganguesControle'
+import useGanguesNavTeclado from './hooks/useGanguesNavTeclado'
+import { useLanguage } from '../../../context/LanguageContext'
 import './Gangues.css'
 
 import { GANGUES_VERSION } from '../../../config/version'
@@ -58,6 +62,11 @@ export default function GanguesRoute() {
   // App no fundo com automático ligado: o jogo segue rodando (ver o hook).
   useGanguesManterVivo()
   const [fase, setFase] = useState('lobby')
+  // Mouse ou teclado (só no computador) — ver hooks/ganguesControle.js.
+  const { t } = useLanguage()
+  const modoControle = useModoControle()
+  const pc = noComputador()
+  useGanguesNavTeclado(pc && modoControle === 'teclado')
   // Conta admin: loga tudo do jogo (store/ganguesDebugLog.js). Conta comum: nada.
   useGanguesDebugLog(fase)
   // De onde a Coleção foi aberta (lobby OU território) — pra o "← Voltar" dela
@@ -346,6 +355,7 @@ export default function GanguesRoute() {
     <div className={`gang-page ${fase === 'lobby' ? 'gang-page--lobby' : ''}`}>
       <GuestNotice />
       {i18nReady && <GanguesTrofeus />}
+      {pc && !modoControle && <GanguesControlePergunta t={t} />}
       {fase === 'save-select' && <GanguesSaveSelect onNavigate={setFase} />}
       {fase === 'lobby' && <GanguesLobby onNavigate={navegar} />}
       {fase === 'create' && (

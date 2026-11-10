@@ -7508,6 +7508,16 @@
         "texto": "Your progress is lost when you close or reload the page. If you want to save your progress, create an account. It's free.",
         "criar": "Create account",
         "depois": "Not now"
+      },
+      "controle": {
+        "titulo": "How do you want to play?",
+        "texto": "You're on a computer. Choose keyboard or mouse — you can switch later in Options.",
+        "teclado": "Keyboard",
+        "teclado_dica": "Arrows to choose, Enter to confirm, Esc to go back",
+        "mouse": "Mouse",
+        "mouse_dica": "Click the buttons and use the on-screen stick",
+        "rodape": "Shortcut: T = keyboard · M = mouse",
+        "opcao": "Play with"
       }
     }
   }

@@ -11,6 +11,7 @@ import { createPortal } from 'react-dom'
 import { sfx } from '../../../../lib/sfx'
 import { useRadio } from '../../../../components/RadioNina/RadioNinaContext'
 import useGanguesTeclado from '../hooks/useGanguesTeclado'
+import { useModoControle, definirModoControle } from '../hooks/ganguesControle'
 import './GanguesOpcoes.css'
 
 const TECLAS = [
@@ -22,16 +23,17 @@ const TECLAS = [
   ['briga_auto', ['B']],
   ['mochila', ['I']],
   ['ficha', ['F']],
-  ['navegar', ['Tab'], 'e', ['Enter']],
+  ['navegar', ['↑', '↓', '←', '→'], 'ou', ['Tab']],
 ]
 
-const noComputador = () => typeof window !== 'undefined' && window.matchMedia?.('(hover: hover) and (pointer: fine)').matches
+import { noComputador } from '../hooks/ganguesControle'
 
 export default function GanguesOpcoes({ t, onFechar }) {
   const radio = useRadio()
   const [somLigado, setSomLigado] = useState(sfx.enabled)
   const [volume, setVolume] = useState(sfx.volume)
   const pc = noComputador()
+  const modo = useModoControle()
 
   useGanguesTeclado({ escape: () => onFechar() }, true, 1)
 
@@ -81,6 +83,18 @@ export default function GanguesOpcoes({ t, onFechar }) {
         {/* ── CONTROLES ── */}
         <section className="gang-opcoes__secao">
           <h3>{t('games.gangues.opcoes.controles')}</h3>
+          {pc && (
+            <div className="gang-opcoes__linha">
+              <span>{t('games.gangues.controle.opcao')}</span>
+              <span className="gang-opcoes__par" role="radiogroup" aria-label={t('games.gangues.controle.opcao')}>
+                {['teclado', 'mouse'].map(m => (
+                  <button key={m} type="button" role="radio" aria-checked={modo === m} className={`gang-opcoes__switch${modo === m ? ' is-on' : ''}`} onClick={() => definirModoControle(m)}>
+                    <i aria-hidden="true" />{t(`games.gangues.controle.${m}`)}
+                  </button>
+                ))}
+              </span>
+            </div>
+          )}
           <p className={`gang-opcoes__aviso${pc ? ' is-pc' : ''}`}>{t(pc ? 'games.gangues.opcoes.aviso_pc' : 'games.gangues.opcoes.aviso_toque')}</p>
           <ul className="gang-opcoes__teclas">
             {TECLAS.map(([acao, teclas, liga, outras]) => (
