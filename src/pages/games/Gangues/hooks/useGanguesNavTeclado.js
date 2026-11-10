@@ -112,7 +112,11 @@ export default function useGanguesNavTeclado(ativo) {
       e.preventDefault()
       e.stopImmediatePropagation()
       const dentro = foco && foco !== document.body && raiz.contains(foco) && lista.includes(foco)
-      const alvo = dentro ? proximo(foco, lista, dir) : primeiro(lista)
+      // Dentro de painel/modal (menu da luta, ficha, conversa): ↑/↓ seguem a
+      // ORDEM do menu (Atacar → Talento → Item → Automático → Ajustar — Isaias,
+      // 10/11/2026); ←/→ vão pro vizinho do lado. Na tela solta, tudo espacial.
+      const emOrdem = camada && (dir === 'up' || dir === 'down')
+      const alvo = !dentro ? primeiro(lista) : emOrdem ? lista[lista.indexOf(foco) + (dir === 'down' ? 1 : -1)] : proximo(foco, lista, dir)
       if (!alvo) return
       escolhaDoVigia = null
       alvo.focus({ focusVisible: true })
