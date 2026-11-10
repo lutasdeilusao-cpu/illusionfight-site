@@ -258,6 +258,9 @@ export default function GanguesActionOrb({
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
+        // teclado (Enter/Espaço com o 👊 selecionado): clique sem ponteiro
+        onClick={e => { if (e.detail !== 0) return; if (open) fechar(); else { setOpen(true); if (soAuto) abrirAuto() } }}
+        data-nav-inicio=""
       >
         {/* O anel/glow de .gang-orb--auto já avisa que o automático tá ligado. */}
         {open ? '✕' : '👊'}

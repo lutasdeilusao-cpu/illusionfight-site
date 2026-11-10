@@ -11,7 +11,7 @@ import { useEffect } from 'react'
 const FOCAVEIS = 'button:not([disabled]), a[href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [role="button"], [role="switch"], [role="tab"], [role="option"], [tabindex]:not([tabindex="-1"])'
 // Camadas que ficam por cima da tela. As que são só o fundo escuro (irmão do
 // cartão) contam pelo pai.
-const MODAIS = '[role="dialog"], [aria-modal="true"], .gang-cena-modal, .gang-modes-party-modal, .gang-world__pergunta-bg, .gang-aviso-conta, .gang-dlg-stage, .gang-tip-card, .gang-dados-rodada, .gang-controle-pergunta, .gang-orb-panel, .gang-opcoes'
+const MODAIS = '[role="dialog"], [aria-modal="true"], .gang-cena-modal, .gang-modes-party-modal, .gang-world__pergunta-bg, .gang-aviso-conta, .gang-dlg-stage, .gang-tip-card, .gang-dados-rodada, .gang-controle-pergunta, .gang-orb-panel, .gang-opcoes, .gang-trash-pop'
 const FUNDOS = '.gang-story-vs-bg, .gang-esc-bg'
 const MUNDO = '.gang-cena-worldpage, .gang-clube'
 const HUD = '.gang-cena-worldhud'
@@ -114,20 +114,28 @@ export default function useGanguesNavTeclado(ativo) {
       const dentro = foco && foco !== document.body && raiz.contains(foco) && lista.includes(foco)
       const alvo = dentro ? proximo(foco, lista, dir) : primeiro(lista)
       if (!alvo) return
+      escolhaDoVigia = null
       alvo.focus({ focusVisible: true })
       alvo.scrollIntoView?.({ block: 'nearest', inline: 'nearest' })
     }
     // Seletor sempre visível: tela nova ou modal novo sem nada em foco (o
     // botão focado sumiu, abriu um diálogo por cima) → foca o primeiro botão.
     // Na rua sem modal não mexe (o foco num botão do HUD roubaria o Enter).
+    let escolhaDoVigia = null
     const vigia = setInterval(() => {
       const foco = document.activeElement
       const camada = escopo()
       if (!camada && document.querySelector(MUNDO)) return
       const raiz = camada || document.body
-      if (foco && foco !== document.body && raiz.contains(foco)) return
       const lista = candidatos(raiz)
-      if (lista.length) primeiro(lista).focus({ focusVisible: true, preventScroll: true })
+      if (foco && foco !== document.body && raiz.contains(foco)) {
+        // o vigia escolheu algo de passagem (o botão principal estava sumido
+        // numa animação) e ele voltou: devolve o seletor pro principal
+        const inicio = lista.find(el => el.hasAttribute('data-nav-inicio'))
+        if (foco === escolhaDoVigia && inicio && inicio !== foco) { escolhaDoVigia = inicio; inicio.focus({ focusVisible: true, preventScroll: true }) }
+        return
+      }
+      if (lista.length) { escolhaDoVigia = primeiro(lista); escolhaDoVigia.focus({ focusVisible: true, preventScroll: true }) }
     }, 350)
     // Marca visual própria (classe), além do :focus — o contorno aparece mesmo
     // quando o navegador não pinta o foco (janela sem foco, foco programático).
