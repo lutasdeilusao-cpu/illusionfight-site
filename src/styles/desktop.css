@@ -110,3 +110,7 @@
   html.is-wide .painel { padding-inline: 1.5rem; }
   html.is-wide .tq-folha { left: calc(50% - 360px); right: calc(50% - 360px); }
 }
+
+/* Lobby do Lutas de Ilusão: no desktop a capa tem largura fixa (não 38% da tela) */
+html.is-wide .lobby-ldi .ep-card { flex: 0 0 180px; }
+html.is-wide .lobby-ldi__trilho { gap: 14px; }
