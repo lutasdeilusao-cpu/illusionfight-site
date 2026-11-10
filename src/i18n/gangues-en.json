@@ -29,7 +29,8 @@
           "briga_auto": "Auto brawl (on the street)",
           "mochila": "Backpack",
           "ficha": "Crew sheet",
-          "navegar": "Move between buttons"
+          "navegar": "Move between buttons",
+          "menu": "Top menu on the street (arrows move in it, Esc goes back)"
         }
       },
       "jogo": {

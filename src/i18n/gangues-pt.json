@@ -29,7 +29,8 @@
           "briga_auto": "Briga automática (na rua)",
           "mochila": "Mochila",
           "ficha": "Ficha da tropa",
-          "navegar": "Andar pelos botões"
+          "navegar": "Andar pelos botões",
+          "menu": "Menu do topo na rua (setas andam nele, Esc volta)"
         }
       },
       "jogo": {

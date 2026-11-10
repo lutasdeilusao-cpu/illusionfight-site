@@ -21,3 +21,22 @@ html.gang-teclado [class*="gang"]:focus { clip-path: none !important; }
 /* sem analógico e sem botão de interagir: anda nas setas/WASD, interage no E */
 html.gang-teclado .gang-world-stick,
 html.gang-teclado .gang-world-interagir { display: none !important; }
+
+/* Rua no modo teclado (Isaias, 10/11/2026): some o bloco de controles de
+   baixo inteiro — a cena ganha a tela — e o switch da briga automática sobe
+   pro HUD do topo. No HUD: M (ou Tab) entra no menu, setas andam pelos
+   botões, Esc volta a andar. */
+html.gang-teclado .gang-world-controls { display: none !important; }
+.gang-cena-hud-auto { display: none !important; }
+html.gang-teclado .gang-cena-hud-auto {
+  display: inline-flex !important; align-items: center; gap: 6px; padding: 4px 6px !important;
+  color: var(--text-secondary) !important; font: 700 .5rem var(--font-mono) !important; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; cursor: pointer;
+}
+.gang-cena-hud-auto i { position: relative; display: block; width: 28px; height: 14px; border: 1px solid var(--gang-cinza-600); background: var(--gang-noite-950); }
+.gang-cena-hud-auto i b { position: absolute; top: 2px; left: 2px; width: 8px; height: 8px; background: var(--gang-cinza-600); transition: transform .18s, background .18s; }
+.gang-cena-hud-auto.is-on { color: var(--terr-cor) !important; }
+.gang-cena-hud-auto.is-on i { border-color: var(--terr-cor); }
+.gang-cena-hud-auto.is-on i b { transform: translateX(14px); background: var(--terr-cor); }
+.gang-cena-hud-auto:disabled { opacity: .35; cursor: not-allowed; }
+/* o HUD corta o contorno (overflow hidden): no teclado o foco fica por dentro */
+html.gang-teclado .gang-cena-worldhud :focus { outline-offset: -3px !important; box-shadow: inset 0 0 0 2px var(--if-cyan), 0 0 10px rgba(24,218,251,.6) !important; }

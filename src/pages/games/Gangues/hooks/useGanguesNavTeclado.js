@@ -14,6 +14,7 @@ const FOCAVEIS = 'button:not([disabled]), a[href], input:not([disabled]):not([ty
 const MODAIS = '[role="dialog"], [aria-modal="true"], .gang-cena-modal, .gang-modes-party-modal, .gang-world__pergunta-bg, .gang-aviso-conta, .gang-dlg-stage, .gang-tip-card, .gang-dados-rodada, .gang-controle-pergunta, .gang-orb-panel, .gang-opcoes'
 const FUNDOS = '.gang-story-vs-bg, .gang-esc-bg'
 const MUNDO = '.gang-cena-worldpage, .gang-clube'
+const HUD = '.gang-cena-worldhud'
 
 const visivel = el => {
   const r = el.getBoundingClientRect()
@@ -84,14 +85,26 @@ export default function useGanguesNavTeclado(ativo) {
         if (f && f.matches?.('[role="button"], [role="option"], [role="tab"]') && !/^(BUTTON|A|INPUT|SELECT|TEXTAREA)$/.test(f.tagName)) { e.preventDefault(); e.stopImmediatePropagation(); f.click() }
         return
       }
+      // Rua: M entra no menu do topo; Esc no menu volta a andar.
+      if (!escopo() && document.querySelector(MUNDO)) {
+        const f = document.activeElement
+        if (e.key.toLowerCase() === 'm' && !e.repeat && !f?.closest?.(HUD)) {
+          const b = document.querySelector(HUD)?.querySelector('button:not([disabled])')
+          if (b) { e.preventDefault(); e.stopImmediatePropagation(); b.focus({ focusVisible: true }); return }
+        }
+        if (e.key === 'Escape' && f?.closest?.(HUD)) { e.preventDefault(); e.stopImmediatePropagation(); f.blur(); return }
+      }
       const dir = DIRS[e.key.toLowerCase()]
       if (!dir) return
       const foco = document.activeElement
       // campos que usam as setas pra si: ←/→ no texto e no slider ficam com eles
       if (foco && (dir === 'left' || dir === 'right') && (foco.tagName === 'TEXTAREA' || (foco.tagName === 'INPUT' && foco.type !== 'checkbox' && foco.type !== 'radio' && foco.type !== 'button'))) return
       if (foco?.tagName === 'SELECT' || foco?.tagName === 'TEXTAREA') return
-      const camada = escopo()
-      // rua/clube sem nada aberto: setas = andar
+      let camada = escopo()
+      // HUD da rua (o menu do topo): com o foco nele, as setas andam pelos
+      // botões do HUD; fora dele (rua sem nada aberto) as setas andam com o boneco.
+      const hud = !camada && foco?.closest?.(HUD)
+      if (hud) camada = hud
       if (!camada && document.querySelector(MUNDO)) return
       const raiz = camada || document.body
       const lista = candidatos(raiz)

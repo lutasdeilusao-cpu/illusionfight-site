@@ -23,6 +23,7 @@ const TECLAS = [
   ['briga_auto', ['B']],
   ['mochila', ['I']],
   ['ficha', ['F']],
+  ['menu', ['M']],
   ['navegar', ['↑', '↓', '←', '→'], 'ou', ['Tab']],
 ]
 

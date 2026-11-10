@@ -29,7 +29,8 @@
           "briga_auto": "Pelea automática (en la calle)",
           "mochila": "Mochila",
           "ficha": "Ficha de la banda",
-          "navegar": "Moverse entre los botones"
+          "navegar": "Moverse entre los botones",
+          "menu": "Menú de arriba en la calle (flechas para moverte, Esc para volver)"
         }
       },
       "jogo": {
