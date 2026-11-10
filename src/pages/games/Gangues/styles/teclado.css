@@ -10,13 +10,14 @@
 /* MODO TECLADO (10/11/2026, ver hooks/ganguesControle.js): o seletor tem que
    saltar aos olhos — contorno grosso + brilho, inclusive nos painéis que
    abrem em portal fora do .gang-page (Opções, pergunta de controle). */
-html.gang-teclado :focus {
+html.gang-teclado :focus,
+html.gang-teclado .gang-nav-sel {
   outline: 3px solid var(--if-cyan) !important;
   outline-offset: 3px;
   box-shadow: 0 0 0 6px rgba(24, 218, 251, 0.18), 0 0 18px rgba(24, 218, 251, 0.55) !important;
 }
 /* elementos recortados (clip-path) cortariam o contorno: troca pro brilho de dentro */
-html.gang-teclado [class*="gang"]:focus { clip-path: none !important; }
+html.gang-teclado [class*="gang"]:focus, html.gang-teclado .gang-nav-sel { clip-path: none !important; }
 
 /* sem analógico e sem botão de interagir: anda nas setas/WASD, interage no E */
 html.gang-teclado .gang-world-stick,
@@ -39,4 +40,4 @@ html.gang-teclado .gang-cena-hud-auto {
 .gang-cena-hud-auto.is-on i b { transform: translateX(14px); background: var(--terr-cor); }
 .gang-cena-hud-auto:disabled { opacity: .35; cursor: not-allowed; }
 /* o HUD corta o contorno (overflow hidden): no teclado o foco fica por dentro */
-html.gang-teclado .gang-cena-worldhud :focus { outline-offset: -3px !important; box-shadow: inset 0 0 0 2px var(--if-cyan), 0 0 10px rgba(24,218,251,.6) !important; }
+html.gang-teclado .gang-cena-worldhud :focus, html.gang-teclado .gang-cena-worldhud .gang-nav-sel { outline-offset: -3px !important; box-shadow: inset 0 0 0 2px var(--if-cyan), 0 0 10px rgba(24,218,251,.6) !important; }

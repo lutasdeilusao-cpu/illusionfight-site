@@ -6629,7 +6629,9 @@
         },
         "carregando": "Loading",
         "bando_titulo": "You face ({n})",
-        "bando_nivel": "LV {n}"
+        "bando_nivel": "LV {n}",
+        "hint_andar_teclado": "Walk with the arrows (or WASD) and head down to the street.",
+        "hint_interagir_teclado": "You hit a hot spot — press E."
       },
       "enemy_album": {
         "1701": "Rides the stick-up bike. Never gets off, just revs — the backseat does the talking.",

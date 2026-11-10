@@ -66,7 +66,7 @@ const primeiro = lista => {
   if (marcado) return marcado
   const campo = lista.find(el => el.tagName === 'INPUT' && (el.type === 'text' || el.type === 'search' || !el.type))
   if (campo) return campo
-  const miolo = lista.filter(el => !el.closest(SECUNDARIOS) && !/voltar|back|sair/i.test(String(el.className)))
+  const miolo = lista.filter(el => !el.closest(SECUNDARIOS) && !/voltar|back|sair|close|fechar|__x/i.test(String(el.className)) && el.textContent.trim() !== '✕' && el.textContent.trim() !== '×')
   return ordenar(miolo.length ? miolo : lista)
 }
 const ordenar = lista => [...lista].sort((a, b) => { const A = centro(a), B = centro(b); return Math.abs(A.y - B.y) > 8 ? A.y - B.y : A.x - B.x })[0]
@@ -129,7 +129,21 @@ export default function useGanguesNavTeclado(ativo) {
       const lista = candidatos(raiz)
       if (lista.length) primeiro(lista).focus({ focusVisible: true, preventScroll: true })
     }, 350)
+    // Marca visual própria (classe), além do :focus — o contorno aparece mesmo
+    // quando o navegador não pinta o foco (janela sem foco, foco programático).
+    let marcado = null
+    const marcar = () => {
+      const f = document.activeElement
+      const alvo = f && f !== document.body && f.matches?.(FOCAVEIS) ? f : null
+      if (alvo === marcado) return
+      marcado?.classList.remove('gang-nav-sel')
+      marcado = alvo
+      marcado?.classList.add('gang-nav-sel')
+    }
+    const tique = setInterval(marcar, 120)
+    document.addEventListener('focusin', marcar)
+    document.addEventListener('focusout', marcar)
     window.addEventListener('keydown', onKey, { capture: true })
-    return () => { clearInterval(vigia); window.removeEventListener('keydown', onKey, { capture: true }) }
+    return () => { clearInterval(vigia); clearInterval(tique); document.removeEventListener('focusin', marcar); document.removeEventListener('focusout', marcar); marcado?.classList.remove('gang-nav-sel'); window.removeEventListener('keydown', onKey, { capture: true }) }
   }, [ativo])
 }

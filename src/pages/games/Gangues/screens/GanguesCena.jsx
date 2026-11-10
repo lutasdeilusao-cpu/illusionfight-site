@@ -202,9 +202,9 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   congeladoRef.current = Boolean(brigaAuto.anuncio || aleatorio.onomatopeia || aleatorio.aviso)
   useEffect(() => {
     if (intro || encontro) return
-    if (!andou) { setHint(t('games.gangues.cena.hint_andar')); return }
+    if (!andou) { setHint(t(`games.gangues.cena.hint_andar${document.documentElement.classList.contains('gang-teclado') ? '_teclado' : ''}`)); return }
     if (local) { setHint(null); return }
-    if (perto && Object.keys(prog.resolvidos).length === 0) { setHint(t('games.gangues.cena.hint_interagir')); return }
+    if (perto && Object.keys(prog.resolvidos).length === 0) { setHint(t(`games.gangues.cena.hint_interagir${document.documentElement.classList.contains('gang-teclado') ? '_teclado' : ''}`)); return }
     // Dica da quest de coleta do território (cada cena decide a sua — ver
     // `dicaQuest` em data/cenas/<território>/index.js).
     const dica = cena?.dicaQuest?.(prog, store.inventario || {})

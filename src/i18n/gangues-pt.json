@@ -3526,7 +3526,9 @@
         },
         "carregando": "Carregando",
         "bando_titulo": "Você enfrenta ({n})",
-        "bando_nivel": "NV {n}"
+        "bando_nivel": "NV {n}",
+        "hint_andar_teclado": "Anda nas setas (ou WASD) e desce pra rua.",
+        "hint_interagir_teclado": "Chegou num ponto quente — aperta E."
       },
       "enemy_album": {
         "1701": "Pilota a moto do assalto. Não desce, só acelera — quem desce é a garupa.",

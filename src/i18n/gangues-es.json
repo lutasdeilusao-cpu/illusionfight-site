@@ -6629,7 +6629,9 @@
         },
         "carregando": "Cargando",
         "bando_titulo": "Te enfrentas a ({n})",
-        "bando_nivel": "NV {n}"
+        "bando_nivel": "NV {n}",
+        "hint_andar_teclado": "Camina con las flechas (o WASD) y baja a la calle.",
+        "hint_interagir_teclado": "Llegaste a un punto caliente — aprieta E."
       },
       "enemy_album": {
         "1701": "Maneja la moto del asalto. No se baja, solo acelera — el que se baja es el de atrás.",
