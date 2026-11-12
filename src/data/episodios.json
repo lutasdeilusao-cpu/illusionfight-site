@@ -140,7 +140,9 @@
     "titulo_es": "El Primordial de Ilusión",
     "publicado": true,
     "idiomas": [
-      "pt"
+      "pt",
+      "en",
+      "es"
     ],
     "data_publicacao": "2107-05-15",
     "liberacao": {
