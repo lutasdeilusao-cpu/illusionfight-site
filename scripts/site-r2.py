@@ -7,7 +7,7 @@ Isaias, 10/11/2026: o deploy de 356 MB travava no "syncing_files" do Pages.
   site/musica/ldi/luta-NN.mp3                 ← src/pages/games/LDI/batalha/musica
 
 Sobe só o que falta ou mudou (md5 x ETag) e APAGA do dist o que está no R2.
-Roda no predeploy, depois do build. Endereço público: WEBSHARD_CDN + '/site/...'
+Roda na preparação do deploy, depois do build. Endereço público: WEBSHARD_CDN + '/site/...'
 (src/lib/siteCdn.js).
 
 Uso: python scripts/site-r2.py

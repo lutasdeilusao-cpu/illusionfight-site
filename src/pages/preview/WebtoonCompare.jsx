@@ -15,8 +15,7 @@ import { SITE_CDN } from '../../lib/siteCdn'
 // num scroll gigante só, difícil de comparar página a página com o sócio) e
 // publicadas em dist/preview-privado/paginas/{novo,antigo}/NN.png só na hora
 // do deploy — ver scripts/restaurar-preview-privado.cjs, que restaura tudo
-// isso sozinho a cada `npm run deploy` (não depende de ninguém copiar
-// manualmente). Quando a comparação acabar, é só não restaurar mais no
+// isso a cada deploy, na preparação do pacote (AGENTS.md, passo 3). Quando a comparação acabar, é só não restaurar mais no
 // próximo deploy (o próprio Isaias pediu "depois vamos destruir ela").
 const TOTAL_PAGINAS = { novo: 32, antigo: 37 }
 

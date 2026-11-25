@@ -44,7 +44,7 @@ graphify-out/20??-??-??/
 # scratch de teste local (playwright)
 _*.mjs
 
-# Worktree local do branch gh-pages, usado por scripts/deploy-gh-pages.cjs
+# Worktree local do branch gh-pages, usado no deploy manual (ver AGENTS.md)
 /.gh-pages-worktree/
 
 # Contatos de imprensa/PR — NUNCA no git (o repositório é público)

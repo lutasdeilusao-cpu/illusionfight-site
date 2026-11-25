@@ -19,12 +19,11 @@
 // reescrito/squashado, cada deploy só soma um commit novo) — o commit fixo
 // abaixo é onde as 69 páginas (32 do remake + 37 da versão antiga, já
 // recortadas da imagem unificada original) foram publicadas uma vez. Este
-// script busca esse branch e reextrai os arquivos de lá, então todo
-// `npm run deploy` daqui pra frente restaura sozinho, sem depender de
-// ninguém lembrar de copiar manualmente de novo.
+// script busca esse branch e reextrai os arquivos de lá. Roda na preparação
+// do deploy manual (AGENTS.md, passo 3), logo depois do `npm run build`.
 //
 // Quando a comparação acabar (Isaias: "depois vamos destruir ela"), apagar:
-// este script, a chamada dele em package.json (predeploy), e
+// este script, a menção a ele no passo 3 do AGENTS.md, e
 // src/pages/preview/WebtoonCompare.jsx (+ .css).
 const { execSync } = require('child_process')
 const fs = require('fs')

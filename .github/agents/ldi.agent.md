@@ -38,10 +38,13 @@ Se mudou **1 caractere**, o fluxo inteiro roda. **SEM EXCEÇÕES.**
   - Altere a versão no cabeçalho (se aplicável ao site)
   - Se houver uma seção de versões do projeto específico, atualize-a
 
-### 2. Build
+### 2. Preparar o pacote
 
 ```bash
+node scripts/gangues-css-audit.cjs
 npm run build
+node scripts/restaurar-preview-privado.cjs
+python scripts/site-r2.py
 ```
 
 - **Se falhar**: pare, corrija os erros, repita o build.
@@ -50,7 +53,7 @@ npm run build
 ### 3. Commit
 
 ```bash
-git add -A
+git add <arquivos da task>
 git commit -m "<descrição detalhada do que foi alterado> + vX.X.X"
 ```
 
@@ -62,13 +65,20 @@ A descrição do commit deve ser **detalhada** — explique o que mudou, por que
 git push
 ```
 
-### 5. Deploy
+### 5. Deploy — na mão, só com git (não existe script de deploy)
 
 ```bash
-npm run deploy
+cd .gh-pages-worktree
+git fetch origin gh-pages && git reset --hard origin/gh-pages
+cp -r ../dist/. .
+git add -A
+GRAPHIFY_SKIP_HOOK=1 git commit -m "Deploy vX.X.X"
+git push origin HEAD:gh-pages
 ```
 
-- Verifique se o deploy foi publicado sem erros.
+### 6. Conferir no ar — antes de dizer que está pronto
+
+Baixar `https://illusionfight.com/?v=<timestamp>`, achar o `assets/index-*.js` publicado e confirmar que o `SITE_VERSION` novo está dentro dele. Repetir até aparecer (GitHub Pages leva 1–2 min). Só depois disso dizer que está publicado. Detalhes: AGENTS.md.
 
 ---
 

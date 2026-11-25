@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* Auditoria do CSS do LDI Gangues (Fase 6 da refatoração de set/2026).
-   Roda no predeploy: se achar ERRO, o deploy para. Uso: node scripts/gangues-css-audit.cjs
+   Roda antes de todo deploy (AGENTS.md, passo 3): se achar ERRO, o deploy para. Uso: node scripts/gangues-css-audit.cjs
 
    ERRO (barra o deploy):
    - seletor morto: classe que nenhum .js/.jsx/.json/.html do src usa

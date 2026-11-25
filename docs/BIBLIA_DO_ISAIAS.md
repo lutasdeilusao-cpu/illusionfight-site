@@ -96,11 +96,16 @@ Não substitui grep/prova de leitura em tasks de bug — a regra de colar output
 ```
 1. BUMP DE VERSÃO → src/config/version.js (SITE_VERSION sempre; + versão do jogo se aplicável)
 2. ATUALIZAR SITE_MAP.md (rotas + tabela de versões)
-3. npm run build — se falhar, corrigir antes de prosseguir. sourcemap:true obrigatório.
-4. git add -A && git commit -m "<desc> + vX.X.X"
+3. Preparar: node scripts/gangues-css-audit.cjs → npm run build (sourcemap:true) →
+   node scripts/restaurar-preview-privado.cjs → python scripts/site-r2.py → grep da versão nova no dist
+4. git add <arquivos da task> && git commit -m "<desc> + vX.X.X"
 5. git push
-6. npm run deploy
-7. Verificar que o deploy publicou sem erros
+6. DEPLOY NA MÃO, SÓ COM GIT (não existe script de deploy desde 25/11/2026):
+   no .gh-pages-worktree → fetch + reset --hard origin/gh-pages → cp -r ../dist/. . →
+   add → commit "Deploy vX.X.X" → git push origin HEAD:gh-pages
+7. CONFERIR NO AR antes de dizer que está pronto: baixar o site com cache-buster e achar
+   o SITE_VERSION novo dentro do index-*.js publicado (repetir até aparecer).
+   Comandos completos: AGENTS.md, "Mandatory workflow".
 ```
 
 **Relatório obrigatório ao final de toda task:**
@@ -276,9 +281,9 @@ Toda task → `SITE_VERSION` patch, sem exceção. Task em jogo específico → 
 ## 11. Infraestrutura
 
 ```bash
-npm run build   # vite build + prerender 26 rotas
-npm run deploy  # gh-pages push dist/ → branch gh-pages
+npm run build   # vite build + prerender
 git push        # push da branch main
+# deploy: na mão, só com git, no .gh-pages-worktree — ver §3 e AGENTS.md
 ```
 
 - **GitHub Pages + SPA:** `public/404.html` captura 404 e redireciona pra `/?/<path>`; script no `<head>` do `index.html` restaura URL limpa via `history.replaceState`. CNAME `illusionfight.com`. 15+ HTML estáticos em `public/*/index.html` pra crawlers SEO. `public/_redirects` com 10+ regras de trailing slash 301.

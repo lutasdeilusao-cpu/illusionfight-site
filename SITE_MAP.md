@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> `SITE_VERSION` **10.478.21**.
+> `SITE_VERSION` **10.478.22**.
 > Última atualização: 23/10/2026.
 > Este documento descreve só o que existe hoje. Histórico de mudanças não pertence aqui.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
@@ -159,7 +159,7 @@ Os Kernel Games usam layout portrait compartilhado em `src/pages/games/KernelGam
 |---|---|---|
 | `/prototype` | Índice de protótipos | `src/pages/lab/Prototype/Prototype.jsx` |
 | `/prototype/srgrm` | Protótipo SRGRM 3v3 | `src/pages/lab/Prototype/SRGRM/SRGRM.jsx` |
-| `/preview-privado/webtoon-00-comparar` | Comparação privada de páginas do WEB SHARD (imagens repostas no `predeploy` por `scripts/restaurar-preview-privado.cjs`) | `src/pages/preview/WebtoonCompare.jsx` |
+| `/preview-privado/webtoon-00-comparar` | Comparação privada de páginas do WEB SHARD (imagens repostas por `scripts/restaurar-preview-privado.cjs` na preparação do deploy) | `src/pages/preview/WebtoonCompare.jsx` |
 | `/games/ldi-arena` | LDI Arena (só admin; `/prototype/arenatestbed` redireciona) | `src/pages/lab/Prototype/ArenaTestbed/ArenaTestbed.jsx` |
 | `*` | Página 404 interna | `src/pages/site/NotFound/NotFound.jsx` |
 
@@ -349,7 +349,7 @@ As Edge Functions ficam em `supabase/functions/`; o frontend de assinatura está
 - Redirects estáticos: `/livro*` → `/historias*`, `/mundo*` → `/universos*`, `/games/toptrumps/lobby`. Links internos da Navbar/Footer usam barra final para evitar o 301 do GitHub Pages.
 - Divisão de código por rota com `lazyWithReload`; na Home, seções abaixo da dobra carregam por proximidade.
 - `public/sitemap.xml` lista as URLs indexáveis nos três idiomas.
-- Deploy: `npm run build`, commit/push da fonte e `npm run deploy` (o `predeploy` roda o build, a auditoria de CSS do Gangues e a reposição do preview privado) para publicar `dist/` em `gh-pages`.
+- Deploy: na mão, só com git (sem script): auditoria de CSS do Gangues, `npm run build`, reposição do preview privado e R2; commit/push da fonte; cópia do `dist/` para o worktree `gh-pages`, commit e push; e conferência da versão no ar antes de dar como pronto. Passo a passo no AGENTS.md.
 - O portal pode ser instalado como PWA no Android. Quando aberto pelo ícone instalado, solicita `fullscreen`, com fallback para `standalone`; uma aba comum do navegador não pode esconder suas barras automaticamente.
 
 ## 10. Camadas visuais globais
@@ -421,7 +421,7 @@ Fonte única: `src/config/version.js`. Versão atual de cada módulo.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.478.21** |
+| `SITE_VERSION` | Site global | **10.478.22** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.2 |
 | `LDI_VERSION` | Lendas do LDI | 3.33.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |

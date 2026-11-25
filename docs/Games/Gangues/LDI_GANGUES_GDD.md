@@ -1726,7 +1726,7 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | Linha do tempo (Pique) + pista visual | `engine/ganguesLinhaDoTempo.js`, `components/GanguesPistaTempo.jsx` |
 | Teclado | `hooks/useGanguesTeclado.js` |
 | Opções (som, volume, controles) | `components/GanguesOpcoes.jsx` |
-| CSS do jogo | `styles/` (auditado por `scripts/gangues-css-audit.cjs` no predeploy) |
+| CSS do jogo | `styles/` (auditado por `scripts/gangues-css-audit.cjs` antes de todo deploy) |
 | Retratos (cabeça, corpo, inimigo, NPC) | `data/ganguesPortraits.js`, `data/ganguesEnemyPortraits.js`, `data/ganguesNpcPortraits.js` |
 | Status + itens de cura | `engine/ganguesStatus.js`, `data/ganguesItens.js` (30–39) |
 | Personas da IA inimiga | `engine/ganguesPersonas.js` |
@@ -2390,7 +2390,7 @@ src/pages/games/Gangues/
                               # birosca, cenaEconomia, cenaProgresso, match
 ```
 
-CSS: `scripts/gangues-css-audit.cjs` roda no `predeploy` e barra seletor morto,
+CSS: `scripts/gangues-css-audit.cjs` roda antes de todo deploy e barra seletor morto,
 arquivo > 500 linhas, `@media` por largura ≥ 480px, `vw` cru e `fixed` com
 `inset: 0`.
 
