@@ -1,0 +1,293 @@
+var e=`# CAPÍTULO 2 — O mundo ficou cinza
+
+Essa é uma das histórias mais dramáticas que eu posso contar.
+
+E uma das mais engraçadas.
+
+Eu sei que vai parecer estranho quando vocês lerem. Mas pra mim essa é uma história feliz.
+
+---
+
+É a briga em multidão que eu enfrentei sozinho.
+
+Eu apanhei que nem um cão.
+
+Nunca apanhei tanto na minha vida. Foi por isso que eu entendi que aquele dia era o auge da minha sobrevivência.
+
+---
+
+Eu tinha 18 anos e a minha primeira namorada oficial.
+
+Antes dela eu já tinha tido umas ficadas, umas namoradinhas. Mas nada sério. Eu era muito molecão.
+
+Um dia ela foi convidada pra uma festa por um amigo do trampo dela. Longe pra caralho. Área rural, meio do mato mesmo.
+
+Ela falou: "não vou sem você". Bora. Festa é nós.
+
+Festinha? Bora. Eu bebia, eu fumava, eu adorava isso. Naquela época, mais ainda.
+
+Pegamos vários ônibus. Rua de barro, só sítio em volta. Lugar complicado de chegar.
+
+---
+
+O cara tinha montado um esquema bem legal.
+
+Casarão, terreno enorme e uma garagem gigante. A festa inteira era na garagem. A casa dos pais dele ficava fechada.
+
+Muita bebida, muita comida, mais de cem pessoas. A gente não levou nada, como sempre. Tudo na faixa.
+
+Eu tava de boa. Bebendo, comendo, dançando com a minha namorada. Eu gosto muito de dançar.
+
+---
+
+Uma hora ela falou:
+
+— Tô apertada, vou no banheiro.
+
+O banheiro era dentro da casa. Eu fui acompanhar.
+
+Na porta tinha um cara grande.
+
+— Pode usar o banheiro. Mas só ela entra.
+
+Beleza. Eu sempre fui baixinho e magrinho. Fiquei esperando.
+
+Ela demorou.
+
+E voltou estranha.
+
+A vibe não era a mesma de antes do banheiro.
+
+— Vamos embora.
+
+Ainda tinha gasolina pra queimar naquela festa. Comida, bebida. Eu sou meio passa-fome, tá ligado? Tem comida, é comigo.
+
+— Você tá estranha. O que aconteceu?
+
+— Não vou contar. Você vai arrumar encrenca.
+
+— Vou nada. Tô de boa, tô comendo, tô dançando. Conta.
+
+Ela contou.
+
+Quando ela tava saindo do banheiro, o dono da festa abordou ela dentro da casa. E tentou forçar um beijo nela.
+
+---
+
+Agora eu preciso explicar uma coisa sobre mim.
+
+Existem vários Isaias dentro de mim. E tem um que só aparece quando o mundo fica cinza.
+
+Eu libero esse cara. Ele pega o volante.
+
+Ele não mede consequência. Ele não tem medida nenhuma. Ele vai resolver do jeito que precisa ser resolvido.
+
+Quando ela terminou de falar, o mundo ficou cinza.
+
+---
+
+— Você tá bem?
+
+— Tô bem.
+
+Eu nunca deixo transparecer.
+
+A única regra que existe na briga de rua é que não existem regras. Então eu não dou vantagem nenhuma pra quem eu vou espancar. Não dou aviso. Não desperdiço palavra.
+
+Se eu vou te bater, eu só vou te bater.
+
+A festa deixou de existir. A minha namorada também.
+
+— Vou buscar um bagulhinho e já volto.
+
+— Por favor, não arruma encrenca.
+
+---
+
+A partir daqui tem muito lapso. Eu não lembro de tudo em ordem. Eu lembro que aconteceu.
+
+Eu nem sabia quem era o dono da festa. A gente só tava lá porque convidaram a minha namorada.
+
+Fui perguntando. Ele tava na porta da casa.
+
+— Você é o dono da festa?
+
+Sem raiva. Sem transparecer nada.
+
+— Sou. Por quê? Aconteceu alguma coisa?
+
+Eu só fechei a mão.
+
+Segurei na camiseta dele, porque esses caras ficam fugindo e é um saco correr atrás. Cara grande, bombadinho, bem mais alto que eu.
+
+E comecei a socar.
+
+Sentindo a mão entrando. O sangue descendo. Ele me batendo e eu nem ligando.
+
+Bora. Teste de resistência. Vamos ver quem aguenta.
+
+---
+
+Só que era a festa dele.
+
+Os amigos dele viram o amigo apanhando sem entender nada. Eu não dou explicação.
+
+E aí eu comecei a apanhar de tudo quanto é lado.
+
+Supercílio rasgando. Nariz quebrando. Boca estourando. Aquele gosto metálico de sangue.
+
+Gostoso, tá ligado?
+
+Existem regras pra sobreviver numa briga em multidão. Instintos que você tem que seguir. Eu já tinha brigado em grupo, escola contra escola, grupo contra grupo. Eu sabia as regras.
+
+Mas eu tava no mundo cinza.
+
+Não tinha um Isaias analítico ali pra pensar em nada. Eu desrespeitei tudo.
+
+Cada vez que eu apanhava, eu segurava mais firme. Se ele fugisse no meio da multidão, eu não ia pegar ele nunca mais.
+
+Então eu fui levando ele junto.
+
+Socando. Virando ele pra galera, pra galera bater nele também, pra galera parar um pouco de bater em mim. Rodando. Socando. Atravessando a garagem, as mesas, a festa inteira.
+
+Quando eu vi, a gente tava no meio da rua de barro.
+
+---
+
+Uma coisa que eu aprendi na prática: esses músculos de academia não querem dizer força.
+
+É um belo visual. Mas força, resistência, resiliência? Não.
+
+Ainda mais quando o cara não sabe dar um soco. Eu treinei muita arte marcial na vida. A última, com bastante afinco, foi boxe. Saber dar um soco muda tudo numa briga.
+
+Só que eu tava apanhando demais.
+
+Senti a perna torcer. Lembro de pensar "caralho".
+
+A gritaria. A comoção. Eu sangrando, camisa rasgada, coberto de sangue. Socando. Socando. Socando.
+
+E não largava.
+
+---
+
+A força foi indo embora aos poucos.
+
+Chega uma hora que é tanta porrada que a galera começa a se bater entre ela mesma. A briga vira um vírus. Espalha pra tudo quanto é lado.
+
+O meu corpo foi desfalecendo.
+
+E a mão que segurava aquele filho da puta fraquejou.
+
+Eu soltei.
+
+Vi o corpo dele desabar.
+
+E eu pensei: mano, o meu trabalho aqui tá feito.
+
+---
+
+Eu caí de costas. Deixei o corpo cair.
+
+Posição fetal. E tomei tudo quanto é golpe que dava pra tomar. A galera não tava satisfeita.
+
+Eu pensei: esses caras vão me bater até me matar. E eu não tenho o que fazer.
+
+Mas pelo menos ele caiu.
+
+Tá justo. Estamos quites.
+
+Uma hora pararam. Eu ainda não tinha morrido.
+
+---
+
+Fiquei uns três minutos ali no chão.
+
+A galera toda olhando. Começando a se preocupar se tinham me matado mesmo.
+
+Eu aproveitei pra respirar.
+
+Quando eu senti que já tava mais descansadinho, levantei do nada. Sujo de sangue, todo rasgado.
+
+E comecei a andar no meio deles.
+
+E eles foram abrindo caminho.
+
+Abrindo mesmo. Porque eles entenderam o que tinha acontecido. E ninguém sabia o que ia acontecer agora.
+
+Pensa: você vê um cara que apanhou que nem a porra, que tava largado no chão, levantar do nada e sair andando. Você fica receoso. Eu lembro das caras. Cara de assustado. Cara de "puta, tô sem reação".
+
+Eu já tinha levado o safado. Não tinha mais nada pra fazer ali.
+
+Eu fui até a mesa da garagem. Peguei mais um litrão.
+
+E falei pra minha namorada:
+
+— Vamos embora.
+
+Cuspindo sangue pra caralho.
+
+Ela me olhando com uma cara assustada. Sem entender nada.
+
+---
+
+A volta eu não lembro direito. Fui apagando e acordando no ônibus a viagem inteira. Não falei nada com ela.
+
+Chegamos na casa dela. Entrei no banho. Sangue já duro, misturado com lama.
+
+Sentei. Tava muito cansado, mas anestesiado de tanta cachaça.
+
+Ela me olhando. Séria. Ainda fria.
+
+E eu olhando pra ela.
+
+E eu comecei a dar risada.
+
+Ela já começou aquela DR:
+
+— Mano, sério?
+
+— Sério. A única coisa que dá pra fazer com essa situação agora é dar risada.
+
+— Você é muito louco.
+
+E ela começou a rir também.
+
+Depois eu fui pro hospital costurar uns pedaços. Mas tô de boa. Foi de boa.
+
+---
+
+Isso não é episódio de anime. Não é Wind Breaker.
+
+É a vida real. Aconteceu.
+
+Eu sempre pensei no que eu faria se um dia tivesse que encarar um grupo inteiro sozinho. Eu tenho regras pra isso.
+
+Ali eu desrespeitei todas.
+
+Porque eu não ia soltar aquele cara. E não soltei. Até ele desfalecer no chão, bem desfigurado. Até as minhas forças acabarem também.
+
+Eu sempre vou até o final.
+
+O problema é que sempre separam as minhas brigas. Sempre aparece alguém: "chega, chega". Então eu nunca sei até onde eu vou. Nunca tive a chance de ir até o máximo.
+
+Muitas vezes eu apanhei só até o cara cansar. Ele parava e falava:
+
+— Chega, você não vai parar?
+
+— Vai se foder. Bora brigar, caralho.
+
+Naquele dia eu fui.
+
+E depois disso eu sei: eu sobrevivo a qualquer coisa na minha vida. Qualquer coisa mesmo.
+
+---
+
+**Na ficção, virou**
+
+"A única regra é que não existem regras" virou [*A Única Regra*](/historias/lutas-de-ilusao/capitulo-03), o capítulo 3 de Lutas de Ilusão.
+
+O mundo cinza virou o mundo cinza do Kim: quando ele solta as correntes, o mundo perde a cor, ele não mede mais nada e depois quase não lembra.
+
+E a briga em multidão que eu enfrentei sozinho virou a Briga em Multidão do [LDI Gangues](/games/ldi-gangues).
+`;export{e as default};
+//# sourceMappingURL=02-C8p8J9c_.js.map
